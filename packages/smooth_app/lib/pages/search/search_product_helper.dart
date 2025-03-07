@@ -83,7 +83,8 @@ class SearchProductHelper extends SearchHelper {
     );
     final FetchedProduct fetchedProduct =
         await productDialogHelper.openBestChoice();
-    if (fetchedProduct.status == FetchedProductStatus.ok) {
+    if (fetchedProduct.status == FetchedProductStatus.ok &&
+        fetchedProduct.isValid) {
       // TODO(monsieurtanuki): add OxF to Matomo data?
       AnalyticsHelper.trackSearch(
         search: value,

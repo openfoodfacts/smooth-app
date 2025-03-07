@@ -85,4 +85,9 @@ class FetchedProduct {
         );
     }
   }
+
+  /// A valid product needs to have photos (otherwise, we consider it as new)
+  bool get isValid =>
+      product?.statesTags != null &&
+      !product!.statesTags!.contains('en:photos-to-be-uploaded');
 }

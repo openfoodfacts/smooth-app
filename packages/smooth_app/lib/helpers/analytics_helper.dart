@@ -168,6 +168,22 @@ enum AnalyticsEvent {
   final AnalyticsCategory category;
 }
 
+enum AnalyticsRobotoffEvents {
+  robotoffNutritionExtracted(
+    name: 'robotoff nutrition extracted',
+  ),
+  robotoffNutritionInsightAccepted(
+    name: 'robotoff nutrition insight accepted',
+  ),
+  robotoffNutritionInsightRejected(
+    name: 'robotoff nutrition insight rejected',
+  );
+
+  const AnalyticsRobotoffEvents({required this.name});
+
+  final String name;
+}
+
 enum AnalyticsEditEvents {
   basicDetails(name: 'BasicDetails'),
   photos(name: 'Photos'),
@@ -376,6 +392,19 @@ class AnalyticsHelper {
       dimensions: dimensions,
     );
   }
+
+  static void trackRobotoffExtraction(
+    AnalyticsRobotoffEvents event,
+    Nutrient nutrient,
+    Product product,
+  ) =>
+      trackCustomEvent(
+        event.name,
+        AnalyticsCategory.robotoff.tag,
+        action: nutrient.name,
+        barcode: product.barcode,
+        productType: product.productType ?? ProductType.food,
+      );
 
   static void trackProductEdit(
     AnalyticsEditEvents editEventName,

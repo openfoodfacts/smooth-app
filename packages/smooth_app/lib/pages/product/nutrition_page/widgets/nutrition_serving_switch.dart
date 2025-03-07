@@ -53,6 +53,7 @@ class NutritionServingSwitch extends StatelessWidget {
                 _,
               ) {
                 return SmoothDropdownButton<PerSize>(
+                    loading: nutritionContainer.loadingRobotoffExtraction,
                     value: nutritionContainer.perSize,
                     items: <SmoothDropdownItem<PerSize>>[
                       SmoothDropdownItem<PerSize>(
