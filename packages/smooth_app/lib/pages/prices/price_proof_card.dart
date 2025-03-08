@@ -100,7 +100,8 @@ class PriceProofCard extends StatelessWidget {
                         groupValue: model.proofType,
                         onChanged: model.proof != null
                             ? null
-                            : (final ProofType? proofType) => model.proofType = proofType!,
+                            : (final ProofType? proofType) =>
+                                model.proofType = proofType!,
                       ),
                       const Icon(Icons.receipt_long), // Add the icon here
                       const SizedBox(width: 8), // Add some spacing
@@ -113,7 +114,6 @@ class PriceProofCard extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       Radio<ProofType>(
-
                         value: ProofType.priceTag,
                         groupValue: model.proofType,
                         onChanged: model.proof != null
@@ -123,7 +123,7 @@ class PriceProofCard extends StatelessWidget {
                       ),
                       const Icon(Icons.local_offer), // Add the icon here
                       const SizedBox(width: 8), //
-                       Text(appLocalizations.prices_proof_price_tag),
+                      Text(appLocalizations.prices_proof_price_tag),
                     ],
                   ),
                 ),
