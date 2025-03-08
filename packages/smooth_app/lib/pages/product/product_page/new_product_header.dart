@@ -364,10 +364,8 @@ class _ProductCompatibilityScore extends StatelessWidget {
   double _getCompatibilityFontSize(String compatibilityLabel) {
     final int length = compatibilityLabel.length;
 
-    if (length < 13) {
-      return 9.0;
-    } else if (length == 13) {
-      return 8.5;
+    if (length <= 13) {
+      return 8.0;
     } else if (length == 14) {
       return 7.5;
     } else if (length == 15) {
