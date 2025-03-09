@@ -349,8 +349,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.fade,
                       textScaler: TextScaler.noScaling,
-                      style: TextStyle(
-                        fontSize: _getCompatibilityFontSize(compatibilityLabel),
+                      style: const TextStyle(
                         height: 0.9,
                         fontWeight: FontWeight.w500,
                       ),
@@ -363,22 +362,6 @@ class _ProductCompatibilityScore extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  double _getCompatibilityFontSize(String compatibilityLabel) {
-    final int length = compatibilityLabel.length;
-
-    if (length <= 13) {
-      return 8.0;
-    } else if (length == 14) {
-      return 7.5;
-    } else if (length == 15) {
-      return 7.0;
-    } else if (length == 16) {
-      return 6.5;
-    } else {
-      return 6.0;
-    }
   }
 
   double computeWidth(BuildContext context) {
