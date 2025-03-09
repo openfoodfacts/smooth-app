@@ -72,7 +72,6 @@
 List&lt;UserPreferencesItem&gt; getChildren() {
   final OpenFoodFactsCountry country = ProductQuery.getCountry();
 
-  final TmpCountryWikiLinks links = TmpCountryWikiLinks();
   return &lt;UserPreferencesItem&gt;[
     _getListTile(
       &#39;Hunger Games&#39;,
@@ -117,11 +116,11 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       () async =&gt; _share(appLocalizations.contribute_share_content),
       Icons.adaptive.share,
     ),
-    if (links.wikiLinks.containsKey(country))
+    if (country.wikiUrl != null)
       _getListTile(
         appLocalizations.help_improve_country,
         () async {
-          LaunchUrlHelper.launchURL(links.wikiLinks[country]!);
+          LaunchUrlHelper.launchURL(country.wikiUrl!);
         },
         Icons.language,
         icon: UserPreferencesListTile.getTintedIcon(
