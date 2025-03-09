@@ -340,16 +340,20 @@ class _ProductCompatibilityScore extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    compatibilityLabel,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.fade,
-                    textScaler: TextScaler.noScaling,
-                    style: TextStyle(
-                      fontSize: _getCompatibilityFontSize(compatibilityLabel),
-                      height: 0.9,
-                      fontWeight: FontWeight.w500,
+                  FittedBox(
+                    alignment: Alignment.center,
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      compatibilityLabel,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.fade,
+                      textScaler: TextScaler.noScaling,
+                      style: TextStyle(
+                        fontSize: _getCompatibilityFontSize(compatibilityLabel),
+                        height: 0.9,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
