@@ -131,8 +131,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
   Future<void> _refreshProduct(BuildContext context) async {
     try {
-      final String? barcode =
-          ExternalScanCarouselManager.read(context).currentBarcode;
+      final String? barcode = upToDateProduct.barcode;
+
       if (barcode?.isEmpty == true) {
         return;
       }
