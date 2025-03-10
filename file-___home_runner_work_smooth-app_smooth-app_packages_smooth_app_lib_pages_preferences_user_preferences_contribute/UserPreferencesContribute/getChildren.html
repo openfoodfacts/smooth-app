@@ -94,6 +94,14 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       Icons.translate,
     ),
     _getListTile(
+      appLocalizations.contribute_data_quality,
+      () async =&gt; LaunchUrlHelper.launchURL(
+        &#39;https:&#47;&#47;wiki.openfoodfacts.org&#47;Data_quality&#39;,
+      ),
+      Icons.cleaning_services,
+      externalLink: true,
+    ),
+    _getListTile(
       appLocalizations.how_to_contribute,
       () async =&gt; LaunchUrlHelper.launchURL(
         ProductQuery.replaceSubdomain(
