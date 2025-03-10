@@ -103,8 +103,8 @@ class PriceProofCard extends StatelessWidget {
                             : (final ProofType? proofType) =>
                                 model.proofType = proofType!,
                       ),
-                      const Icon(Icons.receipt_long), // Add the icon here
-                      const SizedBox(width: 8), // Add some spacing
+                      const Icon(Icons.receipt_long),
+                      const SizedBox(width: 8),
                       Text(appLocalizations.prices_proof_receipt),
                     ],
                   ),
@@ -121,8 +121,8 @@ class PriceProofCard extends StatelessWidget {
                             : (final ProofType? proofType) =>
                                 model.proofType = proofType!,
                       ),
-                      const Icon(Icons.local_offer), // Add the icon here
-                      const SizedBox(width: 8), //
+                      const Icon(Icons.local_offer),
+                      const SizedBox(width: 8),
                       Text(appLocalizations.prices_proof_price_tag),
                     ],
                   ),
