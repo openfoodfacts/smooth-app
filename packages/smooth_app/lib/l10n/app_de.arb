@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Datenqualität",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "Mit dem Übersetzen beginnen",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -3713,10 +3717,6 @@
   "guide_nutriscore_v2_title": "Der Nutri-Score entwickelt sich weiter: Erklärungen!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
-  },
-  "guide_nutriscore_v2_file_language": "de",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Was ist der Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Der Nutri-Score ist eine Kennzeichnung, die Sie über die **Nährwertqualität von Lebensmitteln** informieren soll.",
