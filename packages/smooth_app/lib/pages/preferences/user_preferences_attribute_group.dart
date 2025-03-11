@@ -27,7 +27,7 @@ class UserPreferencesAttributeGroup {
   final ProductPreferences productPreferences;
   final AttributeGroup group;
 
-  bool get _isCollapsed => userPreferences.isAttributeGroupActive(group.id!);
+  bool get _isCollapsed => userPreferences.activeAttributeGroup != group.id;
 
   List<Widget> getContent() {
     final List<Widget> result = <Widget>[];
@@ -37,14 +37,14 @@ class UserPreferencesAttributeGroup {
     return result;
   }
 
-  List<UserPreferencesItem> getItems() {
-    final bool collapsed = _isCollapsed;
+  List<UserPreferencesItem> getItems({bool? collapsed}) {
+    collapsed = _isCollapsed;
     final List<UserPreferencesItem> result = <UserPreferencesItem>[];
     result.add(
       UserPreferencesItemSimple(
         labels: <String>[],
         builder: (_) => InkWell(
-          onTap: () async => userPreferences.toggleAttributeGroup(group.id!),
+          onTap: () async => userPreferences.setActiveAttributeGroup(group.id!),
           child: AttributeGroupListTile(
             title: Text(
               group.name ?? appLocalizations.unknown,
