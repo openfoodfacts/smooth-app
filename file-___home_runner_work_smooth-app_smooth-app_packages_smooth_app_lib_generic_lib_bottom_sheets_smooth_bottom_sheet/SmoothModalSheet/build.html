@@ -86,12 +86,14 @@ Widget build(BuildContext context) {
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: &lt;Widget&gt;[
-          header,
-          bodyChild,
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: &lt;Widget&gt;[
+            header,
+            bodyChild,
+          ],
+        ),
       ),
     ),
   );

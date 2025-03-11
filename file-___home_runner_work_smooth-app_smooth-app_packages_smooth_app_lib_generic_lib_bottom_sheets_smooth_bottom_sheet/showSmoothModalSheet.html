@@ -95,7 +95,7 @@
 
   return showModalBottomSheet&lt;T&gt;(
     constraints: constraints,
-    isScrollControlled: isScrollControlled ?? minHeight != null,
+    isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),

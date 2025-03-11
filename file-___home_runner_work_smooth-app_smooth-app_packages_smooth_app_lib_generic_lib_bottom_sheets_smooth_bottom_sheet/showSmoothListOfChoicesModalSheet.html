@@ -201,7 +201,8 @@
       prefixIndicatorColor: prefixIndicatorColor,
       headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
-      body: Column(children: items),
+      body: IntrinsicHeight(
+          child: Column(mainAxisSize: MainAxisSize.min, children: items)),
     ),
   );
 }</code></pre>
