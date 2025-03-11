@@ -219,7 +219,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
       prefixIndicatorColor: prefixIndicatorColor,
       headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
-      body: IntrinsicHeight(child: Column(mainAxisSize: MainAxisSize.min,children: items)),
+      body: IntrinsicHeight(
+          child: Column(mainAxisSize: MainAxisSize.min, children: items)),
     ),
   );
 }
@@ -357,8 +358,7 @@ class SmoothModalSheet extends StatelessWidget {
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
         ),
-        child:
-        SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
