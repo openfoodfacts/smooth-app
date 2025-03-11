@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
@@ -56,7 +57,9 @@ class _NutriScoreHeaderIllustration extends StatelessWidget {
       children: <Widget>[
         Expanded(
           flex: 32,
-          child: SvgPicture.asset('assets/cache/nutriscore-a.svg'),
+          child: SvgPicture.asset(
+            SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.a, false),
+          ),
         ),
         const Expanded(
           flex: 28,
@@ -67,7 +70,8 @@ class _NutriScoreHeaderIllustration extends StatelessWidget {
         Expanded(
           flex: 40,
           child: SvgPicture.asset(
-              'assets/cache/nutriscore-a-new-${AppLocalizations.of(context).guide_nutriscore_v2_file_language}.svg'),
+            SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.a, true),
+          ),
         ),
       ],
     );
@@ -93,7 +97,10 @@ class _NutriScoreSection1 extends StatelessWidget {
               .guide_nutriscore_v2_what_is_nutriscore_paragraph2,
         ),
         GuidesImage(
-          imagePath: 'assets/cache/nutriscore-a.svg',
+          imagePath: SvgCache.getAssetsCacheForNutriscore(
+            NutriScoreValue.a,
+            false,
+          ),
           caption: appLocalizations.guide_nutriscore_v2_nutriscore_a_caption,
           desiredWidthPercent: 0.30,
         ),
@@ -159,8 +166,10 @@ class _NutriScoreSection3 extends StatelessWidget {
           text: appLocalizations.guide_nutriscore_v2_new_logo_text,
         ),
         GuidesImage(
-          imagePath:
-              'assets/cache/nutriscore-a-new-${AppLocalizations.of(context).guide_nutriscore_v2_file_language}.svg',
+          imagePath: SvgCache.getAssetsCacheForNutriscore(
+            NutriScoreValue.a,
+            true,
+          ),
           caption: appLocalizations.guide_nutriscore_v2_new_logo_image_caption,
           desiredWidthPercent: 0.30,
         ),
