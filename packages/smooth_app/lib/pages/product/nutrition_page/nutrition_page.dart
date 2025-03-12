@@ -28,7 +28,9 @@ import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_servin
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -145,6 +147,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                       servingController: _servingController,
                       formKey: _formKey,
                       onNutrientChanged: _onChanged,
+                      product: upToDateProduct,
                     ),
                   ),
                 ],
@@ -293,11 +296,13 @@ class _NutritionPageBody extends StatefulWidget {
     required this.formKey,
     required this.servingController,
     required this.onNutrientChanged,
+    required this.product,
   });
 
   final GlobalKey<FormState> formKey;
   final TextEditingControllerWithHistory servingController;
   final VoidCallback onNutrientChanged;
+  final Product product;
 
   @override
   State<_NutritionPageBody> createState() => _NutritionPageBodyState();
@@ -359,8 +364,13 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
     NutritionContainerHelper nutritionContainer,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
     final List<Widget> widgets = <Widget>[
       const NutritionServingSwitch(),
+      /* if (nutritionContainer.robotoffNutrientExtraction == null)
+        _extractNutrientsButton(context, nutritionContainer), */
     ];
 
     final Iterable<OrderedNutrient> displayableNutrients =
@@ -423,6 +433,80 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
         bottom: MEDIUM_SPACE,
       ),
       sliver: SliverCardWithRoundedHeader(
+        banner: nutritionContainer.robotoffNutrientExtraction == null
+            ? Consumer<NutritionContainerHelper>(
+                builder: (
+                  BuildContext context,
+                  NutritionContainerHelper nutritionContainer,
+                  _,
+                ) {
+                  final bool loading =
+                      nutritionContainer.loadingRobotoffExtraction;
+
+                  return Padding(
+                    padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+                    child: Row(
+                      children: <Widget>[
+                        const ExcludeSemantics(
+                          child: icons.Sparkles(
+                            size: 18.0,
+                          ),
+                        ),
+                        const SizedBox(width: MEDIUM_SPACE),
+                        Expanded(
+                          child: Text(
+                            appLocalizations.nutrition_facts_extract_new,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: nutritionContainer
+                                          .robotoffNutrientExtraction !=
+                                      null ||
+                                  loading
+                              ? null
+                              : () async {
+                                  if (widget.product.barcode == null) {
+                                    return;
+                                  }
+
+                                  final bool success = await nutritionContainer
+                                      .fetchRobotoffExtraction(widget.product);
+
+                                  if (context.mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      success
+                                          ? SmoothFloatingSnackbar.positive(
+                                              context: context,
+                                              text: appLocalizations
+                                                  .nutrition_facts_extract_succesful,
+                                            )
+                                          : SmoothFloatingSnackbar.error(
+                                              context: context,
+                                              text: appLocalizations
+                                                  .nutrition_facts_extract_failed,
+                                            ),
+                                    );
+                                  }
+                                },
+                          child: loading
+                              ? const SizedBox.square(
+                                  dimension: 20.0,
+                                  child: CircularProgressIndicator(),
+                                )
+                              : Text(
+                                  appLocalizations
+                                      .nutrition_facts_extract_button_text,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              )
+            : null,
         title: appLocalizations.edit_product_form_item_nutrition_facts_title,
         leading: const NutritionFacts(),
         trailing: Row(
@@ -437,8 +521,53 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
           ],
         ),
         contentPadding: EdgeInsets.zero,
-        child: Column(
-          children: widgets,
+        child: Stack(
+          children: <Widget>[
+            Column(
+              children: widgets,
+            ),
+            if (nutritionContainer.loadingRobotoffExtraction)
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: extension.secondaryLight.withAlpha(140),
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        constraints: const BoxConstraints(minHeight: 56.0),
+                        padding: const EdgeInsets.all(LARGE_SPACE),
+                        decoration: BoxDecoration(
+                          color: extension.secondaryLight,
+                          borderRadius: BorderRadius.only(
+                            topLeft: ROUNDED_BORDER_RADIUS.topLeft,
+                            topRight: ROUNDED_BORDER_RADIUS.topRight,
+                          ),
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            const ExcludeSemantics(
+                              child: icons.Sparkles(
+                                size: 18.0,
+                              ),
+                            ),
+                            const SizedBox(width: MEDIUM_SPACE),
+                            Text(
+                              appLocalizations
+                                  .nutrition_facts_extract_button_text,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );
