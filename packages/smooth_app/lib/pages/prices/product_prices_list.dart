@@ -59,7 +59,7 @@ class _ProductPricesListState extends State<ProductPricesList>
     switch (_productPriceRefresher.loadingStatus) {
       case null:
       case LoadingStatus.LOADING:
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       case LoadingStatus.ERROR:
         return Text(_productPriceRefresher.loadingError.toString());
       case LoadingStatus.LOADED:

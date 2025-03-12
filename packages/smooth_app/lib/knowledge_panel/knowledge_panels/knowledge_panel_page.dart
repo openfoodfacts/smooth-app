@@ -16,7 +16,6 @@ import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.da
 import 'package:smooth_app/pages/product/portion_calculator.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -131,8 +130,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
   Future<void> _refreshProduct(BuildContext context) async {
     try {
-      final String? barcode =
-          ExternalScanCarouselManager.read(context).currentBarcode;
+      final String? barcode = upToDateProduct.barcode;
+
       if (barcode?.isEmpty == true) {
         return;
       }

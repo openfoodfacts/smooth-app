@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -41,8 +39,6 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   @override
   Color? getHeaderColor() => const Color(0xFFDFF7E8);
-
-  bool get _isDark => Theme.of(context).brightness == Brightness.dark;
 
   @override
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
@@ -126,6 +122,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             'https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs',
           ),
         ),
+        /*
+        // temporarily (?) hiding "install OxF" links
+        // cf. https://github.com/openfoodfacts/smooth-app/issues/6413
         if (Platform.isAndroid || Platform.isIOS)
           _getListTile(
             title: appLocalizations.faq_title_install_beauty,
@@ -158,6 +157,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             url:
                 'https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
           ),
+        */
         _getListTile(
           title: appLocalizations.about_this_app,
           leadingIconData: Icons.info,

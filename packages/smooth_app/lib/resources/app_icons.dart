@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart' as off;
 
+part 'app_food_icons.dart';
 part 'app_icons_font.dart';
 
 class Add extends AppIcon {

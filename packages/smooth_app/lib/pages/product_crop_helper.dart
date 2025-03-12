@@ -65,6 +65,9 @@ class ProductCropNewHelper extends ProductCropHelper {
   bool isNewImage() => true;
 
   @override
+  bool get enableEraser => productType == ProductType.product;
+
+  @override
   Future<CropParameters?> process({
     required final BuildContext context,
     required final CropController controller,
@@ -73,7 +76,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
-    final List<Offset>? offsets,
+    required final List<Offset> offsets,
   }) async {
     // in this case, it's a brand new picture, with crop parameters.
     // for performance reasons, we do not crop the image full-size here,
@@ -101,6 +104,7 @@ class ProductCropNewHelper extends ProductCropHelper {
       y1: cropRect.top.ceil(),
       x2: cropRect.right.floor(),
       y2: cropRect.bottom.floor(),
+      eraserCoordinates: CropHelper.getEraserCoordinates(offsets),
       context: context,
     );
 
@@ -111,6 +115,7 @@ class ProductCropNewHelper extends ProductCropHelper {
       controller: controller,
       fullFile: fullFile,
       smallCroppedFile: smallCroppedFile,
+      offsets: offsets,
     );
   }
 }
@@ -139,7 +144,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
-    final List<Offset>? offsets,
+    required final List<Offset> offsets,
   }) async {
     // in this case, it's an existing picture, with crop parameters.
     // we let the server do everything: better performance, and no privacy
@@ -167,6 +172,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
       controller: controller,
       fullFile: null,
       smallCroppedFile: smallCroppedFile,
+      offsets: offsets,
     );
   }
 
