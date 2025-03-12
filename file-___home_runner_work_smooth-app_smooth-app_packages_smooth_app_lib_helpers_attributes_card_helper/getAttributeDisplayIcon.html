@@ -63,11 +63,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute) {
-  final Color color = getAttributeDisplayBackgroundColor(attribute);
-  final IconData iconData = getAttributeDisplayIconData(attribute);
   return Padding(
     padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
-    child: Icon(iconData, color: color),
+    child: attribute.getCircledIcon(
+      backgroundColor: getAttributeDisplayBackgroundColor(attribute),
+      size: 32.0,
+    ),
   );
 }</code></pre>
 </section>
