@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
   "prices_app_button": "מעבר ליישומון המחירים",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "מחירים",
   "prices_add_n_prices": "{count,plural, two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
   "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
