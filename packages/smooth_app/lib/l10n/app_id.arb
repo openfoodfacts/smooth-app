@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Pintasan ke aplikasi Harga di halaman produk",
   "prices_app_button": "Buka aplikasi Harga",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Harga",
   "prices_add_n_prices": "{count,plural, =1{Tambahkan harga} other{Tambahkan {count} harga}}",
   "prices_send_n_prices": "{count,plural, =1{Kirim harga} other{Kirim {count} harga}}",
