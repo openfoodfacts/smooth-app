@@ -93,38 +93,26 @@ class PriceProofCard extends StatelessWidget {
               children: <Widget>[
                 SizedBox(
                   width: constraints.maxWidth / 2,
-                  child: Row(
-                    children: <Widget>[
-                      Radio<ProofType>(
-                        value: ProofType.receipt,
-                        groupValue: model.proofType,
-                        onChanged: model.proof != null
-                            ? null
-                            : (final ProofType? proofType) =>
-                                model.proofType = proofType!,
-                      ),
-                      const Icon(Icons.receipt_long),
-                      const SizedBox(width: 8),
-                      Text(appLocalizations.prices_proof_receipt),
-                    ],
+                  child: RadioListTile<ProofType>(
+                    title: Text(appLocalizations.prices_proof_receipt),
+                    value: ProofType.receipt,
+                    groupValue: model.proofType,
+                    onChanged: model.proof != null
+                        ? null
+                        : (final ProofType? proofType) =>
+                            model.proofType = proofType!,
                   ),
                 ),
                 SizedBox(
                   width: constraints.maxWidth / 2,
-                  child: Row(
-                    children: <Widget>[
-                      Radio<ProofType>(
-                        value: ProofType.priceTag,
-                        groupValue: model.proofType,
-                        onChanged: model.proof != null
-                            ? null
-                            : (final ProofType? proofType) =>
-                                model.proofType = proofType!,
-                      ),
-                      const Icon(Icons.local_offer),
-                      const SizedBox(width: 8),
-                      Text(appLocalizations.prices_proof_price_tag),
-                    ],
+                  child: RadioListTile<ProofType>(
+                    title: Text(appLocalizations.prices_proof_price_tag),
+                    value: ProofType.priceTag,
+                    groupValue: model.proofType,
+                    onChanged: model.proof != null
+                        ? null
+                        : (final ProofType? proofType) =>
+                            model.proofType = proofType!,
                   ),
                 ),
               ],

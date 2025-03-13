@@ -179,11 +179,7 @@ class _NutrientRowState extends State<NutrientRow>
                       child: IconButton(
                         onPressed: () {
                           controller.text = robotoffNutrientEntity.value!;
-
-                          // This is temporary, waiting for the update of openfoodfacts-dart
-                          final Unit? unit = UnitHelper.stringToUnit(
-                            robotoffNutrientEntity.unit,
-                          );
+                          final Unit? unit = robotoffNutrientEntity.unit;
                           if (unit != null) {
                             widget.nutritionContainer.setNutrientUnit(
                               widget.orderedNutrient.nutrient!,

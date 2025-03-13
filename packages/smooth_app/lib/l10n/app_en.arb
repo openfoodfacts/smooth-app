@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Data Quality",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "Start Translating",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -2257,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Prices",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
@@ -3713,10 +3719,6 @@
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
-  },
-  "guide_nutriscore_v2_file_language": "en",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
