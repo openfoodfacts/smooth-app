@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
   "prices_app_button": "Перейдіть у додаток Ціни",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Ціни",
   "prices_add_n_prices": "{count,plural, =1{Додайте ціну} other{Додайте {count} цін}}",
   "prices_send_n_prices": "{count,plural, =1{Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}other{Надіслати {count} ціни}}",
