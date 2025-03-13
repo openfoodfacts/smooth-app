@@ -7,13 +7,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
-import 'package:smooth_app/pages/prices/price_add_product_card.dart';
-import 'package:smooth_app/pages/prices/price_amount_card.dart';
 import 'package:smooth_app/pages/prices/price_currency_card.dart';
 import 'package:smooth_app/pages/prices/price_date_card.dart';
-import 'package:smooth_app/pages/prices/price_existing_amount_card.dart';
 import 'package:smooth_app/pages/prices/price_location_card.dart';
-import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -26,56 +22,64 @@ import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
-/// Single page that displays all the elements of price adding.
-class ProductPriceAddPage extends StatefulWidget {
-  const ProductPriceAddPage(
+/// Single page that displays all the elements of bulk proof adding.
+class ProofBulkAddPage extends StatefulWidget {
+  const ProofBulkAddPage(
     this.model,
   );
 
   final PriceModel model;
 
-  static Future<void> showProductPage({
+  static Future<PriceModel?> _getPriceModel({
     required final BuildContext context,
-    final PriceMetaProduct? product,
-    required final ProofType proofType,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: true,
     )) {
-      return;
+      return null;
     }
     if (!context.mounted) {
-      return;
+      return null;
     }
 
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
     final List<OsmLocation> osmLocations = await priceAddHelper.getLocations();
     if (!context.mounted) {
-      return;
+      return null;
     }
 
     final Currency currency = priceAddHelper.getCurrency();
 
+    return PriceModel(
+      proofType: ProofType.priceTag,
+      locations: osmLocations,
+      currency: currency,
+    );
+  }
+
+  static Future<void> showPage({
+    required final BuildContext context,
+  }) async {
+    final PriceModel? priceModel = await _getPriceModel(context: context);
+    if (priceModel == null) {
+      return;
+    }
+    if (!context.mounted) {
+      return;
+    }
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => ProductPriceAddPage(
-          PriceModel(
-            proofType: proofType,
-            locations: osmLocations,
-            initialProduct: product,
-            currency: currency,
-          ),
-        ),
+        builder: (BuildContext context) => ProofBulkAddPage(priceModel),
       ),
     );
   }
 
   @override
-  State<ProductPriceAddPage> createState() => _ProductPriceAddPageState();
+  State<ProofBulkAddPage> createState() => _ProofBulkAddPageState();
 }
 
-class _ProductPriceAddPageState extends State<ProductPriceAddPage>
+class _ProofBulkAddPageState extends State<ProofBulkAddPage>
     with TraceableClientMixin {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final ScrollController _scrollController = ScrollController();
@@ -105,9 +109,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                 centerTitle: false,
                 leading: const SmoothBackButton(),
                 title: Text(
-                  appLocalizations.prices_add_n_prices(
-                    model.length,
-                  ),
+                  appLocalizations.prices_bulk_proof_upload_title,
                 ),
                 actions: <Widget>[
                   IconButton(
@@ -125,8 +127,6 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                 padding: const EdgeInsets.all(LARGE_SPACE),
                 child: Column(
                   children: <Widget>[
-                    const PriceProofCard(),
-                    const SizedBox(height: LARGE_SPACE),
                     const PriceDateCard(),
                     const SizedBox(height: LARGE_SPACE),
                     PriceLocationCard(
@@ -143,16 +143,10 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                     const SizedBox(height: LARGE_SPACE),
                     const PriceCurrencyCard(),
                     const SizedBox(height: LARGE_SPACE),
-                    if (model.existingPrices != null)
-                      for (final Price price in model.existingPrices!)
-                        PriceExistingAmountCard(price),
-                    for (int i = 0; i < model.length; i++)
-                      PriceAmountCard(
-                        key: Key(model.elementAt(i).product.barcode),
-                        index: i,
-                      ),
-                    const SizedBox(height: LARGE_SPACE),
-                    const PriceAddProductCard(),
+                    const PriceProofCard(
+                      forcedProofType: ProofType.priceTag,
+                      includeMyProofs: false,
+                    ),
                     // so that the last items don't get hidden by the FAB
                     const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
                   ],
@@ -160,17 +154,13 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
               ),
               floatingActionButton: SmoothExpandableFloatingActionButton(
                 scrollController: _scrollController,
-                onPressed: () async => _exitPage(
-                  await _mayExitPage(
-                    saving: true,
-                    model: model,
-                  ),
+                onPressed: () async => _mayExitPage(
+                  saving: true,
+                  model: model,
                 ),
                 icon: const Icon(Icons.send),
                 label: Text(
-                  appLocalizations.prices_send_n_prices(
-                    model.length,
-                  ),
+                  appLocalizations.prices_bulk_proof_upload_action,
                   style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 15.0,
@@ -185,15 +175,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   }
 
   @override
-  String get actionName =>
-      'Opened price_page with ${widget.model.proofType.offTag}';
-
-  /// Exits the page if the [flag] is `true`.
-  void _exitPage(final bool flag) {
-    if (flag) {
-      Navigator.of(context).pop();
-    }
-  }
+  String get actionName => 'Opened bulk proof upload page';
 
   /// Returns `true` if we should really exit the page.
   ///
@@ -203,7 +185,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     required final bool saving,
     required PriceModel model,
   }) async {
-    if (!model.hasChanged) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (!model.hasChanged && !saving) {
       return true;
     }
 
@@ -211,9 +194,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
       final bool? pleaseSave =
           await MayExitPageHelper().openSaveBeforeLeavingDialog(
         context,
-        title: AppLocalizations.of(context).prices_add_n_prices(
-          model.length,
-        ),
+        title: appLocalizations.prices_bulk_proof_upload_title,
       );
       if (pleaseSave == null) {
         return false;
@@ -242,6 +223,10 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     }
 
     await model.addTask(context);
+
+    if (saving) {
+      model.clearProof();
+    }
 
     return true;
   }

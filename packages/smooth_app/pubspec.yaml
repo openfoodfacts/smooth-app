@@ -179,3 +179,7 @@ flutter:
     - family: SmoothIcons
       fonts:
         - asset: assets/fonts/SmoothIcons.ttf
+
+    - family: FoodIcons
+      fonts:
+        - asset: assets/fonts/FoodIcons.ttf
