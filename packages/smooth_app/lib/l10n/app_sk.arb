@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Odkaz na aplikáciu Ceny na stránke produktu",
   "prices_app_button": "Prejdite do aplikácie Ceny",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Prices",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
