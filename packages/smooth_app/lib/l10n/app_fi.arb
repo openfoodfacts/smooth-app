@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Pikakuvake Hinnat-sovellukseen tuotesivulla",
   "prices_app_button": "Siirry Hinnat-sovellukseen",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Hinnat",
   "prices_add_n_prices": "{count,plural, =1{Lisää hinta} other{Lisää {count} hintaa}}",
   "prices_send_n_prices": "{count,plural, =1{Lähetä hinta} other{Lähetä {count} hintaa}}",
