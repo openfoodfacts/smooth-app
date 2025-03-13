@@ -80,17 +80,14 @@
   if (!context.mounted) {
     return;
   }
-  final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
-  final List&lt;OsmLocation&gt; osmLocations =
-      await DaoOsmLocation(localDatabase).getAll();
+
+  final PriceAddHelper priceAddHelper = PriceAddHelper(context);
+  final List&lt;OsmLocation&gt; osmLocations = await priceAddHelper.getLocations();
   if (!context.mounted) {
     return;
   }
 
-  final UserPreferences userPreferences = context.read&lt;UserPreferences&gt;();
-  final Currency currency = CurrencySelectorHelper().getSelected(
-    userPreferences.userCurrencyCode,
-  );
+  final Currency currency = priceAddHelper.getCurrency();
 
   await Navigator.of(context).push(
     MaterialPageRoute&lt;void&gt;(

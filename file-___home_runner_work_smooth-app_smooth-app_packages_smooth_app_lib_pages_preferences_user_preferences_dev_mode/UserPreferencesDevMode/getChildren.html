@@ -420,6 +420,15 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
         label: appLocalizations.dev_mode_section_experimental_features,
       ),
       UserPreferencesItemSwitch(
+        title: appLocalizations.prices_bulk_proof_upload_title,
+        value: userPreferences.getFlag(userPreferencesFlagBulkProofUpload) ??
+            false,
+        onChanged: (bool value) async =&gt; userPreferences.setFlag(
+          userPreferencesFlagBulkProofUpload,
+          value,
+        ),
+      ),
+      UserPreferencesItemSwitch(
         title: &#39;Multi-products selection for prices&#39;,
         value: userPreferences
                 .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
@@ -578,6 +587,7 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagAccessibilityEmoji-constant.html">userPreferencesFlagAccessibilityEmoji</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagAccessibilityNoColor-constant.html">userPreferencesFlagAccessibilityNoColor</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagBoostedComparison-constant.html">userPreferencesFlagBoostedComparison</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagBulkProofUpload-constant.html">userPreferencesFlagBulkProofUpload</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagEditIngredients-constant.html">userPreferencesFlagEditIngredients</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagHideFolksonomy-constant.html">userPreferencesFlagHideFolksonomy</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagPriceProd-constant.html">userPreferencesFlagPriceProd</a></li>

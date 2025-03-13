@@ -111,17 +111,30 @@ Widget build(BuildContext context) {
           child: SmoothLargeButtonWithIcon(
             text: !model.hasImage
                 ? appLocalizations.prices_proof_find
-                : model.proofType == ProofType.receipt
-                    ? appLocalizations.prices_proof_receipt
-                    : appLocalizations.prices_proof_price_tag,
+                : model.proofType.getTitle(appLocalizations),
             leadingIcon: !model.hasImage
                 ? const Icon(_iconTodo)
                 : const Icon(_iconDone),
             onPressed: model.proof != null
                 ? null
                 : () async {
-                    final _ProofSource? proofSource =
-                        await _ProofSource.select(context);
+                    final List&lt;_ProofSource&gt; sources =
+                        _ProofSource.getPossibleProofSources(
+                      includeMyProofs: includeMyProofs,
+                    );
+                    &#47;&#47; not very likely
+                    if (sources.isEmpty) {
+                      return;
+                    }
+                    final _ProofSource? proofSource;
+                    if (sources.length == 1) {
+                      proofSource = sources.first;
+                    } else {
+                      proofSource = await _ProofSource.select(
+                        context,
+                        sources: sources,
+                      );
+                    }
                     if (proofSource == null) {
                       return;
                     }
@@ -134,32 +147,26 @@ Widget build(BuildContext context) {
         ),
         LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) =&gt; Row(
-            children: &lt;Widget&gt;[
-              SizedBox(
-                width: constraints.maxWidth &#47; 2,
-                child: RadioListTile&lt;ProofType&gt;(
-                  title: Text(appLocalizations.prices_proof_receipt),
-                  value: ProofType.receipt,
-                  groupValue: model.proofType,
-                  onChanged: model.proof != null
-                      ? null
-                      : (final ProofType? proofType) =&gt;
-                          model.proofType = proofType!,
-                ),
-              ),
-              SizedBox(
-                width: constraints.maxWidth &#47; 2,
-                child: RadioListTile&lt;ProofType&gt;(
-                  title: Text(appLocalizations.prices_proof_price_tag),
-                  value: ProofType.priceTag,
-                  groupValue: model.proofType,
-                  onChanged: model.proof != null
-                      ? null
-                      : (final ProofType? proofType) =&gt;
-                          model.proofType = proofType!,
-                ),
-              ),
-            ],
+            children: (const &lt;ProofType&gt;[
+              ProofType.receipt,
+              ProofType.priceTag,
+            ])
+                .map&lt;Widget&gt;(
+                  (final ProofType item) =&gt; SizedBox(
+                    width: constraints.maxWidth &#47; 2,
+                    child: RadioListTile&lt;ProofType&gt;(
+                      title: Text(item.getTitle(appLocalizations)),
+                      value: item,
+                      groupValue: model.proofType,
+                      onChanged:
+                          model.proof != null || forcedProofType != null
+                              ? null
+                              : (final ProofType? proofType) =&gt;
+                                  model.proofType = proofType!,
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         ),
       ],
@@ -193,10 +200,12 @@ Widget build(BuildContext context) {
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_proof_card/PriceProofCard/PriceProofCard.html">PriceProofCard</a></li>
 
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_proof_card/PriceProofCard-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_proof_card/PriceProofCard/forcedProofType.html">forcedProofType</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_proof_card/PriceProofCard/includeMyProofs.html">includeMyProofs</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_proof_card/PriceProofCard-class.html#instance-methods">Methods</a></li>

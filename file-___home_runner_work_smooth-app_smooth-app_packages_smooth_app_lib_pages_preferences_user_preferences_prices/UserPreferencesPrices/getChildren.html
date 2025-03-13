@@ -161,6 +161,16 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       ),
       PriceButton.productIconData,
     ),
+    if (userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagBulkProofUpload) ??
+        false)
+      _getListTile(
+        appLocalizations.prices_bulk_proof_upload_title,
+        () async =&gt; ProofBulkAddPage.showPage(
+          context: context,
+        ),
+        Icons.upload_file,
+      ),
     _getListTile(
       appLocalizations.prices_contribution_assistant,
       () async =&gt; LaunchUrlHelper.launchURL(
