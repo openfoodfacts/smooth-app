@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Árak alkalmazásra mutató gomb a termékoldalon",
   "prices_app_button": "Tovább az Árak appba",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Prices",
   "prices_add_n_prices": "{count,plural, =1{Ár hozzáadása} other{{count} ár hozzáadása}}",
   "prices_send_n_prices": "{count,plural,=1{Ár beküldése} other{{count} ár beküldése}}",
