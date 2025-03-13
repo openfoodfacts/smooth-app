@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Ürün sayfasındaki Fiyatlar uygulamasının kısayolu",
   "prices_app_button": "Fiyatlar uygulamasına gidin",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Fiyatlar",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
