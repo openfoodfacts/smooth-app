@@ -2261,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Atalho para a aplicação Preços na página do produto",
   "prices_app_button": "Ir para a aplicação Preços",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Preços",
   "prices_add_n_prices": "{count,plural, =1{Adicionar um preço} other{Adicionar {count} preços}}",
   "prices_send_n_prices": "{count,plural, =1{Enviar o preço} other{Enviar {count} preços}}",
