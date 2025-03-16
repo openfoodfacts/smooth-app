@@ -15,12 +15,19 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
+import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
 import 'package:smooth_app/pages/proof_crop_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Card that displays the proof for price adding.
 class PriceProofCard extends StatelessWidget {
-  const PriceProofCard();
+  const PriceProofCard({
+    this.forcedProofType,
+    this.includeMyProofs = true,
+  });
+
+  final ProofType? forcedProofType;
+  final bool includeMyProofs;
 
   static const IconData _iconTodo = CupertinoIcons.exclamationmark;
   static const IconData _iconDone = Icons.receipt;
@@ -93,26 +100,48 @@ class PriceProofCard extends StatelessWidget {
               children: <Widget>[
                 SizedBox(
                   width: constraints.maxWidth / 2,
-                  child: RadioListTile<ProofType>(
-                    title: Text(appLocalizations.prices_proof_receipt),
-                    value: ProofType.receipt,
-                    groupValue: model.proofType,
-                    onChanged: model.proof != null
-                        ? null
-                        : (final ProofType? proofType) =>
-                            model.proofType = proofType!,
+                  child: Row(
+                    children: [
+                      Radio<ProofType>(
+                        value: ProofType.receipt,
+                        groupValue: model.proofType,
+                        onChanged: model.proof != null
+                            ? null
+                            : (final ProofType? proofType) =>
+                                model.proofType = proofType!,
+                      ),
+                      Icon(ProofType.receipt.getIcon()),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          appLocalizations.prices_proof_receipt,
+                          maxLines: 2,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
                   width: constraints.maxWidth / 2,
-                  child: RadioListTile<ProofType>(
-                    title: Text(appLocalizations.prices_proof_price_tag),
-                    value: ProofType.priceTag,
-                    groupValue: model.proofType,
-                    onChanged: model.proof != null
-                        ? null
-                        : (final ProofType? proofType) =>
-                            model.proofType = proofType!,
+                  child: Row(
+                    children: [
+                      Radio<ProofType>(
+                        value: ProofType.priceTag,
+                        groupValue: model.proofType,
+                        onChanged: model.proof != null
+                            ? null
+                            : (final ProofType? proofType) =>
+                                model.proofType = proofType!,
+                      ),
+                      Icon(ProofType.priceTag.getIcon()),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          appLocalizations.prices_proof_price_tag,
+                          maxLines: 2,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
