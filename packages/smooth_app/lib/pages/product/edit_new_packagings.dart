@@ -21,10 +21,10 @@ import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
-import 'package:smooth_app/resources/app_icons.dart';
 
 /// Edit display of a product packagings (the new api V3 version).
 class EditNewPackagings extends StatefulWidget {
