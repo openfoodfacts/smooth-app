@@ -13,6 +13,7 @@ import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FolksonomyPage extends StatelessWidget {
   const FolksonomyPage({
@@ -45,6 +46,58 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
+  // Help section widget
+  Widget _buildHelpSection(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(MEDIUM_SPACE),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(MEDIUM_SPACE),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'About Folksonomy Tags',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: SMALL_SPACE),
+              const Text(
+                'Folksonomy allows you to add custom tags to products. These tags can be used to add additional information that is not covered by the standard attributes.',
+              ),
+              const SizedBox(height: MEDIUM_SPACE),
+              const Text(
+                'Useful resources:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: VERY_SMALL_SPACE),
+              InkWell(
+                onTap: () => launchUrl(Uri.parse('https://wiki.openfoodfacts.org/Folksonomy/Property')),
+                child: Text(
+                  'Search for documented properties',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+              const SizedBox(height: VERY_SMALL_SPACE),
+              InkWell(
+                onTap: () => launchUrl(Uri.parse('https://world.openfoodfacts.org/properties')),
+                child: Text(
+                  'View popular properties (requires login on web)',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -55,51 +108,58 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
         title: appLocalizations.product_tags_title,
         leadingAction: SmoothTopBarLeadingAction.back,
       ),
-      body: Listener<FolksonomyProvider>(
-        listener: _onProviderChanged,
-        child: Consumer<FolksonomyProvider>(
-          builder: (BuildContext context, FolksonomyProvider provider, _) {
-            if (provider.value is FolksonomyStateLoading ||
-                provider.value is FolksonomyStateError &&
-                    (provider.value as FolksonomyStateError).action == null) {
-              return const Center(child: CircularProgressIndicator.adaptive());
-            }
+      body: Column(
+        children: [
+          _buildHelpSection(context),
+          Expanded(
+            child: Listener<FolksonomyProvider>(
+              listener: _onProviderChanged,
+              child: Consumer<FolksonomyProvider>(
+                builder: (BuildContext context, FolksonomyProvider provider, _) {
+                  if (provider.value is FolksonomyStateLoading ||
+                      provider.value is FolksonomyStateError &&
+                          (provider.value as FolksonomyStateError).action == null) {
+                    return const Center(child: CircularProgressIndicator.adaptive());
+                  }
 
-            return AnimatedList.separated(
-              key: _listKey,
-              controller: _scrollController,
-              initialItemCount: provider.value.tags!.length,
-              itemBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) {
-                final ProductTag entry = provider.value.tags![index];
+                  return AnimatedList.separated(
+                    key: _listKey,
+                    controller: _scrollController,
+                    initialItemCount: provider.value.tags!.length,
+                    itemBuilder: (
+                      BuildContext context,
+                      int index,
+                      Animation<double> animation,
+                    ) {
+                      final ProductTag entry = provider.value.tags![index];
 
-                return _buildItem(
-                  context,
-                  entry,
-                  animation,
-                  provider.isAuthorized,
-                );
-              },
-              separatorBuilder: (_, __, Animation<double> animation) =>
-                  SizeTransition(
-                sizeFactor: animation,
-                child: const Divider(),
+                      return _buildItem(
+                        context,
+                        entry,
+                        animation,
+                        provider.isAuthorized,
+                      );
+                    },
+                    separatorBuilder: (_, __, Animation<double> animation) =>
+                        SizeTransition(
+                      sizeFactor: animation,
+                      child: const Divider(),
+                    ),
+                    removedSeparatorBuilder: (
+                      BuildContext context,
+                      int index,
+                      Animation<double> animation,
+                    ) =>
+                        SizeTransition(
+                      sizeFactor: animation,
+                      child: const Divider(),
+                    ),
+                  );
+                },
               ),
-              removedSeparatorBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) =>
-                  SizeTransition(
-                sizeFactor: animation,
-                child: const Divider(),
-              ),
-            );
-          },
-        ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: provider.isAuthorized
           ? SmoothExpandableFloatingActionButton(
