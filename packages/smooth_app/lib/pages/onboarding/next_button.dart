@@ -33,6 +33,14 @@ class NextButton extends StatelessWidget {
     final OnboardingFlowNavigator navigator =
         OnboardingFlowNavigator(userPreferences);
     final OnboardingPage previousPage = currentPage.getPrevPage();
+    final int totalSteps = OnboardingPage.values
+        .where((OnboardingPage page) =>
+            page != OnboardingPage.NOT_STARTED &&
+            page != OnboardingPage.HOME_PAGE &&
+            page != OnboardingPage.ONBOARDING_COMPLETE)
+        .length;
+
+    final double progress = (currentPage.index - 1) / totalSteps;
     return OnboardingBottomBar(
       leftButton: previousPage.isOnboardingNotStarted()
           ? null
@@ -65,6 +73,7 @@ class NextButton extends StatelessWidget {
         nextKey: nextKey,
       ),
       backgroundColor: backgroundColor,
+      progress: progress, // New: Passing progress
     );
   }
 }

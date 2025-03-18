@@ -35,6 +35,13 @@ class _PermissionsPageState extends State<PermissionsPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final int totalSteps = OnboardingPage.values
+            .where((OnboardingPage page) => !page.isOnboardingNotStarted())
+            .length -
+        2;
+
+    final double progress =
+        (OnboardingPage.PERMISSIONS_PAGE.index - 1) / totalSteps;
 
     return Listener<PermissionListener>(
       listener: (
@@ -113,6 +120,7 @@ class _PermissionsPageState extends State<PermissionsPage> {
                 ),
                 backgroundColor: widget.backgroundColor,
                 semanticsHorizontalOrder: false,
+                progress: progress,
               )
             ],
           ),
