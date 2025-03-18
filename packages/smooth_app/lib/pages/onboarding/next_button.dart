@@ -73,7 +73,7 @@ class NextButton extends StatelessWidget {
         nextKey: nextKey,
       ),
       backgroundColor: backgroundColor,
-      progress: progress, // New: Passing progress
+      progress: progress,
     );
   }
 }
