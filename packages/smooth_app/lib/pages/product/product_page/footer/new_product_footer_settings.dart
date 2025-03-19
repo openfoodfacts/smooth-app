@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart' as off show Currency;
@@ -9,12 +8,10 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_list_diff.dart';
 
 /// A Settings button allowing to reorder and hide the action bar items
 class ProductFooterSettingsButton extends StatelessWidget {
@@ -39,57 +36,55 @@ class ProductFooterSettingsButton extends StatelessWidget {
     BuildContext context,
     AppLocalizations appLocalizations,
   ) async {
-    final double size = _computeContentSize(context);
-    showSmoothModalSheet(
-      context: context,
-      minHeight: size,
-      maxHeight: size,
-      builder: (_) {
-        return SmoothModalSheet(
-          title: appLocalizations.product_page_action_bar_setting_modal_title,
-          prefixIndicator: true,
-          closeButton: true,
-          expandBody: true,
-          body: const _ProductActionBarModal(),
-          bodyPadding: EdgeInsets.zero,
-        );
-      },
+    final header = SmoothModalSheetHeader(
+      title: appLocalizations.product_page_action_bar_setting_modal_title,
+      prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+      suffix: const SmoothModalSheetHeaderCloseButton(),
     );
-  }
 
-  /// Header + list padding + for each action: height + separator
-  /// + bottom padding (nav bar)
-  double _computeContentSize(BuildContext context) {
-    return SmoothModalSheetHeader.MIN_HEIGHT +
-        _ProductActionBarModalEditorState.PADDING.vertical +
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double actualHeaderHeight = header.computeHeight(context);
+    final double contentHeight = actualHeaderHeight +
+        _ProductActionBarModalEditorState.PADDING.top +
         (_ProductActionBarModalItemEditorState.MIN_HEIGHT +
                 _ProductActionBarModalEditorState.SEPARATOR_SIZE) *
-            (ProductFooterActionBar.defaultOrder().length) +
+            ProductFooterActionBar.defaultOrder().length +
+        _ProductActionBarModalEditorState.PADDING.bottom +
         MediaQuery.viewPaddingOf(context).bottom;
-  }
-}
 
-class _ProductActionBarModal extends StatelessWidget {
-  const _ProductActionBarModal();
+    final double initHeightFraction =
+        (contentHeight / screenHeight).clamp(0.1, 0.9);
+    final double minHeightFraction = actualHeaderHeight / screenHeight;
+    const double maxHeightFraction = 0.9;
 
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<_ProductActionBarProvider>(
-      create: (BuildContext context) => _ProductActionBarProvider(
-        context.read<UserPreferences>(),
+    await showSmoothDraggableModalSheet(
+      context: context,
+      header: header,
+      bodyBuilder: (BuildContext context) =>
+          ChangeNotifierProvider<_ProductActionBarProvider>(
+        create: (BuildContext context) => _ProductActionBarProvider(
+          context.read<UserPreferences>(),
+        ),
+        child: Consumer<_ProductActionBarProvider>(
+          builder: (
+            BuildContext context,
+            _ProductActionBarProvider provider,
+            _,
+          ) {
+            return switch (provider.value) {
+              _ProductActionBarLoadingState() =>
+                const _ProductActionBarModalLoading(),
+              _ProductActionBarChangedState() => _ProductActionBarModalEditor(
+                  entries:
+                      (provider.value as _ProductActionBarChangedState).entries,
+                ),
+            };
+          },
+        ),
       ),
-      child: Consumer<_ProductActionBarProvider>(builder: (
-        BuildContext context,
-        _ProductActionBarProvider provider,
-        _,
-      ) {
-        return switch (provider.value) {
-          _ProductActionBarLoadingState() =>
-            const _ProductActionBarModalLoading(),
-          _ProductActionBarChangedState() =>
-            const _ProductActionBarModalEditor(),
-        };
-      }),
+      initHeight: initHeightFraction,
+      minHeight: minHeightFraction,
+      maxHeight: maxHeightFraction,
     );
   }
 }
@@ -99,14 +94,18 @@ class _ProductActionBarModalLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator.adaptive(),
+    return const SliverToBoxAdapter(
+      child: Center(
+        child: CircularProgressIndicator.adaptive(),
+      ),
     );
   }
 }
 
 class _ProductActionBarModalEditor extends StatefulWidget {
-  const _ProductActionBarModalEditor();
+  const _ProductActionBarModalEditor({required this.entries});
+
+  final List<_ProductActionBarEntry> entries;
 
   @override
   State<_ProductActionBarModalEditor> createState() =>
@@ -121,31 +120,36 @@ class _ProductActionBarModalEditorState
 
   @override
   Widget build(BuildContext context) {
-    final List<_ProductActionBarEntry> entries = (context
-            .watch<_ProductActionBarProvider>()
-            .value as _ProductActionBarChangedState)
-        .entries;
-
-    return SmoothAnimatedList<_ProductActionBarEntry>(
-      data: entries,
-      itemBuilder: (
-        BuildContext context,
-        _ProductActionBarEntry entry,
-        int index,
-      ) {
-        return KeyedSubtree(
-          key: ValueKey<ProductFooterActionBar>(entry.action),
-          child: _ProductActionBarModalItemEditor(
-            entry: entry,
-            position: index,
-            canMoveUp: entry.visible && index > 0,
-            canMoveDown: entry.visible &&
-                (index < entries.length - 1 && entries[index + 1].visible),
-          ),
-        );
-      },
-      separatorSize: SEPARATOR_SIZE,
+    return SliverPadding(
       padding: PADDING,
+      sliver: SliverList(
+        delegate: SliverChildBuilderDelegate(
+          (BuildContext context, int index) {
+            final _ProductActionBarEntry entry = widget.entries[index];
+            Widget child = KeyedSubtree(
+              key: ValueKey<ProductFooterActionBar>(entry.action),
+              child: _ProductActionBarModalItemEditor(
+                entry: entry,
+                position: index,
+                canMoveUp: entry.visible && index > 0,
+                canMoveDown: entry.visible &&
+                    (index < widget.entries.length - 1 &&
+                        widget.entries[index + 1].visible),
+              ),
+            );
+            if (index < widget.entries.length - 1) {
+              child = Column(
+                children: [
+                  child,
+                  SizedBox(height: SEPARATOR_SIZE),
+                ],
+              );
+            }
+            return child;
+          },
+          childCount: widget.entries.length,
+        ),
+      ),
     );
   }
 }
@@ -252,7 +256,6 @@ class _ProductActionBarModalItemEditorState
                     context
                         .read<_ProductActionBarProvider>()
                         .changeVisibility(widget.entry);
-
                     SmoothHapticFeedback.lightNotification();
                   },
                 ),
@@ -287,7 +290,6 @@ class _ProductActionBarModalItemEditorState
                     context
                         .read<_ProductActionBarProvider>()
                         .reorderPosition(widget.position, widget.position - 1);
-
                     SmoothHapticFeedback.lightNotification();
                   },
                 ),
@@ -299,7 +301,6 @@ class _ProductActionBarModalItemEditorState
                     context
                         .read<_ProductActionBarProvider>()
                         .reorderPosition(widget.position, widget.position + 1);
-
                     SmoothHapticFeedback.lightNotification();
                   },
                 ),
@@ -376,9 +377,7 @@ class _ProductActionBarModalItemActionMoveUp extends StatelessWidget {
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
     return _ProductActionBarModalItemAction(
-      icon: const icons.Chevron.up(
-        size: 14.0,
-      ),
+      icon: const icons.Chevron.up(size: 14.0),
       semanticsLabel:
           AppLocalizations.of(context).product_page_action_bar_item_move_up,
       enabled: enabled,
@@ -405,9 +404,7 @@ class _ProductActionBarModalItemActionMoveDown extends StatelessWidget {
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
     return _ProductActionBarModalItemAction(
-      icon: const icons.Chevron.down(
-        size: 14.0,
-      ),
+      icon: const icons.Chevron.down(size: 14.0),
       padding: const EdgeInsetsDirectional.only(top: 1.0),
       semanticsLabel:
           AppLocalizations.of(context).product_page_action_bar_item_move_down,
@@ -433,12 +430,8 @@ class _ProductActionBarModalItemActionVisibility extends StatelessWidget {
 
     return _ProductActionBarModalItemAction(
       icon: visible
-          ? const icons.Eye.visible(
-              size: 20.0,
-            )
-          : const icons.Eye.invisible(
-              size: 19.5,
-            ),
+          ? const icons.Eye.visible(size: 20.0)
+          : const icons.Eye.invisible(size: 19.5),
       padding: EdgeInsetsDirectional.only(bottom: visible ? 0.0 : 1.0),
       semanticsLabel: visible
           ? localizations.product_page_action_bar_item_disable
@@ -629,7 +622,6 @@ class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
         (value as _ProductActionBarChangedState).entries;
 
     if (entry.visible) {
-      // Move it to last position
       emit(
         _ProductActionBarChangedState(
           <_ProductActionBarEntry>[
@@ -639,7 +631,6 @@ class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
         ),
       );
     } else {
-      // Move it to the last visible position
       emit(
         _ProductActionBarChangedState(
           <_ProductActionBarEntry>[
@@ -686,6 +677,8 @@ class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
         .where((_ProductActionBarEntry e) => e.visible)
         .map((_ProductActionBarEntry e) => e.action));
   }
+
+  void emit(_ProductActionBarState state) => value = state;
 }
 
 sealed class _ProductActionBarState {
@@ -721,9 +714,7 @@ class _ProductActionBarEntry {
     );
   }
 
-  /// Equals is only done on action
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is _ProductActionBarEntry &&
@@ -731,7 +722,6 @@ class _ProductActionBarEntry {
           action == other.action;
 
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode => action.hashCode ^ visible.hashCode;
 
   @override

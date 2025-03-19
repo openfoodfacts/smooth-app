@@ -11,6 +11,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
+// Updated to enforce constraints and fix rendering issues
 Future<T?> showSmoothModalSheet<T>({
   required BuildContext context,
   required WidgetBuilder builder,
@@ -19,23 +20,12 @@ Future<T?> showSmoothModalSheet<T>({
   bool? isScrollControlled,
   bool? useRootNavigator,
 }) {
-  BoxConstraints? constraints;
-
-  // We can't provide a null value to a [BoxConstraints] constructor
-  if (minHeight != null && maxHeight != null) {
-    constraints = BoxConstraints(
-      minHeight: minHeight,
-      maxHeight: maxHeight,
-    );
-  } else if (minHeight != null) {
-    constraints = BoxConstraints(
-      minHeight: minHeight,
-    );
-  } else if (maxHeight != null) {
-    constraints = BoxConstraints(
-      maxHeight: maxHeight,
-    );
-  }
+  // Use default constraints if none provided to prevent unbounded height
+  BoxConstraints constraints = BoxConstraints(
+    minHeight: minHeight ?? 0.0,
+    maxHeight: maxHeight ??
+        MediaQuery.of(context).size.height * 0.9, // Cap at 90% screen height
+  );
 
   return showModalBottomSheet<T>(
     constraints: constraints,
@@ -81,8 +71,6 @@ Future<T?> showSmoothModalSheetForTextField<T>({
 Future<T?> showSmoothDraggableModalSheet<T>({
   required BuildContext context,
   required SmoothModalSheetHeader header,
-
-  /// You must return a Sliver Widget
   required WidgetBuilder bodyBuilder,
   double? initHeight,
   double? minHeight,
@@ -102,7 +90,6 @@ Future<T?> showSmoothDraggableModalSheet<T>({
   );
 }
 
-/// A modal sheet with a limited list (no scroll)
 Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required BuildContext context,
   required String title,
@@ -225,7 +212,6 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   );
 }
 
-/// A modal sheet asking for a confirmation
 Future<T?> showSmoothAlertModalSheet<T>({
   required BuildContext context,
   required String title,
@@ -305,7 +291,7 @@ class _SmoothListOfChoicesEndArrow extends StatelessWidget {
   }
 }
 
-/// A non scrollable modal sheet
+// Updated to fix rendering errors by removing Expanded and adding constraints
 class SmoothModalSheet extends StatelessWidget {
   SmoothModalSheet({
     required String title,
@@ -343,14 +329,12 @@ class SmoothModalSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double maxHeight =
+        MediaQuery.of(context).size.height * 0.9; // Cap height
     Widget bodyChild = Padding(
       padding: bodyPadding ?? const EdgeInsetsDirectional.all(MEDIUM_SPACE),
       child: body,
     );
-
-    if (expandBody) {
-      bodyChild = Expanded(child: bodyChild);
-    }
 
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
@@ -358,13 +342,26 @@ class SmoothModalSheet extends StatelessWidget {
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              header,
-              bodyChild,
-            ],
+        child: SizedBox(
+          height: expandBody
+              ? maxHeight
+              : null, // Set explicit height when expanding
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                header,
+                if (expandBody)
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: maxHeight - header.computeHeight(context),
+                    ),
+                    child: bodyChild,
+                  )
+                else
+                  bodyChild,
+              ],
+            ),
           ),
         ),
       ),
@@ -685,8 +682,6 @@ abstract class SizeWidget implements Widget {
   bool get requiresPadding;
 }
 
-/// With a [SmoothModalSheet], if you want to display simple things (eg: text),
-/// you can use this widget
 class SmoothModalSheetBodyContainer extends StatelessWidget {
   const SmoothModalSheetBodyContainer({
     required this.child,
