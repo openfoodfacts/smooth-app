@@ -35,7 +35,7 @@ class OnboardingBottomBar extends StatelessWidget {
           LinearProgressIndicator(
             value: progress,
             backgroundColor: Colors.grey[300],
-            valueColor: AlwaysStoppedAnimation<Color>(DARK_GREEN_COLOR),
+            valueColor: const AlwaysStoppedAnimation<Color>(DARK_GREEN_COLOR),
             minHeight: SMALL_SPACE,
           ),
         Container(
