@@ -5,6 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/attributes_card_helper.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatefulWidget {
@@ -101,6 +102,11 @@ class _AttributeButtonState extends State<AttributeButton> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ListTile(
+            leading: getAttributeDisplayIcon(
+              widget.attribute,
+              context: context,
+              isFoodPreferences: true,
+            ),
             tileColor: Theme.of(context).colorScheme.secondary,
             trailing: info == null ? null : const Icon(Icons.info_outline),
             title: AutoSizeText(
