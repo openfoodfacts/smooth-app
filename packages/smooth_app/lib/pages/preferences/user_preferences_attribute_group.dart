@@ -43,22 +43,28 @@ class UserPreferencesAttributeGroup {
     result.add(
       UserPreferencesItemSimple(
         labels: <String>[],
-        builder: (_) => Card(
-          shape: const RoundedRectangleBorder(),
-          margin: EdgeInsets.only(top: LARGE_SPACE),
-          child: InkWell(
-            onTap: () async =>
-                userPreferences.setActiveAttributeGroup(group.id!),
-            child: AttributeGroupListTile(
-              title: Text(
-                group.name ?? appLocalizations.unknown,
-                style: themeData.textTheme.titleLarge!.copyWith(
-                  color: Colors.white,
+        builder: (_) => Padding(
+          padding: const EdgeInsets.only(
+            left: LARGE_SPACE,
+            right: LARGE_SPACE,
+          ),
+          child: Card(
+            shape: const RoundedRectangleBorder(),
+            margin: const EdgeInsets.only(top: LARGE_SPACE),
+            child: InkWell(
+              onTap: () async =>
+                  userPreferences.setActiveAttributeGroup(group.id!),
+              child: AttributeGroupListTile(
+                title: Text(
+                  group.name ?? appLocalizations.unknown,
+                  style: themeData.textTheme.titleLarge!.copyWith(
+                    color: Colors.white,
+                  ),
                 ),
+                icon: collapsed!
+                    ? const Icon(Icons.keyboard_arrow_right)
+                    : const Icon(Icons.keyboard_arrow_down),
               ),
-              icon: collapsed!
-                  ? const Icon(Icons.keyboard_arrow_right)
-                  : const Icon(Icons.keyboard_arrow_down),
             ),
           ),
         ),

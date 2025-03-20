@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-// import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 /// Colored button for attribute importance, with corresponding action
@@ -34,10 +34,6 @@ class _AttributeButtonState extends State<AttributeButton> {
     final ThemeData themeData = Theme.of(context);
     final String currentImportanceId = widget.productPreferences
         .getImportanceIdForAttributeId(widget.attribute.id!);
-    // const double horizontalPadding = LARGE_SPACE;
-    // final double widgetWidth =
-    //     MediaQuery.sizeOf(context).width - 2 * horizontalPadding;
-    // final double importanceWidth = widgetWidth / 4;
     final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = widget.attribute.settingNote;
     final List<Widget> children = <Widget>[];
@@ -61,7 +57,6 @@ class _AttributeButtonState extends State<AttributeButton> {
             trailing: IconButton(
               icon: const Icon(Icons.edit),
               onPressed: () {
-                print('editMode: $editMode');
                 setState(() => editMode = !editMode);
               },
             ),
@@ -73,7 +68,6 @@ class _AttributeButtonState extends State<AttributeButton> {
         children.add(
           InkWell(
             onTap: () async {
-              print('editMode: $editMode');
               setState(() => editMode = !editMode);
               widget.productPreferences.setImportance(
                 widget.attribute.id!,
@@ -99,12 +93,9 @@ class _AttributeButtonState extends State<AttributeButton> {
       }
     }
     return Padding(
-      padding: const EdgeInsets.all(0),
-      // padding: const EdgeInsets.symmetric(
-      //   vertical: SMALL_SPACE,
-      //   horizontal: horizontalPadding,
-      // ),
-
+      padding: const EdgeInsets.symmetric(
+        horizontal: LARGE_SPACE,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
