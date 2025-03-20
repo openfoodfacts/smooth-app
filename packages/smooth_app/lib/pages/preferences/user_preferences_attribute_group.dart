@@ -43,16 +43,23 @@ class UserPreferencesAttributeGroup {
     result.add(
       UserPreferencesItemSimple(
         labels: <String>[],
-        builder: (_) => InkWell(
-          onTap: () async => userPreferences.setActiveAttributeGroup(group.id!),
-          child: AttributeGroupListTile(
-            title: Text(
-              group.name ?? appLocalizations.unknown,
-              style: themeData.textTheme.titleLarge,
+        builder: (_) => Card(
+          shape: const RoundedRectangleBorder(),
+          margin: EdgeInsets.only(top: LARGE_SPACE),
+          child: InkWell(
+            onTap: () async =>
+                userPreferences.setActiveAttributeGroup(group.id!),
+            child: AttributeGroupListTile(
+              title: Text(
+                group.name ?? appLocalizations.unknown,
+                style: themeData.textTheme.titleLarge!.copyWith(
+                  color: Colors.white,
+                ),
+              ),
+              icon: collapsed!
+                  ? const Icon(Icons.keyboard_arrow_right)
+                  : const Icon(Icons.keyboard_arrow_down),
             ),
-            icon: collapsed!
-                ? const Icon(Icons.keyboard_arrow_right)
-                : const Icon(Icons.keyboard_arrow_down),
           ),
         ),
       ),
@@ -96,7 +103,11 @@ class UserPreferencesAttributeGroup {
             if (attribute.id != null) attribute.id!,
             if (attribute.name != null) attribute.name!,
           ],
-          builder: (_) => AttributeButton(attribute, productPreferences),
+          builder: (_) => Card(
+            shape: const RoundedRectangleBorder(),
+            margin: EdgeInsets.zero,
+            child: AttributeButton(attribute, productPreferences),
+          ),
         ),
       );
     }
