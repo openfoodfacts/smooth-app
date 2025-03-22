@@ -79,7 +79,7 @@ In order to run the application, make sure you are in the `packages/smooth_app` 
 
 - On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
 
-- On iOS/macOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
+- On iOS/macOS �: `flutter run -t lib/entrypoints/ios/main_ios.dart`
 
 - Troubleshooting🚀: If you get an error like `App depends on scanner shared from path which depends on camera_platform_interface from git, version solving failed.`  then run
   - `flutter pub cache clean` or manually delete  the  
@@ -101,3 +101,13 @@ In addition to the core role of the community, we also had the support from seve
 <a href="https://github.com/openfoodfacts/smooth-app/graphs/contributors">
   <img alt="List of contributors to this repository" src="https://contrib.rocks/image?repo=openfoodfacts/smooth-app" />
 </a>
+
+
+## Development
+
+```bash
+# Install dependencies
+npm install || pip install -r requirements.txt
+# Run tests
+npm test || pytest
+```
