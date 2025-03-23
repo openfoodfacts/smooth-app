@@ -68,7 +68,7 @@ Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Fea
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-  - **For Freshers: Setting Up Your Environment with FVM**
+  - **Setting Up Your Environment with FVM**
   - To manage Flutter versions easily, download and install **FVM (Flutter Version Management)**:
     - Install FVM by following the [official FVM installation guide](https://fvm.app/documentation/getting-started/installation).
     - Once FVM is installed, run the following commands to set Flutter to version 3.27.2:
