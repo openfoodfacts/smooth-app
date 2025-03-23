@@ -109,10 +109,13 @@ class UserPreferencesAttributeGroup {
             if (attribute.id != null) attribute.id!,
             if (attribute.name != null) attribute.name!,
           ],
-          builder: (_) => Card(
-            shape: const RoundedRectangleBorder(),
-            margin: EdgeInsets.zero,
-            child: AttributeButton(attribute, productPreferences),
+          builder: (_) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+            child: Card(
+              shape: const RoundedRectangleBorder(),
+              margin: EdgeInsets.zero,
+              child: AttributeButton(attribute, productPreferences),
+            ),
           ),
         ),
       );

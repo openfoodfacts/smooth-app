@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 
@@ -93,51 +92,46 @@ class _AttributeButtonState extends State<AttributeButton> {
         );
       }
     }
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: LARGE_SPACE,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            leading: getAttributeDisplayIcon(
-              widget.attribute,
-              context: context,
-              isFoodPreferences: true,
-            ),
-            tileColor: Theme.of(context).colorScheme.secondary,
-            trailing: info == null ? null : const Icon(Icons.info_outline),
-            title: AutoSizeText(
-              widget.attribute.settingName ?? widget.attribute.name!,
-              maxLines: 2,
-              style: style,
-            ),
-            onTap: info == null
-                ? null
-                : () async => showDialog<void>(
-                      context: context,
-                      builder: (BuildContext context) {
-                        final AppLocalizations appLocalizations =
-                            AppLocalizations.of(context);
-                        return SmoothAlertDialog(
-                          body: Text(info),
-                          positiveAction: SmoothActionButton(
-                            text: appLocalizations.close,
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                        );
-                      },
-                    ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        ListTile(
+          leading: getAttributeDisplayIcon(
+            widget.attribute,
+            context: context,
+            isFoodPreferences: true,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: children,
+          tileColor: Theme.of(context).colorScheme.secondary,
+          trailing: info == null ? null : const Icon(Icons.info_outline),
+          title: AutoSizeText(
+            widget.attribute.settingName ?? widget.attribute.name!,
+            maxLines: 2,
+            style: style,
           ),
-        ],
-      ),
+          onTap: info == null
+              ? null
+              : () async => showDialog<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      final AppLocalizations appLocalizations =
+                          AppLocalizations.of(context);
+                      return SmoothAlertDialog(
+                        body: Text(info),
+                        positiveAction: SmoothActionButton(
+                          text: appLocalizations.close,
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      );
+                    },
+                  ),
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: children,
+        ),
+      ],
     );
   }
 }
