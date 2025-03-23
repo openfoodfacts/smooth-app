@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences_v2/preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
@@ -228,6 +229,9 @@ class _SmoothGoRouter {
                 if (pageType == null) {
                   throw Exception('Unsupported preference page type: $type');
                 }
+
+                // TODO(primael): Hide behind dev flag
+                return PreferencesPage();
 
                 return UserPreferencesPage(
                   type: pageType,
