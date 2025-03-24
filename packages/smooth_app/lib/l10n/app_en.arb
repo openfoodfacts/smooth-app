@@ -2606,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_validation_assistant": "Price Validation Assistant",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Challenges",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "@prices_multiple_proof_addition_system":{
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Prices in a store",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
