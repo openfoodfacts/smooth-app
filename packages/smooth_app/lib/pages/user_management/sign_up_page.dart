@@ -88,7 +88,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
           key: _formKey,
           child: Scrollbar(
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+              padding: EdgeInsetsDirectional.only(
+                start: size.width * 0.05,
+                end: size.width * 0.05,
+                bottom: MediaQuery.viewInsetsOf(context).bottom * 0.25,
+              ),
               children: <Widget>[
                 SmoothTextFormField(
                   textInputType: TextInputType.name,
