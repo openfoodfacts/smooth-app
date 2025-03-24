@@ -39,7 +39,7 @@ Future<T?> showSmoothModalSheet<T>({
 
   return showModalBottomSheet<T>(
     constraints: constraints,
-    isScrollControlled: isScrollControlled ?? minHeight != null,
+    isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
@@ -219,7 +219,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
       prefixIndicatorColor: prefixIndicatorColor,
       headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
-      body: Column(children: items),
+      body: IntrinsicHeight(
+          child: Column(mainAxisSize: MainAxisSize.min, children: items)),
     ),
   );
 }
@@ -357,12 +358,14 @@ class SmoothModalSheet extends StatelessWidget {
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            header,
-            bodyChild,
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              header,
+              bodyChild,
+            ],
+          ),
         ),
       ),
     );
