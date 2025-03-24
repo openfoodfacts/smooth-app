@@ -154,8 +154,7 @@ class _NutrientRowState extends State<NutrientRow>
                 ),
               ],
             ),
-            if ( // robotoffNutrientEntity != null &&
-                extractionValue != null && extractionValue != controller.text)
+            if (extractionValue != null && extractionValue != controller.text)
               Container(
                 margin: const EdgeInsetsDirectional.only(
                   bottom: SMALL_SPACE,
