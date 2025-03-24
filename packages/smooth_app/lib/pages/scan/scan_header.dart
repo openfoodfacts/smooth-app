@@ -104,9 +104,8 @@ class _ScanHeaderState extends State<ScanHeader> {
                                   MaterialPageRoute<void>(
                                     builder: (BuildContext context) =>
                                         PersonalizedRankingPage(
-                                      barcodes: model
-                                          .getAvailableBarcodes()
-                                          .toList(growable: false),
+                                      barcodes:
+                                          model.getAvailableBarcodes().toList(),
                                       title: ProductQueryPageHelper
                                           .getProductListLabel(
                                         model.productList,
