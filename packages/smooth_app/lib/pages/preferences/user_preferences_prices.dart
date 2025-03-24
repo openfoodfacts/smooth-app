@@ -150,6 +150,27 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         Icons.open_in_new,
       ),
+      _getListTile(
+        appLocalizations.prices_validation_assistant,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_multiple_proof_addition_system,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/proofs/add/multiple',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_challenges_page,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/challenge',
+        ),
+        Icons.open_in_new,
+      ),
     ];
   }
 
