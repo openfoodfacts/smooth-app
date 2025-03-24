@@ -2606,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Asistent pro přidání ceny",
+  "prices_validation_assistant": "Asistent pro ověření ceny",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Výzvy",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Ceny v obchodě",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -3746,8 +3758,8 @@
   "guide_nutriscore_v2_new_logo_text": "Od této chvíle může logo zobrazovat zmínku „**Nový výpočet**“, aby bylo jasné, že se skutečně jedná o nový výpočet.",
   "guide_nutriscore_v2_new_logo_image_caption": "Logo nového Nutri-Score",
   "guide_nutriscore_v2_where_title": "Kde najít nový výpočet Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score se používá v několika zemích: Německo, Belgie, Španělsko, Francie, Lucembursko, Nizozemsko a Švýcarsko.",
-  "guide_nutriscore_v2_where_paragraph2": "Výrobci mají nejpozději do **2026** čas **nahradit** starý výpočet novým.",
+  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
+  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "Bez čekání **už najdete v aplikaci OpenFoodFacts** nový výpočet, včetně případů, kdy výrobci neaktualizovali skóre.",
   "guide_nutriscore_v2_unchanged_title": "Co se nemění",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score je skóre navržené k **měření nutriční kvality**. Je **doplňkem skupiny NOVA** pro **ultra zpracované potraviny** (taktéž přítomných v aplikaci).",
