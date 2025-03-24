@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
+import 'package:smooth_app/pages/preferences_v2/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 
 class PreferencesPage extends StatelessWidget {
   @override
@@ -13,22 +16,31 @@ class PreferencesPage extends StatelessWidget {
             height: 80,
           ),
           PreferenceCard(
-            title: 'Preferences',
+            title: 'Général',
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                icon: Icons.settings,
-                title: 'Test',
-                subtitle: 'Test subtitle',
+                icon: Icons.account_circle,
+                title: 'Mon compte',
+                subtitle: 'Modifier mon profile, se déconnecter...',
+                root: const PreferencesRoot(
+                  cards: <PreferenceCard>[],
+                ),
               ),
               NavigationPreferenceTile(
-                icon: Icons.settings,
-                title: 'Test',
-                subtitle: 'Test subtitle',
+                icon: Icons.egg,
+                title: 'Mes préférences alimentaires',
+                subtitle: 'Allergies, qualité nutritionnelle...',
+                root: const PreferencesRoot(
+                  cards: <PreferenceCard>[],
+                ),
               ),
               NavigationPreferenceTile(
-                icon: Icons.settings,
-                title: 'Test',
-                subtitle: 'Test subtitle',
+                icon: Icons.settings_applications,
+                title: "Paramètres de l'application",
+                subtitle: 'Mode sombre, langue...',
+                root: const PreferencesRoot(
+                  cards: <PreferenceCard>[],
+                ),
               ),
             ],
           ),
@@ -36,17 +48,38 @@ class PreferencesPage extends StatelessWidget {
             height: 12,
           ),
           PreferenceCard(
-            title: 'Preferences',
+            title: 'Le projet Open Food Facts',
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                icon: Icons.settings,
-                title: 'Test',
-                subtitle: 'Test subtitle',
+                icon: Icons.input,
+                title: 'Contribuer au projet',
+                subtitle: 'Traduire, améliorer nos outils...',
+                root: const PreferencesRoot(
+                  cards: <PreferenceCard>[],
+                ),
               ),
-              NavigationPreferenceTile(
-                icon: Icons.settings,
-                title: 'Test',
-                subtitle: 'Test subtitle',
+              TogglePreferenceTile(
+                icon: Icons.support,
+                title: 'Nous soutenir',
+                subtitle: 'Envoyer un don...',
+                state: true,
+                onToggle: (bool value) {
+                  // Handle toggle action
+                },
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          PreferenceCard(
+            title: 'Site web',
+            tiles: <PreferenceTile>[
+              UrlPreferenceTile(
+                icon: Icons.web,
+                title: "Page d'accueil",
+                subtitle: "Visiter le site web d'Open Food Facts",
+                url: 'https://world.openfoodfacts.org/',
               ),
             ],
           ),

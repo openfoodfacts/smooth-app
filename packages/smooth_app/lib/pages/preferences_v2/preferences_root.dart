@@ -24,22 +24,20 @@ class PreferencesRoot extends StatelessWidget {
   List<PreferenceTile> searchTiles(String query) {
     final List<PreferenceTile> matchingTiles = <PreferenceTile>[];
 
-    for (PreferenceCard card in cards) {
-      for (PreferenceTile tile in card.tiles) {
+    for (final PreferenceCard card in cards) {
+      for (final PreferenceTile tile in card.tiles) {
         if (tile.keywords.toLowerCase().contains(query.toLowerCase())) {
           matchingTiles.add(tile);
         }
 
         if (tile.runtimeType == NavigationPreferenceTile) {
-          final NavigationPreferenceTile navigationTile =
-              tile as NavigationPreferenceTile;
-          if (navigationTile.keywords
-              .toLowerCase()
-              .contains(query.toLowerCase())) {
-            matchingTiles.add(tile);
-          }
+          matchingTiles.addAll(
+            (tile as NavigationPreferenceTile).root.searchTiles(query),
+          );
         }
       }
     }
+
+    return matchingTiles;
   }
 }
