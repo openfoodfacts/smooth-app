@@ -2606,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Помічник внеску цін",
+  "prices_validation_assistant": "Помічник Перевірки Ціни",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Challenges",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Ціни в магазині",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -3746,8 +3758,8 @@
   "guide_nutriscore_v2_new_logo_text": "Відтепер логотип може показувати згадку «**Новий розрахунок**», щоб уточнити, що це справді новий розрахунок.",
   "guide_nutriscore_v2_new_logo_image_caption": "Логотип нового Nutri-Score",
   "guide_nutriscore_v2_where_title": "Де знайти новий розрахунок Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score застосовується в кількох країнах: Німеччині, Бельгії, Іспанії, Франції, Люксембурзі, Нідерландах та Швейцарії.",
-  "guide_nutriscore_v2_where_paragraph2": "Постачальники мають до **2026 року** останній термін **на заміну** старого розрахунку на новий.",
+  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
+  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "Без очікування ви вже знайдете в додатку OpenFoodFacts новий розрахунок, включаючи в тому числі якщо постачальники не оновили бали.",
   "guide_nutriscore_v2_unchanged_title": "Що не змінилося",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score – це оцінка, розроблена для **вимірювання якості харчування**. Він **доповнює групу NOVA** щодо **ультраоброблених продуктів** (також присутня в додатку).",
