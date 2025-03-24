@@ -52,14 +52,14 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
   void _openPackagingImage(BuildContext context) {
     final Iterable<OpenFoodFactsLanguage> languages =
-        getProductImageLanguages(upToDateProduct, ImageField.NUTRITION);
+        getProductImageLanguages(upToDateProduct, ImageField.PACKAGING);
 
     if (languages.isNotEmpty) {
       setState(() {
         _imageVisible = !_imageVisible;
       });
     } else {
-      ImageField.NUTRITION.openDetails(
+      ImageField.PACKAGING.openDetails(
         context,
         upToDateProduct,
         widget.isLoggedInMandatory,
@@ -116,6 +116,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     context.watch<LocalDatabase>();
     refreshUpToDate();
     final List<Widget> children = <Widget>[];
+    final bool hasPackagingImages = getProductImageLanguages(
+      upToDateProduct,
+      ImageField.PACKAGING,
+    ).isNotEmpty;
     children.add(
       Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
@@ -208,12 +212,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
-      child: MultiProvider(
-        providers: <SingleChildWidget>[
-          Provider<Product>.value(
-            value: upToDateProduct,
-          ),
-        ],
+      child: Provider<Product>.value(
+        value: upToDateProduct,
         child: UnfocusFieldWhenTapOutside(
           child: SmoothScaffold(
             fixKeyboard: true,
@@ -224,7 +224,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
               actions: <Widget>[
                 if (!_imageVisible)
                   IconButton(
-                    icon: const Picture.open(),
+                    icon: hasPackagingImages
+                        ? const Picture.open()
+                        : const Icon(Icons.add_a_photo),
                     tooltip: ImageField.PACKAGING
                         .getProductImageButtonText(appLocalizations),
                     onPressed: () => _openPackagingImage(context),
@@ -235,7 +237,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
               children: <Widget>[
                 EditProductImageViewer(
                   imageField: ImageField.PACKAGING,
-                  language: ProductQuery.getLanguage(),
+                  language: upToDateProduct.lang,
                   visible: _imageVisible,
                   onClose: () => setState(() => _imageVisible = false),
                 ),
