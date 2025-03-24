@@ -65,8 +65,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       _getDivider(),
       UserPreferencesLanguageSelector.getUserPreferencesItem(context),
       _getTitle(
-          label: appLocalizations.settings_app_image_source,
-        ),
+        label: appLocalizations.settings_app_image_source,
+      ),
       UserPreferencesImageSource.getUserPreferencesItem(context),
       _getTitle(
         label: appLocalizations.settings_app_products,
@@ -95,13 +95,13 @@ class UserPreferencesSettings extends AbstractUserPreferences {
               userPreferences.setPlayCameraSound(value),
         ),
       _getDivider(),
-        UserPreferencesItemSwitch(
-          title: appLocalizations.app_haptic_feedback_title,
-          subtitle: appLocalizations.app_haptic_feedback_subtitle,
-          value: userPreferences.hapticFeedbackEnabled,
-          onChanged: (final bool value) async =>
-              userPreferences.setHapticFeedbackEnabled(value),
-        ),
+      UserPreferencesItemSwitch(
+        title: appLocalizations.app_haptic_feedback_title,
+        subtitle: appLocalizations.app_haptic_feedback_subtitle,
+        value: userPreferences.hapticFeedbackEnabled,
+        onChanged: (final bool value) async =>
+            userPreferences.setHapticFeedbackEnabled(value),
+      ),
       _getTitle(label: appLocalizations.settings_app_beta),
       UserPreferencesItemSwitch(
         title: appLocalizations.search_product_filter_visibility_title,
