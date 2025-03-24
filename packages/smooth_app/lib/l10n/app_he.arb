@@ -2606,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "מסייע תרומת מחירים",
+  "prices_validation_assistant": "מסייע אימות מחירים",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "אתגרים",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "מחירים בחנות",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -3746,8 +3758,8 @@
   "guide_nutriscore_v2_new_logo_text": "מעתה, הלוגו יציג אזכור „**נוסחה חדשה**” (New calculation) כדי להבהיר שאכן זו הנוסחה החדשה.",
   "guide_nutriscore_v2_new_logo_image_caption": "הלוגו של Nutri-Score החדש",
   "guide_nutriscore_v2_where_title": "היכן ניתן למצוא את נוסחת Nutri-Score החדשה?",
-  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score מיושם במספר מדינות: גרמניה, בלגיה, ספרד, צרפת, לוקסמבורג, הולנד ושווייץ.",
-  "guide_nutriscore_v2_where_paragraph2": "ליצרנים יש עד **2026** לכל המאוחר **להחליף** את החישוב הישן בחדש.",
+  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
+  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "מבלי להמתין, כבר אפשר למצוא את הנוסחה החדשה ב**יישומון של Open Food Facts**ֿ גם אם היצרנים טרם עדכנו את הניקוד.",
   "guide_nutriscore_v2_unchanged_title": "מה לא משתנה",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score הוא ציון שנועד **למדוד איכות תזונתית**. הוא **משלים לקבוצת NOVA** על **מזון אולטרה מעובד** (קיים גם ביישום).",
