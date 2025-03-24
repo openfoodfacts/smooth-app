@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 
@@ -47,19 +48,16 @@ class _AttributeButtonState extends State<AttributeButton> {
           child: ListTile(
             leading: Icon(
               Icons.radio_button_checked,
-              color: themeData.colorScheme.primary,
+              color: Theme.of(context).primaryColor,
             ),
             title: AutoSizeText(
               widget.productPreferences
                   .getPreferenceImportanceFromImportanceId(currentImportanceId)!
                   .name!,
             ),
-            trailing: IconButton(
-              icon: const Icon(Icons.edit),
-              onPressed: () {
-                setState(() => editMode = !editMode);
-              },
-            ),
+            trailing: GestureDetector(
+                child: const Icon(Icons.edit, size: DEFAULT_ICON_SIZE),
+                onTap: () => setState(() => editMode = !editMode)),
           ),
         ),
       );
@@ -79,7 +77,8 @@ class _AttributeButtonState extends State<AttributeButton> {
                 currentImportanceId == importanceId
                     ? Icons.radio_button_checked
                     : Icons.radio_button_off,
-                color: themeData.colorScheme.primary,
+                color: Theme.of(context).primaryColor,
+                size: DEFAULT_ICON_SIZE,
               ),
               title: AutoSizeText(
                 widget.productPreferences
@@ -103,7 +102,9 @@ class _AttributeButtonState extends State<AttributeButton> {
             isFoodPreferences: true,
           ),
           tileColor: Theme.of(context).colorScheme.secondary,
-          trailing: info == null ? null : const Icon(Icons.info_outline),
+          trailing: info == null
+              ? null
+              : const Icon(Icons.help_outline, size: DEFAULT_ICON_SIZE),
           title: AutoSizeText(
             widget.attribute.settingName ?? widget.attribute.name!,
             maxLines: 2,

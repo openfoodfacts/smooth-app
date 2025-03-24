@@ -58,8 +58,7 @@ class UserPreferencesAttributeGroup {
                 title: Text(
                   group.name ?? appLocalizations.unknown,
                   style: themeData.textTheme.titleLarge!.copyWith(
-                    color: Colors.white,
-                  ),
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 icon: collapsed!
                     ? const Icon(Icons.keyboard_arrow_right)
