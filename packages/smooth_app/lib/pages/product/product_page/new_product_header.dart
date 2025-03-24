@@ -10,8 +10,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/pages/navigator/app_navigator.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/product/helpers/compatibility_score.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -235,12 +234,12 @@ class _ProductCompatibilityScore extends StatelessWidget {
   });
 
   //ignore: constant_identifier_names
-  static const double MAX_WIDTH = 40.0;
   static const EdgeInsetsGeometry PADDING = EdgeInsetsDirectional.only(
     start: MEDIUM_SPACE,
     end: BALANCED_SPACE,
   );
 
+  static const double MAX_WIDTH = 40.0;
   final double progress;
 
   @override
@@ -268,98 +267,13 @@ class _ProductCompatibilityScore extends StatelessWidget {
                 borderRadius: ROUNDED_BORDER_RADIUS,
                 border: Border.all(color: Colors.white),
               ),
-              child: InkWell(
-                onTap: () => AppNavigator.of(context).push(
-                  AppRoutes.PREFERENCES(PreferencePageType.FOOD),
-                ),
-                borderRadius: ROUNDED_BORDER_RADIUS,
-                child: ClipRRect(
-                  borderRadius: ROUNDED_BORDER_RADIUS,
-                  child: _getScoreWidget(context, compatibility),
-                ),
-              ),
+              child: CompatibilityScore(context.read<Product>(),
+                  compatibility: compatibility,
+                  progress: progress,
+                  maxWidth: MAX_WIDTH),
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _getScoreWidget(
-    BuildContext context,
-    ProductPageCompatibility compatibility,
-  ) {
-    final String compatibilityLabel =
-        AppLocalizations.of(context).product_page_compatibility_score;
-
-    return IntrinsicHeight(
-      child: Row(
-        children: <Widget>[
-          Opacity(
-            opacity: progress,
-            child: Container(
-              width: MAX_WIDTH * progress,
-              height: double.infinity,
-              alignment: Alignment.center,
-              padding: const EdgeInsetsDirectional.only(start: 2.5),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadiusDirectional.horizontal(
-                  start: Radius.circular(18.0),
-                ),
-              ),
-              child: Transform.translate(
-                offset: Offset((1 - progress) * 10, 0.0),
-                child: SizedBox(
-                  child: icons.Info(
-                    color: compatibility.color,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                top: 6.0,
-                bottom: SMALL_SPACE,
-                start: 6.0,
-                end: 6.0,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(
-                    '${compatibility.score}%',
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                    textScaler: TextScaler.noScaling,
-                    style: const TextStyle(
-                      fontSize: 12.0,
-                      height: 0.9,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  FittedBox(
-                    alignment: Alignment.center,
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      compatibilityLabel,
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.fade,
-                      textScaler: TextScaler.noScaling,
-                      style: const TextStyle(
-                        height: 0.9,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

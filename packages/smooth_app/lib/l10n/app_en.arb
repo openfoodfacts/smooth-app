@@ -4158,5 +4158,15 @@
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
-  }
+  },
+  "attribute_preference_mandatory": "Mandatory",
+  "attribute_preference_very_important": "Very important",
+  "attribute_preference_important": "Important",
+  "attribute_preference_not_important": "Not important",
+  "attribute_score_positive": "Positive points",
+  "attribute_score_negative": "Negative points",
+  "attribute_other": "Other",
+  "compatibility_score_modal_title": "Your compatibility score",
+  "sort_by_score": "Sort by : Score",
+  "sort_by_importance": "Sort by : Importance"
 }

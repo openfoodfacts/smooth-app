@@ -316,6 +316,7 @@ class SmoothModalSheet extends StatelessWidget {
     Color? prefixIndicatorColor,
     Color? headerBackgroundColor,
     Color? headerForegroundColor,
+    SizeWidget? suffix,
     this.bodyPadding,
     this.expandBody = false,
     double? closeButtonSemanticsOrder,
@@ -326,11 +327,12 @@ class SmoothModalSheet extends StatelessWidget {
                   color: prefixIndicatorColor,
                 )
               : null,
-          suffix: closeButton
-              ? SmoothModalSheetHeaderCloseButton(
-                  semanticsOrder: closeButtonSemanticsOrder,
-                )
-              : null,
+          suffix: suffix ??
+              (closeButton
+                  ? SmoothModalSheetHeaderCloseButton(
+                      semanticsOrder: closeButtonSemanticsOrder,
+                    )
+                  : null),
           backgroundColor: headerBackgroundColor,
           foregroundColor: headerForegroundColor,
           type: type,
@@ -402,7 +404,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
     return IconTheme(
       data: IconThemeData(color: tintColor),
       child: Container(
-        height: suffix is SmoothModalSheetHeaderButton ? double.infinity : null,
+        height: null,
         constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
         decoration: BoxDecoration(
           color: _backgroundColor(context),
@@ -445,7 +447,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                   ),
                 ),
               ),
-              if (suffix != null) suffix!
+              if (suffix != null) suffix!,
             ],
           ),
         ),
@@ -493,6 +495,8 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
     this.suffix,
     this.onTap,
     this.tooltip,
+    this.foregroundColor,
+    this.backgroundColor,
   });
 
   static const EdgeInsetsGeometry _padding = EdgeInsetsDirectional.only(
@@ -506,6 +510,8 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
   final Widget? prefix;
   final Widget? suffix;
   final String? tooltip;
+  final Color? foregroundColor;
+  final Color? backgroundColor;
   final VoidCallback? onTap;
 
   @override
@@ -527,9 +533,10 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
             shape: const RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
-            foregroundColor: lightTheme ? Colors.black : Colors.white,
-            backgroundColor:
-                lightTheme ? extension.primaryMedium : extension.primaryBlack,
+            foregroundColor:
+                foregroundColor ?? (lightTheme ? Colors.black : Colors.white),
+            backgroundColor: backgroundColor ??
+                (lightTheme ? extension.primaryMedium : extension.primaryBlack),
             iconColor: lightTheme ? Colors.black : Colors.white,
           ),
           child: Row(
