@@ -98,7 +98,7 @@ class _NutrientRowState extends State<NutrientRow>
 
     String? extractionValue = robotoffNutrientEntity?.value;
 
-    // We need to make sure we the value is formatted properly
+    // We need to make sure the value is formatted properly
     // We also ignore text extractions such as "traces" until the API is ready
     if (extractionValue != null) {
       final num? extractionValueNum = NumberFormat().tryParse(extractionValue);
