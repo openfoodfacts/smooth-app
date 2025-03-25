@@ -2614,7 +2614,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Додайте кілька доказів",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -3758,8 +3758,8 @@
   "guide_nutriscore_v2_new_logo_text": "Відтепер логотип може показувати згадку «**Новий розрахунок**», щоб уточнити, що це справді новий розрахунок.",
   "guide_nutriscore_v2_new_logo_image_caption": "Логотип нового Nutri-Score",
   "guide_nutriscore_v2_where_title": "Де знайти новий розрахунок Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score застосовується в 7 країнах: Франції, Німеччині, Бельгії, Іспанії, Люксембурзі, Нідерландах і Швейцарії.",
+  "guide_nutriscore_v2_where_paragraph2": "Виробники мають максимум **2 роки** після підпису декларації **щоб замінити** старі розрахунки новими.",
   "guide_nutriscore_v2_where_paragraph3": "Без очікування ви вже знайдете в додатку OpenFoodFacts новий розрахунок, включаючи в тому числі якщо постачальники не оновили бали.",
   "guide_nutriscore_v2_unchanged_title": "Що не змінилося",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score – це оцінка, розроблена для **вимірювання якості харчування**. Він **доповнює групу NOVA** щодо **ультраоброблених продуктів** (також присутня в додатку).",
