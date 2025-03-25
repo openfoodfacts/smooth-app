@@ -47,7 +47,7 @@ class PriceAmountField extends StatelessWidget {
             return appLocalizations.prices_amount_price_mandatory;
           }
           final double? doubleValue = PriceAmountModel.validateDouble(value);
-          if (doubleValue == null) {
+          if (doubleValue == null || doubleValue <= 0) {
             return appLocalizations.prices_amount_price_incorrect;
           }
           return null;
@@ -58,7 +58,7 @@ class PriceAmountField extends StatelessWidget {
           return null;
         }
         final double? doubleValue = PriceAmountModel.validateDouble(value);
-        if (doubleValue == null) {
+        if (doubleValue == null || doubleValue <= 0) {
           return appLocalizations.prices_amount_price_incorrect;
         }
         return null;
