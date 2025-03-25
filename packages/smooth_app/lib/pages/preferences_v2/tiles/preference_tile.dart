@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/pages/preferences_v2/preferences_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 
 abstract class PreferenceTile extends StatelessWidget {
   String get keywords;

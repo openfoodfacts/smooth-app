@@ -4,23 +4,42 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
 class PreferencesRoot extends StatelessWidget {
   const PreferencesRoot({
+    this.appBar,
     required this.cards,
     super.key,
   });
 
+  final SliverAppBar? appBar;
   final List<PreferenceCard> cards;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (BuildContext context, int index) => cards[index],
-      separatorBuilder: (BuildContext context, int index) =>
-          const SizedBox(height: 12.0),
-      itemCount: cards.length,
+    final ThemeData theme = Theme.of(context);
+
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          appBar ??
+              SliverAppBar(
+                title: const Text('Paramètres'),
+                pinned: true,
+                floating: true,
+                backgroundColor: theme.dialogBackgroundColor,
+              ),
+          SliverPadding(
+            padding: const EdgeInsets.all(12),
+            sliver: SliverList.separated(
+              itemBuilder: (BuildContext context, int index) => cards[index],
+              separatorBuilder: (BuildContext context, int index) =>
+                  const SizedBox(height: 12),
+              itemCount: cards.length,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  /// Searches for tiles that match the given query.
   List<PreferenceTile> searchTiles(String query) {
     final List<PreferenceTile> matchingTiles = <PreferenceTile>[];
 
