@@ -1453,11 +1453,13 @@
       }
     }
   },
-  "settings_app_app": "Application",
+  "settings_app_app": "General",
   "settings_app_data": "Features & Crash monitoring",
   "settings_app_camera": "Camera",
+  "settings_app_beta": "Beta",
+  "settings_app_image_source": "Contributions",
   "settings_app_products": "Products",
-  "settings_app_miscellaneous": "Miscellaneous",
+  "settings_app_accessibility": "Accessibility",
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
   },

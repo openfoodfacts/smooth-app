@@ -63,20 +63,11 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       UserPreferencesCurrencySelector.getUserPreferencesItem(context),
       _getDivider(),
       UserPreferencesLanguageSelector.getUserPreferencesItem(context),
-      _getDivider(),
+      _getTitle(
+        label: appLocalizations.settings_app_image_source,
+      ),
       UserPreferencesImageSource.getUserPreferencesItem(context),
-      if (CameraHelper.hasACamera)
-        _getTitle(
-          label: appLocalizations.settings_app_camera,
-        ),
-      if (CameraHelper.hasACamera)
-        UserPreferencesItemSwitch(
-          title: appLocalizations.camera_play_sound_title,
-          subtitle: appLocalizations.camera_play_sound_subtitle,
-          value: userPreferences.playCameraSound,
-          onChanged: (final bool value) async =>
-              userPreferences.setPlayCameraSound(value),
-        ),
+      
       _getTitle(
         label: appLocalizations.settings_app_products,
       ),
@@ -91,7 +82,27 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         subtitle: appLocalizations.expand_ingredients_body,
         panelId: KnowledgePanelCard.PANEL_INGREDIENTS_ID,
       ),
+      if (CameraHelper.hasACamera)
+        _getTitle(
+          label: appLocalizations.settings_app_accessibility,
+        ),
+      if (CameraHelper.hasACamera)
+        UserPreferencesItemSwitch(
+          title: appLocalizations.camera_play_sound_title,
+          subtitle: appLocalizations.camera_play_sound_subtitle,
+          value: userPreferences.playCameraSound,
+          onChanged: (final bool value) async =>
+              userPreferences.setPlayCameraSound(value),
+        ),
       _getDivider(),
+      UserPreferencesItemSwitch(
+        title: appLocalizations.app_haptic_feedback_title,
+        subtitle: appLocalizations.app_haptic_feedback_subtitle,
+        value: userPreferences.hapticFeedbackEnabled,
+        onChanged: (final bool value) async =>
+            userPreferences.setHapticFeedbackEnabled(value),
+      ),
+      _getTitle(label: appLocalizations.settings_app_beta),
       UserPreferencesItemSwitch(
         title: appLocalizations.search_product_filter_visibility_title,
         subtitle: appLocalizations.search_product_filter_visibility_subtitle,
@@ -99,18 +110,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         onChanged: (final bool visible) async =>
             userPreferences.setSearchProductTypeFilter(visible),
       ),
-      if (CameraHelper.hasACamera)
-        _getTitle(
-          label: appLocalizations.settings_app_miscellaneous,
-        ),
-      if (CameraHelper.hasACamera)
-        UserPreferencesItemSwitch(
-          title: appLocalizations.app_haptic_feedback_title,
-          subtitle: appLocalizations.app_haptic_feedback_subtitle,
-          value: userPreferences.hapticFeedbackEnabled,
-          onChanged: (final bool value) async =>
-              userPreferences.setHapticFeedbackEnabled(value),
-        ),
       _getTitle(label: appLocalizations.settings_app_data),
       UserPreferencesItemSwitch(
         title: appLocalizations.crash_reporting_toggle_title,
