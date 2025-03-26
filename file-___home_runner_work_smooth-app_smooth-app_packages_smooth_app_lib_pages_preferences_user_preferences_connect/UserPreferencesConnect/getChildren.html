@@ -76,6 +76,11 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
         leadingIconData: CupertinoIcons.news_solid,
       ),
       _getListTile(
+        title: appLocalizations.contact_title_calendar,
+        url: &#39;https:&#47;&#47;wiki.openfoodfacts.org&#47;Events&#39;,
+        leadingIconData: Icons.calendar_month,
+      ),
+      _getListTile(
         title: appLocalizations.support_via_email,
         leadingIconData: Icons.drafts,
         onTap: () async {
