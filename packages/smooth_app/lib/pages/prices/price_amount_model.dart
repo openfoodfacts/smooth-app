@@ -48,14 +48,11 @@ class PriceAmountModel {
     _promo = value;
   }
 
-  static double? validateDouble(final String value) {
-    final double? res = double.tryParse(value.replaceAll(',', '.'));
-    if (res == null || res <= 0) {
-      return null;
-    } else {
-      return res;
-    }
-  }
+  static double? validateDouble(final String value) =>
+      double.tryParse(value) ??
+      double.tryParse(
+        value.replaceAll(',', '.'),
+      );
 
   String? checkParameters(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
