@@ -34,6 +34,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.maxLines,
     this.borderRadius,
     this.contentPadding,
+    this.outlined = false,
   });
 
   final TextFieldTypes type;
@@ -57,6 +58,7 @@ class SmoothTextFormField extends StatefulWidget {
   final int? maxLines;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? contentPadding;
+  final bool outlined;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -87,6 +89,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         );
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -135,13 +138,27 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         hintMaxLines: widget.maxLines ?? 2,
         border: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+          borderSide: widget.outlined
+              ? BorderSide(
+                  color: theme.primaryColor,
+                  width: 1.0,
+                )
+              : const BorderSide(
+                  color: Colors.transparent,
+                  width: 5.0,
+                ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-          borderSide: const BorderSide(
-            color: Colors.transparent,
-            width: 5.0,
-          ),
+          borderSide: widget.outlined
+              ? BorderSide(
+                  color: theme.primaryColor,
+                  width: 1.0,
+                )
+              : const BorderSide(
+                  color: Colors.transparent,
+                  width: 5.0,
+                ),
         ),
         suffixIcon: widget.suffixIcon ??
             (widget.type == TextFieldTypes.PASSWORD

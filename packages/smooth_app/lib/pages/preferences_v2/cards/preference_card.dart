@@ -17,6 +17,7 @@ class PreferenceCard extends StatelessWidget {
     return SmoothCardWithRoundedHeader(
       leading: const SizedBox.square(dimension: 0.0),
       title: title,
+      titleTextStyle: Theme.of(context).textTheme.bodyLarge,
       child: Column(
         children: tiles.map((PreferenceTile tile) => tile).toList(),
       ),

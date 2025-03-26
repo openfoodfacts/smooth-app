@@ -3,24 +3,21 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
 class UrlPreferenceTile extends PreferenceTile {
-  UrlPreferenceTile({
-    required this.icon,
-    required this.title,
-    this.subtitle,
+  const UrlPreferenceTile({
+    required super.icon,
+    required super.title,
+    super.subtitle,
     required this.url,
   });
 
-  final IconData icon;
-  final String title;
-  final String? subtitle;
   final String url;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(icon),
-      title: Text(title),
-      subtitle: subtitle != null ? Text(subtitle!) : null,
+    return PreferenceTile(
+      icon: icon,
+      title: title,
+      subtitle: subtitle,
       trailing: const Icon(Icons.open_in_browser),
       onTap: () {
         LaunchUrlHelper.launchURLInWebViewOrBrowser(
@@ -30,8 +27,4 @@ class UrlPreferenceTile extends PreferenceTile {
       },
     );
   }
-
-  @override
-  String get keywords =>
-      '${title.toLowerCase()} ${subtitle?.toLowerCase() ?? ''}';
 }

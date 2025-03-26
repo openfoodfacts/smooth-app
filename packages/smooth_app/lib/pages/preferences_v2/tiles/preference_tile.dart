@@ -1,34 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 
-abstract class PreferenceTile extends StatelessWidget {
-  String get keywords;
-}
-
-class NavigationPreferenceTile extends PreferenceTile {
-  NavigationPreferenceTile({
+class PreferenceTile extends StatelessWidget {
+  const PreferenceTile({
+    super.key,
     required this.icon,
     required this.title,
-    required this.subtitle,
-    required this.root,
+    this.subtitle,
+    this.trailing,
+    this.onTap,
   });
 
   final IconData icon;
   final String title;
-  final String subtitle;
-  final PreferencesRoot root;
+  final String? subtitle;
+  final Widget? trailing;
+  final Function()? onTap;
+
+  String get keywords =>
+      '${title.toLowerCase()} ${subtitle?.toLowerCase() ?? ''}';
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return ListTile(
-      leading: Icon(icon),
+      leading: Icon(
+        icon,
+        color: theme.primaryColor,
+      ),
       title: Text(title),
-      subtitle: Text(subtitle),
-      trailing: const Icon(Icons.arrow_forward_ios),
-      onTap: () {},
+      subtitle: subtitle != null ? Text(subtitle!) : null,
+      trailing: trailing,
+      onTap: onTap,
     );
   }
-
-  @override
-  String get keywords => '${title.toLowerCase()} ${subtitle.toLowerCase()}';
 }
