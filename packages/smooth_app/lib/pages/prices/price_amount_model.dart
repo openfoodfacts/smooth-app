@@ -48,7 +48,7 @@ class PriceAmountModel {
     _promo = value;
   }
 
-// This will check the input and returns null if invalid, else the double value
+  /// Returns the value as a valid strictly positive `double`, or `null`.
   static double? validateDouble(final String value) {
     final double? res = double.tryParse(value.replaceAll(',', '.'));
     if (res == null || res <= 0) {
