@@ -2730,7 +2730,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Bitte fügen Sie vor der Validierung nur dann eine Übersetzung hinzu, **wenn die Sprache auf der Verpackung angegeben ist**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3686,7 +3686,7 @@
   "contact_title_press_page": "Pressemappe",
   "contact_title_press_email": "Pressekontakt",
   "contact_title_newsletter": "Abonnieren Sie den Newsletter",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Abonnieren Sie unseren Community-Kalender",
   "hunger_games_loading_line1": "Bitte einen kurzen Moment Geduld …",
   "hunger_games_loading_line2": "Die Fragen werden gerade heruntergeladen!",
   "hunger_games_error_label": "Leider ist ein Problem aufgetreten … und die Fragen konnten nicht geladen werden.",
