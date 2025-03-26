@@ -1,5 +1,58 @@
 # Changelog
 
+## [4.19.0](https://github.com/openfoodfacts/smooth-app/compare/v4.18.1...v4.19.0) (2025-03-10)
+
+
+### Features
+
+* 5411 - now uses nominatim location search if it looks like OSM type/id ([#6398](https://github.com/openfoodfacts/smooth-app/issues/6398)) ([d104a39](https://github.com/openfoodfacts/smooth-app/commit/d104a39447816d53609f03ccccf60c1807dbdca0))
+* 5455 - new "data quality" link in "contribute" page ([#6401](https://github.com/openfoodfacts/smooth-app/issues/6401)) ([44c43ba](https://github.com/openfoodfacts/smooth-app/commit/44c43ba179126d5b930b8cdf4b720160893ac214))
+* 5963 - store nutrient order and names in database ([#6399](https://github.com/openfoodfacts/smooth-app/issues/6399)) ([205894b](https://github.com/openfoodfacts/smooth-app/commit/205894b9d9f47125db0fde65a56635e372df7cc2))
+* 5988 - new "top price products" page ([#6310](https://github.com/openfoodfacts/smooth-app/issues/6310)) ([0c9eadf](https://github.com/openfoodfacts/smooth-app/commit/0c9eadfcf0258de4feb71d946d0ca453214759a7))
+* 6010 - shortcut to the price contribution assistant ([#6394](https://github.com/openfoodfacts/smooth-app/issues/6394)) ([8ab1483](https://github.com/openfoodfacts/smooth-app/commit/8ab14838a5a1d4c53d2a3ea560d486c291fb85b3))
+* 6017 - from proof page, show previously added prices ([#6395](https://github.com/openfoodfacts/smooth-app/issues/6395)) ([ab7c74c](https://github.com/openfoodfacts/smooth-app/commit/ab7c74c7d31da6a484e9545e2b87c70e15638872))
+* 6104 - "eraser" feature for new images of "product" products ([#6388](https://github.com/openfoodfacts/smooth-app/issues/6388)) ([d1324df](https://github.com/openfoodfacts/smooth-app/commit/d1324dfabecd79fc1e33466f4ea963c8b9d02278))
+* A modal sheet for price proof selector ([#6238](https://github.com/openfoodfacts/smooth-app/issues/6238)) ([e62f147](https://github.com/openfoodfacts/smooth-app/commit/e62f1470a57aba44d86385bc0f1ca12bad73f2fc))
+* Add infos about the photo in the modal sheet (gallery) ([#6229](https://github.com/openfoodfacts/smooth-app/issues/6229)) ([0020264](https://github.com/openfoodfacts/smooth-app/commit/0020264c406679ced83579ce18c5064911770607))
+* Add Mastodon, TikTok, and BlueSky social media accounts to links and update assets ([#6343](https://github.com/openfoodfacts/smooth-app/issues/6343)) ([dff1c58](https://github.com/openfoodfacts/smooth-app/commit/dff1c58a270e5b22970318ddb7af82dc79061b31))
+* Added ability to export and import user product lists ([#6304](https://github.com/openfoodfacts/smooth-app/issues/6304)) ([0ac763d](https://github.com/openfoodfacts/smooth-app/commit/0ac763d98a87cecf311611b5d1c673ddee785df2))
+* Added Robotoff nutrition extraction to nutrition edit page ([#6366](https://github.com/openfoodfacts/smooth-app/issues/6366)) ([e93f069](https://github.com/openfoodfacts/smooth-app/commit/e93f0692c40d8c6c6030c764c84eaeb114b1e79f))
+* Adding Robotoff Questions to product edition ([#6389](https://github.com/openfoodfacts/smooth-app/issues/6389)) ([95c1d51](https://github.com/openfoodfacts/smooth-app/commit/95c1d514511d658dd5a1044484bf230bc3673afc))
+* Contribute to your country link ([#5874](https://github.com/openfoodfacts/smooth-app/issues/5874)) ([63eef88](https://github.com/openfoodfacts/smooth-app/commit/63eef889bb2bde8313f8ef0c6bc057a3b8c036f5))
+* Convert Privacy warning to bottom sheet ([#6213](https://github.com/openfoodfacts/smooth-app/issues/6213)) ([dfdda4e](https://github.com/openfoodfacts/smooth-app/commit/dfdda4e898eb32ebfc66111f9b9558e5766c0790))
+* Edit product page with product type + footer ([#6313](https://github.com/openfoodfacts/smooth-app/issues/6313)) ([61585ca](https://github.com/openfoodfacts/smooth-app/commit/61585caadd54083cd39e3becfdd78612423e33c4))
+* Help text for all fields ([#6324](https://github.com/openfoodfacts/smooth-app/issues/6324)) ([8af3cc8](https://github.com/openfoodfacts/smooth-app/commit/8af3cc8876069bbcff4a1cb7b0bea858b89cc3f4))
+* Improved nutrition input ([#6261](https://github.com/openfoodfacts/smooth-app/issues/6261)) ([8324456](https://github.com/openfoodfacts/smooth-app/commit/83244568189e579797e1dc73d45258047f4fbf0f))
+* Multi-lingual input for product name + help banner ([#6286](https://github.com/openfoodfacts/smooth-app/issues/6286)) ([74fe856](https://github.com/openfoodfacts/smooth-app/commit/74fe8560be8ddc2430e5251e8f316017dbf37e80))
+* Nutrition page (auto-focus on new fields + owner field) ([#6218](https://github.com/openfoodfacts/smooth-app/issues/6218)) ([db1d0b8](https://github.com/openfoodfacts/smooth-app/commit/db1d0b8caba9ed1e74f21c917b66dad7d797c4c1))
+* Same layout between country/language pickers (settings) ([#6231](https://github.com/openfoodfacts/smooth-app/issues/6231)) ([4e8209d](https://github.com/openfoodfacts/smooth-app/commit/4e8209d4e74d334e55d261f1d6ee07ffd8998759))
+* Use a WebView for OFF links ([#6211](https://github.com/openfoodfacts/smooth-app/issues/6211)) ([0c6cf07](https://github.com/openfoodfacts/smooth-app/commit/0c6cf073d4143ae1f0b32cda949135d658d654a5))
+* Use the photo banner for all photos + OCR pages ([#6298](https://github.com/openfoodfacts/smooth-app/issues/6298)) ([aab292a](https://github.com/openfoodfacts/smooth-app/commit/aab292a1f4c234b924a1fd2fc69bf2a40ffd6996))
+
+
+### Bug Fixes
+
+* 6020 - disable automatic report of failed http connections ([#6378](https://github.com/openfoodfacts/smooth-app/issues/6378)) ([5846d30](https://github.com/openfoodfacts/smooth-app/commit/5846d304ad178f90d7f281f751b3ed751a70f2e2))
+* 6249 - refresh of the prices of a product after a related price addition ([#6361](https://github.com/openfoodfacts/smooth-app/issues/6361)) ([75fc7b5](https://github.com/openfoodfacts/smooth-app/commit/75fc7b5d354d71b5943879bff2015c63a4af6ca7))
+* 6281 LateError: LateInitializationError  ([#6287](https://github.com/openfoodfacts/smooth-app/issues/6287)) ([4cef8f0](https://github.com/openfoodfacts/smooth-app/commit/4cef8f04e734e262f8eb0a0f259c7d485e6ecfae))
+* 6413 - hiding "install OxF" links ([#6435](https://github.com/openfoodfacts/smooth-app/issues/6435)) ([b9d83a4](https://github.com/openfoodfacts/smooth-app/commit/b9d83a45cec4f5fc5033ac16a830a2e1623ce076))
+* 6425 - clean usage of nutriscore new icon in guide ([#6434](https://github.com/openfoodfacts/smooth-app/issues/6434)) ([d5ed22b](https://github.com/openfoodfacts/smooth-app/commit/d5ed22bd66a4374499aed8719a90bdfc68819b55))
+* center loading indicator alignment ([#6429](https://github.com/openfoodfacts/smooth-app/issues/6429)) ([8f65496](https://github.com/openfoodfacts/smooth-app/commit/8f65496c0f0c1de7f07b8a13b4ff4255cc2d611f))
+* Correct Finnish language translation ([#6215](https://github.com/openfoodfacts/smooth-app/issues/6215)) ([72a98a4](https://github.com/openfoodfacts/smooth-app/commit/72a98a4df34224304df8e131d819fe4850ea2a12))
+* corrupted app_en.arb file ([#6393](https://github.com/openfoodfacts/smooth-app/issues/6393)) ([cdacaa9](https://github.com/openfoodfacts/smooth-app/commit/cdacaa9486b97fedcb5d143573a6170fce189fc8))
+* disable gemini without explicit invocation ([ee1e5a5](https://github.com/openfoodfacts/smooth-app/commit/ee1e5a5447cce41276cc9daa57ef3a3d29781ed4))
+* Display readable scanner type in debug info instead of object instance ([#6439](https://github.com/openfoodfacts/smooth-app/issues/6439)) ([8ed5e02](https://github.com/openfoodfacts/smooth-app/commit/8ed5e0210370b07ab7e205780cdba32d632c3a65))
+* Hide more interesting photo if nothing is available ([#6251](https://github.com/openfoodfacts/smooth-app/issues/6251)) ([0e45c57](https://github.com/openfoodfacts/smooth-app/commit/0e45c574d4d47f82393ca682e319ce98746551a4))
+* Infinite redraw in the gallery ([#6355](https://github.com/openfoodfacts/smooth-app/issues/6355)) ([740ea86](https://github.com/openfoodfacts/smooth-app/commit/740ea86acbeba49a5513f60a00bb48221d4d4c72))
+* Only set the product language on addition ([#6386](https://github.com/openfoodfacts/smooth-app/issues/6386)) ([8306848](https://github.com/openfoodfacts/smooth-app/commit/8306848574626f5d377a50f2fe15c1461ca8261b))
+* Per 100g -&gt; Per 100g/100ml ([#6291](https://github.com/openfoodfacts/smooth-app/issues/6291)) ([09da3ee](https://github.com/openfoodfacts/smooth-app/commit/09da3ee646b3d8cab44bfa86ad8ffc152d5f60e8))
+* Product edition UI improvements ([#6320](https://github.com/openfoodfacts/smooth-app/issues/6320)) ([cdf637d](https://github.com/openfoodfacts/smooth-app/commit/cdf637d960d29e02430056e81c1816311c7b0452))
+* Queries are lost when opening the browser from a deep link ([#6328](https://github.com/openfoodfacts/smooth-app/issues/6328)) ([ea92939](https://github.com/openfoodfacts/smooth-app/commit/ea9293911fa9b8c0db8dbb2b52d59bd475d606a7))
+* Rename config.yml to config.yaml ([9ae6456](https://github.com/openfoodfacts/smooth-app/commit/9ae6456c33e0e9dfaf517583287623e54352f781))
+* Swipe to refresh in ingredients sub-knowledge panel ([#6438](https://github.com/openfoodfacts/smooth-app/issues/6438)) ([61e421c](https://github.com/openfoodfacts/smooth-app/commit/61e421cba242f9382aeba8d44d40c794409b2e95))
+* Themed icon for iOS ([#6288](https://github.com/openfoodfacts/smooth-app/issues/6288)) ([e9c8a8b](https://github.com/openfoodfacts/smooth-app/commit/e9c8a8bfed837d65f0568e2b6e2b2d0497f0408c))
+* UI Styling Issue in Compatibility Percentage Display [#6431](https://github.com/openfoodfacts/smooth-app/issues/6431) ([#6432](https://github.com/openfoodfacts/smooth-app/issues/6432)) ([0d43e3e](https://github.com/openfoodfacts/smooth-app/commit/0d43e3e07d8db4cff6eeb32ee538168a1914c11c))
+
 ## [4.18.1](https://github.com/openfoodfacts/smooth-app/compare/v4.18.0...v4.18.1) (2025-01-16)
 
 
