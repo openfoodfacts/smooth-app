@@ -49,8 +49,12 @@ class ProductFooterSettingsButton extends StatelessWidget {
           title: appLocalizations.product_page_action_bar_setting_modal_title,
           prefixIndicator: true,
           closeButton: true,
-          expandBody: true,
-          body: const _ProductActionBarModal(),
+          expandBody: false, // Avoid unbounded expansion
+          staticContent: false, // Dynamic content for reordering
+          body: SizedBox(
+            height: size - SmoothModalSheetHeader.MIN_HEIGHT,
+            child: const _ProductActionBarModal(),
+          ),
           bodyPadding: EdgeInsets.zero,
         );
       },
@@ -60,12 +64,17 @@ class ProductFooterSettingsButton extends StatelessWidget {
   /// Header + list padding + for each action: height + separator
   /// + bottom padding (nav bar)
   double _computeContentSize(BuildContext context) {
-    return SmoothModalSheetHeader.MIN_HEIGHT +
+    final double availableHeight =
+        MediaQuery.of(context).size.height * 0.8; // 80% screen height
+    final double itemHeight = _ProductActionBarModalItemEditorState.MIN_HEIGHT +
+        _ProductActionBarModalEditorState.SEPARATOR_SIZE;
+    final int itemCount = ProductFooterActionBar.defaultOrder().length;
+    final double contentHeight = SmoothModalSheetHeader.MIN_HEIGHT +
         _ProductActionBarModalEditorState.PADDING.vertical +
-        (_ProductActionBarModalItemEditorState.MIN_HEIGHT +
-                _ProductActionBarModalEditorState.SEPARATOR_SIZE) *
-            (ProductFooterActionBar.defaultOrder().length) +
+        itemHeight * itemCount +
         MediaQuery.viewPaddingOf(context).bottom;
+
+    return contentHeight.clamp(0, availableHeight);
   }
 }
 
@@ -126,13 +135,16 @@ class _ProductActionBarModalEditorState
             .value as _ProductActionBarChangedState)
         .entries;
 
-    return SmoothAnimatedList<_ProductActionBarEntry>(
-      data: entries,
+    return ListView.separated(
+      shrinkWrap: true, // Ensure it takes only the space it needs
+      physics: const NeverScrollableScrollPhysics(), // Parent handles scrolling
+      padding: PADDING,
+      itemCount: entries.length,
       itemBuilder: (
         BuildContext context,
-        _ProductActionBarEntry entry,
         int index,
       ) {
+        final _ProductActionBarEntry entry = entries[index];
         return KeyedSubtree(
           key: ValueKey<ProductFooterActionBar>(entry.action),
           child: _ProductActionBarModalItemEditor(
@@ -144,8 +156,7 @@ class _ProductActionBarModalEditorState
           ),
         );
       },
-      separatorSize: SEPARATOR_SIZE,
-      padding: PADDING,
+      separatorBuilder: (_, __) => const SizedBox(height: SEPARATOR_SIZE),
     );
   }
 }
