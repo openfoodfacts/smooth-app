@@ -4,7 +4,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences/attribute_group_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
@@ -49,20 +48,35 @@ class UserPreferencesAttributeGroup {
             right: LARGE_SPACE,
           ),
           child: Card(
-            shape: const RoundedRectangleBorder(),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: ROUNDED_RADIUS,
+                topRight: ROUNDED_RADIUS,
+              ),
+            ),
             margin: const EdgeInsets.only(top: LARGE_SPACE),
             child: InkWell(
               onTap: () async =>
                   userPreferences.setActiveAttributeGroup(group.id!),
-              child: AttributeGroupListTile(
+              child: ListTile(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: ROUNDED_RADIUS,
+                    topRight: ROUNDED_RADIUS,
+                  ),
+                ),
+                tileColor: Theme.of(context).primaryColor,
+                leading: const Icon(Icons.circle, color: Colors.white),
                 title: Text(
                   group.name ?? appLocalizations.unknown,
                   style: themeData.textTheme.titleLarge!.copyWith(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
-                icon: collapsed!
-                    ? const Icon(Icons.keyboard_arrow_right)
-                    : const Icon(Icons.keyboard_arrow_down),
+                trailing: collapsed!
+                    ? const Icon(Icons.keyboard_arrow_right,
+                        color: Colors.white)
+                    : const Icon(Icons.keyboard_arrow_down,
+                        color: Colors.white),
               ),
             ),
           ),
@@ -111,7 +125,14 @@ class UserPreferencesAttributeGroup {
           builder: (_) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
             child: Card(
-              shape: const RoundedRectangleBorder(),
+              shape: attribute == group.attributes!.last
+                  ? const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: ROUNDED_RADIUS,
+                        bottomRight: ROUNDED_RADIUS,
+                      ),
+                    )
+                  : const RoundedRectangleBorder(),
               margin: EdgeInsets.zero,
               child: AttributeButton(attribute, productPreferences),
             ),
