@@ -66,7 +66,8 @@ class UserPreferencesAttributeGroup {
                   ),
                 ),
                 tileColor: Theme.of(context).primaryColor,
-                leading: const Icon(Icons.circle, color: Colors.white),
+                leading:
+                    const Icon(Icons.circle, color: Colors.white, size: 32.0),
                 title: Text(
                   group.name ?? appLocalizations.unknown,
                   style: themeData.textTheme.titleLarge!.copyWith(

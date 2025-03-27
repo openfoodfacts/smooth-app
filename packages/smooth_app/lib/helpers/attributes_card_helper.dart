@@ -35,8 +35,7 @@ enum AttributeEvaluation {
 
 Widget getAttributeDisplayIcon(final Attribute attribute,
     {bool? isFoodPreferences = false, BuildContext? context}) {
-  return Padding(
-    padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+  return Container(
     child: attribute.getCircledIcon(
       backgroundColor: isFoodPreferences!
           ? Theme.of(context!).primaryColor

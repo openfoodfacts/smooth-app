@@ -184,7 +184,7 @@ extension AttributeExtensions on Attribute {
         size: size,
       );
     } catch (e) {
-      return EMPTY_WIDGET;
+      return SizedBox(width: size, height: size);
     }
   }
 }

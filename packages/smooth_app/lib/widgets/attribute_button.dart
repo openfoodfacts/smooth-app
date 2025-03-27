@@ -46,9 +46,15 @@ class _AttributeButtonState extends State<AttributeButton> {
             currentImportanceId,
           ),
           child: ListTile(
-            leading: Icon(
-              Icons.radio_button_checked,
-              color: Theme.of(context).primaryColor,
+            leading: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: (32.0 - DEFAULT_ICON_SIZE) / 2.0,
+              ),
+              child: Icon(
+                Icons.radio_button_checked,
+                color: Theme.of(context).primaryColor,
+                size: DEFAULT_ICON_SIZE,
+              ),
             ),
             title: AutoSizeText(
               widget.productPreferences
