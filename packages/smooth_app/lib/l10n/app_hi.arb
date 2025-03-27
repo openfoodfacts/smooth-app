@@ -12,7 +12,7 @@
   "@account_delete_message": {},
   "reason": "Reason",
   "@reason": {},
-  "okay": "Okay",
+  "okay": "ठीक है",
   "@okay": {},
   "validate": "Validate",
   "@validate": {
@@ -135,7 +135,7 @@
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+  "welcomeToOpenFoodFacts": "ओपन फूड फैक्ट्स में आपका स्वागत है",
   "@welcomeToOpenFoodFacts": {},
   "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
   "@whatIsOff": {
@@ -202,7 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "view_profile": "View profile",
+  "view_profile": "प्रोफाइल देखें",
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
