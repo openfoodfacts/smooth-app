@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                 top: size.height * 0.05,
                 start: size.width * 0.15,
                 end: size.width * 0.15,
-                bottom: size.width * 0.05,
+                bottom: MediaQuery.viewInsetsOf(context).bottom * 0.25,
               ),
               child: AutofillGroup(
                 child: Center(

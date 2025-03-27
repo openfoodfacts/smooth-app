@@ -51,6 +51,11 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           leadingIconData: CupertinoIcons.news_solid,
         ),
         _getListTile(
+          title: appLocalizations.contact_title_calendar,
+          url: 'https://wiki.openfoodfacts.org/Events',
+          leadingIconData: Icons.calendar_month,
+        ),
+        _getListTile(
           title: appLocalizations.support_via_email,
           leadingIconData: Icons.drafts,
           onTap: () async {
