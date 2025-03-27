@@ -2754,7 +2754,7 @@
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "Osvědčené postupy: Název produktu",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
