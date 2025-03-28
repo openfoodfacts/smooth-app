@@ -213,7 +213,6 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               _ListTitleItem(
                 title:
                     appLocalizations.edit_product_form_item_other_details_title,
-                //subtitle: appLocalizations.edit_product_form_item_other_details_subtitle,
                 warning: [
                   (upToDateProduct.website==null) ? appLocalizations.edit_product_form_item_other_details_title : "",
                 ],
@@ -362,7 +361,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                                 } else {
                                   _sortByField();
                                 }
-                              }, // Brown text
+                              }, 
                               items: [
                                   appLocalizations.sort_by_fields, 
                                   appLocalizations.sort_by_missing_data
