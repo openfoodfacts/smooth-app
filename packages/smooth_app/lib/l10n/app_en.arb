@@ -4158,5 +4158,33 @@
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "authentication_bottom_sheet_header": "Join Open Food Facts!",
+  "@authentication_bottom_sheet_header": {
+    "description": "Header of the authentication bottom sheet"
+  },
+  "authentication_bottom_sheet_title": "With an **Open Food Facts account**, you are joining a **community** of thousand contributors!",
+  "@authentication_bottom_sheet_title": {
+    "description": "Title of the authentication bottom sheet"
+  },
+  "authentication_bottom_sheet_title_addition": "You will then be able to :",
+  "@authentication_bottom_sheet_title_addition": {
+    "description": "Text right under the title of the authentication bottom sheet"
+  },
+  "authentication_bottom_sheet_first_chip": "Add and modify products",
+  "@authentication_bottom_sheet_first_chip": {
+    "description": "The first chip of the authentication bottom sheet"
+  },
+  "authentication_bottom_sheet_second_chip": "Add prices",
+  "@authentication_bottom_sheet_second_chip": {
+    "description": "The second chip of the authentication bottom sheet"
+  },
+  "authentication_bottom_sheet_third_chip": "Take part in our events",
+  "@authentication_bottom_sheet_third_chip": {
+    "description": "The third chip of the authentication bottom sheet"
+  },
+  "authentication_bottom_sheet_subtitle": "And all this **for free** !\n(And most importantly, while respecting your privacy)",
+  "@authentication_bottom_sheet_subtitle": {
+    "description": "Subtitle of the authentication bottom sheet"
   }
 }

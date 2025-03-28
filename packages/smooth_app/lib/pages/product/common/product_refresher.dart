@@ -15,6 +15,7 @@ import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/pages/user_management/authentication_bottom_sheet.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
@@ -29,46 +30,7 @@ class ProductRefresher {
     if (ProductQuery.isLoggedIn()) {
       return true;
     }
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    await showDialog<void>(
-      context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              SvgPicture.asset(
-                'assets/onboarding/globe.svg',
-                height: MediaQuery.sizeOf(context).height * .5,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Text(
-                  appLocalizations.account_create_message,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ]),
-        actionsAxis: Axis.vertical,
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.join_us,
-          onPressed: () async {
-            Navigator.of(context).pop(); // remove dialog
-            await Navigator.of(
-              context,
-              rootNavigator: true,
-            ).push<dynamic>(
-              MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => const LoginPage(),
-              ),
-            );
-          },
-        ),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.cancel,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
-    );
+    AuthenticationBottomSheet(context).show();
     return false;
   }
 
