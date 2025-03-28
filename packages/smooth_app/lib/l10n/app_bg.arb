@@ -448,10 +448,10 @@
   "myPreferences_profile_title": "Профил",
   "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
   "myPreferences_settings_title": "Настройки",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "Тъмен режим, Езици…",
   "myPreferences_food_title": "Хранителни предпочитания",
   "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
-  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_food_comment": "Избери коя информация за храната е най-важна за теб, за да класираш храната според твоите предпочитания. Виж информацията, която те интересува и получи обобщение за съвместимост. Тези предпочитания за храна остават на твоето устройство и не са свързани с твоят акаунт на сътрудник в Open Food Facts, ако имаш такъв.",
   "confirmResetPreferences": "Нулиране на твоите хранителни предпочитания?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -1104,7 +1104,7 @@
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
   },
-  "country_chooser_label_from_settings": "Your country",
+  "country_chooser_label_from_settings": "Твоята страна",
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
@@ -1232,15 +1232,15 @@
   },
   "retry_button_label": "Повторен опит",
   "connect_with_us": "Свържи се с нас",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Последвай ни в TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
-  "instagram": "Follow us on Instagram",
+  "instagram": "Последвай ни в Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
-  "twitter": "Follow us on X (formerly Twitter)",
+  "twitter": "Последвай ни в X (бивш Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Последвай ни в Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Последвай ни в BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Блог",
   "faq": "ЧЗВ",
@@ -2267,7 +2267,7 @@
   "prices_add_n_prices": "{count,plural, =1{Добави цена} other{Добави {count} цени}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
   "prices_add_an_item": "Add an item",
-  "prices_add_a_price": "Add a price",
+  "prices_add_a_price": "Добавяне на цена",
   "prices_add_a_receipt": "Add a receipt",
   "prices_add_price_tags": "Add price tags",
   "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
@@ -2722,7 +2722,7 @@
   },
   "basic_details": "Основни подробности",
   "product_name": "Име на продукта",
-  "product_names": "Product Names",
+  "product_names": "Имена на продуктите",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
@@ -2800,9 +2800,9 @@
     }
   },
   "brand_name": "Марка",
-  "brand_names": "Brand names",
+  "brand_names": "Имена на марките",
   "add_basic_details_brand_name_error": "Моля, въведи името на марката",
-  "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+  "add_basic_details_brand_names_hint": "Въведи марките (напр: LB Bulgaricum)",
   "add_basic_details_product_brand_help_title": "Good practices: Brands",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
@@ -3131,11 +3131,11 @@
   "@language_picker_label": {
     "description": "Choose Application Language"
   },
-  "country_picker_label": "Your country",
+  "country_picker_label": "Твоята страна",
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
-  "currency_picker_label": "Your currency",
+  "currency_picker_label": "Твоята валута",
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3272,7 +3272,7 @@
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
-  "user_picture_source_ask": "Ask each time",
+  "user_picture_source_ask": "Питай всеки път",
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
