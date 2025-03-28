@@ -67,7 +67,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         label: appLocalizations.settings_app_image_source,
       ),
       UserPreferencesImageSource.getUserPreferencesItem(context),
-      
       _getTitle(
         label: appLocalizations.settings_app_products,
       ),
