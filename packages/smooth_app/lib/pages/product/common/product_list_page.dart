@@ -17,7 +17,6 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
@@ -306,16 +305,6 @@ class _ProductListPageState extends State<ProductListPage>
     );
   }
 
-  double _computeModalInitHeight(BuildContext context) {
-    if (context.isSmallDevice()) {
-      return 0.7;
-    } else if (context.isSmartphoneDevice()) {
-      return 0.55;
-    } else {
-      return 0.45;
-    }
-  }
-
   Widget _buildItem(
     final bool dismissible,
     final List<String> barcodes,
@@ -541,7 +530,6 @@ class _ProductListPageState extends State<ProductListPage>
       bodyBuilder: (BuildContext context) => AllProductListModal(
         currentList: productList,
       ),
-      initHeight: _computeModalInitHeight(context),
     );
 
     if (selected == null) {

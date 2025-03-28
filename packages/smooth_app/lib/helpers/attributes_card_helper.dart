@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/product/attribute_extensions.dart';
 
 // TODO(Stephane): Evaluation should come directly from the BE.
 enum AttributeEvaluation {
@@ -33,11 +34,12 @@ enum AttributeEvaluation {
 }
 
 Widget getAttributeDisplayIcon(final Attribute attribute) {
-  final Color color = getAttributeDisplayBackgroundColor(attribute);
-  final IconData iconData = getAttributeDisplayIconData(attribute);
   return Padding(
     padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
-    child: Icon(iconData, color: color),
+    child: attribute.getCircledIcon(
+      backgroundColor: getAttributeDisplayBackgroundColor(attribute),
+      size: 32.0,
+    ),
   );
 }
 

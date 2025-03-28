@@ -57,7 +57,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
 
     infos.putIfAbsent('Version', () => packageInfo.version);
     infos.putIfAbsent('BuildNumber', () => packageInfo.buildNumber);
-    infos.putIfAbsent('Scanner', () => GlobalVars.barcodeScanner);
+    infos.putIfAbsent('Scanner', () => GlobalVars.barcodeScanner.getType());
     infos.putIfAbsent('Store', () => GlobalVars.storeLabel);
     infos.putIfAbsent('PackageName', () => packageInfo.packageName);
   }
