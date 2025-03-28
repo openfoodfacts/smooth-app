@@ -19,7 +19,7 @@
 
 ## Weekly meetings
 
-- We e-meet Thursdays at 17:30 Paris Time (16:30 London Time, 22:00 IST, 08:30 AM PT)
+- We e-meet Thursdays at 12:30 Paris Time (11:30 London Time, 17:00 IST, 03:30 AM PT)
 - ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: <https://meet.google.com/gnp-frks-esc>
 - Join by phone: <https://tel.meet/gnp-frks-esc?pin=1110549945262>
 - Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
