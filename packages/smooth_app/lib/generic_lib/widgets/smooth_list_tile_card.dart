@@ -14,6 +14,7 @@ class SmoothListTileCard extends StatelessWidget {
     this.onTap,
     this.leading,
     this.margin,
+    this.color,
     super.key,
   });
 
@@ -25,12 +26,14 @@ class SmoothListTileCard extends StatelessWidget {
     Widget? subtitle,
     GestureTapCallback? onTap,
     EdgeInsetsGeometry? margin,
+    Color? color,
     Key? key,
   }) : this(
           title: title,
           subtitle: subtitle,
           key: key,
           onTap: onTap,
+          color: color,
           // we use a Column to have the icon centered vertically
           leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -44,6 +47,7 @@ class SmoothListTileCard extends StatelessWidget {
   final Widget? leading;
   final GestureTapCallback? onTap;
   final EdgeInsetsGeometry? margin;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -58,31 +62,53 @@ class SmoothListTileCard extends StatelessWidget {
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: onTap,
-        child: ListTile(
-          title: title,
-          subtitle: subtitle,
-          leading: leading != null
-              ? DecoratedBox(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: lightTheme
-                        ? extension.primaryBlack
-                        : extension.primarySemiDark,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
-                    child: IconTheme(
-                      data: IconThemeData(
-                        color: lightTheme ? Colors.white : Colors.white,
-                        size: 20.0,
+        child: 
+          IntrinsicHeight(
+            child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+                  Container(
+                      width: 80,
+                      decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        ),
                       ),
-                      child: leading!,
+                      child: Center(
+                        child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: lightTheme
+                                        ? extension.primaryBlack
+                                        : extension.primarySemiDark,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
+                                    child: IconTheme(
+                                      data: IconThemeData(
+                                        color: extension.primaryLight,
+                                        size: 20.0,
+                                      ),
+                                      child: leading!,
+                                    ),
+                                  ),
+                                ),
+                      ),
                     ),
-                  ),
-                )
-              : null,
-          trailing: Icon(ConstantIcons.forwardIcon),
-        ),
+                    SizedBox(width: 5,),
+              Expanded(
+                child: ListTile(
+                  title: title,
+                  subtitle: subtitle,
+                  trailing: Icon(ConstantIcons.forwardIcon),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                ),
+              ),
+            ],
+                    ),
+          ),
       ),
     );
   }

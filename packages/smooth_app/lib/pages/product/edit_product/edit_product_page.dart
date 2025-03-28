@@ -40,10 +40,226 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
+
+  List<Widget> items=[];
+  List<Widget> originalItems=[];
+  String? selectedOption="Fields";
+
   @override
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
+  }
+
+  void _sortByMissingData(){
+    setState(() {
+      items.sort((a, b){
+        if(a is _ListTitleItem && b is _ListTitleItem){
+          Color ca=a.color ?? Color(0xFF219653);
+          Color cb=b.color ?? Color(0xFF219653);
+          final List<Color> order=[Color(0xFFEB5757), Color(0xFFFB8229), Color(0xFF219653)];
+          return order.indexOf(ca).compareTo(order.indexOf(cb));
+        }
+        return 0;
+      });
+    });
+  }
+
+  void _sortByField() {
+    setState(() {
+      items = List.from(originalItems); // Restore original order
+    });
+  }
+
+  @override
+  void didChangeDependencies(){
+    super.didChangeDependencies();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if(items.isEmpty){
+      items=[
+      _ListTitleItem(
+                leading: Icon(
+                    Icons.edit,
+                    size: 18.0,
+                    ),
+                title: appLocalizations.edit_product_form_item_details_title,
+                error: [
+                  (upToDateProduct.productName==null) ? appLocalizations.product_name : "",
+                  (upToDateProduct.quantity==null) ? appLocalizations.quantity: "",
+                  (upToDateProduct.brands==null) ? appLocalizations.brand_name: "",
+                ],
+                onTap: () async => ProductFieldDetailsEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
+                ),
+              ),
+              _ListTitleItem(
+                leading: Icon(
+                    Icons.add_a_photo_rounded,
+                  ),
+                title: appLocalizations.edit_product_form_item_photos_title,
+                error:[
+                  (upToDateProduct.imageFrontSmallUrl==null && upToDateProduct.imageFrontUrl==null) ? appLocalizations.front_photo : "",
+                  (upToDateProduct.imageIngredientsSmallUrl==null && upToDateProduct.imageIngredientsUrl==null) ? appLocalizations.ingredients_photo : "",
+                  (upToDateProduct.imageNutritionSmallUrl==null && upToDateProduct.imageNutritionUrl==null) ? appLocalizations.nutrition_facts_photo : "",
+                ],
+                warning: [
+                  (upToDateProduct.imagePackagingSmallUrl==null) ? appLocalizations.packaging_information_photo : "",
+                ],
+                onTap: () async {
+                  AnalyticsHelper.trackProductEdit(
+                    AnalyticsEditEvents.photos,
+                    upToDateProduct,
+                  );
+
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          ProductImageGalleryView(
+                        product: upToDateProduct,
+                      ),
+                    ),
+                  );
+                },
+              ),
+              _getMultipleListTileItem(
+                <AbstractSimpleInputPageHelper>[
+                  SimpleInputPageLabelHelper(),
+                  SimpleInputPageStoreHelper(),
+                  SimpleInputPageOriginHelper(),
+                  SimpleInputPageEmbCodeHelper(),
+                  SimpleInputPageCountryHelper(
+                    context.read<UserPreferences>(),
+                  ),
+                  SimpleInputPageCategoryHelper(),
+                ],
+              ),
+              if (upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
+                  leading: const icons.Ingredients.alt(),
+                  title:
+                      appLocalizations.edit_product_form_item_ingredients_title,
+                  error: [
+                    (upToDateProduct.ingredients==null) ? appLocalizations.ingredients : "",
+                  ],
+                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                    context: context,
+                    product: upToDateProduct,
+                  ),
+                ),
+              if (upToDateProduct.productType == null ||
+                  upToDateProduct.productType == ProductType.food)
+                _getSimpleListTileItem(SimpleInputPageCategoryHelper())
+              else
+                _getSimpleListTileItem(SimpleInputPageCategoryNotFoodHelper()),
+              if (upToDateProduct.productType != ProductType.beauty &&
+                  upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
+                    leading: const icons.NutritionFacts(size: 18.0),
+                    title: appLocalizations
+                        .edit_product_form_item_nutrition_facts_title,
+                    error: [
+                      (upToDateProduct.nutritionData==true) ? 
+                          (upToDateProduct.servingSize==null) ? appLocalizations.nutrition_page_serving_size : ""
+                       : "",
+                    ],
+                    onTap: () async {
+                      if (!await ProductRefresher().checkIfLoggedIn(
+                        context,
+                        isLoggedInMandatory: true,
+                      )) {
+                        return;
+                      }
+                      AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.nutrition_Facts,
+                        upToDateProduct,
+                      );
+                      if (!context.mounted) {
+                        return;
+                      }
+                      await NutritionPageLoader.showNutritionPage(
+                        product: upToDateProduct,
+                        isLoggedInMandatory: true,
+                        context: context,
+                      );
+                    }),
+              _getSimpleListTileItem(SimpleInputPageLabelHelper()),
+              _ListTitleItem(
+                leading: const icons.Packaging(),
+                title: appLocalizations.edit_packagings_title,
+                warning: [
+                  (upToDateProduct.packagings==null) ? appLocalizations.edit_packagings_title : "",
+                ],
+                onTap: () async => ProductFieldPackagingEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
+                ),
+              ),
+              _ListTitleItem(
+                leading: const icons.Recycling(),
+                title: appLocalizations.edit_product_form_item_packaging_title,
+                onTap: () async => ProductFieldOcrPackagingEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
+                ),
+              ),
+              _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+              _getSimpleListTileItem(SimpleInputPageOriginHelper()),
+              _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+              _getSimpleListTileItem(SimpleInputPageCountryHelper(
+                context.read<UserPreferences>(),
+              )),
+              _ListTitleItem(
+                title:
+                    appLocalizations.edit_product_form_item_other_details_title,
+                //subtitle: appLocalizations.edit_product_form_item_other_details_subtitle,
+                warning: [
+                  (upToDateProduct.website==null) ? appLocalizations.edit_product_form_item_other_details_title : "",
+                ],
+                onTap: () async {
+                  if (!await ProductRefresher().checkIfLoggedIn(
+                    context,
+                    isLoggedInMandatory: true,
+                  )) {
+                    return;
+                  }
+                  if (!context.mounted) {
+                    return;
+                  }
+                  AnalyticsHelper.trackProductEdit(
+                    AnalyticsEditEvents.otherDetails,
+                    upToDateProduct,
+                  );
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (_) => AddOtherDetailsPage(upToDateProduct),
+                    ),
+                  );
+                },
+              ),
+              Consumer<UserPreferences>(
+                builder:
+                    (BuildContext context, UserPreferences preferences, _) {
+                  return _ListTitleItem(
+                    title: appLocalizations.prices_add_a_price,
+                    leading: icons.AddPrice(
+                      CurrencySelectorHelper().getSelected(
+                        preferences.userCurrencyCode,
+                      ),
+                    ),
+                    onTap: () async => ProductPriceAddPage.showProductPage(
+                      context: context,
+                      product: PriceMetaProduct.product(upToDateProduct),
+                      proofType: ProofType.priceTag,
+                    ),
+                  );
+                },
+              ),
+    ];
+    originalItems=List.from(items);
+    }
   }
 
   @override
@@ -96,161 +312,76 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         children: <Widget>[
           SliverList.list(
             children: <Widget>[
-              _ListTitleItem(
-                leading: const icons.Edit(size: 18.0),
-                title: appLocalizations.edit_product_form_item_details_title,
-                subtitle:
-                    appLocalizations.edit_product_form_item_details_subtitle,
-                onTap: () async => ProductFieldDetailsEditor().edit(
-                  context: context,
-                  product: upToDateProduct,
-                ),
-              ),
-              _ListTitleItem(
-                leading: const Icon(Icons.add_a_photo_rounded),
-                title: appLocalizations.edit_product_form_item_photos_title,
-                subtitle:
-                    appLocalizations.edit_product_form_item_photos_subtitle,
-                onTap: () async {
-                  AnalyticsHelper.trackProductEdit(
-                    AnalyticsEditEvents.photos,
-                    upToDateProduct,
-                  );
-
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          ProductImageGalleryView(
-                        product: upToDateProduct,
-                      ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: lightTheme ? extension.primaryBlack : extension.primaryDark,
                     ),
-                  );
-                },
-              ),
-              _getMultipleListTileItem(
-                <AbstractSimpleInputPageHelper>[
-                  SimpleInputPageLabelHelper(),
-                  SimpleInputPageStoreHelper(),
-                  SimpleInputPageOriginHelper(),
-                  SimpleInputPageEmbCodeHelper(),
-                  SimpleInputPageCountryHelper(
-                    context.read<UserPreferences>(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end, 
+                      children: [
+                        SizedBox(width: 10,),
+                        Icon(Icons.sort, color: extension.primaryLight,),
+                        Icon(Icons.arrow_downward, color: extension.primaryLight,),
+                        Text(
+                          "Sort by :",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: extension.primaryLight, 
+                          ),
+                        ),
+                        SizedBox(width: 8), 
+                        DropdownButtonHideUnderline(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: extension.primaryLight, 
+                              borderRadius: BorderRadius.circular(20), 
+                              border: Border.all(color: extension.primaryBlack, width: 2), 
+                            ),
+                            child: DropdownButton<String>(
+                              value: selectedOption,
+                              icon: Icon(Icons.keyboard_arrow_down_sharp, color: extension.primaryBlack), 
+                              iconSize: 24,
+                              isDense: true,
+                              style: TextStyle(
+                                color: extension.primaryBlack,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              onChanged: (String? newValue) {
+                                if (newValue == null) return;
+                                setState(() {
+                                  selectedOption = newValue;
+                                });
+                                if (newValue == appLocalizations.sort_by_missing_data) {
+                                  _sortByMissingData();
+                                } else {
+                                  _sortByField();
+                                }
+                              }, // Brown text
+                              items: [
+                                  appLocalizations.sort_by_fields, 
+                                  appLocalizations.sort_by_missing_data
+                                ]
+                                  .map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  SimpleInputPageCategoryHelper(),
-                ],
+                ]
               ),
-              if (upToDateProduct.productType != ProductType.product)
-                _ListTitleItem(
-                  leading: const icons.Ingredients.alt(),
-                  title:
-                      appLocalizations.edit_product_form_item_ingredients_title,
-                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
-                    context: context,
-                    product: upToDateProduct,
-                  ),
-                ),
-              if (upToDateProduct.productType == null ||
-                  upToDateProduct.productType == ProductType.food)
-                _getSimpleListTileItem(SimpleInputPageCategoryHelper())
-              else
-                _getSimpleListTileItem(SimpleInputPageCategoryNotFoodHelper()),
-              if (upToDateProduct.productType != ProductType.beauty &&
-                  upToDateProduct.productType != ProductType.product)
-                _ListTitleItem(
-                    leading: const icons.NutritionFacts(size: 18.0),
-                    title: appLocalizations
-                        .edit_product_form_item_nutrition_facts_title,
-                    subtitle: appLocalizations
-                        .edit_product_form_item_nutrition_facts_subtitle,
-                    onTap: () async {
-                      if (!await ProductRefresher().checkIfLoggedIn(
-                        context,
-                        isLoggedInMandatory: true,
-                      )) {
-                        return;
-                      }
-                      AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.nutrition_Facts,
-                        upToDateProduct,
-                      );
-                      if (!context.mounted) {
-                        return;
-                      }
-                      await NutritionPageLoader.showNutritionPage(
-                        product: upToDateProduct,
-                        isLoggedInMandatory: true,
-                        context: context,
-                      );
-                    }),
-              _getSimpleListTileItem(SimpleInputPageLabelHelper()),
-              _ListTitleItem(
-                leading: const icons.Packaging(),
-                title: appLocalizations.edit_packagings_title,
-                onTap: () async => ProductFieldPackagingEditor().edit(
-                  context: context,
-                  product: upToDateProduct,
-                ),
-              ),
-              _ListTitleItem(
-                leading: const icons.Recycling(),
-                title: appLocalizations.edit_product_form_item_packaging_title,
-                onTap: () async => ProductFieldOcrPackagingEditor().edit(
-                  context: context,
-                  product: upToDateProduct,
-                ),
-              ),
-              _getSimpleListTileItem(SimpleInputPageStoreHelper()),
-              _getSimpleListTileItem(SimpleInputPageOriginHelper()),
-              _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-              _getSimpleListTileItem(SimpleInputPageCountryHelper(
-                context.read<UserPreferences>(),
-              )),
-              _ListTitleItem(
-                title:
-                    appLocalizations.edit_product_form_item_other_details_title,
-                subtitle: appLocalizations
-                    .edit_product_form_item_other_details_subtitle,
-                onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(
-                    context,
-                    isLoggedInMandatory: true,
-                  )) {
-                    return;
-                  }
-                  if (!context.mounted) {
-                    return;
-                  }
-                  AnalyticsHelper.trackProductEdit(
-                    AnalyticsEditEvents.otherDetails,
-                    upToDateProduct,
-                  );
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (_) => AddOtherDetailsPage(upToDateProduct),
-                    ),
-                  );
-                },
-              ),
-              Consumer<UserPreferences>(
-                builder:
-                    (BuildContext context, UserPreferences preferences, _) {
-                  return _ListTitleItem(
-                    title: appLocalizations.prices_add_a_price,
-                    leading: icons.AddPrice(
-                      CurrencySelectorHelper().getSelected(
-                        preferences.userCurrencyCode,
-                      ),
-                    ),
-                    onTap: () async => ProductPriceAddPage.showProductPage(
-                      context: context,
-                      product: PriceMetaProduct.product(upToDateProduct),
-                      proofType: ProofType.priceTag,
-                    ),
-                  );
-                },
-              ),
+              ...items,
             ],
           ),
         ],
@@ -264,7 +395,29 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     return _ListTitleItem(
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
-      subtitle: helper.getSubtitle(appLocalizations),
+      error: [
+        (helper.getTitle(appLocalizations)==appLocalizations.edit_product_form_item_countries_title) ?
+          (upToDateProduct.countries==null) ? appLocalizations.edit_product_form_item_countries_title : ""
+         :"",
+         (helper.getTitle(appLocalizations)==appLocalizations.edit_product_form_item_categories_title) ?
+          (upToDateProduct.categories==null) ? appLocalizations.edit_product_form_item_categories_title : ""
+         :"",
+      ],
+      warning: [
+        (helper.getTitle(appLocalizations)==appLocalizations.edit_product_form_item_labels_title) ?
+          (upToDateProduct.labels==null) ? appLocalizations.edit_product_form_item_labels_title : ""
+        :"",
+        (helper.getTitle(appLocalizations)==appLocalizations.edit_product_form_item_origins_title) ?
+          (upToDateProduct.origins==null) ? appLocalizations.edit_product_form_item_origins_title : ""
+         :"",
+         (helper.getTitle(appLocalizations)==appLocalizations.edit_product_form_item_stores_title) ?
+          (upToDateProduct.stores==null) ? appLocalizations.edit_product_form_item_stores_title : ""
+         :"",
+         (helper.getTitle(appLocalizations)==appLocalizations.edit_product_form_item_emb_codes_title) ?
+          (upToDateProduct.embCodes==null) ? appLocalizations.edit_product_form_item_emb_codes_title : ""
+         :"",
+      ],
+      //subtitle: helper.getSubtitle(appLocalizations),
       onTap: () async => ProductFieldSimpleEditor(helper).edit(
         context: context,
         product: upToDateProduct,
@@ -283,6 +436,16 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     return _ListTitleItem(
       leading: const Icon(Icons.interests),
       title: titles.join(', '),
+      error: [
+        (upToDateProduct.countries==null) ? appLocalizations.edit_product_form_item_countries_type : "",
+        (upToDateProduct.categories==null) ? appLocalizations.category_picker_screen_title : "",
+      ],
+      warning: [
+        (upToDateProduct.labels==null) ? appLocalizations.edit_product_form_item_labels_title : "",
+        (upToDateProduct.stores==null) ? appLocalizations.edit_product_form_item_stores_title : "",
+        (upToDateProduct.origins==null) ? appLocalizations.edit_product_form_item_origins_title : "",
+        (upToDateProduct.embCodes==null) ? appLocalizations.edit_product_form_item_emb_codes_title : "",
+      ],
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(
           context,
@@ -315,19 +478,81 @@ class _ListTitleItem extends SmoothListTileCard {
   _ListTitleItem({
     Widget? leading,
     String? title,
-    String? subtitle,
+    List<String>? error,
+    List<String>? warning,
     super.onTap,
   }) : super.icon(
-          title: title == null
-              ? null
-              : Text(
-                  title,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+          title: Row(
+            children: [
+              Expanded(
+                child: Text(
+                          title ?? "",
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                 ),
+            ],
+          ),
+          subtitle: error!=null || warning!=null 
+           ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (error != null)
+                      ...error
+                          .where((e) => e.isNotEmpty) 
+                          .map(
+                            (e) => Row(
+                              children: [
+                                const Icon(Icons.error, color: Color(0xFFEB5757), size: 18),
+                                const SizedBox(width: 6),
+                                Expanded(
+                                  child: Text(
+                                    e,
+                                    style: const TextStyle(fontSize: 14),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                    if (warning != null)
+                      ...warning
+                          .where((w) => w.isNotEmpty)
+                          .map(
+                            (w) => Row(
+                              children: [
+                                const Icon(Icons.warning, color: Color(0xFFFB8229), size: 18),
+                                const SizedBox(width: 6),
+                                Expanded(
+                                  child: Text(
+                                    w,
+                                    style: const TextStyle(fontSize: 14),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                    ],
+                  )
+          : SizedBox(),
           icon: leading,
-          subtitle: subtitle == null ? null : Text(subtitle),
+          color: _getIconBackgroundColor(title, error, warning),
           margin: const EdgeInsetsDirectional.only(
             top: SMALL_SPACE,
           ),
         );
+
+        static _getIconBackgroundColor(String? title, List<String>? error, List<String>? warning){
+          if(error!=null && error.any((e) => e.isNotEmpty)){
+            return Color(0xFFEB5757);
+          }
+          else if(warning!=null && warning.any((w) => w.isNotEmpty)){
+            return Color(0xFFFB8229);
+          }
+          else{
+            return Color(0xFF219653);
+          }
+        }
 }
+
+
+
