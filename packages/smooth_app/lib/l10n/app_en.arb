@@ -4171,7 +4171,8 @@
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
-  }"prices_validation_assistant": "Price Validation Assistant",
+  },
+  "prices_validation_assistant": "Price Validation Assistant",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
