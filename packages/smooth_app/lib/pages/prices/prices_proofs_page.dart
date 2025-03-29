@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -138,9 +139,26 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                                     ),
                                   ),
                                 );
-                              }, // PriceProofPage
-                              child: _PriceProofImage(proof,
-                                  squareSize: squareSize),
+                              },
+                              // Used our new ProofGridItem widget
+                              child: ProofGridItem(
+                                proof: proof,
+                                onTap: () async {
+                                  if (widget.selectProof) {
+                                    Navigator.of(context).pop(proof);
+                                    return;
+                                  }
+                                  return Navigator.push<void>(
+                                    context,
+                                    MaterialPageRoute<void>(
+                                      builder: (BuildContext context) =>
+                                          PriceProofPage(
+                                        proof,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
                             );
                           },
                           addAutomaticKeepAlives: false,
@@ -192,9 +210,9 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   }
 }
 
-// TODO(monsieurtanuki): reuse whatever will be coded in https://github.com/openfoodfacts/smooth-app/pull/5366
-class _PriceProofImage extends StatelessWidget {
-  const _PriceProofImage(
+/// Created a simplified version of _PriceProofImage if needed for transition
+class PriceProofImage extends StatelessWidget {
+  const PriceProofImage(
     this.proof, {
     required this.squareSize,
   });

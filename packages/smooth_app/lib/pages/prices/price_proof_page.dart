@@ -26,6 +26,7 @@ class PriceProofPage extends StatefulWidget {
 
 class _PriceProofPageState extends State<PriceProofPage> {
   List<Price>? _existingPrices;
+  bool _isLoading = true;
 
   @override
   void initState() {
@@ -77,27 +78,70 @@ class _PriceProofPageState extends State<PriceProofPage> {
           ),
         ],
       ),
-      body: Center(
-        child: Image.network(
-          _getUrl(false),
-          fit: BoxFit.cover,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) {
-              return child;
-            }
-            return Center(
-              child: SizedBox(
-                width: double.maxFinite,
-                height: double.maxFinite,
-                child: Image.network(
-                  _getUrl(true),
-                  fit: BoxFit.contain,
+      body: Stack(
+        children: [
+          Center(
+            child: Image.network(
+              _getUrl(false),
+              fit: BoxFit.cover,
+              loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent? loadingProgress) {
+                if (loadingProgress == null) {
+                  return child;
+                }
+                return Center(
+                  child: SizedBox(
+                    width: double.maxFinite,
+                    height: double.maxFinite,
+                    child: Image.network(
+                      _getUrl(true),
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          // Display price count badge on the detail screen
+          if (!_isLoading && _existingPrices != null)
+            Positioned(
+              top: 16.0,
+              right: 16.0,
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(20.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 4.0,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.payments_outlined,
+                      color: Colors.white,
+                      size: 18.0,
+                    ),
+                    const SizedBox(width: 4.0),
+                    Text(
+                      '${_existingPrices!.length}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            );
-          },
-        ),
+            ),
+        ],
       ),
     );
   }
@@ -111,6 +155,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
 
   Future<void> _loadExistingPrices() async {
     if (PriceModel.isProofNotGoodEnough(widget.proof)) {
+      setState(() {
+        _isLoading = false;
+      });
       return;
     }
     final MaybeError<GetPricesResult> prices =
@@ -119,11 +166,131 @@ class _PriceProofPageState extends State<PriceProofPage> {
       uriHelper: ProductQuery.uriPricesHelper,
     );
     if (prices.isError) {
+      setState(() {
+        _isLoading = false;
+      });
       return;
     }
-    _existingPrices = prices.value.items ?? <Price>[];
-    if (mounted) {
-      setState(() {});
+    setState(() {
+      _existingPrices = prices.value.items ?? <Price>[];
+      _isLoading = false;
+    });
+  }
+}
+
+/// Widget to display a grid of proofs with price count badges
+class ProofGridItem extends StatefulWidget {
+  const ProofGridItem({
+    Key? key,
+    required this.proof,
+    required this.onTap,
+  }) : super(key: key);
+
+  final Proof proof;
+  final VoidCallback onTap;
+
+  @override
+  State<ProofGridItem> createState() => _ProofGridItemState();
+}
+
+class _ProofGridItemState extends State<ProofGridItem> {
+  List<Price>? _prices;
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_loadPrices());
+  }
+
+  Future<void> _loadPrices() async {
+    if (PriceModel.isProofNotGoodEnough(widget.proof)) {
+      setState(() {
+        _isLoading = false;
+      });
+      return;
     }
+    final MaybeError<GetPricesResult> prices =
+        await OpenPricesAPIClient.getPrices(
+      GetPricesParameters()..proofId = widget.proof.id,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+    if (prices.isError) {
+      setState(() {
+        _isLoading = false;
+      });
+      return;
+    }
+    setState(() {
+      _prices = prices.value.items ?? <Price>[];
+      _isLoading = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final DateFormat dateFormat = DateFormat.yMd(ProductQuery.getLocaleString());
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(
+                child: Image.network(
+                  widget.proof
+                      .getFileUrl(
+                        uriProductHelper: ProductQuery.uriPricesHelper,
+                        isThumbnail: true,
+                      )
+                      .toString(),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                color: Colors.black.withOpacity(0.7),
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
+                width: double.infinity,
+                child: Text(
+                  dateFormat.format(widget.proof.created),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          if (!_isLoading && _prices != null)
+            Positioned(
+              top: 8.0,
+              right: 8.0,
+              child: Container(
+                width: 32.0,
+                height: 32.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 4.0,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    '${_prices!.length}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
   }
 }
