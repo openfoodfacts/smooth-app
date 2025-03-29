@@ -79,7 +79,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
         ],
       ),
       body: Stack(
-        children: [
+        children: <Widget>[
           Center(
             child: Image.network(
               _getUrl(false),
@@ -112,7 +112,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.circular(20.0),
-                  boxShadow: [
+                  boxShadow: <BoxShadow>[
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
                       blurRadius: 4.0,
@@ -122,7 +122,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
+                  children: <Widget>[
                     const Icon(
                       Icons.payments_outlined,
                       color: Colors.white,
@@ -181,10 +181,10 @@ class _PriceProofPageState extends State<PriceProofPage> {
 /// Widget to display a grid of proofs with price count badges
 class ProofGridItem extends StatefulWidget {
   const ProofGridItem({
-    Key? key,
+    super.key,
     required this.proof,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final Proof proof;
   final VoidCallback onTap;
@@ -229,13 +229,14 @@ class _ProofGridItemState extends State<ProofGridItem> {
 
   @override
   Widget build(BuildContext context) {
-    final DateFormat dateFormat = DateFormat.yMd(ProductQuery.getLocaleString());
+    final DateFormat dateFormat =
+        DateFormat.yMd(ProductQuery.getLocaleString());
     return GestureDetector(
       onTap: widget.onTap,
       child: Stack(
-        children: [
+        children: <Widget>[
           Column(
-            children: [
+            children: <Widget>[
               Expanded(
                 child: Image.network(
                   widget.proof
@@ -269,7 +270,7 @@ class _ProofGridItemState extends State<ProofGridItem> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   shape: BoxShape.circle,
-                  boxShadow: [
+                  boxShadow: <BoxShadow>[
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
                       blurRadius: 4.0,
