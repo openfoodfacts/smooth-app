@@ -26,6 +26,7 @@ enum BackgroundTaskDetailsStamp {
   embCodes('emb_codes'),
   labels('labels'),
   categories('categories'),
+  traces('traces'),
   countries('countries');
 
   const BackgroundTaskDetailsStamp(this.tag);
@@ -68,8 +69,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       localDatabase.upToDate.addChange(uniqueId, getProductChange());
 
   /// Adds the background task about changing a product.
-  static Future<void> addTask(
-    final Product minimalistProduct, {
+  static Future<void> addTask(final Product minimalistProduct, {
     required final BuildContext context,
     required final BackgroundTaskDetailsStamp stamp,
     final bool showSnackBar = true,
@@ -99,16 +99,14 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
+      final AppLocalizations appLocalizations) =>
       null;
 
   /// Returns a new background task about changing a product.
-  static BackgroundTaskDetails _getNewTask(
-    final Product minimalistProduct,
-    final String uniqueId,
-    final BackgroundTaskDetailsStamp stamp,
-    final ProductType productType,
-  ) =>
+  static BackgroundTaskDetails _getNewTask(final Product minimalistProduct,
+      final String uniqueId,
+      final BackgroundTaskDetailsStamp stamp,
+      final ProductType productType,) =>
       BackgroundTaskDetails._(
         uniqueId: uniqueId,
         processName: _operationType.processName,
@@ -124,7 +122,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   @override
   Product getProductChange() {
     final Product result =
-        Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
+    Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
     return result;
   }
 
@@ -138,7 +136,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       // For the moment, some fields can only be saved in V3,
       // and V3 can only save those fields.
       final ProductResultV3 result =
-          await OpenFoodAPIClient.temporarySaveProductV3(
+      await OpenFoodAPIClient.temporarySaveProductV3(
         getUser(),
         product.barcode!,
         packagings: product.packagings,
@@ -159,8 +157,10 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
         }
         throw Exception(
           'Could not save product - API V3'
-          ' - '
-          'status=${result.status} - errors=${result.errors} ${isInvalidUser ? _getIncompleteUserData() : ''}',
+              ' - '
+              'status=${result.status} - errors=${result.errors} ${isInvalidUser
+              ? _getIncompleteUserData()
+              : ''}',
         );
       }
       return;
@@ -181,10 +181,10 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       }
       throw Exception(
         'Could not save product - API V2'
-        ' - status=${status.status}'
-        ' - errors=${status.error}'
-        ' - status_verbose=${status.statusVerbose}'
-        ' ${isInvalidUser ? _getIncompleteUserData() : ''}',
+            ' - status=${status.status}'
+            ' - errors=${status.error}'
+            ' - status_verbose=${status.statusVerbose}'
+            ' ${isInvalidUser ? _getIncompleteUserData() : ''}',
       );
     }
   }
