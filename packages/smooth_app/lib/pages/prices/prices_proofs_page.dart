@@ -1,15 +1,13 @@
 import 'dart:async';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -140,8 +138,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                                   ),
                                 );
                               },
-                              // Used our new ProofGridItem widget
-                              child: ProofGridItem(
+                              
+                              child: _PriceProofImage(
                                 proof: proof,
                                 onTap: () async {
                                   if (widget.selectProof) {
@@ -210,57 +208,118 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   }
 }
 
-/// Created a simplified version of _PriceProofImage if needed for transition
-class PriceProofImage extends StatelessWidget {
-  const PriceProofImage(
-    this.proof, {
-    required this.squareSize,
+/// Enhanced version of PriceProofImage with price badge
+class _PriceProofImage extends StatefulWidget {
+  const _PriceProofImage({
+    required this.proof,
+    required this.onTap,
   });
 
   final Proof proof;
-  final double squareSize;
+  final VoidCallback onTap;
+
+  @override
+  State<_PriceProofImage> createState() => _PriceProofImageState();
+}
+
+class _PriceProofImageState extends State<_PriceProofImage> {
+  List<Price>? _prices;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_loadPrices());
+  }
+
+  Future<void> _loadPrices() async {
+    if (PriceModel.isProofNotGoodEnough(widget.proof)) {
+      return;
+    }
+    final MaybeError<GetPricesResult> prices =
+        await OpenPricesAPIClient.getPrices(
+      GetPricesParameters()..proofId = widget.proof.id,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+    
+    if (!mounted) {
+      return;
+    }
+    
+    if (prices.isError) {
+      return;
+    }
+    
+    _prices = prices.value.items ?? <Price>[];
+    if (mounted) {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLocaleString());
-    final String date = dateFormat.format(proof.created);
-    return Stack(
-      children: <Widget>[
-        SmoothImage(
-          width: squareSize,
-          height: squareSize,
-          imageProvider: NetworkImage(
-            proof
-                .getFileUrl(
-                  uriProductHelper: ProductQuery.uriPricesHelper,
-                  isThumbnail: true,
-                )
-                .toString(),
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Stack(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Expanded(
+                child: Image.network(
+                  widget.proof
+                      .getFileUrl(
+                        uriProductHelper: ProductQuery.uriPricesHelper,
+                        isThumbnail: true,
+                      )
+                      .toString(),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                color: Colors.black.withOpacity(0.7),
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
+                width: double.infinity,
+                child: Text(
+                  dateFormat.format(widget.proof.created),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
           ),
-          rounded: false,
-        ),
-        SizedBox(
-          width: squareSize,
-          height: squareSize,
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
+          if (_prices != null)
+            Positioned(
+              top: 8.0,
+              right: 8.0,
               child: Container(
-                height: VERY_LARGE_SPACE,
-                color: Colors.white.withAlpha(128),
+                width: 32.0,
+                height: 32.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  shape: BoxShape.circle,
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 4.0,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
                 child: Center(
-                  child: AutoSizeText(
-                    date,
-                    maxLines: 1,
+                  child: Text(
+                    '${_prices!.length}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
