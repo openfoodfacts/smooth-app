@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
@@ -41,7 +40,7 @@ class __AuthenticationBottomSheetContentState
   late final List<Offset> chipOffsets;
   late final List<double> chipRotations;
   final ProductType productType = ProductType.food;
-
+  int _latestAnimatedChipIndex = -1;
   @override
   void initState() {
     super.initState();
@@ -54,6 +53,12 @@ class __AuthenticationBottomSheetContentState
     });
     chipRotations = List<double>.generate(3, (int index) {
       return random.nextDouble() * 0.2 - 0.1;
+    });
+  }
+
+  void _handleChipAnimationStart(int index) {
+    setState(() {
+      _latestAnimatedChipIndex = index;
     });
   }
 
@@ -70,7 +75,7 @@ class __AuthenticationBottomSheetContentState
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Container(
-                padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+                padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
                 decoration: BoxDecoration(
                   color: colors.primaryBlack,
                   borderRadius: const BorderRadius.only(
@@ -79,7 +84,7 @@ class __AuthenticationBottomSheetContentState
                   ),
                 ),
                 child: Transform.translate(
-                  offset: const Offset(0.0, 2.0),
+                  offset: Offset.zero,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +97,7 @@ class __AuthenticationBottomSheetContentState
                             style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
+                              fontSize: 16.0,
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -101,82 +106,87 @@ class __AuthenticationBottomSheetContentState
                       ),
                       SvgPicture.asset(
                         productType.getIllustration(),
-                        width: 100.0,
+                        width: 80.0,
                       ),
                     ],
                   ),
                 ),
               ),
-              // Content section
-              Container(
-                width: constraints.maxWidth,
-                padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: ROUNDED_RADIUS,
-                    topRight: ROUNDED_RADIUS,
+              Transform.translate(
+                offset: const Offset(0.0, -10.0),
+                child: Container(
+                  width: constraints.maxWidth,
+                  padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: ROUNDED_RADIUS,
+                      topRight: ROUNDED_RADIUS,
+                    ),
                   ),
-                ),
-                child: SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Expanded(
-                            child: TextWithBubbleParts(
-                              text: appLocalizations
-                                  .authentication_bottom_sheet_title,
-                              textStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 16.0,
+                  child: SingleChildScrollView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Expanded(
+                              child: TextWithBubbleParts(
+                                text: appLocalizations
+                                    .authentication_bottom_sheet_title,
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                ),
+                                bubbleTextStyle: const TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.black,
+                                ),
+                                backgroundColor: Colors.transparent,
+                                bubblePadding: EdgeInsets.zero,
                               ),
-                              bubbleTextStyle: const TextStyle(
-                                fontWeight: FontWeight.w800,
-                                color: Colors.black,
-                              ),
-                              backgroundColor: Colors.transparent,
-                              bubblePadding: EdgeInsets.zero,
-                              // Allow multiple lines
                             ),
-                          ),
-                          const SizedBox(width: MEDIUM_SPACE),
-                          IconButton(
-                            onPressed: () => Navigator.pop(context),
-                            icon: const Icon(Icons.close,
-                                color: Colors.white, size: 28.0),
-                            style: IconButton.styleFrom(
-                                backgroundColor: colors.primaryBlack),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: LARGE_SPACE),
-                      Text(
-                        appLocalizations
-                            .authentication_bottom_sheet_title_addition,
-                        style: const TextStyle(color: Colors.black),
-                        maxLines: 4,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: LARGE_SPACE * 2),
-                      _buildResponsiveChips(appLocalizations, colors),
-                      const SizedBox(height: LARGE_SPACE * 2),
-                      TextWithBubbleParts(
-                        text: appLocalizations
-                            .authentication_bottom_sheet_subtitle,
-                        textStyle: const TextStyle(color: Colors.black),
-                        bubbleTextStyle: const TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black,
+                            const SizedBox(width: MEDIUM_SPACE),
+                            IconButton(
+                              onPressed: () => Navigator.pop(context),
+                              icon: const Icon(Icons.close,
+                                  color: Colors.white, size: 24.0),
+                              style: IconButton.styleFrom(
+                                  backgroundColor: colors.primaryBlack),
+                            ),
+                          ],
                         ),
-                      ),
-                      _buildActionButtons(
-                          context, appLocalizations, colors, theme),
-                    ],
+                        const SizedBox(height: LARGE_SPACE),
+                        Text(
+                          appLocalizations
+                              .authentication_bottom_sheet_title_addition,
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 12.0),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: LARGE_SPACE * 2),
+                        _buildResponsiveChips(appLocalizations, colors),
+                        const SizedBox(height: LARGE_SPACE * 2),
+                        TextWithBubbleParts(
+                          text: appLocalizations
+                              .authentication_bottom_sheet_subtitle,
+                          textStyle: const TextStyle(
+                              color: Colors.black, fontSize: 12.0),
+                          bubbleTextStyle: const TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black,
+                          ),
+                          backgroundColor: Colors.transparent,
+                          bubblePadding: EdgeInsets.zero,
+                        ),
+                        _buildActionButtons(
+                            context, appLocalizations, colors, theme),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -189,6 +199,8 @@ class __AuthenticationBottomSheetContentState
 
   Widget _buildResponsiveChips(
       AppLocalizations appLocalizations, SmoothColorsThemeExtension colors) {
+    const int totalChips = 3;
+
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return Wrap(
@@ -196,23 +208,44 @@ class __AuthenticationBottomSheetContentState
           runSpacing: LARGE_SPACE,
           alignment: WrapAlignment.center,
           children: <Widget>[
+            // First chip
             _StampChip(
               text: appLocalizations.authentication_bottom_sheet_first_chip,
               offset: chipOffsets[0],
               rotation: chipRotations[0],
               delay: 0,
+              color: colors.success,
+              useWhiteBgWithBorder: false,
+              index: 0,
+              totalChips: totalChips,
+              latestAnimatedIndex: _latestAnimatedChipIndex,
+              onAnimationStart: () => _handleChipAnimationStart(0),
             ),
+            // Second chip
             _StampChip(
               text: appLocalizations.authentication_bottom_sheet_second_chip,
               offset: chipOffsets[1],
               rotation: chipRotations[1],
-              delay: 300,
+              delay: 500,
+              color: colors.success,
+              useWhiteBgWithBorder: false,
+              index: 1,
+              totalChips: totalChips,
+              latestAnimatedIndex: _latestAnimatedChipIndex,
+              onAnimationStart: () => _handleChipAnimationStart(1),
             ),
+            // Third chip
             _StampChip(
               text: appLocalizations.authentication_bottom_sheet_third_chip,
               offset: chipOffsets[2],
               rotation: chipRotations[2],
-              delay: 600,
+              delay: 1000,
+              color: colors.success,
+              useWhiteBgWithBorder: true,
+              index: 2,
+              totalChips: totalChips,
+              latestAnimatedIndex: _latestAnimatedChipIndex,
+              onAnimationStart: () => _handleChipAnimationStart(2),
             ),
           ],
         );
@@ -248,17 +281,18 @@ class __AuthenticationBottomSheetContentState
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),
-                  backgroundColor: colors.primaryLight,
+                  backgroundColor: colors.primaryMedium,
                   padding: const EdgeInsets.symmetric(
                     vertical: 8,
                     horizontal: 8,
                   ),
+                  elevation: 0,
                 ),
                 child: Text(
                   appLocalizations.login,
                   style: TextStyle(
                     color: colors.primaryDark,
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -287,6 +321,7 @@ class __AuthenticationBottomSheetContentState
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),
+                  elevation: 0,
                 ),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
@@ -298,7 +333,7 @@ class __AuthenticationBottomSheetContentState
                           appLocalizations.create_account,
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                           ),
                           maxLines: 1,
@@ -312,10 +347,9 @@ class __AuthenticationBottomSheetContentState
                           color: Colors.white,
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_forward,
-                          color: colors.primaryBlack,
-                          size: 18,
+                          size: 16,
                         ),
                       ),
                     ],
@@ -336,13 +370,24 @@ class _StampChip extends StatefulWidget {
     required this.offset,
     required this.rotation,
     required this.delay,
+    required this.color,
+    required this.index,
+    required this.totalChips,
+    required this.onAnimationStart,
+    required this.latestAnimatedIndex,
+    this.useWhiteBgWithBorder = false,
   });
 
   final String text;
   final Offset offset;
   final double rotation;
   final int delay;
-
+  final Color color;
+  final bool useWhiteBgWithBorder;
+  final int index;
+  final int totalChips;
+  final VoidCallback onAnimationStart;
+  final int latestAnimatedIndex;
   @override
   __StampChipState createState() => __StampChipState();
 }
@@ -359,12 +404,12 @@ class __StampChipState extends State<_StampChip>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 350),
     );
 
     final CurvedAnimation curvedAnimation = CurvedAnimation(
       parent: _controller,
-      curve: Curves.elasticOut,
+      curve: Curves.easeOutBack,
     );
 
     _scaleAnimation =
@@ -379,26 +424,42 @@ class __StampChipState extends State<_StampChip>
       end: widget.rotation,
     ).animate(curvedAnimation);
 
+    _controller.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.forward) {
+        widget.onAnimationStart();
+      }
+    });
+
     Future<void>.delayed(
       Duration(milliseconds: widget.delay),
-      () => _controller.forward(),
+      () {
+        if (mounted) {
+          _controller.forward();
+        }
+      },
     );
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  double _calculateDynamicOpacity() {
+    if (widget.index == widget.latestAnimatedIndex) {
+      return _controller.value;
+    }
+    final int distance = widget.latestAnimatedIndex - widget.index;
+
+    if (distance < 0) {
+      return 1.0;
+    }
+
+    return (1.0 - (distance * 0.35)).clamp(0.4, 1.0);
   }
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
-
     return AnimatedBuilder(
       animation: _controller,
       builder: (BuildContext context, Widget? child) {
+        final double calculatedOpacity = _calculateDynamicOpacity();
+
         return Transform.translate(
           offset: _offsetAnimation.value,
           child: Transform.rotate(
@@ -406,7 +467,7 @@ class __StampChipState extends State<_StampChip>
             child: Transform.scale(
               scale: _scaleAnimation.value,
               child: Opacity(
-                opacity: _controller.value,
+                opacity: calculatedOpacity,
                 child: child,
               ),
             ),
@@ -424,22 +485,28 @@ class __StampChipState extends State<_StampChip>
             horizontal: VERY_LARGE_SPACE,
           ),
           decoration: BoxDecoration(
-            color: colors.success,
+            color: widget.useWhiteBgWithBorder ? Colors.white : widget.color,
             borderRadius: ROUNDED_BORDER_RADIUS,
+            border: widget.useWhiteBgWithBorder
+                ? Border.all(
+                    color: widget.color,
+                    width: 2.0,
+                  )
+                : null,
             boxShadow: const <BoxShadow>[
               BoxShadow(
                 color: Colors.black26,
-                blurRadius: 4,
-                offset: Offset(2, 2),
+                blurRadius: 2,
+                offset: Offset(1, 1),
               )
             ],
           ),
           child: Text(
             widget.text,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: widget.useWhiteBgWithBorder ? widget.color : Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 14,
+              fontSize: 12,
             ),
             textAlign: TextAlign.center,
             maxLines: 2,
