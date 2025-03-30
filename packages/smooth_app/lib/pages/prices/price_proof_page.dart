@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
-import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -39,6 +38,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLocaleString()).add_Hms();
+
     return SmoothScaffold(
       floatingActionButton: _existingPrices == null
           ? null
@@ -79,7 +79,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
         ],
       ),
       body: Stack(
-        children: <Widget>[
+        children: [
           Center(
             child: Image.network(
               _getUrl(false),
@@ -102,13 +102,27 @@ class _PriceProofPageState extends State<PriceProofPage> {
               },
             ),
           ),
-          // Using PriceBadge component instead of custom badge
+
+          // Price count badge at top-right
           if (_existingPrices != null)
             Positioned(
               top: 16.0,
               right: 16.0,
-              child: PriceBadge(
-                count: _existingPrices!.length,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Text(
+                  '${_existingPrices!.length} Prices',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
         ],
@@ -135,7 +149,6 @@ class _PriceProofPageState extends State<PriceProofPage> {
     if (prices.isError) {
       return;
     }
-
     _existingPrices = prices.value.items ?? <Price>[];
     if (mounted) {
       setState(() {});

@@ -1,13 +1,14 @@
-import 'dart:async';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -69,7 +70,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           if (snapshot.hasError) {
             return Text(snapshot.error!.toString());
           }
-          // highly improbable
           if (!snapshot.hasData) {
             return const Text('no data');
           }
@@ -77,14 +77,11 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             return Text(snapshot.data!.error!);
           }
           final GetProofsResult result = snapshot.data!.value;
-          // highly improbable
           if (result.items == null) {
             return const Text('empty list');
           }
           final double squareSize = MediaQuery.sizeOf(context).width / _columns;
 
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
           final String title = result.numberOfPages == 1
               ? appLocalizations.prices_proofs_list_length_one_page(
                   result.items!.length,
@@ -116,7 +113,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                           ) {
                             final Proof proof = result.items![index];
                             if (proof.filePath == null) {
-                              // highly improbable
                               return SizedBox(
                                 width: squareSize,
                                 height: squareSize,
@@ -138,24 +134,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                                   ),
                                 );
                               },
-                              child: _PriceProofImage(
-                                proof: proof,
-                                onTap: () async {
-                                  if (widget.selectProof) {
-                                    Navigator.of(context).pop(proof);
-                                    return;
-                                  }
-                                  return Navigator.push<void>(
-                                    context,
-                                    MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          PriceProofPage(
-                                        proof,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
+                              child: _PriceProofImage(proof,
+                                  squareSize: squareSize),
                             );
                           },
                           addAutomaticKeepAlives: false,
@@ -207,118 +187,85 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   }
 }
 
-/// Enhanced version of PriceProofImage with price badge
-class _PriceProofImage extends StatefulWidget {
-  const _PriceProofImage({
-    required this.proof,
-    required this.onTap,
+// Updated class to use the 'badges' package
+class _PriceProofImage extends StatelessWidget {
+  const _PriceProofImage(
+    this.proof, {
+    required this.squareSize,
   });
 
   final Proof proof;
-  final VoidCallback onTap;
-
-  @override
-  State<_PriceProofImage> createState() => _PriceProofImageState();
-}
-
-class _PriceProofImageState extends State<_PriceProofImage> {
-  List<Price>? _prices;
-
-  @override
-  void initState() {
-    super.initState();
-    unawaited(_loadPrices());
-  }
-
-  Future<void> _loadPrices() async {
-    if (PriceModel.isProofNotGoodEnough(widget.proof)) {
-      return;
-    }
-    final MaybeError<GetPricesResult> prices =
-        await OpenPricesAPIClient.getPrices(
-      GetPricesParameters()..proofId = widget.proof.id,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
-
-    if (!mounted) {
-      return;
-    }
-
-    if (prices.isError) {
-      return;
-    }
-
-    _prices = prices.value.items ?? <Price>[];
-    if (mounted) {
-      setState(() {});
-    }
-  }
+  final double squareSize;
 
   @override
   Widget build(BuildContext context) {
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLocaleString());
-    return GestureDetector(
-      onTap: widget.onTap,
-      child: Stack(
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              Expanded(
-                child: Image.network(
-                  widget.proof
-                      .getFileUrl(
-                        uriProductHelper: ProductQuery.uriPricesHelper,
-                        isThumbnail: true,
-                      )
-                      .toString(),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Container(
-                color: Colors.black.withOpacity(0.7),
-                padding: const EdgeInsets.symmetric(vertical: 2.0),
-                width: double.infinity,
-                child: Text(
-                  dateFormat.format(widget.proof.created),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ),
-            ],
+    final String date = dateFormat.format(proof.created);
+
+    // Fetch price count (assuming proof.priceCount exists)
+    final int priceCount = proof.priceCount ?? 0;
+
+    return Stack(
+      children: <Widget>[
+        SmoothImage(
+          width: squareSize,
+          height: squareSize,
+          imageProvider: NetworkImage(
+            proof
+                .getFileUrl(
+                  uriProductHelper: ProductQuery.uriPricesHelper,
+                  isThumbnail: true,
+                )
+                .toString(),
           ),
-          if (_prices != null)
-            Positioned(
-              top: 8.0,
-              right: 8.0,
-              child: Container(
-                width: 32.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  shape: BoxShape.circle,
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 4.0,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Text(
-                    '${_prices!.length}',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                    ),
-                  ),
+          rounded: false,
+        ),
+
+        // Price count badge (only if price count is greater than 0)
+        if (priceCount > 0)
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: const EdgeInsets.all(6.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+              decoration: BoxDecoration(
+                color: Colors.redAccent,
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              child: Text(
+                '$priceCount',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-        ],
-      ),
+          ),
+
+        // Date badge (bottom center)
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: const EdgeInsets.all(6.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            decoration: BoxDecoration(
+              color: Colors.black54,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Text(
+              date,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
