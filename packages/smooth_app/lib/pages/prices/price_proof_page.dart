@@ -135,7 +135,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
     if (prices.isError) {
       return;
     }
-    
+
     _existingPrices = prices.value.items ?? <Price>[];
     if (mounted) {
       setState(() {});

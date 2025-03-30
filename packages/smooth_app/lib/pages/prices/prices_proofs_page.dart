@@ -138,7 +138,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                                   ),
                                 );
                               },
-                              
                               child: _PriceProofImage(
                                 proof: proof,
                                 onTap: () async {
@@ -240,15 +239,15 @@ class _PriceProofImageState extends State<_PriceProofImage> {
       GetPricesParameters()..proofId = widget.proof.id,
       uriHelper: ProductQuery.uriPricesHelper,
     );
-    
+
     if (!mounted) {
       return;
     }
-    
+
     if (prices.isError) {
       return;
     }
-    
+
     _prices = prices.value.items ?? <Price>[];
     if (mounted) {
       setState(() {});
