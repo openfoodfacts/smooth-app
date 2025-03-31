@@ -9,7 +9,9 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -102,6 +104,11 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
           ValueListenableBuilder<int>(
               valueListenable: _currentImageDataIndex,
               builder: (_, int index, __) {
+                return _editButton(_imageFields[index]);
+              }),
+          ValueListenableBuilder<int>(
+              valueListenable: _currentImageDataIndex,
+              builder: (_, int index, __) {
                 return _lockedIcon(_imageFields[index]);
               })
         ],
@@ -127,6 +134,53 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
     );
   }
 
+  Widget _editButton(ImageField imageField) {
+    final String? fieldId = imageField.getFieldId();
+
+    if (fieldId == null) {
+      return EMPTY_WIDGET;
+    }
+
+    const Icon icon = Icon(Icons.edit_note);
+    
+    if (fieldId == 'ingredients') {
+      return IconButton(
+        icon: icon,
+        onPressed: () async {
+          await ProductFieldOcrIngredientEditor().edit(
+            context: context,
+            product: upToDateProduct
+          );
+        },
+      );
+    }
+    if (fieldId == 'nutrition_facts_table') {
+      return IconButton(
+        icon: icon,
+        onPressed: () async {
+          await NutritionPageLoader.showNutritionPage(
+            product: upToDateProduct,
+            isLoggedInMandatory: true,
+            context: context,
+          );
+        },
+      );
+    }
+    if (fieldId == 'environmental_score_packaging') {
+      return IconButton(
+        icon: icon,
+        onPressed: () async {
+          await ProductFieldPackagingEditor().edit(
+            product: upToDateProduct,
+            context: context,
+          );
+        },
+      );
+    }
+
+    return EMPTY_WIDGET;
+  }
+ 
   Widget _lockedIcon(ImageField imageField) {
     if (widget.product.isImageLocked(imageField, _currentLanguage) != true) {
       return EMPTY_WIDGET;
