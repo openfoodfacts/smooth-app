@@ -520,6 +520,9 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
         context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
+    final Color defaultForegroundText =
+        lightTheme ? Colors.black : Colors.white;
+
     return Semantics(
       value: tooltip,
       button: true,
@@ -533,35 +536,41 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
             shape: const RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
-            foregroundColor:
-                foregroundColor ?? (lightTheme ? Colors.black : Colors.white),
             backgroundColor: backgroundColor ??
                 (lightTheme ? extension.primaryMedium : extension.primaryBlack),
-            iconColor: lightTheme ? Colors.black : Colors.white,
           ),
-          child: Row(
-            children: <Widget>[
-              if (prefix != null) ...<Widget>[
-                prefix!,
-                const SizedBox(
-                  width: SMALL_SPACE,
-                ),
-              ],
-              Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 16.5,
-                  fontWeight: FontWeight.bold,
-                ),
-                maxLines: 1,
+          child: DefaultTextStyle(
+            style: TextStyle(
+              color: foregroundColor ?? defaultForegroundText,
+            ),
+            child: IconTheme(
+              data: IconThemeData(
+                  color: lightTheme ? Colors.black : Colors.white),
+              child: Row(
+                children: <Widget>[
+                  if (prefix != null) ...<Widget>[
+                    prefix!,
+                    const SizedBox(
+                      width: SMALL_SPACE,
+                    ),
+                  ],
+                  Text(
+                    label,
+                    style: const TextStyle(
+                      fontSize: 16.5,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                  ),
+                  if (suffix != null) ...<Widget>[
+                    const SizedBox(
+                      width: SMALL_SPACE,
+                    ),
+                    suffix!,
+                  ],
+                ],
               ),
-              if (suffix != null) ...<Widget>[
-                const SizedBox(
-                  width: SMALL_SPACE,
-                ),
-                suffix!,
-              ],
-            ],
+            ),
           ),
         ),
       ),

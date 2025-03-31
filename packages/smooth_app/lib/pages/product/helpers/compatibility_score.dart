@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -10,6 +11,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
@@ -55,8 +57,6 @@ const List<String> _ATTRIBUTE_IDS = <String>[
   Attribute.ATTRIBUTE_ALLERGENS_NO_LUPIN,
   Attribute.ATTRIBUTE_ALLERGENS_NO_FISH,
   Attribute.ATTRIBUTE_ALLERGENS_NO_CRUSTACEANS,
-  Attribute.ATTRIBUTE_ALLERGENS_NO_MOLLUSCS,
-  Attribute.ATTRIBUTE_ALLERGENS_NO_MOLLUSCS,
   Attribute.ATTRIBUTE_ALLERGENS_NO_SULPHUR_DIOXIDE_AND_SULPHITES,
 ];
 
@@ -92,6 +92,12 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
         product: widget._product,
       );
     }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -191,8 +197,8 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
                 prefixIndicator: true,
                 bodyPadding: EdgeInsets.zero,
                 suffix: SmoothModalSheetHeaderButton(
-                  backgroundColor: widget.compatibility.color ?? GREY_COLOR,
-                  foregroundColor: WHITE_COLOR,
+                  backgroundColor: widget.compatibility.color ?? Colors.grey,
+                  foregroundColor: Colors.white,
                   label:
                       '${widget.compatibility.score ?? AppLocalizations.of(context).not_applicable_short}%',
                 ),
@@ -204,7 +210,10 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
                     changeStatusBarBrightness: false,
                     statusBarBackgroundColor: Colors.transparent,
                     body: SmoothModalSheetBodyContainer(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: MEDIUM_SPACE),
                       child: SingleChildScrollView(
+                        padding: const EdgeInsets.only(top: MEDIUM_SPACE),
                         controller: _scrollController,
                         child: Column(
                           children: <Widget>[
@@ -268,49 +277,61 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
 
   Widget _buildAttributeItem(
       BuildContext context, Attribute attribute, double score) {
+    const double ICON_SIZE = 32.0;
+    const double FONT_SIZE = 14.0;
+    const double CHEVRON_SIZE = 12.0;
     final Widget attributeIcon = getAttributeDisplayIcon(attribute);
+    final String unknownText = AppLocalizations.of(context).unknown;
 
-    return Padding(
-        padding: const EdgeInsets.only(bottom: SMALL_SPACE),
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            return SizedBox(
-              width: constraints.maxWidth,
-              child: InkWell(
-                borderRadius: ANGULAR_BORDER_RADIUS,
-                onTap: () {
-                  _openFullKnowledgePanel(attribute: attribute);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: MEDIUM_SPACE),
-                    child: Row(
-                      children: <Widget>[
-                        if (attribute.name!.endsWith('Score'))
-                          SvgIconChip(attribute.iconUrl ?? '', height: 30.0)
-                        else
-                          attributeIcon,
-                        const SizedBox(width: SMALL_SPACE),
-                        Expanded(
-                          child: Text(attribute.descriptionShort ??
-                              attribute.title ??
-                              ''),
-                        ),
-                        if (attribute.panelId != null)
-                          const icons.Chevron.right(
-                            color: Colors.black,
-                            size: 12.0,
-                          )
-                      ],
+    return InkWell(
+      borderRadius: ANGULAR_BORDER_RADIUS,
+      onTap: () => _openFullKnowledgePanel(attribute: attribute),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(
+          vertical: SMALL_SPACE,
+          horizontal: MEDIUM_SPACE,
+        ),
+        margin: const EdgeInsets.only(bottom: SMALL_SPACE),
+        child: Row(
+          children: <Widget>[
+            if (attribute.name!.endsWith('Score'))
+              SvgIconChip(attribute.iconUrl ?? unknownText, height: ICON_SIZE)
+            else
+              attributeIcon,
+            const SizedBox(width: LARGE_SPACE),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    attribute.title ?? unknownText,
+                    style: TextStyle(
+                      color: getAttributeDisplayBackgroundColor(attribute),
+                      fontSize: FONT_SIZE,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ),
+                  if (attribute.descriptionShort?.isNotEmpty ?? false)
+                    Text(
+                      attribute.descriptionShort ?? unknownText,
+                      style: const TextStyle(
+                        fontSize: FONT_SIZE,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                ],
               ),
-            );
-          },
-        ));
+            ),
+            if (attribute.panelId != null)
+              const icons.Chevron.right(
+                color: Colors.black,
+                size: CHEVRON_SIZE,
+              ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _getCompatibitlityFooter(StateSetter setModalState) {
@@ -318,59 +339,98 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
         context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
+    double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
+
+    if (Platform.isAndroid) {
+      bottomPadding += MEDIUM_SPACE;
+    }
+
     return Container(
-      color: lightTheme
-          ? themeExtension.primaryLight
-          : themeExtension.primarySemiDark,
+      decoration: BoxDecoration(
+        color: lightTheme
+            ? themeExtension.primaryLight
+            : themeExtension.primarySemiDark,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Theme.of(context)
+                .shadowColor
+                .withValues(alpha: context.lightTheme() ? 0.25 : 0.6),
+            blurRadius: 3.0,
+          ),
+        ],
+      ),
       child: SafeArea(
         child: IntrinsicHeight(
-          child: Container(
-            decoration: BoxDecoration(
-              color: lightTheme
-                  ? themeExtension.primaryLight
-                  : themeExtension.primarySemiDark,
-              border: Border(
-                top: BorderSide(color: Colors.grey.shade300, width: 1),
-              ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.only(
+              start: SMALL_SPACE,
+              end: SMALL_SPACE,
+              top: SMALL_SPACE,
+              bottom: bottomPadding,
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(MEDIUM_SPACE),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Row(children: <Widget>[
-                        _getCompatibilityFooterButton(
-                          _sortByImportance
-                              ? AppLocalizations.of(context).sort_by_score
-                              : AppLocalizations.of(context).sort_by_importance,
-                          const icons.Clear(),
-                          () {
-                            setModalState(() {
-                              setState(() {
-                                _sortByImportance = !_sortByImportance;
-                                _scrollController.animateTo(
-                                  0.0,
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeOut,
-                                );
+            child: SizedBox(
+              height: 48.0 + LARGE_SPACE + bottomPadding,
+              child: OutlinedButtonTheme(
+                data: OutlinedButtonThemeData(
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24.0),
+                    ),
+                    side: BorderSide(color: themeExtension.greyMedium),
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: 5.0,
+                      horizontal: 3.0,
+                    ),
+                  ),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Row(children: <Widget>[
+                          _getCompatibilityFooterButton(
+                            _sortByImportance
+                                ? AppLocalizations.of(context).sort_by_score
+                                : AppLocalizations.of(context)
+                                    .sort_by_importance,
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                const Icon(Icons.sort, size: 22.0),
+                                Transform.translate(
+                                  offset: const Offset(-5, 0),
+                                  child: const Icon(Icons.south, size: 15.0),
+                                ),
+                              ],
+                            ),
+                            () {
+                              SmoothHapticFeedback.lightNotification();
+                              setModalState(() {
+                                setState(() {
+                                  _sortByImportance = !_sortByImportance;
+                                  _scrollController.animateTo(
+                                    0.0,
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.easeOut,
+                                  );
+                                });
                               });
-                            });
-                          },
-                        ),
-                      ]),
+                            },
+                          ),
+                        ]),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: SMALL_SPACE),
-                  _getCompatibilityFooterButton(
-                    null,
-                    const icons.Personalization(),
-                    () => AppNavigator.of(context).push(
-                      AppRoutes.PREFERENCES(PreferencePageType.FOOD),
-                    ),
-                  ),
-                ],
+                    const SizedBox(width: SMALL_SPACE),
+                    _getCompatibilityFooterButton(
+                        null, const icons.Personalization(), () {
+                      SmoothHapticFeedback.lightNotification();
+                      AppNavigator.of(context).push(
+                        AppRoutes.PREFERENCES(PreferencePageType.FOOD),
+                      );
+                    }),
+                  ],
+                ),
               ),
             ),
           ),
@@ -482,23 +542,24 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
       child: OutlinedButton(
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
-            side: BorderSide(width: 0.5, color: foregroundColor),
-            foregroundColor: foregroundColor,
-            backgroundColor: Colors.white),
-        child: label == null
-            ? child
-            : Row(
-                children: <Widget>[
-                  child,
-                  const SizedBox(width: 8.0),
-                  Text(
-                    label,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
+            foregroundColor: foregroundColor, backgroundColor: Colors.white),
+        child: Padding(
+          padding: const EdgeInsets.all(MEDIUM_SPACE),
+          child: label == null
+              ? child
+              : Row(
+                  children: <Widget>[
+                    child,
+                    const SizedBox(width: 8.0),
+                    Text(
+                      label,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+        ),
       ),
     );
   }
@@ -515,7 +576,7 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: lightTheme
-                ? themeExtension.primaryLight
+                ? themeExtension.primaryMedium
                 : themeExtension.primarySemiDark,
             borderRadius: ANGULAR_BORDER_RADIUS,
           ),
@@ -538,8 +599,8 @@ class _CompatibilityScoreState extends State<CompatibilityScore>
                     groupTitle,
                     textAlign: TextAlign.start,
                     style: themeData.textTheme.titleSmall!.copyWith(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w600,
                       color: lightTheme
                           ? themeExtension.primaryUltraBlack
                           : themeExtension.primaryLight,
