@@ -323,6 +323,7 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.report => const icons.Flag(),
       ProductFooterActionBar.contributionGuide => const icons.Lifebuoy(),
       ProductFooterActionBar.dataQuality => const icons.CheckList(),
+      ProductFooterActionBar.addProperty => const icons.Personalization(),
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
@@ -347,6 +348,7 @@ class _ProductActionBarModalItemEditorState
         appLocalizations.product_footer_action_contributor_guide,
       ProductFooterActionBar.dataQuality =>
         appLocalizations.product_footer_action_data_quality_tags,
+      ProductFooterActionBar.addProperty => appLocalizations.add_tag,
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
