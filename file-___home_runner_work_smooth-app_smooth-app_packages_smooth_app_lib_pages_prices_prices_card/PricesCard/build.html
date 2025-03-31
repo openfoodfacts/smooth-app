@@ -72,68 +72,30 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final SmoothColorsThemeExtension themeExtension =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
-
   return buildProductSmoothCard(
-    title: Stack(
-      children: &lt;Widget&gt;[
-        Positioned.directional(
-          textDirection: Directionality.of(context),
-          start: LARGE_SPACE,
-          child: Container(
-            decoration: BoxDecoration(
-              color: themeExtension.secondaryVibrant,
-              shape: BoxShape.circle,
-            ),
-            padding: const EdgeInsetsDirectional.only(
-              top: 5.0,
-              start: 6.0,
-              end: 6.0,
-              bottom: 7.0,
-            ),
-            child: const icons.Lab(
-              size: 10.0,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        const SizedBox(width: SMALL_SPACE),
-        Center(child: Text(appLocalizations.prices_generic_title)),
-      ],
-    ),
+    title: Text(appLocalizations.prices_generic_title),
     body: Container(
       width: double.infinity,
       padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-      child: Stack(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: &lt;Widget&gt;[
-          Positioned.directional(
-            textDirection: Directionality.of(context),
-            bottom: 0.0,
-            end: 0.0,
-            child: const _PricesCardTitleIcon(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+            child: _PricesCardViewButton(product),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: &lt;Widget&gt;[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: _PricesCardViewButton(product),
+          Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: SmoothLargeButtonWithIcon(
+              text: appLocalizations.prices_add_a_price,
+              leadingIcon: const Icon(Icons.add),
+              onPressed: () async =&gt; ProductPriceAddPage.showProductPage(
+                context: context,
+                product: PriceMetaProduct.product(product),
+                proofType: ProofType.priceTag,
               ),
-              Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
-                child: SmoothLargeButtonWithIcon(
-                  text: appLocalizations.prices_add_a_price,
-                  leadingIcon: const Icon(Icons.add),
-                  onPressed: () async =&gt; ProductPriceAddPage.showProductPage(
-                    context: context,
-                    product: PriceMetaProduct.product(product),
-                    proofType: ProofType.priceTag,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),
