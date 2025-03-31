@@ -79,7 +79,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
         ],
       ),
       body: Stack(
-        children: [
+        children: <Widget>[
           Center(
             child: Image.network(
               _getUrl(false),

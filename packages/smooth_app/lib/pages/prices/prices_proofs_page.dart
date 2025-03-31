@@ -1,10 +1,8 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -204,7 +202,7 @@ class _PriceProofImage extends StatelessWidget {
     final String date = dateFormat.format(proof.created);
 
     // Fetch price count (assuming proof.priceCount exists)
-    final int priceCount = proof.priceCount ?? 0;
+    final int priceCount = proof.priceCount;
 
     return Stack(
       children: <Widget>[
