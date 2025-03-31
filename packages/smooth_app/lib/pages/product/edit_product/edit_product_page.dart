@@ -1,4 +1,4 @@
-mport 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -83,6 +83,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     size: 18.0,
                     ),
                 title: appLocalizations.edit_product_form_item_details_title,
+                subtitle: Text(appLocalizations.edit_product_form_item_details_subtitle),
                 error: [
                   (upToDateProduct.productName==null) ? appLocalizations.product_name : "",
                   (upToDateProduct.quantity==null) ? appLocalizations.quantity: "",
@@ -98,13 +99,14 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     Icons.add_a_photo_rounded,
                   ),
                 title: appLocalizations.edit_product_form_item_photos_title,
+                subtitle: Text(appLocalizations.edit_product_form_item_photos_subtitle),
                 error:[
                   (upToDateProduct.imageFrontSmallUrl==null && upToDateProduct.imageFrontUrl==null) ? appLocalizations.front_photo : "",
                   (upToDateProduct.imageIngredientsSmallUrl==null && upToDateProduct.imageIngredientsUrl==null) ? appLocalizations.ingredients_photo : "",
-                  (upToDateProduct.imageNutritionSmallUrl==null && upToDateProduct.imageNutritionUrl==null) ? appLocalizations.nutrition_facts_photo : "",
+                  (upToDateProduct.imageNutritionSmallUrl==null && upToDateProduct.imageNutritionUrl==null) ? appLocalizations.edit_product_form_item_nutrition_facts_title : "",
                 ],
                 warning: [
-                  (upToDateProduct.imagePackagingSmallUrl==null) ? appLocalizations.packaging_information_photo : "",
+                  (upToDateProduct.imagePackagingSmallUrl==null) ? appLocalizations.packaging_information : "",
                 ],
                 onTap: () async {
                   AnalyticsHelper.trackProductEdit(
@@ -140,6 +142,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   leading: const icons.Ingredients.alt(),
                   title:
                       appLocalizations.edit_product_form_item_ingredients_title,
+                      subtitle: Text(""),
                   error: [
                     (upToDateProduct.ingredients==null) ? appLocalizations.ingredients : "",
                   ],
@@ -159,6 +162,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     leading: const icons.NutritionFacts(size: 18.0),
                     title: appLocalizations
                         .edit_product_form_item_nutrition_facts_title,
+                        subtitle: Text(appLocalizations.edit_product_form_item_nutrition_facts_subtitle),
                     error: [
                       (upToDateProduct.nutritionData==true) ? 
                           (upToDateProduct.servingSize==null) ? appLocalizations.nutrition_page_serving_size : ""
@@ -188,6 +192,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               _ListTitleItem(
                 leading: const icons.Packaging(),
                 title: appLocalizations.edit_packagings_title,
+                subtitle: Text(""),
                 warning: [
                   (upToDateProduct.packagings==null) ? appLocalizations.edit_packagings_title : "",
                 ],
@@ -199,6 +204,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               _ListTitleItem(
                 leading: const icons.Recycling(),
                 title: appLocalizations.edit_product_form_item_packaging_title,
+                subtitle: Text(""),
                 onTap: () async => ProductFieldOcrPackagingEditor().edit(
                   context: context,
                   product: upToDateProduct,
@@ -213,7 +219,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               _ListTitleItem(
                 title:
                     appLocalizations.edit_product_form_item_other_details_title,
-                //subtitle: appLocalizations.edit_product_form_item_other_details_subtitle,
+                subtitle: Text(appLocalizations.edit_product_form_item_other_details_subtitle),
                 warning: [
                   (upToDateProduct.website==null) ? appLocalizations.edit_product_form_item_other_details_title : "",
                 ],
@@ -344,6 +350,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                               border: Border.all(color: extension.primaryBlack, width: 2), 
                             ),
                             child: DropdownButton<String>(
+                              dropdownColor: extension.primaryLight,
                               value: selectedOption,
                               icon: Icon(Icons.keyboard_arrow_down_sharp, color: extension.primaryBlack), 
                               iconSize: 24,
@@ -436,6 +443,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     return _ListTitleItem(
       leading: const Icon(Icons.interests),
       title: titles.join(', '),
+      subtitle: Text(appLocalizations.edit_product_form_item_labels_subtitle),
       error: [
         (upToDateProduct.countries==null) ? appLocalizations.edit_product_form_item_countries_type : "",
         (upToDateProduct.categories==null) ? appLocalizations.category_picker_screen_title : "",
@@ -478,6 +486,7 @@ class _ListTitleItem extends SmoothListTileCard {
   _ListTitleItem({
     Widget? leading,
     String? title,
+    Widget? subtitle,
     List<String>? error,
     List<String>? warning,
     super.onTap,
@@ -488,52 +497,61 @@ class _ListTitleItem extends SmoothListTileCard {
                 child: Text(
                           title ?? "",
                           style: const TextStyle(fontWeight: FontWeight.bold),
-                          overflow: TextOverflow.ellipsis,
                         ),
                 ),
             ],
           ),
-          subtitle: error!=null || warning!=null 
-           ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (error != null)
-                      ...error
-                          .where((e) => e.isNotEmpty) 
-                          .map(
-                            (e) => Row(
-                              children: [
-                                const Icon(Icons.error, color: Color(0xFFEB5757), size: 18),
-                                const SizedBox(width: 6),
-                                Expanded(
-                                  child: Text(
-                                    e,
-                                    style: const TextStyle(fontSize: 14),
-                                  ),
+          subtitle: (error!=null && error.any((e) => e.isNotEmpty)) || (warning!=null && warning.any((w)=> w.isNotEmpty))
+           ? DecoratedBox(
+            decoration: BoxDecoration(
+              color: Color(0xFFEDE0DB),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+             child: Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (error != null)
+                          ...error
+                              .where((e) => e.isNotEmpty) 
+                              .map(
+                                (e) => Row(
+                                  children: [
+                                    const Icon(Icons.error, color: Color(0xFFEB5757), size: 18),
+                                    const SizedBox(width: 6),
+                                    Expanded(
+                                      child: Text(
+                                        e,
+                                        style: const TextStyle(fontSize: 14),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                    if (warning != null)
-                      ...warning
-                          .where((w) => w.isNotEmpty)
-                          .map(
-                            (w) => Row(
-                              children: [
-                                const Icon(Icons.warning, color: Color(0xFFFB8229), size: 18),
-                                const SizedBox(width: 6),
-                                Expanded(
-                                  child: Text(
-                                    w,
-                                    style: const TextStyle(fontSize: 14),
-                                  ),
+                              ),
+                        if (warning != null)
+                          ...warning
+                              .where((w) => w.isNotEmpty)
+                              .map(
+                                (w) => Row(
+                                  children: [
+                                    const Icon(Icons.warning, color: Color(0xFFFB8229), size: 18),
+                                    const SizedBox(width: 6),
+                                    Expanded(
+                                      child: Text(
+                                        w,
+                                        style: const TextStyle(fontSize: 14),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                    ],
-                  )
-          : SizedBox(),
+                              ),
+                        ],
+                      ),
+             ),
+           )
+          : subtitle,
           icon: leading,
           color: _getIconBackgroundColor(title, error, warning),
           margin: const EdgeInsetsDirectional.only(

@@ -65,7 +65,6 @@ class SmoothListTileCard extends StatelessWidget {
         child: 
           IntrinsicHeight(
             child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
                   Container(
                       width: 80,
@@ -97,19 +96,22 @@ class SmoothListTileCard extends StatelessWidget {
                                 ),
                       ),
                     ),
-                    SizedBox(width: 5,),
-              Expanded(
-                child: ListTile(
-                  title: title,
-                  subtitle: subtitle,
-                  trailing: Icon(ConstantIcons.forwardIcon),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                ),
+                  SizedBox(width: 5,),
+                  Expanded(
+                    child: ListTile(
+                        title: title,
+                        subtitle: subtitle,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(ConstantIcons.forwardIcon),
+                  ),
+                ],
               ),
-            ],
-                    ),
+            ),
           ),
-      ),
-    );
-  }
-}
+        );
+      }
+    }
