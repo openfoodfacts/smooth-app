@@ -236,7 +236,8 @@ class _ProductFooterButtonsBarItems extends StatelessWidget {
               const ProductFooterContributorGuideButton(),
             ProductFooterActionBar.dataQuality =>
               const ProductFooterDataQualityButton(),
-            ProductFooterActionBar.addProperty => const ProductFooterAddPropertyButton(),
+            ProductFooterActionBar.addProperty =>
+              const ProductFooterAddPropertyButton(),
           },
         );
       },
