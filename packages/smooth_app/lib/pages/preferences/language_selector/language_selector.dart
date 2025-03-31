@@ -283,10 +283,10 @@ class _LanguageSelectorScreen extends StatelessWidget {
           language == selectedLanguage ||
           Languages().getNameInLanguage(language).toLowerCase().contains(
                 filter.toLowerCase(),
-          ) ||
+              ) ||
           Languages().getNameInEnglish(language).toLowerCase().contains(
                 filter.toLowerCase(),
-          ),
+              ),
     );
   }
 }
