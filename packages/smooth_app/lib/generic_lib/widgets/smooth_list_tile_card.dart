@@ -62,56 +62,58 @@ class SmoothListTileCard extends StatelessWidget {
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: onTap,
-        child: 
-          IntrinsicHeight(
-            child: Row(
+        child: IntrinsicHeight(
+          child: Row(
             children: [
-                  Container(
-                      width: 80,
-                      decoration: BoxDecoration(
-                        color: color,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
+              Container(
+                width: 80,
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                  ),
+                ),
+                child: Center(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: lightTheme
+                          ? extension.primaryBlack
+                          : extension.primarySemiDark,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
+                      child: IconTheme(
+                        data: IconThemeData(
+                          color: extension.primaryLight,
+                          size: 20.0,
                         ),
-                      ),
-                      child: Center(
-                        child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: lightTheme
-                                        ? extension.primaryBlack
-                                        : extension.primarySemiDark,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
-                                    child: IconTheme(
-                                      data: IconThemeData(
-                                        color: extension.primaryLight,
-                                        size: 20.0,
-                                      ),
-                                      child: leading!,
-                                    ),
-                                  ),
-                                ),
+                        child: leading!,
                       ),
                     ),
-                  SizedBox(width: 5,),
-                  Expanded(
-                    child: ListTile(
-                        title: title,
-                        subtitle: subtitle,
-                        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(ConstantIcons.forwardIcon),
-                  ),
-                ],
+                ),
               ),
-            ),
+              SizedBox(
+                width: 5,
+              ),
+              Expanded(
+                child: ListTile(
+                  title: title,
+                  subtitle: subtitle,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(ConstantIcons.forwardIcon),
+              ),
+            ],
           ),
-        );
-      }
-    }
+        ),
+      ),
+    );
+  }
+}
