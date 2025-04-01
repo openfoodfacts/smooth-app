@@ -2262,7 +2262,7 @@
   "prices_app_dev_mode_flag": "Raccourci vers l'application Prix sur la page produit",
   "prices_app_button": "Accéder à l'application Prix",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_bulk_proof_upload_action": "Send the proof",
+  "prices_bulk_proof_upload_action": "Envoyer la preuve",
   "prices_generic_title": "Prix",
   "prices_add_n_prices": "{count,plural, =1{Ajouter un prix} other{Ajouter {count} prix}}",
   "prices_send_n_prices": "{count,plural, =1{Envoyer le prix} other{Envoyer {count} prix}}",
@@ -2614,7 +2614,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Ajouter plusieurs preuves",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -3686,7 +3686,7 @@
   "contact_title_press_page": "Page de presse",
   "contact_title_press_email": "Contact de presse",
   "contact_title_newsletter": "S'abonner à notre newsletter",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Abonnez-vous à notre calendrier communautaire",
   "hunger_games_loading_line1": "Veuillez nous laisser quelques secondes…",
   "hunger_games_loading_line2": "Nous téléchargeons les questions !",
   "hunger_games_error_label": "Argh ! Quelque chose s'est mal passé… et nous n'avons pas pu charger les questions.",
@@ -3759,7 +3759,7 @@
   "guide_nutriscore_v2_new_logo_text": "Désormais le logo peut arborer une mention \"**Nouveau calcul**\" pour clarifier qu'il s'agit bien du nouveau calcul.",
   "guide_nutriscore_v2_new_logo_image_caption": "Le logo du nouveau Nutri-Score",
   "guide_nutriscore_v2_where_title": "Où trouver le nouveau calcul du Nutri-Score ?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
+  "guide_nutriscore_v2_where_paragraph1": "Le Nutri-Score est appliqué dans 7 pays : France, Allemagne, Belgique, Espagne, Luxembourg, Pays-Bas et Suisse.",
   "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "Sans attendre, vous **retrouvez déjà dans l'application Open Food Facts**, le nouveau calcul, y compris si les fabriquants n’ont pas mis à jour le score.",
   "guide_nutriscore_v2_unchanged_title": "Ce qui ne change pas",
