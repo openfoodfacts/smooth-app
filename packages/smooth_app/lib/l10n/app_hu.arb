@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Segítsen az Open Food Facts fejlesztésében az Ön országában",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -780,11 +780,11 @@
   "score_update_nutrition_facts": "Tápértékadatok frissítése",
   "nutrition_page_title": "Tápértékadatok",
   "nutrition_page_nutritional_info_title": "Tápanyag-információ",
-  "nutrition_page_nutritional_info_label": "A terméken feltüntetett értékek:",
+  "nutrition_page_nutritional_info_label": "A terméken fel van tüntetve:",
   "nutrition_page_nutritional_info_value_positive": "Igen",
   "nutrition_page_nutritional_info_value_negative": "Nem",
   "nutrition_page_nutritional_info_open_photo": "Fénykép megnyitása",
-  "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+  "nutrition_page_nutritional_info_explanation_title": "Jó tanácsok: tápanyag-információ",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
@@ -802,7 +802,7 @@
   "nutrition_page_add_nutrient": "Tápanyag hozzáadása",
   "nutrition_page_serving_size": "Adag",
   "nutrition_page_serving_size_hint": "Adj meg egy adag méretét (pl.: 100 g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_explanation_title": "Jó tanácsok: adag",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
@@ -822,7 +822,7 @@
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Érvénytelen mértékegység",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -830,15 +830,15 @@
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Érvénytelen mértékegységek",
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **cukorka** és 2 **keksz**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Hiányzó mértékegység",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -949,7 +949,7 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Date",
+  "product_image_details_date": "Dátum",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -965,7 +965,7 @@
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Search for a product",
+  "homepage_main_card_search_field_hint": "Termék keresése",
   "homepage_main_card_search_field_tooltip": "Keresés indítása",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
@@ -1644,7 +1644,7 @@
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
-  "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+  "edit_product_form_item_labels_explanation_title": "Jó tanácsok: címkék",
   "@edit_product_form_item_labels_explanation_title": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1656,7 +1656,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Belgiumban gyártott, Olaszországban készült…",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1664,7 +1664,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Rostban gazdag, vasforrás…",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1684,19 +1684,19 @@
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
-  "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+  "edit_product_form_item_stores_explanation_title": "Jó tanácsok: üzletek",
   "@edit_product_form_item_stores_explanation_title": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+  "edit_product_form_item_stores_explanation_info1": "Adja meg az üzletet, ahol a terméket vásárolta.",
   "@edit_product_form_item_stores_explanation_info1": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_good_examples_1": "Walmart",
+  "edit_product_form_item_stores_explanation_good_examples_1": "Aldi",
   "@edit_product_form_item_stores_explanation_good_examples_1": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_stores_explanation_good_examples_2": "Carrefour",
+  "edit_product_form_item_stores_explanation_good_examples_2": "Auchan",
   "@edit_product_form_item_stores_explanation_good_examples_2": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
@@ -1716,19 +1716,19 @@
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
-  "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+  "edit_product_form_item_origins_explanation_title": "Jó tanácsok: származás",
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+  "edit_product_form_item_origins_explanation_info1": "Adjon hozzá **minden, a csomagoláson található eredetmegjelölést**.\nNe foglalkozzon a közvetlenül az összetevők között feltüntetett származásokkal.",
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+  "edit_product_form_item_origins_explanation_good_examples_1": "A marhahús Argentínából származik",
   "@edit_product_form_item_origins_explanation_good_examples_1": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+  "edit_product_form_item_origins_explanation_good_examples_2": "A szója nem az Európai Unióból származik",
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
@@ -1744,11 +1744,11 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+  "edit_product_form_item_countries_explanations_title": "Jó tanácsok: országok",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+  "edit_product_form_item_countries_explanations_info1": "**Azon országok, ahol a termék széles körben kapható** (nem csak importárura specializálódott boltokban).",
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
@@ -1764,7 +1764,7 @@
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
-  "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+  "edit_product_form_item_emb_help_title": "Jó tanácsok: üzemkódok",
   "@edit_product_form_item_emb_help_title": {
     "description": "Title for the help section about traceability codes"
   },
@@ -1808,11 +1808,11 @@
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "Jó tanácsok: kategóriák",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "**Csak a legszűkebb alkategóriát** adja meg.\nA szülőkategóriák automatikusan hozzá lesznek adva.",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
@@ -1820,15 +1820,15 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "Ha egy kategóriát **nem kínál fel az automatikus kiegészítés**, nyugodtan adja hozzá.\nEz segít nekünk az Open Food Facts fejlesztésében az Ön országában.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Szardínia olívaolajban",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Narancslé koncentrátumból",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
@@ -1875,15 +1875,15 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "Jó tanácsok: tápértékadatok",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Táplálkozási értékek",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+  "edit_product_form_item_nutrition_facts_explanation_info1_content": "Először válassza ki, hogy **mire vonatkoznak az értékek**:",
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1891,15 +1891,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Ezután adja meg a tápértéket **a csomagoláson feltüntetettek szerint**. Ahol nincs érték, kattintson a „Szem” ikonra.",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Hiányzik egy mező?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "Ha egy adathoz hiányzik a mező, a hozzáadásához **kattintson a „Plusz” ikonra** (pl.: D-vitamin, magnézium…).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -2240,9 +2240,9 @@
       }
     }
   },
-  "product_type_label_food": "Food",
+  "product_type_label_food": "Élelmiszer",
   "product_type_label_beauty": "Testápolás",
-  "product_type_label_pet_food": "Pet food",
+  "product_type_label_pet_food": "Állateledel",
   "product_type_label_product": "Egyéb",
   "product_type_selection_title": "Terméktípus",
   "product_type_selection_subtitle": "Válassza ki a termék típusát",
@@ -2261,13 +2261,13 @@
   },
   "prices_app_dev_mode_flag": "Árak alkalmazásra mutató gomb a termékoldalon",
   "prices_app_button": "Tovább az Árak appba",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_bulk_proof_upload_action": "Send the proof",
-  "prices_generic_title": "Prices",
+  "prices_bulk_proof_upload_title": "Tömeges bizonylatfeltöltés",
+  "prices_bulk_proof_upload_action": "Bizonylat elküldése",
+  "prices_generic_title": "Árak",
   "prices_add_n_prices": "{count,plural, =1{Ár hozzáadása} other{{count} ár hozzáadása}}",
   "prices_send_n_prices": "{count,plural,=1{Ár beküldése} other{{count} ár beküldése}}",
   "prices_add_an_item": "Tétel hozzáadása",
-  "prices_add_a_price": "Add a price",
+  "prices_add_a_price": "Ár hozzáadása",
   "prices_add_a_receipt": "Nyugta hozzáadása",
   "prices_add_price_tags": "Árcédulák hozzáadása",
   "prices_barcode_already": "Ez a vonalkód ({barcode}) már rajta van a listán!",
@@ -2440,26 +2440,26 @@
   },
   "prices_amount_subtitle": "Mennyiség",
   "prices_amount_is_discounted": "Akciós?",
-  "prices_amount_price_normal": "Price",
-  "prices_amount_price_discounted": "Discounted price",
+  "prices_amount_price_normal": "Ár",
+  "prices_amount_price_discounted": "Akciós ár",
   "prices_amount_price_not_discounted": "Eredeti ár",
   "prices_amount_no_product": "Egy termék hiányzik!",
   "prices_amount_price_incorrect": "Hibás érték",
   "prices_amount_price_mandatory": "Kötelező érték",
-  "prices_currency_subtitle": "Currency",
-  "prices_date_subtitle": "Date",
+  "prices_currency_subtitle": "Pénznem",
+  "prices_date_subtitle": "Dátum",
   "prices_location_subtitle": "Bolt",
   "prices_location_find": "Bolt keresése",
   "prices_location_mandatory": "Ki kell választani egy boltot!",
   "prices_location_search_broader": "Nem találta, amit keresett? Próbáljunk meg egy átfogóbb keresést!",
-  "prices_proof_subtitle": "Proof",
+  "prices_proof_subtitle": "Bizonylat",
   "prices_proof_find": "Bizonylat kiválasztása",
-  "prices_proof_receipt": "Receipt",
-  "prices_proof_price_tag": "Price tag",
+  "prices_proof_receipt": "Nyugta",
+  "prices_proof_price_tag": "Árcédula",
   "prices_proof_mandatory": "Ki kell választani egy bizonylatot!",
   "prices_add_validation_error": "Érvényesítési hiba",
   "prices_privacy_warning_title": "Adatvédelmi figyelmeztetés",
-  "prices_unknown_product": "Unknown product",
+  "prices_unknown_product": "Ismeretlen termék",
   "prices_privacy_warning_main_message": "Az árak **nyilvánosak lesznek** a hivatkozott üzlettel együtt.\n\nEz lehetővé teheti azoknak, akik ismerik az ön Open Food Facts felhasználónevét, hogy:\n",
   "prices_privacy_warning_message_bullet_1": "Megállapítsák, ön merre felé él",
   "prices_privacy_warning_message_bullet_2": "Megtudják, hogy mit vásárol",
@@ -2577,11 +2577,11 @@
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
-  "user_search_prices_title": "My prices",
+  "user_search_prices_title": "Áraim",
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
-  "user_search_proofs_title": "My proofs",
+  "user_search_proofs_title": "Bizonylataim",
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
@@ -2614,7 +2614,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Több bizonylat hozzáadása",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2730,7 +2730,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Csak akkor adjon hozzá fordítást, **ha a nyelv szerepel valahol a csomagoláson**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -2754,7 +2754,7 @@
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "Jó tanácsok: terméknév",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
@@ -2770,7 +2770,7 @@
   "@add_basic_details_product_name_help_good_examples_1": {
     "description": "A 1st good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+  "add_basic_details_product_name_help_good_examples_2": "Ketchup",
   "@add_basic_details_product_name_help_good_examples_2": {
     "description": "A 2nd good example for the product name (you can change it if necessary)"
   },
@@ -2803,31 +2803,31 @@
   "brand_names": "Márkanevek",
   "add_basic_details_brand_name_error": "Adja meg a márkanevet",
   "add_basic_details_brand_names_hint": "Adja meg a márkaneveket (pl. Ferrero)",
-  "add_basic_details_product_brand_help_title": "Good practices: Brands",
+  "add_basic_details_product_brand_help_title": "Jó tanácsok: márkák",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "Adja meg **a terméken látható összes márkát**.",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "Fő márka",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "A **fő márkát**, amely általában jól látható a csomagolás első oldalán, **elsőként kell megadni**.",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "További márkák",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "Ha **egy nagy cég** értékesíti:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "Az **Actimelt** a **Danone** értékesíti",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
@@ -3835,7 +3835,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Date",
+  "photo_viewer_details_date_title": "Dátum",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -3989,7 +3989,7 @@
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_error_button": "Újra",
-  "carousel_unknown_product_header": "Unknown product",
+  "carousel_unknown_product_header": "Ismeretlen termék",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
@@ -4033,7 +4033,7 @@
   "photo_field_packaging": "Csomagolási információk fényképe",
   "photo_already_exists": "Ez a fénykép már létezik",
   "photo_missing": "Ez a fénykép hiányzik",
-  "date": "Date",
+  "date": "Dátum",
   "photo_rotate_left": "Forgatás balra",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
