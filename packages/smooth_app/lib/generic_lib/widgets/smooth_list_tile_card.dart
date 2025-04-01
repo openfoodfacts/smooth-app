@@ -64,12 +64,12 @@ class SmoothListTileCard extends StatelessWidget {
         onTap: onTap,
         child: IntrinsicHeight(
           child: Row(
-            children: [
+            children: <Widget>[
               Container(
                 width: 80,
                 decoration: BoxDecoration(
                   color: color,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10),
                   ),
@@ -95,7 +95,7 @@ class SmoothListTileCard extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Expanded(
@@ -103,7 +103,7 @@ class SmoothListTileCard extends StatelessWidget {
                   title: title,
                   subtitle: subtitle,
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 ),
               ),
               Padding(

@@ -40,9 +40,9 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
-  List<Widget> items = [];
-  List<Widget> originalItems = [];
-  String? selectedOption = "Fields";
+  List<Widget> items = <Widget>[];
+  List<Widget> originalItems = <Widget>[];
+  String? selectedOption = 'Fields';
 
   @override
   void initState() {
@@ -52,14 +52,14 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
 
   void _sortByMissingData() {
     setState(() {
-      items.sort((a, b) {
+      items.sort((Widget a, Widget b) {
         if (a is _ListTitleItem && b is _ListTitleItem) {
-          Color ca = a.color ?? Color(0xFF219653);
-          Color cb = b.color ?? Color(0xFF219653);
-          final List<Color> order = [
-            Color(0xFFEB5757),
-            Color(0xFFFB8229),
-            Color(0xFF219653)
+          final Color ca = a.color ?? const Color(0xFF219653);
+          final Color cb = b.color ?? const Color(0xFF219653);
+          final List<Color> order = <Color>[
+            const Color(0xFFEB5757),
+            const Color(0xFFFB8229),
+            const Color(0xFF219653)
           ];
           return order.indexOf(ca).compareTo(order.indexOf(cb));
         }
@@ -70,6 +70,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
 
   void _sortByField() {
     setState(() {
+      // ignore: always_specify_types
       items = List.from(originalItems); // Restore original order
     });
   }
@@ -79,21 +80,28 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     super.didChangeDependencies();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (items.isEmpty) {
-      items = [
+      items = <Widget>[
         _ListTitleItem(
-          leading: Icon(
+          leading: const Icon(
             Icons.edit,
             size: 18.0,
           ),
           title: appLocalizations.edit_product_form_item_details_title,
           subtitle:
               Text(appLocalizations.edit_product_form_item_details_subtitle),
-          error: [
-            (upToDateProduct.productName == null)
-                ? appLocalizations.product_name
-                : "",
-            (upToDateProduct.quantity == null) ? appLocalizations.quantity : "",
-            (upToDateProduct.brands == null) ? appLocalizations.brand_name : "",
+          error: <String>[
+            if (upToDateProduct.productName == null)
+              appLocalizations.product_name
+            else
+              '',
+            if (upToDateProduct.quantity == null)
+              appLocalizations.quantity
+            else
+              '',
+            if (upToDateProduct.brands == null)
+              appLocalizations.brand_name
+            else
+              '',
           ],
           onTap: () async => ProductFieldDetailsEditor().edit(
             context: context,
@@ -101,30 +109,34 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           ),
         ),
         _ListTitleItem(
-          leading: Icon(
+          leading: const Icon(
             Icons.add_a_photo_rounded,
           ),
           title: appLocalizations.edit_product_form_item_photos_title,
           subtitle:
               Text(appLocalizations.edit_product_form_item_photos_subtitle),
-          error: [
-            (upToDateProduct.imageFrontSmallUrl == null &&
-                    upToDateProduct.imageFrontUrl == null)
-                ? appLocalizations.front_photo
-                : "",
-            (upToDateProduct.imageIngredientsSmallUrl == null &&
-                    upToDateProduct.imageIngredientsUrl == null)
-                ? appLocalizations.ingredients_photo
-                : "",
-            (upToDateProduct.imageNutritionSmallUrl == null &&
-                    upToDateProduct.imageNutritionUrl == null)
-                ? appLocalizations.edit_product_form_item_nutrition_facts_title
-                : "",
+          error: <String>[
+            if (upToDateProduct.imageFrontSmallUrl == null &&
+                upToDateProduct.imageFrontUrl == null)
+              appLocalizations.front_photo
+            else
+              '',
+            if (upToDateProduct.imageIngredientsSmallUrl == null &&
+                upToDateProduct.imageIngredientsUrl == null)
+              appLocalizations.ingredients_photo
+            else
+              '',
+            if (upToDateProduct.imageNutritionSmallUrl == null &&
+                upToDateProduct.imageNutritionUrl == null)
+              appLocalizations.edit_product_form_item_nutrition_facts_title
+            else
+              '',
           ],
-          warning: [
-            (upToDateProduct.imagePackagingSmallUrl == null)
-                ? appLocalizations.packaging_information
-                : "",
+          warning: <String>[
+            if (upToDateProduct.imagePackagingSmallUrl == null)
+              appLocalizations.packaging_information
+            else
+              '',
           ],
           onTap: () async {
             AnalyticsHelper.trackProductEdit(
@@ -158,11 +170,12 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           _ListTitleItem(
             leading: const icons.Ingredients.alt(),
             title: appLocalizations.edit_product_form_item_ingredients_title,
-            subtitle: Text(""),
-            error: [
-              (upToDateProduct.ingredients == null)
-                  ? appLocalizations.ingredients
-                  : "",
+            subtitle: const Text(''),
+            error: <String>[
+              if (upToDateProduct.ingredients == null)
+                appLocalizations.ingredients
+              else
+                '',
             ],
             onTap: () async => ProductFieldOcrIngredientEditor().edit(
               context: context,
@@ -182,12 +195,13 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
               subtitle: Text(appLocalizations
                   .edit_product_form_item_nutrition_facts_subtitle),
-              error: [
-                (upToDateProduct.nutritionData == true)
-                    ? (upToDateProduct.servingSize == null)
-                        ? appLocalizations.nutrition_page_serving_size
-                        : ""
-                    : "",
+              error: <String>[
+                if (upToDateProduct.nutritionData == true)
+                  (upToDateProduct.servingSize == null)
+                      ? appLocalizations.nutrition_page_serving_size
+                      : ''
+                else
+                  '',
               ],
               onTap: () async {
                 if (!await ProductRefresher().checkIfLoggedIn(
@@ -206,6 +220,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 await NutritionPageLoader.showNutritionPage(
                   product: upToDateProduct,
                   isLoggedInMandatory: true,
+                  // ignore: use_build_context_synchronously
                   context: context,
                 );
               }),
@@ -213,11 +228,12 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         _ListTitleItem(
           leading: const icons.Packaging(),
           title: appLocalizations.edit_packagings_title,
-          subtitle: Text(""),
-          warning: [
-            (upToDateProduct.packagings == null)
-                ? appLocalizations.edit_packagings_title
-                : "",
+          subtitle: const Text(''),
+          warning: <String>[
+            if (upToDateProduct.packagings == null)
+              appLocalizations.edit_packagings_title
+            else
+              '',
           ],
           onTap: () async => ProductFieldPackagingEditor().edit(
             context: context,
@@ -227,7 +243,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         _ListTitleItem(
           leading: const icons.Recycling(),
           title: appLocalizations.edit_product_form_item_packaging_title,
-          subtitle: Text(""),
+          subtitle: const Text(''),
           onTap: () async => ProductFieldOcrPackagingEditor().edit(
             context: context,
             product: upToDateProduct,
@@ -243,10 +259,11 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           title: appLocalizations.edit_product_form_item_other_details_title,
           subtitle: Text(
               appLocalizations.edit_product_form_item_other_details_subtitle),
-          warning: [
-            (upToDateProduct.website == null)
-                ? appLocalizations.edit_product_form_item_other_details_title
-                : "",
+          warning: <String>[
+            if (upToDateProduct.website == null)
+              appLocalizations.edit_product_form_item_other_details_title
+            else
+              '',
           ],
           onTap: () async {
             if (!await ProductRefresher().checkIfLoggedIn(
@@ -263,6 +280,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               upToDateProduct,
             );
             await Navigator.push<void>(
+              // ignore: use_build_context_synchronously
               context,
               MaterialPageRoute<void>(
                 builder: (_) => AddOtherDetailsPage(upToDateProduct),
@@ -288,6 +306,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           },
         ),
       ];
+      // ignore: always_specify_types
       originalItems = List.from(items);
     }
   }
@@ -342,7 +361,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         children: <Widget>[
           SliverList.list(
             children: <Widget>[
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -352,8 +371,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      SizedBox(
+                    children: <Widget>[
+                      const SizedBox(
                         width: 10,
                       ),
                       Icon(
@@ -365,18 +384,18 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                         color: extension.primaryLight,
                       ),
                       Text(
-                        "Sort by :",
+                        'Sort by :',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: extension.primaryLight,
                         ),
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       DropdownButtonHideUnderline(
                         child: Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
                             color: extension.primaryLight,
                             borderRadius: BorderRadius.circular(20),
@@ -395,7 +414,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                               fontWeight: FontWeight.bold,
                             ),
                             onChanged: (String? newValue) {
-                              if (newValue == null) return;
+                              if (newValue == null) {
+                                return;
+                              }
                               setState(() {
                                 selectedOption = newValue;
                               });
@@ -405,8 +426,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                               } else {
                                 _sortByField();
                               }
-                            }, // Brown text
-                            items: [
+                            },
+                            items: <String>[
                               appLocalizations.sort_by_fields,
                               appLocalizations.sort_by_missing_data
                             ].map<DropdownMenuItem<String>>((String value) {
@@ -436,45 +457,51 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     return _ListTitleItem(
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
-      error: [
-        (helper.getTitle(appLocalizations) ==
-                appLocalizations.edit_product_form_item_countries_title)
-            ? (upToDateProduct.countries == null)
-                ? appLocalizations.edit_product_form_item_countries_title
-                : ""
-            : "",
-        (helper.getTitle(appLocalizations) ==
-                appLocalizations.edit_product_form_item_categories_title)
-            ? (upToDateProduct.categories == null)
-                ? appLocalizations.edit_product_form_item_categories_title
-                : ""
-            : "",
+      error: <String>[
+        if (helper.getTitle(appLocalizations) ==
+            appLocalizations.edit_product_form_item_countries_title)
+          (upToDateProduct.countries == null)
+              ? appLocalizations.edit_product_form_item_countries_title
+              : ''
+        else
+          '',
+        if (helper.getTitle(appLocalizations) ==
+            appLocalizations.edit_product_form_item_categories_title)
+          (upToDateProduct.categories == null)
+              ? appLocalizations.edit_product_form_item_categories_title
+              : ''
+        else
+          '',
       ],
-      warning: [
-        (helper.getTitle(appLocalizations) ==
-                appLocalizations.edit_product_form_item_labels_title)
-            ? (upToDateProduct.labels == null)
-                ? appLocalizations.edit_product_form_item_labels_title
-                : ""
-            : "",
-        (helper.getTitle(appLocalizations) ==
-                appLocalizations.edit_product_form_item_origins_title)
-            ? (upToDateProduct.origins == null)
-                ? appLocalizations.edit_product_form_item_origins_title
-                : ""
-            : "",
-        (helper.getTitle(appLocalizations) ==
-                appLocalizations.edit_product_form_item_stores_title)
-            ? (upToDateProduct.stores == null)
-                ? appLocalizations.edit_product_form_item_stores_title
-                : ""
-            : "",
-        (helper.getTitle(appLocalizations) ==
-                appLocalizations.edit_product_form_item_emb_codes_title)
-            ? (upToDateProduct.embCodes == null)
-                ? appLocalizations.edit_product_form_item_emb_codes_title
-                : ""
-            : "",
+      warning: <String>[
+        if (helper.getTitle(appLocalizations) ==
+            appLocalizations.edit_product_form_item_labels_title)
+          (upToDateProduct.labels == null)
+              ? appLocalizations.edit_product_form_item_labels_title
+              : ''
+        else
+          '',
+        if (helper.getTitle(appLocalizations) ==
+            appLocalizations.edit_product_form_item_origins_title)
+          (upToDateProduct.origins == null)
+              ? appLocalizations.edit_product_form_item_origins_title
+              : ''
+        else
+          '',
+        if (helper.getTitle(appLocalizations) ==
+            appLocalizations.edit_product_form_item_stores_title)
+          (upToDateProduct.stores == null)
+              ? appLocalizations.edit_product_form_item_stores_title
+              : ''
+        else
+          '',
+        if (helper.getTitle(appLocalizations) ==
+            appLocalizations.edit_product_form_item_emb_codes_title)
+          (upToDateProduct.embCodes == null)
+              ? appLocalizations.edit_product_form_item_emb_codes_title
+              : ''
+        else
+          '',
       ],
       //subtitle: helper.getSubtitle(appLocalizations),
       onTap: () async => ProductFieldSimpleEditor(helper).edit(
@@ -496,27 +523,33 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       leading: const Icon(Icons.interests),
       title: titles.join(', '),
       subtitle: Text(appLocalizations.edit_product_form_item_labels_subtitle),
-      error: [
-        (upToDateProduct.countries == null)
-            ? appLocalizations.edit_product_form_item_countries_type
-            : "",
-        (upToDateProduct.categories == null)
-            ? appLocalizations.category_picker_screen_title
-            : "",
+      error: <String>[
+        if (upToDateProduct.countries == null)
+          appLocalizations.edit_product_form_item_countries_type
+        else
+          '',
+        if (upToDateProduct.categories == null)
+          appLocalizations.category_picker_screen_title
+        else
+          '',
       ],
-      warning: [
-        (upToDateProduct.labels == null)
-            ? appLocalizations.edit_product_form_item_labels_title
-            : "",
-        (upToDateProduct.stores == null)
-            ? appLocalizations.edit_product_form_item_stores_title
-            : "",
-        (upToDateProduct.origins == null)
-            ? appLocalizations.edit_product_form_item_origins_title
-            : "",
-        (upToDateProduct.embCodes == null)
-            ? appLocalizations.edit_product_form_item_emb_codes_title
-            : "",
+      warning: <String>[
+        if (upToDateProduct.labels == null)
+          appLocalizations.edit_product_form_item_labels_title
+        else
+          '',
+        if (upToDateProduct.stores == null)
+          appLocalizations.edit_product_form_item_stores_title
+        else
+          '',
+        if (upToDateProduct.origins == null)
+          appLocalizations.edit_product_form_item_origins_title
+        else
+          '',
+        if (upToDateProduct.embCodes == null)
+          appLocalizations.edit_product_form_item_emb_codes_title
+        else
+          '',
       ],
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(
@@ -556,19 +589,19 @@ class _ListTitleItem extends SmoothListTileCard {
     super.onTap,
   }) : super.icon(
           title: Row(
-            children: [
+            children: <Widget>[
               Expanded(
                 child: Text(
-                  title ?? "",
+                  title ?? '',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
             ],
           ),
-          subtitle: (error != null && error.any((e) => e.isNotEmpty)) ||
-                  (warning != null && warning.any((w) => w.isNotEmpty))
+          subtitle: (error != null && error.any((String e) => e.isNotEmpty)) ||
+                  (warning != null && warning.any((String w) => w.isNotEmpty))
               ? DecoratedBox(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFEDE0DB),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
@@ -577,11 +610,11 @@ class _ListTitleItem extends SmoothListTileCard {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: <Widget>[
                         if (error != null)
-                          ...error.where((e) => e.isNotEmpty).map(
-                                (e) => Row(
-                                  children: [
+                          ...error.where((String e) => e.isNotEmpty).map(
+                                (String e) => Row(
+                                  children: <Widget>[
                                     const Icon(Icons.error,
                                         color: Color(0xFFEB5757), size: 18),
                                     const SizedBox(width: 6),
@@ -595,9 +628,9 @@ class _ListTitleItem extends SmoothListTileCard {
                                 ),
                               ),
                         if (warning != null)
-                          ...warning.where((w) => w.isNotEmpty).map(
-                                (w) => Row(
-                                  children: [
+                          ...warning.where((String w) => w.isNotEmpty).map(
+                                (String w) => Row(
+                                  children: <Widget>[
                                     const Icon(Icons.warning,
                                         color: Color(0xFFFB8229), size: 18),
                                     const SizedBox(width: 6),
@@ -622,14 +655,14 @@ class _ListTitleItem extends SmoothListTileCard {
           ),
         );
 
-  static _getIconBackgroundColor(
+  static Color _getIconBackgroundColor(
       String? title, List<String>? error, List<String>? warning) {
-    if (error != null && error.any((e) => e.isNotEmpty)) {
-      return Color(0xFFEB5757);
-    } else if (warning != null && warning.any((w) => w.isNotEmpty)) {
-      return Color(0xFFFB8229);
+    if (error != null && error.any((String e) => e.isNotEmpty)) {
+      return const Color(0xFFEB5757);
+    } else if (warning != null && warning.any((String w) => w.isNotEmpty)) {
+      return const Color(0xFFFB8229);
     } else {
-      return Color(0xFF219653);
+      return const Color(0xFF219653);
     }
   }
 }
