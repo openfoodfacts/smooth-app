@@ -14,6 +14,8 @@ const ColorScheme lightColorScheme = ColorScheme(
   onError: Color(0xFFFFFFFF),
   surface: Color(0xFFFFFFFF),
   onSurface: Color(0xFF000000),
+  tertiary: privacyBox,
+  onTertiary: onprivacyBox,
 );
 
 const ColorScheme darkColorScheme = ColorScheme(
@@ -27,6 +29,8 @@ const ColorScheme darkColorScheme = ColorScheme(
   onError: Color(0xFFFFFFFF),
   surface: Color(0xFF201A17),
   onSurface: Color(0xFFFFFFFF),
+  tertiary: privacyBoxDark,
+  onTertiary: onprivacyBoxDark,
 );
 
 const ColorScheme trueDarkColorScheme = ColorScheme(
@@ -40,6 +44,8 @@ const ColorScheme trueDarkColorScheme = ColorScheme(
   onError: Color(0xFFE1E1E1),
   surface: Color(0xFF000000),
   onSurface: Color(0xFFFFFFFF),
+  tertiary: privacyBoxDark,
+  onTertiary: onprivacyBoxDark,
 );
 
 const String CONTRAST_LOW = 'Low';
@@ -52,6 +58,11 @@ const Color MEDIUM_CONTRAST_TEXT_COLOR = Color(0xffcacaca);
 const Color HIGH_CONTRAST_TEXT_COLOR = Color(0xffffffff);
 
 const Color Test = Colors.white10;
+
+const Color privacyBox = Color(0xFF1E3A5F);
+const Color privacyBoxDark = Color(0xFF0C3975);
+const Color onprivacyBox = Color(0xFFF0F0F0);
+const Color onprivacyBoxDark = Color(0xFFF0F0F0);
 
 const String COLOR_DEFAULT_NAME = 'Default';
 const Color COLOR_DEFAULT = Color(0xff85746c);

@@ -11,7 +11,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
 class UserPreferencesFood extends AbstractUserPreferences {
@@ -122,12 +121,35 @@ class UserPreferencesFood extends AbstractUserPreferences {
     final List<UserPreferencesItem> result = <UserPreferencesItem>[
       UserPreferencesItemSimple(
         labels: <String>[appLocalizations.myPreferences_food_comment],
-        builder: (_) => ListTile(
-          title: Text(
-            appLocalizations.myPreferences_food_comment,
-            style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
-          ),
-        ),
+        builder: (final BuildContext context) {
+          final ColorScheme colorScheme = Theme.of(context).colorScheme;
+          return Container(
+            color: colorScheme.tertiary,
+            width: double.infinity,
+            padding: const EdgeInsets.all(LARGE_SPACE),
+            margin: const EdgeInsets.all(LARGE_SPACE),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Image.asset(
+                  'assets/icons/privacy.png',
+                  color: colorScheme.onTertiary,
+                  width: 32,
+                  height: 32,
+                ),
+                const SizedBox(width: MEDIUM_SPACE),
+                Expanded(
+                  child: Text(
+                    appLocalizations.myPreferences_food_comment,
+                    style: TextStyle(
+                      color: colorScheme.onTertiary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     ];
     for (final AttributeGroup group in groups) {
