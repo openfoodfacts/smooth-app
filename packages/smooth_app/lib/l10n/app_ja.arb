@@ -1958,7 +1958,7 @@
   "@edit_ingredients_loading_photo_help_dialog_title": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_ingredients_loading_photo_help_dialog_body": "To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+  "edit_ingredients_loading_photo_help_dialog_body": "「材料抽出」機能を使用するには、まず写真をアップロードする必要があります。\n\n数秒待つか、手動で入力してください。",
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
@@ -3211,7 +3211,7 @@
   "@portion_calculator_hint": {
     "description": "Hint to show when a quantity is empty in the portion calculator."
   },
-  "portion_calculator_accessibility": "数量を入力して栄養成分を計算します",
+  "portion_calculator_accessibility": "栄養成分を計算するには「数量」を入力してください",
   "@portion_calculator_accessibility": {
     "description": "Hint for the acessibility to explain to enter a quantity."
   },
