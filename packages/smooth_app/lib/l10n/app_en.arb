@@ -1038,7 +1038,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Compare to Category",
+  "product_search_same_category": "Find similar products",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -2615,7 +2615,7 @@
     "description": "Community challenges of open prices"
   },
   "prices_multiple_proof_addition_system": "Add Multiple Proofs",
-  "@prices_multiple_proof_addition_system":{
+  "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
   "all_search_prices_top_location_single_title": "Prices in a store",
