@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 class PreferencesRootSearchController extends ChangeNotifier {
   PreferencesRootSearchController();
@@ -17,20 +20,17 @@ class PreferencesRootSearchController extends ChangeNotifier {
   }
 }
 
-class PreferencesRoot extends StatefulWidget {
+class PreferencesRoot extends StatelessWidget {
   const PreferencesRoot({
-    this.searchController,
     this.appBar,
     required this.cards,
+    this.title,
     super.key,
   });
 
-  final PreferencesRootSearchController? searchController;
   final Widget? appBar;
   final List<PreferenceCard> cards;
-
-  @override
-  State<PreferencesRoot> createState() => _PreferencesRootState();
+  final String? title;
 
   List<PreferenceTile> searchTiles(String query) {
     final List<PreferenceTile> matchingTiles = <PreferenceTile>[];
@@ -41,26 +41,14 @@ class PreferencesRoot extends StatefulWidget {
           matchingTiles.add(tile);
         }
 
-        if (tile.runtimeType == NavigationPreferenceTile) {
-          matchingTiles.addAll(
-            (tile as NavigationPreferenceTile).root.searchTiles(query),
-          );
+        if (tile.runtimeType == NavigationPreferenceTile &&
+            (tile as NavigationPreferenceTile).root != null) {
+          matchingTiles.addAll(tile.root!.searchTiles(query));
         }
       }
     }
 
     return matchingTiles;
-  }
-}
-
-class _PreferencesRootState extends State<PreferencesRoot> {
-  @override
-  void initState() {
-    super.initState();
-
-    widget.searchController?.addListener(() {
-      setState(() {});
-    });
   }
 
   @override
@@ -68,35 +56,36 @@ class _PreferencesRootState extends State<PreferencesRoot> {
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
 
-    final bool displayTiles = widget.searchController != null &&
-        widget.searchController!.query != null &&
-        widget.searchController!.query!.isNotEmpty;
+    final PreferencesRootSearchController searchController =
+        context.watch<PreferencesRootSearchController>();
 
-    List<PreferenceTile> tiles = [];
+    final bool displayTiles =
+        searchController.query != null && searchController.query!.isNotEmpty;
+
+    List<PreferenceTile> tiles = <PreferenceTile>[];
 
     if (displayTiles) {
-      tiles = widget.searchTiles(widget.searchController!.query!);
+      tiles = searchTiles(searchController.query!);
     }
 
     return Scaffold(
       backgroundColor: themeExtension.primaryLight,
       body: CustomScrollView(
         slivers: <Widget>[
-          widget.appBar ??
-              SliverAppBar(
-                title: const Text('Paramètres'),
-                pinned: true,
-                floating: true,
-                backgroundColor: themeExtension.primaryMedium,
-                collapsedHeight: 86.0,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    bottom: ROUNDED_RADIUS,
-                  ),
+          appBar ??
+              SliverPinnedHeader(
+                child: SmoothTopBar2(
+                  title: title ?? 'Preferences',
+                  leadingAction: SmoothTopBarLeadingAction.back,
                 ),
               ),
           SliverPadding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsetsDirectional.only(
+              top: LARGE_SPACE,
+              start: MEDIUM_SPACE,
+              end: MEDIUM_SPACE,
+              bottom: MEDIUM_SPACE,
+            ),
             sliver: displayTiles
                 ? SliverList.separated(
                     itemBuilder: (BuildContext context, int index) =>
@@ -107,10 +96,10 @@ class _PreferencesRootState extends State<PreferencesRoot> {
                   )
                 : SliverList.separated(
                     itemBuilder: (BuildContext context, int index) =>
-                        widget.cards[index],
+                        cards[index],
                     separatorBuilder: (BuildContext context, int index) =>
                         const SizedBox(height: LARGE_SPACE),
-                    itemCount: widget.cards.length,
+                    itemCount: cards.length,
                   ),
           ),
         ],

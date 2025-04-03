@@ -6,7 +6,7 @@ class TogglePreferenceTile extends PreferenceTile {
   const TogglePreferenceTile({
     required super.icon,
     required super.title,
-    super.subtitle,
+    super.subtitleText,
     required this.state,
     required this.onToggle,
   });
@@ -19,7 +19,7 @@ class TogglePreferenceTile extends PreferenceTile {
     return PreferenceTile(
       icon: icon,
       title: title,
-      subtitle: subtitle,
+      subtitleText: subtitleText,
       trailing: SmoothSwitch(
         value: state,
         onChanged: (bool value) {

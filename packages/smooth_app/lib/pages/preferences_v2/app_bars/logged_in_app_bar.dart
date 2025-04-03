@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -10,9 +13,7 @@ const double TOOLBAR_HEIGHT = 92.0;
 const double BOTTOM_HEIGHT = 86.0;
 
 class LoggedInAppBar extends StatelessWidget {
-  LoggedInAppBar({required this.searchController});
-
-  final PreferencesRootSearchController searchController;
+  const LoggedInAppBar();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,8 @@ class LoggedInAppBar extends StatelessWidget {
                   children: <Widget>[
                     Flexible(
                       child: Text(
-                        "Nom d'utilisateur",
+                        OpenFoodAPIConfiguration.globalUser?.userId ??
+                            "Nom d'utilisateur",
                         style: TextStyle(
                           color: themeExtension.secondaryNormal,
                           fontSize: 16.0,
@@ -153,30 +155,38 @@ class LoggedInAppBar extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: MEDIUM_SPACE),
-                      padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                      decoration: const BoxDecoration(
-                        borderRadius: ROUNDED_BORDER_RADIUS,
-                        color: Colors.white,
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) =>
+                              const UserPreferencesPage(),
+                        ),
                       ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Voir d'autres statistiques",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                      child: Container(
+                        margin: const EdgeInsets.only(top: MEDIUM_SPACE),
+                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                        decoration: const BoxDecoration(
+                          borderRadius: ROUNDED_BORDER_RADIUS,
+                          color: Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            const Text(
+                              "Voir d'autres statistiques",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: MEDIUM_SPACE),
-                          Icon(
-                            Icons.arrow_circle_right,
-                            size: 24.0,
-                            color: theme.primaryColor,
-                          ),
-                        ],
+                            const SizedBox(width: MEDIUM_SPACE),
+                            Icon(
+                              Icons.arrow_circle_right,
+                              size: 24.0,
+                              color: theme.primaryColor,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -221,7 +231,9 @@ class LoggedInAppBar extends StatelessWidget {
                         ),
                       ),
                       onChanged: (String? value) {
-                        searchController.search(value);
+                        context
+                            .read<PreferencesRootSearchController>()
+                            .search(value);
                       },
                     ),
                   ),

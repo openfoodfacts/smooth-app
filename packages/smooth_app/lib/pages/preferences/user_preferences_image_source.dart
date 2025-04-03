@@ -6,7 +6,9 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 
 class UserPreferencesImageSource extends StatelessWidget {
-  const UserPreferencesImageSource();
+  const UserPreferencesImageSource({this.hideTitle = false});
+
+  final bool hideTitle;
 
   static UserPreferencesItem getUserPreferencesItem(
     final BuildContext context,
@@ -47,6 +49,7 @@ class UserPreferencesImageSource extends StatelessWidget {
       currentValue: userPreferences.userPictureSource,
       onChanged: (final UserPictureSource? newValue) async =>
           userPreferences.setUserPictureSource(newValue!),
+      hideTitle: hideTitle,
     );
   }
 }

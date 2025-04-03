@@ -25,6 +25,8 @@ abstract class PreferencesSelectorProvider<T>
   Future<List<T>> onLoadValues();
   T getSelectedValue(List<T> values);
 
+  bool _mounted = true;
+
   @immutable
   void changeSelectedItem(T item) {
     final PreferencesSelectorLoadedState<T> state =
@@ -64,6 +66,11 @@ abstract class PreferencesSelectorProvider<T>
     value = PreferencesSelectorLoadingState<T>();
 
     final List<T> values = await onLoadValues();
+
+    if (!_mounted) {
+      return;
+    }
+
     value = PreferencesSelectorLoadedState<T>(
       selectedItem: getSelectedValue(values),
       items: values,
@@ -74,6 +81,7 @@ abstract class PreferencesSelectorProvider<T>
   void dispose() {
     preferences.removeListener(onPreferencesChanged);
     super.dispose();
+    _mounted = false;
   }
 }
 

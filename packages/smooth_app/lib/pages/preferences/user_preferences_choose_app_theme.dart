@@ -6,7 +6,9 @@ import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class UserPreferencesChooseAppTheme extends StatelessWidget {
-  const UserPreferencesChooseAppTheme();
+  const UserPreferencesChooseAppTheme({this.hideTitle = false});
+
+  final bool hideTitle;
 
   static UserPreferencesItem getUserPreferencesItem(
     final BuildContext context,
@@ -51,6 +53,7 @@ class UserPreferencesChooseAppTheme extends StatelessWidget {
       ],
       currentValue: themeProvider.currentTheme,
       onChanged: (String? newValue) => themeProvider.setTheme(newValue!),
+      hideTitle: hideTitle,
     );
   }
 }

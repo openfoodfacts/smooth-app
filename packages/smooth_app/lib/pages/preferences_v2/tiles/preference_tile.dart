@@ -5,19 +5,26 @@ class PreferenceTile extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
+    this.subtitleText,
     this.subtitle,
     this.trailing,
     this.onTap,
-  });
+  }) : assert(
+          (subtitleText != null && subtitle == null) ||
+              (subtitleText == null && subtitle != null) ||
+              (subtitleText == null && subtitle == null),
+          'Either subtitleText or subtitle must be provided, not both.',
+        );
 
   final IconData icon;
   final String title;
-  final String? subtitle;
+  final String? subtitleText;
+  final Widget? subtitle;
   final Widget? trailing;
   final Function()? onTap;
 
   String get keywords =>
-      '${title.toLowerCase()} ${subtitle?.toLowerCase() ?? ''}';
+      '${title.toLowerCase()} ${subtitleText?.toLowerCase() ?? ''}';
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,7 @@ class PreferenceTile extends StatelessWidget {
         color: theme.primaryColor,
       ),
       title: Text(title),
-      subtitle: subtitle != null ? Text(subtitle!) : null,
+      subtitle: subtitle ?? (subtitleText != null ? Text(subtitleText!) : null),
       trailing: trailing,
       onTap: onTap,
     );

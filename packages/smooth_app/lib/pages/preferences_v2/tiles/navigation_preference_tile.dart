@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 
 class NavigationPreferenceTile extends PreferenceTile {
   const NavigationPreferenceTile({
     required super.icon,
     required super.title,
-    required super.subtitle,
-    required this.root,
-  });
+    required super.subtitleText,
+    this.root,
+    this.target,
+  }) : assert(
+          (root != null && target == null) || (root == null && target != null),
+          'Either root or target must be provided, not both.',
+        );
 
-  final PreferencesRoot root;
+  final PreferencesRoot? root;
+  final Widget? target;
 
   @override
   Widget build(BuildContext context) {
     return PreferenceTile(
       icon: icon,
       title: title,
-      subtitle: subtitle,
-      trailing: const Icon(Icons.arrow_forward_ios),
+      subtitleText: subtitleText,
+      trailing: Icon(ConstantIcons.forwardIcon),
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => root,
+            builder: (BuildContext context) => root ?? target!,
           ),
         );
       },

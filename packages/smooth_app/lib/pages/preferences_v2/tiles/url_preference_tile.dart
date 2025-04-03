@@ -6,7 +6,7 @@ class UrlPreferenceTile extends PreferenceTile {
   const UrlPreferenceTile({
     required super.icon,
     required super.title,
-    super.subtitle,
+    super.subtitleText,
     required this.url,
   });
 
@@ -17,7 +17,7 @@ class UrlPreferenceTile extends PreferenceTile {
     return PreferenceTile(
       icon: icon,
       title: title,
-      subtitle: subtitle,
+      subtitleText: subtitleText,
       trailing: const Icon(Icons.open_in_browser),
       onTap: () {
         LaunchUrlHelper.launchURLInWebViewOrBrowser(
