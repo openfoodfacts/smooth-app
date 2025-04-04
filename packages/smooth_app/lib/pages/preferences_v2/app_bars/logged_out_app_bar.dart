@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -10,14 +9,15 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 const double TOOLBAR_HEIGHT = 92.0;
 
-class LoggedInAppBar extends StatelessWidget {
-  const LoggedInAppBar();
+class LoggedOutAppBar extends StatelessWidget {
+  const LoggedOutAppBar();
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SliverAppBar(
       title: Row(
@@ -44,29 +44,11 @@ class LoggedInAppBar extends StatelessWidget {
                   children: <Widget>[
                     Flexible(
                       child: Text(
-                        OpenFoodAPIConfiguration.globalUser?.userId ??
-                            "Nom d'utilisateur",
+                        'Non connecté',
                         style: TextStyle(
                           color: themeExtension.secondaryNormal,
                           fontSize: 16.0,
                           fontWeight: FontWeight.w600,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4.0),
-                Row(
-                  children: <Widget>[
-                    Flexible(
-                      child: Text(
-                        'Membre depuis juillet 2019!',
-                        style: TextStyle(
-                          color: theme.colorScheme.onPrimary,
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w400,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -101,57 +83,19 @@ class LoggedInAppBar extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: _buildStatisticCard(
-                            imagePath: 'assets/preferences/ingredients.png',
-                            count: '150+',
-                            description: 'Produits modifiés',
+                          child: _buildActionCard(
+                            title: appLocalizations.create_account,
                             themeExtension: themeExtension,
                           ),
                         ),
                         const SizedBox(width: MEDIUM_SPACE),
                         Expanded(
-                          child: _buildStatisticCard(
-                            imagePath: 'assets/preferences/cash.png',
-                            count: '950+',
-                            description: 'Prix ajoutés',
+                          child: _buildActionCard(
+                            title: appLocalizations.sign_in,
                             themeExtension: themeExtension,
                           ),
                         ),
                       ],
-                    ),
-                    GestureDetector(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              const UserPreferencesPage(),
-                        ),
-                      ),
-                      child: Container(
-                        margin: const EdgeInsets.only(top: MEDIUM_SPACE),
-                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                        decoration: const BoxDecoration(
-                          borderRadius: ROUNDED_BORDER_RADIUS,
-                          color: Colors.white,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            const Text(
-                              "Voir d'autres statistiques",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(width: MEDIUM_SPACE),
-                            Icon(
-                              Icons.arrow_circle_right,
-                              size: 24.0,
-                              color: theme.primaryColor,
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -167,7 +111,7 @@ class LoggedInAppBar extends StatelessWidget {
       toolbarHeight: TOOLBAR_HEIGHT,
       pinned: true,
       floating: true,
-      expandedHeight: 310.0,
+      expandedHeight: 268.0,
       backgroundColor: theme.primaryColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
@@ -177,39 +121,30 @@ class LoggedInAppBar extends StatelessWidget {
     );
   }
 
-  Widget _buildStatisticCard({
-    required String imagePath,
-    required String count,
-    required String description,
+  Widget _buildActionCard({
+    required String title,
     required SmoothColorsThemeExtension themeExtension,
   }) {
     return Container(
-      height: 68.0,
+      height: 78.0,
       padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: ROUNDED_BORDER_RADIUS,
-        color: themeExtension.secondaryVibrant.withValues(
-          alpha: 0.8,
-        ),
+        color: Colors.white,
       ),
       child: Row(
         children: <Widget>[
-          Image.asset(
-            imagePath,
-            height: 32.0,
-          ),
-          const SizedBox(width: MEDIUM_SPACE),
           Expanded(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Row(
                   children: <Widget>[
                     Flexible(
                       child: Text(
-                        count,
-                        style: const TextStyle(
-                          color: Colors.white,
+                        title,
+                        style: TextStyle(
+                          color: themeExtension.primaryBlack,
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                         ),
@@ -218,21 +153,16 @@ class LoggedInAppBar extends StatelessWidget {
                   ],
                 ),
                 Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Flexible(
-                      child: Text(
-                        description,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.fade,
-                        softWrap: false,
-                      ),
+                    Icon(
+                      Icons.arrow_circle_right,
+                      color: themeExtension.primaryBlack,
+                      size: 28.0,
                     )
                   ],
-                ),
+                )
               ],
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/logged_in_app_bar.dart';
+import 'package:smooth_app/pages/preferences_v2/app_bars/logged_out_app_bar.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
@@ -18,7 +18,7 @@ class PreferencesPage extends StatelessWidget {
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
       child: DefaultPreferencesRoot(
-        customAppBar: const LoggedInAppBar(),
+        customAppBar: const LoggedOutAppBar(),
         cards: <PreferenceCard>[
           PreferenceCard(
             title: 'Général',
