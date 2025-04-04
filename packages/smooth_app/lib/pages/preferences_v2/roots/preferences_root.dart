@@ -20,20 +20,30 @@ class PreferencesRootSearchController extends ChangeNotifier {
   }
 }
 
-class PreferencesRoot extends StatelessWidget {
+abstract class PreferencesRoot extends StatelessWidget {
   const PreferencesRoot({
-    this.appBar,
-    required this.cards,
-    this.title,
     super.key,
+    this.title,
+    this.customAppBar,
   });
 
-  final Widget? appBar;
-  final List<PreferenceCard> cards;
   final String? title;
+  final Widget? customAppBar;
 
-  List<PreferenceTile> searchTiles(String query) {
+  List<PreferenceCard> getCards(BuildContext context);
+
+  Widget buildAppBar(BuildContext context) =>
+      customAppBar ??
+      SliverPinnedHeader(
+        child: SmoothTopBar2(
+          title: title ?? 'Preferences',
+          leadingAction: SmoothTopBarLeadingAction.back,
+        ),
+      );
+
+  List<PreferenceTile> searchTiles(BuildContext context, String query) {
     final List<PreferenceTile> matchingTiles = <PreferenceTile>[];
+    final List<PreferenceCard> cards = getCards(context);
 
     for (final PreferenceCard card in cards) {
       for (final PreferenceTile tile in card.tiles) {
@@ -41,9 +51,8 @@ class PreferencesRoot extends StatelessWidget {
           matchingTiles.add(tile);
         }
 
-        if (tile.runtimeType == NavigationPreferenceTile &&
-            (tile as NavigationPreferenceTile).root != null) {
-          matchingTiles.addAll(tile.root!.searchTiles(query));
+        if (tile is NavigationPreferenceTile && tile.root != null) {
+          matchingTiles.addAll(tile.root!.searchTiles(context, query));
         }
       }
     }
@@ -51,10 +60,39 @@ class PreferencesRoot extends StatelessWidget {
     return matchingTiles;
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget buildSearchResults(BuildContext context, List<PreferenceTile> tiles) {
+    return SliverList.separated(
+      itemBuilder: (BuildContext context, int index) => tiles[index],
+      separatorBuilder: (BuildContext context, int index) =>
+          const SizedBox(height: SMALL_SPACE),
+      itemCount: tiles.length,
+    );
+  }
+
+  Widget buildCardsList(BuildContext context, List<PreferenceCard> cards) {
+    return SliverList.separated(
+      itemBuilder: (BuildContext context, int index) => cards[index],
+      separatorBuilder: (BuildContext context, int index) =>
+          const SizedBox(height: LARGE_SPACE),
+      itemCount: cards.length,
+    );
+  }
+
+  void prepareForBuild(BuildContext context) {}
+
+  Widget buildScaffold(BuildContext context, Widget content) {
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
+
+    return Scaffold(
+      backgroundColor: themeExtension.primaryLight,
+      body: content,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    prepareForBuild(context);
 
     final PreferencesRootSearchController searchController =
         context.watch<PreferencesRootSearchController>();
@@ -63,47 +101,41 @@ class PreferencesRoot extends StatelessWidget {
         searchController.query != null && searchController.query!.isNotEmpty;
 
     List<PreferenceTile> tiles = <PreferenceTile>[];
-
     if (displayTiles) {
-      tiles = searchTiles(searchController.query!);
+      tiles = searchTiles(context, searchController.query!);
     }
 
-    return Scaffold(
-      backgroundColor: themeExtension.primaryLight,
-      body: CustomScrollView(
-        slivers: <Widget>[
-          appBar ??
-              SliverPinnedHeader(
-                child: SmoothTopBar2(
-                  title: title ?? 'Preferences',
-                  leadingAction: SmoothTopBarLeadingAction.back,
-                ),
-              ),
-          SliverPadding(
-            padding: const EdgeInsetsDirectional.only(
-              top: LARGE_SPACE,
-              start: MEDIUM_SPACE,
-              end: MEDIUM_SPACE,
-              bottom: MEDIUM_SPACE,
-            ),
-            sliver: displayTiles
-                ? SliverList.separated(
-                    itemBuilder: (BuildContext context, int index) =>
-                        tiles[index],
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const SizedBox(height: SMALL_SPACE),
-                    itemCount: tiles.length,
-                  )
-                : SliverList.separated(
-                    itemBuilder: (BuildContext context, int index) =>
-                        cards[index],
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const SizedBox(height: LARGE_SPACE),
-                    itemCount: cards.length,
-                  ),
+    final Widget content = CustomScrollView(
+      slivers: <Widget>[
+        buildAppBar(context),
+        SliverPadding(
+          padding: const EdgeInsetsDirectional.only(
+            top: LARGE_SPACE,
+            start: MEDIUM_SPACE,
+            end: MEDIUM_SPACE,
+            bottom: MEDIUM_SPACE,
           ),
-        ],
-      ),
+          sliver: displayTiles
+              ? buildSearchResults(context, tiles)
+              : buildCardsList(context, getCards(context)),
+        ),
+      ],
     );
+
+    return buildScaffold(context, content);
   }
+}
+
+class DefaultPreferencesRoot extends PreferencesRoot {
+  const DefaultPreferencesRoot({
+    super.key,
+    super.title,
+    super.customAppBar,
+    required this.cards,
+  });
+
+  final List<PreferenceCard> cards;
+
+  @override
+  List<PreferenceCard> getCards(BuildContext context) => cards;
 }

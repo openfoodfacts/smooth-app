@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -29,7 +30,11 @@ class NavigationPreferenceTile extends PreferenceTile {
         Navigator.push(
           context,
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => root ?? target!,
+            builder: (BuildContext context) => root != null
+                ? ChangeNotifierProvider<PreferencesRootSearchController>(
+                    create: (_) => PreferencesRootSearchController(),
+                    child: root)
+                : target!,
           ),
         );
       },
