@@ -59,7 +59,7 @@ abstract class AbstractUserPreferences {
 
   @protected
   Icon? getForwardIcon() => UserPreferencesListTile.getTintedIcon(
-        ConstantIcons.instance.getForwardIcon(),
+        ConstantIcons.forwardIcon,
         context,
       );
 

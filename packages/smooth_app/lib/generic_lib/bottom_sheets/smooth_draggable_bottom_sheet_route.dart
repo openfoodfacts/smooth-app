@@ -8,7 +8,9 @@ Future<T?> showDraggableModalSheet<T>({
   required double headerHeight,
   required WidgetBuilder bodyBuilder,
   required BorderRadiusGeometry borderRadius,
+  DraggableScrollableController? draggableScrollableController,
   double? initHeight,
+  double? minHeight,
   double? maxHeight,
   Color? bottomSheetColor,
   Color? barrierColor,
@@ -19,6 +21,7 @@ Future<T?> showDraggableModalSheet<T>({
 
   return Navigator.of(context, rootNavigator: true).push(
     _FlexibleBottomSheetRoute<T>(
+      draggableScrollableController: draggableScrollableController,
       barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
       initHeight: initHeight ?? 0.5,
       bodyBuilder: bodyBuilder,
@@ -38,6 +41,8 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
     required this.headerHeight,
     required this.bodyBuilder,
     required this.borderRadius,
+    this.minHeight,
+    this.draggableScrollableController,
     this.barrierLabel,
     this.bottomSheetBackgroundColor,
     super.settings,
@@ -46,9 +51,11 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
   final WidgetBuilder headerBuilder;
   final double headerHeight;
   final WidgetBuilder bodyBuilder;
+  final double? minHeight;
   final double initHeight;
   final BorderRadiusGeometry borderRadius;
   final Color? bottomSheetBackgroundColor;
+  final DraggableScrollableController? draggableScrollableController;
 
   @override
   final String? barrierLabel;
@@ -85,6 +92,7 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
       context: context,
       child: SmoothDraggableBottomSheet(
         initHeightFraction: initHeight,
+        draggableScrollableController: draggableScrollableController,
         headerBuilder: headerBuilder,
         bodyBuilder: bodyBuilder,
         animationController: _animationController,

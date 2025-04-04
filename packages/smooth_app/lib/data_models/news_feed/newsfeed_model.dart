@@ -37,8 +37,11 @@ class AppNewsItem {
     required this.message,
     required this.url,
     this.buttonLabel,
+    this.minLaunches,
     this.startDate,
     this.endDate,
+    this.minAppVersion,
+    this.maxAppVersion,
     this.image,
     this.style,
   });
@@ -48,14 +51,17 @@ class AppNewsItem {
   final String message;
   final String url;
   final String? buttonLabel;
+  final int? minLaunches;
   final DateTime? startDate;
   final DateTime? endDate;
+  final String? minAppVersion;
+  final String? maxAppVersion;
   final AppNewsImage? image;
   final AppNewsStyle? style;
 
   @override
   String toString() {
-    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, startDate: $startDate, endDate: $endDate, image: $image, style: $style}';
+    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, style: $style}';
   }
 }
 
@@ -71,7 +77,7 @@ class AppNewsStyle {
     this.contentBackgroundColor,
   });
 
-  AppNewsStyle.fromHexa({
+  AppNewsStyle.fromHex({
     String? titleBackground,
     String? titleTextColor,
     String? titleIndicatorColor,
@@ -98,11 +104,11 @@ class AppNewsStyle {
   final Color? buttonTextColor;
   final Color? contentBackgroundColor;
 
-  static Color? _parseColor(String? hexa) {
-    if (hexa == null || hexa.length != 7) {
+  static Color? _parseColor(String? hex) {
+    if (hex == null || hex.length != 7) {
       return null;
     }
-    return Color(int.parse(hexa.substring(1), radix: 16));
+    return Color(int.parse(hex.substring(1), radix: 16));
   }
 
   @override

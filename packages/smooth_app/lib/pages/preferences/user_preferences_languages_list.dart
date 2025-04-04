@@ -4,7 +4,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
 
 class Languages {
-  const Languages();
+  factory Languages() {
+    return _instance ??= const Languages._();
+  }
+
+  const Languages._();
+
+  static Languages? _instance;
 
   static const LocalizationsDelegate<MaterialLocalizations> _delegate =
       GlobalMaterialLocalizations.delegate;
@@ -53,7 +59,7 @@ class Languages {
     OpenFoodFactsLanguage.EWE: 'Eʋegbe',
     OpenFoodFactsLanguage.BASQUE: 'euskara',
     OpenFoodFactsLanguage.PERSIAN: 'فارسی',
-    OpenFoodFactsLanguage.FINNISH: 'Suomalainen',
+    OpenFoodFactsLanguage.FINNISH: 'Suomi',
     OpenFoodFactsLanguage.FAROESE: 'Faroese',
     OpenFoodFactsLanguage.FRENCH: 'Français',
     OpenFoodFactsLanguage.FIJIAN_LANGUAGE: 'Fijian',

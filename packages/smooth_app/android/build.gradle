@@ -3,6 +3,27 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    subprojects {
+        afterEvaluate {
+            if (it.hasProperty('android')) {
+                it.android.compileSdkVersion = 35
+                it.android.defaultConfig.targetSdkVersion = 35
+                it.android.compileOptions.sourceCompatibility = JavaVersion.VERSION_21
+                it.android.compileOptions.targetCompatibility = JavaVersion.VERSION_21
+                tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+                    kotlinOptions.jvmTarget = JavaVersion.VERSION_21
+                }
+                if (it.android.namespace == null) {
+                    def manifest = new XmlSlurper().parse(file(it.android.sourceSets.main.manifest.srcFile))
+                    def packageName = manifest.@package.text()
+                    android.namespace = packageName
+                    println("Updating namespace ${packageName}")
+                }
+            }
+        }
+        project.buildDir = "${rootProject.buildDir}/${project.name}"
+    }
 }
 
 rootProject.buildDir = '../build'

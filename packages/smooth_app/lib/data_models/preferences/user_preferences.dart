@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -6,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -38,6 +41,7 @@ class UserPreferences extends ChangeNotifier {
       : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
+    _incrementAppLaunches();
   }
 
   /// Singleton
@@ -54,6 +58,9 @@ class UserPreferences extends ChangeNotifier {
     return _instance!;
   }
 
+  /// Once we initialized with main.dart, we don't need the "async".
+  static UserPreferences getUserPreferencesSync() => _instance!;
+
   late ValueNotifier<bool> onCrashReportingChanged;
   late ValueNotifier<bool> onAnalyticsChanged;
 
@@ -63,6 +70,7 @@ class UserPreferences extends ChangeNotifier {
   /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
   static const int _PREFS_CURRENT_VERSION = 3;
+  static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
@@ -79,9 +87,13 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
-  static const String _TAG_USER_GROUP = '_user_group';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
   static const String _TAG_LAZY_COUNT_PREFIX = '_lazy_count_prefix';
+  static const String _TAG_LATEST_PRODUCT_TYPE = '_latest_product_type';
+  static const String _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER =
+      '_search_show_product_type_filter';
+  static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
+  static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
 
   /// Camera preferences
 
@@ -118,6 +130,10 @@ class UserPreferences extends ChangeNotifier {
       'taglineFeedNewsDisplayed';
   static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
 
+  /// Info messages
+  static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
+      'bannerInputProductName';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     await _onMigrate();
 
@@ -140,6 +156,13 @@ class UserPreferences extends ChangeNotifier {
       _TAG_VERSION,
       UserPreferences._PREFS_CURRENT_VERSION,
     );
+  }
+
+  int get appLaunches => _sharedPreferences.getInt(_TAG_APP_LAUNCHES) ?? 0;
+
+  Future<void> _incrementAppLaunches() async {
+    await _sharedPreferences.setInt(_TAG_APP_LAUNCHES, appLaunches + 1);
+    // No need to call notifyListeners here
   }
 
   String _getImportanceTag(final String variable) =>
@@ -202,9 +225,6 @@ class UserPreferences extends ChangeNotifier {
 
   bool get userTracking =>
       _sharedPreferences.getBool(_TAG_USER_TRACKING) ?? false;
-
-  /// A random int between 0 and 10 (a naive implementation to allow A/B testing)
-  int get userGroup => _sharedPreferences.getInt(_TAG_USER_GROUP)!;
 
   /// Returns a huge random value that will be computed just once.
   Future<int> getUniqueRandom() async {
@@ -467,5 +487,89 @@ class UserPreferences extends ChangeNotifier {
         clickedNews,
       );
     }
+  }
+
+  bool showInputProductNameBanner() =>
+      _sharedPreferences.getBool(_TAG_SHOW_BANNER_INPUT_PRODUCT_NAME) ?? true;
+
+  Future<void> hideInputProductNameBanner() async {
+    await _sharedPreferences.setBool(
+      _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME,
+      false,
+    );
+    notifyListeners();
+  }
+
+  ProductType get latestProductType =>
+      ProductType.fromOffTag(
+          _sharedPreferences.getString(_TAG_LATEST_PRODUCT_TYPE)) ??
+      ProductType.food;
+
+  set latestProductType(final ProductType value) => unawaited(
+        _sharedPreferences.setString(
+          _TAG_LATEST_PRODUCT_TYPE,
+          value.offTag,
+        ),
+      );
+
+  Future<void> setSearchProductTypeFilter(final bool visible) async {
+    await _sharedPreferences.setBool(
+        _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER, visible);
+    notifyListeners();
+  }
+
+  bool get searchProductTypeFilterVisible =>
+      _sharedPreferences.getBool(_TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER) ?? false;
+
+  List<ProductFooterActionBar> get productPageActions {
+    final List<String>? actions =
+        _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_ACTIONS);
+
+    if (actions == null) {
+      return ProductFooterActionBar.defaultOrder();
+    }
+
+    return actions
+        .map((String action) => ProductFooterActionBar.fromKey(action))
+        .toList(growable: false);
+  }
+
+  Future<void> setProductPageActions(
+    final Iterable<ProductFooterActionBar> value,
+  ) async {
+    assert(!value.contains(ProductFooterActionBar.settings));
+    await _sharedPreferences.setStringList(
+      _TAG_PRODUCT_PAGE_ACTIONS,
+      value
+          .map((ProductFooterActionBar action) => action.key)
+          .toList(growable: false),
+    );
+    notifyListeners();
+  }
+
+  void increaseLanguageUsage(final OpenFoodFactsLanguage language) {
+    final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
+    final Map<String, int> languages;
+    if (usage == null || usage.isEmpty) {
+      languages = <String, int>{};
+    } else {
+      languages = Map<String, int>.from(jsonDecode(usage));
+    }
+
+    languages[language.code] = (languages[language.code] ?? 0) + 1;
+    unawaited(
+      _sharedPreferences.setString(
+        _TAG_LANGUAGES_USAGE,
+        jsonEncode(languages),
+      ),
+    );
+  }
+
+  Map<String, int> get languagesUsage {
+    final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
+    if (usage == null || usage.isEmpty) {
+      return <String, int>{};
+    }
+    return Map<String, int>.from(jsonDecode(usage));
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -12,15 +13,16 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/query/keywords_product_query.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Search helper dedicated to product search.
 class SearchProductHelper extends SearchHelper {
-  SearchProductHelper();
+  SearchProductHelper() {
+    _productType = UserPreferences.getUserPreferencesSync().latestProductType;
+  }
 
-  // TODO(monsieurtanuki): maybe reinit it with latest value
-  ProductType _productType = ProductType.food;
+  late ProductType _productType;
 
   @override
   String get historyKey => DaoStringList.keySearchProductHistory;
@@ -30,7 +32,10 @@ class SearchProductHelper extends SearchHelper {
       appLocalizations.search;
 
   @override
-  Widget getAdditionalFilter() => _ProductTypeFilter(this);
+  Widget? getAdditionalFilter() =>
+      UserPreferences.getUserPreferencesSync().searchProductTypeFilterVisible
+          ? _ProductTypeFilter(this)
+          : null;
 
   @override
   void search(
@@ -78,7 +83,8 @@ class SearchProductHelper extends SearchHelper {
     );
     final FetchedProduct fetchedProduct =
         await productDialogHelper.openBestChoice();
-    if (fetchedProduct.status == FetchedProductStatus.ok) {
+    if (fetchedProduct.status == FetchedProductStatus.ok &&
+        fetchedProduct.isValid) {
       // TODO(monsieurtanuki): add OxF to Matomo data?
       AnalyticsHelper.trackSearch(
         search: value,
@@ -117,7 +123,10 @@ class SearchProductHelper extends SearchHelper {
           localDatabase: localDatabase,
           productQuery: KeywordsProductQuery(
             value,
-            productType: _productType,
+            productType: UserPreferences.getUserPreferencesSync()
+                    .searchProductTypeFilterVisible
+                ? ProductType.food
+                : _productType,
           ),
           context: context,
           editableAppBarTitle: false,
@@ -154,7 +163,8 @@ class _ProductTypeFilterState extends State<_ProductTypeFilter> {
       segments: segments,
       selected: <ProductType>{widget.searchProductHelper._productType},
       onSelectionChanged: (Set<ProductType> newSelection) => setState(
-        () => widget.searchProductHelper._productType = newSelection.first,
+        () => UserPreferences.getUserPreferencesSync().latestProductType =
+            widget.searchProductHelper._productType = newSelection.first,
       ),
     );
   }

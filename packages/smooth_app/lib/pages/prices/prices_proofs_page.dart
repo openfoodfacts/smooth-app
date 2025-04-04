@@ -65,7 +65,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           final AsyncSnapshot<MaybeError<GetProofsResult>> snapshot,
         ) {
           if (snapshot.connectionState != ConnectionState.done) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
             return Text(snapshot.error!.toString());
@@ -176,6 +176,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             ascending: false,
           ),
         ]
+        ..owner = user.userId
         ..pageSize = _pageSize
         ..pageNumber = 1,
       uriHelper: ProductQuery.uriPricesHelper,

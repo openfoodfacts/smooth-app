@@ -15,7 +15,7 @@ class UserPreferencesImageSource extends StatelessWidget {
     return UserPreferencesItemSimple(
       labels: <String>[
         appLocalizations.choose_image_source_title,
-        appLocalizations.user_picture_source_select,
+        appLocalizations.user_picture_source_ask,
         appLocalizations.settings_app_camera,
         appLocalizations.gallery_source_label,
       ],
@@ -35,7 +35,7 @@ class UserPreferencesImageSource extends StatelessWidget {
         (_) => const Icon(Icons.image),
       ],
       labels: <String>[
-        appLocalizations.user_picture_source_select,
+        appLocalizations.user_picture_source_ask,
         appLocalizations.settings_app_camera,
         appLocalizations.gallery_source_label,
       ],

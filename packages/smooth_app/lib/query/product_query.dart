@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -9,10 +8,13 @@ import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
+  const ProductQuery._();
+
   static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v3;
 
   static late OpenFoodFactsCountry _country;
@@ -170,6 +172,9 @@ abstract class ProductQuery {
   /// Product helper only for prices.
   static late UriProductHelper uriPricesHelper;
 
+  /// Product helper only for Folksonomy.
+  static late UriHelper uriFolksonomyHelper;
+
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
@@ -184,6 +189,12 @@ abstract class ProductQuery {
     );
     uriPricesHelper = getProductHelper(
       UserPreferencesDevMode.userPreferencesFlagPriceProd,
+    );
+    uriFolksonomyHelper = UriHelper(
+      host: userPreferences.getDevModeString(
+            UserPreferencesDevMode.userPreferencesFolksonomyHost,
+          ) ??
+          uriHelperFolksonomyProd.host,
     );
   }
 
@@ -216,7 +227,7 @@ abstract class ProductQuery {
 
   // TODO(monsieurtanuki): make the parameter "required"
   static UriProductHelper getUriProductHelper({
-    final ProductType? productType,
+    required final ProductType? productType,
   }) {
     final UriProductHelper currentUriProductHelper = _uriProductHelper;
     if (productType == null) {
@@ -238,11 +249,16 @@ abstract class ProductQuery {
     );
   }
 
+  static String getProductTypeFromDomain(UriProductHelper uriProductHelper) {
+    return uriProductHelper.domain;
+  }
+
   static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
         ProductField.NAME_ALL_LANGUAGES,
         ProductField.BRANDS,
         ProductField.BARCODE,
+        ProductField.PRODUCT_TYPE,
         ProductField.NUTRISCORE,
         ProductField.FRONT_IMAGE,
         ProductField.IMAGE_FRONT_URL,
@@ -290,21 +306,6 @@ abstract class ProductQuery {
         ProductField.WEBSITE,
         ProductField.OBSOLETE,
         ProductField.OWNER_FIELDS,
+        ProductField.OWNER,
       ];
-}
-
-extension ProductTypeExtension on ProductType {
-  String getDomain() => switch (this) {
-        ProductType.food => 'openfoodfacts',
-        ProductType.beauty => 'openbeautyfacts',
-        ProductType.petFood => 'openpetfoodfacts',
-        ProductType.product => 'openproductsfacts',
-      };
-
-  String getLabel(final AppLocalizations appLocalizations) => switch (this) {
-        ProductType.food => appLocalizations.product_type_label_food,
-        ProductType.beauty => appLocalizations.product_type_label_beauty,
-        ProductType.petFood => appLocalizations.product_type_label_pet_food,
-        ProductType.product => appLocalizations.product_type_label_product,
-      };
 }

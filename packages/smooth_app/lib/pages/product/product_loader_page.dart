@@ -149,7 +149,7 @@ class _ProductLoaderNotFoundState extends StatelessWidget {
           const SizedBox(height: VERY_LARGE_SPACE * 2),
           SmoothLargeButtonWithIcon(
             text: localizations.add_product_information_button_label,
-            icon: Icons.add,
+            leadingIcon: const Icon(Icons.add),
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: () {
               AppNavigator.of(context).pushReplacement(
@@ -194,7 +194,7 @@ class _ProductLoaderNetworkErrorState extends StatelessWidget {
           const SizedBox(height: VERY_LARGE_SPACE * 2),
           SmoothLargeButtonWithIcon(
             text: localizations.retry_button_label,
-            icon: Icons.sync,
+            leadingIcon: const Icon(Icons.sync),
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: onRetry,
           )

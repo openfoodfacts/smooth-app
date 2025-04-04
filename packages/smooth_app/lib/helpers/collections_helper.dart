@@ -71,6 +71,19 @@ extension StringIterable on Iterable<String> {
   }
 }
 
+extension IterableExtension<T> on Iterable<T> {
+  int indexOf(T value) {
+    int index = 0;
+    for (final T item in this) {
+      if (item == value) {
+        return index;
+      }
+      index++;
+    }
+    return -1;
+  }
+}
+
 extension ListExtensions<T> on List<T> {
   void addAllSafe(Iterable<T>? elements) {
     if (elements != null) {

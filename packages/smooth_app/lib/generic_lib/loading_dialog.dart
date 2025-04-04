@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -114,7 +115,10 @@ class LoadingDialog<T> {
     }
     _popEd = true;
     // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-    Navigator.of(context, rootNavigator: true).pop(value);
+
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      Navigator.of(context, rootNavigator: true).pop(value);
+    });
   }
 
   /// Displayed dialog during future.

@@ -1,5 +1,7 @@
+import 'dart:convert';
+
 import 'package:collection/collection.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,12 +13,15 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
+import 'package:smooth_app/pages/navigator/external_page_webview.dart';
+import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/product/add_new_product_page.dart';
-import 'package:smooth_app/pages/product/edit_product_page.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
+import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
@@ -72,8 +77,22 @@ class AppNavigator extends InheritedWidget {
     _router.router.pushReplacement(routeName, extra: extra);
   }
 
-  void pop([dynamic result]) {
-    _router.router.pop(result);
+  /// Remove all the screens from the stack
+  void clearStack() {
+    while (_router.router.canPop() == true) {
+      _router.router.pop();
+    }
+  }
+
+  /// Returns [true] if the pop was successful
+  /// Returns [false] if there is nothing to pop (= no history)
+  bool pop([dynamic result]) {
+    try {
+      _router.router.pop(result);
+      return true;
+    } on GoError catch (_) {
+      return false;
+    }
   }
 }
 
@@ -124,7 +143,7 @@ class _SmoothGoRouter {
           routes: <GoRoute>[
             GoRoute(
               path: '${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/:productId',
-              builder: (BuildContext context, GoRouterState state) {
+              pageBuilder: (BuildContext context, GoRouterState state) {
                 Product product;
 
                 if (state.extra is Product) {
@@ -137,18 +156,32 @@ class _SmoothGoRouter {
                   throw Exception('No product provided!');
                 }
 
-                final Widget widget = ProductPage(
+                Widget widget = ProductPage(
                   product,
                   withHeroAnimation:
                       state.uri.queryParameters['heroAnimation'] != 'false',
                   heroTag: state.uri.queryParameters['heroTag'],
+                  backButton: ProductPageBackButton.byName(
+                    state.uri.queryParameters['backButtonType'],
+                  ),
                 );
 
                 if (ExternalScanCarouselManager.find(context) == null) {
-                  return ExternalScanCarouselManager(child: widget);
-                } else {
-                  return widget;
+                  widget = ExternalScanCarouselManager(child: widget);
                 }
+
+                return switch (ProductPageTransition.byName(
+                    state.uri.queryParameters['transition'])) {
+                  ProductPageTransition.standard => MaterialPage<void>(
+                      key: state.pageKey,
+                      child: widget,
+                    ),
+                  ProductPageTransition.slideUp =>
+                    OpenUpwardsPage.getTransition<void>(
+                      key: state.pageKey,
+                      child: widget,
+                    ),
+                };
               },
             ),
             GoRoute(
@@ -235,9 +268,23 @@ class _SmoothGoRouter {
           ],
         ),
         GoRoute(
-          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}/:page',
+          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}',
           builder: (BuildContext context, GoRouterState state) {
-            return ExternalPage(path: state.pathParameters['page']!);
+            return ExternalPage(
+              path: _decodePath(state.uri.queryParameters['path']!),
+            );
+          },
+        ),
+        GoRoute(
+          path: '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return OpenUpwardsPage.getTransition<void>(
+              key: state.pageKey,
+              child: ExternalPageInAWebView(
+                path: _decodePath(state.uri.queryParameters['path']!),
+                pageName: state.uri.queryParameters['title'],
+              ),
+            );
           },
         ),
       ],
@@ -286,7 +333,7 @@ class _SmoothGoRouter {
               externalLink = true;
             }
           } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
-            return AppRoutes.HOME;
+            return AppRoutes.HOME();
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.SIGNUP) {
@@ -297,7 +344,7 @@ class _SmoothGoRouter {
         }
 
         if (externalLink) {
-          return _openExternalLink(path);
+          return _openExternalLink(state.uri.toString());
         } else if (path.isEmpty) {
           // Force the Homepage
           return _InternalAppRoutes.HOME_PAGE;
@@ -401,6 +448,7 @@ class _InternalAppRoutes {
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
+  static const String EXTERNAL_WEBVIEW_PAGE = '_external_webview';
   static const String SIGNUP_PAGE = '_signup';
 
   static const String _GUIDES = '_guides';
@@ -421,17 +469,22 @@ class AppRoutes {
   AppRoutes._();
 
   // Home page (or walkthrough during the onboarding)
-  static String get HOME => _InternalAppRoutes.HOME_PAGE;
+  static String HOME({bool redraw = false}) =>
+      '${_InternalAppRoutes.HOME_PAGE}?redraw:$redraw';
 
   // Product details (a [Product] is mandatory in the extra)
   static String PRODUCT(
     String barcode, {
     bool useHeroAnimation = true,
     String? heroTag = '',
+    ProductPageBackButton? backButtonType,
+    ProductPageTransition? transition = ProductPageTransition.standard,
   }) =>
       '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
       '?heroAnimation=$useHeroAnimation'
-      '&heroTag=$heroTag';
+      '&heroTag=$heroTag'
+      '&backButtonType=${backButtonType?.name}'
+      '&transition=${transition?.name}';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode, {bool edit = false}) =>
@@ -458,7 +511,15 @@ class AppRoutes {
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 
-  // Open an external link (where path is relative to the OFF website)
+  // Open an external link in the browser or custom tabs
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}/$path';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${_encodePath(path)}';
+
+  // Open an external link in a WebView
+  static String EXTERNAL_WEBVIEW(String path, {String? pageTitle}) =>
+      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&path=${_encodePath(path)}';
 }
+
+String _encodePath(String path) => base64Encode(utf8.encode(path));
+
+String _decodePath(String path) => utf8.decode(base64Decode(path));

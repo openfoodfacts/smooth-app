@@ -24,6 +24,7 @@ class QueryProductListSupplier extends ProductListSupplier {
         await DaoProduct(localDatabase).putAll(
           searchResult.products!,
           productQuery.language,
+          productType: productQuery.productType,
         );
       }
       await DaoProductList(localDatabase).put(productList);

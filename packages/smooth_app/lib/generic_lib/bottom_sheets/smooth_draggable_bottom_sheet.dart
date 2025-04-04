@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 class SmoothDraggableBottomSheet extends StatefulWidget {
   const SmoothDraggableBottomSheet({
@@ -9,6 +10,7 @@ class SmoothDraggableBottomSheet extends StatefulWidget {
     required this.bodyBuilder,
     required this.borderRadius,
     this.initHeightFraction = 0.5,
+    this.minHeightFraction,
     this.maxHeightFraction = 1.0,
     this.animationController,
     this.bottomSheetColor,
@@ -16,6 +18,7 @@ class SmoothDraggableBottomSheet extends StatefulWidget {
   }) : assert(maxHeightFraction > 0.0 && maxHeightFraction <= 1.0);
 
   final double initHeightFraction;
+  final double? minHeightFraction;
   final double maxHeightFraction;
   final WidgetBuilder headerBuilder;
   final double headerHeight;
@@ -51,55 +54,63 @@ class SmoothDraggableBottomSheetState
         Theme.of(context).scaffoldBackgroundColor;
     final double bottomPaddingHeight = MediaQuery.paddingOf(context).bottom;
 
-    return NotificationListener<DraggableScrollableNotification>(
-      onNotification: _scrolling,
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: SafeArea(
-              bottom: false,
-              child: DraggableScrollableSheet(
-                minChildSize: 0.0,
-                maxChildSize: widget.maxHeightFraction,
-                initialChildSize: widget.initHeightFraction,
-                snap: true,
-                controller: _controller,
-                builder: (BuildContext context, ScrollController controller) {
-                  return DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: widget.borderRadius,
-                      color: backgroundColor,
-                    ),
-                    child: Material(
-                      type: MaterialType.transparency,
-                      child: ClipRRect(
+    // Fix keyboard glitch
+    final double keyboardFraction = MediaQuery.viewInsetsOf(context).bottom /
+        MediaQuery.sizeOf(context).height;
+
+    return ChangeNotifierProvider<DraggableScrollableController>(
+      create: (_) => _controller,
+      child: NotificationListener<DraggableScrollableNotification>(
+        onNotification: _scrolling,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: SafeArea(
+                bottom: false,
+                child: DraggableScrollableSheet(
+                  minChildSize: widget.minHeightFraction ?? 0.0,
+                  maxChildSize: widget.maxHeightFraction,
+                  initialChildSize:
+                      widget.initHeightFraction + keyboardFraction,
+                  snap: true,
+                  controller: _controller,
+                  builder: (BuildContext context, ScrollController controller) {
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
                         borderRadius: widget.borderRadius,
-                        child: _SmoothDraggableContent(
-                          bodyBuilder: widget.bodyBuilder,
-                          headerBuilder: widget.headerBuilder,
-                          headerHeight: widget.headerHeight,
-                          currentExtent: _controller.isAttached
-                              ? _controller.size
-                              : widget.initHeightFraction,
-                          scrollController: controller,
-                          cacheExtent: _calculateCacheExtent(
-                            MediaQuery.viewInsetsOf(context).bottom,
+                        color: backgroundColor,
+                      ),
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: ClipRRect(
+                          borderRadius: widget.borderRadius,
+                          child: _SmoothDraggableContent(
+                            bodyBuilder: widget.bodyBuilder,
+                            headerBuilder: widget.headerBuilder,
+                            headerHeight: widget.headerHeight,
+                            currentExtent: _controller.isAttached
+                                ? _controller.size
+                                : widget.initHeightFraction,
+                            scrollController: controller,
+                            cacheExtent: _calculateCacheExtent(
+                              MediaQuery.viewInsetsOf(context).bottom,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-          if (bottomPaddingHeight > 0)
-            SizedBox(
-              width: double.infinity,
-              height: bottomPaddingHeight,
-              child: ColoredBox(color: backgroundColor),
-            ),
-        ],
+            if (bottomPaddingHeight > 0)
+              SizedBox(
+                width: double.infinity,
+                height: bottomPaddingHeight,
+                child: ColoredBox(color: backgroundColor),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -172,20 +183,23 @@ class _SmoothDraggableContentState extends State<_SmoothDraggableContent> {
   Widget build(BuildContext context) {
     return Scrollbar(
       controller: widget.scrollController,
-      child: CustomScrollView(
-        cacheExtent: widget.cacheExtent,
-        key: _contentKey,
-        controller: widget.scrollController,
-        slivers: <Widget>[
-          SliverPersistentHeader(
-            pinned: true,
-            delegate: _SliverHeader(
-              child: widget.headerBuilder(context),
-              height: widget.headerHeight,
+      child: ChangeNotifierProvider<ScrollController>.value(
+        value: widget.scrollController,
+        child: CustomScrollView(
+          cacheExtent: widget.cacheExtent,
+          key: _contentKey,
+          controller: widget.scrollController,
+          slivers: <Widget>[
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _SliverHeader(
+                child: widget.headerBuilder(context),
+                height: widget.headerHeight,
+              ),
             ),
-          ),
-          widget.bodyBuilder(context),
-        ],
+            widget.bodyBuilder(context),
+          ],
+        ),
       ),
     );
   }

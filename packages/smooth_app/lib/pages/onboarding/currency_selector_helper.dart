@@ -10,7 +10,14 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Helper for currency selection.
 class CurrencySelectorHelper {
-  CurrencySelectorHelper();
+  factory CurrencySelectorHelper() {
+    _instance ??= CurrencySelectorHelper._();
+    return _instance!;
+  }
+
+  CurrencySelectorHelper._();
+
+  static CurrencySelectorHelper? _instance;
 
   final List<Currency> _currencyList = List<Currency>.from(Currency.values);
 

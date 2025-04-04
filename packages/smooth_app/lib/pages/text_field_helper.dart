@@ -18,6 +18,13 @@ class TextEditingControllerWithHistory extends TextEditingController {
 
   bool get isDifferentFromPreviousValue => _previousValue != text;
 
+  void resetToInitialValue() {
+    assert(_initialValue != null);
+    if (_initialValue != null) {
+      text = _initialValue;
+    }
+  }
+
   @override
   set text(String newText) {
     _previousValue = text;

@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_other_page.dart';
 import 'package:smooth_app/pages/image/product_image_widget.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 
 /// Number of columns for the grid.
 const int _columns = 3;
@@ -23,10 +24,11 @@ double _getSquareSize(final BuildContext context) {
 /// Display of the other pictures of a product.
 class ProductImageGalleryOtherView extends StatefulWidget {
   const ProductImageGalleryOtherView({
-    required this.product,
+    required this.onPhotosAvailable,
+    super.key,
   });
 
-  final Product product;
+  final Function(bool hasPhotos) onPhotosAvailable;
 
   @override
   State<ProductImageGalleryOtherView> createState() =>
@@ -35,37 +37,42 @@ class ProductImageGalleryOtherView extends StatefulWidget {
 
 class _ProductImageGalleryOtherViewState
     extends State<ProductImageGalleryOtherView> {
-  late final Future<FetchedProduct> _loading = _loadOtherPics();
-
-  Future<FetchedProduct> _loadOtherPics() async =>
+  Future<FetchedProduct> _loadOtherPics(Product product) async =>
       ProductRefresher().silentFetchAndRefresh(
         localDatabase: context.read<LocalDatabase>(),
-        barcode: widget.product.barcode!,
+        barcode: product.barcode!,
       );
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Product product = context.watch<Product>();
+    context.read<OpenFoodFactsLanguage>();
+
     List<ProductImage> rawImages = getRawProductImages(
-      widget.product,
+      product,
       ImageSize.DISPLAY,
     );
+
     if (rawImages.isNotEmpty) {
-      return _RawGridGallery(widget.product, rawImages);
+      widget.onPhotosAvailable(true);
+      return _RawGridGallery(product, rawImages);
     }
     final double squareSize = _getSquareSize(context);
     return FutureBuilder<FetchedProduct>(
-      future: _loading,
+      future: _loadOtherPics(product),
       builder: (
         final BuildContext context,
         final AsyncSnapshot<FetchedProduct> snapshot,
       ) {
         if (snapshot.connectionState != ConnectionState.done) {
           return SliverToBoxAdapter(
-            child: SizedBox(
-              width: squareSize,
-              height: squareSize,
-              child: const CircularProgressIndicator.adaptive(),
+            child: Center(
+              child: SizedBox(
+                width: squareSize,
+                height: squareSize,
+                child: const CircularProgressIndicator.adaptive(),
+              ),
             ),
           );
         }
@@ -85,16 +92,15 @@ class _ProductImageGalleryOtherViewState
           );
         }
         if (rawImages.isNotEmpty) {
+          widget.onPhotosAvailable(true);
           return _RawGridGallery(
-            fetchedProduct.product ?? widget.product,
+            fetchedProduct.product ?? product,
             rawImages,
           );
         }
-        return SliverToBoxAdapter(
-          child: Text(
-            appLocalizations.edit_photo_select_existing_downloaded_none,
-          ),
-        );
+
+        widget.onPhotosAvailable(false);
+        return const SliverToBoxAdapter(child: EMPTY_WIDGET);
       },
     );
   }
@@ -110,6 +116,8 @@ class _RawGridGallery extends StatelessWidget {
   Widget build(BuildContext context) {
     final double squareSize = _getSquareSize(context);
     final ImageSize? imageSize = _computeImageSize(squareSize);
+    final OpenFoodFactsLanguage language =
+        context.read<OpenFoodFactsLanguage>();
 
     return SliverGrid(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -125,31 +133,64 @@ class _RawGridGallery extends StatelessWidget {
           return Padding(
             padding: EdgeInsetsDirectional.only(
               start: VERY_SMALL_SPACE,
-              end: index % _columns == 0 ? VERY_SMALL_SPACE : 0.0,
+              end: (index - 1) % _columns == 0 ? VERY_SMALL_SPACE : 0.0,
               bottom: VERY_SMALL_SPACE,
             ),
-            child: InkWell(
-              onTap: () async => Navigator.push<void>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) {
-                    return ProductImageOtherPage(
-                      product: product,
-                      images: rawImages.reversed.toList(growable: false),
-                      currentImage: productImage,
-                      heroTag: heroTag,
-                    );
-                  },
+            child: Stack(
+              children: <Widget>[
+                Positioned.fill(
+                  child: ProductImageWidget(
+                    productImage: productImage,
+                    barcode: product.barcode!,
+                    squareSize: squareSize,
+                    imageSize: imageSize,
+                    heroTag: heroTag,
+                    productType: product.productType,
+                  ),
                 ),
-              ),
-              child: ProductImageWidget(
-                productImage: productImage,
-                barcode: product.barcode!,
-                squareSize: squareSize,
-                imageSize: imageSize,
-                heroTag: heroTag,
-                productType: product.productType,
-              ),
+                Positioned.fill(
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: InkWell(
+                      borderRadius: ANGULAR_BORDER_RADIUS,
+                      onTap: () async => _openOtherPage(
+                        context: context,
+                        product: product,
+                        rawImages: rawImages,
+                        productImage: productImage,
+                        heroTag: heroTag!,
+                        language: language,
+                      ),
+                    ),
+                  ),
+                ),
+                PositionedDirectional(
+                  top: 0.0,
+                  end: 0.0,
+                  child: Tooltip(
+                    message: AppLocalizations.of(context)
+                        .photo_viewer_use_picture_as_tooltip,
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: InkWell(
+                        customBorder: const CircleBorder(),
+                        onTap: () async => _usePhotoAs(
+                          context: context,
+                          product: product,
+                          rawImages: rawImages,
+                          productImage: productImage,
+                          heroTag: heroTag!,
+                          language: language,
+                        ),
+                        child: const SmoothIndicatorIcon(
+                          padding: EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+                          icon: Icon(Icons.more_vert_outlined, size: 17.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         },
@@ -165,5 +206,44 @@ class _RawGridGallery extends StatelessWidget {
         ImageSize.DISPLAY
       ].firstWhereOrNull(
         (ImageSize element) => squareSize <= int.parse(element.number),
+      );
+
+  Future<void> _openOtherPage({
+    required final BuildContext context,
+    required final Product product,
+    required final List<ProductImage> rawImages,
+    required final ProductImage productImage,
+    required final String heroTag,
+    required final OpenFoodFactsLanguage language,
+  }) async {
+    await Navigator.push<ProductImagePageResult>(
+      context,
+      MaterialPageRoute<ProductImagePageResult>(
+        builder: (BuildContext context) {
+          return ProductImageOtherPage(
+            product: product,
+            language: language,
+            images: rawImages.reversed.toList(growable: false),
+            currentImage: productImage,
+            heroTag: heroTag,
+          );
+        },
+      ),
+    );
+  }
+
+  Future<ProductImagePageResult?> _usePhotoAs({
+    required final BuildContext context,
+    required final Product product,
+    required final List<ProductImage> rawImages,
+    required final ProductImage productImage,
+    required final String heroTag,
+    required final OpenFoodFactsLanguage language,
+  }) =>
+      ProductImageOtherPage.usePhotoAs(
+        context: context,
+        product: product,
+        language: language,
+        productImage: productImage,
       );
 }

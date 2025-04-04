@@ -19,7 +19,7 @@ class UserPreferencesCurrencySelector extends StatelessWidget {
   }
 
   static String _getLabel(final AppLocalizations appLocalizations) =>
-      appLocalizations.currency_chooser_label;
+      appLocalizations.currency_picker_label;
 
   @override
   Widget build(BuildContext context) {

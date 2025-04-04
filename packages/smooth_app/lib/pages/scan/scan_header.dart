@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class ScanHeader extends StatefulWidget {
   const ScanHeader({super.key});
@@ -29,6 +30,12 @@ class _ScanHeaderState extends State<ScanHeader> {
           borderRadius: BorderRadius.all(Radius.circular(18.0)),
         ),
       ),
+      foregroundColor: WidgetStateProperty.all<Color>(
+        Theme.of(context).colorScheme.onPrimary,
+      ),
+      textStyle: WidgetStateProperty.all<TextStyle>(
+        const TextStyle(fontWeight: FontWeight.w600),
+      ),
     );
 
     final bool compareFeatureAvailable = model.compareFeatureAvailable;
@@ -49,21 +56,26 @@ class _ScanHeaderState extends State<ScanHeader> {
               children: <Widget>[
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: constraints.maxWidth * 0.4,
+                    maxWidth: constraints.maxWidth * 0.35,
                   ),
                   child: Tooltip(
                     message: appLocalizations.scan_header_clear_button_tooltip,
                     child: ElevatedButton.icon(
                       style: buttonStyle,
-                      icon: const Icon(Icons.clear_all),
+                      icon: const icons.Clear(),
                       onPressed: model.clearScanSession,
-                      label: Text(appLocalizations.clear),
+                      label: FittedBox(
+                        child: Text(
+                          appLocalizations.clear,
+                          maxLines: 1,
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: constraints.maxWidth * 0.6,
+                    maxWidth: constraints.maxWidth * 0.55,
                   ),
                   child: Tooltip(
                     message: compareFeatureAvailable
@@ -76,7 +88,9 @@ class _ScanHeaderState extends State<ScanHeader> {
                       duration: SmoothAnimationsDuration.brief,
                       child: ElevatedButton.icon(
                         style: buttonStyle,
-                        icon: const Icon(Icons.compare_arrows),
+                        icon: const icons.Compare(
+                          size: 19.0,
+                        ),
                         onPressed: compareFeatureAvailable
                             ? () async {
                                 final ContinuousScanModel model =
@@ -90,9 +104,8 @@ class _ScanHeaderState extends State<ScanHeader> {
                                   MaterialPageRoute<void>(
                                     builder: (BuildContext context) =>
                                         PersonalizedRankingPage(
-                                      barcodes: model
-                                          .getAvailableBarcodes()
-                                          .toList(growable: false),
+                                      barcodes:
+                                          model.getAvailableBarcodes().toList(),
                                       title: ProductQueryPageHelper
                                           .getProductListLabel(
                                         model.productList,

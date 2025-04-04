@@ -1,13 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
@@ -16,9 +16,11 @@ import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_connect.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_contribute.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_donation.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_prices.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -32,6 +34,8 @@ enum PreferencePageType {
   SETTINGS('settings'),
   CONTRIBUTE('contribute'),
   FAQ('faq'),
+  DONATION('donation'),
+  PRICES('prices'),
   CONNECT('connect');
 
   const PreferencePageType(this.tag);
@@ -44,6 +48,8 @@ enum PreferencePageType {
     required final UserPreferences userPreferences,
     required final BuildContext context,
   }) {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    BackgroundTaskManager.runAgain(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeProvider themeProvider = context.read<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
@@ -97,6 +103,20 @@ enum PreferencePageType {
           appLocalizations: appLocalizations,
           themeData: themeData,
         );
+      case PreferencePageType.DONATION:
+        return UserPreferencesDonation(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.PRICES:
+        return UserPreferencesPrices(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
       case PreferencePageType.CONNECT:
         return UserPreferencesConnect(
           context: context,
@@ -113,6 +133,8 @@ enum PreferencePageType {
       <PreferencePageType>[
         PreferencePageType.ACCOUNT,
         PreferencePageType.FOOD,
+        PreferencePageType.PRICES,
+        PreferencePageType.DONATION,
         PreferencePageType.SETTINGS,
         PreferencePageType.CONTRIBUTE,
         PreferencePageType.FAQ,
@@ -243,10 +265,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     );
     return SmoothScaffold(
       statusBarBackgroundColor: dark ? null : headerColor,
-      brightness:
-          Theme.of(context).brightness == Brightness.light && Platform.isIOS
-              ? Brightness.dark
-              : Brightness.light,
+      brightness: Theme.of(context).brightness == Brightness.light
+          ? Brightness.dark
+          : Brightness.light,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
       appBar: SmoothAppBar(

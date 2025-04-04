@@ -1,14 +1,11 @@
 project_id_env: CROWDIN_PROJECT_ID
 api_token_env: CROWDIN_PERSONAL_TOKEN
-pull_request_title: "chore: New translations to review and merge"
-pull_request_body: '### What\n- Automated pull request pulling in new or updated translations from Crowdin (https://translate.openfoodfacts.org).\n## Checklist\n- [ ] Check that they are no bad translations. If there are, correct them directly in Crowdin so that they are not resynced again. Then you can correct them here as well, or wait 24 hours for the sync to happen automatically.\n- [ ] Put extra attention on Acholi, which is used mistakenly as a sandbox by people discovering the self-service translation button on Open Food Facts\n- [ ] Once you are happy, that automated checks pass, you can approve the PR and merge it.\n### Part of\n- Translations' 
-pull_request_labels : 'translations'
+pull_request_body: '### What\n- Automated pull request pulling in new or updated translations from Crowdin (https://translate.openfoodfacts.org).\n## Checklist\n- [ ] Check that they are no bad translations. If there are, correct them directly in Crowdin so that they are not resynced again. Then you can correct them here as well, or wait 24 hours for the sync to happen automatically.\n- [ ] Put extra attention on Acholi, which is used mistakenly as a sandbox by people discovering the self-service translation button on Open Food Facts\n- [ ] Once you are happy, that automated checks pass, you can approve the PR and merge it.\n### Part of\n- Translations'
+pull_request_title: 'chore: New translations to review and merge'
+pull_request_labels:
+  - Translations
 files:
   - source: /packages/smooth_app/lib/l10n/app_en.arb
-    dist: /packages/smooth_app/lib/l10n/app_en.arb
     translation: /packages/smooth_app/lib/l10n/app_%two_letters_code%.arb
-    preserve_hierarchy: true
   - source: /packages/smooth_app/ios/Runner/en.lproj/InfoPlist.strings
-    dist: /packages/smooth_app/ios/Runner/en.lproj/InfoPlist.strings
     translation: /packages/smooth_app/ios/Runner/%two_letters_code%.lproj/InfoPlist.strings
-    preserve_hierarchy: true

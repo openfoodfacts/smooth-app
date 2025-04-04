@@ -43,9 +43,13 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';
   static const String userPreferencesTestEnvDomain = '__testEnvHost';
+  static const String userPreferencesFolksonomyHost = '__folksonomyHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
+  static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
   static const String userPreferencesFlagBoostedComparison =
       '__boostedComparison';
+  static const String userPreferencesFlagProductListImport =
+      '__productListImport';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesFlagAccessibilityNoColor =
@@ -53,8 +57,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
   static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
+  static const String userPreferencesFlagPricesReceiptMultiSelection =
+      '__pricesReceiptMultiSelection';
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
+  static const String userPreferencesFlagBulkProofUpload = '__bulkProofUpload';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
 
   final TextEditingController _textFieldController = TextEditingController();
@@ -261,6 +268,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 .getPostUri(path: '')
                 .toString(),
           ),
+          visibleWhen: (BuildContext context) {
+            return userPreferences.getFlag(userPreferencesFlagProd) == false;
+          },
           onTap: () async => _changeTestEnvDomain(),
         ),
         const UserPreferencesItemSection(
@@ -291,6 +301,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ],
           ),
         ),
+        const UserPreferencesItemSection(
+          label: 'Folksonomy Server configuration',
+        ),
+        UserPreferencesItemTile(
+          title: 'Folksonomy host',
+          subtitle: ProductQuery.uriFolksonomyHelper.host,
+          onTap: () async => _changeFolksonomyHost(),
+        ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_news,
         ),
@@ -315,7 +333,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             return Consumer<AppNewsProvider>(
                 builder: (_, AppNewsProvider provider, __) {
               return Text(switch (provider.state) {
-                AppNewsStateLoading() => 'Loading...',
+                AppNewsStateLoading() => 'Loading…',
                 AppNewsStateLoaded(lastUpdate: final DateTime date) =>
                   appLocalizations
                       .dev_preferences_news_provider_status_subtitle(
@@ -348,7 +366,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemSwitch(
-          title: appLocalizations.dev_mode_hide_ecoscore_title,
+          title: appLocalizations.dev_mode_hide_environmental_score_title,
           value: userPreferences
               .getExcludedAttributeIds()
               .contains(Attribute.ATTRIBUTE_ECOSCORE),
@@ -360,6 +378,18 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               list.add(tag);
             }
             await userPreferences.setExcludedAttributeIds(list);
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.dev_preferences_show_folksonomy_title,
+          value: userPreferences.getFlag(userPreferencesFlagHideFolksonomy) ??
+              true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagHideFolksonomy,
+              value,
+            );
+            _showSuccessMessage();
           },
         ),
         UserPreferencesItemSection(
@@ -408,6 +438,28 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_experimental_features,
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.prices_bulk_proof_upload_title,
+          value: userPreferences.getFlag(userPreferencesFlagBulkProofUpload) ??
+              false,
+          onChanged: (bool value) async => userPreferences.setFlag(
+            userPreferencesFlagBulkProofUpload,
+            value,
+          ),
+        ),
+        UserPreferencesItemSwitch(
+          title: 'Multi-products selection for prices',
+          value: userPreferences
+                  .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagPricesReceiptMultiSelection,
+              value,
+            );
+            _showSuccessMessage();
+          },
         ),
         UserPreferencesItemSwitch(
           title: 'User ordered knowledge panels',
@@ -487,6 +539,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             _showSuccessMessage();
           },
         ),
+        UserPreferencesItemSwitch(
+          title: 'Product list import',
+          value:
+              userPreferences.getFlag(userPreferencesFlagProductListImport) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagProductListImport, value);
+            _showSuccessMessage();
+          },
+        ),
       ];
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
@@ -518,6 +581,32 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     if (result == true) {
       await userPreferences.setDevModeString(
           userPreferencesTestEnvDomain, _textFieldController.text);
+      ProductQuery.setQueryType(userPreferences);
+    }
+  }
+
+  Future<void> _changeFolksonomyHost() async {
+    _textFieldController.text = ProductQuery.uriFolksonomyHelper.host;
+    final String? result = await showDialog<String>(
+      context: context,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: 'Folksonomy host',
+        body: TextField(controller: _textFieldController),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.pop(context),
+        ),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.okay,
+          onPressed: () => Navigator.pop(context, _textFieldController.text),
+        ),
+      ),
+    );
+    if (result != null) {
+      await userPreferences.setDevModeString(
+        userPreferencesFolksonomyHost,
+        result,
+      );
       ProductQuery.setQueryType(userPreferences);
     }
   }

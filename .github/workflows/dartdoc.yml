@@ -37,13 +37,19 @@ jobs:
           run: mkdocs build
 
         - name: Deploy smooth_app documentation to Github Pages
-          uses: JamesIves/github-pages-deploy-action@v4.6.8
+          uses: JamesIves/github-pages-deploy-action@v4.7.3	
           with:
             BRANCH: gh-pages
             FOLDER: packages/smooth_app/docs/
 
         - name: Deploy scanner documentation to Github Pages
-          uses: JamesIves/github-pages-deploy-action@v4.6.8	
+          uses: JamesIves/github-pages-deploy-action@v4.7.3	
           with:
             BRANCH: gh-pages
-            FOLDER: packages/smooth_app/docs/
+            FOLDER: packages/smooth_app/docs/	
+        - name: Deploy API documentation to Github Pages
+          uses: JamesIves/github-pages-deploy-action@v4.7.3	
+          with:
+            BRANCH: gh-pages
+            FOLDER: packages/smooth_app/docs/api/	
+

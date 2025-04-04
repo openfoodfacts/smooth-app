@@ -40,7 +40,7 @@ class ErrorPage extends StatelessWidget {
               const SizedBox(height: VERY_LARGE_SPACE * 2),
               SmoothLargeButtonWithIcon(
                 text: localizations.page_not_found_button,
-                icon: Icons.home,
+                leadingIcon: const Icon(Icons.home),
                 padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
                 onPressed: () {
                   AppNavigator.of(context).pop();

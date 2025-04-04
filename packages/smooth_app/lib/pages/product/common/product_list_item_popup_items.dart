@@ -7,6 +7,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/compare_products3_page.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
@@ -37,7 +38,7 @@ abstract class ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   });
 
   /// Returns the popup menu item.
@@ -50,7 +51,6 @@ abstract class ProductListItemPopupItem {
         icon: getIconData(),
         label: getTitle(appLocalizations),
         enabled: enabled,
-        type: isDestructive() ? SmoothPopupMenuItemType.destructive : null,
       );
 }
 
@@ -68,14 +68,14 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   }) async {
     final OrderedNutrientsCache? cache =
         await OrderedNutrientsCache.getCache(context);
     if (context.mounted) {
       if (cache == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          SmoothFloatingSnackbar(
             content: Text(
               AppLocalizations.of(context).nutrition_cache_loading_error,
             ),
@@ -118,7 +118,7 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   }) async {
     await Navigator.push<void>(
       context,
@@ -137,7 +137,7 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
 class ProductListItemPopupDelete extends ProductListItemPopupItem {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
-      'Delete selected items'; //appLocalizations.action_delete_list;
+      appLocalizations.delete_products_mode;
 
   @override
   IconData getIconData() => Icons.delete;
@@ -150,7 +150,7 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DaoProductList daoProductList = DaoProductList(localDatabase);
@@ -187,6 +187,49 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
       include: false,
     );
     await daoProductList.get(productList);
+    selectedBarcodes.clear();
+    return true;
+  }
+}
+
+/// Popup menu item for the product list page: select all items.
+class ProductListItemPopupSelectAll extends ProductListItemPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.select_all_products_mode;
+
+  @override
+  IconData getIconData() => Icons.check_box;
+
+  @override
+  Future<bool> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+    required final Set<String> selectedBarcodes,
+  }) async {
+    selectedBarcodes.addAll(productList.barcodes);
+    return true;
+  }
+}
+
+/// Popup menu item for the product list page: unselect all items.
+class ProductListItemPopupUnselectAll extends ProductListItemPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.select_none_products_mode;
+
+  @override
+  IconData getIconData() => Icons.check_box_outline_blank;
+
+  @override
+  Future<bool> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+    required final Set<String> selectedBarcodes,
+  }) async {
+    selectedBarcodes.clear();
     return true;
   }
 }

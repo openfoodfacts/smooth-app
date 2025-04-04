@@ -1,81 +1,116 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
+import 'package:smooth_app/resources/app_animations.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
-class SmoothProductCardNotFound extends StatelessWidget {
-  SmoothProductCardNotFound({
+class ScanProductCardNotFound extends StatelessWidget {
+  ScanProductCardNotFound({
     required this.barcode,
     this.onAddProduct,
     this.onRemoveProduct,
   }) : assert(barcode.isNotEmpty);
 
+  final String barcode;
   final Future<void> Function()? onAddProduct;
   final OnRemoveCallback? onRemoveProduct;
-  final String barcode;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    final SmoothColorsThemeExtension theme =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
-    return SmoothProductBaseCard(
-      margin: const EdgeInsets.symmetric(
-        vertical: VERY_SMALL_SPACE,
+    return ScanProductBaseCard(
+      headerLabel: appLocalizations.carousel_unknown_product_header,
+      headerIndicatorColor: theme.error,
+      onRemove: onRemoveProduct,
+      backgroundChild: const PositionedDirectional(
+        top: 0.0,
+        end: 5.0,
+        child: OrangeErrorAnimation(),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Align(
-            alignment: AlignmentDirectional.topEnd,
-            child: ProductCardCloseButton(
-              onRemove: (BuildContext context) {
-                AnalyticsHelper.trackEvent(
-                  AnalyticsEvent.ignoreProductNotFound,
-                  barcode: barcode,
-                );
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          final Widget spacer;
 
-                onRemoveProduct?.call(context);
-              },
-              iconData: CupertinoIcons.clear_circled,
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: AutoSizeText(
-              appLocalizations.missing_product,
-              style: textTheme.displayMedium,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: AutoSizeText(
-              '\n${appLocalizations.add_product_take_photos}\n'
-              '(${appLocalizations.barcode_barcode(barcode)})',
-              style: textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SmoothLargeButtonWithIcon(
-            text: appLocalizations.add_product_information_button_label,
-            icon: Icons.add,
-            padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-            onPressed: () async {
-              await AppNavigator.of(context).push(
-                AppRoutes.PRODUCT_CREATOR(barcode),
-              );
-              await onAddProduct?.call();
-            },
-          ),
-        ],
+          if (dense) {
+            spacer = const SizedBox(height: MEDIUM_SPACE);
+          } else {
+            spacer = const Spacer();
+          }
+
+          final Widget child = Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              ScanProductBaseCardTitle(
+                title: appLocalizations.carousel_unknown_product_title,
+                padding: EdgeInsetsDirectional.only(
+                  top: dense ? 0.0 : 5.0,
+                  end: 25.0,
+                ),
+              ),
+              SizedBox(height: dense ? BALANCED_SPACE : LARGE_SPACE),
+              ScanProductBaseCardText(
+                text: TextWithBubbleParts(
+                  text: appLocalizations.carousel_unknown_product_text,
+                  backgroundColor: theme.primarySemiDark,
+                  textStyle: const TextStyle(
+                    fontSize: 14.5,
+                  ),
+                  bubbleTextStyle: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13.5,
+                  ),
+                  bubblePadding: const EdgeInsetsDirectional.only(
+                    top: 2.5,
+                    bottom: 3.5,
+                    start: 10.0,
+                    end: 10.0,
+                  ),
+                ),
+              ),
+              ScanProductBaseCardBarcode(
+                barcode: barcode,
+                height: 75.0,
+                padding: const EdgeInsetsDirectional.only(top: MEDIUM_SPACE),
+              ),
+              spacer,
+              ScanProductBaseCardButton(
+                text: appLocalizations.carousel_unknown_product_button,
+                onTap: !dense ? () => _onTap(context) : null,
+              ),
+            ],
+          );
+
+          if (dense) {
+            return SingleChildScrollView(
+              child: InkWell(
+                onTap: () => _onTap(context),
+                child: child,
+              ),
+            );
+          } else {
+            return child;
+          }
+        },
       ),
     );
+  }
+
+  Future<void> _onTap(BuildContext context) async {
+    await AppNavigator.of(context).push(
+      AppRoutes.PRODUCT_CREATOR(barcode),
+    );
+    await onAddProduct?.call();
   }
 }

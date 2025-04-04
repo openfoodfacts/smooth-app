@@ -4,8 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/paint_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
@@ -28,43 +30,12 @@ class UserPreferencesListItemDivider extends StatelessWidget {
           double.infinity,
           1.0,
         ),
-        painter: _DashedLinePainter(
+        painter: DashedLinePainter(
           color: Theme.of(context).dividerColor,
         ),
       ),
     );
   }
-}
-
-class _DashedLinePainter extends CustomPainter {
-  _DashedLinePainter({
-    required Color color,
-  }) : _paint = Paint()
-          ..color = color
-          ..strokeWidth = 1.0;
-
-  static const double _DASHED_WIDTH = 3.0;
-  static const double _DASHED_SPACE = 3.0;
-
-  final Paint _paint;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    double startX = 0.0;
-
-    while (startX < size.width) {
-      canvas.drawLine(
-        Offset(startX, 0),
-        Offset(startX + _DASHED_WIDTH, 0),
-        _paint,
-      );
-
-      startX += _DASHED_WIDTH + _DASHED_SPACE;
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
 class UserPreferencesSwitchWidget extends StatelessWidget {
@@ -143,6 +114,7 @@ class UserPreferencesItemTile implements UserPreferencesItem {
     this.onTap,
     this.leading,
     this.trailing,
+    this.visibleWhen,
   });
 
   final String title;
@@ -150,6 +122,7 @@ class UserPreferencesItemTile implements UserPreferencesItem {
   final VoidCallback? onTap;
   final Widget? leading;
   final Widget? trailing;
+  final bool Function(BuildContext context)? visibleWhen;
 
   @override
   List<String> get labels => <String>[
@@ -158,13 +131,19 @@ class UserPreferencesItemTile implements UserPreferencesItem {
       ];
 
   @override
-  WidgetBuilder get builder => (final BuildContext context) => ListTile(
-        title: Text(title),
-        subtitle: subtitle == null ? null : Text(subtitle!),
-        onTap: onTap,
-        leading: leading,
-        trailing: trailing,
-      );
+  WidgetBuilder get builder => (final BuildContext context) {
+        if (visibleWhen?.call(context) == false) {
+          return EMPTY_WIDGET;
+        }
+
+        return ListTile(
+          title: Text(title),
+          subtitle: subtitle == null ? null : Text(subtitle!),
+          onTap: onTap,
+          leading: leading,
+          trailing: trailing,
+        );
+      };
 }
 
 /// Same as [UserPreferencesItemTile] but with [WidgetBuilder].
@@ -336,13 +315,16 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
 
         // If there is not enough space, we use the scrolling sheet
         final T? res;
-        final SmoothModalSheetHeader header =
-            SmoothModalSheetHeader(title: title);
+        final SmoothModalSheetHeader header = SmoothModalSheetHeader(
+          title: title,
+          prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+        );
+
         if ((itemHeight * labels.length + header.computeHeight(context)) >
             (queryData.size.height * 0.9) - queryData.viewPadding.top) {
           res = await showSmoothDraggableModalSheet<T>(
               context: context,
-              header: SmoothModalSheetHeader(title: title),
+              header: header,
               bodyBuilder: (BuildContext context) {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
@@ -369,6 +351,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
         } else {
           final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
             title: title,
+            prefixIndicator: true,
             bodyPadding: EdgeInsets.zero,
             body: SizedBox(
               height: itemHeight * labels.length,
@@ -443,7 +426,15 @@ class _ChoiceItem<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color? selectedColor = selected ? theme.primaryColor : null;
+    final SmoothColorsThemeExtension extension =
+        theme.extension<SmoothColorsThemeExtension>()!;
+    final bool lightTheme = context.lightTheme();
+
+    final Color backgroundColor = selected
+        ? (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
+        : context.lightTheme()
+            ? Colors.transparent
+            : extension.primaryUltraBlack;
 
     return Semantics(
       value: label,
@@ -451,7 +442,7 @@ class _ChoiceItem<T> extends StatelessWidget {
       button: true,
       excludeSemantics: true,
       child: Ink(
-        color: selectedColor?.withOpacity(0.1) ?? Colors.transparent,
+        color: backgroundColor,
         child: Column(
           children: <Widget>[
             ListTile(
@@ -460,6 +451,7 @@ class _ChoiceItem<T> extends StatelessWidget {
               title: Text(
                 label,
                 style: theme.textTheme.headlineMedium?.copyWith(
+                  color: !lightTheme ? Colors.white : null,
                   fontWeight: selected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),

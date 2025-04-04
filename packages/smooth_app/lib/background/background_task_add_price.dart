@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -8,12 +7,11 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_price.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
-import 'package:smooth_app/pages/prices/eraser_model.dart';
-import 'package:smooth_app/pages/prices/eraser_painter.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 // TODO(monsieurtanuki): use transient file, in order to have instant access to proof image?
@@ -122,7 +120,11 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     if (!context.mounted) {
       return;
     }
-    await task.addToManager(localDatabase, context: context);
+    await task.addToManager(
+      localDatabase,
+      context: context,
+      queue: BackgroundTaskQueue.slow,
+    );
   }
 
   /// Returns a new background task about changing a product.
@@ -187,38 +189,16 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
-    final List<Offset> offsets = <Offset>[];
-    if (eraserCoordinates != null) {
-      for (int i = 0; i < eraserCoordinates!.length; i += 2) {
-        final Offset offset = Offset(
-          eraserCoordinates![i],
-          eraserCoordinates![i + 1],
-        );
-        offsets.add(offset);
-      }
-    }
     final String? path = await BackgroundTaskImage.cropIfNeeded(
       fullPath: fullPath,
-      croppedPath: BackgroundTaskImage.getCroppedPath(fullPath),
       rotationDegrees: rotationDegrees,
       cropX1: cropX1,
       cropY1: cropY1,
       cropX2: cropX2,
       cropY2: cropY2,
-      overlayPainter: offsets.isEmpty
-          ? null
-          : EraserPainter(
-              eraserModel: EraserModel(
-                rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
-                offsets: offsets,
-              ),
-              cropRect: BackgroundTaskImage.getDownsizedRect(
-                cropX1,
-                cropY1,
-                cropX2,
-                cropY2,
-              ),
-            ),
+      compressQuality: 80,
+      forceCompression: true,
+      eraserCoordinates: eraserCoordinates,
     );
     if (path == null) {
       // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
@@ -249,6 +229,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     await addPrices(
       bearerToken: bearerToken,
       proofId: uploadProof.value.id,
+      localDatabase: localDatabase,
     );
 
     await closeSession(bearerToken: bearerToken);

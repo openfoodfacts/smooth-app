@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:smooth_app/data_models/location_osm_type_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -26,21 +27,14 @@ class LocationMapPage extends StatelessWidget {
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: title == null ? null : Text(title),
-        subTitle: subtitle == null ? null : Text(subtitle),
+        subTitle: subtitle == null
+            ? null
+            : Text(
+                subtitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.check),
-            onPressed: () {
-              // pops that map page
-              Navigator.of(context).pop();
-              if (popFirst) {
-                // pops the result page
-                Navigator.of(context).pop();
-              }
-              // returns the result
-              Navigator.of(context).pop(osmLocation);
-            },
-          ),
           IconButton(
             icon: const Icon(Icons.info),
             onPressed: () => showCupertinoModalPopup<void>(
@@ -62,9 +56,27 @@ class LocationMapPage extends StatelessWidget {
                     '${osmLocation.latitude}, ${osmLocation.longitude}',
                     'Coordinates',
                   ),
+                  _getItem(
+                    context,
+                    '${osmLocation.osmType.short}${osmLocation.osmId}',
+                    'OSM',
+                  ),
                 ],
               ),
             ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.check),
+            onPressed: () {
+              // pops that map page
+              Navigator.of(context).pop();
+              if (popFirst) {
+                // pops the result page
+                Navigator.of(context).pop();
+              }
+              // returns the result
+              Navigator.of(context).pop(osmLocation);
+            },
           ),
         ],
       ),

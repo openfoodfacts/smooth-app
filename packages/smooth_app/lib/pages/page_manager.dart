@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_navigation_bar.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -79,30 +81,45 @@ class PageManagerState extends State<PageManager> {
     final bool isProd = userPreferences
             .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
         true;
-    final BottomNavigationBar bar = BottomNavigationBar(
-      onTap: (int index) {
-        if (_currentPage == BottomNavigationTab.Scan &&
-            _pageKeys[index] == BottomNavigationTab.Scan) {
-          carouselManager.showSearchCard();
-        }
+    final Widget bar = DecoratedBox(
+      decoration: BoxDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Theme.of(context).shadowColor.withValues(alpha: 0.3),
+            offset: Offset.zero,
+            blurRadius: 10.0,
+            spreadRadius: 1.0,
+          ),
+        ],
+      ),
+      child: icons.AppIconTheme(
+        size: 20.0,
+        child: SmoothNavigationBar(
+          destinations: <SmoothNavigationDestination>[
+            SmoothNavigationDestination(
+              icon: const icons.Profile(),
+              label: appLocalizations.profile_navbar_label,
+            ),
+            SmoothNavigationDestination(
+              icon: const icons.Search.alt(),
+              label: appLocalizations.scan_navbar_label,
+            ),
+            SmoothNavigationDestination(
+              icon: const icons.Lists(),
+              label: appLocalizations.list_navbar_label,
+            ),
+          ],
+          selectedIndex: _currentPage.index,
+          onDestinationSelected: (int index) {
+            if (_currentPage == BottomNavigationTab.Scan &&
+                _pageKeys[index] == BottomNavigationTab.Scan) {
+              carouselManager.showSearchCard();
+            }
 
-        _selectTab(_pageKeys[index], index);
-      },
-      currentIndex: _currentPage.index,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.account_circle),
-          label: appLocalizations.profile_navbar_label,
+            _selectTab(_pageKeys[index], index);
+          },
         ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.search),
-          label: appLocalizations.scan_navbar_label,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.list),
-          label: appLocalizations.list_navbar_label,
-        ),
-      ],
+      ),
     );
     return WillPopScope2(
       onWillPop: () async {

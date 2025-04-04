@@ -3,11 +3,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_progressing.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 
 /// Background progressing task about downloading products.
 class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
@@ -18,6 +20,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     required super.work,
     required super.pageSize,
     required super.totalSize,
+    required super.productType,
     required this.downloadFlag,
   });
 
@@ -49,12 +52,14 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     required final int totalSize,
     required final int soFarSize,
     required final int downloadFlag,
+    required final ProductType productType,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       soFarSize: soFarSize,
       totalSize: totalSize,
       work: work,
+      productType: productType,
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
@@ -62,8 +67,12 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       pageSize,
       totalSize,
       downloadFlag,
+      productType,
     );
-    await task.addToManager(localDatabase);
+    await task.addToManager(
+      localDatabase,
+      queue: BackgroundTaskQueue.longHaul,
+    );
   }
 
   @override
@@ -77,6 +86,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     final int pageSize,
     final int totalSize,
     final int downloadFlag,
+    final ProductType productType,
   ) =>
       BackgroundTaskDownloadProducts._(
         processName: _operationType.processName,
@@ -86,6 +96,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         pageSize: pageSize,
         totalSize: totalSize,
         downloadFlag: downloadFlag,
+        productType: productType,
       );
 
   @override
@@ -113,7 +124,8 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       fields.remove(ProductField.KNOWLEDGE_PANELS);
     }
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+    final SearchResult searchResult =
+        await SearchProductsManager.searchProducts(
       ProductQuery.getReadUser(),
       ProductSearchQueryConfiguration(
         fields: fields,
@@ -127,14 +139,13 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         version: ProductQuery.productQueryVersion,
       ),
       uriHelper: uriProductHelper,
+      type: SearchProductsType.background,
     );
     final List<Product>? downloadedProducts = searchResult.products;
     if (downloadedProducts == null) {
       throw Exception('Something bad happened downloading products');
     }
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final ProductType? productType =
-        ProductQuery.extractProductType(uriProductHelper);
     for (final Product product in downloadedProducts) {
       if (await _shouldBeUpdated(daoProduct, product.barcode!)) {
         await daoProduct.put(
@@ -159,6 +170,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         totalSize: totalSize,
         soFarSize: totalSize - remaining,
         downloadFlag: downloadFlag,
+        productType: productType,
       );
     }
   }

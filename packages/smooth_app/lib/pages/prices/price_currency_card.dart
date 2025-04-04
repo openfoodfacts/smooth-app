@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/price_currency_selector.dart';
 
@@ -10,13 +11,14 @@ class PriceCurrencyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return SmoothCard(
-      child: Column(
-        children: <Widget>[
-          Text(appLocalizations.prices_currency_subtitle),
-          PriceCurrencySelector(),
-        ],
+    return SmoothCardWithRoundedHeader(
+      title: appLocalizations.prices_currency_subtitle,
+      leading: const Icon(Icons.price_change),
+      contentPadding: const EdgeInsetsDirectional.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: MEDIUM_SPACE,
       ),
+      child: PriceCurrencySelector(),
     );
   }
 }

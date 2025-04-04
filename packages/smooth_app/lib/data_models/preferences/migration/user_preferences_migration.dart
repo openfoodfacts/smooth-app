@@ -73,14 +73,6 @@ class _UserPreferencesMigrationV2 extends UserPreferencesMigration {
     int newVersion,
   ) async {
     /// With version == null and 1, [_TAG_USER_GROUP] is missing
-    if (preferences._sharedPreferences
-            .getInt(UserPreferences._TAG_USER_GROUP) ==
-        null) {
-      await preferences._sharedPreferences.setInt(
-        UserPreferences._TAG_USER_GROUP,
-        math.Random().nextInt(10),
-      );
-    }
   }
 
   @override

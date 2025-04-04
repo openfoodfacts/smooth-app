@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_not_supported.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 
 /// Display of product for the scan page, after async load from local database.
 class ScanProductCardLoader extends StatelessWidget {
-  const ScanProductCardLoader(this.barcode);
+  const ScanProductCardLoader({
+    required this.barcode,
+    required this.onRemoveProduct,
+  });
 
   final String barcode;
+  final OnRemoveCallback onRemoveProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +27,16 @@ class ScanProductCardLoader extends StatelessWidget {
         final AsyncSnapshot<Product?> snapshot,
       ) {
         if (snapshot.data != null) {
-          return ScanProductCard(snapshot.data!);
+          return ScanProductCardFound(
+            product: snapshot.data!,
+            onRemoveProduct: onRemoveProduct,
+          );
+        } else {
+          return ScanProductCardNotSupported(
+            barcode: barcode,
+            onRemoveProduct: onRemoveProduct,
+          );
         }
-        // TODO(monsieurtanuki): something like "hey, no product found, click to download) + LOGS
-        return Container();
       },
     );
   }

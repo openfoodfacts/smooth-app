@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="org.openfoodfacts.app"
           android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -52,7 +51,11 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                
+
+                <!-- Prices -->
+                <data android:scheme="http" android:host="prices.openfoodfacts.org" />
+                <data android:scheme="http" android:host="prices.openfoodfacts.net" />
+
                 <!-- OpenFoodFacts.org -->
                 <data android:scheme="http" android:host="ae.openfoodfacts.org" />
                 <data android:scheme="http" android:host="ar.openfoodfacts.org" />
@@ -562,7 +565,11 @@
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
                 android:name="flutterEmbedding"
-                android:value="2"/>
+                android:value="2" />
+
+        <meta-data
+                android:name="io.flutter.embedding.android.EnableImpeller"
+                android:value="false" />
 
         <!-- Quick tile / setting (only available on Android 24+ / Nougat) -->
         <service android:name=".AppMainTile"

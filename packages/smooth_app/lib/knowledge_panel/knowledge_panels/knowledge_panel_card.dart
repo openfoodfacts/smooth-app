@@ -31,6 +31,7 @@ class KnowledgePanelCard extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final KnowledgePanel? panel =
         KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+
     if (panel == null) {
       return EMPTY_WIDGET;
     }
@@ -43,11 +44,20 @@ class KnowledgePanelCard extends StatelessWidget {
       );
     }
 
+    // in some cases there's nothing to click about.
+    // cf. https://github.com/openfoodfacts/smooth-app/issues/5700
+    final bool improvedIsClickable = isClickable &&
+        KnowledgePanelsBuilder.hasSomethingToDisplay(
+          product,
+          panelId,
+        );
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      padding: const EdgeInsetsDirectional.symmetric(
+        vertical: SMALL_SPACE,
+      ),
       child: InkWell(
         borderRadius: ANGULAR_BORDER_RADIUS,
-        onTap: !isClickable
+        onTap: !improvedIsClickable
             ? null
             : () async => Navigator.push<Widget>(
                   context,
@@ -64,7 +74,7 @@ class KnowledgePanelCard extends StatelessWidget {
                 ),
         child: KnowledgePanelsBuilder.getPanelSummaryWidget(
               panel,
-              isClickable: isClickable,
+              isClickable: improvedIsClickable,
               margin: EdgeInsets.zero,
             ) ??
             const SizedBox(),

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Page that lists all product lists.
 class AllProductListModal extends StatelessWidget {
@@ -84,13 +89,22 @@ class _ModalProductListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
 
     final int productsLength = productList.barcodes.length;
     final bool enableRename = productList.listType == ProductListType.USER;
     final bool hasProducts = productsLength > 0;
+
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final bool showImport = userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagProductListImport) ??
+        false;
 
     return UserPreferencesListTile(
       title: Text(
@@ -110,6 +124,9 @@ class _ModalProductListItem extends StatelessWidget {
                   if (hasProducts) ProductListPopupShare(),
                   if (hasProducts) ProductListPopupOpenInWeb(),
                   if (hasProducts) ProductListPopupClear(),
+                  if (hasProducts) ProductListPopupExport(),
+                  if (productList.isEditable && showImport)
+                    ProductListPopupImport(),
                   if (productList.isEditable) ProductListPopupDelete(),
                 ];
                 final List<PopupMenuEntry<ProductListPopupMenuEntry>> result =
@@ -121,7 +138,7 @@ class _ModalProductListItem extends StatelessWidget {
                       child: ListTile(
                         leading: Icon(item.getIconData()),
                         title: Text(item.getTitle(appLocalizations)),
-                        contentPadding: EdgeInsets.zero,
+                        contentPadding: EdgeInsetsDirectional.zero,
                         onTap: () async {
                           Navigator.of(context).pop();
                           await item.doSomething(
@@ -140,7 +157,8 @@ class _ModalProductListItem extends StatelessWidget {
             )
           : null,
       selected: selected,
-      selectedColor: Theme.of(context).primaryColor.withOpacity(0.2),
+      selectedColor:
+          lightTheme ? extension.primaryMedium : extension.primarySemiDark,
       contentPadding: const EdgeInsetsDirectional.only(
         start: VERY_LARGE_SPACE,
         end: LARGE_SPACE,

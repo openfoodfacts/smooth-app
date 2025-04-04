@@ -32,7 +32,7 @@ class PriceCurrencySelector extends StatelessWidget {
               model.currency = currency;
             },
       text: model.currency.getFullName(),
-      icon: _helper.currencyIconData,
+      leadingIcon: Icon(_helper.currencyIconData),
     );
   }
 }

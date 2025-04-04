@@ -86,7 +86,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
           shadows: <BoxShadow>[
             BoxShadow(
               color: Colors.black
-                  .withOpacity(progress.progressAndClamp(0.5, 1, 0.2)),
+                  .withValues(alpha: progress.progressAndClamp(0.5, 1, 0.2)),
               offset: const Offset(0.5, 0.5),
               blurRadius: 2.0,
             ),

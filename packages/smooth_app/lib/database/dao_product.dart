@@ -92,10 +92,69 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     return result;
   }
 
+  /// Returns the local products split by product type.
+  Future<Map<ProductType, List<String>>> getProductTypes(
+    final List<String> barcodes,
+  ) async {
+    final Map<ProductType, List<String>> result = <ProductType, List<String>>{};
+    if (barcodes.isEmpty) {
+      return result;
+    }
+    for (int start = 0;
+        start < barcodes.length;
+        start += BulkManager.SQLITE_MAX_VARIABLE_NUMBER) {
+      final int size = min(
+        barcodes.length - start,
+        BulkManager.SQLITE_MAX_VARIABLE_NUMBER,
+      );
+      final List<Map<String, dynamic>> queryResults =
+          await localDatabase.database.query(
+        _TABLE_PRODUCT,
+        columns: _columns,
+        where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
+        whereArgs: barcodes.sublist(start, start + size),
+      );
+      for (final Map<String, dynamic> row in queryResults) {
+        final Product product = _getProductFromQueryResult(row);
+        final ProductType productType = product.productType ?? ProductType.food;
+        List<String>? barcodes = result[productType];
+        if (barcodes == null) {
+          barcodes = <String>[];
+          result[productType] = barcodes;
+        }
+        barcodes.add(product.barcode!);
+      }
+    }
+    return result;
+  }
+
+  /// Returns all the local products split by a function.
+  Future<Map<String, List<String>>> splitAllProducts(
+    final String Function(Product) splitFunction,
+  ) async {
+    final Map<String, List<String>> result = <String, List<String>>{};
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.query(
+      _TABLE_PRODUCT,
+      columns: _columns,
+    );
+    for (final Map<String, dynamic> row in queryResults) {
+      final Product product = _getProductFromQueryResult(row);
+      final String splitValue = splitFunction(product);
+      List<String>? barcodes = result[splitValue];
+      if (barcodes == null) {
+        barcodes = <String>[];
+        result[splitValue] = barcodes;
+      }
+      barcodes.add(product.barcode!);
+    }
+    return result;
+  }
+
   Future<void> put(
     final Product product,
     final OpenFoodFactsLanguage language, {
-    final ProductType? productType,
+    required final ProductType productType,
   }) async =>
       putAll(
         <Product>[product],
@@ -107,12 +166,12 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   Future<void> putAll(
     final Iterable<Product> products,
     final OpenFoodFactsLanguage language, {
-    final ProductType? productType,
+    required final ProductType productType,
   }) async {
-    if (productType != null) {
-      for (final Product product in products) {
-        product.productType = productType;
-      }
+    for (final Product product in products) {
+      // in case the server product has no product type, which shouldn't happen
+      // in the future
+      product.productType ??= productType;
     }
     await localDatabase.database.transaction(
       (final Transaction transaction) async => _bulkReplaceLoop(
@@ -232,13 +291,20 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   }
 
   /// Get the total number of products in the database
-  Future<int> getTotalNoOfProducts() async {
-    return Sqflite.firstIntValue(
-          await localDatabase.database.rawQuery(
-            'select count(*) from $_TABLE_PRODUCT',
-          ),
-        ) ??
-        0;
+  Future<Map<ProductType, int>> getTotalNoOfProducts() async {
+    final Map<ProductType, int> result = <ProductType, int>{};
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.query(
+      _TABLE_PRODUCT,
+      columns: _columns,
+    );
+    for (final Map<String, dynamic> row in queryResults) {
+      final Product product = _getProductFromQueryResult(row);
+      final ProductType productType = product.productType ?? ProductType.food;
+      final int? count = result[productType];
+      result[productType] = 1 + (count ?? 0);
+    }
+    return result;
   }
 
   /// Get the estimated total size of the database in MegaBytes
@@ -277,54 +343,66 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final OpenFoodFactsLanguage language, {
     required final int limit,
     required final List<String> excludeBarcodes,
+    required final ProductType productType,
   }) async {
-    /// Unfortunately, some SQFlite implementations don't support "nulls last"
-    String getRawQuery(final bool withNullsLast) =>
-        'select p.$_TABLE_PRODUCT_COLUMN_BARCODE '
-        'from'
-        ' $_TABLE_PRODUCT p'
-        ' left outer join ${DaoProductLastAccess.TABLE} a'
-        '  on p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE} '
-        'where'
-        ' p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null'
-        ' or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != ? '
-        'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc ${withNullsLast ? 'nulls last' : ''} '
-        'limit ?';
-
-    List<Map<String, dynamic>> queryResults = <Map<String, dynamic>>[];
-    try {
-      queryResults = await localDatabase.database.rawQuery(
-        getRawQuery(true),
-        <Object>[
-          language.offTag,
-          limit + excludeBarcodes.length,
-        ],
-      );
-    } catch (e) {
-      if (!e.toString().startsWith(
-            'DatabaseException(near "nulls": syntax error (code 1 SQLITE_ERROR[1])',
-          )) {
-        rethrow;
-      }
-      queryResults = await localDatabase.database.rawQuery(
-        getRawQuery(false),
-        <Object>[
-          language.offTag,
-          limit + excludeBarcodes.length,
-        ],
-      );
-    }
-
     final List<String> result = <String>[];
 
-    for (final Map<String, dynamic> row in queryResults) {
-      final String barcode = row[_TABLE_PRODUCT_COLUMN_BARCODE] as String;
-      if (excludeBarcodes.contains(barcode)) {
-        continue;
-      }
-      result.add(barcode);
-      if (result.length == limit) {
-        break;
+    const String tableJoin =
+        'p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE}';
+    final String languageCondition = ' ('
+        'p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null '
+        "or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != '${language.offTag}'"
+        ') ';
+
+    final String queryWithLastAccess =
+        'select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON '
+        'from'
+        ' $_TABLE_PRODUCT p '
+        ' inner join ${DaoProductLastAccess.TABLE} a'
+        '  on $tableJoin '
+        'where'
+        ' $languageCondition '
+        'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc';
+
+    final String queryWithoutLastAccess =
+        'select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON '
+        'from'
+        ' $_TABLE_PRODUCT p '
+        'where'
+        ' not exists('
+        '  select null'
+        '  from ${DaoProductLastAccess.TABLE} a '
+        '  where $tableJoin '
+        ' ) '
+        ' and $languageCondition';
+
+    // optimization: using 2 more simple queries than a "left join" that proved
+    // more expensive (less than .1s for each simple query, .5s for "left join")
+    final List<String> queries = <String>[
+      queryWithLastAccess,
+      queryWithoutLastAccess,
+    ];
+    for (final String query in queries) {
+      // optimization: using a cursor, as we don't want all the rows,
+      // and we don't know how many rows we'll need.
+      final QueryCursor queryCursor =
+          await localDatabase.database.rawQueryCursor(
+        query,
+        null,
+      );
+      while (await queryCursor.moveNext()) {
+        final Product product = _getProductFromQueryResult(queryCursor.current);
+        final String barcode = product.barcode!;
+        if (excludeBarcodes.contains(barcode)) {
+          continue;
+        }
+        if ((product.productType ?? ProductType.food) != productType) {
+          continue;
+        }
+        result.add(barcode);
+        if (result.length == limit) {
+          return result;
+        }
       }
     }
 

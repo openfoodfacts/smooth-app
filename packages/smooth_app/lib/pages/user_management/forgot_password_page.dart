@@ -124,7 +124,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                       type: TextFieldTypes.PLAIN_TEXT,
                       controller: _userIdController,
                       hintText: appLocalizations.username_or_email,
-                      hintTextFontSize: 15.0,
                       enabled: !_runningQuery,
                       prefixIcon: const Icon(Icons.email),
                       textInputAction: TextInputAction.done,

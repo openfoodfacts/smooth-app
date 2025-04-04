@@ -15,7 +15,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_image_source.dart'
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_language_selector.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_rate_us.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_share_with_friends.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -92,6 +91,14 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         subtitle: appLocalizations.expand_ingredients_body,
         panelId: KnowledgePanelCard.PANEL_INGREDIENTS_ID,
       ),
+      _getDivider(),
+      UserPreferencesItemSwitch(
+        title: appLocalizations.search_product_filter_visibility_title,
+        subtitle: appLocalizations.search_product_filter_visibility_subtitle,
+        value: userPreferences.searchProductTypeFilterVisible,
+        onChanged: (final bool visible) async =>
+            userPreferences.setSearchProductTypeFilter(visible),
+      ),
       if (CameraHelper.hasACamera)
         _getTitle(
           label: appLocalizations.settings_app_miscellaneous,
@@ -123,7 +130,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       _getDivider(),
       UserPreferencesAdvancedSettings.getUserPreferencesItem(context),
       _getDivider(),
-      UserPreferencesRateUs.getUserPreferencesItem(context),
       UserPreferencesShareWithFriends.getUserPreferencesItem(context),
     ];
   }

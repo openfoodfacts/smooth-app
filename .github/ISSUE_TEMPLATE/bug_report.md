@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve the Open Food Facts mobile app (iPhone and Android)
 title: ""
-labels: "bug"
+type: "🐛 Bug"
 assignees: ""
 ---
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Helper for multilingual inputs (e.g. product name).
@@ -11,7 +10,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// Typically, the old version will be used with "old" data, that have not
 /// downloaded yet the more "recent" multilingual fields
 /// (e.g. [ProductField.NAME_ALL_LANGUAGES]).
-class MultilingualHelper {
+class MultilingualHelper extends ChangeNotifier {
   MultilingualHelper({required this.controller});
 
   final TextEditingController controller;
@@ -109,31 +108,21 @@ class MultilingualHelper {
   // TODO(monsieurtanuki): we would be better off always never monolingual
   bool isMonolingual() => _initialMultilingualTexts.isEmpty;
 
-  Widget getLanguageSelector({
-    required void Function(void Function()) setState,
-    required Product product,
-  }) =>
-      LanguageSelector(
-        product: product,
-        setLanguage: (
-          final OpenFoodFactsLanguage? newLanguage,
-        ) async {
-          if (newLanguage == null) {
-            return;
-          }
-          if (_currentLanguage == newLanguage) {
-            return;
-          }
-          _saveCurrentName();
-          setState(() {
-            _currentLanguage = newLanguage;
-            _currentMultilingualTexts[_currentLanguage] ??= '';
-            controller.text = _currentMultilingualTexts[_currentLanguage]!;
-          });
-        },
-        selectedLanguages: _currentMultilingualTexts.keys,
-        displayedLanguage: _currentLanguage,
-      );
+  bool changeLanguage(OpenFoodFactsLanguage? newLanguage) {
+    if (newLanguage == null) {
+      return false;
+    }
+    if (_currentLanguage == newLanguage) {
+      return false;
+    }
+    _saveCurrentName();
+
+    _currentLanguage = newLanguage;
+    _currentMultilingualTexts[_currentLanguage] ??= '';
+    controller.text = _currentMultilingualTexts[_currentLanguage]!;
+
+    return true;
+  }
 
   /// Returns the new text, if any change happened.
   String? getChangedMonolingualText() {
@@ -176,11 +165,39 @@ class MultilingualHelper {
   }
 
   /// Saves the current input for the current language.
-  void _saveCurrentName() =>
-      _currentMultilingualTexts[_currentLanguage] = controller.text;
+  void _saveCurrentName() {
+    _currentMultilingualTexts[_currentLanguage] = controller.text;
+    notifyListeners();
+  }
 
   OpenFoodFactsLanguage getCurrentLanguage() =>
       isMonolingual() ? ProductQuery.getLanguage() : _currentLanguage;
 
+  Map<OpenFoodFactsLanguage, String> getInitialMultiLingualTexts() {
+    assert(!isMonolingual());
+    return _initialMultilingualTexts;
+  }
+
   static String getCleanText(final String? name) => (name ?? '').trim();
+
+  bool hasChanged() {
+    if (isMonolingual()) {
+      return getChangedMonolingualText() != null;
+    } else if (_initialMultilingualTexts.length !=
+        _currentMultilingualTexts.length) {
+      return true;
+    } else if (_initialMultilingualTexts[_currentLanguage] != controller.text) {
+      return true;
+    }
+
+    for (final OpenFoodFactsLanguage language
+        in _initialMultilingualTexts.keys) {
+      if (getCleanText(_initialMultilingualTexts[language]) !=
+          getCleanText(_currentMultilingualTexts[language])) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }

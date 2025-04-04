@@ -3,8 +3,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/add_new_product_page.dart';
+import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 /// "Incomplete product!" card to be displayed in product summary, if relevant.
@@ -27,16 +28,16 @@ class ProductIncompleteCard extends StatelessWidget {
     }
     bool checkScores = true;
     if (_isNutriscoreNotApplicable(product)) {
-      AnalyticsHelper.trackEvent(
+      AnalyticsHelper.trackProductEvent(
         AnalyticsEvent.notShowFastTrackProductEditCardNutriscore,
-        barcode: product.barcode,
+        product: product,
       );
       checkScores = false;
     }
-    if (_isEcoscoreNotApplicable(product)) {
-      AnalyticsHelper.trackEvent(
-        AnalyticsEvent.notShowFastTrackProductEditCardEcoscore,
-        barcode: product.barcode,
+    if (_isEnvironmentalScoreNotApplicable(product)) {
+      AnalyticsHelper.trackProductEvent(
+        AnalyticsEvent.notShowFastTrackProductEditCardEnvironmentalScore,
+        product: product,
       );
       checkScores = false;
     }
@@ -60,7 +61,7 @@ class ProductIncompleteCard extends StatelessWidget {
   static bool _isNutriscoreNotApplicable(final Product product) =>
       _isScoreNotApplicable(product, 'nutriscore');
 
-  static bool _isEcoscoreNotApplicable(final Product product) =>
+  static bool _isEnvironmentalScoreNotApplicable(final Product product) =>
       _isScoreNotApplicable(product, 'ecoscore');
 
   static bool _isScoreNotApplicable(final Product product, final String tag) =>
@@ -99,14 +100,18 @@ class ProductIncompleteCard extends StatelessWidget {
       child: ElevatedButton.icon(
         label: Padding(
           padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-          child: Text(appLocalizations.hey_incomplete_product_message),
+          child: Text(
+            (product.productType ?? ProductType.food).getRoadToScoreLabel(
+              appLocalizations,
+            ),
+          ),
         ),
         icon: const Icon(
           Icons.bolt,
           color: Colors.amber,
         ),
-        onPressed: () async => Navigator.push<void>(
-          context,
+        onPressed: () async =>
+            Navigator.of(context, rootNavigator: true).push<void>(
           MaterialPageRoute<void>(
             builder: (BuildContext context) => AddNewProductPage.fromProduct(
               product,

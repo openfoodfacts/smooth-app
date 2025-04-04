@@ -16,9 +16,11 @@ import 'package:smooth_app/services/smooth_services.dart';
 
 enum ScannedProductState {
   FOUND,
+
+  /// Products without pictures are considered as not found
+  FOUND_BUT_CONSIDERED_AS_NOT_FOUND,
   NOT_FOUND,
   LOADING,
-  THANKS,
   CACHED,
   ERROR_INTERNET,
   ERROR_INVALID_CODE,
@@ -118,6 +120,9 @@ class ContinuousScanModel with ChangeNotifier {
     }
 
     code = _fixBarcodeIfNecessary(code);
+    if (code.length < 4) {
+      return false;
+    }
 
     if (_latestScannedBarcode == code || _barcodes.contains(code)) {
       lastConsultedBarcode = code;
@@ -151,8 +156,11 @@ class ContinuousScanModel with ChangeNotifier {
       if (!_barcodes.contains(barcode)) {
         _barcodes.add(barcode);
       }
-      _setBarcodeState(barcode, ScannedProductState.LOADING);
-      _cacheOrLoadBarcode(barcode);
+
+      if (state != ScannedProductState.FOUND_BUT_CONSIDERED_AS_NOT_FOUND) {
+        _setBarcodeState(barcode, ScannedProductState.LOADING);
+        _cacheOrLoadBarcode(barcode);
+      }
       lastConsultedBarcode = barcode;
       return true;
     }
@@ -185,8 +193,16 @@ class ContinuousScanModel with ChangeNotifier {
         final FetchedProduct fetchedProduct =
             await _queryBarcode(barcode).timeout(SnackBarDuration.long);
         if (fetchedProduct.product != null) {
-          _addProduct(barcode, ScannedProductState.CACHED);
-          return true;
+          if (fetchedProduct.isValid) {
+            _addProduct(barcode, ScannedProductState.CACHED);
+            return true;
+          } else {
+            _setBarcodeState(
+              barcode,
+              ScannedProductState.FOUND_BUT_CONSIDERED_AS_NOT_FOUND,
+            );
+            return true;
+          }
         }
       } on TimeoutException {
         // We tried to load the product from the server,
@@ -216,7 +232,14 @@ class ContinuousScanModel with ChangeNotifier {
     final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
-        _addProduct(barcode, ScannedProductState.FOUND);
+        if (fetchedProduct.isValid) {
+          _addProduct(barcode, ScannedProductState.FOUND);
+        } else {
+          _setBarcodeState(
+            barcode,
+            ScannedProductState.FOUND_BUT_CONSIDERED_AS_NOT_FOUND,
+          );
+        }
         return;
       case FetchedProductStatus.internetNotFound:
         _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
@@ -236,7 +259,14 @@ class ContinuousScanModel with ChangeNotifier {
     final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
-        _addProduct(barcode, ScannedProductState.FOUND);
+        if (fetchedProduct.isValid) {
+          _addProduct(barcode, ScannedProductState.FOUND);
+        } else {
+          _setBarcodeState(
+            barcode,
+            ScannedProductState.FOUND_BUT_CONSIDERED_AS_NOT_FOUND,
+          );
+        }
         return;
       case FetchedProductStatus.internetNotFound:
         _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
@@ -296,6 +326,8 @@ class ContinuousScanModel with ChangeNotifier {
   /// Sometimes the scanner may fail, this is a simple fix for now
   /// But could be improved in the future
   String _fixBarcodeIfNecessary(String code) {
+    code = code.replaceAll('-', '').trim();
+
     if (code.length == 12) {
       return '0$code';
     } else {

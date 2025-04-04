@@ -14,7 +14,7 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final EdgeInsetsGeometry contentPadding = _computePadding();
+    final EdgeInsetsGeometry contentPadding = _computePadding(context);
 
     return AnimatedPadding(
       padding: contentPadding,
@@ -38,16 +38,18 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
     );
   }
 
-  EdgeInsetsGeometry _computePadding() {
+  EdgeInsetsGeometry _computePadding(BuildContext context) {
+    final EdgeInsetsDirectional padding = EdgeInsetsDirectional.only(
+      top: MediaQuery.viewPaddingOf(context).top + CORNER_PADDING / 2,
+      start: CORNER_PADDING,
+      end: CORNER_PADDING,
+      bottom: CORNER_PADDING,
+    );
+
     if (contentPadding == null) {
-      return const EdgeInsets.all(CORNER_PADDING);
+      return padding;
     } else {
-      return const EdgeInsets.only(
-        top: CORNER_PADDING / 4.0,
-        left: CORNER_PADDING,
-        right: CORNER_PADDING,
-        bottom: CORNER_PADDING,
-      ).add(contentPadding!);
+      return padding.add(contentPadding!);
     }
   }
 }

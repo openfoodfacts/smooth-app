@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// OCR Helper for packaging.
 class OcrPackagingHelper extends OcrHelper {
@@ -49,6 +51,10 @@ class OcrPackagingHelper extends OcrHelper {
       appLocalizations.edit_packaging_extract_btn_text;
 
   @override
+  String getActionExtractShortText(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_packaging_extract_btn_text_short;
+
+  @override
   String getActionExtractingData(AppLocalizations appLocalizations) =>
       appLocalizations.edit_packaging_extracting_btn_text;
 
@@ -77,8 +83,24 @@ class OcrPackagingHelper extends OcrHelper {
       appLocalizations.packaging_editing_title;
 
   @override
+  String getEditableContentTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_packaging_list_title;
+
+  @override
+  String getPhotoTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_packaging_photo_title;
+
+  @override
+  String getType(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_packagings_title;
+
+  @override
   String getAddButtonLabel(final AppLocalizations appLocalizations) =>
       appLocalizations.score_add_missing_packaging_image;
+
+  /// Not supported yet
+  @override
+  bool isOwnerField(Product product, OpenFoodFactsLanguage language) => false;
 
   @override
   ImageField getImageField() => ImageField.PACKAGING;
@@ -109,4 +131,9 @@ class OcrPackagingHelper extends OcrHelper {
   @override
   AnalyticsEditEvents getEditEventAnalyticsTag() =>
       AnalyticsEditEvents.recyclingInstructionsPhotos;
+
+  @override
+  WidgetBuilder getIcon() {
+    return (BuildContext context) => const icons.Packaging();
+  }
 }

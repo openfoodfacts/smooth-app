@@ -20,27 +20,58 @@ class PriceModel with ChangeNotifier {
     required final Currency currency,
     final PriceMetaProduct? initialProduct,
   })  : _proof = null,
+        existingPrices = null,
         _proofType = proofType,
         _date = DateTime.now(),
         _currency = currency,
         _locations = locations,
-        priceAmountModels = <PriceAmountModel>[
+        _priceAmountModels = <PriceAmountModel>[
           if (initialProduct != null) PriceAmountModel(product: initialProduct),
         ];
 
   PriceModel.proof({
     required Proof proof,
-  }) : priceAmountModels = <PriceAmountModel>[] {
-    setProof(proof);
+    this.existingPrices,
+  }) : _priceAmountModels = <PriceAmountModel>[] {
+    setProof(proof, init: true);
   }
 
-  void setProof(final Proof proof) {
+  bool _hasChanged = false;
+
+  bool get hasChanged {
+    if (_hasChanged) {
+      return true;
+    }
+    for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
+      if (priceAmountModel.hasChanged) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  void setProof(final Proof proof, {final bool init = false}) {
+    if (!init) {
+      _hasChanged = true;
+    }
     _proof = proof;
     _cropParameters = null;
     _proofType = proof.type!;
     _date = proof.date!;
     _locations = null;
     _currency = proof.currency!;
+    if (!init) {
+      notifyListeners();
+    }
+  }
+
+  // Clears the current proof. To be used in the context of bulk proof upload.
+  void clearProof() {
+    _proof = null;
+    _cropParameters = null;
+    // needed so that we can exit the page just going back
+    _hasChanged = false;
+    notifyListeners();
   }
 
   /// Checks if a proof cannot be reused for prices adding.
@@ -58,13 +89,32 @@ class PriceModel with ChangeNotifier {
 
   bool get hasImage => _proof != null || _cropParameters != null;
 
-  final List<PriceAmountModel> priceAmountModels;
+  final List<PriceAmountModel> _priceAmountModels;
+
+  final List<Price>? existingPrices;
+
+  void add(final PriceAmountModel priceAmountModel) {
+    _hasChanged = true;
+    _priceAmountModels.add(priceAmountModel);
+    notifyListeners();
+  }
+
+  void removeAt(final int index) {
+    _hasChanged = true;
+    _priceAmountModels.removeAt(index);
+    notifyListeners();
+  }
+
+  PriceAmountModel elementAt(final int index) => _priceAmountModels[index];
+
+  int get length => _priceAmountModels.length;
 
   CropParameters? _cropParameters;
 
   CropParameters? get cropParameters => _cropParameters;
 
   set cropParameters(final CropParameters? value) {
+    _hasChanged = true;
     _cropParameters = value;
     _proof = null;
     notifyListeners();
@@ -79,6 +129,7 @@ class PriceModel with ChangeNotifier {
   ProofType get proofType => _proof != null ? _proof!.type! : _proofType;
 
   set proofType(final ProofType proofType) {
+    _hasChanged = true;
     _proofType = proofType;
     notifyListeners();
   }
@@ -88,6 +139,7 @@ class PriceModel with ChangeNotifier {
   DateTime get date => _date;
 
   set date(final DateTime date) {
+    _hasChanged = true;
     _date = date;
     notifyListeners();
   }
@@ -100,11 +152,12 @@ class PriceModel with ChangeNotifier {
   List<OsmLocation>? get locations => _locations;
 
   set locations(final List<OsmLocation>? locations) {
+    _hasChanged = true;
     _locations = locations;
     notifyListeners();
   }
 
-  OsmLocation? get location => proof != null
+  OsmLocation? get location => proof?.location?.osmId != null
       ? OsmLocation.fromPrice(proof!.location!)
       : _locations!.firstOrNull;
 
@@ -113,6 +166,7 @@ class PriceModel with ChangeNotifier {
   Currency get currency => _currency;
 
   set currency(final Currency currency) {
+    _hasChanged = true;
     _currency = currency;
     notifyListeners();
   }
@@ -133,7 +187,7 @@ class PriceModel with ChangeNotifier {
       }
     }
 
-    for (final PriceAmountModel priceAmountModel in priceAmountModels) {
+    for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       final String? checkParameters = priceAmountModel.checkParameters(context);
       if (checkParameters != null) {
         return checkParameters;
@@ -152,7 +206,7 @@ class PriceModel with ChangeNotifier {
     final List<bool> pricesAreDiscounted = <bool>[];
     final List<double> prices = <double>[];
     final List<double?> pricesWithoutDiscount = <double?>[];
-    for (final PriceAmountModel priceAmountModel in priceAmountModels) {
+    for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       barcodes.add(priceAmountModel.product.barcode);
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);

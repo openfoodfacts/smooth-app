@@ -9,10 +9,11 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Refreshes a product on the BE then on the local database.
@@ -82,16 +83,16 @@ class ProductRefresher {
         language: language,
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
+        productTypeFilter: ProductTypeFilter.all,
       );
 
   /// Returns the standard configuration for several barcodes product query.
   ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
     final List<String> barcodes,
-    final OpenFoodFactsLanguage language, {
-    final List<ProductField>? fields,
-  }) =>
+    final OpenFoodFactsLanguage language,
+  ) =>
       ProductSearchQueryConfiguration(
-        fields: fields ?? ProductQuery.fields,
+        fields: ProductQuery.fields,
         language: language,
         country: ProductQuery.getCountry(),
         parametersList: <Parameter>[
@@ -104,11 +105,12 @@ class ProductRefresher {
   /// Fetches the products from the server and refreshes the local database.
   ///
   /// Silent version.
-  Future<void> silentFetchAndRefreshList({
+  Future<List<String>?> silentFetchAndRefreshList({
     required final List<String> barcodes,
     required final LocalDatabase localDatabase,
+    required final ProductType productType,
   }) async =>
-      _fetchAndRefreshList(localDatabase, barcodes);
+      _fetchAndRefreshList(localDatabase, barcodes, productType);
 
   /// Fetches the product from the server and refreshes the local database.
   ///
@@ -144,10 +146,8 @@ class ProductRefresher {
     }
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_refreshed),
-          duration: SnackBarDuration.short,
-        ),
+        SmoothFloatingSnackbar.positive(
+            context: context, text: appLocalizations.product_refreshed),
       );
     }
     return true;
@@ -162,27 +162,6 @@ class ProductRefresher {
     return localProduct?.productType;
   }
 
-  /// Returns the list of types to use for that barcode.
-  Future<List<ProductType>> getOrderedProductTypes({
-    required final LocalDatabase localDatabase,
-    required final String barcode,
-  }) async {
-    final List<ProductType> result = <ProductType>[];
-    final ProductType? productType = await getCurrentProductType(
-      localDatabase: localDatabase,
-      barcode: barcode,
-    );
-    if (productType != null) {
-      result.add(productType);
-    }
-    for (final ProductType value in ProductType.values) {
-      if (!result.contains(value)) {
-        result.add(value);
-      }
-    }
-    return result;
-  }
-
   /// Fetches the product from the server and refreshes the local database.
   ///
   /// Silent version.
@@ -190,41 +169,37 @@ class ProductRefresher {
     required final LocalDatabase localDatabase,
     required final String barcode,
   }) async {
-    final List<ProductType> productTypes = await getOrderedProductTypes(
-      localDatabase: localDatabase,
-      barcode: barcode,
+    // Now we let "food" redirect the queries if needed, as we use
+    // ProductTypeFilter.all
+    const ProductType productType = ProductType.food;
+    final UriProductHelper uriProductHelper = ProductQuery.getUriProductHelper(
+      productType: productType,
     );
-    late UriProductHelper uriProductHelper;
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     try {
-      for (final ProductType productType in productTypes) {
-        uriProductHelper = ProductQuery.getUriProductHelper(
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+      final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
+        getBarcodeQueryConfiguration(
+          barcode,
+          language,
+        ),
+        uriHelper: uriProductHelper,
+        user: ProductQuery.getReadUser(),
+      );
+      if (result.product != null) {
+        await DaoProduct(localDatabase).put(
+          result.product!,
+          language,
           productType: productType,
         );
-        final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-          getBarcodeQueryConfiguration(
-            barcode,
-            language,
-          ),
-          uriHelper: uriProductHelper,
-          user: ProductQuery.getReadUser(),
-        );
-        if (result.product != null) {
-          await DaoProduct(localDatabase).put(
-            result.product!,
-            language,
-            productType: productType,
-          );
-          localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
-          return FetchedProduct.found(result.product!);
-        }
+        localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
+        return FetchedProduct.found(result.product!);
       }
       return const FetchedProduct.internetNotFound();
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
-      final ConnectivityResult connectivityResult =
+      final List<ConnectivityResult> connectivityResult =
           await Connectivity().checkConnectivity();
-      if (connectivityResult == ConnectivityResult.none) {
+      if (connectivityResult.contains(ConnectivityResult.none)) {
         return FetchedProduct.error(
           exceptionString: e.toString(),
           isConnected: false,
@@ -242,25 +217,37 @@ class ProductRefresher {
 
   /// Gets up-to-date products from the server.
   ///
-  /// Returns the number of products, or null if error.
-  Future<int?> _fetchAndRefreshList(
+  /// Returns the list of barcodes for which a product was found
+  /// or null if error.
+  Future<List<String>?> _fetchAndRefreshList(
     final LocalDatabase localDatabase,
     final List<String> barcodes,
+    final ProductType productType,
   ) async {
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-      final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+      final SearchResult searchResult =
+          await SearchProductsManager.searchProducts(
         ProductQuery.getReadUser(),
         getBarcodeListQueryConfiguration(barcodes, language),
-        uriHelper: ProductQuery.getUriProductHelper(),
+        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
+        type: SearchProductsType.live,
       );
       if (searchResult.products == null) {
         return null;
       }
-      await DaoProduct(localDatabase).putAll(searchResult.products!, language);
+      await DaoProduct(localDatabase).putAll(
+        searchResult.products!,
+        language,
+        productType: productType,
+      );
       localDatabase.upToDate
           .setLatestDownloadedProducts(searchResult.products!);
-      return searchResult.products!.length;
+
+      return searchResult.products!
+          .where((Product p) => p.barcode != null && p.barcode!.isNotEmpty)
+          .map((Product p) => p.barcode!)
+          .toList(growable: false);
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
       return null;

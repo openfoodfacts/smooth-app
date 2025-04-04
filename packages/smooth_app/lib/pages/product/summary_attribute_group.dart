@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Shows the attribute groups in a product summary card.
 class SummaryAttributeGroup extends StatelessWidget {
@@ -67,15 +68,9 @@ class _SummaryAttributeGroupHeader extends StatelessWidget {
                 .apply(color: Colors.grey),
           ),
         )
-      : Padding(
-          padding: const EdgeInsetsDirectional.only(
-            top: VERY_SMALL_SPACE,
-            bottom: SMALL_SPACE,
-          ),
-          child: isFirstGroup
-              ? EMPTY_WIDGET
-              : const Divider(
-                  color: Colors.black12,
-                ),
-        );
+      : isFirstGroup
+          ? const SizedBox(height: SMALL_SPACE)
+          : Divider(
+              color: context.lightTheme() ? Colors.black12 : Colors.white24,
+            );
 }

@@ -29,18 +29,9 @@ class PriceUserButton extends StatelessWidget {
         MaterialPageRoute<void>(
           builder: (BuildContext context) => PricesPage(
             GetPricesModel(
-              parameters: GetPricesParameters()
-                ..owner = user
-                ..orderBy = <OrderBy<GetPricesOrderField>>[
-                  const OrderBy<GetPricesOrderField>(
-                    field: GetPricesOrderField.created,
-                    ascending: false,
-                  ),
-                ]
-                ..pageSize = GetPricesModel.pageSize
-                ..pageNumber = 1,
-              displayOwner: false,
-              displayProduct: true,
+              parameters: GetPricesModel.getStandardPricesParameters()
+                ..owner = user,
+              displayEachOwner: false,
               uri: OpenPricesAPIClient.getUri(
                 path: 'users/$user',
                 uriHelper: ProductQuery.uriPricesHelper,
@@ -57,7 +48,7 @@ class PriceUserButton extends StatelessWidget {
   Widget build(BuildContext context) => PriceButton(
         tooltip: AppLocalizations.of(context).prices_open_user_proofs(user),
         title: user,
-        iconData: Icons.account_box,
+        iconData: PriceButton.userIconData,
         onPressed: () async => showUserPrices(
           user: user,
           context: context,

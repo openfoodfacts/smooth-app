@@ -174,7 +174,8 @@ obj/
 /out/
 
 # User-specific configurations
-.idea/
+.idea/*
+!.idea/dictionaries
 
 # OS-specific files
 .DS_Store

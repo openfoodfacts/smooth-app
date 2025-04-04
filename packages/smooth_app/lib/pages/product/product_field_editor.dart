@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
+import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_page.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_packaging_helper.dart';
-import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
@@ -59,7 +59,7 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       helper.getAnalyticsEditEvent(),
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {
@@ -107,7 +107,7 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.basicDetails,
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {
@@ -149,7 +149,7 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.packagingComponents,
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {
@@ -182,7 +182,7 @@ class ProductFieldNutritionEditor extends ProductFieldEditor {
     required final Product product,
     final bool isLoggedInMandatory = true,
   }) async =>
-      NutritionPageLoaded.showNutritionPage(
+      NutritionPageLoader.showNutritionPage(
         product: product,
         isLoggedInMandatory: isLoggedInMandatory,
         context: context,
@@ -213,7 +213,7 @@ abstract class ProductFieldOcrEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       helper.getEditEventAnalyticsTag(),
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {

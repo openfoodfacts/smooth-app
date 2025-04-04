@@ -78,7 +78,7 @@ class _FooterPainter extends CustomPainter {
   _FooterPainter({
     this.wazeSize = WAVE_SIZE,
     required Color color,
-  })  : assert(color.opacity > 0.0),
+  })  : assert(color.a > 0.0),
         _localPaint = Paint()
           ..color = color
           ..style = PaintingStyle.fill;

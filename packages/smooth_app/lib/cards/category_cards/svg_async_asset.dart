@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
+import 'package:smooth_app/cards/category_cards/svg_safe_network.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 
 /// Widget with async load of SVG asset file
@@ -18,9 +19,15 @@ import 'package:smooth_app/helpers/app_helper.dart';
 /// E.g. with https://jakearchibald.github.io/svgomg/
 /// C.f. https://github.com/openfoodfacts/smooth-app/issues/52
 class SvgAsyncAsset extends StatefulWidget {
-  const SvgAsyncAsset(this.assetCacheHelper);
+  const SvgAsyncAsset(
+    this.assetCacheHelper, {
+    this.loadingBuilder,
+    this.errorBuilder,
+  });
 
   final AssetCacheHelper assetCacheHelper;
+  final WidgetBuilder? loadingBuilder;
+  final WidgetErrorBuilder? errorBuilder;
 
   @override
   State<SvgAsyncAsset> createState() => _SvgAsyncAssetState();
@@ -65,7 +72,14 @@ class _SvgAsyncAssetState extends State<SvgAsyncAsset> {
               );
             } else {
               widget.assetCacheHelper.notFound();
+              if (widget.errorBuilder != null) {
+                return widget.errorBuilder!(context, Exception('Not found'));
+              }
             }
+          }
+
+          if (widget.loadingBuilder != null) {
+            return widget.loadingBuilder!(context);
           }
           return widget.assetCacheHelper.getEmptySpace();
         },

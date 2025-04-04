@@ -6,7 +6,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -59,7 +58,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           final AsyncSnapshot<MaybeError<GetUsersResult>> snapshot,
         ) {
           if (snapshot.connectionState != ConnectionState.done) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
             return Text(snapshot.error!.toString());
@@ -86,20 +85,11 @@ class _PricesUsersPageState extends State<PricesUsersPage>
                   spacing: VERY_SMALL_SPACE,
                   children: <Widget>[
                     PriceUserButton(item.userId),
-                    PriceButton(
+                    PriceCountWidget(
+                      count: priceCount,
                       onPressed: () async => PriceUserButton.showUserPrices(
                         user: item.userId,
                         context: context,
-                      ),
-                      iconData: Icons.label,
-                      title: '$priceCount',
-                      buttonStyle: ElevatedButton.styleFrom(
-                        foregroundColor: PriceCountWidget.getForegroundColor(
-                          priceCount,
-                        ),
-                        backgroundColor: PriceCountWidget.getBackgroundColor(
-                          priceCount,
-                        ),
                       ),
                     ),
                   ],

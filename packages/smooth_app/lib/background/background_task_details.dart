@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/background_task_product_change.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -92,16 +93,14 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       localDatabase,
       context: context,
       showSnackBar: showSnackBar,
+      queue: BackgroundTaskQueue.fast,
     );
   }
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
           final AppLocalizations appLocalizations) =>
-      (
-        appLocalizations.product_task_background_schedule,
-        AlignmentDirectional.bottomCenter,
-      );
+      null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskDetails _getNewTask(
@@ -126,8 +125,6 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   Product getProductChange() {
     final Product result =
         Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
-    // for good multilingual management
-    result.lang = getLanguage();
     return result;
   }
 
@@ -184,8 +181,10 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       }
       throw Exception(
         'Could not save product - API V2'
-        ' - '
-        'status=${status.status} - errors=${status.error} ${isInvalidUser ? _getIncompleteUserData() : ''}',
+        ' - status=${status.status}'
+        ' - errors=${status.error}'
+        ' - status_verbose=${status.statusVerbose}'
+        ' ${isInvalidUser ? _getIncompleteUserData() : ''}',
       );
     }
   }

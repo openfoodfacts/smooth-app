@@ -92,6 +92,8 @@ class _CameraScannerPageState extends State<CameraScannerPage>
       );
     }
 
+    final double statusBarHeight = MediaQuery.viewPaddingOf(context).top;
+
     return ScreenVisibilityDetector(
       child: Stack(
         children: <Widget>[
@@ -111,8 +113,20 @@ class _CameraScannerPageState extends State<CameraScannerPage>
                   : null,
             ),
           ),
-          Align(
-            alignment: Alignment.topCenter,
+          Positioned(
+            top: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: Container(
+              height: statusBarHeight,
+              width: double.infinity,
+              color: Colors.black12,
+            ),
+          ),
+          Positioned(
+            top: statusBarHeight,
+            left: 0.0,
+            right: 0.0,
             child: ScanHeader(
               key: _headerKey,
             ),

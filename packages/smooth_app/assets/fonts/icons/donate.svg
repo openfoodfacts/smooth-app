@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>programming</title>
+    <g id="programming" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16,0 C14.4,0 13.5,1.1 13.5,1.1 C13.5,1.1 12.6,0 11,0 C9.3,0 8,1.4 8,3 C8,5.5 13.5,9.9 13.5,9.9 C13.5,9.9 19,5.5 19,3 C19,1.4 17.6,0 16,0 Z M18,10 L13,15 L9,15 L9,14 L13,14 L13,11 L5,11 L0,16 L4,20 L6,18 L13.2,18 C13.7,18 14.2,17.8 14.6,17.4 L20,12 L18,10 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>
