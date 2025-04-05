@@ -22,6 +22,7 @@ import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/contribution_count_widget.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -123,10 +124,21 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
   @override
   List<UserPreferencesItem> getChildren() {
+    final List<UserPreferencesItem> result = <UserPreferencesItem>[];
+
+    if (ProductQuery.isLoggedIn()) {
+      result.add(
+        UserPreferencesItemSimple(
+          labels: const <String>[''],  // Empty label since the widget has its own title
+          builder: (_) => const ContributionCountWidget(),
+        ),
+      );
+    }
+
     if (OpenFoodAPIConfiguration.globalUser == null) {
       // No credentials
       final Size size = MediaQuery.sizeOf(context);
-      return <UserPreferencesItem>[
+      result.add(
         UserPreferencesItemSimple(
           labels: <String>[appLocalizations.sign_in],
           builder: (_) => Center(
@@ -153,114 +165,116 @@ class UserPreferencesAccount extends AbstractUserPreferences {
             ),
           ),
         ),
-      ];
-    }
-
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    // Credentials
-    final String userId = ProductQuery.getWriteUser().userId;
-    return <UserPreferencesItem>[
-      _buildProductQueryTile(
-        productQuery: PagedUserProductQuery(
-          userId: userId,
-          type: UserSearchType.CONTRIBUTOR,
-          // TODO(monsieurtanuki): only food?
-          productType: ProductType.food,
-        ),
-        title: appLocalizations.user_search_contributor_title,
-        iconData: Icons.add_circle_outline,
-        context: context,
-        localDatabase: localDatabase,
-        lazyCounter: const LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
-      ),
-      _buildProductQueryTile(
-        productQuery: PagedUserProductQuery(
-          userId: userId,
-          type: UserSearchType.INFORMER,
-          productType: ProductType.food,
-        ),
-        title: appLocalizations.user_search_informer_title,
-        iconData: Icons.edit,
-        context: context,
-        localDatabase: localDatabase,
-        lazyCounter: const LazyCounterUserSearch(UserSearchType.INFORMER),
-      ),
-      _buildProductQueryTile(
-        productQuery: PagedUserProductQuery(
-          userId: userId,
-          type: UserSearchType.PHOTOGRAPHER,
-          productType: ProductType.food,
-        ),
-        title: appLocalizations.user_search_photographer_title,
-        iconData: Icons.add_a_photo,
-        context: context,
-        localDatabase: localDatabase,
-        lazyCounter: const LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
-      ),
-      _buildProductQueryTile(
-        productQuery: PagedUserProductQuery(
-          userId: userId,
-          type: UserSearchType.TO_BE_COMPLETED,
-          productType: ProductType.food,
-        ),
-        title: appLocalizations.user_search_to_be_completed_title,
-        iconData: Icons.more_horiz,
-        context: context,
-        localDatabase: localDatabase,
-        lazyCounter:
-            const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
-      ),
-      _buildProductQueryTile(
-        productQuery: PagedToBeCompletedProductQuery(
-          productType: ProductType.food,
-        ),
-        title: appLocalizations.all_search_to_be_completed_title,
-        iconData: Icons.more_outlined,
-        context: context,
-        localDatabase: localDatabase,
-      ),
-      _getListTile(
-        appLocalizations.categorize_products_country_title,
-        () async => LaunchUrlHelper.launchURL(
-          'https://hunger.openfoodfacts.org/eco-score?cc=${ProductQuery.getCountry().offTag}',
-        ),
-        Icons.open_in_new,
-      ),
-      _getListTile(
-        appLocalizations.view_profile,
-        () async => LaunchUrlHelper.launchURL(
-          ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/editor/$userId',
+      );
+    } else {
+      final LocalDatabase localDatabase = context.read<LocalDatabase>();
+      // Credentials
+      final String userId = ProductQuery.getWriteUser().userId;
+      result.addAll([
+        _buildProductQueryTile(
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserSearchType.CONTRIBUTOR,
+            // TODO(monsieurtanuki): only food?
+            productType: ProductType.food,
           ),
+          title: appLocalizations.user_search_contributor_title,
+          iconData: Icons.add_circle_outline,
+          context: context,
+          localDatabase: localDatabase,
+          lazyCounter: const LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
         ),
-        Icons.open_in_new,
-      ),
-      _getListTile(
-        appLocalizations.account_delete,
-        () async => Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => AccountDeletionWebview(),
+        _buildProductQueryTile(
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserSearchType.INFORMER,
+            productType: ProductType.food,
           ),
+          title: appLocalizations.user_search_informer_title,
+          iconData: Icons.edit,
+          context: context,
+          localDatabase: localDatabase,
+          lazyCounter: const LazyCounterUserSearch(UserSearchType.INFORMER),
         ),
-        Icons.delete,
-      ),
-      _getListTile(
-        appLocalizations.sign_out,
-        () async {
-          if (await _confirmLogout() == true) {
-            if (context.mounted) {
-              await context.read<UserManagementProvider>().logout();
-              AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
+        _buildProductQueryTile(
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserSearchType.PHOTOGRAPHER,
+            productType: ProductType.food,
+          ),
+          title: appLocalizations.user_search_photographer_title,
+          iconData: Icons.add_a_photo,
+          context: context,
+          localDatabase: localDatabase,
+          lazyCounter: const LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
+        ),
+        _buildProductQueryTile(
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserSearchType.TO_BE_COMPLETED,
+            productType: ProductType.food,
+          ),
+          title: appLocalizations.user_search_to_be_completed_title,
+          iconData: Icons.more_horiz,
+          context: context,
+          localDatabase: localDatabase,
+          lazyCounter:
+              const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
+        ),
+        _buildProductQueryTile(
+          productQuery: PagedToBeCompletedProductQuery(
+            productType: ProductType.food,
+          ),
+          title: appLocalizations.all_search_to_be_completed_title,
+          iconData: Icons.more_outlined,
+          context: context,
+          localDatabase: localDatabase,
+        ),
+        _getListTile(
+          appLocalizations.categorize_products_country_title,
+          () async => LaunchUrlHelper.launchURL(
+            'https://hunger.openfoodfacts.org/eco-score?cc=${ProductQuery.getCountry().offTag}',
+          ),
+          Icons.open_in_new,
+        ),
+        _getListTile(
+          appLocalizations.view_profile,
+          () async => LaunchUrlHelper.launchURL(
+            ProductQuery.replaceSubdomain(
+              'https://world.openfoodfacts.org/editor/$userId',
+            ),
+          ),
+          Icons.open_in_new,
+        ),
+        _getListTile(
+          appLocalizations.account_delete,
+          () async => Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => AccountDeletionWebview(),
+            ),
+          ),
+          Icons.delete,
+        ),
+        _getListTile(
+          appLocalizations.sign_out,
+          () async {
+            if (await _confirmLogout() == true) {
               if (context.mounted) {
-                Navigator.pop(context);
+                await context.read<UserManagementProvider>().logout();
+                AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
+                if (context.mounted) {
+                  Navigator.pop(context);
+                }
               }
             }
-          }
-        },
-        Icons.clear,
-      ),
-    ];
+          },
+          Icons.clear,
+        ),
+      ]);
+    }
+
+    return result;
   }
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
