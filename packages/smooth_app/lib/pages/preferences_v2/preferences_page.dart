@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/logged_out_app_bar.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/default_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
-import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 
 class PreferencesPage extends StatelessWidget {
@@ -21,87 +22,77 @@ class PreferencesPage extends StatelessWidget {
         customAppBar: const LoggedOutAppBar(),
         cards: <PreferenceCard>[
           PreferenceCard(
-            title: 'Général',
+            title: appLocalizations.preferences_card_general,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
                 icon: Icons.account_circle,
                 title: appLocalizations.myPreferences_profile_title,
                 subtitleText: appLocalizations.myPreferences_profile_subtitle,
-                root: DefaultPreferencesRoot(
-                  title: appLocalizations.myPreferences_profile_title,
-                  cards: <PreferenceCard>[
-                    PreferenceCard(
-                      title: 'Mon profil',
-                      tiles: <PreferenceTile>[
-                        TogglePreferenceTile(
-                          icon: Icons.public,
-                          title: 'Profil public',
-                          subtitleText:
-                              'Afficher mon profil aux autres utilisateurs',
-                          state: true,
-                          onToggle: (bool value) {
-                            // Handle toggle action
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
+                target: const UserPreferencesPage(
+                  type: PreferencePageType.ACCOUNT,
                 ),
               ),
               NavigationPreferenceTile(
                 icon: Icons.egg,
                 title: appLocalizations.myPreferences_food_title,
                 subtitleText: appLocalizations.myPreferences_food_subtitle,
-                root: const DefaultPreferencesRoot(
-                  cards: <PreferenceCard>[],
+                target: const UserPreferencesPage(
+                  type: PreferencePageType.FOOD,
+                ),
+              ),
+              NavigationPreferenceTile(
+                icon: Icons.euro,
+                title: appLocalizations.preferences_prices_title,
+                subtitleText: appLocalizations.preferences_prices_subtitle,
+                target: const UserPreferencesPage(
+                  type: PreferencePageType.PRICES,
                 ),
               ),
               NavigationPreferenceTile(
                 icon: Icons.settings,
                 title: appLocalizations.myPreferences_settings_title,
                 subtitleText: appLocalizations.myPreferences_settings_subtitle,
-                root: const AppSettingsRoot(title: 'Settings'),
+                root: AppSettingsRoot(title: appLocalizations.settings_app_app),
               ),
             ],
           ),
           PreferenceCard(
-            title: 'Le projet Open Food Facts',
+            title: appLocalizations.preferences_card_project,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
                 icon: Icons.input,
-                title: appLocalizations.contribute,
-                subtitleText: 'Traduire, améliorer nos outils...',
-                root: const DefaultPreferencesRoot(
-                  cards: <PreferenceCard>[],
+                title: appLocalizations.preferences_contribute_title,
+                subtitleText: appLocalizations.preferences_contribute_subtitle,
+                target: const UserPreferencesPage(
+                  type: PreferencePageType.CONTRIBUTE,
+                ),
+              ),
+              NavigationPreferenceTile(
+                icon: Icons.contact_mail,
+                title: appLocalizations.preferences_connect_title,
+                subtitleText: appLocalizations.preferences_connect_subtitle,
+                target: const UserPreferencesPage(
+                  type: PreferencePageType.CONNECT,
                 ),
               ),
               UrlPreferenceTile(
                 icon: Icons.volunteer_activism,
-                title: 'Nous soutenir',
-                subtitleText: 'Envoyer un don...',
+                title: appLocalizations.preferences_support_title,
+                subtitleText: appLocalizations.preferences_support_subtitle,
                 url: appLocalizations.donate_url,
               ),
             ],
           ),
-          const PreferenceCard(
-            title: 'Aide et support',
+          PreferenceCard(
+            title: appLocalizations.preferences_card_help,
             tiles: <PreferenceTile>[
-              UrlPreferenceTile(
+              NavigationPreferenceTile(
                 icon: Icons.support,
-                title: 'Aide et support',
-                subtitleText: "Visiter la page d'aide et support",
-                url: 'https://world.openfoodfacts.org/',
-              ),
-            ],
-          ),
-          const PreferenceCard(
-            title: 'Site web',
-            tiles: <PreferenceTile>[
-              UrlPreferenceTile(
-                icon: Icons.web,
-                title: "Page d'accueil",
-                subtitleText: "Visiter le site web d'Open Food Facts",
-                url: 'https://world.openfoodfacts.org/',
+                title: appLocalizations.preferences_faq_title,
+                subtitleText: appLocalizations.preferences_faq_subtitle,
+                target: const UserPreferencesPage(
+                  type: PreferencePageType.FAQ,
+                ),
               ),
             ],
           ),

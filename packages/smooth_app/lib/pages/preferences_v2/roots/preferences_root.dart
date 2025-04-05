@@ -125,17 +125,3 @@ abstract class PreferencesRoot extends StatelessWidget {
     return buildScaffold(context, content);
   }
 }
-
-class DefaultPreferencesRoot extends PreferencesRoot {
-  const DefaultPreferencesRoot({
-    super.key,
-    super.title,
-    super.customAppBar,
-    required this.cards,
-  });
-
-  final List<PreferenceCard> cards;
-
-  @override
-  List<PreferenceCard> getCards(BuildContext context) => cards;
-}
