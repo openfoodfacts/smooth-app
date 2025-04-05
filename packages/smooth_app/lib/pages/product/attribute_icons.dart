@@ -146,28 +146,28 @@ abstract class AttributeIcon extends StatelessWidget {
           semanticsLabel: semanticsLabel,
         ),
       'nova' when attribute.iconUrl?.endsWith('nova-group-1.svg') == true =>
-        _AttributeNOVAIcon.level1(
+        _AttributeNOVAIcon.group1(
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
           size: size,
           semanticsLabel: semanticsLabel,
         ),
       'nova' when attribute.iconUrl?.endsWith('nova-group-2.svg') == true =>
-        _AttributeNOVAIcon.level2(
+        _AttributeNOVAIcon.group2(
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
           size: size,
           semanticsLabel: semanticsLabel,
         ),
       'nova' when attribute.iconUrl?.endsWith('nova-group-3.svg') == true =>
-        _AttributeNOVAIcon.level3(
+        _AttributeNOVAIcon.group3(
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
           size: size,
           semanticsLabel: semanticsLabel,
         ),
       'nova' when attribute.iconUrl?.endsWith('nova-group-4.svg') == true =>
-        _AttributeNOVAIcon.level4(
+        _AttributeNOVAIcon.group4(
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
           size: size,
@@ -498,7 +498,7 @@ class _AttributeNOVAIcon extends AttributeIcon {
           iconSizeFactor: 0.75,
         );
 
-  const _AttributeNOVAIcon.level1({
+  const _AttributeNOVAIcon.group1({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
@@ -512,7 +512,7 @@ class _AttributeNOVAIcon extends AttributeIcon {
           ),
         );
 
-  const _AttributeNOVAIcon.level2({
+  const _AttributeNOVAIcon.group2({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
@@ -526,7 +526,7 @@ class _AttributeNOVAIcon extends AttributeIcon {
           ),
         );
 
-  const _AttributeNOVAIcon.level3({
+  const _AttributeNOVAIcon.group3({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
@@ -540,7 +540,7 @@ class _AttributeNOVAIcon extends AttributeIcon {
           ),
         );
 
-  const _AttributeNOVAIcon.level4({
+  const _AttributeNOVAIcon.group4({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
