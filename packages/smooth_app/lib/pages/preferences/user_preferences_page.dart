@@ -172,6 +172,11 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
     final String? headerAsset;
     final Color? headerColor;
+
+    final double bottomPadding = MediaQuery.viewInsetsOf(context).bottom == 0
+        ? MediaQuery.viewPaddingOf(context).bottom
+        : MediaQuery.viewInsetsOf(context).bottom;
+
     if (widget.type == null) {
       final List<PreferencePageType> items =
           PreferencePageType.getPreferencePageTypes(userPreferences);
@@ -213,7 +218,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     }
 
     const EdgeInsetsGeometry padding =
-        EdgeInsetsDirectional.only(top: MEDIUM_SPACE, bottom: MEDIUM_SPACE);
+        EdgeInsetsDirectional.only(top: MEDIUM_SPACE);
     final ListView list;
     if (addDividers) {
       list = ListView.separated(
@@ -242,7 +247,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           ),
           leading: const SmoothBackButton(),
         ),
-        body: SafeArea(
+        body: Padding(
+          padding: EdgeInsets.only(
+            bottom: bottomPadding,
+          ),
           child: Scrollbar(
             controller: _controller,
             child: list,
