@@ -116,7 +116,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           url: appLocalizations.twitter_link,
           leadingWidget: SvgPicture.asset(
             'assets/preferences/x-logo.svg',
-            width: VERY_LARGE_SPACE,
+            width: DEFAULT_ICON_SIZE,
             colorFilter: ui.ColorFilter.mode(
               Theme.of(context).colorScheme.onSurface,
               ui.BlendMode.srcIn,

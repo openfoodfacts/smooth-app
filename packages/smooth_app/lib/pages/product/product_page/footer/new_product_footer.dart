@@ -103,9 +103,9 @@ enum ProductFooterActionBar {
       const <ProductFooterActionBar>[
         edit,
         addPrice,
-        addProperty,
         compare,
         addToList,
+        addProperty,
         share,
       ];
 }
