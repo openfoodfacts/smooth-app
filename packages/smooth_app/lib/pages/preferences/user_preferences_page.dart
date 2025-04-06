@@ -173,9 +173,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final String? headerAsset;
     final Color? headerColor;
 
-    final double bottomPadding = MediaQuery.viewInsetsOf(context).bottom == 0
-        ? MediaQuery.viewPaddingOf(context).bottom
-        : MediaQuery.viewInsetsOf(context).bottom;
+    final double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
 
     if (widget.type == null) {
       final List<PreferencePageType> items =
