@@ -1,98 +1,98 @@
-{
+﻿{
   "@Utils": {},
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "Áno",
+  "yes": "Ãno",
   "@yes": {},
-  "add": "Pridať",
+  "add": "PridaÅ¥",
   "@add": {},
-  "account_delete_message": "Naozaj chcete odstrániť svoj účet?\nAk existuje konkrétny dôvod, zdieľajte ho nižšie",
+  "account_delete_message": "Naozaj chcete odstrÃ¡niÅ¥ svoj ÃºÄet?\nAk existuje konkrÃ©tny dÃ´vod, zdieÄ¾ajte ho niÅ¾Å¡ie",
   "@account_delete_message": {},
-  "reason": "Dôvod",
+  "reason": "DÃ´vod",
   "@reason": {},
   "okay": "V poriadku",
   "@okay": {},
-  "validate": "Potvrdiť",
+  "validate": "PotvrdiÅ¥",
   "@validate": {
     "description": "Button label: Validate the input"
   },
-  "create": "Vytvoriť",
+  "create": "VytvoriÅ¥",
   "@create": {
     "description": "An action to create"
   },
-  "applyButtonText": "Potvrdiť",
+  "applyButtonText": "PotvrdiÅ¥",
   "@applyButtonText": {},
-  "next_label": "Ďalšie",
+  "next_label": "ÄŽalÅ¡ie",
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
-  "continue_label": "Pokračovať",
+  "continue_label": "PokraÄovaÅ¥",
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
-  "exit_label": "Ukončiť",
+  "exit_label": "UkonÄiÅ¥",
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Predchádzajúce",
+  "previous_label": "PredchÃ¡dzajÃºce",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
-  "go_back_to_top": "Späť na začiatok",
-  "save": "Uložiť",
-  "save_confirmation": "Naozaj chcete uložiť?",
-  "skip": "Preskočiť",
-  "cancel": "Zrušiť",
+  "go_back_to_top": "SpÃ¤Å¥ na zaÄiatok",
+  "save": "UloÅ¾iÅ¥",
+  "save_confirmation": "Naozaj chcete uloÅ¾iÅ¥?",
+  "skip": "PreskoÄiÅ¥",
+  "cancel": "ZruÅ¡iÅ¥",
   "@cancel": {},
-  "ignore": "Ignorovať",
+  "ignore": "IgnorovaÅ¥",
   "@ignore": {
     "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
   },
-  "close": "Zatvoriť",
+  "close": "ZatvoriÅ¥",
   "@close": {},
   "no": "Nie",
   "@no": {},
-  "stop": "Zastaviť",
+  "stop": "ZastaviÅ¥",
   "@stop": {},
-  "finish": "Dokončiť",
+  "finish": "DokonÄiÅ¥",
   "@finish": {},
-  "calculate": "Vypočítať",
+  "calculate": "VypoÄÃ­taÅ¥",
   "@calculate": {
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
-  "reset_food_prefs": "Obnoviť predvoľby jedla?",
+  "reset_food_prefs": "ObnoviÅ¥ predvoÄ¾by jedla?",
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "error": "Niečo sa pokazilo",
+  "error": "NieÄo sa pokazilo",
   "@error": {},
   "error_occurred": "Vyskytla sa chyba",
   "@error_occurred": {},
-  "featureInProgress": "Na tejto funkcii ešte pracujeme, zostaňte s nami",
+  "featureInProgress": "Na tejto funkcii eÅ¡te pracujeme, zostaÅˆte s nami",
   "@featureInProgress": {},
-  "label_web": "Zobraziť na webe",
+  "label_web": "ZobraziÅ¥ na webe",
   "@label_web": {},
-  "learnMore": "Zistiť viac",
+  "learnMore": "ZistiÅ¥ viac",
   "@learnMore": {},
-  "unknown": "Neznámy",
+  "unknown": "NeznÃ¡my",
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "Veľmi dobrá zhoda",
+  "match_very_good": "VeÄ¾mi dobrÃ¡ zhoda",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Dobrá zhoda",
+  "match_good": "DobrÃ¡ zhoda",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
-  "match_poor": "Slabá zhoda",
+  "match_poor": "SlabÃ¡ zhoda",
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "Nemusí sa zhodovať",
+  "match_may_not": "NemusÃ­ sa zhodovaÅ¥",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
@@ -100,23 +100,23 @@
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "Neznáma zhoda",
+  "match_unknown": "NeznÃ¡ma zhoda",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "Veľmi dobrá zhoda",
+  "match_short_very_good": "VeÄ¾mi dobrÃ¡ zhoda",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Dobrá zhoda",
+  "match_short_good": "DobrÃ¡ zhoda",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
-  "match_short_poor": "Slabá zhoda",
+  "match_short_poor": "SlabÃ¡ zhoda",
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "Nemusí sa zhodovať",
+  "match_short_may_not": "NemusÃ­ sa zhodovaÅ¥",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
@@ -124,64 +124,64 @@
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "Neznáma zhoda",
+  "match_short_unknown": "NeznÃ¡ma zhoda",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
   "licenses": "Licences",
   "@licenses": {},
-  "looking_for": "Hľadám",
+  "looking_for": "HÄ¾adÃ¡m",
   "@looking_for": {
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "Vitajte v službe Open Food Facts",
+  "welcomeToOpenFoodFacts": "Vitajte v sluÅ¾be Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts je globálna nezisková organizácia založená na miestnych komunitách.",
+  "whatIsOff": "Open Food Facts je globÃ¡lna neziskovÃ¡ organizÃ¡cia zaloÅ¾enÃ¡ na miestnych komunitÃ¡ch.",
   "@whatIsOff": {
-    "description": "Description of Open Food Facts organization."
+    "description": "Description of Openâ€¯Foodâ€¯Facts organization."
   },
-  "productDataUtility": "Zobraziť údaje o potravinách, ktoré zodpovedajú vašim preferenciám.",
+  "productDataUtility": "ZobraziÅ¥ Ãºdaje o potravinÃ¡ch, ktorÃ© zodpovedajÃº vaÅ¡im preferenciÃ¡m.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "Vyberte si potraviny, ktoré sú dobré pre vás a vašu planétu.",
+  "healthCardUtility": "Vyberte si potraviny, ktorÃ© sÃº dobrÃ© pre vÃ¡s a vaÅ¡u planÃ©tu.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
-  "ecoCardUtility": "Vyberajte potraviny, ktoré sú dobré pre vás a vašu planétu.",
+  "ecoCardUtility": "Vyberajte potraviny, ktorÃ© sÃº dobrÃ© pre vÃ¡s a vaÅ¡u planÃ©tu.",
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "Žiadna odozva servera! Problém môžete otvoriť pomocou nasledujúceho odkazu.",
+  "server_error_open_new_issue": "Å½iadna odozva servera! ProblÃ©m mÃ´Å¾ete otvoriÅ¥ pomocou nasledujÃºceho odkazu.",
   "@user_management": {},
-  "sign_in_text": "Prihláste sa do svojho účtu Open Food Facts a uložte svoje príspevky",
-  "incorrect_credentials": "Nesprávne meno alebo heslo.",
-  "password_lost_incorrect_credentials": "Tento e-mail alebo používateľské meno neexistuje. Skontrolujte svoje poverenia.",
-  "password_lost_server_unavailable": "Na našich serveroch momentálne dochádza k spomaleniu a ospravedlňujeme sa za to. Skúste to neskôr prosím.",
-  "login": "Prihlásenie",
+  "sign_in_text": "PrihlÃ¡ste sa do svojho ÃºÄtu Open Food Facts a uloÅ¾te svoje prÃ­spevky",
+  "incorrect_credentials": "NesprÃ¡vne meno alebo heslo.",
+  "password_lost_incorrect_credentials": "Tento e-mail alebo pouÅ¾Ã­vateÄ¾skÃ© meno neexistuje. Skontrolujte svoje poverenia.",
+  "password_lost_server_unavailable": "Na naÅ¡ich serveroch momentÃ¡lne dochÃ¡dza k spomaleniu a ospravedlÅˆujeme sa za to. SkÃºste to neskÃ´r prosÃ­m.",
+  "login": "PrihlÃ¡senie",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
-  "login_result_type_server_unreachable": "Sieť je nedostupná",
+  "login_result_type_server_unreachable": "SieÅ¥ je nedostupnÃ¡",
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Problém na serveri. Prosím, skús neskôr.",
+  "login_result_type_server_issue": "ProblÃ©m na serveri. ProsÃ­m, skÃºs neskÃ´r.",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Zadajte používateľské meno alebo e-mail",
-  "login_page_password_error_empty": "Prosím, zadajte heslo",
-  "create_account": "Vytvoriť účet",
+  "login_page_username_or_email": "Zadajte pouÅ¾Ã­vateÄ¾skÃ© meno alebo e-mail",
+  "login_page_password_error_empty": "ProsÃ­m, zadajte heslo",
+  "create_account": "VytvoriÅ¥ ÃºÄet",
   "@create_account": {
     "description": "Button label: Opens a page where a new user can register"
   },
-  "sign_in": "Prihlásiť sa",
+  "sign_in": "PrihlÃ¡siÅ¥ sa",
   "@sign_in": {
     "description": "Button label: For sign in"
   },
-  "sign_in_mandatory": "Pre túto funkciu potrebujeme, aby ste sa prihlásili.",
+  "sign_in_mandatory": "Pre tÃºto funkciu potrebujeme, aby ste sa prihlÃ¡sili.",
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
@@ -189,46 +189,46 @@
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
-  "sign_out": "Odhlásiť sa",
+  "sign_out": "OdhlÃ¡siÅ¥ sa",
   "@sign_out": {
     "description": "Button label: For sign out"
   },
-  "sign_out_confirmation": "Naozaj sa chcete odhlásiť?",
+  "sign_out_confirmation": "Naozaj sa chcete odhlÃ¡siÅ¥?",
   "@sign_out_confirmation": {
     "description": "Pop up title: Reassuring if the user really want to sign out"
   },
   "password": "Heslo",
-  "forgot_password": "Zabudnuté heslo",
+  "forgot_password": "ZabudnutÃ© heslo",
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "view_profile": "Zobraziť profil",
+  "view_profile": "ZobraziÅ¥ profil",
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
-  "reset_password": "Obnoviť heslo",
+  "reset_password": "ObnoviÅ¥ heslo",
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "V prípade zabudnutého hesla zadajte svoje používateľské meno alebo e-mailovú adresu, aby ste dostali pokyny na obnovenie hesla. Nezabudnite tiež skontrolovať priečinok Spam.",
-  "username_or_email": "Používateľské meno alebo e-mail",
+  "reset_password_explanation_text": "V prÃ­pade zabudnutÃ©ho hesla zadajte svoje pouÅ¾Ã­vateÄ¾skÃ© meno alebo e-mailovÃº adresu, aby ste dostali pokyny na obnovenie hesla. Nezabudnite tieÅ¾ skontrolovaÅ¥ prieÄinok Spam.",
+  "username_or_email": "PouÅ¾Ã­vateÄ¾skÃ© meno alebo e-mail",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "Na e-mailovú adresu priradenú k vášmu účtu bol odoslaný e-mail s odkazom na obnovenie hesla. Skontrolujte si aj spam",
-  "send_reset_password_mail": "Zmeniť heslo",
+  "reset_password_done": "Na e-mailovÃº adresu priradenÃº k vÃ¡Å¡mu ÃºÄtu bol odoslanÃ½ e-mail s odkazom na obnovenie hesla. Skontrolujte si aj spam",
+  "send_reset_password_mail": "ZmeniÅ¥ heslo",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
   },
-  "enter_some_text": "Prosím, zadajte nejaký text",
+  "enter_some_text": "ProsÃ­m, zadajte nejakÃ½ text",
   "@enter_some_text": {
     "description": "Error when a required text field is empty"
   },
-  "sign_up_page_title": "Zaregistrovať sa",
+  "sign_up_page_title": "ZaregistrovaÅ¥ sa",
   "@sign_up_page_title": {
     "description": "Header"
   },
-  "sign_up_page_action_button": "Zaregistrovať sa",
+  "sign_up_page_action_button": "ZaregistrovaÅ¥ sa",
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
@@ -236,17 +236,17 @@
   "@sign_up_page_action_doing_it": {
     "description": "Progress indicator dialog during the actual signing up process"
   },
-  "sign_up_page_action_ok": "Gratulujeme! Váš účet bol práve vytvorený.",
-  "sign_up_page_display_name_hint": "Názov",
-  "sign_up_page_display_name_error_empty": "Zadajte zobrazované meno, ktoré chcete použiť",
-  "sign_up_page_email_hint": "Emailová adresa",
-  "sign_up_page_email_error_empty": "E-mail je povinný",
-  "sign_up_page_email_error_invalid": "Neplatný e-mail",
-  "sign_up_page_username_hint": "Používateľské meno: Verejne viditeľné",
-  "sign_up_page_username_error_empty": "Prosím, zadajte užívateľské meno",
-  "sign_up_page_username_error_invalid": "Zadajte platné užívateľské meno",
-  "sign_up_page_username_description": "Používateľské meno nemôže obsahovať medzery, veľké písmená ani špeciálne znaky.",
-  "sign_up_page_username_length_invalid": "Používateľské meno nemôže presiahnuť {value} znakov",
+  "sign_up_page_action_ok": "Gratulujeme! VÃ¡Å¡ ÃºÄet bol prÃ¡ve vytvorenÃ½.",
+  "sign_up_page_display_name_hint": "NÃ¡zov",
+  "sign_up_page_display_name_error_empty": "Zadajte zobrazovanÃ© meno, ktorÃ© chcete pouÅ¾iÅ¥",
+  "sign_up_page_email_hint": "EmailovÃ¡ adresa",
+  "sign_up_page_email_error_empty": "E-mail je povinnÃ½",
+  "sign_up_page_email_error_invalid": "NeplatnÃ½ e-mail",
+  "sign_up_page_username_hint": "PouÅ¾Ã­vateÄ¾skÃ© meno: Verejne viditeÄ¾nÃ©",
+  "sign_up_page_username_error_empty": "ProsÃ­m, zadajte uÅ¾Ã­vateÄ¾skÃ© meno",
+  "sign_up_page_username_error_invalid": "Zadajte platnÃ© uÅ¾Ã­vateÄ¾skÃ© meno",
+  "sign_up_page_username_description": "PouÅ¾Ã­vateÄ¾skÃ© meno nemÃ´Å¾e obsahovaÅ¥ medzery, veÄ¾kÃ© pÃ­smenÃ¡ ani Å¡peciÃ¡lne znaky.",
+  "sign_up_page_username_length_invalid": "PouÅ¾Ã­vateÄ¾skÃ© meno nemÃ´Å¾e presiahnuÅ¥ {value} znakov",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -255,61 +255,61 @@
     }
   },
   "sign_up_page_password_hint": "Heslo",
-  "sign_up_page_password_error_empty": "Prosím, zadajte heslo",
-  "sign_up_page_password_error_invalid": "Prosím, zadajte heslo s najmenej 6-imi znakmi.",
-  "sign_up_page_confirm_password_hint": "Potvrdiť heslo",
-  "sign_up_page_confirm_password_error_empty": "Prosím potvrďte heslo",
-  "sign_up_page_confirm_password_error_invalid": "Heslá sa nezhodujú",
-  "sign_up_page_agree_text": "Súhlasím s Open Food Facts",
+  "sign_up_page_password_error_empty": "ProsÃ­m, zadajte heslo",
+  "sign_up_page_password_error_invalid": "ProsÃ­m, zadajte heslo s najmenej 6-imi znakmi.",
+  "sign_up_page_confirm_password_hint": "PotvrdiÅ¥ heslo",
+  "sign_up_page_confirm_password_error_empty": "ProsÃ­m potvrÄte heslo",
+  "sign_up_page_confirm_password_error_invalid": "HeslÃ¡ sa nezhodujÃº",
+  "sign_up_page_agree_text": "SÃºhlasÃ­m s Open Food Facts",
   "@sign_up_page_agree_text": {
-    "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    "description": "I agree to the Openâ€¯Foodâ€¯Facts is followed by sign_up_page_terms_text"
   },
-  "sign_up_page_terms_text": "podmienkami používania a prispievaním",
+  "sign_up_page_terms_text": "podmienkami pouÅ¾Ã­vania a prispievanÃ­m",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
   "sign_up_page_agree_url": "https://sk.openfoodfacts.org/terms-of-use",
   "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    "description": "Please insert the right url here. Go to the Openâ€¯Foodâ€¯Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
   },
-  "sign_up_page_agree_error_invalid": "Pri vytváraní účtu je súhlas s Podmienkami používania povinný, napriek tomu je však možné prostredníctvom aplikácie prispievať anonymne",
+  "sign_up_page_agree_error_invalid": "Pri vytvÃ¡ranÃ­ ÃºÄtu je sÃºhlas s Podmienkami pouÅ¾Ã­vania povinnÃ½, napriek tomu je vÅ¡ak moÅ¾nÃ© prostrednÃ­ctvom aplikÃ¡cie prispievaÅ¥ anonymne",
   "@sign_up_page_agree_error_invalid": {
     "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
   },
-  "sign_up_page_producer_checkbox": "Som výrobca potravín",
-  "sign_up_page_producer_hint": "Výrobca/značka",
-  "sign_up_page_producer_error_empty": "Zadajte výrobcu alebo názov značky",
-  "sign_up_page_subscribe_checkbox": "Chcem sa prihlásiť na odber noviniek Open Food Facts (z odberu sa môžete kedykoľvek odhlásiť)",
-  "sign_up_page_user_name_already_used": "Toto meno už existuje, prosím zadajte iné.",
-  "sign_up_page_email_already_exists": "už existuje, prihláste sa do účtu alebo skúste použiť iný e-mail.",
-  "sign_up_page_provide_valid_email": "Prosím zadajte platnú e-mailovú adresu.",
-  "sign_up_page_server_busy": "Veľmi nás to mrzí, pri vytváraní vášho účtu máme technické problémy. Skúste neskôr prosím.",
+  "sign_up_page_producer_checkbox": "Som vÃ½robca potravÃ­n",
+  "sign_up_page_producer_hint": "VÃ½robca/znaÄka",
+  "sign_up_page_producer_error_empty": "Zadajte vÃ½robcu alebo nÃ¡zov znaÄky",
+  "sign_up_page_subscribe_checkbox": "Chcem sa prihlÃ¡siÅ¥ na odber noviniek Open Food Facts (z odberu sa mÃ´Å¾ete kedykoÄ¾vek odhlÃ¡siÅ¥)",
+  "sign_up_page_user_name_already_used": "Toto meno uÅ¾ existuje, prosÃ­m zadajte inÃ©.",
+  "sign_up_page_email_already_exists": "uÅ¾ existuje, prihlÃ¡ste sa do ÃºÄtu alebo skÃºste pouÅ¾iÅ¥ inÃ½ e-mail.",
+  "sign_up_page_provide_valid_email": "ProsÃ­m zadajte platnÃº e-mailovÃº adresu.",
+  "sign_up_page_server_busy": "VeÄ¾mi nÃ¡s to mrzÃ­, pri vytvÃ¡ranÃ­ vÃ¡Å¡ho ÃºÄtu mÃ¡me technickÃ© problÃ©my. SkÃºste neskÃ´r prosÃ­m.",
   "settingsTitle": "Nastavenia",
   "@settingsTitle": {
     "description": "The title of the Settings page"
   },
-  "darkmode": "Téma",
+  "darkmode": "TÃ©ma",
   "@darkmode": {
     "description": "The name of the darkmode on off switch"
   },
-  "darkmode_dark": "Tmavý",
+  "darkmode_dark": "TmavÃ½",
   "@darkmode_dark": {
     "description": "Indicator inside the darkmode switch (dark)"
   },
-  "darkmode_light": "Svetlý",
+  "darkmode_light": "SvetlÃ½",
   "@darkmode_light": {
     "description": "Indicator inside the darkmode switch (light)"
   },
-  "darkmode_system_default": "Východzie nastavenie systému",
+  "darkmode_system_default": "VÃ½chodzie nastavenie systÃ©mu",
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
-  "thanks_for_contributing": "Ďakujeme, že ste prispeli!",
-  "contributors_label": "Budujú aplikáciu",
+  "thanks_for_contributing": "ÄŽakujeme, Å¾e ste prispeli!",
+  "contributors_label": "BudujÃº aplikÃ¡ciu",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
@@ -317,14 +317,14 @@
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
-  "contributors_dialog_entry_description": "Prispievateľ: {name}",
+  "contributors_dialog_entry_description": "PrispievateÄ¾: {name}",
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
-      "name": {}
+      "name": {"type": "Object"}
     }
   },
-  "contributors_description": "Zoznam všetkých prispievateľov tejto aplikácie",
+  "contributors_description": "Zoznam vÅ¡etkÃ½ch prispievateÄ¾ov tejto aplikÃ¡cie",
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
@@ -332,14 +332,14 @@
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
-  "support_join_slack": "Požiadajte o pomoc na našom kanáli Slack",
-  "support_via_forum": "Požiadajte o pomoc na našom fóre",
-  "support_via_email": "Pošlite nám e-mail",
-  "support_via_email_include_logs_dialog_title": "Chcete odoslať denníky aplikácie?",
-  "support_via_email_include_logs_dialog_body": "Prajete si zahrnúť denníky aplikácie do prílohy k vášmu e-mailu?",
-  "termsOfUse": "Podmienky používania",
+  "support_join_slack": "PoÅ¾iadajte o pomoc na naÅ¡om kanÃ¡li Slack",
+  "support_via_forum": "PoÅ¾iadajte o pomoc na naÅ¡om fÃ³re",
+  "support_via_email": "PoÅ¡lite nÃ¡m e-mail",
+  "support_via_email_include_logs_dialog_title": "Chcete odoslaÅ¥ dennÃ­ky aplikÃ¡cie?",
+  "support_via_email_include_logs_dialog_body": "Prajete si zahrnÃºÅ¥ dennÃ­ky aplikÃ¡cie do prÃ­lohy k vÃ¡Å¡mu e-mailu?",
+  "termsOfUse": "Podmienky pouÅ¾Ã­vania",
   "@termsOfUse": {},
-  "legalNotices": "Právne oznámenia",
+  "legalNotices": "PrÃ¡vne oznÃ¡menia",
   "@legalNotices": {
     "description": "A link to open the legal notices on the website"
   },
@@ -347,93 +347,93 @@
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
-  "about_this_app": "O tejto aplikácii",
+  "about_this_app": "O tejto aplikÃ¡cii",
   "@about_this_app": {
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Prispieť",
+  "contribute": "PrispieÅ¥",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
-  "contribute_sw_development": "Vývoj softvéru",
+  "contribute_sw_development": "VÃ½voj softvÃ©ru",
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "Kód pre každý produkt Open Food Facts je dostupný na GitHub. Môžete znova použiť kód (je to otvorený zdroj) a pomôcť nám ho vylepšiť pre všetkých na celej planéte.",
+  "contribute_develop_text": "KÃ³d pre kaÅ¾dÃ½ produkt Open Food Facts je dostupnÃ½ na GitHub. MÃ´Å¾ete znova pouÅ¾iÅ¥ kÃ³d (je to otvorenÃ½ zdroj) a pomÃ´cÅ¥ nÃ¡m ho vylepÅ¡iÅ¥ pre vÅ¡etkÃ½ch na celej planÃ©te.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "Môžete sa pripojiť k diskusnej miestnosti Open Food Facts Slack, čo je preferovaný spôsob kladenia otázok.",
+  "contribute_develop_text_2": "MÃ´Å¾ete sa pripojiÅ¥ k diskusnej miestnosti Open Food Facts Slack, Äo je preferovanÃ½ spÃ´sob kladenia otÃ¡zok.",
   "@contribute_develop_text_2": {},
-  "contribute_develop_dev_mode_title": "Režim DEV?",
-  "contribute_develop_dev_mode_subtitle": "Aktivujte režim DEV",
-  "contribute_donate_title": "Darovať",
+  "contribute_develop_dev_mode_title": "ReÅ¾im DEV?",
+  "contribute_develop_dev_mode_subtitle": "Aktivujte reÅ¾im DEV",
+  "contribute_donate_title": "DarovaÅ¥",
   "@contribute_donate_title": {},
   "contribute_donate_header": "Prispejte na Open Food Facts",
   "@contribute_donate_header": {},
   "contribute_enroll_alpha": "Zaregistrujte sa do internej verzie alfa",
   "@contribute_enroll_alpha": {},
-  "contribute_enroll_alpha_warning": "Berte prosím na vedomie, že s internou alfa verziou je možná úplná strata údajov a aplikácia sa môže kedykoľvek stať nepoužiteľnou!",
+  "contribute_enroll_alpha_warning": "Berte prosÃ­m na vedomie, Å¾e s internou alfa verziou je moÅ¾nÃ¡ ÃºplnÃ¡ strata Ãºdajov a aplikÃ¡cia sa mÃ´Å¾e kedykoÄ¾vek staÅ¥ nepouÅ¾iteÄ¾nou!",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "Výrobky, ktoré sa majú dokončiť",
+  "contribute_improve_ProductsToBeCompleted": "VÃ½robky, ktorÃ© sa majÃº dokonÄiÅ¥",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
-  "contribute_improve_header": "Zlepšovanie",
+  "contribute_improve_header": "ZlepÅ¡ovanie",
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "Databáza je jadrom projektu. Pomôcť je jednoduché a veľmi rýchle. Môžete si stiahnuť mobilnú aplikáciu pre svoj telefón a začať pridávať alebo vylepšovať produkty.\n\nNa druhej strane webová stránka Open Food Facts ponúka mnoho spôsobov, ako prispieť: ",
+  "contribute_improve_text": "DatabÃ¡za je jadrom projektu. PomÃ´cÅ¥ je jednoduchÃ© a veÄ¾mi rÃ½chle. MÃ´Å¾ete si stiahnuÅ¥ mobilnÃº aplikÃ¡ciu pre svoj telefÃ³n a zaÄaÅ¥ pridÃ¡vaÅ¥ alebo vylepÅ¡ovaÅ¥ produkty.\n\nNa druhej strane webovÃ¡ strÃ¡nka Open Food Facts ponÃºka mnoho spÃ´sobov, ako prispieÅ¥: ",
   "@contribute_improve_text": {},
-  "contribute_translate_header": "Preložiť",
+  "contribute_translate_header": "PreloÅ¾iÅ¥",
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_translate_link_text": "Začnite prekladať",
+  "contribute_translate_link_text": "ZaÄnite prekladaÅ¥",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts je globálny projekt, ktorý obsahuje produkty z viac ako 160 krajín. Open Food Facts je preložený do desiatok jazykov s neustále sa vyvíjajúcim obsahom.",
+  "contribute_translate_text": "Open Food Facts je globÃ¡lny projekt, ktorÃ½ obsahuje produkty z viac ako 160 krajÃ­n. Open Food Facts je preloÅ¾enÃ½ do desiatok jazykov s neustÃ¡le sa vyvÃ­jajÃºcim obsahom.",
   "@contribute_translate_text": {},
-  "contribute_translate_text_2": "Preklady sú jednou z kľúčových úloh projektu",
+  "contribute_translate_text_2": "Preklady sÃº jednou z kÄ¾ÃºÄovÃ½ch Ãºloh projektu",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Prispejte svojimi schopnosťami do Open Food Facts. Pripojte sa k fondu zručností!",
-  "contribute_share_header": "Zdieľajte Open Food Facts so svojimi priateľmi",
+  "contribute_join_skill_pool": "Prispejte svojimi schopnosÅ¥ami do Open Food Facts. Pripojte sa k fondu zruÄnostÃ­!",
+  "contribute_share_header": "ZdieÄ¾ajte Open Food Facts so svojimi priateÄ¾mi",
   "@contribute_share_header": {},
-  "contribute_share_content": "Chcel som vám dať vedieť o aplikácii, ktorú používam, Open Food Facts, ktorá vám umožňuje personalizovaným spôsobom získať informácie o vplyve vášho jedla na zdravie a životné prostredie. Funguje tak, že naskenujete čiarové kódy na obale. Nakoniec je to zadarmo, nevyžaduje registráciu a dokonca môžete pomôcť zvýšiť počet dešifrovaných produktov. Tu je odkaz na jeho získanie pre váš telefón: https://openfoodfacts.app",
+  "contribute_share_content": "Chcel som vÃ¡m daÅ¥ vedieÅ¥ o aplikÃ¡cii, ktorÃº pouÅ¾Ã­vam, Open Food Facts, ktorÃ¡ vÃ¡m umoÅ¾Åˆuje personalizovanÃ½m spÃ´sobom zÃ­skaÅ¥ informÃ¡cie o vplyve vÃ¡Å¡ho jedla na zdravie a Å¾ivotnÃ© prostredie. Funguje tak, Å¾e naskenujete ÄiarovÃ© kÃ³dy na obale. Nakoniec je to zadarmo, nevyÅ¾aduje registrÃ¡ciu a dokonca mÃ´Å¾ete pomÃ´cÅ¥ zvÃ½Å¡iÅ¥ poÄet deÅ¡ifrovanÃ½ch produktov. Tu je odkaz na jeho zÃ­skanie pre vÃ¡Å¡ telefÃ³n: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "tap_to_answer": "Klepnutím sem odpovedzte na otázky",
+  "tap_to_answer": "KlepnutÃ­m sem odpovedzte na otÃ¡zky",
   "@tap_to_answer": {
-    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts and gain rewards."
   },
-  "tap_to_answer_hint": "Klepnutím sem odpoviete na otázky o tomto produkte",
+  "tap_to_answer_hint": "KlepnutÃ­m sem odpoviete na otÃ¡zky o tomto produkte",
   "@tap_to_answer_hint": {
     "description": "Hint for accessibility readers to answer Robotoff questions."
   },
-  "robotoff_questions_loading_hint": "Počkajte, kým sa načítajú otázky o tomto produkte",
+  "robotoff_questions_loading_hint": "PoÄkajte, kÃ½m sa naÄÃ­tajÃº otÃ¡zky o tomto produkte",
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
-  "saving_answer": "Ukladá sa vaša odpoveď",
+  "saving_answer": "UkladÃ¡ sa vaÅ¡a odpoveÄ",
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Staňte sa aktérom potravinovej transparentnosti",
+  "contribute_to_get_rewards": "StaÅˆte sa aktÃ©rom potravinovej transparentnosti",
   "@contribute_to_get_rewards": {
-    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
+    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts."
   },
-  "question_sign_in_text": "Prihláste sa do svojho účtu Open Food Facts a získajte kredit za svoj príspevok",
-  "question_yes_button_accessibility_value": "Odpovedzte áno",
+  "question_sign_in_text": "PrihlÃ¡ste sa do svojho ÃºÄtu Open Food Facts a zÃ­skajte kredit za svoj prÃ­spevok",
+  "question_yes_button_accessibility_value": "Odpovedzte Ã¡no",
   "question_no_button_accessibility_value": "Odpovedzte nie",
-  "question_skip_button_accessibility_value": "Preskočte túto otázku",
-  "tap_to_edit_search": "Klepnutím upravíte vyhľadávanie",
+  "question_skip_button_accessibility_value": "PreskoÄte tÃºto otÃ¡zku",
+  "tap_to_edit_search": "KlepnutÃ­m upravÃ­te vyhÄ¾adÃ¡vanie",
   "@Personal preferences": {},
   "myPreferences": "My preferences",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Vytvorte si účet a pripojte sa ku komunite Open Food Facts, aby ste pomohli budovať vedomosti o potravinách na celom svete!",
+  "account_create_message": "Vytvorte si ÃºÄet a pripojte sa ku komunite Open Food Facts, aby ste pomohli budovaÅ¥ vedomosti o potravinÃ¡ch na celom svete!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
@@ -441,14 +441,14 @@
   "@join_us": {
     "description": "Join which is actually Signup"
   },
-  "myPreferences_profile_title": "Váš profil",
-  "myPreferences_profile_subtitle": "Spravujte svoj účet prispievateľa Open Food Facts.",
-  "myPreferences_settings_title": "Nastavenia aplikácie",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
-  "myPreferences_food_title": "Potravinové preferencie",
-  "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o jedle sú pre vás najdôležitejšie.",
-  "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť jedlo podľa svojich preferencií, pozrite si informácie, ktoré vás zaujímajú ako prvé, a získajte súhrn kompatibility. Tieto preferencie jedla zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
-  "confirmResetPreferences": "Obnoviť predvoľby jedla?",
+  "myPreferences_profile_title": "VÃ¡Å¡ profil",
+  "myPreferences_profile_subtitle": "Spravujte svoj ÃºÄet prispievateÄ¾a Open Food Facts.",
+  "myPreferences_settings_title": "Nastavenia aplikÃ¡cie",
+  "myPreferences_settings_subtitle": "Dark mode, Languagesâ€¦",
+  "myPreferences_food_title": "PotravinovÃ© preferencie",
+  "myPreferences_food_subtitle": "Vyberte si, ktorÃ© informÃ¡cie o jedle sÃº pre vÃ¡s najdÃ´leÅ¾itejÅ¡ie.",
+  "myPreferences_food_comment": "Vyberte si, ktorÃ© informÃ¡cie o potravinÃ¡ch sÃº pre vÃ¡s najdÃ´leÅ¾itejÅ¡ie, aby ste mohli zoradiÅ¥ jedlo podÄ¾a svojich preferenciÃ­, pozrite si informÃ¡cie, ktorÃ© vÃ¡s zaujÃ­majÃº ako prvÃ©, a zÃ­skajte sÃºhrn kompatibility. Tieto preferencie jedla zostanÃº vo vaÅ¡om zariadenÃ­ a nie sÃº spojenÃ© s vaÅ¡Ã­m ÃºÄtom prispievateÄ¾a Open Food Facts, ak ho mÃ¡te.",
+  "confirmResetPreferences": "ObnoviÅ¥ predvoÄ¾by jedla?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
@@ -456,15 +456,15 @@
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "ranking_tab_all": "Všetky",
-  "ranking_subtitle_match_yes": "Veľká zhoda",
-  "ranking_subtitle_match_no": "Veľmi slabá zhoda",
-  "ranking_subtitle_match_maybe": "Neznáma zhoda",
-  "refresh_with_new_preferences": "Obnovte zoznam s novými preferenciami",
+  "ranking_tab_all": "VÅ¡etky",
+  "ranking_subtitle_match_yes": "VeÄ¾kÃ¡ zhoda",
+  "ranking_subtitle_match_no": "VeÄ¾mi slabÃ¡ zhoda",
+  "ranking_subtitle_match_maybe": "NeznÃ¡ma zhoda",
+  "refresh_with_new_preferences": "Obnovte zoznam s novÃ½mi preferenciami",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
   },
-  "reloaded_with_new_preferences": "Znova načítané s novými predvoľbami",
+  "reloaded_with_new_preferences": "Znova naÄÃ­tanÃ© s novÃ½mi predvoÄ¾bami",
   "@reloaded_with_new_preferences": {
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
@@ -477,7 +477,7 @@
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the scanning of products"
   },
-  "history_navbar_label": "História",
+  "history_navbar_label": "HistÃ³ria",
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the history and compare mode"
   },
@@ -485,16 +485,16 @@
   "@list_navbar_label": {
     "description": "BottomNavigationBarLabel: For the lists"
   },
-  "category": "Filtrovať podľa kategórie",
+  "category": "FiltrovaÅ¥ podÄ¾a kategÃ³rie",
   "@category": {
     "description": "From a product list, there's a category filter: this is its title"
   },
-  "category_all": "Všetky",
+  "category_all": "VÅ¡etky",
   "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
-  "category_search": "(vyhľadávanie podľa kategórií)",
-  "filter": "Filtrovať",
+  "category_search": "(vyhÄ¾adÃ¡vanie podÄ¾a kategÃ³riÃ­)",
+  "filter": "FiltrovaÅ¥",
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
@@ -506,7 +506,7 @@
   "@scan_history": {
     "description": "Page title: List type: Products in the whole scan history"
   },
-  "search": "Vyhľadať",
+  "search": "VyhÄ¾adaÅ¥",
   "@search": {
     "description": "Hint text of a search text input field"
   },
@@ -514,15 +514,15 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "tap_for_more": "Tap to see more info…",
+  "tap_for_more": "Tap to see more infoâ€¦",
   "@Product": {},
   "product": "Produkt",
   "@product": {},
-  "unknownBrand": "Neznáma značka",
+  "unknownBrand": "NeznÃ¡ma znaÄka",
   "@unknownBrand": {},
-  "unknownProductName": "Neznámy názov výrobku",
+  "unknownProductName": "NeznÃ¡my nÃ¡zov vÃ½robku",
   "@unknownProductName": {},
-  "label_refresh": "Obnoviť",
+  "label_refresh": "ObnoviÅ¥",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -530,16 +530,16 @@
   "@label_reload": {
     "description": "Reload a page"
   },
-  "image": "Obrázok",
-  "front_photo": "Obrázok spredu",
+  "image": "ObrÃ¡zok",
+  "front_photo": "ObrÃ¡zok spredu",
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
   "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
   "@outdated_image_accessibility_label": {
-    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutritionâ€¦)",
     "placeholders": {
-      "imageType": {}
+      "imageType": {"type": "Object"}
     }
   },
   "outdated_image_short_label": "may be outdated",
@@ -549,10 +549,10 @@
   "ingredients": "Ingrediencie",
   "@ingredients": {},
   "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
-  "ingredients_editing_error": "Nepodarilo sa uložiť prísady.",
+  "ingredients_editing_error": "Nepodarilo sa uloÅ¾iÅ¥ prÃ­sady.",
   "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-  "ingredients_editing_title": "Upraviť prísady",
-  "ingredients_photo": "Fotografia ingrediencií",
+  "ingredients_editing_title": "UpraviÅ¥ prÃ­sady",
+  "ingredients_photo": "Fotografia ingredienciÃ­",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
@@ -560,9 +560,9 @@
   "packaging_editing_error": "Failed to save the packaging.",
   "packaging_editing_image_error": "Failed to get a new packaging image.",
   "packaging_editing_title": "Edit Packaging",
-  "nutrition": "Nutričné hodnoty",
+  "nutrition": "NutriÄnÃ© hodnoty",
   "@nutrition": {},
-  "nutrition_facts_photo": "Foto výživových údajov",
+  "nutrition_facts_photo": "Foto vÃ½Å¾ivovÃ½ch Ãºdajov",
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
@@ -570,21 +570,21 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informácie o balení",
+  "packaging_information": "InformÃ¡cie o balenÃ­",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informačná fotografia balenia",
+  "packaging_information_photo": "InformaÄnÃ¡ fotografia balenia",
   "@packaging_information_photo": {},
   "missing_product": "You found a new product!",
   "@missing_product": {},
-  "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+  "add_product_take_photos": "Take photos of the packaging to add this product to Openâ€¯Foodâ€¯Facts",
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
   "@add_product_take_photos_descriptive": {},
-  "add_product_information_button_label": "Pridajte informácie o produkte",
+  "add_product_information_button_label": "Pridajte informÃ¡cie o produkte",
   "@add_product_information_button_label": {},
-  "new_product": "Nový produkt",
+  "new_product": "NovÃ½ produkt",
   "@new_product": {},
   "new_product_found_title": "New product found!",
   "@new_product_found_title": {
@@ -594,7 +594,7 @@
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "new_product_found_button": "Pridať tento výrobok",
+  "new_product_found_button": "PridaÅ¥ tento vÃ½robok",
   "new_product_leave_title": "Leave this page?",
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -607,11 +607,11 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Greenâ€¯Score",
   "@new_product_dialog_illustration_description": {
-    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
+    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Greenâ€¯Score."
   },
-  "front_packaging_photo_button_label": "Predná fotografia produktu",
+  "front_packaging_photo_button_label": "PrednÃ¡ fotografia produktu",
   "@front_packaging_photo_button_label": {},
   "confirm_front_packaging_photo_button_label": "Confirm upload of Front packaging photo",
   "@confirm_front_packaging_photo_button_label": {
@@ -619,19 +619,19 @@
   },
   "confirm_button_label": "Confirm",
   "send_image_button_label": "Send image",
-  "crop_page_action_saving": "Saving the image…",
+  "crop_page_action_saving": "Saving the imageâ€¦",
   "@crop_page_action_saving": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_cropping": "Cropping the image…",
+  "crop_page_action_cropping": "Cropping the imageâ€¦",
   "@crop_page_action_cropping": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local": "Saving a local version…",
+  "crop_page_action_local": "Saving a local versionâ€¦",
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Oops… there's something with your photo!",
+  "crop_page_action_local_failed_title": "Oopsâ€¦ there's something with your photo!",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -665,7 +665,7 @@
       }
     }
   },
-  "crop_page_action_server": "Preparing a call to the server…",
+  "crop_page_action_server": "Preparing a call to the serverâ€¦",
   "@crop_page_action_server": {
     "description": "Action being performed on the crop page"
   },
@@ -673,32 +673,32 @@
   "ingredients_photo_title": "Ingredients Photo",
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
   "recycling_photo_title": "Recycling Photo",
-  "take_photo_title": "Odfotiť",
+  "take_photo_title": "OdfotiÅ¥",
   "take_more_photo_title": "Take more pictures",
   "front_photo_uploaded": "Front photo uploaded",
   "@front_photo_uploaded": {},
-  "ingredients_photo_button_label": "Fotografia ingrediencií",
+  "ingredients_photo_button_label": "Fotografia ingredienciÃ­",
   "@ingredients_photo_button_label": {},
   "ingredients_photo_uploaded": "Ingredients photo uploaded",
   "@ingredients_photo_uploaded": {},
   "nutrition_cache_loading_error": "Unable to load nutrients from cache",
-  "nutritional_facts_photo_button_label": "Foto výživových údajov",
+  "nutritional_facts_photo_button_label": "Foto vÃ½Å¾ivovÃ½ch Ãºdajov",
   "@nutritional_facts_photo_button_label": {},
   "nutritional_facts_input_button_label": "Fill nutrition facts",
   "nutritional_facts_added": "Nutrition facts added",
   "categories_added": "Categories added",
   "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
-  "new_product_title_environmental_score": "Compute the Green Score",
+  "new_product_title_environmental_score": "Compute the Greenâ€¯Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+  "new_product_additional_environmental_score": "Make Greenâ€¯Score computation more precise with origins, packaging & more",
   "new_product_title_nova": "Compute the food processing level (NOVA)",
   "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
   "new_product_desc_nova_unknown": "Food processing level unknown",
   "new_product_title_pictures": "New product",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-  "new_product_title_misc": "And some basic data…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_title_misc": "And some basic dataâ€¦",
+  "new_product_done_msg": "Thanks for your contribution â€œ{username}â€!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -708,76 +708,76 @@
       }
     }
   },
-  "new_product_done_msg_no_user": "Ďakujeme za Váš príspevok!",
-  "new_product_done_button_label": "Objavte hotový produkt",
+  "new_product_done_msg_no_user": "ÄŽakujeme za VÃ¡Å¡ prÃ­spevok!",
+  "new_product_done_button_label": "Objavte hotovÃ½ produkt",
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Greenâ€¯Score & Ultra-processing (NOVA)!",
   "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
   "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
   "hey_incomplete_product_message_product": "Tap now to help complete this product!",
-  "nutritional_facts_photo_uploaded": "Fotografia nutričných údajov bola nahraná",
+  "nutritional_facts_photo_uploaded": "Fotografia nutriÄnÃ½ch Ãºdajov bola nahranÃ¡",
   "@nutritional_facts_photo_uploaded": {},
-  "recycling_photo_button_label": "Recyklačná fotografia",
+  "recycling_photo_button_label": "RecyklaÄnÃ¡ fotografia",
   "@recycling_photo_button_label": {},
-  "recycling_photo_uploaded": "Recyklačná fotografia bola odovzdaná",
+  "recycling_photo_uploaded": "RecyklaÄnÃ¡ fotografia bola odovzdanÃ¡",
   "@recycling_photo_uploaded": {},
   "take_more_photo_button_label": "Take more pictures",
   "@take_more_photo_button_label": {},
-  "other_photo_uploaded": "Rôzne fotografie boli nahrané",
+  "other_photo_uploaded": "RÃ´zne fotografie boli nahranÃ©",
   "@other_photo_uploaded": {},
   "retake_photo_button_label": "Znova",
   "@retake_photo_button_label": {
     "description": "Button clicking on which allows users to retake the last photo they took."
   },
-  "selecting_photo": "Vybrať fotografiu",
+  "selecting_photo": "VybraÅ¥ fotografiu",
   "@selecting_photo": {
     "description": "Progress indicator when the users takes a photo"
   },
-  "uploading_image": "Nahrávanie fotografie na server",
+  "uploading_image": "NahrÃ¡vanie fotografie na server",
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Nahráva sa predný obrázok do Open Food Facts",
+  "uploading_image_type_front": "NahrÃ¡va sa prednÃ½ obrÃ¡zok do Open Food Facts",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
-  "uploading_image_type_ingredients": "Nahrávanie obrázka ingrediencií do Open Food Facts",
+  "uploading_image_type_ingredients": "NahrÃ¡vanie obrÃ¡zka ingredienciÃ­ do Open Food Facts",
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Nahrávanie obrázka výživy do Open Food Facts",
+  "uploading_image_type_nutrition": "NahrÃ¡vanie obrÃ¡zka vÃ½Å¾ivy do Open Food Facts",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
-  "uploading_image_type_packaging": "Nahrávanie obrázka obalu do Open Food Facts",
+  "uploading_image_type_packaging": "NahrÃ¡vanie obrÃ¡zka obalu do Open Food Facts",
   "@uploading_image_type_packaging": {
     "description": "Message when a new packaging picture is being uploaded to the server"
   },
-  "uploading_image_type_other": "Nahrávanie iného obrázka do Open Food Facts",
+  "uploading_image_type_other": "NahrÃ¡vanie inÃ©ho obrÃ¡zka do Open Food Facts",
   "@uploading_image_type_other": {
     "description": "Message when a new other picture is being uploaded to the server"
   },
-  "uploading_image_type_generic": "Nahrávanie obrázka do Open Food Facts",
+  "uploading_image_type_generic": "NahrÃ¡vanie obrÃ¡zka do Open Food Facts",
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
-  "score_add_missing_ingredients": "Pridajte chýbajúce ingrediencie",
-  "score_add_missing_packaging_image": "Pridajte chýbajúci obrázok obalu",
-  "score_add_missing_nutrition_facts": "Pridajte chýbajúce výživové údaje",
-  "score_add_missing_product_category": "Pridajte chýbajúcu kategóriu produktu",
-  "score_add_missing_product_countries": "Pridajte chýbajúce krajiny produktu",
+  "score_add_missing_ingredients": "Pridajte chÃ½bajÃºce ingrediencie",
+  "score_add_missing_packaging_image": "Pridajte chÃ½bajÃºci obrÃ¡zok obalu",
+  "score_add_missing_nutrition_facts": "Pridajte chÃ½bajÃºce vÃ½Å¾ivovÃ© Ãºdaje",
+  "score_add_missing_product_category": "Pridajte chÃ½bajÃºcu kategÃ³riu produktu",
+  "score_add_missing_product_countries": "Pridajte chÃ½bajÃºce krajiny produktu",
   "score_add_missing_product_emb": "Add missing product traceability codes",
-  "score_add_missing_product_labels": "Pridajte chýbajúce štítky produktov",
-  "score_add_missing_product_origins": "Pridajte chýbajúci pôvod produktu",
-  "score_add_missing_product_stores": "Pridajte chýbajúce obchody s produktmi",
+  "score_add_missing_product_labels": "Pridajte chÃ½bajÃºce Å¡tÃ­tky produktov",
+  "score_add_missing_product_origins": "Pridajte chÃ½bajÃºci pÃ´vod produktu",
+  "score_add_missing_product_stores": "Pridajte chÃ½bajÃºce obchody s produktmi",
   "score_add_missing_product_brands": "Add missing product brands",
-  "score_update_nutrition_facts": "Aktualizujte fakty o výžive",
-  "nutrition_page_title": "Výživové údaje",
+  "score_update_nutrition_facts": "Aktualizujte fakty o vÃ½Å¾ive",
+  "nutrition_page_title": "VÃ½Å¾ivovÃ© Ãºdaje",
   "nutrition_page_nutritional_info_title": "Nutritional information",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
-  "nutrition_page_nutritional_info_value_positive": "Áno",
+  "nutrition_page_nutritional_info_value_positive": "Ãno",
   "nutrition_page_nutritional_info_value_negative": "Nie",
   "nutrition_page_nutritional_info_open_photo": "Open photo",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
@@ -795,8 +795,8 @@
   "nutrition_page_per_100g": "na 100 g",
   "nutrition_page_per_100g_100ml": "per 100g/ml",
   "nutrition_page_per_serving": "na jednu porciu",
-  "nutrition_page_add_nutrient": "Pridajte živinu",
-  "nutrition_page_serving_size": "Veľkosť porcie",
+  "nutrition_page_add_nutrient": "Pridajte Å¾ivinu",
+  "nutrition_page_serving_size": "VeÄ¾kosÅ¥ porcie",
   "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
   "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
   "@nutrition_page_serving_size_explanation_title": {
@@ -806,7 +806,7 @@
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, Âµg, oz, l, dl, cl, ml, fl.oz, fl oz, Ð³, Ð¼Ð³, ÐºÐ³, Ð», Ð´Ð», ÐºÐ», Ð¼Ð», æ¯«å…‹, å…¬æ–¤, æ¯«å‡, å…¬å‡, å¨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
@@ -842,9 +842,9 @@
   "@nutrition_page_serving_size_explanation_bad_example3_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_invalid_number": "Neplatné číslo",
-  "nutrition_page_update_running": "Aktualizácia produktu na serveri…",
-  "nutrition_page_update_done": "Produkt bol aktualizovaný!",
+  "nutrition_page_invalid_number": "NeplatnÃ© ÄÃ­slo",
+  "nutrition_page_update_running": "AktualizÃ¡cia produktu na serveriâ€¦",
+  "nutrition_page_update_done": "Produkt bol aktualizovanÃ½!",
   "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
@@ -853,19 +853,19 @@
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
-  "more_photos": "Viac zaujímavých fotiek",
+  "more_photos": "Viac zaujÃ­mavÃ½ch fotiek",
   "@more_photos": {},
-  "view_more_photo_button": "Zobraziť všetky existujúce fotografie tohto produktu",
+  "view_more_photo_button": "ZobraziÅ¥ vÅ¡etky existujÃºce fotografie tohto produktu",
   "@view_more_photo_button": {},
-  "no_product_found": "Neboli nájdené žiadne výrobky",
+  "no_product_found": "Neboli nÃ¡jdenÃ© Å¾iadne vÃ½robky",
   "@no_product_found": {},
   "no_location_found": "No location found",
-  "not_found": "nenájdené:",
+  "not_found": "nenÃ¡jdenÃ©:",
   "refreshing_product": "Obnovuje sa produkt",
   "@refreshing_product": {
     "description": "Confirmation, that the product data of a cached product is queried again"
   },
-  "product_refreshed": "Produkt bol obnovený",
+  "product_refreshed": "Produkt bol obnovenÃ½",
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
@@ -917,7 +917,7 @@
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "Odfotiť",
+  "product_image_action_take_picture": "OdfotiÅ¥",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -937,7 +937,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "Prispievateľ",
+  "product_image_details_contributor": "PrispievateÄ¾",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -945,15 +945,15 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Dátum",
+  "product_image_details_date": "DÃ¡tum",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
-  "product_image_details_date_unknown": "Neznámy",
+  "product_image_details_date_unknown": "NeznÃ¡my",
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
-  "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+  "homepage_main_card_logo_description": "Welcome to Openâ€¯Foodâ€¯Facts",
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
@@ -961,7 +961,7 @@
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Vyhľadajte produkt",
+  "homepage_main_card_search_field_hint": "VyhÄ¾adajte produkt",
   "homepage_main_card_search_field_tooltip": "Start search",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
@@ -975,16 +975,16 @@
       }
     }
   },
-  "tagline_app_review": "Páči sa vám aplikácia?",
-  "tagline_app_review_button_positive": "Milujem to! 😍",
-  "tagline_app_review_button_negative": "Naozaj nie…",
-  "tagline_app_review_button_later": "Opýtajte sa ma neskôr",
+  "tagline_app_review": "PÃ¡Äi sa vÃ¡m aplikÃ¡cia?",
+  "tagline_app_review_button_positive": "Milujem to! ðŸ˜",
+  "tagline_app_review_button_negative": "Naozaj nieâ€¦",
+  "tagline_app_review_button_later": "OpÃ½tajte sa ma neskÃ´r",
   "tagline_feed_news_button": "Know more",
-  "app_review_negative_modal_title": "Nepáči sa vám naša aplikácia?",
+  "app_review_negative_modal_title": "NepÃ¡Äi sa vÃ¡m naÅ¡a aplikÃ¡cia?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-  "app_review_negative_modal_positive_button": "Áno, jednoznačne!",
+  "app_review_negative_modal_positive_button": "Ãno, jednoznaÄne!",
   "app_review_negative_modal_negative_button": "Nie",
-  "could_not_refresh": "Produkt sa nepodarilo obnoviť",
+  "could_not_refresh": "Produkt sa nepodarilo obnoviÅ¥",
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
@@ -1028,13 +1028,13 @@
       }
     }
   },
-  "product_internet_error": "Nie je možné získať informácie o tomto produkte kvôli chybe siete.",
-  "cached_results_from": "Zobraziť výsledky z:",
+  "product_internet_error": "Nie je moÅ¾nÃ© zÃ­skaÅ¥ informÃ¡cie o tomto produkte kvÃ´li chybe siete.",
+  "cached_results_from": "ZobraziÅ¥ vÃ½sledky z:",
   "@cached_results_from": {
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Porovnajte s kategóriou",
+  "product_search_same_category": "Porovnajte s kategÃ³riou",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1046,31 +1046,31 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Pridajte kategóriu na výpočet Nutri-Score.",
+  "product_improvement_add_category": "Pridajte kategÃ³riu na vÃ½poÄet Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Pridajte výživové údaje na výpočet Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Pridajte vÃ½Å¾ivovÃ© Ãºdaje na vÃ½poÄet Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Pridajte výživové údaje a kategóriu na výpočet Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "Pridajte vÃ½Å¾ivovÃ© Ãºdaje a kategÃ³riu na vÃ½poÄet Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Nutri-score pre tento produkt sa nedá vypočítať, čo môže byť spôsobené napr. neštandardnou kategóriou. Ak to považujete za chybu, kontaktujte nás.",
+  "product_improvement_categories_but_no_nutriscore": "Nutri-score pre tento produkt sa nedÃ¡ vypoÄÃ­taÅ¥, Äo mÃ´Å¾e byÅ¥ spÃ´sobenÃ© napr. neÅ¡tandardnou kategÃ³riou. Ak to povaÅ¾ujete za chybu, kontaktujte nÃ¡s.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
-  "product_improvement_obsolete_nutrition_image": "Výživový obrázok je zastaraný: obnovte ho.",
+  "product_improvement_obsolete_nutrition_image": "VÃ½Å¾ivovÃ½ obrÃ¡zok je zastaranÃ½: obnovte ho.",
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+  "product_improvement_origins_to_be_completed": "The Greenâ€¯Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
-  "country_chooser_label": "Prosím vyberte si krajinu",
+  "country_chooser_label": "ProsÃ­m vyberte si krajinu",
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
@@ -1104,102 +1104,102 @@
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Niektoré vlastnosti prostredia sú špecifické pre danú lokalitu",
+  "country_selection_explanation": "NiektorÃ© vlastnosti prostredia sÃº Å¡pecifickÃ© pre danÃº lokalitu",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
-  "product_removed_comparison": "Produkt bol odstránený z porovnania",
+  "product_removed_comparison": "Produkt bol odstrÃ¡nenÃ½ z porovnania",
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
-  "native_app_settings": "Nastavenia natívnej aplikácie",
+  "native_app_settings": "Nastavenia natÃ­vnej aplikÃ¡cie",
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
-  "native_app_description": "Nastavenia otvorených systémov pre Open Food Facts",
+  "native_app_description": "Nastavenia otvorenÃ½ch systÃ©mov pre Open Food Facts",
   "@native_app_description": {
     "description": "Native App description in app settings"
   },
-  "product_removed_history": "Produkt bol odstránený z histórie",
+  "product_removed_history": "Produkt bol odstrÃ¡nenÃ½ z histÃ³rie",
   "@product_removed_history": {
     "description": "Product got removed from history"
   },
-  "product_removed_list": "Produkt odstránený zo zoznamu",
+  "product_removed_list": "Produkt odstrÃ¡nenÃ½ zo zoznamu",
   "@product_removed_list": {
     "description": "Product got removed from list"
   },
-  "product_could_not_remove": "Produkt sa nepodarilo odstrániť",
+  "product_could_not_remove": "Produkt sa nepodarilo odstrÃ¡niÅ¥",
   "@product_could_not_remove": {
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "V tomto zozname nie je žiadny produkt",
-  "no_product_in_section": "V tejto sekcii nie je žiadny produkt",
-  "recently_seen_products": "Všetky prezerané produkty",
-  "clear": "Vymazať",
+  "no_prodcut_in_list": "V tomto zozname nie je Å¾iadny produkt",
+  "no_product_in_section": "V tejto sekcii nie je Å¾iadny produkt",
+  "recently_seen_products": "VÅ¡etky prezeranÃ© produkty",
+  "clear": "VymazaÅ¥",
   "@clear": {
     "description": "Clears a product list (short label)"
   },
-  "clear_long": "Vyprázdnite zoznam",
+  "clear_long": "VyprÃ¡zdnite zoznam",
   "@clear_long": {
     "description": "Clears a product list (long label)"
   },
-  "really_clear": "Naozaj chcete odstrániť tento zoznam?",
+  "really_clear": "Naozaj chcete odstrÃ¡niÅ¥ tento zoznam?",
   "@Plural": {},
   "pct_match": "{percent}% zhoda",
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
-      "percent": {}
+      "percent": {"type": "Object"}
     }
   },
   "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "compare_products_mode": "Compare selected products",
@@ -1218,7 +1218,7 @@
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
-  "compare_products_appbar_title": "Porovnať výrobky",
+  "compare_products_appbar_title": "PorovnaÅ¥ vÃ½robky",
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
@@ -1226,7 +1226,7 @@
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
-  "retry_button_label": "Skúsiť znova",
+  "retry_button_label": "SkÃºsiÅ¥ znova",
   "connect_with_us": "Connect with us",
   "tiktok": "Follow us on TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
@@ -1353,12 +1353,12 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "Welcome !",
+  "onboarding_home_welcome_text1": "Welcomeâ€¯!",
   "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
-  "onboarding_continue_button": "Pokračovať",
+  "onboarding_continue_button": "PokraÄovaÅ¥",
   "onboarding_welcome_loading_dialog_title": "Loading your first example product",
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
@@ -1383,14 +1383,14 @@
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "loading_dialog_default_title": "Downloading data",
@@ -1417,8 +1417,8 @@
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Openâ€¯Foodâ€¯Facts community",
+  "user_profile_title_id_email": "Openâ€¯Foodâ€¯Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1440,7 +1440,7 @@
   "@email_subject_account_deletion": {
     "description": "Email subject for an account deletion"
   },
-  "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+  "email_body_account_deletion": "Hi there, please delete my Openâ€¯Foodâ€¯Facts account: {userId}",
   "@email_body_account_deletion": {
     "description": "Email body for an account deletion",
     "placeholders": {
@@ -1449,19 +1449,19 @@
       }
     }
   },
-  "settings_app_app": "Aplikácia",
-  "settings_app_data": "Súkromie a monitorovanie",
-  "settings_app_camera": "Fotoaparát",
-  "settings_app_products": "Výrobky",
-  "settings_app_miscellaneous": "Rôzne",
+  "settings_app_app": "AplikÃ¡cia",
+  "settings_app_data": "SÃºkromie a monitorovanie",
+  "settings_app_camera": "FotoaparÃ¡t",
+  "settings_app_products": "VÃ½robky",
+  "settings_app_miscellaneous": "RÃ´zne",
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
   },
-  "camera_play_sound_title": "Prehrať zvuk pri skenovaní",
+  "camera_play_sound_title": "PrehraÅ¥ zvuk pri skenovanÃ­",
   "@camera_play_sound_title": {
     "description": "Title for the Camera play sound toggle"
   },
-  "camera_play_sound_subtitle": "Pri každom úspešnom skenovaní pípne",
+  "camera_play_sound_subtitle": "Pri kaÅ¾dom ÃºspeÅ¡nom skenovanÃ­ pÃ­pne",
   "@camera_play_sound_subtitle": {
     "description": "SubTitle for the Camera play sound toggle"
   },
@@ -1469,31 +1469,31 @@
   "@camera_window_accessibility_label": {
     "description": "Accessibility label for the camera window"
   },
-  "app_haptic_feedback_title": "Vibrácie a haptika",
+  "app_haptic_feedback_title": "VibrÃ¡cie a haptika",
   "@app_haptic_feedback_title": {
     "description": "Title for the Haptic feedback toggle"
   },
-  "app_haptic_feedback_subtitle": "Vibrácie po vykonaní niektorých akcií (čiarový kód dekódovaný, produkt odstránený…).",
+  "app_haptic_feedback_subtitle": "VibrÃ¡cie po vykonanÃ­ niektorÃ½ch akciÃ­ (ÄiarovÃ½ kÃ³d dekÃ³dovanÃ½, produkt odstrÃ¡nenÃ½â€¦).",
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
-  "crash_reporting_toggle_title": "Hlásenie o zlyhaní",
+  "crash_reporting_toggle_title": "HlÃ¡senie o zlyhanÃ­",
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
-  "crash_reporting_toggle_subtitle": "Keď je táto možnosť povolená, správy o zlyhaní sa automaticky odosielajú do systému sledovania chýb Open Food Facts, aby bolo možné opraviť chyby a vylepšiť tak aplikáciu.",
+  "crash_reporting_toggle_subtitle": "KeÄ je tÃ¡to moÅ¾nosÅ¥ povolenÃ¡, sprÃ¡vy o zlyhanÃ­ sa automaticky odosielajÃº do systÃ©mu sledovania chÃ½b Open Food Facts, aby bolo moÅ¾nÃ© opraviÅ¥ chyby a vylepÅ¡iÅ¥ tak aplikÃ¡ciu.",
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
-  "send_anonymous_data_toggle_title": "Posielajte anonymné údaje",
+  "send_anonymous_data_toggle_title": "Posielajte anonymnÃ© Ãºdaje",
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
-  "send_anonymous_data_toggle_subtitle": "Keď je táto možnosť povolená, na servery Open Food Facts sa budú odosielať niektoré anonymné informácie o používaní aplikácie, aby sme pochopili, ako a koľko funkcií sa používa na ich zlepšenie.",
+  "send_anonymous_data_toggle_subtitle": "KeÄ je tÃ¡to moÅ¾nosÅ¥ povolenÃ¡, na servery Open Food Facts sa budÃº odosielaÅ¥ niektorÃ© anonymnÃ© informÃ¡cie o pouÅ¾Ã­vanÃ­ aplikÃ¡cie, aby sme pochopili, ako a koÄ¾ko funkciÃ­ sa pouÅ¾Ã­va na ich zlepÅ¡enie.",
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
-  "product_edit_photo_title": "Upraviť fotografiu",
+  "product_edit_photo_title": "UpraviÅ¥ fotografiu",
   "@product_edit_photo_title": {
     "description": "Toolbar Title while editing a photo (Android only)"
   },
@@ -1501,8 +1501,8 @@
   "@permission_photo_error": {
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
-  "permission_photo_denied_title": "Povoliť používanie fotoaparátu na skenovanie čiarových kódov",
-  "permission_photo_denied_message": "Pre lepší zážitok povoľte {appName} prístup k vašej kamere. Budete môcť priamo skenovať čiarové kódy.",
+  "permission_photo_denied_title": "PovoliÅ¥ pouÅ¾Ã­vanie fotoaparÃ¡tu na skenovanie ÄiarovÃ½ch kÃ³dov",
+  "permission_photo_denied_message": "Pre lepÅ¡Ã­ zÃ¡Å¾itok povoÄ¾te {appName} prÃ­stup k vaÅ¡ej kamere. Budete mÃ´cÅ¥ priamo skenovaÅ¥ ÄiarovÃ© kÃ³dy.",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
     "placeholders": {
@@ -1511,19 +1511,19 @@
       }
     }
   },
-  "permission_photo_denied_button": "Povoliť",
+  "permission_photo_denied_button": "PovoliÅ¥",
   "@permission_photo_denied_button": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "permission_photo_denied_dialog_settings_title": "Povolenie zamietnuté",
-  "permission_photo_denied_dialog_settings_message": "Keďže ste predtým odmietli povolenie fotoaparátu, musíte ho povoliť manuálne v Nastaveniach.",
+  "permission_photo_denied_dialog_settings_title": "Povolenie zamietnutÃ©",
+  "permission_photo_denied_dialog_settings_message": "KeÄÅ¾e ste predtÃ½m odmietli povolenie fotoaparÃ¡tu, musÃ­te ho povoliÅ¥ manuÃ¡lne v Nastaveniach.",
   "permission_photo_denied_dialog_settings_button_open": "Open Settings",
-  "permission_photo_denied_dialog_settings_button_cancel": "Zrušiť",
-  "permission_photo_none_found": "Nebola rozpoznaná žiadna kamera",
+  "permission_photo_denied_dialog_settings_button_cancel": "ZruÅ¡iÅ¥",
+  "permission_photo_none_found": "Nebola rozpoznanÃ¡ Å¾iadna kamera",
   "@permission_photo_none_found": {
     "description": "Message for the user when no camera was detected, replacing the barcode scanner"
   },
-  "permission_photo_denied": "Nie je povolený prístup k fotoaparátu",
+  "permission_photo_denied": "Nie je povolenÃ½ prÃ­stup k fotoaparÃ¡tu",
   "@permission_photo_denied": {
     "description": "When the camera/photo permission is denied by user"
   },
@@ -1531,11 +1531,11 @@
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
-  "edit_product_label": "Upraviť výrobok",
+  "edit_product_label": "UpraviÅ¥ vÃ½robok",
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
@@ -1547,7 +1547,7 @@
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_label_short": "Upraviť",
+  "edit_product_label_short": "UpraviÅ¥",
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
@@ -1600,19 +1600,19 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
-  "edit_product_form_item_details_title": "Základné detaily",
+  "edit_product_form_item_details_title": "ZÃ¡kladnÃ© detaily",
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
   },
-  "edit_product_form_item_details_subtitle": "Názov produktu, značka, množstvo",
+  "edit_product_form_item_details_subtitle": "NÃ¡zov produktu, znaÄka, mnoÅ¾stvo",
   "@edit_product_form_item_details_subtitle": {
     "description": "Product edition - Basic Details - Subtitle"
   },
-  "edit_product_form_item_other_details_title": "Ďalšie podrobnosti",
+  "edit_product_form_item_other_details_title": "ÄŽalÅ¡ie podrobnosti",
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Webová stránka…",
+  "edit_product_form_item_other_details_subtitle": "WebovÃ¡ strÃ¡nkaâ€¦",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
@@ -1624,11 +1624,11 @@
   "@edit_product_form_item_photos_subtitle": {
     "description": "Product edition - Photos - SubTitle"
   },
-  "edit_product_form_item_labels_title": "Štítky a certifikácie",
+  "edit_product_form_item_labels_title": "Å tÃ­tky a certifikÃ¡cie",
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
+  "edit_product_form_item_labels_subtitle": "Environmental, Quality labelsâ€¦",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
@@ -1636,7 +1636,7 @@
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
-  "edit_product_form_item_labels_type": "Štítok",
+  "edit_product_form_item_labels_type": "Å tÃ­tok",
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
@@ -1648,23 +1648,23 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVAâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittanyâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000…",
+  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000â€¦",
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of ironâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaarâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1700,7 +1700,7 @@
   "@edit_product_form_item_stores_explanation_good_examples_3": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_origins_title": "Pôvod",
+  "edit_product_form_item_origins_title": "PÃ´vod",
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
@@ -1752,11 +1752,11 @@
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522â€¦)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
-  "edit_product_form_item_emb_codes_type": "kód vysledovateľnosti",
+  "edit_product_form_item_emb_codes_type": "kÃ³d vysledovateÄ¾nosti",
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
@@ -1770,7 +1770,7 @@
   },
   "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
   "@edit_product_form_item_emb_help_info2_title": {
-    "description": "Explanation about EMB/EC… codes"
+    "description": "Explanation about EMB/ECâ€¦ codes"
   },
   "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
@@ -1792,11 +1792,11 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_categories_title": "Kategórie",
+  "edit_product_form_item_categories_title": "KategÃ³rie",
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
   },
-  "edit_product_form_item_categories_hint": "Kategória",
+  "edit_product_form_item_categories_hint": "KategÃ³ria",
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
@@ -1816,7 +1816,7 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Openâ€¯Foodâ€¯Facts in your country.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
@@ -1829,9 +1829,9 @@
     "description": "Product edition - Categories - input explainer, part 3"
   },
   "edit_product_form_item_exit_title": "Quit without saving?",
-  "edit_product_form_item_exit_confirmation": "Chcete uložiť zmeny pred opustením tejto stránky?",
-  "edit_product_form_item_exit_confirmation_positive_button": "Uložiť zmeny",
-  "edit_product_form_item_exit_confirmation_negative_button": "Zrušiť zmeny",
+  "edit_product_form_item_exit_confirmation": "Chcete uloÅ¾iÅ¥ zmeny pred opustenÃ­m tejto strÃ¡nky?",
+  "edit_product_form_item_exit_confirmation_positive_button": "UloÅ¾iÅ¥ zmeny",
+  "edit_product_form_item_exit_confirmation_negative_button": "ZruÅ¡iÅ¥ zmeny",
   "edit_product_form_item_ingredients_title": "Ingrediencie",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
@@ -1848,7 +1848,7 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
-  "edit_product_form_item_add_valid_item_tooltip": "Pridať",
+  "edit_product_form_item_add_valid_item_tooltip": "PridaÅ¥",
   "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
   "edit_product_form_item_remove_item_tooltip": "Remove",
   "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
@@ -1863,11 +1863,11 @@
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "Nutričné hodnoty",
+  "edit_product_form_item_nutrition_facts_title": "NutriÄnÃ© hodnoty",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
-  "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
+  "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol contentâ€¦",
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
@@ -1883,7 +1883,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "Nutričné hodnoty",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "NutriÄnÃ© hodnoty",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1895,15 +1895,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesiumâ€¦).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_save": "Upraviť",
+  "edit_product_form_save": "UpraviÅ¥",
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
-  "edit_product_ingredients_photo_title": "Fotografia ingrediencií",
+  "edit_product_ingredients_photo_title": "Fotografia ingredienciÃ­",
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -1933,12 +1933,12 @@
   },
   "completed_basic_details_btn_text": "Complete basic details",
   "not_implemented_snackbar_text": "Not implemented yet",
-  "category_picker_page_appbar_text": "Kategórie",
+  "category_picker_page_appbar_text": "KategÃ³rie",
   "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
-  "edit_ingredients_extract_ingredients_btn_text_short": "Rozpoznať zložky",
+  "edit_ingredients_extract_ingredients_btn_text_short": "RozpoznaÅ¥ zloÅ¾ky",
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
@@ -1946,7 +1946,7 @@
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
-  "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+  "edit_ingredients_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_ingredients_loading_photo_btn_text": {
     "description": "Ingredients edition - Loading photo from the server"
   },
@@ -1974,7 +1974,7 @@
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
-  "edit_packaging_loading_photo_btn_text": "Loading photo…",
+  "edit_packaging_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_packaging_loading_photo_btn_text": {
     "description": "Packaging edition - Loading photo from the server"
   },
@@ -2014,7 +2014,7 @@
   "@user_list_subtitle_product": {
     "description": "Subtitle of a paragraph about user lists in a product context"
   },
-  "user_list_title": "Vaše zoznamy",
+  "user_list_title": "VaÅ¡e zoznamy",
   "@user_list_title": {
     "description": "Label for the user lists (when the user wants to add a product to a list)"
   },
@@ -2107,7 +2107,7 @@
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "category_picker_no_category_found_button": "Späť",
+  "category_picker_no_category_found_button": "SpÃ¤Å¥",
   "@category_picker_no_category_found_button": {
     "description": "Button label when no category is available"
   },
@@ -2180,7 +2180,7 @@
   "@dev_preferences_export_history_progress_not_found": {
     "description": "User dev preferences - Export history - Item - Not found"
   },
-  "dev_preferences_export_history_dialog_title": "História exportu",
+  "dev_preferences_export_history_dialog_title": "HistÃ³ria exportu",
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
@@ -2188,11 +2188,11 @@
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
-  "dev_preferences_button_negative": "Zrušiť",
+  "dev_preferences_button_negative": "ZruÅ¡iÅ¥",
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
-  "dev_preferences_migration_title": "Migrácia dát z V1",
+  "dev_preferences_migration_title": "MigrÃ¡cia dÃ¡t z V1",
   "dev_preferences_migration_subtitle": "Stav: {status}",
   "@dev_preferences_migration_subtitle": {
     "placeholders": {
@@ -2204,10 +2204,10 @@
   "dev_preferences_migration_status_already_done": "success or fresh install",
   "dev_preferences_migration_status_success": "success",
   "dev_preferences_migration_status_error": "chyba",
-  "dev_preferences_migration_status_in_progress": "rozpracované",
-  "dev_preferences_migration_status_required": "požadované (kliknutím spustíte)",
-  "dev_preferences_migration_status_not_started": "neznámy",
-  "dev_preferences_import_history_subtitle": "Vymaže históriu a vloží tam 3 produkty",
+  "dev_preferences_migration_status_in_progress": "rozpracovanÃ©",
+  "dev_preferences_migration_status_required": "poÅ¾adovanÃ© (kliknutÃ­m spustÃ­te)",
+  "dev_preferences_migration_status_not_started": "neznÃ¡my",
+  "dev_preferences_import_history_subtitle": "VymaÅ¾e histÃ³riu a vloÅ¾Ã­ tam 3 produkty",
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
@@ -2255,8 +2255,8 @@
       }
     }
   },
-  "prices_app_dev_mode_flag": "Odkaz na aplikáciu Ceny na stránke produktu",
-  "prices_app_button": "Prejdite do aplikácie Ceny",
+  "prices_app_dev_mode_flag": "Odkaz na aplikÃ¡ciu Ceny na strÃ¡nke produktu",
+  "prices_app_button": "Prejdite do aplikÃ¡cie Ceny",
   "prices_generic_title": "Prices",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
@@ -2273,7 +2273,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Výrobok sa nenašiel",
+  "prices_barcode_search_not_found": "VÃ½robok sa nenaÅ¡iel",
   "prices_barcode_search_none_yet": "No product yet",
   "prices_barcode_search_running": "Looking for {barcode}",
   "@prices_barcode_search_running": {
@@ -2291,9 +2291,7 @@
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "product": {
         "type": "String"
       }
@@ -2303,9 +2301,7 @@
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
@@ -2355,10 +2351,9 @@
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
+      "count": {"type": "int"}
       }
-    }
+    
   },
   "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
   "@prices_proofs_list_length_many_pages": {
@@ -2400,55 +2395,48 @@
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
+      "count": {"type": "int"}
       }
-    }
+    
   },
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
   "prices_amount_price_normal": "Cena",
-  "prices_amount_price_discounted": "Zvýhodnená cena",
+  "prices_amount_price_discounted": "ZvÃ½hodnenÃ¡ cena",
   "prices_amount_price_not_discounted": "Original price",
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
   "prices_currency_subtitle": "Mena",
-  "prices_date_subtitle": "Dátum",
+  "prices_date_subtitle": "DÃ¡tum",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
   "prices_proof_find": "Select a proof",
-  "prices_proof_receipt": "Účtenka",
+  "prices_proof_receipt": "ÃšÄtenka",
   "prices_proof_price_tag": "Price tag",
   "prices_proof_mandatory": "You need to select a proof!",
   "prices_add_validation_error": "Validation error",
@@ -2502,15 +2490,15 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Údaje",
+  "dev_mode_section_data": "Ãšdaje",
   "dev_mode_section_experimental_features": "Experimental features",
   "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
   "@dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
-  "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+  "dev_mode_hide_environmental_score_title": "Exclude Greenâ€¯Score",
   "@dev_mode_hide_environmental_score_title": {
-    "description": "User dev preferences - Disable Green Score - Title"
+    "description": "User dev preferences - Disable Greenâ€¯Score - Title"
   },
   "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
   "@dev_mode_spellchecker_for_ocr_title": {
@@ -2520,11 +2508,11 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
-  "search_history_item_edit_tooltip": "Opätovne použite a upravte toto vyhľadávanie",
+  "search_history_item_edit_tooltip": "OpÃ¤tovne pouÅ¾ite a upravte toto vyhÄ¾adÃ¡vanie",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
-  "product_search_no_more_results": "Stiahli ste si všetky {totalSize} produkty.",
+  "product_search_no_more_results": "Stiahli ste si vÅ¡etky {totalSize} produkty.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
     "placeholders": {
@@ -2533,13 +2521,11 @@
       }
     }
   },
-  "product_search_button_download_more": "Stiahnuť {count} viac produktov\nUž stiahnuté {downloaded} z {totalSize}.",
+  "product_search_button_download_more": "StiahnuÅ¥ {count} viac produktov\nUÅ¾ stiahnutÃ© {downloaded} z {totalSize}.",
   "@product_search_button_download_more": {
     "description": "Product search list - Button to download more results",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "downloaded": {
         "type": "int"
       },
@@ -2548,26 +2534,26 @@
       }
     }
   },
-  "product_search_loading_message": "Vaše vyhľadávanie {search} práve prebieha.\n\nPočkajte prosím niekoľko sekúnd…",
+  "product_search_loading_message": "VaÅ¡e vyhÄ¾adÃ¡vanie {search} prÃ¡ve prebieha.\n\nPoÄkajte prosÃ­m niekoÄ¾ko sekÃºndâ€¦",
   "@product_search_loading_message": {
     "description": "This message will be displayed when a search is in progress.",
     "search": {
       "type": "String"
     }
   },
-  "user_search_contributor_title": "Produkty, ktoré som pridal",
+  "user_search_contributor_title": "Produkty, ktorÃ© som pridal",
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
-  "user_search_informer_title": "Produkty, ktoré som upravoval",
+  "user_search_informer_title": "Produkty, ktorÃ© som upravoval",
   "@user_search_informer_title": {
     "description": "User search (informer): list tile title"
   },
-  "user_search_photographer_title": "Produkty, ktoré som nafotil",
+  "user_search_photographer_title": "Produkty, ktorÃ© som nafotil",
   "@user_search_photographer_title": {
     "description": "User search (photographer): list tile title"
   },
-  "user_search_to_be_completed_title": "Moje produkty, ktoré sa majú dokončiť",
+  "user_search_to_be_completed_title": "Moje produkty, ktorÃ© sa majÃº dokonÄiÅ¥",
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
@@ -2608,7 +2594,7 @@
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
-  "all_search_to_be_completed_title": "Všetky produkty, ktoré sa majú dokončiť",
+  "all_search_to_be_completed_title": "VÅ¡etky produkty, ktorÃ© sa majÃº dokonÄiÅ¥",
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
@@ -2620,7 +2606,7 @@
   "@edit_product_action_retake_picture": {
     "description": "Product edition - FAB actions - retake a picture"
   },
-  "edit_product_action_take_picture": "Urobiť fotku",
+  "edit_product_action_take_picture": "UrobiÅ¥ fotku",
   "@edit_product_action_take_picture": {
     "description": "Product edition - FAB actions - take a picture"
   },
@@ -2628,11 +2614,11 @@
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "Súhlasím s Open Food Facts ",
+  "signup_page_terms_of_use_line1": "SÃºhlasÃ­m s Open Food Facts ",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
-  "signup_page_terms_of_use_line2": "podmienkami používania a prispievaním",
+  "signup_page_terms_of_use_line2": "podmienkami pouÅ¾Ã­vania a prispievanÃ­m",
   "@signup_page_terms_of_use_line2": {
     "description": "User consent for terms of use (line 2)"
   },
@@ -2640,7 +2626,7 @@
   "@analytics_consent_image_semantic_label": {
     "description": "Consent Analytics icon semantics label"
   },
-  "knowledge_panel_page_loading_error": "Závažná chyba: {error}",
+  "knowledge_panel_page_loading_error": "ZÃ¡vaÅ¾nÃ¡ chyba: {error}",
   "@knowledge_panel_page_loading_error": {
     "description": "Knowledge panel page template - Error while loading future",
     "placeholders": {
@@ -2649,7 +2635,7 @@
       }
     }
   },
-  "preferences_page_loading_error": "Závažná chyba: {error}",
+  "preferences_page_loading_error": "ZÃ¡vaÅ¾nÃ¡ chyba: {error}",
   "@preferences_page_loading_error": {
     "description": "Preferences page - Error while loading future",
     "placeholders": {
@@ -2662,15 +2648,15 @@
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
-  "edit_photo_button_label": "Upraviť",
+  "edit_photo_button_label": "UpraviÅ¥",
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
-  "edit_photo_unselect_button_label": "Zrušte výber fotografie",
+  "edit_photo_unselect_button_label": "ZruÅ¡te vÃ½ber fotografie",
   "@edit_photo_unselect_button_label": {
     "description": "Edit 'unselect photo' button label"
   },
-  "edit_photo_select_existing_button_label": "Vyberte existujúci obrázok",
+  "edit_photo_select_existing_button_label": "Vyberte existujÃºci obrÃ¡zok",
   "@edit_photo_select_existing_button_label": {
     "description": "Edit 'select existing image' button label"
   },
@@ -2682,28 +2668,28 @@
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_download_label": "Načítavanie existujúcich obrázkov…",
+  "edit_photo_select_existing_download_label": "NaÄÃ­tavanie existujÃºcich obrÃ¡zkovâ€¦",
   "@edit_photo_select_existing_download_label": {
     "description": "Dialog label"
   },
-  "edit_photo_select_existing_downloaded_none": "Neexistujú žiadne predtým nahrané obrázky súvisiace s týmto produktom.",
+  "edit_photo_select_existing_downloaded_none": "NeexistujÃº Å¾iadne predtÃ½m nahranÃ© obrÃ¡zky sÃºvisiace s tÃ½mto produktom.",
   "@edit_photo_select_existing_downloaded_none": {
     "description": "Error message"
   },
-  "edit_photo_language_not_this_one": "Zatiaľ žiadny obrázok v tomto jazyku",
+  "edit_photo_language_not_this_one": "ZatiaÄ¾ Å¾iadny obrÃ¡zok v tomto jazyku",
   "@edit_photo_language_not_this_one": {
     "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
   },
-  "edit_photo_language_none": "Zatiaľ žiadny obrázok",
+  "edit_photo_language_none": "ZatiaÄ¾ Å¾iadny obrÃ¡zok",
   "@edit_photo_language_none": {
     "description": "Warning message: for this product and this field, there are no images at all, in any language"
   },
-  "category_picker_screen_title": "Kategórie",
+  "category_picker_screen_title": "KategÃ³rie",
   "@category_picker_screen_title": {
     "description": "Categories picker screen title"
   },
-  "basic_details": "Základné detaily",
-  "product_name": "Názov produktu",
+  "basic_details": "ZÃ¡kladnÃ© detaily",
+  "product_name": "NÃ¡zov produktu",
   "product_names": "Product Names",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
@@ -2764,11 +2750,11 @@
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols Â®, â„¢, Â© or similar",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**®**",
+  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**Â®**",
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
@@ -2776,14 +2762,12 @@
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
-  "brand_name": "Názov značky",
+  "brand_name": "NÃ¡zov znaÄky",
   "brand_names": "Brand names",
-  "add_basic_details_brand_name_error": "Zadajte názov značky",
+  "add_basic_details_brand_name_error": "Zadajte nÃ¡zov znaÄky",
   "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
   "add_basic_details_product_brand_help_title": "Good practices: Brands",
   "@add_basic_details_product_brand_help_title": {
@@ -2829,8 +2813,8 @@
   "@add_basic_details_product_brand_help_good_examples_2": {
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
-  "quantity": "Množstvo a hmotnosť",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+  "quantity": "MnoÅ¾stvo a hmotnosÅ¥",
+  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (egâ€¯: 4x100g)",
   "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
@@ -2851,8 +2835,8 @@
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "barcode": "Čiarový kód",
-  "barcode_barcode": "Čiarový kód: {barcode}",
+  "barcode": "ÄŒiarovÃ½ kÃ³d",
+  "barcode_barcode": "ÄŒiarovÃ½ kÃ³d: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
     "placeholders": {
@@ -2861,23 +2845,23 @@
       }
     }
   },
-  "barcode_invalid_error": "Neplatný čiarový kód",
-  "basic_details_add_success": "Základné podrobnosti boli úspešne pridané",
-  "basic_details_add_error": "Nie je možné pridať základné podrobnosti. Skúste to znova po nejakom čase",
+  "barcode_invalid_error": "NeplatnÃ½ ÄiarovÃ½ kÃ³d",
+  "basic_details_add_success": "ZÃ¡kladnÃ© podrobnosti boli ÃºspeÅ¡ne pridanÃ©",
+  "basic_details_add_error": "Nie je moÅ¾nÃ© pridaÅ¥ zÃ¡kladnÃ© podrobnosti. SkÃºste to znova po nejakom Äase",
   "@basic_details_add_error": {
     "description": "Error message when error occurs while submitting basic details"
   },
-  "clear_search": "Vymažte vyhľadávanie",
+  "clear_search": "VymaÅ¾te vyhÄ¾adÃ¡vanie",
   "@confirm_clearclear_search": {
     "description": "Tooltip to explain that the X button clears the content of the search"
   },
-  "confirm_clear": "Chystáte sa vymazať celú históriu. Naozaj chcete pokračovať?",
+  "confirm_clear": "ChystÃ¡te sa vymazaÅ¥ celÃº histÃ³riu. Naozaj chcete pokraÄovaÅ¥?",
   "@confirm_clear": {
     "description": "Asking about whether to clear the history list or not"
   },
-  "alert_clear_selected_user_list": "Chystáte sa vymazať vybraté položky z histórie",
-  "confirm_clear_selected_user_list": "Ste si istý, že chcete pokračovať?",
-  "alert_select_items_to_clear": "Vyberte jednu alebo viac položiek na vymazanie",
+  "alert_clear_selected_user_list": "ChystÃ¡te sa vymazaÅ¥ vybratÃ© poloÅ¾ky z histÃ³rie",
+  "confirm_clear_selected_user_list": "Ste si istÃ½, Å¾e chcete pokraÄovaÅ¥?",
+  "alert_select_items_to_clear": "Vyberte jednu alebo viac poloÅ¾iek na vymazanie",
   "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
   "@confirm_clear_user_list": {
     "description": "Asking about whether to clear the list or not",
@@ -2932,7 +2916,7 @@
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "add_list_label": "Add list",
@@ -2991,7 +2975,7 @@
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+  "share_product_text": "Have a look at this product on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3000,7 +2984,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Have a look at this product on Openâ€¯Beautyâ€¯Facts: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3009,7 +2993,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Have a look at this product on Openâ€¯PetFoodâ€¯Facts: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3018,7 +3002,7 @@
       }
     }
   },
-  "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+  "share_product_text_product": "Have a look at this product on Openâ€¯Productsâ€¯Facts: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3027,7 +3011,7 @@
       }
     }
   },
-  "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+  "share_product_list_text": "Have a look at my list of products on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_list_text": {
     "description": "The content which is send, when sharing a product list",
     "placeholders": {
@@ -3040,7 +3024,7 @@
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "Odfotiť",
+  "capture_new_picture": "OdfotiÅ¥",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
@@ -3138,12 +3122,12 @@
     "description": "Content for the dialog when no email client is installed on the device"
   },
   "all_images": "All Images",
-  "selected_images": "Vybrané obrázky",
-  "product_card_remove_product_tooltip": "Odstrániť výrobok",
+  "selected_images": "VybranÃ© obrÃ¡zky",
+  "product_card_remove_product_tooltip": "OdstrÃ¡niÅ¥ vÃ½robok",
   "@product_card_remove_product_tooltip": {
     "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
   },
-  "scan_announce_new_barcode": "Naskenovaný nový čiarový kód: {barcode}",
+  "scan_announce_new_barcode": "NaskenovanÃ½ novÃ½ ÄiarovÃ½ kÃ³d: {barcode}",
   "@scan_announce_new_barcode": {
     "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
     "placeholders": {
@@ -3157,47 +3141,47 @@
   "@scan_header_clear_button_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
   },
-  "scan_header_compare_button_invalid_state_tooltip": "Naskenujte aspoň dva produkty a porovnajte ich",
+  "scan_header_compare_button_invalid_state_tooltip": "Naskenujte aspoÅˆ dva produkty a porovnajte ich",
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
-  "scan_header_compare_button_valid_state_tooltip": "Kliknutím porovnajte produkty, ktoré ste naskenovali",
+  "scan_header_compare_button_valid_state_tooltip": "KliknutÃ­m porovnajte produkty, ktorÃ© ste naskenovali",
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
-  "scan_product_loading": "Naskenovali ste\nčiarový kód:",
+  "scan_product_loading": "Naskenovali ste\nÄiarovÃ½ kÃ³d:",
   "@scan_product_loading": {
     "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_initial": "Hľadáme tento produkt!\nPočkajte prosím niekoľko sekúnd…",
+  "scan_product_loading_initial": "HÄ¾adÃ¡me tento produkt!\nPoÄkajte prosÃ­m niekoÄ¾ko sekÃºndâ€¦",
   "@scan_product_loading_initial": {
     "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_long_request": "Tento produkt stále hľadáme!\nZdá sa vám, že načítanie trvá dlho? Aj my…",
+  "scan_product_loading_long_request": "Tento produkt stÃ¡le hÄ¾adÃ¡me!\nZdÃ¡ sa vÃ¡m, Å¾e naÄÃ­tanie trvÃ¡ dlho? Aj myâ€¦",
   "@scan_product_loading_long_request": {
     "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_unresponsive": "Tento produkt stále hľadáme.\nChcete reštartovať vyhľadávanie?",
+  "scan_product_loading_unresponsive": "Tento produkt stÃ¡le hÄ¾adÃ¡me.\nChcete reÅ¡tartovaÅ¥ vyhÄ¾adÃ¡vanie?",
   "@scan_product_loading_unresponsive": {
     "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_restart_button": "Reštartujte vyhľadávanie",
+  "scan_product_loading_restart_button": "ReÅ¡tartujte vyhÄ¾adÃ¡vanie",
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
-  "portion_calculator_description": "Vypočítajte výživové údaje pre konkrétne množstvo",
+  "portion_calculator_description": "VypoÄÃ­tajte vÃ½Å¾ivovÃ© Ãºdaje pre konkrÃ©tne mnoÅ¾stvo",
   "@portion_calculator_description": {
     "description": "Sort of title that describes the portion calculator."
   },
-  "portion_calculator_hint": "Množstvo v",
+  "portion_calculator_hint": "MnoÅ¾stvo v",
   "@portion_calculator_hint": {
     "description": "Hint to show when a quantity is empty in the portion calculator."
   },
-  "portion_calculator_accessibility": "Zadajte množstvo na výpočet výživových údajov",
+  "portion_calculator_accessibility": "Zadajte mnoÅ¾stvo na vÃ½poÄet vÃ½Å¾ivovÃ½ch Ãºdajov",
   "@portion_calculator_accessibility": {
     "description": "Hint for the acessibility to explain to enter a quantity."
   },
-  "portion_calculator_error": "Zadajte množstvo od {min} do {max} g",
+  "portion_calculator_error": "Zadajte mnoÅ¾stvo od {min} do {max} g",
   "@portion_calculator_error": {
     "description": "Error message to explain that the quantity is invalid.",
     "placeholders": {
@@ -3213,7 +3197,7 @@
   "@portion_calculator_computation_error": {
     "description": "Error message to explain that the computation of the portion calculator failed."
   },
-  "portion_calculator_result_title": "Výživové údaje pre {grams} g (alebo ml)",
+  "portion_calculator_result_title": "VÃ½Å¾ivovÃ© Ãºdaje pre {grams} g (alebo ml)",
   "@portion_calculator_result_title": {
     "description": "Title of the results of the portion calculator.",
     "placeholders": {
@@ -3222,15 +3206,15 @@
       }
     }
   },
-  "offline_data": "Údaje v režime offline",
+  "offline_data": "Ãšdaje v reÅ¾ime offline",
   "@offline_data": {
     "description": "App bar title for the offline data page"
   },
-  "ocr_image_upload_instruction": "Nahrajte obrázok, aby sa automaticky extrahovali informácie, ktoré obsahuje.",
+  "ocr_image_upload_instruction": "Nahrajte obrÃ¡zok, aby sa automaticky extrahovali informÃ¡cie, ktorÃ© obsahuje.",
   "@ocr_image_upload_instruction": {
     "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
   },
-  "upload_image": "Nahrať fotografiu",
+  "upload_image": "NahraÅ¥ fotografiu",
   "@upload_image": {
     "description": "Message shown on asking to upload image"
   },
@@ -3242,15 +3226,15 @@
   "@word_separator": {
     "description": "Word separator string. In English, this is a comma followed by a space: ', '"
   },
-  "image_download_error": "Obrázok sa nepodarilo stiahnuť",
+  "image_download_error": "ObrÃ¡zok sa nepodarilo stiahnuÅ¥",
   "@image_download_error": {
     "description": "Error message, when image download fails"
   },
-  "image_edit_url_error": "Obrázok sa nepodarilo upraviť, pretože adresa URL obrázka nebola nastavená.",
+  "image_edit_url_error": "ObrÃ¡zok sa nepodarilo upraviÅ¥, pretoÅ¾e adresa URL obrÃ¡zka nebola nastavenÃ¡.",
   "@image_edit_url_error": {
     "description": "Error message, when editing image fails, due to missing url."
   },
-  "user_picture_source_remember": "Zapamätať si voľbu",
+  "user_picture_source_remember": "ZapamÃ¤taÅ¥ si voÄ¾bu",
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
@@ -3258,7 +3242,7 @@
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
-  "robotoff_continue": "Pokračovať",
+  "robotoff_continue": "PokraÄovaÅ¥",
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
@@ -3266,10 +3250,10 @@
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "show_password": "Zobraziť heslo",
+  "show_password": "ZobraziÅ¥ heslo",
   "@show_password": {
     "description": "Show hidden password in password field"
   },
@@ -3297,8 +3281,8 @@
   "@edit_packagings_element_add": {
     "description": "Button label"
   },
-  "edit_packagings_completed": "Balenie je kompletné",
-  "edit_packagings_element_title": "Zložka obalu #{index}",
+  "edit_packagings_completed": "Balenie je kompletnÃ©",
+  "edit_packagings_element_title": "ZloÅ¾ka obalu #{index}",
   "@edit_packagings_element_title": {
     "description": "Element title. Please do not change the index placeholder",
     "placeholders": {
@@ -3307,11 +3291,11 @@
       }
     }
   },
-  "edit_packagings_element_field_units": "Počet jednotiek",
+  "edit_packagings_element_field_units": "PoÄet jednotiek",
   "@edit_packagings_element_field_units": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_units": "Zadajte počet baliacich jednotiek rovnakého tvaru a materiálu obsiahnutých vo výrobku.",
+  "edit_packagings_element_hint_units": "Zadajte poÄet baliacich jednotiek rovnakÃ©ho tvaru a materiÃ¡lu obsiahnutÃ½ch vo vÃ½robku.",
   "@edit_packagings_element_hint_units": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3319,11 +3303,11 @@
   "@edit_packagings_element_field_shape": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_shape": "Zadajte názov tvaru uvedený v pokynoch na recykláciu, ak sú k dispozícii, alebo vyberte tvar.",
+  "edit_packagings_element_hint_shape": "Zadajte nÃ¡zov tvaru uvedenÃ½ v pokynoch na recyklÃ¡ciu, ak sÃº k dispozÃ­cii, alebo vyberte tvar.",
   "@edit_packagings_element_hint_shape": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_shape": "Fľaša",
+  "edit_packagings_element_example_shape": "FÄ¾aÅ¡a",
   "@edit_packagings_element_example_shape": {
     "description": "Text field hint"
   },
@@ -3331,7 +3315,7 @@
   "@edit_packagings_element_field_material": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_material": "Zadajte konkrétny materiál, ak ho možno určiť (kód materiálu vo vnútri trojuholníka možno často nájsť na častiach balenia), alebo všeobecný materiál (napríklad plast alebo kov), ak si nie ste istí.",
+  "edit_packagings_element_hint_material": "Zadajte konkrÃ©tny materiÃ¡l, ak ho moÅ¾no urÄiÅ¥ (kÃ³d materiÃ¡lu vo vnÃºtri trojuholnÃ­ka moÅ¾no Äasto nÃ¡jsÅ¥ na Äastiach balenia), alebo vÅ¡eobecnÃ½ materiÃ¡l (naprÃ­klad plast alebo kov), ak si nie ste istÃ­.",
   "@edit_packagings_element_hint_material": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3339,27 +3323,27 @@
   "@edit_packagings_element_example_material": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_recycling": "Návod na recykláciu",
+  "edit_packagings_element_field_recycling": "NÃ¡vod na recyklÃ¡ciu",
   "@edit_packagings_element_field_recycling": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_recycling": "Pokyny na recykláciu zadávajte iba vtedy, ak sú uvedené na produkte.",
+  "edit_packagings_element_hint_recycling": "Pokyny na recyklÃ¡ciu zadÃ¡vajte iba vtedy, ak sÃº uvedenÃ© na produkte.",
   "@edit_packagings_element_hint_recycling": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_recycling": "Recyklovať",
+  "edit_packagings_element_example_recycling": "RecyklovaÅ¥",
   "@edit_packagings_element_example_recycling": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_quantity": "Čisté množstvo produktu na jednotku",
+  "edit_packagings_element_field_quantity": "ÄŒistÃ© mnoÅ¾stvo produktu na jednotku",
   "@edit_packagings_element_field_quantity": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_quantity": "Zadajte čistú hmotnosť alebo čistý objem a uveďte jednotku (napríklad g alebo ml).",
+  "edit_packagings_element_hint_quantity": "Zadajte ÄistÃº hmotnosÅ¥ alebo ÄistÃ½ objem a uveÄte jednotku (naprÃ­klad g alebo ml).",
   "@edit_packagings_element_hint_quantity": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_field_weight": "Hmotnosť jednej prázdnej jednotky (g)",
+  "edit_packagings_element_field_weight": "HmotnosÅ¥ jednej prÃ¡zdnej jednotky (g)",
   "@edit_packagings_element_field_weight": {
     "description": "Field label"
   },
@@ -3410,7 +3394,7 @@
   },
   "color_light_brown": "Default",
   "@color_light_brown": {
-    "description": "Color Light Brown, Default Open Food Facts Color"
+    "description": "Color Light Brown, Default Openâ€¯Foodâ€¯Facts Color"
   },
   "color_magenta": "Magenta",
   "@color_magenta": {
@@ -3518,16 +3502,14 @@
   "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
   "@download_top_n_products": {
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "download_in_progress": "Downloading data\nThis may take a while",
   "@download_in_progress": {
     "description": "Download in progress"
   },
-  "downloaded_products": "Pridaných {num} produktov",
+  "downloaded_products": "PridanÃ½ch {num} produktov",
   "@downloaded_products": {
     "description": "text to show when products added",
     "placeholders": {
@@ -3536,23 +3518,23 @@
       }
     }
   },
-  "update_offline_data": "Aktualizujte offline produktové údaje",
+  "update_offline_data": "Aktualizujte offline produktovÃ© Ãºdaje",
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Aktualizujte lokálnu databázu produktov najnovšími údajmi z Open Food Facts",
+  "update_local_database_sub": "Aktualizujte lokÃ¡lnu databÃ¡zu produktov najnovÅ¡Ã­mi Ãºdajmi z Open Food Facts",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
-  "clear_local_database": "Vymazať údaje o produktoch offline",
+  "clear_local_database": "VymazaÅ¥ Ãºdaje o produktoch offline",
   "@clear_local_database": {
     "description": "List tile title for the clear local database page"
   },
-  "clear_local_database_sub": "Vymažte všetky údaje o miestnych produktoch z aplikácie, aby ste uvoľnili miesto",
+  "clear_local_database_sub": "VymaÅ¾te vÅ¡etky Ãºdaje o miestnych produktoch z aplikÃ¡cie, aby ste uvoÄ¾nili miesto",
   "@clear_local_database_sub": {
     "description": "Clear all local product data from your app to free up space"
   },
-  "deleted_products": "{num} produktov odstránených",
+  "deleted_products": "{num} produktov odstrÃ¡nenÃ½ch",
   "@deleted_products": {
     "description": "text to show when products are deleted from local databse",
     "placeholders": {
@@ -3561,23 +3543,23 @@
       }
     }
   },
-  "loading": "Načítavam…",
+  "loading": "NaÄÃ­tavamâ€¦",
   "@loading": {
-    "description": "Loading…"
+    "description": "Loadingâ€¦"
   },
-  "know_more": "Zistiť viac",
+  "know_more": "ZistiÅ¥ viac",
   "@know_more": {
     "description": "Know More"
   },
-  "offline_data_desc": "Kliknutím získate viac informácií o údajoch offline",
+  "offline_data_desc": "KliknutÃ­m zÃ­skate viac informÃ¡ciÃ­ o Ãºdajoch offline",
   "@offline_data_desc": {
     "description": "Click to know more about offline data"
   },
-  "offline_product_data_title": "Offline produktové dáta",
+  "offline_product_data_title": "Offline produktovÃ© dÃ¡ta",
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produktov dostupných na okamžité skenovanie",
+  "available_for_download": "{num} produktov dostupnÃ½ch na okamÅ¾itÃ© skenovanie",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3586,7 +3568,7 @@
       }
     }
   },
-  "country_selector_title": "Vyberte vašu krajinu:",
+  "country_selector_title": "Vyberte vaÅ¡u krajinu:",
   "@country_selector_title": {
     "description": "Label written as the title of the dialog to select the user country"
   },
@@ -3594,7 +3576,7 @@
   "@currency_selector_title": {
     "description": "Label written as the title of the dialog to select the user currency"
   },
-  "language_selector_title": "Vyberte váš jazyk",
+  "language_selector_title": "Vyberte vÃ¡Å¡ jazyk",
   "@language_selector_title": {
     "description": "Label written as the title of the dialog to select the user language"
   },
@@ -3606,15 +3588,15 @@
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
-  "action_delete_list": "Vymazať",
+  "action_delete_list": "VymazaÅ¥",
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
-  "action_change_list": "Zmeňte aktuálny zoznam",
+  "action_change_list": "ZmeÅˆte aktuÃ¡lny zoznam",
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
-  "product_list_create": "Vytvoriť",
+  "product_list_create": "VytvoriÅ¥",
   "@product_list_create": {
     "description": "Button label to create a new list (short word)"
   },
@@ -3638,45 +3620,45 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
-  "nutriscore_unknown": "Neznáme Nutri-Score",
+  "nutriscore_unknown": "NeznÃ¡me Nutri-Score",
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
-  "nutriscore_not_applicable": "Nutri-Score nie je použiteľné",
+  "nutriscore_not_applicable": "Nutri-Score nie je pouÅ¾iteÄ¾nÃ©",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
+  "environmental_score_generic": "Greenâ€¯Score",
+  "environmental_score_a": "Greenâ€¯Score A",
+  "environmental_score_b": "Greenâ€¯Score B",
+  "environmental_score_c": "Greenâ€¯Score C",
+  "environmental_score_d": "Greenâ€¯Score D",
+  "environmental_score_e": "Greenâ€¯Score E",
+  "environmental_score_unknown": "Unknown Greenâ€¯Score",
+  "environmental_score_not_applicable": "Greenâ€¯Score is not applicable",
   "nova_group_generic": "Ultra-spracovanie - skupiny NOVA",
   "nova_group_1": "Skupina NOVA 1",
   "nova_group_2": "Skupina NOVA 2",
   "nova_group_3": "Skupina NOVA 3",
   "nova_group_4": "Skupina NOVA 4",
-  "nova_group_unknown": "Neznáma skupina NOVA",
-  "nutrition_facts": "Úrovne živín",
-  "faq_title_partners": "Partneri a patróni mimovládnej organizácie",
-  "faq_title_vision": "The Open Food Facts Vízia, Misia, Hodnoty a Programy",
-  "faq_title_install_beauty": "Nainštalujte si Open Beauty Facts a vytvorte kozmetickú databázu",
-  "faq_title_install_pet": "Nainštalujte si Open Pet Food Facts a vytvorte databázu krmiva pre domáce zvieratá",
-  "faq_title_install_product": "Nainštalujte si fakty o otvorených produktoch na vytvorenie databázy produktov na predĺženie životnosti objektov",
+  "nova_group_unknown": "NeznÃ¡ma skupina NOVA",
+  "nutrition_facts": "Ãšrovne Å¾ivÃ­n",
+  "faq_title_partners": "Partneri a patrÃ³ni mimovlÃ¡dnej organizÃ¡cie",
+  "faq_title_vision": "The Open Food Facts VÃ­zia, Misia, Hodnoty a Programy",
+  "faq_title_install_beauty": "NainÅ¡talujte si Open Beauty Facts a vytvorte kozmetickÃº databÃ¡zu",
+  "faq_title_install_pet": "NainÅ¡talujte si Open Pet Food Facts a vytvorte databÃ¡zu krmiva pre domÃ¡ce zvieratÃ¡",
+  "faq_title_install_product": "NainÅ¡talujte si fakty o otvorenÃ½ch produktoch na vytvorenie databÃ¡zy produktov na predÄºÅ¾enie Å¾ivotnosti objektov",
   "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
   "contact_title_pro_page": "Pro? Importujte svoje produkty do Open Food Facts",
-  "contact_title_pro_email": "Kontakt na výrobcu",
-  "contact_title_press_page": "Stránka pre média",
-  "contact_title_press_email": "Kontakty pre médiá",
-  "contact_title_newsletter": "Prihlásiť sa ku odberu noviniek",
-  "hunger_games_loading_line1": "Venujte nám prosím pár sekúnd…",
-  "hunger_games_loading_line2": "Sťahujeme otázky!",
-  "hunger_games_error_label": "Argh! Niečo sa pokazilo… a otázky sa nám nepodarilo načítať.",
-  "hunger_games_error_retry_button": "Skúsme to znova!",
+  "contact_title_pro_email": "Kontakt na vÃ½robcu",
+  "contact_title_press_page": "StrÃ¡nka pre mÃ©dia",
+  "contact_title_press_email": "Kontakty pre mÃ©diÃ¡",
+  "contact_title_newsletter": "PrihlÃ¡siÅ¥ sa ku odberu noviniek",
+  "hunger_games_loading_line1": "Venujte nÃ¡m prosÃ­m pÃ¡r sekÃºndâ€¦",
+  "hunger_games_loading_line2": "SÅ¥ahujeme otÃ¡zky!",
+  "hunger_games_error_label": "Argh! NieÄo sa pokaziloâ€¦ a otÃ¡zky sa nÃ¡m nepodarilo naÄÃ­taÅ¥.",
+  "hunger_games_error_retry_button": "SkÃºsme to znova!",
   "reorder_attribute_action": "Reorder the attributes",
   "@reorder_attribute_action": {
     "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
   },
-  "link_cant_be_opened": "Tento odkaz nie je možné otvoriť na vašom zariadení. Skontrolujte, či máte nainštalovaný prehliadač.",
+  "link_cant_be_opened": "Tento odkaz nie je moÅ¾nÃ© otvoriÅ¥ na vaÅ¡om zariadenÃ­. Skontrolujte, Äi mÃ¡te nainÅ¡talovanÃ½ prehliadaÄ.",
   "@link_cant_be_opened": {
     "description": "An error may happen if the device doesn't have a browser installed."
   },
@@ -3765,23 +3747,23 @@
   },
   "menu_button_list_actions": "Select an action",
   "@menu_button_list_actions": {
-    "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    "description": "Button to select an action in a list (eg: Share, Delete, â€¦)"
   },
   "error_loading_photo": "Error loading photo",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "Use asâ€¦",
   "@photo_viewer_action_use_picture_as": {
-    "description": "An action to use the current picture to be used as front/ingredients…"
+    "description": "An action to use the current picture to be used as front/ingredientsâ€¦"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Use this picture asâ€¦",
   "@photo_viewer_use_picture_as_tooltip": {
-    "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
+    "description": "Message explaining what the three dots (â€¦) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+  "photo_viewer_use_picture_as_title": "Use this picture asâ€¦ ({language})",
   "@photo_viewer_use_picture_as_title": {
-    "description": "The title of a dialog to use the current picture as front/ingredients…",
+    "description": "The title of a dialog to use the current picture as front/ingredientsâ€¦",
     "placeholders": {
       "language": {
         "type": "String"
@@ -3800,7 +3782,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "Prispievateľ",
+  "photo_viewer_details_contributor_title": "PrispievateÄ¾",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
@@ -3820,7 +3802,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Dátum",
+  "photo_viewer_details_date_title": "DÃ¡tum",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -3845,11 +3827,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Predný obrázok",
+  "product_image_front_accessibility_label": "PrednÃ½ obrÃ¡zok",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Obrázok ingrediencií",
+  "product_image_ingredients_accessibility_label": "ObrÃ¡zok ingredienciÃ­",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -3932,11 +3914,11 @@
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few secondsâ€¦",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
@@ -3962,7 +3944,7 @@
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
   "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
+  "carousel_unsupported_text": "The barcode scanned is not supported by Openâ€¯Foodâ€¯Facts!",
   "carousel_error_header": "Error!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
@@ -3973,7 +3955,7 @@
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_error_button": "Skúsiť znova",
+  "carousel_error_button": "SkÃºsiÅ¥ znova",
   "carousel_unknown_product_header": "Unknown product",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
@@ -3986,7 +3968,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "Pridať tento výrobok",
+  "carousel_unknown_product_button": "PridaÅ¥ tento vÃ½robok",
   "carousel_loading_header": "Loading information...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
@@ -3996,34 +3978,34 @@
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "Vegetables, fruits, frozen foodâ€¦",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "Makeup, soaps, toothpastesâ€¦",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Food for dogs, catsâ€¦",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "Smartphones, furnitureâ€¦",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
   "photo_field_front": "Product photo",
-  "photo_field_ingredients": "Fotografia ingrediencií",
+  "photo_field_ingredients": "Fotografia ingredienciÃ­",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "Informačná fotografia balenia",
+  "photo_field_packaging": "InformaÄnÃ¡ fotografia balenia",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
-  "date": "Dátum",
-  "photo_rotate_left": "Otočiť doľava",
+  "date": "DÃ¡tum",
+  "photo_rotate_left": "OtoÄiÅ¥ doÄ¾ava",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Otočiť doprava",
+  "photo_rotate_right": "OtoÄiÅ¥ doprava",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4077,7 +4059,7 @@
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
-  "product_footer_action_barcode_short": "Čiarový kód",
+  "product_footer_action_barcode_short": "ÄŒiarovÃ½ kÃ³d",
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
@@ -4137,7 +4119,7 @@
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
-  "app_review_feedback_modal_later": "Opýtajte sa ma neskôr",
+  "app_review_feedback_modal_later": "OpÃ½tajte sa ma neskÃ´r",
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
@@ -4158,3 +4140,4 @@
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   }
 }
+

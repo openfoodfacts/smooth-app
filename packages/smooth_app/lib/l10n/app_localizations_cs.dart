@@ -1,0 +1,4020 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Czech (`cs`).
+class AppLocalizationsCs extends AppLocalizations {
+  AppLocalizationsCs([String locale = 'cs']) : super(locale);
+
+  @override
+  String get sep => '';
+
+  @override
+  String get yes => 'Ano';
+
+  @override
+  String get add => 'PÅ™idat';
+
+  @override
+  String get account_delete_message => 'Opravdu chcete smazat svÅ¯j ÃºÄet?\nPokud existuje konkrÃ©tnÃ­ dÅ¯vod, podÄ›lte se prosÃ­m nÃ­Å¾e';
+
+  @override
+  String get reason => 'DÅ¯vod';
+
+  @override
+  String get okay => 'Potvrdit';
+
+  @override
+  String get validate => 'OvÄ›Å™it';
+
+  @override
+  String get create => 'VytvoÅ™it';
+
+  @override
+  String get applyButtonText => 'PouÅ¾Ã­t';
+
+  @override
+  String get next_label => 'DalÅ¡Ã­';
+
+  @override
+  String get continue_label => 'PokraÄovat';
+
+  @override
+  String get exit_label => 'UkonÄit';
+
+  @override
+  String get previous_label => 'PÅ™edchozÃ­';
+
+  @override
+  String get go_back_to_top => 'PÅ™ejÃ­t zpÄ›t na zaÄÃ¡tek';
+
+  @override
+  String get save => 'UloÅ¾it';
+
+  @override
+  String get save_confirmation => 'Opravdu to chcete uloÅ¾it?';
+
+  @override
+  String get skip => 'PÅ™eskoÄit';
+
+  @override
+  String get cancel => 'ZruÅ¡it';
+
+  @override
+  String get ignore => 'Ignorovat';
+
+  @override
+  String get close => 'ZavÅ™Ã­t';
+
+  @override
+  String get no => 'Ne';
+
+  @override
+  String get stop => 'Zastavit';
+
+  @override
+  String get finish => 'DokonÄit';
+
+  @override
+  String get calculate => 'VypoÄÃ­tat';
+
+  @override
+  String get reset_food_prefs => 'Obnovit pÅ™edvolby jÃ­dla';
+
+  @override
+  String get error => 'NÄ›co se nepovedlo';
+
+  @override
+  String get error_occurred => 'Vyskytla se chyba';
+
+  @override
+  String get featureInProgress => 'Na tÃ©to funkci stÃ¡le pracujeme, zÅ¯staÅˆte na pÅ™Ã­jmu';
+
+  @override
+  String get label_web => 'Zobrazit na webu';
+
+  @override
+  String get learnMore => 'Zjistit vÃ­ce';
+
+  @override
+  String get unknown => 'NeznÃ¡mo';
+
+  @override
+  String get match_very_good => 'Velmi dobrÃ¡ shoda';
+
+  @override
+  String get match_good => 'DobrÃ¡ shoda';
+
+  @override
+  String get match_poor => 'Å patnÃ¡ shoda';
+
+  @override
+  String get match_may_not => 'NemusÃ­ se shodovat';
+
+  @override
+  String get match_does_not => 'Neshoduje se';
+
+  @override
+  String get match_unknown => 'NeznÃ¡mÃ¡ shoda';
+
+  @override
+  String get match_short_very_good => 'Velmi dobrÃ¡ shoda';
+
+  @override
+  String get match_short_good => 'DobrÃ¡ shoda';
+
+  @override
+  String get match_short_poor => 'Å patnÃ¡ shoda';
+
+  @override
+  String get match_short_may_not => 'NemusÃ­ se shodovat';
+
+  @override
+  String get match_short_does_not => 'Neshoduje se';
+
+  @override
+  String get match_short_unknown => 'NeznÃ¡mÃ¡ shoda';
+
+  @override
+  String get licenses => 'Licence';
+
+  @override
+  String get looking_for => 'HledÃ¡te';
+
+  @override
+  String get welcomeToOpenFoodFacts => 'VÃ­tejte v Open Food Facts';
+
+  @override
+  String get whatIsOff => 'Open Food Facts je globÃ¡lnÃ­ neziskovÃ¡ organizace tvoÅ™enÃ¡ mÃ­stnÃ­mi komunitami.';
+
+  @override
+  String get productDataUtility => 'PodÃ­vejte se na Ãºdaje o jÃ­dle relevantnÃ­ pro vaÅ¡e preference.';
+
+  @override
+  String get healthCardUtility => 'Vyberte si potraviny, kterÃ© jsou pro vÃ¡s dobrÃ©.';
+
+  @override
+  String get ecoCardUtility => 'Vyberte si potraviny, kterÃ© jsou dobrÃ© pro planetu.';
+
+  @override
+  String get server_error_open_new_issue => 'Å½Ã¡dnÃ¡ odpovÄ›Ä serveru! ProblÃ©m mÅ¯Å¾ete nahlÃ¡sit pomocÃ­ nÃ¡sledujÃ­cÃ­ho odkazu.';
+
+  @override
+  String get sign_in_text => 'Pro uloÅ¾enÃ­ vaÅ¡ich pÅ™Ã­spÄ›vkÅ¯ se pÅ™ihlaste ke svÃ©mu ÃºÄtu Open Food Facts';
+
+  @override
+  String get incorrect_credentials => 'NesprÃ¡vnÃ© uÅ¾ivatelskÃ© jmÃ©no nebo heslo.';
+
+  @override
+  String get password_lost_incorrect_credentials => 'Tento e-mail nebo uÅ¾ivatelskÃ© jmÃ©no neexistuje. Zkontrolujte prosÃ­m svÃ© pÅ™ihlaÅ¡ovacÃ­ Ãºdaje.';
+
+  @override
+  String get password_lost_server_unavailable => 'MomentÃ¡lnÄ› dochÃ¡zÃ­ ke zpomalenÃ­ na naÅ¡ich serverech a omlouvÃ¡me se za to. ProsÃ­m zkuste to znovu pozdÄ›ji.';
+
+  @override
+  String get login => 'UÅ¾ivatelskÃ© jmÃ©no';
+
+  @override
+  String get login_result_type_server_unreachable => 'SÃ­Å¥ je nedostupnÃ¡';
+
+  @override
+  String get login_result_type_server_issue => 'ProblÃ©m na serveru. Zkuste to prosÃ­m pozdÄ›ji.';
+
+  @override
+  String get login_page_username_or_email => 'Zadejte prosÃ­m uÅ¾ivatelskÃ© jmÃ©no nebo e-mail';
+
+  @override
+  String get login_page_password_error_empty => 'Zadejte heslo';
+
+  @override
+  String get create_account => 'VytvoÅ™it ÃºÄet';
+
+  @override
+  String get sign_in => 'PÅ™ihlÃ¡sit se';
+
+  @override
+  String get sign_in_mandatory => 'Pro tuto funkci potÅ™ebujeme, abyste se pÅ™ihlÃ¡sili.';
+
+  @override
+  String get help_improve_country => 'Pomozte vylepÅ¡it Open Food Facts ve vaÅ¡Ã­ zemi';
+
+  @override
+  String get sign_out => 'OdhlÃ¡sit';
+
+  @override
+  String get sign_out_confirmation => 'Opravdu se chcete odhlÃ¡sit?';
+
+  @override
+  String get password => 'Heslo';
+
+  @override
+  String get forgot_password => 'ZapomenutÃ© heslo';
+
+  @override
+  String get view_profile => 'Zobrazit profil';
+
+  @override
+  String get reset_password => 'Obnovit heslo';
+
+  @override
+  String get reset_password_explanation_text => 'V pÅ™Ã­padÄ› zapomenutÃ©ho hesla zadejte svÃ© uÅ¾ivatelskÃ© jmÃ©no nebo e-mailovou adresu, abyste mohli obdrÅ¾et pokyny pro obnovenÃ­ hesla. TakÃ© nezapomeÅˆte zkontrolovat sloÅ¾ku nevyÅ¾Ã¡danÃ© poÅ¡ty.';
+
+  @override
+  String get username_or_email => 'UÅ¾ivatelskÃ© jmÃ©no nebo e-mail';
+
+  @override
+  String get reset_password_done => 'E-mail s odkazem na obnovenÃ­ hesla byl odeslÃ¡n na e-mailovou adresu spojenou s vaÅ¡Ã­m ÃºÄtem. TakÃ© zkontrolujte spam';
+
+  @override
+  String get send_reset_password_mail => 'ZmÄ›nit heslo';
+
+  @override
+  String get enter_some_text => 'Zadejte prosÃ­m nÄ›jakÃ½ text';
+
+  @override
+  String get sign_up_page_title => 'VytvoÅ™it ÃºÄet';
+
+  @override
+  String get sign_up_page_action_button => 'VytvoÅ™it ÃºÄet';
+
+  @override
+  String get sign_up_page_action_doing_it => 'Registraceâ€¦';
+
+  @override
+  String get sign_up_page_action_ok => 'Gratulujeme! VÃ¡Å¡ ÃºÄet byl vytvoÅ™en.';
+
+  @override
+  String get sign_up_page_display_name_hint => 'JmÃ©no';
+
+  @override
+  String get sign_up_page_display_name_error_empty => 'Zadejte zobrazovanÃ© jmÃ©no, kterÃ© chcete pouÅ¾Ã­vat';
+
+  @override
+  String get sign_up_page_email_hint => 'E-mail';
+
+  @override
+  String get sign_up_page_email_error_empty => 'E-mail je povinnÃ½';
+
+  @override
+  String get sign_up_page_email_error_invalid => 'NeplatnÃ½ e-mail';
+
+  @override
+  String get sign_up_page_username_hint => 'UÅ¾ivatelskÃ© jmÃ©no: VeÅ™ejnÄ› viditelnÃ©';
+
+  @override
+  String get sign_up_page_username_error_empty => 'ProsÃ­m, zadejte svÃ© uÅ¾ivatelskÃ© jmÃ©no';
+
+  @override
+  String get sign_up_page_username_error_invalid => 'Zadejte prosÃ­m platnÃ© uÅ¾ivatelskÃ© jmÃ©no';
+
+  @override
+  String get sign_up_page_username_description => 'UÅ¾ivatelskÃ© jmÃ©no nesmÃ­ obsahovat mezery, velkÃ¡ pÃ­smena ani speciÃ¡lnÃ­ znaky.';
+
+  @override
+  String sign_up_page_username_length_invalid(int value) {
+    return 'UÅ¾ivatelskÃ© jmÃ©no nesmÃ­ pÅ™esÃ¡hnout $value znakÅ¯';
+  }
+
+  @override
+  String get sign_up_page_password_hint => 'Heslo';
+
+  @override
+  String get sign_up_page_password_error_empty => 'Zadejte heslo';
+
+  @override
+  String get sign_up_page_password_error_invalid => 'Zadejte prosÃ­m platnÃ© heslo (alespoÅˆ 6 znakÅ¯)';
+
+  @override
+  String get sign_up_page_confirm_password_hint => 'PotvrzenÃ­ hesla';
+
+  @override
+  String get sign_up_page_confirm_password_error_empty => 'PotvrÄte prosÃ­m heslo';
+
+  @override
+  String get sign_up_page_confirm_password_error_invalid => 'Hesla se neshodujÃ­';
+
+  @override
+  String get sign_up_page_agree_text => 'SouhlasÃ­m s Open Food Facts';
+
+  @override
+  String get sign_up_page_terms_text => 'podmÃ­nky pouÅ¾itÃ­ a pÅ™Ã­spÄ›vek';
+
+  @override
+  String get sign_up_page_agree_url => 'https://cz.openfoodfacts.org/terms-of-use';
+
+  @override
+  String get donate_url => 'https://donate.openfoodfacts.org/';
+
+  @override
+  String get sign_up_page_agree_error_invalid => 'PÅ™i vytvÃ¡Å™enÃ­ ÃºÄtu je souhlas s PodmÃ­nkami pouÅ¾itÃ­ povinnÃ½, nicmÃ©nÄ› prostÅ™ednictvÃ­m aplikace lze stÃ¡le pÅ™ispÃ­vat anonymnÄ›';
+
+  @override
+  String get sign_up_page_producer_checkbox => 'Jsem vÃ½robce potravin';
+
+  @override
+  String get sign_up_page_producer_hint => 'VÃ½robce/znaÄka';
+
+  @override
+  String get sign_up_page_producer_error_empty => 'Zadejte vÃ½robce nebo nÃ¡zev znaÄky';
+
+  @override
+  String get sign_up_page_subscribe_checkbox => 'Chci se pÅ™ihlÃ¡sit k odbÄ›ru newsletteru Open Food Facts (mÅ¯Å¾ete se kdykoli odhlÃ¡sit)';
+
+  @override
+  String get sign_up_page_user_name_already_used => 'UÅ¾ivatelskÃ© jmÃ©no jiÅ¾ existuje, zvolte prosÃ­m jinÃ© uÅ¾ivatelskÃ© jmÃ©no.';
+
+  @override
+  String get sign_up_page_email_already_exists => 'jiÅ¾ existuje, pÅ™ihlaste se k ÃºÄtu nebo zkuste jinÃ½ e-mail.';
+
+  @override
+  String get sign_up_page_provide_valid_email => 'Zadejte platnou e-mailovou adresu.';
+
+  @override
+  String get sign_up_page_server_busy => 'Velmi se omlouvÃ¡me, mÃ¡me technickÃ© potÃ­Å¾e s vytvoÅ™enÃ­m vaÅ¡eho ÃºÄtu. ProsÃ­m zkuste to znovu pozdÄ›ji.';
+
+  @override
+  String get settingsTitle => 'NastavenÃ­';
+
+  @override
+  String get darkmode => 'Motiv';
+
+  @override
+  String get darkmode_dark => 'TmavÃ½';
+
+  @override
+  String get darkmode_light => 'SvÄ›tlÃ½';
+
+  @override
+  String get darkmode_system_default => 'VÃ½chozÃ­ nastavenÃ­';
+
+  @override
+  String get thanks_for_contributing => 'DÄ›kujeme za pÅ™Ã­spÄ›vek!';
+
+  @override
+  String get contributors_label => 'VytvÃ¡Å™ejÃ­ aplikaci';
+
+  @override
+  String get contributors_dialog_title => 'PÅ™ispÄ›vatelÃ©';
+
+  @override
+  String contributors_dialog_entry_description(Object name) {
+    return 'PÅ™ispÄ›vatel: $name';
+  }
+
+  @override
+  String get contributors_description => 'Seznam vÅ¡ech pÅ™ispÄ›vatelÅ¯ tÃ©to aplikace';
+
+  @override
+  String get support => 'Podpora';
+
+  @override
+  String get support_join_slack => 'PoÅ¾Ã¡dejte o pomoc na naÅ¡em kanÃ¡lu Slack';
+
+  @override
+  String get support_via_forum => 'PoÅ¾Ã¡dejte o pomoc na naÅ¡em fÃ³ru';
+
+  @override
+  String get support_via_email => 'PoÅ¡lete nÃ¡m e-mail';
+
+  @override
+  String get support_via_email_include_logs_dialog_title => 'Odeslat protokoly aplikace?';
+
+  @override
+  String get support_via_email_include_logs_dialog_body => 'PÅ™ejete si zahrnout protokoly aplikace do pÅ™Ã­lohy vaÅ¡eho e-mailu?';
+
+  @override
+  String get termsOfUse => 'PodmÃ­nky pouÅ¾itÃ­';
+
+  @override
+  String get legalNotices => 'PrÃ¡vnÃ­ upozornÄ›nÃ­';
+
+  @override
+  String get privacy_policy => 'ZÃ¡sady ochrany osobnÃ­ch ÃºdajÅ¯';
+
+  @override
+  String get about_this_app => 'O tÃ©to aplikaci';
+
+  @override
+  String get contribute => 'PÅ™ispÄ›t';
+
+  @override
+  String get contribute_sw_development => 'VÃ½voj softwaru';
+
+  @override
+  String get contribute_develop_text => 'KÃ³d pro kaÅ¾dÃ½ produkt Open Food Facts je k dispozici na GitHubu. MÅ¯Å¾ete znovu pouÅ¾Ã­t kÃ³d (je to open source) a pomoci nÃ¡m jej vylepÅ¡it, pro kaÅ¾dÃ©ho na celÃ© planetÄ›.';
+
+  @override
+  String get contribute_develop_text_2 => 'MÅ¯Å¾ete se pÅ™ipojit k chatovacÃ­ mÃ­stnosti Open Food Facts Slack, coÅ¾ je preferovanÃ½ zpÅ¯sob, jak klÃ¡st otÃ¡zky.';
+
+  @override
+  String get contribute_develop_dev_mode_title => 'DEV reÅ¾im?';
+
+  @override
+  String get contribute_develop_dev_mode_subtitle => 'Aktivovat DEV reÅ¾im';
+
+  @override
+  String get contribute_donate_title => 'PodpoÅ™it';
+
+  @override
+  String get contribute_donate_header => 'PÅ™ispÄ›jte na Open Food Facts';
+
+  @override
+  String get contribute_enroll_alpha => 'Zapsat do internÃ­ alfa verze';
+
+  @override
+  String get contribute_enroll_alpha_warning => 'VezmÄ›te prosÃ­m na vÄ›domÃ­, Å¾e s internÃ­ alfa verzÃ­ je moÅ¾nÃ¡ ÃºplnÃ¡ ztrÃ¡ta dat a aplikace se mÅ¯Å¾e kdykoli stÃ¡t nepouÅ¾itelnou!';
+
+  @override
+  String get contribute_improve_ProductsToBeCompleted => 'NedokonÄenÃ©';
+
+  @override
+  String get contribute_improve_header => 'ZlepÅ¡ovÃ¡nÃ­';
+
+  @override
+  String get contribute_improve_text => 'DatabÃ¡ze je jÃ¡drem projektu. Pomoci je snadnÃ© a velmi rychlÃ©. MÅ¯Å¾ete si stÃ¡hnout mobilnÃ­ aplikaci pro svÅ¯j telefon a zaÄÃ­t pÅ™idÃ¡vat nebo vylepÅ¡ovat produkty.\n\nNa druhou stranu webovÃ¡ strÃ¡nka Open Food Facts nabÃ­zÃ­ mnoho zpÅ¯sobÅ¯, jak pÅ™ispÄ›t: ';
+
+  @override
+  String get contribute_translate_header => 'PÅ™eloÅ¾it';
+
+  @override
+  String get contribute_data_quality => 'Data Quality';
+
+  @override
+  String get contribute_translate_link_text => 'ZahÃ¡jit pÅ™eklad';
+
+  @override
+  String get contribute_translate_text => 'Open Food Facts je globÃ¡lnÃ­ projekt, kterÃ½ obsahuje produkty z vÃ­ce neÅ¾ 160 zemÃ­. Open Food Facts je pÅ™eloÅ¾ena do desÃ­tek jazykÅ¯ s neustÃ¡le se vyvÃ­jejÃ­cÃ­m obsahem.';
+
+  @override
+  String get contribute_translate_text_2 => 'PÅ™eklady jsou jednÃ­m z klÃ­ÄovÃ½ch ÃºkolÅ¯ projektu';
+
+  @override
+  String get contribute_join_skill_pool => 'PÅ™ispÄ›jte svÃ½mi dovednostmi do Open Food Facts. PÅ™ipojte se k fondu dovednostÃ­!';
+
+  @override
+  String get contribute_share_header => 'SdÃ­lejte Open Food Facts se svÃ½mi pÅ™Ã¡teli';
+
+  @override
+  String get contribute_share_content => 'ChtÄ›l jsem vÃ¡m dÃ¡t vÄ›dÄ›t o aplikaci, kterou pouÅ¾Ã­vÃ¡m, Open Food Facts, kterÃ¡ vÃ¡m umoÅ¾Åˆuje personalizovanÃ½m zpÅ¯sobem zÃ­skat informace o dopadech vaÅ¡eho jÃ­dla na zdravÃ­ a Å¾ivotnÃ­ prostÅ™edÃ­. Funguje naskenovÃ¡nÃ­m ÄÃ¡rovÃ½ch kÃ³dÅ¯ na obalu. KoneÄnÄ› je to zdarma, nevyÅ¾aduje registraci a dokonce mÅ¯Å¾ete pomoci zvÃ½Å¡it poÄet deÅ¡ifrovanÃ½ch produktÅ¯. Zde je odkaz, jak jej zÃ­skat pro vÃ¡Å¡ telefon: https://openfoodfacts.app';
+
+  @override
+  String get tap_to_answer => 'KlepnutÃ­m sem odpovÃ­te na otÃ¡zky';
+
+  @override
+  String get tap_to_answer_hint => 'KlepnutÃ­m sem odpovÄ›zte na otÃ¡zky tÃ½kajÃ­cÃ­ se tohoto produktu';
+
+  @override
+  String get robotoff_questions_loading_hint => 'PoÄkejte prosÃ­m, neÅ¾ budou otÃ¡zky k tomuto produktu naÄteny';
+
+  @override
+  String get saving_answer => 'UklÃ¡dÃ¡nÃ­ odpovÄ›di';
+
+  @override
+  String get contribute_to_get_rewards => 'StaÅˆte se hybatelem fÃ©rovosti potravin';
+
+  @override
+  String get question_sign_in_text => 'PÅ™ihlaste se ke svÃ©mu ÃºÄtu Open Food Facts a zÃ­skejte kredit za vaÅ¡e pÅ™Ã­spÄ›vky';
+
+  @override
+  String get question_yes_button_accessibility_value => 'OdpovÄ›zte ano';
+
+  @override
+  String get question_no_button_accessibility_value => 'OdpovÄ›zte ne';
+
+  @override
+  String get question_skip_button_accessibility_value => 'PÅ™eskoÄit tuto otÃ¡zku';
+
+  @override
+  String get tap_to_edit_search => 'KlepnutÃ­m upravÃ­te hledÃ¡nÃ­';
+
+  @override
+  String get myPreferences => 'Moje pÅ™edvolby';
+
+  @override
+  String get account_create_message => 'VytvoÅ™te si ÃºÄet a pÅ™ipojte se ke komunitÄ› Open Food Facts a pomozte tak budovat znalosti o potravinÃ¡ch po celÃ©m svÄ›tÄ›!';
+
+  @override
+  String get join_us => 'PÅ™ipojte se k nÃ¡m';
+
+  @override
+  String get myPreferences_profile_title => 'VÃ¡Å¡ profil';
+
+  @override
+  String get myPreferences_profile_subtitle => 'Spravujte svÅ¯j ÃºÄet pÅ™ispÄ›vatele Open Food Facts.';
+
+  @override
+  String get myPreferences_settings_title => 'NastavenÃ­ aplikace';
+
+  @override
+  String get myPreferences_settings_subtitle => 'TmavÃ½ reÅ¾im, Jazykyâ€¦';
+
+  @override
+  String get myPreferences_food_title => 'PÅ™edvolby jÃ­dla';
+
+  @override
+  String get myPreferences_food_subtitle => 'Vyberte si, kterÃ© informace o jÃ­dle jsou pro vÃ¡s nejdÅ¯leÅ¾itÄ›jÅ¡Ã­.';
+
+  @override
+  String get myPreferences_food_comment => 'Vyberte si, na kterÃ½ch informacÃ­ch o potravinÃ¡ch vÃ¡m nejvÃ­ce zÃ¡leÅ¾Ã­, abyste mohli seÅ™adit potraviny podle svÃ½ch preferencÃ­, prohlÃ©dnÄ›te si informace, kterÃ© vÃ¡s zajÃ­majÃ­, jako prvnÃ­ a zÃ­skejte pÅ™ehled kompatibility. Tyto preference jÃ­dla zÅ¯stanou ve vaÅ¡em zaÅ™Ã­zenÃ­ a nejsou spojeny s vaÅ¡Ã­m ÃºÄtem pÅ™ispÄ›vatele Open Food Facts, pokud jej mÃ¡te.';
+
+  @override
+  String get confirmResetPreferences => 'Obnovit pÅ™edvolby jÃ­dla?';
+
+  @override
+  String get myPersonalizedRanking => 'MÅ¯j osobnÃ­ Å¾ebÅ™Ã­Äek';
+
+  @override
+  String get ranking_tab_all => 'VÅ¡e';
+
+  @override
+  String get ranking_subtitle_match_yes => 'SkvÄ›lÃ¡ shoda pro vÃ¡s';
+
+  @override
+  String get ranking_subtitle_match_no => 'Velmi Å¡patnÃ¡ shoda';
+
+  @override
+  String get ranking_subtitle_match_maybe => 'NeznÃ¡mÃ¡ shoda';
+
+  @override
+  String get refresh_with_new_preferences => 'Aktualizujte seznam s novÃ½mi nastavenÃ­mi';
+
+  @override
+  String get reloaded_with_new_preferences => 'Znovu naÄteno s vaÅ¡imi novÃ½mi pÅ™edvolbami';
+
+  @override
+  String get profile_navbar_label => 'Profil';
+
+  @override
+  String get scan_navbar_label => 'Skenovat';
+
+  @override
+  String get history_navbar_label => 'Historie';
+
+  @override
+  String get list_navbar_label => 'Seznamy';
+
+  @override
+  String get category => 'Filtrovat podle kategorie';
+
+  @override
+  String get category_all => 'VÅ¡e';
+
+  @override
+  String get category_search => '(hledÃ¡nÃ­ kategoriÃ­)';
+
+  @override
+  String get filter => 'Filtr';
+
+  @override
+  String get scan => 'Produkty z obrazovky skenovÃ¡nÃ­';
+
+  @override
+  String get scan_history => 'Historie skenovÃ¡nÃ­';
+
+  @override
+  String get search => 'Vyhledat';
+
+  @override
+  String get search_store => 'Vyhledat obchod';
+
+  @override
+  String get tap_for_more => 'KlepnutÃ­m zobrazÃ­te vÃ­ce informacÃ­â€¦';
+
+  @override
+  String get product => 'Produkt';
+
+  @override
+  String get unknownBrand => 'NeznÃ¡mÃ¡ znaÄka';
+
+  @override
+  String get unknownProductName => 'NeznÃ¡mÃ½ nÃ¡zev produktu';
+
+  @override
+  String get label_refresh => 'Obnovit';
+
+  @override
+  String get label_reload => 'Znovu naÄÃ­st';
+
+  @override
+  String get image => 'ObrÃ¡zek';
+
+  @override
+  String get front_photo => 'PÅ™ednÃ­ fotka';
+
+  @override
+  String outdated_image_accessibility_label(Object imageType) {
+    return '$imageType (tento obrÃ¡zek mÅ¯Å¾e bÃ½t zastaralÃ½)';
+  }
+
+  @override
+  String get outdated_image_short_label => 'mohou bÃ½t zastaralÃ©';
+
+  @override
+  String get ingredients => 'SloÅ¾enÃ­';
+
+  @override
+  String get ingredients_editing_instructions => 'Zachovejte pÅ¯vodnÃ­ Å™azenÃ­. PÅ™i specifikaci uveÄte procento. OddÄ›lte je ÄÃ¡rkou nebo pomlÄkou, pouÅ¾ijte zÃ¡vorky pro sloÅ¾ky pÅ™Ã­sady a oznaÄte alergeny mezi podtrÅ¾Ã­tka.';
+
+  @override
+  String get ingredients_editing_error => 'Ingredience se nepodaÅ™ilo uloÅ¾it.';
+
+  @override
+  String get ingredients_editing_image_error => 'NepodaÅ™ilo se zÃ­skat novÃ½ obrÃ¡zek ingrediencÃ­.';
+
+  @override
+  String get ingredients_editing_title => 'Upravit ingredience';
+
+  @override
+  String get ingredients_photo => 'Fotografie ingrediencÃ­';
+
+  @override
+  String get packaging_editing_instructions => 'UveÄte vÅ¡echny ÄÃ¡sti balenÃ­ oddÄ›lenÃ© ÄÃ¡rkou nebo odÅ™Ã¡dkovÃ¡nÃ­m s uvedenÃ­m jejich mnoÅ¾stvÃ­ (napÅ™. 1 nebo 6), typu (napÅ™. lÃ¡hev, krabice, plechovka), materiÃ¡lu (napÅ™. plast, kov, hlinÃ­k) a pokud je k dispozici jejich velikost (napÅ™. 33 cl) a pokyny k recyklaci.\nPÅ™Ã­klad: 1 sklenÄ›nÃ¡ lÃ¡hev k recyklaci, 1 plastovÃ½ korek k vyhozenÃ­';
+
+  @override
+  String get packaging_editing_error => 'BalenÃ­ se nepodaÅ™ilo uloÅ¾it.';
+
+  @override
+  String get packaging_editing_image_error => 'NepodaÅ™ilo se zÃ­skat novÃ½ obrÃ¡zek obalu.';
+
+  @override
+  String get packaging_editing_title => 'Upravit obal';
+
+  @override
+  String get nutrition => 'NutriÄnÃ­ hodnoty';
+
+  @override
+  String get nutrition_facts_photo => 'Fotografie vÃ½Å¾ivovÃ½ch faktÅ¯';
+
+  @override
+  String get nutrition_facts_editing_title => 'Upravit nutriÄnÃ­ fakta';
+
+  @override
+  String get packaging_information => 'Informace o balenÃ­';
+
+  @override
+  String get packaging_information_photo => 'InformaÄnÃ­ foto balenÃ­';
+
+  @override
+  String get missing_product => 'NaÅ¡li jste novÃ½ produkt!';
+
+  @override
+  String get add_product_take_photos => 'VyfoÅ¥te obal a pÅ™idejte tento produkt do Open Food Facts';
+
+  @override
+  String get add_product_take_photos_descriptive => 'Nejprve prosÃ­m udÄ›lejte nÄ›jakÃ© fotky. Produkt mÅ¯Å¾ete vÅ¾dy dokonÄit pozdÄ›ji.';
+
+  @override
+  String get add_product_information_button_label => 'PÅ™idat informace o produktu';
+
+  @override
+  String get new_product => 'NovÃ½ produkt';
+
+  @override
+  String get new_product_found_title => 'Nalezen novÃ½ produkt!';
+
+  @override
+  String get new_product_found_text => 'NaÅ¡e spoleÄnÄ› tvoÅ™enÃ¡ databÃ¡ze obsahuje vÃ­ce neÅ¾ **3 miliony produktÅ¯**, ale tento ÄÃ¡rovÃ½ kÃ³d neexistuje: ';
+
+  @override
+  String get new_product_found_button => 'PÅ™idat vÃ½robek';
+
+  @override
+  String get new_product_leave_title => 'Opustit tuto strÃ¡nku?';
+
+  @override
+  String get new_product_leave_message => 'ZdÃ¡ se, Å¾e jste nic nezadali. Opravdu chcete opustit tuto strÃ¡nku?';
+
+  @override
+  String get new_product_dialog_description => 'Pro pÅ™idÃ¡nÃ­ tohoto produktu do naÅ¡Ã­ spoleÄnÃ© databÃ¡ze prosÃ­m vyfoÅ¥te obal';
+
+  @override
+  String get new_product_dialog_illustration_description => 'Ilustrace s neznÃ¡mÃ½m Nutri-Score a Green Score';
+
+  @override
+  String get front_packaging_photo_button_label => 'PÅ™ednÃ­ fotka produktu';
+
+  @override
+  String get confirm_front_packaging_photo_button_label => 'Potvrdit nahrÃ¡nÃ­ pÅ™ednÃ­ fotky produktu';
+
+  @override
+  String get confirm_button_label => 'Potvrdit';
+
+  @override
+  String get send_image_button_label => 'Odeslat obrÃ¡zek';
+
+  @override
+  String get crop_page_action_saving => 'UklÃ¡dÃ¡nÃ­ obrÃ¡zkuâ€¦';
+
+  @override
+  String get crop_page_action_cropping => 'OÅ™Ã­znutÃ­ obrÃ¡zkuâ€¦';
+
+  @override
+  String get crop_page_action_local => 'UklÃ¡dÃ¡nÃ­ mÃ­stnÃ­ verzeâ€¦';
+
+  @override
+  String get crop_page_action_local_failed_title => 'Oops, nÄ›co se stalo s tvojÃ­ fotkou!';
+
+  @override
+  String get crop_page_action_local_failed_message => 'PÅ™ed odeslÃ¡nÃ­m na nÃ¡Å¡ server nejsme schopni zpracovat obrÃ¡zek lokÃ¡lnÄ›. Zkuste to znovu pozdÄ›ji nebo nÃ¡s kontaktujte, pokud problÃ©m pÅ™etrvÃ¡vÃ¡.';
+
+  @override
+  String get crop_page_action_retake => 'Znovu poÅ™Ã­dit fotografii';
+
+  @override
+  String get crop_page_too_small_image_title => 'ObrÃ¡zek je pÅ™Ã­liÅ¡ malÃ½!';
+
+  @override
+  String crop_page_too_small_image_message(int expectedMinWidth, int expectedMinHeight, int actualWidth, int actualHeight) {
+    return 'MinimÃ¡lnÃ­ velikost v pixelech pro nahrÃ¡vÃ¡nÃ­ obrÃ¡zkÅ¯ je ${expectedMinWidth}x$expectedMinHeight. AktuÃ¡lnÃ­ obrÃ¡zek je ${actualWidth}x$actualHeight.';
+  }
+
+  @override
+  String get crop_page_action_server => 'PÅ™Ã­prava volÃ¡nÃ­ serveruâ€¦';
+
+  @override
+  String get front_packaging_photo_title => 'Fotografie pÅ™ednÃ­ho obalu';
+
+  @override
+  String get ingredients_photo_title => 'Fotografie ingrediencÃ­';
+
+  @override
+  String get nutritional_facts_photo_title => 'Fotografie nutriÄnÃ­ch ÃºdajÅ¯';
+
+  @override
+  String get recycling_photo_title => 'Fotografie recyklace';
+
+  @override
+  String get take_photo_title => 'Vyfotit';
+
+  @override
+  String get take_more_photo_title => 'Vyfotit dalÅ¡Ã­ obrÃ¡zky';
+
+  @override
+  String get front_photo_uploaded => 'PÅ™ednÃ­ fotka nahrÃ¡na';
+
+  @override
+  String get ingredients_photo_button_label => 'Fotografie ingrediencÃ­';
+
+  @override
+  String get ingredients_photo_uploaded => 'Fotografie ingrediencÃ­ nahrÃ¡na';
+
+  @override
+  String get nutrition_cache_loading_error => 'Nelze naÄÃ­st Å¾iviny z mezipamÄ›ti';
+
+  @override
+  String get nutritional_facts_photo_button_label => 'Fotografie vÃ½Å¾ivovÃ½ch faktÅ¯';
+
+  @override
+  String get nutritional_facts_input_button_label => 'Zadejte fakta o vÃ½Å¾ivÄ›';
+
+  @override
+  String get nutritional_facts_added => 'Byly pÅ™idÃ¡ny Ãºdaje o vÃ½Å¾ivÄ›';
+
+  @override
+  String get categories_added => 'Kategorie pÅ™idÃ¡ny';
+
+  @override
+  String get new_product_title_nutriscore => 'VypoÄÃ­tejte Nutri-Score';
+
+  @override
+  String get new_product_subtitle_nutriscore => 'ZÃ­skejte jej vyplnÄ›nÃ­m kategorie potravin a vÃ½Å¾ivovÃ½ch hodnot';
+
+  @override
+  String get new_product_title_environmental_score => 'VypoÄÃ­tejte Green-Score';
+
+  @override
+  String get new_product_subtitle_environmental_score => 'ZÃ­skejte jej vyplnÄ›nÃ­m alespoÅˆ kategorie';
+
+  @override
+  String get new_product_additional_environmental_score => 'ZpÅ™esnÄ›te vÃ½poÄet Green-Score pomocÃ­ pÅ¯vodu, balenÃ­ a dalÅ¡Ã­ch ÃºdajÅ¯';
+
+  @override
+  String get new_product_title_nova => 'VypoÄÃ­tejte ÃºroveÅˆ zpracovÃ¡nÃ­ potravin (NOVA)';
+
+  @override
+  String get new_product_subtitle_nova => 'ZÃ­skejte ji vyplnÄ›nÃ­m kategorie potravin a sloÅ¾ek';
+
+  @override
+  String get new_product_desc_nova_unknown => 'NeznÃ¡mÃ¡ ÃºroveÅˆ prÅ¯myslovÃ©ho zpracovÃ¡nÃ­ potraviny';
+
+  @override
+  String get new_product_title_pictures => 'PojÄme udÄ›lat pÃ¡r fotek!';
+
+  @override
+  String get new_product_title_pictures_details => 'UdÄ›lejte prosÃ­m nÃ¡sledujÃ­cÃ­ fotky a nÃ¡stroj Open Food Facts dokÃ¡Å¾e vyÅ™eÅ¡it zbytek!';
+
+  @override
+  String get new_product_title_misc => 'A pÃ¡r zÃ¡kladnÃ­ch ÃºdajÅ¯â€¦';
+
+  @override
+  String new_product_done_msg(String username) {
+    return 'DÄ›kujeme za vÃ¡Å¡ pÅ™Ã­spÄ›vek, $username!';
+  }
+
+  @override
+  String get new_product_done_msg_no_user => 'DÄ›kujeme za VÃ¡Å¡ pÅ™Ã­spÄ›vek!';
+
+  @override
+  String get new_product_done_button_label => 'Objevte hotovÃ½ produkt';
+
+  @override
+  String get hey_incomplete_product_message => 'KlepnutÃ­m odpovÄ›zte na 3 otÃ¡zky k OKAMÅ½ITÃ‰MU vÃ½poÄtu Nutri-Score, Green-Score & Ultra-zpracovÃ¡nÃ­ (NOVA)!';
+
+  @override
+  String get hey_incomplete_product_message_beauty => 'KlepnutÃ­m nynÃ­ odpovÄ›zte na 2 otÃ¡zky, kterÃ© vÃ¡m pomohou analyzovat tuto kosmetiku!';
+
+  @override
+  String get hey_incomplete_product_message_pet_food => 'KlepnutÃ­m nynÃ­ odpovÄ›zte na 3 otÃ¡zky, kterÃ© vÃ¡m pomohou analyzovat toto krmivo pro domÃ¡cÃ­ zvÃ­Å™ata!';
+
+  @override
+  String get hey_incomplete_product_message_product => 'KlepnutÃ­m nynÃ­ pomÅ¯Å¾ete dokonÄit tento produkt!';
+
+  @override
+  String get nutritional_facts_photo_uploaded => 'Fotografie nutriÄnÃ­ch ÃºdajÅ¯ byla nahrÃ¡na';
+
+  @override
+  String get recycling_photo_button_label => 'InformaÄnÃ­ fotografie o recyklaci';
+
+  @override
+  String get recycling_photo_uploaded => 'NahrÃ¡na fotografie recyklace';
+
+  @override
+  String get take_more_photo_button_label => 'Vyfotit dalÅ¡Ã­ obrÃ¡zky';
+
+  @override
+  String get other_photo_uploaded => 'RÅ¯znÃ© fotografie nahrÃ¡ny';
+
+  @override
+  String get retake_photo_button_label => 'PoÅ™Ã­dit znovu';
+
+  @override
+  String get selecting_photo => 'VÃ½bÄ›r fotografie';
+
+  @override
+  String get uploading_image => 'NahrÃ¡vÃ¡nÃ­ fotografie na server';
+
+  @override
+  String get uploading_image_type_front => 'NahrÃ¡vÃ¡nÃ­ pÅ™ednÃ­ho obrÃ¡zku do Open Food Facts';
+
+  @override
+  String get uploading_image_type_ingredients => 'NahrÃ¡vÃ¡nÃ­ obrÃ¡zku pÅ™Ã­sad do Open Food Facts';
+
+  @override
+  String get uploading_image_type_nutrition => 'NahrÃ¡vÃ¡nÃ­ obrÃ¡zku vÃ½Å¾ivovÃ½ch ÃºdajÅ¯ do Open Food Facts';
+
+  @override
+  String get uploading_image_type_packaging => 'NahrÃ¡vÃ¡nÃ­ obrÃ¡zku balenÃ­ do Open Food Facts';
+
+  @override
+  String get uploading_image_type_other => 'NahrÃ¡nÃ­ jinÃ©ho obrÃ¡zku do Open Food Facts';
+
+  @override
+  String get uploading_image_type_generic => 'NahrÃ¡vÃ¡nÃ­ obrÃ¡zku do Open Food Facts';
+
+  @override
+  String get score_add_missing_ingredients => 'PÅ™idejte chybÄ›jÃ­cÃ­ pÅ™Ã­sady';
+
+  @override
+  String get score_add_missing_packaging_image => 'PÅ™idat chybÄ›jÃ­cÃ­ obrÃ¡zek obalu';
+
+  @override
+  String get score_add_missing_nutrition_facts => 'PÅ™idejte chybÄ›jÃ­cÃ­ vÃ½Å¾ivovÃ¡ fakta';
+
+  @override
+  String get score_add_missing_product_category => 'PÅ™idejte chybÄ›jÃ­cÃ­ kategorii produktu';
+
+  @override
+  String get score_add_missing_product_countries => 'PÅ™idat chybÄ›jÃ­cÃ­ zemÄ› produktu';
+
+  @override
+  String get score_add_missing_product_emb => 'PÅ™idat chybÄ›jÃ­cÃ­ kÃ³dy sledovatelnosti produktu';
+
+  @override
+  String get score_add_missing_product_labels => 'PÅ™idat chybÄ›jÃ­cÃ­ Å¡tÃ­tky produktu';
+
+  @override
+  String get score_add_missing_product_origins => 'PÅ™idat chybÄ›jÃ­cÃ­ pÅ¯vod produktu';
+
+  @override
+  String get score_add_missing_product_stores => 'PÅ™idat chybÄ›jÃ­cÃ­ obchody produktÅ¯';
+
+  @override
+  String get score_add_missing_product_brands => 'PÅ™idat chybÄ›jÃ­cÃ­ znaÄky produktÅ¯';
+
+  @override
+  String get score_update_nutrition_facts => 'Aktualizujte vÃ½Å¾ivovÃ¡ fakta';
+
+  @override
+  String get nutrition_page_title => 'NutriÄnÃ­ hodnoty';
+
+  @override
+  String get nutrition_page_nutritional_info_title => 'NutriÄnÃ­ informace';
+
+  @override
+  String get nutrition_page_nutritional_info_label => 'Hodnoty uvedenÃ© na produktu:';
+
+  @override
+  String get nutrition_page_nutritional_info_value_positive => 'Ano';
+
+  @override
+  String get nutrition_page_nutritional_info_value_negative => 'Ne';
+
+  @override
+  String get nutrition_page_nutritional_info_open_photo => 'OtevÅ™Ã­t fotografii';
+
+  @override
+  String get nutrition_page_nutritional_info_explanation_title => 'OsvÄ›dÄenÃ© postupy: NutriÄnÃ­ informace';
+
+  @override
+  String get nutrition_page_nutritional_info_explanation_info1 => 'VÃ½Å¾ivovÃ¡ fakta jsou nÄ›kdy **nespecifikovÃ¡na na balenÃ­** ani na dokumentu pÅ™edloÅ¾enÃ©m s tÃ­mto produktem. V tomto pÅ™Ã­padÄ›, a pouze v tomto pÅ™Ã­padÄ›, mÅ¯Å¾ete nastavit hodnotu na **NE**.';
+
+  @override
+  String get nutrition_page_serving_type_label => 'NutriÄnÃ­ hodnoty:';
+
+  @override
+  String get nutrition_page_per_100g => 'na 100 g';
+
+  @override
+  String get nutrition_page_per_100g_100ml => 'na 100 g/ml';
+
+  @override
+  String get nutrition_page_per_serving => 'v jednÃ© porci';
+
+  @override
+  String get nutrition_page_add_nutrient => 'PÅ™idejte Å¾ivinu';
+
+  @override
+  String get nutrition_page_serving_size => 'Velikost porce';
+
+  @override
+  String get nutrition_page_serving_size_hint => 'Zadejte velikost porce (napÅ™.: 100 g)';
+
+  @override
+  String get nutrition_page_serving_size_explanation_title => 'OsvÄ›dÄenÃ© postupy: Velikost porce';
+
+  @override
+  String get nutrition_page_serving_size_explanation_info1 => 'Tato hodnota pomÃ¡hÃ¡ **proporcionÃ¡lnÄ› vypoÄÃ­tat kaÅ¾dou Å¾ivinu na velikost porce**.';
+
+  @override
+  String get nutrition_page_serving_size_explanation_info2 => '**PovolenÃ© jednotky** jsou: kg, g, mg, Âµg, oz, l, dl, cl, ml, fl.oz, fl oz, Ð³, Ð¼Ð³, ÐºÐ³, Ð», Ð´Ð», ÐºÐ», Ð¼Ð», æ¯«å…‹, å…¬æ–¤, æ¯«å‡, å…¬å‡, å¨.';
+
+  @override
+  String get nutrition_page_serving_size_explanation_good_example1 => '**60 g**, **60g** nebo **60 G** (preferujte prvnÃ­)';
+
+  @override
+  String get nutrition_page_serving_size_explanation_good_example2 => '**1000 ml** nebo **1L**';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example1_explanation => 'NeplatnÃ¡ jednotka';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example1_example => '30 **gr**';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example2_explanation => 'NeplatnÃ© jednotky';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example2_example => '9**bonbonÅ¯** a 2**suÅ¡enky**';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example3_explanation => 'ChybÄ›jÃ­cÃ­ jednotka';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example3_example => '***30**';
+
+  @override
+  String get nutrition_page_invalid_number => 'NeplatnÃ© ÄÃ­slo';
+
+  @override
+  String get nutrition_page_update_running => 'Aktualizace produktu na serveruâ€¦';
+
+  @override
+  String get nutrition_page_update_done => 'Produkt aktualizovÃ¡n!';
+
+  @override
+  String get nutrition_page_take_serving_size_from_product_quantity => 'PouÅ¾Ã­t mnoÅ¾stvÃ­ produktu jako velikost porce';
+
+  @override
+  String get nutrition_page_photo_error => 'Nelze naÄÃ­st fotografii';
+
+  @override
+  String get more_photos => 'DalÅ¡Ã­ zajÃ­mavÃ© fotky';
+
+  @override
+  String get view_more_photo_button => 'Zobrazit vÅ¡echny existujÃ­cÃ­ fotografie tohoto produktu';
+
+  @override
+  String get no_product_found => 'Nebyl nalezen Å¾Ã¡dnÃ½ produkt';
+
+  @override
+  String get no_location_found => 'Nenalezena Å¾Ã¡dnÃ¡ poloha';
+
+  @override
+  String get not_found => 'nenalezeno:';
+
+  @override
+  String get refreshing_product => 'ObnovovÃ¡nÃ­ produktu';
+
+  @override
+  String get product_refreshed => 'Produkt obnoven';
+
+  @override
+  String product_image_accessibility_label(String date) {
+    return 'ObrÃ¡zek poÅ™Ã­zenÃ½ $date';
+  }
+
+  @override
+  String product_image_outdated_accessibility_label(String date) {
+    return 'ObrÃ¡zek poÅ™Ã­zenÃ½ $date. Tento obrÃ¡zek mÅ¯Å¾e bÃ½t zastaralÃ½';
+  }
+
+  @override
+  String get product_image_outdated => 'Tento obrÃ¡zek mÅ¯Å¾e bÃ½t zastaralÃ½';
+
+  @override
+  String get product_image_outdated_explanations_title => 'Tento obrÃ¡zek mÅ¯Å¾e bÃ½t zastaralÃ½';
+
+  @override
+  String get product_image_outdated_explanations_content => 'Tento snÃ­mek byl poÅ™Ã­zen pÅ™ed vÃ­ce neÅ¾ rokem.\n**Zkontrolujte prosÃ­m, zda je stÃ¡le aktuÃ¡lnÃ­**.\n\nToto je **jen upozornÄ›nÃ­**. Pokud je obsah stÃ¡le stejnÃ½, mÅ¯Å¾ete tuto zprÃ¡vu ignorovat.';
+
+  @override
+  String product_image_action_replace_photo(String type) {
+    return 'Nahradit fotku ($type)';
+  }
+
+  @override
+  String product_image_action_add_photo(String type) {
+    return 'PÅ™idat fotku ($type)';
+  }
+
+  @override
+  String get product_image_action_take_new_picture => 'Zachytit novÃ½';
+
+  @override
+  String get product_image_action_take_picture => 'Vyfotit';
+
+  @override
+  String get product_image_action_from_gallery => 'Vyberte z galerie telefonu';
+
+  @override
+  String get product_image_action_choose_existing_photo => 'Vybrat z fotografiÃ­ produktu';
+
+  @override
+  String get product_image_details_label => 'Informace o fotografii';
+
+  @override
+  String get product_image_details_from_producer => 'Od vÃ½robce';
+
+  @override
+  String get product_image_details_contributor => 'PÅ™ispÄ›vatel';
+
+  @override
+  String get product_image_details_contributor_producer => 'PÅ™ispÄ›vatel (vÃ½robce)';
+
+  @override
+  String get product_image_details_date => 'Datum';
+
+  @override
+  String get product_image_details_date_unknown => 'NeznÃ¡mo';
+
+  @override
+  String get homepage_main_card_logo_description => 'VÃ­tejte v Open Food Facts';
+
+  @override
+  String get homepage_main_card_subheading => '**Naskenujte** ÄÃ¡rovÃ½ kÃ³d nebo\n**vyhledejte** produkt';
+
+  @override
+  String get homepage_main_card_search_field_hint => 'Vyhledat produkt';
+
+  @override
+  String get homepage_main_card_search_field_tooltip => 'ZaÄÃ­t hledÃ¡nÃ­';
+
+  @override
+  String scan_tagline_news_item_accessibility(String news_title) {
+    return 'NejnovÄ›jÅ¡Ã­ zprÃ¡vy: $news_title';
+  }
+
+  @override
+  String get tagline_app_review => 'LÃ­bÃ­ se vÃ¡m aplikace?';
+
+  @override
+  String get tagline_app_review_button_positive => 'Miluji to! ðŸ˜';
+
+  @override
+  String get tagline_app_review_button_negative => 'Ani ne...';
+
+  @override
+  String get tagline_app_review_button_later => 'Zeptejte se mÄ› pozdÄ›ji';
+
+  @override
+  String get tagline_feed_news_button => 'VÃ­ce informacÃ­';
+
+  @override
+  String get app_review_negative_modal_title => 'NelÃ­bÃ­ se vÃ¡m naÅ¡e aplikace?';
+
+  @override
+  String get app_review_negative_modal_text => 'Mohl byste nÃ¡m dÃ¡t pÃ¡r sekund a Å™Ã­ct nÃ¡m proÄ?';
+
+  @override
+  String get app_review_negative_modal_positive_button => 'Ano, samozÅ™ejmÄ›!';
+
+  @override
+  String get app_review_negative_modal_negative_button => 'Ne';
+
+  @override
+  String get could_not_refresh => 'Produkt se nepodaÅ™ilo obnovit';
+
+  @override
+  String get product_internet_error_modal_title => 'Vyskytla se chyba!';
+
+  @override
+  String product_internet_error_modal_message(String error) {
+    return 'NemÅ¯Å¾eme naÄÃ­st informace o tomto produktu kvÅ¯li chybÄ› sÃ­tÄ›. Zkontrolujte prosÃ­m pÅ™ipojenÃ­ k internetu a zkuste to znovu.\n\nVnitÅ™nÃ­ chyba:\n$error';
+  }
+
+  @override
+  String get product_tags_title => 'Vlastnosti produktu';
+
+  @override
+  String get no_product_tags_found_message => 'Nebyly nalezeny Å¾Ã¡dnÃ© vlastnosti produktu. Vlastnosti lze pouÅ¾Ã­t k podrobnÄ›jÅ¡Ã­mu a flexibilnÃ­mu popisu produktÅ¯. KlepnutÃ­m pÅ™idÃ¡te.';
+
+  @override
+  String get add_tag => 'PÅ™idat vlastnost';
+
+  @override
+  String get add_tags => 'PÅ™idat vlastnosti';
+
+  @override
+  String get add_edit_tags => 'PÅ™idat nebo upravit vlastnosti';
+
+  @override
+  String get edit_tag => 'Upravit vlastnost';
+
+  @override
+  String get remove_tag => 'Odstranit vlastnost';
+
+  @override
+  String get tag_key => 'Vlastnosti';
+
+  @override
+  String get tag_key_uneditable => 'Vlastnost (neupravitelnÃ¡)';
+
+  @override
+  String get tag_key_input_hint => 'Zadejte vlastnost';
+
+  @override
+  String get tag_value => 'Hodnota';
+
+  @override
+  String get tag_value_input_hint => 'Zadejte hodnotu';
+
+  @override
+  String get tag_key_item => 'Vlastnost:';
+
+  @override
+  String get tag_value_item => 'Hodnota:';
+
+  @override
+  String get tag_key_explanations => 'KlÃ­Ä musÃ­ bÃ½t malÃ½mi pÃ­smeny a bez mezer.';
+
+  @override
+  String tag_key_already_exists(String property) {
+    return 'ZnaÄka s vlastnostÃ­ $property jiÅ¾ existuje!';
+  }
+
+  @override
+  String get product_internet_error => 'Nelze naÄÃ­st informace o tomto produktu kvÅ¯li chybÄ› sÃ­tÄ›.';
+
+  @override
+  String get cached_results_from => 'Zobrazit vÃ½sledky z:';
+
+  @override
+  String get product_search_same_category => 'Porovnat s kategoriÃ­';
+
+  @override
+  String get product_search_same_category_short => 'Porovnat';
+
+  @override
+  String get product_search_same_category_error => 'Tuto funkci lze pouÅ¾Ã­t pouze pro produkty s kategoriÃ­.\n\nPro pÅ™idÃ¡nÃ­ kategorie prosÃ­m upravte produkt.';
+
+  @override
+  String get product_improvement_add_category => 'PÅ™idejte kategorii pro vÃ½poÄet Nutri-Score.';
+
+  @override
+  String get product_improvement_add_nutrition_facts => 'PÅ™idejte vÃ½Å¾ivovÃ© Ãºdaje pro vÃ½poÄet Nutri-Score.';
+
+  @override
+  String get product_improvement_add_nutrition_facts_and_category => 'PÅ™idejte vÃ½Å¾ivovÃ© Ãºdaje a kategorii pro vÃ½poÄet Nutri-Score.';
+
+  @override
+  String get product_improvement_categories_but_no_nutriscore => 'Nutri-score pro tento produkt nelze vypoÄÃ­tat, coÅ¾ mÅ¯Å¾e bÃ½t zpÅ¯sobeno napÅ™. nestandardnÃ­ kategoriÃ­. Pokud je to povaÅ¾ovÃ¡no za chybu, kontaktujte nÃ¡s.';
+
+  @override
+  String get product_improvement_obsolete_nutrition_image => 'ObrÃ¡zek vÃ½Å¾ivy je zastaralÃ½: obnovte jej.';
+
+  @override
+  String get product_improvement_origins_to_be_completed => 'Green-Score bere v Ãºvahu pÅ¯vod ingrediencÃ­. VyfoÅ¥te prosÃ­m seznam sloÅ¾ek a/nebo jakÃ©koli geografickÃ© tvrzenÃ­ nebo Ãºpravy produktu, aby mohly bÃ½t zohlednÄ›ny.';
+
+  @override
+  String get country_chooser_label => 'Vyberte prosÃ­m zemi';
+
+  @override
+  String get currency_chooser_label => 'ProsÃ­m zvolte mÄ›nu';
+
+  @override
+  String get country_change_message => 'PrÃ¡vÄ› jste zmÄ›nili zemi.';
+
+  @override
+  String currency_auto_change_message(String previousCurrency, String possibleCurrency) {
+    return 'Chcete zmÄ›nit mÄ›nu z $previousCurrency na $possibleCurrency?';
+  }
+
+  @override
+  String get onboarding_country_chooser_label => 'Vyberte prosÃ­m zemi:';
+
+  @override
+  String get country_chooser_label_from_settings => 'VaÅ¡e zemÄ›';
+
+  @override
+  String get country_selection_explanation => 'NÄ›kterÃ© prvky prostÅ™edÃ­ jsou specifickÃ© pro danÃ© mÃ­sto';
+
+  @override
+  String get product_removed_comparison => 'Produkt byl odstranÄ›n ze srovnÃ¡nÃ­';
+
+  @override
+  String get native_app_settings => 'NastavenÃ­ aplikace';
+
+  @override
+  String get native_app_description => 'OtevÅ™Ã­t systÃ©movÃ¡ nastavenÃ­ pro Open Food Facts';
+
+  @override
+  String get product_removed_history => 'Produkt byl odstranÄ›n z historie';
+
+  @override
+  String get product_removed_list => 'Produkt odstranÄ›n ze seznamu';
+
+  @override
+  String get product_could_not_remove => 'Produkt se nepodaÅ™ilo odebrat';
+
+  @override
+  String get no_prodcut_in_list => 'V tomto seznamu nenÃ­ Å¾Ã¡dnÃ½ produkt';
+
+  @override
+  String get no_product_in_section => 'V tÃ©to sekci nenÃ­ Å¾Ã¡dnÃ½ produkt';
+
+  @override
+  String get recently_seen_products => 'VÅ¡echny prohlÃ­Å¾enÃ© produkty';
+
+  @override
+  String get clear => 'Vymazat';
+
+  @override
+  String get clear_long => 'VyprÃ¡zdnit seznam';
+
+  @override
+  String get really_clear => 'Opravdu chcete tento seznam smazat?';
+
+  @override
+  String pct_match(Object percent) {
+    return '$percent% shoda';
+  }
+
+  @override
+  String plural_ago_days(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'pÅ™ed $count dny',
+      one: 'pÅ™ed $count dny',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_hours(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'pÅ™ed $count hodinami',
+      many: 'pÅ™ed $count hodinami',
+      one: 'pÅ™ed $count hodinami',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_minutes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'pÅ™ed $count minutami',
+      many: 'pÅ™ed $count minutami',
+      one: 'pÅ™ed minutou',
+      zero: 'pÅ™ed mÃ©nÄ› neÅ¾ minutou',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_months(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'pÅ™ed $count mÄ›sÃ­ci',
+      one: 'pÅ™ed mÄ›sÃ­cem',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_weeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tÃ½dny',
+      one: 'tÃ½dnem',
+    );
+    return 'pÅ™ed $_temp0';
+  }
+
+  @override
+  String plural_compare_x_products(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'PorovnÃ¡nÃ­ $count produktÅ¯',
+      one: 'PorovnÃ¡nÃ­ jednoho produktu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String multiselect_title(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count selected products',
+      one: 'One selected product',
+      zero: 'No selected product',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get compare_products_mode => 'Porovnat vybranÃ© produkty';
+
+  @override
+  String get delete_products_mode => 'Odstranit vybranÃ© produkty';
+
+  @override
+  String get select_all_products_mode => 'Vybrat vÅ¡echny produkty';
+
+  @override
+  String get select_none_products_mode => 'ZruÅ¡it vÃ½bÄ›r';
+
+  @override
+  String get compare_products_appbar_title => 'Porovnejte produkty';
+
+  @override
+  String get compare_products_appbar_subtitle => 'Vyberte prosÃ­m alespoÅˆ dva produkty';
+
+  @override
+  String get retry_button_label => 'Opakovat';
+
+  @override
+  String get connect_with_us => 'Spojte se s nÃ¡mi';
+
+  @override
+  String get tiktok => 'Sledujte nÃ¡s na TikToku';
+
+  @override
+  String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
+
+  @override
+  String get instagram => 'Sledujte nÃ¡s na Instagramu';
+
+  @override
+  String get instagram_link => 'https://instagram.com/open.food.facts';
+
+  @override
+  String get twitter => 'Sledujte nÃ¡s na X (dÅ™Ã­ve Twitter)';
+
+  @override
+  String get twitter_link => 'https://www.twitter.com/openfoodfacts';
+
+  @override
+  String get mastodon => 'Sledujte nÃ¡s na Mastodonu';
+
+  @override
+  String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
+
+  @override
+  String get bsky => 'Sledujte nÃ¡s na BlueSky';
+
+  @override
+  String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
+
+  @override
+  String get blog => 'Blog';
+
+  @override
+  String get faq => 'ÄŒasto kladenÃ© otÃ¡zky';
+
+  @override
+  String get discover => 'Zjistit vÃ­c';
+
+  @override
+  String get how_to_contribute => 'Jak pÅ™ispÄ›t';
+
+  @override
+  String get hint_knowledge_panel_message => 'KlepnutÃ­m na kteroukoli ÄÃ¡st karty zÃ­skÃ¡te dalÅ¡Ã­ podrobnosti o tom, co vidÃ­te. VyzkouÅ¡ejte to teÄ!';
+
+  @override
+  String get permissions_page_title => 'PÅ™Ã­stup k fotoaparÃ¡tu';
+
+  @override
+  String get permissions_page_body1 => 'Chcete-li skenovat ÄÃ¡rovÃ© kÃ³dy fotoaparÃ¡tem telefonu, autorizujte pÅ™Ã­stup.';
+
+  @override
+  String get permissions_page_body2 => 'Pokud si to rozmyslÃ­te, mÅ¯Å¾ete tuto moÅ¾nost kdykoli povolit nebo zakÃ¡zat v nastavenÃ­.';
+
+  @override
+  String contact_form_body_android(int? sdkInt, String? release, String? model, String? product, String? device, String? brand) {
+    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProdukt: $product\nZaÅ™Ã­zenÃ­: $device\nZnaÄka:$brand';
+  }
+
+  @override
+  String contact_form_body_ios(String? version, String? model, String? localizedModel) {
+    return 'OS: iOS ($version)\nModel: $model\nLokalizovanÃ½ model: $localizedModel';
+  }
+
+  @override
+  String contact_form_body(String osContent, String appVersion, String appBuildNumber, String appPackageName) {
+    return '$osContent\nVerze aplikace:$appVersion\nÄŒÃ­slo sestavenÃ­ aplikace:$appBuildNumber\nNÃ¡zev balÃ­Äku aplikace:$appPackageName';
+  }
+
+  @override
+  String get authorize_button_label => 'Autorizovat';
+
+  @override
+  String get refuse_button_label => 'OdmÃ­tnout';
+
+  @override
+  String get ask_me_later_button_label => 'PozdÄ›ji';
+
+  @override
+  String get are_you_sure => 'Jste si jisti?';
+
+  @override
+  String knowledge_panel_text_source(String sourceName) {
+    return 'PÅ™ejÃ­t dÃ¡le na $sourceName';
+  }
+
+  @override
+  String get onboarding_home_welcome_text1 => 'VÃ­tejte!';
+
+  @override
+  String get onboarding_home_welcome_text2 => 'Aplikace, kterÃ¡ vÃ¡m pomÅ¯Å¾e vybrat jÃ­dlo, kterÃ© je dobrÃ© pro **vÃ¡s** a **planetu**!';
+
+  @override
+  String get onboarding_continue_button => 'PokraÄovat';
+
+  @override
+  String get onboarding_welcome_loading_dialog_title => 'NaÄÃ­tÃ¡m vÃ¡Å¡ prvnÃ­ pÅ™Ã­klad produktu';
+
+  @override
+  String get product_list_your_ranking => 'VaÅ¡e hodnocenÃ­';
+
+  @override
+  String get product_list_empty_icon_desc => 'Historie nenÃ­ k dispozici';
+
+  @override
+  String get product_list_empty_title => 'ZaÄÃ­t skenovat';
+
+  @override
+  String get product_list_empty_message => 'Zde se zobrazÃ­ naskenovanÃ© produkty a mÅ¯Å¾ete si o nich zkontrolovat podrobnÃ© informace';
+
+  @override
+  String product_list_reloading_in_progress_multiple(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'produkty',
+      one: 'produkt',
+      zero: 'produkt',
+      many: 'produktÅ¯',
+      few: 'produkty',
+    );
+    return 'Obnovuji $_temp0 v historii';
+  }
+
+  @override
+  String product_list_reloading_success_multiple(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Products',
+      one: 'produktu',
+      zero: 'produktÅ¯',
+      many: 'produktÅ¯',
+      few: 'produktÅ¯',
+    );
+    return 'Aktualizace $_temp0 dokonÄena';
+  }
+
+  @override
+  String get loading_dialog_default_title => 'StahovÃ¡nÃ­ dat';
+
+  @override
+  String get loading_dialog_default_error_message => 'Nelze stÃ¡hnout data';
+
+  @override
+  String get account_delete => 'Smazat ÃºÄet';
+
+  @override
+  String get account_deletion_subject => 'Odstranit mÅ¯j ÃºÄet';
+
+  @override
+  String get user_profile => 'ÃšÄet';
+
+  @override
+  String get user_profile_title_guest => 'VÃ­tejte!';
+
+  @override
+  String get user_profile_subtitle_guest => 'PÅ™ihlaste se nebo se zaregistrujte a pÅ™ipojte se ke komunitÄ› Open Food Facts';
+
+  @override
+  String user_profile_title_id_email(String email) {
+    return 'Open Food Facts pÅ™ihlÃ¡Å¡enÃ­: $email';
+  }
+
+  @override
+  String user_profile_title_id_default(String id) {
+    return 'VÃ­tejte $id!';
+  }
+
+  @override
+  String get email_subject_account_deletion => 'Smazat ÃºÄet';
+
+  @override
+  String email_body_account_deletion(String userId) {
+    return 'DobrÃ½ den, smaÅ¾te prosÃ­m mÅ¯j ÃºÄet Open Food Facts: $userId';
+  }
+
+  @override
+  String get settings_app_app => 'Aplikace';
+
+  @override
+  String get settings_app_data => 'SoukromÃ­ a monitorovÃ¡nÃ­';
+
+  @override
+  String get settings_app_camera => 'FotoaparÃ¡t';
+
+  @override
+  String get settings_app_products => 'Produkty';
+
+  @override
+  String get settings_app_miscellaneous => 'OstatnÃ­';
+
+  @override
+  String get camera_play_sound_title => 'PÅ™ehrÃ¡t zvuk pÅ™i skenovÃ¡nÃ­';
+
+  @override
+  String get camera_play_sound_subtitle => 'PÅ™i kaÅ¾dÃ©m ÃºspÄ›Å¡nÃ©m skenovÃ¡nÃ­ pÃ­pne';
+
+  @override
+  String get camera_window_accessibility_label => 'Naskenujte ÄÃ¡rovÃ½ kÃ³d pomocÃ­ fotoaparÃ¡tu';
+
+  @override
+  String get app_haptic_feedback_title => 'Vibrace a haptika';
+
+  @override
+  String get app_haptic_feedback_subtitle => 'Vibrace po provedenÃ­ nÄ›kterÃ½ch akcÃ­ (ÄÃ¡rovÃ½ kÃ³d dekÃ³dovÃ¡n, produkt odstranÄ›nâ€¦).';
+
+  @override
+  String get crash_reporting_toggle_title => 'HlÃ¡Å¡enÃ­ o pÃ¡du';
+
+  @override
+  String get crash_reporting_toggle_subtitle => 'Pokud je tato moÅ¾nost povolena, zprÃ¡vy o selhÃ¡nÃ­ se automaticky odesÃ­lajÃ­ do systÃ©mu sledovÃ¡nÃ­ chyb Open Food Facts, aby bylo moÅ¾nÃ© opravit chyby a vylepÅ¡it tak aplikaci.';
+
+  @override
+  String get send_anonymous_data_toggle_title => 'Odeslat anonymnÃ­ data';
+
+  @override
+  String get send_anonymous_data_toggle_subtitle => 'Pokud je povoleno, nÄ›kterÃ© anonymnÃ­ informace o pouÅ¾Ã­vÃ¡nÃ­ aplikace a jejÃ­ch funkcÃ­ch budou odeslÃ¡ny na server Open Food Facts, abychom mohli aplikaci dÃ¡le vylepÅ¡ovat.';
+
+  @override
+  String get product_edit_photo_title => 'Upravit obrÃ¡zek';
+
+  @override
+  String get permission_photo_error => 'Chyba';
+
+  @override
+  String get permission_photo_denied_title => 'Povolit pouÅ¾itÃ­ fotoaparÃ¡tu ke skenovÃ¡nÃ­ ÄÃ¡rovÃ½ch kÃ³dÅ¯';
+
+  @override
+  String permission_photo_denied_message(String appName) {
+    return 'Pro lepÅ¡Ã­ zÃ¡Å¾itek povolte $appName pÅ™Ã­stup ke kameÅ™e. Budete moci pÅ™Ã­mo skenovat ÄÃ¡rovÃ© kÃ³dy.';
+  }
+
+  @override
+  String get permission_photo_denied_button => 'Povolit';
+
+  @override
+  String get permission_photo_denied_dialog_settings_title => 'PÅ™Ã­stup odepÅ™en';
+
+  @override
+  String get permission_photo_denied_dialog_settings_message => 'ProtoÅ¾e jste dÅ™Ã­ve odepÅ™eli povolenÃ­ fotoaparÃ¡tu, musÃ­te jej povolit ruÄnÄ› v NastavenÃ­.';
+
+  @override
+  String get permission_photo_denied_dialog_settings_button_open => 'OtevÅ™Ã­t nastavenÃ­';
+
+  @override
+  String get permission_photo_denied_dialog_settings_button_cancel => 'ZruÅ¡it';
+
+  @override
+  String get permission_photo_none_found => 'Nenalezen Å¾Ã¡dnÃ½ fotoaparÃ¡t';
+
+  @override
+  String get permission_photo_denied => 'NenÃ­ povolen pÅ™Ã­stup ke kameÅ™e';
+
+  @override
+  String get show_product_pictures => 'Zobrazit obrÃ¡zky produktÅ¯';
+
+  @override
+  String get edit_product_label => 'Upravit produkt';
+
+  @override
+  String get edit_product_pending_operations_banner_title => 'NahrÃ¡vÃ¡nÃ­ vaÅ¡ich Ãºpravâ€¦';
+
+  @override
+  String get edit_product_pending_operations_banner_message => 'TvÃ© Ãºpravy jsou **odeslÃ¡ny na pozadÃ­** (nebo pozdÄ›ji v pÅ™Ã­padÄ› chyby).\nMÅ¯Å¾eÅ¡ pokraÄovat v ÃºpravÃ¡ch ostatnÃ­ch produktovÃ½ch polÃ­.';
+
+  @override
+  String get edit_product_pending_operations_banner_short_message => 'TvÃ© Ãºpravy jsou **odeslÃ¡ny na pozadÃ­** (nebo pozdÄ›ji v pÅ™Ã­padÄ› chyby).';
+
+  @override
+  String get edit_product_label_short => 'Upravit';
+
+  @override
+  String edit_product_form_item_help(String value) {
+    return 'Jak zadat \"$value\"?';
+  }
+
+  @override
+  String get edit_product_form_item_error_empty => 'Zadejte prosÃ­m neprÃ¡zdnou hodnotu!';
+
+  @override
+  String get edit_product_form_item_error_existing => 'Tato hodnota jiÅ¾ existuje!';
+
+  @override
+  String get edit_product_form_item_add_action_brand => 'PÅ™idat novou znaÄku';
+
+  @override
+  String get edit_product_form_item_add_action_label => 'PÅ™idat novÃ½ Å¡tÃ­tek';
+
+  @override
+  String get edit_product_form_item_add_action_store => 'PÅ™idat novÃ½ obchod';
+
+  @override
+  String get edit_product_form_item_add_action_origin => 'PÅ™idat novÃ½ pÅ¯vod';
+
+  @override
+  String get edit_product_form_item_add_action_emb_code => 'PÅ™idat novÃ½ kÃ³d sledovatelnosti';
+
+  @override
+  String get edit_product_form_item_add_action_country => 'PÅ™idat novou zemi';
+
+  @override
+  String get edit_product_form_item_add_action_category => 'PÅ™idÃ¡ novou kategorii';
+
+  @override
+  String get edit_product_form_item_add_suggestion => 'PÅ™idat nÃ¡vrh';
+
+  @override
+  String get edit_product_form_item_details_title => 'ZÃ¡kladnÃ­ detaily';
+
+  @override
+  String get edit_product_form_item_details_subtitle => 'NÃ¡zev produktu, znaÄka, mnoÅ¾stvÃ­';
+
+  @override
+  String get edit_product_form_item_other_details_title => 'DalÅ¡Ã­ detaily';
+
+  @override
+  String get edit_product_form_item_other_details_subtitle => 'WebovÃ¡ strÃ¡nkaâ€¦';
+
+  @override
+  String get edit_product_form_item_photos_title => 'Fotky';
+
+  @override
+  String get edit_product_form_item_photos_subtitle => 'PÅ™idat nebo obnovit fotky';
+
+  @override
+  String get edit_product_form_item_labels_title => 'Å tÃ­tky a certifikace';
+
+  @override
+  String get edit_product_form_item_labels_subtitle => 'EnvironmentÃ¡lnÃ­, kvalitativnÃ­ Å¡tÃ­tkyâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_hint => 'Zadejte Å¡tÃ­tek (napÅ™.: NutriScore)';
+
+  @override
+  String get edit_product_form_item_labels_type => 'Å¡tÃ­tek';
+
+  @override
+  String get edit_product_form_item_labels_explanation_title => 'OsvÄ›dÄenÃ© postupy: Å tÃ­tky';
+
+  @override
+  String get edit_product_form_item_labels_explanation_info1 => 'JakÃ¡koli charakteristika produktu, **kterÃ¡ je faktickÃ¡** a liÅ¡Ã­ se od ostatnÃ­ch polÃ­.';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_1 => 'Nutri-Score, NOVAâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_2 => 'Vyrobeno v Belgii, vyrobeno v Bretaniâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_3 => 'ISO 9001, ISO 22000â€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_4 => 'BohatÃ½ na vlÃ¡kninu, zdroj Å¾elezaâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_5 => 'Fair trade, Max Havelaarâ€¦';
+
+  @override
+  String get edit_product_form_item_stores_title => 'Prodejny';
+
+  @override
+  String get edit_product_form_item_stores_hint => 'Zadejte obchod';
+
+  @override
+  String get edit_product_form_item_stores_type => 'prodejna';
+
+  @override
+  String get edit_product_form_item_stores_explanation_title => 'OsvÄ›dÄenÃ© postupy: Obchody';
+
+  @override
+  String get edit_product_form_item_stores_explanation_info1 => 'Zadejte obchod, kde jste produkt zakoupili.';
+
+  @override
+  String get edit_product_form_item_stores_explanation_good_examples_1 => 'Walmart';
+
+  @override
+  String get edit_product_form_item_stores_explanation_good_examples_2 => 'Carrefour';
+
+  @override
+  String get edit_product_form_item_stores_explanation_good_examples_3 => 'Lidl';
+
+  @override
+  String get edit_product_form_item_origins_title => 'PÅ¯vod';
+
+  @override
+  String get edit_product_form_item_origins_hint => 'Input an origin (eg: Germany)';
+
+  @override
+  String get edit_product_form_item_origins_type => 'zemÄ›';
+
+  @override
+  String get edit_product_form_item_origins_explanation_title => 'OsvÄ›dÄenÃ© postupy: PÅ¯vod';
+
+  @override
+  String get edit_product_form_item_origins_explanation_info1 => 'PÅ™idejte **Ãºdaje o pÅ¯vodu, kterÃ© najdete na balenÃ­**.\nNemusÃ­te se starat o pÅ¯vod uvedenÃ½ pÅ™Ã­mo v seznamu ingrediencÃ­.';
+
+  @override
+  String get edit_product_form_item_origins_explanation_good_examples_1 => 'HovÄ›zÃ­ maso z Argentiny';
+
+  @override
+  String get edit_product_form_item_origins_explanation_good_examples_2 => 'SÃ³ja nepochÃ¡zÃ­ z EvropskÃ© unie';
+
+  @override
+  String get edit_product_form_item_countries_title => 'ZemÄ›';
+
+  @override
+  String get edit_product_form_item_countries_hint => 'Zadejte zemi (napÅ™.: NÄ›mecko)';
+
+  @override
+  String get edit_product_form_item_countries_type => 'zemÄ›';
+
+  @override
+  String get edit_product_form_item_countries_explanations_title => 'OsvÄ›dÄenÃ© postupy: ZemÄ›';
+
+  @override
+  String get edit_product_form_item_countries_explanations_info1 => '**ZemÄ›, kde je produkt Å¡iroce dostupnÃ½** (nezahrnuje obchody specializovanÃ© na zahraniÄnÃ­ produkty).';
+
+  @override
+  String get edit_product_form_item_emb_codes_title => 'KÃ³d EMB';
+
+  @override
+  String get edit_product_form_item_emb_codes_hint => 'Zadejte kÃ³d (napÅ™.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522â€¦)';
+
+  @override
+  String get edit_product_form_item_emb_codes_type => 'kÃ³d EMB';
+
+  @override
+  String get edit_product_form_item_emb_help_title => 'OsvÄ›dÄenÃ© postupy: KÃ³dy sledovatelnosti';
+
+  @override
+  String get edit_product_form_item_emb_help_info1 => 'V tÃ©to ÄÃ¡sti mÅ¯Å¾ete zadat kÃ³dy pro **znaÄky balenÃ­**, **identifikaÄnÃ­ znaÄky** nebo **znaÄky zdravotnÃ­ nezÃ¡vadnosti**.';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_title => 'PÅ™Ã­klady kÃ³dÅ¯ sledovatelnosti';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item1_text => '**KÃ³dy EC** pouÅ¾Ã­vanÃ© v EvropskÃ©m spoleÄenstvÃ­ k identifikaci vÃ½robcÅ¯ potravin nebo balÃ­ren:';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item1_example => 'FR\n72.264.002\nCE';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item1_explanation => '**FR**: KÃ³d zemÄ› **Francie**\n**72.264.002**: geografickÃ¡ data\n**CE**: EvropskÃ© spoleÄenstvÃ­';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item2_text => '**KÃ³dy EMB** pouÅ¾Ã­vanÃ© ve Francii:';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item2_explanation => 'EMB 72264';
+
+  @override
+  String get edit_product_form_item_categories_title => 'Kategorie';
+
+  @override
+  String get edit_product_form_item_categories_hint => 'kategorie';
+
+  @override
+  String get edit_product_form_item_categories_type => 'Zadejte kategorii (napÅ™.: PomeranÄovÃ½ dÅ¾us)';
+
+  @override
+  String get edit_product_form_item_categories_explanation_title => 'OsvÄ›dÄenÃ© postupy: Kategorie';
+
+  @override
+  String get edit_product_form_item_categories_explanation_info1 => 'UveÄte **pouze nejkonkrÃ©tnÄ›jÅ¡Ã­ kategorii**.\nNadÅ™azenÃ© kategorie budou pÅ™idÃ¡ny automaticky.';
+
+  @override
+  String get edit_product_form_item_categories_explanation_info2_title => 'ChybÃ­ kategorie?';
+
+  @override
+  String get edit_product_form_item_categories_explanation_info2_content => 'V pÅ™Ã­padÄ›, Å¾e kategorie **nenÃ­ dostupnÃ¡ v automatickÃ©m doplÅˆovÃ¡nÃ­**, klidnÄ› ji i tak pÅ™idejte.\nTo nÃ¡m pomÅ¯Å¾e vylepÅ¡it Open Food Facts ve vaÅ¡Ã­ zemi.';
+
+  @override
+  String get edit_product_form_item_categories_explanation_good_examples_1 => 'Sardinky v olivovÃ©m oleji';
+
+  @override
+  String get edit_product_form_item_categories_explanation_good_examples_2 => 'PomeranÄovÃ¡ Å¡Å¥Ã¡va z koncentrÃ¡tu';
+
+  @override
+  String get edit_product_form_item_exit_title => 'UkonÄit bez uloÅ¾enÃ­?';
+
+  @override
+  String get edit_product_form_item_exit_confirmation => 'Chcete uloÅ¾it zmÄ›ny pÅ™ed opuÅ¡tÄ›nÃ­m tÃ©to strÃ¡nky?';
+
+  @override
+  String get edit_product_form_item_exit_confirmation_positive_button => 'UloÅ¾it zmÄ›ny';
+
+  @override
+  String get edit_product_form_item_exit_confirmation_negative_button => 'ZruÅ¡it zmÄ›ny';
+
+  @override
+  String get edit_product_form_item_ingredients_title => 'SloÅ¾enÃ­';
+
+  @override
+  String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip => 'PÅ™iblÃ­Å¾enÃ­ a oddÃ¡lenÃ­ dotekem obrazovky';
+
+  @override
+  String get edit_product_form_item_ingredients_pinch_to_zoom_title => 'PÅ™iblÃ­Å¾enÃ­ a oddÃ¡lenÃ­ fotky';
+
+  @override
+  String get edit_product_form_item_ingredients_pinch_to_zoom_message => 'PomocÃ­ **gesta Pinch-to-zoom**, mÅ¯Å¾ete fotku oddÃ¡lit nebo oddÃ¡lit:';
+
+  @override
+  String get edit_product_form_item_add_valid_item_tooltip => 'PÅ™idat';
+
+  @override
+  String get edit_product_form_item_add_invalid_item_tooltip => 'Nejprve prosÃ­m zadejte text';
+
+  @override
+  String get edit_product_form_item_remove_item_tooltip => 'Odstranit';
+
+  @override
+  String get edit_product_form_item_save_edit_item_tooltip => 'UloÅ¾te svÃ© Ãºpravy';
+
+  @override
+  String get edit_product_form_item_cancel_edit_item_tooltip => 'ZruÅ¡te svou Ãºpravu';
+
+  @override
+  String get edit_product_form_item_packaging_title => 'Fotografie pokynÅ¯ pro recyklaci';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_title => 'NutriÄnÃ­ hodnoty';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_subtitle => 'VÃ½Å¾iva, obsah alkoholuâ€¦';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_title => 'OsvÄ›dÄenÃ© postupy: Fakta o vÃ½Å¾ivÄ›';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info1_title => 'NutriÄnÃ­ hodnoty';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info1_content => 'Nejprve vyberte, zda jsou uvedeny **hodnoty**:';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info2_title => 'NutriÄnÃ­ hodnoty';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info2_content => 'PotÃ© zadejte nutriÄnÃ­ hodnoty **jak je uvedeno na obalu**. Pokud nenÃ­ Å¾Ã¡dnÃ¡ hodnota, mÅ¯Å¾ete kliknout na ikonu \"Oko\".';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info3_title => 'ChybÃ­ pole?';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info3_content => 'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesiumâ€¦).';
+
+  @override
+  String get edit_product_form_save => 'Upravit';
+
+  @override
+  String get edit_product_ingredients_photo_title => 'Fotografie ingrediencÃ­';
+
+  @override
+  String get edit_product_ingredients_list_title => 'SloÅ¾enÃ­';
+
+  @override
+  String get edit_product_packaging_photo_title => 'Foto balenÃ­';
+
+  @override
+  String get edit_product_packaging_list_title => 'Seznam balenÃ­';
+
+  @override
+  String get no_data_available => 'Nejsou dostupnÃ¡ Å¾Ã¡dnÃ¡ data';
+
+  @override
+  String get product_field_website_title => 'WebovÃ¡ strÃ¡nka';
+
+  @override
+  String get origins_editing_title => 'Upravit pÅ¯vod';
+
+  @override
+  String get completed_basic_details_btn_text => 'VyplÅˆte zÃ¡kladnÃ­ Ãºdaje';
+
+  @override
+  String get not_implemented_snackbar_text => 'ZatÃ­m neimplementovÃ¡no';
+
+  @override
+  String get category_picker_page_appbar_text => 'Kategorie';
+
+  @override
+  String get edit_ingredients_extract_ingredients_btn_text => 'Extrahujte pÅ™Ã­sady z fotografie';
+
+  @override
+  String get edit_ingredients_extract_ingredients_btn_text_short => 'Aut. rozpoznat sloÅ¾enÃ­';
+
+  @override
+  String get edit_ingredients_extracting_ingredients_btn_text => 'ExtrahujÃ­ se pÅ™Ã­sady\nz fotografie';
+
+  @override
+  String get edit_ingredients_loading_photo_btn_text => 'NaÄÃ­tÃ¡nÃ­ fotografieâ€¦';
+
+  @override
+  String get edit_ingredients_loading_photo_help_dialog_title => 'ProÄ se mi zobrazuje tato zprÃ¡va?';
+
+  @override
+  String get edit_ingredients_loading_photo_help_dialog_body => 'Chcete-li pouÅ¾Ã­t funkci â€žExtrahovat ingredienceâ€œ, musÃ­te nejprve nahrÃ¡t fotografii.\n\nPoÄkejte prosÃ­m nÄ›kolik sekund nebo je zadejte ruÄnÄ›.';
+
+  @override
+  String get edit_ingredients_refresh_photo_btn_text => 'Obnovit fotku';
+
+  @override
+  String get edit_packaging_extract_btn_text => 'Extrahujte obal\nz fotografie';
+
+  @override
+  String get edit_packaging_extract_btn_text_short => 'Rozpoznat balenÃ­';
+
+  @override
+  String get edit_packaging_extracting_btn_text => 'Extrahuje se obal z fotografie';
+
+  @override
+  String get edit_packaging_loading_photo_btn_text => 'NaÄÃ­tÃ¡nÃ­ fotografieâ€¦';
+
+  @override
+  String get edit_packaging_loading_photo_help_dialog_title => 'ProÄ se mi zobrazuje tato zprÃ¡va?';
+
+  @override
+  String get edit_packaging_loading_photo_help_dialog_body => 'Chcete-li pouÅ¾Ã­t funkci \"Extrahovat obal\", musÃ­te nejprve nahrÃ¡t fotografii.\n\nPoÄkejte prosÃ­m nÄ›kolik sekund nebo je zadejte ruÄnÄ›.';
+
+  @override
+  String get edit_packaging_refresh_photo_btn_text => 'Obnovit fotku';
+
+  @override
+  String get edit_ocr_extract_failed => 'NepodaÅ™ilo se rozpoznat text v obrÃ¡zku.';
+
+  @override
+  String get edit_ocr_extract_disabled_title => 'Å½Ã¡dnÃ½ obrÃ¡zek!';
+
+  @override
+  String get edit_ocr_extract_disabled_message => 'Chcete-li pouÅ¾Ã­t funkci rozpoznÃ¡nÃ­ textu, musÃ­te nejprve poÅ™Ã­dit fotografii.';
+
+  @override
+  String get user_list_dialog_new_title => 'NovÃ½ seznam produktÅ¯';
+
+  @override
+  String get user_list_dialog_rename_title => 'PÅ™ejmenovat seznam';
+
+  @override
+  String get user_list_subtitle_product => 'Seznamy';
+
+  @override
+  String get user_list_title => 'Seznamy';
+
+  @override
+  String get user_list_add_product => 'PÅ™idejte produkt do svÃ½ch seznamÅ¯';
+
+  @override
+  String get user_list_button_new => 'VytvoÅ™it novÃ½ seznam';
+
+  @override
+  String get user_list_empty_label => 'ZatÃ­m nenÃ­ k dispozici Å¾Ã¡dnÃ½ seznam, zaÄnÄ›te jeho vytvoÅ™enÃ­m';
+
+  @override
+  String get user_list_button_add_product => 'PÅ™idat na seznam';
+
+  @override
+  String get added_to_list_msg => 'PÅ™idÃ¡no do seznamu';
+
+  @override
+  String get user_list_popup_clear => 'VymaÅ¾te historii';
+
+  @override
+  String get user_list_popup_rename => 'PÅ™ejmenovat';
+
+  @override
+  String get user_list_name_hint => 'MÅ¯j seznam';
+
+  @override
+  String get user_list_name_error_empty => 'NÃ¡zev je povinnÃ½';
+
+  @override
+  String get user_list_name_error_already => 'Tento nÃ¡zev se jiÅ¾ pouÅ¾Ã­vÃ¡';
+
+  @override
+  String get user_list_name_error_same => 'To je stejnÃ© jmÃ©no';
+
+  @override
+  String get user_list_name_input_hint => 'NÃ¡zev seznamu';
+
+  @override
+  String get try_again => 'Zkuste to znovu';
+
+  @override
+  String get there_was_an_error => 'DoÅ¡lo k chybÄ›';
+
+  @override
+  String category_picker_no_category_found_message(String items) {
+    return 'Pro $items nebyla nalezena Å¾Ã¡dnÃ¡ kategorie';
+  }
+
+  @override
+  String get camera_toggle_camera => 'PÅ™epÃ­nÃ¡nÃ­ mezi zadnÃ­ a pÅ™ednÃ­ kamerou';
+
+  @override
+  String get camera_toggle_flash => 'Zapnout nebo vypnout blesk kamery';
+
+  @override
+  String get camera_enable_flash => 'Povolit blesk';
+
+  @override
+  String get camera_disable_flash => 'ZakÃ¡zat blesk';
+
+  @override
+  String get camera_flash_error_dialog_title => 'Vyskytla se chyba!';
+
+  @override
+  String get camera_flash_error_dialog_message => 'PÅ™i zmÄ›nÄ› stavu blesku doÅ¡lo k chybÄ›. UjistÄ›te se, Å¾e vÃ¡Å¡ smartphone jiÅ¾ nemÃ¡ zapnutou svÃ­tilnu.';
+
+  @override
+  String get category_picker_no_category_found_button => 'ZpÄ›t';
+
+  @override
+  String get user_preferences_item_accessibility_hint => 'KliknutÃ­m otevÅ™ete ve svÃ©m prohlÃ­Å¾eÄi nebo v aplikaci (pokud je nainstalovÃ¡na)';
+
+  @override
+  String get dev_preferences_screen_title => 'DEV reÅ¾im';
+
+  @override
+  String get dev_preferences_reset_onboarding_title => 'Restartovat zapojenÃ­';
+
+  @override
+  String get dev_preferences_reset_onboarding_subtitle => 'Potom musÃ­te aplikaci restartovat, abyste ji mohli znovu vidÄ›t.';
+
+  @override
+  String get dev_preferences_environment_switch_title => 'PÅ™epÃ­nÃ¡nÃ­ mezi openfoodfacts.org (PROD) a testovacÃ­m prostÅ™edÃ­m';
+
+  @override
+  String get dev_preferences_test_environment_title => 'Parametry testovacÃ­ho prostÅ™edÃ­';
+
+  @override
+  String dev_preferences_test_environment_subtitle(String url) {
+    return 'ZÃ¡kladnÃ­ URL pro aktuÃ¡lnÃ­ testovacÃ­ prostÅ™edÃ­: $url';
+  }
+
+  @override
+  String get dev_preferences_test_environment_dialog_title => 'Hostitel testovacÃ­ho prostÅ™edÃ­';
+
+  @override
+  String get dev_preferences_ml_kit_title => 'PouÅ¾Ã­t ML kit';
+
+  @override
+  String get dev_preferences_ml_kit_subtitle => 'pak musÃ­te tuto aplikaci restartovat';
+
+  @override
+  String get dev_preferences_product_additional_features_title => 'DalÅ¡Ã­ tlaÄÃ­tko na strÃ¡nce produktu';
+
+  @override
+  String get dev_preferences_edit_ingredients_title => 'Upravte pÅ™Ã­sady pomocÃ­ tlaÄÃ­tka na panelu znalostÃ­';
+
+  @override
+  String get dev_preferences_export_history_title => 'Historie exportu';
+
+  @override
+  String get dev_preferences_export_history_progress_error => 'vÃ½jimka';
+
+  @override
+  String get dev_preferences_export_history_progress_found => 'produkt nalezen';
+
+  @override
+  String get dev_preferences_export_history_progress_not_found => 'produkt nenalezen';
+
+  @override
+  String get dev_preferences_export_history_dialog_title => 'Historie exportu';
+
+  @override
+  String get dev_preferences_button_positive => 'OK';
+
+  @override
+  String get dev_preferences_button_negative => 'ZruÅ¡it';
+
+  @override
+  String get dev_preferences_migration_title => 'Migrace dat z V1';
+
+  @override
+  String dev_preferences_migration_subtitle(String status) {
+    return 'Stav: $status';
+  }
+
+  @override
+  String get dev_preferences_migration_status_already_done => 'ÃºspÄ›Å¡nÃ¡ nebo ÄerstvÃ¡ instalace';
+
+  @override
+  String get dev_preferences_migration_status_success => 'ÃºspÄ›ch';
+
+  @override
+  String get dev_preferences_migration_status_error => 'chyba';
+
+  @override
+  String get dev_preferences_migration_status_in_progress => 'probÃ­hÃ¡';
+
+  @override
+  String get dev_preferences_migration_status_required => 'vyÅ¾adovÃ¡no (kliknutÃ­m spustÃ­te)';
+
+  @override
+  String get dev_preferences_migration_status_not_started => 'neznÃ¡mÃ½';
+
+  @override
+  String get dev_preferences_import_history_subtitle => 'VymaÅ¾e historii a vloÅ¾Ã­ tam 3 produkty';
+
+  @override
+  String get dev_preferences_news_custom_url_title => 'VlastnÃ­ URL pro zprÃ¡vy';
+
+  @override
+  String get dev_preferences_news_custom_url_subtitle => 'URL souboru JSON:';
+
+  @override
+  String get dev_preferences_news_custom_url_empty_value => 'Nenastaveno';
+
+  @override
+  String get dev_preferences_news_provider_status_title => 'Stav';
+
+  @override
+  String dev_preferences_news_provider_status_subtitle(String date) {
+    return 'PoslednÃ­ aktualizace: $date';
+  }
+
+  @override
+  String get product_type_label_food => 'JÃ­dlo';
+
+  @override
+  String get product_type_label_beauty => 'OsobnÃ­ pÃ©Äe';
+
+  @override
+  String get product_type_label_pet_food => 'ZvÃ­Å™ecÃ­ krmivo';
+
+  @override
+  String get product_type_label_product => 'OstatnÃ­';
+
+  @override
+  String get product_type_selection_title => 'Typ produktu';
+
+  @override
+  String get product_type_selection_subtitle => 'Vyberte typ tohoto produktu';
+
+  @override
+  String get product_type_selection_empty => 'Nejprve musÃ­te vybrat typ produktu!';
+
+  @override
+  String product_type_selection_already(String productType) {
+    return 'Nelze zmÄ›nit typ produktu ($productType)!';
+  }
+
+  @override
+  String get prices_app_dev_mode_flag => 'ZÃ¡stupce pro aplikaci Ceny na produktovÃ© strÃ¡nce';
+
+  @override
+  String get prices_app_button => 'PÅ™ejÃ­t do aplikace Ceny';
+
+  @override
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+
+  @override
+  String get prices_bulk_proof_upload_action => 'Send the proof';
+
+  @override
+  String get prices_generic_title => 'Ceny';
+
+  @override
+  String prices_add_n_prices(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Add $count prices',
+      one: 'Add a price',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_send_n_prices(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Send $count prices',
+      one: 'Send the price',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get prices_add_an_item => 'PÅ™idat poloÅ¾ku';
+
+  @override
+  String get prices_add_a_price => 'PÅ™idat cenu';
+
+  @override
+  String get prices_add_a_receipt => 'PÅ™idat ÃºÄtenku';
+
+  @override
+  String get prices_add_price_tags => 'PÅ™idejte cenovky';
+
+  @override
+  String prices_barcode_already(String barcode) {
+    return 'Tento ÄÃ¡rovÃ½ kÃ³d ($barcode) je jiÅ¾ v seznamu!';
+  }
+
+  @override
+  String get prices_barcode_search_not_found => 'Produkt nebyl nalezen';
+
+  @override
+  String get prices_barcode_search_none_yet => 'ZatÃ­m Å¾Ã¡dnÃ½ produkt';
+
+  @override
+  String prices_barcode_search_running(String barcode) {
+    return 'HledÃ¡nÃ­ $barcode';
+  }
+
+  @override
+  String get prices_barcode_enter => 'Zadejte ÄÃ¡rovÃ½ kÃ³d';
+
+  @override
+  String get prices_barcode_reader_action => 'ÄŒteÄka ÄÃ¡rovÃ½ch kÃ³dÅ¯';
+
+  @override
+  String get prices_view_prices => 'Zobrazit ceny';
+
+  @override
+  String prices_product_accessibility_summary(int count, String product) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count prices',
+      one: '1 price',
+    );
+    return '$_temp0 for $product';
+  }
+
+  @override
+  String prices_list_length_one_page(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'VÅ¡ech $count cen',
+      few: 'VÅ¡echny $count ceny',
+      one: 'Pouze 1 cena',
+      zero: 'ZatÃ­m Å¾Ã¡dnÃ¡ cena',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_list_length_many_pages(int pageSize, int total) {
+    return 'PoslednÃ­ch $pageSize cen (celkem: $total)';
+  }
+
+  @override
+  String prices_entry_accessibility_label(String price, String location, String date, String user) {
+    return 'Cena: $price / Obchod: \"$location\" / ZveÅ™ejnÄ›no dne $date od \"$user\"';
+  }
+
+  @override
+  String prices_open_user_proofs(String user) {
+    return 'OtevÅ™enÃ© doklady \"$user\"';
+  }
+
+  @override
+  String get prices_open_proof => 'OtevÅ™enÃ½ doklad o cenÄ›';
+
+  @override
+  String prices_proofs_list_length_one_page(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'All $count proofs',
+      one: 'Only one proof',
+      zero: 'No proof yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_proofs_list_length_many_pages(int pageSize, int total) {
+    return 'NejnovÄ›jÅ¡Ã­ $pageSize doklady (celkem: $total)';
+  }
+
+  @override
+  String prices_users_list_length_many_pages(int pageSize, int total) {
+    return 'NejlepÅ¡Ã­ $pageSize pÅ™ispÄ›vatelÃ© (celkem: $total)';
+  }
+
+  @override
+  String prices_locations_list_length_many_pages(int pageSize, int total) {
+    return 'Top $pageSize locations (total: $total)';
+  }
+
+  @override
+  String prices_button_count_proof(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count proofs',
+      one: 'One proof',
+      zero: 'No proof',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_button_count_product(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count products',
+      one: 'One product',
+      zero: 'No product',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_button_count_user(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count users',
+      one: 'One user',
+      zero: 'No user',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_button_count_price(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count prices',
+      one: 'One price',
+      zero: 'No price',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get prices_amount_subtitle => 'MnoÅ¾stvÃ­';
+
+  @override
+  String get prices_amount_is_discounted => 'Je zlevnÄ›nÃ©?';
+
+  @override
+  String get prices_amount_price_normal => 'Cena';
+
+  @override
+  String get prices_amount_price_discounted => 'SnÃ­Å¾enÃ¡ cena';
+
+  @override
+  String get prices_amount_price_not_discounted => 'PÅ¯vodnÃ­ cena';
+
+  @override
+  String get prices_amount_no_product => 'Jeden produkt chybÃ­!';
+
+  @override
+  String get prices_amount_price_incorrect => 'NesprÃ¡vnÃ¡ hodnota';
+
+  @override
+  String get prices_amount_price_mandatory => 'PovinnÃ¡ hodnota';
+
+  @override
+  String get prices_currency_subtitle => 'MÄ›na';
+
+  @override
+  String get prices_date_subtitle => 'Datum';
+
+  @override
+  String get prices_location_subtitle => 'Obchod';
+
+  @override
+  String get prices_location_find => 'NajÃ­t obchod';
+
+  @override
+  String get prices_location_mandatory => 'MusÃ­te vybrat obchod!';
+
+  @override
+  String get prices_location_search_broader => 'NenaÅ¡li jste to, co jste hledali? PojÄme zkusit Å¡irÅ¡Ã­ vyhledÃ¡vÃ¡nÃ­!';
+
+  @override
+  String get prices_proof_subtitle => 'Doklad';
+
+  @override
+  String get prices_proof_find => 'Vybrat doklad';
+
+  @override
+  String get prices_proof_receipt => 'ÃšÄtenka';
+
+  @override
+  String get prices_proof_price_tag => 'Cenovka';
+
+  @override
+  String get prices_proof_mandatory => 'MusÃ­te vybrat doklad!';
+
+  @override
+  String get prices_add_validation_error => 'Chyba ovÄ›Å™enÃ­';
+
+  @override
+  String get prices_privacy_warning_title => 'UpozornÄ›nÃ­ na soukromÃ­';
+
+  @override
+  String get prices_unknown_product => 'NeznÃ¡mÃ½ produkt';
+
+  @override
+  String get prices_privacy_warning_main_message => 'Ceny **budou veÅ™ejnÃ©** spolu s obchodem, na kterÃ½ odkazujÃ­.\n\nTo by mohlo umoÅ¾nit lidem, kteÅ™Ã­ vÄ›dÃ­ o vaÅ¡em pseudonymu Open Food Facts:\n';
+
+  @override
+  String get prices_privacy_warning_message_bullet_1 => 'Odhadnout, ve kterÃ© oblasti Å¾ijete';
+
+  @override
+  String get prices_privacy_warning_message_bullet_2 => 'VÄ›dÄ›t, co kupujete';
+
+  @override
+  String get prices_privacy_warning_sub_message => 'Pokud s tÃ­m nejste spokojeni, zmÄ›Åˆte si prosÃ­m svÅ¯j pseudonym nebo si vytvoÅ™te novÃ½ ÃºÄet Open Food Facts a pÅ™ihlaste se pomocÃ­ nÄ›j do aplikace.';
+
+  @override
+  String get i_refuse => 'OdmÃ­tÃ¡m';
+
+  @override
+  String get i_accept => 'PÅ™ijÃ­mÃ¡m';
+
+  @override
+  String get prices_currency_change_proposal_title => 'ZmÄ›nit mÄ›nu?';
+
+  @override
+  String prices_currency_change_proposal_message(String currency, String newCurrency) {
+    return 'VaÅ¡e souÄasnÃ¡ mÄ›na je **$currency**. Chcete ji zmÄ›nit na **$newCurrency**?';
+  }
+
+  @override
+  String prices_currency_change_proposal_action_approve(String newCurrency) {
+    return 'Ano, pouÅ¾Ã­t $newCurrency';
+  }
+
+  @override
+  String prices_currency_change_proposal_action_cancel(String currency) {
+    return 'Ne, ponechat $currency';
+  }
+
+  @override
+  String get dev_preferences_import_history_result_success => 'Hotovo';
+
+  @override
+  String get dev_mode_section_server => 'Konfigurace serveru';
+
+  @override
+  String get dev_mode_section_news => 'Konfigurace poskytovatele zprÃ¡v';
+
+  @override
+  String get dev_mode_section_product_page => 'StrÃ¡nka produktu';
+
+  @override
+  String get dev_mode_section_ui => 'UÅ¾ivatelskÃ© rozhranÃ­';
+
+  @override
+  String get dev_mode_section_data => 'Ãšdaje';
+
+  @override
+  String get dev_mode_section_experimental_features => 'ExperimentÃ¡lnÃ­ funkce';
+
+  @override
+  String get dev_preferences_show_folksonomy_title => 'VylouÄit uÅ¾ivatelskÃ© pÅ™idÃ¡vÃ¡nÃ­ Å¡tÃ­tkÅ¯';
+
+  @override
+  String get dev_mode_hide_environmental_score_title => 'VylouÄit Green-Score';
+
+  @override
+  String get dev_mode_spellchecker_for_ocr_title => 'PouÅ¾Ã­t kontrolu pravopisu pro OCR obrazovky';
+
+  @override
+  String get dev_mode_spellchecker_for_ocr_subtitle => '(SloÅ¾enÃ­ a balenÃ­)';
+
+  @override
+  String get search_history_item_edit_tooltip => 'Znovu pouÅ¾ijte a upravte toto vyhledÃ¡vÃ¡nÃ­';
+
+  @override
+  String product_search_no_more_results(int totalSize) {
+    return 'StÃ¡hli jste vÅ¡ech $totalSize produktÅ¯.';
+  }
+
+  @override
+  String product_search_button_download_more(int count, int downloaded, int totalSize) {
+    return 'StÃ¡hnout $count dalÅ¡Ã­ch produktÅ¯\nJiÅ¾ staÅ¾eno $downloaded ze $totalSize.';
+  }
+
+  @override
+  String product_search_loading_message(Object search) {
+    return 'VaÅ¡e vyhledÃ¡vÃ¡nÃ­ â€ž$searchâ€œ probÃ­hÃ¡.\n\nPoÄkejte prosÃ­m nÄ›kolik sekundâ€¦';
+  }
+
+  @override
+  String get user_search_contributor_title => 'Produkty, kterÃ© jsem pÅ™idal';
+
+  @override
+  String get user_search_informer_title => 'Produkty, kterÃ© jsem upravoval';
+
+  @override
+  String get user_search_photographer_title => 'Produkty, kterÃ© jsem nafotil';
+
+  @override
+  String get user_search_to_be_completed_title => 'Moje produkty k dokonÄenÃ­';
+
+  @override
+  String get user_search_prices_title => 'Moje ceny';
+
+  @override
+  String get user_search_proofs_title => 'Moje dÅ¯kazy';
+
+  @override
+  String get user_search_proof_title => 'MÅ¯j doklad';
+
+  @override
+  String get user_any_search_prices_title => 'Ceny pÅ™ispÄ›vatelÅ¯';
+
+  @override
+  String get all_search_prices_latest_title => 'PÅ™idÃ¡ny nejnovÄ›jÅ¡Ã­ ceny';
+
+  @override
+  String get all_search_prices_top_user_title => 'NejlepÅ¡Ã­ pÅ™ispÄ›vatelÃ© cen';
+
+  @override
+  String get all_search_prices_top_location_title => 'Obchody s nejvÃ­ce cenami';
+
+  @override
+  String get prices_contribution_assistant => 'Price Contribution Assistant';
+
+  @override
+  String get prices_validation_assistant => 'Price Validation Assistant';
+
+  @override
+  String get prices_challenges_page => 'Challenges';
+
+  @override
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+
+  @override
+  String get all_search_prices_top_location_single_title => 'Ceny v obchodÄ›';
+
+  @override
+  String get all_search_prices_top_product_title => 'Produkty s nejvÃ­ce cenami';
+
+  @override
+  String get all_search_to_be_completed_title => 'VÅ¡echny produkty k dokonÄenÃ­';
+
+  @override
+  String get categorize_products_country_title => 'Pomozte roztÅ™Ã­dit produkty ve vaÅ¡Ã­ zemi';
+
+  @override
+  String get edit_product_action_retake_picture => 'Znovu poÅ™Ã­dit fotografii';
+
+  @override
+  String get edit_product_action_take_picture => 'Vyfotit';
+
+  @override
+  String get edit_product_action_confirm => 'Potvrdit';
+
+  @override
+  String get signup_page_terms_of_use_line1 => 'SouhlasÃ­m s Open Food Facts ';
+
+  @override
+  String get signup_page_terms_of_use_line2 => 'podmÃ­nky pouÅ¾itÃ­ a pÅ™Ã­spÄ›vek';
+
+  @override
+  String get analytics_consent_image_semantic_label => 'Ikona analytiky';
+
+  @override
+  String knowledge_panel_page_loading_error(Object? error) {
+    return 'ZÃ¡vaÅ¾nÃ¡ chyba: $error';
+  }
+
+  @override
+  String preferences_page_loading_error(Object? error) {
+    return 'ZÃ¡vaÅ¾nÃ¡ chyba: $error';
+  }
+
+  @override
+  String get summary_card_button_add_basic_details => 'VyplÅˆte zÃ¡kladnÃ­ Ãºdaje';
+
+  @override
+  String get edit_photo_button_label => 'Upravit';
+
+  @override
+  String get edit_photo_unselect_button_label => 'ZruÅ¡it vÃ½bÄ›r fotky';
+
+  @override
+  String get edit_photo_select_existing_button_label => 'Vyberte existujÃ­cÃ­ obrÃ¡zek';
+
+  @override
+  String get edit_photo_select_existing_all_label => 'ExistujÃ­cÃ­ obrÃ¡zky pro tento produkt';
+
+  @override
+  String get edit_photo_select_existing_all_subtitle => 'Vyberte obrÃ¡zek kliknutÃ­m na nÄ›j';
+
+  @override
+  String get edit_photo_select_existing_download_label => 'NaÄÃ­tÃ¡nÃ­ existujÃ­cÃ­ch obrÃ¡zkÅ¯â€¦';
+
+  @override
+  String get edit_photo_select_existing_downloaded_none => 'NeexistujÃ­ Å¾Ã¡dnÃ© dÅ™Ã­ve nahranÃ© obrÃ¡zky souvisejÃ­cÃ­ s tÃ­mto produktem.';
+
+  @override
+  String get edit_photo_language_not_this_one => 'V tomto jazyce zatÃ­m nenÃ­ Å¾Ã¡dnÃ½ obrÃ¡zek';
+
+  @override
+  String get edit_photo_language_none => 'ZatÃ­m Å¾Ã¡dnÃ½ obrÃ¡zek';
+
+  @override
+  String get category_picker_screen_title => 'Kategorie';
+
+  @override
+  String get basic_details => 'ZÃ¡kladnÃ­ detaily';
+
+  @override
+  String get product_name => 'NÃ¡zev produktu';
+
+  @override
+  String get product_names => 'NÃ¡zvy produktÅ¯';
+
+  @override
+  String get add_basic_details_product_name_add_translation => 'PÅ™idat novÃ½ pÅ™eklad';
+
+  @override
+  String get add_basic_details_product_name_warning_translations => 'Before validating, please ensure you only add a translation **if the language is not present on the packaging**';
+
+  @override
+  String get add_basic_details_product_name_open_photo => 'Zobrazit pÅ™ednÃ­ fotku';
+
+  @override
+  String get add_basic_details_product_name_take_photo => 'VyfoÅ¥te pÅ™ednÃ­ stranu';
+
+  @override
+  String get add_basic_details_product_name_hint => 'Zadejte nÃ¡zev produktu (napÅ™.: Nutella)';
+
+  @override
+  String get explanation_section_good_examples => 'DobrÃ© pÅ™Ã­klady';
+
+  @override
+  String get explanation_section_bad_examples => 'Å patnÃ© pÅ™Ã­klady';
+
+  @override
+  String get add_basic_details_product_name_help_title => 'Good practices: Product name';
+
+  @override
+  String get add_basic_details_product_name_help_info1 => 'NÃ¡zev produktu je **hlavnÃ­ nÃ¡zev vytiÅ¡tÄ›nÃ½ na obalu**. MÅ¯Å¾e to bÃ½t registrovanÃ¡ ochrannÃ¡ znÃ¡mka.';
+
+  @override
+  String get add_basic_details_product_name_help_info2 => '**PoznÃ¡mka:** NepÅ™idÃ¡vejte pÅ™eklad, **pokud na obalu nenÃ­ uveden jazyk**.';
+
+  @override
+  String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
+
+  @override
+  String get add_basic_details_product_name_help_good_examples_2 => 'RajÄatovÃ½ keÄup';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_1_explanation => 'NeuvÃ¡dÄ›jte znaÄku v nÃ¡zvu';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_1_example => 'RajÄatovÃ½ keÄup **od Heinze**';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_2_explanation => 'NepouÅ¾Ã­vejte symboly Â®, â„¢, Â© nebo podobnÃ©';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_2_example => 'Nesquik**Â®**';
+
+  @override
+  String add_basic_details_product_name_other_translations(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count other translations',
+      one: '$count other translation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get brand_name => 'NÃ¡zev znaÄky';
+
+  @override
+  String get brand_names => 'NÃ¡zvy znaÄek';
+
+  @override
+  String get add_basic_details_brand_name_error => 'Zadejte nÃ¡zev znaÄky';
+
+  @override
+  String get add_basic_details_brand_names_hint => 'Zadejte znaÄky (napÅ™.: Ferrero)';
+
+  @override
+  String get add_basic_details_product_brand_help_title => 'Good practices: Brands';
+
+  @override
+  String get add_basic_details_product_brand_help_info1 => 'Input **all the brands of the product**.';
+
+  @override
+  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+
+  @override
+  String get add_basic_details_product_brand_help_info2_content => 'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item1_text => 'When sold **by a big company**:';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item1_explanation => '**Actimel** is sold by **Danone**';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item2_text => 'When sold with its brand **translated in multiple languages**:';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item2_explanation => '**Nature Valley** is sometimes written **Val Nature**';
+
+  @override
+  String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
+
+  @override
+  String get add_basic_details_product_brand_help_good_examples_2 => 'Oreo, Mondelez';
+
+  @override
+  String get quantity => 'MnoÅ¾stvÃ­ a hmotnost';
+
+  @override
+  String get add_basic_details_quantity_hint => 'Zadejte hmotnost a v pÅ™Ã­padÄ› potÅ™eby mnoÅ¾stvÃ­ (napÅ™.: 4x100g)';
+
+  @override
+  String get add_basic_details_product_quantity_help_title => 'Good practices: Quantity';
+
+  @override
+  String get add_basic_details_product_quantity_help_info1 => 'Copy the value indicated on the product and **don\'t forget the units**.';
+
+  @override
+  String get add_basic_details_product_quantity_help_good_examples_1 => '**230g** nebo **230 g**';
+
+  @override
+  String get add_basic_details_product_quantity_help_good_examples_2 => '**6** (pro 6 vajec)';
+
+  @override
+  String get add_basic_details_product_quantity_help_good_examples_3 => '**3 x 150 g**\n(pro produkt se 3 krabiÄkami, kaÅ¾dÃ¡ po 150 g)';
+
+  @override
+  String get barcode => 'ÄŒÃ¡rovÃ½ kÃ³d';
+
+  @override
+  String barcode_barcode(String barcode) {
+    return 'ÄŒÃ¡rovÃ½ kÃ³d: $barcode';
+  }
+
+  @override
+  String get barcode_invalid_error => 'NeplatnÃ½ ÄÃ¡rovÃ½ kÃ³d';
+
+  @override
+  String get basic_details_add_success => 'ZÃ¡kladnÃ­ Ãºdaje byly ÃºspÄ›Å¡nÄ› pÅ™idÃ¡ny';
+
+  @override
+  String get basic_details_add_error => 'Nelze pÅ™idat zÃ¡kladnÃ­ podrobnosti. Zkuste to znovu po nÄ›jakÃ© dobÄ›';
+
+  @override
+  String get clear_search => 'VymaÅ¾te vyhledÃ¡vÃ¡nÃ­';
+
+  @override
+  String get confirm_clear => 'ChystÃ¡te se vymazat celou historii: opravdu chcete pokraÄovat?';
+
+  @override
+  String get alert_clear_selected_user_list => 'ChystÃ¡te se vymazat vybranÃ© poloÅ¾ky ve svÃ© historii';
+
+  @override
+  String get confirm_clear_selected_user_list => 'Opravdu si pÅ™ejete pokraÄovat?';
+
+  @override
+  String get alert_select_items_to_clear => 'Vyberte jednu nebo vÃ­ce poloÅ¾ek, kterÃ© chcete vymazat';
+
+  @override
+  String confirm_clear_user_list(String name) {
+    return 'ChystÃ¡te se vymazat tento seznam ($name): opravdu chcete pokraÄovat?';
+  }
+
+  @override
+  String get confirm_delete_user_list_title => 'Smazat seznam?';
+
+  @override
+  String confirm_delete_user_list_message(String name) {
+    return 'ChystÃ¡te se smazat seznam \"$name\".\nOpravdu chcete pokraÄovat?';
+  }
+
+  @override
+  String get confirm_delete_user_list_button => 'Ano, potvrzuji';
+
+  @override
+  String importance_label(String name, String id) {
+    return '$name dÅ¯leÅ¾itosti: $id';
+  }
+
+  @override
+  String get user_list_all_title => 'Seznamy';
+
+  @override
+  String get user_list_all_empty => 'VytvoÅ™te svÅ¯j prvnÃ­ seznam';
+
+  @override
+  String get product_list_select => 'Vyberte seznam';
+
+  @override
+  String user_list_length(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count produktÅ¯',
+      one: '1 produkt',
+      zero: 'PrÃ¡zdnÃ½ seznam',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get add_list_label => 'PÅ™idat seznam';
+
+  @override
+  String get open_food_preferences_tooltip => 'Upravte svÃ© preference ohlednÄ› jÃ­dla';
+
+  @override
+  String get add_photo_button_label => 'PÅ™idat fotografii';
+
+  @override
+  String get add_packaging_photo_button_label => 'VyfoÅ¥te veÅ¡kerÃ© informace o balenÃ­/recyklaci';
+
+  @override
+  String get add_origin_photo_button_label => 'VyfoÅ¥te veÅ¡kerÃ© informace o pÅ¯vodu';
+
+  @override
+  String get add_emb_photo_button_label => 'VyfoÅ¥te veÅ¡kerÃ© informace o kÃ³du sledovatelnosti';
+
+  @override
+  String get add_label_photo_button_label => 'VyfoÅ¥te veÅ¡kerÃ© informace o Å¡tÃ­tcÃ­ch a certifikacÃ­ch';
+
+  @override
+  String get choose_image_source_title => 'Vyberte zdroj obrÃ¡zku';
+
+  @override
+  String get choose_image_source_body => 'Vyberte prosÃ­m zdroj obrÃ¡zku';
+
+  @override
+  String get gallery_source_label => 'Galerie';
+
+  @override
+  String get gallery_source_access_denied_dialog_title => 'PÅ™Ã­stup odepÅ™en';
+
+  @override
+  String get gallery_source_access_denied_dialog_message_ios => 'Aplikace bohuÅ¾el nemÃ¡ pÅ™Ã­stup k vaÅ¡Ã­ galerii, protoÅ¾e jste jiÅ¾ dÅ™Ã­ve odepÅ™eli oprÃ¡vnÄ›nÃ­.\n\nPÅ™ejdÄ›te do nastavenÃ­ aplikace v nastavenÃ­ telefonu -> Fotky';
+
+  @override
+  String get gallery_source_access_denied_dialog_button => 'OtevÅ™Ã­t nastavenÃ­';
+
+  @override
+  String get share => 'SdÃ­let';
+
+  @override
+  String share_product_text(String url) {
+    return 'PodÃ­vejte se na tento produkt na Open Food Facts: $url';
+  }
+
+  @override
+  String share_product_text_beauty(String url) {
+    return 'PodÃ­vejte se na tento produkt na Open Beauty Facts: $url';
+  }
+
+  @override
+  String share_product_text_pet_food(String url) {
+    return 'PodÃ­vejte se na tento produkt na Open PetFood Facts: $url';
+  }
+
+  @override
+  String share_product_text_product(String url) {
+    return 'PodÃ­vejte se na tento produkt na Open Food Facts: $url';
+  }
+
+  @override
+  String share_product_list_text(String url) {
+    return 'PodÃ­vejte se na mÅ¯j seznam produktÅ¯ na Open Food Facts: $url';
+  }
+
+  @override
+  String get capture => 'Zachytit novÃ½';
+
+  @override
+  String get capture_new_picture => 'Vyfotit';
+
+  @override
+  String get choose_from_gallery => 'Vybrat z galerie';
+
+  @override
+  String get image_upload_queued => 'ObrÃ¡zek bude nahrÃ¡n na pozadÃ­ co nejdÅ™Ã­ve.';
+
+  @override
+  String get add_price_queued => 'Cena bude zaslÃ¡na na server co nejdÅ™Ã­ve.';
+
+  @override
+  String get background_task_title_full_refresh => 'SpouÅ¡tÄ›nÃ­ aktualizace vÅ¡ech lokÃ¡lnÄ› uloÅ¾enÃ½ch produktÅ¯';
+
+  @override
+  String get background_task_title_top_n => 'ZahÃ¡jenÃ­ stahovÃ¡nÃ­ nejoblÃ­benÄ›jÅ¡Ã­ch produktÅ¯';
+
+  @override
+  String get expand_nutrition_facts => 'Rozbalit tabulku nutriÄnÃ­ch ÃºdajÅ¯';
+
+  @override
+  String get expand_nutrition_facts_body => 'Nechte tabulku nutriÄnÃ­ch ÃºdajÅ¯ rozÅ¡Ã­Å™enou';
+
+  @override
+  String get expand_ingredients => 'Rozbalit pÅ™Ã­sady';
+
+  @override
+  String get expand_ingredients_body => 'Nechte panel ingrediencÃ­ rozbalenÃ½';
+
+  @override
+  String get search_product_filter_visibility_title => 'Zobrazit filtr ve vyhledÃ¡vÃ¡nÃ­';
+
+  @override
+  String get search_product_filter_visibility_subtitle => 'Vyberte vyhledÃ¡vacÃ­ strÃ¡nku: Open Food Facts, Open Beauty Facts, Open Pet Food Facts nebo Open Products Facts';
+
+  @override
+  String get no_internet_connection => 'Å½Ã¡dnÃ© pÅ™ipojenÃ­ k Internetu';
+
+  @override
+  String get world_results_label => 'CelÃ½ svÄ›t';
+
+  @override
+  String get world_results_action => 'RozÅ¡Ã­Å™it hledÃ¡nÃ­ na celÃ½ svÄ›t';
+
+  @override
+  String get copy_to_clipboard => 'KopÃ­rovat';
+
+  @override
+  String get paste_from_clipboard => 'VloÅ¾it ze schrÃ¡nky';
+
+  @override
+  String get no_data_available_in_clipboard => 'Ve vaÅ¡Ã­ schrÃ¡nce nejsou k dispozici Å¾Ã¡dnÃ¡ data';
+
+  @override
+  String get clipboard_barcode_copy => 'KopÃ­rovat ÄÃ¡rovÃ½ kÃ³d do schrÃ¡nky';
+
+  @override
+  String clipboard_barcode_copied(Object barcode) {
+    return 'ÄŒÃ¡rovÃ½ kÃ³d $barcode zkopÃ­rovÃ¡n do schrÃ¡nky!';
+  }
+
+  @override
+  String get open_product_website => 'OtevÅ™ete tento produkt na webu';
+
+  @override
+  String get language_picker_label => 'VÃ¡Å¡ jazyk';
+
+  @override
+  String get country_picker_label => 'VaÅ¡e zemÄ›';
+
+  @override
+  String get currency_picker_label => 'VaÅ¡e mÄ›na';
+
+  @override
+  String get help_with_openfoodfacts => 'Pomoc s OpenFoodFacts';
+
+  @override
+  String get product_task_background_schedule => 'Produkt bude aktualizovÃ¡n na pozadÃ­ co nejdÅ™Ã­ve.';
+
+  @override
+  String get no_email_client_available_dialog_title => 'Å½Ã¡dnÃ© e-mailovÃ© aplikace!';
+
+  @override
+  String get no_email_client_available_dialog_content => 'PoÅ¡lete nÃ¡m prosÃ­m ruÄnÄ› e-mail na adresu mobile@openfoodfacts.org';
+
+  @override
+  String get all_images => 'VÅ¡echny obrÃ¡zky';
+
+  @override
+  String get selected_images => 'VybranÃ© obrÃ¡zky';
+
+  @override
+  String get product_card_remove_product_tooltip => 'Odstranit produkt';
+
+  @override
+  String scan_announce_new_barcode(String barcode) {
+    return 'NovÃ½ naskenovanÃ½ ÄÃ¡rovÃ½ kÃ³d: $barcode';
+  }
+
+  @override
+  String get scan_header_clear_button_tooltip => 'Odstranit vÅ¡echny produkty z karuselu';
+
+  @override
+  String get scan_header_compare_button_invalid_state_tooltip => 'Naskenujte prosÃ­m alespoÅˆ dva produkty a porovnejte je';
+
+  @override
+  String get scan_header_compare_button_valid_state_tooltip => 'KliknutÃ­m porovnÃ¡te produkty, kterÃ© jste naskenovali';
+
+  @override
+  String get scan_product_loading => 'Naskenovali jste\nÄÃ¡rovÃ½ kÃ³d:';
+
+  @override
+  String get scan_product_loading_initial => 'HledÃ¡me tento produkt!\nPoÄkejte prosÃ­m nÄ›kolik sekundâ€¦';
+
+  @override
+  String get scan_product_loading_long_request => 'Tento produkt stÃ¡le hledÃ¡me!\nZdÃ¡ se vÃ¡m, Å¾e naÄÃ­tÃ¡nÃ­ trvÃ¡ dlouho? Tak myâ€¦';
+
+  @override
+  String get scan_product_loading_unresponsive => 'StÃ¡le hledÃ¡me tento produkt.\nChcete restartovat vyhledÃ¡vÃ¡nÃ­?';
+
+  @override
+  String get scan_product_loading_restart_button => 'Restartovat hledÃ¡nÃ­';
+
+  @override
+  String get portion_calculator_description => 'VypoÄÃ­tejte nutriÄnÃ­ Ãºdaje pro konkrÃ©tnÃ­ mnoÅ¾stvÃ­';
+
+  @override
+  String get portion_calculator_hint => 'MnoÅ¾stvÃ­ v';
+
+  @override
+  String get portion_calculator_accessibility => 'Zadejte mnoÅ¾stvÃ­ pro vÃ½poÄet nutriÄnÃ­ch ÃºdajÅ¯';
+
+  @override
+  String portion_calculator_error(int min, int max) {
+    return 'Zadejte mnoÅ¾stvÃ­ mezi $min a $max g';
+  }
+
+  @override
+  String get portion_calculator_computation_error => 'ChybÄ›jÃ­cÃ­ data. VÃ½poÄet nebylo moÅ¾nÃ© provÃ©st.';
+
+  @override
+  String portion_calculator_result_title(int grams) {
+    return 'VÃ½Å¾ivovÃ© Ãºdaje na $grams g (nebo ml)';
+  }
+
+  @override
+  String get offline_data => 'Offline data';
+
+  @override
+  String get ocr_image_upload_instruction => 'Nahrajte obrÃ¡zek, abyste automaticky extrahovali informace, kterÃ© obsahuje.';
+
+  @override
+  String get upload_image => 'NahrÃ¡t fotku';
+
+  @override
+  String get word_separator_char => ',';
+
+  @override
+  String get word_separator => ', ';
+
+  @override
+  String get image_download_error => 'NepodaÅ™ilo se stÃ¡hnout obrÃ¡zek';
+
+  @override
+  String get image_edit_url_error => 'Ãšprava obrÃ¡zku se nezdaÅ™ila, protoÅ¾e nebyla nastavena URL obrÃ¡zku.';
+
+  @override
+  String get user_picture_source_remember => 'Zapamatovat si moji volbu';
+
+  @override
+  String get user_picture_source_ask => 'PokaÅ¾dÃ© se zeptat';
+
+  @override
+  String get robotoff_continue => 'PokraÄovat';
+
+  @override
+  String robotoff_next_n_questions(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count otÃ¡zek',
+      one: 'otÃ¡zka',
+    );
+    return 'DalÅ¡Ã­ $_temp0';
+  }
+
+  @override
+  String get show_password => 'Zobrazit heslo';
+
+  @override
+  String get owner_field_info_title => 'Hodnoty poskytnutÃ© vÃ½robcem';
+
+  @override
+  String get owner_field_info_message => 'TÃ­mto logem upozorÅˆujeme na Ãºdaje, kterÃ© poskytuje vÃ½robce a kterÃ© nemusÃ­ bÃ½t upravitelnÃ©.';
+
+  @override
+  String get owner_field_info_close_button => 'ZavÅ™ete tyto informace';
+
+  @override
+  String get owner_field_image => 'Tento obrÃ¡zek je poskytovÃ¡n vÃ½robcem. NemusÃ­ bÃ½t upravitelnÃ½.';
+
+  @override
+  String get edit_packagings_title => 'SouÄÃ¡sti obalu';
+
+  @override
+  String get edit_packagings_element_add => 'PÅ™idejte souÄÃ¡st obalu';
+
+  @override
+  String get edit_packagings_completed => 'BalenÃ­ je kompletnÃ­';
+
+  @override
+  String edit_packagings_element_title(int index) {
+    return 'SloÅ¾ka balenÃ­ #$index';
+  }
+
+  @override
+  String get edit_packagings_element_field_units => 'PoÄet jednotek';
+
+  @override
+  String get edit_packagings_element_hint_units => 'Zadejte poÄet obalovÃ½ch jednotek stejnÃ©ho tvaru a materiÃ¡lu obsaÅ¾enÃ½ch v produktu.';
+
+  @override
+  String get edit_packagings_element_field_shape => 'Tvar';
+
+  @override
+  String get edit_packagings_element_hint_shape => 'Zadejte nÃ¡zev tvaru uvedenÃ½ v pokynech k recyklaci, pokud jsou k dispozici, nebo vyberte tvar.';
+
+  @override
+  String get edit_packagings_element_example_shape => 'LÃ¡hev';
+
+  @override
+  String get edit_packagings_element_field_material => 'MateriÃ¡l';
+
+  @override
+  String get edit_packagings_element_hint_material => 'Zadejte konkrÃ©tnÃ­ materiÃ¡l, pokud jej lze urÄit (kÃ³d materiÃ¡lu uvnitÅ™ trojÃºhelnÃ­ku lze Äasto nalÃ©zt na ÄÃ¡stech balenÃ­), nebo obecnÃ½ materiÃ¡l (napÅ™Ã­klad plast nebo kov), pokud si nejste jisti.';
+
+  @override
+  String get edit_packagings_element_example_material => 'Sklo';
+
+  @override
+  String get edit_packagings_element_field_recycling => 'Pokyny k recyklaci';
+
+  @override
+  String get edit_packagings_element_hint_recycling => 'Pokyny k recyklaci zadÃ¡vejte pouze v pÅ™Ã­padÄ›, Å¾e jsou uvedeny na produktu.';
+
+  @override
+  String get edit_packagings_element_example_recycling => 'Recyklace';
+
+  @override
+  String get edit_packagings_element_field_quantity => 'ÄŒistÃ© mnoÅ¾stvÃ­ produktu na jednotku';
+
+  @override
+  String get edit_packagings_element_hint_quantity => 'Zadejte Äistou hmotnost nebo ÄistÃ½ objem a uveÄte jednotku (napÅ™Ã­klad g nebo ml).';
+
+  @override
+  String get edit_packagings_element_field_weight => 'Hmotnost jednÃ© prÃ¡zdnÃ© jednotky (g)';
+
+  @override
+  String get edit_packagings_element_hint_weight => 'PÅ™ed vÃ¡Å¾enÃ­m odstraÅˆte veÅ¡kerÃ© zbÃ½vajÃ­cÃ­ potraviny a omyjte a osuÅ¡te ÄÃ¡st obalu. Pokud je to moÅ¾nÃ©, pouÅ¾ijte vÃ¡hu s pÅ™esnostÃ­ 0,1 g nebo 0,01 g.';
+
+  @override
+  String get background_task_title => 'NevyÅ™Ã­zenÃ© pÅ™Ã­spÄ›vky';
+
+  @override
+  String get background_task_subtitle => 'VaÅ¡e pÅ™Ã­spÄ›vky jsou automaticky uloÅ¾eny na nÃ¡Å¡ server, ale ne vÅ¾dy v reÃ¡lnÃ©m Äase.';
+
+  @override
+  String get background_task_list_empty => 'Å½Ã¡dnÃ© nevyÅ™Ã­zenÃ© Ãºkoly na pozadÃ­';
+
+  @override
+  String get background_task_error_server_time_out => 'ÄŒasovÃ½ limit serveru';
+
+  @override
+  String get background_task_error_no_internet => 'Chyba pÅ™ipojenÃ­ k internetu. Zkuste to pozdÄ›ji.';
+
+  @override
+  String get background_task_operation_unknown => 'neznÃ¡mÃ½ typ operace';
+
+  @override
+  String get background_task_operation_details => 'podrobnÃ© zmÄ›ny';
+
+  @override
+  String get background_task_operation_image => 'nahrÃ¡nÃ­ fotografie';
+
+  @override
+  String get background_task_operation_refresh => 'aktualizace zpoÅ¾dÄ›na po nahrÃ¡nÃ­ fotografie';
+
+  @override
+  String get background_task_run_started => 'zaÄalo';
+
+  @override
+  String get background_task_run_not_started => 'zatÃ­m nezaÄalo';
+
+  @override
+  String get background_task_run_to_be_deleted => 'k vymazÃ¡nÃ­';
+
+  @override
+  String get background_task_question_stop => 'Chcete tento Ãºkol co nejdÅ™Ã­ve zastavit?';
+
+  @override
+  String get feed_back => 'ZpÄ›tnÃ¡ vazba';
+
+  @override
+  String get undo => 'ZpÄ›t';
+
+  @override
+  String get copy_email_to_clip_board => 'KopÃ­rovat e-mail do schrÃ¡nky';
+
+  @override
+  String get please_send_us_an_email_to => 'PoÅ¡lete nÃ¡m prosÃ­m ruÄnÄ› e-mail na';
+
+  @override
+  String get email_copied_to_clip_board => 'E-mail zkopÃ­rovÃ¡n do schrÃ¡nky!';
+
+  @override
+  String get select_accent_color => 'Vyberte barvu zvÃ½raznÄ›nÃ­';
+
+  @override
+  String get theme_amoled => 'AMOLED';
+
+  @override
+  String get color_blue => 'ModrÃ¡';
+
+  @override
+  String get color_cyan => 'AzurovÃ¡';
+
+  @override
+  String get color_green => 'ZelenÃ¡';
+
+  @override
+  String get color_light_brown => 'VÃ½chozÃ­';
+
+  @override
+  String get color_magenta => 'PurpurovÃ¡';
+
+  @override
+  String get color_orange => 'OranÅ¾ovÃ¡';
+
+  @override
+  String get color_pink => 'RÅ¯Å¾ovÃ¡';
+
+  @override
+  String get color_red => 'ÄŒervenÃ¡';
+
+  @override
+  String get color_rust => 'RezavÃ¡';
+
+  @override
+  String get color_teal => 'TmavÄ› modrozelenÃ¡';
+
+  @override
+  String get text_contrast_mode => 'Kontrast textu';
+
+  @override
+  String get contrast_high => 'VysokÃ½';
+
+  @override
+  String get contrast_medium => 'StÅ™ednÃ­';
+
+  @override
+  String get contrast_low => 'NÃ­zkÃ½';
+
+  @override
+  String get product_refresher_internet_not_found => 'Produkt nenalezen!';
+
+  @override
+  String get product_refresher_internet_not_connected => 'Nejste pÅ™ipojeni k internetu!';
+
+  @override
+  String product_refresher_internet_no_ping(String? host) {
+    return 'Server nefunguje ($host)';
+  }
+
+  @override
+  String product_refresher_internet_error(String? exception) {
+    return 'Chyba serveru ($exception)';
+  }
+
+  @override
+  String get product_loader_not_found_title => 'Produkt nenalezen!';
+
+  @override
+  String product_loader_not_found_message(String barcode) {
+    return 'Produkt s nÃ¡sledujÃ­cÃ­m ÄÃ¡rovÃ½m kÃ³dem v naÅ¡Ã­ databÃ¡zi neexistuje: $barcode';
+  }
+
+  @override
+  String get product_loader_network_error_title => 'Å½Ã¡dnÃ© pÅ™ipojenÃ­ k Internetu!';
+
+  @override
+  String get product_loader_network_error_message => 'Zkontrolujte, zda je vÃ¡Å¡ smartphone pÅ™ipojen k sÃ­ti WiFi nebo mÃ¡ povolenÃ¡ mobilnÃ­ data';
+
+  @override
+  String get page_not_found_title => 'StrÃ¡nka nenalezena!';
+
+  @override
+  String get page_not_found_button => 'VraÅ¥te se na domovskou strÃ¡nku';
+
+  @override
+  String get download_data => 'StÃ¡hnout data';
+
+  @override
+  String get download_top_products => 'StÃ¡hnÄ›te si 1000 nejlepÅ¡Ã­ch produktÅ¯ ve vaÅ¡Ã­ zemi pro okamÅ¾itÃ© skenovÃ¡nÃ­';
+
+  @override
+  String download_top_n_products(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'nejlepÅ¡Ã­ch $count produktÅ¯',
+      many: 'nejlepÅ¡Ã­ch $count produktÅ¯',
+      few: 'nejlepÅ¡Ã­ $count produkty',
+      one: 'nejlepÅ¡Ã­ $count produkt',
+    );
+    return 'StÃ¡hnout $_temp0 ve tvÃ© zemi pro okamÅ¾itÃ© skenovÃ¡nÃ­';
+  }
+
+  @override
+  String get download_in_progress => 'StahovÃ¡nÃ­ dat\nMÅ¯Å¾e to chvÃ­li trvat';
+
+  @override
+  String downloaded_products(int num) {
+    return '$num produktÅ¯ pÅ™idÃ¡no';
+  }
+
+  @override
+  String get update_offline_data => 'Aktualizovat offline data produktÅ¯';
+
+  @override
+  String get update_local_database_sub => 'Aktualizujte mÃ­stnÃ­ databÃ¡zi produktÅ¯ nejnovÄ›jÅ¡Ã­mi Ãºdaji z Open Food Facts';
+
+  @override
+  String get clear_local_database => 'VymaÅ¾te offline produktovÃ¡ data';
+
+  @override
+  String get clear_local_database_sub => 'Vymazat vÅ¡echna data lokÃ¡lnÃ­ch produktÅ¯ z aplikace a uvolnit tak mÃ­sto';
+
+  @override
+  String deleted_products(int num) {
+    return '$num produktÅ¯ smazÃ¡no';
+  }
+
+  @override
+  String get loading => 'NaÄÃ­tÃ¡ seâ€¦';
+
+  @override
+  String get know_more => 'Zjistit vÃ­ce';
+
+  @override
+  String get offline_data_desc => 'KliknÄ›te pro vÃ­ce informacÃ­ o offline datech';
+
+  @override
+  String get offline_product_data_title => 'Offline produktovÃ¡ data';
+
+  @override
+  String available_for_download(int num) {
+    return '$num produktÅ¯ dostupnÃ½ch k okamÅ¾itÃ©mu skenovÃ¡nÃ­';
+  }
+
+  @override
+  String get country_selector_title => 'Vyberte svou zemi:';
+
+  @override
+  String get currency_selector_title => 'Vyberte svou mÄ›nu:';
+
+  @override
+  String get language_selector_title => 'Vyberte svÅ¯j jazyk:';
+
+  @override
+  String get language_selector_section_selected => 'VybranÃ© jazyky';
+
+  @override
+  String get language_selector_section_frequently_used => 'ÄŒasto pouÅ¾Ã­vanÃ©';
+
+  @override
+  String get action_delete_list => 'Odstranit';
+
+  @override
+  String get action_change_list => 'ZmÄ›nit aktuÃ¡lnÃ­ seznam';
+
+  @override
+  String get product_list_create => 'VytvoÅ™it';
+
+  @override
+  String get product_list_create_tooltip => 'VytvoÅ™it novÃ½ seznam';
+
+  @override
+  String get nutriscore_generic => 'Nutri-Score';
+
+  @override
+  String get nutriscore_a => 'Nutri-Score A';
+
+  @override
+  String get nutriscore_b => 'Nutri-Score B';
+
+  @override
+  String get nutriscore_c => 'Nutri-Score C';
+
+  @override
+  String get nutriscore_d => 'Nutri-Score D';
+
+  @override
+  String get nutriscore_e => 'Nutri-Score E';
+
+  @override
+  String nutriscore_new_formula(String letter) {
+    return 'Nutri-Score $letter (NovÃ½ vÃ½poÄet)';
+  }
+
+  @override
+  String get nutriscore_new_formula_title => 'Nutri-Score (NovÃ½ vÃ½poÄet)';
+
+  @override
+  String get nutriscore_unknown => 'NeznÃ¡mÃ© Nutri-Score';
+
+  @override
+  String get nutriscore_unknown_new_formula => 'NeznÃ¡mÃ© Nutri-Score (NovÃ½ vÃ½poÄet)';
+
+  @override
+  String get nutriscore_not_applicable => 'Nutri-Score nelze pouÅ¾Ã­t';
+
+  @override
+  String get nutriscore_not_applicable_new_formula => 'Nutri-Score nelze pouÅ¾Ã­t (NovÃ½ vÃ½poÄet)';
+
+  @override
+  String get environmental_score_generic => 'Green-Score';
+
+  @override
+  String get environmental_score_a => 'Green-Score A';
+
+  @override
+  String get environmental_score_b => 'Green-Score B';
+
+  @override
+  String get environmental_score_c => 'Green-Score C';
+
+  @override
+  String get environmental_score_d => 'Green-Score D';
+
+  @override
+  String get environmental_score_e => 'Green-Score E';
+
+  @override
+  String get environmental_score_unknown => 'NeznÃ¡mÃ© Green-Score';
+
+  @override
+  String get environmental_score_not_applicable => 'Green-Score nelze pouÅ¾Ã­t';
+
+  @override
+  String get nova_group_generic => 'Ultra-zpracovÃ¡nÃ­ - skupiny NOVA';
+
+  @override
+  String get nova_group_1 => 'Skupina NOVA 1';
+
+  @override
+  String get nova_group_2 => 'Skupina NOVA 2';
+
+  @override
+  String get nova_group_3 => 'Skupina NOVA 3';
+
+  @override
+  String get nova_group_4 => 'Skupina NOVA 4';
+
+  @override
+  String get nova_group_unknown => 'NeznÃ¡mÃ¡ skupina NOVA';
+
+  @override
+  String get nutrition_facts => 'ÃšrovnÄ› Å¾ivin';
+
+  @override
+  String get faq_title_partners => 'PartneÅ™i a patroni nevlÃ¡dnÃ­ organizace';
+
+  @override
+  String get faq_title_vision => 'Vize, mise, hodnoty a programy Open Food Facts';
+
+  @override
+  String get faq_title_install_beauty => 'Nainstalujte Open Beauty Facts a vytvoÅ™te kosmetickou databÃ¡zi';
+
+  @override
+  String get faq_title_install_pet => 'Nainstalujte si Open Pet Food Facts a vytvoÅ™te databÃ¡zi krmiv pro domÃ¡cÃ­ zvÃ­Å™ata';
+
+  @override
+  String get faq_title_install_product => 'Nainstalujte Open Products Facts pro vytvoÅ™enÃ­ databÃ¡ze produktÅ¯ pro prodlouÅ¾enÃ­ Å¾ivotnosti objektÅ¯';
+
+  @override
+  String get faq_nutriscore_nutriscore => 'NovÃ½ vÃ½poÄet Nutri-Score: co je novÃ©ho?';
+
+  @override
+  String get contact_title_pro_page => 'Pro? Importujte svÃ© produkty do Open Food Facts';
+
+  @override
+  String get contact_title_pro_email => 'Kontakt vÃ½robce';
+
+  @override
+  String get contact_title_press_page => 'Pro mÃ©dia';
+
+  @override
+  String get contact_title_press_email => 'Kontakt pro novinÃ¡Å™e';
+
+  @override
+  String get contact_title_newsletter => 'PÅ™ihlaste se k odbÄ›ru naÅ¡eho zpravodaje';
+
+  @override
+  String get contact_title_calendar => 'Subscribe to our community calendar';
+
+  @override
+  String get hunger_games_loading_line1 => 'Dejte nÃ¡m prosÃ­m pÃ¡r sekundâ€¦';
+
+  @override
+  String get hunger_games_loading_line2 => 'Stahujeme otÃ¡zky!';
+
+  @override
+  String get hunger_games_error_label => 'Argh! NÄ›co se pokaziloâ€¦ a otÃ¡zky se nepodaÅ™ilo naÄÃ­st.';
+
+  @override
+  String get hunger_games_error_retry_button => 'Zkusme to znovu!';
+
+  @override
+  String get reorder_attribute_action => 'ZmÄ›Åˆte poÅ™adÃ­ atributÅ¯';
+
+  @override
+  String get link_cant_be_opened => 'Tento odkaz nelze na vaÅ¡em zaÅ™Ã­zenÃ­ otevÅ™Ã­t. Zkontrolujte, zda mÃ¡te nainstalovanÃ½ prohlÃ­Å¾eÄ.';
+
+  @override
+  String knowledge_panel_page_title_no_title(String productName) {
+    return 'Podrobnosti o $productName';
+  }
+
+  @override
+  String knowledge_panel_page_title(String pageName, String productName) {
+    return 'Podrobnosti o $pageName s $productName';
+  }
+
+  @override
+  String get guide_title => 'PrÅ¯vodce';
+
+  @override
+  String get guide_share_label => 'SdÃ­let';
+
+  @override
+  String get guide_nutriscore_v2_enabled => 'pravda';
+
+  @override
+  String get guide_nutriscore_v2_title => 'Nutri-Score se vyvÃ­jÃ­: vysvÄ›tlenÃ­!';
+
+  @override
+  String get guide_nutriscore_v2_what_is_nutriscore_title => 'Co je Nutri-Score?';
+
+  @override
+  String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 => 'Nutri-Score je logo, jehoÅ¾ cÃ­lem je informovat vÃ¡s o **nutriÄnÃ­ kvalitÄ› potravin**.';
+
+  @override
+  String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 => 'BarevnÃ½ kÃ³d se liÅ¡Ã­ od tmavÄ› zelenÃ© (**A**) pro **nejzdravÄ›jÅ¡Ã­** produkty aÅ¾ po tmavÄ› Äervenou (**E**) pro **mÃ©nÄ› zdravÃ©**.';
+
+  @override
+  String get guide_nutriscore_v2_nutriscore_a_caption => 'Logo Nutri-Score A';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_title => 'ProÄ se Nutri-Score vyvÃ­jÃ­?';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_intro => 'Vzorec pro Nutri-Score **se vyvÃ­jÃ­** k poskytovÃ¡nÃ­ lepÅ¡Ã­ch doporuÄenÃ­:';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg1_title => 'LepÅ¡Ã­ hodnocenÃ­ vÅ¡ech nÃ¡pojÅ¯';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg1_text => 'SrovnÃ¡vacÃ­ poznÃ¡mky **mlÃ©ka**, **mlÃ©ÄnÃ½ch nÃ¡pojÅ¯** s pÅ™idanÃ½m cukrem a **zeleninovÃ½ch** nÃ¡pojÅ¯ byly v novÃ©m algoritmu lÃ©pe rozliÅ¡eny.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg2_title => 'LepÅ¡Ã­ hodnocenÃ­ nÃ¡pojÅ¯';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg2_text => '**Obsah cukru** je lÃ©pe zohlednÄ›n a upÅ™ednostÅˆuje **nÃ­zce slazenÃ©** nÃ¡poje.\\n**Sladidla budou rovnÄ›Å¾ penalizovÃ¡na**: dietnÃ­ limonÃ¡dy budou snÃ­Å¾eny z hodnocenÃ­ B na hodnotu mezi C a E. DoporuÄenÃ½m nÃ¡pojem zÅ¯stÃ¡vÃ¡ voda.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg3_title => 'SÅ¯l a cukr penalizovÃ¡ny';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg3_text => '**PÅ™Ã­liÅ¡ sladkÃ©** nebo **pÅ™Ã­liÅ¡ slanÃ©** produkty budou mÃ­t svÃ© **hodnocenÃ­ dÃ¡le snÃ­Å¾eno**.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg4_title => 'Hierarchie v olejÃ­ch a rybÃ¡ch';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg4_text => 'HodnocenÃ­ urÄitÃ½ch **tuÄnÃ½ch ryb** a **olejÅ¯ bohatÃ½ch na dobrÃ© tuky** se zlepÅ¡Ã­.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'OmezenÃ© ÄervenÃ© maso';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg5_text => 'Konzumace **ÄervenÃ©ho masa by mÄ›la bÃ½t omezena**. To je dÅ¯vod, proÄ **drÅ¯beÅ¾ bude mÃ­t pomÄ›rnÄ› lepÅ¡Ã­ hodnocenÃ­**.';
+
+  @override
+  String get guide_nutriscore_v2_new_logo_title => 'Jak odliÅ¡it starÃ© Nutri-Score a novÃ½ vÃ½poÄet?';
+
+  @override
+  String get guide_nutriscore_v2_new_logo_text => 'Od tÃ©to chvÃ­le mÅ¯Å¾e logo zobrazovat zmÃ­nku â€ž**NovÃ½ vÃ½poÄet**â€œ, aby bylo jasnÃ©, Å¾e se skuteÄnÄ› jednÃ¡ o novÃ½ vÃ½poÄet.';
+
+  @override
+  String get guide_nutriscore_v2_new_logo_image_caption => 'Logo novÃ©ho Nutri-Score';
+
+  @override
+  String get guide_nutriscore_v2_where_title => 'Kde najÃ­t novÃ½ vÃ½poÄet Nutri-Score?';
+
+  @override
+  String get guide_nutriscore_v2_where_paragraph1 => 'Nutri-Score se pouÅ¾Ã­vÃ¡ v nÄ›kolika zemÃ­ch: NÄ›mecko, Belgie, Å panÄ›lsko, Francie, Lucembursko, Nizozemsko a Å vÃ½carsko.';
+
+  @override
+  String get guide_nutriscore_v2_where_paragraph2 => 'VÃ½robci majÃ­ nejpozdÄ›ji do **2026** Äas **nahradit** starÃ½ vÃ½poÄet novÃ½m.';
+
+  @override
+  String get guide_nutriscore_v2_where_paragraph3 => 'Bez ÄekÃ¡nÃ­ **uÅ¾ najdete v aplikaci OpenFoodFacts** novÃ½ vÃ½poÄet, vÄetnÄ› pÅ™Ã­padÅ¯, kdy vÃ½robci neaktualizovali skÃ³re.';
+
+  @override
+  String get guide_nutriscore_v2_unchanged_title => 'Co se nemÄ›nÃ­';
+
+  @override
+  String get guide_nutriscore_v2_unchanged_paragraph1 => 'Nutri-Score je skÃ³re navrÅ¾enÃ© k **mÄ›Å™enÃ­ nutriÄnÃ­ kvality**. Je **doplÅˆkem skupiny NOVA** pro **ultra zpracovanÃ© potraviny** (taktÃ©Å¾ pÅ™Ã­tomnÃ½ch v aplikaci).';
+
+  @override
+  String get guide_nutriscore_v2_unchanged_paragraph2 => 'Pro vÃ½robce zÅ¯stÃ¡vÃ¡ zobrazenÃ­ Nutri-Score **nepovinnÃ©**.';
+
+  @override
+  String get guide_nutriscore_v2_share_link => 'https://world-cs.openfoodfacts.org/nutriscore-v2';
+
+  @override
+  String get guide_nutriscore_v2_share_message => '';
+
+  @override
+  String get preview_badge => 'NÃ¡hled';
+
+  @override
+  String get prices_feedback_form => 'KliknutÃ­m sem nÃ¡m poÅ¡lete svÅ¯j nÃ¡zor na tuto novou funkci!';
+
+  @override
+  String get menu_button_list_actions => 'Vyberte akci';
+
+  @override
+  String get error_loading_photo => 'Chyba pÅ™i naÄÃ­tÃ¡nÃ­ fotografie';
+
+  @override
+  String get photo_viewer_action_use_picture_as => 'PouÅ¾Ã­t jakoâ€¦';
+
+  @override
+  String get photo_viewer_use_picture_as_tooltip => 'PouÅ¾ijte tento obrÃ¡zek jakoâ€¦';
+
+  @override
+  String photo_viewer_use_picture_as_title(String language) {
+    return 'PouÅ¾Ã­t tento obrÃ¡zek jakoâ€¦ ($language)';
+  }
+
+  @override
+  String get photo_viewer_details_button => 'Podrobnosti';
+
+  @override
+  String get photo_viewer_details_button_accessibility_label => 'Detaily tÃ©to fotografie';
+
+  @override
+  String get photo_viewer_details_title => 'Detaily fotografie';
+
+  @override
+  String get photo_viewer_details_contributor_title => 'PÅ™ispÄ›vatel';
+
+  @override
+  String get photo_viewer_details_size_title => 'Velikost';
+
+  @override
+  String photo_viewer_details_size_value(int width, int height) {
+    return '$width x $height pixelÅ¯';
+  }
+
+  @override
+  String get photo_viewer_details_date_title => 'Datum';
+
+  @override
+  String get photo_viewer_details_url_title => 'URL';
+
+  @override
+  String get product_page_compatibility_score => 'KompatibilnÃ­';
+
+  @override
+  String get user_lists_action_multi_select => 'HromadnÃ½ vÃ½bÄ›r';
+
+  @override
+  String product_page_compatibility_score_tooltip(String score) {
+    return 'VaÅ¡e skÃ³re kompatibility: $score%';
+  }
+
+  @override
+  String get product_image_front_accessibility_label => 'PÅ™ednÃ­ obrÃ¡zek';
+
+  @override
+  String get product_image_ingredients_accessibility_label => 'ObrÃ¡zek seznamu sloÅ¾ek';
+
+  @override
+  String get product_image_nutrition_accessibility_label => 'ObrÃ¡zek vÃ½Å¾ivy';
+
+  @override
+  String get product_image_packaging_accessibility_label => 'ObrÃ¡zek balenÃ­';
+
+  @override
+  String get product_image_other_accessibility_label => 'JinÃ½ obrÃ¡zek';
+
+  @override
+  String get product_image_outdated_message => 'Tento obrÃ¡zek mÅ¯Å¾e bÃ½t zastaralÃ½';
+
+  @override
+  String product_image_outdated_message_accessibility_label(String type) {
+    return '$type (tento obrÃ¡zek mÅ¯Å¾e bÃ½t zastaralÃ½)';
+  }
+
+  @override
+  String product_image_locked_message_accessibility_label(String type) {
+    return '$type (tento obrÃ¡zek mÅ¯Å¾e bÃ½t uzamÄen vÃ½robcem)';
+  }
+
+  @override
+  String get product_image_error => 'ObrÃ¡zek nelze naÄÃ­st!';
+
+  @override
+  String product_image_error_accessibility_label(String type) {
+    return 'Nelze naÄÃ­st $type (chyba sÃ­tÄ›?)';
+  }
+
+  @override
+  String get product_page_image_no_image_available => 'Å½Ã¡dnÃ½ obrÃ¡zek!';
+
+  @override
+  String get product_page_image_no_image_available_accessibility_label => 'K tomuto produktu nenÃ­ k dispozici Å¾Ã¡dnÃ½ obrÃ¡zek';
+
+  @override
+  String get product_page_action_bar_settings_accessibility_label => 'ZmÄ›Åˆte poÅ™adÃ­ nebo skryjte akce';
+
+  @override
+  String get product_page_action_bar_setting_modal_title => 'Upravit akce';
+
+  @override
+  String get product_page_action_bar_item_move_up => 'Posunout nahoru';
+
+  @override
+  String get product_page_action_bar_item_move_down => 'Posunout dolÅ¯';
+
+  @override
+  String get product_page_action_bar_item_enable => 'Povolit akci';
+
+  @override
+  String get product_page_action_bar_item_disable => 'ZakÃ¡zat akci';
+
+  @override
+  String get product_page_pending_operations_banner_title => 'NahrÃ¡vÃ¡nÃ­ vaÅ¡ich Ãºpravâ€¦';
+
+  @override
+  String get product_page_pending_operations_banner_message => 'Ãšdaje zobrazenÃ© na tÃ©to strÃ¡nce **zatÃ­m neodrÃ¡Å¾ejÃ­ vaÅ¡e Ãºpravy**.\nPoÄkejte prosÃ­m nÄ›kolik sekundâ€¦';
+
+  @override
+  String get product_add_a_language => 'PÅ™idat jazyk';
+
+  @override
+  String barcode_accessibility_label(String barcode) {
+    return 'ÄŒÃ¡rovÃ½ kÃ³d $barcode';
+  }
+
+  @override
+  String get carousel_close_tooltip => 'Odstranit tento produkt z karuselu';
+
+  @override
+  String get carousel_unsupported_header => 'NepodporovanÃ½ ÄÃ¡rovÃ½ kÃ³d!';
+
+  @override
+  String get carousel_unsupported_title => 'Jejda!';
+
+  @override
+  String get carousel_unsupported_text => 'NaskenovanÃ½ ÄÃ¡rovÃ½ kÃ³d nenÃ­ podporovÃ¡n Open Food Facts!';
+
+  @override
+  String get carousel_error_header => 'Chyba!';
+
+  @override
+  String get carousel_error_title => 'Je to prÅ¯Å¡vih!';
+
+  @override
+  String get carousel_error_text_1 => 'NepodaÅ™ilo se nÃ¡m stÃ¡hnout informace o tomto ÄÃ¡rovÃ©m kÃ³du:';
+
+  @override
+  String get carousel_error_text_2 => 'Zkontrolujte prosÃ­m svÃ© internetovÃ© pÅ™ipojenÃ­ nebo kliknÄ›te na toto tlaÄÃ­tko:';
+
+  @override
+  String get carousel_error_button => 'Opakovat';
+
+  @override
+  String get carousel_unknown_product_header => 'NeznÃ¡mÃ½ produkt';
+
+  @override
+  String get carousel_unknown_product_title => 'Gratulujeme!\nNaÅ¡li jste __vzÃ¡cnÃ½ drahokam!__';
+
+  @override
+  String get carousel_unknown_product_text => 'NaÅ¡e spoleÄnÄ› tvoÅ™enÃ¡ databÃ¡ze obsahuje vÃ­ce neÅ¾ **3 miliony produktÅ¯**, ale tento ÄÃ¡rovÃ½ kÃ³d neexistuje: ';
+
+  @override
+  String get carousel_unknown_product_button => 'PÅ™idat vÃ½robek';
+
+  @override
+  String get carousel_loading_header => 'NaÄÃ­tÃ¡nÃ­ informacÃ­...';
+
+  @override
+  String get carousel_loading_title => 'PrÃ¡vÄ› jste naskenovali produkt s nÃ¡sledujÃ­cÃ­m ÄÃ¡rovÃ½m kÃ³dem:';
+
+  @override
+  String get carousel_loading_text => 'HledÃ¡me ho v naÅ¡Ã­ databÃ¡zi vÃ­ce neÅ¾ **3 milionÅ¯ produktÅ¯!**';
+
+  @override
+  String get product_type_subtitle_food => 'Zelenina, ovoce, mraÅ¾enÃ© potravinyâ€¦';
+
+  @override
+  String get product_type_subtitle_beauty => 'Make-up, mÃ½dla, zubnÃ­ pastyâ€¦';
+
+  @override
+  String get product_type_subtitle_pet_food => 'Krmivo pro psy, koÄkyâ€¦';
+
+  @override
+  String get product_type_subtitle_product => 'Smartphony, nÃ¡bytekâ€¦';
+
+  @override
+  String get photo_field_front => 'Fotografie produktu';
+
+  @override
+  String get photo_field_ingredients => 'Fotografie ingrediencÃ­';
+
+  @override
+  String get photo_field_nutrition => 'Fotografie vÃ½Å¾ivovÃ½ch ÃºdajÅ¯';
+
+  @override
+  String get photo_field_packaging => 'InformaÄnÃ­ foto balenÃ­';
+
+  @override
+  String get photo_already_exists => 'Tato fotografie jiÅ¾ existuje';
+
+  @override
+  String get photo_missing => 'Tato fotografie chybÃ­';
+
+  @override
+  String get date => 'Datum';
+
+  @override
+  String get photo_rotate_left => 'OtoÄit doleva';
+
+  @override
+  String get photo_rotate_right => 'OtoÄit doprava';
+
+  @override
+  String get photo_undo_action => 'VrÃ¡tit pÅ™edchozÃ­ akci';
+
+  @override
+  String knowledge_panel_world_map_accessibility_label(String location) {
+    return 'Mapa svÄ›ta $location';
+  }
+
+  @override
+  String get open_street_map_contributor_attribution => 'PÅ™ispÄ›vatelÃ© OpenStreetMap';
+
+  @override
+  String get not_applicable_short => 'NedostupnÃ©';
+
+  @override
+  String get knowledge_panel_warning_text => 'VarovÃ¡nÃ­';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_title => 'ProÄ se toto Nutri-Score liÅ¡Ã­ od Nutri-Score na obalu?';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_message => 'ExistujÃ­ dvÄ› moÅ¾nÃ¡ vysvÄ›tlenÃ­:\nSeznam ingrediencÃ­ a/nebo vÃ½Å¾ivovÃ½ch ÃºdajÅ¯ nenÃ­ aktuÃ¡lnÃ­.\n\nPoskytujeme \"NovÃ½ vÃ½poÄet\" Nutri-Score (nebo V2). Zkontrolujte, zda mÃ¡te na obalu nÃ¡pis \"NovÃ½ vÃ½poÄet\".';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_button1 => 'Zkontrolovat ingredience';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_button2 => 'Zkontrolovat vÃ½Å¾ivovÃ© Ãºdaje';
+
+  @override
+  String url_not_supported(String url) {
+    return 'BohuÅ¾el nemÅ¯Å¾eme otevÅ™Ã­t adresu URL:\n$url';
+  }
+
+  @override
+  String get product_list_export => 'Export';
+
+  @override
+  String get product_list_import => 'Import';
+
+  @override
+  String get product_footer_action_barcode => 'Zobrazit ÄÃ¡rovÃ½ kÃ³d';
+
+  @override
+  String get product_footer_action_barcode_short => 'ÄŒÃ¡rovÃ½ kÃ³d';
+
+  @override
+  String get product_footer_action_open_website => 'OtevÅ™Ã­t web';
+
+  @override
+  String get product_footer_action_report => 'ZprÃ¡va';
+
+  @override
+  String get product_footer_action_contributor_guide => 'NÃ¡povÄ›da';
+
+  @override
+  String get product_footer_action_data_quality_tags => 'Kvalita dat';
+
+  @override
+  String prices_products_list_length_many_pages(int pageSize, int total) {
+    return 'Top $pageSize products (total: $total)';
+  }
+
+  @override
+  String get app_review_title => 'Are you enjoying this app?';
+
+  @override
+  String get app_review_low => 'Could do better';
+
+  @override
+  String get app_review_medium => 'Not bad';
+
+  @override
+  String get app_review_high => 'I love it!';
+
+  @override
+  String get app_review_feedback_modal_title => 'Help us improve our application';
+
+  @override
+  String get app_review_feedback_modal_content => 'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+
+  @override
+  String get app_review_feedback_modal_open_form => 'Answer the form';
+
+  @override
+  String get app_review_feedback_modal_later => 'Zeptejte se mÄ› pozdÄ›ji';
+
+  @override
+  String get nutrition_facts_extract_new => 'NEW: You can automatically extract the nutrients from the picture!';
+
+  @override
+  String get nutrition_facts_extract_button_text => 'Extract now';
+
+  @override
+  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+
+  @override
+  String get nutrition_facts_extract_failed => 'Failed to extract nutrients from picture';
+}

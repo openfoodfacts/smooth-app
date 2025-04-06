@@ -1,0 +1,4010 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Hungarian (`hu`).
+class AppLocalizationsHu extends AppLocalizations {
+  AppLocalizationsHu([String locale = 'hu']) : super(locale);
+
+  @override
+  String get sep => '';
+
+  @override
+  String get yes => 'Igen';
+
+  @override
+  String get add => 'HozzÃ¡adÃ¡s';
+
+  @override
+  String get account_delete_message => 'Biztosan tÃ¶rÃ¶lni szeretnÃ© a fiÃ³kjÃ¡t?\nHa van konkrÃ©t oka, kÃ©rjÃ¼k ossza meg alÃ¡bb';
+
+  @override
+  String get reason => 'Ok';
+
+  @override
+  String get okay => 'Rendben';
+
+  @override
+  String get validate => 'Ã‰rvÃ©nyesÃ­tÃ©s';
+
+  @override
+  String get create => 'LÃ©trehozÃ¡s';
+
+  @override
+  String get applyButtonText => 'Alkalmaz';
+
+  @override
+  String get next_label => 'KÃ¶vetkezÅ‘';
+
+  @override
+  String get continue_label => 'FolytatÃ¡s';
+
+  @override
+  String get exit_label => 'KilÃ©pÃ©s';
+
+  @override
+  String get previous_label => 'ElÅ‘zÅ‘';
+
+  @override
+  String get go_back_to_top => 'Vissza a tetejÃ©re';
+
+  @override
+  String get save => 'MentÃ©s';
+
+  @override
+  String get save_confirmation => 'Biztosan menteni szeretnÃ©?';
+
+  @override
+  String get skip => 'KihagyÃ¡s';
+
+  @override
+  String get cancel => 'MÃ©gse';
+
+  @override
+  String get ignore => 'MellÅ‘zÃ©s';
+
+  @override
+  String get close => 'BezÃ¡rÃ¡s';
+
+  @override
+  String get no => 'Nem';
+
+  @override
+  String get stop => 'LeÃ¡llÃ­tÃ¡s';
+
+  @override
+  String get finish => 'BefejezÃ©s';
+
+  @override
+  String get calculate => 'KiszÃ¡mÃ­tÃ¡s';
+
+  @override
+  String get reset_food_prefs => 'PreferÃ¡lt Ã©telek visszaÃ¡llÃ­tÃ¡sa';
+
+  @override
+  String get error => 'Valami hiba tÃ¶rtÃ©nt';
+
+  @override
+  String get error_occurred => 'Hiba tÃ¶rtÃ©nt';
+
+  @override
+  String get featureInProgress => 'MÃ©g dolgozunk ezen a funkciÃ³n, maradjon velÃ¼nk';
+
+  @override
+  String get label_web => 'MegtekintÃ©s az interneten';
+
+  @override
+  String get learnMore => 'TovÃ¡bbi informÃ¡ciÃ³k';
+
+  @override
+  String get unknown => 'Ismeretlen';
+
+  @override
+  String get match_very_good => 'Nagyon jÃ³ egyezÃ©s';
+
+  @override
+  String get match_good => 'JÃ³ egyezÃ©s';
+
+  @override
+  String get match_poor => 'Gyenge egyezÃ©s';
+
+  @override
+  String get match_may_not => 'Nem egyezhet';
+
+  @override
+  String get match_does_not => 'Nem egyezik';
+
+  @override
+  String get match_unknown => 'Ismeretlen egyezÃ©s';
+
+  @override
+  String get match_short_very_good => 'Nagyon jÃ³ egyezÃ©s';
+
+  @override
+  String get match_short_good => 'JÃ³ egyezÃ©s';
+
+  @override
+  String get match_short_poor => 'Gyenge egyezÃ©s';
+
+  @override
+  String get match_short_may_not => 'Nem egyezhet';
+
+  @override
+  String get match_short_does_not => 'Nem egyezik';
+
+  @override
+  String get match_short_unknown => 'Ismeretlen egyezÃ©s';
+
+  @override
+  String get licenses => 'Licences';
+
+  @override
+  String get looking_for => 'KeresÃ©s';
+
+  @override
+  String get welcomeToOpenFoodFacts => 'ÃœdvÃ¶zli az Open Food Facts';
+
+  @override
+  String get whatIsOff => 'Az Open Food Facts egy helyi kÃ¶zÃ¶ssÃ©gek Ã¡ltal mÅ±kÃ¶dtetett globÃ¡lis nonprofit szervezet.';
+
+  @override
+  String get productDataUtility => 'Tekintse meg az Ã–n preferenciÃ¡inak megfelelÅ‘ Ã©lelmiszeradatokat.';
+
+  @override
+  String get healthCardUtility => 'VÃ¡lasszon olyan Ã©lelmiszereket, amelyek jÃ³k Ã–nnek.';
+
+  @override
+  String get ecoCardUtility => 'VÃ¡lasszon olyan Ã©lelmiszereket, amelyek jÃ³t tesznek a bolygÃ³nak.';
+
+  @override
+  String get server_error_open_new_issue => 'A szerver nem vÃ¡laszol! A kÃ¶vetkezÅ‘ linken nyithat hibajelentÃ©st.';
+
+  @override
+  String get sign_in_text => 'A kÃ¶zremÅ±kÃ¶dÃ©sei mentÃ©sÃ©hez jelentkezzen be az OpenFoodFacts fiÃ³kjÃ¡ba';
+
+  @override
+  String get incorrect_credentials => 'Helytelen felhasznÃ¡lÃ³nÃ©v vagy jelszÃ³.';
+
+  @override
+  String get password_lost_incorrect_credentials => 'Ez az e-mailcÃ­m vagy felhasznÃ¡lÃ³nÃ©v nem lÃ©tezik. EllenÅ‘rizze a hitelesÃ­tÃ©si adatait.';
+
+  @override
+  String get password_lost_server_unavailable => 'Jelenleg lassulÃ¡st tapasztalunk a szervereinken, amiÃ©rt elnÃ©zÃ©st kÃ©rÃ¼nk. KÃ©rjÃ¼k, prÃ³bÃ¡lja meg kÃ©sÅ‘bb Ãºjra.';
+
+  @override
+  String get login => 'BejelentkezÃ©s';
+
+  @override
+  String get login_result_type_server_unreachable => 'A hÃ¡lÃ³zat nem Ã©rhetÅ‘ el';
+
+  @override
+  String get login_result_type_server_issue => 'ProblÃ©ma a szerveren. KÃ©rjÃ¼k, prÃ³bÃ¡lja meg kÃ©sÅ‘bb.';
+
+  @override
+  String get login_page_username_or_email => 'Adja meg felhasznÃ¡lÃ³nevÃ©t vagy e-mail cÃ­mÃ©t';
+
+  @override
+  String get login_page_password_error_empty => 'Adjon meg egy jelszÃ³t';
+
+  @override
+  String get create_account => 'FiÃ³k lÃ©trehozÃ¡sa';
+
+  @override
+  String get sign_in => 'BejelentkezÃ©s';
+
+  @override
+  String get sign_in_mandatory => 'Ehhez a funkciÃ³hoz be kell jelentkeznie.';
+
+  @override
+  String get help_improve_country => 'Help improve Open Food Facts in your country';
+
+  @override
+  String get sign_out => 'KijelentkezÃ©s';
+
+  @override
+  String get sign_out_confirmation => 'Biztosan ki szeretne jelentkezni?';
+
+  @override
+  String get password => 'JelszÃ³';
+
+  @override
+  String get forgot_password => 'Elfelejtett jelszÃ³';
+
+  @override
+  String get view_profile => 'Profil megtekintÃ©se';
+
+  @override
+  String get reset_password => 'JelszÃ³ visszaÃ¡llÃ­tÃ¡sa';
+
+  @override
+  String get reset_password_explanation_text => 'Elfelejtett jelszÃ³ esetÃ©n adja meg felhasznÃ¡lÃ³nevÃ©t vagy e-mail cÃ­mÃ©t, hogy megkapja a jelszÃ³ visszaÃ¡llÃ­tÃ¡sÃ¡ra vonatkozÃ³ utasÃ­tÃ¡sokat. Ne felejtse el ellenÅ‘rizni a Spam mappÃ¡t is.';
+
+  @override
+  String get username_or_email => 'FelhasznÃ¡lÃ³nÃ©v vagy e-mail cÃ­m';
+
+  @override
+  String get reset_password_done => 'A jelszÃ³ visszaÃ¡llÃ­tÃ¡sÃ¡ra szolgÃ¡lÃ³ hivatkozÃ¡st elkÃ¼ldtÃ¼k a fiÃ³kjÃ¡hoz tÃ¡rsÃ­tott e-mail cÃ­mre. EllenÅ‘rizze a spam mappÃ¡t is';
+
+  @override
+  String get send_reset_password_mail => 'JelszÃ³ mÃ³dosÃ­tÃ¡sa';
+
+  @override
+  String get enter_some_text => 'Ãrjon be valamilyen szÃ¶veget';
+
+  @override
+  String get sign_up_page_title => 'RegisztrÃ¡ciÃ³';
+
+  @override
+  String get sign_up_page_action_button => 'RegisztrÃ¡ciÃ³';
+
+  @override
+  String get sign_up_page_action_doing_it => 'RegisztrÃ¡ciÃ³â€¦';
+
+  @override
+  String get sign_up_page_action_ok => 'GratulÃ¡lunk, a fiÃ³kja lÃ©trejÃ¶tt!';
+
+  @override
+  String get sign_up_page_display_name_hint => 'NÃ©v';
+
+  @override
+  String get sign_up_page_display_name_error_empty => 'KÃ©rjÃ¼k, adja meg felhasznÃ¡lÃ³nevÃ©t';
+
+  @override
+  String get sign_up_page_email_hint => 'E-mail';
+
+  @override
+  String get sign_up_page_email_error_empty => 'E-mail szÃ¼ksÃ©ges';
+
+  @override
+  String get sign_up_page_email_error_invalid => 'Ã‰rvÃ©nytelen e-mail';
+
+  @override
+  String get sign_up_page_username_hint => 'FelhasznÃ¡lÃ³nÃ©v: NyilvÃ¡nosan lÃ¡thatÃ³';
+
+  @override
+  String get sign_up_page_username_error_empty => 'Adjon meg egy felhasznÃ¡lÃ³nevet';
+
+  @override
+  String get sign_up_page_username_error_invalid => 'Adjon meg egy Ã©rvÃ©nyes felhasznÃ¡lÃ³nevet';
+
+  @override
+  String get sign_up_page_username_description => 'A felhasznÃ¡lÃ³nÃ©v nem tartalmazhat szÃ³kÃ¶zt, nagybetÅ±ket vagy speciÃ¡lis karaktereket.';
+
+  @override
+  String sign_up_page_username_length_invalid(int value) {
+    return 'A felhasznÃ¡lÃ³nÃ©v nem lehet $value karakternÃ©l hosszabb';
+  }
+
+  @override
+  String get sign_up_page_password_hint => 'JelszÃ³';
+
+  @override
+  String get sign_up_page_password_error_empty => 'Adjon meg egy jelszÃ³t';
+
+  @override
+  String get sign_up_page_password_error_invalid => 'Adjon meg egy Ã©rvÃ©nyes jelszÃ³t (legalÃ¡bb 6 karakter)';
+
+  @override
+  String get sign_up_page_confirm_password_hint => 'JelszÃ³ megerÅ‘sÃ­tÃ©se';
+
+  @override
+  String get sign_up_page_confirm_password_error_empty => 'ErÅ‘sÃ­tse meg a jelszavÃ¡t';
+
+  @override
+  String get sign_up_page_confirm_password_error_invalid => 'A jelszavak nem egyeznek';
+
+  @override
+  String get sign_up_page_agree_text => 'EgyetÃ©rtek az Openâ€¯Foodâ€¯Facts';
+
+  @override
+  String get sign_up_page_terms_text => 'felhasznÃ¡lÃ¡si Ã©s hozzÃ¡jÃ¡rulÃ¡si feltÃ©teleivel';
+
+  @override
+  String get sign_up_page_agree_url => 'https://hu.openfoodfacts.org/terms-of-use';
+
+  @override
+  String get donate_url => 'https://hu.openfoodfacts.org/donate-to-open-food-facts';
+
+  @override
+  String get sign_up_page_agree_error_invalid => 'FiÃ³k lÃ©trehozÃ¡sakor a felhasznÃ¡lÃ¡si feltÃ©telek elfogadÃ¡sa kÃ¶telezÅ‘, azonban az alkalmazÃ¡son keresztÃ¼l tovÃ¡bbra is lehetsÃ©ges a nÃ©vtelen hozzÃ¡jÃ¡rulÃ¡s';
+
+  @override
+  String get sign_up_page_producer_checkbox => 'Ã‰lelmiszergyÃ¡rtÃ³ vagyok';
+
+  @override
+  String get sign_up_page_producer_hint => 'GyÃ¡rtÃ³/mÃ¡rka';
+
+  @override
+  String get sign_up_page_producer_error_empty => 'Adjon meg egy gyÃ¡rtÃ³i vagy mÃ¡rkanevet';
+
+  @override
+  String get sign_up_page_subscribe_checkbox => 'SzeretnÃ©k feliratkozni az Open Food Facts hÃ­rlevÃ©lre (bÃ¡rmikor leiratkozhat rÃ³la)';
+
+  @override
+  String get sign_up_page_user_name_already_used => 'A felhasznÃ¡lÃ³nÃ©v mÃ¡r lÃ©tezik. VÃ¡lasszon mÃ¡sik felhasznÃ¡lÃ³nevet.';
+
+  @override
+  String get sign_up_page_email_already_exists => 'mÃ¡r lÃ©tezik, jelentkezzen be a fiÃ³kba, vagy prÃ³bÃ¡lja meg mÃ¡sik e-mail cÃ­mmel.';
+
+  @override
+  String get sign_up_page_provide_valid_email => 'ValÃ³di email cÃ­met adjon meg.';
+
+  @override
+  String get sign_up_page_server_busy => 'Nagyon sajnÃ¡ljuk, hogy technikai nehÃ©zsÃ©gekbe Ã¼tkÃ¶ztÃ¼nk a fiÃ³k lÃ©trehozÃ¡sÃ¡nÃ¡l. KÃ©rjÃ¼k, prÃ³bÃ¡lja meg kÃ©sÅ‘bb Ãºjra.';
+
+  @override
+  String get settingsTitle => 'BeÃ¡llÃ­tÃ¡sok';
+
+  @override
+  String get darkmode => 'TÃ©ma';
+
+  @override
+  String get darkmode_dark => 'SÃ¶tÃ©t';
+
+  @override
+  String get darkmode_light => 'VilÃ¡gos';
+
+  @override
+  String get darkmode_system_default => 'Rendszer alapÃ©rtelmezett';
+
+  @override
+  String get thanks_for_contributing => 'KÃ¶szÃ¶njÃ¼k a kÃ¶zremÅ±kÃ¶dÃ©st!';
+
+  @override
+  String get contributors_label => 'Åk fejlesztik az alkalmazÃ¡st';
+
+  @override
+  String get contributors_dialog_title => 'HozzÃ¡jÃ¡rulÃ³k';
+
+  @override
+  String contributors_dialog_entry_description(Object name) {
+    return 'KÃ¶zremÅ±kÃ¶dÅ‘: $name';
+  }
+
+  @override
+  String get contributors_description => 'Az alkalmazÃ¡s Ã¶sszes kÃ¶zremÅ±kÃ¶dÅ‘jÃ©nek listÃ¡ja';
+
+  @override
+  String get support => 'TÃ¡mogatÃ¡s';
+
+  @override
+  String get support_join_slack => 'KÃ©rjen segÃ­tsÃ©get Slack csatornÃ¡nkon.';
+
+  @override
+  String get support_via_forum => 'KÃ©rjen segÃ­tsÃ©get a fÃ³rumonkon';
+
+  @override
+  String get support_via_email => 'KÃ¼ldjÃ¶n nekÃ¼nk emailt';
+
+  @override
+  String get support_via_email_include_logs_dialog_title => 'ElkÃ¼ldi az alkalmazÃ¡snaplÃ³kat?';
+
+  @override
+  String get support_via_email_include_logs_dialog_body => 'SzeretnÃ© csatolni az alkalmazÃ¡s naplÃ³fÃ¡jljÃ¡t az e-mail mellÃ©kletekÃ©nt?';
+
+  @override
+  String get termsOfUse => 'FelhasznÃ¡lÃ¡si feltÃ©telek';
+
+  @override
+  String get legalNotices => 'Jogi nyilatkozat';
+
+  @override
+  String get privacy_policy => 'AdatvÃ©delmi IrÃ¡nyelvek';
+
+  @override
+  String get about_this_app => 'Az alkalmazÃ¡srÃ³l';
+
+  @override
+  String get contribute => 'HozzÃ¡jÃ¡rulÃ¡s';
+
+  @override
+  String get contribute_sw_development => 'SzoftverfejlesztÃ©s';
+
+  @override
+  String get contribute_develop_text => 'Minden Open Food Facts projekt forrÃ¡skÃ³dja elÃ©rhetÅ‘ a GitHubon. SzÃ­vesen lÃ¡tjuk, ha ÃºjrafelhasznÃ¡lja a kÃ³dot (nyÃ­lt forrÃ¡skÃ³dÃº), segÃ­t nekÃ¼nk fejleszteni, mindenki szÃ¡mÃ¡ra, az egÃ©sz bolygÃ³n.';
+
+  @override
+  String get contribute_develop_text_2 => 'Csatlakozhat az Open Food Facts Slack csevegÅ‘szobÃ¡hoz, amely a kÃ©rdÃ©sek feltevÃ©sÃ©nek kedvelt mÃ³dja.';
+
+  @override
+  String get contribute_develop_dev_mode_title => 'FejlesztÅ‘i mÃ³d?';
+
+  @override
+  String get contribute_develop_dev_mode_subtitle => 'FejlesztÅ‘i mÃ³d aktivÃ¡lÃ¡sa';
+
+  @override
+  String get contribute_donate_title => 'AdomÃ¡nyozÃ¡s';
+
+  @override
+  String get contribute_donate_header => 'AdomÃ¡nyozzon az Open Food Facts szÃ¡mÃ¡ra';
+
+  @override
+  String get contribute_enroll_alpha => 'FeliratkozÃ¡s a belsÅ‘ alfa verziÃ³ra';
+
+  @override
+  String get contribute_enroll_alpha_warning => 'Vegye figyelembe, hogy a belsÅ‘ alfa verziÃ³val a teljes adatvesztÃ©s is elÅ‘fordulhat, Ã©s az alkalmazÃ¡s bÃ¡rmikor hasznÃ¡lhatatlannÃ¡ vÃ¡lhat!';
+
+  @override
+  String get contribute_improve_ProductsToBeCompleted => 'KiegÃ©szÃ­tendÅ‘ termÃ©kek';
+
+  @override
+  String get contribute_improve_header => 'JavÃ­tÃ¡s';
+
+  @override
+  String get contribute_improve_text => 'Az adatbÃ¡zis a projekt magja. KÃ¶nnyen Ã©s nagyon gyorsan hozzÃ¡ tud jÃ¡rulni. LetÃ¶ltheti a mobilalkalmazÃ¡st telefonjÃ¡ra, Ã©s megkezdheti a termÃ©kek hozzÃ¡adÃ¡sÃ¡t vagy kiegÃ©szÃ­tÃ©sÃ©t.\n\nAz OpenFoodFacts webhely pedig szÃ¡mos, tovÃ¡bbi mÃ³dot kÃ­nÃ¡l a hozzÃ¡jÃ¡rulÃ¡sra: ';
+
+  @override
+  String get contribute_translate_header => 'FordÃ­tÃ¡s';
+
+  @override
+  String get contribute_data_quality => 'Data Quality';
+
+  @override
+  String get contribute_translate_link_text => 'Kezdje el a fordÃ­tÃ¡st';
+
+  @override
+  String get contribute_translate_text => 'Az OpenFoodFacts egy globÃ¡lis projekt, amely tÃ¶bb mint 160 orszÃ¡g termÃ©keit tartalmazza. Az OpenFoodFacts tÃ¶bb tucat nyelvre van lefordÃ­tva, folyamatosan fejlÅ‘dÅ‘ tartalommal.';
+
+  @override
+  String get contribute_translate_text_2 => 'A fordÃ­tÃ¡s a projekt egyik legfontosabb feladatai kÃ¶zÃ© tartozik';
+
+  @override
+  String get contribute_join_skill_pool => 'JÃ¡ruljon hozzÃ¡ kÃ©szsÃ©geivel az Open Food Factshez. Csatlakozzon a kÃ©pessÃ©gtÃ¡rhoz!';
+
+  @override
+  String get contribute_share_header => 'Ossza meg barÃ¡taival az OpenFoodFacts-et';
+
+  @override
+  String get contribute_share_content => 'Szerettem volna, ha tudsz az Ã¡ltalam hasznÃ¡lt Open Food Facts nevÅ± alkalmazÃ¡srÃ³l, amely lehetÅ‘vÃ© teszi, hogy szemÃ©lyre szabott mÃ³don megismerd az Ã©telek egÃ©szsÃ©gÃ¼gyi Ã©s kÃ¶rnyezeti hatÃ¡sait. A csomagolÃ¡son talÃ¡lhatÃ³ vonalkÃ³dok beolvasÃ¡sÃ¡val mÅ±kÃ¶dik. Nem utolsÃ³ sorban ingyenes, nem igÃ©nyel regisztrÃ¡ciÃ³t, Ã©s mÃ©g segÃ­thetsz is nÃ¶velni a benne lÃ©vÅ‘ termÃ©kek szÃ¡mÃ¡t. ErrÅ‘l a linkrÅ‘l tÃ¶ltheted le a telefonodra: https://openfoodfacts.app';
+
+  @override
+  String get tap_to_answer => 'Koppintson a kÃ©rdÃ©sek megvÃ¡laszolÃ¡sÃ¡hoz';
+
+  @override
+  String get tap_to_answer_hint => 'Koppintson ide a termÃ©kkel kapcsolatos kÃ©rdÃ©sek megvÃ¡laszolÃ¡sÃ¡hoz';
+
+  @override
+  String get robotoff_questions_loading_hint => 'VÃ¡rjon, amÃ­g a termÃ©kkel kapcsolatos kÃ©rdÃ©sek betÃ¶ltÅ‘dnek';
+
+  @override
+  String get saving_answer => 'VÃ¡lasz mentÃ©se';
+
+  @override
+  String get contribute_to_get_rewards => 'Legyen szereplÅ‘je az Ã©lelmiszer-Ã¡tlÃ¡thatÃ³sÃ¡gnak';
+
+  @override
+  String get question_sign_in_text => 'Jelentkezzen be az OpenFoodFacts fiÃ³kjÃ¡ba, hogy az Ã–n nevÃ©hez kapcsolÃ³djanak a hozzÃ¡jÃ¡rulÃ¡sai';
+
+  @override
+  String get question_yes_button_accessibility_value => 'VÃ¡lasz igennel';
+
+  @override
+  String get question_no_button_accessibility_value => 'VÃ¡lasz nemmel';
+
+  @override
+  String get question_skip_button_accessibility_value => 'KÃ©rdÃ©s kihagyÃ¡sa';
+
+  @override
+  String get tap_to_edit_search => 'Koppintson a keresÃ©s szerkesztÃ©sÃ©hez';
+
+  @override
+  String get myPreferences => 'SajÃ¡t beÃ¡llÃ­tÃ¡sok';
+
+  @override
+  String get account_create_message => 'Hozzon lÃ©tre fiÃ³kot, Ã©s csatlakozzon az OpenFoodFacts kÃ¶zÃ¶ssÃ©ghez, segÃ­tve az Ã©lelmiszerekkel kapcsolatos ismeretek bÅ‘vÃ­tÃ©sÃ©ben az egÃ©sz vilÃ¡gon!';
+
+  @override
+  String get join_us => 'Csatlakozzon';
+
+  @override
+  String get myPreferences_profile_title => 'Profilom';
+
+  @override
+  String get myPreferences_profile_subtitle => 'Kezelje OpenFoodFacts-kÃ¶zremÅ±kÃ¶dÅ‘i fiÃ³kjÃ¡t.';
+
+  @override
+  String get myPreferences_settings_title => 'AlkalmazÃ¡s beÃ¡llÃ­tÃ¡sai';
+
+  @override
+  String get myPreferences_settings_subtitle => 'SÃ¶tÃ©t mÃ³d, nyelvekâ€¦';
+
+  @override
+  String get myPreferences_food_title => 'Ã‰lelmiszer-preferenciÃ¡k';
+
+  @override
+  String get myPreferences_food_subtitle => 'VÃ¡lassza ki, hogy mely Ã©lelmiszerekkel kapcsolatos informÃ¡ciÃ³k a legfontosabbak az Ã–n szÃ¡mÃ¡ra.';
+
+  @override
+  String get myPreferences_food_comment => 'VÃ¡lassza ki, hogy az Ã©lelmiszerekkel kapcsolatban mely informÃ¡ciÃ³k a legfontosabbak az Ã–n szÃ¡mÃ¡ra, hogy az Ã©lelmiszereket a preferenciÃ¡i szerint rangsorolja, az Ã–n szÃ¡mÃ¡ra fontos informÃ¡ciÃ³kat lÃ¡ssa elsÅ‘kÃ©nt, Ã©s kapjon egy megfelelÅ‘sÃ©gi Ã¶sszefoglalÃ³t. Ezek az Ã©lelmiszer-preferenciÃ¡k az Ã–n kÃ©szÃ¼lÃ©kÃ©n maradnak, Ã©s nem kapcsolÃ³dnak az Open Food Facts kÃ¶zremÅ±kÃ¶dÅ‘i fiÃ³kjÃ¡hoz, ha rendelkezik ilyennel.';
+
+  @override
+  String get confirmResetPreferences => 'VisszaÃ¡llÃ­tja az Ã©lelmiszer-preferenciÃ¡it?';
+
+  @override
+  String get myPersonalizedRanking => 'SzemÃ©lyre szabott rendezÃ©s';
+
+  @override
+  String get ranking_tab_all => 'Ã–sszes';
+
+  @override
+  String get ranking_subtitle_match_yes => 'KivÃ¡lÃ³ egyezÃ©s Ã–nnek';
+
+  @override
+  String get ranking_subtitle_match_no => 'Nagyon gyenge egyezÃ©s';
+
+  @override
+  String get ranking_subtitle_match_maybe => 'Ismeretlen egyezÃ©s';
+
+  @override
+  String get refresh_with_new_preferences => 'FrissÃ­tse a listÃ¡t az Ãºj preferenciÃ¡ival';
+
+  @override
+  String get reloaded_with_new_preferences => 'ÃšjratÃ¶ltve az Ãºj preferenciÃ¡ival';
+
+  @override
+  String get profile_navbar_label => 'Profil';
+
+  @override
+  String get scan_navbar_label => 'LeolvasÃ¡s';
+
+  @override
+  String get history_navbar_label => 'ElÅ‘zmÃ©nyek';
+
+  @override
+  String get list_navbar_label => 'ListÃ¡k';
+
+  @override
+  String get category => 'SzÅ±rÃ©s kategÃ³ria szerint';
+
+  @override
+  String get category_all => 'Ã–sszes';
+
+  @override
+  String get category_search => '(kategÃ³ria keresÃ©s)';
+
+  @override
+  String get filter => 'SzÅ±rÃ©s';
+
+  @override
+  String get scan => 'TermÃ©kek a LeolvasÃ¡s kÃ©pernyÅ‘rÅ‘l';
+
+  @override
+  String get scan_history => 'LeolvasÃ¡si elÅ‘zmÃ©nyek';
+
+  @override
+  String get search => 'KeresÃ©s';
+
+  @override
+  String get search_store => 'Ãœzlet keresÃ©se';
+
+  @override
+  String get tap_for_more => 'Koppintson a tovÃ¡bbi informÃ¡ciÃ³kÃ©rtâ€¦';
+
+  @override
+  String get product => 'TermÃ©k';
+
+  @override
+  String get unknownBrand => 'Ismeretlen mÃ¡rka';
+
+  @override
+  String get unknownProductName => 'Ismeretlen termÃ©knÃ©v';
+
+  @override
+  String get label_refresh => 'FrissÃ­tÃ©s';
+
+  @override
+  String get label_reload => 'ÃšjratÃ¶ltÃ©s';
+
+  @override
+  String get image => 'KÃ©p';
+
+  @override
+  String get front_photo => 'FÃ©nykÃ©p szembÅ‘l';
+
+  @override
+  String outdated_image_accessibility_label(Object imageType) {
+    return '$imageType (ez a kÃ©p elavult lehet)';
+  }
+
+  @override
+  String get outdated_image_short_label => 'elavult lehet';
+
+  @override
+  String get ingredients => 'Ã–sszetevÅ‘k';
+
+  @override
+  String get ingredients_editing_instructions => 'Tartsa meg az eredeti sorrendet. TÃ¼ntesse fel a szÃ¡zalÃ©kos arÃ¡nyt, ha meg van adva. Az Ã¶sszetevÅ‘ket vesszÅ‘vel vagy kÃ¶tÅ‘jellel vÃ¡lassza el, Ã©s egy Ã¶sszetevÅ‘ Ã¶sszetevÅ‘ihez hasznÃ¡ljon zÃ¡rÃ³jelet.';
+
+  @override
+  String get ingredients_editing_error => 'Nem sikerÃ¼lt menteni az Ã¶sszetevÅ‘ket.';
+
+  @override
+  String get ingredients_editing_image_error => 'Nem sikerÃ¼lt Ãºj Ã¶sszetevÅ‘k fÃ©nykÃ©pÃ©t beszerezni.';
+
+  @override
+  String get ingredients_editing_title => 'Ã–sszetevÅ‘k szerkesztÃ©se';
+
+  @override
+  String get ingredients_photo => 'Ã–sszetevÅ‘k fÃ©nykÃ©pe';
+
+  @override
+  String get packaging_editing_instructions => 'Sorolja fel a csomagolÃ¡s Ã¶sszes rÃ©szÃ©t vesszÅ‘vel vagy sortÃ¶rÃ©ssel elvÃ¡lasztva, feltÃ¼ntetve a mennyisÃ©gÃ¼ket (pl. 1 vagy 6) tÃ­pusukat (pl. palack, doboz, konzerv), anyagukat (pl. mÅ±anyag, fÃ©m, alumÃ­nium), Ã©s ha van, a mÃ©retÃ¼ket (pl. 33cl), valamint az ÃºjrahasznosÃ­tÃ¡si utasÃ­tÃ¡sokat.\nPÃ©ldÃ¡ul: 1 ÃºjrahasznosÃ­thatÃ³ Ã¼vegpalack, 1 eldobhatÃ³ parafadugÃ³';
+
+  @override
+  String get packaging_editing_error => 'Nem sikerÃ¼lt menteni a csomagolÃ¡st.';
+
+  @override
+  String get packaging_editing_image_error => 'Nem sikerÃ¼lt Ãºj csomagolÃ¡s fÃ©nykÃ©pÃ©t beszerezni.';
+
+  @override
+  String get packaging_editing_title => 'CsomagolÃ¡s szerkesztÃ©se';
+
+  @override
+  String get nutrition => 'TÃ¡pÃ©rtÃ©k';
+
+  @override
+  String get nutrition_facts_photo => 'TÃ¡pÃ©rtÃ©kadatok fÃ©nykÃ©pe';
+
+  @override
+  String get nutrition_facts_editing_title => 'TÃ¡pÃ©rtÃ©kadatok szerkesztÃ©se';
+
+  @override
+  String get packaging_information => 'CsomagolÃ¡si informÃ¡ciÃ³k';
+
+  @override
+  String get packaging_information_photo => 'CsomagolÃ¡si informÃ¡ciÃ³k fÃ©nykÃ©pe';
+
+  @override
+  String get missing_product => 'Ãšj termÃ©ket talÃ¡lt!';
+
+  @override
+  String get add_product_take_photos => 'KÃ©szÃ­tsen fotÃ³kat a csomagolÃ¡srÃ³l, hogy hozzÃ¡adhassa a termÃ©ket a Openâ€¯Foodâ€¯Factshez';
+
+  @override
+  String get add_product_take_photos_descriptive => 'ElÅ‘szÃ¶r kÃ©szÃ­tsen nÃ©hÃ¡ny fÃ©nykÃ©pet. A termÃ©ket kÃ©sÅ‘bb bÃ¡rmikor kiegÃ©szÃ­theti.';
+
+  @override
+  String get add_product_information_button_label => 'TermÃ©kinformÃ¡ciÃ³k hozzÃ¡adÃ¡sa';
+
+  @override
+  String get new_product => 'Ãšj termÃ©k';
+
+  @override
+  String get new_product_found_title => 'Ãšj termÃ©ket talÃ¡ltÃ¡l!';
+
+  @override
+  String get new_product_found_text => 'EgyÃ¼ttmÅ±kÃ¶dÃ©sen alapulÃ³ adatbÃ¡zisunk tÃ¶bb mint **3 milliÃ³ termÃ©ket** tartalmaz, de ez a vonalkÃ³d nincs benne: ';
+
+  @override
+  String get new_product_found_button => 'TermÃ©k hozzÃ¡adÃ¡sa';
+
+  @override
+  String get new_product_leave_title => 'Elhagyja az oldalt?';
+
+  @override
+  String get new_product_leave_message => 'Ãšgy tÅ±nik, hogy nem adott meg semmit. TÃ©nyleg el akarja hagyni ezt az oldalt?';
+
+  @override
+  String get new_product_dialog_description => 'KÃ©szÃ­tsen fotÃ³kat a csomagolÃ¡srÃ³l, hogy hozzÃ¡adhassa a termÃ©ket a kÃ¶zÃ¶s adatbÃ¡zisunkhoz';
+
+  @override
+  String get new_product_dialog_illustration_description => 'Ismeretlen Nutri-Score-t Ã©s Green Score-t Ã¡brÃ¡zolÃ³ illusztrÃ¡ciÃ³';
+
+  @override
+  String get front_packaging_photo_button_label => 'CsomagolÃ¡s fÃ©nykÃ©pe szembÅ‘l';
+
+  @override
+  String get confirm_front_packaging_photo_button_label => 'SzembÅ‘li csomagolÃ¡si fotÃ³ feltÃ¶ltÃ©sÃ©nek megerÅ‘sÃ­tÃ©se';
+
+  @override
+  String get confirm_button_label => 'MegerÅ‘sÃ­tÃ©s';
+
+  @override
+  String get send_image_button_label => 'KÃ©p kÃ¼ldÃ©se';
+
+  @override
+  String get crop_page_action_saving => 'KÃ©p mentÃ©seâ€¦';
+
+  @override
+  String get crop_page_action_cropping => 'KÃ©p kÃ¶rbevÃ¡gÃ¡saâ€¦';
+
+  @override
+  String get crop_page_action_local => 'Helyi verziÃ³ mentÃ©seâ€¦';
+
+  @override
+  String get crop_page_action_local_failed_title => 'HoppÃ¡â€¦ valami gond van a fotÃ³jÃ¡val!';
+
+  @override
+  String get crop_page_action_local_failed_message => 'Nem tudjuk a kÃ©pet helyben feldolgozni, mielÅ‘tt elkÃ¼ldenÃ©nk a szerverÃ¼nkre. PrÃ³bÃ¡lja meg kÃ©sÅ‘bb Ãºjra, vagy lÃ©pjen kapcsolatba velÃ¼nk, ha a problÃ©ma tovÃ¡bbra is fennÃ¡ll.';
+
+  @override
+  String get crop_page_action_retake => 'ÃšjrafÃ©nykÃ©pezÃ©s';
+
+  @override
+  String get crop_page_too_small_image_title => 'A fÃ©nykÃ©p tÃºl kicsi!';
+
+  @override
+  String crop_page_too_small_image_message(int expectedMinWidth, int expectedMinHeight, int actualWidth, int actualHeight) {
+    return 'KÃ©pfeltÃ¶ltÃ©snÃ©l a minimÃ¡lis mÃ©ret ${expectedMinWidth}x$expectedMinHeight pixel. Az aktuÃ¡lis kÃ©p ${actualWidth}x$actualHeight pixeles.';
+  }
+
+  @override
+  String get crop_page_action_server => 'A szerver hÃ­vÃ¡sÃ¡nak elÅ‘kÃ©szÃ­tÃ©seâ€¦';
+
+  @override
+  String get front_packaging_photo_title => 'CsomagolÃ¡s fÃ©nykÃ©pe szembÅ‘l';
+
+  @override
+  String get ingredients_photo_title => 'Ã–sszetevÅ‘k fÃ©nykÃ©pe';
+
+  @override
+  String get nutritional_facts_photo_title => 'TÃ¡pÃ©rtÃ©kadatok fÃ©nykÃ©pe';
+
+  @override
+  String get recycling_photo_title => 'ÃšjrahasznosÃ­tÃ¡si fÃ©nykÃ©p';
+
+  @override
+  String get take_photo_title => 'FÃ©nykÃ©p kÃ©szÃ­tÃ©se';
+
+  @override
+  String get take_more_photo_title => 'KÃ©szÃ­tsen tovÃ¡bbi kÃ©peket';
+
+  @override
+  String get front_photo_uploaded => 'SzembÅ‘l kÃ©szÃ¼lt kÃ©p feltÃ¶ltve';
+
+  @override
+  String get ingredients_photo_button_label => 'Ã–sszetevÅ‘k fÃ©nykÃ©pe';
+
+  @override
+  String get ingredients_photo_uploaded => 'Ã–sszetevÅ‘k fÃ©nykÃ©pe feltÃ¶ltve';
+
+  @override
+  String get nutrition_cache_loading_error => 'Nem sikerÃ¼lt a tÃ¡panyagokat betÃ¶lteni gyorsÃ­tÃ³tÃ¡rbÃ³l';
+
+  @override
+  String get nutritional_facts_photo_button_label => 'TÃ¡pÃ©rtÃ©kadatok fÃ©nykÃ©pe';
+
+  @override
+  String get nutritional_facts_input_button_label => 'TÃ¡pÃ©rtÃ©kadatok kitÃ¶ltÃ©se';
+
+  @override
+  String get nutritional_facts_added => 'HozzÃ¡adott tÃ¡pÃ©rtÃ©kadatok';
+
+  @override
+  String get categories_added => 'HozzÃ¡adott kategÃ³riÃ¡k';
+
+  @override
+  String get new_product_title_nutriscore => 'Nutri-Score kiszÃ¡mÃ­tÃ¡sa';
+
+  @override
+  String get new_product_subtitle_nutriscore => 'SegÃ­tsen nekÃ¼nk legalÃ¡bb a kategÃ³ria Ã©s tÃ¡pÃ©rtÃ©kek kitÃ¶ltÃ©sÃ©vel';
+
+  @override
+  String get new_product_title_environmental_score => 'Green Score kiszÃ¡mÃ­tÃ¡sa';
+
+  @override
+  String get new_product_subtitle_environmental_score => 'Egy kategÃ³ria kitÃ¶ltÃ©sÃ©vel megtudhatja';
+
+  @override
+  String get new_product_additional_environmental_score => 'PontosabbÃ¡ teheti a Green Score szÃ¡mÃ­tÃ¡sÃ¡t a szÃ¡rmazÃ¡s, a csomagolÃ¡s Ã©s egyebek kitÃ¶ltÃ©sÃ©vel';
+
+  @override
+  String get new_product_title_nova => 'Ã‰lelmiszer-feldolgozÃ¡si szint (NOVA) kiszÃ¡mÃ­tÃ¡sa';
+
+  @override
+  String get new_product_subtitle_nova => 'Az Ã©lelmiszerkategÃ³ria Ã©s az Ã¶sszetevÅ‘k kitÃ¶ltÃ©sÃ©vel megtudhatja';
+
+  @override
+  String get new_product_desc_nova_unknown => 'Az Ã©lelmiszer-feldolgozottsÃ¡g szintje ismeretlen';
+
+  @override
+  String get new_product_title_pictures => 'Ãšj termÃ©k';
+
+  @override
+  String get new_product_title_pictures_details => 'KÃ©szÃ­tse el az alÃ¡bbi fotÃ³kat, Ã©s az OpenFoodFacts motorja elvÃ©gzi a tÃ¶bbi munkÃ¡t!';
+
+  @override
+  String get new_product_title_misc => 'Ã‰s pÃ¡r alapvetÅ‘ adatâ€¦';
+
+  @override
+  String new_product_done_msg(String username) {
+    return 'KÃ¶szÃ¶njÃ¼k a kÃ¶zremÅ±kÃ¶dÃ©sÃ©t, $username!';
+  }
+
+  @override
+  String get new_product_done_msg_no_user => 'KÃ¶szÃ¶njÃ¼k a kÃ¶zremÅ±kÃ¶dÃ©st!';
+
+  @override
+  String get new_product_done_button_label => 'Tekintse meg az elkÃ©szÃ¼lt termÃ©ket';
+
+  @override
+  String get hey_incomplete_product_message => 'VÃ¡laszoljon meg 3 kÃ©rdÃ©st MOST a Nutri-Score, Green Score Ã©s a feldolgozottsÃ¡g (NOVA) kiszÃ¡mÃ­tÃ¡sÃ¡hoz!';
+
+  @override
+  String get hey_incomplete_product_message_beauty => 'VÃ¡laszoljon meg 2 kÃ©rdÃ©st, Ã©s segÃ­tsen elemezni ezt a kozmetikumot!';
+
+  @override
+  String get hey_incomplete_product_message_pet_food => 'VÃ¡laszoljon meg 3 kÃ©rdÃ©st, Ã©s segÃ­tsen elemezni ezt az Ã¡llateledelt!';
+
+  @override
+  String get hey_incomplete_product_message_product => 'SegÃ­tsen befejezni a termÃ©ket!';
+
+  @override
+  String get nutritional_facts_photo_uploaded => 'TÃ¡pÃ©rtÃ©kadatok fÃ©nykÃ©pe feltÃ¶ltve';
+
+  @override
+  String get recycling_photo_button_label => 'ÃšjrahasznosÃ­tÃ¡si fÃ©nykÃ©p';
+
+  @override
+  String get recycling_photo_uploaded => 'ÃšjrahasznosÃ­tÃ¡si fÃ©nykÃ©p feltÃ¶ltve';
+
+  @override
+  String get take_more_photo_button_label => 'KÃ©szÃ­tsen tovÃ¡bbi kÃ©peket';
+
+  @override
+  String get other_photo_uploaded => 'TovÃ¡bbi fÃ©nykÃ©p feltÃ¶ltve';
+
+  @override
+  String get retake_photo_button_label => 'Ãšj fotÃ³';
+
+  @override
+  String get selecting_photo => 'FÃ©nykÃ©p kivÃ¡lasztÃ¡sa';
+
+  @override
+  String get uploading_image => 'FÃ©nykÃ©p feltÃ¶ltÃ©se a szerverre';
+
+  @override
+  String get uploading_image_type_front => 'SzembÅ‘l kÃ©szÃ¼lt kÃ©p feltÃ¶ltÃ©se Open Food Factsre';
+
+  @override
+  String get uploading_image_type_ingredients => 'Ã–sszetevÅ‘k kÃ©pÃ©nek feltÃ¶ltÃ©se Open Food Factsre';
+
+  @override
+  String get uploading_image_type_nutrition => 'TÃ¡pÃ©rtÃ©k kÃ©p feltÃ¶ltÃ©se Open Food Factsre';
+
+  @override
+  String get uploading_image_type_packaging => 'CsomagolÃ¡s kÃ©pÃ©nek feltÃ¶ltÃ©se Open Food Factsre';
+
+  @override
+  String get uploading_image_type_other => 'TovÃ¡bbi kÃ©p feltÃ¶ltÃ©se Open Food Factsre';
+
+  @override
+  String get uploading_image_type_generic => 'KÃ©p feltÃ¶ltÃ©se Open Food Factsre';
+
+  @override
+  String get score_add_missing_ingredients => 'HiÃ¡nyzÃ³ Ã¶sszetevÅ‘k hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_add_missing_packaging_image => 'HiÃ¡nyzÃ³ csomagolÃ¡si kÃ©p hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_add_missing_nutrition_facts => 'HiÃ¡nyzÃ³ tÃ¡pÃ©rtÃ©kadatok hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_add_missing_product_category => 'KategÃ³ria kivÃ¡lasztÃ¡sa';
+
+  @override
+  String get score_add_missing_product_countries => 'TermÃ©k orszÃ¡gainak pÃ³tlÃ¡sa';
+
+  @override
+  String get score_add_missing_product_emb => 'HiÃ¡nyzÃ³ Ã¼zemkÃ³dok hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_add_missing_product_labels => 'HiÃ¡nyzÃ³ cÃ­mkÃ©k hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_add_missing_product_origins => 'HiÃ¡nyzÃ³ szÃ¡rmazÃ¡si helyek hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_add_missing_product_stores => 'HiÃ¡nyzÃ³ boltok hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_add_missing_product_brands => 'HiÃ¡nyzÃ³ mÃ¡rkÃ¡k hozzÃ¡adÃ¡sa';
+
+  @override
+  String get score_update_nutrition_facts => 'TÃ¡pÃ©rtÃ©kadatok frissÃ­tÃ©se';
+
+  @override
+  String get nutrition_page_title => 'TÃ¡pÃ©rtÃ©kadatok';
+
+  @override
+  String get nutrition_page_nutritional_info_title => 'TÃ¡panyag-informÃ¡ciÃ³';
+
+  @override
+  String get nutrition_page_nutritional_info_label => 'A termÃ©ken feltÃ¼ntetett Ã©rtÃ©kek:';
+
+  @override
+  String get nutrition_page_nutritional_info_value_positive => 'Igen';
+
+  @override
+  String get nutrition_page_nutritional_info_value_negative => 'Nem';
+
+  @override
+  String get nutrition_page_nutritional_info_open_photo => 'FÃ©nykÃ©p megnyitÃ¡sa';
+
+  @override
+  String get nutrition_page_nutritional_info_explanation_title => 'Good practices: Nutritional information';
+
+  @override
+  String get nutrition_page_nutritional_info_explanation_info1 => 'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+
+  @override
+  String get nutrition_page_serving_type_label => 'TÃ¡pÃ©rtÃ©kek:';
+
+  @override
+  String get nutrition_page_per_100g => '100g-ra';
+
+  @override
+  String get nutrition_page_per_100g_100ml => '100 g/ml-re vonatkozik';
+
+  @override
+  String get nutrition_page_per_serving => 'adagonkÃ©nt';
+
+  @override
+  String get nutrition_page_add_nutrient => 'TÃ¡panyag hozzÃ¡adÃ¡sa';
+
+  @override
+  String get nutrition_page_serving_size => 'Adag';
+
+  @override
+  String get nutrition_page_serving_size_hint => 'Adj meg egy adag mÃ©retÃ©t (pl.: 100 g)';
+
+  @override
+  String get nutrition_page_serving_size_explanation_title => 'Good practices: Serving size';
+
+  @override
+  String get nutrition_page_serving_size_explanation_info1 => 'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+
+  @override
+  String get nutrition_page_serving_size_explanation_info2 => '**Allowed units** are: kg, g, mg, Âµg, oz, l, dl, cl, ml, fl.oz, fl oz, Ð³, Ð¼Ð³, ÐºÐ³, Ð», Ð´Ð», ÐºÐ», Ð¼Ð», æ¯«å…‹, å…¬æ–¤, æ¯«å‡, å…¬å‡, å¨.';
+
+  @override
+  String get nutrition_page_serving_size_explanation_good_example1 => '**60 g**, **60g** or **60 G** (prefer the first one)';
+
+  @override
+  String get nutrition_page_serving_size_explanation_good_example2 => '**1000 ml** or **1L**';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example1_explanation => 'Invalid unit';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example1_example => '30 **gr**';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example2_explanation => 'Invalid units';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example2_example => '9 **candies** and 2 **biscuits**';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example3_explanation => 'Missing unit';
+
+  @override
+  String get nutrition_page_serving_size_explanation_bad_example3_example => '**30**';
+
+  @override
+  String get nutrition_page_invalid_number => 'Ã‰rvÃ©nytelen szÃ¡m';
+
+  @override
+  String get nutrition_page_update_running => 'TermÃ©k frissÃ­tÃ©se a szerverenâ€¦';
+
+  @override
+  String get nutrition_page_update_done => 'A termÃ©k frissÃ­tve!';
+
+  @override
+  String get nutrition_page_take_serving_size_from_product_quantity => 'A termÃ©k mennyisÃ©gÃ©nek hasznÃ¡lata adagmÃ©retkÃ©nt';
+
+  @override
+  String get nutrition_page_photo_error => 'Nem sikerÃ¼lt betÃ¶lteni a fÃ©nykÃ©pet';
+
+  @override
+  String get more_photos => 'TovÃ¡bbi Ã©rdekes kÃ©pek';
+
+  @override
+  String get view_more_photo_button => 'TermÃ©k meglÃ©vÅ‘ fotÃ³inak megtekintÃ©se';
+
+  @override
+  String get no_product_found => 'Nem talÃ¡lhatÃ³ termÃ©k';
+
+  @override
+  String get no_location_found => 'Hely nem talÃ¡lhatÃ³';
+
+  @override
+  String get not_found => 'nem talÃ¡lhatÃ³:';
+
+  @override
+  String get refreshing_product => 'TermÃ©k frissÃ­tÃ©se';
+
+  @override
+  String get product_refreshed => 'TermÃ©k frissÃ­tve';
+
+  @override
+  String product_image_accessibility_label(String date) {
+    return 'KÃ©p kÃ©szÃ­tÃ©sÃ©nek ideje: $date';
+  }
+
+  @override
+  String product_image_outdated_accessibility_label(String date) {
+    return 'KÃ©p kÃ©szÃ­tÃ©sÃ©nek ideje: $date. Ez a kÃ©p elavult lehet';
+  }
+
+  @override
+  String get product_image_outdated => 'Ez a kÃ©p elavult lehet';
+
+  @override
+  String get product_image_outdated_explanations_title => 'Ez a kÃ©p elavult lehet';
+
+  @override
+  String get product_image_outdated_explanations_content => 'Ez a kÃ©p tÃ¶bb mint egy Ã©ve kÃ©szÃ¼lt.\n**EllenÅ‘rizze, hogy mÃ©g mindig naprakÃ©sz-e**.\n\nEz **csak figyelmeztetÃ©s**. Ha a tartalom nem vÃ¡ltozott, figyelmen kÃ­vÃ¼l hagyhatja ezt az Ã¼zenetet.';
+
+  @override
+  String product_image_action_replace_photo(String type) {
+    return 'FÃ©nykÃ©p lecserÃ©lÃ©se ($type)';
+  }
+
+  @override
+  String product_image_action_add_photo(String type) {
+    return 'FÃ©nykÃ©p kÃ©szÃ­tÃ©se ($type)';
+  }
+
+  @override
+  String get product_image_action_take_new_picture => 'Ãšj kÃ©p kÃ©szÃ­tÃ©se';
+
+  @override
+  String get product_image_action_take_picture => 'FÃ©nykÃ©p kÃ©szÃ­tÃ©se';
+
+  @override
+  String get product_image_action_from_gallery => 'VÃ¡lasztÃ¡s a fÃ©nykÃ©pgalÃ©riÃ¡bÃ³l';
+
+  @override
+  String get product_image_action_choose_existing_photo => 'VÃ¡lasztÃ¡s a termÃ©kfotÃ³k kÃ¶zÃ¼l';
+
+  @override
+  String get product_image_details_label => 'InformÃ¡ciÃ³k a fÃ©nykÃ©prÅ‘l';
+
+  @override
+  String get product_image_details_from_producer => 'A gyÃ¡rtÃ³tÃ³l';
+
+  @override
+  String get product_image_details_contributor => 'HozzÃ¡jÃ¡rulÃ³';
+
+  @override
+  String get product_image_details_contributor_producer => 'KÃ¶zremÅ±kÃ¶dÅ‘ (gyÃ¡rtÃ³)';
+
+  @override
+  String get product_image_details_date => 'Date';
+
+  @override
+  String get product_image_details_date_unknown => 'Ismeretlen';
+
+  @override
+  String get homepage_main_card_logo_description => 'ÃœdvÃ¶zli az Open Food Facts';
+
+  @override
+  String get homepage_main_card_subheading => '**Olvasson le** egy vonalkÃ³dot vagy\n**keressen** rÃ¡ egy termÃ©kre';
+
+  @override
+  String get homepage_main_card_search_field_hint => 'Search for a product';
+
+  @override
+  String get homepage_main_card_search_field_tooltip => 'KeresÃ©s indÃ­tÃ¡sa';
+
+  @override
+  String scan_tagline_news_item_accessibility(String news_title) {
+    return 'Legfrissebb hÃ­rek: $news_title';
+  }
+
+  @override
+  String get tagline_app_review => 'Tetszik az alkalmazÃ¡s?';
+
+  @override
+  String get tagline_app_review_button_positive => 'ImÃ¡dom! ðŸ˜';
+
+  @override
+  String get tagline_app_review_button_negative => 'Nem igazÃ¡nâ€¦';
+
+  @override
+  String get tagline_app_review_button_later => 'KÃ©rdezzen rÃ¡ kÃ©sÅ‘bb';
+
+  @override
+  String get tagline_feed_news_button => 'Tudjon meg tÃ¶bbet';
+
+  @override
+  String get app_review_negative_modal_title => 'Nem tetszik az alkalmazÃ¡sunk?';
+
+  @override
+  String get app_review_negative_modal_text => 'RÃ¡szÃ¡nna pÃ¡r mÃ¡sodpercet, hogy elmondja nekÃ¼nk, miÃ©rt?';
+
+  @override
+  String get app_review_negative_modal_positive_button => 'Igen, feltÃ©tlenÃ¼l!';
+
+  @override
+  String get app_review_negative_modal_negative_button => 'Nem';
+
+  @override
+  String get could_not_refresh => 'Nem sikerÃ¼lt frissÃ­teni a termÃ©ket';
+
+  @override
+  String get product_internet_error_modal_title => 'Hiba tÃ¶rtÃ©nt.';
+
+  @override
+  String product_internet_error_modal_message(String error) {
+    return 'HÃ¡lÃ³zati hiba miatt nem tudtuk lekÃ©rni a termÃ©k adatait. EllenÅ‘rizze internetkapcsolatÃ¡t, Ã©s prÃ³bÃ¡lja Ãºjra.\n\nBelsÅ‘ hiba:\n$error';
+  }
+
+  @override
+  String get product_tags_title => 'TermÃ©ktulajdonsÃ¡gok';
+
+  @override
+  String get no_product_tags_found_message => 'Nem talÃ¡ltunk termÃ©ktulajdonsÃ¡gokat. A tulajdonsÃ¡gok rugalmasan hasznÃ¡lhatÃ³k a termÃ©kek rÃ©szletesebb leÃ­rÃ¡sÃ¡ra. Ã‰rintse meg a hozzÃ¡adÃ¡shoz.';
+
+  @override
+  String get add_tag => 'TulajdonsÃ¡g hozzÃ¡adÃ¡sa';
+
+  @override
+  String get add_tags => 'TulajdonsÃ¡gok hozzÃ¡adÃ¡sa';
+
+  @override
+  String get add_edit_tags => 'TulajdonsÃ¡gok hozzÃ¡adÃ¡sa vagy szerkesztÃ©se';
+
+  @override
+  String get edit_tag => 'TulajdonsÃ¡g szerkesztÃ©se';
+
+  @override
+  String get remove_tag => 'TulajdonsÃ¡g eltÃ¡volÃ­tÃ¡sa';
+
+  @override
+  String get tag_key => 'TulajdonsÃ¡g';
+
+  @override
+  String get tag_key_uneditable => 'TulajdonsÃ¡g (nem szerkeszthetÅ‘)';
+
+  @override
+  String get tag_key_input_hint => 'Adjon meg egy tulajdonsÃ¡got';
+
+  @override
+  String get tag_value => 'Ã‰rtÃ©k';
+
+  @override
+  String get tag_value_input_hint => 'Adjon meg egy Ã©rtÃ©ket';
+
+  @override
+  String get tag_key_item => 'TulajdonsÃ¡g:';
+
+  @override
+  String get tag_value_item => 'Ã‰rtÃ©k:';
+
+  @override
+  String get tag_key_explanations => 'A kulcsnak kisbetÅ±snek kell lennie, szÃ³kÃ¶zÃ¶k nÃ©lkÃ¼l.';
+
+  @override
+  String tag_key_already_exists(String property) {
+    return 'MÃ¡r van egy cÃ­mke $property tulajdonsÃ¡ggal.';
+  }
+
+  @override
+  String get product_internet_error => 'HÃ¡lÃ³zati hiba miatt nem lehet informÃ¡ciÃ³kat lekÃ©rni errÅ‘l a termÃ©krÅ‘l.';
+
+  @override
+  String get cached_results_from => 'Ekkori eredmÃ©nyek megjelenÃ­tÃ©se:';
+
+  @override
+  String get product_search_same_category => 'Ã–sszehasonlÃ­tÃ¡s kategÃ³riÃ¡val';
+
+  @override
+  String get product_search_same_category_short => 'Ã–sszehasonlÃ­t';
+
+  @override
+  String get product_search_same_category_error => 'Ez a funkciÃ³ csak kategorizÃ¡lt termÃ©keknÃ©l hasznÃ¡lhatÃ³.\n\nKategÃ³ria hozzÃ¡adÃ¡sÃ¡hoz szerkessze a termÃ©ket.';
+
+  @override
+  String get product_improvement_add_category => 'A Nutri-Score kiszÃ¡mÃ­tÃ¡sÃ¡hoz adjon hozzÃ¡ egy kategÃ³riÃ¡t.';
+
+  @override
+  String get product_improvement_add_nutrition_facts => 'A Nutri-Score kiszÃ¡mÃ­tÃ¡sÃ¡hoz adjon hozzÃ¡ tÃ¡pÃ©rtÃ©kadatokat.';
+
+  @override
+  String get product_improvement_add_nutrition_facts_and_category => 'A Nutri-Score kiszÃ¡mÃ­tÃ¡sÃ¡hoz adjon hozzÃ¡ tÃ¡pÃ©rtÃ©kadatokat Ã©s egy kategÃ³riÃ¡t.';
+
+  @override
+  String get product_improvement_categories_but_no_nutriscore => 'Ehhez a termÃ©khez nem szÃ¡mÃ­thatÃ³ ki a Nutri-Score, aminek oka lehet pÃ©ldÃ¡ul egy nem szabvÃ¡nyos kategÃ³ria. Ha ez hibÃ¡nak tekinthetÅ‘, kÃ©rjÃ¼k, vegye fel velÃ¼nk a kapcsolatot.';
+
+  @override
+  String get product_improvement_obsolete_nutrition_image => 'A tÃ¡pÃ©rtÃ©kek kÃ©pe elavult: kÃ©rjÃ¼k frissÃ­tse.';
+
+  @override
+  String get product_improvement_origins_to_be_completed => 'A Green Score figyelembe veszi az Ã¶sszetevÅ‘k eredetÃ©t. FÃ©nykÃ©pezze le az Ã¶sszetevÅ‘k listÃ¡jÃ¡t Ã©s/vagy bÃ¡rmilyen fÃ¶ldrajzi Ã¡llÃ­tÃ¡st, vagy mÃ³dosÃ­tsa a termÃ©ket Ãºgy, hogy figyelembe lehessen venni azt.';
+
+  @override
+  String get country_chooser_label => 'VÃ¡lasszon egy orszÃ¡got';
+
+  @override
+  String get currency_chooser_label => 'VÃ¡lasszon egy pÃ©nznemet';
+
+  @override
+  String get country_change_message => 'Ã–n most mÃ³dosÃ­totta az orszÃ¡got.';
+
+  @override
+  String currency_auto_change_message(String previousCurrency, String possibleCurrency) {
+    return 'Meg akarja vÃ¡ltoztatni a pÃ©nznemet errÅ‘l: $previousCurrency erre: $possibleCurrency?';
+  }
+
+  @override
+  String get onboarding_country_chooser_label => 'VÃ¡lasszon egy orszÃ¡got:';
+
+  @override
+  String get country_chooser_label_from_settings => 'Az Ã–n orszÃ¡ga';
+
+  @override
+  String get country_selection_explanation => 'Egyes kÃ¶rnyezeti jellemzÅ‘k helyspecifikusak';
+
+  @override
+  String get product_removed_comparison => 'TermÃ©k eltÃ¡volÃ­tva az Ã¶sszehasonlÃ­tÃ¡sbÃ³l';
+
+  @override
+  String get native_app_settings => 'AlkalmazÃ¡s rendszerbeÃ¡llÃ­tÃ¡sai';
+
+  @override
+  String get native_app_description => 'A rendszer Open Food Factsre vonatkozÃ³ beÃ¡llÃ­tÃ¡sainak megnyitÃ¡sa';
+
+  @override
+  String get product_removed_history => 'TermÃ©k eltÃ¡volÃ­tva az elÅ‘zmÃ©nyekbÅ‘l';
+
+  @override
+  String get product_removed_list => 'TermÃ©k eltÃ¡volÃ­tva a listÃ¡rÃ³l';
+
+  @override
+  String get product_could_not_remove => 'Nem sikerÃ¼lt eltÃ¡volÃ­tani a termÃ©ket';
+
+  @override
+  String get no_prodcut_in_list => 'Nincs termÃ©k ezen a listÃ¡n';
+
+  @override
+  String get no_product_in_section => 'Nincs termÃ©k ebben a szekciÃ³ban';
+
+  @override
+  String get recently_seen_products => 'Ã–sszes megtekintett termÃ©k';
+
+  @override
+  String get clear => 'TÃ¶rlÃ©s';
+
+  @override
+  String get clear_long => 'Lista kiÃ¼rÃ­tÃ©se';
+
+  @override
+  String get really_clear => 'ValÃ³ban tÃ¶rÃ¶lni szeretnÃ© ezt a listÃ¡t?';
+
+  @override
+  String pct_match(Object percent) {
+    return '$percent% egyezÃ©s';
+  }
+
+  @override
+  String plural_ago_days(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count napja',
+      one: 'egy napja',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_hours(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ã³rÃ¡ja',
+      one: 'Ã³rÃ¡ja',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_minutes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count perce',
+      one: 'one minute ago',
+      zero: 'kevesebb mint egy perce',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_months(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count hÃ³napja',
+      one: 'egy hÃ³napja',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_ago_weeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count hete',
+      one: 'egy hete',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String plural_compare_x_products(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count termÃ©k Ã¶sszehasonlÃ­tÃ¡sa',
+      one: 'Egy termÃ©k Ã¶sszehasonlÃ­tÃ¡sa',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String multiselect_title(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kivÃ¡lasztott termÃ©k',
+      one: 'Egy kivÃ¡lasztott termÃ©k',
+      zero: 'Nincs kivÃ¡lasztott termÃ©k',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get compare_products_mode => 'KivÃ¡lasztott termÃ©kek Ã¶sszehasonlÃ­tÃ¡sa';
+
+  @override
+  String get delete_products_mode => 'KivÃ¡lasztott termÃ©kek tÃ¶rlÃ©se';
+
+  @override
+  String get select_all_products_mode => 'Ã–sszes termÃ©k kivÃ¡lasztÃ¡sa';
+
+  @override
+  String get select_none_products_mode => 'KivÃ¡lasztÃ¡s megszÅ±ntetÃ©se';
+
+  @override
+  String get compare_products_appbar_title => 'TermÃ©kek Ã¶sszehasonlÃ­tÃ¡sa';
+
+  @override
+  String get compare_products_appbar_subtitle => 'VÃ¡lasszon ki legalÃ¡bb kÃ©t termÃ©ket';
+
+  @override
+  String get retry_button_label => 'Ãšjra';
+
+  @override
+  String get connect_with_us => 'LÃ©pjen kapcsolatba velÃ¼nk';
+
+  @override
+  String get tiktok => 'Follow us on TikTok';
+
+  @override
+  String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
+
+  @override
+  String get instagram => 'KÃ¶vessen minket Instagramon';
+
+  @override
+  String get instagram_link => 'https://instagram.com/open.food.facts';
+
+  @override
+  String get twitter => 'KÃ¶vessen minket X-en (korÃ¡bban Twitter)';
+
+  @override
+  String get twitter_link => 'https://www.twitter.com/openfoodfacts';
+
+  @override
+  String get mastodon => 'Follow us on Mastodon';
+
+  @override
+  String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
+
+  @override
+  String get bsky => 'Follow us on BlueSky';
+
+  @override
+  String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
+
+  @override
+  String get blog => 'Blog';
+
+  @override
+  String get faq => 'GYIK';
+
+  @override
+  String get discover => 'FelfedezÃ©s';
+
+  @override
+  String get how_to_contribute => 'Hogyan jÃ¡rulhat hozzÃ¡';
+
+  @override
+  String get hint_knowledge_panel_message => 'A kÃ¡rtya bÃ¡rmelyik rÃ©szÃ©re koppintva tovÃ¡bbi rÃ©szleteket tudhat meg a lÃ¡tottakrÃ³l. PrÃ³bÃ¡lja ki most!';
+
+  @override
+  String get permissions_page_title => 'HozzÃ¡fÃ©rÃ©s a kamerÃ¡hoz';
+
+  @override
+  String get permissions_page_body1 => 'Ha vonalkÃ³dokat szeretne leolvasni a telefon kamerÃ¡jÃ¡val, engedÃ©lyezze a hozzÃ¡fÃ©rÃ©st.';
+
+  @override
+  String get permissions_page_body2 => 'Ha meggondolnÃ¡ magÃ¡t, ez az opciÃ³ bÃ¡rmikor engedÃ©lyezhetÅ‘ vagy letilthatÃ³ a beÃ¡llÃ­tÃ¡sokban.';
+
+  @override
+  String contact_form_body_android(int? sdkInt, String? release, String? model, String? product, String? device, String? brand) {
+    return 'OS: Android (SDK Int: $sdkInt / KiadÃ¡s: $release)\nModell: $model\nTermÃ©k: $product\nKÃ©szÃ¼lÃ©k: $device\nMÃ¡rka:$brand';
+  }
+
+  @override
+  String contact_form_body_ios(String? version, String? model, String? localizedModel) {
+    return 'OS: iOS ($version)\nModell: $model\nLokalizÃ¡lt modell: $localizedModel';
+  }
+
+  @override
+  String contact_form_body(String osContent, String appVersion, String appBuildNumber, String appPackageName) {
+    return '$osContent\nApp verziÃ³ja:$appVersion\nApp build szÃ¡ma:$appBuildNumber\nApp csomagneve:$appPackageName';
+  }
+
+  @override
+  String get authorize_button_label => 'EngedÃ©lyezÃ©s';
+
+  @override
+  String get refuse_button_label => 'VisszautasÃ­tÃ¡s';
+
+  @override
+  String get ask_me_later_button_label => 'KÃ©sÅ‘bb';
+
+  @override
+  String get are_you_sure => 'Biztos benne?';
+
+  @override
+  String knowledge_panel_text_source(String sourceName) {
+    return 'TovÃ¡bbi informÃ¡ciÃ³k: $sourceName';
+  }
+
+  @override
+  String get onboarding_home_welcome_text1 => 'ÃœdvÃ¶zlÃ¼nk!';
+
+  @override
+  String get onboarding_home_welcome_text2 => 'Az alkalmazÃ¡s, ami segÃ­t olyan Ã©lelmiszert vÃ¡lasztani, ami jÃ³ **Ã–nnek** Ã©s a **bolygÃ³nak**!';
+
+  @override
+  String get onboarding_continue_button => 'FolytatÃ¡s';
+
+  @override
+  String get onboarding_welcome_loading_dialog_title => 'Az elsÅ‘ pÃ©lda termÃ©k betÃ¶ltÃ©se';
+
+  @override
+  String get product_list_your_ranking => 'Az Ã–n helyezÃ©se';
+
+  @override
+  String get product_list_empty_icon_desc => 'Az elÅ‘zmÃ©nyek nem Ã©rhetÅ‘ek el';
+
+  @override
+  String get product_list_empty_title => 'LeolvasÃ¡s indÃ­tÃ¡sa';
+
+  @override
+  String get product_list_empty_message => 'A leolvasott termÃ©kek itt fognak megjelenni, amelyekrÅ‘l rÃ©szletes informÃ¡ciÃ³kat olvashat';
+
+  @override
+  String product_list_reloading_in_progress_multiple(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'TermÃ©kek',
+      one: 'TermÃ©k',
+      zero: 'TermÃ©k',
+    );
+    return '$_temp0 frissÃ­tÃ©se az elÅ‘zmÃ©nyekben';
+  }
+
+  @override
+  String product_list_reloading_success_multiple(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'A termÃ©kek',
+      one: 'A termÃ©k',
+      zero: 'A termÃ©k',
+    );
+    return '$_temp0 frissÃ­tÃ©se befejezÅ‘dÃ¶tt';
+  }
+
+  @override
+  String get loading_dialog_default_title => 'Adatok letÃ¶ltÃ©se';
+
+  @override
+  String get loading_dialog_default_error_message => 'Nem sikerÃ¼lt letÃ¶lteni az adatokat';
+
+  @override
+  String get account_delete => 'FiÃ³k tÃ¶rlÃ©se';
+
+  @override
+  String get account_deletion_subject => 'FiÃ³kom tÃ¶rlÃ©se';
+
+  @override
+  String get user_profile => 'FiÃ³k';
+
+  @override
+  String get user_profile_title_guest => 'ÃœdvÃ¶zlÃ¼nk!';
+
+  @override
+  String get user_profile_subtitle_guest => 'Jelentkezzen be vagy regisztrÃ¡ljon, Ã©s csatlakozzon az Open Food Facts kÃ¶zÃ¶ssÃ©ghez';
+
+  @override
+  String user_profile_title_id_email(String email) {
+    return 'Openâ€¯Foodâ€¯Facts bejelentkezÃ©s: $email';
+  }
+
+  @override
+  String user_profile_title_id_default(String id) {
+    return 'ÃœdvÃ¶zlÃ¼nk, $id!';
+  }
+
+  @override
+  String get email_subject_account_deletion => 'FiÃ³k tÃ¶rlÃ©se';
+
+  @override
+  String email_body_account_deletion(String userId) {
+    return 'ÃœdvÃ¶zlÃ¶m, kÃ©rem, tÃ¶rÃ¶lje Open Food Facts fiÃ³komat: $userId';
+  }
+
+  @override
+  String get settings_app_app => 'AlkalmazÃ¡s';
+
+  @override
+  String get settings_app_data => 'AdatvÃ©delem Ã©s megfigyelÃ©s';
+
+  @override
+  String get settings_app_camera => 'Kamera';
+
+  @override
+  String get settings_app_products => 'TermÃ©kek';
+
+  @override
+  String get settings_app_miscellaneous => 'EgyÃ©b';
+
+  @override
+  String get camera_play_sound_title => 'Hang lejÃ¡tszÃ¡sa leolvasÃ¡skor';
+
+  @override
+  String get camera_play_sound_subtitle => 'Csippan egyet minden sikeres leolvasÃ¡snÃ¡l';
+
+  @override
+  String get camera_window_accessibility_label => 'Olvasson le egy vonalkÃ³dot a kamerÃ¡val';
+
+  @override
+  String get app_haptic_feedback_title => 'RezgÃ©s Ã©s tapintÃ¡s';
+
+  @override
+  String get app_haptic_feedback_subtitle => 'RezgÃ©s bizonyos mÅ±veletek vÃ©grehajtÃ¡sa utÃ¡n (vonalkÃ³d dekÃ³dolva, termÃ©k eltÃ¡volÃ­tvaâ€¦).';
+
+  @override
+  String get crash_reporting_toggle_title => 'Ã–sszeomlÃ¡si jelentÃ©s';
+
+  @override
+  String get crash_reporting_toggle_subtitle => 'Ha engedÃ©lyezve van, a rendszer automatikusan elkÃ¼ldi az Ã¶sszeomlÃ¡si jelentÃ©seket az Open Food Facts hibakÃ¶vetÅ‘ rendszerÃ©be, Ã­gy a hibÃ¡k kijavÃ­thatÃ³k, Ã©s ezÃ¡ltal fejlÅ‘dik az alkalmazÃ¡s.';
+
+  @override
+  String get send_anonymous_data_toggle_title => 'NÃ©vtelen adatok kÃ¼ldÃ©se';
+
+  @override
+  String get send_anonymous_data_toggle_subtitle => 'Ha engedÃ©lyezve van, az alkalmazÃ¡s hasznÃ¡latÃ¡val kapcsolatban nÃ©hÃ¡ny nÃ©vtelen informÃ¡ciÃ³t elkÃ¼ldÃ¼nk az Open Food Facts szerverekre, hogy megÃ©rtsÃ¼k, hogyan Ã©s mennyi funkciÃ³t hasznÃ¡l, azok fejlesztÃ©se cÃ©ljÃ¡bÃ³l.';
+
+  @override
+  String get product_edit_photo_title => 'FÃ©nykÃ©p szerkesztÃ©se';
+
+  @override
+  String get permission_photo_error => 'Hiba';
+
+  @override
+  String get permission_photo_denied_title => 'LehetÅ‘vÃ© teszi a kamera hasznÃ¡latÃ¡t vonalkÃ³dok leolvasÃ¡sÃ¡hoz';
+
+  @override
+  String permission_photo_denied_message(String appName) {
+    return 'A jobb Ã©lmÃ©ny Ã©rdekÃ©ben engedÃ©lyezze, hogy az $appName hozzÃ¡fÃ©rjen a kamerÃ¡hoz. Ãgy kÃ¶zvetlenÃ¼l le tudja majd olvasni a vonalkÃ³dokat.';
+  }
+
+  @override
+  String get permission_photo_denied_button => 'EngedÃ©lyezÃ©s';
+
+  @override
+  String get permission_photo_denied_dialog_settings_title => 'EngedÃ©ly megtagadva';
+
+  @override
+  String get permission_photo_denied_dialog_settings_message => 'Mivel korÃ¡bban megtagadta a kamera engedÃ©lyÃ©t, manuÃ¡lisan kell engedÃ©lyeznie azt a BeÃ¡llÃ­tÃ¡sokban.';
+
+  @override
+  String get permission_photo_denied_dialog_settings_button_open => 'BeÃ¡llÃ­tÃ¡sok megnyitÃ¡sa';
+
+  @override
+  String get permission_photo_denied_dialog_settings_button_cancel => 'MÃ©gse';
+
+  @override
+  String get permission_photo_none_found => 'Nem talÃ¡lhatÃ³ kamera';
+
+  @override
+  String get permission_photo_denied => 'Nincs kamera hozzÃ¡fÃ©rÃ©s engedÃ©lyezve';
+
+  @override
+  String get show_product_pictures => 'TermÃ©kfotÃ³k megjelenÃ­tÃ©se';
+
+  @override
+  String get edit_product_label => 'TermÃ©k szerkesztÃ©se';
+
+  @override
+  String get edit_product_pending_operations_banner_title => 'SzerkesztÃ©sek feltÃ¶ltÃ©seâ€¦';
+
+  @override
+  String get edit_product_pending_operations_banner_message => 'SzerkesztÃ©seit a rendszer **a hÃ¡ttÃ©rben kÃ¼ldi el** (hiba esetÃ©n kÃ©sÅ‘bb).\nFolytathatja a termÃ©k tÃ¶bbi mezÅ‘jÃ©nek szerkesztÃ©sÃ©t.';
+
+  @override
+  String get edit_product_pending_operations_banner_short_message => 'Your edits are being **sent in the background** (or later in case of error).';
+
+  @override
+  String get edit_product_label_short => 'SzerkesztÃ©s';
+
+  @override
+  String edit_product_form_item_help(String value) {
+    return 'Hogyan kell ezt megadni: â€ž$valueâ€?';
+  }
+
+  @override
+  String get edit_product_form_item_error_empty => 'Egy nem Ã¼res Ã©rtÃ©ket adjon meg!';
+
+  @override
+  String get edit_product_form_item_error_existing => 'Ez az Ã©rtÃ©k mÃ¡r meg van adva!';
+
+  @override
+  String get edit_product_form_item_add_action_brand => 'Ãšj mÃ¡rka hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_product_form_item_add_action_label => 'Ãšj cÃ­mke hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_product_form_item_add_action_store => 'Ãšj Ã¼zlet hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_product_form_item_add_action_origin => 'Ãšj szÃ¡rmazÃ¡si hely hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_product_form_item_add_action_emb_code => 'Ãšj Ã¼zemkÃ³d hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_product_form_item_add_action_country => 'Ãšj orszÃ¡g hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_product_form_item_add_action_category => 'Ãšj kategÃ³ria hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+
+  @override
+  String get edit_product_form_item_details_title => 'Alapadatok';
+
+  @override
+  String get edit_product_form_item_details_subtitle => 'TermÃ©k neve, mÃ¡rka, mennyisÃ©g';
+
+  @override
+  String get edit_product_form_item_other_details_title => 'TovÃ¡bbi adatok';
+
+  @override
+  String get edit_product_form_item_other_details_subtitle => 'Weboldalâ€¦';
+
+  @override
+  String get edit_product_form_item_photos_title => 'FÃ©nykÃ©pek';
+
+  @override
+  String get edit_product_form_item_photos_subtitle => 'FÃ©nykÃ©pek hozzÃ¡adÃ¡sa vagy frissÃ­tÃ©se';
+
+  @override
+  String get edit_product_form_item_labels_title => 'CÃ­mkÃ©k Ã©s tanÃºsÃ­tvÃ¡nyok';
+
+  @override
+  String get edit_product_form_item_labels_subtitle => 'KÃ¶rnyezetvÃ©delmi, minÅ‘sÃ©gi cÃ­mkÃ©kâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_hint => 'Adjon meg egy cÃ­mkÃ©t (pl. NutriScore)';
+
+  @override
+  String get edit_product_form_item_labels_type => 'cÃ­mke';
+
+  @override
+  String get edit_product_form_item_labels_explanation_title => 'Good practices: Labels';
+
+  @override
+  String get edit_product_form_item_labels_explanation_info1 => 'Any characteristic of the product **which is factual** and different from the other fields.';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_1 => 'Nutri-Score, NOVAâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_2 => 'Made in Belgium, produced in Brittanyâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_3 => 'ISO 9001, ISO 22000â€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_4 => 'Rich in fiber, source of ironâ€¦';
+
+  @override
+  String get edit_product_form_item_labels_explanation_good_examples_5 => 'Fair trade, Max Havelaarâ€¦';
+
+  @override
+  String get edit_product_form_item_stores_title => 'Boltok';
+
+  @override
+  String get edit_product_form_item_stores_hint => 'Adjon meg egy boltot';
+
+  @override
+  String get edit_product_form_item_stores_type => 'bolt';
+
+  @override
+  String get edit_product_form_item_stores_explanation_title => 'Good practices: Stores';
+
+  @override
+  String get edit_product_form_item_stores_explanation_info1 => 'Input the store where you bought the product.';
+
+  @override
+  String get edit_product_form_item_stores_explanation_good_examples_1 => 'Walmart';
+
+  @override
+  String get edit_product_form_item_stores_explanation_good_examples_2 => 'Carrefour';
+
+  @override
+  String get edit_product_form_item_stores_explanation_good_examples_3 => 'Lidl';
+
+  @override
+  String get edit_product_form_item_origins_title => 'SzÃ¡rmazÃ¡s';
+
+  @override
+  String get edit_product_form_item_origins_hint => 'Adjon meg egy szÃ¡rmazÃ¡si helyet (pl.: NÃ©metorszÃ¡g)';
+
+  @override
+  String get edit_product_form_item_origins_type => 'orszÃ¡g';
+
+  @override
+  String get edit_product_form_item_origins_explanation_title => 'Good practices: Origins';
+
+  @override
+  String get edit_product_form_item_origins_explanation_info1 => 'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+
+  @override
+  String get edit_product_form_item_origins_explanation_good_examples_1 => 'Beef from Argentina';
+
+  @override
+  String get edit_product_form_item_origins_explanation_good_examples_2 => 'The soy does not come from the European Union';
+
+  @override
+  String get edit_product_form_item_countries_title => 'OrszÃ¡g';
+
+  @override
+  String get edit_product_form_item_countries_hint => 'Adjon meg egy orszÃ¡got (pl.: NÃ©metorszÃ¡g)';
+
+  @override
+  String get edit_product_form_item_countries_type => 'orszÃ¡g';
+
+  @override
+  String get edit_product_form_item_countries_explanations_title => 'Good practices: Countries';
+
+  @override
+  String get edit_product_form_item_countries_explanations_info1 => '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+
+  @override
+  String get edit_product_form_item_emb_codes_title => 'SzÃ¡rmazÃ¡si kÃ³d (EK-Ã¼zemkÃ³d)';
+
+  @override
+  String get edit_product_form_item_emb_codes_hint => 'Adjon meg egy kÃ³dot (pl: HU 123 EK, EMB 53062, 84 R 20, 33 RECOLTANT 522â€¦)';
+
+  @override
+  String get edit_product_form_item_emb_codes_type => 'szÃ¡rmazÃ¡si kÃ³d';
+
+  @override
+  String get edit_product_form_item_emb_help_title => 'Good practices: Traceability codes';
+
+  @override
+  String get edit_product_form_item_emb_help_info1 => 'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_title => 'Examples of traceability codes';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item1_text => '**EC codes** used in the European Community to identify food producers or packagers:';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item1_example => 'FR\n72.264.002\nCE';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item1_explanation => '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item2_text => '**EMB codes** used in France:';
+
+  @override
+  String get edit_product_form_item_emb_help_info2_item2_explanation => 'EMB 72264';
+
+  @override
+  String get edit_product_form_item_categories_title => 'KategÃ³riÃ¡k';
+
+  @override
+  String get edit_product_form_item_categories_hint => 'kategÃ³ria';
+
+  @override
+  String get edit_product_form_item_categories_type => 'Adjon meg egy kategÃ³riÃ¡t (pl.: narancslÃ©)';
+
+  @override
+  String get edit_product_form_item_categories_explanation_title => 'Good practices: Categories';
+
+  @override
+  String get edit_product_form_item_categories_explanation_info1 => 'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+
+  @override
+  String get edit_product_form_item_categories_explanation_info2_title => 'Missing category?';
+
+  @override
+  String get edit_product_form_item_categories_explanation_info2_content => 'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Openâ€¯Foodâ€¯Facts in your country.';
+
+  @override
+  String get edit_product_form_item_categories_explanation_good_examples_1 => 'Sardines in olive oil';
+
+  @override
+  String get edit_product_form_item_categories_explanation_good_examples_2 => 'Orange juice from concentrate';
+
+  @override
+  String get edit_product_form_item_exit_title => 'KilÃ©p mentÃ©s nÃ©lkÃ¼l?';
+
+  @override
+  String get edit_product_form_item_exit_confirmation => 'SzeretnÃ© menteni a vÃ¡ltoztatÃ¡sokat, mielÅ‘tt elhagyja ezt az oldalt?';
+
+  @override
+  String get edit_product_form_item_exit_confirmation_positive_button => 'MÃ³dosÃ­tÃ¡sok mentÃ©se';
+
+  @override
+  String get edit_product_form_item_exit_confirmation_negative_button => 'MÃ³dosÃ­tÃ¡sok elvetÃ©se';
+
+  @override
+  String get edit_product_form_item_ingredients_title => 'Ã–sszetevÅ‘k';
+
+  @override
+  String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip => 'NagyÃ­tÃ¡s Ã©s kicsinyÃ­tÃ©s a kÃ©pernyÅ‘ Ã¶sszecsÃ­pÃ©sÃ©vel';
+
+  @override
+  String get edit_product_form_item_ingredients_pinch_to_zoom_title => 'A fÃ©nykÃ©p nagyÃ­tÃ¡sa Ã©s kicsinyÃ­tÃ©se';
+
+  @override
+  String get edit_product_form_item_ingredients_pinch_to_zoom_message => 'A **CsippentÅ‘s nagyÃ­tÃ¡s kÃ©zmozdulattal** nagyÃ­thatja vagy kicsinyÃ­theti a fÃ©nykÃ©pet:';
+
+  @override
+  String get edit_product_form_item_add_valid_item_tooltip => 'HozzÃ¡adÃ¡s';
+
+  @override
+  String get edit_product_form_item_add_invalid_item_tooltip => 'ElÅ‘szÃ¶r Ã­rjon be egy szÃ¶veget';
+
+  @override
+  String get edit_product_form_item_remove_item_tooltip => 'EltÃ¡volÃ­tÃ¡s';
+
+  @override
+  String get edit_product_form_item_save_edit_item_tooltip => 'SzerkesztÃ©sek mentÃ©se';
+
+  @override
+  String get edit_product_form_item_cancel_edit_item_tooltip => 'SzerkesztÃ©sek tÃ¶rlÃ©se';
+
+  @override
+  String get edit_product_form_item_packaging_title => 'ÃšjrahasznosÃ­tÃ¡si utasÃ­tÃ¡sok fÃ©nykÃ©pe';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_title => 'TÃ¡pÃ©rtÃ©kadatok';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_subtitle => 'TÃ¡panyagok, alkoholtartalomâ€¦';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_title => 'Good practices: Nutrition facts';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info1_title => 'Nutritional values';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info1_content => 'First, select if the **values are provided**:';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info2_title => 'TÃ¡pÃ©rtÃ©kadatok';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info2_content => 'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info3_title => 'Missing field?';
+
+  @override
+  String get edit_product_form_item_nutrition_facts_explanation_info3_content => 'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesiumâ€¦).';
+
+  @override
+  String get edit_product_form_save => 'SzerkesztÃ©s';
+
+  @override
+  String get edit_product_ingredients_photo_title => 'Ã–sszetevÅ‘k fÃ©nykÃ©pe';
+
+  @override
+  String get edit_product_ingredients_list_title => 'Ã–sszetevÅ‘k listÃ¡ja';
+
+  @override
+  String get edit_product_packaging_photo_title => 'CsomagolÃ¡s fÃ©nykÃ©pe';
+
+  @override
+  String get edit_product_packaging_list_title => 'CsomagolÃ³anyagok listÃ¡ja';
+
+  @override
+  String get no_data_available => 'Nincs elÃ©rhetÅ‘ adat';
+
+  @override
+  String get product_field_website_title => 'Weboldal';
+
+  @override
+  String get origins_editing_title => 'SzÃ¡rmazÃ¡si helyek szerkesztÃ©se';
+
+  @override
+  String get completed_basic_details_btn_text => 'AlapvetÅ‘ adatok kitÃ¶ltÃ©s';
+
+  @override
+  String get not_implemented_snackbar_text => 'MÃ©g nincs implementÃ¡lva';
+
+  @override
+  String get category_picker_page_appbar_text => 'KategÃ³riÃ¡k';
+
+  @override
+  String get edit_ingredients_extract_ingredients_btn_text => 'Ã–sszetevÅ‘k kinyerÃ©se a fÃ©nykÃ©prÅ‘l';
+
+  @override
+  String get edit_ingredients_extract_ingredients_btn_text_short => 'Ã–sszetevÅ‘k kiolvasÃ¡sa';
+
+  @override
+  String get edit_ingredients_extracting_ingredients_btn_text => 'Ã–sszetevÅ‘k kinyerÃ©se\na fÃ©nykÃ©prÅ‘l';
+
+  @override
+  String get edit_ingredients_loading_photo_btn_text => 'FÃ©nykÃ©p betÃ¶ltÃ©seâ€¦';
+
+  @override
+  String get edit_ingredients_loading_photo_help_dialog_title => 'MiÃ©rt lÃ¡tom ezt az Ã¼zenetet?';
+
+  @override
+  String get edit_ingredients_loading_photo_help_dialog_body => 'Az â€žÃ–sszetevÅ‘k kinyerÃ©seâ€ funkciÃ³ hasznÃ¡latÃ¡hoz elÅ‘szÃ¶r fel kell tÃ¶lteni a fÃ©nykÃ©pet.\n\nKÃ©rjÃ¼k, vÃ¡rjon nÃ©hÃ¡ny mÃ¡sodpercet, vagy Ã­rja be kÃ©zzel.';
+
+  @override
+  String get edit_ingredients_refresh_photo_btn_text => 'FÃ©nykÃ©p frissÃ­tÃ©se';
+
+  @override
+  String get edit_packaging_extract_btn_text => 'CsomagolÃ¡s kinyerÃ©se\na fÃ©nykÃ©prÅ‘l';
+
+  @override
+  String get edit_packaging_extract_btn_text_short => 'CsomagolÃ¡si adatok kinyerÃ©se';
+
+  @override
+  String get edit_packaging_extracting_btn_text => 'CsomagolÃ¡s kinyerÃ©se a fÃ©nykÃ©prÅ‘l';
+
+  @override
+  String get edit_packaging_loading_photo_btn_text => 'FÃ©nykÃ©p betÃ¶ltÃ©seâ€¦';
+
+  @override
+  String get edit_packaging_loading_photo_help_dialog_title => 'MiÃ©rt lÃ¡tom ezt az Ã¼zenetet?';
+
+  @override
+  String get edit_packaging_loading_photo_help_dialog_body => 'A â€žCsomagolÃ¡s kinyerÃ©seâ€ funkciÃ³ hasznÃ¡latÃ¡hoz elÅ‘szÃ¶r fel kell tÃ¶lteni a fÃ©nykÃ©pet.\n\nKÃ©rjÃ¼k, vÃ¡rjon nÃ©hÃ¡ny mÃ¡sodpercet, vagy Ã­rja be kÃ©zzel.';
+
+  @override
+  String get edit_packaging_refresh_photo_btn_text => 'FÃ©nykÃ©p frissÃ­tÃ©se';
+
+  @override
+  String get edit_ocr_extract_failed => 'Nem sikerÃ¼lt felismerni a szÃ¶veget a kÃ©pen.';
+
+  @override
+  String get edit_ocr_extract_disabled_title => 'Nincs kÃ©p!';
+
+  @override
+  String get edit_ocr_extract_disabled_message => 'A szÃ¶vegkinyerÃ©s funkciÃ³ hasznÃ¡latÃ¡hoz elÅ‘szÃ¶r fÃ©nykÃ©pet kell kÃ©szÃ­tenie.';
+
+  @override
+  String get user_list_dialog_new_title => 'Ãšj termÃ©klista';
+
+  @override
+  String get user_list_dialog_rename_title => 'Lista Ã¡tnevezÃ©se';
+
+  @override
+  String get user_list_subtitle_product => 'ListÃ¡k';
+
+  @override
+  String get user_list_title => 'A listÃ¡ja';
+
+  @override
+  String get user_list_add_product => 'TermÃ©k listÃ¡hoz adÃ¡sa';
+
+  @override
+  String get user_list_button_new => 'Ãšj lista lÃ©trehozÃ¡sa';
+
+  @override
+  String get user_list_empty_label => 'MÃ©g nincs elÃ©rhetÅ‘ lista!\nKezdje azzal, hogy lÃ©trehoz egyet.';
+
+  @override
+  String get user_list_button_add_product => 'ListÃ¡hoz adÃ¡s';
+
+  @override
+  String get added_to_list_msg => 'HozzÃ¡adva a listÃ¡hoz';
+
+  @override
+  String get user_list_popup_clear => 'ElÅ‘zmÃ©nyek tÃ¶rlÃ©se';
+
+  @override
+  String get user_list_popup_rename => 'ÃtnevezÃ©s';
+
+  @override
+  String get user_list_name_hint => 'ListÃ¡m';
+
+  @override
+  String get user_list_name_error_empty => 'NÃ©v megadÃ¡sa kÃ¶telezÅ‘';
+
+  @override
+  String get user_list_name_error_already => 'Ez a nÃ©v mÃ¡r hasznÃ¡latban van';
+
+  @override
+  String get user_list_name_error_same => 'Ez ugyanaz a nÃ©v';
+
+  @override
+  String get user_list_name_input_hint => 'Lista neve';
+
+  @override
+  String get try_again => 'ÃšjraprÃ³bÃ¡lkozÃ¡s';
+
+  @override
+  String get there_was_an_error => 'Hiba tÃ¶rtÃ©nt';
+
+  @override
+  String category_picker_no_category_found_message(String items) {
+    return 'Nem talÃ¡lhatÃ³ kategÃ³ria a kÃ¶vetkezÅ‘hÃ¶z: $items';
+  }
+
+  @override
+  String get camera_toggle_camera => 'VÃ¡ltÃ¡s a hÃ¡tsÃ³ Ã©s az elÃ¼lsÅ‘ kamera kÃ¶zÃ¶tt';
+
+  @override
+  String get camera_toggle_flash => 'VÃ©nykÃ©pezÅ‘ vakujÃ¡nak BE vagy KI kapcsolÃ¡sa';
+
+  @override
+  String get camera_enable_flash => 'Vaku bekapcsolÃ¡sa';
+
+  @override
+  String get camera_disable_flash => 'Vaku kikapcsolÃ¡sa';
+
+  @override
+  String get camera_flash_error_dialog_title => 'Hiba tÃ¶rtÃ©nt!';
+
+  @override
+  String get camera_flash_error_dialog_message => 'Hiba tÃ¶rtÃ©nt a vaku Ã¡llapotÃ¡nak mÃ³dosÃ­tÃ¡sakor. GyÅ‘zÅ‘djÃ¶n meg arrÃ³l, hogy okostelefonjÃ¡n nincs bekapcsolva a zseblÃ¡mpa.';
+
+  @override
+  String get category_picker_no_category_found_button => 'Vissza';
+
+  @override
+  String get user_preferences_item_accessibility_hint => 'Kattintson a megnyitÃ¡shoz a bÃ¶ngÃ©szÅ‘ben vagy az alkalmazÃ¡sban (ha telepÃ­tve van)';
+
+  @override
+  String get dev_preferences_screen_title => 'FejlesztÅ‘i mÃ³d';
+
+  @override
+  String get dev_preferences_reset_onboarding_title => 'BemutatkozÃ¡s ÃºjrakezdÃ©se';
+
+  @override
+  String get dev_preferences_reset_onboarding_subtitle => 'EzutÃ¡n Ãºjra kell indÃ­tania az alkalmazÃ¡st, hogy Ãºjra lÃ¡thassa.';
+
+  @override
+  String get dev_preferences_environment_switch_title => 'VÃ¡ltÃ¡s az openfoodfacts.org (PROD) Ã©s a tesztkÃ¶rnyezet kÃ¶zÃ¶tt';
+
+  @override
+  String get dev_preferences_test_environment_title => 'TesztkÃ¶rnyezet paramÃ©terei';
+
+  @override
+  String dev_preferences_test_environment_subtitle(String url) {
+    return 'Az aktuÃ¡lis tesztkÃ¶rnyezet base URL-je: $url';
+  }
+
+  @override
+  String get dev_preferences_test_environment_dialog_title => 'TesztkÃ¶rnyezet gÃ©pneve';
+
+  @override
+  String get dev_preferences_ml_kit_title => 'ML Kit hasznÃ¡lata';
+
+  @override
+  String get dev_preferences_ml_kit_subtitle => 'ezutÃ¡n Ãºjra kell indÃ­tania az alkalmazÃ¡st';
+
+  @override
+  String get dev_preferences_product_additional_features_title => 'TovÃ¡bbi gomb a termÃ©koldalon';
+
+  @override
+  String get dev_preferences_edit_ingredients_title => 'Ã–sszetevÅ‘k szerkesztÃ©se a tudnivalÃ³k panel gombjÃ¡val';
+
+  @override
+  String get dev_preferences_export_history_title => 'ElÅ‘zmÃ©nyek exportÃ¡lÃ¡sa';
+
+  @override
+  String get dev_preferences_export_history_progress_error => 'kivÃ©tel';
+
+  @override
+  String get dev_preferences_export_history_progress_found => 'megtalÃ¡lt termÃ©k';
+
+  @override
+  String get dev_preferences_export_history_progress_not_found => 'NEM talÃ¡lhatÃ³ termÃ©k';
+
+  @override
+  String get dev_preferences_export_history_dialog_title => 'ElÅ‘zmÃ©nyek exportÃ¡lÃ¡sa';
+
+  @override
+  String get dev_preferences_button_positive => 'Ok';
+
+  @override
+  String get dev_preferences_button_negative => 'MÃ©gse';
+
+  @override
+  String get dev_preferences_migration_title => 'AdatmigrÃ¡ciÃ³ V1-rÅ‘l';
+
+  @override
+  String dev_preferences_migration_subtitle(String status) {
+    return 'Ãllapot: $status';
+  }
+
+  @override
+  String get dev_preferences_migration_status_already_done => 'sikeres vagy friss telepÃ­tÃ©s';
+
+  @override
+  String get dev_preferences_migration_status_success => 'sikeres';
+
+  @override
+  String get dev_preferences_migration_status_error => 'hiba';
+
+  @override
+  String get dev_preferences_migration_status_in_progress => 'folyamatban';
+
+  @override
+  String get dev_preferences_migration_status_required => 'kÃ¶telezÅ‘ (kattintson az indÃ­tÃ¡shoz)';
+
+  @override
+  String get dev_preferences_migration_status_not_started => 'ismeretlen';
+
+  @override
+  String get dev_preferences_import_history_subtitle => 'TÃ¶rli az elÅ‘zmÃ©nyeket, Ã©s 3 termÃ©ket tesz bele';
+
+  @override
+  String get dev_preferences_news_custom_url_title => 'EgyÃ©ni URL a hÃ­rekhez';
+
+  @override
+  String get dev_preferences_news_custom_url_subtitle => 'A JSON-fÃ¡jl URL-je:';
+
+  @override
+  String get dev_preferences_news_custom_url_empty_value => 'Nincs beÃ¡llÃ­tva';
+
+  @override
+  String get dev_preferences_news_provider_status_title => 'Ãllapot';
+
+  @override
+  String dev_preferences_news_provider_status_subtitle(String date) {
+    return 'UtolsÃ³ frissÃ­tÃ©s: $date';
+  }
+
+  @override
+  String get product_type_label_food => 'Food';
+
+  @override
+  String get product_type_label_beauty => 'TestÃ¡polÃ¡s';
+
+  @override
+  String get product_type_label_pet_food => 'Pet food';
+
+  @override
+  String get product_type_label_product => 'EgyÃ©b';
+
+  @override
+  String get product_type_selection_title => 'TermÃ©ktÃ­pus';
+
+  @override
+  String get product_type_selection_subtitle => 'VÃ¡lassza ki a termÃ©k tÃ­pusÃ¡t';
+
+  @override
+  String get product_type_selection_empty => 'ElÅ‘szÃ¶r ki kell vÃ¡lasztania a termÃ©k tÃ­pusÃ¡t!';
+
+  @override
+  String product_type_selection_already(String productType) {
+    return 'Nem mÃ³dosÃ­thatja a termÃ©k tÃ­pusÃ¡t ($productType)!';
+  }
+
+  @override
+  String get prices_app_dev_mode_flag => 'Ãrak alkalmazÃ¡sra mutatÃ³ gomb a termÃ©koldalon';
+
+  @override
+  String get prices_app_button => 'TovÃ¡bb az Ãrak appba';
+
+  @override
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+
+  @override
+  String get prices_bulk_proof_upload_action => 'Send the proof';
+
+  @override
+  String get prices_generic_title => 'Prices';
+
+  @override
+  String prices_add_n_prices(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ã¡r hozzÃ¡adÃ¡sa',
+      one: 'Ãr hozzÃ¡adÃ¡sa',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_send_n_prices(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ã¡r bekÃ¼ldÃ©se',
+      one: 'Ãr bekÃ¼ldÃ©se',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get prices_add_an_item => 'TÃ©tel hozzÃ¡adÃ¡sa';
+
+  @override
+  String get prices_add_a_price => 'Add a price';
+
+  @override
+  String get prices_add_a_receipt => 'Nyugta hozzÃ¡adÃ¡sa';
+
+  @override
+  String get prices_add_price_tags => 'ÃrcÃ©dulÃ¡k hozzÃ¡adÃ¡sa';
+
+  @override
+  String prices_barcode_already(String barcode) {
+    return 'Ez a vonalkÃ³d ($barcode) mÃ¡r rajta van a listÃ¡n!';
+  }
+
+  @override
+  String get prices_barcode_search_not_found => 'A termÃ©k nem talÃ¡lhatÃ³';
+
+  @override
+  String get prices_barcode_search_none_yet => 'MÃ©g nincs termÃ©k';
+
+  @override
+  String prices_barcode_search_running(String barcode) {
+    return '$barcode keresÃ©se';
+  }
+
+  @override
+  String get prices_barcode_enter => 'VonalkÃ³d beÃ­rÃ¡sa';
+
+  @override
+  String get prices_barcode_reader_action => 'VonalkÃ³dolvasÃ³';
+
+  @override
+  String get prices_view_prices => 'Ãrak megtekintÃ©se';
+
+  @override
+  String prices_product_accessibility_summary(int count, String product) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ã¡r',
+      one: '1 Ã¡r',
+    );
+    return '$_temp0 ehhez: $product';
+  }
+
+  @override
+  String prices_list_length_one_page(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ã¡r',
+      one: 'Csak egy Ã¡r',
+      zero: 'MÃ©g nincs Ã¡r',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_list_length_many_pages(int pageSize, int total) {
+    return 'LegÃºjabb $pageSize Ã¡r (Ã¶sszesen: $total)';
+  }
+
+  @override
+  String prices_entry_accessibility_label(String price, String location, String date, String user) {
+    return 'Ãr: $price / Bolt: \"$location\" / HozzÃ¡adva $date, â€ž$userâ€ Ã¡ltal';
+  }
+
+  @override
+  String prices_open_user_proofs(String user) {
+    return 'â€ž$userâ€ bizonylatainak megnyitÃ¡sa';
+  }
+
+  @override
+  String get prices_open_proof => 'Bizonylat megnyitÃ¡sa';
+
+  @override
+  String prices_proofs_list_length_one_page(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bizonylat',
+      one: 'Csak egy bizonylat',
+      zero: 'MÃ©g nincs bizonylat',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_proofs_list_length_many_pages(int pageSize, int total) {
+    return 'LegÃºjabb $pageSize bizonylat (Ã¶sszesen: $total)';
+  }
+
+  @override
+  String prices_users_list_length_many_pages(int pageSize, int total) {
+    return 'Top $pageSize kÃ¶zremÅ±kÃ¶dÅ‘ (Ã¶sszes: $total)';
+  }
+
+  @override
+  String prices_locations_list_length_many_pages(int pageSize, int total) {
+    return 'LegnÃ©pszerÅ±bb $pageSize hely (Ã¶sszesen: $total)';
+  }
+
+  @override
+  String prices_button_count_proof(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bizonylat',
+      one: 'Egy bizonylat',
+      zero: 'Nincsenek bizonylatok',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_button_count_product(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count termÃ©k',
+      one: 'Egy termÃ©k',
+      zero: 'Nincsenek termÃ©kek',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_button_count_user(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count felhasznÃ¡lÃ³',
+      one: 'Egy felhasznÃ¡lÃ³',
+      zero: '0 felhasznÃ¡lÃ³',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String prices_button_count_price(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ã¡r',
+      one: 'Egy Ã¡r',
+      zero: 'Nincsenek Ã¡rak',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get prices_amount_subtitle => 'MennyisÃ©g';
+
+  @override
+  String get prices_amount_is_discounted => 'AkciÃ³s?';
+
+  @override
+  String get prices_amount_price_normal => 'Price';
+
+  @override
+  String get prices_amount_price_discounted => 'Discounted price';
+
+  @override
+  String get prices_amount_price_not_discounted => 'Eredeti Ã¡r';
+
+  @override
+  String get prices_amount_no_product => 'Egy termÃ©k hiÃ¡nyzik!';
+
+  @override
+  String get prices_amount_price_incorrect => 'HibÃ¡s Ã©rtÃ©k';
+
+  @override
+  String get prices_amount_price_mandatory => 'KÃ¶telezÅ‘ Ã©rtÃ©k';
+
+  @override
+  String get prices_currency_subtitle => 'Currency';
+
+  @override
+  String get prices_date_subtitle => 'Date';
+
+  @override
+  String get prices_location_subtitle => 'Bolt';
+
+  @override
+  String get prices_location_find => 'Bolt keresÃ©se';
+
+  @override
+  String get prices_location_mandatory => 'Ki kell vÃ¡lasztani egy boltot!';
+
+  @override
+  String get prices_location_search_broader => 'Nem talÃ¡lta, amit keresett? PrÃ³bÃ¡ljunk meg egy Ã¡tfogÃ³bb keresÃ©st!';
+
+  @override
+  String get prices_proof_subtitle => 'Proof';
+
+  @override
+  String get prices_proof_find => 'Bizonylat kivÃ¡lasztÃ¡sa';
+
+  @override
+  String get prices_proof_receipt => 'Receipt';
+
+  @override
+  String get prices_proof_price_tag => 'Price tag';
+
+  @override
+  String get prices_proof_mandatory => 'Ki kell vÃ¡lasztani egy bizonylatot!';
+
+  @override
+  String get prices_add_validation_error => 'Ã‰rvÃ©nyesÃ­tÃ©si hiba';
+
+  @override
+  String get prices_privacy_warning_title => 'AdatvÃ©delmi figyelmeztetÃ©s';
+
+  @override
+  String get prices_unknown_product => 'Unknown product';
+
+  @override
+  String get prices_privacy_warning_main_message => 'Az Ã¡rak **nyilvÃ¡nosak lesznek** a hivatkozott Ã¼zlettel egyÃ¼tt.\n\nEz lehetÅ‘vÃ© teheti azoknak, akik ismerik az Ã¶n Open Food Facts felhasznÃ¡lÃ³nevÃ©t, hogy:\n';
+
+  @override
+  String get prices_privacy_warning_message_bullet_1 => 'MegÃ¡llapÃ­tsÃ¡k, Ã¶n merre felÃ© Ã©l';
+
+  @override
+  String get prices_privacy_warning_message_bullet_2 => 'MegtudjÃ¡k, hogy mit vÃ¡sÃ¡rol';
+
+  @override
+  String get prices_privacy_warning_sub_message => 'Ha ez nyugtalanÃ­tja, vÃ¡ltoztassa meg felhasznÃ¡lÃ³nevÃ©t, vagy hozzon lÃ©tre egy Ãºj Open Food Facts fiÃ³kot, Ã©s jelentkezzen be vele az alkalmazÃ¡sba.';
+
+  @override
+  String get i_refuse => 'ElutasÃ­tom';
+
+  @override
+  String get i_accept => 'Elfogadom';
+
+  @override
+  String get prices_currency_change_proposal_title => 'MÃ³dosÃ­tja a pÃ©nznemet?';
+
+  @override
+  String prices_currency_change_proposal_message(String currency, String newCurrency) {
+    return 'Jelenlegi pÃ©nzneme **$currency**. SzeretnÃ© mÃ³dosÃ­tani a kÃ¶vetkezÅ‘re: **$newCurrency**?';
+  }
+
+  @override
+  String prices_currency_change_proposal_action_approve(String newCurrency) {
+    return 'Igen, vÃ¡ltÃ¡s erre: $newCurrency';
+  }
+
+  @override
+  String prices_currency_change_proposal_action_cancel(String currency) {
+    return 'Nem, maradjon $currency';
+  }
+
+  @override
+  String get dev_preferences_import_history_result_success => 'KÃ©sz';
+
+  @override
+  String get dev_mode_section_server => 'Szerver beÃ¡llÃ­tÃ¡sai';
+
+  @override
+  String get dev_mode_section_news => 'HÃ­rszolgÃ¡ltatÃ³ konfigurÃ¡ciÃ³ja';
+
+  @override
+  String get dev_mode_section_product_page => 'TermÃ©koldal';
+
+  @override
+  String get dev_mode_section_ui => 'FelhasznÃ¡lÃ³i felÃ¼let';
+
+  @override
+  String get dev_mode_section_data => 'Adatok';
+
+  @override
+  String get dev_mode_section_experimental_features => 'KÃ­sÃ©rleti funkciÃ³k';
+
+  @override
+  String get dev_preferences_show_folksonomy_title => 'Folksonomy kizÃ¡rÃ¡sa';
+
+  @override
+  String get dev_mode_hide_environmental_score_title => 'Green Score kizÃ¡rÃ¡sa';
+
+  @override
+  String get dev_mode_spellchecker_for_ocr_title => 'HelyesÃ­rÃ¡s-ellenÅ‘rzÅ‘ hasznÃ¡lata az OCR-kÃ©pernyÅ‘kÃ¶n';
+
+  @override
+  String get dev_mode_spellchecker_for_ocr_subtitle => '(Ã¶sszetevÅ‘k Ã©s csomagolÃ¡s)';
+
+  @override
+  String get search_history_item_edit_tooltip => 'HasznÃ¡lja Ãºjra Ã©s szerkessze ezt a keresÃ©st';
+
+  @override
+  String product_search_no_more_results(int totalSize) {
+    return 'LetÃ¶ltÃ¶tte mind a(z) $totalSize termÃ©ket.';
+  }
+
+  @override
+  String product_search_button_download_more(int count, int downloaded, int totalSize) {
+    return 'TovÃ¡bbi $count termÃ©k letÃ¶ltÃ©se\n $downloaded mÃ¡r letÃ¶ltve ennyibÅ‘l: $totalSize.';
+  }
+
+  @override
+  String product_search_loading_message(Object search) {
+    return '$search keresÃ©se folyamatban van.\n\nVÃ¡rjon pÃ¡r mÃ¡sodpercetâ€¦';
+  }
+
+  @override
+  String get user_search_contributor_title => 'Ãltalam hozzÃ¡adott termÃ©kek';
+
+  @override
+  String get user_search_informer_title => 'Ãltalam szerkesztett termÃ©kek';
+
+  @override
+  String get user_search_photographer_title => 'Ãltalam fÃ©nykÃ©pezett termÃ©kek';
+
+  @override
+  String get user_search_to_be_completed_title => 'BefejezendÅ‘ termÃ©keim';
+
+  @override
+  String get user_search_prices_title => 'My prices';
+
+  @override
+  String get user_search_proofs_title => 'My proofs';
+
+  @override
+  String get user_search_proof_title => 'Bizonylataim';
+
+  @override
+  String get user_any_search_prices_title => 'KÃ¶zremÅ±kÃ¶dÅ‘i Ã¡rak';
+
+  @override
+  String get all_search_prices_latest_title => 'LegutÃ³bb hozzÃ¡adott Ã¡rak';
+
+  @override
+  String get all_search_prices_top_user_title => 'Top Ã¡r kÃ¶zremÅ±kÃ¶dÅ‘k';
+
+  @override
+  String get all_search_prices_top_location_title => 'LegtÃ¶bb Ã¡rral rendelkezÅ‘ boltok';
+
+  @override
+  String get prices_contribution_assistant => 'Price Contribution Assistant';
+
+  @override
+  String get prices_validation_assistant => 'Price Validation Assistant';
+
+  @override
+  String get prices_challenges_page => 'Challenges';
+
+  @override
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+
+  @override
+  String get all_search_prices_top_location_single_title => 'Bolti Ã¡rak';
+
+  @override
+  String get all_search_prices_top_product_title => 'LegtÃ¶bb Ã¡rral rendelkezÅ‘ termÃ©kek';
+
+  @override
+  String get all_search_to_be_completed_title => 'Ã–sszes befejezendÅ‘ termÃ©k';
+
+  @override
+  String get categorize_products_country_title => 'SegÃ­tsen kategorizÃ¡lni a termÃ©keket az Ã–n orszÃ¡gÃ¡ban';
+
+  @override
+  String get edit_product_action_retake_picture => 'ÃšjrafÃ©nykÃ©pezÃ©s';
+
+  @override
+  String get edit_product_action_take_picture => 'FÃ©nykÃ©p kÃ©szÃ­tÃ©se';
+
+  @override
+  String get edit_product_action_confirm => 'MegerÅ‘sÃ­tÃ©s';
+
+  @override
+  String get signup_page_terms_of_use_line1 => 'Elfogadom az Openâ€¯Foodâ€¯Facts ';
+
+  @override
+  String get signup_page_terms_of_use_line2 => 'felhasznÃ¡lÃ¡si Ã©s hozzÃ¡jÃ¡rulÃ¡si feltÃ©teleivel';
+
+  @override
+  String get analytics_consent_image_semantic_label => 'Analytics ikon';
+
+  @override
+  String knowledge_panel_page_loading_error(Object? error) {
+    return 'VÃ©gzetes hiba: $error';
+  }
+
+  @override
+  String preferences_page_loading_error(Object? error) {
+    return 'VÃ©gzetes hiba: $error';
+  }
+
+  @override
+  String get summary_card_button_add_basic_details => 'AlapvetÅ‘ adatok kitÃ¶ltÃ©s';
+
+  @override
+  String get edit_photo_button_label => 'SzerkesztÃ©s';
+
+  @override
+  String get edit_photo_unselect_button_label => 'FotÃ³ kijelÃ¶lÃ©sÃ©nek tÃ¶rlÃ©se';
+
+  @override
+  String get edit_photo_select_existing_button_label => 'MeglÃ©vÅ‘ kÃ©p kivÃ¡lasztÃ¡sa';
+
+  @override
+  String get edit_photo_select_existing_all_label => 'A termÃ©k meglÃ©vÅ‘ kÃ©pei';
+
+  @override
+  String get edit_photo_select_existing_all_subtitle => 'VÃ¡lasszon ki egy kÃ©pet a rÃ¡kattintÃ¡ssal';
+
+  @override
+  String get edit_photo_select_existing_download_label => 'MeglÃ©vÅ‘ kÃ©pek lekÃ©rÃ©seâ€¦';
+
+  @override
+  String get edit_photo_select_existing_downloaded_none => 'Nincsenek ehhez a termÃ©khez kapcsolÃ³dÃ³an korÃ¡bban feltÃ¶ltÃ¶tt kÃ©pek.';
+
+  @override
+  String get edit_photo_language_not_this_one => 'MÃ©g nincs kÃ©p ezen a nyelven';
+
+  @override
+  String get edit_photo_language_none => 'MÃ©g nincsen kÃ©p';
+
+  @override
+  String get category_picker_screen_title => 'KategÃ³riÃ¡k';
+
+  @override
+  String get basic_details => 'Alapadatok';
+
+  @override
+  String get product_name => 'TermÃ©k neve';
+
+  @override
+  String get product_names => 'TermÃ©knevek';
+
+  @override
+  String get add_basic_details_product_name_add_translation => 'Ãšj fordÃ­tÃ¡s hozzÃ¡adÃ¡sa';
+
+  @override
+  String get add_basic_details_product_name_warning_translations => 'Before validating, please ensure you only add a translation **if the language is not present on the packaging**';
+
+  @override
+  String get add_basic_details_product_name_open_photo => 'ElÃ¼lsÅ‘ oldal fÃ©nykÃ©pÃ©nek megtekintÃ©se';
+
+  @override
+  String get add_basic_details_product_name_take_photo => 'FÃ©nykÃ©p kÃ©szÃ­tÃ©se szembÅ‘l';
+
+  @override
+  String get add_basic_details_product_name_hint => 'Adja meg a termÃ©k nevÃ©t (pl.: Nutella)';
+
+  @override
+  String get explanation_section_good_examples => 'JÃ³ pÃ©ldÃ¡k';
+
+  @override
+  String get explanation_section_bad_examples => 'Rossz pÃ©ldÃ¡k';
+
+  @override
+  String get add_basic_details_product_name_help_title => 'Good practices: Product name';
+
+  @override
+  String get add_basic_details_product_name_help_info1 => 'A termÃ©k neve a **a csomagolÃ¡sra nyomtatott fÅ‘ nÃ©v**. Ez lehet bejegyzett vÃ©djegy.';
+
+  @override
+  String get add_basic_details_product_name_help_info2 => '**MegjegyzÃ©s:** KÃ©rjÃ¼k, ne fordÃ­tsa le, **ha a nyelv nem szerepel a csomagolÃ¡son**.';
+
+  @override
+  String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
+
+  @override
+  String get add_basic_details_product_name_help_good_examples_2 => 'Tomato Ketchup';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_1_explanation => 'A nÃ©vben ne szerepeljen a mÃ¡rka';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_1_example => '** Heinz** Ketchup';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_2_explanation => 'Ne hasznÃ¡ljon Â®, â„¢, Â© vagy hasonlÃ³ szimbÃ³lumokat';
+
+  @override
+  String get add_basic_details_product_name_help_bad_examples_2_example => 'Nesquik**Â®**';
+
+  @override
+  String add_basic_details_product_name_other_translations(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tovÃ¡bbi fordÃ­tÃ¡s',
+      one: '$count tovÃ¡bbi fordÃ­tÃ¡s',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get brand_name => 'MÃ¡rkanÃ©v';
+
+  @override
+  String get brand_names => 'MÃ¡rkanevek';
+
+  @override
+  String get add_basic_details_brand_name_error => 'Adja meg a mÃ¡rkanevet';
+
+  @override
+  String get add_basic_details_brand_names_hint => 'Adja meg a mÃ¡rkaneveket (pl. Ferrero)';
+
+  @override
+  String get add_basic_details_product_brand_help_title => 'Good practices: Brands';
+
+  @override
+  String get add_basic_details_product_brand_help_info1 => 'Input **all the brands of the product**.';
+
+  @override
+  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+
+  @override
+  String get add_basic_details_product_brand_help_info2_content => 'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item1_text => 'When sold **by a big company**:';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item1_explanation => '**Actimel** is sold by **Danone**';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item2_text => 'When sold with its brand **translated in multiple languages**:';
+
+  @override
+  String get add_basic_details_product_brand_help_info3_item2_explanation => '**Nature Valley** is sometimes written **Val Nature**';
+
+  @override
+  String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
+
+  @override
+  String get add_basic_details_product_brand_help_good_examples_2 => 'Oreo, Mondelez';
+
+  @override
+  String get quantity => 'MennyisÃ©g Ã©s sÃºly';
+
+  @override
+  String get add_basic_details_quantity_hint => 'Adja meg a sÃºlyt Ã©s szÃ¼ksÃ©g esetÃ©n a mennyisÃ©get (pl.: 4x100g)';
+
+  @override
+  String get add_basic_details_product_quantity_help_title => 'Good practices: Quantity';
+
+  @override
+  String get add_basic_details_product_quantity_help_info1 => 'Copy the value indicated on the product and **don\'t forget the units**.';
+
+  @override
+  String get add_basic_details_product_quantity_help_good_examples_1 => '**230g** or **230 g**';
+
+  @override
+  String get add_basic_details_product_quantity_help_good_examples_2 => '**6** (for 6 eggs)';
+
+  @override
+  String get add_basic_details_product_quantity_help_good_examples_3 => '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+
+  @override
+  String get barcode => 'VonalkÃ³d';
+
+  @override
+  String barcode_barcode(String barcode) {
+    return 'VonalkÃ³d: $barcode';
+  }
+
+  @override
+  String get barcode_invalid_error => 'Ã‰rvÃ©nytelen vonalkÃ³d';
+
+  @override
+  String get basic_details_add_success => 'Az alapadatok sikeresen hozzÃ¡adva';
+
+  @override
+  String get basic_details_add_error => 'Nem sikerÃ¼lt hozzÃ¡adni az alapadatokat. PrÃ³bÃ¡lja Ãºjra kicsit kÃ©sÅ‘bb';
+
+  @override
+  String get clear_search => 'KeresÃ©sek tÃ¶rlÃ©se';
+
+  @override
+  String get confirm_clear => 'Az Ã¶sszes elÅ‘zmÃ©ny tÃ¶rlÃ©sÃ©re kÃ©szÃ¼l: biztosan folytatja?';
+
+  @override
+  String get alert_clear_selected_user_list => 'A kivÃ¡lasztott elemek tÃ¶rlÃ©sÃ©re kÃ©szÃ¼l az elÅ‘zmÃ©nyekbÅ‘l';
+
+  @override
+  String get confirm_clear_selected_user_list => 'Biztosan folytatni szeretnÃ©?';
+
+  @override
+  String get alert_select_items_to_clear => 'VÃ¡lasszon egy vagy tÃ¶bb tÃ¶rlendÅ‘ elemet';
+
+  @override
+  String confirm_clear_user_list(String name) {
+    return 'A lista kiÃ¼rÃ­tÃ©sÃ©re kÃ©szÃ¼l ($name): biztosan folytatja?';
+  }
+
+  @override
+  String get confirm_delete_user_list_title => 'TÃ¶rli a listÃ¡t?';
+
+  @override
+  String confirm_delete_user_list_message(String name) {
+    return 'A(z) â€ž$nameâ€ lista tÃ¶rlÃ©sÃ©re kÃ©szÃ¼l.\nBiztosan folytatja?';
+  }
+
+  @override
+  String get confirm_delete_user_list_button => 'Igen, megerÅ‘sÃ­tem';
+
+  @override
+  String importance_label(String name, String id) {
+    return '$name fontossÃ¡g: $id';
+  }
+
+  @override
+  String get user_list_all_title => 'ListÃ¡k';
+
+  @override
+  String get user_list_all_empty => 'Hozza lÃ©tre elsÅ‘ listÃ¡jÃ¡t';
+
+  @override
+  String get product_list_select => 'Lista kivÃ¡lasztÃ¡sa';
+
+  @override
+  String user_list_length(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count termÃ©k',
+      one: 'Egy termÃ©k',
+      zero: 'Ãœres lista',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get add_list_label => 'Lista hozzÃ¡adÃ¡sa';
+
+  @override
+  String get open_food_preferences_tooltip => 'Szerkessze az Ã©tkezÃ©si preferenciÃ¡it';
+
+  @override
+  String get add_photo_button_label => 'FÃ©nykÃ©p hozzÃ¡adÃ¡sa';
+
+  @override
+  String get add_packaging_photo_button_label => 'FotÃ³zza le a csomagolÃ¡si/ÃºjrahasznosÃ­tÃ¡si informÃ¡ciÃ³kat';
+
+  @override
+  String get add_origin_photo_button_label => 'FotÃ³zza le a szÃ¡rmazÃ¡si informÃ¡ciÃ³kat';
+
+  @override
+  String get add_emb_photo_button_label => 'FotÃ³zza le a gyÃ¡rtÃ¡si kÃ³dokat';
+
+  @override
+  String get add_label_photo_button_label => 'FotÃ³zza le a cÃ­mkÃ©ket/tanÃºsÃ­tvÃ¡nyokat';
+
+  @override
+  String get choose_image_source_title => 'KÃ©p forrÃ¡sa';
+
+  @override
+  String get choose_image_source_body => 'VÃ¡lassza ki a kÃ©p forrÃ¡sÃ¡t';
+
+  @override
+  String get gallery_source_label => 'GalÃ©ria';
+
+  @override
+  String get gallery_source_access_denied_dialog_title => 'HozzÃ¡fÃ©rÃ©s megtagadva';
+
+  @override
+  String get gallery_source_access_denied_dialog_message_ios => 'Sajnos az alkalmazÃ¡s nem fÃ©r hozzÃ¡ a galÃ©riÃ¡hoz, mivel korÃ¡bban megtagadta az engedÃ©lyt.\n\nNyissa meg az alkalmazÃ¡s beÃ¡llÃ­tÃ¡sait a telefon BeÃ¡llÃ­tÃ¡sok -> FÃ©nykÃ©pek menÃ¼jÃ©ben';
+
+  @override
+  String get gallery_source_access_denied_dialog_button => 'BeÃ¡llÃ­tÃ¡sok megnyitÃ¡sa';
+
+  @override
+  String get share => 'MegosztÃ¡s';
+
+  @override
+  String share_product_text(String url) {
+    return 'NÃ©zd meg ezt a termÃ©ket az Open Food Facts oldalÃ¡n: $url';
+  }
+
+  @override
+  String share_product_text_beauty(String url) {
+    return 'NÃ©zd meg ezt a termÃ©ket az Open Beauty Facts oldalÃ¡n: $url';
+  }
+
+  @override
+  String share_product_text_pet_food(String url) {
+    return 'NÃ©zd meg ezt a termÃ©ket az Open PetFood Facts oldalÃ¡n: $url';
+  }
+
+  @override
+  String share_product_text_product(String url) {
+    return 'NÃ©zd meg ezt a termÃ©ket az Open Products Facts oldalÃ¡n: $url';
+  }
+
+  @override
+  String share_product_list_text(String url) {
+    return 'NÃ©zd meg a termÃ©klistÃ¡mat az Open Food Facts oldalÃ¡n: $url';
+  }
+
+  @override
+  String get capture => 'Ãšj kÃ©p kÃ©szÃ­tÃ©se';
+
+  @override
+  String get capture_new_picture => 'FÃ©nykÃ©p kÃ©szÃ­tÃ©se';
+
+  @override
+  String get choose_from_gallery => 'VÃ¡lasztÃ¡s a galÃ©riÃ¡bÃ³l';
+
+  @override
+  String get image_upload_queued => 'A kÃ©pet a lehetÅ‘ leghamarabb feltÃ¶ltjÃ¼k a hÃ¡ttÃ©rben.';
+
+  @override
+  String get add_price_queued => 'Az Ã¡rat a lehetÅ‘ leghamarabb elkÃ¼ldjÃ¼k a szerverre.';
+
+  @override
+  String get background_task_title_full_refresh => 'Az Ã¶sszes helyben tÃ¡rolt termÃ©k frissÃ­tÃ©sÃ©nek megkezdÃ©se';
+
+  @override
+  String get background_task_title_top_n => 'A legnÃ©pszerÅ±bb termÃ©kek letÃ¶ltÃ©sÃ©nek megkezdÃ©se';
+
+  @override
+  String get expand_nutrition_facts => 'TÃ¡pÃ©rtÃ©ktÃ¡blÃ¡zat kibontÃ¡sa';
+
+  @override
+  String get expand_nutrition_facts_body => 'Kinyitva tartja a tÃ¡pÃ©rtÃ©ktÃ¡blÃ¡zatot';
+
+  @override
+  String get expand_ingredients => 'Ã–sszetevÅ‘lista kibontÃ¡sa';
+
+  @override
+  String get expand_ingredients_body => 'Nyitva tartja az Ã¶sszetevÅ‘k paneljÃ©t';
+
+  @override
+  String get search_product_filter_visibility_title => 'SzÅ±rÅ‘ megjelenÃ­tÃ©se a keresÅ‘ben';
+
+  @override
+  String get search_product_filter_visibility_subtitle => 'KeresÅ‘oldal kivÃ¡lasztÃ¡sa: Open Food Facts, Open Beauty Facts, Open Pet Food Facts vagy Open Products Facts';
+
+  @override
+  String get no_internet_connection => 'Nincs internetkapcsolat';
+
+  @override
+  String get world_results_label => 'EgÃ©sz vilÃ¡g';
+
+  @override
+  String get world_results_action => 'KeresÃ©s kiterjesztÃ©se az egÃ©sz vilÃ¡gra';
+
+  @override
+  String get copy_to_clipboard => 'MÃ¡solÃ¡s';
+
+  @override
+  String get paste_from_clipboard => 'BeillesztÃ©s vÃ¡gÃ³laprÃ³l';
+
+  @override
+  String get no_data_available_in_clipboard => 'Nincs adat a vÃ¡gÃ³lapon';
+
+  @override
+  String get clipboard_barcode_copy => 'VonalkÃ³d mÃ¡solÃ¡sa a vÃ¡gÃ³lapra';
+
+  @override
+  String clipboard_barcode_copied(Object barcode) {
+    return 'A(z) $barcode vonalkÃ³d a vÃ¡gÃ³lapra mÃ¡solva.';
+  }
+
+  @override
+  String get open_product_website => 'TermÃ©k megnyitÃ¡sa a weboldalon';
+
+  @override
+  String get language_picker_label => 'AlkalmazÃ¡s nyelve';
+
+  @override
+  String get country_picker_label => 'Az Ã–n orszÃ¡ga';
+
+  @override
+  String get currency_picker_label => 'Az Ã–n pÃ©nzneme';
+
+  @override
+  String get help_with_openfoodfacts => 'OpenFoodFacts segÃ­tsÃ©gkÃ©rÃ©s';
+
+  @override
+  String get product_task_background_schedule => 'A termÃ©k a lehetÅ‘ leghamarabb frissÃ¼l a hÃ¡ttÃ©rben.';
+
+  @override
+  String get no_email_client_available_dialog_title => 'Nem talÃ¡lhatÃ³ e-mail alkalmazÃ¡s!';
+
+  @override
+  String get no_email_client_available_dialog_content => 'KÃ©rjÃ¼k, kÃ¼ldjÃ¶n nekÃ¼nk egy e-mailt manuÃ¡lisan a mobile@openfoodfacts.org cÃ­mre';
+
+  @override
+  String get all_images => 'Ã–sszes kÃ©p';
+
+  @override
+  String get selected_images => 'KivÃ¡lasztott kÃ©pek';
+
+  @override
+  String get product_card_remove_product_tooltip => 'TermÃ©k eltÃ¡volÃ­tÃ¡sa';
+
+  @override
+  String scan_announce_new_barcode(String barcode) {
+    return 'Ãšj vonalkÃ³d leolvasva: $barcode';
+  }
+
+  @override
+  String get scan_header_clear_button_tooltip => 'Ã–sszes termÃ©k eltÃ¡volÃ­tÃ¡sa a lapozÃ³bÃ³l';
+
+  @override
+  String get scan_header_compare_button_invalid_state_tooltip => 'Az Ã¶sszehasonlÃ­tÃ¡shoz olvasson le legalÃ¡bb kÃ©t termÃ©ket';
+
+  @override
+  String get scan_header_compare_button_valid_state_tooltip => 'Kattintson a leolvasott termÃ©kek Ã¶sszehasonlÃ­tÃ¡sÃ¡hoz';
+
+  @override
+  String get scan_product_loading => 'Leolvasta a\nvonalkÃ³dot:';
+
+  @override
+  String get scan_product_loading_initial => 'MÃ©g keressÃ¼k a termÃ©ket!\nVÃ¡rjon pÃ¡r mÃ¡sodpercetâ€¦';
+
+  @override
+  String get scan_product_loading_long_request => 'MÃ©g mindig keressÃ¼k a termÃ©ket!\nÃšgy Ã©rzi, hogy sokÃ¡ig tart a betÃ¶ltÃ©se? Mi isâ€¦';
+
+  @override
+  String get scan_product_loading_unresponsive => 'MÃ©g mindig keressÃ¼k a termÃ©ket.\nSzeretnÃ© ÃºjraindÃ­tani a keresÃ©st?';
+
+  @override
+  String get scan_product_loading_restart_button => 'KeresÃ©s ÃºjraindÃ­tÃ¡sa';
+
+  @override
+  String get portion_calculator_description => 'TÃ¡pÃ©rtÃ©kadatok kiszÃ¡mÃ­tÃ¡sa egy megadott mennyisÃ©gre';
+
+  @override
+  String get portion_calculator_hint => 'MennyisÃ©g';
+
+  @override
+  String get portion_calculator_accessibility => 'Adjon meg egy mennyisÃ©get a tÃ¡pÃ©rtÃ©kadatok kiszÃ¡mÃ­tÃ¡sÃ¡hoz';
+
+  @override
+  String portion_calculator_error(int min, int max) {
+    return 'Egy $min g Ã©s $max g kÃ¶zÃ¶tti mennyisÃ©get adjon meg';
+  }
+
+  @override
+  String get portion_calculator_computation_error => 'HiÃ¡nyzÃ³ adatok miatt a szÃ¡mÃ­tÃ¡st nem lehetett elvÃ©gezni.';
+
+  @override
+  String portion_calculator_result_title(int grams) {
+    return 'TÃ¡pÃ©rtÃ©kadatok $grams g-ra (vagy ml)';
+  }
+
+  @override
+  String get offline_data => 'Offline adatok';
+
+  @override
+  String get ocr_image_upload_instruction => 'TÃ¶ltsÃ¶n fel egy kÃ©pet a rajta lÃ©vÅ‘ informÃ¡ciÃ³k automatikus kinyerÃ©sÃ©hez.';
+
+  @override
+  String get upload_image => 'FÃ©nykÃ©p feltÃ¶ltÃ©se';
+
+  @override
+  String get word_separator_char => ',';
+
+  @override
+  String get word_separator => ', ';
+
+  @override
+  String get image_download_error => 'Nem sikerÃ¼lt letÃ¶lteni a kÃ©pet';
+
+  @override
+  String get image_edit_url_error => 'Nem sikerÃ¼lt szerkeszteni a kÃ©pet, mert a kÃ©p URL-je nincs beÃ¡llÃ­tva.';
+
+  @override
+  String get user_picture_source_remember => 'EmlÃ©kezzen a vÃ¡lasztÃ¡somra';
+
+  @override
+  String get user_picture_source_ask => 'Mindig kÃ©rdezzen rÃ¡';
+
+  @override
+  String get robotoff_continue => 'FolytatÃ¡s';
+
+  @override
+  String robotoff_next_n_questions(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kÃ©rdÃ©s',
+      one: 'kÃ©rdÃ©s',
+    );
+    return 'KÃ¶vetkezÅ‘ $_temp0';
+  }
+
+  @override
+  String get show_password => 'JelszÃ³ megjelenÃ­tÃ©se';
+
+  @override
+  String get owner_field_info_title => 'GyÃ¡rtÃ³ Ã¡ltal megadott Ã©rtÃ©kek';
+
+  @override
+  String get owner_field_info_message => 'Ezzel a logÃ³val a gyÃ¡rtÃ³ Ã¡ltal megadott adatokat emeljÃ¼k ki, amelyek nem szerkeszthetÅ‘k.';
+
+  @override
+  String get owner_field_info_close_button => 'InformÃ¡ciÃ³ bezÃ¡rÃ¡sa';
+
+  @override
+  String get owner_field_image => 'Ezt a kÃ©pet a gyÃ¡rtÃ³ biztosÃ­totta. Lehet, hogy nem szerkeszthetÅ‘.';
+
+  @override
+  String get edit_packagings_title => 'CsomagolÃ¡s elemei';
+
+  @override
+  String get edit_packagings_element_add => 'CsomagolÃ³elem hozzÃ¡adÃ¡sa';
+
+  @override
+  String get edit_packagings_completed => 'A csomagolÃ¡si adatok teljesek';
+
+  @override
+  String edit_packagings_element_title(int index) {
+    return '#$index csomagolÃ³elem';
+  }
+
+  @override
+  String get edit_packagings_element_field_units => 'DarabszÃ¡m';
+
+  @override
+  String get edit_packagings_element_hint_units => 'Adja meg a termÃ©ken lÃ©vÅ‘ azonos alakÃº Ã©s anyagÃº csomagolÃ³elemek szÃ¡mÃ¡t.';
+
+  @override
+  String get edit_packagings_element_field_shape => 'Alak';
+
+  @override
+  String get edit_packagings_element_hint_shape => 'Adja meg az alak ÃºjrahasznosÃ­tÃ¡si utasÃ­tÃ¡sokban lÃ¡thatÃ³ nevÃ©t, ha fel van tÃ¼ntetve, vagy vÃ¡lasszon egy alakot.';
+
+  @override
+  String get edit_packagings_element_example_shape => 'Palack';
+
+  @override
+  String get edit_packagings_element_field_material => 'Anyag';
+
+  @override
+  String get edit_packagings_element_hint_material => 'Adja meg a pontos anyagot, ha az megÃ¡llapÃ­thatÃ³ (egy hÃ¡romszÃ¶gben lÃ©vÅ‘ anyagkÃ³d gyakran megtalÃ¡lhatÃ³ a csomagolÃ³elemeken), vagy egy Ã¡ltalÃ¡nos anyagnevet (pÃ©ldÃ¡ul mÅ±anyag vagy fÃ©m), ha nem biztos benne.';
+
+  @override
+  String get edit_packagings_element_example_material => 'Ãœveg';
+
+  @override
+  String get edit_packagings_element_field_recycling => 'ÃšjrahasznosÃ­tÃ¡si utasÃ­tÃ¡s';
+
+  @override
+  String get edit_packagings_element_hint_recycling => 'Csak akkor adja meg az ÃºjrahasznosÃ­tÃ¡si utasÃ­tÃ¡sokat, ha fel van tÃ¼ntetve a termÃ©ken.';
+
+  @override
+  String get edit_packagings_element_example_recycling => 'ÃšjrahasznosÃ­tÃ¡s';
+
+  @override
+  String get edit_packagings_element_field_quantity => 'TermÃ©k nettÃ³ mennyisÃ©ge (mÃ©rtÃ©kegysÃ©ggel)';
+
+  @override
+  String get edit_packagings_element_hint_quantity => 'Adja meg a termÃ©k nettÃ³ tÃ¶megÃ©t vagy nettÃ³ tÃ©rfogatÃ¡t, Ã©s tÃ¼ntesse fel a mÃ©rtÃ©kegysÃ©get (pÃ©ldÃ¡ul g vagy ml).';
+
+  @override
+  String get edit_packagings_element_field_weight => 'Ãœres csomagolÃ³elem sÃºlya (g)';
+
+  @override
+  String get edit_packagings_element_hint_weight => 'TÃ¡volÃ­tson el minden megmaradt Ã©lelmiszert, Ã©s lemÃ©rÃ©s elÅ‘tt mossa le Ã©s szÃ¡rÃ­tsa meg a csomagolÃ¡st. Ha lehetsÃ©ges, hasznÃ¡ljon 0,1 g vagy 0,01 g pontossÃ¡gÃº mÃ©rleget.';
+
+  @override
+  String get background_task_title => 'FÃ¼ggÅ‘ben lÃ©vÅ‘ kÃ¶zremÅ±kÃ¶dÃ©sek';
+
+  @override
+  String get background_task_subtitle => 'HozzÃ¡jÃ¡rulÃ¡sait automatikusan mentjÃ¼k a szerverre, de nem mindig valÃ³s idÅ‘ben.';
+
+  @override
+  String get background_task_list_empty => 'Nincsenek fÃ¼ggÅ‘ben lÃ©vÅ‘ hÃ¡ttÃ©rfeladatok';
+
+  @override
+  String get background_task_error_server_time_out => 'KiszolgÃ¡lÃ³i idÅ‘tÃºllÃ©pÃ©s';
+
+  @override
+  String get background_task_error_no_internet => 'Internetkapcsolati hiba. PrÃ³bÃ¡lja Ãºjra.';
+
+  @override
+  String get background_task_operation_unknown => 'ismeretlen mÅ±velettÃ­pus';
+
+  @override
+  String get background_task_operation_details => 'rÃ©szletek mÃ³dosÃ­tva';
+
+  @override
+  String get background_task_operation_image => 'fÃ©nykÃ©p feltÃ¶ltÃ©se';
+
+  @override
+  String get background_task_operation_refresh => 'kÃ©sleltetett frissÃ­tÃ©s a fÃ©nykÃ©p feltÃ¶ltÃ©se utÃ¡n';
+
+  @override
+  String get background_task_run_started => 'elindult';
+
+  @override
+  String get background_task_run_not_started => 'mÃ©g nem indult el';
+
+  @override
+  String get background_task_run_to_be_deleted => 'tÃ¶rlendÅ‘';
+
+  @override
+  String get background_task_question_stop => 'SzeretnÃ© leÃ¡llÃ­tani ezt a feladatot amint lehet?';
+
+  @override
+  String get feed_back => 'VisszajelzÃ©s';
+
+  @override
+  String get undo => 'VisszavonÃ¡s';
+
+  @override
+  String get copy_email_to_clip_board => 'E-mail mÃ¡solÃ¡sa a vÃ¡gÃ³lapra';
+
+  @override
+  String get please_send_us_an_email_to => 'KÃ©rjÃ¼k, manuÃ¡lisan kÃ¼ldjÃ¶n e-mailt a cÃ­mre';
+
+  @override
+  String get email_copied_to_clip_board => 'E-mail vÃ¡gÃ³lapra mÃ¡solva';
+
+  @override
+  String get select_accent_color => 'Kiemelt szÃ­n kivÃ¡lasztÃ¡sa';
+
+  @override
+  String get theme_amoled => 'AMOLED';
+
+  @override
+  String get color_blue => 'KÃ©k';
+
+  @override
+  String get color_cyan => 'CiÃ¡n';
+
+  @override
+  String get color_green => 'ZÃ¶ld';
+
+  @override
+  String get color_light_brown => 'AlapÃ©rtelmezett';
+
+  @override
+  String get color_magenta => 'BÃ­bor';
+
+  @override
+  String get color_orange => 'Narancs';
+
+  @override
+  String get color_pink => 'RÃ³zsaszÃ­n';
+
+  @override
+  String get color_red => 'VÃ¶rÃ¶s';
+
+  @override
+  String get color_rust => 'Rozsdabarna';
+
+  @override
+  String get color_teal => 'TÃ¼rkiz';
+
+  @override
+  String get text_contrast_mode => 'SzÃ¶vegkontraszt';
+
+  @override
+  String get contrast_high => 'Magas';
+
+  @override
+  String get contrast_medium => 'KÃ¶zepes';
+
+  @override
+  String get contrast_low => 'Alacsony';
+
+  @override
+  String get product_refresher_internet_not_found => 'A termÃ©k nem talÃ¡lhatÃ³!';
+
+  @override
+  String get product_refresher_internet_not_connected => 'Nem csatlakozik az internethez!';
+
+  @override
+  String product_refresher_internet_no_ping(String? host) {
+    return 'A szerver leÃ¡llt ($host)';
+  }
+
+  @override
+  String product_refresher_internet_error(String? exception) {
+    return 'Szerverhiba ($exception)';
+  }
+
+  @override
+  String get product_loader_not_found_title => 'A termÃ©k nem talÃ¡lhatÃ³!';
+
+  @override
+  String product_loader_not_found_message(String barcode) {
+    return 'A kÃ¶vetkezÅ‘ vonalkÃ³dÃº termÃ©k nem talÃ¡lhatÃ³ meg az adatbÃ¡zisunkban: $barcode';
+  }
+
+  @override
+  String get product_loader_network_error_title => 'Nincs internetkapcsolat!';
+
+  @override
+  String get product_loader_network_error_message => 'EllenÅ‘rizze, hogy okostelefonja csatlakozik-e WiFi hÃ¡lÃ³zathoz, vagy engedÃ©lyezve van-e a mobiladat-kapcsolat';
+
+  @override
+  String get page_not_found_title => 'Az oldal nem talÃ¡lhatÃ³!';
+
+  @override
+  String get page_not_found_button => 'Vissza a kezdÅ‘lapra';
+
+  @override
+  String get download_data => 'Adatok letÃ¶ltÃ©se';
+
+  @override
+  String get download_top_products => 'TÃ¶ltse le orszÃ¡ga 1000 legnÃ©pszerÅ±bb termÃ©kÃ©t az azonnali leolvasÃ¡shoz';
+
+  @override
+  String download_top_n_products(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count legnÃ©pszerÅ±bb termÃ©kÃ©t',
+    );
+    return 'TÃ¶ltse le orszÃ¡ga $_temp0 az azonnali leolvasÃ¡shoz';
+  }
+
+  @override
+  String get download_in_progress => 'Adatok letÃ¶ltÃ©se\nEz eltarthat egy ideig';
+
+  @override
+  String downloaded_products(int num) {
+    return '$num termÃ©k hozzÃ¡adva';
+  }
+
+  @override
+  String get update_offline_data => 'Offline termÃ©kadatok frissÃ­tÃ©se';
+
+  @override
+  String get update_local_database_sub => 'FrissÃ­tse a helyi termÃ©kadatbÃ¡zist az Open Food Facts legfrissebb adataival';
+
+  @override
+  String get clear_local_database => 'Offline termÃ©kadatok tÃ¶rlÃ©se';
+
+  @override
+  String get clear_local_database_sub => 'TÃ¡rhely felszabadÃ­tÃ¡sÃ¡hoz tÃ¶rÃ¶lje az Ã¶sszes helyi termÃ©kadatot az alkalmazÃ¡sbÃ³l';
+
+  @override
+  String deleted_products(int num) {
+    return '$num termÃ©k tÃ¶rÃ¶lve';
+  }
+
+  @override
+  String get loading => 'BetÃ¶ltÃ©sâ€¦';
+
+  @override
+  String get know_more => 'Tudjon meg tÃ¶bbet';
+
+  @override
+  String get offline_data_desc => 'Kattintson, ha tÃ¶bbet szeretne megtudni az offline adatokrÃ³l';
+
+  @override
+  String get offline_product_data_title => 'Offline termÃ©kadatok';
+
+  @override
+  String available_for_download(int num) {
+    return '$num termÃ©k elÃ©rhetÅ‘ azonnali leolvasÃ¡shoz';
+  }
+
+  @override
+  String get country_selector_title => 'VÃ¡lassza ki az orszÃ¡gÃ¡t:';
+
+  @override
+  String get currency_selector_title => 'VÃ¡lassza ki a pÃ©nznemÃ©t:';
+
+  @override
+  String get language_selector_title => 'VÃ¡lassza ki a nyelvet:';
+
+  @override
+  String get language_selector_section_selected => 'Selected languages';
+
+  @override
+  String get language_selector_section_frequently_used => 'Frequently used';
+
+  @override
+  String get action_delete_list => 'TÃ¶rlÃ©s';
+
+  @override
+  String get action_change_list => 'Az aktuÃ¡lis lista mÃ³dosÃ­tÃ¡sa';
+
+  @override
+  String get product_list_create => 'LÃ©trehozÃ¡s';
+
+  @override
+  String get product_list_create_tooltip => 'Ãšj lista lÃ©trehozÃ¡sa';
+
+  @override
+  String get nutriscore_generic => 'Nutri-Score';
+
+  @override
+  String get nutriscore_a => 'Nutri-Score A';
+
+  @override
+  String get nutriscore_b => 'Nutri-Score B';
+
+  @override
+  String get nutriscore_c => 'Nutri-Score C';
+
+  @override
+  String get nutriscore_d => 'Nutri-Score D';
+
+  @override
+  String get nutriscore_e => 'Nutri-Score E';
+
+  @override
+  String nutriscore_new_formula(String letter) {
+    return 'Nutri-Score $letter (Ãºj szÃ¡mÃ­tÃ¡s)';
+  }
+
+  @override
+  String get nutriscore_new_formula_title => 'Nutri-Score (Ãºj szÃ¡mÃ­tÃ¡s)';
+
+  @override
+  String get nutriscore_unknown => 'Ismeretlen Nutri-Score';
+
+  @override
+  String get nutriscore_unknown_new_formula => 'Ismeretlen Nutri-Score (Ãºj szÃ¡mÃ­tÃ¡s)';
+
+  @override
+  String get nutriscore_not_applicable => 'A Nutri-Score nem alkalmazhatÃ³';
+
+  @override
+  String get nutriscore_not_applicable_new_formula => 'A Nutri-Score nem alkalmazhatÃ³ (Ãºj szÃ¡mÃ­tÃ¡s)';
+
+  @override
+  String get environmental_score_generic => 'Greenâ€¯Score';
+
+  @override
+  String get environmental_score_a => 'Greenâ€¯Score A';
+
+  @override
+  String get environmental_score_b => 'Greenâ€¯Score B';
+
+  @override
+  String get environmental_score_c => 'Greenâ€¯Score C';
+
+  @override
+  String get environmental_score_d => 'Greenâ€¯Score D';
+
+  @override
+  String get environmental_score_e => 'Greenâ€¯Score E';
+
+  @override
+  String get environmental_score_unknown => 'Ismeretlen Greenâ€¯Score';
+
+  @override
+  String get environmental_score_not_applicable => 'A Green Score nem alkalmazhatÃ³';
+
+  @override
+  String get nova_group_generic => 'TÃ¶bbszÃ¶rÃ¶s feldolgozottsÃ¡g â€“ NOVA-csoportok';
+
+  @override
+  String get nova_group_1 => '1. NOVA-csoport';
+
+  @override
+  String get nova_group_2 => '2. NOVA-csoport';
+
+  @override
+  String get nova_group_3 => '3. NOVA-csoport';
+
+  @override
+  String get nova_group_4 => '4. NOVA-csoport';
+
+  @override
+  String get nova_group_unknown => 'Ismeretlen NOVA-csoport';
+
+  @override
+  String get nutrition_facts => 'TÃ¡panyagszintek';
+
+  @override
+  String get faq_title_partners => 'A civil szervezet partnerei Ã©s tÃ¡mogatÃ³i';
+
+  @override
+  String get faq_title_vision => 'Open Food Facts vÃ­ziÃ³, kÃ¼ldetÃ©s, Ã©rtÃ©kek Ã©s programok';
+
+  @override
+  String get faq_title_install_beauty => 'TelepÃ­tse az Open Beauty Facts alkalmazÃ¡st kozmetikai adatbÃ¡zis lÃ©trehozÃ¡sÃ¡hoz';
+
+  @override
+  String get faq_title_install_pet => 'TelepÃ­tse az Open Pet Food Facts alkalmazÃ¡st Ã¡llateledel adatbÃ¡zis lÃ©trehozÃ¡sÃ¡hoz';
+
+  @override
+  String get faq_title_install_product => 'TelepÃ­tse az Open Products Facts alkalmazÃ¡st termÃ©kadatbÃ¡zis lÃ©trehozÃ¡sÃ¡hoz, az objektumok Ã©lettartamÃ¡nak meghosszabbÃ­tÃ¡sa Ã©rdekÃ©ben';
+
+  @override
+  String get faq_nutriscore_nutriscore => 'Ãšj Nutri-Score szÃ¡mÃ­tÃ¡si mÃ³dszer: mi az ÃºjdonsÃ¡g?';
+
+  @override
+  String get contact_title_pro_page => 'GyÃ¡rtÃ³? ImportÃ¡lja termÃ©keit Open Food Factsbe';
+
+  @override
+  String get contact_title_pro_email => 'GyÃ¡rtÃ³i kapcsolat';
+
+  @override
+  String get contact_title_press_page => 'SajtÃ³oldal';
+
+  @override
+  String get contact_title_press_email => 'SajtÃ³kapcsolat';
+
+  @override
+  String get contact_title_newsletter => 'Iratkozzon fel hÃ­rlevelÃ¼nkre';
+
+  @override
+  String get contact_title_calendar => 'Subscribe to our community calendar';
+
+  @override
+  String get hunger_games_loading_line1 => 'Adjon nekÃ¼nk pÃ¡r mÃ¡sodpercetâ€¦';
+
+  @override
+  String get hunger_games_loading_line2 => 'LetÃ¶ltjÃ¼k a kÃ©rdÃ©seket.';
+
+  @override
+  String get hunger_games_error_label => 'Ajjaj! Hiba tÃ¶rtÃ©ntâ€¦ Ã©s nem tudtuk betÃ¶lteni a kÃ©rdÃ©seket.';
+
+  @override
+  String get hunger_games_error_retry_button => 'PrÃ³bÃ¡ljuk Ãºjra!';
+
+  @override
+  String get reorder_attribute_action => 'AttribÃºtumok Ã¡trendezÃ©se';
+
+  @override
+  String get link_cant_be_opened => 'Ez a link nem nyithatÃ³ meg az eszkÃ¶zÃ©n. EllenÅ‘rizze, hogy van-e telepÃ­tve bÃ¶ngÃ©szÅ‘.';
+
+  @override
+  String knowledge_panel_page_title_no_title(String productName) {
+    return '$productName rÃ©szletei';
+  }
+
+  @override
+  String knowledge_panel_page_title(String pageName, String productName) {
+    return '$productName rÃ©szletei: $pageName';
+  }
+
+  @override
+  String get guide_title => 'Guide';
+
+  @override
+  String get guide_share_label => 'MegosztÃ¡s';
+
+  @override
+  String get guide_nutriscore_v2_enabled => 'true';
+
+  @override
+  String get guide_nutriscore_v2_title => 'The Nutri-Score is evolving: explanations!';
+
+  @override
+  String get guide_nutriscore_v2_what_is_nutriscore_title => 'Mi az a Nutri-Score?';
+
+  @override
+  String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 => 'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
+
+  @override
+  String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 => 'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
+
+  @override
+  String get guide_nutriscore_v2_nutriscore_a_caption => 'The Nutri-Score A logo';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_intro => 'The Nutri-Score formula **is evolving** to provide better recommendations:';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg1_title => 'Better evaluate all drinks';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg1_text => 'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg2_title => 'Better ranking of drinks';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg2_text => 'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg3_title => 'Salt and sugar penalized';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg3_text => 'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg4_title => 'Hierarchy within oils and fishes';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg4_text => 'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
+
+  @override
+  String get guide_nutriscore_v2_why_v2_arg5_text => 'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
+
+  @override
+  String get guide_nutriscore_v2_new_logo_title => 'How to differentiate old Nutri-Score and new calculation?';
+
+  @override
+  String get guide_nutriscore_v2_new_logo_text => 'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
+
+  @override
+  String get guide_nutriscore_v2_new_logo_image_caption => 'The logo of the new Nutri-Score';
+
+  @override
+  String get guide_nutriscore_v2_where_title => 'Hol talÃ¡lhatÃ³ meg az Ãºj Nutri-Score szÃ¡mÃ­tÃ¡s?';
+
+  @override
+  String get guide_nutriscore_v2_where_paragraph1 => 'The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.';
+
+  @override
+  String get guide_nutriscore_v2_where_paragraph2 => 'Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.';
+
+  @override
+  String get guide_nutriscore_v2_where_paragraph3 => 'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
+
+  @override
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
+
+  @override
+  String get guide_nutriscore_v2_unchanged_paragraph1 => 'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
+
+  @override
+  String get guide_nutriscore_v2_unchanged_paragraph2 => 'For manufacturers, the display of the Nutri-Score **remains optional**.';
+
+  @override
+  String get guide_nutriscore_v2_share_link => 'https://hu.openfoodfacts.org/nutriscore-v2';
+
+  @override
+  String get guide_nutriscore_v2_share_message => '';
+
+  @override
+  String get preview_badge => 'ElÅ‘nÃ©zet';
+
+  @override
+  String get prices_feedback_form => 'Kattintson ide, ha visszajelzÃ©st szeretne kÃ¼ldeni nekÃ¼nk errÅ‘l az Ãºj funkciÃ³rÃ³l!';
+
+  @override
+  String get menu_button_list_actions => 'VÃ¡lasszon mÅ±veletet';
+
+  @override
+  String get error_loading_photo => 'Hiba a fÃ©nykÃ©p betÃ¶ltÃ©sekor';
+
+  @override
+  String get photo_viewer_action_use_picture_as => 'HasznÃ¡lat mintâ€¦';
+
+  @override
+  String get photo_viewer_use_picture_as_tooltip => 'KÃ©p hasznÃ¡lata mintâ€¦';
+
+  @override
+  String photo_viewer_use_picture_as_title(String language) {
+    return 'KÃ©p hasznÃ¡lata mintâ€¦ ($language)';
+  }
+
+  @override
+  String get photo_viewer_details_button => 'Details';
+
+  @override
+  String get photo_viewer_details_button_accessibility_label => 'FÃ©nykÃ©p rÃ©szletei';
+
+  @override
+  String get photo_viewer_details_title => 'FÃ©nykÃ©p rÃ©szletei';
+
+  @override
+  String get photo_viewer_details_contributor_title => 'HozzÃ¡jÃ¡rulÃ³';
+
+  @override
+  String get photo_viewer_details_size_title => 'MÃ©ret';
+
+  @override
+  String photo_viewer_details_size_value(int width, int height) {
+    return '$width x $height pixel';
+  }
+
+  @override
+  String get photo_viewer_details_date_title => 'Date';
+
+  @override
+  String get photo_viewer_details_url_title => 'URL';
+
+  @override
+  String get product_page_compatibility_score => 'egyezÃ©s';
+
+  @override
+  String get user_lists_action_multi_select => 'TÃ¶bbszÃ¶rÃ¶s kijelÃ¶lÃ©s';
+
+  @override
+  String product_page_compatibility_score_tooltip(String score) {
+    return 'Az Ã–n kompatibilitÃ¡si pontszÃ¡ma: $score%';
+  }
+
+  @override
+  String get product_image_front_accessibility_label => 'ElÃ¼lsÅ‘ oldal kÃ©pe';
+
+  @override
+  String get product_image_ingredients_accessibility_label => 'Ã–sszetevÅ‘k listÃ¡jÃ¡nak kÃ©pe';
+
+  @override
+  String get product_image_nutrition_accessibility_label => 'TÃ¡pÃ©rtÃ©kadatok kÃ©pe';
+
+  @override
+  String get product_image_packaging_accessibility_label => 'CsomagolÃ¡s kÃ©pe';
+
+  @override
+  String get product_image_other_accessibility_label => 'EgyÃ©b kÃ©p';
+
+  @override
+  String get product_image_outdated_message => 'Ez a kÃ©p elavult lehet';
+
+  @override
+  String product_image_outdated_message_accessibility_label(String type) {
+    return '$type (ez a kÃ©p elavult lehet)';
+  }
+
+  @override
+  String product_image_locked_message_accessibility_label(String type) {
+    return '$type (lehet, hogy ezt a kÃ©pet a gyÃ¡rtÃ³ zÃ¡rolta)';
+  }
+
+  @override
+  String get product_image_error => 'Nem sikerÃ¼lt betÃ¶lteni a kÃ©pet!';
+
+  @override
+  String product_image_error_accessibility_label(String type) {
+    return '$type betÃ¶ltÃ©se nem sikerÃ¼lt (hÃ¡lÃ³zati hiba?)';
+  }
+
+  @override
+  String get product_page_image_no_image_available => 'Nincs\nkÃ©p!';
+
+  @override
+  String get product_page_image_no_image_available_accessibility_label => 'Nem Ã©rhetÅ‘ el kÃ©p errÅ‘l a termÃ©krÅ‘l';
+
+  @override
+  String get product_page_action_bar_settings_accessibility_label => 'MÅ±veletek Ã¡trendezÃ©se vagy elrejtÃ©se';
+
+  @override
+  String get product_page_action_bar_setting_modal_title => 'MÅ±veletek szerkesztÃ©se';
+
+  @override
+  String get product_page_action_bar_item_move_up => 'MozgatÃ¡s fel';
+
+  @override
+  String get product_page_action_bar_item_move_down => 'MozgatÃ¡s le';
+
+  @override
+  String get product_page_action_bar_item_enable => 'MÅ±velet engedÃ©lyezÃ©se';
+
+  @override
+  String get product_page_action_bar_item_disable => 'MÅ±velet letiltÃ¡sa';
+
+  @override
+  String get product_page_pending_operations_banner_title => 'SzerkesztÃ©sek feltÃ¶ltÃ©seâ€¦';
+
+  @override
+  String get product_page_pending_operations_banner_message => 'Az ezen az oldalon megjelenÅ‘ adatok **mÃ©g nem tartalmazzÃ¡k az Ã–n mÃ³dosÃ­tÃ¡sait**.\nVÃ¡rjon pÃ¡r mÃ¡sodpercetâ€¦';
+
+  @override
+  String get product_add_a_language => 'Nyelv hozzÃ¡adÃ¡sa';
+
+  @override
+  String barcode_accessibility_label(String barcode) {
+    return 'VonalkÃ³d: $barcode';
+  }
+
+  @override
+  String get carousel_close_tooltip => 'TermÃ©k eltÃ¡volÃ­tÃ¡sa a lapozÃ³bÃ³l';
+
+  @override
+  String get carousel_unsupported_header => 'Nem tÃ¡mogatott vonalkÃ³d!';
+
+  @override
+  String get carousel_unsupported_title => 'HoppÃ¡!';
+
+  @override
+  String get carousel_unsupported_text => 'A leolvasott vonalkÃ³dot az Open Food Facts nem tÃ¡mogatja!';
+
+  @override
+  String get carousel_error_header => 'Hiba!';
+
+  @override
+  String get carousel_error_title => 'De nagy kÃ¡r!';
+
+  @override
+  String get carousel_error_text_1 => 'Nem tudtunk adatokat lekÃ©rni errÅ‘l a vonalkÃ³drÃ³l:';
+
+  @override
+  String get carousel_error_text_2 => 'EllenÅ‘rizze internetkapcsolatÃ¡t, vagy kattintson erre a gombra:';
+
+  @override
+  String get carousel_error_button => 'Ãšjra';
+
+  @override
+  String get carousel_unknown_product_header => 'Unknown product';
+
+  @override
+  String get carousel_unknown_product_title => 'GratulÃ¡lok!\n__Ritka gyÃ¶ngyszemet__ talÃ¡ltÃ¡l!';
+
+  @override
+  String get carousel_unknown_product_text => 'EgyÃ¼ttmÅ±kÃ¶dÃ©sen alapulÃ³ adatbÃ¡zisunk tÃ¶bb mint **3 milliÃ³ termÃ©ket** tartalmaz, de ez a vonalkÃ³d nincs benne: ';
+
+  @override
+  String get carousel_unknown_product_button => 'TermÃ©k hozzÃ¡adÃ¡sa';
+
+  @override
+  String get carousel_loading_header => 'InformÃ¡ciÃ³ betÃ¶ltÃ©seâ€¦';
+
+  @override
+  String get carousel_loading_title => 'Ã‰pp most olvasott le egy termÃ©ket a kÃ¶vetkezÅ‘ vonalkÃ³ddal:';
+
+  @override
+  String get carousel_loading_text => 'MÃ¡r keressÃ¼k a tÃ¶bb mint **3 milliÃ³ termÃ©ket tartalmazÃ³ adatbÃ¡zisunkban**!';
+
+  @override
+  String get product_type_subtitle_food => 'ZÃ¶ldsÃ©gek, gyÃ¼mÃ¶lcsÃ¶k, fagyasztott Ã©lelmiszerekâ€¦';
+
+  @override
+  String get product_type_subtitle_beauty => 'Sminkek, szappanok, fogkrÃ©mekâ€¦';
+
+  @override
+  String get product_type_subtitle_pet_food => 'TÃ¡plÃ¡lÃ©k kutyÃ¡knak, macskÃ¡knakâ€¦';
+
+  @override
+  String get product_type_subtitle_product => 'Okostelefonok, bÃºtorokâ€¦';
+
+  @override
+  String get photo_field_front => 'TermÃ©kfotÃ³';
+
+  @override
+  String get photo_field_ingredients => 'Ã–sszetevÅ‘k fÃ©nykÃ©pe';
+
+  @override
+  String get photo_field_nutrition => 'TÃ¡pÃ©rtÃ©kadatok fÃ©nykÃ©pe';
+
+  @override
+  String get photo_field_packaging => 'CsomagolÃ¡si informÃ¡ciÃ³k fÃ©nykÃ©pe';
+
+  @override
+  String get photo_already_exists => 'Ez a fÃ©nykÃ©p mÃ¡r lÃ©tezik';
+
+  @override
+  String get photo_missing => 'Ez a fÃ©nykÃ©p hiÃ¡nyzik';
+
+  @override
+  String get date => 'Date';
+
+  @override
+  String get photo_rotate_left => 'ForgatÃ¡s balra';
+
+  @override
+  String get photo_rotate_right => 'ForgatÃ¡s jobbra';
+
+  @override
+  String get photo_undo_action => 'ElÅ‘zÅ‘ mÅ±velet visszavonÃ¡sa';
+
+  @override
+  String knowledge_panel_world_map_accessibility_label(String location) {
+    return '$location a vilÃ¡gtÃ©rkÃ©pen';
+  }
+
+  @override
+  String get open_street_map_contributor_attribution => 'OpenStreetMap kÃ¶zremÅ±kÃ¶dÅ‘k';
+
+  @override
+  String get not_applicable_short => 'N/A';
+
+  @override
+  String get knowledge_panel_warning_text => 'FigyelmeztetÃ©s';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_title => 'MiÃ©rt kÃ¼lÃ¶nbÃ¶zik ez a Nutri-Score a csomagolÃ¡son lÃ©vÅ‘tÅ‘l?';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_message => 'KÃ©t lehetsÃ©ges magyarÃ¡zat van:\nAz Ã¶sszetevÅ‘k listÃ¡ja Ã©s/vagy a tÃ¡pÃ©rtÃ©kadatok nem naprakÃ©szek.\n\nMi a Nutri-Score â€žÃšj szÃ¡mÃ­tÃ¡sâ€ (vagy V2) verziÃ³jÃ¡t adjuk meg. EllenÅ‘rizze, hogy a csomagon szerepel-e az \"Ãšj szÃ¡mÃ­tÃ¡s\" felirat.';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_button1 => 'Ã–sszetevÅ‘k ellenÅ‘rzÃ©se';
+
+  @override
+  String get knowledge_panel_nutriscore_banner_incorrect_score_button2 => 'TÃ¡pÃ©rtÃ©kadatok ellenÅ‘rzÃ©se';
+
+  @override
+  String url_not_supported(String url) {
+    return 'Sajnos nem tudjuk megnyitni az URL-t:\n$url';
+  }
+
+  @override
+  String get product_list_export => 'Export';
+
+  @override
+  String get product_list_import => 'Import';
+
+  @override
+  String get product_footer_action_barcode => 'View barcode';
+
+  @override
+  String get product_footer_action_barcode_short => 'VonalkÃ³d';
+
+  @override
+  String get product_footer_action_open_website => 'Open website';
+
+  @override
+  String get product_footer_action_report => 'Report';
+
+  @override
+  String get product_footer_action_contributor_guide => 'Help';
+
+  @override
+  String get product_footer_action_data_quality_tags => 'Data quality';
+
+  @override
+  String prices_products_list_length_many_pages(int pageSize, int total) {
+    return 'Top $pageSize products (total: $total)';
+  }
+
+  @override
+  String get app_review_title => 'Are you enjoying this app?';
+
+  @override
+  String get app_review_low => 'Could do better';
+
+  @override
+  String get app_review_medium => 'Not bad';
+
+  @override
+  String get app_review_high => 'I love it!';
+
+  @override
+  String get app_review_feedback_modal_title => 'Help us improve our application';
+
+  @override
+  String get app_review_feedback_modal_content => 'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+
+  @override
+  String get app_review_feedback_modal_open_form => 'Answer the form';
+
+  @override
+  String get app_review_feedback_modal_later => 'KÃ©rdezzen rÃ¡ kÃ©sÅ‘bb';
+
+  @override
+  String get nutrition_facts_extract_new => 'NEW: You can automatically extract the nutrients from the picture!';
+
+  @override
+  String get nutrition_facts_extract_button_text => 'Extract now';
+
+  @override
+  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+
+  @override
+  String get nutrition_facts_extract_failed => 'Failed to extract nutrients from picture';
+}

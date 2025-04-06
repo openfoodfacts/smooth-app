@@ -1,14 +1,14 @@
-{
+﻿{
   "@Utils": {},
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "Kyllä",
+  "yes": "KyllÃ¤",
   "@yes": {},
-  "add": "Lisää",
+  "add": "LisÃ¤Ã¤",
   "@add": {},
-  "account_delete_message": "Oletko varma, että haluat poistaa tilisi?\nKerro meille, jos tilinpoistolle on erityinen syy",
+  "account_delete_message": "Oletko varma, ettÃ¤ haluat poistaa tilisi?\nKerro meille, jos tilinpoistolle on erityinen syy",
   "@account_delete_message": {},
   "reason": "Syy",
   "@reason": {},
@@ -22,7 +22,7 @@
   "@create": {
     "description": "An action to create"
   },
-  "applyButtonText": "Hyväksy",
+  "applyButtonText": "HyvÃ¤ksy",
   "@applyButtonText": {},
   "next_label": "Seuraava",
   "@next_label": {
@@ -40,7 +40,7 @@
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
-  "go_back_to_top": "Takaisin ylös",
+  "go_back_to_top": "Takaisin ylÃ¶s",
   "save": "Tallenna",
   "save_confirmation": "Haluatko varmasti tallentaa?",
   "skip": "Ohita",
@@ -70,21 +70,21 @@
   "@error": {},
   "error_occurred": "Tapahtui virhe",
   "@error_occurred": {},
-  "featureInProgress": "Työstämme edelleen tätä ominaisuutta, pysy kuulolla",
+  "featureInProgress": "TyÃ¶stÃ¤mme edelleen tÃ¤tÃ¤ ominaisuutta, pysy kuulolla",
   "@featureInProgress": {},
   "label_web": "Tarkastele verkossa",
   "@label_web": {},
-  "learnMore": "Opi lisää",
+  "learnMore": "Opi lisÃ¤Ã¤",
   "@learnMore": {},
   "unknown": "Tuntematon",
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "Erittäin hyvä vastaavuus",
+  "match_very_good": "ErittÃ¤in hyvÃ¤ vastaavuus",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Hyvä vastaavuus",
+  "match_good": "HyvÃ¤ vastaavuus",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
@@ -92,7 +92,7 @@
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "Ei ehkä vastaa",
+  "match_may_not": "Ei ehkÃ¤ vastaa",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
@@ -104,11 +104,11 @@
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "Erittäin hyvä vastaavuus",
+  "match_short_very_good": "ErittÃ¤in hyvÃ¤ vastaavuus",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Hyvä vastaavuus",
+  "match_short_good": "HyvÃ¤ vastaavuus",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
@@ -116,7 +116,7 @@
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "Ei ehkä vastaa",
+  "match_short_may_not": "Ei ehkÃ¤ vastaa",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
@@ -130,58 +130,58 @@
   },
   "licenses": "Lisenssit",
   "@licenses": {},
-  "looking_for": "Etsitään",
+  "looking_for": "EtsitÃ¤Ã¤n",
   "@looking_for": {
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
   "welcomeToOpenFoodFacts": "Tervetuloa Open Food Factsiin",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts on globaali voittoa tavoittelematon järjestö, jota tukevat paikalliset yhteisöt.",
+  "whatIsOff": "Open Food Facts on globaali voittoa tavoittelematon jÃ¤rjestÃ¶, jota tukevat paikalliset yhteisÃ¶t.",
   "@whatIsOff": {
-    "description": "Description of Open Food Facts organization."
+    "description": "Description of Openâ€¯Foodâ€¯Facts organization."
   },
-  "productDataUtility": "Katso valintoihisi liittyvät ruokatietosi.",
+  "productDataUtility": "Katso valintoihisi liittyvÃ¤t ruokatietosi.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "Valitse ruoat, jotka tekevät itsellesi hyvää.",
+  "healthCardUtility": "Valitse ruoat, jotka tekevÃ¤t itsellesi hyvÃ¤Ã¤.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
-  "ecoCardUtility": "Valitse ruoat, jotka tekevät planeetalle hyvää.",
+  "ecoCardUtility": "Valitse ruoat, jotka tekevÃ¤t planeetalle hyvÃ¤Ã¤.",
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
   "server_error_open_new_issue": "Ei vastausta palvelimelta! Voit luoda ongelmailmoituksen seuraavan linkin avulla.",
   "@user_management": {},
-  "sign_in_text": "Kirjaudu sisään Open Food Facts -tilillesi tallentaaksesi avustuksesi",
-  "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
-  "password_lost_incorrect_credentials": "Tätä sähköpostiosoitetta tai käyttäjätunnusta ei ole olemassa. Tarkista kirjautumistietosi.",
-  "password_lost_server_unavailable": "Palvelimellamme on tällä hetkellä hidastuksia, pahoittelut. Yritä uudelleen myöhemmin.",
+  "sign_in_text": "Kirjaudu sisÃ¤Ã¤n Open Food Facts -tilillesi tallentaaksesi avustuksesi",
+  "incorrect_credentials": "Virheellinen kÃ¤yttÃ¤jÃ¤tunnus tai salasana.",
+  "password_lost_incorrect_credentials": "TÃ¤tÃ¤ sÃ¤hkÃ¶postiosoitetta tai kÃ¤yttÃ¤jÃ¤tunnusta ei ole olemassa. Tarkista kirjautumistietosi.",
+  "password_lost_server_unavailable": "Palvelimellamme on tÃ¤llÃ¤ hetkellÃ¤ hidastuksia, pahoittelut. YritÃ¤ uudelleen myÃ¶hemmin.",
   "login": "Kirjaudu",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
-  "login_result_type_server_unreachable": "Verkkoon ei saada yhteyttä",
+  "login_result_type_server_unreachable": "Verkkoon ei saada yhteyttÃ¤",
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Ongelma palvelimella. Ole hyvä ja yritä myöhemmin.",
+  "login_result_type_server_issue": "Ongelma palvelimella. Ole hyvÃ¤ ja yritÃ¤ myÃ¶hemmin.",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Syötä käyttäjänimi tai sähköposti",
-  "login_page_password_error_empty": "Syötä salasana",
+  "login_page_username_or_email": "SyÃ¶tÃ¤ kÃ¤yttÃ¤jÃ¤nimi tai sÃ¤hkÃ¶posti",
+  "login_page_password_error_empty": "SyÃ¶tÃ¤ salasana",
   "create_account": "Luo tili",
   "@create_account": {
     "description": "Button label: Opens a page where a new user can register"
   },
-  "sign_in": "Kirjaudu sisään",
+  "sign_in": "Kirjaudu sisÃ¤Ã¤n",
   "@sign_in": {
     "description": "Button label: For sign in"
   },
-  "sign_in_mandatory": "Kirjaudu käyttääksesi kyseistä ominaisuutta.",
+  "sign_in_mandatory": "Kirjaudu kÃ¤yttÃ¤Ã¤ksesi kyseistÃ¤ ominaisuutta.",
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
@@ -202,7 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "view_profile": "Näytä profiili",
+  "view_profile": "NÃ¤ytÃ¤ profiili",
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
@@ -210,43 +210,43 @@
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "Mikäli unohdit salasanasi, syötä käyttäjätunnuksesi tai sähköpostiosoitteesi saadaksesi ohjeet salasanan vaihtoon. Muista tarkistaa myös roskapostikansio.",
-  "username_or_email": "Käyttäjätunnus tai sähköpostiosoite",
+  "reset_password_explanation_text": "MikÃ¤li unohdit salasanasi, syÃ¶tÃ¤ kÃ¤yttÃ¤jÃ¤tunnuksesi tai sÃ¤hkÃ¶postiosoitteesi saadaksesi ohjeet salasanan vaihtoon. Muista tarkistaa myÃ¶s roskapostikansio.",
+  "username_or_email": "KÃ¤yttÃ¤jÃ¤tunnus tai sÃ¤hkÃ¶postiosoite",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "Lähetimme tiliin kirjattuun sähköpostiosoitteeseen linkin salasananvaihdokseen. Tarkista myös roskapostikansio",
+  "reset_password_done": "LÃ¤hetimme tiliin kirjattuun sÃ¤hkÃ¶postiosoitteeseen linkin salasananvaihdokseen. Tarkista myÃ¶s roskapostikansio",
   "send_reset_password_mail": "Vaihda salasana",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
   },
-  "enter_some_text": "Syötä tekstiä",
+  "enter_some_text": "SyÃ¶tÃ¤ tekstiÃ¤",
   "@enter_some_text": {
     "description": "Error when a required text field is empty"
   },
-  "sign_up_page_title": "Rekisteröidy",
+  "sign_up_page_title": "RekisterÃ¶idy",
   "@sign_up_page_title": {
     "description": "Header"
   },
-  "sign_up_page_action_button": "Rekisteröidy",
+  "sign_up_page_action_button": "RekisterÃ¶idy",
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
-  "sign_up_page_action_doing_it": "Rekisteröidytään…",
+  "sign_up_page_action_doing_it": "RekisterÃ¶idytÃ¤Ã¤nâ€¦",
   "@sign_up_page_action_doing_it": {
     "description": "Progress indicator dialog during the actual signing up process"
   },
   "sign_up_page_action_ok": "Onnittelut! Tilisi on nyt luotu.",
   "sign_up_page_display_name_hint": "Nimi",
-  "sign_up_page_display_name_error_empty": "Lisää haluamasi julkinen nimi",
-  "sign_up_page_email_hint": "Sähköpostiosoite",
-  "sign_up_page_email_error_empty": "Sähköpostiosoite on pakollinen",
-  "sign_up_page_email_error_invalid": "Virheellinen sähköpostiosoite",
-  "sign_up_page_username_hint": "Käyttäjänimi: julkinen",
-  "sign_up_page_username_error_empty": "Syötä käyttäjänimi",
-  "sign_up_page_username_error_invalid": "Syötä kelvollinen käyttäjänimi",
-  "sign_up_page_username_description": "Käyttäjänimi ei voi sisältää välilyöntejä, suuraakkosia tai erikoismerkkejä.",
-  "sign_up_page_username_length_invalid": "Käyttäjänimi ei voi olla yli {value} merkkiä pitkä",
+  "sign_up_page_display_name_error_empty": "LisÃ¤Ã¤ haluamasi julkinen nimi",
+  "sign_up_page_email_hint": "SÃ¤hkÃ¶postiosoite",
+  "sign_up_page_email_error_empty": "SÃ¤hkÃ¶postiosoite on pakollinen",
+  "sign_up_page_email_error_invalid": "Virheellinen sÃ¤hkÃ¶postiosoite",
+  "sign_up_page_username_hint": "KÃ¤yttÃ¤jÃ¤nimi: julkinen",
+  "sign_up_page_username_error_empty": "SyÃ¶tÃ¤ kÃ¤yttÃ¤jÃ¤nimi",
+  "sign_up_page_username_error_invalid": "SyÃ¶tÃ¤ kelvollinen kÃ¤yttÃ¤jÃ¤nimi",
+  "sign_up_page_username_description": "KÃ¤yttÃ¤jÃ¤nimi ei voi sisÃ¤ltÃ¤Ã¤ vÃ¤lilyÃ¶ntejÃ¤, suuraakkosia tai erikoismerkkejÃ¤.",
+  "sign_up_page_username_length_invalid": "KÃ¤yttÃ¤jÃ¤nimi ei voi olla yli {value} merkkiÃ¤ pitkÃ¤",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -255,39 +255,39 @@
     }
   },
   "sign_up_page_password_hint": "Salasana",
-  "sign_up_page_password_error_empty": "Syötä salasana",
-  "sign_up_page_password_error_invalid": "Syötä kelvollinen salasana (vähintään 6 merkkiä)",
+  "sign_up_page_password_error_empty": "SyÃ¶tÃ¤ salasana",
+  "sign_up_page_password_error_invalid": "SyÃ¶tÃ¤ kelvollinen salasana (vÃ¤hintÃ¤Ã¤n 6 merkkiÃ¤)",
   "sign_up_page_confirm_password_hint": "Vahvista salasana",
   "sign_up_page_confirm_password_error_empty": "Vahvistathan salasanasi",
-  "sign_up_page_confirm_password_error_invalid": "Salasanat eivät täsmää",
-  "sign_up_page_agree_text": "Hyväksyn Open Food Factsin",
+  "sign_up_page_confirm_password_error_invalid": "Salasanat eivÃ¤t tÃ¤smÃ¤Ã¤",
+  "sign_up_page_agree_text": "HyvÃ¤ksyn Open Food Factsin",
   "@sign_up_page_agree_text": {
-    "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    "description": "I agree to the Openâ€¯Foodâ€¯Facts is followed by sign_up_page_terms_text"
   },
-  "sign_up_page_terms_text": "käyttö- ja osallistumisehdot",
+  "sign_up_page_terms_text": "kÃ¤yttÃ¶- ja osallistumisehdot",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
   "sign_up_page_agree_url": "https://world-fi.openfoodfacts.org/terms-of-use",
   "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    "description": "Please insert the right url here. Go to the Openâ€¯Foodâ€¯Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
   },
-  "sign_up_page_agree_error_invalid": "Luodessasi tilin käyttöehtojen hyväksyminen on pakollista, mutta voit silti osallistua anonyymisti sovelluksessa",
+  "sign_up_page_agree_error_invalid": "Luodessasi tilin kÃ¤yttÃ¶ehtojen hyvÃ¤ksyminen on pakollista, mutta voit silti osallistua anonyymisti sovelluksessa",
   "@sign_up_page_agree_error_invalid": {
     "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
   },
   "sign_up_page_producer_checkbox": "Olen elintarvikkeiden tuottaja",
   "sign_up_page_producer_hint": "Tuottaja/tuotemerkki",
-  "sign_up_page_producer_error_empty": "Syötä tuottaja tai tuotemerkki",
+  "sign_up_page_producer_error_empty": "SyÃ¶tÃ¤ tuottaja tai tuotemerkki",
   "sign_up_page_subscribe_checkbox": "Haluan tilata Open Food Facts -uutiskirjeen (Voit peruuttaa sen tilauksen milloin tahansa)",
-  "sign_up_page_user_name_already_used": "Käyttäjänimi on varattu, valitse toinen käyttäjänimi.",
-  "sign_up_page_email_already_exists": "on jo käytössä, kirjaudu tai kokeile toisella sähköpostiosoitteella.",
-  "sign_up_page_provide_valid_email": "Anna käypä sähköpostiosoite.",
-  "sign_up_page_server_busy": "Olemme syvästi pahoillamme, mutta meillä on teknisiä vaikeuksia tilisi luomisessa. Yritä uudelleen myöhemmin.",
+  "sign_up_page_user_name_already_used": "KÃ¤yttÃ¤jÃ¤nimi on varattu, valitse toinen kÃ¤yttÃ¤jÃ¤nimi.",
+  "sign_up_page_email_already_exists": "on jo kÃ¤ytÃ¶ssÃ¤, kirjaudu tai kokeile toisella sÃ¤hkÃ¶postiosoitteella.",
+  "sign_up_page_provide_valid_email": "Anna kÃ¤ypÃ¤ sÃ¤hkÃ¶postiosoite.",
+  "sign_up_page_server_busy": "Olemme syvÃ¤sti pahoillamme, mutta meillÃ¤ on teknisiÃ¤ vaikeuksia tilisi luomisessa. YritÃ¤ uudelleen myÃ¶hemmin.",
   "settingsTitle": "Asetukset",
   "@settingsTitle": {
     "description": "The title of the Settings page"
@@ -304,7 +304,7 @@
   "@darkmode_light": {
     "description": "Indicator inside the darkmode switch (light)"
   },
-  "darkmode_system_default": "Järjestelmän oletus",
+  "darkmode_system_default": "JÃ¤rjestelmÃ¤n oletus",
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
@@ -317,14 +317,14 @@
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
-  "contributors_dialog_entry_description": "Tekijä: {name}",
+  "contributors_dialog_entry_description": "TekijÃ¤: {name}",
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
-      "name": {}
+      "name": {"type": "Object"}
     }
   },
-  "contributors_description": "Luettelo kaikista tämän sovelluksen tekijöistä",
+  "contributors_description": "Luettelo kaikista tÃ¤mÃ¤n sovelluksen tekijÃ¶istÃ¤",
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
@@ -332,18 +332,18 @@
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
-  "support_join_slack": "Pyydä apua Slack-kanavallamme",
+  "support_join_slack": "PyydÃ¤ apua Slack-kanavallamme",
   "support_via_forum": "Kysy apua foorumillamme",
-  "support_via_email": "Lähetä meille sähköpostia",
-  "support_via_email_include_logs_dialog_title": "Lähetetäänkö sovellusloki?",
-  "support_via_email_include_logs_dialog_body": "Haluatko liittää sovelluslokit sähköpostiisi?",
-  "termsOfUse": "Käyttöehdot",
+  "support_via_email": "LÃ¤hetÃ¤ meille sÃ¤hkÃ¶postia",
+  "support_via_email_include_logs_dialog_title": "LÃ¤hetetÃ¤Ã¤nkÃ¶ sovellusloki?",
+  "support_via_email_include_logs_dialog_body": "Haluatko liittÃ¤Ã¤ sovelluslokit sÃ¤hkÃ¶postiisi?",
+  "termsOfUse": "KÃ¤yttÃ¶ehdot",
   "@termsOfUse": {},
   "legalNotices": "Lailliset huomautukset",
   "@legalNotices": {
     "description": "A link to open the legal notices on the website"
   },
-  "privacy_policy": "Tietosuojakäytäntö",
+  "privacy_policy": "TietosuojakÃ¤ytÃ¤ntÃ¶",
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
@@ -360,21 +360,21 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "Jokaisen Open Food Facts -tuotteen koodi on saatavilla GitHubissa. Koodia saa käyttää vapaasti (lähdekoodi on avoin) ja parannella. Parannuksista hyötyy jokainen, koko planeetta.",
+  "contribute_develop_text": "Jokaisen Open Food Facts -tuotteen koodi on saatavilla GitHubissa. Koodia saa kÃ¤yttÃ¤Ã¤ vapaasti (lÃ¤hdekoodi on avoin) ja parannella. Parannuksista hyÃ¶tyy jokainen, koko planeetta.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "Voit liittyä Open Food Factsin Slack-keskusteluryhmään, jossa voi esittää kysymyksiä.",
+  "contribute_develop_text_2": "Voit liittyÃ¤ Open Food Factsin Slack-keskusteluryhmÃ¤Ã¤n, jossa voi esittÃ¤Ã¤ kysymyksiÃ¤.",
   "@contribute_develop_text_2": {},
-  "contribute_develop_dev_mode_title": "Kehittäjätila?",
-  "contribute_develop_dev_mode_subtitle": "Aktivoi kehittäjätila",
+  "contribute_develop_dev_mode_title": "KehittÃ¤jÃ¤tila?",
+  "contribute_develop_dev_mode_subtitle": "Aktivoi kehittÃ¤jÃ¤tila",
   "contribute_donate_title": "Lahjoita",
   "@contribute_donate_title": {},
   "contribute_donate_header": "Lahjoita Open Food Factsille",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Rekisteröidy sisäiseen alfaversioon",
+  "contribute_enroll_alpha": "RekisterÃ¶idy sisÃ¤iseen alfaversioon",
   "@contribute_enroll_alpha": {},
-  "contribute_enroll_alpha_warning": "Huomaa, että sisäisellä alfaversiolla tietojen täydellinen menetys on mahdollista ja sovellus voi muuttua käyttökelvottomaksi milloin tahansa!",
+  "contribute_enroll_alpha_warning": "Huomaa, ettÃ¤ sisÃ¤isellÃ¤ alfaversiolla tietojen tÃ¤ydellinen menetys on mahdollista ja sovellus voi muuttua kÃ¤yttÃ¶kelvottomaksi milloin tahansa!",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "Täydennettävät tuotteet",
+  "contribute_improve_ProductsToBeCompleted": "TÃ¤ydennettÃ¤vÃ¤t tuotteet",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
@@ -382,36 +382,36 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "Tietokanta on hankkeen ydin. Se on helppoa ja erittäin nopeaa auttaa. Voit ladata mobiilisovelluksen puhelimeesi ja aloittaa tuotteiden lisäämisen tai parantamisen.\n\nToisaalta Open Food Facts -sivusto tarjoaa monia tapoja osallistua: ",
+  "contribute_improve_text": "Tietokanta on hankkeen ydin. Se on helppoa ja erittÃ¤in nopeaa auttaa. Voit ladata mobiilisovelluksen puhelimeesi ja aloittaa tuotteiden lisÃ¤Ã¤misen tai parantamisen.\n\nToisaalta Open Food Facts -sivusto tarjoaa monia tapoja osallistua: ",
   "@contribute_improve_text": {},
-  "contribute_translate_header": "Käännä",
+  "contribute_translate_header": "KÃ¤Ã¤nnÃ¤",
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_translate_link_text": "Aloita kääntäminen",
+  "contribute_translate_link_text": "Aloita kÃ¤Ã¤ntÃ¤minen",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts on maailmanlaajuinen projekti, joka sisältää tuotteita yli 160 maasta. Open Food Facts on käännetty kymmenille kielille, ja sen sisältö kehittyy jatkuvasti.",
+  "contribute_translate_text": "Open Food Facts on maailmanlaajuinen projekti, joka sisÃ¤ltÃ¤Ã¤ tuotteita yli 160 maasta. Open Food Facts on kÃ¤Ã¤nnetty kymmenille kielille, ja sen sisÃ¤ltÃ¶ kehittyy jatkuvasti.",
   "@contribute_translate_text": {},
-  "contribute_translate_text_2": "Käännökset on yksi hankkeen keskeisistä tehtävistä",
+  "contribute_translate_text_2": "KÃ¤Ã¤nnÃ¶kset on yksi hankkeen keskeisistÃ¤ tehtÃ¤vistÃ¤",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Edistä taitojasi Open Food Factsissa. Liity osaamispooliin!",
-  "contribute_share_header": "Jaa Open Food Facts ystäviesi kanssa",
+  "contribute_join_skill_pool": "EdistÃ¤ taitojasi Open Food Factsissa. Liity osaamispooliin!",
+  "contribute_share_header": "Jaa Open Food Facts ystÃ¤viesi kanssa",
   "@contribute_share_header": {},
-  "contribute_share_content": "Halusin kertoa sinulle käyttämästäni Open Food Facts -sovelluksesta, jonka avulla saat henkilökohtaisesti selville ruokasi terveys- ja ympäristövaikutukset. Se toimii skannaamalla pakkauksessa olevat viivakoodit. Lopuksi se on ilmainen, ei vaadi rekisteröintiä, ja voit jopa auttaa lisäämään purettujen tuotteiden määrää. Tässä linkki, josta saat sen puhelimeesi: https://openfoodfacts.app",
+  "contribute_share_content": "Halusin kertoa sinulle kÃ¤yttÃ¤mÃ¤stÃ¤ni Open Food Facts -sovelluksesta, jonka avulla saat henkilÃ¶kohtaisesti selville ruokasi terveys- ja ympÃ¤ristÃ¶vaikutukset. Se toimii skannaamalla pakkauksessa olevat viivakoodit. Lopuksi se on ilmainen, ei vaadi rekisterÃ¶intiÃ¤, ja voit jopa auttaa lisÃ¤Ã¤mÃ¤Ã¤n purettujen tuotteiden mÃ¤Ã¤rÃ¤Ã¤. TÃ¤ssÃ¤ linkki, josta saat sen puhelimeesi: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "tap_to_answer": "Vastaa tästä kysymyksiin",
+  "tap_to_answer": "Vastaa tÃ¤stÃ¤ kysymyksiin",
   "@tap_to_answer": {
-    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts and gain rewards."
   },
-  "tap_to_answer_hint": "Napauta tätä vastataksesi tätä tuotetta koskeviin kysymyksiin",
+  "tap_to_answer_hint": "Napauta tÃ¤tÃ¤ vastataksesi tÃ¤tÃ¤ tuotetta koskeviin kysymyksiin",
   "@tap_to_answer_hint": {
     "description": "Hint for accessibility readers to answer Robotoff questions."
   },
-  "robotoff_questions_loading_hint": "Odota. Tätä tuotetta koskevia kysymyksiä ladataan",
+  "robotoff_questions_loading_hint": "Odota. TÃ¤tÃ¤ tuotetta koskevia kysymyksiÃ¤ ladataan",
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
@@ -419,21 +419,21 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Ryhdy ruoan läpinäkyvyyden toimijaksi",
+  "contribute_to_get_rewards": "Ryhdy ruoan lÃ¤pinÃ¤kyvyyden toimijaksi",
   "@contribute_to_get_rewards": {
-    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
+    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts."
   },
-  "question_sign_in_text": "Kirjaudu sisään Open Food Facts -tilillesi saadaksesi hyvitystä avustuksestasi",
-  "question_yes_button_accessibility_value": "Vastaa kyllä",
+  "question_sign_in_text": "Kirjaudu sisÃ¤Ã¤n Open Food Facts -tilillesi saadaksesi hyvitystÃ¤ avustuksestasi",
+  "question_yes_button_accessibility_value": "Vastaa kyllÃ¤",
   "question_no_button_accessibility_value": "Vastaa ei",
-  "question_skip_button_accessibility_value": "Ohita tämä kysymys",
+  "question_skip_button_accessibility_value": "Ohita tÃ¤mÃ¤ kysymys",
   "tap_to_edit_search": "Muokkaa hakua",
   "@Personal preferences": {},
   "myPreferences": "Mieltymykseni",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Luo tili ja liity Open Food Facts -yhteisöön auttaaksesi rakentamaan ruokatietoa kaikkialla maailmassa!",
+  "account_create_message": "Luo tili ja liity Open Food Facts -yhteisÃ¶Ã¶n auttaaksesi rakentamaan ruokatietoa kaikkialla maailmassa!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
@@ -442,25 +442,25 @@
     "description": "Join which is actually Signup"
   },
   "myPreferences_profile_title": "Profiilisi",
-  "myPreferences_profile_subtitle": "Hallinnoi Open Food Facts -avustajatiliäsi.",
+  "myPreferences_profile_subtitle": "Hallinnoi Open Food Facts -avustajatiliÃ¤si.",
   "myPreferences_settings_title": "Sovellusasetukset",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "Dark mode, Languagesâ€¦",
   "myPreferences_food_title": "Ruokamieltymykset",
-  "myPreferences_food_subtitle": "Valitse, mikä ruoan tieto kiinnostaa eniten.",
-  "myPreferences_food_comment": "Valitse, mitkä tiedot ruoasta ovat sinulle tärkeimpiä, jotta voit luokitella ruoat mieltymystesi mukaan, nähdä sinulle tärkeät tiedot ensin ja saada yhteensopivuusyhteenveto. Nämä ruokamieltymykset pysyvät laitteessasi, eikä niitä yhdistetä Open Food Facts -avustajatiliisi, jos sinulla on sellainen.",
+  "myPreferences_food_subtitle": "Valitse, mikÃ¤ ruoan tieto kiinnostaa eniten.",
+  "myPreferences_food_comment": "Valitse, mitkÃ¤ tiedot ruoasta ovat sinulle tÃ¤rkeimpiÃ¤, jotta voit luokitella ruoat mieltymystesi mukaan, nÃ¤hdÃ¤ sinulle tÃ¤rkeÃ¤t tiedot ensin ja saada yhteensopivuusyhteenveto. NÃ¤mÃ¤ ruokamieltymykset pysyvÃ¤t laitteessasi, eikÃ¤ niitÃ¤ yhdistetÃ¤ Open Food Facts -avustajatiliisi, jos sinulla on sellainen.",
   "confirmResetPreferences": "Nollaa ruokamieltymyksesi?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
-  "myPersonalizedRanking": "Henkilökohtainen sijoitukseni",
+  "myPersonalizedRanking": "HenkilÃ¶kohtainen sijoitukseni",
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
   "ranking_tab_all": "Kaikki",
-  "ranking_subtitle_match_yes": "Hyvä osuma sinulle",
+  "ranking_subtitle_match_yes": "HyvÃ¤ osuma sinulle",
   "ranking_subtitle_match_no": "Heikko osuma",
   "ranking_subtitle_match_maybe": "Tuntematon vastaavuus",
-  "refresh_with_new_preferences": "Päivitä lista uusilla ruokamieltymyksilläsi",
+  "refresh_with_new_preferences": "PÃ¤ivitÃ¤ lista uusilla ruokamieltymyksillÃ¤si",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
   },
@@ -498,7 +498,7 @@
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
-  "scan": "Tuotteet skannausnäytöstä",
+  "scan": "Tuotteet skannausnÃ¤ytÃ¶stÃ¤",
   "@scan": {
     "description": "Page title: List type: Products in the scan session"
   },
@@ -510,11 +510,11 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_store": "Hae myymälää",
+  "search_store": "Hae myymÃ¤lÃ¤Ã¤",
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "tap_for_more": "Napauta nähdäksesi lisätietoja…",
+  "tap_for_more": "Napauta nÃ¤hdÃ¤ksesi lisÃ¤tietojaâ€¦",
   "@Product": {},
   "product": "Tuote",
   "@product": {},
@@ -522,7 +522,7 @@
   "@unknownBrand": {},
   "unknownProductName": "Tuntematon tuotenimi",
   "@unknownProductName": {},
-  "label_refresh": "Päivitä",
+  "label_refresh": "PÃ¤ivitÃ¤",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -535,11 +535,11 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "{imageType} (tämä kuva saattaa olla vanhentunut)",
+  "outdated_image_accessibility_label": "{imageType} (tÃ¤mÃ¤ kuva saattaa olla vanhentunut)",
   "@outdated_image_accessibility_label": {
-    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutritionâ€¦)",
     "placeholders": {
-      "imageType": {}
+      "imageType": {"type": "Object"}
     }
   },
   "outdated_image_short_label": "may be outdated",
@@ -549,20 +549,20 @@
   "ingredients": "Ainesosat",
   "@ingredients": {},
   "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
-  "ingredients_editing_error": "Ainesosalistan tallennus epäonnistui.",
-  "ingredients_editing_image_error": "Ainesosakuvan lataus epäonnistui.",
+  "ingredients_editing_error": "Ainesosalistan tallennus epÃ¤onnistui.",
+  "ingredients_editing_image_error": "Ainesosakuvan lataus epÃ¤onnistui.",
   "ingredients_editing_title": "Muokkaa ainesosia",
   "ingredients_photo": "Ainesosakuva",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
-  "packaging_editing_instructions": "Luettele pakkauksen osat pilkuin taikka rivinvaihdoin eroteltuna, ilmoita myös lukumäärä (kuten 1 tai 6), tyyppi (kuten pullo, laatikko tai tölkki), materiaali (kuten muovi, metalli tai alumiini) sekä mikäli mahdollista, koko (kuten 33 cl) ja kierrätysohjeet.\nEsimerkki: 1 lasipullo kierrätettäväksi, 1 muovikorkki heitettäväksi pois",
-  "packaging_editing_error": "Pakkauksen tallentaminen epäonnistui.",
-  "packaging_editing_image_error": "Pakkauskuvan hakeminen epäonnistui.",
+  "packaging_editing_instructions": "Luettele pakkauksen osat pilkuin taikka rivinvaihdoin eroteltuna, ilmoita myÃ¶s lukumÃ¤Ã¤rÃ¤ (kuten 1 tai 6), tyyppi (kuten pullo, laatikko tai tÃ¶lkki), materiaali (kuten muovi, metalli tai alumiini) sekÃ¤ mikÃ¤li mahdollista, koko (kuten 33 cl) ja kierrÃ¤tysohjeet.\nEsimerkki: 1 lasipullo kierrÃ¤tettÃ¤vÃ¤ksi, 1 muovikorkki heitettÃ¤vÃ¤ksi pois",
+  "packaging_editing_error": "Pakkauksen tallentaminen epÃ¤onnistui.",
+  "packaging_editing_image_error": "Pakkauskuvan hakeminen epÃ¤onnistui.",
   "packaging_editing_title": "Muokkaa pakkausta",
   "nutrition": "Ravinto",
   "@nutrition": {},
-  "nutrition_facts_photo": "Ravintosisältökuva",
+  "nutrition_facts_photo": "RavintosisÃ¤ltÃ¶kuva",
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
@@ -576,17 +576,17 @@
   },
   "packaging_information_photo": "Pakkaustietokuva",
   "@packaging_information_photo": {},
-  "missing_product": "Löysit uuden tuotteen!",
+  "missing_product": "LÃ¶ysit uuden tuotteen!",
   "@missing_product": {},
-  "add_product_take_photos": "Ota valokuvia pakkauksesta lisätäksesi tämän tuotteen Open Food Factsiin",
+  "add_product_take_photos": "Ota valokuvia pakkauksesta lisÃ¤tÃ¤ksesi tÃ¤mÃ¤n tuotteen Open Food Factsiin",
   "@add_product_take_photos": {},
-  "add_product_take_photos_descriptive": "Ota kuvia ensin. Voit viimeistellä myöhemmin.",
+  "add_product_take_photos_descriptive": "Ota kuvia ensin. Voit viimeistellÃ¤ myÃ¶hemmin.",
   "@add_product_take_photos_descriptive": {},
-  "add_product_information_button_label": "Lisää tuotetiedot",
+  "add_product_information_button_label": "LisÃ¤Ã¤ tuotetiedot",
   "@add_product_information_button_label": {},
   "new_product": "Uusi tuote",
   "@new_product": {},
-  "new_product_found_title": "Löysit uuden tuotteen!",
+  "new_product_found_title": "LÃ¶ysit uuden tuotteen!",
   "@new_product_found_title": {
     "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
   },
@@ -594,48 +594,48 @@
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "new_product_found_button": "Lisää tämä tuote",
-  "new_product_leave_title": "Poistu tältä sivulta?",
+  "new_product_found_button": "LisÃ¤Ã¤ tÃ¤mÃ¤ tuote",
+  "new_product_leave_title": "Poistu tÃ¤ltÃ¤ sivulta?",
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_leave_message": "Näyttää siltä, ettet syöttänyt mitään. Haluatko todella poistua tältä sivulta?",
+  "new_product_leave_message": "NÃ¤yttÃ¤Ã¤ siltÃ¤, ettet syÃ¶ttÃ¤nyt mitÃ¤Ã¤n. Haluatko todella poistua tÃ¤ltÃ¤ sivulta?",
   "@new_product_leave_message": {
     "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_dialog_description": "Lisää tämä tuote yhteiseen tietokantaamme ottamalla sen pakkauksesta kuvia",
+  "new_product_dialog_description": "LisÃ¤Ã¤ tÃ¤mÃ¤ tuote yhteiseen tietokantaamme ottamalla sen pakkauksesta kuvia",
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
   "new_product_dialog_illustration_description": "Kuva tuntemattomasta Nutri-Scoresta ja Green-Scoresta",
   "@new_product_dialog_illustration_description": {
-    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
+    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Greenâ€¯Score."
   },
-  "front_packaging_photo_button_label": "Kuva edestä",
+  "front_packaging_photo_button_label": "Kuva edestÃ¤",
   "@front_packaging_photo_button_label": {},
-  "confirm_front_packaging_photo_button_label": "Vahvista edestäpäin otetun kuvan lataaminen",
+  "confirm_front_packaging_photo_button_label": "Vahvista edestÃ¤pÃ¤in otetun kuvan lataaminen",
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
   "confirm_button_label": "Vahvista",
-  "send_image_button_label": "Lähetä kuva",
-  "crop_page_action_saving": "Tallennetaan kuvaa…",
+  "send_image_button_label": "LÃ¤hetÃ¤ kuva",
+  "crop_page_action_saving": "Tallennetaan kuvaaâ€¦",
   "@crop_page_action_saving": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_cropping": "Rajataan kuvaa…",
+  "crop_page_action_cropping": "Rajataan kuvaaâ€¦",
   "@crop_page_action_cropping": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local": "Tallennetaan paikallinen versio…",
+  "crop_page_action_local": "Tallennetaan paikallinen versioâ€¦",
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Hups… valokuvassasi on jotain!",
+  "crop_page_action_local_failed_title": "Hupsâ€¦ valokuvassasi on jotain!",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_local_failed_message": "Emme pysty käsittelemään kuvaa paikallisesti ennen sen lähettämistä palvelimellemme. Yritä myöhemmin uudelleen tai ota meihin yhteyttä, jos ongelma jatkuu.",
+  "crop_page_action_local_failed_message": "Emme pysty kÃ¤sittelemÃ¤Ã¤n kuvaa paikallisesti ennen sen lÃ¤hettÃ¤mistÃ¤ palvelimellemme. YritÃ¤ myÃ¶hemmin uudelleen tai ota meihin yhteyttÃ¤, jos ongelma jatkuu.",
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -647,7 +647,7 @@
   "@crop_page_too_small_image_title": {
     "description": "Title of a dialog warning the user that the image is too small for upload"
   },
-  "crop_page_too_small_image_message": "Vähimmäiskoko pikseleinä kuvan lähettämiseen on {expectedMinWidth}x{expectedMinHeight}. Nykyinen kuva on {actualWidth}x{actualHeight}.",
+  "crop_page_too_small_image_message": "VÃ¤himmÃ¤iskoko pikseleinÃ¤ kuvan lÃ¤hettÃ¤miseen on {expectedMinWidth}x{expectedMinHeight}. Nykyinen kuva on {actualWidth}x{actualHeight}.",
   "@crop_page_too_small_image_message": {
     "description": "Message of a dialog warning the user that the image is too small for upload",
     "placeholders": {
@@ -665,39 +665,39 @@
       }
     }
   },
-  "crop_page_action_server": "Valmistellaan palvelinkutsua…",
+  "crop_page_action_server": "Valmistellaan palvelinkutsuaâ€¦",
   "@crop_page_action_server": {
     "description": "Action being performed on the crop page"
   },
   "front_packaging_photo_title": "Pakkauksen kuva",
-  "ingredients_photo_title": "Sisältöluettelon kuva",
-  "nutritional_facts_photo_title": "Ravintosisältökuva",
-  "recycling_photo_title": "Kierrätyksen kuva",
+  "ingredients_photo_title": "SisÃ¤ltÃ¶luettelon kuva",
+  "nutritional_facts_photo_title": "RavintosisÃ¤ltÃ¶kuva",
+  "recycling_photo_title": "KierrÃ¤tyksen kuva",
   "take_photo_title": "Ota kuva",
-  "take_more_photo_title": "Ota lisää kuvia",
+  "take_more_photo_title": "Ota lisÃ¤Ã¤ kuvia",
   "front_photo_uploaded": "Etukuva ladattu",
   "@front_photo_uploaded": {},
   "ingredients_photo_button_label": "Ainesosakuva",
   "@ingredients_photo_button_label": {},
-  "ingredients_photo_uploaded": "Sisältöluettelokuva ladattu",
+  "ingredients_photo_uploaded": "SisÃ¤ltÃ¶luettelokuva ladattu",
   "@ingredients_photo_uploaded": {},
-  "nutrition_cache_loading_error": "Ravintoaineita ei voida ladata välimuistista",
-  "nutritional_facts_photo_button_label": "Ravintosisältökuva",
+  "nutrition_cache_loading_error": "Ravintoaineita ei voida ladata vÃ¤limuistista",
+  "nutritional_facts_photo_button_label": "RavintosisÃ¤ltÃ¶kuva",
   "@nutritional_facts_photo_button_label": {},
-  "nutritional_facts_input_button_label": "Lisää ravintosisältö",
-  "nutritional_facts_added": "Ravintosisältö lisätty",
-  "categories_added": "Tuoteluokat lisätty",
+  "nutritional_facts_input_button_label": "LisÃ¤Ã¤ ravintosisÃ¤ltÃ¶",
+  "nutritional_facts_added": "RavintosisÃ¤ltÃ¶ lisÃ¤tty",
+  "categories_added": "Tuoteluokat lisÃ¤tty",
   "new_product_title_nutriscore": "Laske Nutri-Score",
-  "new_product_subtitle_nutriscore": "Hanki se täyttämällä ruokaluokka ja ravintoarvot",
+  "new_product_subtitle_nutriscore": "Hanki se tÃ¤yttÃ¤mÃ¤llÃ¤ ruokaluokka ja ravintoarvot",
   "new_product_title_environmental_score": "Laske Green-Score",
-  "new_product_subtitle_environmental_score": "Sinun on lisättävä tuotteelle luokka, jotta laskelma voidaan suorittaa",
-  "new_product_additional_environmental_score": "Lisää tuotteen alkuperä- ja pakkaustiedot sekä muita tietoja, jotta Green-Score-laskelma olisi tarkempi",
+  "new_product_subtitle_environmental_score": "Sinun on lisÃ¤ttÃ¤vÃ¤ tuotteelle luokka, jotta laskelma voidaan suorittaa",
+  "new_product_additional_environmental_score": "LisÃ¤Ã¤ tuotteen alkuperÃ¤- ja pakkaustiedot sekÃ¤ muita tietoja, jotta Green-Score-laskelma olisi tarkempi",
   "new_product_title_nova": "Laske ruoan jalostustaso (NOVA)",
-  "new_product_subtitle_nova": "Hanki se täyttämällä ruokaluokka ja ainesosat",
+  "new_product_subtitle_nova": "Hanki se tÃ¤yttÃ¤mÃ¤llÃ¤ ruokaluokka ja ainesosat",
   "new_product_desc_nova_unknown": "Ruoan jalostusaste tuntematon",
   "new_product_title_pictures": "Otetaan muutamia kuvia!",
   "new_product_title_pictures_details": "Ota seuraavat kuvat, niin Open Food Facts -moottori ratkaisee loput!",
-  "new_product_title_misc": "Ja joitakin perustietoja…",
+  "new_product_title_misc": "Ja joitakin perustietojaâ€¦",
   "new_product_done_msg": "Kiitos panoksestasi \"{username}\"!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
@@ -713,17 +713,17 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Napauta tästä ja vastaa Nutri-Scoren, Green-Scoren ja jalostusasteen (NOVA) laskemiseen tarvittaviin \nkolmeen kysymykseen!",
-  "hey_incomplete_product_message_beauty": "Napauta tästä ja vastaa kahteen kosmetiikkatuotteen analysoimiseen tarvittavaan kysymykseen!",
-  "hey_incomplete_product_message_pet_food": "Napauta tästä ja vastaa kahteen lemmikkieläinten ruokatuotteen analysoimiseen tarvittavaan kysymykseen!",
-  "hey_incomplete_product_message_product": "Napauta tästä ja auta täydentämään tämän tuotteen tiedot!",
-  "nutritional_facts_photo_uploaded": "Ravintosisältökuva ladattu",
+  "hey_incomplete_product_message": "Napauta tÃ¤stÃ¤ ja vastaa Nutri-Scoren, Green-Scoren ja jalostusasteen (NOVA) laskemiseen tarvittaviin \nkolmeen kysymykseen!",
+  "hey_incomplete_product_message_beauty": "Napauta tÃ¤stÃ¤ ja vastaa kahteen kosmetiikkatuotteen analysoimiseen tarvittavaan kysymykseen!",
+  "hey_incomplete_product_message_pet_food": "Napauta tÃ¤stÃ¤ ja vastaa kahteen lemmikkielÃ¤inten ruokatuotteen analysoimiseen tarvittavaan kysymykseen!",
+  "hey_incomplete_product_message_product": "Napauta tÃ¤stÃ¤ ja auta tÃ¤ydentÃ¤mÃ¤Ã¤n tÃ¤mÃ¤n tuotteen tiedot!",
+  "nutritional_facts_photo_uploaded": "RavintosisÃ¤ltÃ¶kuva ladattu",
   "@nutritional_facts_photo_uploaded": {},
-  "recycling_photo_button_label": "Kierrätyskuva",
+  "recycling_photo_button_label": "KierrÃ¤tyskuva",
   "@recycling_photo_button_label": {},
-  "recycling_photo_uploaded": "Kierrätyskuva ladattu",
+  "recycling_photo_uploaded": "KierrÃ¤tyskuva ladattu",
   "@recycling_photo_uploaded": {},
-  "take_more_photo_button_label": "Ota lisää kuvia",
+  "take_more_photo_button_label": "Ota lisÃ¤Ã¤ kuvia",
   "@take_more_photo_button_label": {},
   "other_photo_uploaded": "Sekalainen kuva ladattu",
   "@other_photo_uploaded": {},
@@ -747,7 +747,7 @@
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Ladataan ravintosisältökuvaa Open Food Factsiin",
+  "uploading_image_type_nutrition": "Ladataan ravintosisÃ¤ltÃ¶kuvaa Open Food Factsiin",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
@@ -763,21 +763,21 @@
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
-  "score_add_missing_ingredients": "Lisää puuttuva ravintoaine",
-  "score_add_missing_packaging_image": "Lisää kuva pakkauksesta",
-  "score_add_missing_nutrition_facts": "Lisää puuttuva ravintosisältö",
-  "score_add_missing_product_category": "Lisää puuttuva tuoteluokka",
-  "score_add_missing_product_countries": "Lisää valmistusmaa",
-  "score_add_missing_product_emb": "Lisää jäljitettävyyskoodi",
-  "score_add_missing_product_labels": "Lisää puuttuvat merkit",
-  "score_add_missing_product_origins": "Lisää alkuperä",
-  "score_add_missing_product_stores": "Lisää kaupat",
+  "score_add_missing_ingredients": "LisÃ¤Ã¤ puuttuva ravintoaine",
+  "score_add_missing_packaging_image": "LisÃ¤Ã¤ kuva pakkauksesta",
+  "score_add_missing_nutrition_facts": "LisÃ¤Ã¤ puuttuva ravintosisÃ¤ltÃ¶",
+  "score_add_missing_product_category": "LisÃ¤Ã¤ puuttuva tuoteluokka",
+  "score_add_missing_product_countries": "LisÃ¤Ã¤ valmistusmaa",
+  "score_add_missing_product_emb": "LisÃ¤Ã¤ jÃ¤ljitettÃ¤vyyskoodi",
+  "score_add_missing_product_labels": "LisÃ¤Ã¤ puuttuvat merkit",
+  "score_add_missing_product_origins": "LisÃ¤Ã¤ alkuperÃ¤",
+  "score_add_missing_product_stores": "LisÃ¤Ã¤ kaupat",
   "score_add_missing_product_brands": "Add missing product brands",
-  "score_update_nutrition_facts": "Päivitä ravintosisältö",
-  "nutrition_page_title": "Ravintosisältö",
+  "score_update_nutrition_facts": "PÃ¤ivitÃ¤ ravintosisÃ¤ltÃ¶",
+  "nutrition_page_title": "RavintosisÃ¤ltÃ¶",
   "nutrition_page_nutritional_info_title": "Nutritional information",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
-  "nutrition_page_nutritional_info_value_positive": "Kyllä",
+  "nutrition_page_nutritional_info_value_positive": "KyllÃ¤",
   "nutrition_page_nutritional_info_value_negative": "Ei",
   "nutrition_page_nutritional_info_open_photo": "Open photo",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
@@ -795,7 +795,7 @@
   "nutrition_page_per_100g": "100 grammaa kohti",
   "nutrition_page_per_100g_100ml": "per 100g/ml",
   "nutrition_page_per_serving": "annosta kohti",
-  "nutrition_page_add_nutrient": "Lisää ravintoaine",
+  "nutrition_page_add_nutrient": "LisÃ¤Ã¤ ravintoaine",
   "nutrition_page_serving_size": "Annoskoko",
   "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
   "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
@@ -806,7 +806,7 @@
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, Âµg, oz, l, dl, cl, ml, fl.oz, fl oz, Ð³, Ð¼Ð³, ÐºÐ³, Ð», Ð´Ð», ÐºÐ», Ð¼Ð», æ¯«å…‹, å…¬æ–¤, æ¯«å‡, å…¬å‡, å¨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
@@ -843,9 +843,9 @@
     "description": "Example of an incorrect serving size"
   },
   "nutrition_page_invalid_number": "Virheellinen numero",
-  "nutrition_page_update_running": "Päivitetään tuotteita palvelimella…",
-  "nutrition_page_update_done": "Tuote päivitetty!",
-  "nutrition_page_take_serving_size_from_product_quantity": "Käytä tuotteen määrää annoskokona",
+  "nutrition_page_update_running": "PÃ¤ivitetÃ¤Ã¤n tuotteita palvelimellaâ€¦",
+  "nutrition_page_update_done": "Tuote pÃ¤ivitetty!",
+  "nutrition_page_take_serving_size_from_product_quantity": "KÃ¤ytÃ¤ tuotteen mÃ¤Ã¤rÃ¤Ã¤ annoskokona",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
   },
@@ -853,19 +853,19 @@
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
-  "more_photos": "Lisää kuvia",
+  "more_photos": "LisÃ¤Ã¤ kuvia",
   "@more_photos": {},
-  "view_more_photo_button": "Näytä kaikki tämän tuotteen olemassa olevat kuvat",
+  "view_more_photo_button": "NÃ¤ytÃ¤ kaikki tÃ¤mÃ¤n tuotteen olemassa olevat kuvat",
   "@view_more_photo_button": {},
-  "no_product_found": "Tuotetta ei löytynyt",
+  "no_product_found": "Tuotetta ei lÃ¶ytynyt",
   "@no_product_found": {},
-  "no_location_found": "Sijaintia ei löytynyt",
-  "not_found": "ei löytynyt:",
-  "refreshing_product": "Päivitetään tuotetta",
+  "no_location_found": "Sijaintia ei lÃ¶ytynyt",
+  "not_found": "ei lÃ¶ytynyt:",
+  "refreshing_product": "PÃ¤ivitetÃ¤Ã¤n tuotetta",
   "@refreshing_product": {
     "description": "Confirmation, that the product data of a cached product is queried again"
   },
-  "product_refreshed": "Tuote päivitetty",
+  "product_refreshed": "Tuote pÃ¤ivitetty",
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
@@ -878,7 +878,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Kuva otettu {date}. Tämä kuva saattaa olla vanhentunut",
+  "product_image_outdated_accessibility_label": "Kuva otettu {date}. TÃ¤mÃ¤ kuva saattaa olla vanhentunut",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -887,8 +887,8 @@
       }
     }
   },
-  "product_image_outdated": "Tämä kuva saattaa olla vanhentunut",
-  "product_image_outdated_explanations_title": "Tämä kuva saattaa olla vanhentunut",
+  "product_image_outdated": "TÃ¤mÃ¤ kuva saattaa olla vanhentunut",
+  "product_image_outdated_explanations_title": "TÃ¤mÃ¤ kuva saattaa olla vanhentunut",
   "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
@@ -903,7 +903,7 @@
       }
     }
   },
-  "product_image_action_add_photo": "Lisää kuva ({type})",
+  "product_image_action_add_photo": "LisÃ¤Ã¤ kuva ({type})",
   "@product_image_action_add_photo": {
     "description": "Action on the photo gallery to add a photo (eg: ingredients)",
     "placeholders": {
@@ -945,7 +945,7 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Päivämäärä",
+  "product_image_details_date": "PÃ¤ivÃ¤mÃ¤Ã¤rÃ¤",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -966,7 +966,7 @@
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
   },
-  "scan_tagline_news_item_accessibility": "Viimeisimmät uutiset: {news_title}",
+  "scan_tagline_news_item_accessibility": "ViimeisimmÃ¤t uutiset: {news_title}",
   "@scan_tagline_news_item_accessibility": {
     "description": "Accessibility label for the title of a news",
     "placeholders": {
@@ -975,21 +975,21 @@
       }
     }
   },
-  "tagline_app_review": "Pidätkö sovelluksesta?",
-  "tagline_app_review_button_positive": "Rakastan sitä! 😍",
-  "tagline_app_review_button_negative": "En juurikaan…",
-  "tagline_app_review_button_later": "Kysy myöhemmin",
-  "tagline_feed_news_button": "Lisätietoja",
-  "app_review_negative_modal_title": "Etkö pidä sovelluksestamme?",
-  "app_review_negative_modal_text": "Voisitko käyttää muutaman sekunnin kertoaksesi meille miksi?",
-  "app_review_negative_modal_positive_button": "Kyllä, ehdottomasti!",
+  "tagline_app_review": "PidÃ¤tkÃ¶ sovelluksesta?",
+  "tagline_app_review_button_positive": "Rakastan sitÃ¤! ðŸ˜",
+  "tagline_app_review_button_negative": "En juurikaanâ€¦",
+  "tagline_app_review_button_later": "Kysy myÃ¶hemmin",
+  "tagline_feed_news_button": "LisÃ¤tietoja",
+  "app_review_negative_modal_title": "EtkÃ¶ pidÃ¤ sovelluksestamme?",
+  "app_review_negative_modal_text": "Voisitko kÃ¤yttÃ¤Ã¤ muutaman sekunnin kertoaksesi meille miksi?",
+  "app_review_negative_modal_positive_button": "KyllÃ¤, ehdottomasti!",
   "app_review_negative_modal_negative_button": "Ei",
-  "could_not_refresh": "Tuotteen päivitys epäonnistui",
+  "could_not_refresh": "Tuotteen pÃ¤ivitys epÃ¤onnistui",
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
   "product_internet_error_modal_title": "Tapahtui virhe!",
-  "product_internet_error_modal_message": "Emme voi noutaa tietoja tästä tuotteesta verkkovirheen vuoksi. Tarkista internet-yhteytesi ja yritä uudelleen.\n\nSisäinen virhe:\n{error}",
+  "product_internet_error_modal_message": "Emme voi noutaa tietoja tÃ¤stÃ¤ tuotteesta verkkovirheen vuoksi. Tarkista internet-yhteytesi ja yritÃ¤ uudelleen.\n\nSisÃ¤inen virhe:\n{error}",
   "@product_internet_error_modal_message": {
     "placeholders": {
       "error": {
@@ -1002,11 +1002,11 @@
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
-  "no_product_tags_found_message": "Tuotteen ominaisuuksia ei löytynyt. Ominaisuuksien avulla voidaan kuvata tuotteita tarkemmin, joustavasti. Lisää napauttamalla.",
+  "no_product_tags_found_message": "Tuotteen ominaisuuksia ei lÃ¶ytynyt. Ominaisuuksien avulla voidaan kuvata tuotteita tarkemmin, joustavasti. LisÃ¤Ã¤ napauttamalla.",
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "add_tag": "Lisää omaisuus",
+  "add_tag": "LisÃ¤Ã¤ omaisuus",
   "add_tags": "Add properties",
   "add_edit_tags": "Add or edit properties",
   "edit_tag": "Muokkaa ominaisuutta",
@@ -1028,8 +1028,8 @@
       }
     }
   },
-  "product_internet_error": "Tietojen lataus epäonnistui verkkovirheen vuoksi.",
-  "cached_results_from": "Näytä tulokset ajalta:",
+  "product_internet_error": "Tietojen lataus epÃ¤onnistui verkkovirheen vuoksi.",
+  "cached_results_from": "NÃ¤ytÃ¤ tulokset ajalta:",
   "@cached_results_from": {
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
@@ -1042,31 +1042,31 @@
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_search_same_category_error": "Tätä ominaisuutta voi käyttää vain tuotteissa, joilla on luokka.\n\nLisää luokka muokkaamalla tuotetta.",
+  "product_search_same_category_error": "TÃ¤tÃ¤ ominaisuutta voi kÃ¤yttÃ¤Ã¤ vain tuotteissa, joilla on luokka.\n\nLisÃ¤Ã¤ luokka muokkaamalla tuotetta.",
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Lisää luokka laskeaksesi Nutri-pisteytyksen.",
+  "product_improvement_add_category": "LisÃ¤Ã¤ luokka laskeaksesi Nutri-pisteytyksen.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Lisää ravintosisältö saadaksesi Nutri-pisteytyksen.",
+  "product_improvement_add_nutrition_facts": "LisÃ¤Ã¤ ravintosisÃ¤ltÃ¶ saadaksesi Nutri-pisteytyksen.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Lisää ravitsemustiedot ja luokka laskeaksesi Nutri-pisteytyksen.",
+  "product_improvement_add_nutrition_facts_and_category": "LisÃ¤Ã¤ ravitsemustiedot ja luokka laskeaksesi Nutri-pisteytyksen.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Nutri-pisteytystä ei voi laskea. Syynä voi olla esimerkiksi epätavallinen luokka. Ota yhteyttä, mikäli oletat tämän olevan virhe.",
+  "product_improvement_categories_but_no_nutriscore": "Nutri-pisteytystÃ¤ ei voi laskea. SyynÃ¤ voi olla esimerkiksi epÃ¤tavallinen luokka. Ota yhteyttÃ¤, mikÃ¤li oletat tÃ¤mÃ¤n olevan virhe.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
-  "product_improvement_obsolete_nutrition_image": "Ravintokuva on vanhentunut, päivitä.",
+  "product_improvement_obsolete_nutrition_image": "Ravintokuva on vanhentunut, pÃ¤ivitÃ¤.",
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "Green-Scoren laskelmassa otetaan huomioon ainesosien alkuperät. Ota kuva ainesosaluettelosta tai mistä vain maantieteellisestä alkuperästä kertovasta väittämästä, tai muokkaa tuotetta, jotta ainesosien alkuperä voidaan ottaa huomioon laskelmassa.",
+  "product_improvement_origins_to_be_completed": "Green-Scoren laskelmassa otetaan huomioon ainesosien alkuperÃ¤t. Ota kuva ainesosaluettelosta tai mistÃ¤ vain maantieteellisestÃ¤ alkuperÃ¤stÃ¤ kertovasta vÃ¤ittÃ¤mÃ¤stÃ¤, tai muokkaa tuotetta, jotta ainesosien alkuperÃ¤ voidaan ottaa huomioon laskelmassa.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
@@ -1104,7 +1104,7 @@
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Jotkin ympäristövaikutukset ovat paikkakohtaisia",
+  "country_selection_explanation": "Jotkin ympÃ¤ristÃ¶vaikutukset ovat paikkakohtaisia",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
@@ -1134,72 +1134,72 @@
   },
   "@Lists": {},
   "no_prodcut_in_list": "Listassa ei ole tuotteita",
-  "no_product_in_section": "Tässä osiossa ei ole tuotteita",
+  "no_product_in_section": "TÃ¤ssÃ¤ osiossa ei ole tuotteita",
   "recently_seen_products": "Kaikki katsotut tuotteet",
-  "clear": "Tyhjennä",
+  "clear": "TyhjennÃ¤",
   "@clear": {
     "description": "Clears a product list (short label)"
   },
-  "clear_long": "Tyhjennä lista",
+  "clear_long": "TyhjennÃ¤ lista",
   "@clear_long": {
     "description": "Clears a product list (long label)"
   },
-  "really_clear": "Haluatko poistaa tämän listan?",
+  "really_clear": "Haluatko poistaa tÃ¤mÃ¤n listan?",
   "@Plural": {},
   "pct_match": "{percent} % vastaavuus",
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
-      "percent": {}
+      "percent": {"type": "Object"}
     }
   },
-  "plural_ago_days": "{count,plural,  =1{päivä sitten} other{{count} päivää sitten}}",
+  "plural_ago_days": "{count,plural,  =1{pÃ¤ivÃ¤ sitten} other{{count} pÃ¤ivÃ¤Ã¤ sitten}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_hours": "{count,plural,  =1{tunti sitten} other{{count} tuntia sitten}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_minutes": "{count,plural,  =0{alle minuutti sitten} =1{minuutti sitten} other{{count} minuuttia sitten}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_months": "{count,plural,  =1{kuukausi sitten} other{{count} kuukautta sitten}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_weeks": "{count,plural,  =1{viikko sitten} other{{count} viikkoa sitten}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "plural_compare_x_products": "{count,plural, =1{Vertaile yhtä tuotetta} other{Vertaile {count} tuotetta}}",
+  "plural_compare_x_products": "{count,plural, =1{Vertaile yhtÃ¤ tuotetta} other{Vertaile {count} tuotetta}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "multiselect_title": "{count,plural, =0{Ei valittuja tuotteita} =1{Yksi tuote valittu} other{{count} tuotetta valittu}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "compare_products_mode": "Vertaile valittuja tuotteita",
@@ -1214,7 +1214,7 @@
   "@select_all_products_mode": {
     "description": "Button to switch to 'select all products'"
   },
-  "select_none_products_mode": "Tyhjennä valinta",
+  "select_none_products_mode": "TyhjennÃ¤ valinta",
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
@@ -1222,17 +1222,17 @@
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
-  "compare_products_appbar_subtitle": "Valitse vähintään kaksi tuotetta",
+  "compare_products_appbar_subtitle": "Valitse vÃ¤hintÃ¤Ã¤n kaksi tuotetta",
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
-  "retry_button_label": "Yritä uudelleen",
-  "connect_with_us": "Ota yhteyttä",
+  "retry_button_label": "YritÃ¤ uudelleen",
+  "connect_with_us": "Ota yhteyttÃ¤",
   "tiktok": "Follow us on TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
-  "instagram": "Seuraa meitä Instagramissa",
+  "instagram": "Seuraa meitÃ¤ Instagramissa",
   "instagram_link": "https://instagram.com/open.food.facts",
-  "twitter": "Seuraa meitä X:ssä (entinen Twitter)",
+  "twitter": "Seuraa meitÃ¤ X:ssÃ¤ (entinen Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
   "mastodon": "Follow us on Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
@@ -1242,23 +1242,23 @@
   "faq": "FAQ",
   "discover": "Tutustu",
   "how_to_contribute": "Miten voit auttaa",
-  "hint_knowledge_panel_message": "Voit painaa mistä kohti kortta tahansa saadaksesi lisätietoja kohteesta. Kokeile!",
+  "hint_knowledge_panel_message": "Voit painaa mistÃ¤ kohti kortta tahansa saadaksesi lisÃ¤tietoja kohteesta. Kokeile!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
   },
-  "permissions_page_title": "Kameran käyttöoikeus",
+  "permissions_page_title": "Kameran kÃ¤yttÃ¶oikeus",
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "Myönnä sovellukselle kameran käyttöoikeus, jotta se voi lukea viivakoodeja.",
+  "permissions_page_body1": "MyÃ¶nnÃ¤ sovellukselle kameran kÃ¤yttÃ¶oikeus, jotta se voi lukea viivakoodeja.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
-  "permissions_page_body2": "Voit muuttaa tätä koska tahansa asetuksissa.",
+  "permissions_page_body2": "Voit muuttaa tÃ¤tÃ¤ koska tahansa asetuksissa.",
   "@permissions_page_body2": {
     "description": "second paragraph for the camera permission's page (onboarding)"
   },
-  "contact_form_body_android": "Käyttöjärjestelmä: Android (SDK Int: {sdkInt} / Julkaisu: {release})\nMalli: {model}\nTuote: {product}\nLaite: {device}\nTuotemerkki:{brand}",
+  "contact_form_body_android": "KÃ¤yttÃ¶jÃ¤rjestelmÃ¤: Android (SDK Int: {sdkInt} / Julkaisu: {release})\nMalli: {model}\nTuote: {product}\nLaite: {device}\nTuotemerkki:{brand}",
   "@contact_form_body_android": {
     "description": "Contact form content for Android devices",
     "placeholders": {
@@ -1288,7 +1288,7 @@
       }
     }
   },
-  "contact_form_body_ios": "Käyttöjärjestelmä: iOS ({version})\nMalli: {model}\nLokalisoitu malli: {localizedModel}",
+  "contact_form_body_ios": "KÃ¤yttÃ¶jÃ¤rjestelmÃ¤: iOS ({version})\nMalli: {model}\nLokalisoitu malli: {localizedModel}",
   "@contact_form_body_ios": {
     "description": "Contact form content for iOS devices",
     "placeholders": {
@@ -1332,11 +1332,11 @@
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
-  "refuse_button_label": "Hylkää",
+  "refuse_button_label": "HylkÃ¤Ã¤",
   "@refuse": {
     "description": "Button to decline the request of sending the anonymous analytics"
   },
-  "ask_me_later_button_label": "Myöhemmin",
+  "ask_me_later_button_label": "MyÃ¶hemmin",
   "@ask_me_later": {
     "description": "Button to ignore the camera permission request"
   },
@@ -1344,7 +1344,7 @@
   "@are_you_sure": {
     "description": "Are you sure?"
   },
-  "knowledge_panel_text_source": "Eteenpäin {sourceName}",
+  "knowledge_panel_text_source": "EteenpÃ¤in {sourceName}",
   "@knowledge_panel_text_source": {
     "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
     "placeholders": {
@@ -1359,7 +1359,7 @@
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
   "onboarding_continue_button": "Jatka",
-  "onboarding_welcome_loading_dialog_title": "Ladataan ensimmäistä esimerkkituotettasi",
+  "onboarding_welcome_loading_dialog_title": "Ladataan ensimmÃ¤istÃ¤ esimerkkituotettasi",
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
@@ -1375,22 +1375,22 @@
   "@product_list_empty_title": {
     "description": "When the history list is empty, title of the message explaining to start scanning"
   },
-  "product_list_empty_message": "Skannatut tuotteet ilmestyvät tänne ja voit katsoa niistä lisätietoja täällä",
+  "product_list_empty_message": "Skannatut tuotteet ilmestyvÃ¤t tÃ¤nne ja voit katsoa niistÃ¤ lisÃ¤tietoja tÃ¤Ã¤llÃ¤",
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
-  "product_list_reloading_in_progress_multiple": "Päivitetään {count,plural,  =0{tuotetta} =1{tuotetta} other{tuotteita}} historiassasi",
+  "product_list_reloading_in_progress_multiple": "PÃ¤ivitetÃ¤Ã¤n {count,plural,  =0{tuotetta} =1{tuotetta} other{tuotteita}} historiassasi",
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "product_list_reloading_success_multiple": "{count,plural,  =0{Tuotteen} =1{Tuotteen} other{Tuotteiden}} päivitys onnistui",
+  "product_list_reloading_success_multiple": "{count,plural,  =0{Tuotteen} =1{Tuotteen} other{Tuotteiden}} pÃ¤ivitys onnistui",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "loading_dialog_default_title": "Ladataan tietoja",
@@ -1417,7 +1417,7 @@
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Kirjaudu sisään tai rekisteröidy liittyäksesi Open Food Facts -yhteisöön",
+  "user_profile_subtitle_guest": "Kirjaudu sisÃ¤Ã¤n tai rekisterÃ¶idy liittyÃ¤ksesi Open Food Facts -yhteisÃ¶Ã¶n",
   "user_profile_title_id_email": "Open Food Facts -kirjautuminen: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
@@ -1457,11 +1457,11 @@
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
   },
-  "camera_play_sound_title": "Toista äänimerkki luettaessa",
+  "camera_play_sound_title": "Toista Ã¤Ã¤nimerkki luettaessa",
   "@camera_play_sound_title": {
     "description": "Title for the Camera play sound toggle"
   },
-  "camera_play_sound_subtitle": "Päästää äänimerkin joka skannauksen yhteydessä",
+  "camera_play_sound_subtitle": "PÃ¤Ã¤stÃ¤Ã¤ Ã¤Ã¤nimerkin joka skannauksen yhteydessÃ¤",
   "@camera_play_sound_subtitle": {
     "description": "SubTitle for the Camera play sound toggle"
   },
@@ -1469,11 +1469,11 @@
   "@camera_window_accessibility_label": {
     "description": "Accessibility label for the camera window"
   },
-  "app_haptic_feedback_title": "Värinä ja haptiikka",
+  "app_haptic_feedback_title": "VÃ¤rinÃ¤ ja haptiikka",
   "@app_haptic_feedback_title": {
     "description": "Title for the Haptic feedback toggle"
   },
-  "app_haptic_feedback_subtitle": "Värinä tapahtuu, kun joitakin toimintoja suoritetaan (kuten viivakoodinluku, tuotteenpoisto, jne.).",
+  "app_haptic_feedback_subtitle": "VÃ¤rinÃ¤ tapahtuu, kun joitakin toimintoja suoritetaan (kuten viivakoodinluku, tuotteenpoisto, jne.).",
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
@@ -1481,15 +1481,15 @@
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
-  "crash_reporting_toggle_subtitle": "Kun tämä on käytössä, virheraportit lähetetään automaattisesti Open Food Factsin virheenseurantajärjestelmään, jotta vikoja voidaan korjata ja siten parantaa sovellusta.",
+  "crash_reporting_toggle_subtitle": "Kun tÃ¤mÃ¤ on kÃ¤ytÃ¶ssÃ¤, virheraportit lÃ¤hetetÃ¤Ã¤n automaattisesti Open Food Factsin virheenseurantajÃ¤rjestelmÃ¤Ã¤n, jotta vikoja voidaan korjata ja siten parantaa sovellusta.",
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
-  "send_anonymous_data_toggle_title": "Lähetä nimettömiä tietoja",
+  "send_anonymous_data_toggle_title": "LÃ¤hetÃ¤ nimettÃ¶miÃ¤ tietoja",
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
-  "send_anonymous_data_toggle_subtitle": "Kun tämä on käytössä, Open Food Facts -palvelimille lähetetään anonyymejä tietoja sovellusten käytöstä, jotta voimme ymmärtää, kuinka ja kuinka paljon ominaisuuksia käytetään niiden parantamiseksi.",
+  "send_anonymous_data_toggle_subtitle": "Kun tÃ¤mÃ¤ on kÃ¤ytÃ¶ssÃ¤, Open Food Facts -palvelimille lÃ¤hetetÃ¤Ã¤n anonyymejÃ¤ tietoja sovellusten kÃ¤ytÃ¶stÃ¤, jotta voimme ymmÃ¤rtÃ¤Ã¤, kuinka ja kuinka paljon ominaisuuksia kÃ¤ytetÃ¤Ã¤n niiden parantamiseksi.",
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
@@ -1501,8 +1501,8 @@
   "@permission_photo_error": {
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
-  "permission_photo_denied_title": "Salli kameran käyttö, jotta viivakoodeja voidaan lukea",
-  "permission_photo_denied_message": "Salli {appName}:n käyttää kameraa paremman kokemuksen saamiseksi. Pystyt sen avulla lukemaan viivakoodeja.",
+  "permission_photo_denied_title": "Salli kameran kÃ¤yttÃ¶, jotta viivakoodeja voidaan lukea",
+  "permission_photo_denied_message": "Salli {appName}:n kÃ¤yttÃ¤Ã¤ kameraa paremman kokemuksen saamiseksi. Pystyt sen avulla lukemaan viivakoodeja.",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
     "placeholders": {
@@ -1515,15 +1515,15 @@
   "@permission_photo_denied_button": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "permission_photo_denied_dialog_settings_title": "Lupa evätty",
-  "permission_photo_denied_dialog_settings_message": "Koska hylkäsit anomuksen kameran käyttöön, anna lupa manuaalisesti asetuksista.",
+  "permission_photo_denied_dialog_settings_title": "Lupa evÃ¤tty",
+  "permission_photo_denied_dialog_settings_message": "Koska hylkÃ¤sit anomuksen kameran kÃ¤yttÃ¶Ã¶n, anna lupa manuaalisesti asetuksista.",
   "permission_photo_denied_dialog_settings_button_open": "Avaa asetukset",
   "permission_photo_denied_dialog_settings_button_cancel": "Peruuta",
-  "permission_photo_none_found": "Ei kameraa löydetty",
+  "permission_photo_none_found": "Ei kameraa lÃ¶ydetty",
   "@permission_photo_none_found": {
     "description": "Message for the user when no camera was detected, replacing the barcode scanner"
   },
-  "permission_photo_denied": "Ei lupaa käyttää kameraa",
+  "permission_photo_denied": "Ei lupaa kÃ¤yttÃ¤Ã¤ kameraa",
   "@permission_photo_denied": {
     "description": "When the camera/photo permission is denied by user"
   },
@@ -1535,7 +1535,7 @@
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
@@ -1604,15 +1604,15 @@
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
   },
-  "edit_product_form_item_details_subtitle": "Tuotteen nimi, merkki ja määrä",
+  "edit_product_form_item_details_subtitle": "Tuotteen nimi, merkki ja mÃ¤Ã¤rÃ¤",
   "@edit_product_form_item_details_subtitle": {
     "description": "Product edition - Basic Details - Subtitle"
   },
-  "edit_product_form_item_other_details_title": "Lisätietoja",
+  "edit_product_form_item_other_details_title": "LisÃ¤tietoja",
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Nettisivusto…",
+  "edit_product_form_item_other_details_subtitle": "Nettisivustoâ€¦",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
@@ -1620,7 +1620,7 @@
   "@edit_product_form_item_photos_title": {
     "description": "Product edition - Photos - Title"
   },
-  "edit_product_form_item_photos_subtitle": "Lisää tai päivitä kuvia",
+  "edit_product_form_item_photos_subtitle": "LisÃ¤Ã¤ tai pÃ¤ivitÃ¤ kuvia",
   "@edit_product_form_item_photos_subtitle": {
     "description": "Product edition - Photos - SubTitle"
   },
@@ -1628,7 +1628,7 @@
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Ympäristöystävällisyys, laatumerkit…",
+  "edit_product_form_item_labels_subtitle": "YmpÃ¤ristÃ¶ystÃ¤vÃ¤llisyys, laatumerkitâ€¦",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
@@ -1648,27 +1648,27 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVAâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittanyâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000…",
+  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000â€¦",
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of ironâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaarâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_stores_title": "Myymälät",
+  "edit_product_form_item_stores_title": "MyymÃ¤lÃ¤t",
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
@@ -1676,7 +1676,7 @@
   "@edit_product_form_item_stores_hint": {
     "description": "Product edition - Stores - input textfield hint"
   },
-  "edit_product_form_item_stores_type": "myymälä",
+  "edit_product_form_item_stores_type": "myymÃ¤lÃ¤",
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
@@ -1700,7 +1700,7 @@
   "@edit_product_form_item_stores_explanation_good_examples_3": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_origins_title": "Alkuperät",
+  "edit_product_form_item_origins_title": "AlkuperÃ¤t",
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
@@ -1748,15 +1748,15 @@
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_emb_codes_title": "Jäljitettävyyskoodit",
+  "edit_product_form_item_emb_codes_title": "JÃ¤ljitettÃ¤vyyskoodit",
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522â€¦)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
-  "edit_product_form_item_emb_codes_type": "jäljitettävyyskoodi",
+  "edit_product_form_item_emb_codes_type": "jÃ¤ljitettÃ¤vyyskoodi",
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
@@ -1770,7 +1770,7 @@
   },
   "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
   "@edit_product_form_item_emb_help_info2_title": {
-    "description": "Explanation about EMB/EC… codes"
+    "description": "Explanation about EMB/ECâ€¦ codes"
   },
   "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
@@ -1816,7 +1816,7 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Openâ€¯Foodâ€¯Facts in your country.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
@@ -1831,7 +1831,7 @@
   "edit_product_form_item_exit_title": "Quit without saving?",
   "edit_product_form_item_exit_confirmation": "Haluatko tallenta muutokset ennen poistumista?",
   "edit_product_form_item_exit_confirmation_positive_button": "Tallenna muutokset",
-  "edit_product_form_item_exit_confirmation_negative_button": "Hylkää muutokset",
+  "edit_product_form_item_exit_confirmation_negative_button": "HylkÃ¤Ã¤ muutokset",
   "edit_product_form_item_ingredients_title": "Ainesosat",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
@@ -1848,8 +1848,8 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
-  "edit_product_form_item_add_valid_item_tooltip": "Lisää",
-  "edit_product_form_item_add_invalid_item_tooltip": "Syötä ensin teksti",
+  "edit_product_form_item_add_valid_item_tooltip": "LisÃ¤Ã¤",
+  "edit_product_form_item_add_invalid_item_tooltip": "SyÃ¶tÃ¤ ensin teksti",
   "edit_product_form_item_remove_item_tooltip": "Poista",
   "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
   "@edit_product_form_item_save_edit_item_tooltip": {
@@ -1859,15 +1859,15 @@
   "@edit_product_form_item_cancel_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
   },
-  "edit_product_form_item_packaging_title": "Kierrätysohjekuva",
+  "edit_product_form_item_packaging_title": "KierrÃ¤tysohjekuva",
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "Ravintosisältö",
+  "edit_product_form_item_nutrition_facts_title": "RavintosisÃ¤ltÃ¶",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
-  "edit_product_form_item_nutrition_facts_subtitle": "Ravintosisältö, alkoholipitoisuus, jne.",
+  "edit_product_form_item_nutrition_facts_subtitle": "RavintosisÃ¤ltÃ¶, alkoholipitoisuus, jne.",
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
@@ -1883,7 +1883,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "Ravintosisältö",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "RavintosisÃ¤ltÃ¶",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1895,7 +1895,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesiumâ€¦).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -1931,8 +1931,8 @@
   "@origins_editing_title": {
     "description": "Title of the button where users can edit the origins of a product"
   },
-  "completed_basic_details_btn_text": "Täytä perustiedot",
-  "not_implemented_snackbar_text": "Ei vielä käytössä",
+  "completed_basic_details_btn_text": "TÃ¤ytÃ¤ perustiedot",
+  "not_implemented_snackbar_text": "Ei vielÃ¤ kÃ¤ytÃ¶ssÃ¤",
   "category_picker_page_appbar_text": "Tuoteluokat",
   "edit_ingredients_extract_ingredients_btn_text": "Poimi ainesosat valokuvasta",
   "@edit_ingredients_extract_ingredients_btn_text": {
@@ -1946,19 +1946,19 @@
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
-  "edit_ingredients_loading_photo_btn_text": "Ladataan kuvaa…",
+  "edit_ingredients_loading_photo_btn_text": "Ladataan kuvaaâ€¦",
   "@edit_ingredients_loading_photo_btn_text": {
     "description": "Ingredients edition - Loading photo from the server"
   },
-  "edit_ingredients_loading_photo_help_dialog_title": "Miksi näen tämän viestin?",
+  "edit_ingredients_loading_photo_help_dialog_title": "Miksi nÃ¤en tÃ¤mÃ¤n viestin?",
   "@edit_ingredients_loading_photo_help_dialog_title": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_ingredients_loading_photo_help_dialog_body": "Käyttääksesi toimintoa \"Poimi valmistusaineet kuvasta\", valokuva täytyy ensin ladata palveluun.\n\nOdota muutama sekunti tai syötä ne käsin.",
+  "edit_ingredients_loading_photo_help_dialog_body": "KÃ¤yttÃ¤Ã¤ksesi toimintoa \"Poimi valmistusaineet kuvasta\", valokuva tÃ¤ytyy ensin ladata palveluun.\n\nOdota muutama sekunti tai syÃ¶tÃ¤ ne kÃ¤sin.",
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_ingredients_refresh_photo_btn_text": "Päivitä kuva",
+  "edit_ingredients_refresh_photo_btn_text": "PÃ¤ivitÃ¤ kuva",
   "@edit_ingredients_refresh_photo_btn_text": {
     "description": "Ingredients edition - Refresh photo"
   },
@@ -1974,23 +1974,23 @@
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
-  "edit_packaging_loading_photo_btn_text": "Ladataan kuvaa…",
+  "edit_packaging_loading_photo_btn_text": "Ladataan kuvaaâ€¦",
   "@edit_packaging_loading_photo_btn_text": {
     "description": "Packaging edition - Loading photo from the server"
   },
-  "edit_packaging_loading_photo_help_dialog_title": "Miksi näen tämän viestin?",
+  "edit_packaging_loading_photo_help_dialog_title": "Miksi nÃ¤en tÃ¤mÃ¤n viestin?",
   "@edit_packaging_loading_photo_help_dialog_title": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_packaging_loading_photo_help_dialog_body": "Jotta voit käyttää \"Ota pakkaus\" -ominaisuutta, valokuva on ensin ladattava.\n\nOdota muutama sekunti tai kirjoita ne manuaalisesti.",
+  "edit_packaging_loading_photo_help_dialog_body": "Jotta voit kÃ¤yttÃ¤Ã¤ \"Ota pakkaus\" -ominaisuutta, valokuva on ensin ladattava.\n\nOdota muutama sekunti tai kirjoita ne manuaalisesti.",
   "@edit_packaging_loading_photo_help_dialog_body": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_packaging_refresh_photo_btn_text": "Päivitä kuva",
+  "edit_packaging_refresh_photo_btn_text": "PÃ¤ivitÃ¤ kuva",
   "@edit_packaging_refresh_photo_btn_text": {
     "description": "Packaging edition - Refresh photo"
   },
-  "edit_ocr_extract_failed": "Tekstintunnistus epäonnistui.",
+  "edit_ocr_extract_failed": "Tekstintunnistus epÃ¤onnistui.",
   "@edit_ocr_extract_failed": {
     "description": "OCR extraction - message for failed"
   },
@@ -2006,7 +2006,7 @@
   "@user_list_dialog_new_title": {
     "description": "Title of the 'new user list' dialog"
   },
-  "user_list_dialog_rename_title": "Uudelleennimeä lista",
+  "user_list_dialog_rename_title": "UudelleennimeÃ¤ lista",
   "@user_list_dialog_rename_title": {
     "description": "Title of the 'rename user list' dialog"
   },
@@ -2018,7 +2018,7 @@
   "@user_list_title": {
     "description": "Label for the user lists (when the user wants to add a product to a list)"
   },
-  "user_list_add_product": "Lisää tuote listoihisi",
+  "user_list_add_product": "LisÃ¤Ã¤ tuote listoihisi",
   "@user_list_add_product": {
     "description": "Label for the dialog to add a product to a list"
   },
@@ -2026,23 +2026,23 @@
   "@user_list_button_new": {
     "description": "Short label of a 'create a new list' button"
   },
-  "user_list_empty_label": "Luetteloa ei ole vielä saatavilla. Aloita luomalla sellainen",
+  "user_list_empty_label": "Luetteloa ei ole vielÃ¤ saatavilla. Aloita luomalla sellainen",
   "@user_list_empty_label": {
     "description": "Content displayed when there is no list"
   },
-  "user_list_button_add_product": "Lisää luetteloon",
+  "user_list_button_add_product": "LisÃ¤Ã¤ luetteloon",
   "@user_list_button_add_product": {
     "description": "Short label of an 'add to list' button from a product context"
   },
-  "added_to_list_msg": "Lisätty listaan",
+  "added_to_list_msg": "LisÃ¤tty listaan",
   "@added_to_list_msg": {
     "description": "Message when products have been successfully added to a list"
   },
-  "user_list_popup_clear": "Tyhjennä historiasi",
+  "user_list_popup_clear": "TyhjennÃ¤ historiasi",
   "@user_list_popup_clear": {
     "description": "Short label of a 'clear your history list' popup"
   },
-  "user_list_popup_rename": "Uudelleennimeä",
+  "user_list_popup_rename": "UudelleennimeÃ¤",
   "@user_list_popup_rename": {
     "description": "Short label of a 'rename list' popup"
   },
@@ -2054,11 +2054,11 @@
   "@user_list_name_error_empty": {
     "description": "Validation error about the name that cannot be empty"
   },
-  "user_list_name_error_already": "Nimi on jo käytössä",
+  "user_list_name_error_already": "Nimi on jo kÃ¤ytÃ¶ssÃ¤",
   "@user_list_name_error_already": {
     "description": "Validation error about the name that is already used for another list"
   },
-  "user_list_name_error_same": "Nimeä ei ole muutettu",
+  "user_list_name_error_same": "NimeÃ¤ ei ole muutettu",
   "@user_list_name_error_same": {
     "description": "Validation error about the renamed name that is the same as the initial list name"
   },
@@ -2066,7 +2066,7 @@
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
-  "try_again": "Yritä uudelleen",
+  "try_again": "YritÃ¤ uudelleen",
   "@try_again": {
     "description": "Label for buttons that try to repeat a failed action"
   },
@@ -2083,19 +2083,19 @@
       }
     }
   },
-  "camera_toggle_camera": "Vaihda taka- ja etukameran välillä",
+  "camera_toggle_camera": "Vaihda taka- ja etukameran vÃ¤lillÃ¤",
   "@camera_toggle_camera": {
     "description": "Explanation for the icon to switch between cameras"
   },
-  "camera_toggle_flash": "Kytke kameran salama päälle tai pois päältä",
+  "camera_toggle_flash": "Kytke kameran salama pÃ¤Ã¤lle tai pois pÃ¤Ã¤ltÃ¤",
   "@camera_toggle_flash": {
     "description": "Explanation for the icon to turn on/off the flash"
   },
-  "camera_enable_flash": "Käytä salamaa",
+  "camera_enable_flash": "KÃ¤ytÃ¤ salamaa",
   "@camera_enable_flash": {
     "description": "Enable flash (tooltip)"
   },
-  "camera_disable_flash": "Poista salama käytöstä",
+  "camera_disable_flash": "Poista salama kÃ¤ytÃ¶stÃ¤",
   "@camera_disable_flash": {
     "description": "Disable flash (tooltip)"
   },
@@ -2103,7 +2103,7 @@
   "@camera_flash_error_dialog_title": {
     "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "camera_flash_error_dialog_message": "Virhe vaihtaessa salaman tilaasi. Tarkista, ettei puhelimesi taskulamppu ole päällä.",
+  "camera_flash_error_dialog_message": "Virhe vaihtaessa salaman tilaasi. Tarkista, ettei puhelimesi taskulamppu ole pÃ¤Ã¤llÃ¤.",
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
@@ -2115,27 +2115,27 @@
   "@user_preferences_item_accessibility_hint": {
     "description": "A hint for screen readers to explain how external links work"
   },
-  "dev_preferences_screen_title": "Kehittäjätila",
+  "dev_preferences_screen_title": "KehittÃ¤jÃ¤tila",
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
-  "dev_preferences_reset_onboarding_title": "Käynnistä perehdytys uudelleen",
+  "dev_preferences_reset_onboarding_title": "KÃ¤ynnistÃ¤ perehdytys uudelleen",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
   },
-  "dev_preferences_reset_onboarding_subtitle": "Uudelleenkäynnistä sovellus nähdäksesi se uudelleen.",
+  "dev_preferences_reset_onboarding_subtitle": "UudelleenkÃ¤ynnistÃ¤ sovellus nÃ¤hdÃ¤ksesi se uudelleen.",
   "@dev_preferences_reset_onboarding_subtitle": {
     "description": "User dev preferences - Reset onboarding - Subtitle"
   },
-  "dev_preferences_environment_switch_title": "Vaihda openfoodfacts.org (PROD):n ja kokeiluympäristön välillä",
+  "dev_preferences_environment_switch_title": "Vaihda openfoodfacts.org (PROD):n ja kokeiluympÃ¤ristÃ¶n vÃ¤lillÃ¤",
   "@dev_preferences_environment_switch_title": {
     "description": "User dev preferences - Environment (prod/test) switcher - Title"
   },
-  "dev_preferences_test_environment_title": "Kokeiluympäristön parametrit",
+  "dev_preferences_test_environment_title": "KokeiluympÃ¤ristÃ¶n parametrit",
   "@dev_preferences_test_environment_title": {
     "description": "User dev preferences - Info about test environment - Title"
   },
-  "dev_preferences_test_environment_subtitle": "Kokeiluympäristön nettiosoite: {url}",
+  "dev_preferences_test_environment_subtitle": "KokeiluympÃ¤ristÃ¶n nettiosoite: {url}",
   "@dev_preferences_test_environment_subtitle": {
     "description": "User dev preferences - Info about test environment - Value",
     "placeholders": {
@@ -2144,19 +2144,19 @@
       }
     }
   },
-  "dev_preferences_test_environment_dialog_title": "Kokeiluympäristön isäntä",
+  "dev_preferences_test_environment_dialog_title": "KokeiluympÃ¤ristÃ¶n isÃ¤ntÃ¤",
   "@dev_preferences_test_environment_dialog_title": {
     "description": "User dev preferences - Info about test environment - Dialog title"
   },
-  "dev_preferences_ml_kit_title": "Käytä ML-pakettia",
+  "dev_preferences_ml_kit_title": "KÃ¤ytÃ¤ ML-pakettia",
   "@dev_preferences_ml_kit_title": {
     "description": "User dev preferences - Enable ML Kit - Title"
   },
-  "dev_preferences_ml_kit_subtitle": "sitten on sovellus uudelleenkäynnistettävä",
+  "dev_preferences_ml_kit_subtitle": "sitten on sovellus uudelleenkÃ¤ynnistettÃ¤vÃ¤",
   "@dev_preferences_ml_kit_subtitle": {
     "description": "User dev preferences - Enable ML Kit - Subtitle"
   },
-  "dev_preferences_product_additional_features_title": "Lisänappula tuotesivulla",
+  "dev_preferences_product_additional_features_title": "LisÃ¤nappula tuotesivulla",
   "@dev_preferences_product_additional_features_title": {
     "description": "User dev preferences - Additional buttons on product page - Title"
   },
@@ -2172,11 +2172,11 @@
   "@dev_preferences_export_history_progress_error": {
     "description": "User dev preferences - Export history - Item - Error"
   },
-  "dev_preferences_export_history_progress_found": "tuote löytyi",
+  "dev_preferences_export_history_progress_found": "tuote lÃ¶ytyi",
   "@dev_preferences_export_history_progress_found": {
     "description": "User dev preferences - Export history - Item - Found"
   },
-  "dev_preferences_export_history_progress_not_found": "tuotetta EI löydy",
+  "dev_preferences_export_history_progress_not_found": "tuotetta EI lÃ¶ydy",
   "@dev_preferences_export_history_progress_not_found": {
     "description": "User dev preferences - Export history - Item - Not found"
   },
@@ -2192,7 +2192,7 @@
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
-  "dev_preferences_migration_title": "Tiedon siirto V1:stä",
+  "dev_preferences_migration_title": "Tiedon siirto V1:stÃ¤",
   "dev_preferences_migration_subtitle": "Tila: {status}",
   "@dev_preferences_migration_subtitle": {
     "placeholders": {
@@ -2204,10 +2204,10 @@
   "dev_preferences_migration_status_already_done": "onnistui tai uusi lataus",
   "dev_preferences_migration_status_success": "onnistui",
   "dev_preferences_migration_status_error": "virhe",
-  "dev_preferences_migration_status_in_progress": "käynnissä",
+  "dev_preferences_migration_status_in_progress": "kÃ¤ynnissÃ¤",
   "dev_preferences_migration_status_required": "vaaditaan (aloita napauttamalla)",
   "dev_preferences_migration_status_not_started": "tuntematon",
-  "dev_preferences_import_history_subtitle": "Poistaa historian ja lisää kolme tuotetta sinne",
+  "dev_preferences_import_history_subtitle": "Poistaa historian ja lisÃ¤Ã¤ kolme tuotetta sinne",
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
@@ -2219,7 +2219,7 @@
   "@dev_preferences_news_custom_url_subtitle": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_empty_value": "Ei määritetty",
+  "dev_preferences_news_custom_url_empty_value": "Ei mÃ¤Ã¤ritetty",
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
@@ -2227,7 +2227,7 @@
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
-  "dev_preferences_news_provider_status_subtitle": "Viimeisin päivitys: {date}",
+  "dev_preferences_news_provider_status_subtitle": "Viimeisin pÃ¤ivitys: {date}",
   "@dev_preferences_news_provider_status_subtitle": {
     "description": "News dev preferences - Custom URL for news - Subtitle",
     "placeholders": {
@@ -2237,7 +2237,7 @@
     }
   },
   "product_type_label_food": "Ruoka",
-  "product_type_label_beauty": "Henkilökohtainen hoito",
+  "product_type_label_beauty": "HenkilÃ¶kohtainen hoito",
   "product_type_label_pet_food": "Lemmikin ruoka",
   "product_type_label_product": "Muu",
   "product_type_selection_title": "Tuotetyyppi",
@@ -2246,7 +2246,7 @@
   "@product_type_selection_empty": {
     "description": "Error message about product type that needs to be set"
   },
-  "product_type_selection_already": "Et voi muuttaa tuotetyyppiä ({productType})!",
+  "product_type_selection_already": "Et voi muuttaa tuotetyyppiÃ¤ ({productType})!",
   "@product_type_selection_already": {
     "description": "Error message about product type that cannot be set again",
     "placeholders": {
@@ -2258,12 +2258,12 @@
   "prices_app_dev_mode_flag": "Pikakuvake Hinnat-sovellukseen tuotesivulla",
   "prices_app_button": "Siirry Hinnat-sovellukseen",
   "prices_generic_title": "Hinnat",
-  "prices_add_n_prices": "{count,plural, =1{Lisää hinta} other{Lisää {count} hintaa}}",
-  "prices_send_n_prices": "{count,plural, =1{Lähetä hinta} other{Lähetä {count} hintaa}}",
-  "prices_add_an_item": "Lisää tuote",
-  "prices_add_a_price": "Lisää hinta",
-  "prices_add_a_receipt": "Lisää kuitti",
-  "prices_add_price_tags": "Lisää hintalaput",
+  "prices_add_n_prices": "{count,plural, =1{LisÃ¤Ã¤ hinta} other{LisÃ¤Ã¤ {count} hintaa}}",
+  "prices_send_n_prices": "{count,plural, =1{LÃ¤hetÃ¤ hinta} other{LÃ¤hetÃ¤ {count} hintaa}}",
+  "prices_add_an_item": "LisÃ¤Ã¤ tuote",
+  "prices_add_a_price": "LisÃ¤Ã¤ hinta",
+  "prices_add_a_receipt": "LisÃ¤Ã¤ kuitti",
+  "prices_add_price_tags": "LisÃ¤Ã¤ hintalaput",
   "prices_barcode_already": "Viivakoodi ({barcode}) on jo luettelossa!",
   "@prices_barcode_already": {
     "description": "Error message about barcode being already there",
@@ -2273,9 +2273,9 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Tuotetta ei löytynyt",
-  "prices_barcode_search_none_yet": "Ei tuotetta vielä",
-  "prices_barcode_search_running": "Etsitään {barcode}",
+  "prices_barcode_search_not_found": "Tuotetta ei lÃ¶ytynyt",
+  "prices_barcode_search_none_yet": "Ei tuotetta vielÃ¤",
+  "prices_barcode_search_running": "EtsitÃ¤Ã¤n {barcode}",
   "@prices_barcode_search_running": {
     "description": "Dialog title about barcode look-up",
     "placeholders": {
@@ -2284,31 +2284,27 @@
       }
     }
   },
-  "prices_barcode_enter": "Syötä viivakoodi",
+  "prices_barcode_enter": "SyÃ¶tÃ¤ viivakoodi",
   "prices_barcode_reader_action": "Viivakoodinlukija",
   "prices_view_prices": "Katso hinnat",
   "prices_product_accessibility_summary": "{count,plural, =1{1 hinta} other{{count} hintaa}} tuotteelle {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "product": {
         "type": "String"
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, =0{Ei hintaa vielä} =1{Vain yksi hinta} other{Kaikki {count} hintaa}}",
+  "prices_list_length_one_page": "{count,plural, =0{Ei hintaa vielÃ¤} =1{Vain yksi hinta} other{Kaikki {count} hintaa}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
-  "prices_list_length_many_pages": "Viimeisimmät {pageSize} hinnat (yhteensä: {total})",
+  "prices_list_length_many_pages": "ViimeisimmÃ¤t {pageSize} hinnat (yhteensÃ¤: {total})",
   "@prices_list_length_many_pages": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2320,7 +2316,7 @@
       }
     }
   },
-  "prices_entry_accessibility_label": "Hinta: {price} / Kauppa: \"{location}\" / tekijän \"{user}\" päivämääränä {date} julkaisema",
+  "prices_entry_accessibility_label": "Hinta: {price} / Kauppa: \"{location}\" / tekijÃ¤n \"{user}\" pÃ¤ivÃ¤mÃ¤Ã¤rÃ¤nÃ¤ {date} julkaisema",
   "@prices_entry_accessibility_label": {
     "description": "Accessibility label for a price entry",
     "placeholders": {
@@ -2338,7 +2334,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Avaa käyttäjän \"{user}\" todisteet",
+  "prices_open_user_proofs": "Avaa kÃ¤yttÃ¤jÃ¤n \"{user}\" todisteet",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -2351,16 +2347,14 @@
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{Ei vielä todisteita} =1{Vain yksi todiste} other{Kaikki {count} todistetta}}",
+  "prices_proofs_list_length_one_page": "{count,plural, =0{Ei vielÃ¤ todisteita} =1{Vain yksi todiste} other{Kaikki {count} todistetta}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
-  "prices_proofs_list_length_many_pages": "Viimeisimmät {pageSize} todisteet (yhteensä: {total})",
+  "prices_proofs_list_length_many_pages": "ViimeisimmÃ¤t {pageSize} todisteet (yhteensÃ¤: {total})",
   "@prices_proofs_list_length_many_pages": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2372,7 +2366,7 @@
       }
     }
   },
-  "prices_users_list_length_many_pages": "Parhaat {pageSize} avustajat (yhteensä: {total})",
+  "prices_users_list_length_many_pages": "Parhaat {pageSize} avustajat (yhteensÃ¤: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
     "placeholders": {
@@ -2384,7 +2378,7 @@
       }
     }
   },
-  "prices_locations_list_length_many_pages": "Näytetään {pageSize} kohdetta (yhteensä: {total})",
+  "prices_locations_list_length_many_pages": "NÃ¤ytetÃ¤Ã¤n {pageSize} kohdetta (yhteensÃ¤: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
     "placeholders": {
@@ -2400,52 +2394,44 @@
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_product": "{count,plural, =0{Ei tuotteita} =1{Yksi tuote} other{{count} tuotetta}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
-  "prices_button_count_user": "{count,plural, =0{Ei käyttäjiä} =1{Yksi käyttäjä} other{{count} käyttäjää}}",
+  "prices_button_count_user": "{count,plural, =0{Ei kÃ¤yttÃ¤jiÃ¤} =1{Yksi kÃ¤yttÃ¤jÃ¤} other{{count} kÃ¤yttÃ¤jÃ¤Ã¤}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_price": "{count,plural, =0{Ei hintoja} =1{Yksi hinta} other{{count} hintaa}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
-  "prices_amount_subtitle": "Määrä",
+  "prices_amount_subtitle": "MÃ¤Ã¤rÃ¤",
   "prices_amount_is_discounted": "Onko alennettu?",
   "prices_amount_price_normal": "Hinta",
   "prices_amount_price_discounted": "Alennettu hinta",
-  "prices_amount_price_not_discounted": "Alkuperäinen hinta",
+  "prices_amount_price_not_discounted": "AlkuperÃ¤inen hinta",
   "prices_amount_no_product": "Yksi tuote puuttuu!",
   "prices_amount_price_incorrect": "Virheellinen arvo",
   "prices_amount_price_mandatory": "Pakollinen arvo",
   "prices_currency_subtitle": "Valuutta",
-  "prices_date_subtitle": "Päivämäärä",
-  "prices_location_subtitle": "Myymälä",
+  "prices_date_subtitle": "PÃ¤ivÃ¤mÃ¤Ã¤rÃ¤",
+  "prices_location_subtitle": "MyymÃ¤lÃ¤",
   "prices_location_find": "Etsi kauppa",
   "prices_location_mandatory": "Sinun on valittava kauppa!",
-  "prices_location_search_broader": "Etkö löytänyt etsimääsi? Kokeillaan laajempaa hakua!",
+  "prices_location_search_broader": "EtkÃ¶ lÃ¶ytÃ¤nyt etsimÃ¤Ã¤si? Kokeillaan laajempaa hakua!",
   "prices_proof_subtitle": "Todiste",
   "prices_proof_find": "Valitse todiste",
   "prices_proof_receipt": "Kuitti",
@@ -2499,9 +2485,9 @@
     "description": "User dev preferences - Import history - Result successful"
   },
   "dev_mode_section_server": "Palvelimen asetukset",
-  "dev_mode_section_news": "Uutispalveluntarjoajan määritykset",
+  "dev_mode_section_news": "Uutispalveluntarjoajan mÃ¤Ã¤ritykset",
   "dev_mode_section_product_page": "Tuotesivu",
-  "dev_mode_section_ui": "Käyttöliittymä",
+  "dev_mode_section_ui": "KÃ¤yttÃ¶liittymÃ¤",
   "dev_mode_section_data": "Tiedot",
   "dev_mode_section_experimental_features": "Kokeelliset ominaisuudet",
   "dev_preferences_show_folksonomy_title": "Piilota folksonomia",
@@ -2510,9 +2496,9 @@
   },
   "dev_mode_hide_environmental_score_title": "Piilota Green-Score",
   "@dev_mode_hide_environmental_score_title": {
-    "description": "User dev preferences - Disable Green Score - Title"
+    "description": "User dev preferences - Disable Greenâ€¯Score - Title"
   },
-  "dev_mode_spellchecker_for_ocr_title": "Käytä OCR-näytöissä oikeinkirjoituksen tarkistusta",
+  "dev_mode_spellchecker_for_ocr_title": "KÃ¤ytÃ¤ OCR-nÃ¤ytÃ¶issÃ¤ oikeinkirjoituksen tarkistusta",
   "@dev_mode_spellchecker_for_ocr_title": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
   },
@@ -2520,7 +2506,7 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
-  "search_history_item_edit_tooltip": "Käytä ja muokkaa tätä hakua uudelleen",
+  "search_history_item_edit_tooltip": "KÃ¤ytÃ¤ ja muokkaa tÃ¤tÃ¤ hakua uudelleen",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
@@ -2533,13 +2519,11 @@
       }
     }
   },
-  "product_search_button_download_more": "Lataa {count} tuotetta lisää\nLadattu {downloaded} tuotetta {totalSize} tuotteesta.",
+  "product_search_button_download_more": "Lataa {count} tuotetta lisÃ¤Ã¤\nLadattu {downloaded} tuotetta {totalSize} tuotteesta.",
   "@product_search_button_download_more": {
     "description": "Product search list - Button to download more results",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "downloaded": {
         "type": "int"
       },
@@ -2548,14 +2532,14 @@
       }
     }
   },
-  "product_search_loading_message": "Hakusi {search} on käynnissä.\n\nOdota muutama sekunti…",
+  "product_search_loading_message": "Hakusi {search} on kÃ¤ynnissÃ¤.\n\nOdota muutama sekuntiâ€¦",
   "@product_search_loading_message": {
     "description": "This message will be displayed when a search is in progress.",
     "search": {
       "type": "String"
     }
   },
-  "user_search_contributor_title": "Tuotteita lisätty",
+  "user_search_contributor_title": "Tuotteita lisÃ¤tty",
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
@@ -2567,7 +2551,7 @@
   "@user_search_photographer_title": {
     "description": "User search (photographer): list tile title"
   },
-  "user_search_to_be_completed_title": "Tehtävälistan tuotteet",
+  "user_search_to_be_completed_title": "TehtÃ¤vÃ¤listan tuotteet",
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
@@ -2587,7 +2571,7 @@
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title"
   },
-  "all_search_prices_latest_title": "Viimeisimmät hinnat lisätty",
+  "all_search_prices_latest_title": "ViimeisimmÃ¤t hinnat lisÃ¤tty",
   "@all_search_prices_latest_title": {
     "description": "Latest prices: list tile title"
   },
@@ -2600,7 +2584,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Price Contribution Assistant",
-  "all_search_prices_top_location_single_title": "Myymälähinnat",
+  "all_search_prices_top_location_single_title": "MyymÃ¤lÃ¤hinnat",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
   },
@@ -2608,7 +2592,7 @@
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
-  "all_search_to_be_completed_title": "Kaikki tehtävälistan tuotteet",
+  "all_search_to_be_completed_title": "Kaikki tehtÃ¤vÃ¤listan tuotteet",
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
@@ -2628,11 +2612,11 @@
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "Hyväksyn Open Food Factsin",
+  "signup_page_terms_of_use_line1": "HyvÃ¤ksyn Open Food Factsin",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
-  "signup_page_terms_of_use_line2": "käyttö- ja osallistumisehdot",
+  "signup_page_terms_of_use_line2": "kÃ¤yttÃ¶- ja osallistumisehdot",
   "@signup_page_terms_of_use_line2": {
     "description": "User consent for terms of use (line 2)"
   },
@@ -2658,7 +2642,7 @@
       }
     }
   },
-  "summary_card_button_add_basic_details": "Täytä perustiedot",
+  "summary_card_button_add_basic_details": "TÃ¤ytÃ¤ perustiedot",
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
@@ -2666,7 +2650,7 @@
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
-  "edit_photo_unselect_button_label": "Jätä kuva valitsematta",
+  "edit_photo_unselect_button_label": "JÃ¤tÃ¤ kuva valitsematta",
   "@edit_photo_unselect_button_label": {
     "description": "Edit 'unselect photo' button label"
   },
@@ -2678,19 +2662,19 @@
   "@edit_photo_select_existing_all_label": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_all_subtitle": "Valitse kuva napauttamalla sitä",
+  "edit_photo_select_existing_all_subtitle": "Valitse kuva napauttamalla sitÃ¤",
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_download_label": "Etsitään olemassaolevia kuvia…",
+  "edit_photo_select_existing_download_label": "EtsitÃ¤Ã¤n olemassaolevia kuviaâ€¦",
   "@edit_photo_select_existing_download_label": {
     "description": "Dialog label"
   },
-  "edit_photo_select_existing_downloaded_none": "Tähän tuotteeseen liittyviä kuvia ei löydy.",
+  "edit_photo_select_existing_downloaded_none": "TÃ¤hÃ¤n tuotteeseen liittyviÃ¤ kuvia ei lÃ¶ydy.",
   "@edit_photo_select_existing_downloaded_none": {
     "description": "Error message"
   },
-  "edit_photo_language_not_this_one": "Ei kuvaa kyseisellä kielellä",
+  "edit_photo_language_not_this_one": "Ei kuvaa kyseisellÃ¤ kielellÃ¤",
   "@edit_photo_language_not_this_one": {
     "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
   },
@@ -2764,11 +2748,11 @@
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols Â®, â„¢, Â© or similar",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**®**",
+  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**Â®**",
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
@@ -2776,14 +2760,12 @@
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "brand_name": "Merkki",
   "brand_names": "Brand names",
-  "add_basic_details_brand_name_error": "Syötä merkki",
+  "add_basic_details_brand_name_error": "SyÃ¶tÃ¤ merkki",
   "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
   "add_basic_details_product_brand_help_title": "Good practices: Brands",
   "@add_basic_details_product_brand_help_title": {
@@ -2829,8 +2811,8 @@
   "@add_basic_details_product_brand_help_good_examples_2": {
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
-  "quantity": "Määrä ja paino",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+  "quantity": "MÃ¤Ã¤rÃ¤ ja paino",
+  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (egâ€¯: 4x100g)",
   "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
@@ -2862,12 +2844,12 @@
     }
   },
   "barcode_invalid_error": "Virheellinen viivakoodi",
-  "basic_details_add_success": "Perustiedot lisätty onnistuneesti",
-  "basic_details_add_error": "Perustietojen tallennus epäonnistui, yritä uudelleen myöhemmin",
+  "basic_details_add_success": "Perustiedot lisÃ¤tty onnistuneesti",
+  "basic_details_add_error": "Perustietojen tallennus epÃ¤onnistui, yritÃ¤ uudelleen myÃ¶hemmin",
   "@basic_details_add_error": {
     "description": "Error message when error occurs while submitting basic details"
   },
-  "clear_search": "Tyhjennä haku",
+  "clear_search": "TyhjennÃ¤ haku",
   "@confirm_clearclear_search": {
     "description": "Tooltip to explain that the X button clears the content of the search"
   },
@@ -2878,7 +2860,7 @@
   "alert_clear_selected_user_list": "Olet poistamassa valitut kohteet historiastasi",
   "confirm_clear_selected_user_list": "Haluatko varmasti jatkaa?",
   "alert_select_items_to_clear": "Valitse yksi tai useampi poistettava kohde",
-  "confirm_clear_user_list": "Haluatko varmasti tyhjentää listan {name}?",
+  "confirm_clear_user_list": "Haluatko varmasti tyhjentÃ¤Ã¤ listan {name}?",
   "@confirm_clear_user_list": {
     "description": "Asking about whether to clear the list or not",
     "placeholders": {
@@ -2900,11 +2882,11 @@
       }
     }
   },
-  "confirm_delete_user_list_button": "Kyllä, vahvistan",
+  "confirm_delete_user_list_button": "KyllÃ¤, vahvistan",
   "@confirm_delete_user_list_button": {
     "description": "Button to delete a list"
   },
-  "importance_label": "{name}:n tärkeys: {id}",
+  "importance_label": "{name}:n tÃ¤rkeys: {id}",
   "@importance_label": {
     "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
     "placeholders": {
@@ -2920,7 +2902,7 @@
   "@user_list_all_title": {
     "description": "Title about the user lists in the user preferences"
   },
-  "user_list_all_empty": "Luo ensimmäinen listasi",
+  "user_list_all_empty": "Luo ensimmÃ¤inen listasi",
   "@user_list_all_empty": {
     "description": "Small message when there are no user lists"
   },
@@ -2928,46 +2910,46 @@
   "@product_list_select": {
     "description": "Top title for the selection of a list"
   },
-  "user_list_length": "{count,plural, =0{Tyhjä lista} =1{Yksi tuote} other{{count} tuotetta}}",
+  "user_list_length": "{count,plural, =0{TyhjÃ¤ lista} =1{Yksi tuote} other{{count} tuotetta}}",
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "add_list_label": "Lisää lista",
+  "add_list_label": "LisÃ¤Ã¤ lista",
   "@add_list_label": {
     "description": "Label for the add list button"
   },
-  "open_food_preferences_tooltip": "Muokkaa ruokamieltymyksiäsi",
+  "open_food_preferences_tooltip": "Muokkaa ruokamieltymyksiÃ¤si",
   "@open_food_preferences_tooltip": {
     "description": "Tooltip (message displayed on long press) to open the user food preferences"
   },
-  "add_photo_button_label": "Lisää kuva",
+  "add_photo_button_label": "LisÃ¤Ã¤ kuva",
   "@add_photo_button_label": {
     "description": "Label for the add photo button"
   },
-  "add_packaging_photo_button_label": "Ota kuvia kierrätys- tai pakkausselosteesta",
+  "add_packaging_photo_button_label": "Ota kuvia kierrÃ¤tys- tai pakkausselosteesta",
   "@add_packaging_photo_button_label": {
     "description": "Label for the add PACKAGING photo button"
   },
-  "add_origin_photo_button_label": "Ota kuvia alkuperätiedoista",
+  "add_origin_photo_button_label": "Ota kuvia alkuperÃ¤tiedoista",
   "@add_origin_photo_button_label": {
     "description": "Label for the add ORIGIN photo button"
   },
-  "add_emb_photo_button_label": "Ota kuvia jäljitettävyyskooditiedoista",
+  "add_emb_photo_button_label": "Ota kuvia jÃ¤ljitettÃ¤vyyskooditiedoista",
   "@add_emb_photo_button_label": {
     "description": "Label for the add EMB photo button"
   },
-  "add_label_photo_button_label": "Ota kuvia merkeistä ja sertifiointitiedoista",
+  "add_label_photo_button_label": "Ota kuvia merkeistÃ¤ ja sertifiointitiedoista",
   "@add_label_photo_button_label": {
     "description": "Label for the add LABELS photo button"
   },
-  "choose_image_source_title": "Valitse kuvan lähde",
+  "choose_image_source_title": "Valitse kuvan lÃ¤hde",
   "@choose_image_source_title": {
     "description": "Title for the image source chooser"
   },
-  "choose_image_source_body": "Valitse kuvan lähde",
+  "choose_image_source_body": "Valitse kuvan lÃ¤hde",
   "@choose_image_source_body": {
     "description": "Body for the image source chooser"
   },
@@ -2975,11 +2957,11 @@
   "@gallery_source_label": {
     "description": "Label for the gallery image source"
   },
-  "gallery_source_access_denied_dialog_title": "Pääsy evätty",
+  "gallery_source_access_denied_dialog_title": "PÃ¤Ã¤sy evÃ¤tty",
   "@gallery_source_access_denied_dialog_title": {
     "description": "On iOS, the user has refused to give the permission (title of the dialog)"
   },
-  "gallery_source_access_denied_dialog_message_ios": "Valitettavasti sovellus ei pääse galleriaasi, koska olet aiemmin evännyt luvan.\n\nSiirry puhelimen sovelluksen asetuksiin kohdassa Asetukset -> Kuvat",
+  "gallery_source_access_denied_dialog_message_ios": "Valitettavasti sovellus ei pÃ¤Ã¤se galleriaasi, koska olet aiemmin evÃ¤nnyt luvan.\n\nSiirry puhelimen sovelluksen asetuksiin kohdassa Asetukset -> Kuvat",
   "@gallery_source_access_denied_dialog_message_ios": {
     "description": "On iOS, the user has refused to give the permission"
   },
@@ -2991,7 +2973,7 @@
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Katso tämä tuote Open Food Facts -sivustolla: {url}",
+  "share_product_text": "Katso tÃ¤mÃ¤ tuote Open Food Facts -sivustolla: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3000,7 +2982,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Katso tämä tuote Open Beauty Factsissa: {url}",
+  "share_product_text_beauty": "Katso tÃ¤mÃ¤ tuote Open Beauty Factsissa: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3009,7 +2991,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Katso tämä tuote Open PetFood Factsissa: {url}",
+  "share_product_text_pet_food": "Katso tÃ¤mÃ¤ tuote Open PetFood Factsissa: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3018,7 +3000,7 @@
       }
     }
   },
-  "share_product_text_product": "Katso tämä tuote Open Products Factsissa: {url}",
+  "share_product_text_product": "Katso tÃ¤mÃ¤ tuote Open Products Factsissa: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3048,15 +3030,15 @@
   "@choose_from_gallery": {
     "description": "Button label for choosing a photo from gallery"
   },
-  "image_upload_queued": "Kuva lähetetään taustalla mahdollisimman pian.",
+  "image_upload_queued": "Kuva lÃ¤hetetÃ¤Ã¤n taustalla mahdollisimman pian.",
   "@image_upload_queued": {
     "description": "Message when a photo is queued for upload"
   },
-  "add_price_queued": "Hinta lähetetään palvelimelle mahdollisimman pian.",
+  "add_price_queued": "Hinta lÃ¤hetetÃ¤Ã¤n palvelimelle mahdollisimman pian.",
   "@add_price_queued": {
     "description": "Message when an added price is queued for the server"
   },
-  "background_task_title_full_refresh": "Aloitetaan kaikkien paikallisesti tallennettujen tuotteiden päivitys",
+  "background_task_title_full_refresh": "Aloitetaan kaikkien paikallisesti tallennettujen tuotteiden pÃ¤ivitys",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
@@ -3064,22 +3046,22 @@
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
   },
-  "expand_nutrition_facts": "Laajenna ravintosisältötaulukkoa",
+  "expand_nutrition_facts": "Laajenna ravintosisÃ¤ltÃ¶taulukkoa",
   "@expand_nutrition_facts": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_nutrition_facts_body": "Pidä ravintosisältötaulukko laajennettuna",
+  "expand_nutrition_facts_body": "PidÃ¤ ravintosisÃ¤ltÃ¶taulukko laajennettuna",
   "expand_ingredients": "Laajenna ainesosat",
   "@expand_ingredients": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_ingredients_body": "Pidä ainesosat laajennettuna",
-  "search_product_filter_visibility_title": "Näytä suodatin haussa",
+  "expand_ingredients_body": "PidÃ¤ ainesosat laajennettuna",
+  "search_product_filter_visibility_title": "NÃ¤ytÃ¤ suodatin haussa",
   "search_product_filter_visibility_subtitle": "Valitse hakusivusto: Open Food Facts, Open Beauty Facts, Open Pet Food Facts tai Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
-  "no_internet_connection": "Ei Internet-yhteyttä",
+  "no_internet_connection": "Ei Internet-yhteyttÃ¤",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
   },
@@ -3095,19 +3077,19 @@
   "@copy_to_clipboard": {
     "description": "Copy to clipboard button description"
   },
-  "paste_from_clipboard": "Liitä leikepöydältä",
+  "paste_from_clipboard": "LiitÃ¤ leikepÃ¶ydÃ¤ltÃ¤",
   "@paste_from_clipboard": {
     "description": "Paste the content of the clipboard"
   },
-  "no_data_available_in_clipboard": "Leikepöydälläsi ei ole tietoja",
+  "no_data_available_in_clipboard": "LeikepÃ¶ydÃ¤llÃ¤si ei ole tietoja",
   "@no_data_available_in_clipboard": {
     "description": "No data available in your clipboard"
   },
-  "clipboard_barcode_copy": "Kopioi viivakoodi leikepöydälle",
+  "clipboard_barcode_copy": "Kopioi viivakoodi leikepÃ¶ydÃ¤lle",
   "@clipboard_barcode_copied": {
     "description": "Snackbar label after clipboard copy"
   },
-  "clipboard_barcode_copied": "Viivakoodi {barcode} kopioitu leikepöydälle!",
+  "clipboard_barcode_copied": "Viivakoodi {barcode} kopioitu leikepÃ¶ydÃ¤lle!",
   "open_product_website": "Open this product on the website",
   "language_picker_label": "Sinun kielesi",
   "@language_picker_label": {
@@ -3125,15 +3107,15 @@
   "@help_with_openfoodfacts": {
     "description": "Label for the email title"
   },
-  "product_task_background_schedule": "Tuote päivitetään taustalla mahdollisimman pian.",
+  "product_task_background_schedule": "Tuote pÃ¤ivitetÃ¤Ã¤n taustalla mahdollisimman pian.",
   "@product_task_background_schedule": {
     "description": "Message when a product is scheduled for background update"
   },
-  "no_email_client_available_dialog_title": "Ei sähköpostisovelluksia asennettuna!",
+  "no_email_client_available_dialog_title": "Ei sÃ¤hkÃ¶postisovelluksia asennettuna!",
   "@no_email_client_available_dialog_title": {
     "description": "Title for the dialog when no email client is installed on the device"
   },
-  "no_email_client_available_dialog_content": "Lähetä meille sähköpostiviesti manuaalisesti osoitteeseen mobile@openfoodfacts.org",
+  "no_email_client_available_dialog_content": "LÃ¤hetÃ¤ meille sÃ¤hkÃ¶postiviesti manuaalisesti osoitteeseen mobile@openfoodfacts.org",
   "@no_email_client_available_dialog_content": {
     "description": "Content for the dialog when no email client is installed on the device"
   },
@@ -3157,7 +3139,7 @@
   "@scan_header_clear_button_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
   },
-  "scan_header_compare_button_invalid_state_tooltip": "Skannaa vähintään kaksi tuotetta vertaillaksesi niitä",
+  "scan_header_compare_button_invalid_state_tooltip": "Skannaa vÃ¤hintÃ¤Ã¤n kaksi tuotetta vertaillaksesi niitÃ¤",
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
@@ -3169,35 +3151,35 @@
   "@scan_product_loading": {
     "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_initial": "Etsimme tätä tuotetta!\nOdota muutama sekunti…",
+  "scan_product_loading_initial": "Etsimme tÃ¤tÃ¤ tuotetta!\nOdota muutama sekuntiâ€¦",
   "@scan_product_loading_initial": {
     "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_long_request": "Etsimme edelleen tätä tuotetta!\nKestääkö lataaminen mielestäsi kauan? Niin mekin…",
+  "scan_product_loading_long_request": "Etsimme edelleen tÃ¤tÃ¤ tuotetta!\nKestÃ¤Ã¤kÃ¶ lataaminen mielestÃ¤si kauan? Niin mekinâ€¦",
   "@scan_product_loading_long_request": {
     "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_unresponsive": "Etsimme edelleen tätä tuotetta.\nHaluatko aloittaa haun uudelleen?",
+  "scan_product_loading_unresponsive": "Etsimme edelleen tÃ¤tÃ¤ tuotetta.\nHaluatko aloittaa haun uudelleen?",
   "@scan_product_loading_unresponsive": {
     "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_restart_button": "Käynnistä haku uudelleen",
+  "scan_product_loading_restart_button": "KÃ¤ynnistÃ¤ haku uudelleen",
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
-  "portion_calculator_description": "Laske ravitsemustiedot tietylle määrälle",
+  "portion_calculator_description": "Laske ravitsemustiedot tietylle mÃ¤Ã¤rÃ¤lle",
   "@portion_calculator_description": {
     "description": "Sort of title that describes the portion calculator."
   },
-  "portion_calculator_hint": "Määrä",
+  "portion_calculator_hint": "MÃ¤Ã¤rÃ¤",
   "@portion_calculator_hint": {
     "description": "Hint to show when a quantity is empty in the portion calculator."
   },
-  "portion_calculator_accessibility": "Syötä määrä laskeaksesi ravitsemustiedot",
+  "portion_calculator_accessibility": "SyÃ¶tÃ¤ mÃ¤Ã¤rÃ¤ laskeaksesi ravitsemustiedot",
   "@portion_calculator_accessibility": {
     "description": "Hint for the acessibility to explain to enter a quantity."
   },
-  "portion_calculator_error": "Anna määrä väliltä {min} ja {max} g",
+  "portion_calculator_error": "Anna mÃ¤Ã¤rÃ¤ vÃ¤liltÃ¤ {min} ja {max} g",
   "@portion_calculator_error": {
     "description": "Error message to explain that the quantity is invalid.",
     "placeholders": {
@@ -3213,7 +3195,7 @@
   "@portion_calculator_computation_error": {
     "description": "Error message to explain that the computation of the portion calculator failed."
   },
-  "portion_calculator_result_title": "Ravintosisältö ({grams} g/ml)",
+  "portion_calculator_result_title": "RavintosisÃ¤ltÃ¶ ({grams} g/ml)",
   "@portion_calculator_result_title": {
     "description": "Title of the results of the portion calculator.",
     "placeholders": {
@@ -3222,11 +3204,11 @@
       }
     }
   },
-  "offline_data": "Tiedot ilman Internet-yhteyttä",
+  "offline_data": "Tiedot ilman Internet-yhteyttÃ¤",
   "@offline_data": {
     "description": "App bar title for the offline data page"
   },
-  "ocr_image_upload_instruction": "Lataa kuva, jotta voit poimia sen sisältämät tiedot.",
+  "ocr_image_upload_instruction": "Lataa kuva, jotta voit poimia sen sisÃ¤ltÃ¤mÃ¤t tiedot.",
   "@ocr_image_upload_instruction": {
     "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
   },
@@ -3246,7 +3228,7 @@
   "@image_download_error": {
     "description": "Error message, when image download fails"
   },
-  "image_edit_url_error": "Kuvan muokkaus epäonnistui, koska kuvalla ei ole internetosoitetta.",
+  "image_edit_url_error": "Kuvan muokkaus epÃ¤onnistui, koska kuvalla ei ole internetosoitetta.",
   "@image_edit_url_error": {
     "description": "Error message, when editing image fails, due to missing url."
   },
@@ -3262,14 +3244,14 @@
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "{count,plural,  =1{Seuraava kysymys} other{Seuraavat {count} kysymystä}}",
+  "robotoff_next_n_questions": "{count,plural,  =1{Seuraava kysymys} other{Seuraavat {count} kysymystÃ¤}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "show_password": "Näytä salasana",
+  "show_password": "NÃ¤ytÃ¤ salasana",
   "@show_password": {
     "description": "Show hidden password in password field"
   },
@@ -3277,7 +3259,7 @@
   "@owner_field_info_title": {
     "description": "Title of the 'producer provided' info list-tile"
   },
-  "owner_field_info_message": "Logolla korostamme tuottajan toimittamia tietoja, joita ei välttämättä voi muokata.",
+  "owner_field_info_message": "Logolla korostamme tuottajan toimittamia tietoja, joita ei vÃ¤lttÃ¤mÃ¤ttÃ¤ voi muokata.",
   "@owner_field_info_message": {
     "description": "Title of the 'producer provided' info list-tile"
   },
@@ -3285,7 +3267,7 @@
   "@owner_field_info_close_button": {
     "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
   },
-  "owner_field_image": "Tämä on tuottajan toimittama kuva. Sitä ei ehkä voi muokata.",
+  "owner_field_image": "TÃ¤mÃ¤ on tuottajan toimittama kuva. SitÃ¤ ei ehkÃ¤ voi muokata.",
   "@owner_field_image": {
     "description": "An image is directly provided by the producer. It may be locked and not be editable."
   },
@@ -3293,7 +3275,7 @@
   "@edit_packagings_title": {
     "description": "Title of the structured packagings page"
   },
-  "edit_packagings_element_add": "Lisää pakkauskomponentti",
+  "edit_packagings_element_add": "LisÃ¤Ã¤ pakkauskomponentti",
   "@edit_packagings_element_add": {
     "description": "Button label"
   },
@@ -3307,11 +3289,11 @@
       }
     }
   },
-  "edit_packagings_element_field_units": "Yksiköiden määrä",
+  "edit_packagings_element_field_units": "YksikÃ¶iden mÃ¤Ã¤rÃ¤",
   "@edit_packagings_element_field_units": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_units": "Syötä samanmuotoisten ja samaa materiaalia olevien pakkausten määrä tuotteessa.",
+  "edit_packagings_element_hint_units": "SyÃ¶tÃ¤ samanmuotoisten ja samaa materiaalia olevien pakkausten mÃ¤Ã¤rÃ¤ tuotteessa.",
   "@edit_packagings_element_hint_units": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3319,7 +3301,7 @@
   "@edit_packagings_element_field_shape": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_shape": "Syötä kierrätysohjeiden mukainen muodon nimi tai valitse muoto.",
+  "edit_packagings_element_hint_shape": "SyÃ¶tÃ¤ kierrÃ¤tysohjeiden mukainen muodon nimi tai valitse muoto.",
   "@edit_packagings_element_hint_shape": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3331,7 +3313,7 @@
   "@edit_packagings_element_field_material": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_material": "Lisää materiaali, jos se voidaan määrittää (pakkauksessa materiaalikoodi kolmiossa) tai yleismateriaali (kuten muovi tai lasi), jos olet epävarma.",
+  "edit_packagings_element_hint_material": "LisÃ¤Ã¤ materiaali, jos se voidaan mÃ¤Ã¤rittÃ¤Ã¤ (pakkauksessa materiaalikoodi kolmiossa) tai yleismateriaali (kuten muovi tai lasi), jos olet epÃ¤varma.",
   "@edit_packagings_element_hint_material": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3339,56 +3321,56 @@
   "@edit_packagings_element_example_material": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_recycling": "Kierrätysohje",
+  "edit_packagings_element_field_recycling": "KierrÃ¤tysohje",
   "@edit_packagings_element_field_recycling": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_recycling": "Lisää kierrätysohje, jos se lukee paketissa.",
+  "edit_packagings_element_hint_recycling": "LisÃ¤Ã¤ kierrÃ¤tysohje, jos se lukee paketissa.",
   "@edit_packagings_element_hint_recycling": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_recycling": "Kierrätä",
+  "edit_packagings_element_example_recycling": "KierrÃ¤tÃ¤",
   "@edit_packagings_element_example_recycling": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_quantity": "Nettomäärä per tuote",
+  "edit_packagings_element_field_quantity": "NettomÃ¤Ã¤rÃ¤ per tuote",
   "@edit_packagings_element_field_quantity": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_quantity": "Syötä nettopaino tai -tilavuus, muista suure (kuten g tai ml).",
+  "edit_packagings_element_hint_quantity": "SyÃ¶tÃ¤ nettopaino tai -tilavuus, muista suure (kuten g tai ml).",
   "@edit_packagings_element_hint_quantity": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_field_weight": "Tyhjän yksikön paino (g)",
+  "edit_packagings_element_field_weight": "TyhjÃ¤n yksikÃ¶n paino (g)",
   "@edit_packagings_element_field_weight": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_weight": "Poista kaikki ruoka ja pese ja kuivaa pakkaus ennen punnitsemista. Mahdollisuuksien mukaan käytä vaakaa, jonka tarkkuus on 0,1 g tai 0,01 g.",
+  "edit_packagings_element_hint_weight": "Poista kaikki ruoka ja pese ja kuivaa pakkaus ennen punnitsemista. Mahdollisuuksien mukaan kÃ¤ytÃ¤ vaakaa, jonka tarkkuus on 0,1 g tai 0,01 g.",
   "@edit_packagings_element_hint_weight": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
   "background_task_title": "Odottavat panostukset",
-  "background_task_subtitle": "Lisäyksesi lisätään palvelimelle, mutta ei aina heti.",
-  "background_task_list_empty": "Ei tehtäviä",
+  "background_task_subtitle": "LisÃ¤yksesi lisÃ¤tÃ¤Ã¤n palvelimelle, mutta ei aina heti.",
+  "background_task_list_empty": "Ei tehtÃ¤viÃ¤",
   "background_task_error_server_time_out": "Palvelimen aikakatkaisu",
-  "background_task_error_no_internet": "Verkkovirhe. Yritä myöhemmin uudelleen.",
+  "background_task_error_no_internet": "Verkkovirhe. YritÃ¤ myÃ¶hemmin uudelleen.",
   "background_task_operation_unknown": "tuntematon operaattorityyppi",
   "background_task_operation_details": "yksityiskohtaiset muutokset",
   "background_task_operation_image": "kuvan lataus",
-  "background_task_operation_refresh": "päivitystä myöhennetty kuvan latauksen vuoksi",
+  "background_task_operation_refresh": "pÃ¤ivitystÃ¤ myÃ¶hennetty kuvan latauksen vuoksi",
   "background_task_run_started": "aloitettu",
   "background_task_run_not_started": "ei aloitettu",
   "background_task_run_to_be_deleted": "poistettava",
-  "background_task_question_stop": "Haluatko päättää tehtävän heti?",
+  "background_task_question_stop": "Haluatko pÃ¤Ã¤ttÃ¤Ã¤ tehtÃ¤vÃ¤n heti?",
   "feed_back": "Palaute",
   "undo": "Kumoa",
-  "copy_email_to_clip_board": "Kopioi sähköpostiosoite leikepöydälle",
+  "copy_email_to_clip_board": "Kopioi sÃ¤hkÃ¶postiosoite leikepÃ¶ydÃ¤lle",
   "@copy_email_to_clip_board": {
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
-  "please_send_us_an_email_to": "Lähetä manuaalisesti sähköpostia osoitteeseen",
-  "email_copied_to_clip_board": "Sähköpostiosoite kopioitu leikepöydälle",
-  "select_accent_color": "Valitse korostusväri",
+  "please_send_us_an_email_to": "LÃ¤hetÃ¤ manuaalisesti sÃ¤hkÃ¶postia osoitteeseen",
+  "email_copied_to_clip_board": "SÃ¤hkÃ¶postiosoite kopioitu leikepÃ¶ydÃ¤lle",
+  "select_accent_color": "Valitse korostusvÃ¤ri",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
   },
@@ -3400,17 +3382,17 @@
   "@color_blue": {
     "description": "Color Blue"
   },
-  "color_cyan": "Vaaleampi sinivihreä",
+  "color_cyan": "Vaaleampi sinivihreÃ¤",
   "@color_cyan": {
     "description": "Color Cyan"
   },
-  "color_green": "Vihreä",
+  "color_green": "VihreÃ¤",
   "@color_green": {
     "description": "Color Green"
   },
   "color_light_brown": "Oletus",
   "@color_light_brown": {
-    "description": "Color Light Brown, Default Open Food Facts Color"
+    "description": "Color Light Brown, Default Openâ€¯Foodâ€¯Facts Color"
   },
   "color_magenta": "Aniliininpunainen",
   "@color_magenta": {
@@ -3428,11 +3410,11 @@
   "@color_red": {
     "description": "Color Red"
   },
-  "color_rust": "Ruosteenvärinen",
+  "color_rust": "RuosteenvÃ¤rinen",
   "@color_rust": {
     "description": "Color Rust"
   },
-  "color_teal": "Tummempi sinivihreä",
+  "color_teal": "Tummempi sinivihreÃ¤",
   "@color_teal": {
     "description": "Color Teal"
   },
@@ -3452,11 +3434,11 @@
   "@contrast_low": {
     "description": "Low Contrast Text Color"
   },
-  "product_refresher_internet_not_found": "Tuotetta ei löydy!",
+  "product_refresher_internet_not_found": "Tuotetta ei lÃ¶ydy!",
   "@product_refresher_internet_not_found": {
     "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
   },
-  "product_refresher_internet_not_connected": "Et ole yhteydessä Internetiin!",
+  "product_refresher_internet_not_connected": "Et ole yhteydessÃ¤ Internetiin!",
   "@product_refresher_internet_not_connected": {
     "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
   },
@@ -3478,7 +3460,7 @@
       }
     }
   },
-  "product_loader_not_found_title": "Tuotetta ei löydy!",
+  "product_loader_not_found_title": "Tuotetta ei lÃ¶ydy!",
   "@product_loader_not_found_title": {
     "description": "When fetching a product opened via a link and it doesn't exist"
   },
@@ -3491,15 +3473,15 @@
       }
     }
   },
-  "product_loader_network_error_title": "Ei internet-yhteyttä!",
+  "product_loader_network_error_title": "Ei internet-yhteyttÃ¤!",
   "@product_loader_network_error_title": {
     "description": "When fetching a product opened via a link and there is no connection"
   },
-  "product_loader_network_error_message": "Tarkista, että älypuhelimesi on Wi-Fi-verkossa tai että mobiilidata on käytössä",
+  "product_loader_network_error_message": "Tarkista, ettÃ¤ Ã¤lypuhelimesi on Wi-Fi-verkossa tai ettÃ¤ mobiilidata on kÃ¤ytÃ¶ssÃ¤",
   "@product_loader_network_error_message": {
     "description": "When fetching a product opened via a link and there is no connection"
   },
-  "page_not_found_title": "Sivua ei löydy!",
+  "page_not_found_title": "Sivua ei lÃ¶ydy!",
   "@page_not_found_title": {
     "description": "Title for a page not found (when an URL is not recognized)"
   },
@@ -3511,23 +3493,21 @@
   "@download_data": {
     "description": "App bar title for the download data page"
   },
-  "download_top_products": "Lataa maasi 1000 suosituinta tuotetta välitöntä skannausta varten",
+  "download_top_products": "Lataa maasi 1000 suosituinta tuotetta vÃ¤litÃ¶ntÃ¤ skannausta varten",
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Lataa suosituimmat {count,plural,  other{{count} tuotetta}} maassasi välittömään skannaukseen",
+  "download_top_n_products": "Lataa suosituimmat {count,plural,  other{{count} tuotetta}} maassasi vÃ¤littÃ¶mÃ¤Ã¤n skannaukseen",
   "@download_top_n_products": {
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
-  "download_in_progress": "Ladataan tietoja\nTämä voi kestää jonkin aikaa",
+  "download_in_progress": "Ladataan tietoja\nTÃ¤mÃ¤ voi kestÃ¤Ã¤ jonkin aikaa",
   "@download_in_progress": {
     "description": "Download in progress"
   },
-  "downloaded_products": "{num} tuotetta lisätty",
+  "downloaded_products": "{num} tuotetta lisÃ¤tty",
   "@downloaded_products": {
     "description": "text to show when products added",
     "placeholders": {
@@ -3536,11 +3516,11 @@
       }
     }
   },
-  "update_offline_data": "Offline-tuotetietojen päivitys",
+  "update_offline_data": "Offline-tuotetietojen pÃ¤ivitys",
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Päivitä paikallinen tuotetietokanta Open Food Factsin uusimmilla tiedoilla",
+  "update_local_database_sub": "PÃ¤ivitÃ¤ paikallinen tuotetietokanta Open Food Factsin uusimmilla tiedoilla",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
@@ -3548,7 +3528,7 @@
   "@clear_local_database": {
     "description": "List tile title for the clear local database page"
   },
-  "clear_local_database_sub": "Vapauta tilaa tyhjentämällä kaikki sovelluksen paikalliset tuotetiedot",
+  "clear_local_database_sub": "Vapauta tilaa tyhjentÃ¤mÃ¤llÃ¤ kaikki sovelluksen paikalliset tuotetiedot",
   "@clear_local_database_sub": {
     "description": "Clear all local product data from your app to free up space"
   },
@@ -3561,15 +3541,15 @@
       }
     }
   },
-  "loading": "Ladataan…",
+  "loading": "Ladataanâ€¦",
   "@loading": {
-    "description": "Loading…"
+    "description": "Loadingâ€¦"
   },
-  "know_more": "Lisätietoja",
+  "know_more": "LisÃ¤tietoja",
   "@know_more": {
     "description": "Know More"
   },
-  "offline_data_desc": "Napsauta saadaksesi lisätietoja offline-tiedoista",
+  "offline_data_desc": "Napsauta saadaksesi lisÃ¤tietoja offline-tiedoista",
   "@offline_data_desc": {
     "description": "Click to know more about offline data"
   },
@@ -3577,7 +3557,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} tuotetta saatavilla välittömään skannaukseen",
+  "available_for_download": "{num} tuotetta saatavilla vÃ¤littÃ¶mÃ¤Ã¤n skannaukseen",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3610,7 +3590,7 @@
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
-  "action_change_list": "Muuta nykyistä luetteloa",
+  "action_change_list": "Muuta nykyistÃ¤ luetteloa",
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
@@ -3650,33 +3630,33 @@
   "environmental_score_e": "Green-Score E",
   "environmental_score_unknown": "Tuntematon Green-Score",
   "environmental_score_not_applicable": "Green-Score ei sovellu",
-  "nova_group_generic": "Ultraprosessointi - NOVA-ryhmät",
-  "nova_group_1": "NOVA Ryhmä 1",
-  "nova_group_2": "NOVA Ryhmä 2",
-  "nova_group_3": "NOVA Ryhmä 3",
-  "nova_group_4": "NOVA Ryhmä 4",
-  "nova_group_unknown": "Tuntematon NOVA Ryhmä",
+  "nova_group_generic": "Ultraprosessointi - NOVA-ryhmÃ¤t",
+  "nova_group_1": "NOVA RyhmÃ¤ 1",
+  "nova_group_2": "NOVA RyhmÃ¤ 2",
+  "nova_group_3": "NOVA RyhmÃ¤ 3",
+  "nova_group_4": "NOVA RyhmÃ¤ 4",
+  "nova_group_unknown": "Tuntematon NOVA RyhmÃ¤",
   "nutrition_facts": "Ravintoaineiden Tasot",
-  "faq_title_partners": "Kansalaisjärjestön yhteistyökumppanit ja suojelijat",
+  "faq_title_partners": "KansalaisjÃ¤rjestÃ¶n yhteistyÃ¶kumppanit ja suojelijat",
   "faq_title_vision": "Open Food Facts Visio, Missio, Arvot ja Ohjelmat",
   "faq_title_install_beauty": "Luo kosmeettinen tietokanta asentamalla Open Beauty Facts",
-  "faq_title_install_pet": "Luo lemmikkieläinten ruokatietokanta asentamalla Open Pet Food Facts",
-  "faq_title_install_product": "Asenna Open Products Facts luodaksesi tuotetietokannan objektien käyttöiän pidentämiseksi",
-  "faq_nutriscore_nutriscore": "Uusi Nutri-Score-laskukaava: mitä uutta?",
+  "faq_title_install_pet": "Luo lemmikkielÃ¤inten ruokatietokanta asentamalla Open Pet Food Facts",
+  "faq_title_install_product": "Asenna Open Products Facts luodaksesi tuotetietokannan objektien kÃ¤yttÃ¶iÃ¤n pidentÃ¤miseksi",
+  "faq_nutriscore_nutriscore": "Uusi Nutri-Score-laskukaava: mitÃ¤ uutta?",
   "contact_title_pro_page": "Pro? Tuo tuotteesi Open Food Factsiin",
   "contact_title_pro_email": "Tuottajan yhteystiedot",
-  "contact_title_press_page": "Lehdistösivu",
-  "contact_title_press_email": "Lehdistöyhteystiedot",
+  "contact_title_press_page": "LehdistÃ¶sivu",
+  "contact_title_press_email": "LehdistÃ¶yhteystiedot",
   "contact_title_newsletter": "Tilaa uutiskirjeemme",
-  "hunger_games_loading_line1": "Ole hyvä ja anna meille muutama sekunti…",
-  "hunger_games_loading_line2": "Ladataan kysymyksiä!",
-  "hunger_games_error_label": "Argh! Jotain meni pieleen… emmekä voineet ladata kysymyksiä.",
-  "hunger_games_error_retry_button": "Yritetään uudelleen!",
-  "reorder_attribute_action": "Uudelleenjärjestä attribuutit",
+  "hunger_games_loading_line1": "Ole hyvÃ¤ ja anna meille muutama sekuntiâ€¦",
+  "hunger_games_loading_line2": "Ladataan kysymyksiÃ¤!",
+  "hunger_games_error_label": "Argh! Jotain meni pieleenâ€¦ emmekÃ¤ voineet ladata kysymyksiÃ¤.",
+  "hunger_games_error_retry_button": "YritetÃ¤Ã¤n uudelleen!",
+  "reorder_attribute_action": "UudelleenjÃ¤rjestÃ¤ attribuutit",
   "@reorder_attribute_action": {
     "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
   },
-  "link_cant_be_opened": "Tätä linkkiä ei voi avata laitteellasi. Tarkista, että sinulla on selain asennettuna.",
+  "link_cant_be_opened": "TÃ¤tÃ¤ linkkiÃ¤ ei voi avata laitteellasi. Tarkista, ettÃ¤ sinulla on selain asennettuna.",
   "@link_cant_be_opened": {
     "description": "An error may happen if the device doesn't have a browser installed."
   },
@@ -3710,7 +3690,7 @@
   "@guide_nutriscore_v2_enabled": {
     "description": "Please NEVER touch this value and let the OFF team change it!"
   },
-  "guide_nutriscore_v2_title": "Nutri-Score kehittyy: selityksiä!",
+  "guide_nutriscore_v2_title": "Nutri-Score kehittyy: selityksiÃ¤!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -3718,38 +3698,38 @@
   "@guide_nutriscore_v2_file_language": {
     "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "Mikä on Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "MikÃ¤ on Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score on logo, jonka tarkoituksena on kertoa sinulle **ruokien ravintoarvosta**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Värikoodi vaihtelee tummanvihreästä (**A**) **terveellisimmille** tuotteille tummanpunaiseen (**E**) **vähemmän terveellisille** tuotteille.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "VÃ¤rikoodi vaihtelee tummanvihreÃ¤stÃ¤ (**A**) **terveellisimmille** tuotteille tummanpunaiseen (**E**) **vÃ¤hemmÃ¤n terveellisille** tuotteille.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A -logo",
   "guide_nutriscore_v2_why_v2_title": "Miksi Nutri-Score kehittyy?",
-  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-kaava **kehitetään** tarjotakseen parempia suosituksia:",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-kaava **kehitetÃ¤Ã¤n** tarjotakseen parempia suosituksia:",
   "guide_nutriscore_v2_why_v2_arg1_title": "Paranna kaikkien juomien arviointia",
   "guide_nutriscore_v2_why_v2_arg1_text": "Uuden algoritmin mukaan **maito**, **sokerilla maustetut maitojuomat** ja **kasvijuomat** eroteltiin paremmin vertailevissa muistiinpanoissa.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Parempi juomien sijoitus",
-  "guide_nutriscore_v2_why_v2_arg2_text": "**Sokeripitoisuus** otetaan paremmin huomioon ja suosii **vähän makeutettuja** juomia.\\n**Makeutusaineista myös rangaistaan**: dieettivirvoitusjuomat alennetaan B-luokituksen tasosta C:n ja E:n välille. Vesi on edelleen suositeltu juoma.",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**Sokeripitoisuus** otetaan paremmin huomioon ja suosii **vÃ¤hÃ¤n makeutettuja** juomia.\\n**Makeutusaineista myÃ¶s rangaistaan**: dieettivirvoitusjuomat alennetaan B-luokituksen tasosta C:n ja E:n vÃ¤lille. Vesi on edelleen suositeltu juoma.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Suolasta ja sokerista rangaistaan",
   "guide_nutriscore_v2_why_v2_arg3_text": "Tuotteiden, jotka ovat **liian makeita** tai **liian suolaisia**, **luokitusta alennetaan edelleen**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarkia öljyjen ja kalojen välillä",
-  "guide_nutriscore_v2_why_v2_arg4_text": "Tiettyjen **rasvaisten kalojen** ja **hyviä rasvoja sisältävien öljyjen** luokitus paranee.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarkia Ã¶ljyjen ja kalojen vÃ¤lillÃ¤",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Tiettyjen **rasvaisten kalojen** ja **hyviÃ¤ rasvoja sisÃ¤ltÃ¤vien Ã¶ljyjen** luokitus paranee.",
   "guide_nutriscore_v2_why_v2_arg5_title": "Rajoita punaista lihaa",
-  "guide_nutriscore_v2_why_v2_arg5_text": "**Punaisen lihan kulutusta tulisi rajoittaa**. Tämä on syy siihen, miksi **siipikarja sijoittuu suhteellisesti paremmin**.",
+  "guide_nutriscore_v2_why_v2_arg5_text": "**Punaisen lihan kulutusta tulisi rajoittaa**. TÃ¤mÃ¤ on syy siihen, miksi **siipikarja sijoittuu suhteellisesti paremmin**.",
   "guide_nutriscore_v2_new_logo_title": "Kuinka erottaa vanha Nutri-Score ja uusi laskelma?",
-  "guide_nutriscore_v2_new_logo_text": "Tästä eteenpäin logossa voi näkyä maininta \"**Uusi laskelma**\" selventääkseen, että kyseessä on todellakin uusi laskelma.",
+  "guide_nutriscore_v2_new_logo_text": "TÃ¤stÃ¤ eteenpÃ¤in logossa voi nÃ¤kyÃ¤ maininta \"**Uusi laskelma**\" selventÃ¤Ã¤kseen, ettÃ¤ kyseessÃ¤ on todellakin uusi laskelma.",
   "guide_nutriscore_v2_new_logo_image_caption": "Uuden Nutri-Scoren logo",
-  "guide_nutriscore_v2_where_title": "Mistä löydät uuden Nutri-Score-laskelman?",
-  "guide_nutriscore_v2_where_paragraph1": "Nutri-Scorea sovelletaan useissa maissa: Saksassa, Belgiassa, Espanjassa, Ranskassa, Luxemburgissa, Alankomaissa ja Sveitsissä.",
-  "guide_nutriscore_v2_where_paragraph2": "Valmistajilla on viimeistään **2026** asti **korvattava** vanha laskelma uudella.",
-  "guide_nutriscore_v2_where_paragraph3": "Odotamatta **löydät jo OpenFoodFacts-sovelluksesta** uuden laskelman, myös jos valmistajat eivät ole päivittäneet arvosanaa.",
-  "guide_nutriscore_v2_unchanged_title": "Mikä ei muutu",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score on pistemäärä, joka on suunniteltu **mittaamaan ravintoarvoa**. Se **täydentää NOVA-ryhmää** **ultrajalostetuissa elintarvikkeissa** (sisältyy myös hakemukseen).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "Valmistajille Nutri-Score-näyttö **pysyy valinnaisena**.",
+  "guide_nutriscore_v2_where_title": "MistÃ¤ lÃ¶ydÃ¤t uuden Nutri-Score-laskelman?",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Scorea sovelletaan useissa maissa: Saksassa, Belgiassa, Espanjassa, Ranskassa, Luxemburgissa, Alankomaissa ja SveitsissÃ¤.",
+  "guide_nutriscore_v2_where_paragraph2": "Valmistajilla on viimeistÃ¤Ã¤n **2026** asti **korvattava** vanha laskelma uudella.",
+  "guide_nutriscore_v2_where_paragraph3": "Odotamatta **lÃ¶ydÃ¤t jo OpenFoodFacts-sovelluksesta** uuden laskelman, myÃ¶s jos valmistajat eivÃ¤t ole pÃ¤ivittÃ¤neet arvosanaa.",
+  "guide_nutriscore_v2_unchanged_title": "MikÃ¤ ei muutu",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score on pistemÃ¤Ã¤rÃ¤, joka on suunniteltu **mittaamaan ravintoarvoa**. Se **tÃ¤ydentÃ¤Ã¤ NOVA-ryhmÃ¤Ã¤** **ultrajalostetuissa elintarvikkeissa** (sisÃ¤ltyy myÃ¶s hakemukseen).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Valmistajille Nutri-Score-nÃ¤yttÃ¶ **pysyy valinnaisena**.",
   "guide_nutriscore_v2_share_link": "https://world-fi.openfoodfacts.org/nutriscore-v2",
   "guide_nutriscore_v2_share_message": "",
   "@guide_nutriscore_v2_share_message": {
@@ -3759,29 +3739,29 @@
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
   },
-  "prices_feedback_form": "Napsauta tätä lähettääksesi meille palautetta tästä uudesta ominaisuudesta!",
+  "prices_feedback_form": "Napsauta tÃ¤tÃ¤ lÃ¤hettÃ¤Ã¤ksesi meille palautetta tÃ¤stÃ¤ uudesta ominaisuudesta!",
   "@prices_feedback_form": {
     "description": "A button to send feedback about the prices feature"
   },
   "menu_button_list_actions": "Valitse toiminto",
   "@menu_button_list_actions": {
-    "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    "description": "Button to select an action in a list (eg: Share, Delete, â€¦)"
   },
   "error_loading_photo": "Virhe kuvaa ladattaessa",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Tee tästä kuvasta…",
+  "photo_viewer_action_use_picture_as": "Tee tÃ¤stÃ¤ kuvastaâ€¦",
   "@photo_viewer_action_use_picture_as": {
-    "description": "An action to use the current picture to be used as front/ingredients…"
+    "description": "An action to use the current picture to be used as front/ingredientsâ€¦"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Use this picture asâ€¦",
   "@photo_viewer_use_picture_as_tooltip": {
-    "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
+    "description": "Message explaining what the three dots (â€¦) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Tee tästä kuvasta… ({language})",
+  "photo_viewer_use_picture_as_title": "Tee tÃ¤stÃ¤ kuvastaâ€¦ ({language})",
   "@photo_viewer_use_picture_as_title": {
-    "description": "The title of a dialog to use the current picture as front/ingredients…",
+    "description": "The title of a dialog to use the current picture as front/ingredientsâ€¦",
     "placeholders": {
       "language": {
         "type": "String"
@@ -3808,7 +3788,7 @@
   "@photo_viewer_details_size_title": {
     "description": "Label for the size of a photo"
   },
-  "photo_viewer_details_size_value": "{width} x {height} kuvapistettä",
+  "photo_viewer_details_size_value": "{width} x {height} kuvapistettÃ¤",
   "@photo_viewer_details_size_value": {
     "description": "Value for the size of a photo",
     "placeholders": {
@@ -3820,7 +3800,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Päivämäärä",
+  "photo_viewer_details_date_title": "PÃ¤ivÃ¤mÃ¤Ã¤rÃ¤",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -3865,11 +3845,11 @@
   "@product_image_other_accessibility_label": {
     "description": "Accessibility label for an image"
   },
-  "product_image_outdated_message": "Tämä kuva saattaa olla vanhentunut",
+  "product_image_outdated_message": "TÃ¤mÃ¤ kuva saattaa olla vanhentunut",
   "@product_image_outdated_message": {
     "description": "Small message to indicate that the image may be outdated"
   },
-  "product_image_outdated_message_accessibility_label": "{type} (tämä kuva saattaa olla vanhentunut)",
+  "product_image_outdated_message_accessibility_label": "{type} (tÃ¤mÃ¤ kuva saattaa olla vanhentunut)",
   "@product_image_outdated_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be outdated",
     "placeholders": {
@@ -3878,7 +3858,7 @@
       }
     }
   },
-  "product_image_locked_message_accessibility_label": "{type} (tuottaja on saattanut lukita tämän kuvan)",
+  "product_image_locked_message_accessibility_label": "{type} (tuottaja on saattanut lukita tÃ¤mÃ¤n kuvan)",
   "@product_image_locked_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
     "placeholders": {
@@ -3904,11 +3884,11 @@
   "@product_page_image_no_image_available": {
     "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
   },
-  "product_page_image_no_image_available_accessibility_label": "Tästä tuotteesta ei ole saatavilla kuvaa",
+  "product_page_image_no_image_available_accessibility_label": "TÃ¤stÃ¤ tuotteesta ei ole saatavilla kuvaa",
   "@product_page_image_no_image_available_accessibility_label": {
     "description": "Accessibility label for the image on the product page when there is no image available on the database"
   },
-  "product_page_action_bar_settings_accessibility_label": "Järjestä tai piilota toimintoja",
+  "product_page_action_bar_settings_accessibility_label": "JÃ¤rjestÃ¤ tai piilota toimintoja",
   "@product_page_action_bar_settings_accessibility_label": {
     "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
   },
@@ -3932,11 +3912,11 @@
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few secondsâ€¦",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
@@ -3962,7 +3942,7 @@
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
   "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
+  "carousel_unsupported_text": "The barcode scanned is not supported by Openâ€¯Foodâ€¯Facts!",
   "carousel_error_header": "Error!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
@@ -3973,7 +3953,7 @@
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_error_button": "Yritä uudelleen",
+  "carousel_error_button": "YritÃ¤ uudelleen",
   "carousel_unknown_product_header": "Tuntematon tuote",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
@@ -3986,7 +3966,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "Lisää tämä tuote",
+  "carousel_unknown_product_button": "LisÃ¤Ã¤ tÃ¤mÃ¤ tuote",
   "carousel_loading_header": "Loading information...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
@@ -3996,19 +3976,19 @@
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "Vegetables, fruits, frozen foodâ€¦",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "Makeup, soaps, toothpastesâ€¦",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Food for dogs, catsâ€¦",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "Smartphones, furnitureâ€¦",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
@@ -4018,12 +3998,12 @@
   "photo_field_packaging": "Pakkaustietokuva",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
-  "date": "Päivämäärä",
-  "photo_rotate_left": "Kierrä vasemmalle",
+  "date": "PÃ¤ivÃ¤mÃ¤Ã¤rÃ¤",
+  "photo_rotate_left": "KierrÃ¤ vasemmalle",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Kierrä oikealle",
+  "photo_rotate_right": "KierrÃ¤ oikealle",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4137,7 +4117,7 @@
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
-  "app_review_feedback_modal_later": "Kysy myöhemmin",
+  "app_review_feedback_modal_later": "Kysy myÃ¶hemmin",
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
@@ -4158,3 +4138,4 @@
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   }
 }
+

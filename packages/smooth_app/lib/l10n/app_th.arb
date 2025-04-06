@@ -1,18 +1,18 @@
-{
+﻿{
   "@Utils": {},
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "ถูกต้อง",
+  "yes": "à¸–à¸¹à¸à¸•à¹‰à¸­à¸‡",
   "@yes": {},
-  "add": "เพิ่ม",
+  "add": "à¹€à¸žà¸´à¹ˆà¸¡",
   "@add": {},
-  "account_delete_message": "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชี หากมีเหตุผลที่เฉพาะเจาะจงโปรดแจ้งด้านล่าง",
+  "account_delete_message": "à¸„à¸¸à¸“à¹à¸™à¹ˆà¹ƒà¸ˆà¸«à¸£à¸·à¸­à¹„à¸¡à¹ˆà¸§à¹ˆà¸²à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¥à¸šà¸šà¸±à¸à¸Šà¸µ à¸«à¸²à¸à¸¡à¸µà¹€à¸«à¸•à¸¸à¸œà¸¥à¸—à¸µà¹ˆà¹€à¸‰à¸žà¸²à¸°à¹€à¸ˆà¸²à¸°à¸ˆà¸‡à¹‚à¸›à¸£à¸”à¹à¸ˆà¹‰à¸‡à¸”à¹‰à¸²à¸™à¸¥à¹ˆà¸²à¸‡",
   "@account_delete_message": {},
-  "reason": "สาเหตุ",
+  "reason": "à¸ªà¸²à¹€à¸«à¸•à¸¸",
   "@reason": {},
-  "okay": "โอเค",
+  "okay": "à¹‚à¸­à¹€à¸„",
   "@okay": {},
   "validate": "Validate",
   "@validate": {
@@ -22,9 +22,9 @@
   "@create": {
     "description": "An action to create"
   },
-  "applyButtonText": "ใช้",
+  "applyButtonText": "à¹ƒà¸Šà¹‰",
   "@applyButtonText": {},
-  "next_label": "ถัดไป",
+  "next_label": "à¸–à¸±à¸”à¹„à¸›",
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
@@ -40,43 +40,43 @@
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
-  "go_back_to_top": "กลับขึ้นไปด้านบน",
-  "save": "บันทึก",
-  "save_confirmation": "คุณแน่ใจว่าต้องการจะบันทึกใช่มั้ย",
+  "go_back_to_top": "à¸à¸¥à¸±à¸šà¸‚à¸¶à¹‰à¸™à¹„à¸›à¸”à¹‰à¸²à¸™à¸šà¸™",
+  "save": "à¸šà¸±à¸™à¸—à¸¶à¸",
+  "save_confirmation": "à¸„à¸¸à¸“à¹à¸™à¹ˆà¹ƒà¸ˆà¸§à¹ˆà¸²à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸ˆà¸°à¸šà¸±à¸™à¸—à¸¶à¸à¹ƒà¸Šà¹ˆà¸¡à¸±à¹‰à¸¢",
   "skip": "Skip",
-  "cancel": "ยกเลิก",
+  "cancel": "à¸¢à¸à¹€à¸¥à¸´à¸",
   "@cancel": {},
-  "ignore": "ละเว้น",
+  "ignore": "à¸¥à¸°à¹€à¸§à¹‰à¸™",
   "@ignore": {
     "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
   },
-  "close": "ปิด",
+  "close": "à¸›à¸´à¸”",
   "@close": {},
-  "no": "ไม่ใช่",
+  "no": "à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆ",
   "@no": {},
-  "stop": "หยุด",
+  "stop": "à¸«à¸¢à¸¸à¸”",
   "@stop": {},
   "finish": "Finish",
   "@finish": {},
-  "calculate": "คำนวณ",
+  "calculate": "à¸„à¸³à¸™à¸§à¸“",
   "@calculate": {
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
-  "reset_food_prefs": "ล้างค่าการกำหนดลักษณะ",
+  "reset_food_prefs": "à¸¥à¹‰à¸²à¸‡à¸„à¹ˆà¸²à¸à¸²à¸£à¸à¸³à¸«à¸™à¸”à¸¥à¸±à¸à¸©à¸“à¸°",
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "error": "บางอย่างผิดพลาด",
+  "error": "à¸šà¸²à¸‡à¸­à¸¢à¹ˆà¸²à¸‡à¸œà¸´à¸”à¸žà¸¥à¸²à¸”",
   "@error": {},
-  "error_occurred": "เกิดความผิดพลาด",
+  "error_occurred": "à¹€à¸à¸´à¸”à¸„à¸§à¸²à¸¡à¸œà¸´à¸”à¸žà¸¥à¸²à¸”",
   "@error_occurred": {},
-  "featureInProgress": "เรากำลังพัฒนากับฟีเจอร์นี้เจอกันเร็วๆนี้",
+  "featureInProgress": "à¹€à¸£à¸²à¸à¸³à¸¥à¸±à¸‡à¸žà¸±à¸’à¸™à¸²à¸à¸±à¸šà¸Ÿà¸µà¹€à¸ˆà¸­à¸£à¹Œà¸™à¸µà¹‰à¹€à¸ˆà¸­à¸à¸±à¸™à¹€à¸£à¹‡à¸§à¹†à¸™à¸µà¹‰",
   "@featureInProgress": {},
-  "label_web": "เปิดดูบนเว็บไซต์",
+  "label_web": "à¹€à¸›à¸´à¸”à¸”à¸¹à¸šà¸™à¹€à¸§à¹‡à¸šà¹„à¸‹à¸•à¹Œ",
   "@label_web": {},
-  "learnMore": "ดูเพิ่มเติม",
+  "learnMore": "à¸”à¸¹à¹€à¸žà¸´à¹ˆà¸¡à¹€à¸•à¸´à¸¡",
   "@learnMore": {},
-  "unknown": "ไม่ทราบ",
+  "unknown": "à¹„à¸¡à¹ˆà¸—à¸£à¸²à¸š",
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
@@ -130,36 +130,36 @@
   },
   "licenses": "Licences",
   "@licenses": {},
-  "looking_for": "กำลังหา",
+  "looking_for": "à¸à¸³à¸¥à¸±à¸‡à¸«à¸²",
   "@looking_for": {
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "ยินดีต้อนรับสู่ โอเพ้น ฟู๊ด แฟค",
+  "welcomeToOpenFoodFacts": "à¸¢à¸´à¸™à¸”à¸µà¸•à¹‰à¸­à¸™à¸£à¸±à¸šà¸ªà¸¹à¹ˆ à¹‚à¸­à¹€à¸žà¹‰à¸™ à¸Ÿà¸¹à¹Šà¸” à¹à¸Ÿà¸„",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+  "whatIsOff": "Openâ€¯Foodâ€¯Facts is a global non-profit powered by local communities.",
   "@whatIsOff": {
-    "description": "Description of Open Food Facts organization."
+    "description": "Description of Openâ€¯Foodâ€¯Facts organization."
   },
-  "productDataUtility": "ดูข้อมูลอาหาร ที่คุณสนใจ(ความต้องการ)",
+  "productDataUtility": "à¸”à¸¹à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸­à¸²à¸«à¸²à¸£ à¸—à¸µà¹ˆà¸„à¸¸à¸“à¸ªà¸™à¹ƒà¸ˆ(à¸„à¸§à¸²à¸¡à¸•à¹‰à¸­à¸‡à¸à¸²à¸£)",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "เลือกอาหารที่ดีที่สุดสำหรับคุณ",
+  "healthCardUtility": "à¹€à¸¥à¸·à¸­à¸à¸­à¸²à¸«à¸²à¸£à¸—à¸µà¹ˆà¸”à¸µà¸—à¸µà¹ˆà¸ªà¸¸à¸”à¸ªà¸³à¸«à¸£à¸±à¸šà¸„à¸¸à¸“",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
-  "ecoCardUtility": "เลือกอาหารที่ดีมีประโยชน์ที่ดีกับโลกใบนี้",
+  "ecoCardUtility": "à¹€à¸¥à¸·à¸­à¸à¸­à¸²à¸«à¸²à¸£à¸—à¸µà¹ˆà¸”à¸µà¸¡à¸µà¸›à¸£à¸°à¹‚à¸¢à¸Šà¸™à¹Œà¸—à¸µà¹ˆà¸”à¸µà¸à¸±à¸šà¹‚à¸¥à¸à¹ƒà¸šà¸™à¸µà¹‰",
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
   "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
   "@user_management": {},
-  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-  "incorrect_credentials": "ชื่อและพาสเวิร์ดไม่ถูกต้อง",
+  "sign_in_text": "Sign in to your Openâ€¯Foodâ€¯Facts account to save your contributions",
+  "incorrect_credentials": "à¸Šà¸·à¹ˆà¸­à¹à¸¥à¸°à¸žà¸²à¸ªà¹€à¸§à¸´à¸£à¹Œà¸”à¹„à¸¡à¹ˆà¸–à¸¹à¸à¸•à¹‰à¸­à¸‡",
   "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
   "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-  "login": "ชื่อผู้ใช้",
+  "login": "à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -171,17 +171,17 @@
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "กรุณากรอกชื่อแอคเค้าท์ หรือ อีเมล์",
-  "login_page_password_error_empty": "ใส่รหัสผ่าน",
-  "create_account": "สร้าง แอคเค้าท์",
+  "login_page_username_or_email": "à¸à¸£à¸¸à¸“à¸²à¸à¸£à¸­à¸à¸Šà¸·à¹ˆà¸­à¹à¸­à¸„à¹€à¸„à¹‰à¸²à¸—à¹Œ à¸«à¸£à¸·à¸­ à¸­à¸µà¹€à¸¡à¸¥à¹Œ",
+  "login_page_password_error_empty": "à¹ƒà¸ªà¹ˆà¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™",
+  "create_account": "à¸ªà¸£à¹‰à¸²à¸‡ à¹à¸­à¸„à¹€à¸„à¹‰à¸²à¸—à¹Œ",
   "@create_account": {
     "description": "Button label: Opens a page where a new user can register"
   },
-  "sign_in": "เข้าสู่ระบบ",
+  "sign_in": "à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸£à¸°à¸šà¸š",
   "@sign_in": {
     "description": "Button label: For sign in"
   },
-  "sign_in_mandatory": "คุณต้องลงชื่อเข้าใช้ เพื่อใช้ฟีเจอร์นี้",
+  "sign_in_mandatory": "à¸„à¸¸à¸“à¸•à¹‰à¸­à¸‡à¸¥à¸‡à¸Šà¸·à¹ˆà¸­à¹€à¸‚à¹‰à¸²à¹ƒà¸Šà¹‰ à¹€à¸žà¸·à¹ˆà¸­à¹ƒà¸Šà¹‰à¸Ÿà¸µà¹€à¸ˆà¸­à¸£à¹Œà¸™à¸µà¹‰",
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
@@ -189,20 +189,20 @@
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
-  "sign_out": "ล๊อคเอ้าท์",
+  "sign_out": "à¸¥à¹Šà¸­à¸„à¹€à¸­à¹‰à¸²à¸—à¹Œ",
   "@sign_out": {
     "description": "Button label: For sign out"
   },
-  "sign_out_confirmation": "คุณแน่ใจว่าจะล๊อคเอ้าท์?",
+  "sign_out_confirmation": "à¸„à¸¸à¸“à¹à¸™à¹ˆà¹ƒà¸ˆà¸§à¹ˆà¸²à¸ˆà¸°à¸¥à¹Šà¸­à¸„à¹€à¸­à¹‰à¸²à¸—à¹Œ?",
   "@sign_out_confirmation": {
     "description": "Pop up title: Reassuring if the user really want to sign out"
   },
-  "password": "รหัสผ่าน",
-  "forgot_password": "ชืมรหัสผ่าน",
+  "password": "à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™",
+  "forgot_password": "à¸Šà¸·à¸¡à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™",
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "view_profile": "ดูโปรไฟล์",
+  "view_profile": "à¸”à¸¹à¹‚à¸›à¸£à¹„à¸Ÿà¸¥à¹Œ",
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
@@ -210,43 +210,43 @@
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "ถ้าหากชืมรหัสผ่านให้กรอก ชื่อแอคเค้าท์ หรือ อีเมล์ เพื่อรับ ข้อมูล ขั้นตอนการตั้งค่ารหัสใหม่ กรุณาเปิดกล่องจดหมายขยะด้วย",
-  "username_or_email": "ชื่อผู้ใช้ หรือ อีเมล์",
+  "reset_password_explanation_text": "à¸–à¹‰à¸²à¸«à¸²à¸à¸Šà¸·à¸¡à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™à¹ƒà¸«à¹‰à¸à¸£à¸­à¸ à¸Šà¸·à¹ˆà¸­à¹à¸­à¸„à¹€à¸„à¹‰à¸²à¸—à¹Œ à¸«à¸£à¸·à¸­ à¸­à¸µà¹€à¸¡à¸¥à¹Œ à¹€à¸žà¸·à¹ˆà¸­à¸£à¸±à¸š à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ à¸‚à¸±à¹‰à¸™à¸•à¸­à¸™à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸£à¸«à¸±à¸ªà¹ƒà¸«à¸¡à¹ˆ à¸à¸£à¸¸à¸“à¸²à¹€à¸›à¸´à¸”à¸à¸¥à¹ˆà¸­à¸‡à¸ˆà¸”à¸«à¸¡à¸²à¸¢à¸‚à¸¢à¸°à¸”à¹‰à¸§à¸¢",
+  "username_or_email": "à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰ à¸«à¸£à¸·à¸­ à¸­à¸µà¹€à¸¡à¸¥à¹Œ",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "อีเมล์ที่มีลิงค์สำหรับ ตั้งค่ารหัสผ่านใหม่ได้ถูกส่งไปยังอีเมล์ที่ท่านใช้สมัครแอคเค้าท์เรียบร้อยแล้ว กรุณาเช็คกล่องจดหมายที่ไม่ต้องการด้วย",
-  "send_reset_password_mail": "เปลี่ยนรหัส",
+  "reset_password_done": "à¸­à¸µà¹€à¸¡à¸¥à¹Œà¸—à¸µà¹ˆà¸¡à¸µà¸¥à¸´à¸‡à¸„à¹Œà¸ªà¸³à¸«à¸£à¸±à¸š à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™à¹ƒà¸«à¸¡à¹ˆà¹„à¸”à¹‰à¸–à¸¹à¸à¸ªà¹ˆà¸‡à¹„à¸›à¸¢à¸±à¸‡à¸­à¸µà¹€à¸¡à¸¥à¹Œà¸—à¸µà¹ˆà¸—à¹ˆà¸²à¸™à¹ƒà¸Šà¹‰à¸ªà¸¡à¸±à¸„à¸£à¹à¸­à¸„à¹€à¸„à¹‰à¸²à¸—à¹Œà¹€à¸£à¸µà¸¢à¸šà¸£à¹‰à¸­à¸¢à¹à¸¥à¹‰à¸§ à¸à¸£à¸¸à¸“à¸²à¹€à¸Šà¹‡à¸„à¸à¸¥à¹ˆà¸­à¸‡à¸ˆà¸”à¸«à¸¡à¸²à¸¢à¸—à¸µà¹ˆà¹„à¸¡à¹ˆà¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸”à¹‰à¸§à¸¢",
+  "send_reset_password_mail": "à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¸£à¸«à¸±à¸ª",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
   },
-  "enter_some_text": "กรุณาเขียนข้อความ",
+  "enter_some_text": "à¸à¸£à¸¸à¸“à¸²à¹€à¸‚à¸µà¸¢à¸™à¸‚à¹‰à¸­à¸„à¸§à¸²à¸¡",
   "@enter_some_text": {
     "description": "Error when a required text field is empty"
   },
-  "sign_up_page_title": "สมัคร",
+  "sign_up_page_title": "à¸ªà¸¡à¸±à¸„à¸£",
   "@sign_up_page_title": {
     "description": "Header"
   },
-  "sign_up_page_action_button": "สมัคร",
+  "sign_up_page_action_button": "à¸ªà¸¡à¸±à¸„à¸£",
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
-  "sign_up_page_action_doing_it": "กำลังลงทะเบียน…",
+  "sign_up_page_action_doing_it": "à¸à¸³à¸¥à¸±à¸‡à¸¥à¸‡à¸—à¸°à¹€à¸šà¸µà¸¢à¸™â€¦",
   "@sign_up_page_action_doing_it": {
     "description": "Progress indicator dialog during the actual signing up process"
   },
-  "sign_up_page_action_ok": "ยินดีด้วยแอคเค้าท์ของคุณสร้างเสร็จเรียบร้อย",
-  "sign_up_page_display_name_hint": "ชื่อ",
-  "sign_up_page_display_name_error_empty": "กรุณาตั้งชื่อเล่น ที่คุณต้องการ",
-  "sign_up_page_email_hint": "อีเม",
-  "sign_up_page_email_error_empty": "ต้องระบุอีเมล์",
-  "sign_up_page_email_error_invalid": "อีเมลไม่ถูกต้อง",
-  "sign_up_page_username_hint": "ชื่อผู้ใช้: เปิดเผยต่อสาธารณะ",
-  "sign_up_page_username_error_empty": "กรุณา ใส่ชื่อแอคเค้าท์",
-  "sign_up_page_username_error_invalid": "ชื่อไม่ถูกต้อง",
-  "sign_up_page_username_description": "ชื่อผู้ใช้ต้องไม่มีช่องว่าง ตัวพิมพ์ใหญ่ หรือตัวอักษรพิเศษ",
-  "sign_up_page_username_length_invalid": "ชื่อผู้ใช้ต้องไม่เกิน {value} ตัวอักษร",
+  "sign_up_page_action_ok": "à¸¢à¸´à¸™à¸”à¸µà¸”à¹‰à¸§à¸¢à¹à¸­à¸„à¹€à¸„à¹‰à¸²à¸—à¹Œà¸‚à¸­à¸‡à¸„à¸¸à¸“à¸ªà¸£à¹‰à¸²à¸‡à¹€à¸ªà¸£à¹‡à¸ˆà¹€à¸£à¸µà¸¢à¸šà¸£à¹‰à¸­à¸¢",
+  "sign_up_page_display_name_hint": "à¸Šà¸·à¹ˆà¸­",
+  "sign_up_page_display_name_error_empty": "à¸à¸£à¸¸à¸“à¸²à¸•à¸±à¹‰à¸‡à¸Šà¸·à¹ˆà¸­à¹€à¸¥à¹ˆà¸™ à¸—à¸µà¹ˆà¸„à¸¸à¸“à¸•à¹‰à¸­à¸‡à¸à¸²à¸£",
+  "sign_up_page_email_hint": "à¸­à¸µà¹€à¸¡",
+  "sign_up_page_email_error_empty": "à¸•à¹‰à¸­à¸‡à¸£à¸°à¸šà¸¸à¸­à¸µà¹€à¸¡à¸¥à¹Œ",
+  "sign_up_page_email_error_invalid": "à¸­à¸µà¹€à¸¡à¸¥à¹„à¸¡à¹ˆà¸–à¸¹à¸à¸•à¹‰à¸­à¸‡",
+  "sign_up_page_username_hint": "à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰: à¹€à¸›à¸´à¸”à¹€à¸œà¸¢à¸•à¹ˆà¸­à¸ªà¸²à¸˜à¸²à¸£à¸“à¸°",
+  "sign_up_page_username_error_empty": "à¸à¸£à¸¸à¸“à¸² à¹ƒà¸ªà¹ˆà¸Šà¸·à¹ˆà¸­à¹à¸­à¸„à¹€à¸„à¹‰à¸²à¸—à¹Œ",
+  "sign_up_page_username_error_invalid": "à¸Šà¸·à¹ˆà¸­à¹„à¸¡à¹ˆà¸–à¸¹à¸à¸•à¹‰à¸­à¸‡",
+  "sign_up_page_username_description": "à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰à¸•à¹‰à¸­à¸‡à¹„à¸¡à¹ˆà¸¡à¸µà¸Šà¹ˆà¸­à¸‡à¸§à¹ˆà¸²à¸‡ à¸•à¸±à¸§à¸žà¸´à¸¡à¸žà¹Œà¹ƒà¸«à¸à¹ˆ à¸«à¸£à¸·à¸­à¸•à¸±à¸§à¸­à¸±à¸à¸©à¸£à¸žà¸´à¹€à¸¨à¸©",
+  "sign_up_page_username_length_invalid": "à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰à¸•à¹‰à¸­à¸‡à¹„à¸¡à¹ˆà¹€à¸à¸´à¸™ {value} à¸•à¸±à¸§à¸­à¸±à¸à¸©à¸£",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -254,57 +254,57 @@
       }
     }
   },
-  "sign_up_page_password_hint": "รหัสผ่าน",
-  "sign_up_page_password_error_empty": "ใส่รหัสผ่าน",
-  "sign_up_page_password_error_invalid": "รหัสผ่านของคุณไม่ถูกต้อง(ต้องมีความยาวอย่างน้อย6ตัว)",
-  "sign_up_page_confirm_password_hint": "ยืนยันรหัส",
-  "sign_up_page_confirm_password_error_empty": "กรุณยืนยันรหัสผ่าน",
-  "sign_up_page_confirm_password_error_invalid": "รหัสผ่านไม่ตรงกัน",
-  "sign_up_page_agree_text": "I agree to the Open Food Facts",
+  "sign_up_page_password_hint": "à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™",
+  "sign_up_page_password_error_empty": "à¹ƒà¸ªà¹ˆà¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™",
+  "sign_up_page_password_error_invalid": "à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™à¸‚à¸­à¸‡à¸„à¸¸à¸“à¹„à¸¡à¹ˆà¸–à¸¹à¸à¸•à¹‰à¸­à¸‡(à¸•à¹‰à¸­à¸‡à¸¡à¸µà¸„à¸§à¸²à¸¡à¸¢à¸²à¸§à¸­à¸¢à¹ˆà¸²à¸‡à¸™à¹‰à¸­à¸¢6à¸•à¸±à¸§)",
+  "sign_up_page_confirm_password_hint": "à¸¢à¸·à¸™à¸¢à¸±à¸™à¸£à¸«à¸±à¸ª",
+  "sign_up_page_confirm_password_error_empty": "à¸à¸£à¸¸à¸“à¸¢à¸·à¸™à¸¢à¸±à¸™à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™",
+  "sign_up_page_confirm_password_error_invalid": "à¸£à¸«à¸±à¸ªà¸œà¹ˆà¸²à¸™à¹„à¸¡à¹ˆà¸•à¸£à¸‡à¸à¸±à¸™",
+  "sign_up_page_agree_text": "I agree to the Openâ€¯Foodâ€¯Facts",
   "@sign_up_page_agree_text": {
-    "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    "description": "I agree to the Openâ€¯Foodâ€¯Facts is followed by sign_up_page_terms_text"
   },
-  "sign_up_page_terms_text": "ข้อมูลและเงื่อนไขการใช้งาน",
+  "sign_up_page_terms_text": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹à¸¥à¸°à¹€à¸‡à¸·à¹ˆà¸­à¸™à¹„à¸‚à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
   "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
   "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    "description": "Please insert the right url here. Go to the Openâ€¯Foodâ€¯Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
   },
-  "sign_up_page_agree_error_invalid": "เมื่อสร้างบัญชี จะถือว่าเป็นการยอมรับข้อกำหนดการใช้งานโดยปริยาย แต่คุณสามารถใช้งานแบบไม่ระบุตัวตนได้ผ่านแอป",
+  "sign_up_page_agree_error_invalid": "à¹€à¸¡à¸·à¹ˆà¸­à¸ªà¸£à¹‰à¸²à¸‡à¸šà¸±à¸à¸Šà¸µ à¸ˆà¸°à¸–à¸·à¸­à¸§à¹ˆà¸²à¹€à¸›à¹‡à¸™à¸à¸²à¸£à¸¢à¸­à¸¡à¸£à¸±à¸šà¸‚à¹‰à¸­à¸à¸³à¸«à¸™à¸”à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¹‚à¸”à¸¢à¸›à¸£à¸´à¸¢à¸²à¸¢ à¹à¸•à¹ˆà¸„à¸¸à¸“à¸ªà¸²à¸¡à¸²à¸£à¸–à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¹à¸šà¸šà¹„à¸¡à¹ˆà¸£à¸°à¸šà¸¸à¸•à¸±à¸§à¸•à¸™à¹„à¸”à¹‰à¸œà¹ˆà¸²à¸™à¹à¸­à¸›",
   "@sign_up_page_agree_error_invalid": {
     "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
   },
-  "sign_up_page_producer_checkbox": "ฉันเป็นผู้ผลิตอาหาร",
-  "sign_up_page_producer_hint": "ผู้ผลิต/ยี่ห้อ",
-  "sign_up_page_producer_error_empty": "โปรดป้อนผู้ผลิตหรือยี่ห้อ",
-  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
-  "sign_up_page_user_name_already_used": "ชื่อผู้ใช้นี้มีอยู่แล้ว โปรดเลือกชื่อผู้ใช้อื่น",
-  "sign_up_page_email_already_exists": "มีอยู่แล้ว โปรดเข้าสู่ระบบหรือลองด้วยอีเมลอื่น",
-  "sign_up_page_provide_valid_email": "โปรดใส่ที่อยู่อีเมลที่ถูกต้อง",
+  "sign_up_page_producer_checkbox": "à¸‰à¸±à¸™à¹€à¸›à¹‡à¸™à¸œà¸¹à¹‰à¸œà¸¥à¸´à¸•à¸­à¸²à¸«à¸²à¸£",
+  "sign_up_page_producer_hint": "à¸œà¸¹à¹‰à¸œà¸¥à¸´à¸•/à¸¢à¸µà¹ˆà¸«à¹‰à¸­",
+  "sign_up_page_producer_error_empty": "à¹‚à¸›à¸£à¸”à¸›à¹‰à¸­à¸™à¸œà¸¹à¹‰à¸œà¸¥à¸´à¸•à¸«à¸£à¸·à¸­à¸¢à¸µà¹ˆà¸«à¹‰à¸­",
+  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Openâ€¯Foodâ€¯Facts newsletter (You can unsubscribe from it at any time)",
+  "sign_up_page_user_name_already_used": "à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰à¸™à¸µà¹‰à¸¡à¸µà¸­à¸¢à¸¹à¹ˆà¹à¸¥à¹‰à¸§ à¹‚à¸›à¸£à¸”à¹€à¸¥à¸·à¸­à¸à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰à¸­à¸·à¹ˆà¸™",
+  "sign_up_page_email_already_exists": "à¸¡à¸µà¸­à¸¢à¸¹à¹ˆà¹à¸¥à¹‰à¸§ à¹‚à¸›à¸£à¸”à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸£à¸°à¸šà¸šà¸«à¸£à¸·à¸­à¸¥à¸­à¸‡à¸”à¹‰à¸§à¸¢à¸­à¸µà¹€à¸¡à¸¥à¸­à¸·à¹ˆà¸™",
+  "sign_up_page_provide_valid_email": "à¹‚à¸›à¸£à¸”à¹ƒà¸ªà¹ˆà¸—à¸µà¹ˆà¸­à¸¢à¸¹à¹ˆà¸­à¸µà¹€à¸¡à¸¥à¸—à¸µà¹ˆà¸–à¸¹à¸à¸•à¹‰à¸­à¸‡",
   "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
-  "settingsTitle": "ตั้งค่า",
+  "settingsTitle": "à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²",
   "@settingsTitle": {
     "description": "The title of the Settings page"
   },
-  "darkmode": "ธีม",
+  "darkmode": "à¸˜à¸µà¸¡",
   "@darkmode": {
     "description": "The name of the darkmode on off switch"
   },
-  "darkmode_dark": "มืด",
+  "darkmode_dark": "à¸¡à¸·à¸”",
   "@darkmode_dark": {
     "description": "Indicator inside the darkmode switch (dark)"
   },
-  "darkmode_light": "สว่าง",
+  "darkmode_light": "à¸ªà¸§à¹ˆà¸²à¸‡",
   "@darkmode_light": {
     "description": "Indicator inside the darkmode switch (light)"
   },
-  "darkmode_system_default": "ใช้ค่าจากระบบ",
+  "darkmode_system_default": "à¹ƒà¸Šà¹‰à¸„à¹ˆà¸²à¸ˆà¸²à¸à¸£à¸°à¸šà¸š",
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
@@ -321,7 +321,7 @@
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
-      "name": {}
+      "name": {"type": "Object"}
     }
   },
   "contributors_description": "A list of all contributors of this app",
@@ -332,12 +332,12 @@
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
-  "support_join_slack": "ขอความช่วยเหลือผ่าน Slack ของเรา",
-  "support_via_forum": "ขอความช่วยเหลือในฟอรัมของเรา",
-  "support_via_email": "ส่งอีเมลถึง Open Food Facts",
-  "support_via_email_include_logs_dialog_title": "ส่งข้อมูลการใช้แอป",
-  "support_via_email_include_logs_dialog_body": "คุณต้องการแนบบันทึกการใช้งานไปกับอีเมลหรือไม่?",
-  "termsOfUse": "ข้อกำหนดการใช้งาน",
+  "support_join_slack": "à¸‚à¸­à¸„à¸§à¸²à¸¡à¸Šà¹ˆà¸§à¸¢à¹€à¸«à¸¥à¸·à¸­à¸œà¹ˆà¸²à¸™ Slack à¸‚à¸­à¸‡à¹€à¸£à¸²",
+  "support_via_forum": "à¸‚à¸­à¸„à¸§à¸²à¸¡à¸Šà¹ˆà¸§à¸¢à¹€à¸«à¸¥à¸·à¸­à¹ƒà¸™à¸Ÿà¸­à¸£à¸±à¸¡à¸‚à¸­à¸‡à¹€à¸£à¸²",
+  "support_via_email": "à¸ªà¹ˆà¸‡à¸­à¸µà¹€à¸¡à¸¥à¸–à¸¶à¸‡ Open Food Facts",
+  "support_via_email_include_logs_dialog_title": "à¸ªà¹ˆà¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸à¸²à¸£à¹ƒà¸Šà¹‰à¹à¸­à¸›",
+  "support_via_email_include_logs_dialog_body": "à¸„à¸¸à¸“à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¹à¸™à¸šà¸šà¸±à¸™à¸—à¸¶à¸à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¹„à¸›à¸à¸±à¸šà¸­à¸µà¹€à¸¡à¸¥à¸«à¸£à¸·à¸­à¹„à¸¡à¹ˆ?",
+  "termsOfUse": "à¸‚à¹‰à¸­à¸à¸³à¸«à¸™à¸”à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™",
   "@termsOfUse": {},
   "legalNotices": "Legal notices",
   "@legalNotices": {
@@ -347,28 +347,28 @@
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
-  "about_this_app": "เกี่ยวกับแอพนี้",
+  "about_this_app": "à¹€à¸à¸µà¹ˆà¸¢à¸§à¸à¸±à¸šà¹à¸­à¸žà¸™à¸µà¹‰",
   "@about_this_app": {
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "ร่วมสนับสนุน",
+  "contribute": "à¸£à¹ˆà¸§à¸¡à¸ªà¸™à¸±à¸šà¸ªà¸™à¸¸à¸™",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
-  "contribute_sw_development": "การพัฒนาซอฟต์แวร์",
+  "contribute_sw_development": "à¸à¸²à¸£à¸žà¸±à¸’à¸™à¸²à¸‹à¸­à¸Ÿà¸•à¹Œà¹à¸§à¸£à¹Œ",
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+  "contribute_develop_text": "The code for every Openâ€¯Foodâ€¯Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+  "contribute_develop_text_2": "You can join the Openâ€¯Foodâ€¯Facts Slack chatroom which is the preferred way to ask questions.",
   "@contribute_develop_text_2": {},
-  "contribute_develop_dev_mode_title": "โหมด DEV?",
-  "contribute_develop_dev_mode_subtitle": "เปิดใช้งานโหมด DEV",
-  "contribute_donate_title": "บริจาค",
+  "contribute_develop_dev_mode_title": "à¹‚à¸«à¸¡à¸” DEV?",
+  "contribute_develop_dev_mode_subtitle": "à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¹‚à¸«à¸¡à¸” DEV",
+  "contribute_donate_title": "à¸šà¸£à¸´à¸ˆà¸²à¸„",
   "@contribute_donate_title": {},
-  "contribute_donate_header": "Donate to Open Food Facts",
+  "contribute_donate_header": "Donate to Openâ€¯Foodâ€¯Facts",
   "@contribute_donate_header": {},
   "contribute_enroll_alpha": "Enroll in internal alpha version",
   "@contribute_enroll_alpha": {},
@@ -378,86 +378,86 @@
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
-  "contribute_improve_header": "ปรับปรุง",
+  "contribute_improve_header": "à¸›à¸£à¸±à¸šà¸›à¸£à¸¸à¸‡",
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Openâ€¯Foodâ€¯Facts website offers many ways to contribute: ",
   "@contribute_improve_text": {},
-  "contribute_translate_header": "แปลภาษา",
+  "contribute_translate_header": "à¹à¸›à¸¥à¸ à¸²à¸©à¸²",
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_translate_link_text": "เริ่มแปล",
+  "contribute_translate_link_text": "à¹€à¸£à¸´à¹ˆà¸¡à¹à¸›à¸¥",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Openâ€¯Foodâ€¯Facts is a global project, containing products from more than 160 countries. Openâ€¯Foodâ€¯Facts is translated into dozens of languages, with constantly evolving content.",
   "@contribute_translate_text": {},
-  "contribute_translate_text_2": "การแปลเป็นหนึ่งในงานหลักของโครงการ",
+  "contribute_translate_text_2": "à¸à¸²à¸£à¹à¸›à¸¥à¹€à¸›à¹‡à¸™à¸«à¸™à¸¶à¹ˆà¸‡à¹ƒà¸™à¸‡à¸²à¸™à¸«à¸¥à¸±à¸à¸‚à¸­à¸‡à¹‚à¸„à¸£à¸‡à¸à¸²à¸£",
   "@contribute_translate_text_2": {},
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-  "contribute_share_header": "Share Open Food Facts with your friends",
+  "contribute_share_header": "Share Openâ€¯Foodâ€¯Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "I wanted to let you know about the app I've been using, Openâ€¯Foodâ€¯Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "tap_to_answer": "แตะที่นี่เพื่อตอบคำถาม",
+  "tap_to_answer": "à¹à¸•à¸°à¸—à¸µà¹ˆà¸™à¸µà¹ˆà¹€à¸žà¸·à¹ˆà¸­à¸•à¸­à¸šà¸„à¸³à¸–à¸²à¸¡",
   "@tap_to_answer": {
-    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts and gain rewards."
   },
-  "tap_to_answer_hint": "แตะที่นี่เพื่อตอบคำถามเกี่ยวกับผลิตภัณฑ์",
+  "tap_to_answer_hint": "à¹à¸•à¸°à¸—à¸µà¹ˆà¸™à¸µà¹ˆà¹€à¸žà¸·à¹ˆà¸­à¸•à¸­à¸šà¸„à¸³à¸–à¸²à¸¡à¹€à¸à¸µà¹ˆà¸¢à¸§à¸à¸±à¸šà¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œ",
   "@tap_to_answer_hint": {
     "description": "Hint for accessibility readers to answer Robotoff questions."
   },
-  "robotoff_questions_loading_hint": "โปรดรอสักครู่ในขณะที่กำลังโหลดคำถามเกี่ยวกับผลิตภัณฑ์นี้",
+  "robotoff_questions_loading_hint": "à¹‚à¸›à¸£à¸”à¸£à¸­à¸ªà¸±à¸à¸„à¸£à¸¹à¹ˆà¹ƒà¸™à¸‚à¸“à¸°à¸—à¸µà¹ˆà¸à¸³à¸¥à¸±à¸‡à¹‚à¸«à¸¥à¸”à¸„à¸³à¸–à¸²à¸¡à¹€à¸à¸µà¹ˆà¸¢à¸§à¸à¸±à¸šà¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¸™à¸µà¹‰",
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
-  "saving_answer": "กำลังบันทึกคำตอบของคุณ",
+  "saving_answer": "à¸à¸³à¸¥à¸±à¸‡à¸šà¸±à¸™à¸—à¸¶à¸à¸„à¸³à¸•à¸­à¸šà¸‚à¸­à¸‡à¸„à¸¸à¸“",
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
   "contribute_to_get_rewards": "Become an actor of food transparency",
   "@contribute_to_get_rewards": {
-    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
+    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-  "question_yes_button_accessibility_value": "ตอบด้วยใช่",
-  "question_no_button_accessibility_value": "ตอบด้วยไม่",
-  "question_skip_button_accessibility_value": "ข้ามคำถามนี้",
-  "tap_to_edit_search": "แตะเพื่อแก้ไขการค้นหา",
+  "question_sign_in_text": "Sign in to your Openâ€¯Foodâ€¯Facts account to get credit for your contributions",
+  "question_yes_button_accessibility_value": "à¸•à¸­à¸šà¸”à¹‰à¸§à¸¢à¹ƒà¸Šà¹ˆ",
+  "question_no_button_accessibility_value": "à¸•à¸­à¸šà¸”à¹‰à¸§à¸¢à¹„à¸¡à¹ˆ",
+  "question_skip_button_accessibility_value": "à¸‚à¹‰à¸²à¸¡à¸„à¸³à¸–à¸²à¸¡à¸™à¸µà¹‰",
+  "tap_to_edit_search": "à¹à¸•à¸°à¹€à¸žà¸·à¹ˆà¸­à¹à¸à¹‰à¹„à¸‚à¸à¸²à¸£à¸„à¹‰à¸™à¸«à¸²",
   "@Personal preferences": {},
-  "myPreferences": "การตั้งค่าของฉัน",
+  "myPreferences": "à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸‚à¸­à¸‡à¸‰à¸±à¸™",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+  "account_create_message": "Create your account and join the Openâ€¯Foodâ€¯Facts community to help build food knowledge all over the world!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
-  "join_us": "เข้าร่วมกับเรา",
+  "join_us": "à¹€à¸‚à¹‰à¸²à¸£à¹ˆà¸§à¸¡à¸à¸±à¸šà¹€à¸£à¸²",
   "@join_us": {
     "description": "Join which is actually Signup"
   },
-  "myPreferences_profile_title": "โปรไฟล์ของคุณ",
-  "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
-  "myPreferences_settings_title": "การตั้งค่าแอพ",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_profile_title": "à¹‚à¸›à¸£à¹„à¸Ÿà¸¥à¹Œà¸‚à¸­à¸‡à¸„à¸¸à¸“",
+  "myPreferences_profile_subtitle": "Manage your Openâ€¯Foodâ€¯Facts contributor account.",
+  "myPreferences_settings_title": "à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¹à¸­à¸ž",
+  "myPreferences_settings_subtitle": "Dark mode, Languagesâ€¦",
   "myPreferences_food_title": "Food Preferences",
-  "myPreferences_food_subtitle": "เลือกข้อมูลเกี่ยวกับอาหารที่สำคัญที่สุดสำหรับคุณ",
-  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_food_subtitle": "à¹€à¸¥à¸·à¸­à¸à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸à¸µà¹ˆà¸¢à¸§à¸à¸±à¸šà¸­à¸²à¸«à¸²à¸£à¸—à¸µà¹ˆà¸ªà¸³à¸„à¸±à¸à¸—à¸µà¹ˆà¸ªà¸¸à¸”à¸ªà¸³à¸«à¸£à¸±à¸šà¸„à¸¸à¸“",
+  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Openâ€¯Foodâ€¯Facts contributor account if you have one.",
   "confirmResetPreferences": "Reset your food preferences?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
-  "myPersonalizedRanking": "การจัดอันดับส่วนบุคคลของฉัน",
+  "myPersonalizedRanking": "à¸à¸²à¸£à¸ˆà¸±à¸”à¸­à¸±à¸™à¸”à¸±à¸šà¸ªà¹ˆà¸§à¸™à¸šà¸¸à¸„à¸„à¸¥à¸‚à¸­à¸‡à¸‰à¸±à¸™",
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "ranking_tab_all": "ทั้งหมด",
-  "ranking_subtitle_match_yes": "จับคู่ที่ดีสำหรับคุณ",
+  "ranking_tab_all": "à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”",
+  "ranking_subtitle_match_yes": "à¸ˆà¸±à¸šà¸„à¸¹à¹ˆà¸—à¸µà¹ˆà¸”à¸µà¸ªà¸³à¸«à¸£à¸±à¸šà¸„à¸¸à¸“",
   "ranking_subtitle_match_no": "Very poor match",
   "ranking_subtitle_match_maybe": "Unknown match",
   "refresh_with_new_preferences": "Refresh the list with your new preferences",
@@ -469,15 +469,15 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "โปรไฟล์",
+  "profile_navbar_label": "à¹‚à¸›à¸£à¹„à¸Ÿà¸¥à¹Œ",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
-  "scan_navbar_label": "สแกน",
+  "scan_navbar_label": "à¸ªà¹à¸à¸™",
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the scanning of products"
   },
-  "history_navbar_label": "ประวัติการเข้าใช้",
+  "history_navbar_label": "à¸›à¸£à¸°à¸§à¸±à¸•à¸´à¸à¸²à¸£à¹€à¸‚à¹‰à¸²à¹ƒà¸Šà¹‰",
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the history and compare mode"
   },
@@ -485,16 +485,16 @@
   "@list_navbar_label": {
     "description": "BottomNavigationBarLabel: For the lists"
   },
-  "category": "กรองตามหมวดหมู่",
+  "category": "à¸à¸£à¸­à¸‡à¸•à¸²à¸¡à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆ",
   "@category": {
     "description": "From a product list, there's a category filter: this is its title"
   },
-  "category_all": "ทั้งหมด",
+  "category_all": "à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”",
   "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
-  "category_search": "(ค้นหาหมวดหมู่)",
-  "filter": "กรอง",
+  "category_search": "(à¸„à¹‰à¸™à¸«à¸²à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆ)",
+  "filter": "à¸à¸£à¸­à¸‡",
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
@@ -502,11 +502,11 @@
   "@scan": {
     "description": "Page title: List type: Products in the scan session"
   },
-  "scan_history": "ประวัติการสแกน",
+  "scan_history": "à¸›à¸£à¸°à¸§à¸±à¸•à¸´à¸à¸²à¸£à¸ªà¹à¸à¸™",
   "@scan_history": {
     "description": "Page title: List type: Products in the whole scan history"
   },
-  "search": "ค้นหา",
+  "search": "à¸„à¹‰à¸™à¸«à¸²",
   "@search": {
     "description": "Hint text of a search text input field"
   },
@@ -514,15 +514,15 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "tap_for_more": "Tap to see more info…",
+  "tap_for_more": "Tap to see more infoâ€¦",
   "@Product": {},
-  "product": "สินค้า",
+  "product": "à¸ªà¸´à¸™à¸„à¹‰à¸²",
   "@product": {},
-  "unknownBrand": "ไม่ทราบยี่ห้อ",
+  "unknownBrand": "à¹„à¸¡à¹ˆà¸—à¸£à¸²à¸šà¸¢à¸µà¹ˆà¸«à¹‰à¸­",
   "@unknownBrand": {},
-  "unknownProductName": "ผลิตภัณฑ์ที่ไม่รู้จัก",
+  "unknownProductName": "à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¸—à¸µà¹ˆà¹„à¸¡à¹ˆà¸£à¸¹à¹‰à¸ˆà¸±à¸",
   "@unknownProductName": {},
-  "label_refresh": "โหลดใหม่",
+  "label_refresh": "à¹‚à¸«à¸¥à¸”à¹ƒà¸«à¸¡à¹ˆ",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -530,29 +530,29 @@
   "@label_reload": {
     "description": "Reload a page"
   },
-  "image": "รูปภาพ",
-  "front_photo": "รูปหน้าตรง",
+  "image": "à¸£à¸¹à¸›à¸ à¸²à¸ž",
+  "front_photo": "à¸£à¸¹à¸›à¸«à¸™à¹‰à¸²à¸•à¸£à¸‡",
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
   "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
   "@outdated_image_accessibility_label": {
-    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutritionâ€¦)",
     "placeholders": {
-      "imageType": {}
+      "imageType": {"type": "Object"}
     }
   },
   "outdated_image_short_label": "may be outdated",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
-  "ingredients": "ส่วนผสม",
+  "ingredients": "à¸ªà¹ˆà¸§à¸™à¸œà¸ªà¸¡",
   "@ingredients": {},
   "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
-  "ingredients_editing_error": "ไม่สามาบันทึกส่วนผสมได้",
-  "ingredients_editing_image_error": "ไม่สามารถใส่รูปภาพของส่วนผสมได้",
-  "ingredients_editing_title": "แก้ไขส่วนผสม",
-  "ingredients_photo": "รูปภาพของส่วนประกอบของอาหาร",
+  "ingredients_editing_error": "à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸šà¸±à¸™à¸—à¸¶à¸à¸ªà¹ˆà¸§à¸™à¸œà¸ªà¸¡à¹„à¸”à¹‰",
+  "ingredients_editing_image_error": "à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¹ƒà¸ªà¹ˆà¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¸­à¸‡à¸ªà¹ˆà¸§à¸™à¸œà¸ªà¸¡à¹„à¸”à¹‰",
+  "ingredients_editing_title": "à¹à¸à¹‰à¹„à¸‚à¸ªà¹ˆà¸§à¸™à¸œà¸ªà¸¡",
+  "ingredients_photo": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¸­à¸‡à¸ªà¹ˆà¸§à¸™à¸›à¸£à¸°à¸à¸­à¸šà¸‚à¸­à¸‡à¸­à¸²à¸«à¸²à¸£",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
@@ -560,9 +560,9 @@
   "packaging_editing_error": "Failed to save the packaging.",
   "packaging_editing_image_error": "Failed to get a new packaging image.",
   "packaging_editing_title": "Edit Packaging",
-  "nutrition": "อาหารการกิน",
+  "nutrition": "à¸­à¸²à¸«à¸²à¸£à¸à¸²à¸£à¸à¸´à¸™",
   "@nutrition": {},
-  "nutrition_facts_photo": "ข้อมูลโภชนาการ",
+  "nutrition_facts_photo": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£",
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
@@ -570,21 +570,21 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "รายละเอียดการบรรจุ",
+  "packaging_information": "à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸à¸²à¸£à¸šà¸£à¸£à¸ˆà¸¸",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "รูปภาพข้อมูลภาชนะบรรจุ",
+  "packaging_information_photo": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ à¸²à¸Šà¸™à¸°à¸šà¸£à¸£à¸ˆà¸¸",
   "@packaging_information_photo": {},
-  "missing_product": "คุณพบสินค้าใหม่",
+  "missing_product": "à¸„à¸¸à¸“à¸žà¸šà¸ªà¸´à¸™à¸„à¹‰à¸²à¹ƒà¸«à¸¡à¹ˆ",
   "@missing_product": {},
-  "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+  "add_product_take_photos": "Take photos of the packaging to add this product to Openâ€¯Foodâ€¯Facts",
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
   "@add_product_take_photos_descriptive": {},
   "add_product_information_button_label": "Add product information",
   "@add_product_information_button_label": {},
-  "new_product": "สินค้าใหม่",
+  "new_product": "à¸ªà¸´à¸™à¸„à¹‰à¸²à¹ƒà¸«à¸¡à¹ˆ",
   "@new_product": {},
   "new_product_found_title": "New product found!",
   "@new_product_found_title": {
@@ -607,9 +607,9 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Greenâ€¯Score",
   "@new_product_dialog_illustration_description": {
-    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
+    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Greenâ€¯Score."
   },
   "front_packaging_photo_button_label": "Front packaging photo",
   "@front_packaging_photo_button_label": {},
@@ -617,21 +617,21 @@
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
-  "confirm_button_label": "ยืนยัน",
+  "confirm_button_label": "à¸¢à¸·à¸™à¸¢à¸±à¸™",
   "send_image_button_label": "Send image",
-  "crop_page_action_saving": "Saving the image…",
+  "crop_page_action_saving": "Saving the imageâ€¦",
   "@crop_page_action_saving": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_cropping": "Cropping the image…",
+  "crop_page_action_cropping": "Cropping the imageâ€¦",
   "@crop_page_action_cropping": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local": "Saving a local version…",
+  "crop_page_action_local": "Saving a local versionâ€¦",
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Oops… there's something with your photo!",
+  "crop_page_action_local_failed_title": "Oopsâ€¦ there's something with your photo!",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -665,40 +665,40 @@
       }
     }
   },
-  "crop_page_action_server": "Preparing a call to the server…",
+  "crop_page_action_server": "Preparing a call to the serverâ€¦",
   "@crop_page_action_server": {
     "description": "Action being performed on the crop page"
   },
-  "front_packaging_photo_title": "รูปถ่ายด้านหน้าของบรรจุภัณฑ์",
-  "ingredients_photo_title": "รูปภาพส่วนประกอบของอาหาร",
+  "front_packaging_photo_title": "à¸£à¸¹à¸›à¸–à¹ˆà¸²à¸¢à¸”à¹‰à¸²à¸™à¸«à¸™à¹‰à¸²à¸‚à¸­à¸‡à¸šà¸£à¸£à¸ˆà¸¸à¸ à¸±à¸“à¸‘à¹Œ",
+  "ingredients_photo_title": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸ªà¹ˆà¸§à¸™à¸›à¸£à¸°à¸à¸­à¸šà¸‚à¸­à¸‡à¸­à¸²à¸«à¸²à¸£",
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
-  "recycling_photo_title": "การนำกลับไปใช้ใหม่",
-  "take_photo_title": "ถ่ายภาพ",
-  "take_more_photo_title": "ถ่ายรูปเพิ่มเติม",
-  "front_photo_uploaded": "รูปภาพด้านหน้าอัพโหลดเรียบร้อย",
+  "recycling_photo_title": "à¸à¸²à¸£à¸™à¸³à¸à¸¥à¸±à¸šà¹„à¸›à¹ƒà¸Šà¹‰à¹ƒà¸«à¸¡à¹ˆ",
+  "take_photo_title": "à¸–à¹ˆà¸²à¸¢à¸ à¸²à¸ž",
+  "take_more_photo_title": "à¸–à¹ˆà¸²à¸¢à¸£à¸¹à¸›à¹€à¸žà¸´à¹ˆà¸¡à¹€à¸•à¸´à¸¡",
+  "front_photo_uploaded": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸”à¹‰à¸²à¸™à¸«à¸™à¹‰à¸²à¸­à¸±à¸žà¹‚à¸«à¸¥à¸”à¹€à¸£à¸µà¸¢à¸šà¸£à¹‰à¸­à¸¢",
   "@front_photo_uploaded": {},
-  "ingredients_photo_button_label": "รูปภาพของส่วนประกอบของอาหาร",
+  "ingredients_photo_button_label": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¸­à¸‡à¸ªà¹ˆà¸§à¸™à¸›à¸£à¸°à¸à¸­à¸šà¸‚à¸­à¸‡à¸­à¸²à¸«à¸²à¸£",
   "@ingredients_photo_button_label": {},
-  "ingredients_photo_uploaded": "รูปภส่วนประกอบของอาหารถูกอัพโหลดแล้ว",
+  "ingredients_photo_uploaded": "à¸£à¸¹à¸›à¸ à¸ªà¹ˆà¸§à¸™à¸›à¸£à¸°à¸à¸­à¸šà¸‚à¸­à¸‡à¸­à¸²à¸«à¸²à¸£à¸–à¸¹à¸à¸­à¸±à¸žà¹‚à¸«à¸¥à¸”à¹à¸¥à¹‰à¸§",
   "@ingredients_photo_uploaded": {},
   "nutrition_cache_loading_error": "Unable to load nutrients from cache",
-  "nutritional_facts_photo_button_label": "ข้อมูลโภชนาการ",
+  "nutritional_facts_photo_button_label": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£",
   "@nutritional_facts_photo_button_label": {},
   "nutritional_facts_input_button_label": "Fill nutrition facts",
   "nutritional_facts_added": "Nutrition facts added",
   "categories_added": "Categories added",
   "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
-  "new_product_title_environmental_score": "Compute the Green Score",
+  "new_product_title_environmental_score": "Compute the Greenâ€¯Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+  "new_product_additional_environmental_score": "Make Greenâ€¯Score computation more precise with origins, packaging & more",
   "new_product_title_nova": "Compute the food processing level (NOVA)",
   "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
   "new_product_desc_nova_unknown": "Food processing level unknown",
   "new_product_title_pictures": "New product",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-  "new_product_title_misc": "And some basic data…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_title_misc": "And some basic dataâ€¦",
+  "new_product_done_msg": "Thanks for your contribution â€œ{username}â€!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -713,53 +713,53 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Greenâ€¯Score & Ultra-processing (NOVA)!",
   "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
   "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
   "hey_incomplete_product_message_product": "Tap now to help complete this product!",
-  "nutritional_facts_photo_uploaded": "รูปภาพโภชนาการอาหารอัพโหลดแล้ว",
+  "nutritional_facts_photo_uploaded": "à¸£à¸¹à¸›à¸ à¸²à¸žà¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£à¸­à¸²à¸«à¸²à¸£à¸­à¸±à¸žà¹‚à¸«à¸¥à¸”à¹à¸¥à¹‰à¸§",
   "@nutritional_facts_photo_uploaded": {},
-  "recycling_photo_button_label": "ข้อมูลการรีไซเคิล",
+  "recycling_photo_button_label": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸à¸²à¸£à¸£à¸µà¹„à¸‹à¹€à¸„à¸´à¸¥",
   "@recycling_photo_button_label": {},
-  "recycling_photo_uploaded": "รูปภาพรีไซเคิลอัพโหลดแล้ว",
+  "recycling_photo_uploaded": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸£à¸µà¹„à¸‹à¹€à¸„à¸´à¸¥à¸­à¸±à¸žà¹‚à¸«à¸¥à¸”à¹à¸¥à¹‰à¸§",
   "@recycling_photo_uploaded": {},
-  "take_more_photo_button_label": "ถ่ายรูปเพิ่มเติม",
+  "take_more_photo_button_label": "à¸–à¹ˆà¸²à¸¢à¸£à¸¹à¸›à¹€à¸žà¸´à¹ˆà¸¡à¹€à¸•à¸´à¸¡",
   "@take_more_photo_button_label": {},
-  "other_photo_uploaded": "รูปภาพข้อมูลทั่วไป",
+  "other_photo_uploaded": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸—à¸±à¹ˆà¸§à¹„à¸›",
   "@other_photo_uploaded": {},
   "retake_photo_button_label": "Retake",
   "@retake_photo_button_label": {
     "description": "Button clicking on which allows users to retake the last photo they took."
   },
-  "selecting_photo": "กำลังเลือกรูป",
+  "selecting_photo": "à¸à¸³à¸¥à¸±à¸‡à¹€à¸¥à¸·à¸­à¸à¸£à¸¹à¸›",
   "@selecting_photo": {
     "description": "Progress indicator when the users takes a photo"
   },
-  "uploading_image": "อัพโหลดรูแขึ้นระบบ",
+  "uploading_image": "à¸­à¸±à¸žà¹‚à¸«à¸¥à¸”à¸£à¸¹à¹à¸‚à¸¶à¹‰à¸™à¸£à¸°à¸šà¸š",
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Uploading front image to Open Food Facts",
+  "uploading_image_type_front": "Uploading front image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
-  "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+  "uploading_image_type_ingredients": "Uploading ingredients image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+  "uploading_image_type_nutrition": "Uploading nutrition image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
-  "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+  "uploading_image_type_packaging": "Uploading packaging image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_packaging": {
     "description": "Message when a new packaging picture is being uploaded to the server"
   },
-  "uploading_image_type_other": "Uploading other image to Open Food Facts",
+  "uploading_image_type_other": "Uploading other image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_other": {
     "description": "Message when a new other picture is being uploaded to the server"
   },
-  "uploading_image_type_generic": "Uploading image to Open Food Facts",
+  "uploading_image_type_generic": "Uploading image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
@@ -769,16 +769,16 @@
   "score_add_missing_product_category": "Select a category",
   "score_add_missing_product_countries": "Add missing product countries",
   "score_add_missing_product_emb": "Add missing product traceability codes",
-  "score_add_missing_product_labels": "เพิ่มฉลากผลิตภัณฑ์",
-  "score_add_missing_product_origins": "เพิ่มแหล่งที่มาของผลิตภัณฑ์",
-  "score_add_missing_product_stores": "เพิ่มร้านค้าสินค้า",
+  "score_add_missing_product_labels": "à¹€à¸žà¸´à¹ˆà¸¡à¸‰à¸¥à¸²à¸à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œ",
+  "score_add_missing_product_origins": "à¹€à¸žà¸´à¹ˆà¸¡à¹à¸«à¸¥à¹ˆà¸‡à¸—à¸µà¹ˆà¸¡à¸²à¸‚à¸­à¸‡à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œ",
+  "score_add_missing_product_stores": "à¹€à¸žà¸´à¹ˆà¸¡à¸£à¹‰à¸²à¸™à¸„à¹‰à¸²à¸ªà¸´à¸™à¸„à¹‰à¸²",
   "score_add_missing_product_brands": "Add missing product brands",
-  "score_update_nutrition_facts": "อัพเดทข้อมูลโภชนาการ",
-  "nutrition_page_title": "ข้อมูลโภชนาการ",
+  "score_update_nutrition_facts": "à¸­à¸±à¸žà¹€à¸”à¸—à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£",
+  "nutrition_page_title": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£",
   "nutrition_page_nutritional_info_title": "Nutritional information",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
-  "nutrition_page_nutritional_info_value_positive": "ถูกต้อง",
-  "nutrition_page_nutritional_info_value_negative": "ไม่ใช่",
+  "nutrition_page_nutritional_info_value_positive": "à¸–à¸¹à¸à¸•à¹‰à¸­à¸‡",
+  "nutrition_page_nutritional_info_value_negative": "à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆ",
   "nutrition_page_nutritional_info_open_photo": "Open photo",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
   "@nutrition_page_nutritional_info_explanation_title": {
@@ -792,11 +792,11 @@
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
-  "nutrition_page_per_100g": "ต่อ 100 กรัม",
+  "nutrition_page_per_100g": "à¸•à¹ˆà¸­ 100 à¸à¸£à¸±à¸¡",
   "nutrition_page_per_100g_100ml": "per 100g/ml",
-  "nutrition_page_per_serving": "ต่อการให้บริการ",
-  "nutrition_page_add_nutrient": "เพิ่มสารอาหารอื่นๆ",
-  "nutrition_page_serving_size": "หน่วยบริโภค",
+  "nutrition_page_per_serving": "à¸•à¹ˆà¸­à¸à¸²à¸£à¹ƒà¸«à¹‰à¸šà¸£à¸´à¸à¸²à¸£",
+  "nutrition_page_add_nutrient": "à¹€à¸žà¸´à¹ˆà¸¡à¸ªà¸²à¸£à¸­à¸²à¸«à¸²à¸£à¸­à¸·à¹ˆà¸™à¹†",
+  "nutrition_page_serving_size": "à¸«à¸™à¹ˆà¸§à¸¢à¸šà¸£à¸´à¹‚à¸ à¸„",
   "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
   "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
   "@nutrition_page_serving_size_explanation_title": {
@@ -806,7 +806,7 @@
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, Âµg, oz, l, dl, cl, ml, fl.oz, fl oz, Ð³, Ð¼Ð³, ÐºÐ³, Ð», Ð´Ð», ÐºÐ», Ð¼Ð», æ¯«å…‹, å…¬æ–¤, æ¯«å‡, å…¬å‡, å¨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
@@ -842,9 +842,9 @@
   "@nutrition_page_serving_size_explanation_bad_example3_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_invalid_number": "หมายเลขไม่ถูกต้อง",
-  "nutrition_page_update_running": "กำลังอัพเดทผลิตภัณฑ์บนเซิร์ฟเวอร์…",
-  "nutrition_page_update_done": "อัพเดทผลิตภัณฑ์สำเร็จ!",
+  "nutrition_page_invalid_number": "à¸«à¸¡à¸²à¸¢à¹€à¸¥à¸‚à¹„à¸¡à¹ˆà¸–à¸¹à¸à¸•à¹‰à¸­à¸‡",
+  "nutrition_page_update_running": "à¸à¸³à¸¥à¸±à¸‡à¸­à¸±à¸žà¹€à¸”à¸—à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¸šà¸™à¹€à¸‹à¸´à¸£à¹Œà¸Ÿà¹€à¸§à¸­à¸£à¹Œâ€¦",
+  "nutrition_page_update_done": "à¸­à¸±à¸žà¹€à¸”à¸—à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¸ªà¸³à¹€à¸£à¹‡à¸ˆ!",
   "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
@@ -853,19 +853,19 @@
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
-  "more_photos": "รูปภาพอื่นๆที่น่าสนใจ",
+  "more_photos": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸­à¸·à¹ˆà¸™à¹†à¸—à¸µà¹ˆà¸™à¹ˆà¸²à¸ªà¸™à¹ƒà¸ˆ",
   "@more_photos": {},
   "view_more_photo_button": "View all existing photos for this product",
   "@view_more_photo_button": {},
-  "no_product_found": "ไม่พบผลิตภัณฑ์",
+  "no_product_found": "à¹„à¸¡à¹ˆà¸žà¸šà¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œ",
   "@no_product_found": {},
   "no_location_found": "No location found",
-  "not_found": "ไม่พบ",
-  "refreshing_product": "กำลังโหลดผลิตภัณฑ์ใหม่",
+  "not_found": "à¹„à¸¡à¹ˆà¸žà¸š",
+  "refreshing_product": "à¸à¸³à¸¥à¸±à¸‡à¹‚à¸«à¸¥à¸”à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¹ƒà¸«à¸¡à¹ˆ",
   "@refreshing_product": {
     "description": "Confirmation, that the product data of a cached product is queried again"
   },
-  "product_refreshed": "โหลดผลิตภัณฑ์ใหม่สำเร็จ",
+  "product_refreshed": "à¹‚à¸«à¸¥à¸”à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¹ƒà¸«à¸¡à¹ˆà¸ªà¸³à¹€à¸£à¹‡à¸ˆ",
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
@@ -917,7 +917,7 @@
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "ถ่ายภาพ",
+  "product_image_action_take_picture": "à¸–à¹ˆà¸²à¸¢à¸ à¸²à¸ž",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -949,11 +949,11 @@
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
-  "product_image_details_date_unknown": "ไม่ทราบ",
+  "product_image_details_date_unknown": "à¹„à¸¡à¹ˆà¸—à¸£à¸²à¸š",
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
-  "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+  "homepage_main_card_logo_description": "Welcome to Openâ€¯Foodâ€¯Facts",
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
@@ -976,15 +976,15 @@
     }
   },
   "tagline_app_review": "Do you like the app?",
-  "tagline_app_review_button_positive": "I love it! 😍",
-  "tagline_app_review_button_negative": "Not really…",
+  "tagline_app_review_button_positive": "I love it! ðŸ˜",
+  "tagline_app_review_button_negative": "Not reallyâ€¦",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
-  "app_review_negative_modal_negative_button": "ไม่ใช่",
-  "could_not_refresh": "ไม่สามารถโหลดใหม่",
+  "app_review_negative_modal_negative_button": "à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆ",
+  "could_not_refresh": "à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¹‚à¸«à¸¥à¸”à¹ƒà¸«à¸¡à¹ˆ",
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
@@ -1028,8 +1028,8 @@
       }
     }
   },
-  "product_internet_error": "ไม่สามารถดึงข้อมูลเกี่ยวกับผลิตภัณฑ์นี้ได้เนื่องจากข้อผิดพลาดของเครือข่าย",
-  "cached_results_from": "แสดงผลลัพธ์จาก:",
+  "product_internet_error": "à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¸”à¸¶à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸à¸µà¹ˆà¸¢à¸§à¸à¸±à¸šà¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¸™à¸µà¹‰à¹„à¸”à¹‰à¹€à¸™à¸·à¹ˆà¸­à¸‡à¸ˆà¸²à¸à¸‚à¹‰à¸­à¸œà¸´à¸”à¸žà¸¥à¸²à¸”à¸‚à¸­à¸‡à¹€à¸„à¸£à¸·à¸­à¸‚à¹ˆà¸²à¸¢",
+  "cached_results_from": "à¹à¸ªà¸”à¸‡à¸œà¸¥à¸¥à¸±à¸žà¸˜à¹Œà¸ˆà¸²à¸:",
   "@cached_results_from": {
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
@@ -1046,19 +1046,19 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "เพิ่มหมวดหมู่เพื่อคำนวณ Nutri-Score",
+  "product_improvement_add_category": "à¹€à¸žà¸´à¹ˆà¸¡à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆà¹€à¸žà¸·à¹ˆà¸­à¸„à¸³à¸™à¸§à¸“ Nutri-Score",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "เพิ่มข้อมูลโภชนาการเพื่อคำนวณ Nutri-Score",
+  "product_improvement_add_nutrition_facts": "à¹€à¸žà¸´à¹ˆà¸¡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£à¹€à¸žà¸·à¹ˆà¸­à¸„à¸³à¸™à¸§à¸“ Nutri-Score",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "เพิ่มข้อมูลโภชนาการและหมวดหมู่เพื่อคำนวณ Nutri-Score",
+  "product_improvement_add_nutrition_facts_and_category": "à¹€à¸žà¸´à¹ˆà¸¡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£à¹à¸¥à¸°à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆà¹€à¸žà¸·à¹ˆà¸­à¸„à¸³à¸™à¸§à¸“ Nutri-Score",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "ไม่สามารถคำนวณ Nutri-Score สำหรับผลิตภัณฑ์นี้ อาจเป็นเพราะหมวดหมู่ที่ไม่ได้มาตรฐาน หากสิ่งนี้ถือเป็นข้อผิดพลาด โปรดติดต่อเรา",
+  "product_improvement_categories_but_no_nutriscore": "à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¸„à¸³à¸™à¸§à¸“ Nutri-Score à¸ªà¸³à¸«à¸£à¸±à¸šà¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œà¸™à¸µà¹‰ à¸­à¸²à¸ˆà¹€à¸›à¹‡à¸™à¹€à¸žà¸£à¸²à¸°à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆà¸—à¸µà¹ˆà¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸¡à¸²à¸•à¸£à¸à¸²à¸™ à¸«à¸²à¸à¸ªà¸´à¹ˆà¸‡à¸™à¸µà¹‰à¸–à¸·à¸­à¹€à¸›à¹‡à¸™à¸‚à¹‰à¸­à¸œà¸´à¸”à¸žà¸¥à¸²à¸” à¹‚à¸›à¸£à¸”à¸•à¸´à¸”à¸•à¹ˆà¸­à¹€à¸£à¸²",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1066,7 +1066,7 @@
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+  "product_improvement_origins_to_be_completed": "The Greenâ€¯Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
@@ -1116,7 +1116,7 @@
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
-  "native_app_description": "Open systems settings for Open Food Facts",
+  "native_app_description": "Open systems settings for Openâ€¯Foodâ€¯Facts",
   "@native_app_description": {
     "description": "Native App description in app settings"
   },
@@ -1136,7 +1136,7 @@
   "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
-  "clear": "ล้างข้อมูล",
+  "clear": "à¸¥à¹‰à¸²à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥",
   "@clear": {
     "description": "Clears a product list (short label)"
   },
@@ -1150,56 +1150,56 @@
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
-      "percent": {}
+      "percent": {"type": "Object"}
     }
   },
   "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "compare_products_mode": "Compare selected products",
@@ -1226,7 +1226,7 @@
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
-  "retry_button_label": "ลองใหม่อีกครั้ง",
+  "retry_button_label": "à¸¥à¸­à¸‡à¹ƒà¸«à¸¡à¹ˆà¸­à¸µà¸à¸„à¸£à¸±à¹‰à¸‡",
   "connect_with_us": "Connect with us",
   "tiktok": "Follow us on TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
@@ -1240,7 +1240,7 @@
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
   "faq": "FAQ",
-  "discover": "รู้จักกับ Open Food Facts",
+  "discover": "à¸£à¸¹à¹‰à¸ˆà¸±à¸à¸à¸±à¸š Open Food Facts",
   "how_to_contribute": "How to Contribute",
   "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
   "@hint_knowledge_panel_message": {
@@ -1353,7 +1353,7 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "Welcome !",
+  "onboarding_home_welcome_text1": "Welcomeâ€¯!",
   "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
@@ -1383,14 +1383,14 @@
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "loading_dialog_default_title": "Downloading data",
@@ -1413,12 +1413,12 @@
   "@user_profile": {
     "description": "User account (if connected)"
   },
-  "user_profile_title_guest": "ยินดีต้อนรับ!",
+  "user_profile_title_guest": "à¸¢à¸´à¸™à¸”à¸µà¸•à¹‰à¸­à¸™à¸£à¸±à¸š!",
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Openâ€¯Foodâ€¯Facts community",
+  "user_profile_title_id_email": "Openâ€¯Foodâ€¯Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1440,7 +1440,7 @@
   "@email_subject_account_deletion": {
     "description": "Email subject for an account deletion"
   },
-  "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+  "email_body_account_deletion": "Hi there, please delete my Openâ€¯Foodâ€¯Facts account: {userId}",
   "@email_body_account_deletion": {
     "description": "Email body for an account deletion",
     "placeholders": {
@@ -1452,7 +1452,7 @@
   "settings_app_app": "Application",
   "settings_app_data": "Privacy & monitoring",
   "settings_app_camera": "Camera",
-  "settings_app_products": "ผลิตภัณฑ์",
+  "settings_app_products": "à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œ",
   "settings_app_miscellaneous": "Miscellaneous",
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
@@ -1473,7 +1473,7 @@
   "@app_haptic_feedback_title": {
     "description": "Title for the Haptic feedback toggle"
   },
-  "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+  "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removedâ€¦).",
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
@@ -1481,7 +1481,7 @@
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
-  "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+  "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Openâ€¯Foodâ€¯Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
@@ -1489,7 +1489,7 @@
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
-  "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+  "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Openâ€¯Foodâ€¯Facts servers, so that we can understand how and how much features are used in order to improve them.",
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
@@ -1517,8 +1517,8 @@
   },
   "permission_photo_denied_dialog_settings_title": "Permission denied",
   "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
-  "permission_photo_denied_dialog_settings_button_open": "ตั้งค่า",
-  "permission_photo_denied_dialog_settings_button_cancel": "ยกเลิก",
+  "permission_photo_denied_dialog_settings_button_open": "à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²",
+  "permission_photo_denied_dialog_settings_button_cancel": "à¸¢à¸à¹€à¸¥à¸´à¸",
   "permission_photo_none_found": "No camera detected",
   "@permission_photo_none_found": {
     "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1531,11 +1531,11 @@
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
-  "edit_product_label": "แก้ไขสินค้า",
+  "edit_product_label": "à¹à¸à¹‰à¹„à¸‚à¸ªà¸´à¸™à¸„à¹‰à¸²",
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
@@ -1547,7 +1547,7 @@
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_label_short": "แก้ไข",
+  "edit_product_label_short": "à¹à¸à¹‰à¹„à¸‚",
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
@@ -1612,7 +1612,7 @@
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Website…",
+  "edit_product_form_item_other_details_subtitle": "Websiteâ€¦",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
@@ -1628,7 +1628,7 @@
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
+  "edit_product_form_item_labels_subtitle": "Environmental, Quality labelsâ€¦",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
@@ -1648,27 +1648,27 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVAâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittanyâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000…",
+  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000â€¦",
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of ironâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaarâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_stores_title": "ร้านค้า",
+  "edit_product_form_item_stores_title": "à¸£à¹‰à¸²à¸™à¸„à¹‰à¸²",
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
@@ -1708,7 +1708,7 @@
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
-  "edit_product_form_item_origins_type": "ประเทศ",
+  "edit_product_form_item_origins_type": "à¸›à¸£à¸°à¹€à¸—à¸¨",
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
@@ -1736,7 +1736,7 @@
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
-  "edit_product_form_item_countries_type": "ประเทศ",
+  "edit_product_form_item_countries_type": "à¸›à¸£à¸°à¹€à¸—à¸¨",
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
@@ -1752,7 +1752,7 @@
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522â€¦)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
@@ -1770,7 +1770,7 @@
   },
   "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
   "@edit_product_form_item_emb_help_info2_title": {
-    "description": "Explanation about EMB/EC… codes"
+    "description": "Explanation about EMB/ECâ€¦ codes"
   },
   "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
@@ -1792,11 +1792,11 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_categories_title": "หมวดหมู่",
+  "edit_product_form_item_categories_title": "à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆ",
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
   },
-  "edit_product_form_item_categories_hint": "ประเภท",
+  "edit_product_form_item_categories_hint": "à¸›à¸£à¸°à¹€à¸ à¸—",
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
@@ -1816,7 +1816,7 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Openâ€¯Foodâ€¯Facts in your country.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
@@ -1832,7 +1832,7 @@
   "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
   "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
   "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-  "edit_product_form_item_ingredients_title": "ส่วนผสม",
+  "edit_product_form_item_ingredients_title": "à¸ªà¹ˆà¸§à¸™à¸œà¸ªà¸¡",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
@@ -1848,7 +1848,7 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
-  "edit_product_form_item_add_valid_item_tooltip": "เพิ่ม",
+  "edit_product_form_item_add_valid_item_tooltip": "à¹€à¸žà¸´à¹ˆà¸¡",
   "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
   "edit_product_form_item_remove_item_tooltip": "Remove",
   "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
@@ -1863,11 +1863,11 @@
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "ข้อมูลโภชนาการ",
+  "edit_product_form_item_nutrition_facts_title": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
-  "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
+  "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol contentâ€¦",
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
@@ -1883,7 +1883,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "ข้อมูลโภชนาการ",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹‚à¸ à¸Šà¸™à¸²à¸à¸²à¸£",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1895,19 +1895,19 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesiumâ€¦).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_save": "แก้ไข",
+  "edit_product_form_save": "à¹à¸à¹‰à¹„à¸‚",
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
-  "edit_product_ingredients_photo_title": "รูปภาพของส่วนประกอบของอาหาร",
+  "edit_product_ingredients_photo_title": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¸­à¸‡à¸ªà¹ˆà¸§à¸™à¸›à¸£à¸°à¸à¸­à¸šà¸‚à¸­à¸‡à¸­à¸²à¸«à¸²à¸£",
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "รายชื่อส่วนผสม",
+  "edit_product_ingredients_list_title": "à¸£à¸²à¸¢à¸Šà¸·à¹ˆà¸­à¸ªà¹ˆà¸§à¸™à¸œà¸ªà¸¡",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -1933,7 +1933,7 @@
   },
   "completed_basic_details_btn_text": "Complete basic details",
   "not_implemented_snackbar_text": "Not implemented yet",
-  "category_picker_page_appbar_text": "หมวดหมู่",
+  "category_picker_page_appbar_text": "à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆ",
   "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
@@ -1946,7 +1946,7 @@
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
-  "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+  "edit_ingredients_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_ingredients_loading_photo_btn_text": {
     "description": "Ingredients edition - Loading photo from the server"
   },
@@ -1974,7 +1974,7 @@
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
-  "edit_packaging_loading_photo_btn_text": "Loading photo…",
+  "edit_packaging_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_packaging_loading_photo_btn_text": {
     "description": "Packaging edition - Loading photo from the server"
   },
@@ -2014,7 +2014,7 @@
   "@user_list_subtitle_product": {
     "description": "Subtitle of a paragraph about user lists in a product context"
   },
-  "user_list_title": "รายการของคุณ",
+  "user_list_title": "à¸£à¸²à¸¢à¸à¸²à¸£à¸‚à¸­à¸‡à¸„à¸¸à¸“",
   "@user_list_title": {
     "description": "Label for the user lists (when the user wants to add a product to a list)"
   },
@@ -2107,7 +2107,7 @@
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "category_picker_no_category_found_button": "ย้อนกลับ",
+  "category_picker_no_category_found_button": "à¸¢à¹‰à¸­à¸™à¸à¸¥à¸±à¸š",
   "@category_picker_no_category_found_button": {
     "description": "Button label when no category is available"
   },
@@ -2160,7 +2160,7 @@
   "@dev_preferences_product_additional_features_title": {
     "description": "User dev preferences - Additional buttons on product page - Title"
   },
-  "dev_preferences_edit_ingredients_title": "แก้ไขส่วนผสมคลิกที่ปุ่มแห่งความรู้",
+  "dev_preferences_edit_ingredients_title": "à¹à¸à¹‰à¹„à¸‚à¸ªà¹ˆà¸§à¸™à¸œà¸ªà¸¡à¸„à¸¥à¸´à¸à¸—à¸µà¹ˆà¸›à¸¸à¹ˆà¸¡à¹à¸«à¹ˆà¸‡à¸„à¸§à¸²à¸¡à¸£à¸¹à¹‰",
   "@dev_preferences_edit_ingredients_title": {
     "description": "User dev preferences - Additional buttons on product page - Subtitle"
   },
@@ -2184,11 +2184,11 @@
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
-  "dev_preferences_button_positive": "ตกลง",
+  "dev_preferences_button_positive": "à¸•à¸à¸¥à¸‡",
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
-  "dev_preferences_button_negative": "ยกเลิก",
+  "dev_preferences_button_negative": "à¸¢à¸à¹€à¸¥à¸´à¸",
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
@@ -2291,9 +2291,7 @@
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "product": {
         "type": "String"
       }
@@ -2303,9 +2301,7 @@
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
@@ -2355,9 +2351,7 @@
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
@@ -2400,36 +2394,28 @@
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_amount_subtitle": "Amount",
@@ -2502,15 +2488,15 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "ข้อมูล",
+  "dev_mode_section_data": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥",
   "dev_mode_section_experimental_features": "Experimental features",
   "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
   "@dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
-  "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+  "dev_mode_hide_environmental_score_title": "Exclude Greenâ€¯Score",
   "@dev_mode_hide_environmental_score_title": {
-    "description": "User dev preferences - Disable Green Score - Title"
+    "description": "User dev preferences - Disable Greenâ€¯Score - Title"
   },
   "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
   "@dev_mode_spellchecker_for_ocr_title": {
@@ -2537,9 +2523,7 @@
   "@product_search_button_download_more": {
     "description": "Product search list - Button to download more results",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "downloaded": {
         "type": "int"
       },
@@ -2548,7 +2532,7 @@
       }
     }
   },
-  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few secondsâ€¦",
   "@product_search_loading_message": {
     "description": "This message will be displayed when a search is in progress.",
     "search": {
@@ -2624,15 +2608,15 @@
   "@edit_product_action_take_picture": {
     "description": "Product edition - FAB actions - take a picture"
   },
-  "edit_product_action_confirm": "ยืนยัน",
+  "edit_product_action_confirm": "à¸¢à¸·à¸™à¸¢à¸±à¸™",
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+  "signup_page_terms_of_use_line1": "I agree to the Openâ€¯Foodâ€¯Facts ",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
-  "signup_page_terms_of_use_line2": "ข้อมูลและเงื่อนไขการใช้งาน",
+  "signup_page_terms_of_use_line2": "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹à¸¥à¸°à¹€à¸‡à¸·à¹ˆà¸­à¸™à¹„à¸‚à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™",
   "@signup_page_terms_of_use_line2": {
     "description": "User consent for terms of use (line 2)"
   },
@@ -2662,7 +2646,7 @@
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
-  "edit_photo_button_label": "แก้ไข",
+  "edit_photo_button_label": "à¹à¸à¹‰à¹„à¸‚",
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
@@ -2682,7 +2666,7 @@
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_download_label": "Retrieving existing images…",
+  "edit_photo_select_existing_download_label": "Retrieving existing imagesâ€¦",
   "@edit_photo_select_existing_download_label": {
     "description": "Dialog label"
   },
@@ -2698,7 +2682,7 @@
   "@edit_photo_language_none": {
     "description": "Warning message: for this product and this field, there are no images at all, in any language"
   },
-  "category_picker_screen_title": "หมวดหมู่",
+  "category_picker_screen_title": "à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆ",
   "@category_picker_screen_title": {
     "description": "Categories picker screen title"
   },
@@ -2764,11 +2748,11 @@
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols Â®, â„¢, Â© or similar",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**®**",
+  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**Â®**",
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
@@ -2776,9 +2760,7 @@
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "brand_name": "Brand name",
@@ -2830,7 +2812,7 @@
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
   "quantity": "Quantity and weight",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (egâ€¯: 4x100g)",
   "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
@@ -2851,7 +2833,7 @@
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "barcode": "บาร์โค้ด",
+  "barcode": "à¸šà¸²à¸£à¹Œà¹‚à¸„à¹‰à¸”",
   "barcode_barcode": "Barcode: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
@@ -2900,7 +2882,7 @@
       }
     }
   },
-  "confirm_delete_user_list_button": "สวัสดี​",
+  "confirm_delete_user_list_button": "à¸ªà¸§à¸±à¸ªà¸”à¸µâ€‹",
   "@confirm_delete_user_list_button": {
     "description": "Button to delete a list"
   },
@@ -2932,7 +2914,7 @@
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "add_list_label": "Add list",
@@ -2991,7 +2973,7 @@
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+  "share_product_text": "Have a look at this product on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3000,7 +2982,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Have a look at this product on Openâ€¯Beautyâ€¯Facts: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3009,7 +2991,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Have a look at this product on Openâ€¯PetFoodâ€¯Facts: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3018,7 +3000,7 @@
       }
     }
   },
-  "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+  "share_product_text_product": "Have a look at this product on Openâ€¯Productsâ€¯Facts: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3027,7 +3009,7 @@
       }
     }
   },
-  "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+  "share_product_list_text": "Have a look at my list of products on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_list_text": {
     "description": "The content which is send, when sharing a product list",
     "placeholders": {
@@ -3040,7 +3022,7 @@
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "ถ่ายภาพ",
+  "capture_new_picture": "à¸–à¹ˆà¸²à¸¢à¸ à¸²à¸ž",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
@@ -3169,11 +3151,11 @@
   "@scan_product_loading": {
     "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+  "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few secondsâ€¦",
   "@scan_product_loading_initial": {
     "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+  "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are weâ€¦",
   "@scan_product_loading_long_request": {
     "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
   },
@@ -3266,7 +3248,7 @@
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "show_password": "Show Password",
@@ -3410,7 +3392,7 @@
   },
   "color_light_brown": "Default",
   "@color_light_brown": {
-    "description": "Color Light Brown, Default Open Food Facts Color"
+    "description": "Color Light Brown, Default Openâ€¯Foodâ€¯Facts Color"
   },
   "color_magenta": "Magenta",
   "@color_magenta": {
@@ -3518,9 +3500,7 @@
   "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
   "@download_top_n_products": {
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "download_in_progress": "Downloading data\nThis may take a while",
@@ -3540,7 +3520,7 @@
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+  "update_local_database_sub": "Update the local product database with the latest data from Openâ€¯Foodâ€¯Facts",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
@@ -3561,9 +3541,9 @@
       }
     }
   },
-  "loading": "Loading…",
+  "loading": "Loadingâ€¦",
   "@loading": {
-    "description": "Loading…"
+    "description": "Loadingâ€¦"
   },
   "know_more": "Know More",
   "@know_more": {
@@ -3606,7 +3586,7 @@
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
-  "action_delete_list": "ลบ",
+  "action_delete_list": "à¸¥à¸š",
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
@@ -3642,14 +3622,14 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
+  "environmental_score_generic": "Greenâ€¯Score",
+  "environmental_score_a": "Greenâ€¯Score A",
+  "environmental_score_b": "Greenâ€¯Score B",
+  "environmental_score_c": "Greenâ€¯Score C",
+  "environmental_score_d": "Greenâ€¯Score D",
+  "environmental_score_e": "Greenâ€¯Score E",
+  "environmental_score_unknown": "Unknown Greenâ€¯Score",
+  "environmental_score_not_applicable": "Greenâ€¯Score is not applicable",
   "nova_group_generic": "Ultra-processing - NOVA groups",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3668,9 +3648,9 @@
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Press Contact",
   "contact_title_newsletter": "Subscribe to our newsletter",
-  "hunger_games_loading_line1": "Please give us a few seconds…",
+  "hunger_games_loading_line1": "Please give us a few secondsâ€¦",
   "hunger_games_loading_line2": "We're downloading the questions!",
-  "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+  "hunger_games_error_label": "Argh! Something went wrongâ€¦ and we couldn't load the questions.",
   "hunger_games_error_retry_button": "Let's retry!",
   "reorder_attribute_action": "Reorder the attributes",
   "@reorder_attribute_action": {
@@ -3718,7 +3698,7 @@
   "@guide_nutriscore_v2_file_language": {
     "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "อธิบายเพิ่มเติมเกี่ยวกับ Nutri-Score",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "à¸­à¸˜à¸´à¸šà¸²à¸¢à¹€à¸žà¸´à¹ˆà¸¡à¹€à¸•à¸´à¸¡à¹€à¸à¸µà¹ˆà¸¢à¸§à¸à¸±à¸š Nutri-Score",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3743,7 +3723,7 @@
   "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-  "guide_nutriscore_v2_where_title": "ประเทศที่มีการนำ Nutri-Score แบบใหม่ไปใช้",
+  "guide_nutriscore_v2_where_title": "à¸›à¸£à¸°à¹€à¸—à¸¨à¸—à¸µà¹ˆà¸¡à¸µà¸à¸²à¸£à¸™à¸³ Nutri-Score à¹à¸šà¸šà¹ƒà¸«à¸¡à¹ˆà¹„à¸›à¹ƒà¸Šà¹‰",
   "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
   "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
@@ -3765,23 +3745,23 @@
   },
   "menu_button_list_actions": "Select an action",
   "@menu_button_list_actions": {
-    "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    "description": "Button to select an action in a list (eg: Share, Delete, â€¦)"
   },
   "error_loading_photo": "Error loading photo",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "Use asâ€¦",
   "@photo_viewer_action_use_picture_as": {
-    "description": "An action to use the current picture to be used as front/ingredients…"
+    "description": "An action to use the current picture to be used as front/ingredientsâ€¦"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Use this picture asâ€¦",
   "@photo_viewer_use_picture_as_tooltip": {
-    "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
+    "description": "Message explaining what the three dots (â€¦) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+  "photo_viewer_use_picture_as_title": "Use this picture asâ€¦ ({language})",
   "@photo_viewer_use_picture_as_title": {
-    "description": "The title of a dialog to use the current picture as front/ingredients…",
+    "description": "The title of a dialog to use the current picture as front/ingredientsâ€¦",
     "placeholders": {
       "language": {
         "type": "String"
@@ -3845,11 +3825,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "ภาพถ่ายด้านหน้าของผลิตภัณฑ์",
+  "product_image_front_accessibility_label": "à¸ à¸²à¸žà¸–à¹ˆà¸²à¸¢à¸”à¹‰à¸²à¸™à¸«à¸™à¹‰à¸²à¸‚à¸­à¸‡à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œ",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "ภาพถ่ายส่วนประกอบของผลิตภัณฑ์",
+  "product_image_ingredients_accessibility_label": "à¸ à¸²à¸žà¸–à¹ˆà¸²à¸¢à¸ªà¹ˆà¸§à¸™à¸›à¸£à¸°à¸à¸­à¸šà¸‚à¸­à¸‡à¸œà¸¥à¸´à¸•à¸ à¸±à¸“à¸‘à¹Œ",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -3932,11 +3912,11 @@
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few secondsâ€¦",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
@@ -3962,7 +3942,7 @@
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
   "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
+  "carousel_unsupported_text": "The barcode scanned is not supported by Openâ€¯Foodâ€¯Facts!",
   "carousel_error_header": "Error!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
@@ -3973,7 +3953,7 @@
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_error_button": "ลองใหม่อีกครั้ง",
+  "carousel_error_button": "à¸¥à¸­à¸‡à¹ƒà¸«à¸¡à¹ˆà¸­à¸µà¸à¸„à¸£à¸±à¹‰à¸‡",
   "carousel_unknown_product_header": "Unknown product",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
@@ -3996,34 +3976,34 @@
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "Vegetables, fruits, frozen foodâ€¦",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "Makeup, soaps, toothpastesâ€¦",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Food for dogs, catsâ€¦",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "Smartphones, furnitureâ€¦",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
   "photo_field_front": "Product photo",
-  "photo_field_ingredients": "รูปภาพของส่วนประกอบของอาหาร",
+  "photo_field_ingredients": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¸­à¸‡à¸ªà¹ˆà¸§à¸™à¸›à¸£à¸°à¸à¸­à¸šà¸‚à¸­à¸‡à¸­à¸²à¸«à¸²à¸£",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "รูปภาพข้อมูลภาชนะบรรจุ",
+  "photo_field_packaging": "à¸£à¸¹à¸›à¸ à¸²à¸žà¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ à¸²à¸Šà¸™à¸°à¸šà¸£à¸£à¸ˆà¸¸",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
-  "photo_rotate_left": "หมุนซ้าย",
+  "photo_rotate_left": "à¸«à¸¡à¸¸à¸™à¸‹à¹‰à¸²à¸¢",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "หมุนขวา",
+  "photo_rotate_right": "à¸«à¸¡à¸¸à¸™à¸‚à¸§à¸²",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4077,7 +4057,7 @@
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
-  "product_footer_action_barcode_short": "บาร์โค้ด",
+  "product_footer_action_barcode_short": "à¸šà¸²à¸£à¹Œà¹‚à¸„à¹‰à¸”",
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
@@ -4158,3 +4138,4 @@
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   }
 }
+

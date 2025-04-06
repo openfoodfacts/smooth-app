@@ -1,30 +1,30 @@
-{
+﻿{
   "@Utils": {},
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "نعم",
+  "yes": "Ù†Ø¹Ù…",
   "@yes": {},
-  "add": "إضافة",
+  "add": "Ø¥Ø¶Ø§ÙØ©",
   "@add": {},
-  "account_delete_message": "هل انت متأكد انك تريد حذف حسابك؟\nإذا كان هناك سبب محدد ، يرجى المشاركة بالأسفل",
+  "account_delete_message": "Ù‡Ù„ Ø§Ù†Øª Ù…ØªØ£ÙƒØ¯ Ø§Ù†Ùƒ ØªØ±ÙŠØ¯ Ø­Ø°Ù Ø­Ø³Ø§Ø¨ÙƒØŸ\nØ¥Ø°Ø§ ÙƒØ§Ù† Ù‡Ù†Ø§Ùƒ Ø³Ø¨Ø¨ Ù…Ø­Ø¯Ø¯ ØŒ ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ø¨Ø§Ù„Ø£Ø³ÙÙ„",
   "@account_delete_message": {},
-  "reason": "السبب",
+  "reason": "Ø§Ù„Ø³Ø¨Ø¨",
   "@reason": {},
-  "okay": "حسناً",
+  "okay": "Ø­Ø³Ù†Ø§Ù‹",
   "@okay": {},
-  "validate": "التحقق",
+  "validate": "Ø§Ù„ØªØ­Ù‚Ù‚",
   "@validate": {
     "description": "Button label: Validate the input"
   },
-  "create": "إنشاء",
+  "create": "Ø¥Ù†Ø´Ø§Ø¡",
   "@create": {
     "description": "An action to create"
   },
-  "applyButtonText": "طبق",
+  "applyButtonText": "Ø·Ø¨Ù‚",
   "@applyButtonText": {},
-  "next_label": "التالى",
+  "next_label": "Ø§Ù„ØªØ§Ù„Ù‰",
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
@@ -32,51 +32,51 @@
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
-  "exit_label": "خروج",
+  "exit_label": "Ø®Ø±ÙˆØ¬",
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "السابق",
+  "previous_label": "Ø§Ù„Ø³Ø§Ø¨Ù‚",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
-  "go_back_to_top": "العودة لأعلى",
-  "save": "حفظ",
-  "save_confirmation": "هل أنت متأكد أنك تريد المغادرة؟",
-  "skip": "تخطي",
-  "cancel": "إلغاء",
+  "go_back_to_top": "Ø§Ù„Ø¹ÙˆØ¯Ø© Ù„Ø£Ø¹Ù„Ù‰",
+  "save": "Ø­ÙØ¸",
+  "save_confirmation": "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ Ø§Ù„Ù…ØºØ§Ø¯Ø±Ø©ØŸ",
+  "skip": "ØªØ®Ø·ÙŠ",
+  "cancel": "Ø¥Ù„ØºØ§Ø¡",
   "@cancel": {},
-  "ignore": "تجاهل",
+  "ignore": "ØªØ¬Ø§Ù‡Ù„",
   "@ignore": {
     "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
   },
-  "close": "إغلق",
+  "close": "Ø¥ØºÙ„Ù‚",
   "@close": {},
-  "no": "لا",
+  "no": "Ù„Ø§",
   "@no": {},
-  "stop": "توقّف",
+  "stop": "ØªÙˆÙ‚Ù‘Ù",
   "@stop": {},
   "finish": "Finish",
   "@finish": {},
-  "calculate": "قم بالحساب",
+  "calculate": "Ù‚Ù… Ø¨Ø§Ù„Ø­Ø³Ø§Ø¨",
   "@calculate": {
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
-  "reset_food_prefs": "إعادة تعيين تفضيلات الطعام",
+  "reset_food_prefs": "Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† ØªÙØ¶ÙŠÙ„Ø§Øª Ø§Ù„Ø·Ø¹Ø§Ù…",
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "error": "حدث خطأ ما",
+  "error": "Ø­Ø¯Ø« Ø®Ø·Ø£ Ù…Ø§",
   "@error": {},
-  "error_occurred": "حدث خطأ",
+  "error_occurred": "Ø­Ø¯Ø« Ø®Ø·Ø£",
   "@error_occurred": {},
-  "featureInProgress": "لا زلنا نعمل على هذه الميزة. ترقبوا",
+  "featureInProgress": "Ù„Ø§ Ø²Ù„Ù†Ø§ Ù†Ø¹Ù…Ù„ Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„Ù…ÙŠØ²Ø©. ØªØ±Ù‚Ø¨ÙˆØ§",
   "@featureInProgress": {},
   "label_web": "View on the web",
   "@label_web": {},
-  "learnMore": "لمعرفة المزيد",
+  "learnMore": "Ù„Ù…Ø¹Ø±ÙØ© Ø§Ù„Ù…Ø²ÙŠØ¯",
   "@learnMore": {},
-  "unknown": "غير معروف",
+  "unknown": "ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ",
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
@@ -100,7 +100,7 @@
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "تطابق غير معروف",
+  "match_unknown": "ØªØ·Ø§Ø¨Ù‚ ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
@@ -124,42 +124,42 @@
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "تطابق غير معروف",
+  "match_short_unknown": "ØªØ·Ø§Ø¨Ù‚ ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "التراخيص",
+  "licenses": "Ø§Ù„ØªØ±Ø§Ø®ÙŠØµ",
   "@licenses": {},
-  "looking_for": "البحث عن",
+  "looking_for": "Ø§Ù„Ø¨Ø­Ø« Ø¹Ù†",
   "@looking_for": {
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "مرحبًا بكم في موقع Open Food Facts",
+  "welcomeToOpenFoodFacts": "Ù…Ø±Ø­Ø¨Ù‹Ø§ Ø¨ÙƒÙ… ÙÙŠ Ù…ÙˆÙ‚Ø¹ Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts هي منظمة عالمية غير ربحية مدعومة من المجتمعات المحلية.",
+  "whatIsOff": "Open Food Facts Ù‡ÙŠ Ù…Ù†Ø¸Ù…Ø© Ø¹Ø§Ù„Ù…ÙŠØ© ØºÙŠØ± Ø±Ø¨Ø­ÙŠØ© Ù…Ø¯Ø¹ÙˆÙ…Ø© Ù…Ù† Ø§Ù„Ù…Ø¬ØªÙ…Ø¹Ø§Øª Ø§Ù„Ù…Ø­Ù„ÙŠØ©.",
   "@whatIsOff": {
-    "description": "Description of Open Food Facts organization."
+    "description": "Description of Openâ€¯Foodâ€¯Facts organization."
   },
-  "productDataUtility": "اطلع على بيانات الطعام ذات الصلة بتفضيلاتك.",
+  "productDataUtility": "Ø§Ø·Ù„Ø¹ Ø¹Ù„Ù‰ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø·Ø¹Ø§Ù… Ø°Ø§Øª Ø§Ù„ØµÙ„Ø© Ø¨ØªÙØ¶ÙŠÙ„Ø§ØªÙƒ.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "اختر الأطعمة المفيدة لك.",
+  "healthCardUtility": "Ø§Ø®ØªØ± Ø§Ù„Ø£Ø·Ø¹Ù…Ø© Ø§Ù„Ù…ÙÙŠØ¯Ø© Ù„Ùƒ.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
-  "ecoCardUtility": "اختر الأطعمة المفيدة للكوكب.",
+  "ecoCardUtility": "Ø§Ø®ØªØ± Ø§Ù„Ø£Ø·Ø¹Ù…Ø© Ø§Ù„Ù…ÙÙŠØ¯Ø© Ù„Ù„ÙƒÙˆÙƒØ¨.",
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "لا يوجد استجابة من الخادم! يمكنك فتح مشكلة باستخدام الرابط التالي.",
+  "server_error_open_new_issue": "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ø§Ø³ØªØ¬Ø§Ø¨Ø© Ù…Ù† Ø§Ù„Ø®Ø§Ø¯Ù…! ÙŠÙ…ÙƒÙ†Ùƒ ÙØªØ­ Ù…Ø´ÙƒÙ„Ø© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø±Ø§Ø¨Ø· Ø§Ù„ØªØ§Ù„ÙŠ.",
   "@user_management": {},
-  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-  "incorrect_credentials": "اسم المستخدم أو كلمة المرور غير صحيحة.",
+  "sign_in_text": "Sign in to your Openâ€¯Foodâ€¯Facts account to save your contributions",
+  "incorrect_credentials": "Ø§Ø³Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø£Ùˆ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± ØºÙŠØ± ØµØ­ÙŠØ­Ø©.",
   "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
   "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-  "login": "اسم المستخدم",
+  "login": "Ø§Ø³Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -171,13 +171,13 @@
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "الرجاء إدخال اسم المستخدم أو البريد الإلكتروني",
-  "login_page_password_error_empty": "برجاء إخال كلمة مرور",
-  "create_account": "إنشاء حساب",
+  "login_page_username_or_email": "Ø§Ù„Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ø³Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø£Ùˆ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
+  "login_page_password_error_empty": "Ø¨Ø±Ø¬Ø§Ø¡ Ø¥Ø®Ø§Ù„ ÙƒÙ„Ù…Ø© Ù…Ø±ÙˆØ±",
+  "create_account": "Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨",
   "@create_account": {
     "description": "Button label: Opens a page where a new user can register"
   },
-  "sign_in": "تسجيل الدخول",
+  "sign_in": "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
   "@sign_in": {
     "description": "Button label: For sign in"
   },
@@ -189,62 +189,62 @@
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
-  "sign_out": "تسجيل الخروج",
+  "sign_out": "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø®Ø±ÙˆØ¬",
   "@sign_out": {
     "description": "Button label: For sign out"
   },
-  "sign_out_confirmation": "هل أنت متأكد من أنك تريد تسجيل الخروج؟",
+  "sign_out_confirmation": "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ù…Ù† Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø®Ø±ÙˆØ¬ØŸ",
   "@sign_out_confirmation": {
     "description": "Pop up title: Reassuring if the user really want to sign out"
   },
-  "password": "كلمة المرور",
-  "forgot_password": "نسيت كلمة المرور",
+  "password": "ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+  "forgot_password": "Ù†Ø³ÙŠØª ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "view_profile": "عرض الصفحة الشخصية",
+  "view_profile": "Ø¹Ø±Ø¶ Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø´Ø®ØµÙŠØ©",
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
-  "reset_password": "إعادة تعيين كلمة المرور",
+  "reset_password": "Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "في حالة نسيت كلمة المرور، أدخل اسم المستخدم أو عنوان البريد الإلكتروني الخاص بك لتلقي تعليمات لإعادة تعيين كلمة المرور. تذكر أيضا التحقق من مجلد البريد المزعج.",
-  "username_or_email": "اسم المستخدم أو البريد الإلكتروني",
+  "reset_password_explanation_text": "ÙÙŠ Ø­Ø§Ù„Ø© Ù†Ø³ÙŠØª ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±ØŒ Ø£Ø¯Ø®Ù„ Ø§Ø³Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø£Ùˆ Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ Ù„ØªÙ„Ù‚ÙŠ ØªØ¹Ù„ÙŠÙ…Ø§Øª Ù„Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±. ØªØ°ÙƒØ± Ø£ÙŠØ¶Ø§ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ù…Ø¬Ù„Ø¯ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ù…Ø²Ø¹Ø¬.",
+  "username_or_email": "Ø§Ø³Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø£Ùˆ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "تم إرسال بريد إلكتروني مع رابط لإعادة تعيين كلمة المرور الخاصة بك إلى عنوان البريد الإلكتروني المرتبط بحسابك. تحقق أيضا من البريد المزعج الخاص بك",
-  "send_reset_password_mail": "تغيير كلمة المرور",
+  "reset_password_done": "ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø¨Ø±ÙŠØ¯ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ù…Ø¹ Ø±Ø§Ø¨Ø· Ù„Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ Ø¥Ù„Ù‰ Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø§Ù„Ù…Ø±ØªØ¨Ø· Ø¨Ø­Ø³Ø§Ø¨Ùƒ. ØªØ­Ù‚Ù‚ Ø£ÙŠØ¶Ø§ Ù…Ù† Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ù…Ø²Ø¹Ø¬ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ",
+  "send_reset_password_mail": "ØªØºÙŠÙŠØ± ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
   },
-  "enter_some_text": "برجاء إدخال نص",
+  "enter_some_text": "Ø¨Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ù†Øµ",
   "@enter_some_text": {
     "description": "Error when a required text field is empty"
   },
-  "sign_up_page_title": "تسجيل",
+  "sign_up_page_title": "ØªØ³Ø¬ÙŠÙ„",
   "@sign_up_page_title": {
     "description": "Header"
   },
-  "sign_up_page_action_button": "تسجيل",
+  "sign_up_page_action_button": "ØªØ³Ø¬ÙŠÙ„",
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
-  "sign_up_page_action_doing_it": "تسجيل الدخول…",
+  "sign_up_page_action_doing_it": "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„â€¦",
   "@sign_up_page_action_doing_it": {
     "description": "Progress indicator dialog during the actual signing up process"
   },
-  "sign_up_page_action_ok": "تهانينا! تم إنشاء حسابك للتو.",
-  "sign_up_page_display_name_hint": "اﻹسم",
-  "sign_up_page_display_name_error_empty": "يرجاء إدخال الإسم العرض الذي تود استخدامه",
-  "sign_up_page_email_hint": "البريد الإلكتروني",
-  "sign_up_page_email_error_empty": "البريد الإلكتروني مطلوب",
-  "sign_up_page_email_error_invalid": "بريد إلكتروني غير صالح",
+  "sign_up_page_action_ok": "ØªÙ‡Ø§Ù†ÙŠÙ†Ø§! ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„ØªÙˆ.",
+  "sign_up_page_display_name_hint": "Ø§ï»¹Ø³Ù…",
+  "sign_up_page_display_name_error_empty": "ÙŠØ±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ù„Ø¥Ø³Ù… Ø§Ù„Ø¹Ø±Ø¶ Ø§Ù„Ø°ÙŠ ØªÙˆØ¯ Ø§Ø³ØªØ®Ø¯Ø§Ù…Ù‡",
+  "sign_up_page_email_hint": "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
+  "sign_up_page_email_error_empty": "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ù…Ø·Ù„ÙˆØ¨",
+  "sign_up_page_email_error_invalid": "Ø¨Ø±ÙŠØ¯ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ØºÙŠØ± ØµØ§Ù„Ø­",
   "sign_up_page_username_hint": "Username: Publicly visible",
-  "sign_up_page_username_error_empty": "برجاء إدخال اسم المستخدم",
-  "sign_up_page_username_error_invalid": "برجاء إدخال اسم مستخدم صحيح",
+  "sign_up_page_username_error_empty": "Ø¨Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ø³Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…",
+  "sign_up_page_username_error_invalid": "Ø¨Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ø³Ù… Ù…Ø³ØªØ®Ø¯Ù… ØµØ­ÙŠØ­",
   "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
   "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
   "@sign_up_page_username_length_invalid": {
@@ -254,15 +254,15 @@
       }
     }
   },
-  "sign_up_page_password_hint": "كلمة المرور",
-  "sign_up_page_password_error_empty": "برجاء إخال كلمة مرور",
-  "sign_up_page_password_error_invalid": "برجاء إدخال كلمة مرور (6 أحرف على الأقل)",
-  "sign_up_page_confirm_password_hint": "تأكيد كلمة المرور",
-  "sign_up_page_confirm_password_error_empty": "برجاء تأكيد كلمة المرور",
-  "sign_up_page_confirm_password_error_invalid": "كلمة السر غير مطابقة",
-  "sign_up_page_agree_text": "I agree to the Open Food Facts",
+  "sign_up_page_password_hint": "ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+  "sign_up_page_password_error_empty": "Ø¨Ø±Ø¬Ø§Ø¡ Ø¥Ø®Ø§Ù„ ÙƒÙ„Ù…Ø© Ù…Ø±ÙˆØ±",
+  "sign_up_page_password_error_invalid": "Ø¨Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ ÙƒÙ„Ù…Ø© Ù…Ø±ÙˆØ± (6 Ø£Ø­Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„)",
+  "sign_up_page_confirm_password_hint": "ØªØ£ÙƒÙŠØ¯ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+  "sign_up_page_confirm_password_error_empty": "Ø¨Ø±Ø¬Ø§Ø¡ ØªØ£ÙƒÙŠØ¯ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+  "sign_up_page_confirm_password_error_invalid": "ÙƒÙ„Ù…Ø© Ø§Ù„Ø³Ø± ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚Ø©",
+  "sign_up_page_agree_text": "I agree to the Openâ€¯Foodâ€¯Facts",
   "@sign_up_page_agree_text": {
-    "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    "description": "I agree to the Openâ€¯Foodâ€¯Facts is followed by sign_up_page_terms_text"
   },
   "sign_up_page_terms_text": "terms of use and contribution",
   "@sign_up_page_terms_text": {
@@ -270,41 +270,41 @@
   },
   "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use\n",
   "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    "description": "Please insert the right url here. Go to the Openâ€¯Foodâ€¯Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
   },
-  "sign_up_page_agree_error_invalid": "عند إنشاء حساب، الموافقة على شروط الاستخدام إلزامية، ولكن من الممكن تقديم مساهمات مجهولة من خلال التطبيق",
+  "sign_up_page_agree_error_invalid": "Ø¹Ù†Ø¯ Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨ØŒ Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø© Ø¹Ù„Ù‰ Ø´Ø±ÙˆØ· Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø¥Ù„Ø²Ø§Ù…ÙŠØ©ØŒ ÙˆÙ„ÙƒÙ† Ù…Ù† Ø§Ù„Ù…Ù…ÙƒÙ† ØªÙ‚Ø¯ÙŠÙ… Ù…Ø³Ø§Ù‡Ù…Ø§Øª Ù…Ø¬Ù‡ÙˆÙ„Ø© Ù…Ù† Ø®Ù„Ø§Ù„ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚",
   "@sign_up_page_agree_error_invalid": {
     "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
   },
-  "sign_up_page_producer_checkbox": "أنا منتج للغذاء",
-  "sign_up_page_producer_hint": "المنتِج / العلامة التجارية",
-  "sign_up_page_producer_error_empty": "برجاء إدخال اسم منتِج أو اسم علامة تجارية",
-  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+  "sign_up_page_producer_checkbox": "Ø£Ù†Ø§ Ù…Ù†ØªØ¬ Ù„Ù„ØºØ°Ø§Ø¡",
+  "sign_up_page_producer_hint": "Ø§Ù„Ù…Ù†ØªÙØ¬ / Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©",
+  "sign_up_page_producer_error_empty": "Ø¨Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ø³Ù… Ù…Ù†ØªÙØ¬ Ø£Ùˆ Ø§Ø³Ù… Ø¹Ù„Ø§Ù…Ø© ØªØ¬Ø§Ø±ÙŠØ©",
+  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Openâ€¯Foodâ€¯Facts newsletter (You can unsubscribe from it at any time)",
   "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
   "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
   "sign_up_page_provide_valid_email": "Please provide a valid email address.",
   "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
-  "settingsTitle": "الإعدادات",
+  "settingsTitle": "Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª",
   "@settingsTitle": {
     "description": "The title of the Settings page"
   },
-  "darkmode": "مظهر",
+  "darkmode": "Ù…Ø¸Ù‡Ø±",
   "@darkmode": {
     "description": "The name of the darkmode on off switch"
   },
-  "darkmode_dark": "بنتاا",
+  "darkmode_dark": "Ø¨Ù†ØªØ§Ø§",
   "@darkmode_dark": {
     "description": "Indicator inside the darkmode switch (dark)"
   },
-  "darkmode_light": "وضع نهاري",
+  "darkmode_light": "ÙˆØ¶Ø¹ Ù†Ù‡Ø§Ø±ÙŠ",
   "@darkmode_light": {
     "description": "Indicator inside the darkmode switch (light)"
   },
-  "darkmode_system_default": "الإعداد الافتراضي للنظام",
+  "darkmode_system_default": "Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠ Ù„Ù„Ù†Ø¸Ø§Ù…",
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
@@ -313,7 +313,7 @@
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
-  "contributors_dialog_title": "المساهمون",
+  "contributors_dialog_title": "Ø§Ù„Ù…Ø³Ø§Ù‡Ù…ÙˆÙ†",
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
@@ -321,7 +321,9 @@
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
-      "name": {}
+      "name": {
+        "type": "Object"
+      }
     }
   },
   "contributors_description": "A list of all contributors of this app",
@@ -332,12 +334,12 @@
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
-  "support_join_slack": "طلب المساعدة في قناتنا على Slack",
+  "support_join_slack": "Ø·Ù„Ø¨ Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© ÙÙŠ Ù‚Ù†Ø§ØªÙ†Ø§ Ø¹Ù„Ù‰ Slack",
   "support_via_forum": "Ask for help on our forum",
-  "support_via_email": "ارسل لنا بريد إلكتروني",
+  "support_via_email": "Ø§Ø±Ø³Ù„ Ù„Ù†Ø§ Ø¨Ø±ÙŠØ¯ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
   "support_via_email_include_logs_dialog_title": "Send app logs?",
-  "support_via_email_include_logs_dialog_body": "هل ترغب في تضمين سجلات التطبيق في المرفقات ببريدك الإلكتروني؟",
-  "termsOfUse": "شروط الاستخدام",
+  "support_via_email_include_logs_dialog_body": "Ù‡Ù„ ØªØ±ØºØ¨ ÙÙŠ ØªØ¶Ù…ÙŠÙ† Ø³Ø¬Ù„Ø§Øª Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ ÙÙŠ Ø§Ù„Ù…Ø±ÙÙ‚Ø§Øª Ø¨Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØŸ",
+  "termsOfUse": "Ø´Ø±ÙˆØ· Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…",
   "@termsOfUse": {},
   "legalNotices": "Legal notices",
   "@legalNotices": {
@@ -347,65 +349,65 @@
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
-  "about_this_app": "حول هذا التطبيق",
+  "about_this_app": "Ø­ÙˆÙ„ Ù‡Ø°Ø§ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚",
   "@about_this_app": {
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "المساهمة",
+  "contribute": "Ø§Ù„Ù…Ø³Ø§Ù‡Ù…Ø©",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
-  "contribute_sw_development": "تطوير البرمجيات",
+  "contribute_sw_development": "ØªØ·ÙˆÙŠØ± Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§Øª",
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+  "contribute_develop_text": "The code for every Openâ€¯Foodâ€¯Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+  "contribute_develop_text_2": "You can join the Openâ€¯Foodâ€¯Facts Slack chatroom which is the preferred way to ask questions.",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "DEV Mode?",
   "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
-  "contribute_donate_title": "تبرع",
+  "contribute_donate_title": "ØªØ¨Ø±Ø¹",
   "@contribute_donate_title": {},
-  "contribute_donate_header": "Donate to Open Food Facts",
+  "contribute_donate_header": "Donate to Openâ€¯Foodâ€¯Facts",
   "@contribute_donate_header": {},
   "contribute_enroll_alpha": "Enroll in internal alpha version",
   "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "مُنتجات مراد إكمالها",
+  "contribute_improve_ProductsToBeCompleted": "Ù…ÙÙ†ØªØ¬Ø§Øª Ù…Ø±Ø§Ø¯ Ø¥ÙƒÙ…Ø§Ù„Ù‡Ø§",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
-  "contribute_improve_header": "قيد التحسن",
+  "contribute_improve_header": "Ù‚ÙŠØ¯ Ø§Ù„ØªØ­Ø³Ù†",
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Openâ€¯Foodâ€¯Facts website offers many ways to contribute: ",
   "@contribute_improve_text": {},
-  "contribute_translate_header": "ترجم",
+  "contribute_translate_header": "ØªØ±Ø¬Ù…",
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_translate_link_text": "إبدأ بالترجمة",
+  "contribute_translate_link_text": "Ø¥Ø¨Ø¯Ø£ Ø¨Ø§Ù„ØªØ±Ø¬Ù…Ø©",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Openâ€¯Foodâ€¯Facts is a global project, containing products from more than 160 countries. Openâ€¯Foodâ€¯Facts is translated into dozens of languages, with constantly evolving content.",
   "@contribute_translate_text": {},
-  "contribute_translate_text_2": "الترجمات هي إحدى المهام الرئيسية للمشروع",
+  "contribute_translate_text_2": "Ø§Ù„ØªØ±Ø¬Ù…Ø§Øª Ù‡ÙŠ Ø¥Ø­Ø¯Ù‰ Ø§Ù„Ù…Ù‡Ø§Ù… Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ù„Ù„Ù…Ø´Ø±ÙˆØ¹",
   "@contribute_translate_text_2": {},
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-  "contribute_share_header": "Share Open Food Facts with your friends",
+  "contribute_share_header": "Share Openâ€¯Foodâ€¯Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "I wanted to let you know about the app I've been using, Openâ€¯Foodâ€¯Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "tap_to_answer": "اضغط هنا للإجابة على الأسئلة",
+  "tap_to_answer": "Ø§Ø¶ØºØ· Ù‡Ù†Ø§ Ù„Ù„Ø¥Ø¬Ø§Ø¨Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø³Ø¦Ù„Ø©",
   "@tap_to_answer": {
-    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts and gain rewards."
   },
   "tap_to_answer_hint": "Tap here to answer questions about this product",
   "@tap_to_answer_hint": {
@@ -415,51 +417,51 @@
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
-  "saving_answer": "حفظ إجابتك",
+  "saving_answer": "Ø­ÙØ¸ Ø¥Ø¬Ø§Ø¨ØªÙƒ",
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "أصبح عنصر فعال فى الشفافية الغذائية",
+  "contribute_to_get_rewards": "Ø£ØµØ¨Ø­ Ø¹Ù†ØµØ± ÙØ¹Ø§Ù„ ÙÙ‰ Ø§Ù„Ø´ÙØ§ÙÙŠØ© Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ©",
   "@contribute_to_get_rewards": {
-    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
+    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+  "question_sign_in_text": "Sign in to your Openâ€¯Foodâ€¯Facts account to get credit for your contributions",
   "question_yes_button_accessibility_value": "Answer with yes",
   "question_no_button_accessibility_value": "Answer with no",
   "question_skip_button_accessibility_value": "Skip this question",
-  "tap_to_edit_search": "ماهذا وكيف يستخدم",
+  "tap_to_edit_search": "Ù…Ø§Ù‡Ø°Ø§ ÙˆÙƒÙŠÙ ÙŠØ³ØªØ®Ø¯Ù…",
   "@Personal preferences": {},
-  "myPreferences": "خياراتي",
+  "myPreferences": "Ø®ÙŠØ§Ø±Ø§ØªÙŠ",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+  "account_create_message": "Create your account and join the Openâ€¯Foodâ€¯Facts community to help build food knowledge all over the world!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
-  "join_us": "انضم إلينا",
+  "join_us": "Ø§Ù†Ø¶Ù… Ø¥Ù„ÙŠÙ†Ø§",
   "@join_us": {
     "description": "Join which is actually Signup"
   },
-  "myPreferences_profile_title": "صفحتك الشخصية",
-  "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
-  "myPreferences_settings_title": "إعدادات التطبيق",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
-  "myPreferences_food_title": "أضف تفضيلات غذائية",
-  "myPreferences_food_subtitle": "اختر المعلومات التي تهمك أكثر عن الطعام.",
-  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
-  "confirmResetPreferences": "إعادة تعيين تفضيلات التطبيق؟",
+  "myPreferences_profile_title": "ØµÙØ­ØªÙƒ Ø§Ù„Ø´Ø®ØµÙŠØ©",
+  "myPreferences_profile_subtitle": "Manage your Openâ€¯Foodâ€¯Facts contributor account.",
+  "myPreferences_settings_title": "Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø§Ù„ØªØ·Ø¨ÙŠÙ‚",
+  "myPreferences_settings_subtitle": "Dark mode, Languagesâ€¦",
+  "myPreferences_food_title": "Ø£Ø¶Ù ØªÙØ¶ÙŠÙ„Ø§Øª ØºØ°Ø§Ø¦ÙŠØ©",
+  "myPreferences_food_subtitle": "Ø§Ø®ØªØ± Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØªÙŠ ØªÙ‡Ù…Ùƒ Ø£ÙƒØ«Ø± Ø¹Ù† Ø§Ù„Ø·Ø¹Ø§Ù….",
+  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Openâ€¯Foodâ€¯Facts contributor account if you have one.",
+  "confirmResetPreferences": "Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† ØªÙØ¶ÙŠÙ„Ø§Øª Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ØŸ",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
-  "myPersonalizedRanking": "تصنيفي الشخصي",
+  "myPersonalizedRanking": "ØªØµÙ†ÙŠÙÙŠ Ø§Ù„Ø´Ø®ØµÙŠ",
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "ranking_tab_all": "الكل",
+  "ranking_tab_all": "Ø§Ù„ÙƒÙ„",
   "ranking_subtitle_match_yes": "A great match for you",
-  "ranking_subtitle_match_no": "تطابُق ضعيف جداً",
-  "ranking_subtitle_match_maybe": "تطابق غير معروف",
+  "ranking_subtitle_match_no": "ØªØ·Ø§Ø¨ÙÙ‚ Ø¶Ø¹ÙŠÙ Ø¬Ø¯Ø§Ù‹",
+  "ranking_subtitle_match_maybe": "ØªØ·Ø§Ø¨Ù‚ ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ",
   "refresh_with_new_preferences": "Refresh the list with your new preferences",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
@@ -469,15 +471,15 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "الملف الشخصي",
+  "profile_navbar_label": "Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
-  "scan_navbar_label": "مسح",
+  "scan_navbar_label": "Ù…Ø³Ø­",
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the scanning of products"
   },
-  "history_navbar_label": "السجل",
+  "history_navbar_label": "Ø§Ù„Ø³Ø¬Ù„",
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the history and compare mode"
   },
@@ -485,16 +487,16 @@
   "@list_navbar_label": {
     "description": "BottomNavigationBarLabel: For the lists"
   },
-  "category": "فرز حسب الفئة",
+  "category": "ÙØ±Ø² Ø­Ø³Ø¨ Ø§Ù„ÙØ¦Ø©",
   "@category": {
     "description": "From a product list, there's a category filter: this is its title"
   },
-  "category_all": "الكل",
+  "category_all": "Ø§Ù„ÙƒÙ„",
   "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
-  "category_search": "(بحث عن فئة)",
-  "filter": "تصفية",
+  "category_search": "(Ø¨Ø­Ø« Ø¹Ù† ÙØ¦Ø©)",
+  "filter": "ØªØµÙÙŠØ©",
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
@@ -506,7 +508,7 @@
   "@scan_history": {
     "description": "Page title: List type: Products in the whole scan history"
   },
-  "search": "بحث",
+  "search": "Ø¨Ø­Ø«",
   "@search": {
     "description": "Hint text of a search text input field"
   },
@@ -514,15 +516,15 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "tap_for_more": "Tap to see more info…",
+  "tap_for_more": "Tap to see more infoâ€¦",
   "@Product": {},
-  "product": "نتاج",
+  "product": "Ù†ØªØ§Ø¬",
   "@product": {},
-  "unknownBrand": "علامة تجارية مجهولة",
+  "unknownBrand": "Ø¹Ù„Ø§Ù…Ø© ØªØ¬Ø§Ø±ÙŠØ© Ù…Ø¬Ù‡ÙˆÙ„Ø©",
   "@unknownBrand": {},
-  "unknownProductName": "إسم منتج غير معروف",
+  "unknownProductName": "Ø¥Ø³Ù… Ù…Ù†ØªØ¬ ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ",
   "@unknownProductName": {},
-  "label_refresh": "تحديث",
+  "label_refresh": "ØªØ­Ø¯ÙŠØ«",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -530,29 +532,31 @@
   "@label_reload": {
     "description": "Reload a page"
   },
-  "image": "الصورة",
-  "front_photo": "الصورة الأمامية",
+  "image": "Ø§Ù„ØµÙˆØ±Ø©",
+  "front_photo": "Ø§Ù„ØµÙˆØ±Ø© Ø§Ù„Ø£Ù…Ø§Ù…ÙŠØ©",
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
   "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
   "@outdated_image_accessibility_label": {
-    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutritionâ€¦)",
     "placeholders": {
-      "imageType": {}
+      "imageType": {
+        "type": "Object"
+      }
     }
   },
   "outdated_image_short_label": "may be outdated",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
-  "ingredients": "المكونات",
+  "ingredients": "Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@ingredients": {},
   "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
-  "ingredients_editing_error": "فشل في حفظ المكونات.",
-  "ingredients_editing_image_error": "فشل الحصول على صورة جديدة للمكونات.",
-  "ingredients_editing_title": "تعديل المكونات",
-  "ingredients_photo": "صورة المكونات",
+  "ingredients_editing_error": "ÙØ´Ù„ ÙÙŠ Ø­ÙØ¸ Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª.",
+  "ingredients_editing_image_error": "ÙØ´Ù„ Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ ØµÙˆØ±Ø© Ø¬Ø¯ÙŠØ¯Ø© Ù„Ù„Ù…ÙƒÙˆÙ†Ø§Øª.",
+  "ingredients_editing_title": "ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
+  "ingredients_photo": "ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
@@ -560,9 +564,9 @@
   "packaging_editing_error": "Failed to save the packaging.",
   "packaging_editing_image_error": "Failed to get a new packaging image.",
   "packaging_editing_title": "Edit Packaging",
-  "nutrition": "التغذية",
+  "nutrition": "Ø§Ù„ØªØºØ°ÙŠØ©",
   "@nutrition": {},
-  "nutrition_facts_photo": "صورة حقائق التغذية",
+  "nutrition_facts_photo": "ØµÙˆØ±Ø© Ø­Ù‚Ø§Ø¦Ù‚ Ø§Ù„ØªØºØ°ÙŠØ©",
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
@@ -570,21 +574,21 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "معلومات التعبِئة",
+  "packaging_information": "Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØªØ¹Ø¨ÙØ¦Ø©",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "صورة معلومات التعبِئة",
+  "packaging_information_photo": "ØµÙˆØ±Ø© Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØªØ¹Ø¨ÙØ¦Ø©",
   "@packaging_information_photo": {},
-  "missing_product": "لقد وجدت منتجا جديدا!",
+  "missing_product": "Ù„Ù‚Ø¯ ÙˆØ¬Ø¯Øª Ù…Ù†ØªØ¬Ø§ Ø¬Ø¯ÙŠØ¯Ø§!",
   "@missing_product": {},
-  "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+  "add_product_take_photos": "Take photos of the packaging to add this product to Openâ€¯Foodâ€¯Facts",
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
   "@add_product_take_photos_descriptive": {},
-  "add_product_information_button_label": "إضافة معلومات عن المنتج",
+  "add_product_information_button_label": "Ø¥Ø¶Ø§ÙØ© Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø¹Ù† Ø§Ù„Ù…Ù†ØªØ¬",
   "@add_product_information_button_label": {},
-  "new_product": "منتج جديد",
+  "new_product": "Ù…Ù†ØªØ¬ Ø¬Ø¯ÙŠØ¯",
   "@new_product": {},
   "new_product_found_title": "New product found!",
   "@new_product_found_title": {
@@ -594,7 +598,7 @@
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "new_product_found_button": "إضافة منتج",
+  "new_product_found_button": "Ø¥Ø¶Ø§ÙØ© Ù…Ù†ØªØ¬",
   "new_product_leave_title": "Leave this page?",
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -607,9 +611,9 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Greenâ€¯Score",
   "@new_product_dialog_illustration_description": {
-    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
+    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Greenâ€¯Score."
   },
   "front_packaging_photo_button_label": "Front packaging photo",
   "@front_packaging_photo_button_label": {},
@@ -619,19 +623,19 @@
   },
   "confirm_button_label": "Confirm",
   "send_image_button_label": "Send image",
-  "crop_page_action_saving": "Saving the image…",
+  "crop_page_action_saving": "Saving the imageâ€¦",
   "@crop_page_action_saving": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_cropping": "Cropping the image…",
+  "crop_page_action_cropping": "Cropping the imageâ€¦",
   "@crop_page_action_cropping": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local": "Saving a local version…",
+  "crop_page_action_local": "Saving a local versionâ€¦",
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Oops… there's something with your photo!",
+  "crop_page_action_local_failed_title": "Oopsâ€¦ there's something with your photo!",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -665,40 +669,40 @@
       }
     }
   },
-  "crop_page_action_server": "Preparing a call to the server…",
+  "crop_page_action_server": "Preparing a call to the serverâ€¦",
   "@crop_page_action_server": {
     "description": "Action being performed on the crop page"
   },
   "front_packaging_photo_title": "Front Packaging Photo",
-  "ingredients_photo_title": "صورة المكونات",
-  "nutritional_facts_photo_title": "صورة الحقائق الغذائية",
+  "ingredients_photo_title": "ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
+  "nutritional_facts_photo_title": "ØµÙˆØ±Ø© Ø§Ù„Ø­Ù‚Ø§Ø¦Ù‚ Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ©",
   "recycling_photo_title": "Recycling Photo",
-  "take_photo_title": "التقاط صورة",
-  "take_more_photo_title": "التقط المزيد من الصور",
-  "front_photo_uploaded": "تم تحميل الصورة الأمامية",
+  "take_photo_title": "Ø§Ù„ØªÙ‚Ø§Ø· ØµÙˆØ±Ø©",
+  "take_more_photo_title": "Ø§Ù„ØªÙ‚Ø· Ø§Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„ØµÙˆØ±",
+  "front_photo_uploaded": "ØªÙ… ØªØ­Ù…ÙŠÙ„ Ø§Ù„ØµÙˆØ±Ø© Ø§Ù„Ø£Ù…Ø§Ù…ÙŠØ©",
   "@front_photo_uploaded": {},
-  "ingredients_photo_button_label": "صورة المكونات",
+  "ingredients_photo_button_label": "ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@ingredients_photo_button_label": {},
-  "ingredients_photo_uploaded": "تم تحميل صورة المكونات",
+  "ingredients_photo_uploaded": "ØªÙ… ØªØ­Ù…ÙŠÙ„ ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@ingredients_photo_uploaded": {},
   "nutrition_cache_loading_error": "Unable to load nutrients from cache",
-  "nutritional_facts_photo_button_label": "صورة حقائق التغذية",
+  "nutritional_facts_photo_button_label": "ØµÙˆØ±Ø© Ø­Ù‚Ø§Ø¦Ù‚ Ø§Ù„ØªØºØ°ÙŠØ©",
   "@nutritional_facts_photo_button_label": {},
   "nutritional_facts_input_button_label": "Fill nutrition facts",
   "nutritional_facts_added": "Nutrition facts added",
   "categories_added": "Categories added",
   "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
-  "new_product_title_environmental_score": "Compute the Green Score",
+  "new_product_title_environmental_score": "Compute the Greenâ€¯Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+  "new_product_additional_environmental_score": "Make Greenâ€¯Score computation more precise with origins, packaging & more",
   "new_product_title_nova": "Compute the food processing level (NOVA)",
   "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
-  "new_product_desc_nova_unknown": "مستوى معالجة الطعام غير معروف",
+  "new_product_desc_nova_unknown": "Ù…Ø³ØªÙˆÙ‰ Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø·Ø¹Ø§Ù… ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ",
   "new_product_title_pictures": "New product",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-  "new_product_title_misc": "And some basic data…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_title_misc": "And some basic dataâ€¦",
+  "new_product_done_msg": "Thanks for your contribution â€œ{username}â€!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -713,72 +717,72 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Greenâ€¯Score & Ultra-processing (NOVA)!",
   "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
   "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
   "hey_incomplete_product_message_product": "Tap now to help complete this product!",
   "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
   "@nutritional_facts_photo_uploaded": {},
-  "recycling_photo_button_label": "صورة معلومات إعادة التدوير",
+  "recycling_photo_button_label": "ØµÙˆØ±Ø© Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ¯ÙˆÙŠØ±",
   "@recycling_photo_button_label": {},
-  "recycling_photo_uploaded": "تم تحميل صورة إعادة التدوير",
+  "recycling_photo_uploaded": "ØªÙ… ØªØ­Ù…ÙŠÙ„ ØµÙˆØ±Ø© Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ¯ÙˆÙŠØ±",
   "@recycling_photo_uploaded": {},
-  "take_more_photo_button_label": "التقط المزيد من الصور",
+  "take_more_photo_button_label": "Ø§Ù„ØªÙ‚Ø· Ø§Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„ØµÙˆØ±",
   "@take_more_photo_button_label": {},
-  "other_photo_uploaded": "تم تحميل صور متنوعة",
+  "other_photo_uploaded": "ØªÙ… ØªØ­Ù…ÙŠÙ„ ØµÙˆØ± Ù…ØªÙ†ÙˆØ¹Ø©",
   "@other_photo_uploaded": {},
-  "retake_photo_button_label": "الإعادة",
+  "retake_photo_button_label": "Ø§Ù„Ø¥Ø¹Ø§Ø¯Ø©",
   "@retake_photo_button_label": {
     "description": "Button clicking on which allows users to retake the last photo they took."
   },
-  "selecting_photo": "تحديد الصورة",
+  "selecting_photo": "ØªØ­Ø¯ÙŠØ¯ Ø§Ù„ØµÙˆØ±Ø©",
   "@selecting_photo": {
     "description": "Progress indicator when the users takes a photo"
   },
-  "uploading_image": "تحميل الصورة على الخادم",
+  "uploading_image": "ØªØ­Ù…ÙŠÙ„ Ø§Ù„ØµÙˆØ±Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø§Ø¯Ù…",
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Uploading front image to Open Food Facts",
+  "uploading_image_type_front": "Uploading front image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
-  "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+  "uploading_image_type_ingredients": "Uploading ingredients image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+  "uploading_image_type_nutrition": "Uploading nutrition image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
-  "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+  "uploading_image_type_packaging": "Uploading packaging image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_packaging": {
     "description": "Message when a new packaging picture is being uploaded to the server"
   },
-  "uploading_image_type_other": "Uploading other image to Open Food Facts",
+  "uploading_image_type_other": "Uploading other image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_other": {
     "description": "Message when a new other picture is being uploaded to the server"
   },
-  "uploading_image_type_generic": "Uploading image to Open Food Facts",
+  "uploading_image_type_generic": "Uploading image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
-  "score_add_missing_ingredients": "أضف المكونات المفقودة",
+  "score_add_missing_ingredients": "Ø£Ø¶Ù Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª Ø§Ù„Ù…ÙÙ‚ÙˆØ¯Ø©",
   "score_add_missing_packaging_image": "Add missing packaging image",
-  "score_add_missing_nutrition_facts": "إضافة معلومات التغذية المفقودة",
-  "score_add_missing_product_category": "إضافة فئة المنتج مفقودة",
+  "score_add_missing_nutrition_facts": "Ø¥Ø¶Ø§ÙØ© Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØªØºØ°ÙŠØ© Ø§Ù„Ù…ÙÙ‚ÙˆØ¯Ø©",
+  "score_add_missing_product_category": "Ø¥Ø¶Ø§ÙØ© ÙØ¦Ø© Ø§Ù„Ù…Ù†ØªØ¬ Ù…ÙÙ‚ÙˆØ¯Ø©",
   "score_add_missing_product_countries": "Add missing product countries",
   "score_add_missing_product_emb": "Add missing product traceability codes",
   "score_add_missing_product_labels": "Add missing product labels",
   "score_add_missing_product_origins": "Add missing product origins",
   "score_add_missing_product_stores": "Add missing product stores",
   "score_add_missing_product_brands": "Add missing product brands",
-  "score_update_nutrition_facts": "تحديث المعلومات الغذائية",
-  "nutrition_page_title": "حقائق غذائية",
+  "score_update_nutrition_facts": "ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ©",
+  "nutrition_page_title": "Ø­Ù‚Ø§Ø¦Ù‚ ØºØ°Ø§Ø¦ÙŠØ©",
   "nutrition_page_nutritional_info_title": "Nutritional information",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
-  "nutrition_page_nutritional_info_value_positive": "نعم",
-  "nutrition_page_nutritional_info_value_negative": "لا",
+  "nutrition_page_nutritional_info_value_positive": "Ù†Ø¹Ù…",
+  "nutrition_page_nutritional_info_value_negative": "Ù„Ø§",
   "nutrition_page_nutritional_info_open_photo": "Open photo",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
   "@nutrition_page_nutritional_info_explanation_title": {
@@ -792,11 +796,11 @@
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
-  "nutrition_page_per_100g": "لكل 100 غرام",
+  "nutrition_page_per_100g": "Ù„ÙƒÙ„ 100 ØºØ±Ø§Ù…",
   "nutrition_page_per_100g_100ml": "per 100g/ml",
-  "nutrition_page_per_serving": "لكل وجبة",
-  "nutrition_page_add_nutrient": "إضافة مادة غذائية",
-  "nutrition_page_serving_size": "حجم الحصة",
+  "nutrition_page_per_serving": "Ù„ÙƒÙ„ ÙˆØ¬Ø¨Ø©",
+  "nutrition_page_add_nutrient": "Ø¥Ø¶Ø§ÙØ© Ù…Ø§Ø¯Ø© ØºØ°Ø§Ø¦ÙŠØ©",
+  "nutrition_page_serving_size": "Ø­Ø¬Ù… Ø§Ù„Ø­ØµØ©",
   "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
   "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
   "@nutrition_page_serving_size_explanation_title": {
@@ -806,7 +810,7 @@
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, Âµg, oz, l, dl, cl, ml, fl.oz, fl oz, Ð³, Ð¼Ð³, ÐºÐ³, Ð», Ð´Ð», ÐºÐ», Ð¼Ð», æ¯«å…‹, å…¬æ–¤, æ¯«å‡, å…¬å‡, å¨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
@@ -842,9 +846,9 @@
   "@nutrition_page_serving_size_explanation_bad_example3_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_invalid_number": "الرقم غير صحيح",
-  "nutrition_page_update_running": "Updating the product on the server…",
-  "nutrition_page_update_done": "تم تحديث المنتج!",
+  "nutrition_page_invalid_number": "Ø§Ù„Ø±Ù‚Ù… ØºÙŠØ± ØµØ­ÙŠØ­",
+  "nutrition_page_update_running": "Updating the product on the serverâ€¦",
+  "nutrition_page_update_done": "ØªÙ… ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ù†ØªØ¬!",
   "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
@@ -853,19 +857,19 @@
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
-  "more_photos": "صور أكثر إثارة للاهتمام",
+  "more_photos": "ØµÙˆØ± Ø£ÙƒØ«Ø± Ø¥Ø«Ø§Ø±Ø© Ù„Ù„Ø§Ù‡ØªÙ…Ø§Ù…",
   "@more_photos": {},
   "view_more_photo_button": "View all existing photos for this product",
   "@view_more_photo_button": {},
-  "no_product_found": "لم يتم العثور على أي منتج",
+  "no_product_found": "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø£ÙŠ Ù…Ù†ØªØ¬",
   "@no_product_found": {},
   "no_location_found": "No location found",
-  "not_found": "لم يتم العثور على نتائج:",
-  "refreshing_product": "تحديث المنتج",
+  "not_found": "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù†ØªØ§Ø¦Ø¬:",
+  "refreshing_product": "ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ù†ØªØ¬",
   "@refreshing_product": {
     "description": "Confirmation, that the product data of a cached product is queried again"
   },
-  "product_refreshed": "تم تحديث المنتج",
+  "product_refreshed": "ØªÙ… ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ù†ØªØ¬",
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
@@ -917,7 +921,7 @@
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "التقاط صورة",
+  "product_image_action_take_picture": "Ø§Ù„ØªÙ‚Ø§Ø· ØµÙˆØ±Ø©",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -937,7 +941,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "مساهم",
+  "product_image_details_contributor": "Ù…Ø³Ø§Ù‡Ù…",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -949,11 +953,11 @@
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
-  "product_image_details_date_unknown": "غير معروف",
+  "product_image_details_date_unknown": "ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ",
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
-  "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+  "homepage_main_card_logo_description": "Welcome to Openâ€¯Foodâ€¯Facts",
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
@@ -976,15 +980,15 @@
     }
   },
   "tagline_app_review": "Do you like the app?",
-  "tagline_app_review_button_positive": "I love it! 😍",
-  "tagline_app_review_button_negative": "Not really…",
+  "tagline_app_review_button_positive": "I love it! ðŸ˜",
+  "tagline_app_review_button_negative": "Not reallyâ€¦",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
-  "app_review_negative_modal_negative_button": "لا",
-  "could_not_refresh": "تعذر تحديث المنتج",
+  "app_review_negative_modal_negative_button": "Ù„Ø§",
+  "could_not_refresh": "ØªØ¹Ø°Ø± ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ù†ØªØ¬",
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
@@ -1014,7 +1018,7 @@
   "tag_key": "Property",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
-  "tag_value": "القيمة",
+  "tag_value": "Ø§Ù„Ù‚ÙŠÙ…Ø©",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -1028,17 +1032,17 @@
       }
     }
   },
-  "product_internet_error": "يتعذر جلب معلمومات حول هذا المنتج بسبب خطأ في الشبكة.",
-  "cached_results_from": "إظهار النتائج من:",
+  "product_internet_error": "ÙŠØªØ¹Ø°Ø± Ø¬Ù„Ø¨ Ù…Ø¹Ù„Ù…ÙˆÙ…Ø§Øª Ø­ÙˆÙ„ Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬ Ø¨Ø³Ø¨Ø¨ Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø´Ø¨ÙƒØ©.",
+  "cached_results_from": "Ø¥Ø¸Ù‡Ø§Ø± Ø§Ù„Ù†ØªØ§Ø¦Ø¬ Ù…Ù†:",
   "@cached_results_from": {
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "قارن بالفئة",
+  "product_search_same_category": "Ù‚Ø§Ø±Ù† Ø¨Ø§Ù„ÙØ¦Ø©",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "قارن",
+  "product_search_same_category_short": "Ù‚Ø§Ø±Ù†",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1046,31 +1050,31 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "إضافة فئة لحساب Nutri-Score.",
+  "product_improvement_add_category": "Ø¥Ø¶Ø§ÙØ© ÙØ¦Ø© Ù„Ø­Ø³Ø§Ø¨ Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "إضافة المعلومات الغذائية لحساب Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Ø¥Ø¶Ø§ÙØ© Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ© Ù„Ø­Ø³Ø§Ø¨ Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "أضف المعلومات الغذائية والفئة لحساب Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "Ø£Ø¶Ù Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ© ÙˆØ§Ù„ÙØ¦Ø© Ù„Ø­Ø³Ø§Ø¨ Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "لا يمكن حساب Nutri-Score هذا المنتج، والذي قد يكون بسبب مثل. فئة غير قياسية. إذا كان هذا خطأ، يرجى الاتصال بنا.",
+  "product_improvement_categories_but_no_nutriscore": "Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø­Ø³Ø§Ø¨ Nutri-Score Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬ØŒ ÙˆØ§Ù„Ø°ÙŠ Ù‚Ø¯ ÙŠÙƒÙˆÙ† Ø¨Ø³Ø¨Ø¨ Ù…Ø«Ù„. ÙØ¦Ø© ØºÙŠØ± Ù‚ÙŠØ§Ø³ÙŠØ©. Ø¥Ø°Ø§ ÙƒØ§Ù† Ù‡Ø°Ø§ Ø®Ø·Ø£ØŒ ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ù†Ø§.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
-  "product_improvement_obsolete_nutrition_image": "صورة التغذية قديمة: يرجى تحديثها.",
+  "product_improvement_obsolete_nutrition_image": "ØµÙˆØ±Ø© Ø§Ù„ØªØºØ°ÙŠØ© Ù‚Ø¯ÙŠÙ…Ø©: ÙŠØ±Ø¬Ù‰ ØªØ­Ø¯ÙŠØ«Ù‡Ø§.",
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+  "product_improvement_origins_to_be_completed": "The Greenâ€¯Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
-  "country_chooser_label": "الرجاء اختيار بلد",
+  "country_chooser_label": "Ø§Ù„Ø±Ø¬Ø§Ø¡ Ø§Ø®ØªÙŠØ§Ø± Ø¨Ù„Ø¯",
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
@@ -1104,11 +1108,11 @@
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "بعض السمات البيئية خاصة بالموقع",
+  "country_selection_explanation": "Ø¨Ø¹Ø¶ Ø§Ù„Ø³Ù…Ø§Øª Ø§Ù„Ø¨ÙŠØ¦ÙŠØ© Ø®Ø§ØµØ© Ø¨Ø§Ù„Ù…ÙˆÙ‚Ø¹",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
-  "product_removed_comparison": "تم إزالة المنتج من المقارنة",
+  "product_removed_comparison": "ØªÙ… Ø¥Ø²Ø§Ù„Ø© Ø§Ù„Ù…Ù†ØªØ¬ Ù…Ù† Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø©",
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
@@ -1116,11 +1120,11 @@
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
-  "native_app_description": "Open systems settings for Open Food Facts",
+  "native_app_description": "Open systems settings for Openâ€¯Foodâ€¯Facts",
   "@native_app_description": {
     "description": "Native App description in app settings"
   },
-  "product_removed_history": "تم إزالة المنتج من السجل",
+  "product_removed_history": "ØªÙ… Ø¥Ø²Ø§Ù„Ø© Ø§Ù„Ù…Ù†ØªØ¬ Ù…Ù† Ø§Ù„Ø³Ø¬Ù„",
   "@product_removed_history": {
     "description": "Product got removed from history"
   },
@@ -1128,15 +1132,15 @@
   "@product_removed_list": {
     "description": "Product got removed from list"
   },
-  "product_could_not_remove": "لا يمكن إزالة المنتج",
+  "product_could_not_remove": "Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø¥Ø²Ø§Ù„Ø© Ø§Ù„Ù…Ù†ØªØ¬",
   "@product_could_not_remove": {
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "لا يوجد منتج في هذه القائمة",
-  "no_product_in_section": "لا يوجد منتج في هذا القسم",
+  "no_prodcut_in_list": "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ù†ØªØ¬ ÙÙŠ Ù‡Ø°Ù‡ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©",
+  "no_product_in_section": "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ù†ØªØ¬ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù‚Ø³Ù…",
   "recently_seen_products": "All viewed products",
-  "clear": "محو",
+  "clear": "Ù…Ø­Ùˆ",
   "@clear": {
     "description": "Clears a product list (short label)"
   },
@@ -1144,62 +1148,64 @@
   "@clear_long": {
     "description": "Clears a product list (long label)"
   },
-  "really_clear": "هل تريد حقًا حذف هذه القائمة؟",
+  "really_clear": "Ù‡Ù„ ØªØ±ÙŠØ¯ Ø­Ù‚Ù‹Ø§ Ø­Ø°Ù Ù‡Ø°Ù‡ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©ØŸ",
   "@Plural": {},
-  "pct_match": "{percent}٪ تطابق",
+  "pct_match": "{percent}Ùª ØªØ·Ø§Ø¨Ù‚",
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
-      "percent": {}
+      "percent": {
+        "type": "Object"
+      }
     }
   },
-  "plural_ago_days": "{count,plural, =1{قبل يوم} other{{count} قبل أيام}}",
+  "plural_ago_days": "{count,plural, =1{Ù‚Ø¨Ù„ ÙŠÙˆÙ…} other{{count} Ù‚Ø¨Ù„ Ø£ÙŠØ§Ù…}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "plural_ago_hours": "{count,plural, =1{قبل ساعة} other{{count} قبل ساعات}}",
+  "plural_ago_hours": "{count,plural, =1{Ù‚Ø¨Ù„ Ø³Ø§Ø¹Ø©} other{{count} Ù‚Ø¨Ù„ Ø³Ø§Ø¹Ø§Øª}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
-  "plural_ago_minutes": "{count,plural, =0{قبل أقل من دقيقة} =1{قبل دقيقة} other{{count} منذ دقائق}}",
+  "plural_ago_minutes": "{count,plural, =0{Ù‚Ø¨Ù„ Ø£Ù‚Ù„ Ù…Ù† Ø¯Ù‚ÙŠÙ‚Ø©} =1{Ù‚Ø¨Ù„ Ø¯Ù‚ÙŠÙ‚Ø©} other{{count} Ù…Ù†Ø° Ø¯Ù‚Ø§Ø¦Ù‚}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "plural_ago_months": "{count,plural, =1{قبل شهر} other{{count} قبل أشهر}}",
+  "plural_ago_months": "{count,plural, =1{Ù‚Ø¨Ù„ Ø´Ù‡Ø±} other{{count} Ù‚Ø¨Ù„ Ø£Ø´Ù‡Ø±}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
-  "plural_ago_weeks": "{count,plural, =1{قبل أسبوع} other{{count} قبل أسابيع}}",
+  "plural_ago_weeks": "{count,plural, =1{Ù‚Ø¨Ù„ Ø£Ø³Ø¨ÙˆØ¹} other{{count} Ù‚Ø¨Ù„ Ø£Ø³Ø§Ø¨ÙŠØ¹}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
   "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
   "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
   "compare_products_mode": "Compare selected products",
@@ -1218,7 +1224,7 @@
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
-  "compare_products_appbar_title": "مقارنة المنتجات",
+  "compare_products_appbar_title": "Ù…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª",
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
@@ -1226,8 +1232,8 @@
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
-  "retry_button_label": "إعادة المحاولة",
-  "connect_with_us": "اتصل بنا",
+  "retry_button_label": "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø©",
+  "connect_with_us": "Ø§ØªØµÙ„ Ø¨Ù†Ø§",
   "tiktok": "Follow us on TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Follow us on Instagram",
@@ -1239,14 +1245,14 @@
   "bsky": "Follow us on BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
-  "faq": "الأسئلة المتكررة",
-  "discover": "إكتشف",
-  "how_to_contribute": "كيفية المساهمة",
+  "faq": "Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ù…ØªÙƒØ±Ø±Ø©",
+  "discover": "Ø¥ÙƒØªØ´Ù",
+  "how_to_contribute": "ÙƒÙŠÙÙŠØ© Ø§Ù„Ù…Ø³Ø§Ù‡Ù…Ø©",
   "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
   },
-  "permissions_page_title": "الوصول إلى الكاميرا",
+  "permissions_page_title": "Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„ÙƒØ§Ù…ÙŠØ±Ø§",
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
@@ -1332,11 +1338,11 @@
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
-  "refuse_button_label": "رفض",
+  "refuse_button_label": "Ø±ÙØ¶",
   "@refuse": {
     "description": "Button to decline the request of sending the anonymous analytics"
   },
-  "ask_me_later_button_label": "لاحقاً",
+  "ask_me_later_button_label": "Ù„Ø§Ø­Ù‚Ø§Ù‹",
   "@ask_me_later": {
     "description": "Button to ignore the camera permission request"
   },
@@ -1344,7 +1350,7 @@
   "@are_you_sure": {
     "description": "Are you sure?"
   },
-  "knowledge_panel_text_source": "تعرف أكثر من خلال {sourceName}",
+  "knowledge_panel_text_source": "ØªØ¹Ø±Ù Ø£ÙƒØ«Ø± Ù…Ù† Ø®Ù„Ø§Ù„ {sourceName}",
   "@knowledge_panel_text_source": {
     "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
     "placeholders": {
@@ -1353,7 +1359,7 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "Welcome !",
+  "onboarding_home_welcome_text1": "Welcomeâ€¯!",
   "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
@@ -1363,11 +1369,11 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
-  "product_list_your_ranking": "ترتيبك هو",
+  "product_list_your_ranking": "ØªØ±ØªÙŠØ¨Ùƒ Ù‡Ùˆ",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
   },
-  "product_list_empty_icon_desc": "السجل غير متوفر",
+  "product_list_empty_icon_desc": "Ø§Ù„Ø³Ø¬Ù„ ØºÙŠØ± Ù…ØªÙˆÙØ±",
   "@product_list_icon_desc": {
     "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
   },
@@ -1375,7 +1381,7 @@
   "@product_list_empty_title": {
     "description": "When the history list is empty, title of the message explaining to start scanning"
   },
-  "product_list_empty_message": "ستظهر المنتجات الممسوحة ضوئيًا هنا ويمكنك التحقق من المعلومات التفصيلية عنها",
+  "product_list_empty_message": "Ø³ØªØ¸Ù‡Ø± Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª Ø§Ù„Ù…Ù…Ø³ÙˆØ­Ø© Ø¶ÙˆØ¦ÙŠÙ‹Ø§ Ù‡Ù†Ø§ ÙˆÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØªÙØµÙŠÙ„ÙŠØ© Ø¹Ù†Ù‡Ø§",
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
@@ -1383,25 +1389,25 @@
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
   "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
-  "loading_dialog_default_title": "تحميل البيانات",
+  "loading_dialog_default_title": "ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
   },
-  "loading_dialog_default_error_message": "تعذر تحميل البيانات",
+  "loading_dialog_default_error_message": "ØªØ¹Ø°Ø± ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
   "@loading_dialog_default_error_message": {
     "description": "Default loading dialog error message"
   },
-  "account_delete": "حذف الحساب",
+  "account_delete": "Ø­Ø°Ù Ø§Ù„Ø­Ø³Ø§Ø¨",
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
@@ -1409,16 +1415,16 @@
   "@account_deletion_subject": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
-  "user_profile": "الحساب",
+  "user_profile": "Ø§Ù„Ø­Ø³Ø§Ø¨",
   "@user_profile": {
     "description": "User account (if connected)"
   },
-  "user_profile_title_guest": "مرحباً!",
+  "user_profile_title_guest": "Ù…Ø±Ø­Ø¨Ø§Ù‹!",
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Openâ€¯Foodâ€¯Facts community",
+  "user_profile_title_id_email": "Openâ€¯Foodâ€¯Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1436,11 +1442,11 @@
       }
     }
   },
-  "email_subject_account_deletion": "حذف الحساب",
+  "email_subject_account_deletion": "Ø­Ø°Ù Ø§Ù„Ø­Ø³Ø§Ø¨",
   "@email_subject_account_deletion": {
     "description": "Email subject for an account deletion"
   },
-  "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+  "email_body_account_deletion": "Hi there, please delete my Openâ€¯Foodâ€¯Facts account: {userId}",
   "@email_body_account_deletion": {
     "description": "Email body for an account deletion",
     "placeholders": {
@@ -1452,7 +1458,7 @@
   "settings_app_app": "Application",
   "settings_app_data": "Privacy & monitoring",
   "settings_app_camera": "Camera",
-  "settings_app_products": "المنتجات",
+  "settings_app_products": "Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª",
   "settings_app_miscellaneous": "Miscellaneous",
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
@@ -1473,7 +1479,7 @@
   "@app_haptic_feedback_title": {
     "description": "Title for the Haptic feedback toggle"
   },
-  "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+  "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removedâ€¦).",
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
@@ -1481,7 +1487,7 @@
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
-  "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+  "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Openâ€¯Foodâ€¯Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
@@ -1489,20 +1495,20 @@
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
-  "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+  "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Openâ€¯Foodâ€¯Facts servers, so that we can understand how and how much features are used in order to improve them.",
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
-  "product_edit_photo_title": "حرر الصورة",
+  "product_edit_photo_title": "Ø­Ø±Ø± Ø§Ù„ØµÙˆØ±Ø©",
   "@product_edit_photo_title": {
     "description": "Toolbar Title while editing a photo (Android only)"
   },
-  "permission_photo_error": "خطأ",
+  "permission_photo_error": "Ø®Ø·Ø£",
   "@permission_photo_error": {
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
-  "permission_photo_denied_title": "السماح باستخدام الكاميرا لمسح الباركود",
-  "permission_photo_denied_message": "للحصول على تجربة محسّنة ، يُرجى السماح لـ {appName} بالوصول إلى الكاميرا. سوف تكون قادرا على مسح الباركود مباشرة.",
+  "permission_photo_denied_title": "Ø§Ù„Ø³Ù…Ø§Ø­ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„ÙƒØ§Ù…ÙŠØ±Ø§ Ù„Ù…Ø³Ø­ Ø§Ù„Ø¨Ø§Ø±ÙƒÙˆØ¯",
+  "permission_photo_denied_message": "Ù„Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ ØªØ¬Ø±Ø¨Ø© Ù…Ø­Ø³Ù‘Ù†Ø© ØŒ ÙŠÙØ±Ø¬Ù‰ Ø§Ù„Ø³Ù…Ø§Ø­ Ù„Ù€ {appName} Ø¨Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„ÙƒØ§Ù…ÙŠØ±Ø§. Ø³ÙˆÙ ØªÙƒÙˆÙ† Ù‚Ø§Ø¯Ø±Ø§ Ø¹Ù„Ù‰ Ù…Ø³Ø­ Ø§Ù„Ø¨Ø§Ø±ÙƒÙˆØ¯ Ù…Ø¨Ø§Ø´Ø±Ø©.",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
     "placeholders": {
@@ -1511,19 +1517,19 @@
       }
     }
   },
-  "permission_photo_denied_button": "سماح",
+  "permission_photo_denied_button": "Ø³Ù…Ø§Ø­",
   "@permission_photo_denied_button": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "permission_photo_denied_dialog_settings_title": "تم رفض الإذن",
-  "permission_photo_denied_dialog_settings_message": "نظرًا لأنك رفضت مسبقًا إذن الكاميرا ،يجب أن تسمح بذلك يدويًا من الإعدادات.",
+  "permission_photo_denied_dialog_settings_title": "ØªÙ… Ø±ÙØ¶ Ø§Ù„Ø¥Ø°Ù†",
+  "permission_photo_denied_dialog_settings_message": "Ù†Ø¸Ø±Ù‹Ø§ Ù„Ø£Ù†Ùƒ Ø±ÙØ¶Øª Ù…Ø³Ø¨Ù‚Ù‹Ø§ Ø¥Ø°Ù† Ø§Ù„ÙƒØ§Ù…ÙŠØ±Ø§ ØŒÙŠØ¬Ø¨ Ø£Ù† ØªØ³Ù…Ø­ Ø¨Ø°Ù„Ùƒ ÙŠØ¯ÙˆÙŠÙ‹Ø§ Ù…Ù† Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª.",
   "permission_photo_denied_dialog_settings_button_open": "Open settings",
-  "permission_photo_denied_dialog_settings_button_cancel": "إلغاء",
+  "permission_photo_denied_dialog_settings_button_cancel": "Ø¥Ù„ØºØ§Ø¡",
   "permission_photo_none_found": "No camera detected",
   "@permission_photo_none_found": {
     "description": "Message for the user when no camera was detected, replacing the barcode scanner"
   },
-  "permission_photo_denied": "لم يتم منح الوصول إلى الكاميرا",
+  "permission_photo_denied": "Ù„Ù… ÙŠØªÙ… Ù…Ù†Ø­ Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„ÙƒØ§Ù…ÙŠØ±Ø§",
   "@permission_photo_denied": {
     "description": "When the camera/photo permission is denied by user"
   },
@@ -1531,11 +1537,11 @@
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
-  "edit_product_label": "تحرير المنتج",
+  "edit_product_label": "ØªØ­Ø±ÙŠØ± Ø§Ù„Ù…Ù†ØªØ¬",
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
@@ -1547,7 +1553,7 @@
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_label_short": "تحرير",
+  "edit_product_label_short": "ØªØ­Ø±ÙŠØ±",
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
@@ -1600,11 +1606,11 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
-  "edit_product_form_item_details_title": "المعلومات الأساسية",
+  "edit_product_form_item_details_title": "Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ©",
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
   },
-  "edit_product_form_item_details_subtitle": "اسم المنتج، العلامة التجارية، الكمية",
+  "edit_product_form_item_details_subtitle": "Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬ØŒ Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©ØŒ Ø§Ù„ÙƒÙ…ÙŠØ©",
   "@edit_product_form_item_details_subtitle": {
     "description": "Product edition - Basic Details - Subtitle"
   },
@@ -1612,23 +1618,23 @@
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Website…",
+  "edit_product_form_item_other_details_subtitle": "Websiteâ€¦",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
-  "edit_product_form_item_photos_title": "صور",
+  "edit_product_form_item_photos_title": "ØµÙˆØ±",
   "@edit_product_form_item_photos_title": {
     "description": "Product edition - Photos - Title"
   },
-  "edit_product_form_item_photos_subtitle": "إضافة أو تحديث الصور",
+  "edit_product_form_item_photos_subtitle": "Ø¥Ø¶Ø§ÙØ© Ø£Ùˆ ØªØ­Ø¯ÙŠØ« Ø§Ù„ØµÙˆØ±",
   "@edit_product_form_item_photos_subtitle": {
     "description": "Product edition - Photos - SubTitle"
   },
-  "edit_product_form_item_labels_title": "التسميات وشهادات الاعتماد",
+  "edit_product_form_item_labels_title": "Ø§Ù„ØªØ³Ù…ÙŠØ§Øª ÙˆØ´Ù‡Ø§Ø¯Ø§Øª Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯",
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
+  "edit_product_form_item_labels_subtitle": "Environmental, Quality labelsâ€¦",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
@@ -1648,27 +1654,27 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVAâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittanyâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000…",
+  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000â€¦",
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of ironâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaarâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_stores_title": "المتاجر",
+  "edit_product_form_item_stores_title": "Ø§Ù„Ù…ØªØ§Ø¬Ø±",
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
@@ -1700,7 +1706,7 @@
   "@edit_product_form_item_stores_explanation_good_examples_3": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_origins_title": "أصلي",
+  "edit_product_form_item_origins_title": "Ø£ØµÙ„ÙŠ",
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
@@ -1708,7 +1714,7 @@
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
-  "edit_product_form_item_origins_type": "الدولة",
+  "edit_product_form_item_origins_type": "Ø§Ù„Ø¯ÙˆÙ„Ø©",
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
@@ -1728,7 +1734,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "البلد",
+  "edit_product_form_item_countries_title": "Ø§Ù„Ø¨Ù„Ø¯",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -1736,7 +1742,7 @@
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
-  "edit_product_form_item_countries_type": "الدولة",
+  "edit_product_form_item_countries_type": "Ø§Ù„Ø¯ÙˆÙ„Ø©",
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
@@ -1748,15 +1754,15 @@
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_emb_codes_title": "رموز التتبع",
+  "edit_product_form_item_emb_codes_title": "Ø±Ù…ÙˆØ² Ø§Ù„ØªØªØ¨Ø¹",
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522â€¦)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
-  "edit_product_form_item_emb_codes_type": "رمز التتبع",
+  "edit_product_form_item_emb_codes_type": "Ø±Ù…Ø² Ø§Ù„ØªØªØ¨Ø¹",
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
@@ -1770,7 +1776,7 @@
   },
   "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
   "@edit_product_form_item_emb_help_info2_title": {
-    "description": "Explanation about EMB/EC… codes"
+    "description": "Explanation about EMB/ECâ€¦ codes"
   },
   "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
@@ -1792,7 +1798,7 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_categories_title": "الفئات",
+  "edit_product_form_item_categories_title": "Ø§Ù„ÙØ¦Ø§Øª",
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
   },
@@ -1816,7 +1822,7 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Openâ€¯Foodâ€¯Facts in your country.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
@@ -1830,9 +1836,9 @@
   },
   "edit_product_form_item_exit_title": "Quit without saving?",
   "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
-  "edit_product_form_item_exit_confirmation_positive_button": "حفظ التغييرات",
+  "edit_product_form_item_exit_confirmation_positive_button": "Ø­ÙØ¸ Ø§Ù„ØªØºÙŠÙŠØ±Ø§Øª",
   "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-  "edit_product_form_item_ingredients_title": "المكونات",
+  "edit_product_form_item_ingredients_title": "Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
@@ -1848,9 +1854,9 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
-  "edit_product_form_item_add_valid_item_tooltip": "إضافة",
-  "edit_product_form_item_add_invalid_item_tooltip": "الرجاء إدخال النص أولا",
-  "edit_product_form_item_remove_item_tooltip": "إزالة",
+  "edit_product_form_item_add_valid_item_tooltip": "Ø¥Ø¶Ø§ÙØ©",
+  "edit_product_form_item_add_invalid_item_tooltip": "Ø§Ù„Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ù„Ù†Øµ Ø£ÙˆÙ„Ø§",
+  "edit_product_form_item_remove_item_tooltip": "Ø¥Ø²Ø§Ù„Ø©",
   "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
@@ -1863,11 +1869,11 @@
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "حقائق غذائية",
+  "edit_product_form_item_nutrition_facts_title": "Ø­Ù‚Ø§Ø¦Ù‚ ØºØ°Ø§Ø¦ÙŠØ©",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
-  "edit_product_form_item_nutrition_facts_subtitle": "التفاضيل الغذائية، ومحتوى الكحول…",
+  "edit_product_form_item_nutrition_facts_subtitle": "Ø§Ù„ØªÙØ§Ø¶ÙŠÙ„ Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ©ØŒ ÙˆÙ…Ø­ØªÙˆÙ‰ Ø§Ù„ÙƒØ­ÙˆÙ„â€¦",
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
@@ -1883,7 +1889,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "حقائق غذائية",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "Ø­Ù‚Ø§Ø¦Ù‚ ØºØ°Ø§Ø¦ÙŠØ©",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1895,19 +1901,19 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesiumâ€¦).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_save": "تحرير",
+  "edit_product_form_save": "ØªØ­Ø±ÙŠØ±",
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
-  "edit_product_ingredients_photo_title": "صورة المكونات",
+  "edit_product_ingredients_photo_title": "ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "قائمة المكونات",
+  "edit_product_ingredients_list_title": "Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -1919,7 +1925,7 @@
   "@edit_product_packaging_list_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "no_data_available": "لا توجد بيانات متاحة",
+  "no_data_available": "Ù„Ø§ ØªÙˆØ¬Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª Ù…ØªØ§Ø­Ø©",
   "@no_data_available": {
     "description": "When there are no data to display"
   },
@@ -1933,12 +1939,12 @@
   },
   "completed_basic_details_btn_text": "Complete basic details",
   "not_implemented_snackbar_text": "Not implemented yet",
-  "category_picker_page_appbar_text": "الفئات",
+  "category_picker_page_appbar_text": "Ø§Ù„ÙØ¦Ø§Øª",
   "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
-  "edit_ingredients_extract_ingredients_btn_text_short": "استخراج المكونات",
+  "edit_ingredients_extract_ingredients_btn_text_short": "Ø§Ø³ØªØ®Ø±Ø§Ø¬ Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
@@ -1946,7 +1952,7 @@
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
-  "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+  "edit_ingredients_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_ingredients_loading_photo_btn_text": {
     "description": "Ingredients edition - Loading photo from the server"
   },
@@ -1958,7 +1964,7 @@
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_ingredients_refresh_photo_btn_text": "تحديث الصورة",
+  "edit_ingredients_refresh_photo_btn_text": "ØªØ­Ø¯ÙŠØ« Ø§Ù„ØµÙˆØ±Ø©",
   "@edit_ingredients_refresh_photo_btn_text": {
     "description": "Ingredients edition - Refresh photo"
   },
@@ -1974,7 +1980,7 @@
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
-  "edit_packaging_loading_photo_btn_text": "Loading photo…",
+  "edit_packaging_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_packaging_loading_photo_btn_text": {
     "description": "Packaging edition - Loading photo from the server"
   },
@@ -1986,7 +1992,7 @@
   "@edit_packaging_loading_photo_help_dialog_body": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_packaging_refresh_photo_btn_text": "تحديث الصورة",
+  "edit_packaging_refresh_photo_btn_text": "ØªØ­Ø¯ÙŠØ« Ø§Ù„ØµÙˆØ±Ø©",
   "@edit_packaging_refresh_photo_btn_text": {
     "description": "Packaging edition - Refresh photo"
   },
@@ -2014,7 +2020,7 @@
   "@user_list_subtitle_product": {
     "description": "Subtitle of a paragraph about user lists in a product context"
   },
-  "user_list_title": "قوائمك",
+  "user_list_title": "Ù‚ÙˆØ§Ø¦Ù…Ùƒ",
   "@user_list_title": {
     "description": "Label for the user lists (when the user wants to add a product to a list)"
   },
@@ -2030,7 +2036,7 @@
   "@user_list_empty_label": {
     "description": "Content displayed when there is no list"
   },
-  "user_list_button_add_product": "أضف إلى القائمة",
+  "user_list_button_add_product": "Ø£Ø¶Ù Ø¥Ù„Ù‰ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©",
   "@user_list_button_add_product": {
     "description": "Short label of an 'add to list' button from a product context"
   },
@@ -2107,7 +2113,7 @@
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "category_picker_no_category_found_button": "عودة",
+  "category_picker_no_category_found_button": "Ø¹ÙˆØ¯Ø©",
   "@category_picker_no_category_found_button": {
     "description": "Button label when no category is available"
   },
@@ -2184,11 +2190,11 @@
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
-  "dev_preferences_button_positive": "موافق",
+  "dev_preferences_button_positive": "Ù…ÙˆØ§ÙÙ‚",
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
-  "dev_preferences_button_negative": "إلغاء",
+  "dev_preferences_button_negative": "Ø¥Ù„ØºØ§Ø¡",
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
@@ -2223,7 +2229,7 @@
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
-  "dev_preferences_news_provider_status_title": "الحالة",
+  "dev_preferences_news_provider_status_title": "Ø§Ù„Ø­Ø§Ù„Ø©",
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
@@ -2239,7 +2245,7 @@
   "product_type_label_food": "Food",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
-  "product_type_label_product": "أخرى",
+  "product_type_label_product": "Ø£Ø®Ø±Ù‰",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2291,9 +2297,7 @@
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "product": {
         "type": "String"
       }
@@ -2303,9 +2307,7 @@
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"} 
     }
   },
   "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
@@ -2355,9 +2357,7 @@
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"} 
     }
   },
   "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
@@ -2400,36 +2400,28 @@
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"} 
     }
   },
   "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"} 
     }
   },
   "prices_amount_subtitle": "Amount",
@@ -2494,7 +2486,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "dev_preferences_import_history_result_success": "تم",
+  "dev_preferences_import_history_result_success": "ØªÙ…",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
   },
@@ -2502,15 +2494,15 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "معطيات",
+  "dev_mode_section_data": "Ù…Ø¹Ø·ÙŠØ§Øª",
   "dev_mode_section_experimental_features": "Experimental features",
   "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
   "@dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
-  "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+  "dev_mode_hide_environmental_score_title": "Exclude Greenâ€¯Score",
   "@dev_mode_hide_environmental_score_title": {
-    "description": "User dev preferences - Disable Green Score - Title"
+    "description": "User dev preferences - Disable Greenâ€¯Score - Title"
   },
   "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
   "@dev_mode_spellchecker_for_ocr_title": {
@@ -2537,9 +2529,7 @@
   "@product_search_button_download_more": {
     "description": "Product search list - Button to download more results",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "downloaded": {
         "type": "int"
       },
@@ -2548,7 +2538,7 @@
       }
     }
   },
-  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few secondsâ€¦",
   "@product_search_loading_message": {
     "description": "This message will be displayed when a search is in progress.",
     "search": {
@@ -2559,7 +2549,7 @@
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
-  "user_search_informer_title": "المنتجات المعدلة",
+  "user_search_informer_title": "Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª Ø§Ù„Ù…Ø¹Ø¯Ù„Ø©",
   "@user_search_informer_title": {
     "description": "User search (informer): list tile title"
   },
@@ -2628,7 +2618,7 @@
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+  "signup_page_terms_of_use_line1": "I agree to the Openâ€¯Foodâ€¯Facts ",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
@@ -2636,7 +2626,7 @@
   "@signup_page_terms_of_use_line2": {
     "description": "User consent for terms of use (line 2)"
   },
-  "analytics_consent_image_semantic_label": "عربية",
+  "analytics_consent_image_semantic_label": "Ø¹Ø±Ø¨ÙŠØ©",
   "@analytics_consent_image_semantic_label": {
     "description": "Consent Analytics icon semantics label"
   },
@@ -2662,15 +2652,15 @@
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
-  "edit_photo_button_label": "تحرير",
+  "edit_photo_button_label": "ØªØ­Ø±ÙŠØ±",
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
-  "edit_photo_unselect_button_label": "إلغاء تحديد الصورة",
+  "edit_photo_unselect_button_label": "Ø¥Ù„ØºØ§Ø¡ ØªØ­Ø¯ÙŠØ¯ Ø§Ù„ØµÙˆØ±Ø©",
   "@edit_photo_unselect_button_label": {
     "description": "Edit 'unselect photo' button label"
   },
-  "edit_photo_select_existing_button_label": "إختيار صورة موجودة من قبل",
+  "edit_photo_select_existing_button_label": "Ø¥Ø®ØªÙŠØ§Ø± ØµÙˆØ±Ø© Ù…ÙˆØ¬ÙˆØ¯Ø© Ù…Ù† Ù‚Ø¨Ù„",
   "@edit_photo_select_existing_button_label": {
     "description": "Edit 'select existing image' button label"
   },
@@ -2682,11 +2672,11 @@
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_download_label": "Retrieving existing images…",
+  "edit_photo_select_existing_download_label": "Retrieving existing imagesâ€¦",
   "@edit_photo_select_existing_download_label": {
     "description": "Dialog label"
   },
-  "edit_photo_select_existing_downloaded_none": "لا توجد صور تم تحميلها سابقا فيما يتعلق بهذا المنتج.",
+  "edit_photo_select_existing_downloaded_none": "Ù„Ø§ ØªÙˆØ¬Ø¯ ØµÙˆØ± ØªÙ… ØªØ­Ù…ÙŠÙ„Ù‡Ø§ Ø³Ø§Ø¨Ù‚Ø§ ÙÙŠÙ…Ø§ ÙŠØªØ¹Ù„Ù‚ Ø¨Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬.",
   "@edit_photo_select_existing_downloaded_none": {
     "description": "Error message"
   },
@@ -2698,12 +2688,12 @@
   "@edit_photo_language_none": {
     "description": "Warning message: for this product and this field, there are no images at all, in any language"
   },
-  "category_picker_screen_title": "الفئات",
+  "category_picker_screen_title": "Ø§Ù„ÙØ¦Ø§Øª",
   "@category_picker_screen_title": {
     "description": "Categories picker screen title"
   },
   "basic_details": "Basic Details",
-  "product_name": "اسم المنتج",
+  "product_name": "Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬",
   "product_names": "Product Names",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
@@ -2764,11 +2754,11 @@
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols Â®, â„¢, Â© or similar",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**®**",
+  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**Â®**",
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
@@ -2776,12 +2766,10 @@
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"} 
     }
   },
-  "brand_name": "اسم العلامة التجارية",
+  "brand_name": "Ø§Ø³Ù… Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©",
   "brand_names": "Brand names",
   "add_basic_details_brand_name_error": "Please enter the brand name",
   "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
@@ -2829,8 +2817,8 @@
   "@add_basic_details_product_brand_help_good_examples_2": {
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
-  "quantity": "الكمية و الوزن",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+  "quantity": "Ø§Ù„ÙƒÙ…ÙŠØ© Ùˆ Ø§Ù„ÙˆØ²Ù†",
+  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (egâ€¯: 4x100g)",
   "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
@@ -2851,7 +2839,7 @@
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "barcode": "الرمز الشريطي",
+  "barcode": "Ø§Ù„Ø±Ù…Ø² Ø§Ù„Ø´Ø±ÙŠØ·ÙŠ",
   "barcode_barcode": "Barcode: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
@@ -2861,7 +2849,7 @@
       }
     }
   },
-  "barcode_invalid_error": "باركود غير صالح",
+  "barcode_invalid_error": "Ø¨Ø§Ø±ÙƒÙˆØ¯ ØºÙŠØ± ØµØ§Ù„Ø­",
   "basic_details_add_success": "Basic details added successfully",
   "basic_details_add_error": "Unable to add basic details. Please try again after some time",
   "@basic_details_add_error": {
@@ -2871,14 +2859,14 @@
   "@confirm_clearclear_search": {
     "description": "Tooltip to explain that the X button clears the content of the search"
   },
-  "confirm_clear": "أنت على وشك مسح السجل بأكمله: هل أنت متأكد من أنك تريد المتابعة؟",
+  "confirm_clear": "Ø£Ù†Øª Ø¹Ù„Ù‰ ÙˆØ´Ùƒ Ù…Ø³Ø­ Ø§Ù„Ø³Ø¬Ù„ Ø¨Ø£ÙƒÙ…Ù„Ù‡: Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ù…Ù† Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©ØŸ",
   "@confirm_clear": {
     "description": "Asking about whether to clear the history list or not"
   },
   "alert_clear_selected_user_list": "You're about to clear selected items in your history",
   "confirm_clear_selected_user_list": "Are you sure you want to continue?",
   "alert_select_items_to_clear": "Please select one or more items to clear",
-  "confirm_clear_user_list": "أنت على وشك مسح هذه القائمة ({name}): هل أنت متأكد أنك تريد المتابعة؟",
+  "confirm_clear_user_list": "Ø£Ù†Øª Ø¹Ù„Ù‰ ÙˆØ´Ùƒ Ù…Ø³Ø­ Ù‡Ø°Ù‡ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© ({name}): Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©ØŸ",
   "@confirm_clear_user_list": {
     "description": "Asking about whether to clear the list or not",
     "placeholders": {
@@ -2932,7 +2920,7 @@
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
   "add_list_label": "Add list",
@@ -2987,11 +2975,11 @@
   "@gallery_source_access_denied_dialog_button": {
     "description": "Button to open the app settings"
   },
-  "share": "مشاركة",
+  "share": "Ù…Ø´Ø§Ø±ÙƒØ©",
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+  "share_product_text": "Have a look at this product on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3000,7 +2988,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Have a look at this product on Openâ€¯Beautyâ€¯Facts: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3009,7 +2997,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Have a look at this product on Openâ€¯PetFoodâ€¯Facts: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3018,7 +3006,7 @@
       }
     }
   },
-  "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+  "share_product_text_product": "Have a look at this product on Openâ€¯Productsâ€¯Facts: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3027,7 +3015,7 @@
       }
     }
   },
-  "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+  "share_product_list_text": "Have a look at my list of products on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_list_text": {
     "description": "The content which is send, when sharing a product list",
     "placeholders": {
@@ -3040,7 +3028,7 @@
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "التقاط صورة",
+  "capture_new_picture": "Ø§Ù„ØªÙ‚Ø§Ø· ØµÙˆØ±Ø©",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
@@ -3048,7 +3036,7 @@
   "@choose_from_gallery": {
     "description": "Button label for choosing a photo from gallery"
   },
-  "image_upload_queued": "سيتم تحميل الصورة في الخلفية في أقرب وقت ممكن.",
+  "image_upload_queued": "Ø³ÙŠØªÙ… ØªØ­Ù…ÙŠÙ„ Ø§Ù„ØµÙˆØ±Ø© ÙÙŠ Ø§Ù„Ø®Ù„ÙÙŠØ© ÙÙŠ Ø£Ù‚Ø±Ø¨ ÙˆÙ‚Øª Ù…Ù…ÙƒÙ†.",
   "@image_upload_queued": {
     "description": "Message when a photo is queued for upload"
   },
@@ -3103,7 +3091,7 @@
   "@no_data_available_in_clipboard": {
     "description": "No data available in your clipboard"
   },
-  "clipboard_barcode_copy": "نسخ الباركود إلى الحافظة",
+  "clipboard_barcode_copy": "Ù†Ø³Ø® Ø§Ù„Ø¨Ø§Ø±ÙƒÙˆØ¯ Ø¥Ù„Ù‰ Ø§Ù„Ø­Ø§ÙØ¸Ø©",
   "@clipboard_barcode_copied": {
     "description": "Snackbar label after clipboard copy"
   },
@@ -3125,7 +3113,7 @@
   "@help_with_openfoodfacts": {
     "description": "Label for the email title"
   },
-  "product_task_background_schedule": "سيتم تحديث المنتج في الخلفية بأسرع ما يمكن.",
+  "product_task_background_schedule": "Ø³ÙŠØªÙ… ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ù†ØªØ¬ ÙÙŠ Ø§Ù„Ø®Ù„ÙÙŠØ© Ø¨Ø£Ø³Ø±Ø¹ Ù…Ø§ ÙŠÙ…ÙƒÙ†.",
   "@product_task_background_schedule": {
     "description": "Message when a product is scheduled for background update"
   },
@@ -3169,11 +3157,11 @@
   "@scan_product_loading": {
     "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+  "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few secondsâ€¦",
   "@scan_product_loading_initial": {
     "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+  "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are weâ€¦",
   "@scan_product_loading_long_request": {
     "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
   },
@@ -3185,7 +3173,7 @@
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
-  "portion_calculator_description": "احسب المعلومات الغذائية لكمية محددة",
+  "portion_calculator_description": "Ø§Ø­Ø³Ø¨ Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ© Ù„ÙƒÙ…ÙŠØ© Ù…Ø­Ø¯Ø¯Ø©",
   "@portion_calculator_description": {
     "description": "Sort of title that describes the portion calculator."
   },
@@ -3266,7 +3254,7 @@
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"} 
     }
   },
   "show_password": "Show Password",
@@ -3380,8 +3368,8 @@
   "background_task_run_not_started": "not started yet",
   "background_task_run_to_be_deleted": "to be deleted",
   "background_task_question_stop": "Do you want to stop that task ASAP?",
-  "feed_back": "ملاحظات",
-  "undo": "تراجع",
+  "feed_back": "Ù…Ù„Ø§Ø­Ø¸Ø§Øª",
+  "undo": "ØªØ±Ø§Ø¬Ø¹",
   "copy_email_to_clip_board": "Copy email to clipboard",
   "@copy_email_to_clip_board": {
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
@@ -3410,7 +3398,7 @@
   },
   "color_light_brown": "Default",
   "@color_light_brown": {
-    "description": "Color Light Brown, Default Open Food Facts Color"
+    "description": "Color Light Brown, Default Openâ€¯Foodâ€¯Facts Color"
   },
   "color_magenta": "Magenta",
   "@color_magenta": {
@@ -3518,9 +3506,7 @@
   "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
   "@download_top_n_products": {
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"} 
     }
   },
   "download_in_progress": "Downloading data\nThis may take a while",
@@ -3540,7 +3526,7 @@
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+  "update_local_database_sub": "Update the local product database with the latest data from Openâ€¯Foodâ€¯Facts",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
@@ -3561,9 +3547,9 @@
       }
     }
   },
-  "loading": "جاري التحميل…",
+  "loading": "Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ­Ù…ÙŠÙ„â€¦",
   "@loading": {
-    "description": "Loading…"
+    "description": "Loadingâ€¦"
   },
   "know_more": "Know More",
   "@know_more": {
@@ -3606,7 +3592,7 @@
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
-  "action_delete_list": "حذف",
+  "action_delete_list": "Ø­Ø°Ù",
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
@@ -3614,7 +3600,7 @@
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
-  "product_list_create": "إنشاء",
+  "product_list_create": "Ø¥Ù†Ø´Ø§Ø¡",
   "@product_list_create": {
     "description": "Button label to create a new list (short word)"
   },
@@ -3622,7 +3608,7 @@
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
-  "nutriscore_generic": "درجة الجودة الغذائية",
+  "nutriscore_generic": "Ø¯Ø±Ø¬Ø© Ø§Ù„Ø¬ÙˆØ¯Ø© Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ©",
   "nutriscore_a": "Nutri-Score A",
   "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
@@ -3642,14 +3628,14 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
+  "environmental_score_generic": "Greenâ€¯Score",
+  "environmental_score_a": "Greenâ€¯Score A",
+  "environmental_score_b": "Greenâ€¯Score B",
+  "environmental_score_c": "Greenâ€¯Score C",
+  "environmental_score_d": "Greenâ€¯Score D",
+  "environmental_score_e": "Greenâ€¯Score E",
+  "environmental_score_unknown": "Unknown Greenâ€¯Score",
+  "environmental_score_not_applicable": "Greenâ€¯Score is not applicable",
   "nova_group_generic": "Ultra-processing - NOVA groups",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3667,10 +3653,10 @@
   "contact_title_pro_email": "Producer Contact",
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Press Contact",
-  "contact_title_newsletter": "اشترك إلى نشرتنا الإخبارية",
-  "hunger_games_loading_line1": "Please give us a few seconds…",
+  "contact_title_newsletter": "Ø§Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø´Ø±ØªÙ†Ø§ Ø§Ù„Ø¥Ø®Ø¨Ø§Ø±ÙŠØ©",
+  "hunger_games_loading_line1": "Please give us a few secondsâ€¦",
   "hunger_games_loading_line2": "We're downloading the questions!",
-  "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+  "hunger_games_error_label": "Argh! Something went wrongâ€¦ and we couldn't load the questions.",
   "hunger_games_error_retry_button": "Let's retry!",
   "reorder_attribute_action": "Reorder the attributes",
   "@reorder_attribute_action": {
@@ -3701,16 +3687,16 @@
       }
     }
   },
-  "guide_title": "دليل الاستخدام",
+  "guide_title": "Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…",
   "@guide_title": {
     "description": "A title for a guide"
   },
-  "guide_share_label": "مشاركة",
+  "guide_share_label": "Ù…Ø´Ø§Ø±ÙƒØ©",
   "guide_nutriscore_v2_enabled": "true",
   "@guide_nutriscore_v2_enabled": {
     "description": "Please NEVER touch this value and let the OFF team change it!"
   },
-  "guide_nutriscore_v2_title": "الدرجة الغذائية في تطور: تفسيرات!",
+  "guide_nutriscore_v2_title": "Ø§Ù„Ø¯Ø±Ø¬Ø© Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ© ÙÙŠ ØªØ·ÙˆØ±: ØªÙØ³ÙŠØ±Ø§Øª!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -3719,11 +3705,11 @@
     "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Ø§Ù„Ø¯Ø±Ø¬Ø© Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ© Ù‡Ùˆ Ø´Ø¹Ø§Ø± ÙŠÙ‡Ø¯Ù Ø¥Ù„Ù‰ Ø¥Ø¹Ù„Ø§Ù…Ùƒ **Ø¨Ø§Ù„Ø¬ÙˆØ¯Ø© Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ© Ù„Ù„Ø£Ø·Ø¹Ù…Ø©**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "يختلف رمز اللون من اللون الأخضر الداكن (**A**) للمنتجات **الأكثر صحة** إلى اللون الأحمر الداكن (**E**) للمنتجات **الأقل صحة**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "ÙŠØ®ØªÙ„Ù Ø±Ù…Ø² Ø§Ù„Ù„ÙˆÙ† Ù…Ù† Ø§Ù„Ù„ÙˆÙ† Ø§Ù„Ø£Ø®Ø¶Ø± Ø§Ù„Ø¯Ø§ÙƒÙ† (**A**) Ù„Ù„Ù…Ù†ØªØ¬Ø§Øª **Ø§Ù„Ø£ÙƒØ«Ø± ØµØ­Ø©** Ø¥Ù„Ù‰ Ø§Ù„Ù„ÙˆÙ† Ø§Ù„Ø£Ø­Ù…Ø± Ø§Ù„Ø¯Ø§ÙƒÙ† (**E**) Ù„Ù„Ù…Ù†ØªØ¬Ø§Øª **Ø§Ù„Ø£Ù‚Ù„ ØµØ­Ø©**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3765,23 +3751,23 @@
   },
   "menu_button_list_actions": "Select an action",
   "@menu_button_list_actions": {
-    "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    "description": "Button to select an action in a list (eg: Share, Delete, â€¦)"
   },
   "error_loading_photo": "Error loading photo",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "Use asâ€¦",
   "@photo_viewer_action_use_picture_as": {
-    "description": "An action to use the current picture to be used as front/ingredients…"
+    "description": "An action to use the current picture to be used as front/ingredientsâ€¦"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Use this picture asâ€¦",
   "@photo_viewer_use_picture_as_tooltip": {
-    "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
+    "description": "Message explaining what the three dots (â€¦) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+  "photo_viewer_use_picture_as_title": "Use this picture asâ€¦ ({language})",
   "@photo_viewer_use_picture_as_title": {
-    "description": "The title of a dialog to use the current picture as front/ingredients…",
+    "description": "The title of a dialog to use the current picture as front/ingredientsâ€¦",
     "placeholders": {
       "language": {
         "type": "String"
@@ -3800,7 +3786,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "مساهم",
+  "photo_viewer_details_contributor_title": "Ù…Ø³Ø§Ù‡Ù…",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
@@ -3845,11 +3831,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "الصورة الأمامية",
+  "product_image_front_accessibility_label": "Ø§Ù„ØµÙˆØ±Ø© Ø§Ù„Ø£Ù…Ø§Ù…ÙŠØ©",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "صورة للقائمة المكونات",
+  "product_image_ingredients_accessibility_label": "ØµÙˆØ±Ø© Ù„Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -3932,11 +3918,11 @@
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few secondsâ€¦",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
@@ -3962,7 +3948,7 @@
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
   "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
+  "carousel_unsupported_text": "The barcode scanned is not supported by Openâ€¯Foodâ€¯Facts!",
   "carousel_error_header": "Error!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
@@ -3973,7 +3959,7 @@
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_error_button": "إعادة المحاولة",
+  "carousel_error_button": "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø©",
   "carousel_unknown_product_header": "Unknown product",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
@@ -3986,7 +3972,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "إضافة منتج",
+  "carousel_unknown_product_button": "Ø¥Ø¶Ø§ÙØ© Ù…Ù†ØªØ¬",
   "carousel_loading_header": "Loading information...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
@@ -3996,34 +3982,34 @@
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "Vegetables, fruits, frozen foodâ€¦",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "Makeup, soaps, toothpastesâ€¦",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Food for dogs, catsâ€¦",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "Smartphones, furnitureâ€¦",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
   "photo_field_front": "Product photo",
-  "photo_field_ingredients": "صورة المكونات",
+  "photo_field_ingredients": "ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "صورة معلومات التعبِئة",
+  "photo_field_packaging": "ØµÙˆØ±Ø© Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„ØªØ¹Ø¨ÙØ¦Ø©",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
-  "photo_rotate_left": "دوران لليسار",
+  "photo_rotate_left": "Ø¯ÙˆØ±Ø§Ù† Ù„Ù„ÙŠØ³Ø§Ø±",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "تدوير الحق",
+  "photo_rotate_right": "ØªØ¯ÙˆÙŠØ± Ø§Ù„Ø­Ù‚",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4048,7 +4034,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "تحذير",
+  "knowledge_panel_warning_text": "ØªØ­Ø°ÙŠØ±",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
@@ -4077,7 +4063,7 @@
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
-  "product_footer_action_barcode_short": "الرمز الشريطي",
+  "product_footer_action_barcode_short": "Ø§Ù„Ø±Ù…Ø² Ø§Ù„Ø´Ø±ÙŠØ·ÙŠ",
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
@@ -4158,3 +4144,4 @@
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   }
 }
+

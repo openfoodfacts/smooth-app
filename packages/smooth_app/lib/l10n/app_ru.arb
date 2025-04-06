@@ -1,165 +1,165 @@
-{
+﻿{
   "@Utils": {},
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "Да",
+  "yes": "Ð”Ð°",
   "@yes": {},
-  "add": "Добавить",
+  "add": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ",
   "@add": {},
-  "account_delete_message": "Вы уверены, что хотите удалить свой аккаунт?\nЕсли есть конкретная причина, пожалуйста, поделитесь ею ниже",
+  "account_delete_message": "Ð’Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ñ‡Ñ‚Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ²Ð¾Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚?\nÐ•ÑÐ»Ð¸ ÐµÑÑ‚ÑŒ ÐºÐ¾Ð½ÐºÑ€ÐµÑ‚Ð½Ð°Ñ Ð¿Ñ€Ð¸Ñ‡Ð¸Ð½Ð°, Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ð¾Ð´ÐµÐ»Ð¸Ñ‚ÐµÑÑŒ ÐµÑŽ Ð½Ð¸Ð¶Ðµ",
   "@account_delete_message": {},
-  "reason": "Причина",
+  "reason": "ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð°",
   "@reason": {},
-  "okay": "Окей",
+  "okay": "ÐžÐºÐµÐ¹",
   "@okay": {},
-  "validate": "Подтвердить",
+  "validate": "ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ",
   "@validate": {
     "description": "Button label: Validate the input"
   },
-  "create": "Создать",
+  "create": "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ",
   "@create": {
     "description": "An action to create"
   },
-  "applyButtonText": "Применить",
+  "applyButtonText": "ÐŸÑ€Ð¸Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ",
   "@applyButtonText": {},
-  "next_label": "Следующий",
+  "next_label": "Ð¡Ð»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¹",
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
-  "continue_label": "Продолжить",
+  "continue_label": "ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ",
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
-  "exit_label": "Выход",
+  "exit_label": "Ð’Ñ‹Ñ…Ð¾Ð´",
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Предыдущая",
+  "previous_label": "ÐŸÑ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰Ð°Ñ",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
-  "go_back_to_top": "Вернуться к началу",
-  "save": "Сохранить",
-  "save_confirmation": "Вы уверены, что хотите сохранить?",
-  "skip": "Пропустить",
-  "cancel": "Отмена",
+  "go_back_to_top": "Ð’ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ Ðº Ð½Ð°Ñ‡Ð°Ð»Ñƒ",
+  "save": "Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ",
+  "save_confirmation": "Ð’Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ñ‡Ñ‚Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ?",
+  "skip": "ÐŸÑ€Ð¾Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ",
+  "cancel": "ÐžÑ‚Ð¼ÐµÐ½Ð°",
   "@cancel": {},
-  "ignore": "ПРОПУСТИТЬ",
+  "ignore": "ÐŸÐ ÐžÐŸÐ£Ð¡Ð¢Ð˜Ð¢Ð¬",
   "@ignore": {
     "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
   },
-  "close": "Закрыть",
+  "close": "Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ",
   "@close": {},
-  "no": "Нет",
+  "no": "ÐÐµÑ‚",
   "@no": {},
-  "stop": "Стоп",
+  "stop": "Ð¡Ñ‚Ð¾Ð¿",
   "@stop": {},
-  "finish": "Готово",
+  "finish": "Ð“Ð¾Ñ‚Ð¾Ð²Ð¾",
   "@finish": {},
-  "calculate": "Рассчитать",
+  "calculate": "Ð Ð°ÑÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ",
   "@calculate": {
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
-  "reset_food_prefs": "Сбросить настройки предпочтений",
+  "reset_food_prefs": "Ð¡Ð±Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸Ð¹",
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "error": "Упс... что-то пошло не так",
+  "error": "Ð£Ð¿Ñ... Ñ‡Ñ‚Ð¾-Ñ‚Ð¾ Ð¿Ð¾ÑˆÐ»Ð¾ Ð½Ðµ Ñ‚Ð°Ðº",
   "@error": {},
-  "error_occurred": "Произошла ошибка",
+  "error_occurred": "ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°",
   "@error_occurred": {},
-  "featureInProgress": "Мы все еще работаем над этой функцией, следите за обновлениями",
+  "featureInProgress": "ÐœÑ‹ Ð²ÑÐµ ÐµÑ‰Ðµ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÐ¼ Ð½Ð°Ð´ ÑÑ‚Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÐµÐ¹, ÑÐ»ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸ÑÐ¼Ð¸",
   "@featureInProgress": {},
-  "label_web": "Посмотреть в Интернете",
+  "label_web": "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð² Ð˜Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ðµ",
   "@label_web": {},
-  "learnMore": "Узнать больше",
+  "learnMore": "Ð£Ð·Ð½Ð°Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ",
   "@learnMore": {},
-  "unknown": "Неизвестный",
+  "unknown": "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹",
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "Очень хорошо подходит",
+  "match_very_good": "ÐžÑ‡ÐµÐ½ÑŒ Ñ…Ð¾Ñ€Ð¾ÑˆÐ¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Хорошо подходит",
+  "match_good": "Ð¥Ð¾Ñ€Ð¾ÑˆÐ¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
-  "match_poor": "Плохо подходит",
+  "match_poor": "ÐŸÐ»Ð¾Ñ…Ð¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚",
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "Может не подходить вам",
+  "match_may_not": "ÐœÐ¾Ð¶ÐµÑ‚ Ð½Ðµ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚ÑŒ Ð²Ð°Ð¼",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
-  "match_does_not": "Продукт не совместим",
+  "match_does_not": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ Ð½Ðµ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼",
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "Неизвестное совпадение",
+  "match_unknown": "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾Ðµ ÑÐ¾Ð²Ð¿Ð°Ð´ÐµÐ½Ð¸Ðµ",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "Очень хорошо подходит",
+  "match_short_very_good": "ÐžÑ‡ÐµÐ½ÑŒ Ñ…Ð¾Ñ€Ð¾ÑˆÐ¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Хорошо подходит",
+  "match_short_good": "Ð¥Ð¾Ñ€Ð¾ÑˆÐ¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
-  "match_short_poor": "Плохо подходит",
+  "match_short_poor": "ÐŸÐ»Ð¾Ñ…Ð¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚",
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "Может не подходить вам",
+  "match_short_may_not": "ÐœÐ¾Ð¶ÐµÑ‚ Ð½Ðµ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚ÑŒ Ð²Ð°Ð¼",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
-  "match_short_does_not": "Продукт не совместим",
+  "match_short_does_not": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ Ð½Ðµ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼",
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "Неизвестное совпадение",
+  "match_short_unknown": "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾Ðµ ÑÐ¾Ð²Ð¿Ð°Ð´ÐµÐ½Ð¸Ðµ",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Лицензии",
+  "licenses": "Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ð¸",
   "@licenses": {},
-  "looking_for": "Я ищу",
+  "looking_for": "Ð¯ Ð¸Ñ‰Ñƒ",
   "@looking_for": {
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "Добро пожаловать в Open Food Facts",
+  "welcomeToOpenFoodFacts": "Ð”Ð¾Ð±Ñ€Ð¾ Ð¿Ð¾Ð¶Ð°Ð»Ð¾Ð²Ð°Ñ‚ÑŒ Ð² OpenÂ FoodÂ Facts",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+  "whatIsOff": "Openâ€¯Foodâ€¯Facts is a global non-profit powered by local communities.",
   "@whatIsOff": {
-    "description": "Description of Open Food Facts organization."
+    "description": "Description of Openâ€¯Foodâ€¯Facts organization."
   },
-  "productDataUtility": "Смотрите данные о еде, соответствующие вашим предпочтениям.",
+  "productDataUtility": "Ð¡Ð¼Ð¾Ñ‚Ñ€Ð¸Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ ÐµÐ´Ðµ, ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ Ð²Ð°ÑˆÐ¸Ð¼ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸ÑÐ¼.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "▶ Выбирайте продукты, которые полезны для вас.",
+  "healthCardUtility": "â–¶ Ð’Ñ‹Ð±Ð¸Ñ€Ð°Ð¹Ñ‚Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¿Ð¾Ð»ÐµÐ·Ð½Ñ‹ Ð´Ð»Ñ Ð²Ð°Ñ.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
-  "ecoCardUtility": "Выбирайте продукты, полезные для планеты.",
+  "ecoCardUtility": "Ð’Ñ‹Ð±Ð¸Ñ€Ð°Ð¹Ñ‚Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹, Ð¿Ð¾Ð»ÐµÐ·Ð½Ñ‹Ðµ Ð´Ð»Ñ Ð¿Ð»Ð°Ð½ÐµÑ‚Ñ‹.",
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
   "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
   "@user_management": {},
-  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-  "incorrect_credentials": "Неверное имя пользователя или пароль.",
+  "sign_in_text": "Sign in to your Openâ€¯Foodâ€¯Facts account to save your contributions",
+  "incorrect_credentials": "ÐÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¸Ð»Ð¸ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ.",
   "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
   "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-  "login": "Имя пользователя",
+  "login": "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -171,17 +171,17 @@
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Пожалуйста, введите имя пользователя или e-mail",
-  "login_page_password_error_empty": "Введите пароль",
-  "create_account": "Создать учётную запись",
+  "login_page_username_or_email": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¸Ð»Ð¸ e-mail",
+  "login_page_password_error_empty": "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ",
+  "create_account": "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ ÑƒÑ‡Ñ‘Ñ‚Ð½ÑƒÑŽ Ð·Ð°Ð¿Ð¸ÑÑŒ",
   "@create_account": {
     "description": "Button label: Opens a page where a new user can register"
   },
-  "sign_in": "Войти",
+  "sign_in": "Ð’Ð¾Ð¹Ñ‚Ð¸",
   "@sign_in": {
     "description": "Button label: For sign in"
   },
-  "sign_in_mandatory": "Для использования этой функции вам надо войти в систему.",
+  "sign_in_mandatory": "Ð”Ð»Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ ÑÑ‚Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð²Ð°Ð¼ Ð½Ð°Ð´Ð¾ Ð²Ð¾Ð¹Ñ‚Ð¸ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ.",
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
@@ -189,64 +189,64 @@
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
-  "sign_out": "Выйти",
+  "sign_out": "Ð’Ñ‹Ð¹Ñ‚Ð¸",
   "@sign_out": {
     "description": "Button label: For sign out"
   },
-  "sign_out_confirmation": "Вы действительно хотите выйти из учётной записи?",
+  "sign_out_confirmation": "Ð’Ñ‹ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð¸Ð· ÑƒÑ‡Ñ‘Ñ‚Ð½Ð¾Ð¹ Ð·Ð°Ð¿Ð¸ÑÐ¸?",
   "@sign_out_confirmation": {
     "description": "Pop up title: Reassuring if the user really want to sign out"
   },
-  "password": "Пароль",
-  "forgot_password": "Не помню пароль",
+  "password": "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ",
+  "forgot_password": "ÐÐµ Ð¿Ð¾Ð¼Ð½ÑŽ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ",
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "view_profile": "Профиль",
+  "view_profile": "ÐŸÑ€Ð¾Ñ„Ð¸Ð»ÑŒ",
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
-  "reset_password": "Сброс пароля",
+  "reset_password": "Ð¡Ð±Ñ€Ð¾Ñ Ð¿Ð°Ñ€Ð¾Ð»Ñ",
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "В случае утраты пароля, введите имя пользователя или адрес электронной почты, чтобы получить инструкции по сбросу пароля. Не забудьте проверить папку \"Спам\".",
-  "username_or_email": "Имя пользователя или e-mail",
+  "reset_password_explanation_text": "Ð’ ÑÐ»ÑƒÑ‡Ð°Ðµ ÑƒÑ‚Ñ€Ð°Ñ‚Ñ‹ Ð¿Ð°Ñ€Ð¾Ð»Ñ, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¸Ð»Ð¸ Ð°Ð´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð¿Ð¾ ÑÐ±Ñ€Ð¾ÑÑƒ Ð¿Ð°Ñ€Ð¾Ð»Ñ. ÐÐµ Ð·Ð°Ð±ÑƒÐ´ÑŒÑ‚Ðµ Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ð¿Ð°Ð¿ÐºÑƒ \"Ð¡Ð¿Ð°Ð¼\".",
+  "username_or_email": "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¸Ð»Ð¸ e-mail",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "Письмо ссылкой для сброса пароля было отправлено на вашу электронную почту. Не забудьте проверить папку \"Спам\"",
-  "send_reset_password_mail": "Сменить пароль",
+  "reset_password_done": "ÐŸÐ¸ÑÑŒÐ¼Ð¾ ÑÑÑ‹Ð»ÐºÐ¾Ð¹ Ð´Ð»Ñ ÑÐ±Ñ€Ð¾ÑÐ° Ð¿Ð°Ñ€Ð¾Ð»Ñ Ð±Ñ‹Ð»Ð¾ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¾ Ð½Ð° Ð²Ð°ÑˆÑƒ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½ÑƒÑŽ Ð¿Ð¾Ñ‡Ñ‚Ñƒ. ÐÐµ Ð·Ð°Ð±ÑƒÐ´ÑŒÑ‚Ðµ Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ð¿Ð°Ð¿ÐºÑƒ \"Ð¡Ð¿Ð°Ð¼\"",
+  "send_reset_password_mail": "Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
   },
-  "enter_some_text": "Пожалуйста, заполните это поле",
+  "enter_some_text": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚Ðµ ÑÑ‚Ð¾ Ð¿Ð¾Ð»Ðµ",
   "@enter_some_text": {
     "description": "Error when a required text field is empty"
   },
-  "sign_up_page_title": "Зарегистрироваться",
+  "sign_up_page_title": "Ð—Ð°Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒÑÑ",
   "@sign_up_page_title": {
     "description": "Header"
   },
-  "sign_up_page_action_button": "Зарегистрироваться",
+  "sign_up_page_action_button": "Ð—Ð°Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒÑÑ",
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
-  "sign_up_page_action_doing_it": "Регистрация…",
+  "sign_up_page_action_doing_it": "Ð ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ñâ€¦",
   "@sign_up_page_action_doing_it": {
     "description": "Progress indicator dialog during the actual signing up process"
   },
-  "sign_up_page_action_ok": "Поздравляем! Ваша учётная запись успешно зарегистрирована.",
-  "sign_up_page_display_name_hint": "Название",
-  "sign_up_page_display_name_error_empty": "Пожалуйста, введите имя пользователя",
+  "sign_up_page_action_ok": "ÐŸÐ¾Ð·Ð´Ñ€Ð°Ð²Ð»ÑÐµÐ¼! Ð’Ð°ÑˆÐ° ÑƒÑ‡Ñ‘Ñ‚Ð½Ð°Ñ Ð·Ð°Ð¿Ð¸ÑÑŒ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð·Ð°Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð°.",
+  "sign_up_page_display_name_hint": "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ",
+  "sign_up_page_display_name_error_empty": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "Введите адрес электронной почты",
-  "sign_up_page_email_error_invalid": "Неверный e-mail",
-  "sign_up_page_username_hint": "Имя пользователя: Общедоступно",
-  "sign_up_page_username_error_empty": "Введите имя пользователя",
-  "sign_up_page_username_error_invalid": "Пожалуйста, введите корректное имя пользователя",
-  "sign_up_page_username_description": "Имя пользователя не может содержать пробелы, заглавные буквы или специальные символы.",
-  "sign_up_page_username_length_invalid": "Имя пользователя не может быть длиннее {value} символов",
+  "sign_up_page_email_error_empty": "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð°Ð´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹",
+  "sign_up_page_email_error_invalid": "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ e-mail",
+  "sign_up_page_username_hint": "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ: ÐžÐ±Ñ‰ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾",
+  "sign_up_page_username_error_empty": "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ",
+  "sign_up_page_username_error_invalid": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ",
+  "sign_up_page_username_description": "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð±ÐµÐ»Ñ‹, Ð·Ð°Ð³Ð»Ð°Ð²Ð½Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸Ð»Ð¸ ÑÐ¿ÐµÑ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ðµ ÑÐ¸Ð¼Ð²Ð¾Ð»Ñ‹.",
+  "sign_up_page_username_length_invalid": "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð´Ð»Ð¸Ð½Ð½ÐµÐµ {value} ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð²",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -254,247 +254,247 @@
       }
     }
   },
-  "sign_up_page_password_hint": "Пароль",
-  "sign_up_page_password_error_empty": "Введите пароль",
-  "sign_up_page_password_error_invalid": "Пароль должен содержать не менее 6 символов",
-  "sign_up_page_confirm_password_hint": "Подтвердите пароль",
-  "sign_up_page_confirm_password_error_empty": "Пожалуйста, подтверлите пароль",
-  "sign_up_page_confirm_password_error_invalid": "Пароли не совпадают",
-  "sign_up_page_agree_text": "I agree to the Open Food Facts",
+  "sign_up_page_password_hint": "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ",
+  "sign_up_page_password_error_empty": "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ",
+  "sign_up_page_password_error_invalid": "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ Ð´Ð¾Ð»Ð¶ÐµÐ½ ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ Ð½Ðµ Ð¼ÐµÐ½ÐµÐµ 6 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð²",
+  "sign_up_page_confirm_password_hint": "ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ",
+  "sign_up_page_confirm_password_error_empty": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð»Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ",
+  "sign_up_page_confirm_password_error_invalid": "ÐŸÐ°Ñ€Ð¾Ð»Ð¸ Ð½Ðµ ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÑŽÑ‚",
+  "sign_up_page_agree_text": "I agree to the Openâ€¯Foodâ€¯Facts",
   "@sign_up_page_agree_text": {
-    "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    "description": "I agree to the Openâ€¯Foodâ€¯Facts is followed by sign_up_page_terms_text"
   },
-  "sign_up_page_terms_text": "условия использования и вклад",
+  "sign_up_page_terms_text": "ÑƒÑÐ»Ð¾Ð²Ð¸Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¸ Ð²ÐºÐ»Ð°Ð´",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
   "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
   "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    "description": "Please insert the right url here. Go to the Openâ€¯Foodâ€¯Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
   },
-  "sign_up_page_agree_error_invalid": "При создании учетной записи согласие с Условиями использования является обязательным, однако анонимные взносы по-прежнему можно делать через приложение",
+  "sign_up_page_agree_error_invalid": "ÐŸÑ€Ð¸ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ð¸ ÑƒÑ‡ÐµÑ‚Ð½Ð¾Ð¹ Ð·Ð°Ð¿Ð¸ÑÐ¸ ÑÐ¾Ð³Ð»Ð°ÑÐ¸Ðµ Ñ Ð£ÑÐ»Ð¾Ð²Ð¸ÑÐ¼Ð¸ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼, Ð¾Ð´Ð½Ð°ÐºÐ¾ Ð°Ð½Ð¾Ð½Ð¸Ð¼Ð½Ñ‹Ðµ Ð²Ð·Ð½Ð¾ÑÑ‹ Ð¿Ð¾-Ð¿Ñ€ÐµÐ¶Ð½ÐµÐ¼Ñƒ Ð¼Ð¾Ð¶Ð½Ð¾ Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ñ‡ÐµÑ€ÐµÐ· Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ",
   "@sign_up_page_agree_error_invalid": {
     "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
   },
-  "sign_up_page_producer_checkbox": "Я производитель продуктов питания",
-  "sign_up_page_producer_hint": "Производитель/марка",
-  "sign_up_page_producer_error_empty": "Пожалуйста, введите производителя или название марки",
-  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
-  "sign_up_page_user_name_already_used": "Имя пользователя уже существует, пожалуйста выберите другое имя.",
-  "sign_up_page_email_already_exists": "уже существует, войдите в учётную запись или попробуйте другой адрес электронной почты.",
-  "sign_up_page_provide_valid_email": "Пожалуйста, укажите действующий адрес электронной почты.",
-  "sign_up_page_server_busy": "К сожалению, при создании учётной записи возникли технические трудности. Пожалуйста, повторите попытку позже.",
-  "settingsTitle": "Настройки",
+  "sign_up_page_producer_checkbox": "Ð¯ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð² Ð¿Ð¸Ñ‚Ð°Ð½Ð¸Ñ",
+  "sign_up_page_producer_hint": "ÐŸÑ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒ/Ð¼Ð°Ñ€ÐºÐ°",
+  "sign_up_page_producer_error_empty": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ñ Ð¸Ð»Ð¸ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¼Ð°Ñ€ÐºÐ¸",
+  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Openâ€¯Foodâ€¯Facts newsletter (You can unsubscribe from it at any time)",
+  "sign_up_page_user_name_already_used": "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚, Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð° Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ðµ Ð¸Ð¼Ñ.",
+  "sign_up_page_email_already_exists": "ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚, Ð²Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð² ÑƒÑ‡Ñ‘Ñ‚Ð½ÑƒÑŽ Ð·Ð°Ð¿Ð¸ÑÑŒ Ð¸Ð»Ð¸ Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð°Ð´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹.",
+  "sign_up_page_provide_valid_email": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑƒÐºÐ°Ð¶Ð¸Ñ‚Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹ Ð°Ð´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹.",
+  "sign_up_page_server_busy": "Ðš ÑÐ¾Ð¶Ð°Ð»ÐµÐ½Ð¸ÑŽ, Ð¿Ñ€Ð¸ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ð¸ ÑƒÑ‡Ñ‘Ñ‚Ð½Ð¾Ð¹ Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¸ Ñ‚ÐµÑ…Ð½Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ñ‚Ñ€ÑƒÐ´Ð½Ð¾ÑÑ‚Ð¸. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÑƒ Ð¿Ð¾Ð·Ð¶Ðµ.",
+  "settingsTitle": "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸",
   "@settingsTitle": {
     "description": "The title of the Settings page"
   },
-  "darkmode": "Тема",
+  "darkmode": "Ð¢ÐµÐ¼Ð°",
   "@darkmode": {
     "description": "The name of the darkmode on off switch"
   },
-  "darkmode_dark": "Ночной режим",
+  "darkmode_dark": "ÐÐ¾Ñ‡Ð½Ð¾Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼",
   "@darkmode_dark": {
     "description": "Indicator inside the darkmode switch (dark)"
   },
-  "darkmode_light": "Дневной режим",
+  "darkmode_light": "Ð”Ð½ÐµÐ²Ð½Ð¾Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼",
   "@darkmode_light": {
     "description": "Indicator inside the darkmode switch (light)"
   },
-  "darkmode_system_default": "Настройки по умолчанию",
+  "darkmode_system_default": "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ",
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
-  "thanks_for_contributing": "Спасибо за вклад!",
-  "contributors_label": "Они создают приложение",
+  "thanks_for_contributing": "Ð¡Ð¿Ð°ÑÐ¸Ð±Ð¾ Ð·Ð° Ð²ÐºÐ»Ð°Ð´!",
+  "contributors_label": "ÐžÐ½Ð¸ ÑÐ¾Ð·Ð´Ð°ÑŽÑ‚ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
-  "contributors_dialog_title": "Участники",
+  "contributors_dialog_title": "Ð£Ñ‡Ð°ÑÑ‚Ð½Ð¸ÐºÐ¸",
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
-  "contributors_dialog_entry_description": "Участник: {name}",
+  "contributors_dialog_entry_description": "Ð£Ñ‡Ð°ÑÑ‚Ð½Ð¸Ðº: {name}",
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
-      "name": {}
+      "name": {"type": "Object"}
     }
   },
-  "contributors_description": "Список всех пользователей этого приложения",
+  "contributors_description": "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð²ÑÐµÑ… Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ",
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
-  "support": "Поддержка",
+  "support": "ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ°",
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
-  "support_join_slack": "Попросите помощи в нашем канале Slack",
-  "support_via_forum": "Обратитесь за помощью на наш форум",
-  "support_via_email": "Отправьте нам электронное письмо",
-  "support_via_email_include_logs_dialog_title": "Отправить журнал приложений?",
-  "support_via_email_include_logs_dialog_body": "Вы хотите включить журналы приложений во вложение к вашему электронному письму?",
-  "termsOfUse": "Условия использования",
+  "support_join_slack": "ÐŸÐ¾Ð¿Ñ€Ð¾ÑÐ¸Ñ‚Ðµ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸ Ð² Ð½Ð°ÑˆÐµÐ¼ ÐºÐ°Ð½Ð°Ð»Ðµ Slack",
+  "support_via_forum": "ÐžÐ±Ñ€Ð°Ñ‚Ð¸Ñ‚ÐµÑÑŒ Ð·Ð° Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð½Ð° Ð½Ð°Ñˆ Ñ„Ð¾Ñ€ÑƒÐ¼",
+  "support_via_email": "ÐžÑ‚Ð¿Ñ€Ð°Ð²ÑŒÑ‚Ðµ Ð½Ð°Ð¼ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ðµ Ð¿Ð¸ÑÑŒÐ¼Ð¾",
+  "support_via_email_include_logs_dialog_title": "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ Ð¶ÑƒÑ€Ð½Ð°Ð» Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹?",
+  "support_via_email_include_logs_dialog_body": "Ð’Ñ‹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¶ÑƒÑ€Ð½Ð°Ð»Ñ‹ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹ Ð²Ð¾ Ð²Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ðº Ð²Ð°ÑˆÐµÐ¼Ñƒ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¼Ñƒ Ð¿Ð¸ÑÑŒÐ¼Ñƒ?",
+  "termsOfUse": "Ð£ÑÐ»Ð¾Ð²Ð¸Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ",
   "@termsOfUse": {},
   "legalNotices": "Legal notices",
   "@legalNotices": {
     "description": "A link to open the legal notices on the website"
   },
-  "privacy_policy": "Политика конфиденциальности",
+  "privacy_policy": "ÐŸÐ¾Ð»Ð¸Ñ‚Ð¸ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸Ð´ÐµÐ½Ñ†Ð¸Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚Ð¸",
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
-  "about_this_app": "О приложении",
+  "about_this_app": "Ðž Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸",
   "@about_this_app": {
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Способствовать",
+  "contribute": "Ð¡Ð¿Ð¾ÑÐ¾Ð±ÑÑ‚Ð²Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
-  "contribute_sw_development": "Разработка программного обеспечения",
+  "contribute_sw_development": "Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð½Ð¾Ð³Ð¾ Ð¾Ð±ÐµÑÐ¿ÐµÑ‡ÐµÐ½Ð¸Ñ",
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+  "contribute_develop_text": "The code for every Openâ€¯Foodâ€¯Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+  "contribute_develop_text_2": "You can join the Openâ€¯Foodâ€¯Facts Slack chatroom which is the preferred way to ask questions.",
   "@contribute_develop_text_2": {},
-  "contribute_develop_dev_mode_title": "Режим Разработчика?",
-  "contribute_develop_dev_mode_subtitle": "Активировать Режим Разработчика",
-  "contribute_donate_title": "Поддержать",
+  "contribute_develop_dev_mode_title": "Ð ÐµÐ¶Ð¸Ð¼ Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ°?",
+  "contribute_develop_dev_mode_subtitle": "ÐÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð ÐµÐ¶Ð¸Ð¼ Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ°",
+  "contribute_donate_title": "ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ",
   "@contribute_donate_title": {},
-  "contribute_donate_header": "Поддержите Open Food Facts",
+  "contribute_donate_header": "ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ñ‚Ðµ Open Food Facts",
   "@contribute_donate_header": {},
   "contribute_enroll_alpha": "Enroll in internal alpha version",
   "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "Незавершенные продукты",
+  "contribute_improve_ProductsToBeCompleted": "ÐÐµÐ·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
-  "contribute_improve_header": "Улучшение",
+  "contribute_improve_header": "Ð£Ð»ÑƒÑ‡ÑˆÐµÐ½Ð¸Ðµ",
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Openâ€¯Foodâ€¯Facts website offers many ways to contribute: ",
   "@contribute_improve_text": {},
-  "contribute_translate_header": "Перевести",
+  "contribute_translate_header": "ÐŸÐµÑ€ÐµÐ²ÐµÑÑ‚Ð¸",
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_translate_link_text": "Начать переводить",
+  "contribute_translate_link_text": "ÐÐ°Ñ‡Ð°Ñ‚ÑŒ Ð¿ÐµÑ€ÐµÐ²Ð¾Ð´Ð¸Ñ‚ÑŒ",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Openâ€¯Foodâ€¯Facts is a global project, containing products from more than 160 countries. Openâ€¯Foodâ€¯Facts is translated into dozens of languages, with constantly evolving content.",
   "@contribute_translate_text": {},
-  "contribute_translate_text_2": "Переводы — одна из ключевых задач проекта",
+  "contribute_translate_text_2": "ÐŸÐµÑ€ÐµÐ²Ð¾Ð´Ñ‹ â€” Ð¾Ð´Ð½Ð° Ð¸Ð· ÐºÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ñ… Ð·Ð°Ð´Ð°Ñ‡ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð°",
   "@contribute_translate_text_2": {},
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-  "contribute_share_header": "Поделитесь Open Food Facts с друзьями",
+  "contribute_share_header": "ÐŸÐ¾Ð´ÐµÐ»Ð¸Ñ‚ÐµÑÑŒ Open Food Facts Ñ Ð´Ñ€ÑƒÐ·ÑŒÑÐ¼Ð¸",
   "@contribute_share_header": {},
-  "contribute_share_content": "Хочу рассказать вам о приложении Open Food Facts, которое позволяет получать информацию и персональные рекомендации о влиянии еды на здоровье и окружающую среду. Приложение работает путём сканирования штрихкодов. Приложение бесплатное, не требует регистрации, и вы можете добавить недостающую информацию! Ссылка для установки: https://openfoodfacts.app",
+  "contribute_share_content": "Ð¥Ð¾Ñ‡Ñƒ Ñ€Ð°ÑÑÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð²Ð°Ð¼ Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸ Open Food Facts, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¸ Ð¿ÐµÑ€ÑÐ¾Ð½Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´Ð°Ñ†Ð¸Ð¸ Ð¾ Ð²Ð»Ð¸ÑÐ½Ð¸Ð¸ ÐµÐ´Ñ‹ Ð½Ð° Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð¸ Ð¾ÐºÑ€ÑƒÐ¶Ð°ÑŽÑ‰ÑƒÑŽ ÑÑ€ÐµÐ´Ñƒ. ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ð¿ÑƒÑ‚Ñ‘Ð¼ ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ ÑˆÑ‚Ñ€Ð¸Ñ…ÐºÐ¾Ð´Ð¾Ð². ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð±ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ð¾Ðµ, Ð½Ðµ Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¸, Ð¸ Ð²Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½ÐµÐ´Ð¾ÑÑ‚Ð°ÑŽÑ‰ÑƒÑŽ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ! Ð¡ÑÑ‹Ð»ÐºÐ° Ð´Ð»Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "tap_to_answer": "Нажмите здесь, чтобы ответить на несколько вопросов",
+  "tap_to_answer": "ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð·Ð´ÐµÑÑŒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð½Ð° Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ¾Ð²",
   "@tap_to_answer": {
-    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+    "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts and gain rewards."
   },
-  "tap_to_answer_hint": "Нажмите здесь, чтобы ответить на вопросы об этом продукте",
+  "tap_to_answer_hint": "ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð·Ð´ÐµÑÑŒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð½Ð° Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹ Ð¾Ð± ÑÑ‚Ð¾Ð¼ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ðµ",
   "@tap_to_answer_hint": {
     "description": "Hint for accessibility readers to answer Robotoff questions."
   },
-  "robotoff_questions_loading_hint": "Пожалуйста, подождите, пока вопросы об этом продукте загрузятся",
+  "robotoff_questions_loading_hint": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ð¾Ð´Ð¾Ð¶Ð´Ð¸Ñ‚Ðµ, Ð¿Ð¾ÐºÐ° Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹ Ð¾Ð± ÑÑ‚Ð¾Ð¼ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ðµ Ð·Ð°Ð³Ñ€ÑƒÐ·ÑÑ‚ÑÑ",
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
-  "saving_answer": "Сохранение вашего ответа",
+  "saving_answer": "Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ðµ Ð²Ð°ÑˆÐµÐ³Ð¾ Ð¾Ñ‚Ð²ÐµÑ‚Ð°",
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Станьте участником пищевой прозрачности",
+  "contribute_to_get_rewards": "Ð¡Ñ‚Ð°Ð½ÑŒÑ‚Ðµ ÑƒÑ‡Ð°ÑÑ‚Ð½Ð¸ÐºÐ¾Ð¼ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ð¿Ñ€Ð¾Ð·Ñ€Ð°Ñ‡Ð½Ð¾ÑÑ‚Ð¸",
   "@contribute_to_get_rewards": {
-    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
+    "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Openâ€¯Foodâ€¯Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-  "question_yes_button_accessibility_value": "Ответить да",
-  "question_no_button_accessibility_value": "Ответить нет",
-  "question_skip_button_accessibility_value": "Пропустить этот вопрос",
-  "tap_to_edit_search": "Нажмите для редактирования поиска",
+  "question_sign_in_text": "Sign in to your Openâ€¯Foodâ€¯Facts account to get credit for your contributions",
+  "question_yes_button_accessibility_value": "ÐžÑ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð´Ð°",
+  "question_no_button_accessibility_value": "ÐžÑ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð½ÐµÑ‚",
+  "question_skip_button_accessibility_value": "ÐŸÑ€Ð¾Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ Ð²Ð¾Ð¿Ñ€Ð¾Ñ",
+  "tap_to_edit_search": "ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð´Ð»Ñ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¿Ð¾Ð¸ÑÐºÐ°",
   "@Personal preferences": {},
-  "myPreferences": "Мои настройки",
+  "myPreferences": "ÐœÐ¾Ð¸ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+  "account_create_message": "Create your account and join the Openâ€¯Foodâ€¯Facts community to help build food knowledge all over the world!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
-  "join_us": "Присоединяйтесь к нам",
+  "join_us": "ÐŸÑ€Ð¸ÑÐ¾ÐµÐ´Ð¸Ð½ÑÐ¹Ñ‚ÐµÑÑŒ Ðº Ð½Ð°Ð¼",
   "@join_us": {
     "description": "Join which is actually Signup"
   },
-  "myPreferences_profile_title": "Ваш профиль",
-  "myPreferences_profile_subtitle": "Управляйте своей учётной записью участника Open Food Facts.",
-  "myPreferences_settings_title": "Настройки",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
-  "myPreferences_food_title": "Предпочтения в еде",
-  "myPreferences_food_subtitle": "Выберите, какая информация о еде представляет для вас наибольший интерес.",
-  "myPreferences_food_comment": "Выберите информацию о еде, которая представляет для вас наибольший интерес, чтобы отсортировывать еду в соответствии с вашими предпочтениями, показывать нужную вам информацию в первую очередь, а также получать данные о совместимости. Выбранные вами предпочтения останутся на вашем устройстве и никак не связаны с вашим профилем участника Open Food Facts, если таковой имеется.",
-  "confirmResetPreferences": "Сбросить предпочтения?",
+  "myPreferences_profile_title": "Ð’Ð°Ñˆ Ð¿Ñ€Ð¾Ñ„Ð¸Ð»ÑŒ",
+  "myPreferences_profile_subtitle": "Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐ¹Ñ‚Ðµ ÑÐ²Ð¾ÐµÐ¹ ÑƒÑ‡Ñ‘Ñ‚Ð½Ð¾Ð¹ Ð·Ð°Ð¿Ð¸ÑÑŒÑŽ ÑƒÑ‡Ð°ÑÑ‚Ð½Ð¸ÐºÐ° Open Food Facts.",
+  "myPreferences_settings_title": "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸",
+  "myPreferences_settings_subtitle": "Dark mode, Languagesâ€¦",
+  "myPreferences_food_title": "ÐŸÑ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸Ñ Ð² ÐµÐ´Ðµ",
+  "myPreferences_food_subtitle": "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ, ÐºÐ°ÐºÐ°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾ ÐµÐ´Ðµ Ð¿Ñ€ÐµÐ´ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð´Ð»Ñ Ð²Ð°Ñ Ð½Ð°Ð¸Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð¹ Ð¸Ð½Ñ‚ÐµÑ€ÐµÑ.",
+  "myPreferences_food_comment": "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾ ÐµÐ´Ðµ, ÐºÐ¾Ñ‚Ð¾Ñ€Ð°Ñ Ð¿Ñ€ÐµÐ´ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð´Ð»Ñ Ð²Ð°Ñ Ð½Ð°Ð¸Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð¹ Ð¸Ð½Ñ‚ÐµÑ€ÐµÑ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ñ‹Ð²Ð°Ñ‚ÑŒ ÐµÐ´Ñƒ Ð² ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²Ð¸Ð¸ Ñ Ð²Ð°ÑˆÐ¸Ð¼Ð¸ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸ÑÐ¼Ð¸, Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð½ÑƒÐ¶Ð½ÑƒÑŽ Ð²Ð°Ð¼ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð² Ð¿ÐµÑ€Ð²ÑƒÑŽ Ð¾Ñ‡ÐµÑ€ÐµÐ´ÑŒ, Ð° Ñ‚Ð°ÐºÐ¶Ðµ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚Ð¸. Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð²Ð°Ð¼Ð¸ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸Ñ Ð¾ÑÑ‚Ð°Ð½ÑƒÑ‚ÑÑ Ð½Ð° Ð²Ð°ÑˆÐµÐ¼ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ðµ Ð¸ Ð½Ð¸ÐºÐ°Ðº Ð½Ðµ ÑÐ²ÑÐ·Ð°Ð½Ñ‹ Ñ Ð²Ð°ÑˆÐ¸Ð¼ Ð¿Ñ€Ð¾Ñ„Ð¸Ð»ÐµÐ¼ ÑƒÑ‡Ð°ÑÑ‚Ð½Ð¸ÐºÐ° Open Food Facts, ÐµÑÐ»Ð¸ Ñ‚Ð°ÐºÐ¾Ð²Ð¾Ð¹ Ð¸Ð¼ÐµÐµÑ‚ÑÑ.",
+  "confirmResetPreferences": "Ð¡Ð±Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸Ñ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
-  "myPersonalizedRanking": "Мой персональный рейтинг",
+  "myPersonalizedRanking": "ÐœÐ¾Ð¹ Ð¿ÐµÑ€ÑÐ¾Ð½Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€ÐµÐ¹Ñ‚Ð¸Ð½Ð³",
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "ranking_tab_all": "Все",
-  "ranking_subtitle_match_yes": "Хорошо подходит для вас",
-  "ranking_subtitle_match_no": "Плохо подходит для вас",
-  "ranking_subtitle_match_maybe": "Неизвестное совпадение",
-  "refresh_with_new_preferences": "Обновите список с вашими новыми предпочтениями",
+  "ranking_tab_all": "Ð’ÑÐµ",
+  "ranking_subtitle_match_yes": "Ð¥Ð¾Ñ€Ð¾ÑˆÐ¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚ Ð´Ð»Ñ Ð²Ð°Ñ",
+  "ranking_subtitle_match_no": "ÐŸÐ»Ð¾Ñ…Ð¾ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚ Ð´Ð»Ñ Ð²Ð°Ñ",
+  "ranking_subtitle_match_maybe": "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾Ðµ ÑÐ¾Ð²Ð¿Ð°Ð´ÐµÐ½Ð¸Ðµ",
+  "refresh_with_new_preferences": "ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ Ð²Ð°ÑˆÐ¸Ð¼Ð¸ Ð½Ð¾Ð²Ñ‹Ð¼Ð¸ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸ÑÐ¼Ð¸",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
   },
-  "reloaded_with_new_preferences": "Перезагружено с вашими новыми настройками",
+  "reloaded_with_new_preferences": "ÐŸÐµÑ€ÐµÐ·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾ Ñ Ð²Ð°ÑˆÐ¸Ð¼Ð¸ Ð½Ð¾Ð²Ñ‹Ð¼Ð¸ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ð¼Ð¸",
   "@reloaded_with_new_preferences": {
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Профиль",
+  "profile_navbar_label": "ÐŸÑ€Ð¾Ñ„Ð¸Ð»ÑŒ",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
-  "scan_navbar_label": "Сканировать",
+  "scan_navbar_label": "Ð¡ÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the scanning of products"
   },
-  "history_navbar_label": "История",
+  "history_navbar_label": "Ð˜ÑÑ‚Ð¾Ñ€Ð¸Ñ",
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the history and compare mode"
   },
-  "list_navbar_label": "Списки",
+  "list_navbar_label": "Ð¡Ð¿Ð¸ÑÐºÐ¸",
   "@list_navbar_label": {
     "description": "BottomNavigationBarLabel: For the lists"
   },
-  "category": "Фильтр по категориям",
+  "category": "Ð¤Ð¸Ð»ÑŒÑ‚Ñ€ Ð¿Ð¾ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑÐ¼",
   "@category": {
     "description": "From a product list, there's a category filter: this is its title"
   },
-  "category_all": "Все",
+  "category_all": "Ð’ÑÐµ",
   "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
-  "category_search": "(поиск по категории)",
-  "filter": "Фильтр",
+  "category_search": "(Ð¿Ð¾Ð¸ÑÐº Ð¿Ð¾ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸)",
+  "filter": "Ð¤Ð¸Ð»ÑŒÑ‚Ñ€",
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
@@ -502,11 +502,11 @@
   "@scan": {
     "description": "Page title: List type: Products in the scan session"
   },
-  "scan_history": "История сканов",
+  "scan_history": "Ð˜ÑÑ‚Ð¾Ñ€Ð¸Ñ ÑÐºÐ°Ð½Ð¾Ð²",
   "@scan_history": {
     "description": "Page title: List type: Products in the whole scan history"
   },
-  "search": "Поиск",
+  "search": "ÐŸÐ¾Ð¸ÑÐº",
   "@search": {
     "description": "Hint text of a search text input field"
   },
@@ -514,15 +514,15 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "tap_for_more": "Нажмите для просмотра…",
+  "tap_for_more": "ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð´Ð»Ñ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð°â€¦",
   "@Product": {},
-  "product": "Продукт",
+  "product": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚",
   "@product": {},
-  "unknownBrand": "Неизвестный бренд",
+  "unknownBrand": "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹ Ð±Ñ€ÐµÐ½Ð´",
   "@unknownBrand": {},
-  "unknownProductName": "Неизвестный продукт",
+  "unknownProductName": "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
   "@unknownProductName": {},
-  "label_refresh": "Обновить",
+  "label_refresh": "ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -530,39 +530,39 @@
   "@label_reload": {
     "description": "Reload a page"
   },
-  "image": "Изображение",
-  "front_photo": "Фото спереди",
+  "image": "Ð˜Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ",
+  "front_photo": "Ð¤Ð¾Ñ‚Ð¾ ÑÐ¿ÐµÑ€ÐµÐ´Ð¸",
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
   "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
   "@outdated_image_accessibility_label": {
-    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+    "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutritionâ€¦)",
     "placeholders": {
-      "imageType": {}
+      "imageType": {"type": "Object"}
     }
   },
   "outdated_image_short_label": "may be outdated",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
-  "ingredients": "Ингредиенты",
+  "ingredients": "Ð˜Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹",
   "@ingredients": {},
   "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
-  "ingredients_editing_error": "Не удалось сохранить ингредиенты.",
-  "ingredients_editing_image_error": "Не удалось получить изображение нового ингредиента.",
-  "ingredients_editing_title": "Изменить ингредиенты",
-  "ingredients_photo": "Фото состава",
+  "ingredients_editing_error": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹.",
+  "ingredients_editing_image_error": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð°.",
+  "ingredients_editing_title": "Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹",
+  "ingredients_photo": "Ð¤Ð¾Ñ‚Ð¾ ÑÐ¾ÑÑ‚Ð°Ð²Ð°",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
-  "packaging_editing_instructions": "Перечислите все части упаковки, разделенные запятой или переводом строки, с указанием их количества (например, 1 или 6), типа (например, бутылка, коробка, банка), материала (например, пластик, металл, алюминий) и, если возможно, их размера (например, 33 cl) и инструкции по утилизации.\nПример: 1 стеклянная бутылка на переработку, 1 пластиковая пробка на выброс",
-  "packaging_editing_error": "Не удалось сохранить изменения.",
-  "packaging_editing_image_error": "Не удалось получить изображение нового ингредиента.",
-  "packaging_editing_title": "Редактировать пакет",
-  "nutrition": "Пищевая ценность",
+  "packaging_editing_instructions": "ÐŸÐµÑ€ÐµÑ‡Ð¸ÑÐ»Ð¸Ñ‚Ðµ Ð²ÑÐµ Ñ‡Ð°ÑÑ‚Ð¸ ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐ¸, Ñ€Ð°Ð·Ð´ÐµÐ»ÐµÐ½Ð½Ñ‹Ðµ Ð·Ð°Ð¿ÑÑ‚Ð¾Ð¹ Ð¸Ð»Ð¸ Ð¿ÐµÑ€ÐµÐ²Ð¾Ð´Ð¾Ð¼ ÑÑ‚Ñ€Ð¾ÐºÐ¸, Ñ ÑƒÐºÐ°Ð·Ð°Ð½Ð¸ÐµÐ¼ Ð¸Ñ… ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð° (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, 1 Ð¸Ð»Ð¸ 6), Ñ‚Ð¸Ð¿Ð° (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, Ð±ÑƒÑ‚Ñ‹Ð»ÐºÐ°, ÐºÐ¾Ñ€Ð¾Ð±ÐºÐ°, Ð±Ð°Ð½ÐºÐ°), Ð¼Ð°Ñ‚ÐµÑ€Ð¸Ð°Ð»Ð° (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, Ð¿Ð»Ð°ÑÑ‚Ð¸Ðº, Ð¼ÐµÑ‚Ð°Ð»Ð», Ð°Ð»ÑŽÐ¼Ð¸Ð½Ð¸Ð¹) Ð¸, ÐµÑÐ»Ð¸ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾, Ð¸Ñ… Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, 33 cl) Ð¸ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð¿Ð¾ ÑƒÑ‚Ð¸Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸.\nÐŸÑ€Ð¸Ð¼ÐµÑ€: 1 ÑÑ‚ÐµÐºÐ»ÑÐ½Ð½Ð°Ñ Ð±ÑƒÑ‚Ñ‹Ð»ÐºÐ° Ð½Ð° Ð¿ÐµÑ€ÐµÑ€Ð°Ð±Ð¾Ñ‚ÐºÑƒ, 1 Ð¿Ð»Ð°ÑÑ‚Ð¸ÐºÐ¾Ð²Ð°Ñ Ð¿Ñ€Ð¾Ð±ÐºÐ° Ð½Ð° Ð²Ñ‹Ð±Ñ€Ð¾Ñ",
+  "packaging_editing_error": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ.",
+  "packaging_editing_image_error": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð°.",
+  "packaging_editing_title": "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð°ÐºÐµÑ‚",
+  "nutrition": "ÐŸÐ¸Ñ‰ÐµÐ²Ð°Ñ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ",
   "@nutrition": {},
-  "nutrition_facts_photo": "Фото информации о пищевой ценности",
+  "nutrition_facts_photo": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
@@ -570,21 +570,21 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Информация об упаковке",
+  "packaging_information": "Ð˜Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾Ð± ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐµ",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Фото информации об упаковке",
+  "packaging_information_photo": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾Ð± ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐµ",
   "@packaging_information_photo": {},
-  "missing_product": "Вы нашли новый продукт!",
+  "missing_product": "Ð’Ñ‹ Ð½Ð°ÑˆÐ»Ð¸ Ð½Ð¾Ð²Ñ‹Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚!",
   "@missing_product": {},
-  "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+  "add_product_take_photos": "Take photos of the packaging to add this product to Openâ€¯Foodâ€¯Facts",
   "@add_product_take_photos": {},
-  "add_product_take_photos_descriptive": "Пожалуйста, сделайте фотографии в первую очередь. Вы всегда можете дополнить продукт потом.",
+  "add_product_take_photos_descriptive": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑÐ´ÐµÐ»Ð°Ð¹Ñ‚Ðµ Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸ Ð² Ð¿ÐµÑ€Ð²ÑƒÑŽ Ð¾Ñ‡ÐµÑ€ÐµÐ´ÑŒ. Ð’Ñ‹ Ð²ÑÐµÐ³Ð´Ð° Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚ Ð¿Ð¾Ñ‚Ð¾Ð¼.",
   "@add_product_take_photos_descriptive": {},
-  "add_product_information_button_label": "Добавление информации о продукте",
+  "add_product_information_button_label": "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ðµ",
   "@add_product_information_button_label": {},
-  "new_product": "Новый продукт",
+  "new_product": "ÐÐ¾Ð²Ñ‹Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
   "@new_product": {},
   "new_product_found_title": "New product found!",
   "@new_product_found_title": {
@@ -594,12 +594,12 @@
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "new_product_found_button": "Добавить этот продукт",
-  "new_product_leave_title": "Покинуть эту страницу?",
+  "new_product_found_button": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
+  "new_product_leave_title": "ÐŸÐ¾ÐºÐ¸Ð½ÑƒÑ‚ÑŒ ÑÑ‚Ñƒ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ?",
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_leave_message": "Похоже, вы ничего не ввели. Вы уверены, что хотите покинуть эту страницу?",
+  "new_product_leave_message": "ÐŸÐ¾Ñ…Ð¾Ð¶Ðµ, Ð²Ñ‹ Ð½Ð¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð²Ð²ÐµÐ»Ð¸. Ð’Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ñ‡Ñ‚Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¿Ð¾ÐºÐ¸Ð½ÑƒÑ‚ÑŒ ÑÑ‚Ñƒ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ?",
   "@new_product_leave_message": {
     "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
@@ -607,35 +607,35 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Greenâ€¯Score",
   "@new_product_dialog_illustration_description": {
-    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
+    "description": "A description for accessibility of two images side by side: a Nutri-Score and an Greenâ€¯Score."
   },
-  "front_packaging_photo_button_label": "Фотография лицевой стороны продукта",
+  "front_packaging_photo_button_label": "Ð¤Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ Ð»Ð¸Ñ†ÐµÐ²Ð¾Ð¹ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "@front_packaging_photo_button_label": {},
-  "confirm_front_packaging_photo_button_label": "Подтвердить загрузку фотографии лицевой стороны продукта",
+  "confirm_front_packaging_photo_button_label": "ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÑƒ Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸ Ð»Ð¸Ñ†ÐµÐ²Ð¾Ð¹ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
-  "confirm_button_label": "Подтвердить",
-  "send_image_button_label": "Отправить изображение",
-  "crop_page_action_saving": "Сохранение изображения…",
+  "confirm_button_label": "ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ",
+  "send_image_button_label": "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ",
+  "crop_page_action_saving": "Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñâ€¦",
   "@crop_page_action_saving": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_cropping": "Обрезка изображения…",
+  "crop_page_action_cropping": "ÐžÐ±Ñ€ÐµÐ·ÐºÐ° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñâ€¦",
   "@crop_page_action_cropping": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local": "Сохранение локальной версии…",
+  "crop_page_action_local": "Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ðµ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¸â€¦",
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Упс… что-то с вашей фотографией!",
+  "crop_page_action_local_failed_title": "Ð£Ð¿Ñâ€¦ Ñ‡Ñ‚Ð¾-Ñ‚Ð¾ Ñ Ð²Ð°ÑˆÐµÐ¹ Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸ÐµÐ¹!",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_local_failed_message": "Мы не смогли обработать изображение локально перед отправкой на наш сервер. Пожалуйста, повторите попытку позже или свяжитесь с нами, если проблема не исчезнет.",
+  "crop_page_action_local_failed_message": "ÐœÑ‹ Ð½Ðµ ÑÐ¼Ð¾Ð³Ð»Ð¸ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ð¾ Ð¿ÐµÑ€ÐµÐ´ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¾Ð¹ Ð½Ð° Ð½Ð°Ñˆ ÑÐµÑ€Ð²ÐµÑ€. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÑƒ Ð¿Ð¾Ð·Ð¶Ðµ Ð¸Ð»Ð¸ ÑÐ²ÑÐ¶Ð¸Ñ‚ÐµÑÑŒ Ñ Ð½Ð°Ð¼Ð¸, ÐµÑÐ»Ð¸ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð° Ð½Ðµ Ð¸ÑÑ‡ÐµÐ·Ð½ÐµÑ‚.",
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -643,11 +643,11 @@
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
-  "crop_page_too_small_image_title": "Изображение слишком маленькое!",
+  "crop_page_too_small_image_title": "Ð˜Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¾Ðµ!",
   "@crop_page_too_small_image_title": {
     "description": "Title of a dialog warning the user that the image is too small for upload"
   },
-  "crop_page_too_small_image_message": "Минимальный размер загружаемого изображения {expectedMinWidth}x{expectedMinHeight} пикселей. Текущее изображение имеет размер {actualWidth}x{actualHeight}.",
+  "crop_page_too_small_image_message": "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÐ¼Ð¾Ð³Ð¾ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ {expectedMinWidth}x{expectedMinHeight} Ð¿Ð¸ÐºÑÐµÐ»ÐµÐ¹. Ð¢ÐµÐºÑƒÑ‰ÐµÐµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¸Ð¼ÐµÐµÑ‚ Ñ€Ð°Ð·Ð¼ÐµÑ€ {actualWidth}x{actualHeight}.",
   "@crop_page_too_small_image_message": {
     "description": "Message of a dialog warning the user that the image is too small for upload",
     "placeholders": {
@@ -665,40 +665,40 @@
       }
     }
   },
-  "crop_page_action_server": "Подготавливаем запрос для сервера…",
+  "crop_page_action_server": "ÐŸÐ¾Ð´Ð³Ð¾Ñ‚Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð´Ð»Ñ ÑÐµÑ€Ð²ÐµÑ€Ð°â€¦",
   "@crop_page_action_server": {
     "description": "Action being performed on the crop page"
   },
-  "front_packaging_photo_title": "Фото упаковки спереди",
-  "ingredients_photo_title": "Фото состава",
-  "nutritional_facts_photo_title": "Фото информации о пищевой ценности",
-  "recycling_photo_title": "Изображение сведений о переработке",
-  "take_photo_title": "Сфотографировать",
-  "take_more_photo_title": "Сделайте дополнительные фото",
-  "front_photo_uploaded": "Загружено переднее фото",
+  "front_packaging_photo_title": "Ð¤Ð¾Ñ‚Ð¾ ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐ¸ ÑÐ¿ÐµÑ€ÐµÐ´Ð¸",
+  "ingredients_photo_title": "Ð¤Ð¾Ñ‚Ð¾ ÑÐ¾ÑÑ‚Ð°Ð²Ð°",
+  "nutritional_facts_photo_title": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
+  "recycling_photo_title": "Ð˜Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ð¹ Ð¾ Ð¿ÐµÑ€ÐµÑ€Ð°Ð±Ð¾Ñ‚ÐºÐµ",
+  "take_photo_title": "Ð¡Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
+  "take_more_photo_title": "Ð¡Ð´ÐµÐ»Ð°Ð¹Ñ‚Ðµ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ñ„Ð¾Ñ‚Ð¾",
+  "front_photo_uploaded": "Ð—Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾ Ð¿ÐµÑ€ÐµÐ´Ð½ÐµÐµ Ñ„Ð¾Ñ‚Ð¾",
   "@front_photo_uploaded": {},
-  "ingredients_photo_button_label": "Фото состава",
+  "ingredients_photo_button_label": "Ð¤Ð¾Ñ‚Ð¾ ÑÐ¾ÑÑ‚Ð°Ð²Ð°",
   "@ingredients_photo_button_label": {},
-  "ingredients_photo_uploaded": "Фото ингредиентов загружено",
+  "ingredients_photo_uploaded": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð¾Ð² Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾",
   "@ingredients_photo_uploaded": {},
-  "nutrition_cache_loading_error": "Не удается загрузить питательные вещества из кэша",
-  "nutritional_facts_photo_button_label": "Фото информации о пищевой ценности",
+  "nutrition_cache_loading_error": "ÐÐµ ÑƒÐ´Ð°ÐµÑ‚ÑÑ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ Ð¿Ð¸Ñ‚Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð²ÐµÑ‰ÐµÑÑ‚Ð²Ð° Ð¸Ð· ÐºÑÑˆÐ°",
+  "nutritional_facts_photo_button_label": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
   "@nutritional_facts_photo_button_label": {},
-  "nutritional_facts_input_button_label": "Введите данные о пищевой ценности",
-  "nutritional_facts_added": "Добавлены факты о пищевой ценности",
-  "categories_added": "Категории добавлены",
-  "new_product_title_nutriscore": "Рассчитать Nutri-Score",
-  "new_product_subtitle_nutriscore": "Для этого заполните категорию продукта и данные пищевой ценности",
-  "new_product_title_environmental_score": "Compute the Green Score",
+  "nutritional_facts_input_button_label": "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
+  "nutritional_facts_added": "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ñ‹ Ñ„Ð°ÐºÑ‚Ñ‹ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
+  "categories_added": "ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ñ‹",
+  "new_product_title_nutriscore": "Ð Ð°ÑÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Nutri-Score",
+  "new_product_subtitle_nutriscore": "Ð”Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚Ðµ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑŽ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð° Ð¸ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
+  "new_product_title_environmental_score": "Compute the Greenâ€¯Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
-  "new_product_title_nova": "Вычислить уровень обработки пищевых продуктов (NOVA)",
-  "new_product_subtitle_nova": "Для этого заполните категорию и состав продукта",
-  "new_product_desc_nova_unknown": "Степень обработки продуктов неизвестна",
-  "new_product_title_pictures": "Давайте сделаем несколько фотографий!",
+  "new_product_additional_environmental_score": "Make Greenâ€¯Score computation more precise with origins, packaging & more",
+  "new_product_title_nova": "Ð’Ñ‹Ñ‡Ð¸ÑÐ»Ð¸Ñ‚ÑŒ ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸ Ð¿Ð¸Ñ‰ÐµÐ²Ñ‹Ñ… Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð² (NOVA)",
+  "new_product_subtitle_nova": "Ð”Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚Ðµ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑŽ Ð¸ ÑÐ¾ÑÑ‚Ð°Ð² Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
+  "new_product_desc_nova_unknown": "Ð¡Ñ‚ÐµÐ¿ÐµÐ½ÑŒ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð² Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°",
+  "new_product_title_pictures": "Ð”Ð°Ð²Ð°Ð¹Ñ‚Ðµ ÑÐ´ÐµÐ»Ð°ÐµÐ¼ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¹!",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-  "new_product_title_misc": "И некоторые основные данные…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_title_misc": "Ð˜ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¾ÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµâ€¦",
+  "new_product_done_msg": "Thanks for your contribution â€œ{username}â€!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -713,73 +713,73 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Greenâ€¯Score & Ultra-processing (NOVA)!",
   "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
   "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
   "hey_incomplete_product_message_product": "Tap now to help complete this product!",
-  "nutritional_facts_photo_uploaded": "Фото информации о пищевой ценности загружено",
+  "nutritional_facts_photo_uploaded": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾",
   "@nutritional_facts_photo_uploaded": {},
-  "recycling_photo_button_label": "Информационное фото по переработке",
+  "recycling_photo_button_label": "Ð˜Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¾Ð½Ð½Ð¾Ðµ Ñ„Ð¾Ñ‚Ð¾ Ð¿Ð¾ Ð¿ÐµÑ€ÐµÑ€Ð°Ð±Ð¾Ñ‚ÐºÐµ",
   "@recycling_photo_button_label": {},
-  "recycling_photo_uploaded": "Фотография утилизации загружена",
+  "recycling_photo_uploaded": "Ð¤Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ ÑƒÑ‚Ð¸Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð°",
   "@recycling_photo_uploaded": {},
-  "take_more_photo_button_label": "Сделайте дополнительные фото",
+  "take_more_photo_button_label": "Ð¡Ð´ÐµÐ»Ð°Ð¹Ñ‚Ðµ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ñ„Ð¾Ñ‚Ð¾",
   "@take_more_photo_button_label": {},
-  "other_photo_uploaded": "Разное фото загружены",
+  "other_photo_uploaded": "Ð Ð°Ð·Ð½Ð¾Ðµ Ñ„Ð¾Ñ‚Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ñ‹",
   "@other_photo_uploaded": {},
-  "retake_photo_button_label": "Переснять",
+  "retake_photo_button_label": "ÐŸÐµÑ€ÐµÑÐ½ÑÑ‚ÑŒ",
   "@retake_photo_button_label": {
     "description": "Button clicking on which allows users to retake the last photo they took."
   },
-  "selecting_photo": "Выберите фотографию",
+  "selecting_photo": "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸ÑŽ",
   "@selecting_photo": {
     "description": "Progress indicator when the users takes a photo"
   },
-  "uploading_image": "Фото выгружается на сервер",
+  "uploading_image": "Ð¤Ð¾Ñ‚Ð¾ Ð²Ñ‹Ð³Ñ€ÑƒÐ¶Ð°ÐµÑ‚ÑÑ Ð½Ð° ÑÐµÑ€Ð²ÐµÑ€",
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Uploading front image to Open Food Facts",
+  "uploading_image_type_front": "Uploading front image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
-  "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+  "uploading_image_type_ingredients": "Uploading ingredients image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+  "uploading_image_type_nutrition": "Uploading nutrition image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
-  "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+  "uploading_image_type_packaging": "Uploading packaging image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_packaging": {
     "description": "Message when a new packaging picture is being uploaded to the server"
   },
-  "uploading_image_type_other": "Uploading other image to Open Food Facts",
+  "uploading_image_type_other": "Uploading other image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_other": {
     "description": "Message when a new other picture is being uploaded to the server"
   },
-  "uploading_image_type_generic": "Uploading image to Open Food Facts",
+  "uploading_image_type_generic": "Uploading image to Openâ€¯Foodâ€¯Facts",
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
-  "score_add_missing_ingredients": "Добавить недостающие ингридиенты",
-  "score_add_missing_packaging_image": "Добавить отсутствующее изображение упаковки",
-  "score_add_missing_nutrition_facts": "Добавить данные о пищевой ценности",
-  "score_add_missing_product_category": "Добавить собственную категорию продукта",
-  "score_add_missing_product_countries": "Добавить отсутствующие страны продукта",
-  "score_add_missing_product_emb": "Добавьте отсутствующие коды отслеживания продукта",
-  "score_add_missing_product_labels": "Добавить отсутствующие метки продукта",
-  "score_add_missing_product_origins": "Добавить недостающее происхождение продукта",
-  "score_add_missing_product_stores": "Добавить недостающие магазины продукта",
+  "score_add_missing_ingredients": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½ÐµÐ´Ð¾ÑÑ‚Ð°ÑŽÑ‰Ð¸Ðµ Ð¸Ð½Ð³Ñ€Ð¸Ð´Ð¸ÐµÐ½Ñ‚Ñ‹",
+  "score_add_missing_packaging_image": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰ÐµÐµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐ¸",
+  "score_add_missing_nutrition_facts": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
+  "score_add_missing_product_category": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½ÑƒÑŽ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑŽ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
+  "score_add_missing_product_countries": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ ÑÑ‚Ñ€Ð°Ð½Ñ‹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
+  "score_add_missing_product_emb": "Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ ÐºÐ¾Ð´Ñ‹ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°Ð½Ð¸Ñ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
+  "score_add_missing_product_labels": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ Ð¼ÐµÑ‚ÐºÐ¸ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
+  "score_add_missing_product_origins": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½ÐµÐ´Ð¾ÑÑ‚Ð°ÑŽÑ‰ÐµÐµ Ð¿Ñ€Ð¾Ð¸ÑÑ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
+  "score_add_missing_product_stores": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½ÐµÐ´Ð¾ÑÑ‚Ð°ÑŽÑ‰Ð¸Ðµ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½Ñ‹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "score_add_missing_product_brands": "Add missing product brands",
-  "score_update_nutrition_facts": "Введите данные о пищевой ценности",
-  "nutrition_page_title": "Пищевая ценность",
+  "score_update_nutrition_facts": "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
+  "nutrition_page_title": "ÐŸÐ¸Ñ‰ÐµÐ²Ð°Ñ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ",
   "nutrition_page_nutritional_info_title": "Nutritional information",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
-  "nutrition_page_nutritional_info_value_positive": "Да",
-  "nutrition_page_nutritional_info_value_negative": "Нет",
-  "nutrition_page_nutritional_info_open_photo": "Открыть фото",
+  "nutrition_page_nutritional_info_value_positive": "Ð”Ð°",
+  "nutrition_page_nutritional_info_value_negative": "ÐÐµÑ‚",
+  "nutrition_page_nutritional_info_open_photo": "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ„Ð¾Ñ‚Ð¾",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
@@ -792,11 +792,11 @@
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
-  "nutrition_page_per_100g": "на 100 грамм",
+  "nutrition_page_per_100g": "Ð½Ð° 100 Ð³Ñ€Ð°Ð¼Ð¼",
   "nutrition_page_per_100g_100ml": "per 100g/ml",
-  "nutrition_page_per_serving": "на порцию",
-  "nutrition_page_add_nutrient": "Добавить питательное вещество",
-  "nutrition_page_serving_size": "Размер порции",
+  "nutrition_page_per_serving": "Ð½Ð° Ð¿Ð¾Ñ€Ñ†Ð¸ÑŽ",
+  "nutrition_page_add_nutrient": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¸Ñ‚Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð²ÐµÑ‰ÐµÑÑ‚Ð²Ð¾",
+  "nutrition_page_serving_size": "Ð Ð°Ð·Ð¼ÐµÑ€ Ð¿Ð¾Ñ€Ñ†Ð¸Ð¸",
   "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
   "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
   "@nutrition_page_serving_size_explanation_title": {
@@ -806,7 +806,7 @@
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, Âµg, oz, l, dl, cl, ml, fl.oz, fl oz, Ð³, Ð¼Ð³, ÐºÐ³, Ð», Ð´Ð», ÐºÐ», Ð¼Ð», æ¯«å…‹, å…¬æ–¤, æ¯«å‡, å…¬å‡, å¨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
@@ -830,7 +830,7 @@
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **конфет** and 2 **печеньки**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **ÐºÐ¾Ð½Ñ„ÐµÑ‚** and 2 **Ð¿ÐµÑ‡ÐµÐ½ÑŒÐºÐ¸**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
@@ -842,9 +842,9 @@
   "@nutrition_page_serving_size_explanation_bad_example3_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_invalid_number": "Неверный номер",
-  "nutrition_page_update_running": "Обновление продукта на сервере…",
-  "nutrition_page_update_done": "Обновления продукта!",
+  "nutrition_page_invalid_number": "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð½Ð¾Ð¼ÐµÑ€",
+  "nutrition_page_update_running": "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð° Ð½Ð° ÑÐµÑ€Ð²ÐµÑ€Ðµâ€¦",
+  "nutrition_page_update_done": "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°!",
   "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
@@ -853,19 +853,19 @@
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
-  "more_photos": "Больше интересных фото",
+  "more_photos": "Ð‘Ð¾Ð»ÑŒÑˆÐµ Ð¸Ð½Ñ‚ÐµÑ€ÐµÑÐ½Ñ‹Ñ… Ñ„Ð¾Ñ‚Ð¾",
   "@more_photos": {},
   "view_more_photo_button": "View all existing photos for this product",
   "@view_more_photo_button": {},
-  "no_product_found": "Продукт не найден",
+  "no_product_found": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½",
   "@no_product_found": {},
   "no_location_found": "No location found",
-  "not_found": "не найдено:",
-  "refreshing_product": "Обновление продукта",
+  "not_found": "Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾:",
+  "refreshing_product": "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "@refreshing_product": {
     "description": "Confirmation, that the product data of a cached product is queried again"
   },
-  "product_refreshed": "Продукт обновлен",
+  "product_refreshed": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½",
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
@@ -913,11 +913,11 @@
       }
     }
   },
-  "product_image_action_take_new_picture": "Новый снимок",
+  "product_image_action_take_new_picture": "ÐÐ¾Ð²Ñ‹Ð¹ ÑÐ½Ð¸Ð¼Ð¾Ðº",
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "Сфотографировать",
+  "product_image_action_take_picture": "Ð¡Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -937,7 +937,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "Участник",
+  "product_image_details_contributor": "Ð£Ñ‡Ð°ÑÑ‚Ð½Ð¸Ðº",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -945,15 +945,15 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Дата",
+  "product_image_details_date": "Ð”Ð°Ñ‚Ð°",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
-  "product_image_details_date_unknown": "Неизвестный",
+  "product_image_details_date_unknown": "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹",
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
-  "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+  "homepage_main_card_logo_description": "Welcome to Openâ€¯Foodâ€¯Facts",
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
@@ -975,16 +975,16 @@
       }
     }
   },
-  "tagline_app_review": "Нравится приложение?",
-  "tagline_app_review_button_positive": "Конечно! 😍",
-  "tagline_app_review_button_negative": "Не очень…",
-  "tagline_app_review_button_later": "Позже",
+  "tagline_app_review": "ÐÑ€Ð°Ð²Ð¸Ñ‚ÑÑ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ?",
+  "tagline_app_review_button_positive": "ÐšÐ¾Ð½ÐµÑ‡Ð½Ð¾! ðŸ˜",
+  "tagline_app_review_button_negative": "ÐÐµ Ð¾Ñ‡ÐµÐ½ÑŒâ€¦",
+  "tagline_app_review_button_later": "ÐŸÐ¾Ð·Ð¶Ðµ",
   "tagline_feed_news_button": "Know more",
-  "app_review_negative_modal_title": "Не нравится наше приложение?",
-  "app_review_negative_modal_text": "Пожалуйста, напишите, почему.",
-  "app_review_negative_modal_positive_button": "Да, конечно!",
-  "app_review_negative_modal_negative_button": "Нет",
-  "could_not_refresh": "Не удалось обновить продукт",
+  "app_review_negative_modal_title": "ÐÐµ Ð½Ñ€Ð°Ð²Ð¸Ñ‚ÑÑ Ð½Ð°ÑˆÐµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ?",
+  "app_review_negative_modal_text": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð½Ð°Ð¿Ð¸ÑˆÐ¸Ñ‚Ðµ, Ð¿Ð¾Ñ‡ÐµÐ¼Ñƒ.",
+  "app_review_negative_modal_positive_button": "Ð”Ð°, ÐºÐ¾Ð½ÐµÑ‡Ð½Ð¾!",
+  "app_review_negative_modal_negative_button": "ÐÐµÑ‚",
+  "could_not_refresh": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
@@ -1014,7 +1014,7 @@
   "tag_key": "Property",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
-  "tag_value": "Значение",
+  "tag_value": "Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -1028,17 +1028,17 @@
       }
     }
   },
-  "product_internet_error": "Невозможно получить информацию об этом продукте из-за сетевой ошибки.",
-  "cached_results_from": "Показать результаты из:",
+  "product_internet_error": "ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾Ð± ÑÑ‚Ð¾Ð¼ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ðµ Ð¸Ð·-Ð·Ð° ÑÐµÑ‚ÐµÐ²Ð¾Ð¹ Ð¾ÑˆÐ¸Ð±ÐºÐ¸.",
+  "cached_results_from": "ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹ Ð¸Ð·:",
   "@cached_results_from": {
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Сравнить с категорией",
+  "product_search_same_category": "Ð¡Ñ€Ð°Ð²Ð½Ð¸Ñ‚ÑŒ Ñ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÐµÐ¹",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "Сравнить",
+  "product_search_same_category_short": "Ð¡Ñ€Ð°Ð²Ð½Ð¸Ñ‚ÑŒ",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1046,31 +1046,31 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Добавьте категорию для расчета Nutri-Score.",
+  "product_improvement_add_category": "Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑŽ Ð´Ð»Ñ Ñ€Ð°ÑÑ‡ÐµÑ‚Ð° Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Добавьте информацию о пищевой ценности, чтобы вычислить Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ñ‡Ð¸ÑÐ»Ð¸Ñ‚ÑŒ Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Добавить пищевую ценность и категорию для вычисления Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¸Ñ‰ÐµÐ²ÑƒÑŽ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ Ð¸ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑŽ Ð´Ð»Ñ Ð²Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ñ Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Невозможно рассчитать Nutri-Score для этого продукта, что может быть связано, например, с нестандартной категорией. Если это ошибка, пожалуйста, свяжитесь с нами.",
+  "product_improvement_categories_but_no_nutriscore": "ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ñ€Ð°ÑÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Nutri-Score Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°, Ñ‡Ñ‚Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ ÑÐ²ÑÐ·Ð°Ð½Ð¾, Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, Ñ Ð½ÐµÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ð¾Ð¹ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÐµÐ¹. Ð•ÑÐ»Ð¸ ÑÑ‚Ð¾ Ð¾ÑˆÐ¸Ð±ÐºÐ°, Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑÐ²ÑÐ¶Ð¸Ñ‚ÐµÑÑŒ Ñ Ð½Ð°Ð¼Ð¸.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
-  "product_improvement_obsolete_nutrition_image": "Изображение пищевой ценности устарело: обновите его.",
+  "product_improvement_obsolete_nutrition_image": "Ð˜Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸ ÑƒÑÑ‚Ð°Ñ€ÐµÐ»Ð¾: Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ ÐµÐ³Ð¾.",
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+  "product_improvement_origins_to_be_completed": "The Greenâ€¯Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
-  "country_chooser_label": "Пожалуйста, выберите страну",
+  "country_chooser_label": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÑ‚Ñ€Ð°Ð½Ñƒ",
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
@@ -1100,106 +1100,106 @@
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
   },
-  "country_chooser_label_from_settings": "Ваша страна",
+  "country_chooser_label_from_settings": "Ð’Ð°ÑˆÐ° ÑÑ‚Ñ€Ð°Ð½Ð°",
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Некоторые особенности окружающей среды зависят от местоположения",
+  "country_selection_explanation": "ÐÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¾ÑÐ¾Ð±ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸ Ð¾ÐºÑ€ÑƒÐ¶Ð°ÑŽÑ‰ÐµÐ¹ ÑÑ€ÐµÐ´Ñ‹ Ð·Ð°Ð²Ð¸ÑÑÑ‚ Ð¾Ñ‚ Ð¼ÐµÑÑ‚Ð¾Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
-  "product_removed_comparison": "Продукт удален из сравнения",
+  "product_removed_comparison": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½ Ð¸Ð· ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ",
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
-  "native_app_settings": "Системные настройки приложения",
+  "native_app_settings": "Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð½Ñ‹Ðµ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ",
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
-  "native_app_description": "Открыть настройки системы для Open Food Facts",
+  "native_app_description": "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ¸ÑÑ‚ÐµÐ¼Ñ‹ Ð´Ð»Ñ Open Food Facts",
   "@native_app_description": {
     "description": "Native App description in app settings"
   },
-  "product_removed_history": "Продукт удален из истории",
+  "product_removed_history": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½ Ð¸Ð· Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ð¸",
   "@product_removed_history": {
     "description": "Product got removed from history"
   },
-  "product_removed_list": "Продукт убран из списка",
+  "product_removed_list": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ ÑƒÐ±Ñ€Ð°Ð½ Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°",
   "@product_removed_list": {
     "description": "Product got removed from list"
   },
-  "product_could_not_remove": "Не удалось удалить продукт",
+  "product_could_not_remove": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
   "@product_could_not_remove": {
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "В этом списке нет продуктов",
-  "no_product_in_section": "В этом разделе нет продуктов",
+  "no_prodcut_in_list": "Ð’ ÑÑ‚Ð¾Ð¼ ÑÐ¿Ð¸ÑÐºÐµ Ð½ÐµÑ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð²",
+  "no_product_in_section": "Ð’ ÑÑ‚Ð¾Ð¼ Ñ€Ð°Ð·Ð´ÐµÐ»Ðµ Ð½ÐµÑ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð²",
   "recently_seen_products": "All viewed products",
-  "clear": "Очистить",
+  "clear": "ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ",
   "@clear": {
     "description": "Clears a product list (short label)"
   },
-  "clear_long": "Очистить список",
+  "clear_long": "ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº",
   "@clear_long": {
     "description": "Clears a product list (long label)"
   },
-  "really_clear": "Вы действительно хотите удалить этот список?",
+  "really_clear": "Ð’Ñ‹ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ ÑÐ¿Ð¸ÑÐ¾Ðº?",
   "@Plural": {},
-  "pct_match": "{percent}% совместимости",
+  "pct_match": "{percent}% ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚Ð¸",
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
-      "percent": {}
+      "percent": {"type": "Object"}
     }
   },
-  "plural_ago_days": "{count,plural, =1{один день назад} other{{count} дней назад}}",
+  "plural_ago_days": "{count,plural, =1{Ð¾Ð´Ð¸Ð½ Ð´ÐµÐ½ÑŒ Ð½Ð°Ð·Ð°Ð´} other{{count} Ð´Ð½ÐµÐ¹ Ð½Ð°Ð·Ð°Ð´}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "compare_products_mode": "Compare selected products",
@@ -1218,47 +1218,47 @@
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
-  "compare_products_appbar_title": "Сравнить продукты",
+  "compare_products_appbar_title": "Ð¡Ñ€Ð°Ð²Ð½Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
-  "compare_products_appbar_subtitle": "Пожалуйста, выберите не менее двух продуктов",
+  "compare_products_appbar_subtitle": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð½Ðµ Ð¼ÐµÐ½ÐµÐµ Ð´Ð²ÑƒÑ… Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð²",
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
-  "retry_button_label": "Повтор",
-  "connect_with_us": "Мы в соцсетях",
+  "retry_button_label": "ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€",
+  "connect_with_us": "ÐœÑ‹ Ð² ÑÐ¾Ñ†ÑÐµÑ‚ÑÑ…",
   "tiktok": "Follow us on TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
-  "instagram": "Подпишитесь на нас в Instagram",
+  "instagram": "ÐŸÐ¾Ð´Ð¿Ð¸ÑˆÐ¸Ñ‚ÐµÑÑŒ Ð½Ð° Ð½Ð°Ñ Ð² Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
-  "twitter": "Подпишитесь на нас в X (ранее Twitter)",
+  "twitter": "ÐŸÐ¾Ð´Ð¿Ð¸ÑˆÐ¸Ñ‚ÐµÑÑŒ Ð½Ð° Ð½Ð°Ñ Ð² X (Ñ€Ð°Ð½ÐµÐµ Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
   "mastodon": "Follow us on Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
   "bsky": "Follow us on BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
-  "blog": "Блог",
-  "faq": "Часто задаваемые вопросы",
-  "discover": "О проекте",
-  "how_to_contribute": "Как помочь проекту",
-  "hint_knowledge_panel_message": "Вы можете нажать на любую часть карточки, чтобы получить более подробную информацию о том, что вы видите. Попробуйте сейчас!",
+  "blog": "Ð‘Ð»Ð¾Ð³",
+  "faq": "Ð§Ð°ÑÑ‚Ð¾ Ð·Ð°Ð´Ð°Ð²Ð°ÐµÐ¼Ñ‹Ðµ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹",
+  "discover": "Ðž Ð¿Ñ€Ð¾ÐµÐºÑ‚Ðµ",
+  "how_to_contribute": "ÐšÐ°Ðº Ð¿Ð¾Ð¼Ð¾Ñ‡ÑŒ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ñƒ",
+  "hint_knowledge_panel_message": "Ð’Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð½Ð°Ð¶Ð°Ñ‚ÑŒ Ð½Ð° Ð»ÑŽÐ±ÑƒÑŽ Ñ‡Ð°ÑÑ‚ÑŒ ÐºÐ°Ñ€Ñ‚Ð¾Ñ‡ÐºÐ¸, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð±Ð¾Ð»ÐµÐµ Ð¿Ð¾Ð´Ñ€Ð¾Ð±Ð½ÑƒÑŽ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾ Ñ‚Ð¾Ð¼, Ñ‡Ñ‚Ð¾ Ð²Ñ‹ Ð²Ð¸Ð´Ð¸Ñ‚Ðµ. ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐµÐ¹Ñ‡Ð°Ñ!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
   },
-  "permissions_page_title": "Доступ к камере",
+  "permissions_page_title": "Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ðº ÐºÐ°Ð¼ÐµÑ€Ðµ",
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "Для сканирования штрих-кодов с помощью камеры вашего телефона, пожалуйста, авторизуйтесь для доступа.",
+  "permissions_page_body1": "Ð”Ð»Ñ ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ ÑˆÑ‚Ñ€Ð¸Ñ…-ÐºÐ¾Ð´Ð¾Ð² Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ ÐºÐ°Ð¼ÐµÑ€Ñ‹ Ð²Ð°ÑˆÐµÐ³Ð¾ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð°, Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·ÑƒÐ¹Ñ‚ÐµÑÑŒ Ð´Ð»Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð°.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
-  "permissions_page_body2": "Если вы передумаете, эту опцию можно включить и отключить в настройках в любое время.",
+  "permissions_page_body2": "Ð•ÑÐ»Ð¸ Ð²Ñ‹ Ð¿ÐµÑ€ÐµÐ´ÑƒÐ¼Ð°ÐµÑ‚Ðµ, ÑÑ‚Ñƒ Ð¾Ð¿Ñ†Ð¸ÑŽ Ð¼Ð¾Ð¶Ð½Ð¾ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¸ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ… Ð² Ð»ÑŽÐ±Ð¾Ðµ Ð²Ñ€ÐµÐ¼Ñ.",
   "@permissions_page_body2": {
     "description": "second paragraph for the camera permission's page (onboarding)"
   },
-  "contact_form_body_android": "ОС: Android (SDK Int: {sdkInt} / Выпуск: ${release})\nМодель: ${model}\nПродукт: ${product}\nУстройство: ${device}\nМарка:{brand}",
+  "contact_form_body_android": "ÐžÐ¡: Android (SDK Int: {sdkInt} / Ð’Ñ‹Ð¿ÑƒÑÐº: ${release})\nÐœÐ¾Ð´ÐµÐ»ÑŒ: ${model}\nÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚: ${product}\nÐ£ÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾: ${device}\nÐœÐ°Ñ€ÐºÐ°:{brand}",
   "@contact_form_body_android": {
     "description": "Contact form content for Android devices",
     "placeholders": {
@@ -1288,7 +1288,7 @@
       }
     }
   },
-  "contact_form_body_ios": "ОС: iOS ({version})\nМодель: {model}\nЛокализованная модель: {localizedModel}",
+  "contact_form_body_ios": "ÐžÐ¡: iOS ({version})\nÐœÐ¾Ð´ÐµÐ»ÑŒ: {model}\nÐ›Ð¾ÐºÐ°Ð»Ð¸Ð·Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ð¼Ð¾Ð´ÐµÐ»ÑŒ: {localizedModel}",
   "@contact_form_body_ios": {
     "description": "Contact form content for iOS devices",
     "placeholders": {
@@ -1306,7 +1306,7 @@
       }
     }
   },
-  "contact_form_body": "{osContent}\nВерсия приложения:{appVersion}\nНомер сборки приложения:{appBuildNumber}\nИмя пакета приложения:{appPackageName}",
+  "contact_form_body": "{osContent}\nÐ’ÐµÑ€ÑÐ¸Ñ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ:{appVersion}\nÐÐ¾Ð¼ÐµÑ€ ÑÐ±Ð¾Ñ€ÐºÐ¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ:{appBuildNumber}\nÐ˜Ð¼Ñ Ð¿Ð°ÐºÐµÑ‚Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ:{appPackageName}",
   "@contact_form_body": {
     "description": "Contact form content",
     "placeholders": {
@@ -1328,19 +1328,19 @@
       }
     }
   },
-  "authorize_button_label": "Авторизация",
+  "authorize_button_label": "ÐÐ²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ñ",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
-  "refuse_button_label": "Отклонить",
+  "refuse_button_label": "ÐžÑ‚ÐºÐ»Ð¾Ð½Ð¸Ñ‚ÑŒ",
   "@refuse": {
     "description": "Button to decline the request of sending the anonymous analytics"
   },
-  "ask_me_later_button_label": "Позже",
+  "ask_me_later_button_label": "ÐŸÐ¾Ð·Ð¶Ðµ",
   "@ask_me_later": {
     "description": "Button to ignore the camera permission request"
   },
-  "are_you_sure": "Вы уверены?",
+  "are_you_sure": "Ð’Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹?",
   "@are_you_sure": {
     "description": "Are you sure?"
   },
@@ -1353,29 +1353,29 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "Welcome !",
+  "onboarding_home_welcome_text1": "Welcomeâ€¯!",
   "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
-  "onboarding_continue_button": "Продолжить",
-  "onboarding_welcome_loading_dialog_title": "Загрузка вашего первого примера продукта",
+  "onboarding_continue_button": "ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ",
+  "onboarding_welcome_loading_dialog_title": "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð²Ð°ÑˆÐµÐ³Ð¾ Ð¿ÐµÑ€Ð²Ð¾Ð³Ð¾ Ð¿Ñ€Ð¸Ð¼ÐµÑ€Ð° Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
-  "product_list_your_ranking": "Ваш рейтинг",
+  "product_list_your_ranking": "Ð’Ð°Ñˆ Ñ€ÐµÐ¹Ñ‚Ð¸Ð½Ð³",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
   },
-  "product_list_empty_icon_desc": "История недоступна",
+  "product_list_empty_icon_desc": "Ð˜ÑÑ‚Ð¾Ñ€Ð¸Ñ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð°",
   "@product_list_icon_desc": {
     "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
   },
-  "product_list_empty_title": "Начать сканирование",
+  "product_list_empty_title": "ÐÐ°Ñ‡Ð°Ñ‚ÑŒ ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ",
   "@product_list_empty_title": {
     "description": "When the history list is empty, title of the message explaining to start scanning"
   },
-  "product_list_empty_message": "Отсканированные продукты появятся здесь, и вы сможете просмотреть подробную информацию о них",
+  "product_list_empty_message": "ÐžÑ‚ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹ Ð¿Ð¾ÑÐ²ÑÑ‚ÑÑ Ð·Ð´ÐµÑÑŒ, Ð¸ Ð²Ñ‹ ÑÐ¼Ð¾Ð¶ÐµÑ‚Ðµ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð¿Ð¾Ð´Ñ€Ð¾Ð±Ð½ÑƒÑŽ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾ Ð½Ð¸Ñ…",
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
@@ -1383,42 +1383,42 @@
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
   "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "loading_dialog_default_title": "Загрузка данных",
+  "loading_dialog_default_title": "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð´Ð°Ð½Ð½Ñ‹Ñ…",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
   },
-  "loading_dialog_default_error_message": "Не удалось загрузить данные",
+  "loading_dialog_default_error_message": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ Ð´Ð°Ð½Ð½Ñ‹Ðµ",
   "@loading_dialog_default_error_message": {
     "description": "Default loading dialog error message"
   },
-  "account_delete": "Удалить учётную запись",
+  "account_delete": "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑƒÑ‡Ñ‘Ñ‚Ð½ÑƒÑŽ Ð·Ð°Ð¿Ð¸ÑÑŒ",
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Удалить мой аккаунт",
+  "account_deletion_subject": "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¼Ð¾Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚",
   "@account_deletion_subject": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
-  "user_profile": "Учётная запись",
+  "user_profile": "Ð£Ñ‡Ñ‘Ñ‚Ð½Ð°Ñ Ð·Ð°Ð¿Ð¸ÑÑŒ",
   "@user_profile": {
     "description": "User account (if connected)"
   },
-  "user_profile_title_guest": "Добро пожаловать!",
+  "user_profile_title_guest": "Ð”Ð¾Ð±Ñ€Ð¾ Ð¿Ð¾Ð¶Ð°Ð»Ð¾Ð²Ð°Ñ‚ÑŒ!",
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Openâ€¯Foodâ€¯Facts community",
+  "user_profile_title_id_email": "Openâ€¯Foodâ€¯Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1427,7 +1427,7 @@
       }
     }
   },
-  "user_profile_title_id_default": "Добро пожаловать, {id}!",
+  "user_profile_title_id_default": "Ð”Ð¾Ð±Ñ€Ð¾ Ð¿Ð¾Ð¶Ð°Ð»Ð¾Ð²Ð°Ñ‚ÑŒ, {id}!",
   "@user_profile_title_id_default": {
     "description": "User login (when it's an id)",
     "placeholders": {
@@ -1436,11 +1436,11 @@
       }
     }
   },
-  "email_subject_account_deletion": "Удалить учётную запись",
+  "email_subject_account_deletion": "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑƒÑ‡Ñ‘Ñ‚Ð½ÑƒÑŽ Ð·Ð°Ð¿Ð¸ÑÑŒ",
   "@email_subject_account_deletion": {
     "description": "Email subject for an account deletion"
   },
-  "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+  "email_body_account_deletion": "Hi there, please delete my Openâ€¯Foodâ€¯Facts account: {userId}",
   "@email_body_account_deletion": {
     "description": "Email body for an account deletion",
     "placeholders": {
@@ -1449,19 +1449,19 @@
       }
     }
   },
-  "settings_app_app": "Приложение",
-  "settings_app_data": "Конфиденциальность и мониторинг",
-  "settings_app_camera": "Камера",
-  "settings_app_products": "Продукты",
-  "settings_app_miscellaneous": "Прочее",
+  "settings_app_app": "ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ",
+  "settings_app_data": "ÐšÐ¾Ð½Ñ„Ð¸Ð´ÐµÐ½Ñ†Ð¸Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ð¸ Ð¼Ð¾Ð½Ð¸Ñ‚Ð¾Ñ€Ð¸Ð½Ð³",
+  "settings_app_camera": "ÐšÐ°Ð¼ÐµÑ€Ð°",
+  "settings_app_products": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
+  "settings_app_miscellaneous": "ÐŸÑ€Ð¾Ñ‡ÐµÐµ",
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
   },
-  "camera_play_sound_title": "Воспроизвести звук при сканировании",
+  "camera_play_sound_title": "Ð’Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÑÑ‚Ð¸ Ð·Ð²ÑƒÐº Ð¿Ñ€Ð¸ ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ð¸",
   "@camera_play_sound_title": {
     "description": "Title for the Camera play sound toggle"
   },
-  "camera_play_sound_subtitle": "Издавать звуковой сигнал при каждом успешном сканировании",
+  "camera_play_sound_subtitle": "Ð˜Ð·Ð´Ð°Ð²Ð°Ñ‚ÑŒ Ð·Ð²ÑƒÐºÐ¾Ð²Ð¾Ð¹ ÑÐ¸Ð³Ð½Ð°Ð» Ð¿Ñ€Ð¸ ÐºÐ°Ð¶Ð´Ð¾Ð¼ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾Ð¼ ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ð¸",
   "@camera_play_sound_subtitle": {
     "description": "SubTitle for the Camera play sound toggle"
   },
@@ -1469,40 +1469,40 @@
   "@camera_window_accessibility_label": {
     "description": "Accessibility label for the camera window"
   },
-  "app_haptic_feedback_title": "Вибрация и отклик",
+  "app_haptic_feedback_title": "Ð’Ð¸Ð±Ñ€Ð°Ñ†Ð¸Ñ Ð¸ Ð¾Ñ‚ÐºÐ»Ð¸Ðº",
   "@app_haptic_feedback_title": {
     "description": "Title for the Haptic feedback toggle"
   },
-  "app_haptic_feedback_subtitle": "Вибрация после завершения некоторых действий (штрихкод декодирован, продукт удален…).",
+  "app_haptic_feedback_subtitle": "Ð’Ð¸Ð±Ñ€Ð°Ñ†Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ð¹ (ÑˆÑ‚Ñ€Ð¸Ñ…ÐºÐ¾Ð´ Ð´ÐµÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²Ð°Ð½, Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½â€¦).",
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
-  "crash_reporting_toggle_title": "Отчеты об ошибках",
+  "crash_reporting_toggle_title": "ÐžÑ‚Ñ‡ÐµÑ‚Ñ‹ Ð¾Ð± Ð¾ÑˆÐ¸Ð±ÐºÐ°Ñ…",
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
-  "crash_reporting_toggle_subtitle": "Автоматически отправлять отчёты о неполадках в систему отслеживания ошибок для их последующего исправления.",
+  "crash_reporting_toggle_subtitle": "ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð¾Ñ‚Ñ‡Ñ‘Ñ‚Ñ‹ Ð¾ Ð½ÐµÐ¿Ð¾Ð»Ð°Ð´ÐºÐ°Ñ… Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°Ð½Ð¸Ñ Ð¾ÑˆÐ¸Ð±Ð¾Ðº Ð´Ð»Ñ Ð¸Ñ… Ð¿Ð¾ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ³Ð¾ Ð¸ÑÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ.",
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
-  "send_anonymous_data_toggle_title": "Отправлять анонимные данные",
+  "send_anonymous_data_toggle_title": "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð°Ð½Ð¾Ð½Ð¸Ð¼Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ",
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
-  "send_anonymous_data_toggle_subtitle": "Отправлять анонимные данные аналитики, которые помогают Open Food Facts оценивать информацию об использовании функций.",
+  "send_anonymous_data_toggle_subtitle": "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð°Ð½Ð¾Ð½Ð¸Ð¼Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð°Ð½Ð°Ð»Ð¸Ñ‚Ð¸ÐºÐ¸, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÑŽÑ‚ Open Food Facts Ð¾Ñ†ÐµÐ½Ð¸Ð²Ð°Ñ‚ÑŒ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾Ð± Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹.",
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
-  "product_edit_photo_title": "Редактировать фото",
+  "product_edit_photo_title": "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ñ„Ð¾Ñ‚Ð¾",
   "@product_edit_photo_title": {
     "description": "Toolbar Title while editing a photo (Android only)"
   },
-  "permission_photo_error": "Ошибка",
+  "permission_photo_error": "ÐžÑˆÐ¸Ð±ÐºÐ°",
   "@permission_photo_error": {
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
-  "permission_photo_denied_title": "Разрешите использование камеры для сканирования штрихкодов",
-  "permission_photo_denied_message": "Для расширения возможностей разрешите {appName} доступ к вашей камере. Вы сможете сканировать штрихкоды напрямую.",
+  "permission_photo_denied_title": "Ð Ð°Ð·Ñ€ÐµÑˆÐ¸Ñ‚Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ ÐºÐ°Ð¼ÐµÑ€Ñ‹ Ð´Ð»Ñ ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ ÑˆÑ‚Ñ€Ð¸Ñ…ÐºÐ¾Ð´Ð¾Ð²",
+  "permission_photo_denied_message": "Ð”Ð»Ñ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ñ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹ Ñ€Ð°Ð·Ñ€ÐµÑˆÐ¸Ñ‚Ðµ {appName} Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ð²Ð°ÑˆÐµÐ¹ ÐºÐ°Ð¼ÐµÑ€Ðµ. Ð’Ñ‹ ÑÐ¼Ð¾Ð¶ÐµÑ‚Ðµ ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÑˆÑ‚Ñ€Ð¸Ñ…ÐºÐ¾Ð´Ñ‹ Ð½Ð°Ð¿Ñ€ÑÐ¼ÑƒÑŽ.",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
     "placeholders": {
@@ -1511,19 +1511,19 @@
       }
     }
   },
-  "permission_photo_denied_button": "Разрешить",
+  "permission_photo_denied_button": "Ð Ð°Ð·Ñ€ÐµÑˆÐ¸Ñ‚ÑŒ",
   "@permission_photo_denied_button": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "permission_photo_denied_dialog_settings_title": "Отказано в доступе",
-  "permission_photo_denied_dialog_settings_message": "Поскольку ранее вы отказали в доступе к камере, вы должны разрешить его вручную в настройках.",
-  "permission_photo_denied_dialog_settings_button_open": "Открыть настройки",
-  "permission_photo_denied_dialog_settings_button_cancel": "Отмена",
-  "permission_photo_none_found": "Камера не обнаружена",
+  "permission_photo_denied_dialog_settings_title": "ÐžÑ‚ÐºÐ°Ð·Ð°Ð½Ð¾ Ð² Ð´Ð¾ÑÑ‚ÑƒÐ¿Ðµ",
+  "permission_photo_denied_dialog_settings_message": "ÐŸÐ¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ Ñ€Ð°Ð½ÐµÐµ Ð²Ñ‹ Ð¾Ñ‚ÐºÐ°Ð·Ð°Ð»Ð¸ Ð² Ð´Ð¾ÑÑ‚ÑƒÐ¿Ðµ Ðº ÐºÐ°Ð¼ÐµÑ€Ðµ, Ð²Ñ‹ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ñ€Ð°Ð·Ñ€ÐµÑˆÐ¸Ñ‚ÑŒ ÐµÐ³Ð¾ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ….",
+  "permission_photo_denied_dialog_settings_button_open": "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸",
+  "permission_photo_denied_dialog_settings_button_cancel": "ÐžÑ‚Ð¼ÐµÐ½Ð°",
+  "permission_photo_none_found": "ÐšÐ°Ð¼ÐµÑ€Ð° Ð½Ðµ Ð¾Ð±Ð½Ð°Ñ€ÑƒÐ¶ÐµÐ½Ð°",
   "@permission_photo_none_found": {
     "description": "Message for the user when no camera was detected, replacing the barcode scanner"
   },
-  "permission_photo_denied": "Нет доступа к камере",
+  "permission_photo_denied": "ÐÐµÑ‚ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº ÐºÐ°Ð¼ÐµÑ€Ðµ",
   "@permission_photo_denied": {
     "description": "When the camera/photo permission is denied by user"
   },
@@ -1531,11 +1531,11 @@
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
-  "edit_product_label": "Редактировать продукт",
+  "edit_product_label": "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
@@ -1547,7 +1547,7 @@
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_label_short": "Редактировать",
+  "edit_product_label_short": "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
@@ -1600,35 +1600,35 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
-  "edit_product_form_item_details_title": "Основные детали",
+  "edit_product_form_item_details_title": "ÐžÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ Ð´ÐµÑ‚Ð°Ð»Ð¸",
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
   },
-  "edit_product_form_item_details_subtitle": "Название продукта, марка, количество",
+  "edit_product_form_item_details_subtitle": "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°, Ð¼Ð°Ñ€ÐºÐ°, ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾",
   "@edit_product_form_item_details_subtitle": {
     "description": "Product edition - Basic Details - Subtitle"
   },
-  "edit_product_form_item_other_details_title": "Дополнительная информация",
+  "edit_product_form_item_other_details_title": "Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ",
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Веб-сайт…",
+  "edit_product_form_item_other_details_subtitle": "Ð’ÐµÐ±-ÑÐ°Ð¹Ñ‚â€¦",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
-  "edit_product_form_item_photos_title": "Фотографии",
+  "edit_product_form_item_photos_title": "Ð¤Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸",
   "@edit_product_form_item_photos_title": {
     "description": "Product edition - Photos - Title"
   },
-  "edit_product_form_item_photos_subtitle": "Добавьте или обновите фотографии",
+  "edit_product_form_item_photos_subtitle": "Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¸Ð»Ð¸ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸",
   "@edit_product_form_item_photos_subtitle": {
     "description": "Product edition - Photos - SubTitle"
   },
-  "edit_product_form_item_labels_title": "Этикетки и сертификаты",
+  "edit_product_form_item_labels_title": "Ð­Ñ‚Ð¸ÐºÐµÑ‚ÐºÐ¸ Ð¸ ÑÐµÑ€Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ñ‹",
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Экологичность, знаки качества…",
+  "edit_product_form_item_labels_subtitle": "Ð­ÐºÐ¾Ð»Ð¾Ð³Ð¸Ñ‡Ð½Ð¾ÑÑ‚ÑŒ, Ð·Ð½Ð°ÐºÐ¸ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð°â€¦",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
@@ -1636,7 +1636,7 @@
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
-  "edit_product_form_item_labels_type": "маркировка",
+  "edit_product_form_item_labels_type": "Ð¼Ð°Ñ€ÐºÐ¸Ñ€Ð¾Ð²ÐºÐ°",
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
@@ -1648,27 +1648,27 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVAâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittanyâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000…",
+  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000â€¦",
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of ironâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaarâ€¦",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_stores_title": "Магазины",
+  "edit_product_form_item_stores_title": "ÐœÐ°Ð³Ð°Ð·Ð¸Ð½Ñ‹",
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
@@ -1676,7 +1676,7 @@
   "@edit_product_form_item_stores_hint": {
     "description": "Product edition - Stores - input textfield hint"
   },
-  "edit_product_form_item_stores_type": "магазин",
+  "edit_product_form_item_stores_type": "Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½",
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
@@ -1700,7 +1700,7 @@
   "@edit_product_form_item_stores_explanation_good_examples_3": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_origins_title": "Происхождение",
+  "edit_product_form_item_origins_title": "ÐŸÑ€Ð¾Ð¸ÑÑ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ðµ",
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
@@ -1708,7 +1708,7 @@
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
-  "edit_product_form_item_origins_type": "страна",
+  "edit_product_form_item_origins_type": "ÑÑ‚Ñ€Ð°Ð½Ð°",
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
@@ -1728,7 +1728,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Страна",
+  "edit_product_form_item_countries_title": "Ð¡Ñ‚Ñ€Ð°Ð½Ð°",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -1736,7 +1736,7 @@
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
-  "edit_product_form_item_countries_type": "страна",
+  "edit_product_form_item_countries_type": "ÑÑ‚Ñ€Ð°Ð½Ð°",
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
@@ -1752,7 +1752,7 @@
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522â€¦)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
@@ -1770,7 +1770,7 @@
   },
   "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
   "@edit_product_form_item_emb_help_info2_title": {
-    "description": "Explanation about EMB/EC… codes"
+    "description": "Explanation about EMB/ECâ€¦ codes"
   },
   "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
@@ -1792,11 +1792,11 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_categories_title": "Категории",
+  "edit_product_form_item_categories_title": "ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸",
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
   },
-  "edit_product_form_item_categories_hint": "категория",
+  "edit_product_form_item_categories_hint": "ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ñ",
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
@@ -1816,7 +1816,7 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Openâ€¯Foodâ€¯Facts in your country.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
@@ -1829,10 +1829,10 @@
     "description": "Product edition - Categories - input explainer, part 3"
   },
   "edit_product_form_item_exit_title": "Quit without saving?",
-  "edit_product_form_item_exit_confirmation": "Хотите ли Вы сохранить изменения прежде чем покинуть страницу?",
-  "edit_product_form_item_exit_confirmation_positive_button": "Сохранить изменения",
-  "edit_product_form_item_exit_confirmation_negative_button": "Отменить изменения",
-  "edit_product_form_item_ingredients_title": "Ингредиенты",
+  "edit_product_form_item_exit_confirmation": "Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð»Ð¸ Ð’Ñ‹ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð¿Ñ€ÐµÐ¶Ð´Ðµ Ñ‡ÐµÐ¼ Ð¿Ð¾ÐºÐ¸Ð½ÑƒÑ‚ÑŒ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ?",
+  "edit_product_form_item_exit_confirmation_positive_button": "Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ",
+  "edit_product_form_item_exit_confirmation_negative_button": "ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ",
+  "edit_product_form_item_ingredients_title": "Ð˜Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
@@ -1848,9 +1848,9 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
-  "edit_product_form_item_add_valid_item_tooltip": "Добавить",
-  "edit_product_form_item_add_invalid_item_tooltip": "Пожалуйста, сначала введите текст",
-  "edit_product_form_item_remove_item_tooltip": "Удалить",
+  "edit_product_form_item_add_valid_item_tooltip": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ",
+  "edit_product_form_item_add_invalid_item_tooltip": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑÐ½Ð°Ñ‡Ð°Ð»Ð° Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚ÐµÐºÑÑ‚",
+  "edit_product_form_item_remove_item_tooltip": "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ",
   "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
@@ -1859,15 +1859,15 @@
   "@edit_product_form_item_cancel_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
   },
-  "edit_product_form_item_packaging_title": "Фото инструкции по переработке",
+  "edit_product_form_item_packaging_title": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð¿Ð¾ Ð¿ÐµÑ€ÐµÑ€Ð°Ð±Ð¾Ñ‚ÐºÐµ",
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "Пищевая и энергетическая ценность",
+  "edit_product_form_item_nutrition_facts_title": "ÐŸÐ¸Ñ‰ÐµÐ²Ð°Ñ Ð¸ ÑÐ½ÐµÑ€Ð³ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
-  "edit_product_form_item_nutrition_facts_subtitle": "Пищевая ценность, содержание алкоголя…",
+  "edit_product_form_item_nutrition_facts_subtitle": "ÐŸÐ¸Ñ‰ÐµÐ²Ð°Ñ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ, ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ð½Ð¸Ðµ Ð°Ð»ÐºÐ¾Ð³Ð¾Ð»Ñâ€¦",
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
@@ -1883,7 +1883,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "Пищевая и энергетическая ценность",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "ÐŸÐ¸Ñ‰ÐµÐ²Ð°Ñ Ð¸ ÑÐ½ÐµÑ€Ð³ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1895,19 +1895,19 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesiumâ€¦).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_save": "Редактировать",
+  "edit_product_form_save": "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
-  "edit_product_ingredients_photo_title": "Фото состава",
+  "edit_product_ingredients_photo_title": "Ð¤Ð¾Ñ‚Ð¾ ÑÐ¾ÑÑ‚Ð°Ð²Ð°",
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "Список ингредиентов",
+  "edit_product_ingredients_list_title": "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð¾Ð²",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -1923,7 +1923,7 @@
   "@no_data_available": {
     "description": "When there are no data to display"
   },
-  "product_field_website_title": "Веб-сайт",
+  "product_field_website_title": "Ð’ÐµÐ±-ÑÐ°Ð¹Ñ‚",
   "@product_field_website_title": {
     "description": "Title of a product field: website"
   },
@@ -1931,14 +1931,14 @@
   "@origins_editing_title": {
     "description": "Title of the button where users can edit the origins of a product"
   },
-  "completed_basic_details_btn_text": "Детальная информация",
-  "not_implemented_snackbar_text": "Пока что не реализовано",
-  "category_picker_page_appbar_text": "Категории",
+  "completed_basic_details_btn_text": "Ð”ÐµÑ‚Ð°Ð»ÑŒÐ½Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ",
+  "not_implemented_snackbar_text": "ÐŸÐ¾ÐºÐ° Ñ‡Ñ‚Ð¾ Ð½Ðµ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð¾Ð²Ð°Ð½Ð¾",
+  "category_picker_page_appbar_text": "ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸",
   "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
-  "edit_ingredients_extract_ingredients_btn_text_short": "Распознать ингредиенты",
+  "edit_ingredients_extract_ingredients_btn_text_short": "Ð Ð°ÑÐ¿Ð¾Ð·Ð½Ð°Ñ‚ÑŒ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹",
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
@@ -1946,7 +1946,7 @@
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
-  "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+  "edit_ingredients_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_ingredients_loading_photo_btn_text": {
     "description": "Ingredients edition - Loading photo from the server"
   },
@@ -1958,7 +1958,7 @@
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_ingredients_refresh_photo_btn_text": "Обновить фото",
+  "edit_ingredients_refresh_photo_btn_text": "ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ„Ð¾Ñ‚Ð¾",
   "@edit_ingredients_refresh_photo_btn_text": {
     "description": "Ingredients edition - Refresh photo"
   },
@@ -1974,7 +1974,7 @@
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
-  "edit_packaging_loading_photo_btn_text": "Loading photo…",
+  "edit_packaging_loading_photo_btn_text": "Loading photoâ€¦",
   "@edit_packaging_loading_photo_btn_text": {
     "description": "Packaging edition - Loading photo from the server"
   },
@@ -1986,11 +1986,11 @@
   "@edit_packaging_loading_photo_help_dialog_body": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_packaging_refresh_photo_btn_text": "Обновить фото",
+  "edit_packaging_refresh_photo_btn_text": "ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ„Ð¾Ñ‚Ð¾",
   "@edit_packaging_refresh_photo_btn_text": {
     "description": "Packaging edition - Refresh photo"
   },
-  "edit_ocr_extract_failed": "Не удалось обнаружить текст на изображении.",
+  "edit_ocr_extract_failed": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ð±Ð½Ð°Ñ€ÑƒÐ¶Ð¸Ñ‚ÑŒ Ñ‚ÐµÐºÑÑ‚ Ð½Ð° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¸.",
   "@edit_ocr_extract_failed": {
     "description": "OCR extraction - message for failed"
   },
@@ -2002,63 +2002,63 @@
   "@edit_ocr_extract_disabled_message": {
     "description": "OCR extraction - message for disabled"
   },
-  "user_list_dialog_new_title": "Новый список продуктов",
+  "user_list_dialog_new_title": "ÐÐ¾Ð²Ñ‹Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð²",
   "@user_list_dialog_new_title": {
     "description": "Title of the 'new user list' dialog"
   },
-  "user_list_dialog_rename_title": "Переименование списка",
+  "user_list_dialog_rename_title": "ÐŸÐµÑ€ÐµÐ¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ ÑÐ¿Ð¸ÑÐºÐ°",
   "@user_list_dialog_rename_title": {
     "description": "Title of the 'rename user list' dialog"
   },
-  "user_list_subtitle_product": "Списки",
+  "user_list_subtitle_product": "Ð¡Ð¿Ð¸ÑÐºÐ¸",
   "@user_list_subtitle_product": {
     "description": "Subtitle of a paragraph about user lists in a product context"
   },
-  "user_list_title": "Ваши списки",
+  "user_list_title": "Ð’Ð°ÑˆÐ¸ ÑÐ¿Ð¸ÑÐºÐ¸",
   "@user_list_title": {
     "description": "Label for the user lists (when the user wants to add a product to a list)"
   },
-  "user_list_add_product": "Добавить этот продукт в ваши списки",
+  "user_list_add_product": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚ Ð² Ð²Ð°ÑˆÐ¸ ÑÐ¿Ð¸ÑÐºÐ¸",
   "@user_list_add_product": {
     "description": "Label for the dialog to add a product to a list"
   },
-  "user_list_button_new": "Создание нового списка",
+  "user_list_button_new": "Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÑÐ¿Ð¸ÑÐºÐ°",
   "@user_list_button_new": {
     "description": "Short label of a 'create a new list' button"
   },
-  "user_list_empty_label": "Нет доступных списков, пожалуйста, создайте новый",
+  "user_list_empty_label": "ÐÐµÑ‚ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ñ… ÑÐ¿Ð¸ÑÐºÐ¾Ð², Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑÐ¾Ð·Ð´Ð°Ð¹Ñ‚Ðµ Ð½Ð¾Ð²Ñ‹Ð¹",
   "@user_list_empty_label": {
     "description": "Content displayed when there is no list"
   },
-  "user_list_button_add_product": "Добавить в список",
+  "user_list_button_add_product": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð² ÑÐ¿Ð¸ÑÐ¾Ðº",
   "@user_list_button_add_product": {
     "description": "Short label of an 'add to list' button from a product context"
   },
-  "added_to_list_msg": "Добавлено в список",
+  "added_to_list_msg": "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¾ Ð² ÑÐ¿Ð¸ÑÐ¾Ðº",
   "@added_to_list_msg": {
     "description": "Message when products have been successfully added to a list"
   },
-  "user_list_popup_clear": "Очистить вашу историю",
+  "user_list_popup_clear": "ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ð²Ð°ÑˆÑƒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ",
   "@user_list_popup_clear": {
     "description": "Short label of a 'clear your history list' popup"
   },
-  "user_list_popup_rename": "Переименовать",
+  "user_list_popup_rename": "ÐŸÐµÑ€ÐµÐ¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@user_list_popup_rename": {
     "description": "Short label of a 'rename list' popup"
   },
-  "user_list_name_hint": "Мой список",
+  "user_list_name_hint": "ÐœÐ¾Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº",
   "@user_list_name_hint": {
     "description": "Hint of a user list name text-field in a 'user list' dialog"
   },
-  "user_list_name_error_empty": "Поле \"Имя\" является обязательным",
+  "user_list_name_error_empty": "ÐŸÐ¾Ð»Ðµ \"Ð˜Ð¼Ñ\" ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼",
   "@user_list_name_error_empty": {
     "description": "Validation error about the name that cannot be empty"
   },
-  "user_list_name_error_already": "Это имя уже используется",
+  "user_list_name_error_already": "Ð­Ñ‚Ð¾ Ð¸Ð¼Ñ ÑƒÐ¶Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ",
   "@user_list_name_error_already": {
     "description": "Validation error about the name that is already used for another list"
   },
-  "user_list_name_error_same": "Это то же самое название",
+  "user_list_name_error_same": "Ð­Ñ‚Ð¾ Ñ‚Ð¾ Ð¶Ðµ ÑÐ°Ð¼Ð¾Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ",
   "@user_list_name_error_same": {
     "description": "Validation error about the renamed name that is the same as the initial list name"
   },
@@ -2066,15 +2066,15 @@
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
-  "try_again": "Попробуйте снова",
+  "try_again": "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°",
   "@try_again": {
     "description": "Label for buttons that try to repeat a failed action"
   },
-  "there_was_an_error": "Ошибка",
+  "there_was_an_error": "ÐžÑˆÐ¸Ð±ÐºÐ°",
   "@there_was_an_error": {
     "description": "Label that presents a error"
   },
-  "category_picker_no_category_found_message": "Не найдена категория для {items}",
+  "category_picker_no_category_found_message": "ÐÐµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð° ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ñ Ð´Ð»Ñ {items}",
   "@category_picker_no_category_found_message": {
     "description": "Label when no category is available",
     "placeholders": {
@@ -2083,31 +2083,31 @@
       }
     }
   },
-  "camera_toggle_camera": "Переключиться между задней и фронтальной камерой",
+  "camera_toggle_camera": "ÐŸÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒÑÑ Ð¼ÐµÐ¶Ð´Ñƒ Ð·Ð°Ð´Ð½ÐµÐ¹ Ð¸ Ñ„Ñ€Ð¾Ð½Ñ‚Ð°Ð»ÑŒÐ½Ð¾Ð¹ ÐºÐ°Ð¼ÐµÑ€Ð¾Ð¹",
   "@camera_toggle_camera": {
     "description": "Explanation for the icon to switch between cameras"
   },
-  "camera_toggle_flash": "Включить или выключить вспышку камеры",
+  "camera_toggle_flash": "Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐ¿Ñ‹ÑˆÐºÑƒ ÐºÐ°Ð¼ÐµÑ€Ñ‹",
   "@camera_toggle_flash": {
     "description": "Explanation for the icon to turn on/off the flash"
   },
-  "camera_enable_flash": "Включить фонарь",
+  "camera_enable_flash": "Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ„Ð¾Ð½Ð°Ñ€ÑŒ",
   "@camera_enable_flash": {
     "description": "Enable flash (tooltip)"
   },
-  "camera_disable_flash": "Выключить фонарь",
+  "camera_disable_flash": "Ð’Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ„Ð¾Ð½Ð°Ñ€ÑŒ",
   "@camera_disable_flash": {
     "description": "Disable flash (tooltip)"
   },
-  "camera_flash_error_dialog_title": "Произошла ошибка!",
+  "camera_flash_error_dialog_title": "ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°!",
   "@camera_flash_error_dialog_title": {
     "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "camera_flash_error_dialog_message": "Произошла ошибка переключения состояния вспышки. Убедитесь что у вашего смартфона не включен режим фонарика.",
+  "camera_flash_error_dialog_message": "ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ° Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ ÑÐ¾ÑÑ‚Ð¾ÑÐ½Ð¸Ñ Ð²ÑÐ¿Ñ‹ÑˆÐºÐ¸. Ð£Ð±ÐµÐ´Ð¸Ñ‚ÐµÑÑŒ Ñ‡Ñ‚Ð¾ Ñƒ Ð²Ð°ÑˆÐµÐ³Ð¾ ÑÐ¼Ð°Ñ€Ñ‚Ñ„Ð¾Ð½Ð° Ð½Ðµ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½ Ñ€ÐµÐ¶Ð¸Ð¼ Ñ„Ð¾Ð½Ð°Ñ€Ð¸ÐºÐ°.",
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "category_picker_no_category_found_button": "Назад",
+  "category_picker_no_category_found_button": "ÐÐ°Ð·Ð°Ð´",
   "@category_picker_no_category_found_button": {
     "description": "Button label when no category is available"
   },
@@ -2115,11 +2115,11 @@
   "@user_preferences_item_accessibility_hint": {
     "description": "A hint for screen readers to explain how external links work"
   },
-  "dev_preferences_screen_title": "Режим отладки",
+  "dev_preferences_screen_title": "Ð ÐµÐ¶Ð¸Ð¼ Ð¾Ñ‚Ð»Ð°Ð´ÐºÐ¸",
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
-  "dev_preferences_reset_onboarding_title": "Перезапустить ознакомление",
+  "dev_preferences_reset_onboarding_title": "ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð¾Ð·Ð½Ð°ÐºÐ¾Ð¼Ð»ÐµÐ½Ð¸Ðµ",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
   },
@@ -2127,15 +2127,15 @@
   "@dev_preferences_reset_onboarding_subtitle": {
     "description": "User dev preferences - Reset onboarding - Subtitle"
   },
-  "dev_preferences_environment_switch_title": "Переключить между openfoodfacts.org (PROD) и тестовой средой",
+  "dev_preferences_environment_switch_title": "ÐŸÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¼ÐµÐ¶Ð´Ñƒ openfoodfacts.org (PROD) Ð¸ Ñ‚ÐµÑÑ‚Ð¾Ð²Ð¾Ð¹ ÑÑ€ÐµÐ´Ð¾Ð¹",
   "@dev_preferences_environment_switch_title": {
     "description": "User dev preferences - Environment (prod/test) switcher - Title"
   },
-  "dev_preferences_test_environment_title": "Параметры тестовой среды",
+  "dev_preferences_test_environment_title": "ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ñ‚ÐµÑÑ‚Ð¾Ð²Ð¾Ð¹ ÑÑ€ÐµÐ´Ñ‹",
   "@dev_preferences_test_environment_title": {
     "description": "User dev preferences - Info about test environment - Title"
   },
-  "dev_preferences_test_environment_subtitle": "Базовый URL для текущей тестовой среды: {url}",
+  "dev_preferences_test_environment_subtitle": "Ð‘Ð°Ð·Ð¾Ð²Ñ‹Ð¹ URL Ð´Ð»Ñ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ¹ Ñ‚ÐµÑÑ‚Ð¾Ð²Ð¾Ð¹ ÑÑ€ÐµÐ´Ñ‹: {url}",
   "@dev_preferences_test_environment_subtitle": {
     "description": "User dev preferences - Info about test environment - Value",
     "placeholders": {
@@ -2144,43 +2144,43 @@
       }
     }
   },
-  "dev_preferences_test_environment_dialog_title": "Хост тестового окружения",
+  "dev_preferences_test_environment_dialog_title": "Ð¥Ð¾ÑÑ‚ Ñ‚ÐµÑÑ‚Ð¾Ð²Ð¾Ð³Ð¾ Ð¾ÐºÑ€ÑƒÐ¶ÐµÐ½Ð¸Ñ",
   "@dev_preferences_test_environment_dialog_title": {
     "description": "User dev preferences - Info about test environment - Dialog title"
   },
-  "dev_preferences_ml_kit_title": "Использовать ML Kit",
+  "dev_preferences_ml_kit_title": "Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ML Kit",
   "@dev_preferences_ml_kit_title": {
     "description": "User dev preferences - Enable ML Kit - Title"
   },
-  "dev_preferences_ml_kit_subtitle": "тогда вам нужно перезапустить это приложение",
+  "dev_preferences_ml_kit_subtitle": "Ñ‚Ð¾Ð³Ð´Ð° Ð²Ð°Ð¼ Ð½ÑƒÐ¶Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ",
   "@dev_preferences_ml_kit_subtitle": {
     "description": "User dev preferences - Enable ML Kit - Subtitle"
   },
-  "dev_preferences_product_additional_features_title": "Дополнительная кнопка на странице продукта",
+  "dev_preferences_product_additional_features_title": "Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "@dev_preferences_product_additional_features_title": {
     "description": "User dev preferences - Additional buttons on product page - Title"
   },
-  "dev_preferences_edit_ingredients_title": "Редактировать состав с помощью кнопки на панели информации",
+  "dev_preferences_edit_ingredients_title": "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ¾ÑÑ‚Ð°Ð² Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð½Ð° Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸",
   "@dev_preferences_edit_ingredients_title": {
     "description": "User dev preferences - Additional buttons on product page - Subtitle"
   },
-  "dev_preferences_export_history_title": "Экспортировать историю",
+  "dev_preferences_export_history_title": "Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ",
   "@dev_preferences_export_history_title": {
     "description": "User dev preferences - Export history - Title"
   },
-  "dev_preferences_export_history_progress_error": "исключение",
+  "dev_preferences_export_history_progress_error": "Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ",
   "@dev_preferences_export_history_progress_error": {
     "description": "User dev preferences - Export history - Item - Error"
   },
-  "dev_preferences_export_history_progress_found": "продукт найден",
+  "dev_preferences_export_history_progress_found": "Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚ Ð½Ð°Ð¹Ð´ÐµÐ½",
   "@dev_preferences_export_history_progress_found": {
     "description": "User dev preferences - Export history - Item - Found"
   },
-  "dev_preferences_export_history_progress_not_found": "продукт НЕ найден",
+  "dev_preferences_export_history_progress_not_found": "Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚ ÐÐ• Ð½Ð°Ð¹Ð´ÐµÐ½",
   "@dev_preferences_export_history_progress_not_found": {
     "description": "User dev preferences - Export history - Item - Not found"
   },
-  "dev_preferences_export_history_dialog_title": "Экспортировать историю",
+  "dev_preferences_export_history_dialog_title": "Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ",
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
@@ -2188,12 +2188,12 @@
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
-  "dev_preferences_button_negative": "Отмена",
+  "dev_preferences_button_negative": "ÐžÑ‚Ð¼ÐµÐ½Ð°",
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
-  "dev_preferences_migration_title": "Перенос данных из V1",
-  "dev_preferences_migration_subtitle": "Статус: {status}",
+  "dev_preferences_migration_title": "ÐŸÐµÑ€ÐµÐ½Ð¾Ñ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¸Ð· V1",
+  "dev_preferences_migration_subtitle": "Ð¡Ñ‚Ð°Ñ‚ÑƒÑ: {status}",
   "@dev_preferences_migration_subtitle": {
     "placeholders": {
       "status": {
@@ -2201,13 +2201,13 @@
       }
     }
   },
-  "dev_preferences_migration_status_already_done": "успех или свежая установка",
-  "dev_preferences_migration_status_success": "успех",
-  "dev_preferences_migration_status_error": "ошибка",
-  "dev_preferences_migration_status_in_progress": "в процессе выполнения",
-  "dev_preferences_migration_status_required": "обязательно (нажать, чтобы начать)",
-  "dev_preferences_migration_status_not_started": "неизвестно",
-  "dev_preferences_import_history_subtitle": "Очистит историю и поместит туда 3 продукта",
+  "dev_preferences_migration_status_already_done": "ÑƒÑÐ¿ÐµÑ… Ð¸Ð»Ð¸ ÑÐ²ÐµÐ¶Ð°Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ°",
+  "dev_preferences_migration_status_success": "ÑƒÑÐ¿ÐµÑ…",
+  "dev_preferences_migration_status_error": "Ð¾ÑˆÐ¸Ð±ÐºÐ°",
+  "dev_preferences_migration_status_in_progress": "Ð² Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ",
+  "dev_preferences_migration_status_required": "Ð¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ (Ð½Ð°Ð¶Ð°Ñ‚ÑŒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ)",
+  "dev_preferences_migration_status_not_started": "Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾",
+  "dev_preferences_import_history_subtitle": "ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ Ð¸ Ð¿Ð¾Ð¼ÐµÑÑ‚Ð¸Ñ‚ Ñ‚ÑƒÐ´Ð° 3 Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
@@ -2223,7 +2223,7 @@
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
-  "dev_preferences_news_provider_status_title": "Статус",
+  "dev_preferences_news_provider_status_title": "Ð¡Ñ‚Ð°Ñ‚ÑƒÑ",
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
@@ -2239,7 +2239,7 @@
   "product_type_label_food": "Food",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
-  "product_type_label_product": "Прочее",
+  "product_type_label_product": "ÐŸÑ€Ð¾Ñ‡ÐµÐµ",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2261,7 +2261,7 @@
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
   "prices_add_an_item": "Add an item",
-  "prices_add_a_price": "Добавить цену",
+  "prices_add_a_price": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ñ†ÐµÐ½Ñƒ",
   "prices_add_a_receipt": "Add a receipt",
   "prices_add_price_tags": "Add price tags",
   "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
@@ -2273,7 +2273,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Продукт не найден",
+  "prices_barcode_search_not_found": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½",
   "prices_barcode_search_none_yet": "No product yet",
   "prices_barcode_search_running": "Looking for {barcode}",
   "@prices_barcode_search_running": {
@@ -2291,9 +2291,7 @@
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "product": {
         "type": "String"
       }
@@ -2303,9 +2301,7 @@
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
@@ -2355,9 +2351,7 @@
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
@@ -2400,55 +2394,48 @@
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
+      "count": {"type": "int"}
       }
-    }
+    
   },
   "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
-  "prices_amount_price_normal": "Цена",
+  "prices_amount_price_normal": "Ð¦ÐµÐ½Ð°",
   "prices_amount_price_discounted": "Discounted price",
   "prices_amount_price_not_discounted": "Original price",
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
-  "prices_currency_subtitle": "Валюта",
-  "prices_date_subtitle": "Дата",
+  "prices_currency_subtitle": "Ð’Ð°Ð»ÑŽÑ‚Ð°",
+  "prices_date_subtitle": "Ð”Ð°Ñ‚Ð°",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
   "prices_proof_find": "Select a proof",
-  "prices_proof_receipt": "Чек",
+  "prices_proof_receipt": "Ð§ÐµÐº",
   "prices_proof_price_tag": "Price tag",
   "prices_proof_mandatory": "You need to select a proof!",
   "prices_add_validation_error": "Validation error",
@@ -2494,7 +2481,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "dev_preferences_import_history_result_success": "Готово",
+  "dev_preferences_import_history_result_success": "Ð“Ð¾Ñ‚Ð¾Ð²Ð¾",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
   },
@@ -2502,15 +2489,15 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Данные",
+  "dev_mode_section_data": "Ð”Ð°Ð½Ð½Ñ‹Ðµ",
   "dev_mode_section_experimental_features": "Experimental features",
   "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
   "@dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
-  "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+  "dev_mode_hide_environmental_score_title": "Exclude Greenâ€¯Score",
   "@dev_mode_hide_environmental_score_title": {
-    "description": "User dev preferences - Disable Green Score - Title"
+    "description": "User dev preferences - Disable Greenâ€¯Score - Title"
   },
   "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
   "@dev_mode_spellchecker_for_ocr_title": {
@@ -2537,9 +2524,7 @@
   "@product_search_button_download_more": {
     "description": "Product search list - Button to download more results",
     "placeholders": {
-      "count": {
-        "type": "int"
-      },
+      "count": {"type": "int"},
       "downloaded": {
         "type": "int"
       },
@@ -2548,26 +2533,26 @@
       }
     }
   },
-  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few secondsâ€¦",
   "@product_search_loading_message": {
     "description": "This message will be displayed when a search is in progress.",
     "search": {
       "type": "String"
     }
   },
-  "user_search_contributor_title": "Добавленные мной продукты",
+  "user_search_contributor_title": "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ðµ Ð¼Ð½Ð¾Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
-  "user_search_informer_title": "Отредактированные мной продукты",
+  "user_search_informer_title": "ÐžÑ‚Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð¼Ð½Ð¾Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
   "@user_search_informer_title": {
     "description": "User search (informer): list tile title"
   },
-  "user_search_photographer_title": "Сфотографированные мной продукты",
+  "user_search_photographer_title": "Ð¡Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð¼Ð½Ð¾Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
   "@user_search_photographer_title": {
     "description": "User search (photographer): list tile title"
   },
-  "user_search_to_be_completed_title": "Мои незавершённые продукты",
+  "user_search_to_be_completed_title": "ÐœÐ¾Ð¸ Ð½ÐµÐ·Ð°Ð²ÐµÑ€ÑˆÑ‘Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
@@ -2608,7 +2593,7 @@
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
-  "all_search_to_be_completed_title": "Все незавершённые продукты",
+  "all_search_to_be_completed_title": "Ð’ÑÐµ Ð½ÐµÐ·Ð°Ð²ÐµÑ€ÑˆÑ‘Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ñ‹",
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
@@ -2616,23 +2601,23 @@
   "@categorize_products_country_title": {
     "description": "Help categorize products in your country: list tile title"
   },
-  "edit_product_action_retake_picture": "Переснять",
+  "edit_product_action_retake_picture": "ÐŸÐµÑ€ÐµÑÐ½ÑÑ‚ÑŒ",
   "@edit_product_action_retake_picture": {
     "description": "Product edition - FAB actions - retake a picture"
   },
-  "edit_product_action_take_picture": "Сфотографировать",
+  "edit_product_action_take_picture": "Ð¡Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@edit_product_action_take_picture": {
     "description": "Product edition - FAB actions - take a picture"
   },
-  "edit_product_action_confirm": "Подтвердить",
+  "edit_product_action_confirm": "ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ",
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+  "signup_page_terms_of_use_line1": "I agree to the Openâ€¯Foodâ€¯Facts ",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
-  "signup_page_terms_of_use_line2": "условия использования и вклад",
+  "signup_page_terms_of_use_line2": "ÑƒÑÐ»Ð¾Ð²Ð¸Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¸ Ð²ÐºÐ»Ð°Ð´",
   "@signup_page_terms_of_use_line2": {
     "description": "User consent for terms of use (line 2)"
   },
@@ -2640,7 +2625,7 @@
   "@analytics_consent_image_semantic_label": {
     "description": "Consent Analytics icon semantics label"
   },
-  "knowledge_panel_page_loading_error": "Критическая ошибка: {error}",
+  "knowledge_panel_page_loading_error": "ÐšÑ€Ð¸Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¾ÑˆÐ¸Ð±ÐºÐ°: {error}",
   "@knowledge_panel_page_loading_error": {
     "description": "Knowledge panel page template - Error while loading future",
     "placeholders": {
@@ -2649,7 +2634,7 @@
       }
     }
   },
-  "preferences_page_loading_error": "Критическая ошибка: {error}",
+  "preferences_page_loading_error": "ÐšÑ€Ð¸Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¾ÑˆÐ¸Ð±ÐºÐ°: {error}",
   "@preferences_page_loading_error": {
     "description": "Preferences page - Error while loading future",
     "placeholders": {
@@ -2658,15 +2643,15 @@
       }
     }
   },
-  "summary_card_button_add_basic_details": "Детальная информация",
+  "summary_card_button_add_basic_details": "Ð”ÐµÑ‚Ð°Ð»ÑŒÐ½Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ",
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
-  "edit_photo_button_label": "Редактировать",
+  "edit_photo_button_label": "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
-  "edit_photo_unselect_button_label": "Отменить выбор фото",
+  "edit_photo_unselect_button_label": "ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð²Ñ‹Ð±Ð¾Ñ€ Ñ„Ð¾Ñ‚Ð¾",
   "@edit_photo_unselect_button_label": {
     "description": "Edit 'unselect photo' button label"
   },
@@ -2682,7 +2667,7 @@
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_download_label": "Retrieving existing images…",
+  "edit_photo_select_existing_download_label": "Retrieving existing imagesâ€¦",
   "@edit_photo_select_existing_download_label": {
     "description": "Dialog label"
   },
@@ -2698,12 +2683,12 @@
   "@edit_photo_language_none": {
     "description": "Warning message: for this product and this field, there are no images at all, in any language"
   },
-  "category_picker_screen_title": "Категории",
+  "category_picker_screen_title": "ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸",
   "@category_picker_screen_title": {
     "description": "Categories picker screen title"
   },
-  "basic_details": "Основные сведения",
-  "product_name": "Название продукта",
+  "basic_details": "ÐžÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ",
+  "product_name": "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°",
   "product_names": "Product Names",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
@@ -2764,11 +2749,11 @@
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols Â®, â„¢, Â© or similar",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**®**",
+  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**Â®**",
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
@@ -2776,14 +2761,12 @@
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
-  "brand_name": "Бренд",
+  "brand_name": "Ð‘Ñ€ÐµÐ½Ð´",
   "brand_names": "Brand names",
-  "add_basic_details_brand_name_error": "Пожалуйста, введите название бренда",
+  "add_basic_details_brand_name_error": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ñ€ÐµÐ½Ð´Ð°",
   "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
   "add_basic_details_product_brand_help_title": "Good practices: Brands",
   "@add_basic_details_product_brand_help_title": {
@@ -2829,8 +2812,8 @@
   "@add_basic_details_product_brand_help_good_examples_2": {
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
-  "quantity": "Количество и вес",
-  "add_basic_details_quantity_hint": "Введите вес и при необходимости количество (например, 4x100гр)",
+  "quantity": "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸ Ð²ÐµÑ",
+  "add_basic_details_quantity_hint": "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²ÐµÑ Ð¸ Ð¿Ñ€Ð¸ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, 4x100Ð³Ñ€)",
   "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
@@ -2851,8 +2834,8 @@
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "barcode": "Штрих-код",
-  "barcode_barcode": "Штрихкод: {barcode}",
+  "barcode": "Ð¨Ñ‚Ñ€Ð¸Ñ…-ÐºÐ¾Ð´",
+  "barcode_barcode": "Ð¨Ñ‚Ñ€Ð¸Ñ…ÐºÐ¾Ð´: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
     "placeholders": {
@@ -2861,17 +2844,17 @@
       }
     }
   },
-  "barcode_invalid_error": "Неверный штрихкод",
-  "basic_details_add_success": "Основные сведения успешно добавлены",
-  "basic_details_add_error": "Не удалось добавить основные сведения. Повторите попытку через некоторое время",
+  "barcode_invalid_error": "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ ÑˆÑ‚Ñ€Ð¸Ñ…ÐºÐ¾Ð´",
+  "basic_details_add_success": "ÐžÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ñ‹",
+  "basic_details_add_error": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾ÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ. ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÑƒ Ñ‡ÐµÑ€ÐµÐ· Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð²Ñ€ÐµÐ¼Ñ",
   "@basic_details_add_error": {
     "description": "Error message when error occurs while submitting basic details"
   },
-  "clear_search": "Очистить поиск",
+  "clear_search": "ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð¸ÑÐº",
   "@confirm_clearclear_search": {
     "description": "Tooltip to explain that the X button clears the content of the search"
   },
-  "confirm_clear": "Вы собираетесь очистить всю вашу историю: вы уверены, что хотите продолжить?",
+  "confirm_clear": "Ð’Ñ‹ ÑÐ¾Ð±Ð¸Ñ€Ð°ÐµÑ‚ÐµÑÑŒ Ð¾Ñ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ð²ÑÑŽ Ð²Ð°ÑˆÑƒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ: Ð²Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ñ‡Ñ‚Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ?",
   "@confirm_clear": {
     "description": "Asking about whether to clear the history list or not"
   },
@@ -2887,7 +2870,7 @@
       }
     }
   },
-  "confirm_delete_user_list_title": "Удалить список?",
+  "confirm_delete_user_list_title": "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº?",
   "@confirm_delete_user_list_title": {
     "description": "Title when asking about whether to delete the list or not"
   },
@@ -2904,7 +2887,7 @@
   "@confirm_delete_user_list_button": {
     "description": "Button to delete a list"
   },
-  "importance_label": "Важность {name}: {id}",
+  "importance_label": "Ð’Ð°Ð¶Ð½Ð¾ÑÑ‚ÑŒ {name}: {id}",
   "@importance_label": {
     "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
     "placeholders": {
@@ -2916,34 +2899,34 @@
       }
     }
   },
-  "user_list_all_title": "Списки",
+  "user_list_all_title": "Ð¡Ð¿Ð¸ÑÐºÐ¸",
   "@user_list_all_title": {
     "description": "Title about the user lists in the user preferences"
   },
-  "user_list_all_empty": "Создать ваш первый список",
+  "user_list_all_empty": "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð²Ð°Ñˆ Ð¿ÐµÑ€Ð²Ñ‹Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº",
   "@user_list_all_empty": {
     "description": "Small message when there are no user lists"
   },
-  "product_list_select": "Выберите список",
+  "product_list_select": "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ¿Ð¸ÑÐ¾Ðº",
   "@product_list_select": {
     "description": "Top title for the selection of a list"
   },
-  "user_list_length": "{count,plural, =0{Пустой список} =1{Один продукт} other{{count} продукт(а/ов)}}",
+  "user_list_length": "{count,plural, =0{ÐŸÑƒÑÑ‚Ð¾Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº} =1{ÐžÐ´Ð¸Ð½ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚} other{{count} Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚(Ð°/Ð¾Ð²)}}",
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "add_list_label": "Добавить список",
+  "add_list_label": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº",
   "@add_list_label": {
     "description": "Label for the add list button"
   },
-  "open_food_preferences_tooltip": "Изменить Ваши предпочтения в еде",
+  "open_food_preferences_tooltip": "Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð’Ð°ÑˆÐ¸ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸Ñ Ð² ÐµÐ´Ðµ",
   "@open_food_preferences_tooltip": {
     "description": "Tooltip (message displayed on long press) to open the user food preferences"
   },
-  "add_photo_button_label": "Добавить фото",
+  "add_photo_button_label": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ñ„Ð¾Ñ‚Ð¾",
   "@add_photo_button_label": {
     "description": "Label for the add photo button"
   },
@@ -2963,35 +2946,35 @@
   "@add_label_photo_button_label": {
     "description": "Label for the add LABELS photo button"
   },
-  "choose_image_source_title": "Выбрать источник изображения",
+  "choose_image_source_title": "Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ",
   "@choose_image_source_title": {
     "description": "Title for the image source chooser"
   },
-  "choose_image_source_body": "Пожалуйста, выберите источник изображения",
+  "choose_image_source_body": "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ",
   "@choose_image_source_body": {
     "description": "Body for the image source chooser"
   },
-  "gallery_source_label": "Галерея",
+  "gallery_source_label": "Ð“Ð°Ð»ÐµÑ€ÐµÑ",
   "@gallery_source_label": {
     "description": "Label for the gallery image source"
   },
-  "gallery_source_access_denied_dialog_title": "Доступ запрещён",
+  "gallery_source_access_denied_dialog_title": "Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ð·Ð°Ð¿Ñ€ÐµÑ‰Ñ‘Ð½",
   "@gallery_source_access_denied_dialog_title": {
     "description": "On iOS, the user has refused to give the permission (title of the dialog)"
   },
-  "gallery_source_access_denied_dialog_message_ios": "К сожалению, приложение не может получить доступ к вашей галерее, так как вы ранее отказали в разрешении.\n\nПожалуйста, перейдите в настройки приложения в настройках телефона -> Фотографии",
+  "gallery_source_access_denied_dialog_message_ios": "Ðš ÑÐ¾Ð¶Ð°Ð»ÐµÐ½Ð¸ÑŽ, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ð²Ð°ÑˆÐµÐ¹ Ð³Ð°Ð»ÐµÑ€ÐµÐµ, Ñ‚Ð°Ðº ÐºÐ°Ðº Ð²Ñ‹ Ñ€Ð°Ð½ÐµÐµ Ð¾Ñ‚ÐºÐ°Ð·Ð°Ð»Ð¸ Ð² Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ð¸.\n\nÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿ÐµÑ€ÐµÐ¹Ð´Ð¸Ñ‚Ðµ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ… Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð° -> Ð¤Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸",
   "@gallery_source_access_denied_dialog_message_ios": {
     "description": "On iOS, the user has refused to give the permission"
   },
-  "gallery_source_access_denied_dialog_button": "Откройте приложение Настройки",
+  "gallery_source_access_denied_dialog_button": "ÐžÑ‚ÐºÑ€Ð¾Ð¹Ñ‚Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸",
   "@gallery_source_access_denied_dialog_button": {
     "description": "Button to open the app settings"
   },
-  "share": "Поделиться",
+  "share": "ÐŸÐ¾Ð´ÐµÐ»Ð¸Ñ‚ÑŒÑÑ",
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+  "share_product_text": "Have a look at this product on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3000,7 +2983,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Have a look at this product on Openâ€¯Beautyâ€¯Facts: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3009,7 +2992,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Have a look at this product on Openâ€¯PetFoodâ€¯Facts: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3018,7 +3001,7 @@
       }
     }
   },
-  "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+  "share_product_text_product": "Have a look at this product on Openâ€¯Productsâ€¯Facts: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3027,7 +3010,7 @@
       }
     }
   },
-  "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+  "share_product_list_text": "Have a look at my list of products on Openâ€¯Foodâ€¯Facts: {url}",
   "@share_product_list_text": {
     "description": "The content which is send, when sharing a product list",
     "placeholders": {
@@ -3036,19 +3019,19 @@
       }
     }
   },
-  "capture": "Новый снимок",
+  "capture": "ÐÐ¾Ð²Ñ‹Ð¹ ÑÐ½Ð¸Ð¼Ð¾Ðº",
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "Сфотографировать",
+  "capture_new_picture": "Ð¡Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
-  "choose_from_gallery": "Выбрать из галереи",
+  "choose_from_gallery": "Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ð¸Ð· Ð³Ð°Ð»ÐµÑ€ÐµÐ¸",
   "@choose_from_gallery": {
     "description": "Button label for choosing a photo from gallery"
   },
-  "image_upload_queued": "Изображение будет загружено в фоновом режиме как можно скорее.",
+  "image_upload_queued": "Ð˜Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ ÐºÐ°Ðº Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐºÐ¾Ñ€ÐµÐµ.",
   "@image_upload_queued": {
     "description": "Message when a photo is queued for upload"
   },
@@ -3064,34 +3047,34 @@
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
   },
-  "expand_nutrition_facts": "Развернуть таблицу пищевой ценности",
+  "expand_nutrition_facts": "Ð Ð°Ð·Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸",
   "@expand_nutrition_facts": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_nutrition_facts_body": "Оставить таблицу пищевой ценности развернутой",
-  "expand_ingredients": "Развернуть ингредиенты",
+  "expand_nutrition_facts_body": "ÐžÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸ Ñ€Ð°Ð·Ð²ÐµÑ€Ð½ÑƒÑ‚Ð¾Ð¹",
+  "expand_ingredients": "Ð Ð°Ð·Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹",
   "@expand_ingredients": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_ingredients_body": "Оставить панель ингредиентов развернутой",
+  "expand_ingredients_body": "ÐžÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð¾Ð² Ñ€Ð°Ð·Ð²ÐµÑ€Ð½ÑƒÑ‚Ð¾Ð¹",
   "search_product_filter_visibility_title": "Show a filter in the search",
   "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
-  "no_internet_connection": "Нет подключения к интернету",
+  "no_internet_connection": "ÐÐµÑ‚ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ðº Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ñƒ",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
   },
-  "world_results_label": "Весь мир",
+  "world_results_label": "Ð’ÐµÑÑŒ Ð¼Ð¸Ñ€",
   "@world_results_label": {
     "description": "Label describing the current source of the results: the entire world. Keep it short"
   },
-  "world_results_action": "Расширить ваш поиск до всего мира",
+  "world_results_action": "Ð Ð°ÑÑˆÐ¸Ñ€Ð¸Ñ‚ÑŒ Ð²Ð°Ñˆ Ð¿Ð¾Ð¸ÑÐº Ð´Ð¾ Ð²ÑÐµÐ³Ð¾ Ð¼Ð¸Ñ€Ð°",
   "@world_results_action": {
     "description": "Label for the action button that displays the results from the entire world"
   },
-  "copy_to_clipboard": "Копировать",
+  "copy_to_clipboard": "ÐšÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
   "@copy_to_clipboard": {
     "description": "Copy to clipboard button description"
   },
@@ -3103,17 +3086,17 @@
   "@no_data_available_in_clipboard": {
     "description": "No data available in your clipboard"
   },
-  "clipboard_barcode_copy": "Скопировать штрихкод в буфер обмена",
+  "clipboard_barcode_copy": "Ð¡ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÑˆÑ‚Ñ€Ð¸Ñ…ÐºÐ¾Ð´ Ð² Ð±ÑƒÑ„ÐµÑ€ Ð¾Ð±Ð¼ÐµÐ½Ð°",
   "@clipboard_barcode_copied": {
     "description": "Snackbar label after clipboard copy"
   },
-  "clipboard_barcode_copied": "Штрих-код {barcode} скопирован в буфер обмена!",
+  "clipboard_barcode_copied": "Ð¨Ñ‚Ñ€Ð¸Ñ…-ÐºÐ¾Ð´ {barcode} ÑÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½ Ð² Ð±ÑƒÑ„ÐµÑ€ Ð¾Ð±Ð¼ÐµÐ½Ð°!",
   "open_product_website": "Open this product on the website",
-  "language_picker_label": "Ваш язык",
+  "language_picker_label": "Ð’Ð°Ñˆ ÑÐ·Ñ‹Ðº",
   "@language_picker_label": {
     "description": "Choose Application Language"
   },
-  "country_picker_label": "Ваша страна",
+  "country_picker_label": "Ð’Ð°ÑˆÐ° ÑÑ‚Ñ€Ð°Ð½Ð°",
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3121,11 +3104,11 @@
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
-  "help_with_openfoodfacts": "Помощь с OpenFoodFacts",
+  "help_with_openfoodfacts": "ÐŸÐ¾Ð¼Ð¾Ñ‰ÑŒ Ñ OpenFoodFacts",
   "@help_with_openfoodfacts": {
     "description": "Label for the email title"
   },
-  "product_task_background_schedule": "Продукт будет обновлен в фоновом режиме как можно скорее.",
+  "product_task_background_schedule": "ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚ Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ ÐºÐ°Ðº Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐºÐ¾Ñ€ÐµÐµ.",
   "@product_task_background_schedule": {
     "description": "Message when a product is scheduled for background update"
   },
@@ -3137,9 +3120,9 @@
   "@no_email_client_available_dialog_content": {
     "description": "Content for the dialog when no email client is installed on the device"
   },
-  "all_images": "Все изображения",
-  "selected_images": "Ważne: potrzebujemy Twojego wsparcia!\n\nOpen Food Facts to wspólny projekt stworzony przez dziesiątki tysięcy wolontariuszy i zarządzany przez organizację non-profit z 4 pracownikami.\nPotrzebujemy Twoich darowizn, aby sfinansować budżet Open Food Facts na rok 2022 i kontynuować prace nad projektem. Dziękuję! ❤️",
-  "product_card_remove_product_tooltip": "Удалить продукт",
+  "all_images": "Ð’ÑÐµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ",
+  "selected_images": "WaÅ¼ne: potrzebujemy Twojego wsparcia!\n\nOpen Food Facts to wspÃ³lny projekt stworzony przez dziesiÄ…tki tysiÄ™cy wolontariuszy i zarzÄ…dzany przez organizacjÄ™ non-profit z 4 pracownikami.\nPotrzebujemy Twoich darowizn, aby sfinansowaÄ‡ budÅ¼et Open Food Facts na rok 2022 i kontynuowaÄ‡ prace nad projektem. DziÄ™kujÄ™! â¤ï¸",
+  "product_card_remove_product_tooltip": "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
   "@product_card_remove_product_tooltip": {
     "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
   },
@@ -3165,27 +3148,27 @@
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
-  "scan_product_loading": "Вы отсканировали\nштрих-код:",
+  "scan_product_loading": "Ð’Ñ‹ Ð¾Ñ‚ÑÐºÐ°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð»Ð¸\nÑˆÑ‚Ñ€Ð¸Ñ…-ÐºÐ¾Ð´:",
   "@scan_product_loading": {
     "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_initial": "Мы ищем этот продукт!\nПожалуйста, подождите несколько секунд…",
+  "scan_product_loading_initial": "ÐœÑ‹ Ð¸Ñ‰ÐµÐ¼ ÑÑ‚Ð¾Ñ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚!\nÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ð¾Ð´Ð¾Ð¶Ð´Ð¸Ñ‚Ðµ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐµÐºÑƒÐ½Ð´â€¦",
   "@scan_product_loading_initial": {
     "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_long_request": "Мы все еще ищем этот продукт!\nВы считаете, что загрузка займет много времени? Так и есть…",
+  "scan_product_loading_long_request": "ÐœÑ‹ Ð²ÑÐµ ÐµÑ‰Ðµ Ð¸Ñ‰ÐµÐ¼ ÑÑ‚Ð¾Ñ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚!\nÐ’Ñ‹ ÑÑ‡Ð¸Ñ‚Ð°ÐµÑ‚Ðµ, Ñ‡Ñ‚Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð·Ð°Ð¹Ð¼ÐµÑ‚ Ð¼Ð½Ð¾Ð³Ð¾ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸? Ð¢Ð°Ðº Ð¸ ÐµÑÑ‚ÑŒâ€¦",
   "@scan_product_loading_long_request": {
     "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_unresponsive": "Мы все еще ищем этот продукт.\nХотите перезапустить поиск?",
+  "scan_product_loading_unresponsive": "ÐœÑ‹ Ð²ÑÐµ ÐµÑ‰Ðµ Ð¸Ñ‰ÐµÐ¼ ÑÑ‚Ð¾Ñ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚.\nÐ¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð¸ÑÐº?",
   "@scan_product_loading_unresponsive": {
     "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_restart_button": "Искать заново",
+  "scan_product_loading_restart_button": "Ð˜ÑÐºÐ°Ñ‚ÑŒ Ð·Ð°Ð½Ð¾Ð²Ð¾",
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
-  "portion_calculator_description": "Рассчет пищевой ценности для определенного количества",
+  "portion_calculator_description": "Ð Ð°ÑÑÑ‡ÐµÑ‚ Ð¿Ð¸Ñ‰ÐµÐ²Ð¾Ð¹ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚Ð¸ Ð´Ð»Ñ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð°",
   "@portion_calculator_description": {
     "description": "Sort of title that describes the portion calculator."
   },
@@ -3213,7 +3196,7 @@
   "@portion_calculator_computation_error": {
     "description": "Error message to explain that the computation of the portion calculator failed."
   },
-  "portion_calculator_result_title": "Пищевая ценность на {grams} г (или мл)",
+  "portion_calculator_result_title": "ÐŸÐ¸Ñ‰ÐµÐ²Ð°Ñ Ñ†ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ Ð½Ð° {grams} Ð³ (Ð¸Ð»Ð¸ Ð¼Ð»)",
   "@portion_calculator_result_title": {
     "description": "Title of the results of the portion calculator.",
     "placeholders": {
@@ -3222,15 +3205,15 @@
       }
     }
   },
-  "offline_data": "Автономные данные",
+  "offline_data": "ÐÐ²Ñ‚Ð¾Ð½Ð¾Ð¼Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ",
   "@offline_data": {
     "description": "App bar title for the offline data page"
   },
-  "ocr_image_upload_instruction": "Загрузка изображения с извлечением автоматически распознанного текста.",
+  "ocr_image_upload_instruction": "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ñ Ð¸Ð·Ð²Ð»ÐµÑ‡ÐµÐ½Ð¸ÐµÐ¼ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ñ€Ð°ÑÐ¿Ð¾Ð·Ð½Ð°Ð½Ð½Ð¾Ð³Ð¾ Ñ‚ÐµÐºÑÑ‚Ð°.",
   "@ocr_image_upload_instruction": {
     "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
   },
-  "upload_image": "Загрузить Фото",
+  "upload_image": "Ð—Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ Ð¤Ð¾Ñ‚Ð¾",
   "@upload_image": {
     "description": "Message shown on asking to upload image"
   },
@@ -3242,15 +3225,15 @@
   "@word_separator": {
     "description": "Word separator string. In English, this is a comma followed by a space: ', '"
   },
-  "image_download_error": "Не удалось загрузить изображение",
+  "image_download_error": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ",
   "@image_download_error": {
     "description": "Error message, when image download fails"
   },
-  "image_edit_url_error": "Не удалось отредактировать изображение, так как URL изображения не был задан.",
+  "image_edit_url_error": "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ñ‚Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ, Ñ‚Ð°Ðº ÐºÐ°Ðº URL Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð½Ðµ Ð±Ñ‹Ð» Ð·Ð°Ð´Ð°Ð½.",
   "@image_edit_url_error": {
     "description": "Error message, when editing image fails, due to missing url."
   },
-  "user_picture_source_remember": "Запомнить мой выбор",
+  "user_picture_source_remember": "Ð—Ð°Ð¿Ð¾Ð¼Ð½Ð¸Ñ‚ÑŒ Ð¼Ð¾Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€",
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
@@ -3258,7 +3241,7 @@
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
-  "robotoff_continue": "Продолжить",
+  "robotoff_continue": "ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ",
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
@@ -3266,10 +3249,10 @@
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
-      "count": {}
+      "count": {"type": "int"}
     }
   },
-  "show_password": "Показать пароль",
+  "show_password": "ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ",
   "@show_password": {
     "description": "Show hidden password in password field"
   },
@@ -3289,16 +3272,16 @@
   "@owner_field_image": {
     "description": "An image is directly provided by the producer. It may be locked and not be editable."
   },
-  "edit_packagings_title": "Компоненты упаковки",
+  "edit_packagings_title": "ÐšÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚Ñ‹ ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐ¸",
   "@edit_packagings_title": {
     "description": "Title of the structured packagings page"
   },
-  "edit_packagings_element_add": "Добавить компонент упаковки",
+  "edit_packagings_element_add": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚ ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐ¸",
   "@edit_packagings_element_add": {
     "description": "Button label"
   },
-  "edit_packagings_completed": "Упаковка завершена",
-  "edit_packagings_element_title": "Компонент упаковки #{index}",
+  "edit_packagings_completed": "Ð£Ð¿Ð°ÐºÐ¾Ð²ÐºÐ° Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð°",
+  "edit_packagings_element_title": "ÐšÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚ ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐ¸ #{index}",
   "@edit_packagings_element_title": {
     "description": "Element title. Please do not change the index placeholder",
     "placeholders": {
@@ -3315,7 +3298,7 @@
   "@edit_packagings_element_hint_units": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_field_shape": "Форма",
+  "edit_packagings_element_field_shape": "Ð¤Ð¾Ñ€Ð¼Ð°",
   "@edit_packagings_element_field_shape": {
     "description": "Field label"
   },
@@ -3323,11 +3306,11 @@
   "@edit_packagings_element_hint_shape": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_shape": "Бутылка",
+  "edit_packagings_element_example_shape": "Ð‘ÑƒÑ‚Ñ‹Ð»ÐºÐ°",
   "@edit_packagings_element_example_shape": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_material": "Материал",
+  "edit_packagings_element_field_material": "ÐœÐ°Ñ‚ÐµÑ€Ð¸Ð°Ð»",
   "@edit_packagings_element_field_material": {
     "description": "Field label"
   },
@@ -3335,11 +3318,11 @@
   "@edit_packagings_element_hint_material": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_material": "Стекло",
+  "edit_packagings_element_example_material": "Ð¡Ñ‚ÐµÐºÐ»Ð¾",
   "@edit_packagings_element_example_material": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_recycling": "Инструкция по переработке",
+  "edit_packagings_element_field_recycling": "Ð˜Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ñ Ð¿Ð¾ Ð¿ÐµÑ€ÐµÑ€Ð°Ð±Ð¾Ñ‚ÐºÐµ",
   "@edit_packagings_element_field_recycling": {
     "description": "Field label"
   },
@@ -3351,7 +3334,7 @@
   "@edit_packagings_element_example_recycling": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_quantity": "Количество продуктов в единице товара",
+  "edit_packagings_element_field_quantity": "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð² Ð² ÐµÐ´Ð¸Ð½Ð¸Ñ†Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð°",
   "@edit_packagings_element_field_quantity": {
     "description": "Field label"
   },
@@ -3359,7 +3342,7 @@
   "@edit_packagings_element_hint_quantity": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_field_weight": "Масса тары (г)",
+  "edit_packagings_element_field_weight": "ÐœÐ°ÑÑÐ° Ñ‚Ð°Ñ€Ñ‹ (Ð³)",
   "@edit_packagings_element_field_weight": {
     "description": "Field label"
   },
@@ -3380,7 +3363,7 @@
   "background_task_run_not_started": "not started yet",
   "background_task_run_to_be_deleted": "to be deleted",
   "background_task_question_stop": "Do you want to stop that task ASAP?",
-  "feed_back": "Обратная связь",
+  "feed_back": "ÐžÐ±Ñ€Ð°Ñ‚Ð½Ð°Ñ ÑÐ²ÑÐ·ÑŒ",
   "undo": "Undo",
   "copy_email_to_clip_board": "Copy email to clipboard",
   "@copy_email_to_clip_board": {
@@ -3396,7 +3379,7 @@
   "@theme_amoled": {
     "description": "AMOLED theme mode."
   },
-  "color_blue": "Синий",
+  "color_blue": "Ð¡Ð¸Ð½Ð¸Ð¹",
   "@color_blue": {
     "description": "Color Blue"
   },
@@ -3404,27 +3387,27 @@
   "@color_cyan": {
     "description": "Color Cyan"
   },
-  "color_green": "Зеленый",
+  "color_green": "Ð—ÐµÐ»ÐµÐ½Ñ‹Ð¹",
   "@color_green": {
     "description": "Color Green"
   },
   "color_light_brown": "Default",
   "@color_light_brown": {
-    "description": "Color Light Brown, Default Open Food Facts Color"
+    "description": "Color Light Brown, Default Openâ€¯Foodâ€¯Facts Color"
   },
   "color_magenta": "Magenta",
   "@color_magenta": {
     "description": "Color Magenta"
   },
-  "color_orange": "Оранжевый",
+  "color_orange": "ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹",
   "@color_orange": {
     "description": "Color Orange"
   },
-  "color_pink": "Розовый",
+  "color_pink": "Ð Ð¾Ð·Ð¾Ð²Ñ‹Ð¹",
   "@color_pink": {
     "description": "Color Pink"
   },
-  "color_red": "Красный",
+  "color_red": "ÐšÑ€Ð°ÑÐ½Ñ‹Ð¹",
   "@color_red": {
     "description": "Color Red"
   },
@@ -3436,19 +3419,19 @@
   "@color_teal": {
     "description": "Color Teal"
   },
-  "text_contrast_mode": "Контрастность текста",
+  "text_contrast_mode": "ÐšÐ¾Ð½Ñ‚Ñ€Ð°ÑÑ‚Ð½Ð¾ÑÑ‚ÑŒ Ñ‚ÐµÐºÑÑ‚Ð°",
   "@text_contrast_mode": {
     "description": "Text Contrast Color Mode"
   },
-  "contrast_high": "Высокая",
+  "contrast_high": "Ð’Ñ‹ÑÐ¾ÐºÐ°Ñ",
   "@contrast_high": {
     "description": "High Contrast Text Color"
   },
-  "contrast_medium": "Средняя",
+  "contrast_medium": "Ð¡Ñ€ÐµÐ´Ð½ÑÑ",
   "@contrast_medium": {
     "description": "Medium Contrast Text Color"
   },
-  "contrast_low": "Низкая",
+  "contrast_low": "ÐÐ¸Ð·ÐºÐ°Ñ",
   "@contrast_low": {
     "description": "Low Contrast Text Color"
   },
@@ -3518,9 +3501,7 @@
   "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
   "@download_top_n_products": {
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
     }
   },
   "download_in_progress": "Downloading data\nThis may take a while",
@@ -3540,7 +3521,7 @@
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+  "update_local_database_sub": "Update the local product database with the latest data from Openâ€¯Foodâ€¯Facts",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
@@ -3561,11 +3542,11 @@
       }
     }
   },
-  "loading": "Загрузка…",
+  "loading": "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ°â€¦",
   "@loading": {
-    "description": "Loading…"
+    "description": "Loadingâ€¦"
   },
-  "know_more": "Узнать больше",
+  "know_more": "Ð£Ð·Ð½Ð°Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ",
   "@know_more": {
     "description": "Know More"
   },
@@ -3606,7 +3587,7 @@
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
-  "action_delete_list": "Удалить",
+  "action_delete_list": "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ",
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
@@ -3614,11 +3595,11 @@
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
-  "product_list_create": "Создать",
+  "product_list_create": "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ",
   "@product_list_create": {
     "description": "Button label to create a new list (short word)"
   },
-  "product_list_create_tooltip": "Создание нового списка",
+  "product_list_create_tooltip": "Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÑÐ¿Ð¸ÑÐºÐ°",
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
@@ -3642,14 +3623,14 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
+  "environmental_score_generic": "Greenâ€¯Score",
+  "environmental_score_a": "Greenâ€¯Score A",
+  "environmental_score_b": "Greenâ€¯Score B",
+  "environmental_score_c": "Greenâ€¯Score C",
+  "environmental_score_d": "Greenâ€¯Score D",
+  "environmental_score_e": "Greenâ€¯Score E",
+  "environmental_score_unknown": "Unknown Greenâ€¯Score",
+  "environmental_score_not_applicable": "Greenâ€¯Score is not applicable",
   "nova_group_generic": "Ultra-processing - NOVA groups",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3663,15 +3644,15 @@
   "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
   "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
   "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
-  "contact_title_pro_page": "Вы производитель? Импортируйте данные о своих продуктах в Open Food Facts",
-  "contact_title_pro_email": "Связаться с нами (для производителей)",
-  "contact_title_press_page": "Материалы для прессы",
-  "contact_title_press_email": "Связаться с нами (для прессы)",
-  "contact_title_newsletter": "Подпишитесь на нашу рассылку",
-  "hunger_games_loading_line1": "Please give us a few seconds…",
-  "hunger_games_loading_line2": "Мы загружаем вопросы!",
-  "hunger_games_error_label": "Ах! Что-то пошло не так… и нам не удалось загрузить вопросы.",
-  "hunger_games_error_retry_button": "Попробуем ещё раз!",
+  "contact_title_pro_page": "Ð’Ñ‹ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒ? Ð˜Ð¼Ð¿Ð¾Ñ€Ñ‚Ð¸Ñ€ÑƒÐ¹Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ ÑÐ²Ð¾Ð¸Ñ… Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°Ñ… Ð² Open Food Facts",
+  "contact_title_pro_email": "Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸ (Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÐµÐ¹)",
+  "contact_title_press_page": "ÐœÐ°Ñ‚ÐµÑ€Ð¸Ð°Ð»Ñ‹ Ð´Ð»Ñ Ð¿Ñ€ÐµÑÑÑ‹",
+  "contact_title_press_email": "Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸ (Ð´Ð»Ñ Ð¿Ñ€ÐµÑÑÑ‹)",
+  "contact_title_newsletter": "ÐŸÐ¾Ð´Ð¿Ð¸ÑˆÐ¸Ñ‚ÐµÑÑŒ Ð½Ð° Ð½Ð°ÑˆÑƒ Ñ€Ð°ÑÑÑ‹Ð»ÐºÑƒ",
+  "hunger_games_loading_line1": "Please give us a few secondsâ€¦",
+  "hunger_games_loading_line2": "ÐœÑ‹ Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÐ¼ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹!",
+  "hunger_games_error_label": "ÐÑ…! Ð§Ñ‚Ð¾-Ñ‚Ð¾ Ð¿Ð¾ÑˆÐ»Ð¾ Ð½Ðµ Ñ‚Ð°Ðºâ€¦ Ð¸ Ð½Ð°Ð¼ Ð½Ðµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹.",
+  "hunger_games_error_retry_button": "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐµÐ¼ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·!",
   "reorder_attribute_action": "Reorder the attributes",
   "@reorder_attribute_action": {
     "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
@@ -3705,7 +3686,7 @@
   "@guide_title": {
     "description": "A title for a guide"
   },
-  "guide_share_label": "Поделиться",
+  "guide_share_label": "ÐŸÐ¾Ð´ÐµÐ»Ð¸Ñ‚ÑŒÑÑ",
   "guide_nutriscore_v2_enabled": "true",
   "@guide_nutriscore_v2_enabled": {
     "description": "Please NEVER touch this value and let the OFF team change it!"
@@ -3714,11 +3695,11 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "Англ.",
+  "guide_nutriscore_v2_file_language": "ÐÐ½Ð³Ð».",
   "@guide_nutriscore_v2_file_language": {
     "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "Что такое Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Ð§Ñ‚Ð¾ Ñ‚Ð°ÐºÐ¾Ðµ Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3765,23 +3746,23 @@
   },
   "menu_button_list_actions": "Select an action",
   "@menu_button_list_actions": {
-    "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    "description": "Button to select an action in a list (eg: Share, Delete, â€¦)"
   },
   "error_loading_photo": "Error loading photo",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "Use asâ€¦",
   "@photo_viewer_action_use_picture_as": {
-    "description": "An action to use the current picture to be used as front/ingredients…"
+    "description": "An action to use the current picture to be used as front/ingredientsâ€¦"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Use this picture asâ€¦",
   "@photo_viewer_use_picture_as_tooltip": {
-    "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
+    "description": "Message explaining what the three dots (â€¦) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+  "photo_viewer_use_picture_as_title": "Use this picture asâ€¦ ({language})",
   "@photo_viewer_use_picture_as_title": {
-    "description": "The title of a dialog to use the current picture as front/ingredients…",
+    "description": "The title of a dialog to use the current picture as front/ingredientsâ€¦",
     "placeholders": {
       "language": {
         "type": "String"
@@ -3800,7 +3781,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "Участник",
+  "photo_viewer_details_contributor_title": "Ð£Ñ‡Ð°ÑÑ‚Ð½Ð¸Ðº",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
@@ -3820,7 +3801,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Дата",
+  "photo_viewer_details_date_title": "Ð”Ð°Ñ‚Ð°",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -3845,11 +3826,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Основное фото",
+  "product_image_front_accessibility_label": "ÐžÑÐ½Ð¾Ð²Ð½Ð¾Ðµ Ñ„Ð¾Ñ‚Ð¾",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Фото списка ингредиентов",
+  "product_image_ingredients_accessibility_label": "Ð¤Ð¾Ñ‚Ð¾ ÑÐ¿Ð¸ÑÐºÐ° Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð¾Ð²",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -3932,11 +3913,11 @@
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Uploading your editsâ€¦",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few secondsâ€¦",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
@@ -3962,7 +3943,7 @@
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
   "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
+  "carousel_unsupported_text": "The barcode scanned is not supported by Openâ€¯Foodâ€¯Facts!",
   "carousel_error_header": "Error!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
@@ -3973,7 +3954,7 @@
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_error_button": "Повтор",
+  "carousel_error_button": "ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€",
   "carousel_unknown_product_header": "Unknown product",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
@@ -3986,7 +3967,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "Добавить этот продукт",
+  "carousel_unknown_product_button": "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚",
   "carousel_loading_header": "Loading information...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
@@ -3996,34 +3977,34 @@
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "Vegetables, fruits, frozen foodâ€¦",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "Makeup, soaps, toothpastesâ€¦",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Food for dogs, catsâ€¦",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "Smartphones, furnitureâ€¦",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
   "photo_field_front": "Product photo",
-  "photo_field_ingredients": "Фото состава",
+  "photo_field_ingredients": "Ð¤Ð¾Ñ‚Ð¾ ÑÐ¾ÑÑ‚Ð°Ð²Ð°",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "Фото информации об упаковке",
+  "photo_field_packaging": "Ð¤Ð¾Ñ‚Ð¾ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾Ð± ÑƒÐ¿Ð°ÐºÐ¾Ð²ÐºÐµ",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
-  "date": "Дата",
-  "photo_rotate_left": "Поворот влево",
+  "date": "Ð”Ð°Ñ‚Ð°",
+  "photo_rotate_left": "ÐŸÐ¾Ð²Ð¾Ñ€Ð¾Ñ‚ Ð²Ð»ÐµÐ²Ð¾",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Повернуть вправо",
+  "photo_rotate_right": "ÐŸÐ¾Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒ Ð²Ð¿Ñ€Ð°Ð²Ð¾",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4077,7 +4058,7 @@
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
-  "product_footer_action_barcode_short": "Штрих-код",
+  "product_footer_action_barcode_short": "Ð¨Ñ‚Ñ€Ð¸Ñ…-ÐºÐ¾Ð´",
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
@@ -4137,7 +4118,7 @@
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
-  "app_review_feedback_modal_later": "Позже",
+  "app_review_feedback_modal_later": "ÐŸÐ¾Ð·Ð¶Ðµ",
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
@@ -4158,3 +4139,4 @@
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   }
 }
+
