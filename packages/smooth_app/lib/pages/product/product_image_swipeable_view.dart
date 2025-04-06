@@ -135,26 +135,18 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
   }
 
   Widget _editButton(ImageField imageField) {
-    final String? fieldId = imageField.getFieldId();
-
-    if (fieldId == null) {
-      return EMPTY_WIDGET;
-    }
-
     const Icon icon = Icon(Icons.edit_note);
-    
-    if (fieldId == 'ingredients') {
+
+    if (imageField == ImageField.INGREDIENTS) {
       return IconButton(
         icon: icon,
         onPressed: () async {
-          await ProductFieldOcrIngredientEditor().edit(
-            context: context,
-            product: upToDateProduct
-          );
+          await ProductFieldOcrIngredientEditor()
+              .edit(context: context, product: upToDateProduct);
         },
       );
     }
-    if (fieldId == 'nutrition_facts_table') {
+    if (imageField == ImageField.NUTRITION) {
       return IconButton(
         icon: icon,
         onPressed: () async {
@@ -166,7 +158,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         },
       );
     }
-    if (fieldId == 'environmental_score_packaging') {
+    if (imageField == ImageField.PACKAGING) {
       return IconButton(
         icon: icon,
         onPressed: () async {
@@ -180,7 +172,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
 
     return EMPTY_WIDGET;
   }
- 
+
   Widget _lockedIcon(ImageField imageField) {
     if (widget.product.isImageLocked(imageField, _currentLanguage) != true) {
       return EMPTY_WIDGET;

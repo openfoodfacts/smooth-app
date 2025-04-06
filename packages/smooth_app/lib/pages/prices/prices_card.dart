@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +15,8 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/product_price_refresher.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Card that displays buttons related to prices.
 class PricesCard extends StatelessWidget {
@@ -30,68 +27,30 @@ class PricesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-
     return buildProductSmoothCard(
-      title: Stack(
-        children: <Widget>[
-          Positioned.directional(
-            textDirection: Directionality.of(context),
-            start: LARGE_SPACE,
-            child: Container(
-              decoration: BoxDecoration(
-                color: themeExtension.secondaryVibrant,
-                shape: BoxShape.circle,
-              ),
-              padding: const EdgeInsetsDirectional.only(
-                top: 5.0,
-                start: 6.0,
-                end: 6.0,
-                bottom: 7.0,
-              ),
-              child: const icons.Lab(
-                size: 10.0,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(width: SMALL_SPACE),
-          Center(child: Text(appLocalizations.prices_generic_title)),
-        ],
-      ),
+      title: Text(appLocalizations.prices_generic_title),
       body: Container(
         width: double.infinity,
         padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-        child: Stack(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Positioned.directional(
-              textDirection: Directionality.of(context),
-              bottom: 0.0,
-              end: 0.0,
-              child: const _PricesCardTitleIcon(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+              child: _PricesCardViewButton(product),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: _PricesCardViewButton(product),
+            Padding(
+              padding: const EdgeInsets.all(SMALL_SPACE),
+              child: SmoothLargeButtonWithIcon(
+                text: appLocalizations.prices_add_a_price,
+                leadingIcon: const Icon(Icons.add),
+                onPressed: () async => ProductPriceAddPage.showProductPage(
+                  context: context,
+                  product: PriceMetaProduct.product(product),
+                  proofType: ProofType.priceTag,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(SMALL_SPACE),
-                  child: SmoothLargeButtonWithIcon(
-                    text: appLocalizations.prices_add_a_price,
-                    leadingIcon: const Icon(Icons.add),
-                    onPressed: () async => ProductPriceAddPage.showProductPage(
-                      context: context,
-                      product: PriceMetaProduct.product(product),
-                      proofType: ProofType.priceTag,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ],
         ),
@@ -100,25 +59,6 @@ class PricesCard extends StatelessWidget {
         start: SMALL_SPACE,
         end: SMALL_SPACE,
         top: VERY_LARGE_SPACE,
-      ),
-    );
-  }
-}
-
-class _PricesCardTitleIcon extends StatelessWidget {
-  const _PricesCardTitleIcon();
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension? themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>();
-
-    return Transform.rotate(
-      angle: -pi / 6,
-      child: icons.Lab(
-        size: 100.0,
-        color: themeExtension?.secondaryVibrant
-            .withValues(alpha: context.lightTheme() ? 0.15 : 0.4),
       ),
     );
   }

@@ -139,12 +139,4 @@ extension ImageFieldSmoothieExtension on ImageField {
         ImageField.PACKAGING => product.imagePackagingUrl,
         ImageField.OTHER => null,
       };
-
-  String? getFieldId() => switch (this) {
-        ImageField.FRONT => null,
-        ImageField.INGREDIENTS => 'ingredients',
-        ImageField.NUTRITION => 'nutrition_facts_table',
-        ImageField.PACKAGING => 'environmental_score_packaging',
-        ImageField.OTHER => null,
-      };
 }
