@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -18,6 +18,7 @@ class LoggedInAppBar extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SliverAppBar(
       title: Row(
@@ -44,8 +45,7 @@ class LoggedInAppBar extends StatelessWidget {
                   children: <Widget>[
                     Flexible(
                       child: Text(
-                        OpenFoodAPIConfiguration.globalUser?.userId ??
-                            "Nom d'utilisateur",
+                        OpenFoodAPIConfiguration.globalUser?.userId ?? '',
                         style: TextStyle(
                           color: themeExtension.secondaryNormal,
                           fontSize: 16.0,
@@ -62,7 +62,7 @@ class LoggedInAppBar extends StatelessWidget {
                   children: <Widget>[
                     Flexible(
                       child: Text(
-                        'Membre depuis juillet 2019!',
+                        appLocalizations.preferences_app_bar_message,
                         style: TextStyle(
                           color: theme.colorScheme.onPrimary,
                           fontSize: 14.0,
@@ -104,7 +104,8 @@ class LoggedInAppBar extends StatelessWidget {
                           child: _buildStatisticCard(
                             imagePath: 'assets/preferences/ingredients.png',
                             count: '150+',
-                            description: 'Produits modifiés',
+                            description: appLocalizations
+                                .preferences_app_bar_products_modified,
                             themeExtension: themeExtension,
                           ),
                         ),
@@ -113,44 +114,37 @@ class LoggedInAppBar extends StatelessWidget {
                           child: _buildStatisticCard(
                             imagePath: 'assets/preferences/cash.png',
                             count: '950+',
-                            description: 'Prix ajoutés',
+                            description: appLocalizations
+                                .preferences_app_bar_prices_added,
                             themeExtension: themeExtension,
                           ),
                         ),
                       ],
                     ),
-                    GestureDetector(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              const UserPreferencesPage(),
-                        ),
+                    Container(
+                      margin: const EdgeInsets.only(top: MEDIUM_SPACE),
+                      padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                      decoration: const BoxDecoration(
+                        borderRadius: ROUNDED_BORDER_RADIUS,
+                        color: Colors.white,
                       ),
-                      child: Container(
-                        margin: const EdgeInsets.only(top: MEDIUM_SPACE),
-                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                        decoration: const BoxDecoration(
-                          borderRadius: ROUNDED_BORDER_RADIUS,
-                          color: Colors.white,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            const Text(
-                              "Voir d'autres statistiques",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            appLocalizations.preferences_app_bar_see_all_stats,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
                             ),
-                            const SizedBox(width: MEDIUM_SPACE),
-                            Icon(
-                              Icons.arrow_circle_right,
-                              size: 24.0,
-                              color: theme.primaryColor,
-                            ),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(width: MEDIUM_SPACE),
+                          Icon(
+                            Icons.arrow_circle_right,
+                            size: 24.0,
+                            color: theme.primaryColor,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -214,7 +208,7 @@ class LoggedInAppBar extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 Row(

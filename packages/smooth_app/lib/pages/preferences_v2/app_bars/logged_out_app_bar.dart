@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
+import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -44,7 +46,7 @@ class LoggedOutAppBar extends StatelessWidget {
                   children: <Widget>[
                     Flexible(
                       child: Text(
-                        'Non connecté',
+                        appLocalizations.logged_out,
                         style: TextStyle(
                           color: themeExtension.secondaryNormal,
                           fontSize: 16.0,
@@ -86,6 +88,17 @@ class LoggedOutAppBar extends StatelessWidget {
                           child: _buildActionCard(
                             title: appLocalizations.create_account,
                             themeExtension: themeExtension,
+                            onPressed: () {
+                              Navigator.of(
+                                context,
+                                rootNavigator: true,
+                              ).push<dynamic>(
+                                MaterialPageRoute<dynamic>(
+                                  builder: (BuildContext context) =>
+                                      const SignUpPage(),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         const SizedBox(width: MEDIUM_SPACE),
@@ -93,6 +106,17 @@ class LoggedOutAppBar extends StatelessWidget {
                           child: _buildActionCard(
                             title: appLocalizations.sign_in,
                             themeExtension: themeExtension,
+                            onPressed: () {
+                              Navigator.of(
+                                context,
+                                rootNavigator: true,
+                              ).push<dynamic>(
+                                MaterialPageRoute<dynamic>(
+                                  builder: (BuildContext context) =>
+                                      const LoginPage(),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ],
@@ -124,49 +148,52 @@ class LoggedOutAppBar extends StatelessWidget {
   Widget _buildActionCard({
     required String title,
     required SmoothColorsThemeExtension themeExtension,
+    required VoidCallback onPressed,
   }) {
-    return Container(
-      height: 78.0,
-      padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-      decoration: const BoxDecoration(
+    return Material(
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      child: InkWell(
+        onTap: onPressed,
         borderRadius: ROUNDED_BORDER_RADIUS,
-        color: Colors.white,
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Row(
+        child: Padding(
+          padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Flexible(
-                      child: Text(
-                        title,
-                        style: TextStyle(
-                          color: themeExtension.primaryBlack,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
+                    Row(
+                      children: <Widget>[
+                        Flexible(
+                          child: Text(
+                            title,
+                            style: TextStyle(
+                              color: themeExtension.primaryBlack,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Icon(
+                          Icons.arrow_circle_right,
+                          color: themeExtension.primaryBlack,
+                          size: 28.0,
+                        )
+                      ],
                     )
                   ],
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Icon(
-                      Icons.arrow_circle_right,
-                      color: themeExtension.primaryBlack,
-                      size: 28.0,
-                    )
-                  ],
-                )
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

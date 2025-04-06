@@ -4223,5 +4223,25 @@
   "preferences_faq_subtitle": "Get answers to your questions",
   "@preferences_faq_subtitle": {
     "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Logged out",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Thank you for being one of our members!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "See all stats",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
   }
 }

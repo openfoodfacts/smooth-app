@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences_v2/app_bars/logged_in_app_bar.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/logged_out_app_bar.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
@@ -12,6 +14,8 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 
 class PreferencesPage extends StatelessWidget {
+  String? _getUserId() => OpenFoodAPIConfiguration.globalUser?.userId;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -19,7 +23,9 @@ class PreferencesPage extends StatelessWidget {
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
       child: DefaultPreferencesRoot(
-        customAppBar: const LoggedOutAppBar(),
+        customAppBar: _getUserId() != null
+            ? const LoggedInAppBar()
+            : const LoggedOutAppBar(),
         cards: <PreferenceCard>[
           PreferenceCard(
             title: appLocalizations.preferences_card_general,
