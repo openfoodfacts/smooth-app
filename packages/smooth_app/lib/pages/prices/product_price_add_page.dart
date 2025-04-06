@@ -152,7 +152,6 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                         index: i,
                       ),
                     const SizedBox(height: LARGE_SPACE),
-                    const PriceAddProductCard(),
                     // so that the last items don't get hidden by the FAB
                     const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
                   ],
