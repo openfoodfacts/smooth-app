@@ -19,7 +19,7 @@
 
 ## Weekly meetings
 
-- We e-meet Thursdays at 17:30 Paris Time (16:30 London Time, 22:00 IST, 08:30 AM PT)
+- We e-meet Thursdays at 12:30 Paris Time (11:30 London Time, 17:00 IST, 03:30 AM PT)
 - ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: <https://meet.google.com/gnp-frks-esc>
 - Join by phone: <https://tel.meet/gnp-frks-esc?pin=1110549945262>
 - Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
@@ -41,6 +41,7 @@
 ## User interface
 
 - [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/file/nFMjewFAOa8c4ahtob7CAB/Mobile-App-Design-(Quentin)?node-id=0%3A1&t=SrBuT7gBdhapUerx-0)
+- [![Sketch](https://img.shields.io/badge/Sketch-%23F24E1E.svg?logo=sketch&logoColor=white) Recent Sketch mockups by @g123k](https://www.sketch.com/s/11375b6d-9c02-4920-846d-a2b1376600b9/p/95D14BAF-AD1E-449F-9AB7-27E328773827/canvas)
 
 <details><summary><h2>Features of the app</h2></summary>
 
