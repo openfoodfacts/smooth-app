@@ -159,7 +159,7 @@
   "incorrect_credentials": "Ungültiger Benutzername oder Passwort.",
   "password_lost_incorrect_credentials": "Diese E-Mail-Adresse oder dieser Benutzername existiert nicht. Bitte überprüfen Sie Ihre Anmeldedaten.",
   "password_lost_server_unavailable": "Zurzeit kommt es auf unseren Servern zu Verzögerungen, für die wir uns entschuldigen. Bitte versuchen Sie es später noch einmal.",
-  "login": "Benutzername",
+  "login": "Anmelden",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -387,6 +387,10 @@
   "contribute_translate_header": "Übersetzen",
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "contribute_data_quality": "Datenqualität",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
   "contribute_translate_link_text": "Mit dem Übersetzen beginnen",
   "@contribute_translate_link_text": {
@@ -937,7 +941,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "Mitwirkende(r)",
+  "product_image_details_contributor": "Beitragende",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -1636,7 +1640,7 @@
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
-  "edit_product_form_item_labels_type": "Etikett",
+  "edit_product_form_item_labels_type": "Bezeichnung",
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
@@ -1796,7 +1800,7 @@
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
   },
-  "edit_product_form_item_categories_hint": "Kategorie",
+  "edit_product_form_item_categories_hint": "Rubrik",
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
@@ -2257,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
   "prices_app_button": "Zur Preise-App wechseln",
+  "prices_bulk_proof_upload_title": "Massen-Upload von Nachweisen",
+  "prices_bulk_proof_upload_action": "Nachweis senden",
   "prices_generic_title": "Preise",
   "prices_add_n_prices": "{count,plural, =1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
   "prices_send_n_prices": "{count,plural, =1{Preis senden} other{{count} Preise senden}}",
@@ -2600,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Preis-Mitwirkungsassistent",
+  "prices_validation_assistant": "Preisprüfungsassistent",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Herausforderungen",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Mehrere Nachweise hinzufügen",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Preise im Laden",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -2712,7 +2730,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Bitte fügen Sie vor der Validierung nur dann eine Übersetzung hinzu, **wenn die Sprache nicht auf der Verpackung angegeben ist**",
+  "add_basic_details_product_name_warning_translations": "Bitte fügen Sie vor der Validierung nur dann eine Übersetzung hinzu, **wenn die Sprache auf der Verpackung angegeben ist**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3668,6 +3686,7 @@
   "contact_title_press_page": "Pressemappe",
   "contact_title_press_email": "Pressekontakt",
   "contact_title_newsletter": "Abonnieren Sie den Newsletter",
+  "contact_title_calendar": "Abonnieren Sie unseren Community-Kalender",
   "hunger_games_loading_line1": "Bitte einen kurzen Moment Geduld …",
   "hunger_games_loading_line2": "Die Fragen werden gerade heruntergeladen!",
   "hunger_games_error_label": "Leider ist ein Problem aufgetreten … und die Fragen konnten nicht geladen werden.",
@@ -3714,10 +3733,6 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "de",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
-  },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Was ist der Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Der Nutri-Score ist eine Kennzeichnung, die Sie über die **Nährwertqualität von Lebensmitteln** informieren soll.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
@@ -3744,8 +3759,8 @@
   "guide_nutriscore_v2_new_logo_text": "Von nun an kann das Logo einen Hinweis \"**Neue Berechnung**\" enthalten, um zu verdeutlichen, dass es sich tatsächlich um die neue Berechnung handelt.",
   "guide_nutriscore_v2_new_logo_image_caption": "Das Logo des neuen Nutri-Score",
   "guide_nutriscore_v2_where_title": "Wo finde ich die neue Nutri-Score-Berechnung?",
-  "guide_nutriscore_v2_where_paragraph1": "Der Nutri-Score wird in mehreren Ländern angewendet: Deutschland, Belgien, Spanien, Frankreich, Luxemburg, die Niederlande und die Schweiz.",
-  "guide_nutriscore_v2_where_paragraph2": "Die Hersteller haben bis spätestens **2026** Zeit, **die alte Berechnung durch die neue zu ersetzen**.",
+  "guide_nutriscore_v2_where_paragraph1": "Der Nutri-Score wird in sieben Ländern angewendet: Frankreich, Deutschland, Belgien, Spanien, Luxemburg, die Niederlande und in der Schweiz.",
+  "guide_nutriscore_v2_where_paragraph2": "Die Hersteller haben spätestens **2 Jahre** nach der Unterzeichnung des Dekrets Zeit, die alte Berechnung durch die neue **zu ersetzen**.",
   "guide_nutriscore_v2_where_paragraph3": "Ohne zu warten, **finden Sie bereits in der OpenFoodFacts-Anwendung** die neue Berechnung, auch wenn die Hersteller die Punktzahl noch nicht aktualisiert haben.",
   "guide_nutriscore_v2_unchanged_title": "Was sich nicht ändert",
   "guide_nutriscore_v2_unchanged_paragraph1": "Der Nutri-Score ist ein Punktesystem zur **Bewertung der Nährwertqualität**. Er ist eine **Ergänzung zur NOVA-Gruppe** für **hochverarbeitete Lebensmittel** (ebenfalls in der App enthalten).",
@@ -3800,7 +3815,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "Mitwirkende(r)",
+  "photo_viewer_details_contributor_title": "Beitragende",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
