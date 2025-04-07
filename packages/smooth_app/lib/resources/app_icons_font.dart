@@ -355,4 +355,12 @@ class _FoodIconsFont {
       IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sulphites =
       IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_3 =
+      IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_2 =
+      IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_1 =
+      IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_4 =
+      IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
