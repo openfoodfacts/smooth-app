@@ -54,15 +54,16 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   String getPageTitleString() => appLocalizations.myPreferences_profile_title;
 
   @override
-  String getSubtitleString() => _isUserConnected()
-      ? appLocalizations.myPreferences_profile_subtitle
-      : appLocalizations.user_profile_subtitle_guest;
+  String getSubtitleString() =>
+      _isUserConnected()
+          ? appLocalizations.myPreferences_profile_subtitle
+          : appLocalizations.user_profile_subtitle_guest;
 
   @override
   List<String> getLabels() => <String>[
-        ...super.getLabels(),
-        if (_getUserId() == null) appLocalizations.sign_in,
-      ];
+    ...super.getLabels(),
+    if (_getUserId() == null) appLocalizations.sign_in,
+  ];
 
   @override
   IconData getLeadingIconData() => Icons.face;
@@ -72,9 +73,10 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   Icon? getForwardIcon() => _isUserConnected() ? super.getForwardIcon() : null;
 
   @override
-  Future<void> runHeaderAction() async => _isUserConnected(readOnly: true)
-      ? super.runHeaderAction()
-      : _goToLoginPage();
+  Future<void> runHeaderAction() async =>
+      _isUserConnected(readOnly: true)
+          ? super.runHeaderAction()
+          : _goToLoginPage();
 
   bool _isUserConnected({bool readOnly = false}) {
     // Ensure to be notified after a sign-in/sign-out
@@ -113,10 +115,8 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     );
   }
 
-  Future<void> _goToLoginPage() async => Navigator.of(
-        context,
-        rootNavigator: true,
-      ).push<dynamic>(
+  Future<void> _goToLoginPage() async =>
+      Navigator.of(context, rootNavigator: true).push<dynamic>(
         MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const LoginPage(),
         ),
@@ -129,7 +129,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     if (ProductQuery.isLoggedIn()) {
       result.add(
         UserPreferencesItemSimple(
-          labels: const <String>[''],  // Empty label since the widget has its own title
+          labels: const <String>[
+            '',
+          ], // Empty label since the widget has its own title
           builder: (_) => const ContributionCountWidget(),
         ),
       );
@@ -141,29 +143,30 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       result.add(
         UserPreferencesItemSimple(
           labels: <String>[appLocalizations.sign_in],
-          builder: (_) => Center(
-            child: ElevatedButton(
-              onPressed: () async => _goToLoginPage(),
-              style: ButtonStyle(
-                minimumSize: WidgetStateProperty.all<Size>(
-                  Size(size.width * 0.5, themeData.buttonTheme.height + 10),
-                ),
-                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                  const RoundedRectangleBorder(
-                    borderRadius: CIRCULAR_BORDER_RADIUS,
+          builder:
+              (_) => Center(
+                child: ElevatedButton(
+                  onPressed: () async => _goToLoginPage(),
+                  style: ButtonStyle(
+                    minimumSize: WidgetStateProperty.all<Size>(
+                      Size(size.width * 0.5, themeData.buttonTheme.height + 10),
+                    ),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      const RoundedRectangleBorder(
+                        borderRadius: CIRCULAR_BORDER_RADIUS,
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    appLocalizations.sign_in,
+                    style: themeData.textTheme.bodyMedium?.copyWith(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: themeData.colorScheme.onPrimary,
+                    ),
                   ),
                 ),
               ),
-              child: Text(
-                appLocalizations.sign_in,
-                style: themeData.textTheme.bodyMedium?.copyWith(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  color: themeData.colorScheme.onPrimary,
-                ),
-              ),
-            ),
-          ),
         ),
       );
     } else {
@@ -218,8 +221,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           iconData: Icons.more_horiz,
           context: context,
           localDatabase: localDatabase,
-          lazyCounter:
-              const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
+          lazyCounter: const LazyCounterUserSearch(
+            UserSearchType.TO_BE_COMPLETED,
+          ),
         ),
         _buildProductQueryTile(
           productQuery: PagedToBeCompletedProductQuery(
@@ -256,21 +260,17 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           ),
           Icons.delete,
         ),
-        _getListTile(
-          appLocalizations.sign_out,
-          () async {
-            if (await _confirmLogout() == true) {
+        _getListTile(appLocalizations.sign_out, () async {
+          if (await _confirmLogout() == true) {
+            if (context.mounted) {
+              await context.read<UserManagementProvider>().logout();
+              AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
               if (context.mounted) {
-                await context.read<UserManagementProvider>().logout();
-                AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
-                if (context.mounted) {
-                  Navigator.pop(context);
-                }
+                Navigator.pop(context);
               }
             }
-          },
-          Icons.clear,
-        ),
+          }
+        }, Icons.clear),
       ]);
     }
 
@@ -278,24 +278,22 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) {
-          return SmoothAlertDialog(
-            title: appLocalizations.sign_out,
-            body: Text(
-              appLocalizations.sign_out_confirmation,
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.yes,
-              onPressed: () async => Navigator.pop(context, true),
-            ),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.no,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-          );
-        },
+    context: context,
+    builder: (BuildContext context) {
+      return SmoothAlertDialog(
+        title: appLocalizations.sign_out,
+        body: Text(appLocalizations.sign_out_confirmation),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () async => Navigator.pop(context, true),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.no,
+          onPressed: () => Navigator.pop(context, false),
+        ),
       );
+    },
+  );
 
   UserPreferencesItem _buildProductQueryTile({
     required final PagedProductQuery productQuery,
@@ -304,29 +302,28 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     final LazyCounter? lazyCounter,
-  }) =>
-      _getListTile(
-        title,
-        () async => ProductQueryPageHelper.openBestChoice(
-          name: title,
-          localDatabase: localDatabase,
-          productQuery: productQuery,
-          context: context,
-          editableAppBarTitle: true,
-        ),
-        iconData,
-        lazyCounter: lazyCounter,
-      );
+  }) => _getListTile(
+    title,
+    () async => ProductQueryPageHelper.openBestChoice(
+      name: title,
+      localDatabase: localDatabase,
+      productQuery: productQuery,
+      context: context,
+      editableAppBarTitle: true,
+    ),
+    iconData,
+    lazyCounter: lazyCounter,
+  );
 
   UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
     final LazyCounter? lazyCounter,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title],
-        builder: (_) => Card(
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title],
+    builder:
+        (_) => Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -343,5 +340,5 @@ class UserPreferencesAccount extends AbstractUserPreferences {
                 lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
           ),
         ),
-      );
+  );
 }

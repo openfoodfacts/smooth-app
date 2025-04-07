@@ -9,7 +9,8 @@ class ContributionCountWidget extends StatefulWidget {
   const ContributionCountWidget({super.key});
 
   @override
-  State<ContributionCountWidget> createState() => _ContributionCountWidgetState();
+  State<ContributionCountWidget> createState() =>
+      _ContributionCountWidgetState();
 }
 
 class _ContributionCountWidgetState extends State<ContributionCountWidget> {
@@ -31,10 +32,11 @@ class _ContributionCountWidgetState extends State<ContributionCountWidget> {
     try {
       final User user = ProductQuery.getWriteUser();
       final Status status = await OpenFoodAPIClient.getStatus(user: user);
-      
+
       if (mounted) {
         setState(() {
-          _contributionCount = status.userId == user.userId ? status.contributionCount : 0;
+          _contributionCount =
+              status.userId == user.userId ? status.contributionCount : 0;
           _isLoading = false;
         });
       }
