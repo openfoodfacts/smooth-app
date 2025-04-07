@@ -203,6 +203,34 @@
         size: size,
         semanticsLabel: semanticsLabel,
       ),
+    &#39;nova&#39; when attribute.iconUrl?.endsWith(&#39;nova-group-1.svg&#39;) == true =&gt;
+      _AttributeNOVAIcon.group1(
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
+    &#39;nova&#39; when attribute.iconUrl?.endsWith(&#39;nova-group-2.svg&#39;) == true =&gt;
+      _AttributeNOVAIcon.group2(
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
+    &#39;nova&#39; when attribute.iconUrl?.endsWith(&#39;nova-group-3.svg&#39;) == true =&gt;
+      _AttributeNOVAIcon.group3(
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
+    &#39;nova&#39; when attribute.iconUrl?.endsWith(&#39;nova-group-4.svg&#39;) == true =&gt;
+      _AttributeNOVAIcon.group4(
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
     &#39;nova&#39; =&gt; _AttributeNOVAIcon(
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
