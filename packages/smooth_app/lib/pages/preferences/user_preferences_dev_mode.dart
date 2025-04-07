@@ -61,6 +61,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__pricesReceiptMultiSelection';
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
+  static const String userPreferencesFlagBulkProofUpload = '__bulkProofUpload';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
 
   final TextEditingController _textFieldController = TextEditingController();
@@ -437,6 +438,15 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_experimental_features,
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.prices_bulk_proof_upload_title,
+          value: userPreferences.getFlag(userPreferencesFlagBulkProofUpload) ??
+              false,
+          onChanged: (bool value) async => userPreferences.setFlag(
+            userPreferencesFlagBulkProofUpload,
+            value,
+          ),
         ),
         UserPreferencesItemSwitch(
           title: 'Multi-products selection for prices',
