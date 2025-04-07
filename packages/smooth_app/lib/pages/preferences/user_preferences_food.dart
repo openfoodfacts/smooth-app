@@ -133,7 +133,8 @@ class UserPreferencesFood extends AbstractUserPreferences {
               children: <Widget>[
                 SvgPicture.asset(
                   'assets/icons/svg-privacy.svg',
-                  colorFilter: ColorFilter.mode(colorScheme.onTertiary, BlendMode.srcIn),
+                  colorFilter:
+                      ColorFilter.mode(colorScheme.onTertiary, BlendMode.srcIn),
                   width: 32,
                   height: 32,
                 ),
