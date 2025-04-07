@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Якість даних",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "Почніть перекладати",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -2257,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
   "prices_app_button": "Перейдіть у додаток Ціни",
+  "prices_bulk_proof_upload_title": "Масове підтвердження завантаження",
+  "prices_bulk_proof_upload_action": "Надіслати підтвердження",
   "prices_generic_title": "Ціни",
   "prices_add_n_prices": "{count,plural, =1{Додайте ціну} other{Додайте {count} цін}}",
   "prices_send_n_prices": "{count,plural, =1{Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}other{Надіслати {count} ціни}}",
@@ -2600,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Помічник внеску цін",
+  "prices_validation_assistant": "Помічник Перевірки Ціни",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Challenges",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Додайте кілька доказів",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Ціни в магазині",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -2712,7 +2730,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Перш ніж перевіряти, будь ласка, переконайтеся, що ви додали переклад, лише **якщо мова не вказана на упаковці**",
+  "add_basic_details_product_name_warning_translations": "Перед перевіркою переконайтеся, що ви додаєте переклад, лише **якщо мова вказана на упаковці**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3668,6 +3686,7 @@
   "contact_title_press_page": "Інформація для преси",
   "contact_title_press_email": "Контакти для преси",
   "contact_title_newsletter": "Підпишіться на нашу розсилку новин",
+  "contact_title_calendar": "Підпишіться на календар нашої спільноти",
   "hunger_games_loading_line1": "Будь ласка, дайте нам кілька секунд…",
   "hunger_games_loading_line2": "Ми завантажуємо питання!",
   "hunger_games_error_label": "Ох! Щось пішло не так… і ми не змогли завантажити питання.",
@@ -3714,10 +3733,6 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "en",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
-  },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Що таке Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score – це логотип, мета якого інформувати вас про **поживну якість харчових продуктів**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
@@ -3744,8 +3759,8 @@
   "guide_nutriscore_v2_new_logo_text": "Відтепер логотип може показувати згадку «**Новий розрахунок**», щоб уточнити, що це справді новий розрахунок.",
   "guide_nutriscore_v2_new_logo_image_caption": "Логотип нового Nutri-Score",
   "guide_nutriscore_v2_where_title": "Де знайти новий розрахунок Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score застосовується в кількох країнах: Німеччині, Бельгії, Іспанії, Франції, Люксембурзі, Нідерландах та Швейцарії.",
-  "guide_nutriscore_v2_where_paragraph2": "Постачальники мають до **2026 року** останній термін **на заміну** старого розрахунку на новий.",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score застосовується в 7 країнах: Франції, Німеччині, Бельгії, Іспанії, Люксембурзі, Нідерландах і Швейцарії.",
+  "guide_nutriscore_v2_where_paragraph2": "Виробники мають максимум **2 роки** після підпису декларації **щоб замінити** старі розрахунки новими.",
   "guide_nutriscore_v2_where_paragraph3": "Без очікування ви вже знайдете в додатку OpenFoodFacts новий розрахунок, включаючи в тому числі якщо постачальники не оновили бали.",
   "guide_nutriscore_v2_unchanged_title": "Що не змінилося",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score – це оцінка, розроблена для **вимірювання якості харчування**. Він **доповнює групу NOVA** щодо **ультраоброблених продуктів** (також присутня в додатку).",
