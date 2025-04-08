@@ -233,9 +233,9 @@ class _SmoothGoRouter {
                 // TODO(primael): Hide behind dev flag
                 return PreferencesPage();
 
-                return UserPreferencesPage(
+                /* return UserPreferencesPage(
                   type: pageType,
-                );
+                ); */
               },
             ),
             GoRoute(
