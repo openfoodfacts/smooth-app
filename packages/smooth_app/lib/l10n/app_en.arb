@@ -4192,7 +4192,7 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
-  "preferences_contribute_subtitle": "Translate, improve our tools...",
+  "preferences_contribute_subtitle": "Translate, improve our tools…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
