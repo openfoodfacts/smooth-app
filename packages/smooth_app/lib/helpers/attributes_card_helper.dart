@@ -46,7 +46,7 @@ Widget getAttributeDisplayIcon(final Attribute attribute) {
 Color getAttributeDisplayBackgroundColor(final Attribute attribute) =>
     _attributeMatchComparison<Color>(
       attribute,
-      RED_COLOR,
+      FAIR_GREY_COLOR,
       RED_COLOR,
       LIGHT_ORANGE_COLOR,
       LIGHT_ORANGE_COLOR,
