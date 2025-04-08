@@ -29,8 +29,7 @@ extension RawDataExt on Product {
       _splitString(ingredientsTextInLanguages?[language]),
     );
 
-    // TODO(micheldr): Change presentation into two Textfields instead of concatenation.
-    _addRawDataDoubleTextInList(
+    _addRawDataNutritionInList(
       toReturn,
       ProductRawDataCategories.nutriment,
       AttributeFirstRowNutritionHelper(product: this).getAllTerms(),
@@ -67,6 +66,26 @@ extension RawDataExt on Product {
         label,
         _toRawData(toAdd),
       ));
+    }
+  }
+
+  void _addRawDataNutritionInList(
+    List<ProductRawDataCategory> toBeFilled,
+    ProductRawDataCategories label,
+    List<StringPair>? toAdd,
+  ) {
+    if (toAdd != null) {
+      var unitedMap = toAdd.map(
+        (StringPair element) => StringPair(first: element.first,
+        second: '${element.second} ${UnitHelper.unitToString(Nutrient.fromOffTag(element.first)?.typicalUnit)}'
+        )
+      )
+      .toList();
+      _addRawDataDoubleTextInList(
+        toBeFilled,
+        label,
+        unitedMap,
+      );
     }
   }
 
