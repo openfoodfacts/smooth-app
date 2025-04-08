@@ -1078,7 +1078,7 @@
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
-  "currency_chooser_label": "Please choose a currency",
+  "currency_chooser_label": "Trieu la vostra moneda",
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
@@ -1104,7 +1104,7 @@
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
   },
-  "country_chooser_label_from_settings": "Your country",
+  "country_chooser_label_from_settings": "El vostre país",
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
@@ -2263,7 +2263,7 @@
   "prices_app_button": "Go to Prices app",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
   "prices_bulk_proof_upload_action": "Send the proof",
-  "prices_generic_title": "Prices",
+  "prices_generic_title": "Preus",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
   "prices_add_an_item": "Add an item",
@@ -2446,7 +2446,7 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
-  "prices_currency_subtitle": "Currency",
+  "prices_currency_subtitle": "Moneda",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
@@ -3131,7 +3131,7 @@
   "@language_picker_label": {
     "description": "Choose Application Language"
   },
-  "country_picker_label": "Your country",
+  "country_picker_label": "El vostre país",
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3604,11 +3604,11 @@
       }
     }
   },
-  "country_selector_title": "Select your country:",
+  "country_selector_title": "Seleccioneu el vostre país:",
   "@country_selector_title": {
     "description": "Label written as the title of the dialog to select the user country"
   },
-  "currency_selector_title": "Select your currency:",
+  "currency_selector_title": "Seleccioneu la vostra moneda:",
   "@currency_selector_title": {
     "description": "Label written as the title of the dialog to select the user currency"
   },
