@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Gegevenskwaliteit",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "Begin met vertalen",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -1704,7 +1708,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Invoer van oorsprong (bv: rundvlees uit Argentinië)",
+  "edit_product_form_item_origins_hint": "Voer een herkomst in (bijv. Duitsland)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -1836,7 +1840,7 @@
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in en uit door het beeldscherm samen te knijpen",
   "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
     "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
   },
@@ -1844,7 +1848,7 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation title"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Met het **knijp-om-te-zoomen-gebaar** kun je in- of uitzoomen op de foto:",
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
@@ -2257,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
   "prices_app_button": "Ga naar de Prijzen-app",
+  "prices_bulk_proof_upload_title": "Bulkbewijs uploaden",
+  "prices_bulk_proof_upload_action": "Stuur het bewijs in",
   "prices_generic_title": "Prijzen",
   "prices_add_n_prices": "{count,plural, one {}=1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
   "prices_send_n_prices": "{count,plural, one {}=1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
@@ -2600,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Prijsbijdrageassistent",
+  "prices_validation_assistant": "Prijsvalidatie-assistent",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Uitdagingen",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Meerdere bewijzen toevoegen",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Prijzen in een winkel",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -3161,7 +3179,7 @@
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
-  "scan_header_compare_button_valid_state_tooltip": "Vergelijk de producten die u hebt gescand",
+  "scan_header_compare_button_valid_state_tooltip": "Klik om de door u gescande producten te vergelijken",
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
@@ -3668,6 +3686,7 @@
   "contact_title_press_page": "Perspagina",
   "contact_title_press_email": "Perscontact",
   "contact_title_newsletter": "Abonneer op onze nieuwsbrief",
+  "contact_title_calendar": "Abonneer je op onze communitykalender",
   "hunger_games_loading_line1": "Geef ons een paar seconden…",
   "hunger_games_loading_line2": "We zijn de vragen aan het downloaden!",
   "hunger_games_error_label": "Argh! Er ging iets mis… en we konden de vragen niet laden.",
@@ -3714,10 +3733,6 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "nl",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
-  },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Wat is de Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "De Nutri-Score is een logo dat tot doel heeft u te informeren over de **voedingskwaliteit van voedingsmiddelen**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
@@ -3744,8 +3759,8 @@
   "guide_nutriscore_v2_new_logo_text": "Vanaf nu kan het logo een vermelding \"**Nieuwe berekening**\" weergeven om te verduidelijken dat het daadwerkelijk om de nieuwe berekening gaat.",
   "guide_nutriscore_v2_new_logo_image_caption": "Het logo van de nieuwe Nutri-Score",
   "guide_nutriscore_v2_where_title": "Waar vind je de nieuwe Nutri-Score berekening?",
-  "guide_nutriscore_v2_where_paragraph1": "De Nutri-Score wordt in meerdere landen toegepast: Duitsland, België, Spanje, Frankrijk, Luxemburg, Nederland en Zwitserland.",
-  "guide_nutriscore_v2_where_paragraph2": "Fabrikanten hebben tot uiterlijk **2026** de tijd om de oude berekening door de nieuwe te **vervangen**.",
+  "guide_nutriscore_v2_where_paragraph1": "De Nutri-Score wordt toegepast in 7 landen: Frankrijk, Duitsland, België, Spanje, Luxemburg, Nederland en Zwitserland.",
+  "guide_nutriscore_v2_where_paragraph2": "Fabrikanten hebben maximaal **2 jaar** na ondertekening van het besluit de tijd om de oude berekening te vervangen door de nieuwe.",
   "guide_nutriscore_v2_where_paragraph3": "Zonder te moeten wachten **vind je in de OpenFoodFacts applicatie** al de nieuwe berekening, ook als de fabrikanten de score nog niet hebben aangepast.",
   "guide_nutriscore_v2_unchanged_title": "Wat niet verandert",
   "guide_nutriscore_v2_unchanged_paragraph1": "De Nutri-Score is een score die is ontworpen om **de voedingskwaliteit te meten**. Het is **complementair aan de NOVA-groep** op **ultrabewerkte voedingsmiddelen** (ook aanwezig in de applicatie).",
