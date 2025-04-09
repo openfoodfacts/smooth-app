@@ -62,6 +62,7 @@ class PriceDataWidget extends StatelessWidget {
 
     final String? pricePerKg = getPricePerKg();
     final String? notDiscountedPrice = getNotDiscountedPrice();
+    final bool isDiscounted = price.priceIsDiscounted == true;
 
     final String priceLabel = '${currencyFormat.format(price.price)}'
         ' ${pricePerKg == null ? '' : ' ($pricePerKg)'}';
@@ -81,6 +82,22 @@ class PriceDataWidget extends StatelessWidget {
         children: <Widget>[
           ExcludeSemantics(child: Text(priceLabel)),
           ExcludeSemantics(child: Text(dateFormat.format(price.date))),
+          if (isDiscounted)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                appLocalizations.prices_discount,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           if (notDiscountedPrice != null) Text('($notDiscountedPrice)'),
           if (model.displayEachLocation && locationTitle != null)
             // TODO(monsieurtanuki): open a still-to-be-done "price x location" page
