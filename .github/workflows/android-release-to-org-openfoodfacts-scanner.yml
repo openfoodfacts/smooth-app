@@ -63,7 +63,7 @@ jobs:
       - run: echo Release type ${{ inputs.RELEASE_TYPE }} + Build type ${{ inputs.BUILD_TYPE }} + Tag name null if not github release ${{ inputs.TAG_NAME }}
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.7.0
+        uses: actions/setup-java@v4.7.1
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
