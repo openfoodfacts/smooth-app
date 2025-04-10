@@ -175,7 +175,29 @@ class CountriesHelper {
 
   static Future<List<Country>?> getCountries(String? userLanguageCode) async {
     try {
-      return await IsoCountries.isoCountriesForLocale(userLanguageCode);
+      final CountriesLocaleMapper mapper = CountriesLocaleMapper();
+
+      // Use the ISO3 codes from your custom map
+      final Set<String> iso3Codes = iso3ToCountry.keys.toSet();
+
+      final LocaleMap localized = mapper.localize(
+        iso3Codes,
+        mainLocale: userLanguageCode ?? 'en',
+        fallbackLocale: 'en',
+      );
+
+      // Build the list using your existing OpenFoodFactsCountry mapping
+      final List<Country> countriesList = localized.entries.map((entry) {
+        final String iso3 = entry.key.isoCode; // like 'IND'
+        final String localizedName = entry.value;
+
+        final OpenFoodFactsCountry? offCountry = iso3ToCountry[iso3];
+        final String alpha2 = offCountry?.offTag.toUpperCase() ?? 'UN';
+
+        return Country(name: localizedName, countryCode: alpha2);
+      }).toList();
+
+      return countriesList;
     } on MissingPluginException catch (_) {
       // Locales are not implemented on desktop and web
       return <Country>[

@@ -3,13 +3,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:iso_countries/iso_countries.dart';
+import 'package:l10n_countries/l10n_countries.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/pages/preferences/country_selector/open_food_facts_country_map.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
@@ -28,6 +29,7 @@ class CountrySelector extends StatelessWidget {
     this.inkWellBorderRadius,
     this.loadingHeight = 48.0,
     this.autoValidate = true,
+    super.key,
   });
 
   final TextStyle? textStyle;
@@ -51,19 +53,19 @@ class CountrySelector extends StatelessWidget {
         builder: (BuildContext context, _CountrySelectorProvider provider, _) {
           return switch (provider.value) {
             PreferencesSelectorLoadingState<Country> _ => SizedBox(
-                height: loadingHeight,
-                child: const Center(
-                  child: CircularProgressIndicator.adaptive(),
-                ),
+              height: loadingHeight,
+              child: const Center(
+                child: CircularProgressIndicator.adaptive(),
               ),
+            ),
             PreferencesSelectorLoadedState<Country> _ => _CountrySelectorButton(
-                icon: icon,
-                innerPadding: padding ?? EdgeInsets.zero,
-                textStyle: textStyle,
-                inkWellBorderRadius: inkWellBorderRadius,
-                forceCurrencyChange: forceCurrencyChange,
-                autoValidate: autoValidate,
-              ),
+              icon: icon,
+              innerPadding: padding ?? EdgeInsets.zero,
+              textStyle: textStyle,
+              inkWellBorderRadius: inkWellBorderRadius,
+              forceCurrencyChange: forceCurrencyChange,
+              autoValidate: autoValidate,
+            ),
           };
         },
       ),
