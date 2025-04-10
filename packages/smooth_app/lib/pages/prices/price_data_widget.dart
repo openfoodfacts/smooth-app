@@ -83,20 +83,14 @@ class PriceDataWidget extends StatelessWidget {
           ExcludeSemantics(child: Text(priceLabel)),
           ExcludeSemantics(child: Text(dateFormat.format(price.date))),
           if (isDiscounted)
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(12),
+            PriceButton(
+              title: appLocalizations.prices_discount,
+              iconData: Icons.local_offer,
+              buttonStyle: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all<Color>(Colors.red),
+                foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
               ),
-              child: Text(
-                appLocalizations.prices_discount,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              onPressed: () {},
             ),
           if (notDiscountedPrice != null) Text('($notDiscountedPrice)'),
           if (model.displayEachLocation && locationTitle != null)
