@@ -4171,5 +4171,9 @@
   "nutrition_facts_extract_failed": "Nepodařilo se extrahovat živiny z obrázku",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Sleva",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
   }
 }
