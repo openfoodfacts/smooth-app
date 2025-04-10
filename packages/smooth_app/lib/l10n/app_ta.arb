@@ -4171,5 +4171,9 @@
   "nutrition_facts_extract_failed": "படத்திலிருந்து ஊட்டச்சத்துக்களைப் பிரித்தெடுக்க முடியவில்லை",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "தள்ளுபடி",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
   }
 }
