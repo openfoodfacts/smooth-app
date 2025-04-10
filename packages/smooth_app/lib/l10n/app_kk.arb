@@ -4171,5 +4171,9 @@
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Discount",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
   }
 }
