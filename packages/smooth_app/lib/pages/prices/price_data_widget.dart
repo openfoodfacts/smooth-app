@@ -85,11 +85,6 @@ class PriceDataWidget extends StatelessWidget {
           if (isDiscounted)
             PriceButton(
               title: appLocalizations.prices_discount,
-              iconData: Icons.local_offer,
-              buttonStyle: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all<Color>(Colors.red),
-                foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
-              ),
               onPressed: () {},
             ),
           if (notDiscountedPrice != null) Text('($notDiscountedPrice)'),
