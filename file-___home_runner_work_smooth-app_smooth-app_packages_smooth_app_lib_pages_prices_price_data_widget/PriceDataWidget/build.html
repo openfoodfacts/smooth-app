@@ -110,6 +110,7 @@ Widget build(BuildContext context) {
 
   final String? pricePerKg = getPricePerKg();
   final String? notDiscountedPrice = getNotDiscountedPrice();
+  final bool isDiscounted = price.priceIsDiscounted == true;
 
   final String priceLabel = &#39;${currencyFormat.format(price.price)}&#39;
       &#39; ${pricePerKg == null ? &#39;&#39; : &#39; ($pricePerKg)&#39;}&#39;;
@@ -129,6 +130,11 @@ Widget build(BuildContext context) {
       children: &lt;Widget&gt;[
         ExcludeSemantics(child: Text(priceLabel)),
         ExcludeSemantics(child: Text(dateFormat.format(price.date))),
+        if (isDiscounted)
+          PriceButton(
+            title: appLocalizations.prices_discount,
+            onPressed: () {},
+          ),
         if (notDiscountedPrice != null) Text(&#39;($notDiscountedPrice)&#39;),
         if (model.displayEachLocation &amp;&amp; locationTitle != null)
           &#47;&#47; TODO(monsieurtanuki): open a still-to-be-done &quot;price x location&quot; page
