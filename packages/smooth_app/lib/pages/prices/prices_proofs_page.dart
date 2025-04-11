@@ -61,21 +61,63 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       body: FutureBuilder<MaybeError<GetProofsResult>>(
         future: _results,
         builder: (
-          final BuildContext context,
-          final AsyncSnapshot<MaybeError<GetProofsResult>> snapshot,
-        ) {
+            final BuildContext context,
+            final AsyncSnapshot<MaybeError<GetProofsResult>> snapshot,
+            ) {
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Text(snapshot.error!.toString());
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.error_outline, size: 48, color: Colors.red),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Connection Error',
+                      style: Theme.of(context).textTheme.titleLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      _getFormattedErrorMessage(snapshot.error.toString()),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            );
           }
           // highly improbable
           if (!snapshot.hasData) {
             return const Text('no data');
           }
           if (snapshot.data!.isError) {
-            return Text(snapshot.data!.error!);
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.error_outline, size: 48, color: Colors.red),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Connection Error',
+                      style: Theme.of(context).textTheme.titleLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      _getFormattedErrorMessage(snapshot.data!.error!),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            );
           }
           final GetProofsResult result = snapshot.data!.value;
           // highly improbable
@@ -85,15 +127,15 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           final double squareSize = MediaQuery.sizeOf(context).width / _columns;
 
           final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
+          AppLocalizations.of(context);
           final String title = result.numberOfPages == 1
               ? appLocalizations.prices_proofs_list_length_one_page(
-                  result.items!.length,
-                )
+            result.items!.length,
+          )
               : appLocalizations.prices_proofs_list_length_many_pages(
-                  _pageSize,
-                  result.total!,
-                );
+            _pageSize,
+            result.total!,
+          );
           return Column(
             children: <Widget>[
               SmoothCard(
@@ -107,14 +149,14 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                     slivers: <Widget>[
                       SliverGrid(
                         gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: _columns,
                         ),
                         delegate: SliverChildBuilderDelegate(
-                          (
-                            final BuildContext context,
-                            final int index,
-                          ) {
+                              (
+                              final BuildContext context,
+                              final int index,
+                              ) {
                             final Proof proof = result.items![index];
                             if (proof.filePath == null) {
                               // highly improbable
@@ -134,8 +176,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                                   MaterialPageRoute<void>(
                                     builder: (BuildContext context) =>
                                         PriceProofPage(
-                                      proof,
-                                    ),
+                                          proof,
+                                        ),
                                   ),
                                 );
                               }, // PriceProofPage
@@ -157,18 +199,47 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     );
   }
 
+  // Helper method to format error messages
+  String _getFormattedErrorMessage(String errorMsg) {
+    // Check for common network errors
+    if (errorMsg.contains('SocketException') ||
+        errorMsg.contains('Failed host lookup')) {
+      return 'Unable to connect to the server. Please check your internet connection and try again.';
+    }
+
+    // Authentication errors
+    if (errorMsg.contains('authentication') ||
+        errorMsg.contains('401') ||
+        errorMsg.contains('403')) {
+      return 'Authentication failed. Please check your credentials and try again.';
+    }
+
+    // If we can't identify the error type, return a generic message
+    return 'An error occurred while connecting to the server. Please try again later.';
+  }
+
   static Future<MaybeError<GetProofsResult>> _download() async {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<String> token =
-        await OpenPricesAPIClient.getAuthenticationToken(
+    await OpenPricesAPIClient.getAuthenticationToken(
       username: user.userId,
       password: user.password,
       uriHelper: ProductQuery.uriPricesHelper,
     );
+
+    // Check if there was an error getting the authentication token
+    if (token.isError) {
+      // Return a properly constructed error
+      return MaybeError<GetProofsResult>.error(
+        error: token.error ?? 'Could not authenticate with the server',
+        statusCode: token.statusCode ?? 500,
+      );
+    }
+
     final String bearerToken = token.value;
 
     final MaybeError<GetProofsResult> result =
-        await OpenPricesAPIClient.getProofs(
+    await OpenPricesAPIClient.getProofs(
       GetProofsParameters()
         ..orderBy = <OrderBy<GetProofsOrderField>>[
           const OrderBy<GetProofsOrderField>(
@@ -195,9 +266,9 @@ class _PricesProofsPageState extends State<PricesProofsPage>
 // TODO(monsieurtanuki): reuse whatever will be coded in https://github.com/openfoodfacts/smooth-app/pull/5366
 class _PriceProofImage extends StatelessWidget {
   const _PriceProofImage(
-    this.proof, {
-    required this.squareSize,
-  });
+      this.proof, {
+        required this.squareSize,
+      });
 
   final Proof proof;
   final double squareSize;
@@ -205,7 +276,7 @@ class _PriceProofImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DateFormat dateFormat =
-        DateFormat.yMd(ProductQuery.getLocaleString());
+    DateFormat.yMd(ProductQuery.getLocaleString());
     final String date = dateFormat.format(proof.created);
     return Stack(
       children: <Widget>[
@@ -215,9 +286,9 @@ class _PriceProofImage extends StatelessWidget {
           imageProvider: NetworkImage(
             proof
                 .getFileUrl(
-                  uriProductHelper: ProductQuery.uriPricesHelper,
-                  isThumbnail: true,
-                )
+              uriProductHelper: ProductQuery.uriPricesHelper,
+              isThumbnail: true,
+            )
                 .toString(),
           ),
           rounded: false,
