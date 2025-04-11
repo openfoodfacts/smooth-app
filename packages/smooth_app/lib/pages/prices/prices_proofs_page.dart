@@ -68,56 +68,14 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.error_outline, size: 48, color: Colors.red),
-                    const SizedBox(height: 16),
-                    Text(
-                      'Connection Error',
-                      style: Theme.of(context).textTheme.titleLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      _getFormattedErrorMessage(snapshot.error.toString()),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-            );
+            return _buildErrorDisplay(context, snapshot.error.toString());
           }
           // highly improbable
           if (!snapshot.hasData) {
             return const Text('no data');
           }
           if (snapshot.data!.isError) {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.error_outline, size: 48, color: Colors.red),
-                    const SizedBox(height: 16),
-                    Text(
-                      'Connection Error',
-                      style: Theme.of(context).textTheme.titleLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      _getFormattedErrorMessage(snapshot.data!.error!),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-            );
+            return _buildErrorDisplay(context, snapshot.data!.error!);
           }
           final GetProofsResult result = snapshot.data!.value;
           // highly improbable
@@ -195,6 +153,31 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             ],
           );
         },
+      ),
+    );
+  }
+
+  Widget _buildErrorDisplay(BuildContext context, String errorMessage) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Icon(Icons.error_outline, size: 48, color: Colors.red),
+            const SizedBox(height: 16),
+            Text(
+              'Connection Error',
+              style: Theme.of(context).textTheme.titleLarge,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              _getFormattedErrorMessage(errorMessage),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }
