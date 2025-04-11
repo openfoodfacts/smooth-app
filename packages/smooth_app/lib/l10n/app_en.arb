@@ -2615,7 +2615,7 @@
     "description": "Community challenges of open prices"
   },
   "prices_multiple_proof_addition_system": "Add Multiple Proofs",
-  "@prices_multiple_proof_addition_system":{
+  "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
   "all_search_prices_top_location_single_title": "Prices in a store",
@@ -3686,6 +3686,7 @@
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Press Contact",
   "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_calendar": "Subscribe to our community calendar",
   "hunger_games_loading_line1": "Please give us a few seconds…",
   "hunger_games_loading_line2": "We're downloading the questions!",
   "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
@@ -4180,5 +4181,9 @@
   "attribute_other": "Other",
   "compatibility_score_modal_title": "Your compatibility score",
   "sort_by_score": "Sort by : Score",
-  "sort_by_importance": "Sort by : Importance"
+  "sort_by_importance": "Sort by : Importance",
+  "prices_discount": "Discount",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
+  }
 }
