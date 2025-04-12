@@ -9,7 +9,15 @@
 
 - This new mobile application aims to showcase Open Food Facts's power to a broad range of users through a smooth user experience and sleek user interface. It is a <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts).
 - We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up.
-- Install it on **Android** ([Google Play](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner), [F-Droid](https://f-droid.org/fr/packages/openfoodfacts.github.scrachx.openfood/) or [Amazon App Store](https://www.amazon.com/Open-Food-Facts-food-Nutriscore/dp/B00U49IVIU)) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or **iPhone/iPad** ([App Store](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of your PRs quicker.
+
+### Stable version
+- Install it on **Android** ([Google Play](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner), [F-Droid](https://f-droid.org/fr/packages/openfoodfacts.github.scrachx.openfood/) or [Amazon App Store](https://www.amazon.com/Open-Food-Facts-food-Nutriscore/dp/B00U49IVIU)) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948).
+
+### Beta version
+- Google Play offers a Beta version you can join freely. We typically push to beta a couple of days before final release.
+
+### Testing version
+- Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or **iPhone/iPad** ([App Store](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of your PRs quicker.
 
 <img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
 
@@ -29,60 +37,51 @@
 - We take comprehensive notes in the Weekly Agenda of agenda item discussions and of decisions taken.
 
 ## Current Release
+- https://github.com/openfoodfacts/smooth-app/releases
+- Latest commit deployed to Apple App Store: Released on March 10th, 2025 as Version 4.19.0
+- Latest commit deployed to PlayStore: March 10th, 2025 as Version 4.19.0
+- Latest commit deployed to F-Droid: March 10th, 2025 as Version 4.19.0
 
-- Latest commit deployed to Apple App Store: Released on 28 October 2024 as Version 4.16.1
-- Latest commit deployed to PlayStore: 28 December 2024 as Version 4.17.1
-- Latest commit deployed to F-Droid: 21 December 2024 as Version 4.17.1
+## 📚 Code documentation
+- [Code documentation on GitHub pages](https://openfoodfacts.github.io/smooth-app/).
 
-## Code documentation
-
-[Code documentation on GitHub pages](https://openfoodfacts.github.io/smooth-app/).
-
-## User interface
-
+## 🎨 Design & User interface
+- We strive to thoughfully design every feature before we move on to implementation, so that we respect Open Food Facts' graphic charter and nascent design system, while having efficient user flows.
 - [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/file/nFMjewFAOa8c4ahtob7CAB/Mobile-App-Design-(Quentin)?node-id=0%3A1&t=SrBuT7gBdhapUerx-0)
 - [![Sketch](https://img.shields.io/badge/Sketch-%23F24E1E.svg?logo=sketch&logoColor=white) Recent Sketch mockups by @g123k](https://www.sketch.com/s/11375b6d-9c02-4920-846d-a2b1376600b9/p/95D14BAF-AD1E-449F-9AB7-27E328773827/canvas)
 
 <details><summary><h2>Features of the app</h2></summary>
 
-## Features
+## ✨ Features
 
 Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Features
 
 - a scan that truly matches who you are (Green: the product matches your criteria, Red: there is a problem, Gray: Help us answer you by photographing the products)
 - a product page that's knowledgeable, building on the vast amount of food facts we collect collaboratively, and other sources of knowledge, to help you make better food decisions
 
-## You can
+### You can
 
 - scan and compare in 15 seconds the 3 brands of tomato sauces left on the shelf, on your terms.
 - get a tailored comparison of any food category
 - set your preferences without ruining your privacy
 
-## Criteria you can pick
+### Criteria you can pick
 
 - Environment: Eco-Score
 - Health: Additives & Ultra processed foods, Salt, Allergens, Nutri-Score
 
 </details>
 
-## How to run the project
-
-- Make sure you have installed flutter and all the requirements
-  - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
+## 🚀 How to run the project
+- Make sure you have installed Flutter and all the requirements
+  - [Official Flutter installation guide](https://docs.flutter.dev/get-started/install)
 - Currently, the app uses the following version of Flutter: **3.27**.
-
-
 We have predefined run configurations for Android Studio and Visual Studio Code
-
 In order to run the application, make sure you are in the `packages/smooth_app` directory and run these commands:
-
 - `flutter pub get .`
-
 - On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
-
 - On iOS/macOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
-
-- Troubleshooting🚀: If you get an error like `App depends on scanner shared from path which depends on camera_platform_interface from git, version solving failed.`  then run
+- Troubleshooting : If you get an error like `App depends on scanner shared from path which depends on camera_platform_interface from git, version solving failed.`  then run
   - `flutter pub cache clean` or manually delete  the  
   - `C:\Users\~\AppData\Local\Pub\Cache`  file.
  Then redo the above procedure to run the app.
