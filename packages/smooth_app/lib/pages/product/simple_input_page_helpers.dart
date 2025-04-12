@@ -8,8 +8,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/country_selector.dart';
-import 'package:smooth_app/pages/preferences/country_selector/open_food_facts_country_map.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -926,13 +925,8 @@ class SimpleInputPageCategoryNotFoodHelper
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   SimpleInputPageCountryHelper(UserPreferences userPreferences)
-      : _userCountryCode = userPreferences.userCountryCode ?? 'en' {
-    CountriesHelper.getCountries(
-      getLanguage().offTag,
-    ).then((List<Country>? countries) {
-      _countries = countries ?? <Country>[];
-    });
-  }
+      : _userCountryCode =
+            userPreferences.userCountryCode?.toUpperCase() ?? 'EN';
 
   final String _userCountryCode;
 
@@ -940,7 +934,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       ValueNotifier<SimpleInputSuggestionsState>(
     const SimpleInputSuggestionsLoading(),
   );
-  List<Country>? _countries;
+  List<OpenFoodFactsCountry>? _countries;
 
   @override
   List<String> initTerms(final Product product) =>
@@ -959,6 +953,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       );
     }
 
+    _countries = OpenFoodFactsCountry.values;
     _reloadSuggestions();
   }
 
@@ -991,19 +986,16 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       _suggestionsNotifier;
 
   Future<void> _reloadSuggestions() async {
-    _countries ??= await CountriesHelper.getCountries(
-      getLanguage().offTag,
-    );
-    if (_countries == null) {
-      _suggestionsNotifier.value = const SimpleInputSuggestionsNoSuggestion();
-      return;
-    }
+    _countries = OpenFoodFactsCountry.values;
 
-    final Country? country = _countries!.firstWhereOrNull(
-      (Country country) => country.countryCode == _userCountryCode,
+    final OpenFoodFactsCountry? country = _countries!.firstWhereOrNull(
+      (OpenFoodFactsCountry country) =>
+          country.offTag.toUpperCase() == _userCountryCode.toUpperCase(),
     );
 
-    if (country == null || _terms.contains(country.name) == true) {
+    final String locale = getLanguage().offTag;
+
+    if (country == null || _terms.contains(country.getLocalizedName(locale))) {
       _suggestionsNotifier.value = const SimpleInputSuggestionsLoaded(
         suggestions: <String>[],
       );
@@ -1011,7 +1003,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
     }
 
     _suggestionsNotifier.value = SimpleInputSuggestionsLoaded(
-      suggestions: <String>[country.name],
+      suggestions: <String>[country.getLocalizedName(locale)],
     );
   }
 

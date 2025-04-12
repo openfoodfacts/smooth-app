@@ -6,7 +6,9 @@ part of 'country_selector.dart';
 /// * [_CountrySelectorLoadedState]: countries loaded and/or saved
 /// * [_CountrySelectorEditingState]: the user has selected a country
 /// (temporary selection)
-class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
+
+class _CountrySelectorProvider
+    extends PreferencesSelectorProvider<OpenFoodFactsCountry> {
   _CountrySelectorProvider({
     required super.preferences,
     required super.autoValidate,
@@ -28,14 +30,13 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
       userCountryCode = newCountryCode;
       userAppLanguageCode = newLanguageCode;
 
-      if (value is PreferencesSelectorInitialState<Country>) {
+      if (value is PreferencesSelectorInitialState<OpenFoodFactsCountry>) {
         return loadValues();
       } else {
-        final PreferencesSelectorLoadedState<Country> state =
-            value as PreferencesSelectorLoadedState<Country>;
+        final state =
+            value as PreferencesSelectorLoadedState<OpenFoodFactsCountry>;
 
-        /// Reorder items
-        final List<Country> countries = state.items;
+        final List<OpenFoodFactsCountry> countries = state.items;
         _reorderCountries(countries, userCountryCode);
 
         value = state.copyWith(
@@ -47,168 +48,94 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
   }
 
   @override
-  Future<List<Country>> onLoadValues() async {
-    final List<Country> localizedCountries = await CountriesHelper.getCountries(
-          userAppLanguageCode,
-        ) ??
-        <Country>[];
+  Future<List<OpenFoodFactsCountry>> onLoadValues() async {
+    final List<OpenFoodFactsCountry> countries =
+        _sanitizeAndSortCountries(userAppLanguageCode);
+    return countries;
+  }
 
-    final List<Country> countries = await compute(
-      _reformatCountries,
-      (localizedCountries, userCountryCode),
+  static List<OpenFoodFactsCountry> _sanitizeAndSortCountries(String? locale) {
+    final List<OpenFoodFactsCountry> countries =
+        List.from(OpenFoodFactsCountry.values);
+
+    countries.sort(
+      (a, b) => a
+          .getLocalizedName(locale ?? 'en')
+          .compareTo(b.getLocalizedName(locale ?? 'en')),
     );
 
     return countries;
   }
 
-  static Future<List<Country>> _reformatCountries(
-    (List<Country>, String?) localizedCountriesAndUserCountry,
-  ) async {
-    final List<Country> countries =
-        _sanitizeCountriesList(localizedCountriesAndUserCountry.$1);
-    _reorderCountries(countries, localizedCountriesAndUserCountry.$2);
-    return countries;
-  }
-
-  /// Sanitizes the country list, but without reordering it.
-  /// * by removing countries that are not in [OpenFoodFactsCountry]
-  /// * and providing a fallback English name for countries that are in
-  /// [OpenFoodFactsCountry] but not in [localizedCountries].
-  static List<Country> _sanitizeCountriesList(
-    List<Country> localizedCountries,
-  ) {
-    final List<Country> finalCountriesList = <Country>[];
-    final Map<String, OpenFoodFactsCountry> oFFIsoCodeToCountry =
-        <String, OpenFoodFactsCountry>{};
-    final Map<String, Country> localizedIsoCodeToCountry = <String, Country>{};
-    for (final OpenFoodFactsCountry c in OpenFoodFactsCountry.values) {
-      oFFIsoCodeToCountry[c.offTag.toLowerCase()] = c;
-    }
-    for (final Country c in localizedCountries) {
-      localizedIsoCodeToCountry.putIfAbsent(
-          c.countryCode.toLowerCase(), () => c);
-    }
-    for (final String countryCode in oFFIsoCodeToCountry.keys) {
-      final Country? localizedCountry = localizedIsoCodeToCountry[countryCode];
-      if (localizedCountry == null) {
-        // No localization for the country name was found, use English name as
-        // default.
-        String countryName = oFFIsoCodeToCountry[countryCode]
-            .toString()
-            .replaceAll('OpenFoodFactsCountry.', '')
-            .replaceAll('_', ' ');
-        countryName =
-            '${countryName[0].toUpperCase()}${countryName.substring(1).toLowerCase()}';
-        finalCountriesList.add(
-          Country(
-              name: _fixCountryName(countryName),
-              countryCode: _fixCountryCode(countryCode)),
-        );
-        continue;
-      }
-      final String fixedCountryCode = _fixCountryCode(countryCode);
-      final Country country = fixedCountryCode == countryCode
-          ? localizedCountry
-          : Country(name: localizedCountry.name, countryCode: countryCode);
-      finalCountriesList.add(country);
-    }
-
-    return finalCountriesList;
-  }
-
-  /// Fix the countryCode if needed so Backend can process it.
-  static String _fixCountryCode(String countryCode) {
-    // 'gb' is handled as 'uk' in the backend.
-    if (countryCode == 'gb') {
-      countryCode = 'uk';
-    }
-    return countryCode;
-  }
-
-  /// Fix the issues where United Kingdom appears with lowercase 'k'.
-  static String _fixCountryName(String countryName) {
-    if (countryName == 'United kingdom') {
-      countryName = 'United Kingdom';
-    }
-    return countryName;
-  }
-
-  /// Reorder countries alphabetically, bring user's locale country to top.
   static void _reorderCountries(
-    List<Country> countries,
+    List<OpenFoodFactsCountry> countries,
     String? userCountryCode,
   ) {
     countries.sort(
-      (final Country a, final Country b) {
-        if (a.countryCode == userCountryCode) {
-          return -1;
-        }
-        if (b.countryCode == userCountryCode) {
-          return 1;
-        }
-        return a.name.compareTo(b.name);
+      (a, b) {
+        if (a.offTag == userCountryCode) return -1;
+        if (b.offTag == userCountryCode) return 1;
+        return a.getLocalizedName('en').compareTo(b.getLocalizedName('en'));
       },
     );
   }
 
   @override
-  Country getSelectedValue(List<Country> countries) {
+  OpenFoodFactsCountry getSelectedValue(List<OpenFoodFactsCountry> countries) {
     if (userCountryCode != null) {
-      for (final Country country in countries) {
-        if (country.countryCode.toLowerCase() ==
-            userCountryCode?.toLowerCase()) {
-          return country;
-        }
-      }
+      return countries.firstWhere(
+        (country) =>
+            country.offTag.toLowerCase() == userCountryCode?.toLowerCase(),
+        orElse: () => countries.first,
+      );
     }
-    return countries[0];
+    return countries.first;
   }
 
   @override
-  Future<void> onSaveItem(Country country) => preferences.setUserCountryCode(
-        country.countryCode,
-      );
+  Future<void> onSaveItem(OpenFoodFactsCountry country) =>
+      preferences.setUserCountryCode(country.offTag);
 }
 
-class CountriesHelper {
-  const CountriesHelper._();
-
-  static Future<List<Country>?> getCountries(String? userLanguageCode) async {
-    try {
-      final CountriesLocaleMapper mapper = CountriesLocaleMapper();
-
-      // Use the ISO3 codes from your custom map
-      final Set<String> iso3Codes = iso3ToCountry.keys.toSet();
-
-      final LocaleMap localized = mapper.localize(
-        iso3Codes,
-        mainLocale: userLanguageCode ?? 'en',
-        fallbackLocale: 'en',
-      );
-
-      // Build the list using your existing OpenFoodFactsCountry mapping
-      final List<Country> countriesList = localized.entries.map((entry) {
-        final String iso3 = entry.key.isoCode; // like 'IND'
-        final String localizedName = entry.value;
-
-        final OpenFoodFactsCountry? offCountry = iso3ToCountry[iso3];
-        final String alpha2 = offCountry?.offTag.toUpperCase() ?? 'UN';
-
-        return Country(name: localizedName, countryCode: alpha2);
-      }).toList();
-
-      return countriesList;
-    } on MissingPluginException catch (_) {
-      // Locales are not implemented on desktop and web
-      return <Country>[
-        const Country(name: 'United States', countryCode: 'US'),
-        const Country(name: 'France', countryCode: 'FR'),
-        const Country(name: 'Germany', countryCode: 'DE'),
-        const Country(name: 'India', countryCode: 'IN'),
-      ];
-    } catch (e) {
-      Logs.e('Failed to load countries', ex: e);
-      return null;
-    }
-  }
-}
+// class CountriesHelper {
+//   const CountriesHelper._();
+//
+//   static Future<List<Country>?> getCountries(String? userLanguageCode) async {
+//     try {
+//       final CountriesLocaleMapper mapper = CountriesLocaleMapper();
+//
+//       // Use the ISO3 codes from your custom map
+//       final Set<String> iso3Codes = iso3ToCountry.keys.toSet();
+//
+//       final LocaleMap localized = mapper.localize(
+//         iso3Codes,
+//         mainLocale: userLanguageCode ?? 'en',
+//         fallbackLocale: 'en',
+//       );
+//
+//       // Build the list using your existing OpenFoodFactsCountry mapping
+//       final List<Country> countriesList = localized.entries.map((entry) {
+//         final String iso3 = entry.key.isoCode; // like 'IND'
+//         final String localizedName = entry.value;
+//
+//         final OpenFoodFactsCountry? offCountry = iso3ToCountry[iso3];
+//         final String alpha2 = offCountry?.offTag.toUpperCase() ?? 'UN';
+//
+//         return Country(name: localizedName, countryCode: alpha2);
+//       }).toList();
+//
+//       return countriesList;
+//     } on MissingPluginException catch (_) {
+//       // Locales are not implemented on desktop and web
+//       return <Country>[
+//         const Country(name: 'United States', countryCode: 'US'),
+//         const Country(name: 'France', countryCode: 'FR'),
+//         const Country(name: 'Germany', countryCode: 'DE'),
+//         const Country(name: 'India', countryCode: 'IN'),
+//       ];
+//     } catch (e) {
+//       Logs.e('Failed to load countries', ex: e);
+//       return null;
+//     }
+//   }
+// }

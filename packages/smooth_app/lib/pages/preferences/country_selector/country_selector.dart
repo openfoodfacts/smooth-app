@@ -1,18 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:l10n_countries/l10n_countries.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/pages/preferences/country_selector/open_food_facts_country_map.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -21,16 +17,14 @@ part 'country_selector_provider.dart';
 
 /// A button that will open a list of countries and save it in the preferences.
 class CountrySelector extends StatelessWidget {
-  const CountrySelector({
-    required this.forceCurrencyChange,
-    this.textStyle,
-    this.padding,
-    this.icon,
-    this.inkWellBorderRadius,
-    this.loadingHeight = 48.0,
-    this.autoValidate = true,
-    super.key,
-  });
+  const CountrySelector(
+      {required this.forceCurrencyChange,
+      this.textStyle,
+      this.padding,
+      this.icon,
+      this.inkWellBorderRadius,
+      this.loadingHeight = 48.0,
+      this.autoValidate = true});
 
   final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
@@ -52,20 +46,21 @@ class CountrySelector extends StatelessWidget {
       child: Consumer<_CountrySelectorProvider>(
         builder: (BuildContext context, _CountrySelectorProvider provider, _) {
           return switch (provider.value) {
-            PreferencesSelectorLoadingState<Country> _ => SizedBox(
-              height: loadingHeight,
-              child: const Center(
-                child: CircularProgressIndicator.adaptive(),
+            PreferencesSelectorLoadingState<OpenFoodFactsCountry> _ => SizedBox(
+                height: loadingHeight,
+                child: const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                ),
               ),
-            ),
-            PreferencesSelectorLoadedState<Country> _ => _CountrySelectorButton(
-              icon: icon,
-              innerPadding: padding ?? EdgeInsets.zero,
-              textStyle: textStyle,
-              inkWellBorderRadius: inkWellBorderRadius,
-              forceCurrencyChange: forceCurrencyChange,
-              autoValidate: autoValidate,
-            ),
+            PreferencesSelectorLoadedState<OpenFoodFactsCountry> _ =>
+              _CountrySelectorButton(
+                icon: icon,
+                innerPadding: padding ?? EdgeInsets.zero,
+                textStyle: textStyle,
+                inkWellBorderRadius: inkWellBorderRadius,
+                forceCurrencyChange: forceCurrencyChange,
+                autoValidate: autoValidate,
+              ),
           };
         },
       ),
@@ -102,19 +97,24 @@ class _CountrySelectorButton extends StatelessWidget {
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 40.0),
           child: ConsumerValueNotifierFilter<_CountrySelectorProvider,
-              PreferencesSelectorState<Country>>(
-            buildWhen: (PreferencesSelectorState<Country>? previousValue,
-                    PreferencesSelectorState<Country> currentValue) =>
-                previousValue != null &&
-                currentValue is! PreferencesSelectorEditingState &&
-                (currentValue as PreferencesSelectorLoadedState<Country>)
-                        .selectedItem !=
-                    (previousValue as PreferencesSelectorLoadedState<Country>)
-                        .selectedItem,
-            builder: (_, PreferencesSelectorState<Country> value, __) {
-              final Country? country =
-                  (value as PreferencesSelectorLoadedState<Country>)
-                      .selectedItem;
+              PreferencesSelectorState<OpenFoodFactsCountry>>(
+            buildWhen:
+                (PreferencesSelectorState<OpenFoodFactsCountry>? previousValue,
+                        PreferencesSelectorState<OpenFoodFactsCountry>
+                            currentValue) =>
+                    previousValue != null &&
+                    currentValue is! PreferencesSelectorEditingState &&
+                    (currentValue as PreferencesSelectorLoadedState<
+                                OpenFoodFactsCountry>)
+                            .selectedItem !=
+                        (previousValue as PreferencesSelectorLoadedState<
+                                OpenFoodFactsCountry>)
+                            .selectedItem,
+            builder:
+                (_, PreferencesSelectorState<OpenFoodFactsCountry> value, __) {
+              final OpenFoodFactsCountry? country = (value
+                      as PreferencesSelectorLoadedState<OpenFoodFactsCountry>)
+                  .selectedItem;
 
               return Padding(
                 padding: innerPadding,
@@ -124,8 +124,7 @@ class _CountrySelectorButton extends StatelessWidget {
                       SizedBox(
                         width: IconTheme.of(context).size! + LARGE_SPACE,
                         child: AutoSizeText(
-                          EmojiHelper.getEmojiByCountryCode(
-                              country.countryCode)!,
+                          EmojiHelper.getEmojiByCountryCode(country.offTag)!,
                           textAlign: TextAlign.center,
                           style:
                               TextStyle(fontSize: IconTheme.of(context).size),
@@ -193,7 +192,7 @@ class _CountrySelectorButton extends StatelessWidget {
     /// (eg: the user uses the Android back button).
     if (newCountry == null) {
       context.read<_CountrySelectorProvider>().dismissSelectedItem();
-    } else if (newCountry is Country) {
+    } else if (newCountry is OpenFoodFactsCountry) {
       _changeCurrencyIfRelevant(context, newCountry);
     }
   }
@@ -201,11 +200,11 @@ class _CountrySelectorButton extends StatelessWidget {
 // TODO(g123k): move this to a dedicated Provider
   Future<void> _changeCurrencyIfRelevant(
     final BuildContext context,
-    final Country country,
+    final OpenFoodFactsCountry country,
   ) async {
     final UserPreferences userPreferences = context.read<UserPreferences>();
     final OpenFoodFactsCountry? offCountry =
-        OpenFoodFactsCountry.fromOffTag(country.countryCode);
+        OpenFoodFactsCountry.fromOffTag(country.offTag);
     final String? possibleCurrencyCode = offCountry?.currency?.name;
 
     if (possibleCurrencyCode == null) {
@@ -261,12 +260,12 @@ class _CountrySelectorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return SmoothSelectorScreen<Country>(
+    return SmoothSelectorScreen<OpenFoodFactsCountry>(
       provider: provider,
       title: appLocalizations.country_selector_title,
       itemBuilder: (
         BuildContext context,
-        Country country,
+        OpenFoodFactsCountry country,
         bool selected,
         String filter,
       ) {
@@ -275,14 +274,14 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                EmojiHelper.getEmojiByCountryCode(country.countryCode) ?? '',
+                EmojiHelper.getEmojiByCountryCode(country.offTag) ?? '',
                 style: const TextStyle(fontSize: 25.0),
               ),
             ),
             Expanded(
               flex: 2,
               child: Text(
-                country.countryCode.toUpperCase(),
+                country.offTag.toUpperCase(),
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -291,7 +290,8 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 7,
               child: TextHighlighter(
-                text: country.name,
+                text: country
+                    .getLocalizedName(AppLocalizations.of(context).localeName),
                 filter: filter,
                 textStyle: const TextStyle(
                   fontWeight: FontWeight.w600,
@@ -301,35 +301,36 @@ class _CountrySelectorScreen extends StatelessWidget {
           ],
         );
       },
-      itemsFilter: (List<Country> list, Country? selectedItem,
-              Country? selectedItemOverride, String filter) =>
+      itemsFilter: (List<OpenFoodFactsCountry> list,
+              OpenFoodFactsCountry? selectedItem,
+              OpenFoodFactsCountry? selectedItemOverride,
+              String filter) =>
           _filterCountries(
-        list,
-        selectedItem,
-        selectedItemOverride,
-        filter,
-      ),
+              list, selectedItem, selectedItemOverride, filter, context),
     );
   }
 
-  Iterable<Country> _filterCountries(
-    List<Country> countries,
-    Country? userCountry,
-    Country? selectedCountry,
-    String? filter,
-  ) {
+  Iterable<OpenFoodFactsCountry> _filterCountries(
+      List<OpenFoodFactsCountry> countries,
+      OpenFoodFactsCountry? userCountry,
+      OpenFoodFactsCountry? selectedCountry,
+      String? filter,
+      BuildContext context) {
     if (filter == null || filter.isEmpty) {
       return countries;
     }
 
     return countries.where(
-      (Country country) =>
+      (OpenFoodFactsCountry country) =>
           country == userCountry ||
           country == selectedCountry ||
-          country.name.toLowerCase().contains(
+          country
+              .getLocalizedName(AppLocalizations.of(context).localeName)
+              .toLowerCase()
+              .contains(
                 filter.toLowerCase(),
               ) ||
-          country.countryCode.toLowerCase().contains(
+          country.offTag.toLowerCase().contains(
                 filter.toLowerCase(),
               ),
     );

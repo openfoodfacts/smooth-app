@@ -20,7 +20,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/open_food_facts_country_map.dart';
+import 'package:smooth_app/pages/preferences/country_selector/tmp_country_iso3.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -431,14 +431,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     if (_country == null) return null;
 
     // Find the matching ISO3 code for the given _country
-    final String? iso3 = iso3ToCountry.entries
-        .firstWhere(
-          (entry) => entry.value == _country,
-      orElse: () => const MapEntry('', OpenFoodFactsCountry.UNITED_KINGDOM),
-    )
-        .key;
+    final String? iso3 = tmpCountryIso3[_country!];
+    if (iso3 == null) {
+      return null;
+    }
 
-    if (iso3!.isEmpty) {
+    if (iso3.isEmpty) {
       return null;
     }
 
@@ -453,8 +451,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
 
     return localized.values.firstOrNull;
   }
-
-
 
   Widget _getLargeButtonWithIcon(final _Action action) =>
       SmoothLargeButtonWithIcon(
