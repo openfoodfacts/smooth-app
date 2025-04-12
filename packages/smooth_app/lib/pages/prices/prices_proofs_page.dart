@@ -68,14 +68,25 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return _buildErrorDisplay(context, snapshot.error.toString());
+            final String errorMessage = snapshot.error.toString();
+            if (errorMessage.contains('SocketException') ||
+                errorMessage.contains('Failed host lookup')) {
+              return const Text('Unable to connect to the server. Please check your internet connection and try again.');
+            }
+            return Text(errorMessage);
           }
           // highly improbable
           if (!snapshot.hasData) {
             return const Text('no data');
           }
           if (snapshot.data!.isError) {
-            return _buildErrorDisplay(context, snapshot.data!.error!);
+            final String errorMessage = snapshot.data!.error!;
+            if (errorMessage.contains('SocketException') ||
+                errorMessage.contains('Failed host lookup') ||
+                errorMessage.contains('nodename nor servname provided')) {
+              return const Text('Unable to connect to the server. Please check your internet connection and try again.');
+            }
+            return Text(errorMessage);
           }
           final GetProofsResult result = snapshot.data!.value;
           // highly improbable
@@ -157,50 +168,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     );
   }
 
-  Widget _buildErrorDisplay(BuildContext context, String errorMessage) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Icon(Icons.error_outline, size: 48, color: Colors.red),
-            const SizedBox(height: 16),
-            Text(
-              'Connection Error',
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              _getFormattedErrorMessage(errorMessage),
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // Helper method to format error messages
-  String _getFormattedErrorMessage(String errorMsg) {
-    // Check for common network errors
-    if (errorMsg.contains('SocketException') ||
-        errorMsg.contains('Failed host lookup')) {
-      return 'Unable to connect to the server. Please check your internet connection and try again.';
-    }
-
-    // Authentication errors
-    if (errorMsg.contains('authentication') ||
-        errorMsg.contains('401') ||
-        errorMsg.contains('403')) {
-      return 'Authentication failed. Please check your credentials and try again.';
-    }
-
-    // If we can't identify the error type, return a generic message
-    return 'An error occurred while connecting to the server. Please try again later.';
-  }
-
   static Future<MaybeError<GetProofsResult>> _download() async {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<String> token =
@@ -210,9 +177,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       uriHelper: ProductQuery.uriPricesHelper,
     );
 
-    // Check if there was an error getting the authentication token
     if (token.isError) {
-      // Return a properly constructed error
       return MaybeError<GetProofsResult>.error(
         error: token.error ?? 'Could not authenticate with the server',
         statusCode: token.statusCode ?? 500,
