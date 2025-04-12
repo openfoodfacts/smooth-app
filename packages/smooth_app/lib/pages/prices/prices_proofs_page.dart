@@ -68,27 +68,14 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            final String errorMessage = snapshot.error.toString();
-            if (errorMessage.contains('SocketException') ||
-                errorMessage.contains('Failed host lookup')) {
-              return const Text(
-                  'Unable to connect to the server. Please check your internet connection and try again.');
-            }
-            return Text(errorMessage);
+            return Text(snapshot.error!.toString());
           }
           // highly improbable
           if (!snapshot.hasData) {
             return const Text('no data');
           }
           if (snapshot.data!.isError) {
-            final String errorMessage = snapshot.data!.error!;
-            if (errorMessage.contains('SocketException') ||
-                errorMessage.contains('Failed host lookup') ||
-                errorMessage.contains('nodename nor servname provided')) {
-              return const Text(
-                  'Unable to connect to the server. Please check your internet connection and try again.');
-            }
-            return Text(errorMessage);
+            return Text(snapshot.data!.error!);
           }
           final GetProofsResult result = snapshot.data!.value;
           // highly improbable
