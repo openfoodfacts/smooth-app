@@ -71,7 +71,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             final String errorMessage = snapshot.error.toString();
             if (errorMessage.contains('SocketException') ||
                 errorMessage.contains('Failed host lookup')) {
-              return const Text('Unable to connect to the server. Please check your internet connection and try again.');
+              return const Text(
+                  'Unable to connect to the server. Please check your internet connection and try again.');
             }
             return Text(errorMessage);
           }
@@ -84,7 +85,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             if (errorMessage.contains('SocketException') ||
                 errorMessage.contains('Failed host lookup') ||
                 errorMessage.contains('nodename nor servname provided')) {
-              return const Text('Unable to connect to the server. Please check your internet connection and try again.');
+              return const Text(
+                  'Unable to connect to the server. Please check your internet connection and try again.');
             }
             return Text(errorMessage);
           }
