@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
@@ -32,8 +33,9 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
   @override
   Widget build(BuildContext context) {
     final PriceModel model = context.watch<PriceModel>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothCardWithRoundedHeader(
-      title: 'Multiple Price Tags',
+      title: appLocalizations.prices_bulk_proof_upload_subtitle,
       leading: const Icon(Icons.document_scanner_rounded),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         horizontal: SMALL_SPACE,
@@ -41,14 +43,14 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
       ),
       child: Column(
         children: <Widget>[
-          const ListTile(
-            trailing: Icon(Icons.warning),
+          ListTile(
+            trailing: const Icon(Icons.warning),
             title: Text(
-              "Once you've selected images, you won't be able to edit them!",
+              appLocalizations.prices_bulk_proof_upload_warning,
             ),
           ),
           SmoothLargeButtonWithIcon(
-            text: 'Add price tags directly from gallery',
+            text: appLocalizations.prices_bulk_proof_upload_select,
             leadingIcon: const Icon(Icons.add),
             onPressed: model.location == null
                 ? null
