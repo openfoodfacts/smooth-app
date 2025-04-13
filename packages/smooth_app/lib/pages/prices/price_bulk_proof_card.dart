@@ -41,17 +41,18 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
       ),
       child: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: SMALL_SPACE,
+          const ListTile(
+            trailing: Icon(Icons.warning),
+            title: Text(
+              "Once you've selected images, you won't be able to edit them!",
             ),
-            child: SmoothLargeButtonWithIcon(
-              text: 'Add price tags directly from gallery',
-              leadingIcon: const Icon(Icons.add),
-              onPressed: model.location == null
-                  ? null
-                  : () async => _selectAndUpload(model: model),
-            ),
+          ),
+          SmoothLargeButtonWithIcon(
+            text: 'Add price tags directly from gallery',
+            leadingIcon: const Icon(Icons.add),
+            onPressed: model.location == null
+                ? null
+                : () async => _selectAndUpload(model: model),
           ),
           if (_text.isNotEmpty) Text(_text),
         ],
