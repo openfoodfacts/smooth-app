@@ -770,6 +770,7 @@
   "score_add_missing_ingredients": "הוספת רכיבים חסרים",
   "score_add_missing_packaging_image": "הוספת תמונת אריזה חסרה",
   "score_add_missing_nutrition_facts": "הוספת עובדות תזונתיות חסרות",
+  "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "הוספת קטגוריית מוצר חסרה",
   "score_add_missing_product_countries": "הוספת מדינות מוצר חסרות",
   "score_add_missing_product_emb": "הוספת קודים למעקב חסרים של מוצר",
@@ -1600,6 +1601,10 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
+  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
   "edit_product_form_item_add_suggestion": "הוספת הצעה",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
@@ -1795,6 +1800,18 @@
   "edit_product_form_item_emb_help_info2_item2_explanation": "EMB 72264",
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
+  },
+  "edit_product_form_item_traces_title": "עקבות",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "עקבות",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
   },
   "edit_product_form_item_categories_title": "קטגוריות",
   "@edit_product_form_item_categories_title": {
@@ -2261,8 +2278,10 @@
   },
   "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
   "prices_app_button": "מעבר ליישומון המחירים",
+  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
+  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
+  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "העלאת הוכחות במרוכז",
-  "prices_bulk_proof_upload_action": "שליחת ההוכחה",
   "prices_generic_title": "מחירים",
   "prices_add_n_prices": "{count,plural, two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
   "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
