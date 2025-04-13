@@ -770,7 +770,7 @@
   "score_add_missing_ingredients": "Додати відсутні інгредієнти",
   "score_add_missing_packaging_image": "Додайте відсутнє зображення упакування",
   "score_add_missing_nutrition_facts": "Додати відсутні поживні речовини",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Додайте відсутні сліди продукту",
   "score_add_missing_product_category": "Додати відсутню категорію продукту",
   "score_add_missing_product_countries": "Додайте відсутні країни для товарів",
   "score_add_missing_product_emb": "Додайте відсутні коди відстеження продукту",
@@ -1601,7 +1601,7 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Додайте новий слід",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
@@ -1809,7 +1809,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Введіть слід (наприклад: соєві боби)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -2278,9 +2278,9 @@
   },
   "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
   "prices_app_button": "Перейдіть у додаток Ціни",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
+  "prices_bulk_proof_upload_select": "Додайте цінники прямо з галереї",
+  "prices_bulk_proof_upload_warning": "Після вибору зображень Ви не зможете їх редагувати!",
+  "prices_bulk_proof_upload_subtitle": "Кілька цінників",
   "prices_bulk_proof_upload_title": "Масове підтвердження завантаження",
   "prices_generic_title": "Ціни",
   "prices_add_n_prices": "{count,plural, =1{Додайте ціну} other{Додайте {count} цін}}",
