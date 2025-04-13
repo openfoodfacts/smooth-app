@@ -770,7 +770,7 @@
   "score_add_missing_ingredients": "Ajouter les ingrédients manquants",
   "score_add_missing_packaging_image": "Ajouter l'image d'emballage manquante",
   "score_add_missing_nutrition_facts": "Ajouter les informations nutritionnelles manquantes",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Ajouter des traces de produits manquantes",
   "score_add_missing_product_category": "Ajouter une catégorie de produit manquante",
   "score_add_missing_product_countries": "Ajouter les pays de vente manquants",
   "score_add_missing_product_emb": "Ajouter les codes de traçabilité manquants",
@@ -1601,7 +1601,7 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Ajouter une nouvelle trace",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
@@ -1809,7 +1809,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Saisir une trace (ex : soja)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -2278,9 +2278,9 @@
   },
   "prices_app_dev_mode_flag": "Raccourci vers l'application Prix sur la page produit",
   "prices_app_button": "Accéder à l'application Prix",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
+  "prices_bulk_proof_upload_select": "Ajouter des étiquettes de prix directement depuis la galerie",
+  "prices_bulk_proof_upload_warning": "Une fois que vous aurez sélectionné des images, vous ne pourrez pas les modifier !",
+  "prices_bulk_proof_upload_subtitle": "Étiquettes de prix multiples",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
   "prices_generic_title": "Prix",
   "prices_add_n_prices": "{count,plural, =1{Ajouter un prix} other{Ajouter {count} prix}}",
