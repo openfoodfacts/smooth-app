@@ -770,6 +770,7 @@
   "score_add_missing_ingredients": "Fehlende Zutaten hinzufügen",
   "score_add_missing_packaging_image": "Fehlendes Foto der Verpackung hinzufügen",
   "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
+  "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",
   "score_add_missing_product_countries": "Fehlende Produktländer hinzufügen",
   "score_add_missing_product_emb": "Fehlende Rückverfolgbarkeitscodes fürs Produkt hinzufügen",
@@ -1600,6 +1601,10 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
+  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
   "edit_product_form_item_add_suggestion": "Vorschlag hinzufügen",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
@@ -1795,6 +1800,18 @@
   "edit_product_form_item_emb_help_info2_item2_explanation": "EMB 72264",
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
+  },
+  "edit_product_form_item_traces_title": "Spuren",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "Spur",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
   },
   "edit_product_form_item_categories_title": "Kategorien",
   "@edit_product_form_item_categories_title": {
@@ -2261,8 +2278,10 @@
   },
   "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
   "prices_app_button": "Zur Preise-App wechseln",
+  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
+  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
+  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "Massen-Upload von Nachweisen",
-  "prices_bulk_proof_upload_action": "Nachweis senden",
   "prices_generic_title": "Preise",
   "prices_add_n_prices": "{count,plural, =1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
   "prices_send_n_prices": "{count,plural, =1{Preis senden} other{{count} Preise senden}}",
