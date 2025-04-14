@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:l10n_countries/l10n_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +19,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/tmp_country_iso3.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -428,28 +427,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   }
 
   Future<String?> _getTranslatedCountry() async {
-    if (_country == null) return null;
-
-    // Find the matching ISO3 code for the given _country
-    final String? iso3 = tmpCountryIso3[_country!];
-    if (iso3 == null) {
+    if (_country == null) {
       return null;
     }
-
-    if (iso3.isEmpty) {
-      return null;
-    }
-
-    final CountriesLocaleMapper mapper = CountriesLocaleMapper();
     final String locale = Localizations.localeOf(context).languageCode;
-
-    final LocaleMap localized = mapper.localize(
-      <String>{iso3},
-      mainLocale: locale,
-      fallbackLocale: 'en',
-    );
-
-    return localized.values.firstOrNull;
+    return _country!.getLocalizedName(locale);
   }
 
   Widget _getLargeButtonWithIcon(final _Action action) =>
