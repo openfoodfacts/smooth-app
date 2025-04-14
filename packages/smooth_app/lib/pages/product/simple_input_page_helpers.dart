@@ -925,8 +925,8 @@ class SimpleInputPageCategoryNotFoodHelper
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   SimpleInputPageCountryHelper(UserPreferences userPreferences)
-      : _userCountryCode =
-            userPreferences.userCountryCode?.toUpperCase() ?? 'EN';
+      : _userCountryCode = userPreferences.userCountryCode?.toUpperCase() ??
+            OpenFoodFactsCountry.FRANCE.offTag.toUpperCase();
 
   final String _userCountryCode;
 
@@ -934,8 +934,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       ValueNotifier<SimpleInputSuggestionsState>(
     const SimpleInputSuggestionsLoading(),
   );
-  List<OpenFoodFactsCountry>? _countries;
-
+  List<OpenFoodFactsCountry> get _countries => OpenFoodFactsCountry.values;
   @override
   List<String> initTerms(final Product product) =>
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
@@ -953,7 +952,6 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       );
     }
 
-    _countries = OpenFoodFactsCountry.values;
     _reloadSuggestions();
   }
 
@@ -986,9 +984,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       _suggestionsNotifier;
 
   Future<void> _reloadSuggestions() async {
-    _countries = OpenFoodFactsCountry.values;
-
-    final OpenFoodFactsCountry? country = _countries!.firstWhereOrNull(
+    final OpenFoodFactsCountry? country = _countries.firstWhereOrNull(
       (OpenFoodFactsCountry country) =>
           country.offTag.toUpperCase() == _userCountryCode.toUpperCase(),
     );
@@ -1003,7 +999,9 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
     }
 
     _suggestionsNotifier.value = SimpleInputSuggestionsLoaded(
-      suggestions: <String>[country.getLocalizedName(locale)],
+      suggestions: country.getLocalizedName(locale) != null
+          ? <String>[country.getLocalizedName(locale)!]
+          : <String>[],
     );
   }
 

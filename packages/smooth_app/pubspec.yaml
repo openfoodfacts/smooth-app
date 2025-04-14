@@ -27,6 +27,7 @@ dependencies:
   http: 1.3.0
   http_parser: 4.1.2
   image_picker: 1.1.2
+  l10n_countries: 1.0.0
   latlong2: 0.9.1
   matomo_tracker: 5.1.0
   package_info_plus: 8.2.1
@@ -84,11 +85,11 @@ dependencies:
   app_store_uri:
     path: ../app_store/uri_store
 
-  # We use two different scanning engines, 
+  # We use two different scanning engines,
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
   camera: 0.11.1
-  
+
   scanner_shared:
     path: ../scanner/shared
 
@@ -99,9 +100,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.20.0
-  l10n_countries: 1.0.0
-  iso_countries: ^2.2.0
+  openfoodfacts: 3.21.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

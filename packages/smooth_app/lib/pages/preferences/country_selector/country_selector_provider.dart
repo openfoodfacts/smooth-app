@@ -50,18 +50,17 @@ class _CountrySelectorProvider
   @override
   Future<List<OpenFoodFactsCountry>> onLoadValues() async {
     final List<OpenFoodFactsCountry> countries =
-        _sanitizeAndSortCountries(userAppLanguageCode);
+    _sanitizeCountriesList(userAppLanguageCode);
     return countries;
   }
 
-  static List<OpenFoodFactsCountry> _sanitizeAndSortCountries(String? locale) {
+  static List<OpenFoodFactsCountry> _sanitizeCountriesList(String? locale) {
     final List<OpenFoodFactsCountry> countries =
-        List.from(OpenFoodFactsCountry.values);
+        List<OpenFoodFactsCountry>.from(OpenFoodFactsCountry.values);
 
     countries.sort(
-      (a, b) => a
-          .getLocalizedName(locale ?? 'en')
-          .compareTo(b.getLocalizedName(locale ?? 'en')),
+      (a, b) => (a.getLocalizedName(locale ?? 'en') ?? '')
+          .compareTo(b.getLocalizedName(locale ?? 'en') ?? ''),
     );
 
     return countries;
@@ -75,7 +74,8 @@ class _CountrySelectorProvider
       (a, b) {
         if (a.offTag == userCountryCode) return -1;
         if (b.offTag == userCountryCode) return 1;
-        return a.getLocalizedName('en').compareTo(b.getLocalizedName('en'));
+        return (a.getLocalizedName('en') ?? '')
+            .compareTo(b.getLocalizedName('en') ?? '');
       },
     );
   }
@@ -96,46 +96,3 @@ class _CountrySelectorProvider
   Future<void> onSaveItem(OpenFoodFactsCountry country) =>
       preferences.setUserCountryCode(country.offTag);
 }
-
-// class CountriesHelper {
-//   const CountriesHelper._();
-//
-//   static Future<List<Country>?> getCountries(String? userLanguageCode) async {
-//     try {
-//       final CountriesLocaleMapper mapper = CountriesLocaleMapper();
-//
-//       // Use the ISO3 codes from your custom map
-//       final Set<String> iso3Codes = iso3ToCountry.keys.toSet();
-//
-//       final LocaleMap localized = mapper.localize(
-//         iso3Codes,
-//         mainLocale: userLanguageCode ?? 'en',
-//         fallbackLocale: 'en',
-//       );
-//
-//       // Build the list using your existing OpenFoodFactsCountry mapping
-//       final List<Country> countriesList = localized.entries.map((entry) {
-//         final String iso3 = entry.key.isoCode; // like 'IND'
-//         final String localizedName = entry.value;
-//
-//         final OpenFoodFactsCountry? offCountry = iso3ToCountry[iso3];
-//         final String alpha2 = offCountry?.offTag.toUpperCase() ?? 'UN';
-//
-//         return Country(name: localizedName, countryCode: alpha2);
-//       }).toList();
-//
-//       return countriesList;
-//     } on MissingPluginException catch (_) {
-//       // Locales are not implemented on desktop and web
-//       return <Country>[
-//         const Country(name: 'United States', countryCode: 'US'),
-//         const Country(name: 'France', countryCode: 'FR'),
-//         const Country(name: 'Germany', countryCode: 'DE'),
-//         const Country(name: 'India', countryCode: 'IN'),
-//       ];
-//     } catch (e) {
-//       Logs.e('Failed to load countries', ex: e);
-//       return null;
-//     }
-//   }
-// }

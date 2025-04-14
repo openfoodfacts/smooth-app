@@ -7,8 +7,9 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_emoji_extension.dart';
 import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
-import 'package:smooth_app/pages/prices/emoji_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -17,14 +18,15 @@ part 'country_selector_provider.dart';
 
 /// A button that will open a list of countries and save it in the preferences.
 class CountrySelector extends StatelessWidget {
-  const CountrySelector(
-      {required this.forceCurrencyChange,
-      this.textStyle,
-      this.padding,
-      this.icon,
-      this.inkWellBorderRadius,
-      this.loadingHeight = 48.0,
-      this.autoValidate = true});
+  const CountrySelector({
+    required this.forceCurrencyChange,
+    this.textStyle,
+    this.padding,
+    this.icon,
+    this.inkWellBorderRadius,
+    this.loadingHeight = 48.0,
+    this.autoValidate = true,
+  });
 
   final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
@@ -124,7 +126,7 @@ class _CountrySelectorButton extends StatelessWidget {
                       SizedBox(
                         width: IconTheme.of(context).size! + LARGE_SPACE,
                         child: AutoSizeText(
-                          EmojiHelper.getEmojiByCountryCode(country.offTag)!,
+                          country.emoji,
                           textAlign: TextAlign.center,
                           style:
                               TextStyle(fontSize: IconTheme.of(context).size),
@@ -203,9 +205,7 @@ class _CountrySelectorButton extends StatelessWidget {
     final OpenFoodFactsCountry country,
   ) async {
     final UserPreferences userPreferences = context.read<UserPreferences>();
-    final OpenFoodFactsCountry? offCountry =
-        OpenFoodFactsCountry.fromOffTag(country.offTag);
-    final String? possibleCurrencyCode = offCountry?.currency?.name;
+    final String? possibleCurrencyCode = country.currency?.name;
 
     if (possibleCurrencyCode == null) {
       return;
@@ -274,7 +274,7 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                EmojiHelper.getEmojiByCountryCode(country.offTag) ?? '',
+                country.emoji,
                 style: const TextStyle(fontSize: 25.0),
               ),
             ),
@@ -290,8 +290,9 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 7,
               child: TextHighlighter(
-                text: country
-                    .getLocalizedName(AppLocalizations.of(context).localeName),
+                text:
+                    country.getLocalizedName(ProductQuery.getLanguage().code) ??
+                        '',
                 filter: filter,
                 textStyle: const TextStyle(
                   fontWeight: FontWeight.w600,
@@ -324,12 +325,11 @@ class _CountrySelectorScreen extends StatelessWidget {
       (OpenFoodFactsCountry country) =>
           country == userCountry ||
           country == selectedCountry ||
-          country
-              .getLocalizedName(AppLocalizations.of(context).localeName)
-              .toLowerCase()
-              .contains(
-                filter.toLowerCase(),
-              ) ||
+          (country
+                  .getLocalizedName(ProductQuery.getLanguage().code)
+                  ?.toLowerCase()
+                  .contains(filter.toLowerCase()) ??
+              false) ||
           country.offTag.toLowerCase().contains(
                 filter.toLowerCase(),
               ),
