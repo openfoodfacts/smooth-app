@@ -1685,7 +1685,7 @@
   "@edit_product_form_item_stores_hint": {
     "description": "Product edition - Stores - input textfield hint"
   },
-  "edit_product_form_item_stores_type": "almatajir",
+  "edit_product_form_item_stores_type": "متجر",
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
