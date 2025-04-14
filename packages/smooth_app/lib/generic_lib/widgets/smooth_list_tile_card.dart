@@ -101,9 +101,12 @@ class SmoothListTileCard extends StatelessWidget {
               Expanded(
                 child: ListTile(
                   title: title,
-                  subtitle: subtitle,
+                  subtitle: Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: subtitle,
+                  ),
                   contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 ),
               ),
               Padding(

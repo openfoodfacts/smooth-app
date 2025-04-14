@@ -361,88 +361,95 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         children: <Widget>[
           SliverList.list(
             children: <Widget>[
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: lightTheme
-                        ? extension.primaryBlack
-                        : extension.primaryDark,
-                  ),
-                  child: Row(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Icon(
-                        Icons.sort,
-                        color: extension.primaryLight,
-                      ),
-                      Icon(
-                        Icons.arrow_downward,
-                        color: extension.primaryLight,
-                      ),
-                      Text(
-                        'Sort by :',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: extension.primaryLight,
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: lightTheme
+                              ? extension.primaryBlack
+                              : extension.primaryDark,
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                      DropdownButtonHideUnderline(
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 6),
-                          decoration: BoxDecoration(
-                            color: extension.primaryLight,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: extension.primaryBlack, width: 2),
-                          ),
-                          child: DropdownButton<String>(
-                            dropdownColor: extension.primaryLight,
-                            value: selectedOption,
-                            icon: Icon(Icons.keyboard_arrow_down_sharp,
-                                color: extension.primaryBlack),
-                            iconSize: 24,
-                            isDense: true,
-                            style: TextStyle(
-                              color: extension.primaryBlack,
-                              fontWeight: FontWeight.bold,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            const SizedBox(
+                              width: 10,
                             ),
-                            onChanged: (String? newValue) {
-                              if (newValue == null) {
-                                return;
-                              }
-                              setState(() {
-                                selectedOption = newValue;
-                              });
-                              if (newValue ==
-                                  appLocalizations.sort_by_missing_data) {
-                                _sortByMissingData();
-                              } else {
-                                _sortByField();
-                              }
-                            },
-                            items: <String>[
-                              appLocalizations.sort_by_fields,
-                              appLocalizations.sort_by_missing_data
-                            ].map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                          ),
+                            Icon(
+                              Icons.sort,
+                              color: extension.primaryLight,
+                            ),
+                            Icon(
+                              Icons.arrow_downward,
+                              color: extension.primaryLight,
+                            ),
+                            Text(
+                              appLocalizations.sorting,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: extension.primaryLight,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            DropdownButtonHideUnderline(
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12, vertical: 6),
+                                decoration: BoxDecoration(
+                                  color: extension.primaryLight,
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                      color: extension.primaryBlack, width: 2),
+                                ),
+                                child: DropdownButton<String>(
+                                  dropdownColor: extension.primaryLight,
+                                  value: selectedOption,
+                                  icon: Icon(Icons.arrow_drop_down,
+                                      color: extension.primaryBlack),
+                                  iconSize: 24,
+                                  isDense: true,
+                                  style: TextStyle(
+                                    color: extension.primaryBlack,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                  onChanged: (String? newValue) {
+                                    if (newValue == null) {
+                                      return;
+                                    }
+                                    setState(() {
+                                      selectedOption = newValue;
+                                    });
+                                    if (newValue ==
+                                        appLocalizations.sort_by_missing_data) {
+                                      _sortByMissingData();
+                                    } else {
+                                      _sortByField();
+                                    }
+                                  },
+                                  items: <String>[
+                                    appLocalizations.sort_by_fields,
+                                    appLocalizations.sort_by_missing_data
+                                  ].map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ]),
+                    ]),
+              ),
               ...items,
             ],
           ),
@@ -652,6 +659,7 @@ class _ListTitleItem extends SmoothListTileCard {
           color: _getIconBackgroundColor(title, error, warning),
           margin: const EdgeInsetsDirectional.only(
             top: SMALL_SPACE,
+            bottom: SMALL_SPACE,
           ),
         );
 
