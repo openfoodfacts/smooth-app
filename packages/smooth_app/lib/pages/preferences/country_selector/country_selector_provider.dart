@@ -50,7 +50,7 @@ class _CountrySelectorProvider
   @override
   Future<List<OpenFoodFactsCountry>> onLoadValues() async {
     final List<OpenFoodFactsCountry> countries =
-    _sanitizeCountriesList(userAppLanguageCode);
+        _sanitizeCountriesList(userAppLanguageCode);
     return countries;
   }
 

@@ -5,4 +5,3 @@ import 'package:smooth_app/pages/prices/emoji_helper.dart';
 extension OpenFoodFactsCountryEmojiExtension on OpenFoodFactsCountry {
   String get emoji => EmojiHelper.getEmojiByCountryCode(iso2Code) ?? '';
 }
-
