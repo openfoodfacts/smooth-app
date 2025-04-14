@@ -15,6 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
       - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@67d4f4bd7a9b17a0db54d2a7519187c65e339de8 # ratchet:actions/dependency-review-action@v4

@@ -9,7 +9,7 @@ jobs:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@main
+      - uses: actions/add-to-project@280af8ae1f83a494cfad2cb10f02f6d13529caa9 # ratchet:actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/7
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT || github.token }}

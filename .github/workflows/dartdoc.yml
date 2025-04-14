@@ -1,36 +1,36 @@
-    name: GitHub Pages Deploy Action	
-    on:	
-        push:	
-            branches:	
-               - "develop"	
-               #- "dartdoc-smoothie"	
-    jobs:	
-        deploy-pages:	
-            name: Deploy to GitHub Pages	
-            runs-on: ubuntu-latest	
-            defaults:	
-              run:	
-                working-directory: ./packages/smooth_app	
-            steps:	
+name: GitHub Pages Deploy Action
+on:
+  push:
+    branches:
+      - "develop"
+      #- "dartdoc-smoothie"	
+jobs:
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/smooth_app
+    steps:
 
-            - name: Chekout code	
-              uses: actions/checkout@v4	
+      - name: Chekout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
 
-            - name: Setup Flutter	
-              uses: actions/cache@v4	
-              with:	
-                path: ${{ runner.tool_cache }}/flutter	
-                key: flutter-2.5.0-stable	
-            - uses: subosito/flutter-action@v2	
-              with:	
-                channel: stable	
-                flutter-version: 2.5.0	
+      - name: Setup Flutter
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # ratchet:actions/cache@v4
+        with:
+          path: ${{ runner.tool_cache }}/flutter
+          key: flutter-2.5.0-stable
+      - uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046 # ratchet:subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 2.5.0
 
-            - name: Run Dartdoc	
-              run: pub global activate dartdoc && dartdoc	
+      - name: Run Dartdoc
+        run: pub global activate dartdoc && dartdoc
 
-            - name: Deploy API documentation to Github Pages	
-              uses: JamesIves/github-pages-deploy-action@v4.7.3	
-              with:	
-                BRANCH: gh-pages	
-                FOLDER: packages/smooth_app/doc/api/	
+      - name: Deploy API documentation to Github Pages
+        uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # ratchet:JamesIves/github-pages-deploy-action@v4.7.3
+        with:
+          BRANCH: gh-pages
+          FOLDER: packages/smooth_app/doc/api/

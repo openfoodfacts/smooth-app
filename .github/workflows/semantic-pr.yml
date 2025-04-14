@@ -6,7 +6,7 @@ on:
       - opened
       - edited
       - synchronize
-      
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -16,7 +16,7 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
-      - uses: amannn/action-semantic-pull-request@v5
+      - uses: amannn/action-semantic-pull-request@0723387faaf9b38adef4775cd42cfd5155ed6017 # ratchet:amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

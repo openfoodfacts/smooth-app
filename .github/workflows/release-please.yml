@@ -1,12 +1,12 @@
 name: Run release-please
 on:
-   push:
-     branches:
-       - develop
+  push:
+    branches:
+      - develop
 
 env:
   RUBY_VERSION: 3.2.0
-    
+
 
 jobs:
   release-please:
@@ -20,13 +20,13 @@ jobs:
       tag_name: ${{ steps.release_please.outputs.tag_name }}
     steps:
       - name: Release-please
-        uses: googleapis/release-please-action@v4.2.0
+        uses: googleapis/release-please-action@a02a34c4d625f9be7cb89156071d8567266a2445 # ratchet:googleapis/release-please-action@v4.2.0
         id: release_please
         with:
-           token: ${{ secrets.GITHUB_TOKEN }}
-           release-type: simple
-           pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Mobile app - Release${component} ${version}."
-           changelog-types: |
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: simple
+          pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Mobile app - Release${component} ${version}."
+          changelog-types: |
             [
             {"type":"feat","section":"🚀 Features","hidden":false},
             {"type":"fix","section":"🐛 Bug Fixes","hidden":false},
@@ -38,7 +38,7 @@ jobs:
             ]
 
   create-release:
-    concurrency: 
+    concurrency:
       group: release
       cancel-in-progress: false
     runs-on: ubuntu-latest
@@ -49,7 +49,7 @@ jobs:
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
 
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}" >> $GITHUB_ENV
@@ -63,7 +63,7 @@ jobs:
           STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@e5ac7b085f6e63d49c8973eb0c6e04d876b881f1 # ratchet:ruby/setup-ruby@v1
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -75,17 +75,17 @@ jobs:
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v3.1.0
+        uses: maierj/fastlane-action@5a3b971aaa26776459bb26894d6c1a1a84a311a7 # ratchet:maierj/fastlane-action@v3.1.0
         with:
           lane: getOldVersionCode
           subdirectory: packages/smooth_app/android
 
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
-        
+
       # We need to add the VERSION_CODE to the release in order for F-Droid to have the same VERSION_CODE as the other Stores
-      - name: Update release tag description 
-        uses: rickstaa/action-create-tag@v1
+      - name: Update release tag description
+        uses: rickstaa/action-create-tag@a1c7777fcb2fee4f19b0f283ba888afa11678b72 # ratchet:rickstaa/action-create-tag@v1
         continue-on-error: true
         with:
           tag: "v${{ env.VERSION_NAME }}"
@@ -97,7 +97,7 @@ jobs:
         run: echo ${{ env.VERSION_CODE }} > "./version-code.txt"
 
       - name: Upload version code to release
-        uses: svenstaro/upload-release-action@v2
+        uses: svenstaro/upload-release-action@04733e069f2d7f7f0b4aebc4fbdbce8613b03ccd # ratchet:svenstaro/upload-release-action@v2
         with:
           file: ./version-code.txt
           tag: "v${{ env.VERSION_NAME }}"
@@ -108,10 +108,10 @@ jobs:
         run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
 
   android-release:
-    concurrency: 
+    concurrency:
       group: android-release
       cancel-in-progress: false
-    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@5a88d11396cc10c393cbe72010f52a0ce10d338e # ratchet:openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
@@ -131,10 +131,10 @@ jobs:
       SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   iOS-release:
-    concurrency: 
+    concurrency:
       group: iOS-release
       cancel-in-progress: false
-    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@5a88d11396cc10c393cbe72010f52a0ce10d338e # ratchet:openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
@@ -154,10 +154,10 @@ jobs:
       AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
 
   android-release-github:
-    concurrency: 
+    concurrency:
       group: android-release-github
       cancel-in-progress: false
-    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@5a88d11396cc10c393cbe72010f52a0ce10d338e # ratchet:openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
@@ -178,10 +178,10 @@ jobs:
       SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   android-release-github-fdroid:
-    concurrency: 
+    concurrency:
       group: android-release-github-fdroid
       cancel-in-progress: false
-    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@5a88d11396cc10c393cbe72010f52a0ce10d338e # ratchet:openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:

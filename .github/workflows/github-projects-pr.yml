@@ -1,7 +1,7 @@
 name: Add PRs to the relevant GitHub Projects
 
 on:
-- pull_request_target
+  - pull_request_target
 
 jobs:
   add-to-project:
@@ -9,18 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
     steps:
-      - uses: actions/add-to-project@main
+      - uses: actions/add-to-project@280af8ae1f83a494cfad2cb10f02f6d13529caa9 # ratchet:actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/7
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT || github.token }}
           label-operator: AND
-      - uses: actions/add-to-project@main
+      - uses: actions/add-to-project@280af8ae1f83a494cfad2cb10f02f6d13529caa9 # ratchet:actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/133 # Add issue to the Releases project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: autorelease:\pending
-          label-operator: OR   
-      - uses: actions/add-to-project@main
+          label-operator: OR
+      - uses: actions/add-to-project@280af8ae1f83a494cfad2cb10f02f6d13529caa9 # ratchet:actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/136 # Add issue to the Translations project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}

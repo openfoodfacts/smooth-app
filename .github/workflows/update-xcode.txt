@@ -13,12 +13,12 @@ jobs:
     name: Check for Xcode Updates
     runs-on: macOS-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # ratchet:actions/checkout@v2
         with:
           token: ${{ secrets.UPDATE_XCODE_VERSIONS_GITHUB_TOKEN }} # A token that can update workflows, required to push changes to workflow files
 
       - name: Update Xcode Versions
-        uses: josephduffy/update-xcode-version-action@master
+        uses: josephduffy/update-xcode-version-action@46b46c9d2640819b11a8ae9d0907057bf69b4757 # ratchet:josephduffy/update-xcode-version-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }} # Required to create pull requests, can be the default token provided by GitHub Actions
           xcode-versions-file: .github/xcode-versions.yml # Default, not required, but can be changed

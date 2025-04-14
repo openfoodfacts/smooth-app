@@ -1,10 +1,10 @@
 name: SmoothApp Post-Submit Tests
 
-on: 
+on:
   push:
     branches:
       - "develop"
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,10 +13,10 @@ jobs:
         shell: bash
     steps:
       - name: "Checkout code"
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.7.1
+        uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # ratchet:actions/setup-java@v4.7.1
         with:
           distribution: 'zulu'
           java-version: 21
@@ -26,15 +26,15 @@ jobs:
         id: flutter-version
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+        uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046 # ratchet:subosito/flutter-action@v2
         with:
           #channel: stable
           cache: true
           flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
           cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
-        
+
       - run: flutter --version
-      
+
       # Get dependencies.
       - name: Get dependencies
         run: ci/pub_upgrade.sh
@@ -42,28 +42,28 @@ jobs:
       # Check for formatting issues
       - name: Check for formatting issues (run "dart format . ")
         run: dart format --set-exit-if-changed .
-      
+
       # analyze Dart for errors
       - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .
-      
+
       # Run tests
       - name: Run Tests with coverage
         run: ci/testing.sh
-            
+
       # Build apk.
       - name: Build APK
         run: flutter build apk --debug -t lib/entrypoints/android/main_google_play.dart
         working-directory: ./packages/smooth_app
 
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # ratchet:codecov/codecov-action@v5
         with:
           fail_ci_if_error: false
 
       # Upload generated apk to the artifacts.
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # ratchet:actions/upload-artifact@v4
         with:
           name: release-apk
           path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk

@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
 
 env:
- RUBY_VERSION: 3.2.0
+  RUBY_VERSION: 3.2.0
 
 jobs:
   tag-commit:
-    concurrency: 
+    concurrency:
       group: release
       cancel-in-progress: true
     if: github.triggering_actor == 'teolemon' || github.triggering_actor == 'stephanegigandet' || github.triggering_actor == 'g123k' || github.triggering_actor == 'monsieurtanuki' || github.triggering_actor == 'M123-dev'
@@ -18,9 +18,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@e5ac7b085f6e63d49c8973eb0c6e04d876b881f1 # ratchet:ruby/setup-ruby@v1
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -44,7 +44,7 @@ jobs:
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v3.1.0
+        uses: maierj/fastlane-action@5a3b971aaa26776459bb26894d6c1a1a84a311a7 # ratchet:maierj/fastlane-action@v3.1.0
         with:
           lane: getOldVersionCode
           subdirectory: packages/smooth_app/android
@@ -57,7 +57,7 @@ jobs:
         run: echo "NORMALIZED_TAG=$(echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr "." "_")" >> $GITHUB_ENV
 
       - name: Tag commit
-        uses: rickstaa/action-create-tag@v1
+        uses: rickstaa/action-create-tag@a1c7777fcb2fee4f19b0f283ba888afa11678b72 # ratchet:rickstaa/action-create-tag@v1
         continue-on-error: true
         with:
           tag: "${{ env.NORMALIZED_TAG }}"
@@ -68,10 +68,10 @@ jobs:
         id: set_output
         run: echo "VERSION_CODE=${{ env.VERSION_CODE }}" >> $GITHUB_OUTPUT && echo "VERSION_NAME=${{ env.VERSION_NAME }}" >> $GITHUB_OUTPUT
   android-release:
-    concurrency: 
+    concurrency:
       group: android-release
       cancel-in-progress: true
-    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@5a88d11396cc10c393cbe72010f52a0ce10d338e # ratchet:openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
       VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
@@ -90,10 +90,10 @@ jobs:
       SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   iOS-release:
-    concurrency: 
+    concurrency:
       group: iOS-release
       cancel-in-progress: true
-    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@5a88d11396cc10c393cbe72010f52a0ce10d338e # ratchet:openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
       VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}

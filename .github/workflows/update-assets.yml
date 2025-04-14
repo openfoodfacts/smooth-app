@@ -4,7 +4,7 @@ on:
   # Allow to be run manually
   workflow_dispatch:
   schedule:
-  - cron: "0 19 * * *"
+    - cron: "0 19 * * *"
 
 jobs:
   update-assets:
@@ -13,28 +13,28 @@ jobs:
 
     steps:
 
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
 
-    - name: Upgrade assets
-      run: chmod +x ci/update_assets.sh && ci/update_assets.sh
+      - name: Upgrade assets
+        run: chmod +x ci/update_assets.sh && ci/update_assets.sh
 
-    - name: Check for uncommitted changes
-      id: check-changes
-      uses: mskri/check-uncommitted-changes-action@v1.0.1
-      
-    - name: Create Pull Request
-      if: steps.check-changes.outputs.outcome == failure()
-      id: cpr
-      uses: peter-evans/create-pull-request@v7
-      with:
-        base: develop
-        commit-message: Update assets
-        committer: GitHub <noreply@github.com>
-        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-        signoff: false
-        branch: auto-update-assets
-        delete-branch: true
-        title: 'chore: Update assets'
-        body: |
-          Automated update of asset cache - Link to revert if needed: https://world.openfoodfacts.org/product/093270067481501/a-good-product-for-you-open-food-facts
+      - name: Check for uncommitted changes
+        id: check-changes
+        uses: mskri/check-uncommitted-changes-action@2b152539dd033c3a26e0dd1d8b9a0c8e4d3a8a19 # ratchet:mskri/check-uncommitted-changes-action@v1.0.1
+
+      - name: Create Pull Request
+        if: steps.check-changes.outputs.outcome == failure()
+        id: cpr
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # ratchet:peter-evans/create-pull-request@v7
+        with:
+          base: develop
+          commit-message: Update assets
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: auto-update-assets
+          delete-branch: true
+          title: 'chore: Update assets'
+          body: |
+            Automated update of asset cache - Link to revert if needed: https://world.openfoodfacts.org/product/093270067481501/a-good-product-for-you-open-food-facts
