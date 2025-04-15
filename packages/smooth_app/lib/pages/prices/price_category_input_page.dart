@@ -46,38 +46,40 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
       body: Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: LayoutBuilder(
-          builder: (_,
-              BoxConstraints constraints,) =>
+          builder: (
+            _,
+            BoxConstraints constraints,
+          ) =>
               SmoothAutocompleteTextField(
-                autocompleteKey: _autocompleteKey,
-                focusNode: _focusNode,
-                constraints: constraints,
-                onSelected: (final String selected) =>
-                    Navigator.of(context).pop(selected),
-                manager: AutocompleteManager(
-                  TagTypeAutocompleter(
-                    tagType: _helper.getTagType()!,
-                    language: ProductQuery.getLanguage(),
-                    country: ProductQuery.getCountry(),
-                    categories: null,
-                    shape: null,
-                    user: ProductQuery.getReadUser(),
-                    limit: 15,
-                    uriHelper: ProductQuery.getUriProductHelper(
-                      productType: ProductType.food,
-                    ),
-                  ),
+            autocompleteKey: _autocompleteKey,
+            focusNode: _focusNode,
+            constraints: constraints,
+            onSelected: (final String selected) =>
+                Navigator.of(context).pop(selected),
+            manager: AutocompleteManager(
+              TagTypeAutocompleter(
+                tagType: _helper.getTagType()!,
+                language: ProductQuery.getLanguage(),
+                country: ProductQuery.getCountry(),
+                categories: null,
+                shape: null,
+                user: ProductQuery.getReadUser(),
+                limit: 15,
+                uriHelper: ProductQuery.getUriProductHelper(
+                  productType: ProductType.food,
                 ),
-                textCapitalization: _helper.getTextCapitalization(),
-                allowEmojis: _helper.getAllowEmojis(),
-                hintText: _helper.getAddHint(appLocalizations),
-                controller: _controller,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: LARGE_SPACE,
-                  vertical: MEDIUM_SPACE,
-                ),
-                borderRadius: CIRCULAR_BORDER_RADIUS,
               ),
+            ),
+            textCapitalization: _helper.getTextCapitalization(),
+            allowEmojis: _helper.getAllowEmojis(),
+            hintText: _helper.getAddHint(appLocalizations),
+            controller: _controller,
+            padding: const EdgeInsets.symmetric(
+              horizontal: LARGE_SPACE,
+              vertical: MEDIUM_SPACE,
+            ),
+            borderRadius: CIRCULAR_BORDER_RADIUS,
+          ),
         ),
       ),
     );
