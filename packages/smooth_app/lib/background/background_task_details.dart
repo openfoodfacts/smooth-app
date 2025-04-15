@@ -26,6 +26,7 @@ enum BackgroundTaskDetailsStamp {
   embCodes('emb_codes'),
   labels('labels'),
   categories('categories'),
+  traces('traces'),
   countries('countries');
 
   const BackgroundTaskDetailsStamp(this.tag);
