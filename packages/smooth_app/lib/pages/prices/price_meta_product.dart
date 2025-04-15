@@ -15,20 +15,20 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 /// Meta version of a product, coming from OFF or from Prices.
 class PriceMetaProduct {
   PriceMetaProduct.category(final String categoryTag)
-      : _categoryTag = categoryTag,
-        _product = null,
+      : _product = null,
+        _categoryTag = categoryTag,
         _priceProduct = null,
         _barcode = null;
 
   PriceMetaProduct.product(final Product product)
-      : _categoryTag = null,
-        _product = product,
+      : _product = product,
+        _categoryTag = null,
         _priceProduct = null,
         _barcode = null;
 
   PriceMetaProduct.priceProduct(final PriceProduct priceProduct)
-      : _categoryTag = null,
-        _product = null,
+      : _product = null,
+        _categoryTag = null,
         _priceProduct = priceProduct,
         _barcode = null;
 
@@ -36,8 +36,8 @@ class PriceMetaProduct {
     final String barcode,
     final LocalDatabase localDatabase,
     final PriceModel priceModel,
-  )   : _categoryTag = null,
-        _product = null,
+  )   : _product = null,
+        _categoryTag = null,
         _priceProduct = null,
         _barcode = barcode {
     unawaited(_search(localDatabase, priceModel));

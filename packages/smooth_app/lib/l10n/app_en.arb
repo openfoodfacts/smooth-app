@@ -2319,6 +2319,14 @@
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / unit",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
