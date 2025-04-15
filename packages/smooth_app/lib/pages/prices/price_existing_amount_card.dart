@@ -73,8 +73,7 @@ class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDiscounted = widget.price.priceIsDiscounted ?? false;
     return SmoothCardWithRoundedHeader(
-      // TODO(monsieurtanuki): localize
-      title: 'Price previously added',
+      title: appLocalizations.prices_amount_existing_subtitle,
       leading: const Icon(Icons.history),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         vertical: MEDIUM_SPACE,

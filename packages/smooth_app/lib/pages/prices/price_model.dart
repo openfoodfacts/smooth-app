@@ -203,11 +203,15 @@ class PriceModel with ChangeNotifier {
   /// Adds the related background task.
   Future<void> addTask(final BuildContext context) async {
     final List<String> barcodes = <String>[];
+    final List<String> categories = <String>[];
+    final List<String> pricePers = <String>[];
     final List<bool> pricesAreDiscounted = <bool>[];
     final List<double> prices = <double>[];
     final List<double?> pricesWithoutDiscount = <double?>[];
     for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       barcodes.add(priceAmountModel.product.barcode);
+      categories.add(priceAmountModel.product.categoryTag);
+      pricePers.add(priceAmountModel.product.pricePer.offTag);
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);
       pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
@@ -223,6 +227,8 @@ class PriceModel with ChangeNotifier {
         proofId: proof!.id,
         // per item
         barcodes: barcodes,
+        categories: categories,
+        pricePers: pricePers,
         pricesAreDiscounted: pricesAreDiscounted,
         prices: prices,
         pricesWithoutDiscount: pricesWithoutDiscount,
@@ -240,6 +246,8 @@ class PriceModel with ChangeNotifier {
       currency: currency,
       // per item
       barcodes: barcodes,
+      categories: categories,
+      pricePers: pricePers,
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,

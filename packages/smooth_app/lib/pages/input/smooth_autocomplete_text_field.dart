@@ -26,6 +26,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.padding,
     this.textStyle,
     this.textCapitalization,
+    this.onSelected,
   });
 
   final FocusNode focusNode;
@@ -41,6 +42,9 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final TextStyle? textStyle;
   final TextCapitalization? textCapitalization;
+
+  /// Additional specific action when a suggested item is selected.
+  final Function(String)? onSelected;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
@@ -90,7 +94,11 @@ class _SmoothAutocompleteTextFieldState
               VoidCallback onFieldSubmitted) =>
           TextField(
         controller: widget.controller,
-        onChanged: (_) => setState(() => _selectedSearch = null),
+        onChanged: (_) {
+          if (mounted) {
+            setState(() => _selectedSearch = null);
+          }
+        },
         inputFormatters: <TextInputFormatter>[
           if (!widget.allowEmojis)
             FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
@@ -138,6 +146,7 @@ class _SmoothAutocompleteTextFieldState
       onSelected: (String search) {
         _selectedSearch = search;
         _setLoading(false);
+        widget.onSelected?.call(search);
       },
       optionsViewBuilder: (
         BuildContext lContext,
@@ -177,7 +186,7 @@ class _SmoothAutocompleteTextFieldState
     if (_loading != loading) {
       WidgetsBinding.instance.addPostFrameCallback(
         (_) {
-          if (context.mounted) {
+          if (mounted) {
             setState(() => _loading = loading);
           }
         },

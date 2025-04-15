@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -12,30 +14,46 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Meta version of a product, coming from OFF or from Prices.
 class PriceMetaProduct {
-  PriceMetaProduct.product(final Product product)
-      : _product = product,
+  PriceMetaProduct.category(final String categoryTag)
+      : _categoryTag = categoryTag,
+        _product = null,
         _priceProduct = null,
         _barcode = null;
+
+  PriceMetaProduct.product(final Product product)
+      : _categoryTag = null,
+        _product = product,
+        _priceProduct = null,
+        _barcode = null;
+
   PriceMetaProduct.priceProduct(final PriceProduct priceProduct)
-      : _product = null,
+      : _categoryTag = null,
+        _product = null,
         _priceProduct = priceProduct,
         _barcode = null;
+
   PriceMetaProduct.unknown(
     final String barcode,
     final LocalDatabase localDatabase,
     final PriceModel priceModel,
-  )   : _product = null,
+  )   : _categoryTag = null,
+        _product = null,
         _priceProduct = null,
         _barcode = barcode {
-    _search(localDatabase, priceModel);
+    unawaited(_search(localDatabase, priceModel));
   }
 
+  final String? _categoryTag;
+  PricePer pricePer = PricePer.kilogram;
   Product? _product;
   final PriceProduct? _priceProduct;
   bool _loading = false;
   final String? _barcode;
 
   String get barcode {
+    if (_categoryTag != null) {
+      return '';
+    }
     if (_product != null) {
       return _product!.barcode!;
     }
@@ -45,7 +63,12 @@ class PriceMetaProduct {
     return _barcode!;
   }
 
+  String get categoryTag => _categoryTag ?? '';
+
   String getName(final AppLocalizations appLocalizations) {
+    if (_categoryTag != null) {
+      return _categoryTag;
+    }
     if (_product != null) {
       return getProductNameAndBrands(
         _product!,
