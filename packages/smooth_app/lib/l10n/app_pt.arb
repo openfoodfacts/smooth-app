@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Qualidade dos dados",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "Começar a traduzir",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -2257,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "Atalho para a aplicação Preços na página do produto",
   "prices_app_button": "Ir para a aplicação Preços",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Preços",
   "prices_add_n_prices": "{count,plural, =1{Adicionar um preço} other{Adicionar {count} preços}}",
   "prices_send_n_prices": "{count,plural, =1{Enviar o preço} other{Enviar {count} preços}}",
@@ -2600,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_validation_assistant": "Assistente de validação de preço",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Desafios",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Preços numa loja",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -2712,7 +2730,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Antes de validar, certifique-se de adicionar apenas uma tradução **se o idioma não estiver presente na embalagem**",
+  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3668,6 +3686,7 @@
   "contact_title_press_page": "Página de imprensa",
   "contact_title_press_email": "Contactos de imprensa",
   "contact_title_newsletter": "Inscreva-se na nossa newsletter",
+  "contact_title_calendar": "Subscribe to our community calendar",
   "hunger_games_loading_line1": "Por favor, dê-nos alguns segundos…",
   "hunger_games_loading_line2": "Estamos a descarregar as perguntas!",
   "hunger_games_error_label": "Ups! Algo correu mal... e não conseguimos carregar as perguntas.",
@@ -3714,10 +3733,6 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "pt",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
-  },
   "guide_nutriscore_v2_what_is_nutriscore_title": "O que é o Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "O Nutri-Score é um logotipo que visa informá-lo sobre a **qualidade nutricional dos alimentos**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
@@ -3744,8 +3759,8 @@
   "guide_nutriscore_v2_new_logo_text": "A partir de agora, o logotipo pode exibir a menção \"**Novo cálculo**\" para esclarecer que este é realmente o novo cálculo.",
   "guide_nutriscore_v2_new_logo_image_caption": "O logotipo do novo Nutri-Score",
   "guide_nutriscore_v2_where_title": "Onde encontrar o novo cálculo do Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "O Nutri-Score é aplicado em vários países: Alemanha, Bélgica, Espanha, França, Luxemburgo, Holanda e Suíça.",
-  "guide_nutriscore_v2_where_paragraph2": "Os fabricantes têm até **2026**, no máximo, **para substituir** o cálculo antigo pelo novo.",
+  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
+  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "Sem esperar, você **já encontrará no aplicativo OpenFoodFacts** o novo cálculo, inclusive caso os fabricantes não tenham atualizado a pontuação.",
   "guide_nutriscore_v2_unchanged_title": "O que não muda",
   "guide_nutriscore_v2_unchanged_paragraph1": "O Nutri-Score é uma pontuação projetada para **medir a qualidade nutricional**. É **complementar ao grupo NOVA** sobre **alimentos ultraprocessados** (também presente no aplicativo).",

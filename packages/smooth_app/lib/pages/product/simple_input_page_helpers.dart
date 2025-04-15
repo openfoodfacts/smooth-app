@@ -16,6 +16,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
+// TODO(monsieurtanuki): split in different files, that one is too big.
 /// Abstract helper for Simple Input Page.
 ///
 /// * we retrieve the initial list of terms.

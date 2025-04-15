@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Качество на данните",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "Започни превода",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -444,10 +448,10 @@
   "myPreferences_profile_title": "Профил",
   "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
   "myPreferences_settings_title": "Настройки",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "Тъмен режим, Езици…",
   "myPreferences_food_title": "Хранителни предпочитания",
   "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
-  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_food_comment": "Избери коя информация за храната е най-важна за теб, за да класираш храната според твоите предпочитания. Виж информацията, която те интересува и получи обобщение за съвместимост. Тези предпочитания за храна остават на твоето устройство и не са свързани с твоят акаунт на сътрудник в Open Food Facts, ако имаш такъв.",
   "confirmResetPreferences": "Нулиране на твоите хранителни предпочитания?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -1100,7 +1104,7 @@
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
   },
-  "country_chooser_label_from_settings": "Your country",
+  "country_chooser_label_from_settings": "Твоята страна",
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
@@ -1228,15 +1232,15 @@
   },
   "retry_button_label": "Повторен опит",
   "connect_with_us": "Свържи се с нас",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Последвай ни в TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
-  "instagram": "Follow us on Instagram",
+  "instagram": "Последвай ни в Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
-  "twitter": "Follow us on X (formerly Twitter)",
+  "twitter": "Последвай ни в X (бивш Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Последвай ни в Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Последвай ни в BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Блог",
   "faq": "ЧЗВ",
@@ -2257,11 +2261,13 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_generic_title": "Цени",
   "prices_add_n_prices": "{count,plural, =1{Добави цена} other{Добави {count} цени}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
   "prices_add_an_item": "Add an item",
-  "prices_add_a_price": "Add a price",
+  "prices_add_a_price": "Добавяне на цена",
   "prices_add_a_receipt": "Add a receipt",
   "prices_add_price_tags": "Add price tags",
   "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
@@ -2600,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_validation_assistant": "Price Validation Assistant",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Challenges",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Prices in a store",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -2704,7 +2722,7 @@
   },
   "basic_details": "Основни подробности",
   "product_name": "Име на продукта",
-  "product_names": "Product Names",
+  "product_names": "Имена на продуктите",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
@@ -2712,7 +2730,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is not present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -2782,9 +2800,9 @@
     }
   },
   "brand_name": "Марка",
-  "brand_names": "Brand names",
+  "brand_names": "Имена на марките",
   "add_basic_details_brand_name_error": "Моля, въведи името на марката",
-  "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+  "add_basic_details_brand_names_hint": "Въведи марките (напр: LB Bulgaricum)",
   "add_basic_details_product_brand_help_title": "Good practices: Brands",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
@@ -3113,11 +3131,11 @@
   "@language_picker_label": {
     "description": "Choose Application Language"
   },
-  "country_picker_label": "Your country",
+  "country_picker_label": "Твоята страна",
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
-  "currency_picker_label": "Your currency",
+  "currency_picker_label": "Твоята валута",
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3254,7 +3272,7 @@
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
-  "user_picture_source_ask": "Ask each time",
+  "user_picture_source_ask": "Питай всеки път",
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
@@ -3668,6 +3686,7 @@
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Press Contact",
   "contact_title_newsletter": "Абонирай се за нашия бюлетин",
+  "contact_title_calendar": "Subscribe to our community calendar",
   "hunger_games_loading_line1": "Please give us a few seconds…",
   "hunger_games_loading_line2": "We're downloading the questions!",
   "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
@@ -3714,10 +3733,6 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "bg",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
-  },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Какво представлява Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
@@ -3744,8 +3759,8 @@
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
   "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
+  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
