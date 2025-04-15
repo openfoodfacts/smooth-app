@@ -190,6 +190,7 @@ enum AnalyticsEditEvents {
   powerEditScreen(name: 'Power Edit Screen'),
   ingredients_and_Origins(name: 'Ingredient And Origins'),
   categories(name: 'Categories'),
+  traces(name: 'Traces'),
   nutrition_Facts(name: 'Nutrition Facts'),
   labelsAndCertifications(name: 'Labels And Certifications'),
   packagingComponents(name: 'Packaging Components'),
