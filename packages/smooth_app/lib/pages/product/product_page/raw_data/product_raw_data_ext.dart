@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/attribute_first_row_helper.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_element.dart';
+import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_unit_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 extension RawDataExt on Product {
@@ -75,16 +76,11 @@ extension RawDataExt on Product {
     List<StringPair>? toAdd,
   ) {
     if (toAdd != null) {
-      var unitedMap = toAdd.map(
-        (StringPair element) => StringPair(first: element.first,
-        second: '${element.second} ${UnitHelper.unitToString(Nutrient.fromOffTag(element.first)?.typicalUnit)}'
-        )
-      )
-      .toList();
+      final List<StringPair> mapWithUnit = RawDataUnitHelper().addNutritionUnit(toAdd);
       _addRawDataDoubleTextInList(
         toBeFilled,
         label,
-        unitedMap,
+        mapWithUnit,
       );
     }
   }
