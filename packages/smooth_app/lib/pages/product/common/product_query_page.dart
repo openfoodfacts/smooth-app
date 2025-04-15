@@ -27,6 +27,7 @@ import 'package:smooth_app/pages/product/common/search_app_bar_title.dart';
 import 'package:smooth_app/pages/product/common/search_empty_screen.dart';
 import 'package:smooth_app/pages/product/common/search_loading_screen.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -373,64 +374,63 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
 
-    return FutureBuilder<String?>(
-      future: _getTranslatedCountry(),
-      builder: (
-        final BuildContext context,
-        final AsyncSnapshot<String?> snapshot,
-      ) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final List<String> messages = <String>[];
-        String counting = appLocalizations.user_list_length(
-          _model.supplier.partialProductList.totalSize,
-        );
-        if (pagedProductQuery.hasDifferentCountryWorldData()) {
-          if (pagedProductQuery.world) {
-            counting += ' (${appLocalizations.world_results_label})';
-          } else {
-            if (snapshot.data != null) {
-              counting += ' (${snapshot.data})';
-            }
-          }
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> messages = <String>[];
+
+    String counting = appLocalizations.user_list_length(
+      _model.supplier.partialProductList.totalSize,
+    );
+
+    final String? translatedCountry = _getTranslatedCountry();
+
+    if (pagedProductQuery.hasDifferentCountryWorldData()) {
+      if (pagedProductQuery.world) {
+        counting += ' (${appLocalizations.world_results_label})';
+      } else {
+        if (translatedCountry != null) {
+          counting += ' ($translatedCountry)';
         }
-        messages.add(counting);
-        final int? lastUpdate = _model.supplier.timestamp;
-        if (lastUpdate != null) {
-          final String lastTime =
-              ProductQueryPageHelper.getDurationStringFromTimestamp(
-                  lastUpdate, context);
-          messages.add('${appLocalizations.cached_results_from} $lastTime');
-        }
-        return SizedBox(
-          width: double.infinity,
-          child: SmoothCard(
-            child: Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Row(
-                children: <Widget>[
-                  Expanded(child: Text(messages.join('\n'))),
-                  if (pagedProductQuery.getWorldQuery() != null)
-                    _getIconButton(
-                      _getWorldAction(
-                        appLocalizations,
-                        worldQuery!,
-                        widget.includeAppBar,
-                      ),
-                    ),
-                ],
-              ),
-            ),
+      }
+    }
+
+    messages.add(counting);
+
+    final int? lastUpdate = _model.supplier.timestamp;
+    if (lastUpdate != null) {
+      final String lastTime =
+          ProductQueryPageHelper.getDurationStringFromTimestamp(
+              lastUpdate, context);
+      messages.add('${appLocalizations.cached_results_from} $lastTime');
+    }
+
+    return SizedBox(
+      width: double.infinity,
+      child: SmoothCard(
+        child: Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: Row(
+            children: <Widget>[
+              Expanded(child: Text(messages.join('\n'))),
+              if (pagedProductQuery.getWorldQuery() != null)
+                _getIconButton(
+                  _getWorldAction(
+                    appLocalizations,
+                    worldQuery!,
+                    widget.includeAppBar,
+                  ),
+                ),
+            ],
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 
-  Future<String?> _getTranslatedCountry() async {
+  String? _getTranslatedCountry() {
     if (_country == null) {
       return null;
     }
-    final String locale = Localizations.localeOf(context).languageCode;
+    final OpenFoodFactsLanguage locale = ProductQuery.getLanguage();
     return _country!.getLocalizedName(locale);
   }
 

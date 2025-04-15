@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -7,8 +8,9 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_emoji_extension.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_iso2code_extension.dart';
 import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
+import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
@@ -126,7 +128,8 @@ class _CountrySelectorButton extends StatelessWidget {
                       SizedBox(
                         width: IconTheme.of(context).size! + LARGE_SPACE,
                         child: AutoSizeText(
-                          country.emoji,
+                          EmojiHelper.getEmojiByCountryCode(country.iso2Code) ??
+                              '',
                           textAlign: TextAlign.center,
                           style:
                               TextStyle(fontSize: IconTheme.of(context).size),
@@ -274,14 +277,14 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                country.emoji,
+                EmojiHelper.getEmojiByCountryCode(country.iso2Code) ?? '',
                 style: const TextStyle(fontSize: 25.0),
               ),
             ),
             Expanded(
               flex: 2,
               child: Text(
-                country.offTag.toUpperCase(),
+                country.iso2Code,
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -291,8 +294,7 @@ class _CountrySelectorScreen extends StatelessWidget {
               flex: 7,
               child: TextHighlighter(
                 text:
-                    country.getLocalizedName(ProductQuery.getLanguage().code) ??
-                        '',
+                    country.getLocalizedName(ProductQuery.getLanguage()) ?? '',
                 filter: filter,
                 textStyle: const TextStyle(
                   fontWeight: FontWeight.w600,
@@ -306,17 +308,16 @@ class _CountrySelectorScreen extends StatelessWidget {
               OpenFoodFactsCountry? selectedItem,
               OpenFoodFactsCountry? selectedItemOverride,
               String filter) =>
-          _filterCountries(
-              list, selectedItem, selectedItemOverride, filter, context),
+          _filterCountries(list, selectedItem, selectedItemOverride, filter),
     );
   }
 
   Iterable<OpenFoodFactsCountry> _filterCountries(
-      List<OpenFoodFactsCountry> countries,
-      OpenFoodFactsCountry? userCountry,
-      OpenFoodFactsCountry? selectedCountry,
-      String? filter,
-      BuildContext context) {
+    List<OpenFoodFactsCountry> countries,
+    OpenFoodFactsCountry? userCountry,
+    OpenFoodFactsCountry? selectedCountry,
+    String? filter,
+  ) {
     if (filter == null || filter.isEmpty) {
       return countries;
     }
@@ -326,7 +327,7 @@ class _CountrySelectorScreen extends StatelessWidget {
           country == userCountry ||
           country == selectedCountry ||
           (country
-                  .getLocalizedName(ProductQuery.getLanguage().code)
+                  .getLocalizedName(ProductQuery.getLanguage())
                   ?.toLowerCase()
                   .contains(filter.toLowerCase()) ??
               false) ||
