@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_products_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
+import 'package:smooth_app/pages/prices/prices_stats_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/proof_bulk_add_page.dart';
@@ -132,6 +133,15 @@ class UserPreferencesPrices extends AbstractUserPreferences {
           ),
         ),
         PriceButton.productIconData,
+      ),
+      _getListTile(
+        'Statistics', // Use appLocalizations.prices_statistics_title if available
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesStatsPage(),
+          ),
+        ),
+        Icons.bar_chart,
       ),
       if (userPreferences.getFlag(
               UserPreferencesDevMode.userPreferencesFlagBulkProofUpload) ??
