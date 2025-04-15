@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_iso2code_extension.dart';
 import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -1050,10 +1051,11 @@ class SimpleInputPageCategoryNotFoodHelper
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   SimpleInputPageCountryHelper(UserPreferences userPreferences)
-      : _userCountryCode = userPreferences.userCountryCode?.toUpperCase() ??
-            OpenFoodFactsCountry.FRANCE.offTag.toUpperCase();
+      : _userCountry = OpenFoodFactsCountry.fromOffTag(
+                userPreferences.userCountryCode ?? '') ??
+            OpenFoodFactsCountry.FRANCE;
 
-  final String _userCountryCode;
+  final OpenFoodFactsCountry _userCountry;
 
   ValueNotifier<SimpleInputSuggestionsState> _suggestionsNotifier =
       ValueNotifier<SimpleInputSuggestionsState>(
@@ -1111,12 +1113,13 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   Future<void> _reloadSuggestions() async {
     final OpenFoodFactsCountry? country = _countries.firstWhereOrNull(
       (OpenFoodFactsCountry country) =>
-          country.offTag.toUpperCase() == _userCountryCode.toUpperCase(),
+          country.iso2Code == _userCountry.iso2Code,
     );
 
-    final String locale = getLanguage().offTag;
+    final OpenFoodFactsLanguage locale = getLanguage();
+    final String? localizedName = country?.getLocalizedName(locale);
 
-    if (country == null || _terms.contains(country.getLocalizedName(locale))) {
+    if (country == null || _terms.contains(localizedName)) {
       _suggestionsNotifier.value = const SimpleInputSuggestionsLoaded(
         suggestions: <String>[],
       );
@@ -1124,9 +1127,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
     }
 
     _suggestionsNotifier.value = SimpleInputSuggestionsLoaded(
-      suggestions: country.getLocalizedName(locale) != null
-          ? <String>[country.getLocalizedName(locale)!]
-          : <String>[],
+      suggestions: localizedName != null ? <String>[localizedName] : <String>[],
     );
   }
 

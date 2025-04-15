@@ -1,6 +1,9 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_iso2code_extension.dart';
 
 /// Generic helper about emoji display.
+///
+/// cf. https://emojipedia.org/flag-italy
 class EmojiHelper {
   const EmojiHelper._();
 
@@ -11,16 +14,13 @@ class EmojiHelper {
     if (country == null) {
       return null;
     }
-    return getEmojiByCountryCode(country.offTag);
+    return getEmojiByCountryCode(country.iso2Code);
   }
 
   static String? getEmojiByCountryCode(final String countryCode) {
     if (countryCode.isEmpty) {
       return null;
-    } else if (countryCode.toUpperCase() == 'UK') {
-      return _getCountryEmojiFromUnicode('GB');
     }
-
     return _getCountryEmojiFromUnicode(countryCode);
   }
 
@@ -35,7 +35,7 @@ class EmojiHelper {
     if (countryLetterEmoji1 == null) {
       return null;
     }
-    //OpenFoodFactsCountry
+
     final String? countryLetterEmoji2 = _getCountryLetterEmoji(
       unicode.substring(1, 2),
     );
