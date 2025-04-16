@@ -128,8 +128,7 @@ class _CountrySelectorButton extends StatelessWidget {
                       SizedBox(
                         width: IconTheme.of(context).size! + LARGE_SPACE,
                         child: AutoSizeText(
-                          EmojiHelper.getEmojiByCountryCode(country.iso2Code) ??
-                              '',
+                          EmojiHelper.getCountryEmoji(country) ?? '',
                           textAlign: TextAlign.center,
                           style:
                               TextStyle(fontSize: IconTheme.of(context).size),
@@ -277,7 +276,7 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                EmojiHelper.getEmojiByCountryCode(country.iso2Code) ?? '',
+                EmojiHelper.getCountryEmoji(country) ?? '',
                 style: const TextStyle(fontSize: 25.0),
               ),
             ),
@@ -322,18 +321,15 @@ class _CountrySelectorScreen extends StatelessWidget {
       return countries;
     }
 
-    return countries.where(
-      (OpenFoodFactsCountry country) =>
-          country == userCountry ||
-          country == selectedCountry ||
-          (country
-                  .getLocalizedName(ProductQuery.getLanguage())
-                  ?.toLowerCase()
-                  .contains(filter.toLowerCase()) ??
-              false) ||
-          country.offTag.toLowerCase().contains(
-                filter.toLowerCase(),
-              ),
-    );
+    return countries.where((OpenFoodFactsCountry country) =>
+        country == userCountry ||
+        country == selectedCountry ||
+        (country
+                .getLocalizedName(ProductQuery.getLanguage())
+                ?.toLowerCase()
+                .contains(filter.toLowerCase()) ??
+            false) ||
+        country.iso2Code.toLowerCase().contains(filter.toLowerCase()) ||
+        country.offTag.toLowerCase().contains(filter.toLowerCase()));
   }
 }

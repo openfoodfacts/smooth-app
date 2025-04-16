@@ -18,7 +18,8 @@ class _CountrySelectorProvider
 
   @override
   Future<void> onPreferencesChanged() async {
-    final String? newCountryCode = preferences.userCountryCode;
+    final String? newCountryCode =
+        preferences.userCountryCode; // Stored as offTag
     final String? newLanguageCode = preferences.appLanguageCode;
     final OpenFoodFactsLanguage? newLanguage =
         _getLanguageFromCode(newLanguageCode);
@@ -108,15 +109,13 @@ class _CountrySelectorProvider
 
   @override
   Future<void> onSaveItem(OpenFoodFactsCountry country) =>
-      preferences.setUserCountryCode(country.offTag);
+      preferences.setUserCountryCode(
+          country.offTag); // Save offTag (not iso2code) in preferences
 
   OpenFoodFactsLanguage? _getLanguageFromCode(String? code) {
     if (code == null) {
       return null;
     }
-    return OpenFoodFactsLanguage.values.firstWhere(
-      (lang) => lang.code == code,
-      orElse: () => OpenFoodFactsLanguage.ENGLISH,
-    );
+    return OpenFoodFactsLanguage.fromOffTag(code);
   }
 }

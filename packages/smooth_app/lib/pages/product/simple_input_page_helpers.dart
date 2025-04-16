@@ -8,7 +8,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_iso2code_extension.dart';
 import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -926,9 +925,9 @@ class SimpleInputPageCategoryNotFoodHelper
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   SimpleInputPageCountryHelper(UserPreferences userPreferences)
-      : _userCountry = OpenFoodFactsCountry.fromOffTag(
-                userPreferences.userCountryCode ?? '') ??
-            OpenFoodFactsCountry.FRANCE;
+      : _userCountry =
+            OpenFoodFactsCountry.fromOffTag(userPreferences.userCountryCode) ??
+                OpenFoodFactsCountry.FRANCE;
 
   final OpenFoodFactsCountry _userCountry;
 
@@ -936,7 +935,6 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       ValueNotifier<SimpleInputSuggestionsState>(
     const SimpleInputSuggestionsLoading(),
   );
-  List<OpenFoodFactsCountry> get _countries => OpenFoodFactsCountry.values;
   @override
   List<String> initTerms(final Product product) =>
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
@@ -986,15 +984,9 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       _suggestionsNotifier;
 
   Future<void> _reloadSuggestions() async {
-    final OpenFoodFactsCountry? country = _countries.firstWhereOrNull(
-      (OpenFoodFactsCountry country) =>
-          country.iso2Code == _userCountry.iso2Code,
-    );
+    final String? localizedName = _userCountry.getLocalizedName(getLanguage());
 
-    final OpenFoodFactsLanguage locale = getLanguage();
-    final String? localizedName = country?.getLocalizedName(locale);
-
-    if (country == null || _terms.contains(localizedName)) {
+    if (localizedName == null || _terms.contains(localizedName)) {
       _suggestionsNotifier.value = const SimpleInputSuggestionsLoaded(
         suggestions: <String>[],
       );
@@ -1002,7 +994,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
     }
 
     _suggestionsNotifier.value = SimpleInputSuggestionsLoaded(
-      suggestions: localizedName != null ? <String>[localizedName] : <String>[],
+      suggestions: <String>[localizedName],
     );
   }
 
