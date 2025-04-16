@@ -10,31 +10,43 @@ class QuestionImageThumbnail extends StatelessWidget {
   final RobotoffQuestion question;
 
   @override
-  Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-        decoration: const BoxDecoration(color: Colors.black12),
-        child: GestureDetector(
-          onTap: () async => Navigator.of(context).push<void>(
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) =>
-                  QuestionImageFullPage(question: question),
-              fullscreenDialog: true,
-            ),
-          ),
-          child: Image(
-            image: NetworkImage(question.imageUrl!),
-            fit: BoxFit.cover,
-            height: double.infinity,
-            errorBuilder: (_, __, ___) => EMPTY_WIDGET,
-            loadingBuilder: (
-              _,
-              Widget child,
-              ImageChunkEvent? progress,
-            ) =>
-                progress == null
-                    ? child
-                    : const CircularProgressIndicator.adaptive(),
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+      decoration: const BoxDecoration(color: Colors.black12),
+      child: GestureDetector(
+        onTap: () async => Navigator.of(context).push<void>(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => QuestionImageFullPage(question),
+            fullscreenDialog: true,
           ),
         ),
-      );
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return SizedBox(
+              width: constraints.maxWidth,
+              height: constraints.maxHeight,
+              child: Image.network(
+                question.imageUrl!,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => EMPTY_WIDGET,
+                loadingBuilder: (
+                  BuildContext context,
+                  Widget child,
+                  ImageChunkEvent? loadingProgress,
+                ) {
+                  if (loadingProgress == null) {
+                    // TODO(monsieurtanuki): remove this when the image is not null anymore
+                    return child;
+                  }
+                  return const Center(
+                      child: CircularProgressIndicator.adaptive());
+                },
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
 }
