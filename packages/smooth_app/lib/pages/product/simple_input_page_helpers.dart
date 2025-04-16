@@ -41,6 +41,17 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     _terms = List<String>.from(initTerms(this.product));
     _initTerms = List<String>.from(_terms);
     _changed = false;
+
+    try {
+      _robotoffQuestionsNotifier.notifyListeners();
+    } catch (_) {
+      // The Notifier was disposed
+      _robotoffQuestionsNotifier =
+          ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>(
+        const <RobotoffQuestion, InsightAnnotation?>{},
+      );
+    }
+
     notifyListeners();
   }
 
@@ -281,28 +292,64 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns true if the field is an owner field.
   bool isOwnerField(final Product product) => false;
 
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return <RobotoffQuestion>[];
+  ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+      _robotoffQuestionsNotifier =
+      ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>(
+          const <RobotoffQuestion, InsightAnnotation?>{});
+
+  ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+      getRobotoffQuestions() {
+    loadRobotoffQuestions();
+    return _robotoffQuestionsNotifier;
   }
 
-  Future<List<RobotoffQuestion>> _getRobotoffQuestions({
-    List<InsightType>? types,
-  }) async {
-    if (types == null || types.isEmpty) {
-      return <RobotoffQuestion>[];
+  InsightType? get _robotoffInsightType;
+
+  Future<bool> loadRobotoffQuestions() async {
+    final InsightType? type = _robotoffInsightType;
+
+    if (type == null) {
+      return false;
     }
 
     try {
-      return (await RobotoffAPIClient.getProductQuestions(
-            product.barcode!,
-            getLanguage(),
-            insightTypes: types,
-          ))
-              .questions ??
-          <RobotoffQuestion>[];
+      final List<RobotoffQuestion> questions =
+          (await RobotoffAPIClient.getProductQuestions(
+                product.barcode!,
+                getLanguage(),
+                insightTypes: <InsightType>[type],
+              ))
+                  .questions ??
+              <RobotoffQuestion>[];
+
+      _robotoffQuestionsNotifier.value = <RobotoffQuestion, InsightAnnotation?>{
+        for (final RobotoffQuestion question in questions) question: null,
+      };
+
+      return true;
     } catch (e) {
-      return <RobotoffQuestion>[];
+      return false;
     }
+  }
+
+  void answerRobotoffQuestion(
+    final RobotoffQuestion question,
+    final InsightAnnotation? annotation,
+  ) {
+    _robotoffQuestionsNotifier.value = _robotoffQuestionsNotifier.value
+        .map<RobotoffQuestion, InsightAnnotation?>(
+      (final RobotoffQuestion key, final InsightAnnotation? value) {
+        if (key == question) {
+          return MapEntry<RobotoffQuestion, InsightAnnotation?>(
+            key,
+            annotation,
+          );
+        }
+        return MapEntry<RobotoffQuestion, InsightAnnotation?>(key, value);
+      },
+    );
+
+    notifyListeners();
   }
 }
 
@@ -461,6 +508,9 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() =>
       AnalyticsEditEvents.basicDetails;
+
+  @override
+  InsightType get _robotoffInsightType => InsightType.BRAND;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -537,11 +587,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.stores;
 
   @override
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return _getRobotoffQuestions(
-      types: <InsightType>[InsightType.STORE],
-    );
-  }
+  InsightType get _robotoffInsightType => InsightType.STORE;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -625,6 +671,9 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
         product,
         AppLocalizations.of(context).add_origin_photo_button_label,
       );
+
+  @override
+  InsightType? get _robotoffInsightType => null;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -747,6 +796,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   TextCapitalization getTextCapitalization() => TextCapitalization.characters;
+
+  @override
+  InsightType? get _robotoffInsightType => null;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
@@ -850,11 +902,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       );
 
   @override
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return _getRobotoffQuestions(
-      types: <InsightType>[InsightType.LABEL],
-    );
-  }
+  InsightType get _robotoffInsightType => InsightType.LABEL;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -956,11 +1004,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
 
   @override
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return _getRobotoffQuestions(
-      types: <InsightType>[InsightType.CATEGORY],
-    );
-  }
+  InsightType get _robotoffInsightType => InsightType.CATEGORY;
 }
 
 class SimpleInputPageCategoryNotFoodHelper
@@ -1106,6 +1150,9 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
+
+  @override
+  InsightType? get _robotoffInsightType => null;
 
   @override
   void dispose() {

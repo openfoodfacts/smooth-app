@@ -2,9 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:nested/nested.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_hunger_games.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_icon_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -54,9 +56,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   final Key _autocompleteKey = UniqueKey();
 
-  final List<RobotoffQuestion> _robotoffQuestions = <RobotoffQuestion>[];
-  final List<String> _answeredRobotoffQuestions = <String>[];
-
   @override
   void initState() {
     super.initState();
@@ -64,33 +63,30 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
     widget.helper.reInit(widget.product);
     _localTerms = List<String>.of(widget.helper.terms);
 
-    _loadRobotoffQuestions();
-  }
-
-  Future<void> _loadRobotoffQuestions() async {
-    final List<RobotoffQuestion> questions =
-        await widget.helper.getRobotoffQuestions();
-    setState(() {
-      _robotoffQuestions.addAll(questions);
-    });
+    widget.helper.loadRobotoffQuestions();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
 
     final Widget? extraWidget = widget.helper.getExtraWidget(
       context,
       widget.product,
     );
 
-    final Widget child =
+    final Widget child = MultiProvider(
+      providers: <SingleChildWidget>[
         ChangeNotifierProvider<ValueNotifier<SimpleInputSuggestionsState>>(
-      create: (_) => widget.helper.getSuggestions(),
-      child: Column(
+          create: (_) => widget.helper.getSuggestions(),
+        ),
+        ChangeNotifierProvider<
+            ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>(
+          create: (_) => widget.helper.getRobotoffQuestions(),
+        ),
+      ],
+      builder: (BuildContext context, Widget? child) => Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           LayoutBuilder(
@@ -156,6 +152,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
               );
             },
           ),
+          _getRobotoffList(context, appLocalizations),
           _getList(appLocalizations),
           if (extraWidget != null)
             Padding(
@@ -190,121 +187,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
           child: child,
         ),
         const SizedBox(height: MEDIUM_SPACE),
-        ..._robotoffQuestions.map<Widget>((RobotoffQuestion question) {
-          if (_answeredRobotoffQuestions.contains(question.insightId)) {
-            return Container(
-              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              decoration: BoxDecoration(
-                color: extension.successBackground,
-                borderRadius: ANGULAR_BORDER_RADIUS,
-              ),
-              child: Row(
-                children: <Widget>[
-                  const Icon(Icons.check_circle_rounded),
-                  const SizedBox(width: MEDIUM_SPACE),
-                  Text(
-                    appLocalizations.product_edit_robotoff_question_answered,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          }
-
-          return SmoothCard(
-            margin: EdgeInsets.zero,
-            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        question.question!,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push<void>(
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) =>
-                                QuestionImageFullPage(question),
-                            fullscreenDialog: true,
-                          ),
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.image_rounded,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        question.value ?? '',
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        _answerQuestion(
-                          question,
-                          InsightAnnotation.YES,
-                        );
-                      },
-                      icon: Icon(
-                        Icons.check_circle_rounded,
-                        color: extension.success,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        _answerQuestion(
-                          question,
-                          InsightAnnotation.NO,
-                        );
-                      },
-                      icon: Icon(
-                        Icons.cancel_rounded,
-                        color: extension.error,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          );
-        }),
       ],
     );
-  }
-
-  Future<void> _answerQuestion(
-    RobotoffQuestion question,
-    InsightAnnotation annotation,
-  ) async {
-    final String? barcode = question.barcode;
-    final String? insightId = question.insightId;
-    if (barcode == null || insightId == null) {
-      return;
-    }
-
-    await BackgroundTaskHungerGames.addTask(
-      barcode: barcode,
-      insightId: insightId,
-      insightAnnotation: annotation,
-      context: context,
-    );
-
-    setState(() {
-      _answeredRobotoffQuestions.add(insightId);
-    });
   }
 
   Widget? _getTrailingHeader(
@@ -431,6 +315,180 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
         widget.helper.replaceItem(position, term);
       },
       onRemoveItem: _onRemoveItem,
+    );
+  }
+
+  Widget _getRobotoffList(
+      BuildContext context, AppLocalizations appLocalizations) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+        questionsNotifier = context
+            .watch<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>();
+
+    final Map<RobotoffQuestion, InsightAnnotation?> questions =
+        questionsNotifier.value;
+
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: questions.isEmpty ? 0.0 : MEDIUM_SPACE,
+      ),
+      child: Column(
+        children: questions.entries.map(
+          (MapEntry<RobotoffQuestion, InsightAnnotation?> entry) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                    horizontal: LARGE_SPACE,
+                    vertical: SMALL_SPACE,
+                  ),
+                  color: extension.successBackground,
+                  child: Row(
+                    children: <Widget>[
+                      ExcludeSemantics(
+                        child: icons.Sparkles(
+                          size: 18.0,
+                          color: extension.success,
+                        ),
+                      ),
+                      const SizedBox(width: SMALL_SPACE),
+                      Expanded(
+                        child: Text(
+                          questions.keys.first.value!,
+                          style: TextStyle(
+                            color: extension.success,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SegmentedButton<InsightAnnotation?>(
+                        style: ButtonStyle(
+                          visualDensity: VisualDensity.compact,
+                          backgroundColor: WidgetStateColor.resolveWith(
+                            (Set<WidgetState> states) {
+                              if (states.contains(WidgetState.selected)) {
+                                return extension.primaryMedium;
+                              }
+                              return extension.primaryLight;
+                            },
+                          ),
+                          iconColor: WidgetStateColor.resolveWith(
+                            (Set<WidgetState> states) {
+                              if (states.contains(WidgetState.selected)) {
+                                return extension.primaryBlack;
+                              }
+                              return extension.primaryNormal;
+                            },
+                          ),
+                          side: WidgetStatePropertyAll<BorderSide>(
+                            BorderSide(
+                              color: extension.greyMedium,
+                              width: 1.0,
+                            ),
+                          ),
+                        ),
+                        showSelectedIcon: false,
+                        emptySelectionAllowed: true,
+                        multiSelectionEnabled: false,
+                        segments: const <ButtonSegment<InsightAnnotation>>[
+                          ButtonSegment<InsightAnnotation>(
+                            value: InsightAnnotation.YES,
+                            icon: Icon(
+                              Icons.check_rounded,
+                            ),
+                          ),
+                          ButtonSegment<InsightAnnotation>(
+                            value: InsightAnnotation.NO,
+                            icon: Icon(
+                              Icons.close_rounded,
+                            ),
+                          ),
+                        ],
+                        selected: <InsightAnnotation?>{
+                          entry.value,
+                        },
+                        onSelectionChanged:
+                            (Set<InsightAnnotation?> selection) {
+                          widget.helper.answerRobotoffQuestion(
+                            entry.key,
+                            selection.isEmpty ? null : selection.first,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                if (questions.keys.first.imageUrl != null)
+                  SizedBox(
+                    height: 100.0,
+                    width: double.infinity,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: Image.network(
+                            questions.keys.first.imageUrl!,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          left: 0.0,
+                          top: 0.0,
+                          child: Container(
+                            color: Colors.black54,
+                            padding: const EdgeInsetsDirectional.symmetric(
+                              horizontal: LARGE_SPACE,
+                              vertical: 6.0,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                const ExcludeSemantics(
+                                  child: icons.ImageGallery(
+                                    color: Colors.white,
+                                    size: 14.0,
+                                  ),
+                                ),
+                                const SizedBox(width: SMALL_SPACE),
+                                Text(
+                                  appLocalizations.product_edit_robotoff_proof,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: SMALL_SPACE,
+                          right: SMALL_SPACE,
+                          child: SmoothIconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute<void>(
+                                  builder: (BuildContext context) =>
+                                      QuestionImageFullPage(
+                                    questions.keys.first,
+                                  ),
+                                ),
+                              );
+                            },
+                            icon: const icons.Expand(),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+              ],
+            );
+          },
+        ).toList(growable: false),
+      ),
     );
   }
 

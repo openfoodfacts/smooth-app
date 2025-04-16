@@ -4198,5 +4198,9 @@
   "product_edit_robotoff_question_answered": "Question answered!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Proof",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
   }
 }
