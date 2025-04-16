@@ -135,7 +135,7 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         PriceButton.productIconData,
       ),
       _getListTile(
-        'Statistics',
+        appLocalizations.statistics,
         () async => Navigator.of(context).push(
           MaterialPageRoute<void>(
             builder: (BuildContext context) => const PricesStatsPage(),

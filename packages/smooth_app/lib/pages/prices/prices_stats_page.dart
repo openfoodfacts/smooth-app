@@ -1,562 +1,11 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/prices/prices_stats_model.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-class PricesStatsPage extends StatefulWidget {
-  const PricesStatsPage({super.key});
-
-  @override
-  State<PricesStatsPage> createState() => _PricesStatsPageState();
-}
-
-class _PricesStatsPageState extends State<PricesStatsPage> {
-  bool isLoading = true;
-  Map<String, dynamic> statsData = <String, dynamic>{};
-  String lastUpdated = '';
-
-  @override
-  void initState() {
-    super.initState();
-    fetchStats();
-  }
-
-  Future<void> fetchStats() async {
-    try {
-      final Map<String, dynamic>? directResult = await _fetchStatsDirectly();
-      if (directResult != null) {
-        setState(() {
-          statsData = directResult;
-          isLoading = false;
-          _updateTimestamp(directResult['updated']);
-        });
-        return;
-      }
-
-      final MaybeError<PriceTotalStats> result =
-          await OpenPricesAPIClient.getStats();
-
-      if (!result.isError) {
-        final Map<String, dynamic> rawData = result.value.toJson();
-        debugPrint('Raw data from API client: $rawData');
-
-        if (rawData.containsKey('price_count') &&
-            rawData['price_count'] != null) {
-          setState(() {
-            statsData = rawData;
-            isLoading = false;
-            _updateTimestamp(rawData['updated']);
-          });
-          return;
-        }
-      }
-
-      setState(() {
-        statsData = <String, dynamic>{};
-        isLoading = false;
-        lastUpdated = 'N/A';
-      });
-    } catch (e) {
-      debugPrint('Exception while fetching stats: $e');
-      setState(() {
-        statsData = <String, dynamic>{};
-        isLoading = false;
-        lastUpdated = 'N/A';
-      });
-    }
-  }
-
-  Future<Map<String, dynamic>?> _fetchStatsDirectly() async {
-    try {
-      const String apiUrl = 'https://prices.openfoodfacts.org/api/v1/stats';
-
-      final http.Response response = await http.get(Uri.parse(apiUrl));
-
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data =
-            json.decode(response.body) as Map<String, dynamic>;
-        debugPrint(
-            'Direct API response: ${response.body.substring(0, min(300, response.body.length))}...');
-        return data;
-      } else {
-        debugPrint(
-            'Direct API request failed with status: ${response.statusCode}');
-        debugPrint('Response body: ${response.body}');
-        return null;
-      }
-    } catch (e) {
-      debugPrint('Error in direct API request: $e');
-      return null;
-    }
-  }
-
-  int min(int a, int b) => a < b ? a : b;
-
-  void _updateTimestamp(dynamic timestamp) {
-    if (timestamp != null) {
-      try {
-        final DateTime updatedTime = DateTime.parse(timestamp.toString());
-        lastUpdated = _formatDateTime(updatedTime);
-      } catch (e) {
-        debugPrint('Error parsing timestamp: $e');
-        lastUpdated = 'N/A';
-      }
-    } else {
-      lastUpdated = 'N/A';
-    }
-  }
-
-  String _formatDateTime(DateTime dateTime) {
-    return '${dateTime.day} ${_getMonth(dateTime.month)} ${dateTime.year} at '
-        '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}:${dateTime.second.toString().padLeft(2, '0')}';
-  }
-
-  String _getMonth(int month) {
-    const List<String> months = <String>[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ];
-    return months[month - 1];
-  }
-
-  int _getSafeInt(String field) {
-    try {
-      final dynamic value = statsData[field];
-      if (value is int) {
-        return value;
-      } else if (value is String) {
-        return int.tryParse(value) ?? 0;
-      } else if (value is double) {
-        return value.toInt();
-      }
-      return 0;
-    } catch (e) {
-      debugPrint('Error getting field $field: $e');
-      return 0;
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Stats'),
-        backgroundColor: Colors.black,
-      ),
-      backgroundColor: Colors.black,
-      body: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : RefreshIndicator(
-              onRefresh: fetchStats,
-              child: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      const CategoryHeader(
-                        icon: Icons.attach_money,
-                        title: 'Prices',
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('price_count').toString(),
-                              label: 'Total',
-                              hasArrow: true,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('price_type_product_code_count')
-                                      .toString(),
-                              label: 'With a barcode',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('price_type_category_tag_count')
-                                      .toString(),
-                              label: 'With a category',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('price_with_discount_count')
-                                  .toString(),
-                              label: 'With a discount',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('price_kind_community_count')
-                                  .toString(),
-                              label: 'Community',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('price_kind_consumption_count')
-                                      .toString(),
-                              label: 'Consumption',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      const CategoryHeader(
-                        icon: Icons.inventory_2,
-                        title: 'Products',
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('product_with_price_count')
-                                  .toString(),
-                              label: 'With a price',
-                              hasArrow: true,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('product_count').toString(),
-                              label: 'Total',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('product_source_off_with_price_count')} / ${_getSafeInt('product_source_off_count')}',
-                              label: 'Food',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('product_source_obf_with_price_count')} / ${_getSafeInt('product_source_obf_count')}',
-                              label: 'Beauty',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('product_source_opf_with_price_count')} / ${_getSafeInt('product_source_opf_count')}',
-                              label: 'Products',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('product_source_opff_with_price_count')} / ${_getSafeInt('product_source_opff_count')}',
-                              label: 'Pet food',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      const CategoryHeader(
-                        icon: Icons.location_on,
-                        title: 'Locations',
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('location_count').toString(),
-                              label: 'Total',
-                              hasArrow: true,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('location_type_osm_count')
-                                  .toString(),
-                              label: 'OpenStreetMap',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('location_type_online_count')
-                                  .toString(),
-                              label: 'Online',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('price_location_country_count')
-                                      .toString(),
-                              label: 'Countries',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      const CategoryHeader(
-                        icon: Icons.camera_alt,
-                        title: 'Proofs',
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('proof_count').toString(),
-                              label: 'Total',
-                              hasArrow: true,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('proof_type_price_tag_count')
-                                  .toString(),
-                              label: 'Price tag',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('proof_type_receipt_count')
-                                  .toString(),
-                              label: 'Receipt',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('proof_type_gdpr_request_count')
-                                      .toString(),
-                              label: 'GDPR request',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('proof_type_shop_import_count')
-                                      .toString(),
-                              label: 'Shop import',
-                            ),
-                          ),
-                          const Spacer(),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      const CategoryHeader(
-                        icon: Icons.people,
-                        title: 'Contributors',
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('user_with_price_count')
-                                  .toString(),
-                              label: 'Total',
-                              hasArrow: true,
-                            ),
-                          ),
-                          const Spacer(),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      const CategoryHeader(
-                        icon: Icons.science,
-                        title: 'Experiments',
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          const Expanded(
-                            child: StatsCard(
-                              number: '1',
-                              label: 'Challenges',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt(
-                                      'price_tag_status_linked_to_price_count')
-                                  .toString(),
-                              label: 'Prices linked to a price tag',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      const CategoryHeader(
-                        icon: Icons.miscellaneous_services,
-                        title: 'Miscellaneous',
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('price_location_country_count')
-                                      .toString(),
-                              label: 'Countries',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number: _getSafeInt('price_currency_count')
-                                  .toString(),
-                              label: 'Currencies',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  _getSafeInt('price_year_count').toString(),
-                              label: 'Years',
-                            ),
-                          ),
-                          const Spacer(),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 6.0),
-                        child: Text(
-                          'Prices and proofs per source',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('price_source_web_count')} | ${_getSafeInt('proof_source_web_count')}',
-                              label: 'Website',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('price_source_mobile_count')} | ${_getSafeInt('proof_source_mobile_count')}',
-                              label: 'Mobile app',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('price_source_api_count')} | ${_getSafeInt('proof_source_api_count')}',
-                              label: 'API',
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: StatsCard(
-                              number:
-                                  '${_getSafeInt('price_source_other_count')} | ${_getSafeInt('proof_source_other_count')}',
-                              label: 'Other',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      Center(
-                        child: Text(
-                          'Last updated on $lastUpdated',
-                          style: const TextStyle(
-                            color: Color(0xFFD3D3D3),
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-    );
-  }
-}
 
 class CategoryHeader extends StatelessWidget {
   const CategoryHeader({
@@ -570,92 +19,345 @@ class CategoryHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Icon(
-          icon,
-          color: Colors.white,
-          size: 22,
-        ),
-        const SizedBox(width: 8),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+    final Color textColor = Theme.of(context).textTheme.bodyLarge!.color!;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: <Widget>[
+          Icon(icon, color: textColor, size: 24),
+          const SizedBox(width: 12),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: textColor,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
 
-class StatsCard extends StatelessWidget {
-  const StatsCard({
+class StatsListTile extends StatelessWidget {
+  const StatsListTile({
     super.key,
     required this.number,
     required this.label,
-    this.hasArrow = false,
-    this.url,
+    required this.icon,
+    this.onTap,
+    this.showRedirectArrow = false,
   });
 
   final String number;
   final String label;
-  final bool hasArrow;
-  final String? url;
+  final IconData icon;
+  final VoidCallback? onTap;
+  final bool showRedirectArrow;
 
   @override
   Widget build(BuildContext context) {
-    final Widget card = Container(
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: const Color(0xFF303030),
-        borderRadius: BorderRadius.circular(6),
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+    final Color cardColor = dark ? const Color(0xFF303030) : Colors.white;
+    final Color textColor = Theme.of(context).textTheme.bodyLarge!.color!;
+
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
       ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  number,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  label,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: Color(0xFFBDBDBD),
-                  ),
-                ),
-              ],
-            ),
+      elevation: 5,
+      color: cardColor,
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        leading: Icon(icon, color: textColor, size: 24),
+        title: Text(
+          label,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            color: textColor,
           ),
-          if (hasArrow)
-            const Icon(
-              Icons.arrow_forward,
-              color: Colors.white,
-              size: 20,
-            ),
-        ],
+        ),
+        trailing: Container(
+          constraints: const BoxConstraints(minWidth: 80),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Flexible(
+                child: Text(
+                  number,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: textColor,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
+                ),
+              ),
+              if (showRedirectArrow)
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Icon(
+                    Icons.chevron_right,
+                    color: textColor,
+                    size: 24,
+                  ),
+                ),
+            ],
+          ),
+        ),
+        onTap: onTap,
       ),
     );
+  }
+}
 
-    if (hasArrow && url != null) {
-      return InkWell(
-        onTap: () => LaunchUrlHelper.launchURL(url!),
-        borderRadius: BorderRadius.circular(6),
-        child: card,
-      );
-    }
+class PricesStatsPage extends StatefulWidget {
+  const PricesStatsPage({super.key});
 
-    return card;
+  @override
+  State<PricesStatsPage> createState() => _PricesStatsPageState();
+}
+
+class _PricesStatsPageState extends State<PricesStatsPage> {
+  bool isLoading = true;
+  PriceStats? statsData;
+  final ScrollController _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _loadStats();
+  }
+
+  Future<void> _loadStats() async {
+    final PriceStats? result = await PriceStats.fetchStats();
+    setState(() {
+      statsData = result;
+      isLoading = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+
+    return SmoothScaffold(
+      appBar: SmoothAppBar(
+        title: Text(
+          localizations.prices_stats_title,
+          maxLines: 2,
+        ),
+        leading: const SmoothBackButton(),
+      ),
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : (statsData == null
+          ? Center(
+          child: Text(
+            localizations.prices_stats_error,
+            style: TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color),
+          ))
+          : Scrollbar(
+        controller: _controller,
+        child: _buildStatsContent(context, localizations, statsData!, dark),
+      )),
+    );
+  }
+
+  Widget _buildStatsContent(
+      BuildContext context, AppLocalizations localizations, PriceStats stats, bool dark) {
+    final Color subtitleColor = dark
+        ? const Color(0xFFBDBDBD)
+        : Theme.of(context).textTheme.bodySmall!.color!;
+
+    return SingleChildScrollView(
+      controller: _controller,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            // Prices Section
+            CategoryHeader(
+              icon: Icons.attach_money,
+              title: localizations.prices_stats_prices_section,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[
+                stats.prices['total'].toString(),
+                localizations.prices_stats_total,
+                Icons.attach_money,
+                true,
+                'https://prices.openfoodfacts.org/prices'
+              ],
+              <dynamic>[stats.prices['with_barcode'].toString(), localizations.prices_stats_with_barcode, Icons.qr_code],
+              <dynamic>[stats.prices['with_category'].toString(), localizations.prices_stats_with_category, Icons.category],
+              <dynamic>[stats.prices['with_discount'].toString(), localizations.prices_stats_with_discount, Icons.discount],
+              <dynamic>[stats.prices['community'].toString(), localizations.prices_stats_community, Icons.people],
+              <dynamic>[stats.prices['consumption'].toString(), localizations.prices_stats_consumption, Icons.shopping_cart],
+            ]),
+            const SizedBox(height: 24),
+
+            // Products Section
+            CategoryHeader(
+              icon: Icons.inventory_2,
+              title: localizations.prices_stats_products_section,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[stats.products['with_price'].toString(), localizations.prices_stats_with_price, Icons.inventory_2],
+              <dynamic>[
+                stats.products['total'].toString(),
+                localizations.prices_stats_total,
+                Icons.inventory_2,
+                true,
+                'https://prices.openfoodfacts.org/products'
+              ],
+              <dynamic>['${stats.products['food_with_price']} / ${stats.products['food_total']}', localizations.prices_stats_food, Icons.fastfood],
+              <dynamic>['${stats.products['beauty_with_price']} / ${stats.products['beauty_total']}', localizations.prices_stats_beauty, Icons.spa],
+              <dynamic>['${stats.products['products_with_price']} / ${stats.products['products_total']}', localizations.prices_stats_products, Icons.shopping_bag],
+              <dynamic>['${stats.products['pet_food_with_price']} / ${stats.products['pet_food_total']}', localizations.prices_stats_pet_food, Icons.pets],
+            ]),
+            const SizedBox(height: 24),
+
+            // Locations Section
+            CategoryHeader(
+              icon: Icons.location_on,
+              title: localizations.prices_stats_locations_section,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[
+                stats.locations['total'].toString(),
+                localizations.prices_stats_total,
+                Icons.location_on,
+                true,
+                'https://prices.openfoodfacts.org/locations'
+              ],
+              <dynamic>[stats.locations['osm'].toString(), localizations.prices_stats_osm, Icons.map],
+              <dynamic>[stats.locations['online'].toString(), localizations.prices_stats_online, Icons.public],
+              <dynamic>[stats.locations['countries'].toString(), localizations.prices_stats_countries, Icons.flag],
+            ]),
+            const SizedBox(height: 24),
+
+            // Proofs Section
+            CategoryHeader(
+              icon: Icons.camera_alt,
+              title: localizations.prices_stats_proofs_section,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[
+                stats.proofs['total'].toString(),
+                localizations.prices_stats_total,
+                Icons.camera_alt,
+                true,
+                'https://prices.openfoodfacts.org/proofs'
+              ],
+              <dynamic>[stats.proofs['price_tag'].toString(), localizations.prices_stats_price_tag, Icons.local_offer],
+              <dynamic>[stats.proofs['receipt'].toString(), localizations.prices_stats_receipt, Icons.receipt],
+              <dynamic>[stats.proofs['gdpr_request'].toString(), localizations.prices_stats_gdpr_request, Icons.security],
+              <dynamic>[stats.proofs['shop_import'].toString(), localizations.prices_stats_shop_import, Icons.store],
+            ]),
+            const SizedBox(height: 24),
+
+            // Contributors Section
+            CategoryHeader(
+              icon: Icons.people,
+              title: localizations.prices_stats_contributors_section,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[
+                stats.contributors['total'].toString(),
+                localizations.prices_stats_total,
+                Icons.people,
+                true,
+                'https://prices.openfoodfacts.org/users'
+              ],
+            ]),
+            const SizedBox(height: 24),
+
+            // Experiments Section
+            CategoryHeader(
+              icon: Icons.science,
+              title: localizations.prices_stats_experiments_section,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[stats.experiments['challenges'].toString(), localizations.prices_stats_challenges, Icons.emoji_events],
+              <dynamic>[stats.experiments['linked_to_price_tag'].toString(), localizations.prices_stats_linked_to_price_tag, Icons.link],
+            ]),
+            const SizedBox(height: 24),
+
+            // Misc Section
+            CategoryHeader(
+              icon: Icons.miscellaneous_services,
+              title: localizations.prices_stats_misc_section,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[stats.misc['countries'].toString(), localizations.prices_stats_countries, Icons.flag],
+              <dynamic>[stats.misc['currencies'].toString(), localizations.prices_stats_currencies, Icons.money],
+              <dynamic>[stats.misc['years'].toString(), localizations.prices_stats_years, Icons.date_range],
+            ]),
+            const SizedBox(height: 24),
+
+            // Sources Section
+            CategoryHeader(
+              icon: Icons.source,
+              title: localizations.prices_stats_by_source_title,
+            ),
+            const SizedBox(height: 12),
+            _buildListItems(<List<dynamic>>[
+              <dynamic>[stats.sources['website'] ?? '', localizations.prices_stats_website, Icons.web],
+              <dynamic>[stats.sources['mobile_app'] ?? '', localizations.prices_stats_mobile_app, Icons.phone_android],
+              <dynamic>[stats.sources['api'] ?? '', localizations.prices_stats_api, Icons.code],
+              <dynamic>[stats.sources['other'] ?? '', localizations.prices_stats_other, Icons.more_horiz],
+            ]),
+            const SizedBox(height: 16),
+            Center(
+              child: Text(
+                '${localizations.prices_stats_last_updated} ${stats.lastUpdated}',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: subtitleColor),
+              ),
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildListItems(List<List<dynamic>> items) {
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: items.length,
+      separatorBuilder: (BuildContext context,int index) => const SizedBox(height: 8),
+      itemBuilder: (BuildContext context, int index) {
+        final List<dynamic> item = items[index];
+        final String number = item[0] as String;
+        final String label = item[1] as String;
+        final IconData icon = item[2] as IconData;
+        final bool showRedirectArrow = item.length > 3 && item[3] == true;
+        final String? url = item.length > 4 ? (item[4] as String) : null;
+        return StatsListTile(
+          number: number,
+          label: label,
+          icon: icon,
+          showRedirectArrow: showRedirectArrow,
+          onTap: url != null
+              ? () => LaunchUrlHelper.launchURL(url)
+              : null,
+        );
+      },
+    );
   }
 }
