@@ -77,24 +77,24 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   Future<void> _openQuestions() async {
     _trackEvent(AnalyticsEvent.questionClicked);
 
-    final int? answeredQuestions = await Navigator.push<int>(
+    Navigator.push(
       context,
       MaterialPageRoute<int>(
-        builder: (BuildContext context) => QuestionsPage(
-          product: widget.product,
-          questions: (_state as _ProductQuestionsWithQuestions)
-              .questions
-              .toList(growable: false),
-        ),
-      ),
-    );
-
-    if (context.mounted && answeredQuestions != null && answeredQuestions > 0) {
-      await _reloadQuestions(
-        updateInsightAnnotations: true,
-        ignoreExistingQuestions: true,
-      );
-    }
+      builder: (context) => QuestionsPage(
+        product: widget.product,
+        questions: (_state as _ProductQuestionsWithQuestions)
+            .questions
+            .toList(growable: false),
+            ),
+          ),
+        ).then((questionsAnswered) {
+          if (context.mounted && questionsAnswered != null && questionsAnswered > 0) {
+            return _reloadQuestions(
+              updateInsightAnnotations: true,
+              ignoreExistingQuestions: true,
+            );
+          }
+        });
   }
 
   Future<void> _reloadQuestions({
