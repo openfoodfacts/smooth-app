@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Βοηθήστε στη βελτίωση των Open Food Facts στη χώρα σας",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -770,7 +770,7 @@
   "score_add_missing_ingredients": "Προσθήκη συστατικών που λείπουν",
   "score_add_missing_packaging_image": "Προσθήκη εικόνας συσκευασίας που λείπει",
   "score_add_missing_nutrition_facts": "Προσθήκη διατροφικών στοιχείων που λείπουν",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Προσθήκη ιχνών προϊόντων που λείπουν",
   "score_add_missing_product_category": "Προσθήκη κατηγορίας",
   "score_add_missing_product_countries": "Προσθήκη χωρών προϊόντος που λείπουν",
   "score_add_missing_product_emb": "Προσθήκη κωδικών ιχνηλασιμότητας προϊόντος που λείπουν",
@@ -950,7 +950,7 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Date",
+  "product_image_details_date": "Ημερομηνία",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -966,7 +966,7 @@
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Search for a product",
+  "homepage_main_card_search_field_hint": "Αναζητήσετε ένα προϊόν",
   "homepage_main_card_search_field_tooltip": "Έναρξη αναζήτησης",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
@@ -1233,15 +1233,15 @@
   },
   "retry_button_label": "Προσπαθήστε ξανά",
   "connect_with_us": "Συνδεθείτε μαζί μας",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Ακολουθήστε μας στο TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Ακολουθήστε μας στο Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
   "twitter": "Ακολουθήστε μας στο X (πρώην Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Ακολουθήστε μας στο Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Ακολουθήστε μας στο BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Ιστολόγιο",
   "faq": "Συχνές ερωτήσεις",
@@ -1601,7 +1601,7 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Προσθήκη νέου ίχνους",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
@@ -1809,7 +1809,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Εισαγάγετε ένα ίχνος (πχ: φασόλια σόγιας)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -2257,9 +2257,9 @@
       }
     }
   },
-  "product_type_label_food": "Food",
+  "product_type_label_food": "Τροφή",
   "product_type_label_beauty": "Προσωπική φροντίδα",
-  "product_type_label_pet_food": "Pet food",
+  "product_type_label_pet_food": "Τροφή κατοικιδίων",
   "product_type_label_product": "Άλλο",
   "product_type_selection_title": "Τύπος προϊόντος",
   "product_type_selection_subtitle": "Επιλέξτε τον τύπο αυτού του προϊόντος",
@@ -2278,15 +2278,15 @@
   },
   "prices_app_dev_mode_flag": "Συντόμευση στην εφαρμογή Τιμές στη σελίδα προϊόντος",
   "prices_app_button": "Μεταβείτε στην εφαρμογή Τιμές",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_generic_title": "Prices",
+  "prices_bulk_proof_upload_select": "Προσθήκη ετικετών τιμών απευθείας από τη συλλογή",
+  "prices_bulk_proof_upload_warning": "Μόλις επιλέξετε εικόνες, δεν θα μπορείτε να τις επεξεργαστείτε!",
+  "prices_bulk_proof_upload_subtitle": "Πολλαπλές Ετικέτες Τιμής",
+  "prices_bulk_proof_upload_title": "Μεταφόρτωση Μαζικής Απόδειξης",
+  "prices_generic_title": "Τιμές",
   "prices_add_n_prices": "{count,plural, one {}=1{Προσθήκη τιμής} other{Προσθήκη {count} τιμών}}",
   "prices_send_n_prices": "{count,plural, one {}=1{Στείλτε την τιμή} other{Στείλτε {count} τιμές}}",
   "prices_add_an_item": "Προσθήκη αντικειμένου",
-  "prices_add_a_price": "Add a price",
+  "prices_add_a_price": "Προσθήκη μίας τιμής",
   "prices_add_a_receipt": "Προσθήκη απόδειξης",
   "prices_add_price_tags": "Προσθήκη ετικετών τιμής",
   "prices_barcode_already": "Αυτός ο γραμμωτός κώδικας ({barcode}) είναι ήδη στη λίστα!",
@@ -2459,26 +2459,26 @@
   },
   "prices_amount_subtitle": "Ποσότητα",
   "prices_amount_is_discounted": "Σε έκπτωση;",
-  "prices_amount_price_normal": "Price",
-  "prices_amount_price_discounted": "Discounted price",
+  "prices_amount_price_normal": "Τιμή",
+  "prices_amount_price_discounted": "Τιμή με έκπτωση",
   "prices_amount_price_not_discounted": "Αρχική τιμή",
   "prices_amount_no_product": "Ένα προϊόν λείπει!",
   "prices_amount_price_incorrect": "Λάθος τιμή",
   "prices_amount_price_mandatory": "Υποχρεωτική τιμή",
-  "prices_currency_subtitle": "Currency",
-  "prices_date_subtitle": "Date",
+  "prices_currency_subtitle": "Νόμισμα",
+  "prices_date_subtitle": "Ημερομηνία",
   "prices_location_subtitle": "Κατάστημα",
   "prices_location_find": "Βρείτε ένα κατάστημα",
   "prices_location_mandatory": "Πρέπει να επιλέξετε ένα κατάστημα!",
   "prices_location_search_broader": "Δεν βρήκατε αυτό που ψάχνατε; Ας δοκιμάσουμε μια ευρύτερη αναζήτηση!",
-  "prices_proof_subtitle": "Proof",
+  "prices_proof_subtitle": "Επαλήθευση",
   "prices_proof_find": "Επιλέξτε μια απόδειξη",
-  "prices_proof_receipt": "Receipt",
-  "prices_proof_price_tag": "Price tag",
+  "prices_proof_receipt": "Απόδειξη",
+  "prices_proof_price_tag": "Ετικέτα τιμής",
   "prices_proof_mandatory": "Πρέπει να επιλέξετε μια απόδειξη!",
   "prices_add_validation_error": "Σφάλμα επικύρωσης",
   "prices_privacy_warning_title": "Ειδοποίηση απορρήτου",
-  "prices_unknown_product": "Unknown product",
+  "prices_unknown_product": "Άγνωστο προϊόν",
   "prices_privacy_warning_main_message": "Οι τιμές **θα είναι δημόσιες**, μαζί με το κατάστημα στο οποίο αναφέρονται.\n\nΑυτό μπορεί να επιτρέψει σε άτομα που γνωρίζουν το ψευδώνυμό σας Open Food Facts να:\n",
   "prices_privacy_warning_message_bullet_1": "Συμπεράνει σε ποια περιοχή μένετε",
   "prices_privacy_warning_message_bullet_2": "Μάθει τι αγοράζετε",
@@ -2596,11 +2596,11 @@
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
-  "user_search_prices_title": "My prices",
+  "user_search_prices_title": "Οι τιμές μου",
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
-  "user_search_proofs_title": "My proofs",
+  "user_search_proofs_title": "Οι επαληθεύσεις μου",
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
@@ -2624,7 +2624,7 @@
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "Βοηθός Συνεισφοράς Τιμής",
   "prices_validation_assistant": "Price Validation Assistant",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
@@ -2633,7 +2633,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Προσθήκη Πολλαπλών Επαληθεύσεων",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2749,7 +2749,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Πριν από την επικύρωση, βεβαιωθείτε ότι προσθέτετε μία μετάφραση **μόνο αν υπάρχει η γλώσσα στη συσκευασία**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3705,7 +3705,7 @@
   "contact_title_press_page": "Σελίδα Τύπου",
   "contact_title_press_email": "Επικοινωνία Τύπου",
   "contact_title_newsletter": "Εγγραφείτε στο ενημερωτικό μας δελτίο",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Εγγραφείτε στο ημερολόγιο της κοινότητάς μας",
   "hunger_games_loading_line1": "Δώστε μας λίγα δευτερόλεπτα…",
   "hunger_games_loading_line2": "Κατεβάζουμε τις ερωτήσεις!",
   "hunger_games_error_label": "Πω! Κάτι πήγε στραβά… και δεν μπορέσαμε να φορτώσουμε τις ερωτήσεις.",
@@ -3778,8 +3778,8 @@
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
   "guide_nutriscore_v2_where_title": "Πού θα βρείτε τον νέο υπολογισμό Nutri-Score;",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "Το Nutri-Score εφαρμόζεται σε 7 χώρες: Γαλλία, Γερμανία, Βέλγιο, Ισπανία, Λουξεμβούργο, Ολλανδία και Ελβετία.",
+  "guide_nutriscore_v2_where_paragraph2": "Οι κατασκευαστές έχουν το πολύ **2 έτη** το αργότερο μετά την υπογραφή του διατάγματος **για να αντικαταστήσουν** τον παλιό υπολογισμό με τον νέο.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
@@ -3822,7 +3822,7 @@
       }
     }
   },
-  "photo_viewer_details_button": "Details",
+  "photo_viewer_details_button": "Λεπτομέρειες",
   "@photo_viewer_details_button": {
     "description": "Button to show details of the photo"
   },
@@ -3854,7 +3854,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Date",
+  "photo_viewer_details_date_title": "Ημερομηνία",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -4008,7 +4008,7 @@
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_error_button": "Προσπαθήστε ξανά",
-  "carousel_unknown_product_header": "Unknown product",
+  "carousel_unknown_product_header": "Άγνωστο προϊόν",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
@@ -4052,7 +4052,7 @@
   "photo_field_packaging": "Φωτογραφία πληροφοριών συσκευασίας",
   "photo_already_exists": "Αυτή η φωτογραφία υπάρχει ήδη",
   "photo_missing": "Αυτή η φωτογραφία λείπει",
-  "date": "Date",
+  "date": "Ημερομηνία",
   "photo_rotate_left": "Περιστροφή αριστερά",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
@@ -4099,11 +4099,11 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Εξαγωγή",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Εισαγωγή",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
@@ -4123,7 +4123,7 @@
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
-  "product_footer_action_contributor_guide": "Help",
+  "product_footer_action_contributor_guide": "Βοήθεια",
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
@@ -4143,31 +4143,31 @@
       }
     }
   },
-  "app_review_title": "Are you enjoying this app?",
+  "app_review_title": "Σας αρέσει η εφαρμογή;",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "Θα μπορούσε καλύτερα",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "Όχι και άσχημα",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "Τη λατρεύω!",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "Βοηθήστε μας να βελτιώσουμε την εφαρμογή μας",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "Εάν έχετε λίγα λεπτά, θα μπορούσατε να απαντήσετε σε αυτήν τη φόρμα, ώστε **να βελτιωθούμε σε μελλοντικές ενημερώσεις**:",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "Απαντήστε τη φόρμα",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4175,19 +4175,19 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "ΝΕΟ: Μπορείτε να εξαγάγετε αυτόματα τα θρεπτικά συστατικά από την εικόνα!",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "Εξαγωγή τώρα",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
+  "nutrition_facts_extract_succesful": "Επιτυχής εξαγωγή",
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_failed": "Αποτυχία εξαγωγής θρεπτικών συστατικών από την εικόνα",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
