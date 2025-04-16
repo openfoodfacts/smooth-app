@@ -11,6 +11,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
     required this.items,
     this.onChanged,
     this.textAlignment,
+    this.loading = false,
     super.key,
   }) : assert(items.length > 0);
 
@@ -18,6 +19,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
   final List<SmoothDropdownItem<T>> items;
   final ValueChanged<T?>? onChanged;
   final AlignmentGeometry? textAlignment;
+  final bool loading;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +82,22 @@ class SmoothDropdownButton<T> extends StatelessWidget {
       enableFeedback: true,
       alignment: textAlignment ?? AlignmentDirectional.centerStart,
       selectedItemBuilder: (BuildContext context) {
+        if (loading) {
+          return items
+              .map(
+                (SmoothDropdownItem<T> item) => const Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    end: MEDIUM_SPACE,
+                  ),
+                  child: SizedBox.square(
+                    dimension: 12.0,
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              )
+              .toList(growable: false);
+        }
+
         return items.map((SmoothDropdownItem<T> item) {
           return SizedBox(
             child: Padding(
@@ -121,7 +139,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
           )
           .toList(growable: false),
       value: value,
-      onChanged: onChanged,
+      onChanged: loading ? null : onChanged,
     );
   }
 }

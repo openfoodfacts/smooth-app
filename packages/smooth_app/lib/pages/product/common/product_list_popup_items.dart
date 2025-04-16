@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -11,6 +14,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_helper.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -22,6 +27,8 @@ enum ProductListPopupMenuEntry {
   rename,
   clear,
   delete,
+  export,
+  import,
 }
 
 /// Popup menu items for the product list page.
@@ -213,6 +220,102 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
       unawaited(launchUrl(firstUrl));
     }
     return null;
+  }
+}
+
+/// Popup menu item for the product list page: export list.
+class ProductListPopupExport extends ProductListPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_list_export;
+
+  @override
+  IconData getIconData() => Icons.download;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.export;
+
+  @override
+  bool isDestructive() => false;
+
+  @override
+  Future<ProductList?> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+  }) async {
+    final String listName = ProductQueryPageHelper.getProductListLabel(
+      productList,
+      AppLocalizations.of(context),
+    );
+    final String fileName = _buildFileName(listName);
+
+    final String csv = await ProductListHelper(
+      list: productList,
+      localDatabase: localDatabase,
+    ).exportBarcodesToString();
+
+    unawaited(
+      Share.shareXFiles(
+        <XFile>[
+          XFile.fromData(
+            utf8.encode(csv),
+            name: '$fileName.csv',
+            mimeType: 'text/csv',
+          ),
+        ],
+        fileNameOverrides: <String>['$fileName.csv'],
+      ),
+    );
+
+    return null;
+  }
+
+  String _buildFileName(String listName) {
+    final String name = listName.replaceAll(' ', '-').toLowerCase();
+    final String timestamp =
+        DateTime.now().toIso8601String().replaceAll(':', '_').split('.').first;
+
+    return '$name-$timestamp.csv';
+  }
+}
+
+/// Popup menu item for the product list page: import list.
+class ProductListPopupImport extends ProductListPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_list_import;
+
+  @override
+  IconData getIconData() => Icons.upload;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.import;
+
+  @override
+  bool isDestructive() => false;
+
+  @override
+  Future<ProductList?> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+  }) async {
+    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: <String>['csv'],
+    );
+
+    if (result == null) {
+      return null;
+    }
+
+    await ProductListHelper(
+      list: productList,
+      localDatabase: localDatabase,
+    ).importFileToList(File(result.files.single.path!));
+
+    return productList;
   }
 }
 

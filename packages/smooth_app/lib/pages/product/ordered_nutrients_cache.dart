@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_string.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -10,6 +13,7 @@ class OrderedNutrientsCache {
   OrderedNutrientsCache._();
 
   OrderedNutrients? _orderedNutrients;
+
   OrderedNutrients get orderedNutrients => _orderedNutrients!;
 
   // We store the cached data in a static instead of a database, so that data
@@ -21,34 +25,66 @@ class OrderedNutrientsCache {
     final BuildContext context,
   ) async {
     final OrderedNutrientsCache cache = OrderedNutrientsCache._();
-    cache._orderedNutrients = await cache._get();
-    if (cache._orderedNutrients == null) {
-      if (context.mounted) {
-        cache._orderedNutrients = await LoadingDialog.run<OrderedNutrients>(
-          context: context,
-          future: cache._download(),
-        );
-      }
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    // quickest
+    cache._orderedNutrients = await cache._getStaticVersion();
+    if (cache._orderedNutrients != null) {
+      return cache;
     }
-    if (cache._orderedNutrients == null) {
-      if (context.mounted) {
-        await LoadingDialog.error(context: context);
-      }
+    // less quick, but still local
+    cache._orderedNutrients = await cache._getDatabaseVersion(localDatabase);
+    if (cache._orderedNutrients != null) {
+      return cache;
+    }
+    // server version, the very first time
+    if (!context.mounted) {
       return null;
     }
-    return cache;
+    cache._orderedNutrients = await LoadingDialog.run<OrderedNutrients>(
+      context: context,
+      future: cache._download(localDatabase),
+    );
+    if (cache._orderedNutrients != null) {
+      return cache;
+    }
+    if (context.mounted) {
+      await LoadingDialog.error(context: context);
+    }
+    return null;
   }
 
-  /// Returns the ordered nutrients cached in the database.
-  Future<OrderedNutrients?> _get() async {
-    final String? string = _cache[_getKey()];
+  /// Returns the ordered nutrients cached in a static field.
+  Future<OrderedNutrients?> _getStaticVersion() async {
+    final String key = _getKey();
+    final String? string = _cache[key];
     if (string != null) {
       try {
         return OrderedNutrients.fromJson(
           jsonDecode(string) as Map<String, dynamic>,
         );
       } catch (e) {
-        _cache.remove(_getKey());
+        _cache.remove(key);
+      }
+    }
+    return null;
+  }
+
+  /// Returns the ordered nutrients cached in the database.
+  Future<OrderedNutrients?> _getDatabaseVersion(
+    final LocalDatabase localDatabase,
+  ) async {
+    final String key = _getKey();
+    final DaoString daoString = DaoString(localDatabase);
+    final String? string = await daoString.get(key);
+    if (string != null) {
+      try {
+        final OrderedNutrients result = OrderedNutrients.fromJson(
+          jsonDecode(string) as Map<String, dynamic>,
+        );
+        _cache[key] = string;
+        return result;
+      } catch (e) {
+        await daoString.put(key, null);
       }
     }
     return null;
@@ -59,7 +95,9 @@ class OrderedNutrientsCache {
       );
 
   /// Downloads the ordered nutrients and caches them in the database.
-  Future<OrderedNutrients> _download() async {
+  Future<OrderedNutrients> _download(
+    final LocalDatabase localDatabase,
+  ) async {
     final String string = await OpenFoodAPIClient.getOrderedNutrientsJsonString(
       country: ProductQuery.getCountry(),
       language: ProductQuery.getLanguage(),
@@ -68,7 +106,10 @@ class OrderedNutrientsCache {
     final OrderedNutrients result = OrderedNutrients.fromJson(
       jsonDecode(string) as Map<String, dynamic>,
     );
-    _cache[_getKey()] = string;
+    final DaoString daoString = DaoString(localDatabase);
+    final String key = _getKey();
+    await daoString.put(key, string);
+    _cache[key] = string;
     return result;
   }
 

@@ -31,42 +31,66 @@ abstract class CropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
-    final List<Offset>? offsets,
+    required final List<Offset> offsets,
   });
 
   /// Should we display the eraser with the crop grid?
   bool get enableEraser;
 
+  static Rect getLocalCropRectFromRect(final Rect crop) =>
+      BackgroundTaskImage.getUpsizedRect(crop);
+
   /// Returns the crop rect according to local cropping method * factor.
   @protected
   Rect getLocalCropRect(final CropController controller) =>
-      BackgroundTaskImage.getUpsizedRect(controller.crop);
+      getLocalCropRectFromRect(controller.crop);
 
   @protected
   CropParameters getCropParameters({
     required final CropController controller,
     required final File? fullFile,
     required final File smallCroppedFile,
-    final List<Offset>? offsets,
+    required final List<Offset> offsets,
   }) {
     final Rect cropRect = getLocalCropRect(controller);
-    final List<double> eraserCoordinates = <double>[];
-    if (offsets != null) {
-      for (final Offset offset in offsets) {
-        eraserCoordinates.add(offset.dx);
-        eraserCoordinates.add(offset.dy);
-      }
-    }
+    final List<double> eraserCoordinates = getEraserCoordinates(offsets);
     return CropParameters(
       fullFile: fullFile,
       smallCroppedFile: smallCroppedFile,
       rotation: controller.rotation.degrees,
-      x1: cropRect.left.ceil(),
-      y1: cropRect.top.ceil(),
-      x2: cropRect.right.floor(),
-      y2: cropRect.bottom.floor(),
+      cropRect: cropRect,
       eraserCoordinates: eraserCoordinates,
     );
+  }
+
+  /// Full-size crop, aka no crop.
+  static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
+
+  static List<double> getEraserCoordinates(
+    final List<Offset> offsets,
+  ) {
+    final List<double> eraserCoordinates = <double>[];
+    for (final Offset offset in offsets) {
+      eraserCoordinates.add(offset.dx);
+      eraserCoordinates.add(offset.dy);
+    }
+    return eraserCoordinates;
+  }
+
+  static List<Offset> getOffsets(
+    final List<double>? eraserCoordinates,
+  ) {
+    final List<Offset> offsets = <Offset>[];
+    if (eraserCoordinates != null) {
+      for (int i = 0; i < eraserCoordinates.length; i += 2) {
+        final Offset offset = Offset(
+          eraserCoordinates[i],
+          eraserCoordinates[i + 1],
+        );
+        offsets.add(offset);
+      }
+    }
+    return offsets;
   }
 
   /// Returns a copy of a file with the full image (no cropping here).

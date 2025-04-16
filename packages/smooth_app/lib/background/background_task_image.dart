@@ -9,6 +9,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
+import 'package:smooth_app/background/background_task_price.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
@@ -16,6 +17,9 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
+import 'package:smooth_app/pages/crop_helper.dart';
+import 'package:smooth_app/pages/prices/eraser_model.dart';
+import 'package:smooth_app/pages/prices/eraser_painter.dart';
 
 /// Background task about product image upload.
 class BackgroundTaskImage extends BackgroundTaskUpload {
@@ -34,22 +38,28 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required super.cropX2,
     required super.cropY2,
     required this.fullPath,
+    required this.eraserCoordinates,
   });
 
   BackgroundTaskImage.fromJson(super.json)
       : fullPath = json[_jsonTagImagePath] as String,
+        eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+            json[_jsonTagEraserCoordinates]),
         super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
+  static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
 
   static const OperationType _operationType = OperationType.image;
 
   final String fullPath;
+  final List<double>? eraserCoordinates;
 
   @override
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> result = super.toJson();
     result[_jsonTagImagePath] = fullPath;
+    result[_jsonTagEraserCoordinates] = eraserCoordinates;
     return result;
   }
 
@@ -70,6 +80,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int y1,
     required final int x2,
     required final int y2,
+    required final List<double> eraserCoordinates,
     required final BuildContext context,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -90,6 +101,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       y1,
       x2,
       y2,
+      eraserCoordinates,
     );
     if (!context.mounted) {
       return;
@@ -120,6 +132,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final int cropY1,
     final int cropX2,
     final int cropY2,
+    final List<double>? eraserCoordinates,
   ) =>
       BackgroundTaskImage._(
         uniqueId: uniqueId,
@@ -134,6 +147,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
+        eraserCoordinates: eraserCoordinates,
         language: language,
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
@@ -236,16 +250,31 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Returns null if the image (cropped or not) is too small.
   static Future<String?> cropIfNeeded({
     required final String fullPath,
-    required final String croppedPath,
     required final int rotationDegrees,
     required final int cropX1,
     required final int cropY1,
     required final int cropX2,
     required final int cropY2,
-    final CustomPainter? overlayPainter,
     required final int compressQuality,
     required final bool forceCompression,
+    required final List<double>? eraserCoordinates,
   }) async {
+    final String croppedPath = getCroppedPath(fullPath);
+    final CustomPainter? overlayPainter =
+        eraserCoordinates == null || eraserCoordinates.isEmpty
+            ? null
+            : EraserPainter(
+                eraserModel: EraserModel(
+                  rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+                  offsets: CropHelper.getOffsets(eraserCoordinates),
+                ),
+                cropRect: BackgroundTaskImage.getDownsizedRect(
+                  cropX1,
+                  cropY1,
+                  cropX2,
+                  cropY2,
+                ),
+              );
     final ui.Image full = await loadUiImage(
         await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes());
     if (!forceCompression) {
@@ -310,7 +339,6 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   Future<void> upload() async {
     final String? path = await cropIfNeeded(
       fullPath: fullPath,
-      croppedPath: getCroppedPath(fullPath),
       rotationDegrees: rotationDegrees,
       cropX1: cropX1,
       cropY1: cropY1,
@@ -318,6 +346,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       cropY2: cropY2,
       compressQuality: 100,
       forceCompression: false,
+      eraserCoordinates: eraserCoordinates,
     );
     if (path == null) {
       // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.

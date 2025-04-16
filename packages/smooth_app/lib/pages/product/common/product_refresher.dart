@@ -105,7 +105,7 @@ class ProductRefresher {
   /// Fetches the products from the server and refreshes the local database.
   ///
   /// Silent version.
-  Future<void> silentFetchAndRefreshList({
+  Future<List<String>?> silentFetchAndRefreshList({
     required final List<String> barcodes,
     required final LocalDatabase localDatabase,
     required final ProductType productType,
@@ -217,8 +217,9 @@ class ProductRefresher {
 
   /// Gets up-to-date products from the server.
   ///
-  /// Returns the number of products, or null if error.
-  Future<int?> _fetchAndRefreshList(
+  /// Returns the list of barcodes for which a product was found
+  /// or null if error.
+  Future<List<String>?> _fetchAndRefreshList(
     final LocalDatabase localDatabase,
     final List<String> barcodes,
     final ProductType productType,
@@ -242,7 +243,11 @@ class ProductRefresher {
       );
       localDatabase.upToDate
           .setLatestDownloadedProducts(searchResult.products!);
-      return searchResult.products!.length;
+
+      return searchResult.products!
+          .where((Product p) => p.barcode != null && p.barcode!.isNotEmpty)
+          .map((Product p) => p.barcode!)
+          .toList(growable: false);
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
       return null;
