@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -108,69 +106,65 @@ class _QuestionsPageState extends State<QuestionsPage>
       );
       _currentQuestionIndex = 0;
     } catch (e) {
-      debugPrint('Error loading next questions: $e');
       _updateState(_RobotoffQuestionErrorState(Exception(e.toString())));
     }
   }
 
-  void _incrementQuestionsAnswered() {
-    setState(() {
-      _questionsAnswered++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => _QuestionsAnsweredNotifier(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Hunger Games"), //AppLocalizations.of(context).hunger_games_error_label),
-          leading: IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () => Navigator.of(context).pop(_questionsAnswered),
+    return ChangeNotifierProvider<_QuestionsAnsweredNotifier>(
+        create: (BuildContext context) => _QuestionsAnsweredNotifier(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Hunger Games'),
+            leading: IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: () => Navigator.of(context).pop(_questionsAnswered),
+            ),
           ),
-        ),
-        body: SafeArea(
-          child: Center(
-            child: AnimatedSwitcher(
-              duration: SmoothAnimationsDuration.medium,
-              transitionBuilder: (Widget child, Animation<double> animation) {
-                final Offset animationStartOffset = _getAnimationStartOffset();
-                final Animation<Offset> inAnimation = Tween<Offset>(
-                  begin: animationStartOffset,
-                  end: Offset.zero,
-                ).animate(animation);
-                final Animation<Offset> outAnimation = Tween<Offset>(
-                  begin: animationStartOffset.scale(-1, -1),
-                  end: Offset.zero,
-                ).animate(animation);
+          body: SafeArea(
+            child: Center(
+              child: AnimatedSwitcher(
+                duration: SmoothAnimationsDuration.medium,
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  final Offset animationStartOffset =
+                      _getAnimationStartOffset();
+                  final Animation<Offset> inAnimation = Tween<Offset>(
+                    begin: animationStartOffset,
+                    end: Offset.zero,
+                  ).animate(animation);
+                  final Animation<Offset> outAnimation = Tween<Offset>(
+                    begin: animationStartOffset.scale(-1, -1),
+                    end: Offset.zero,
+                  ).animate(animation);
 
-                return ClipRect(
-                  child: SlideTransition(
-                    position: child.key == ValueKey<int>(_currentQuestionIndex)
-                        ? inAnimation
-                        : outAnimation,
-                    child: Padding(
-                      padding: const EdgeInsets.all(SMALL_SPACE),
-                      child: child,
+                  return ClipRect(
+                    child: SlideTransition(
+                      position:
+                          child.key == ValueKey<int>(_currentQuestionIndex)
+                              ? inAnimation
+                              : outAnimation,
+                      child: Padding(
+                        padding: const EdgeInsets.all(SMALL_SPACE),
+                        child: child,
+                      ),
                     ),
-                  ),
-                );
-              },
-              child: KeyedSubtree(
-                key: ValueKey<int>(_currentQuestionIndex),
-                child: switch (_state) {
-                  _RobotoffQuestionLoadingState _ => const _LoadingQuestionsView(),
-                  _RobotoffQuestionSuccessState _ => _buildQuestionsWidget(),
-                  _RobotoffQuestionErrorState _ => _ErrorLoadingView(onRetry: _loadQuestions),
+                  );
                 },
+                child: KeyedSubtree(
+                  key: ValueKey<int>(_currentQuestionIndex),
+                  child: switch (_state) {
+                    _RobotoffQuestionLoadingState _ =>
+                      const _LoadingQuestionsView(),
+                    _RobotoffQuestionSuccessState _ => _buildQuestionsWidget(),
+                    _RobotoffQuestionErrorState _ =>
+                      _ErrorLoadingView(onRetry: _loadQuestions),
+                  },
+                ),
               ),
             ),
           ),
-        ),
-      )
-    );
+        ));
   }
 
   Widget _buildQuestionsWidget() {
@@ -192,8 +186,8 @@ class _QuestionsPageState extends State<QuestionsPage>
           setState(() {
             _lastAnswer = answer;
             _currentQuestionIndex++;
+            _questionsAnswered++;
           });
-          _incrementQuestionsAnswered();
         },
       );
     }
@@ -241,7 +235,6 @@ class _QuestionsPageState extends State<QuestionsPage>
   String get actionName => 'Opened robotoff_question_page';
 }
 
-
 sealed class _RobotoffQuestionState {
   const _RobotoffQuestionState();
 }
@@ -281,7 +274,7 @@ class _LoadingQuestionsView extends StatelessWidget {
           child: Center(
             child: DefaultTextStyle(
               textAlign: TextAlign.center,
-              style: TextStyle(color: colorScheme.onBackground), 
+              style: TextStyle(color: colorScheme.onSurface),
               child: FractionallySizedBox(
                 widthFactor: 0.8,
                 child: MergeSemantics(
@@ -293,12 +286,12 @@ class _LoadingQuestionsView extends StatelessWidget {
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 19.0,
-                          color: colorScheme.primary, 
+                          color: colorScheme.primary,
                         ),
                       ),
                       SizedBox(height: screenHeight * 0.05),
                       LinearProgressIndicator(
-                        color: colorScheme.primary, 
+                        color: colorScheme.primary,
                       ),
                       SizedBox(height: screenHeight * 0.10),
                       Text(
@@ -306,7 +299,7 @@ class _LoadingQuestionsView extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: theme.textTheme.bodyLarge?.copyWith(
                           fontSize: 17.0,
-                          color: colorScheme.primary, 
+                          color: colorScheme.primary,
                         ),
                       ),
                     ],
@@ -334,18 +327,22 @@ class _QuestionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        QuestionCard(
-          question,
-          initialProduct: initialProduct,
-        ),
-        QuestionAnswersOptions(
-          question,
-          onAnswer: onAnswer,
-        ),
-      ],
+    return Expanded(
+      child: Column(
+        mainAxisSize: MainAxisSize.max, // <--- CAMBIATO
+        children: <Widget>[
+          Expanded(
+            child: QuestionCard(
+              question,
+              initialProduct: initialProduct,
+            ),
+          ),
+          QuestionAnswersOptions(
+            question,
+            onAnswer: onAnswer,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -363,13 +360,11 @@ class _QuestionsSuccessView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CongratsWidget(
       continueButtonLabel: onContinue != null
-          ? AppLocalizations.of(context).robotoff_next_n_questions(10
-              
-              // QuestionPageState._numberQuestionsNext,
-            )
+          ? AppLocalizations.of(context).robotoff_next_n_questions(
+              _QuestionsPageState._numberQuestionsNext)
           : null,
       anonymousAnnotationList: anonymousAnnotationList,
-      onContinue: onContinue, 
+      onContinue: onContinue,
       result: _QuestionsAnsweredNotifier.of(context).value,
     );
   }
@@ -393,10 +388,11 @@ class _ErrorLoadingView extends StatelessWidget {
       child: DefaultTextStyle(
         textAlign: TextAlign.center,
         style: textTheme.bodyLarge?.copyWith(
-          fontWeight: FontWeight.bold,
-          fontSize: 20.0,
-          color: colorScheme.onBackground,
-        ) ?? const TextStyle(),
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+              color: colorScheme.onSurface,
+            ) ??
+            const TextStyle(),
         child: FractionallySizedBox(
           widthFactor: 0.8,
           child: Column(
@@ -406,7 +402,7 @@ class _ErrorLoadingView extends StatelessWidget {
                 appLocalizations.hunger_games_error_label,
                 style: textTheme.titleMedium?.copyWith(
                   fontSize: 20.0,
-                  color: colorScheme.error, 
+                  color: colorScheme.error,
                 ),
               ),
               const SizedBox(height: VERY_LARGE_SPACE),
@@ -414,14 +410,14 @@ class _ErrorLoadingView extends StatelessWidget {
                 text: appLocalizations.hunger_games_error_retry_button,
                 leadingIcon: Icon(
                   Icons.refresh,
-                  color: colorScheme.onPrimary, 
+                  color: colorScheme.onPrimary,
                 ),
                 onPressed: onRetry,
                 textStyle: textTheme.labelLarge?.copyWith(
                   fontSize: 18.0,
                   color: colorScheme.onPrimary,
                 ),
-                backgroundColor: colorScheme.primary, 
+                backgroundColor: colorScheme.primary,
               ),
             ],
           ),
