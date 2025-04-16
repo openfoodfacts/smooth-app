@@ -171,6 +171,11 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         Icons.open_in_new,
       ),
+      _getListTile(
+          'General Data Protection Regulation',
+          () async => LaunchUrlHelper.launchURL(
+              'https://wiki.openfoodfacts.org/GDPR_request'),
+          Icons.open_in_new),
     ];
   }
 
