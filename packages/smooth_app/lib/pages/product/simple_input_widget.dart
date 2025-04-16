@@ -330,6 +330,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
     final Map<RobotoffQuestion, InsightAnnotation?> questions =
         questionsNotifier.value;
 
+    const double horizontalPadding = MEDIUM_SPACE * 2;
+
     return Padding(
       padding: EdgeInsetsDirectional.only(
         top: questions.isEmpty ? 0.0 : MEDIUM_SPACE,
@@ -341,10 +343,11 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: LARGE_SPACE,
-                    vertical: SMALL_SPACE,
-                  ),
+                  padding: const EdgeInsetsDirectional.only(
+                      start: horizontalPadding,
+                      end: LARGE_SPACE,
+                      top: SMALL_SPACE,
+                      bottom: SMALL_SPACE),
                   color: extension.successBackground,
                   child: Row(
                     children: <Widget>[
@@ -439,7 +442,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                           child: Container(
                             color: Colors.black54,
                             padding: const EdgeInsetsDirectional.symmetric(
-                              horizontal: LARGE_SPACE,
+                              horizontal: horizontalPadding,
                               vertical: 6.0,
                             ),
                             child: Row(
@@ -465,8 +468,9 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                         ),
                         Positioned(
                           bottom: SMALL_SPACE,
-                          right: SMALL_SPACE,
+                          right: LARGE_SPACE,
                           child: SmoothIconButton(
+                            size: 24.0,
                             onPressed: () {
                               Navigator.push(
                                 context,

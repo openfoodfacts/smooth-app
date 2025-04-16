@@ -17,9 +17,11 @@ class SmoothIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
+    final ThemeData theme = Theme.of(context);
 
-    return DecoratedBox(
+    return Container(
+      width: size,
+      height: size,
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(99999),
@@ -29,14 +31,16 @@ class SmoothIconButton extends StatelessWidget {
           strokeAlign: BorderSide.strokeAlignInside,
         ),
       ),
-      child: IconButton(
-        icon: icon,
-        onPressed: onPressed,
-        color: color ?? theme.primaryColor,
-        iconSize: size,
-        padding: EdgeInsets.zero,
-        tooltip: tooltip,
-        visualDensity: VisualDensity.compact,
+      child: Center(
+        child: IconButton(
+          icon: icon,
+          iconSize: size - 12.0,
+          onPressed: onPressed,
+          color: color ?? theme.primaryColor,
+          padding: EdgeInsets.zero,
+          tooltip: tooltip,
+          visualDensity: VisualDensity.compact,
+        ),
       ),
     );
   }
