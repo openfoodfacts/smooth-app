@@ -430,8 +430,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     if (_country == null) {
       return null;
     }
-    final OpenFoodFactsLanguage locale = ProductQuery.getLanguage();
-    return _country!.getLocalizedName(locale);
+    return _country!.getLocalizedName(ProductQuery.getLanguage());
   }
 
   Widget _getLargeButtonWithIcon(final _Action action) =>
