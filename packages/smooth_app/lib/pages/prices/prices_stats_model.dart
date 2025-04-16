@@ -39,13 +39,17 @@ class PriceStats {
       products: <String, int>{
         'with_price': _getSafeInt(json, 'product_with_price_count'),
         'total': _getSafeInt(json, 'product_count'),
-        'food_with_price': _getSafeInt(json, 'product_source_off_with_price_count'),
+        'food_with_price':
+            _getSafeInt(json, 'product_source_off_with_price_count'),
         'food_total': _getSafeInt(json, 'product_source_off_count'),
-        'beauty_with_price': _getSafeInt(json, 'product_source_obf_with_price_count'),
+        'beauty_with_price':
+            _getSafeInt(json, 'product_source_obf_with_price_count'),
         'beauty_total': _getSafeInt(json, 'product_source_obf_count'),
-        'products_with_price': _getSafeInt(json, 'product_source_opf_with_price_count'),
+        'products_with_price':
+            _getSafeInt(json, 'product_source_opf_with_price_count'),
         'products_total': _getSafeInt(json, 'product_source_opf_count'),
-        'pet_food_with_price': _getSafeInt(json, 'product_source_opff_with_price_count'),
+        'pet_food_with_price':
+            _getSafeInt(json, 'product_source_opff_with_price_count'),
         'pet_food_total': _getSafeInt(json, 'product_source_opff_count'),
       },
       locations: <String, int>{
@@ -66,7 +70,8 @@ class PriceStats {
       },
       experiments: <String, int>{
         'challenges': 1,
-        'linked_to_price_tag': _getSafeInt(json, 'price_tag_status_linked_to_price_count'),
+        'linked_to_price_tag':
+            _getSafeInt(json, 'price_tag_status_linked_to_price_count'),
       },
       misc: <String, int>{
         'countries': _getSafeInt(json, 'price_location_country_count'),
@@ -74,10 +79,14 @@ class PriceStats {
         'years': _getSafeInt(json, 'price_year_count'),
       },
       sources: <String, String>{
-        'website': '${_getSafeInt(json, 'price_source_web_count')} | ${_getSafeInt(json, 'proof_source_web_count')}',
-        'mobile_app': '${_getSafeInt(json, 'price_source_mobile_count')} | ${_getSafeInt(json, 'proof_source_mobile_count')}',
-        'api': '${_getSafeInt(json, 'price_source_api_count')} | ${_getSafeInt(json, 'proof_source_api_count')}',
-        'other': '${_getSafeInt(json, 'price_source_other_count')} | ${_getSafeInt(json, 'proof_source_other_count')}',
+        'website':
+            '${_getSafeInt(json, 'price_source_web_count')} | ${_getSafeInt(json, 'proof_source_web_count')}',
+        'mobile_app':
+            '${_getSafeInt(json, 'price_source_mobile_count')} | ${_getSafeInt(json, 'proof_source_mobile_count')}',
+        'api':
+            '${_getSafeInt(json, 'price_source_api_count')} | ${_getSafeInt(json, 'proof_source_api_count')}',
+        'other':
+            '${_getSafeInt(json, 'price_source_other_count')} | ${_getSafeInt(json, 'proof_source_other_count')}',
       },
       lastUpdated: formattedDate,
     );
@@ -118,8 +127,18 @@ class PriceStats {
 
   static String _getMonth(int month) {
     const List<String> months = <String>[
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
     ];
     return months[month - 1];
   }
@@ -132,10 +151,12 @@ class PriceStats {
         return PriceStats.fromJson(directResult);
       }
 
-      final MaybeError<PriceTotalStats> result = await OpenPricesAPIClient.getStats();
+      final MaybeError<PriceTotalStats> result =
+          await OpenPricesAPIClient.getStats();
       if (!result.isError) {
         final Map<String, dynamic> rawData = result.value.toJson();
-        if (rawData.containsKey('price_count') && rawData['price_count'] != null) {
+        if (rawData.containsKey('price_count') &&
+            rawData['price_count'] != null) {
           return PriceStats.fromJson(rawData);
         }
       }

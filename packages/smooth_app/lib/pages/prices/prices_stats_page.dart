@@ -6,7 +6,6 @@ import 'package:smooth_app/pages/prices/prices_stats_model.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-
 class CategoryHeader extends StatelessWidget {
   const CategoryHeader({
     super.key,
@@ -30,9 +29,9 @@ class CategoryHeader extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: textColor,
-            ),
+                  fontWeight: FontWeight.bold,
+                  color: textColor,
+                ),
           ),
         ],
       ),
@@ -69,7 +68,8 @@ class StatsListTile extends StatelessWidget {
       elevation: 5,
       color: cardColor,
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -77,8 +77,8 @@ class StatsListTile extends StatelessWidget {
         title: Text(
           label,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: textColor,
-          ),
+                color: textColor,
+              ),
         ),
         trailing: Container(
           constraints: const BoxConstraints(minWidth: 80),
@@ -90,9 +90,9 @@ class StatsListTile extends StatelessWidget {
                 child: Text(
                   number,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: textColor,
-                  ),
+                        fontWeight: FontWeight.bold,
+                        color: textColor,
+                      ),
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.end,
                 ),
@@ -157,20 +157,22 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : (statsData == null
-          ? Center(
-          child: Text(
-            localizations.prices_stats_error,
-            style: TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color),
-          ))
-          : Scrollbar(
-        controller: _controller,
-        child: _buildStatsContent(context, localizations, statsData!, dark),
-      )),
+              ? Center(
+                  child: Text(
+                  localizations.prices_stats_error,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color),
+                ))
+              : Scrollbar(
+                  controller: _controller,
+                  child: _buildStatsContent(
+                      context, localizations, statsData!, dark),
+                )),
     );
   }
 
-  Widget _buildStatsContent(
-      BuildContext context, AppLocalizations localizations, PriceStats stats, bool dark) {
+  Widget _buildStatsContent(BuildContext context,
+      AppLocalizations localizations, PriceStats stats, bool dark) {
     final Color subtitleColor = dark
         ? const Color(0xFFBDBDBD)
         : Theme.of(context).textTheme.bodySmall!.color!;
@@ -196,11 +198,31 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
                 true,
                 'https://prices.openfoodfacts.org/prices'
               ],
-              <dynamic>[stats.prices['with_barcode'].toString(), localizations.prices_stats_with_barcode, Icons.qr_code],
-              <dynamic>[stats.prices['with_category'].toString(), localizations.prices_stats_with_category, Icons.category],
-              <dynamic>[stats.prices['with_discount'].toString(), localizations.prices_stats_with_discount, Icons.discount],
-              <dynamic>[stats.prices['community'].toString(), localizations.prices_stats_community, Icons.people],
-              <dynamic>[stats.prices['consumption'].toString(), localizations.prices_stats_consumption, Icons.shopping_cart],
+              <dynamic>[
+                stats.prices['with_barcode'].toString(),
+                localizations.prices_stats_with_barcode,
+                Icons.qr_code
+              ],
+              <dynamic>[
+                stats.prices['with_category'].toString(),
+                localizations.prices_stats_with_category,
+                Icons.category
+              ],
+              <dynamic>[
+                stats.prices['with_discount'].toString(),
+                localizations.prices_stats_with_discount,
+                Icons.discount
+              ],
+              <dynamic>[
+                stats.prices['community'].toString(),
+                localizations.prices_stats_community,
+                Icons.people
+              ],
+              <dynamic>[
+                stats.prices['consumption'].toString(),
+                localizations.prices_stats_consumption,
+                Icons.shopping_cart
+              ],
             ]),
             const SizedBox(height: 24),
 
@@ -211,7 +233,11 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
             ),
             const SizedBox(height: 12),
             _buildListItems(<List<dynamic>>[
-              <dynamic>[stats.products['with_price'].toString(), localizations.prices_stats_with_price, Icons.inventory_2],
+              <dynamic>[
+                stats.products['with_price'].toString(),
+                localizations.prices_stats_with_price,
+                Icons.inventory_2
+              ],
               <dynamic>[
                 stats.products['total'].toString(),
                 localizations.prices_stats_total,
@@ -219,10 +245,26 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
                 true,
                 'https://prices.openfoodfacts.org/products'
               ],
-              <dynamic>['${stats.products['food_with_price']} / ${stats.products['food_total']}', localizations.prices_stats_food, Icons.fastfood],
-              <dynamic>['${stats.products['beauty_with_price']} / ${stats.products['beauty_total']}', localizations.prices_stats_beauty, Icons.spa],
-              <dynamic>['${stats.products['products_with_price']} / ${stats.products['products_total']}', localizations.prices_stats_products, Icons.shopping_bag],
-              <dynamic>['${stats.products['pet_food_with_price']} / ${stats.products['pet_food_total']}', localizations.prices_stats_pet_food, Icons.pets],
+              <dynamic>[
+                '${stats.products['food_with_price']} / ${stats.products['food_total']}',
+                localizations.prices_stats_food,
+                Icons.fastfood
+              ],
+              <dynamic>[
+                '${stats.products['beauty_with_price']} / ${stats.products['beauty_total']}',
+                localizations.prices_stats_beauty,
+                Icons.spa
+              ],
+              <dynamic>[
+                '${stats.products['products_with_price']} / ${stats.products['products_total']}',
+                localizations.prices_stats_products,
+                Icons.shopping_bag
+              ],
+              <dynamic>[
+                '${stats.products['pet_food_with_price']} / ${stats.products['pet_food_total']}',
+                localizations.prices_stats_pet_food,
+                Icons.pets
+              ],
             ]),
             const SizedBox(height: 24),
 
@@ -240,9 +282,21 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
                 true,
                 'https://prices.openfoodfacts.org/locations'
               ],
-              <dynamic>[stats.locations['osm'].toString(), localizations.prices_stats_osm, Icons.map],
-              <dynamic>[stats.locations['online'].toString(), localizations.prices_stats_online, Icons.public],
-              <dynamic>[stats.locations['countries'].toString(), localizations.prices_stats_countries, Icons.flag],
+              <dynamic>[
+                stats.locations['osm'].toString(),
+                localizations.prices_stats_osm,
+                Icons.map
+              ],
+              <dynamic>[
+                stats.locations['online'].toString(),
+                localizations.prices_stats_online,
+                Icons.public
+              ],
+              <dynamic>[
+                stats.locations['countries'].toString(),
+                localizations.prices_stats_countries,
+                Icons.flag
+              ],
             ]),
             const SizedBox(height: 24),
 
@@ -260,10 +314,26 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
                 true,
                 'https://prices.openfoodfacts.org/proofs'
               ],
-              <dynamic>[stats.proofs['price_tag'].toString(), localizations.prices_stats_price_tag, Icons.local_offer],
-              <dynamic>[stats.proofs['receipt'].toString(), localizations.prices_stats_receipt, Icons.receipt],
-              <dynamic>[stats.proofs['gdpr_request'].toString(), localizations.prices_stats_gdpr_request, Icons.security],
-              <dynamic>[stats.proofs['shop_import'].toString(), localizations.prices_stats_shop_import, Icons.store],
+              <dynamic>[
+                stats.proofs['price_tag'].toString(),
+                localizations.prices_stats_price_tag,
+                Icons.local_offer
+              ],
+              <dynamic>[
+                stats.proofs['receipt'].toString(),
+                localizations.prices_stats_receipt,
+                Icons.receipt
+              ],
+              <dynamic>[
+                stats.proofs['gdpr_request'].toString(),
+                localizations.prices_stats_gdpr_request,
+                Icons.security
+              ],
+              <dynamic>[
+                stats.proofs['shop_import'].toString(),
+                localizations.prices_stats_shop_import,
+                Icons.store
+              ],
             ]),
             const SizedBox(height: 24),
 
@@ -291,8 +361,16 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
             ),
             const SizedBox(height: 12),
             _buildListItems(<List<dynamic>>[
-              <dynamic>[stats.experiments['challenges'].toString(), localizations.prices_stats_challenges, Icons.emoji_events],
-              <dynamic>[stats.experiments['linked_to_price_tag'].toString(), localizations.prices_stats_linked_to_price_tag, Icons.link],
+              <dynamic>[
+                stats.experiments['challenges'].toString(),
+                localizations.prices_stats_challenges,
+                Icons.emoji_events
+              ],
+              <dynamic>[
+                stats.experiments['linked_to_price_tag'].toString(),
+                localizations.prices_stats_linked_to_price_tag,
+                Icons.link
+              ],
             ]),
             const SizedBox(height: 24),
 
@@ -303,9 +381,21 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
             ),
             const SizedBox(height: 12),
             _buildListItems(<List<dynamic>>[
-              <dynamic>[stats.misc['countries'].toString(), localizations.prices_stats_countries, Icons.flag],
-              <dynamic>[stats.misc['currencies'].toString(), localizations.prices_stats_currencies, Icons.money],
-              <dynamic>[stats.misc['years'].toString(), localizations.prices_stats_years, Icons.date_range],
+              <dynamic>[
+                stats.misc['countries'].toString(),
+                localizations.prices_stats_countries,
+                Icons.flag
+              ],
+              <dynamic>[
+                stats.misc['currencies'].toString(),
+                localizations.prices_stats_currencies,
+                Icons.money
+              ],
+              <dynamic>[
+                stats.misc['years'].toString(),
+                localizations.prices_stats_years,
+                Icons.date_range
+              ],
             ]),
             const SizedBox(height: 24),
 
@@ -316,16 +406,35 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
             ),
             const SizedBox(height: 12),
             _buildListItems(<List<dynamic>>[
-              <dynamic>[stats.sources['website'] ?? '', localizations.prices_stats_website, Icons.web],
-              <dynamic>[stats.sources['mobile_app'] ?? '', localizations.prices_stats_mobile_app, Icons.phone_android],
-              <dynamic>[stats.sources['api'] ?? '', localizations.prices_stats_api, Icons.code],
-              <dynamic>[stats.sources['other'] ?? '', localizations.prices_stats_other, Icons.more_horiz],
+              <dynamic>[
+                stats.sources['website'] ?? '',
+                localizations.prices_stats_website,
+                Icons.web
+              ],
+              <dynamic>[
+                stats.sources['mobile_app'] ?? '',
+                localizations.prices_stats_mobile_app,
+                Icons.phone_android
+              ],
+              <dynamic>[
+                stats.sources['api'] ?? '',
+                localizations.prices_stats_api,
+                Icons.code
+              ],
+              <dynamic>[
+                stats.sources['other'] ?? '',
+                localizations.prices_stats_other,
+                Icons.more_horiz
+              ],
             ]),
             const SizedBox(height: 16),
             Center(
               child: Text(
                 '${localizations.prices_stats_last_updated} ${stats.lastUpdated}',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: subtitleColor),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(color: subtitleColor),
               ),
             ),
             const SizedBox(height: 16),
@@ -340,7 +449,8 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: items.length,
-      separatorBuilder: (BuildContext context,int index) => const SizedBox(height: 8),
+      separatorBuilder: (BuildContext context, int index) =>
+          const SizedBox(height: 8),
       itemBuilder: (BuildContext context, int index) {
         final List<dynamic> item = items[index];
         final String number = item[0] as String;
@@ -353,9 +463,7 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
           label: label,
           icon: icon,
           showRedirectArrow: showRedirectArrow,
-          onTap: url != null
-              ? () => LaunchUrlHelper.launchURL(url)
-              : null,
+          onTap: url != null ? () => LaunchUrlHelper.launchURL(url) : null,
         );
       },
     );
