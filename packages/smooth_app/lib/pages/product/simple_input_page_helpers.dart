@@ -349,7 +349,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       },
     );
 
-    notifyListeners();
+    _changed = true;
   }
 }
 
