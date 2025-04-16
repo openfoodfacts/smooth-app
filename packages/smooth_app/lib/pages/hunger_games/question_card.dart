@@ -62,7 +62,7 @@ class QuestionCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   SizedBox(
-                    height: screenSize.height / 6,
+                    height: screenSize.height / 4,
                     child: question.imageUrl == null
                         ? EMPTY_WIDGET
                         : QuestionImageThumbnail(question),
