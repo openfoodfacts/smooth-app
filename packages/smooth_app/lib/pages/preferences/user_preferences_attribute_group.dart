@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
@@ -47,13 +48,8 @@ class UserPreferencesAttributeGroup {
             left: LARGE_SPACE,
             right: LARGE_SPACE,
           ),
-          child: Card(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: ROUNDED_RADIUS,
-                topRight: ROUNDED_RADIUS,
-              ),
-            ),
+          child: SmoothCard(
+            padding: EdgeInsets.zero,
             margin: const EdgeInsets.only(top: LARGE_SPACE),
             child: InkWell(
               onTap: () async =>
@@ -66,8 +62,7 @@ class UserPreferencesAttributeGroup {
                   ),
                 ),
                 tileColor: Theme.of(context).primaryColor,
-                leading:
-                    const Icon(Icons.circle, color: Colors.white, size: 32.0),
+                leading: const Icon(Icons.circle, color: Colors.white),
                 title: Text(
                   group.name ?? appLocalizations.unknown,
                   style: themeData.textTheme.titleLarge!.copyWith(
@@ -125,17 +120,19 @@ class UserPreferencesAttributeGroup {
           ],
           builder: (_) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-            child: Card(
-              shape: attribute == group.attributes!.last
-                  ? const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: ROUNDED_RADIUS,
-                        bottomRight: ROUNDED_RADIUS,
-                      ),
-                    )
-                  : const RoundedRectangleBorder(),
+            child: SmoothCard(
+              padding: EdgeInsets.zero,
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: ROUNDED_RADIUS, bottomRight: ROUNDED_RADIUS),
+              color: Theme.of(context).primaryColor,
               margin: EdgeInsets.zero,
-              child: AttributeButton(attribute, productPreferences),
+              child: AttributeButton(
+                attribute,
+                productPreferences,
+                isFirst: attribute == group.attributes!.first &&
+                    group.warning == null,
+                isLast: attribute == group.attributes!.last,
+              ),
             ),
           ),
         ),

@@ -9,11 +9,11 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatefulWidget {
-  const AttributeButton(
-    this.attribute,
-    this.productPreferences,
-  );
+  const AttributeButton(this.attribute, this.productPreferences,
+      {this.isFirst = false, this.isLast = false});
 
+  final bool isFirst;
+  final bool isLast;
   final Attribute attribute;
   final ProductPreferences productPreferences;
 
@@ -46,15 +46,19 @@ class _AttributeButtonState extends State<AttributeButton> {
             currentImportanceId,
           ),
           child: ListTile(
-            leading: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: (32.0 - DEFAULT_ICON_SIZE) / 2.0,
-              ),
-              child: Icon(
-                Icons.radio_button_checked,
-                color: Theme.of(context).primaryColor,
-                size: DEFAULT_ICON_SIZE,
-              ),
+            tileColor: Theme.of(context).colorScheme.surface,
+            shape: widget.isLast
+                ? const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: ROUNDED_RADIUS,
+                      bottomRight: ROUNDED_RADIUS,
+                    ),
+                  )
+                : null,
+            leading: Icon(
+              Icons.radio_button_checked,
+              color: Theme.of(context).primaryColor,
+              size: 32,
             ),
             title: AutoSizeText(
               widget.productPreferences
@@ -79,12 +83,13 @@ class _AttributeButtonState extends State<AttributeButton> {
               );
             },
             child: ListTile(
+              tileColor: Theme.of(context).colorScheme.surface,
               leading: Icon(
                 currentImportanceId == importanceId
                     ? Icons.radio_button_checked
                     : Icons.radio_button_off,
                 color: Theme.of(context).primaryColor,
-                size: DEFAULT_ICON_SIZE,
+                size: 32,
               ),
               title: AutoSizeText(
                 widget.productPreferences
@@ -102,6 +107,14 @@ class _AttributeButtonState extends State<AttributeButton> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ListTile(
+          shape: widget.isFirst
+              ? const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: ROUNDED_RADIUS,
+                    topRight: ROUNDED_RADIUS,
+                  ),
+                )
+              : null,
           leading: getAttributeDisplayIcon(
             widget.attribute,
             context: context,
