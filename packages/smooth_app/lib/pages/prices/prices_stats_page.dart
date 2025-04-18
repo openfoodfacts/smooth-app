@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -18,8 +20,6 @@ class PricesStatsPage extends StatefulWidget {
 class _PricesStatsPageState extends State<PricesStatsPage> {
   bool isLoading = true;
   Map<String, dynamic>? statsData;
-  final ScrollController _controller = ScrollController();
-  static const Widget emptyWidget = SizedBox.shrink();
 
   @override
   void initState() {
@@ -72,215 +72,186 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
           ? const Center(child: CircularProgressIndicator())
           : (statsData == null
               ? Center(child: Text(localizations.prices_stats_error))
-              : Scrollbar(
-                  controller: _controller,
-                  child: _buildStatsContent(context, localizations),
-                )),
+              : _buildStatsContent(context, localizations)),
     );
   }
 
   Widget _buildStatsContent(
       BuildContext context, AppLocalizations localizations) {
     return ListView(
-      controller: _controller,
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
       children: <Widget>[
-        // Prices Section
         _getSectionHeader(
           Icons.attach_money,
           localizations.prices_stats_prices_section,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_count'),
+          value: _getValue('price_count'),
           description: localizations.prices_stats_total,
           url: 'https://prices.openfoodfacts.org/prices',
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_type_product_code_count'),
+          value: _getValue('price_type_product_code_count'),
           description: localizations.prices_stats_with_barcode,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_type_category_tag_count'),
+          value: _getValue('price_type_category_tag_count'),
           description: localizations.prices_stats_with_category,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_with_discount_count'),
+          value: _getValue('price_with_discount_count'),
           description: localizations.prices_stats_with_discount,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_kind_community_count'),
+          value: _getValue('price_kind_community_count'),
           description: localizations.prices_stats_community,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_kind_consumption_count'),
+          value: _getValue('price_kind_consumption_count'),
           description: localizations.prices_stats_consumption,
         ),
-
-        // Products Section
         _getSectionHeader(
           Icons.inventory_2,
           localizations.prices_stats_products_section,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'product_count'),
+          value: _getValue('product_count'),
           description: localizations.prices_stats_total,
           url: 'https://prices.openfoodfacts.org/products',
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'product_with_price_count'),
+          value: _getValue('product_with_price_count'),
           description: localizations.prices_stats_with_price,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'product_source_off_with_price_count'),
-          denominator: _getValue(statsData!, 'product_source_off_count'),
+          value: _getValue('product_source_off_with_price_count'),
+          denominator: _getValue('product_source_off_count'),
           description: localizations.prices_stats_food,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'product_source_obf_with_price_count'),
-          denominator: _getValue(statsData!, 'product_source_obf_count'),
+          value: _getValue('product_source_obf_with_price_count'),
+          denominator: _getValue('product_source_obf_count'),
           description: localizations.prices_stats_beauty,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'product_source_opf_with_price_count'),
-          denominator: _getValue(statsData!, 'product_source_opf_count'),
+          value: _getValue('product_source_opf_with_price_count'),
+          denominator: _getValue('product_source_opf_count'),
           description: localizations.prices_stats_products,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'product_source_opff_with_price_count'),
-          denominator: _getValue(statsData!, 'product_source_opff_count'),
+          value: _getValue('product_source_opff_with_price_count'),
+          denominator: _getValue('product_source_opff_count'),
           description: localizations.prices_stats_pet_food,
         ),
-
-        // Locations Section
         _getSectionHeader(
           Icons.location_on,
           localizations.prices_stats_locations_section,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'location_count'),
+          value: _getValue('location_count'),
           description: localizations.prices_stats_total,
           url: 'https://prices.openfoodfacts.org/locations',
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'location_type_osm_count'),
+          value: _getValue('location_type_osm_count'),
           description: localizations.prices_stats_osm,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'location_type_online_count'),
+          value: _getValue('location_type_online_count'),
           description: localizations.prices_stats_online,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_location_country_count'),
+          value: _getValue('price_location_country_count'),
           description: localizations.prices_stats_countries,
         ),
-
-        // Proofs Section
         _getSectionHeader(
           Icons.camera_alt,
           localizations.prices_stats_proofs_section,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'proof_count'),
+          value: _getValue('proof_count'),
           description: localizations.prices_stats_total,
           url: 'https://prices.openfoodfacts.org/proofs',
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'proof_type_price_tag_count'),
+          value: _getValue('proof_type_price_tag_count'),
           description: localizations.prices_stats_price_tag,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'proof_type_receipt_count'),
+          value: _getValue('proof_type_receipt_count'),
           description: localizations.prices_stats_receipt,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'proof_type_gdpr_request_count'),
+          value: _getValue('proof_type_gdpr_request_count'),
           description: localizations.prices_stats_gdpr_request,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'proof_type_shop_import_count'),
+          value: _getValue('proof_type_shop_import_count'),
           description: localizations.prices_stats_shop_import,
         ),
-
-        // Contributors Section
         _getSectionHeader(
           Icons.people,
           localizations.prices_stats_contributors_section,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'user_with_price_count'),
+          value: _getValue('user_with_price_count'),
           description: localizations.prices_stats_total,
           url: 'https://prices.openfoodfacts.org/users',
         ),
-
-        // Experiments Section
         _getSectionHeader(
           Icons.science,
           localizations.prices_stats_experiments_section,
         ),
         _getDataTile(
-          value: 1, // Hardcoded as per original implementation
-          description: localizations.prices_stats_challenges,
-        ),
-        _getDataTile(
-          value:
-              _getValue(statsData!, 'price_tag_status_linked_to_price_count'),
+          value: _getValue('price_tag_status_linked_to_price_count'),
           description: localizations.prices_stats_linked_to_price_tag,
         ),
-
-        // Misc Section
         _getSectionHeader(
           Icons.miscellaneous_services,
           localizations.prices_stats_misc_section,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_location_country_count'),
+          value: _getValue('price_location_country_count'),
           description: localizations.prices_stats_countries,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_currency_count'),
+          value: _getValue('price_currency_count'),
           description: localizations.prices_stats_currencies,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_year_count'),
+          value: _getValue('price_year_count'),
           description: localizations.prices_stats_years,
         ),
-
-        // Sources Section
         _getSectionHeader(
           Icons.source,
           localizations.prices_stats_by_source_title,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_source_web_count'),
-          denominator: _getValue(statsData!, 'proof_source_web_count'),
+          value: _getValue('price_source_web_count'),
+          denominator: _getValue('proof_source_web_count'),
           description: localizations.prices_stats_website,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_source_mobile_count'),
-          denominator: _getValue(statsData!, 'proof_source_mobile_count'),
+          value: _getValue('price_source_mobile_count'),
+          denominator: _getValue('proof_source_mobile_count'),
           description: localizations.prices_stats_mobile_app,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_source_api_count'),
-          denominator: _getValue(statsData!, 'proof_source_api_count'),
+          value: _getValue('price_source_api_count'),
+          denominator: _getValue('proof_source_api_count'),
           description: localizations.prices_stats_api,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_source_other_count'),
-          denominator: _getValue(statsData!, 'proof_source_other_count'),
+          value: _getValue('price_source_other_count'),
+          denominator: _getValue('proof_source_other_count'),
           description: localizations.prices_stats_other,
         ),
-
-        // Last updated
         if (statsData!.containsKey('updated') && statsData!['updated'] != null)
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Center(
-              child: Text(
-                '${localizations.prices_stats_last_updated} ${_formatDateTime(statsData!['updated'].toString())}',
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
+          ListTile(
+            title: Text(
+              '${localizations.prices_stats_last_updated} ${_formatDateTime(statsData!['updated'].toString())}',
+              style: Theme.of(context).textTheme.bodySmall,
             ),
+            dense: true,
           ),
       ],
     );
@@ -291,10 +262,7 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       leading: Icon(iconData),
       title: Text(
         description,
-        style: const TextStyle(fontWeight: FontWeight.bold),
       ),
-      contentPadding:
-          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
     );
   }
 
@@ -305,7 +273,7 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
     String? url,
   }) {
     if (value == null) {
-      return emptyWidget;
+      return EMPTY_WIDGET;
     }
 
     final String displayValue =
@@ -315,24 +283,21 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       title: Text(displayValue),
       subtitle: Text(description),
       trailing: url == null ? null : const Icon(Icons.open_in_new),
-      onTap: url == null ? null : () => LaunchUrlHelper.launchURL(url),
-      dense: true,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 24.0),
+      onTap: url == null ? null : () async => LaunchUrlHelper.launchURL(url),
     );
   }
 
-  int? _getValue(
-    final Map<String, dynamic> json,
-    final String tag,
-  ) =>
-      json[tag] as int?;
+  int? _getValue(final String tag) =>
+      statsData == null ? null : statsData![tag] as int?;
 
   String _formatDateTime(String dateTimeStr) {
     try {
       final DateTime dateTime = DateTime.parse(dateTimeStr);
-      return DateFormat('d MMMM yyyy at HH:mm:ss').format(dateTime);
+      return DateFormat.yMd(ProductQuery.getLanguage().offTag)
+          .add_jms()
+          .format(dateTime);
     } catch (e) {
-      return 'N/A';
+      return 'null';
     }
   }
 }
