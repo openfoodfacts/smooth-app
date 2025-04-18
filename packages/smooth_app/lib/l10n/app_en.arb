@@ -4195,11 +4195,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "statistics": "Statistics",
+  "prices_stats_statistics": "Statistics",
   "@statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Stats",
+  "prices_stats_title": "Prices Statistics",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },

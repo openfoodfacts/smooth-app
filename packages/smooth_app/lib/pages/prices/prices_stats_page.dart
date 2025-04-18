@@ -1,119 +1,12 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/prices_stats_model.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-
-class CategoryHeader extends StatelessWidget {
-  const CategoryHeader({
-    super.key,
-    required this.icon,
-    required this.title,
-  });
-
-  final IconData icon;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final Color textColor = Theme.of(context).textTheme.bodyLarge!.color!;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        children: <Widget>[
-          Icon(icon, color: textColor, size: 24),
-          const SizedBox(width: 12),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: textColor,
-                ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class StatsListTile extends StatelessWidget {
-  const StatsListTile({
-    super.key,
-    required this.number,
-    required this.label,
-    required this.icon,
-    this.onTap,
-    this.showRedirectArrow = false,
-  });
-
-  final String number;
-  final String label;
-  final IconData icon;
-  final VoidCallback? onTap;
-  final bool showRedirectArrow;
-
-  @override
-  Widget build(BuildContext context) {
-    final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final Color cardColor = dark ? const Color(0xFF303030) : Colors.white;
-    final Color textColor = Theme.of(context).textTheme.bodyLarge!.color!;
-
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      elevation: 5,
-      color: cardColor,
-      child: ListTile(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        leading: Icon(icon, color: textColor, size: 24),
-        title: Text(
-          label,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: textColor,
-              ),
-        ),
-        trailing: Container(
-          constraints: const BoxConstraints(minWidth: 80),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Flexible(
-                child: Text(
-                  number,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: textColor,
-                      ),
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.end,
-                ),
-              ),
-              if (showRedirectArrow)
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Icon(
-                    Icons.chevron_right,
-                    color: textColor,
-                    size: 24,
-                  ),
-                ),
-            ],
-          ),
-        ),
-        onTap: onTap,
-      ),
-    );
-  }
-}
 
 class PricesStatsPage extends StatefulWidget {
   const PricesStatsPage({super.key});
@@ -124,8 +17,9 @@ class PricesStatsPage extends StatefulWidget {
 
 class _PricesStatsPageState extends State<PricesStatsPage> {
   bool isLoading = true;
-  PriceStats? statsData;
+  Map<String, dynamic>? statsData;
   final ScrollController _controller = ScrollController();
+  static const Widget emptyWidget = SizedBox.shrink();
 
   @override
   void initState() {
@@ -134,17 +28,37 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
   }
 
   Future<void> _loadStats() async {
-    final PriceStats? result = await PriceStats.fetchStats();
-    setState(() {
-      statsData = result;
-      isLoading = false;
-    });
+    try {
+      final Map<String, dynamic>? result = await _fetchStats();
+      setState(() {
+        statsData = result;
+        isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        statsData = null;
+        isLoading = false;
+      });
+    }
+  }
+
+  static Future<Map<String, dynamic>?> _fetchStats() async {
+    try {
+      const String apiUrl = 'https://prices.openfoodfacts.org/api/v1/stats';
+      final http.Response response = await http.get(Uri.parse(apiUrl));
+
+      if (response.statusCode == 200) {
+        return json.decode(response.body) as Map<String, dynamic>;
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final bool dark = Theme.of(context).brightness == Brightness.dark;
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -157,315 +71,267 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : (statsData == null
-              ? Center(
-                  child: Text(
-                  localizations.prices_stats_error,
-                  style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyLarge!.color),
-                ))
-              : Scrollbar(
-                  controller: _controller,
-                  child: _buildStatsContent(
-                      context, localizations, statsData!, dark),
-                )),
+          ? Center(child: Text(localizations.prices_stats_error))
+          : Scrollbar(
+        controller: _controller,
+        child: _buildStatsContent(context, localizations),
+      )),
     );
   }
 
-  Widget _buildStatsContent(BuildContext context,
-      AppLocalizations localizations, PriceStats stats, bool dark) {
-    final Color subtitleColor = dark
-        ? const Color(0xFFBDBDBD)
-        : Theme.of(context).textTheme.bodySmall!.color!;
-
-    return SingleChildScrollView(
+  Widget _buildStatsContent(BuildContext context, AppLocalizations localizations) {
+    return ListView(
       controller: _controller,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            // Prices Section
-            CategoryHeader(
-              icon: Icons.attach_money,
-              title: localizations.prices_stats_prices_section,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.prices['total'].toString(),
-                localizations.prices_stats_total,
-                Icons.attach_money,
-                true,
-                'https://prices.openfoodfacts.org/prices'
-              ],
-              <dynamic>[
-                stats.prices['with_barcode'].toString(),
-                localizations.prices_stats_with_barcode,
-                Icons.qr_code
-              ],
-              <dynamic>[
-                stats.prices['with_category'].toString(),
-                localizations.prices_stats_with_category,
-                Icons.category
-              ],
-              <dynamic>[
-                stats.prices['with_discount'].toString(),
-                localizations.prices_stats_with_discount,
-                Icons.discount
-              ],
-              <dynamic>[
-                stats.prices['community'].toString(),
-                localizations.prices_stats_community,
-                Icons.people
-              ],
-              <dynamic>[
-                stats.prices['consumption'].toString(),
-                localizations.prices_stats_consumption,
-                Icons.shopping_cart
-              ],
-            ]),
-            const SizedBox(height: 24),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      children: <Widget>[
+        // Prices Section
+        _getSectionHeader(
+          Icons.attach_money,
+          localizations.prices_stats_prices_section,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_count'),
+          description: localizations.prices_stats_total,
+          url: 'https://prices.openfoodfacts.org/prices',
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_type_product_code_count'),
+          description: localizations.prices_stats_with_barcode,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_type_category_tag_count'),
+          description: localizations.prices_stats_with_category,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_with_discount_count'),
+          description: localizations.prices_stats_with_discount,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_kind_community_count'),
+          description: localizations.prices_stats_community,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_kind_consumption_count'),
+          description: localizations.prices_stats_consumption,
+        ),
 
-            // Products Section
-            CategoryHeader(
-              icon: Icons.inventory_2,
-              title: localizations.prices_stats_products_section,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.products['with_price'].toString(),
-                localizations.prices_stats_with_price,
-                Icons.inventory_2
-              ],
-              <dynamic>[
-                stats.products['total'].toString(),
-                localizations.prices_stats_total,
-                Icons.inventory_2,
-                true,
-                'https://prices.openfoodfacts.org/products'
-              ],
-              <dynamic>[
-                '${stats.products['food_with_price']} / ${stats.products['food_total']}',
-                localizations.prices_stats_food,
-                Icons.fastfood
-              ],
-              <dynamic>[
-                '${stats.products['beauty_with_price']} / ${stats.products['beauty_total']}',
-                localizations.prices_stats_beauty,
-                Icons.spa
-              ],
-              <dynamic>[
-                '${stats.products['products_with_price']} / ${stats.products['products_total']}',
-                localizations.prices_stats_products,
-                Icons.shopping_bag
-              ],
-              <dynamic>[
-                '${stats.products['pet_food_with_price']} / ${stats.products['pet_food_total']}',
-                localizations.prices_stats_pet_food,
-                Icons.pets
-              ],
-            ]),
-            const SizedBox(height: 24),
+        // Products Section
+        _getSectionHeader(
+          Icons.inventory_2,
+          localizations.prices_stats_products_section,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'product_count'),
+          description: localizations.prices_stats_total,
+          url: 'https://prices.openfoodfacts.org/products',
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'product_with_price_count'),
+          description: localizations.prices_stats_with_price,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'product_source_off_with_price_count'),
+          denominator: _getValue(statsData!, 'product_source_off_count'),
+          description: localizations.prices_stats_food,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'product_source_obf_with_price_count'),
+          denominator: _getValue(statsData!, 'product_source_obf_count'),
+          description: localizations.prices_stats_beauty,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'product_source_opf_with_price_count'),
+          denominator: _getValue(statsData!, 'product_source_opf_count'),
+          description: localizations.prices_stats_products,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'product_source_opff_with_price_count'),
+          denominator: _getValue(statsData!, 'product_source_opff_count'),
+          description: localizations.prices_stats_pet_food,
+        ),
 
-            // Locations Section
-            CategoryHeader(
-              icon: Icons.location_on,
-              title: localizations.prices_stats_locations_section,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.locations['total'].toString(),
-                localizations.prices_stats_total,
-                Icons.location_on,
-                true,
-                'https://prices.openfoodfacts.org/locations'
-              ],
-              <dynamic>[
-                stats.locations['osm'].toString(),
-                localizations.prices_stats_osm,
-                Icons.map
-              ],
-              <dynamic>[
-                stats.locations['online'].toString(),
-                localizations.prices_stats_online,
-                Icons.public
-              ],
-              <dynamic>[
-                stats.locations['countries'].toString(),
-                localizations.prices_stats_countries,
-                Icons.flag
-              ],
-            ]),
-            const SizedBox(height: 24),
+        // Locations Section
+        _getSectionHeader(
+          Icons.location_on,
+          localizations.prices_stats_locations_section,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'location_count'),
+          description: localizations.prices_stats_total,
+          url: 'https://prices.openfoodfacts.org/locations',
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'location_type_osm_count'),
+          description: localizations.prices_stats_osm,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'location_type_online_count'),
+          description: localizations.prices_stats_online,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_location_country_count'),
+          description: localizations.prices_stats_countries,
+        ),
 
-            // Proofs Section
-            CategoryHeader(
-              icon: Icons.camera_alt,
-              title: localizations.prices_stats_proofs_section,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.proofs['total'].toString(),
-                localizations.prices_stats_total,
-                Icons.camera_alt,
-                true,
-                'https://prices.openfoodfacts.org/proofs'
-              ],
-              <dynamic>[
-                stats.proofs['price_tag'].toString(),
-                localizations.prices_stats_price_tag,
-                Icons.local_offer
-              ],
-              <dynamic>[
-                stats.proofs['receipt'].toString(),
-                localizations.prices_stats_receipt,
-                Icons.receipt
-              ],
-              <dynamic>[
-                stats.proofs['gdpr_request'].toString(),
-                localizations.prices_stats_gdpr_request,
-                Icons.security
-              ],
-              <dynamic>[
-                stats.proofs['shop_import'].toString(),
-                localizations.prices_stats_shop_import,
-                Icons.store
-              ],
-            ]),
-            const SizedBox(height: 24),
+        // Proofs Section
+        _getSectionHeader(
+          Icons.camera_alt,
+          localizations.prices_stats_proofs_section,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'proof_count'),
+          description: localizations.prices_stats_total,
+          url: 'https://prices.openfoodfacts.org/proofs',
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'proof_type_price_tag_count'),
+          description: localizations.prices_stats_price_tag,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'proof_type_receipt_count'),
+          description: localizations.prices_stats_receipt,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'proof_type_gdpr_request_count'),
+          description: localizations.prices_stats_gdpr_request,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'proof_type_shop_import_count'),
+          description: localizations.prices_stats_shop_import,
+        ),
 
-            // Contributors Section
-            CategoryHeader(
-              icon: Icons.people,
-              title: localizations.prices_stats_contributors_section,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.contributors['total'].toString(),
-                localizations.prices_stats_total,
-                Icons.people,
-                true,
-                'https://prices.openfoodfacts.org/users'
-              ],
-            ]),
-            const SizedBox(height: 24),
+        // Contributors Section
+        _getSectionHeader(
+          Icons.people,
+          localizations.prices_stats_contributors_section,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'user_with_price_count'),
+          description: localizations.prices_stats_total,
+          url: 'https://prices.openfoodfacts.org/users',
+        ),
 
-            // Experiments Section
-            CategoryHeader(
-              icon: Icons.science,
-              title: localizations.prices_stats_experiments_section,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.experiments['challenges'].toString(),
-                localizations.prices_stats_challenges,
-                Icons.emoji_events
-              ],
-              <dynamic>[
-                stats.experiments['linked_to_price_tag'].toString(),
-                localizations.prices_stats_linked_to_price_tag,
-                Icons.link
-              ],
-            ]),
-            const SizedBox(height: 24),
+        // Experiments Section
+        _getSectionHeader(
+          Icons.science,
+          localizations.prices_stats_experiments_section,
+        ),
+        _getDataTile(
+          value: 1, // Hardcoded as per original implementation
+          description: localizations.prices_stats_challenges,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_tag_status_linked_to_price_count'),
+          description: localizations.prices_stats_linked_to_price_tag,
+        ),
 
-            // Misc Section
-            CategoryHeader(
-              icon: Icons.miscellaneous_services,
-              title: localizations.prices_stats_misc_section,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.misc['countries'].toString(),
-                localizations.prices_stats_countries,
-                Icons.flag
-              ],
-              <dynamic>[
-                stats.misc['currencies'].toString(),
-                localizations.prices_stats_currencies,
-                Icons.money
-              ],
-              <dynamic>[
-                stats.misc['years'].toString(),
-                localizations.prices_stats_years,
-                Icons.date_range
-              ],
-            ]),
-            const SizedBox(height: 24),
+        // Misc Section
+        _getSectionHeader(
+          Icons.miscellaneous_services,
+          localizations.prices_stats_misc_section,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_location_country_count'),
+          description: localizations.prices_stats_countries,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_currency_count'),
+          description: localizations.prices_stats_currencies,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_year_count'),
+          description: localizations.prices_stats_years,
+        ),
 
-            // Sources Section
-            CategoryHeader(
-              icon: Icons.source,
-              title: localizations.prices_stats_by_source_title,
-            ),
-            const SizedBox(height: 12),
-            _buildListItems(<List<dynamic>>[
-              <dynamic>[
-                stats.sources['website'] ?? '',
-                localizations.prices_stats_website,
-                Icons.web
-              ],
-              <dynamic>[
-                stats.sources['mobile_app'] ?? '',
-                localizations.prices_stats_mobile_app,
-                Icons.phone_android
-              ],
-              <dynamic>[
-                stats.sources['api'] ?? '',
-                localizations.prices_stats_api,
-                Icons.code
-              ],
-              <dynamic>[
-                stats.sources['other'] ?? '',
-                localizations.prices_stats_other,
-                Icons.more_horiz
-              ],
-            ]),
-            const SizedBox(height: 16),
-            Center(
+        // Sources Section
+        _getSectionHeader(
+          Icons.source,
+          localizations.prices_stats_by_source_title,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_source_web_count'),
+          denominator: _getValue(statsData!, 'proof_source_web_count'),
+          description: localizations.prices_stats_website,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_source_mobile_count'),
+          denominator: _getValue(statsData!, 'proof_source_mobile_count'),
+          description: localizations.prices_stats_mobile_app,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_source_api_count'),
+          denominator: _getValue(statsData!, 'proof_source_api_count'),
+          description: localizations.prices_stats_api,
+        ),
+        _getDataTile(
+          value: _getValue(statsData!, 'price_source_other_count'),
+          denominator: _getValue(statsData!, 'proof_source_other_count'),
+          description: localizations.prices_stats_other,
+        ),
+
+        // Last updated
+        if (statsData!.containsKey('updated') && statsData!['updated'] != null)
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
               child: Text(
-                '${localizations.prices_stats_last_updated} ${stats.lastUpdated}',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: subtitleColor),
+                '${localizations.prices_stats_last_updated} ${_formatDateTime(statsData!['updated'].toString())}',
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
-            const SizedBox(height: 16),
-          ],
-        ),
-      ),
+          ),
+      ],
     );
   }
 
-  Widget _buildListItems(List<List<dynamic>> items) {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: items.length,
-      separatorBuilder: (BuildContext context, int index) =>
-          const SizedBox(height: 8),
-      itemBuilder: (BuildContext context, int index) {
-        final List<dynamic> item = items[index];
-        final String number = item[0] as String;
-        final String label = item[1] as String;
-        final IconData icon = item[2] as IconData;
-        final bool showRedirectArrow = item.length > 3 && item[3] == true;
-        final String? url = item.length > 4 ? (item[4] as String) : null;
-        return StatsListTile(
-          number: number,
-          label: label,
-          icon: icon,
-          showRedirectArrow: showRedirectArrow,
-          onTap: url != null ? () => LaunchUrlHelper.launchURL(url) : null,
-        );
-      },
+  Widget _getSectionHeader(IconData iconData, String description) {
+    return ListTile(
+      leading: Icon(iconData),
+      title: Text(
+        description,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
     );
+  }
+
+  Widget _getDataTile({
+    required int? value,
+    int? denominator,
+    required String description,
+    String? url,
+  }) {
+    if (value == null) {
+      return emptyWidget;
+    }
+
+    final String displayValue = denominator == null
+        ? value.toString()
+        : '$value / $denominator';
+
+    return ListTile(
+      title: Text(displayValue),
+      subtitle: Text(description),
+      trailing: url == null ? null : const Icon(Icons.open_in_new),
+      onTap: url == null ? null : () => LaunchUrlHelper.launchURL(url),
+      dense: true,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 24.0),
+    );
+  }
+
+  int? _getValue(
+      final Map<String, dynamic> json,
+      final String tag,
+      ) =>
+      json[tag] as int?;
+
+
+  String _formatDateTime(String dateTimeStr) {
+    try {
+      final DateTime dateTime = DateTime.parse(dateTimeStr);
+      return DateFormat('d MMMM yyyy at HH:mm:ss').format(dateTime);
+    } catch (e) {
+      return 'N/A';
+    }
   }
 }
