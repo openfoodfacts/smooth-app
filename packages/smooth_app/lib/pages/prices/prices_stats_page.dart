@@ -71,15 +71,16 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : (statsData == null
-          ? Center(child: Text(localizations.prices_stats_error))
-          : Scrollbar(
-        controller: _controller,
-        child: _buildStatsContent(context, localizations),
-      )),
+              ? Center(child: Text(localizations.prices_stats_error))
+              : Scrollbar(
+                  controller: _controller,
+                  child: _buildStatsContent(context, localizations),
+                )),
     );
   }
 
-  Widget _buildStatsContent(BuildContext context, AppLocalizations localizations) {
+  Widget _buildStatsContent(
+      BuildContext context, AppLocalizations localizations) {
     return ListView(
       controller: _controller,
       padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -221,7 +222,8 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
           description: localizations.prices_stats_challenges,
         ),
         _getDataTile(
-          value: _getValue(statsData!, 'price_tag_status_linked_to_price_count'),
+          value:
+              _getValue(statsData!, 'price_tag_status_linked_to_price_count'),
           description: localizations.prices_stats_linked_to_price_tag,
         ),
 
@@ -291,7 +293,8 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
         description,
         style: const TextStyle(fontWeight: FontWeight.bold),
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
     );
   }
 
@@ -305,9 +308,8 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       return emptyWidget;
     }
 
-    final String displayValue = denominator == null
-        ? value.toString()
-        : '$value / $denominator';
+    final String displayValue =
+        denominator == null ? value.toString() : '$value / $denominator';
 
     return ListTile(
       title: Text(displayValue),
@@ -320,11 +322,10 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
   }
 
   int? _getValue(
-      final Map<String, dynamic> json,
-      final String tag,
-      ) =>
+    final Map<String, dynamic> json,
+    final String tag,
+  ) =>
       json[tag] as int?;
-
 
   String _formatDateTime(String dateTimeStr) {
     try {
