@@ -172,7 +172,7 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         Icons.open_in_new,
       ),
       _getListTile(
-        'Contribute prices by requesting a GDPR export of your loyalty cards data',
+        appLocalizations.contribute_prices_gdpr,
         () async => LaunchUrlHelper.launchURL(
             'https://wiki.openfoodfacts.org/GDPR_request'),
         Icons.open_in_new,

@@ -407,6 +407,10 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
+  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "@contribute_prices_gdpr": {
+    "description": "Label for option to contribute prices using GDPR export from loyalty cards"
+  },
   "tap_to_answer": "Tap here to answer questions",
   "@tap_to_answer": {
     "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
