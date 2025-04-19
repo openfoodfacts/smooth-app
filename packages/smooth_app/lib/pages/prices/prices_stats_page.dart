@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,35 +12,32 @@ import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PricesStatsPage extends StatefulWidget {
-  const PricesStatsPage({super.key});
+  const PricesStatsPage();
 
   @override
   State<PricesStatsPage> createState() => _PricesStatsPageState();
 }
 
 class _PricesStatsPageState extends State<PricesStatsPage> {
-  bool isLoading = true;
-  Map<String, dynamic>? statsData;
+  bool _isLoading = true;
+  Map<String, dynamic>? _statsData;
 
   @override
   void initState() {
     super.initState();
-    _loadStats();
+    unawaited(_loadStats());
   }
 
   Future<void> _loadStats() async {
     try {
       final Map<String, dynamic>? result = await _fetchStats();
-      setState(() {
-        statsData = result;
-        isLoading = false;
-      });
+      _statsData = result;
     } catch (e) {
-      setState(() {
-        statsData = null;
-        isLoading = false;
-      });
+      _statsData = null;
     }
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   static Future<Map<String, dynamic>?> _fetchStats() async {
@@ -50,10 +48,10 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       if (response.statusCode == 200) {
         return json.decode(response.body) as Map<String, dynamic>;
       }
-      return null;
     } catch (e) {
-      return null;
+      //
     }
+    return null;
   }
 
   @override
@@ -68,9 +66,9 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
         ),
         leading: const SmoothBackButton(),
       ),
-      body: isLoading
+      body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : (statsData == null
+          : (_statsData == null
               ? Center(child: Text(localizations.prices_stats_error))
               : _buildStatsContent(context, localizations)),
     );
@@ -245,13 +243,14 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
           denominator: _getValue('proof_source_other_count'),
           description: localizations.prices_stats_other,
         ),
-        if (statsData!.containsKey('updated') && statsData!['updated'] != null)
+        if (_statsData!.containsKey('updated') &&
+            _statsData!['updated'] != null)
           ListTile(
-            title: Text(
-              '${localizations.prices_stats_last_updated} ${_formatDateTime(statsData!['updated'].toString())}',
-              style: Theme.of(context).textTheme.bodySmall,
+            title:
+                Text(_formatDateTime(_statsData!['updated'].toString()) ?? ' '),
+            subtitle: Text(
+              localizations.prices_stats_last_updated,
             ),
-            dense: true,
           ),
       ],
     );
@@ -288,16 +287,16 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
   }
 
   int? _getValue(final String tag) =>
-      statsData == null ? null : statsData![tag] as int?;
+      _statsData == null ? null : _statsData![tag] as int?;
 
-  String _formatDateTime(String dateTimeStr) {
+  String? _formatDateTime(String dateTimeStr) {
     try {
       final DateTime dateTime = DateTime.parse(dateTimeStr);
       return DateFormat.yMd(ProductQuery.getLanguage().offTag)
           .add_jms()
           .format(dateTime);
     } catch (e) {
-      return 'null';
+      return null;
     }
   }
 }
