@@ -21,7 +21,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/pages/product/common/country_wiki_links.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -54,7 +53,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   List<UserPreferencesItem> getChildren() {
     final OpenFoodFactsCountry country = ProductQuery.getCountry();
 
-    final TmpCountryWikiLinks links = TmpCountryWikiLinks();
     return <UserPreferencesItem>[
       _getListTile(
         'Hunger Games',
@@ -75,6 +73,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         appLocalizations.contribute_translate_header,
         () async => _translate(),
         Icons.translate,
+      ),
+      _getListTile(
+        appLocalizations.contribute_data_quality,
+        () async => LaunchUrlHelper.launchURL(
+          'https://wiki.openfoodfacts.org/Data_quality',
+        ),
+        Icons.cleaning_services,
+        externalLink: true,
       ),
       _getListTile(
         appLocalizations.how_to_contribute,
@@ -99,11 +105,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         () async => _share(appLocalizations.contribute_share_content),
         Icons.adaptive.share,
       ),
-      if (links.wikiLinks.containsKey(country))
+      if (country.wikiUrl != null)
         _getListTile(
           appLocalizations.help_improve_country,
           () async {
-            LaunchUrlHelper.launchURL(links.wikiLinks[country]!);
+            LaunchUrlHelper.launchURL(country.wikiUrl!);
           },
           Icons.language,
           icon: UserPreferencesListTile.getTintedIcon(

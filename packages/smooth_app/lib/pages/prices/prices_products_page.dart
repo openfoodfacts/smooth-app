@@ -58,7 +58,7 @@ class _PricesProductsPageState extends State<PricesProductsPage>
           final AsyncSnapshot<MaybeError<GetPriceProductsResult>> snapshot,
         ) {
           if (snapshot.connectionState != ConnectionState.done) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
             return Text(snapshot.error!.toString());

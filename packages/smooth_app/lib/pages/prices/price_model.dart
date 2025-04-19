@@ -65,6 +65,15 @@ class PriceModel with ChangeNotifier {
     }
   }
 
+  // Clears the current proof. To be used in the context of bulk proof upload.
+  void clearProof() {
+    _proof = null;
+    _cropParameters = null;
+    // needed so that we can exit the page just going back
+    _hasChanged = false;
+    notifyListeners();
+  }
+
   /// Checks if a proof cannot be reused for prices adding.
   ///
   /// Sometimes we get partial data from the Prices server.

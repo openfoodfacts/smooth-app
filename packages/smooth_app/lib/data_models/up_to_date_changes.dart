@@ -113,6 +113,12 @@ class UpToDateChanges {
     if (change.categoriesTagsInLanguages != null) {
       initial.categoriesTagsInLanguages = change.categoriesTagsInLanguages;
     }
+    if (change.traces != null) {
+      initial.traces = change.traces;
+    }
+    if (change.tracesTagsInLanguages != null) {
+      initial.tracesTagsInLanguages = change.tracesTagsInLanguages;
+    }
     if (change.countries != null) {
       initial.countries = change.countries;
     }

@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "איכות נתונים",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "להתחיל לתרגם",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -1704,7 +1708,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+  "edit_product_form_item_origins_hint": "נא למלא מקור (למשל: ישראל)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -2257,6 +2261,8 @@
   },
   "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
   "prices_app_button": "מעבר ליישומון המחירים",
+  "prices_bulk_proof_upload_title": "העלאת הוכחות במרוכז",
+  "prices_bulk_proof_upload_action": "שליחת ההוכחה",
   "prices_generic_title": "מחירים",
   "prices_add_n_prices": "{count,plural, two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
   "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
@@ -2600,6 +2606,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "מסייע תרומת מחירים",
+  "prices_validation_assistant": "מסייע אימות מחירים",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "אתגרים",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "מחירים בחנות",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -2712,7 +2730,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "לפני האימות, נא לוודא שהוספת תרגום **רק אם השפה לא מופיעה על האריזה**",
+  "add_basic_details_product_name_warning_translations": "לפני האימות, נא לוודא שהוספת תרגום **רק אם השפה מופיעה על האריזה**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3668,6 +3686,7 @@
   "contact_title_press_page": "עמוד לעיתונאים",
   "contact_title_press_email": "יצירת קשר לעיתונאים",
   "contact_title_newsletter": "הרשמה לרשימת התפוצה שלנו",
+  "contact_title_calendar": "Subscribe to our community calendar",
   "hunger_games_loading_line1": "נא להמתין מספר שניות…",
   "hunger_games_loading_line2": "אנו מורידים את השאלות!",
   "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",
@@ -3714,10 +3733,6 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "he",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
-  },
   "guide_nutriscore_v2_what_is_nutriscore_title": "מה זה Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "ה־Nutri-Score הוא לוגו שמטרתו ליידע אותך על **האיכות התזונתית של מוצרי המזון**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
@@ -3744,8 +3759,8 @@
   "guide_nutriscore_v2_new_logo_text": "מעתה, הלוגו יציג אזכור „**נוסחה חדשה**” (New calculation) כדי להבהיר שאכן זו הנוסחה החדשה.",
   "guide_nutriscore_v2_new_logo_image_caption": "הלוגו של Nutri-Score החדש",
   "guide_nutriscore_v2_where_title": "היכן ניתן למצוא את נוסחת Nutri-Score החדשה?",
-  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score מיושם במספר מדינות: גרמניה, בלגיה, ספרד, צרפת, לוקסמבורג, הולנד ושווייץ.",
-  "guide_nutriscore_v2_where_paragraph2": "ליצרנים יש עד **2026** לכל המאוחר **להחליף** את החישוב הישן בחדש.",
+  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
+  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
   "guide_nutriscore_v2_where_paragraph3": "מבלי להמתין, כבר אפשר למצוא את הנוסחה החדשה ב**יישומון של Open Food Facts**ֿ גם אם היצרנים טרם עדכנו את הניקוד.",
   "guide_nutriscore_v2_unchanged_title": "מה לא משתנה",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score הוא ציון שנועד **למדוד איכות תזונתית**. הוא **משלים לקבוצת NOVA** על **מזון אולטרה מעובד** (קיים גם ביישום).",
