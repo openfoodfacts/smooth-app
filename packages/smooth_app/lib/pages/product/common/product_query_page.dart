@@ -19,7 +19,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
+import 'package:smooth_app/pages/preferences/country_selector/localized_country.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -27,7 +27,6 @@ import 'package:smooth_app/pages/product/common/search_app_bar_title.dart';
 import 'package:smooth_app/pages/product/common/search_empty_screen.dart';
 import 'package:smooth_app/pages/product/common/search_loading_screen.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -430,7 +429,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     if (_country == null) {
       return null;
     }
-    return _country!.getLocalizedName(ProductQuery.getLanguage());
+    return LocalizedCountry.getSingleLocalizedName(_country!);
   }
 
   Widget _getLargeButtonWithIcon(final _Action action) =>
