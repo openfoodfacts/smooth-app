@@ -161,6 +161,15 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       ),
       PriceButton.productIconData,
     ),
+    _getListTile(
+      appLocalizations.prices_stats_statistics,
+      () async =&gt; Navigator.of(context).push(
+        MaterialPageRoute&lt;void&gt;(
+          builder: (BuildContext context) =&gt; const PricesStatsPage(),
+        ),
+      ),
+      Icons.bar_chart,
+    ),
     if (userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagBulkProofUpload) ??
         false)
