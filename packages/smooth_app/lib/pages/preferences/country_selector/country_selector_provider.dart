@@ -51,46 +51,30 @@ class _CountrySelectorProvider
 
   @override
   Future<List<OpenFoodFactsCountry>> onLoadValues() async {
-    final List<OpenFoodFactsCountry> countries = await compute(
-      _reformatCountries,
-      (OpenFoodFactsCountry.values, userCountryCode),
-    );
-
-    return countries;
-  }
-
-  static Future<List<OpenFoodFactsCountry>> _reformatCountries(
-    (List<OpenFoodFactsCountry>, String?) countriesAndUserCode,
-  ) async {
     final List<OpenFoodFactsCountry> countries =
-        _sanitizeCountriesList(countriesAndUserCode.$1);
-    _reorderCountries(countries, countriesAndUserCode.$2);
+        LocalizedCountry.getLocalizedCountries().map((e) => e.country).toList();
     return countries;
-  }
-
-  /// Keep all countries from the enum, and sort them alphabetically
-  static List<OpenFoodFactsCountry> _sanitizeCountriesList(
-    List<OpenFoodFactsCountry> allCountries,
-  ) {
-    final List<OpenFoodFactsCountry> sorted =
-        List<OpenFoodFactsCountry>.from(allCountries);
-    sorted.sort(
-      (a, b) => (a.getLocalizedName(OpenFoodFactsLanguage.ENGLISH) ?? '')
-          .compareTo(b.getLocalizedName(OpenFoodFactsLanguage.ENGLISH) ?? ''),
-    );
-    return sorted;
   }
 
   static void _reorderCountries(
     List<OpenFoodFactsCountry> countries,
     String? userCountryCode,
   ) {
+    final Map<OpenFoodFactsCountry, LocalizedCountry> localizedMap = {
+      for (final c in LocalizedCountry.getLocalizedCountries()) c.country: c
+    };
+
     countries.sort(
       (a, b) {
-        if (a.offTag == userCountryCode) return -1;
-        if (b.offTag == userCountryCode) return 1;
-        return (a.getLocalizedName(OpenFoodFactsLanguage.ENGLISH) ?? '')
-            .compareTo(b.getLocalizedName(OpenFoodFactsLanguage.ENGLISH) ?? '');
+        if (a.offTag == userCountryCode) {
+          return -1;
+        }
+        if (b.offTag == userCountryCode) {
+          return 1;
+        }
+        final String nameA = localizedMap[a]?.localizedName ?? '';
+        final String nameB = localizedMap[b]?.localizedName ?? '';
+        return nameA.compareTo(nameB);
       },
     );
   }
@@ -99,7 +83,7 @@ class _CountrySelectorProvider
   OpenFoodFactsCountry getSelectedValue(List<OpenFoodFactsCountry> countries) {
     if (userCountryCode != null) {
       return countries.firstWhere(
-        (country) =>
+        (OpenFoodFactsCountry country) =>
             country.offTag.toLowerCase() == userCountryCode?.toLowerCase(),
         orElse: () => countries.first,
       );

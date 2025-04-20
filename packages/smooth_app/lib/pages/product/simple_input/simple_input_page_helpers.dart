@@ -8,7 +8,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_name_extension.dart';
+import 'package:smooth_app/pages/preferences/country_selector/localized_country.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -1109,7 +1109,8 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       _suggestionsNotifier;
 
   Future<void> _reloadSuggestions() async {
-    final String? localizedName = _userCountry.getLocalizedName(getLanguage());
+    final String? localizedName =
+        LocalizedCountry.getSingleLocalizedName(_userCountry);
 
     if (localizedName == null || _terms.contains(localizedName)) {
       _suggestionsNotifier.value = const SimpleInputSuggestionsLoaded(
