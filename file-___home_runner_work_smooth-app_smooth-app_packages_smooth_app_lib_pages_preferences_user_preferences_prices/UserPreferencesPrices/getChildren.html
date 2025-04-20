@@ -199,6 +199,12 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       ),
       Icons.open_in_new,
     ),
+    _getListTile(
+      appLocalizations.contribute_prices_gdpr,
+      () async =&gt; LaunchUrlHelper.launchURL(
+          &#39;https:&#47;&#47;wiki.openfoodfacts.org&#47;GDPR_request&#39;),
+      Icons.open_in_new,
+    ),
   ];
 }</code></pre>
 </section>
