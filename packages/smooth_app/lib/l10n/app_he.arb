@@ -407,7 +407,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "תרומת מחירים על ידי בקשת ייצוא תואם GDPR של נתוני כרטיסי המועדון שלך",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -4199,11 +4199,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "סטטיסטיקה",
   "@statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "סטטיסטיקת מחירים",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4343,11 +4343,11 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "מועד עדכון אחרון",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "אירעה שגיאה בטעינת הסטטיסטיקה.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   }
