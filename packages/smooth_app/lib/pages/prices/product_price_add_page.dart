@@ -38,6 +38,7 @@ class ProductPriceAddPage extends StatefulWidget {
     required final BuildContext context,
     final PriceMetaProduct? product,
     required final ProofType proofType,
+    final bool? multiProduct,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -65,6 +66,7 @@ class ProductPriceAddPage extends StatefulWidget {
             locations: osmLocations,
             initialProduct: product,
             currency: currency,
+            multipleProducts: multiProduct,
           ),
         ),
       ),
@@ -152,8 +154,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                         index: i,
                       ),
                     const SizedBox(height: LARGE_SPACE),
-                    if (model.proofType == ProofType.receipt ||
-                        model.length != 1)
+                    if(model.showAddProductCard())
                       const PriceAddProductCard(),
                     // so that the last items don't get hidden by the FAB
                     const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),

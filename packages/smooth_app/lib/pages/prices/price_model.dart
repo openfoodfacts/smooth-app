@@ -19,12 +19,14 @@ class PriceModel with ChangeNotifier {
     required final List<OsmLocation>? locations,
     required final Currency currency,
     final PriceMetaProduct? initialProduct,
+    final bool? multipleProducts,
   })  : _proof = null,
         existingPrices = null,
         _proofType = proofType,
         _date = DateTime.now(),
         _currency = currency,
         _locations = locations,
+        _multipleProducts = multipleProducts ?? false,
         _priceAmountModels = <PriceAmountModel>[
           if (initialProduct != null) PriceAmountModel(product: initialProduct),
         ];
@@ -46,6 +48,14 @@ class PriceModel with ChangeNotifier {
       if (priceAmountModel.hasChanged) {
         return true;
       }
+    }
+    return false;
+  }
+
+  late bool _multipleProducts;
+  bool showAddProductCard() {
+    if (_multipleProducts == true) {
+      return true;
     }
     return false;
   }
