@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
+import 'package:smooth_app/pages/prices/prices_dashboard.dart';
 import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_products_page.dart';
@@ -45,6 +46,15 @@ class UserPreferencesPrices extends AbstractUserPreferences {
     final String userId = ProductQuery.getWriteUser().userId;
     final bool isConnected = OpenFoodAPIConfiguration.globalUser != null;
     return <UserPreferencesItem>[
+      if (isConnected)
+        _getListTile(
+            'My Dashboard',
+            () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => PricesDashboard(),
+                  ),
+                ),
+            Icons.dashboard),
       if (isConnected)
         _getListTile(
           PriceUserButton.showUserTitle(
