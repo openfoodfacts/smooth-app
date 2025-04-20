@@ -12,7 +12,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class PricesDashboard extends StatelessWidget {
   PricesDashboard({super.key});
 
-  late Future<MaybeError<UserProfile>> _userProfile = _fetchUserProfile();
+  late final Future<MaybeError<UserProfile>> _userProfile = _fetchUserProfile();
 
   @override
   Widget build(BuildContext context) {

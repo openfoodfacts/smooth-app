@@ -59,7 +59,7 @@ class UserProfile {
   final int productCount;
 
   Map<String, dynamic> toJson() {
-    return {
+    return <String, dynamic>{
       'user_id': userId,
       'price_count': priceCount,
       'price_type_product_count': priceTypeProductCount,
