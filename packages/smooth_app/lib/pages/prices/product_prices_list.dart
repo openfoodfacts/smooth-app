@@ -19,9 +19,9 @@ import 'package:smooth_app/pages/product/common/loading_status.dart';
 /// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
   const ProductPricesList(
-      this.model, {
-        this.pricesResult,
-      });
+    this.model, {
+    this.pricesResult,
+  });
 
   final GetPricesModel model;
   final GetPricesResult? pricesResult;
@@ -67,7 +67,6 @@ class _ProductPricesListState extends State<ProductPricesList>
       return;
     }
 
-    // Check if we're near the bottom of the list
     if (_scrollController.position.pixels >
         _scrollController.position.maxScrollExtent - 200) {
       _loadMoreItems();
@@ -80,7 +79,6 @@ class _ProductPricesListState extends State<ProductPricesList>
     if (currentResult == null ||
         currentResult.numberOfPages == null ||
         _currentPage >= currentResult.numberOfPages!) {
-      // No more pages to load
       return;
     }
 
@@ -90,7 +88,6 @@ class _ProductPricesListState extends State<ProductPricesList>
 
     _currentPage++;
 
-    // Create a new instance of LoadMorePricesHelper to load more items
     final LoadMorePricesHelper loadMoreHelper = LoadMorePricesHelper(
       model: widget.model,
       page: _currentPage,
@@ -105,7 +102,6 @@ class _ProductPricesListState extends State<ProductPricesList>
       onError: (String error) {
         setState(() {
           _isLoadingMore = false;
-          // Optionally handle error
         });
       },
     );
@@ -113,7 +109,6 @@ class _ProductPricesListState extends State<ProductPricesList>
     await loadMoreHelper.load();
   }
 
-  // Added pull-to-refresh functionality
   Future<void> _onRefresh() async {
     setState(() {
       _currentPage = 1;
@@ -134,9 +129,11 @@ class _ProductPricesListState extends State<ProductPricesList>
       case LoadingStatus.ERROR:
         return Text(_productPriceRefresher.loadingError.toString());
       case LoadingStatus.LOADED:
-      // Initialize _allItems with the first page of results
-        if (_allItems.isEmpty && _productPriceRefresher.pricesResult?.items != null) {
-          _allItems = List<Price>.from(_productPriceRefresher.pricesResult!.items!);
+        // Initialize _allItems with the first page of results
+        if (_allItems.isEmpty &&
+            _productPriceRefresher.pricesResult?.items != null) {
+          _allItems =
+              List<Price>.from(_productPriceRefresher.pricesResult!.items!);
         }
         break;
     }
@@ -155,7 +152,8 @@ class _ProductPricesListState extends State<ProductPricesList>
         isLoadingMore: _isLoadingMore,
         currentPage: _currentPage,
         totalPages: _productPriceRefresher.pricesResult?.numberOfPages ?? 1,
-        totalItems: _productPriceRefresher.pricesResult?.total ?? _allItems.length,
+        totalItems:
+            _productPriceRefresher.pricesResult?.total ?? _allItems.length,
       ),
     );
   }
@@ -180,7 +178,8 @@ class LoadMorePricesHelper {
       // Clone the parameters for the next request
       final GetPricesParameters parameters = model.parameters;
 
-      final MaybeError<GetPricesResult> result = await OpenPricesAPIClient.getPrices(
+      final MaybeError<GetPricesResult> result =
+          await OpenPricesAPIClient.getPrices(
         parameters,
       );
 
@@ -281,7 +280,6 @@ class _ActualList extends StatelessWidget {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    // Update the title to show page information
     String title;
     if (totalPages > 1) {
       title = appLocalizations.prices_list_length_many_pages(
@@ -299,8 +297,6 @@ class _ActualList extends StatelessWidget {
       0,
       SmoothCard(child: ListTile(title: Text(title))),
     );
-
-    // Add a loading indicator at the bottom when loading more items
     if (isLoadingMore) {
       children.add(
         const Padding(
@@ -309,8 +305,6 @@ class _ActualList extends StatelessWidget {
         ),
       );
     }
-
-    // Extra space at the bottom to ensure the last item isn't hidden by the FAB
     children.add(
       const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
     );
