@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -18,7 +20,6 @@ import 'package:smooth_app/query/random_questions_query.dart';
 
 class QuestionsPage extends StatefulWidget {
   const QuestionsPage({
-    super.key,
     this.product,
     this.questions,
   });
@@ -95,15 +96,17 @@ class _QuestionsPageState extends State<QuestionsPage>
 
   void _loadNextQuestions() {
     try {
-      setState(() {
-        _state = const _RobotoffQuestionLoadingState();
-      });
-      _loadQuestions(
+      if (mounted) {
+        setState(() {
+          _state = const _RobotoffQuestionLoadingState();
+        });
+      }
+      unawaited(_loadQuestions(
         request: _questionsQuery.getQuestions(
           _localDatabase,
           _numberQuestionsNext,
         ),
-      );
+      ));
       _currentQuestionIndex = 0;
     } catch (e) {
       _updateState(_RobotoffQuestionErrorState(Exception(e.toString())));
@@ -274,7 +277,7 @@ class _LoadingQuestionsView extends StatelessWidget {
           child: Center(
             child: DefaultTextStyle(
               textAlign: TextAlign.center,
-              style: TextStyle(color: colorScheme.onSurface),
+              style: const TextStyle(),
               child: FractionallySizedBox(
                 widthFactor: 0.8,
                 child: MergeSemantics(
@@ -284,10 +287,7 @@ class _LoadingQuestionsView extends StatelessWidget {
                       Text(
                         appLocalizations.hunger_games_loading_line1,
                         style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 19.0,
-                          color: colorScheme.primary,
-                        ),
+                            fontWeight: FontWeight.bold, fontSize: 19.0),
                       ),
                       SizedBox(height: screenHeight * 0.05),
                       LinearProgressIndicator(
@@ -297,10 +297,8 @@ class _LoadingQuestionsView extends StatelessWidget {
                       Text(
                         appLocalizations.hunger_games_loading_line2,
                         textAlign: TextAlign.center,
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          fontSize: 17.0,
-                          color: colorScheme.primary,
-                        ),
+                        style:
+                            theme.textTheme.bodyLarge?.copyWith(fontSize: 17.0),
                       ),
                     ],
                   ),
@@ -329,7 +327,7 @@ class _QuestionView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
-        mainAxisSize: MainAxisSize.max, // <--- CAMBIATO
+        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Expanded(
             child: QuestionCard(
