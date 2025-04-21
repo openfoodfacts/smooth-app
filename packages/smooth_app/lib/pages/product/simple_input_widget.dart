@@ -2,10 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:nested/nested.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/background_task_hunger_games.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_boolean_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_icon_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -77,7 +76,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
     );
 
     final Widget child = MultiProvider(
-      providers: <SingleChildWidget>[
+      providers: <ChangeNotifierProvider<dynamic>>[
         ChangeNotifierProvider<ValueNotifier<SimpleInputSuggestionsState>>(
           create: (_) => widget.helper.getSuggestions(),
         ),
@@ -367,57 +366,18 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                           ),
                         ),
                       ),
-                      SegmentedButton<InsightAnnotation?>(
-                        style: ButtonStyle(
-                          visualDensity: VisualDensity.compact,
-                          backgroundColor: WidgetStateColor.resolveWith(
-                            (Set<WidgetState> states) {
-                              if (states.contains(WidgetState.selected)) {
-                                return extension.primaryMedium;
-                              }
-                              return extension.primaryLight;
-                            },
-                          ),
-                          iconColor: WidgetStateColor.resolveWith(
-                            (Set<WidgetState> states) {
-                              if (states.contains(WidgetState.selected)) {
-                                return extension.primaryBlack;
-                              }
-                              return extension.primaryNormal;
-                            },
-                          ),
-                          side: WidgetStatePropertyAll<BorderSide>(
-                            BorderSide(
-                              color: extension.greyMedium,
-                              width: 1.0,
-                            ),
-                          ),
-                        ),
-                        showSelectedIcon: false,
-                        emptySelectionAllowed: true,
-                        multiSelectionEnabled: false,
-                        segments: const <ButtonSegment<InsightAnnotation>>[
-                          ButtonSegment<InsightAnnotation>(
-                            value: InsightAnnotation.YES,
-                            icon: Icon(
-                              Icons.check_rounded,
-                            ),
-                          ),
-                          ButtonSegment<InsightAnnotation>(
-                            value: InsightAnnotation.NO,
-                            icon: Icon(
-                              Icons.close_rounded,
-                            ),
-                          ),
-                        ],
-                        selected: <InsightAnnotation?>{
-                          entry.value,
-                        },
-                        onSelectionChanged:
-                            (Set<InsightAnnotation?> selection) {
+                      SmoothBooleanButton(
+                        value: entry.value == null
+                            ? null
+                            : entry.value == InsightAnnotation.YES,
+                        onChanged: (bool? value) {
                           widget.helper.answerRobotoffQuestion(
                             entry.key,
-                            selection.isEmpty ? null : selection.first,
+                            value == true
+                                ? InsightAnnotation.YES
+                                : value == false
+                                    ? InsightAnnotation.NO
+                                    : null,
                           );
                         },
                       ),
