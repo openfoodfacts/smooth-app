@@ -77,7 +77,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   Future<void> _openQuestions() async {
     _trackEvent(AnalyticsEvent.questionClicked);
 
-    final int? questionsAnswered = await Navigator.push<int>(
+    final int? answeredQuestions = await Navigator.push<int>(
       context,
       MaterialPageRoute<int>(
         builder: (BuildContext context) => QuestionsPage(
@@ -89,7 +89,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
       ),
     );
 
-    if (context.mounted && questionsAnswered != null && questionsAnswered > 0) {
+    if (context.mounted && answeredQuestions != null && answeredQuestions > 0) {
       await _reloadQuestions(
         updateInsightAnnotations: true,
         ignoreExistingQuestions: true,

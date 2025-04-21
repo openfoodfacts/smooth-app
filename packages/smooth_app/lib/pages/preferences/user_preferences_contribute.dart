@@ -309,12 +309,12 @@ class UserPreferencesContribute extends AbstractUserPreferences {
       AnalyticsEvent.hungerGameOpened,
     );
 
-    Navigator.push(
+    await Navigator.push<int>(
       context,
       MaterialPageRoute<int>(
         builder: (BuildContext context) => const QuestionsPage(),
       ),
-    ).then((int? questionsAnswered) {});
+    );
   }
 
   UserPreferencesItem _getListTile(
