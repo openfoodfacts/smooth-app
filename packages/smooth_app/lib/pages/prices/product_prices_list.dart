@@ -19,9 +19,9 @@ import 'package:smooth_app/pages/product/common/loading_status.dart';
 /// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
   const ProductPricesList(
-    this.model, {
-    this.pricesResult,
-  });
+      this.model, {
+        this.pricesResult,
+      });
 
   final GetPricesModel model;
   final GetPricesResult? pricesResult;
@@ -33,10 +33,16 @@ class ProductPricesList extends StatefulWidget {
 class _ProductPricesListState extends State<ProductPricesList>
     with TraceableClientMixin {
   late final ProductPriceRefresher _productPriceRefresher;
+  late final ScrollController _scrollController;
+  bool _isLoadingMore = false;
+  int _currentPage = 1;
+  List<Price> _allItems = <Price>[];
 
   @override
   void initState() {
     super.initState();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
     _productPriceRefresher = ProductPriceRefresher(
       model: widget.model,
       userPreferences: context.read<UserPreferences>(),
@@ -49,8 +55,73 @@ class _ProductPricesListState extends State<ProductPricesList>
     );
   }
 
-  // TODO(monsieurtanuki): add a refresh gesture
-  // TODO(monsieurtanuki): add a "download the next 10" items
+  @override
+  void dispose() {
+    _scrollController.removeListener(_scrollListener);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollListener() {
+    if (_isLoadingMore) {
+      return;
+    }
+
+    // Check if we're near the bottom of the list
+    if (_scrollController.position.pixels >
+        _scrollController.position.maxScrollExtent - 200) {
+      _loadMoreItems();
+    }
+  }
+
+  Future<void> _loadMoreItems() async {
+    final GetPricesResult? currentResult = _productPriceRefresher.pricesResult;
+
+    if (currentResult == null ||
+        currentResult.numberOfPages == null ||
+        _currentPage >= currentResult.numberOfPages!) {
+      // No more pages to load
+      return;
+    }
+
+    setState(() {
+      _isLoadingMore = true;
+    });
+
+    _currentPage++;
+
+    // Create a new instance of LoadMorePricesHelper to load more items
+    final LoadMorePricesHelper loadMoreHelper = LoadMorePricesHelper(
+      model: widget.model,
+      page: _currentPage,
+      onComplete: (List<Price> newItems) {
+        setState(() {
+          if (newItems.isNotEmpty) {
+            _allItems.addAll(newItems);
+          }
+          _isLoadingMore = false;
+        });
+      },
+      onError: (String error) {
+        setState(() {
+          _isLoadingMore = false;
+          // Optionally handle error
+        });
+      },
+    );
+
+    await loadMoreHelper.load();
+  }
+
+  // Added pull-to-refresh functionality
+  Future<void> _onRefresh() async {
+    setState(() {
+      _currentPage = 1;
+      _allItems = <Price>[];
+    });
+    await _productPriceRefresher.refresh();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
@@ -63,28 +134,90 @@ class _ProductPricesListState extends State<ProductPricesList>
       case LoadingStatus.ERROR:
         return Text(_productPriceRefresher.loadingError.toString());
       case LoadingStatus.LOADED:
+      // Initialize _allItems with the first page of results
+        if (_allItems.isEmpty && _productPriceRefresher.pricesResult?.items != null) {
+          _allItems = List<Price>.from(_productPriceRefresher.pricesResult!.items!);
+        }
         break;
     }
+
     // highly improbable
-    if (_productPriceRefresher.pricesResult!.items == null) {
+    if (_allItems.isEmpty) {
       return const Text('empty list');
     }
 
-    return _ActualList(
-      model: widget.model,
-      result: _productPriceRefresher.pricesResult!,
+    return RefreshIndicator(
+      onRefresh: _onRefresh,
+      child: _ActualList(
+        model: widget.model,
+        items: _allItems,
+        scrollController: _scrollController,
+        isLoadingMore: _isLoadingMore,
+        currentPage: _currentPage,
+        totalPages: _productPriceRefresher.pricesResult?.numberOfPages ?? 1,
+        totalItems: _productPriceRefresher.pricesResult?.total ?? _allItems.length,
+      ),
     );
+  }
+}
+
+/// Helper class to load more prices
+class LoadMorePricesHelper {
+  LoadMorePricesHelper({
+    required this.model,
+    required this.page,
+    required this.onComplete,
+    required this.onError,
+  });
+
+  final GetPricesModel model;
+  final int page;
+  final Function(List<Price>) onComplete;
+  final Function(String) onError;
+
+  Future<void> load() async {
+    try {
+      // Clone the parameters for the next request
+      final GetPricesParameters parameters = model.parameters;
+
+      final MaybeError<GetPricesResult> result = await OpenPricesAPIClient.getPrices(
+        parameters,
+      );
+
+      if (result.isError) {
+        onError(result.detailError);
+        return;
+      }
+
+      if (result.value.items != null) {
+        onComplete(result.value.items!);
+      } else {
+        onComplete(<Price>[]);
+      }
+    } catch (e) {
+      onError(e.toString());
+    }
   }
 }
 
 class _ActualList extends StatelessWidget {
   const _ActualList({
     required this.model,
-    required this.result,
+    required this.items,
+    required this.scrollController,
+    required this.isLoadingMore,
+    required this.currentPage,
+    required this.totalPages,
+    required this.totalItems,
   });
 
   final GetPricesModel model;
-  final GetPricesResult result;
+  final List<Price> items;
+  final ScrollController scrollController;
+  final bool isLoadingMore;
+  final int currentPage;
+  final int totalPages;
+  final int totalItems;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +225,7 @@ class _ActualList extends StatelessWidget {
 
     if (!model.displayEachProduct) {
       // in that case we display the product only once, if possible.
-      for (final Price price in result.items!) {
+      for (final Price price in items) {
         final PriceProduct? priceProduct = price.product;
         if (priceProduct == null) {
           continue;
@@ -110,7 +243,7 @@ class _ActualList extends StatelessWidget {
     }
     if (!model.displayEachLocation) {
       // in that case we display the location only once, if possible.
-      for (final Price price in result.items!) {
+      for (final Price price in items) {
         final Location? location = price.location;
         if (location == null) {
           continue;
@@ -124,7 +257,7 @@ class _ActualList extends StatelessWidget {
       }
     }
 
-    for (final Price price in result.items!) {
+    for (final Price price in items) {
       final PriceProduct? priceProduct = price.product;
       children.add(
         SmoothCard(
@@ -147,24 +280,43 @@ class _ActualList extends StatelessWidget {
       );
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String title =
-        result.numberOfPages != null && result.numberOfPages! <= 1
-            ? appLocalizations.prices_list_length_one_page(
-                result.items!.length,
-              )
-            : appLocalizations.prices_list_length_many_pages(
-                model.parameters.pageSize!,
-                result.total!,
-              );
+
+    // Update the title to show page information
+    String title;
+    if (totalPages > 1) {
+      title = appLocalizations.prices_list_length_many_pages(
+        items.length,
+        totalItems,
+      );
+      title = '$title ($currentPage / $totalPages)';
+    } else {
+      title = appLocalizations.prices_list_length_one_page(
+        items.length,
+      );
+    }
+
     children.insert(
       0,
       SmoothCard(child: ListTile(title: Text(title))),
     );
-    // so that the last content gets not hidden by the FAB
+
+    // Add a loading indicator at the bottom when loading more items
+    if (isLoadingMore) {
+      children.add(
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 16.0),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+      );
+    }
+
+    // Extra space at the bottom to ensure the last item isn't hidden by the FAB
     children.add(
       const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
     );
+
     return ListView(
+      controller: scrollController,
       children: children,
     );
   }

@@ -1,3 +1,4 @@
+
 import 'dart:async';
 import 'dart:ui';
 
@@ -53,6 +54,13 @@ class ProductPriceRefresher {
       _loadingStatus = null;
       pricesResult = null;
     }
+  }
+
+  // Add a refresh method to reload first page
+  Future<void> refresh() async {
+    _loadingStatus = null;
+    pricesResult = null;
+    await _asyncLoad();
   }
 
   Future<void> _asyncLoad() async {
