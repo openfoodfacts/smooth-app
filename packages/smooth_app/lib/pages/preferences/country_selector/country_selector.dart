@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -17,7 +16,6 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 
 part 'country_selector_provider.dart';
 
-/// A button that will open a list of countries and save it in the preferences.
 class CountrySelector extends StatelessWidget {
   const CountrySelector({
     required this.forceCurrencyChange,
@@ -35,8 +33,6 @@ class CountrySelector extends StatelessWidget {
   final Widget? icon;
   final bool forceCurrencyChange;
   final double loadingHeight;
-
-  /// A click on a new country will automatically save it
   final bool autoValidate;
 
   @override
@@ -47,15 +43,14 @@ class CountrySelector extends StatelessWidget {
         autoValidate: autoValidate,
       ),
       child: Consumer<_CountrySelectorProvider>(
-        builder: (BuildContext context, _CountrySelectorProvider provider, _) {
+        builder: (context, provider, _) {
           return switch (provider.value) {
-            PreferencesSelectorLoadingState<OpenFoodFactsCountry> _ => SizedBox(
+            PreferencesSelectorLoadingState<LocalizedCountry>() => SizedBox(
                 height: loadingHeight,
-                child: const Center(
-                  child: CircularProgressIndicator.adaptive(),
-                ),
+                child:
+                    const Center(child: CircularProgressIndicator.adaptive()),
               ),
-            PreferencesSelectorLoadedState<OpenFoodFactsCountry> _ =>
+            PreferencesSelectorLoadedState<LocalizedCountry>() =>
               _CountrySelectorButton(
                 icon: icon,
                 innerPadding: padding ?? EdgeInsets.zero,
@@ -100,37 +95,25 @@ class _CountrySelectorButton extends StatelessWidget {
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 40.0),
           child: ConsumerValueNotifierFilter<_CountrySelectorProvider,
-              PreferencesSelectorState<OpenFoodFactsCountry>>(
-            buildWhen:
-                (PreferencesSelectorState<OpenFoodFactsCountry>? previousValue,
-                        PreferencesSelectorState<OpenFoodFactsCountry>
-                            currentValue) =>
-                    previousValue != null &&
-                    currentValue is! PreferencesSelectorEditingState &&
-                    (currentValue as PreferencesSelectorLoadedState<
-                                OpenFoodFactsCountry>)
-                            .selectedItem !=
-                        (previousValue as PreferencesSelectorLoadedState<
-                                OpenFoodFactsCountry>)
-                            .selectedItem,
-            builder:
-                (_, PreferencesSelectorState<OpenFoodFactsCountry> value, __) {
-              final OpenFoodFactsCountry? country = (value
-                      as PreferencesSelectorLoadedState<OpenFoodFactsCountry>)
-                  .selectedItem;
-
-              final String displayName =
-                  LocalizedCountry.getSingleLocalizedName(country!) ??
-                      AppLocalizations.of(context).loading;
+              PreferencesSelectorState<LocalizedCountry>>(
+            buildWhen: (previous, current) =>
+                previous is PreferencesSelectorLoadedState<LocalizedCountry> &&
+                current is PreferencesSelectorLoadedState<LocalizedCountry> &&
+                current.selectedItem != previous.selectedItem,
+            builder: (_, state, __) {
+              final country =
+                  (state as PreferencesSelectorLoadedState<LocalizedCountry>)
+                      .selectedItem;
+              final String displayName = country?.localizedName ?? '';
 
               return Padding(
                 padding: innerPadding,
                 child: Row(
-                  children: <Widget>[
+                  children: [
                     SizedBox(
                       width: IconTheme.of(context).size! + LARGE_SPACE,
                       child: AutoSizeText(
-                        EmojiHelper.getCountryEmoji(country) ?? '',
+                        EmojiHelper.getCountryEmoji(country?.country) ?? '',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: IconTheme.of(context).size),
                       ),
@@ -157,79 +140,51 @@ class _CountrySelectorButton extends StatelessWidget {
   }
 
   Future<void> _openCountrySelector(BuildContext context) async {
-    final dynamic newCountry =
-        await Navigator.of(context, rootNavigator: true).push(
-      PageRouteBuilder<dynamic>(
-          pageBuilder: (_, __, ___) => _CountrySelectorScreen(
-                provider: context.read<_CountrySelectorProvider>(),
-              ),
-          transitionsBuilder: (BuildContext context,
-              Animation<double> animation,
-              Animation<double> secondaryAnimation,
-              Widget child) {
-            final Tween<Offset> tween = Tween<Offset>(
-              begin: const Offset(0.0, 1.0),
-              end: Offset.zero,
-            );
-            final CurvedAnimation curvedAnimation = CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeInOut,
-            );
-            final Animation<Offset> position = tween.animate(curvedAnimation);
-
-            return SlideTransition(
-              position: position,
-              child: FadeTransition(
-                opacity: animation,
-                child: child,
-              ),
-            );
-          }),
+    final newCountry = await Navigator.of(context, rootNavigator: true).push(
+      PageRouteBuilder(
+        pageBuilder: (_, __, ___) => _CountrySelectorScreen(
+          provider: context.read<_CountrySelectorProvider>(),
+        ),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final offset = Tween<Offset>(
+                  begin: const Offset(0.0, 1.0), end: Offset.zero)
+              .animate(
+                  CurvedAnimation(parent: animation, curve: Curves.easeInOut));
+          return SlideTransition(
+            position: offset,
+            child: FadeTransition(opacity: animation, child: child),
+          );
+        },
+      ),
     );
 
-    if (!context.mounted) {
-      return;
-    }
+    if (!context.mounted) return;
 
-    /// Ensure to restore the previous state
-    /// (eg: the user uses the Android back button).
     if (newCountry == null) {
       context.read<_CountrySelectorProvider>().dismissSelectedItem();
-    } else if (newCountry is OpenFoodFactsCountry) {
-      _changeCurrencyIfRelevant(context, newCountry);
+    } else if (newCountry is LocalizedCountry) {
+      _changeCurrencyIfRelevant(context, newCountry.country);
     }
   }
 
   Future<void> _changeCurrencyIfRelevant(
-    final BuildContext context,
-    final OpenFoodFactsCountry country,
-  ) async {
-    final UserPreferences userPreferences = context.read<UserPreferences>();
-    final String? possibleCurrencyCode = country.currency?.name;
-
-    if (possibleCurrencyCode == null) {
-      return;
-    }
+      BuildContext context, OpenFoodFactsCountry country) async {
+    final userPreferences = context.read<UserPreferences>();
+    final possibleCurrencyCode = country.currency?.name;
+    if (possibleCurrencyCode == null) return;
 
     bool? changeCurrency;
-    final String? currentCurrencyCode = userPreferences.userCurrencyCode;
+    final currentCurrencyCode = userPreferences.userCurrencyCode;
 
-    if (currentCurrencyCode == null) {
-      changeCurrency = true;
-    } else if (forceCurrencyChange) {
-      changeCurrency = true;
-    } else if (currentCurrencyCode != possibleCurrencyCode) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (currentCurrencyCode == null ||
+        forceCurrencyChange ||
+        currentCurrencyCode != possibleCurrencyCode) {
+      final appLocalizations = AppLocalizations.of(context);
       changeCurrency = await showDialog<bool>(
         context: context,
-        builder: (final BuildContext context) => SmoothAlertDialog(
+        builder: (context) => SmoothAlertDialog(
           body: Text(
-            '${appLocalizations.country_change_message}'
-            '\n'
-            '${appLocalizations.currency_auto_change_message(
-              currentCurrencyCode,
-              possibleCurrencyCode,
-            )}',
+            '${appLocalizations.country_change_message}\n${appLocalizations.currency_auto_change_message(currentCurrencyCode ?? '', possibleCurrencyCode)}',
           ),
           negativeAction: SmoothActionButton(
             onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
@@ -243,6 +198,7 @@ class _CountrySelectorButton extends StatelessWidget {
         ),
       );
     }
+
     if (changeCurrency == true) {
       await userPreferences.setUserCurrencyCode(possibleCurrencyCode);
     }
@@ -250,44 +206,32 @@ class _CountrySelectorButton extends StatelessWidget {
 }
 
 class _CountrySelectorScreen extends StatelessWidget {
-  const _CountrySelectorScreen({
-    required this.provider,
-  });
+  const _CountrySelectorScreen({required this.provider});
 
   final _CountrySelectorProvider provider;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final appLocalizations = AppLocalizations.of(context);
+    LocalizedCountry.getLocalizedCountries();
 
-    final List<LocalizedCountry> localizedCountries =
-        LocalizedCountry.getLocalizedCountries();
-
-    return SmoothSelectorScreen<OpenFoodFactsCountry>(
+    return SmoothSelectorScreen<LocalizedCountry>(
       provider: provider,
       title: appLocalizations.country_selector_title,
-      itemBuilder: (
-        BuildContext context,
-        OpenFoodFactsCountry country,
-        bool selected,
-        String filter,
-      ) {
-        final LocalizedCountry? lc = localizedCountries
-            .firstWhereOrNull((LocalizedCountry c) => c.country == country);
-
+      itemBuilder: (context, country, selected, filter) {
         return Row(
-          children: <Widget>[
+          children: [
             Expanded(
               flex: 1,
               child: Text(
-                EmojiHelper.getCountryEmoji(country) ?? '',
+                EmojiHelper.getCountryEmoji(country.country) ?? '',
                 style: const TextStyle(fontSize: 25.0),
               ),
             ),
             Expanded(
               flex: 2,
               child: Text(
-                country.iso2Code,
+                country.country.iso2Code,
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -296,31 +240,27 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 7,
               child: TextHighlighter(
-                text: lc?.localizedName ?? '',
+                text: country.localizedName,
                 filter: filter,
-                textStyle: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                ),
+                textStyle: const TextStyle(fontWeight: FontWeight.w600),
               ),
-            )
+            ),
           ],
         );
       },
-      itemsFilter: (List<OpenFoodFactsCountry> list,
-          OpenFoodFactsCountry? selectedItem,
-          OpenFoodFactsCountry? selectedItemOverride,
-          String filter) {
-        final List<LocalizedCountry> localized =
-            LocalizedCountry.getLocalizedCountries();
-        return list.where((OpenFoodFactsCountry country) {
-          final LocalizedCountry? lc =
-              localized.firstWhereOrNull((c) => c.country == country);
+      itemsFilter: (list, selectedItem, selectedItemOverride, filter) {
+        return list.where((country) {
           return country == selectedItem ||
               country == selectedItemOverride ||
-              (lc?.localizedName.toLowerCase().contains(filter.toLowerCase()) ??
-                  false) ||
-              country.iso2Code.toLowerCase().contains(filter.toLowerCase()) ||
-              country.offTag.toLowerCase().contains(filter.toLowerCase());
+              country.localizedName
+                  .toLowerCase()
+                  .contains(filter.toLowerCase()) ||
+              country.country.iso2Code
+                  .toLowerCase()
+                  .contains(filter.toLowerCase()) ||
+              country.preferenceCode
+                  .toLowerCase()
+                  .contains(filter.toLowerCase());
         });
       },
     );

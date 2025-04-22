@@ -7,7 +7,7 @@ part of 'country_selector.dart';
 /// * [_CountrySelectorEditingState]: the user has selected a country
 /// (temporary selection)
 class _CountrySelectorProvider
-    extends PreferencesSelectorProvider<OpenFoodFactsCountry> {
+    extends PreferencesSelectorProvider<LocalizedCountry> {
   _CountrySelectorProvider({
     required super.preferences,
     required super.autoValidate,
@@ -18,8 +18,7 @@ class _CountrySelectorProvider
 
   @override
   Future<void> onPreferencesChanged() async {
-    final String? newCountryCode =
-        preferences.userCountryCode; // Stored as offTag
+    final String? newCountryCode = preferences.userCountryCode;
     final String? newLanguageCode = preferences.appLanguageCode;
     final OpenFoodFactsLanguage? newLanguage =
         _getLanguageFromCode(newLanguageCode);
@@ -32,13 +31,13 @@ class _CountrySelectorProvider
       userCountryCode = newCountryCode;
       userAppLanguage = newLanguage;
 
-      if (value is PreferencesSelectorInitialState<OpenFoodFactsCountry>) {
+      if (value is PreferencesSelectorInitialState<LocalizedCountry>) {
         return loadValues();
       } else {
-        final PreferencesSelectorLoadedState<OpenFoodFactsCountry> state =
-            value as PreferencesSelectorLoadedState<OpenFoodFactsCountry>;
+        final PreferencesSelectorLoadedState<LocalizedCountry> state =
+            value as PreferencesSelectorLoadedState<LocalizedCountry>;
 
-        final List<OpenFoodFactsCountry> countries = state.items;
+        final List<LocalizedCountry> countries = state.items;
         _reorderCountries(countries, userCountryCode);
 
         value = state.copyWith(
@@ -50,41 +49,46 @@ class _CountrySelectorProvider
   }
 
   @override
-  Future<List<OpenFoodFactsCountry>> onLoadValues() async {
-    final List<OpenFoodFactsCountry> countries =
-        LocalizedCountry.getLocalizedCountries().map((e) => e.country).toList();
-    return countries;
+  Future<List<LocalizedCountry>> onLoadValues() async {
+    return _sanitizeCountriesList(LocalizedCountry.getLocalizedCountries());
+  }
+
+  /// Sanitizes the country list, but without reordering it.
+  /// * by removing countries that are not in [OpenFoodFactsCountry]
+  /// * and providing a fallback English name for countries that are in
+  /// [OpenFoodFactsCountry] but not in [localizedCountries].
+  static List<LocalizedCountry> _sanitizeCountriesList(
+    List<LocalizedCountry> localizedCountries,
+  ) {
+    final Set<OpenFoodFactsCountry> validCountries =
+        OpenFoodFactsCountry.values.toSet();
+    final List<LocalizedCountry> sanitizedList = localizedCountries
+        .where((country) => validCountries.contains(country.country))
+        .toList();
+
+    return sanitizedList;
   }
 
   static void _reorderCountries(
-    List<OpenFoodFactsCountry> countries,
+    List<LocalizedCountry> countries,
     String? userCountryCode,
   ) {
-    final Map<OpenFoodFactsCountry, LocalizedCountry> localizedMap = {
-      for (final c in LocalizedCountry.getLocalizedCountries()) c.country: c
-    };
-
     countries.sort(
       (a, b) {
-        if (a.offTag == userCountryCode) {
-          return -1;
-        }
-        if (b.offTag == userCountryCode) {
-          return 1;
-        }
-        final String nameA = localizedMap[a]?.localizedName ?? '';
-        final String nameB = localizedMap[b]?.localizedName ?? '';
-        return nameA.compareTo(nameB);
+        if (a.preferenceCode == userCountryCode) return -1;
+        if (b.preferenceCode == userCountryCode) return 1;
+        return a.localizedName.compareTo(b.localizedName);
       },
     );
   }
 
   @override
-  OpenFoodFactsCountry getSelectedValue(List<OpenFoodFactsCountry> countries) {
+  LocalizedCountry getSelectedValue(List<LocalizedCountry> countries) {
     if (userCountryCode != null) {
       return countries.firstWhere(
-        (OpenFoodFactsCountry country) =>
-            country.offTag.toLowerCase() == userCountryCode?.toLowerCase(),
+        (country) =>
+            country.preferenceCode.toLowerCase() ==
+            userCountryCode?.toLowerCase(),
         orElse: () => countries.first,
       );
     }
@@ -92,9 +96,8 @@ class _CountrySelectorProvider
   }
 
   @override
-  Future<void> onSaveItem(OpenFoodFactsCountry country) =>
-      preferences.setUserCountryCode(
-          country.offTag); // Save offTag (not iso2code) in preferences
+  Future<void> onSaveItem(LocalizedCountry country) =>
+      preferences.setUserCountryCode(country.preferenceCode);
 
   OpenFoodFactsLanguage? _getLanguageFromCode(String? code) {
     if (code == null) {
