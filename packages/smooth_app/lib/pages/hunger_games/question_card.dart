@@ -60,7 +60,6 @@ class QuestionCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   Expanded(
-                    flex: 1,
                     child: question.imageUrl == null
                         ? EMPTY_WIDGET
                         : QuestionImageThumbnail(question),
