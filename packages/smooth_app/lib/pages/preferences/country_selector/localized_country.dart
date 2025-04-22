@@ -1,5 +1,6 @@
 import 'package:l10n_countries/l10n_countries.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/pages/preferences/country_selector/openfoodfacts_country_iso2code_extension.dart';
 import 'package:smooth_app/pages/preferences/country_selector/tmp_country_iso3.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -15,8 +16,10 @@ class LocalizedCountry {
   final String englishName;
 
   String get preferenceCode => country.offTag;
+  String get iso2Code => country.iso2Code;
 
-  static List<LocalizedCountry> getLocalizedCountries() {
+  static Map<OpenFoodFactsCountry, LocalizedCountry>
+      getLocalizedCountriesMap() {
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final CountriesLocaleMapper mapper = CountriesLocaleMapper();
 
@@ -27,7 +30,12 @@ class LocalizedCountry {
       fallbackLocale: OpenFoodFactsLanguage.ENGLISH,
     );
 
-    final List<LocalizedCountry> result = <LocalizedCountry>[];
+    final LocaleMap englishMap = mapper.localize(
+      iso3Codes,
+      mainLocale: OpenFoodFactsLanguage.ENGLISH,
+    );
+
+    final Map<OpenFoodFactsCountry, LocalizedCountry> result = {};
     for (final OpenFoodFactsCountry country in OpenFoodFactsCountry.values) {
       final String? iso3 = tmpCountryIso3[country];
       if (iso3 == null) {
@@ -35,24 +43,22 @@ class LocalizedCountry {
       }
 
       final String? localized = localizedMap[iso3];
+      final String fallbackEnglish =
+          englishMap[iso3] ?? _getFallbackEnglishName(country);
 
-      String fallbackEnglish =
-          country.toString().split('.').last.replaceAll('_', ' ');
-      fallbackEnglish = fallbackEnglish[0].toUpperCase() +
-          fallbackEnglish.substring(1).toLowerCase();
-
-      result.add(
-        LocalizedCountry(
-          country: country,
-          localizedName: localized ?? fallbackEnglish,
-          englishName: fallbackEnglish,
-        ),
+      result[country] = LocalizedCountry(
+        country: country,
+        localizedName: localized ?? fallbackEnglish,
+        englishName: fallbackEnglish,
       );
     }
 
-    result.sort((a, b) => a.localizedName.compareTo(b.localizedName));
     return result;
   }
+
+  static List<LocalizedCountry> getLocalizedCountries() =>
+      getLocalizedCountriesMap().values.toList()
+        ..sort((a, b) => a.localizedName.compareTo(b.localizedName));
 
   static String? getSingleLocalizedName(OpenFoodFactsCountry country) {
     final String? iso3 = tmpCountryIso3[country];
@@ -69,15 +75,22 @@ class LocalizedCountry {
       fallbackLocale: OpenFoodFactsLanguage.ENGLISH,
     );
 
-    final String? localized = map.values.firstOrNull;
+    final String? localized = map[iso3];
 
     if (language != OpenFoodFactsLanguage.ENGLISH || localized != null) {
       return localized;
     }
 
-    final String fallbackEnglish =
-        country.toString().split('.').last.replaceAll('_', ' ');
-    return fallbackEnglish[0].toUpperCase() +
-        fallbackEnglish.substring(1).toLowerCase();
+    final LocaleMap englishMap = mapper.localize(
+      {iso3},
+      mainLocale: OpenFoodFactsLanguage.ENGLISH,
+    );
+
+    return englishMap[iso3] ?? _getFallbackEnglishName(country);
+  }
+
+  static String _getFallbackEnglishName(OpenFoodFactsCountry country) {
+    final String raw = country.toString().split('.').last.replaceAll('_', ' ');
+    return raw[0].toUpperCase() + raw.substring(1).toLowerCase();
   }
 }

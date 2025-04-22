@@ -7,7 +7,6 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/preferences/country_selector/localized_country.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:uuid/uuid.dart';
@@ -68,17 +67,12 @@ abstract class ProductQuery {
     const OpenFoodFactsCountry defaultCountry = OpenFoodFactsCountry.FRANCE;
     final String? isoCode = userPreferences.userCountryCode ??
         PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
-    final OpenFoodFactsCountry resolvedCountry =
+    final OpenFoodFactsCountry country =
         OpenFoodFactsCountry.fromOffTag(isoCode) ?? defaultCountry;
-
-    final LocalizedCountry localizedCountry =
-        LocalizedCountry.getLocalizedCountries()
-            .firstWhere((lc) => lc.country == resolvedCountry);
-
-    await _setCountry(userPreferences, localizedCountry);
-
+    await _setCountry(userPreferences, country);
     if (userPreferences.userCurrencyCode == null) {
-      final Currency? possibleCurrency = localizedCountry.country.currency;
+      // very very first time, or old app with new code
+      final Currency? possibleCurrency = country.currency;
       if (possibleCurrency != null) {
         await userPreferences.setUserCurrencyCode(possibleCurrency.name);
       }
@@ -97,26 +91,22 @@ abstract class ProductQuery {
     if (country == null) {
       return false;
     }
-
-    final LocalizedCountry localizedCountry =
-        LocalizedCountry.getLocalizedCountries()
-            .firstWhere((lc) => lc.country == country);
-
-    await _setCountry(userPreferences, localizedCountry);
+    await _setCountry(userPreferences, country);
     return true;
   }
 
   /// Sets the global country for API queries.
   static Future<void> _setCountry(
     final UserPreferences userPreferences,
-    final LocalizedCountry country,
+    final OpenFoodFactsCountry country,
   ) async {
-    _country = country.country;
+    _country = country;
+    // we need this to run "world" queries
     OpenFoodAPIConfiguration.globalCountry = null;
 
-    final String preferenceCode = country.preferenceCode;
-    if (preferenceCode != userPreferences.userCountryCode) {
-      await userPreferences.setUserCountryCode(preferenceCode);
+    final String isoCode = country.offTag;
+    if (isoCode != userPreferences.userCountryCode) {
+      await userPreferences.setUserCountryCode(isoCode);
     }
   }
 
