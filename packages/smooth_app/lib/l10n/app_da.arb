@@ -137,7 +137,7 @@
   "@Introduction screen": {},
   "welcomeToOpenFoodFacts": "Velkommen til Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+  "whatIsOff": "Open Food Facts er en global non-profit drevet af lokale fællesskaber.",
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
@@ -153,21 +153,21 @@
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+  "server_error_open_new_issue": "Intet serversvar! Du kan åbne en sag med følgende link.",
   "@user_management": {},
-  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+  "sign_in_text": "Log ind på din Open Food Facts-konto for at gemme dine bidrag",
   "incorrect_credentials": "Forkert brugernavn eller adgangskode.",
   "password_lost_incorrect_credentials": "E-mail eller brugernavn eksisterer ikke. Tjek venligst dine legitimationsoplysninger.",
-  "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+  "password_lost_server_unavailable": "Vi oplever i øjeblikket opbremsninger på vores servere, og vi beklager det. Prøv venligst igen senere.",
   "login": "Brugernavn",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
-  "login_result_type_server_unreachable": "Network is unreachable",
+  "login_result_type_server_unreachable": "Netværk utilgængeligt",
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Problem on the server. Please try later.",
+  "login_result_type_server_issue": "Problem på serveren. Prøv venligst senere.",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Hjælp med at forbedre Open Food Facts i dit land",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -260,7 +260,7 @@
   "sign_up_page_confirm_password_hint": "Bekræft adgangskode",
   "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
   "sign_up_page_confirm_password_error_invalid": "Adgangskoder matcher ikke",
-  "sign_up_page_agree_text": "I agree to the Open Food Facts",
+  "sign_up_page_agree_text": "Jeg accepterer Open Food Facts",
   "@sign_up_page_agree_text": {
     "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
   },
@@ -283,11 +283,11 @@
   "sign_up_page_producer_checkbox": "Jeg er fødevareproducent",
   "sign_up_page_producer_hint": "Producent/mærke",
   "sign_up_page_producer_error_empty": "Angiv en producent eller et mærkenavn",
-  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+  "sign_up_page_subscribe_checkbox": "Jeg ønsker at abonnere på Open Food Facts-nyhedsbrevet (kan altid afmeldes)",
   "sign_up_page_user_name_already_used": "Brugernavn findes allerede, vælg et andet.",
   "sign_up_page_email_already_exists": "findes allerede. Log ind på kontoen eller prøv med en anden e-mail.",
   "sign_up_page_provide_valid_email": "Angiv en gyldig e-mailadresse.",
-  "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+  "sign_up_page_server_busy": "Vi beklager dybt, vi har nogle tekniske problemer med at oprette din konto. Prøv venligst igen senere.",
   "settingsTitle": "Indstillinger",
   "@settingsTitle": {
     "description": "The title of the Settings page"
@@ -308,8 +308,8 @@
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
-  "thanks_for_contributing": "Thanks for contributing!",
-  "contributors_label": "They are building the app",
+  "thanks_for_contributing": "Tak for dit bidrag!",
+  "contributors_label": "De bygger appen",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
@@ -317,14 +317,14 @@
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
-  "contributors_dialog_entry_description": "Contributor: {name}",
+  "contributors_dialog_entry_description": "Bidragyder: {name}",
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
       "name": {}
     }
   },
-  "contributors_description": "A list of all contributors of this app",
+  "contributors_description": "En liste over alle bidragydere til denne app",
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
@@ -339,7 +339,7 @@
   "support_via_email_include_logs_dialog_body": "Medtag app-logfiler i vedhæftning til e-mailen?",
   "termsOfUse": "Brugsvilkår",
   "@termsOfUse": {},
-  "legalNotices": "Legal notices",
+  "legalNotices": "Juridiske oplysninger",
   "@legalNotices": {
     "description": "A link to open the legal notices on the website"
   },
@@ -360,15 +360,15 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+  "contribute_develop_text": "Koden til hvert Open Food Facts-produkt er tilgængelig på GitHub. Man er velkommen til at genbruge koden (den er open-source) og hjælpe med at forbedre den for alle på hele planeten.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+  "contribute_develop_text_2": "Man kan deltage i Open Food Facts Slack-chatrum, der er den foretrukne måde at stille spørgsmål på.",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "DEV-tilstand?",
   "contribute_develop_dev_mode_subtitle": "Aktivér DEV-tilstand",
   "contribute_donate_title": "Donér",
   "@contribute_donate_title": {},
-  "contribute_donate_header": "Donate to Open Food Facts",
+  "contribute_donate_header": "Donér til Open Food Facts",
   "@contribute_donate_header": {},
   "contribute_enroll_alpha": "Enroll in internal alpha version",
   "@contribute_enroll_alpha": {},
@@ -382,7 +382,7 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "Databasen er kernen i projektet. Det er let og meget hurtigt at hjælpe. Man kan downloade appen til sin mobil og begynde at tilføje/forbedre produkter.\n\nDerudover tilbyder Open Food Facts-webstedet mange bidragsmuligheder: ",
   "@contribute_improve_text": {},
   "contribute_translate_header": "Oversæt",
   "@contribute_translate_header": {
@@ -396,14 +396,14 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. Open Food Facts er oversat til snesevis af sprog med indhold i konstant udvikling.",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-  "contribute_share_header": "Share Open Food Facts with your friends",
+  "contribute_join_skill_pool": "Bidrage dine færdigheder til Open Food Facts. Deltag i dygtighedspuljen!",
+  "contribute_share_header": "Del Open Food Facts med dine venner",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "Jeg vil gerne lige fortælle om den app, jeg har brugt, Open Food Facts, der giver mulighed for at få viden om madens sundheds- og miljøpåvirkninger på en herlig nem måde. Den fungerer ved at skanne emballagestregkoder. Den er desuden gratis, kræver ingen registrering, og man kan endda hjælpe med at øge antallet af dechifrerede produkter. Her er linket til at få den på mobilen: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -431,7 +431,7 @@
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+  "question_sign_in_text": "Log ind på Open Food Facts-kontoen for at blive anerkendt for dine bidrag",
   "question_yes_button_accessibility_value": "Svar med ja",
   "question_no_button_accessibility_value": "Svar med nej",
   "question_skip_button_accessibility_value": "Overspring spørgsmålet",
@@ -441,7 +441,7 @@
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+  "account_create_message": "Opret en konto og tilmeld dig Open Food Facts-fællesskabet for at hjælpe med at opbygge fødevareviden verden over!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
@@ -450,9 +450,9 @@
     "description": "Join which is actually Signup"
   },
   "myPreferences_profile_title": "Din profil",
-  "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+  "myPreferences_profile_subtitle": "Administrer din Open Food Facts bidragyderkonto.",
   "myPreferences_settings_title": "App-indstillinger",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "Mørk tilstand, Sprog…",
   "myPreferences_food_title": "Fødevarepræferencer",
   "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
   "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -534,7 +534,7 @@
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
-  "label_reload": "Reload",
+  "label_reload": "Genindlæs",
   "@label_reload": {
     "description": "Reload a page"
   },
@@ -543,14 +543,14 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+  "outdated_image_accessibility_label": "{imageType} (dette billede kan være forældet)",
   "@outdated_image_accessibility_label": {
     "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
     "placeholders": {
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "may be outdated",
+  "outdated_image_short_label": "kan være forældet",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
@@ -647,7 +647,7 @@
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_retake": "Retake a photo",
+  "crop_page_action_retake": "Tag foto igen",
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
@@ -716,8 +716,8 @@
       }
     }
   },
-  "new_product_done_msg_no_user": "Thanks for your contribution!",
-  "new_product_done_button_label": "Discover the completed product",
+  "new_product_done_msg_no_user": "Tak for dit bidrag!",
+  "new_product_done_button_label": "Opdag det færdige produkt",
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
@@ -864,11 +864,11 @@
   },
   "more_photos": "Flere interessante fotos",
   "@more_photos": {},
-  "view_more_photo_button": "View all existing photos for this product",
+  "view_more_photo_button": "Se alle eksisterende billeder for dette produkt",
   "@view_more_photo_button": {},
   "no_product_found": "Intet produkt fundet",
   "@no_product_found": {},
-  "no_location_found": "No location found",
+  "no_location_found": "Ingen placering fundet",
   "not_found": "ikke fundet:",
   "refreshing_product": "Opfrisker produkt",
   "@refreshing_product": {
@@ -878,7 +878,7 @@
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
-  "product_image_accessibility_label": "Image taken on {date}",
+  "product_image_accessibility_label": "Billede taget d. {date}",
   "@product_image_accessibility_label": {
     "placeholders": {
       "date": {
@@ -887,7 +887,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+  "product_image_outdated_accessibility_label": "Billede taget d. {date}. Dette billede kan være forældet",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -896,13 +896,13 @@
       }
     }
   },
-  "product_image_outdated": "This image may be outdated",
-  "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated": "Dette billede kan være forældet",
+  "product_image_outdated_explanations_title": "Dette billede kan være forældet",
+  "product_image_outdated_explanations_content": "Dette billede er taget for mere end et år siden.\n**Tjek venligst, at den stadig er opdateret**.\n\nDette er **bare en advarsel**. Hvis indholdet stadig er det samme, kan du ignorere denne besked.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_image_action_replace_photo": "Replace photo ({type})",
+  "product_image_action_replace_photo": "Erstat billede ({type})",
   "@product_image_action_replace_photo": {
     "description": "Action on the photo gallery to replace an existing picture",
     "placeholders": {
@@ -912,7 +912,7 @@
       }
     }
   },
-  "product_image_action_add_photo": "Add a photo ({type})",
+  "product_image_action_add_photo": "Tilføj et billede ({type})",
   "@product_image_action_add_photo": {
     "description": "Action on the photo gallery to add a photo (eg: ingredients)",
     "placeholders": {
@@ -930,7 +930,7 @@
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
-  "product_image_action_from_gallery": "Select from your phone's gallery",
+  "product_image_action_from_gallery": "Vælg fra din telefons kamerarulle",
   "@product_image_action_from_gallery": {
     "description": "Replace the existing picture with one from the device's gallery"
   },
@@ -938,11 +938,11 @@
   "@product_image_action_choose_existing_photo": {
     "description": "Replace the existing picture with one from the product's photos"
   },
-  "product_image_details_label": "Information about the photo",
+  "product_image_details_label": "Oplysninger om billedet",
   "@product_image_details_label": {
     "description": "Label for the photo details"
   },
-  "product_image_details_from_producer": "From the producer",
+  "product_image_details_from_producer": "Fra producenten",
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
@@ -971,11 +971,11 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
   "homepage_main_card_search_field_hint": "Search for a product",
-  "homepage_main_card_search_field_tooltip": "Start search",
+  "homepage_main_card_search_field_tooltip": "Start søgning",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
   },
-  "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+  "scan_tagline_news_item_accessibility": "Seneste nyt: {news_title}",
   "@scan_tagline_news_item_accessibility": {
     "description": "Accessibility label for the title of a news",
     "placeholders": {
@@ -988,7 +988,7 @@
   "tagline_app_review_button_positive": "Jeg elsker det! 😍",
   "tagline_app_review_button_negative": "Ikke rigtigt…",
   "tagline_app_review_button_later": "Spørg mig senere",
-  "tagline_feed_news_button": "Know more",
+  "tagline_feed_news_button": "Lær mere",
   "app_review_negative_modal_title": "Kan du ikke lide vores app?",
   "app_review_negative_modal_text": "Vil du bruge et par sekunder på at fortælle os hvorfor?",
   "app_review_negative_modal_positive_button": "Ja, selvfølgelig!",
@@ -997,7 +997,7 @@
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
-  "product_internet_error_modal_title": "An error has occurred!",
+  "product_internet_error_modal_title": "Der opstod en fejl!",
   "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
   "@product_internet_error_modal_message": {
     "placeholders": {
@@ -1007,7 +1007,7 @@
       }
     }
   },
-  "product_tags_title": "Product properties",
+  "product_tags_title": "Produktegenskaber",
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
@@ -1016,17 +1016,17 @@
     "description": "Message to show if there are no product properties found"
   },
   "add_tag": "Add property",
-  "add_tags": "Add properties",
-  "add_edit_tags": "Add or edit properties",
-  "edit_tag": "Edit property",
-  "remove_tag": "Remove property",
-  "tag_key": "Property",
-  "tag_key_uneditable": "Property (uneditable)",
-  "tag_key_input_hint": "Input a property",
+  "add_tags": "Tilføj egenskaber",
+  "add_edit_tags": "Tilføj eller rediger egenskaber",
+  "edit_tag": "Rediger egenskab",
+  "remove_tag": "Fjern egenskab",
+  "tag_key": "Egenskab",
+  "tag_key_uneditable": "Egenskab (ikke-redigerbar)",
+  "tag_key_input_hint": "Indtast en egenskab",
   "tag_value": "Værdi",
-  "tag_value_input_hint": "Input a value",
-  "tag_key_item": "Property:",
-  "tag_value_item": "Value:",
+  "tag_value_input_hint": "Indtast en værdi",
+  "tag_key_item": "Egenskab:",
+  "tag_value_item": "Værdi:",
   "tag_key_explanations": "A key must be lowercase and without any spaces.",
   "tag_key_already_exists": "A tag with a property {property} already exists!",
   "@tag_key_already_exists": {
@@ -1083,11 +1083,11 @@
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
-  "currency_chooser_label": "Please choose a currency",
+  "currency_chooser_label": "Vælg venligst en valuta",
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "country_change_message": "You have just changed countries.",
+  "country_change_message": "Du har lige skiftet lande.",
   "@country_change_message": {
     "description": "Message stating the change of countries"
   },
@@ -1105,7 +1105,7 @@
       }
     }
   },
-  "onboarding_country_chooser_label": "Please choose a country:",
+  "onboarding_country_chooser_label": "Vælg venligst et land:",
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
   },
