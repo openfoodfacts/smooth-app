@@ -338,6 +338,9 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
       child: Column(
         children: questions.entries.map(
           (MapEntry<RobotoffQuestion, InsightAnnotation?> entry) {
+            final RobotoffQuestion question = entry.key;
+            final InsightAnnotation? annotation = entry.value;
+
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -359,7 +362,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                       const SizedBox(width: SMALL_SPACE),
                       Expanded(
                         child: Text(
-                          questions.keys.first.value!,
+                          question.value!,
                           style: TextStyle(
                             color: extension.success,
                             fontWeight: FontWeight.bold,
@@ -367,12 +370,12 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                         ),
                       ),
                       SmoothBooleanButton(
-                        value: entry.value == null
+                        value: annotation == null
                             ? null
-                            : entry.value == InsightAnnotation.YES,
+                            : annotation == InsightAnnotation.YES,
                         onChanged: (bool? value) {
                           widget.helper.answerRobotoffQuestion(
-                            entry.key,
+                            question,
                             value == true
                                 ? InsightAnnotation.YES
                                 : value == false
@@ -384,7 +387,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                     ],
                   ),
                 ),
-                if (questions.keys.first.imageUrl != null)
+                if (question.imageUrl != null)
                   SizedBox(
                     height: 100.0,
                     width: double.infinity,
@@ -392,7 +395,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                       children: <Widget>[
                         Positioned.fill(
                           child: Image.network(
-                            questions.keys.first.imageUrl!,
+                            question.imageUrl!,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -437,7 +440,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
                                       QuestionImageFullPage(
-                                    questions.keys.first,
+                                    question,
                                   ),
                                 ),
                               );
