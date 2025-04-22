@@ -325,22 +325,20 @@ class _QuestionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Expanded(
-            child: QuestionCard(
-              question,
-              initialProduct: initialProduct,
-            ),
-          ),
-          QuestionAnswersOptions(
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        Expanded(
+          child: QuestionCard(
             question,
-            onAnswer: onAnswer,
+            initialProduct: initialProduct,
           ),
-        ],
-      ),
+        ),
+        QuestionAnswersOptions(
+          question,
+          onAnswer: onAnswer,
+        ),
+      ],
     );
   }
 }
