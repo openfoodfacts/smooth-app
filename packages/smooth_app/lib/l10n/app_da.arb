@@ -2633,7 +2633,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Udfordringer",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4219,7 +4219,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Beviser",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4251,7 +4251,7 @@
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Fællesskab",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4307,7 +4307,7 @@
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Udfordringer",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
@@ -4315,7 +4315,7 @@
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Valutaer",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
