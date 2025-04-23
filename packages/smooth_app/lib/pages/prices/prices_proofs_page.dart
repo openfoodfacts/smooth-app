@@ -4,17 +4,19 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/prices/generic_infinite_scroll.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-/// Page that displays the latest proofs of the current user.
+/// Page that displays the latest proofs of the current user with infinite scrolling.
 class PricesProofsPage extends StatefulWidget {
   const PricesProofsPage({
     required this.selectProof,
@@ -29,15 +31,136 @@ class PricesProofsPage extends StatefulWidget {
 
 class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
-  late final Future<MaybeError<GetProofsResult>> _results = _download();
-
   static const int _columns = 3;
   static const int _rows = 5;
   static const int _pageSize = _columns * _rows;
 
+  late final InfiniteScrollController<Proof, GetProofsParameters>
+      _scrollController;
+  String? _bearerToken;
+  final ScrollController _gridScrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = InfiniteScrollController<Proof, GetProofsParameters>(
+      initialItems: const <Proof>[],
+      fetchItems: _fetchProofs,
+      onError: (dynamic error) {
+        debugPrint('Error fetching proofs: $error');
+      },
+    );
+
+    _gridScrollController.addListener(_scrollListener);
+
+    _authenticate();
+  }
+
+  void _scrollListener() {
+    if (_scrollController.isLoading || !_scrollController.hasMoreItems) {
+      return;
+    }
+
+    final double maxScroll = _gridScrollController.position.maxScrollExtent;
+    final double currentScroll = _gridScrollController.position.pixels;
+    const double triggerOffset = 200.0;
+
+    if (currentScroll > maxScroll - triggerOffset) {
+      final GetProofsParameters parameters = _getProofsParameters();
+      _scrollController.loadMore(parameters);
+    }
+  }
+
+  GetProofsParameters _getProofsParameters() {
+    return GetProofsParameters()
+      ..orderBy = <OrderBy<GetProofsOrderField>>[
+        const OrderBy<GetProofsOrderField>(
+          field: GetProofsOrderField.created,
+          ascending: false,
+        ),
+      ]
+      ..pageSize = _pageSize;
+  }
+
+  @override
+  void dispose() {
+    _gridScrollController.removeListener(_scrollListener);
+    _gridScrollController.dispose();
+    _deleteSession();
+    super.dispose();
+  }
+
+  Future<void> _authenticate() async {
+    final User user = ProductQuery.getWriteUser();
+    final MaybeError<String> token =
+        await OpenPricesAPIClient.getAuthenticationToken(
+      username: user.userId,
+      password: user.password,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+
+    if (token.isError) {
+      debugPrint('Authentication error: ${token.error}');
+      return;
+    }
+
+    _bearerToken = token.value;
+
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  Future<void> _deleteSession() async {
+    if (_bearerToken != null) {
+      await OpenPricesAPIClient.deleteUserSession(
+        uriHelper: ProductQuery.uriPricesHelper,
+        bearerToken: _bearerToken!,
+      );
+      _bearerToken = null;
+    }
+  }
+
+  Future<(List<Proof>, bool)> _fetchProofs(
+      GetProofsParameters parameters, int page) async {
+    try {
+      if (_bearerToken == null) {
+        throw 'Not authenticated yet';
+      }
+
+      final User user = ProductQuery.getWriteUser();
+
+      final MaybeError<GetProofsResult> result =
+          await OpenPricesAPIClient.getProofs(
+        parameters
+          ..owner = user.userId
+          ..pageNumber = page,
+        uriHelper: ProductQuery.uriPricesHelper,
+        bearerToken: _bearerToken!,
+      );
+
+      if (result.isError) {
+        throw result.error!;
+      }
+
+      final List<Proof> items = result.value.items ?? <Proof>[];
+      final bool hasMore = page < (result.value.numberOfPages ?? 1);
+
+      _scrollController.updatePaginationInfo(
+        newTotalItems: result.value.total,
+        newTotalPages: result.value.numberOfPages,
+      );
+
+      return (items, hasMore);
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
@@ -58,149 +181,123 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           ),
         ],
       ),
-      body: FutureBuilder<MaybeError<GetProofsResult>>(
-        future: _results,
-        builder: (
-          final BuildContext context,
-          final AsyncSnapshot<MaybeError<GetProofsResult>> snapshot,
-        ) {
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return Text(snapshot.error!.toString());
-          }
-          // highly improbable
-          if (!snapshot.hasData) {
-            return const Text('no data');
-          }
-          if (snapshot.data!.isError) {
-            return Text(snapshot.data!.error!);
-          }
-          final GetProofsResult result = snapshot.data!.value;
-          // highly improbable
-          if (result.items == null) {
-            return const Text('empty list');
-          }
-          final double squareSize = MediaQuery.sizeOf(context).width / _columns;
-
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          final String title = result.numberOfPages == 1
-              ? appLocalizations.prices_proofs_list_length_one_page(
-                  result.items!.length,
-                )
-              : appLocalizations.prices_proofs_list_length_many_pages(
-                  _pageSize,
-                  result.total!,
-                );
-          return Column(
-            children: <Widget>[
-              SmoothCard(
-                child: ListTile(
-                  title: Text(title),
-                ),
-              ),
-              if (result.items!.isNotEmpty)
-                Expanded(
-                  child: CustomScrollView(
-                    slivers: <Widget>[
-                      SliverGrid(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: _columns,
-                        ),
-                        delegate: SliverChildBuilderDelegate(
-                          (
-                            final BuildContext context,
-                            final int index,
-                          ) {
-                            final Proof proof = result.items![index];
-                            if (proof.filePath == null) {
-                              // highly improbable
-                              return SizedBox(
-                                width: squareSize,
-                                height: squareSize,
-                              );
-                            }
-                            return InkWell(
-                              onTap: () async {
-                                if (widget.selectProof) {
-                                  Navigator.of(context).pop(proof);
-                                  return;
-                                }
-                                return Navigator.push<void>(
-                                  context,
-                                  MaterialPageRoute<void>(
-                                    builder: (BuildContext context) =>
-                                        PriceProofPage(
-                                      proof,
-                                    ),
-                                  ),
-                                );
-                              }, // PriceProofPage
-                              child: _PriceProofImage(proof,
-                                  squareSize: squareSize),
-                            );
-                          },
-                          addAutomaticKeepAlives: false,
-                          childCount: result.items!.length,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-            ],
-          );
-        },
-      ),
+      body: _bearerToken == null
+          ? // Show loading while authenticating
+          const Center(child: CircularProgressIndicator())
+          : // Show content once authenticated
+          _buildProofsContent(context, appLocalizations),
     );
   }
 
-  static Future<MaybeError<GetProofsResult>> _download() async {
-    final User user = ProductQuery.getWriteUser();
-    final MaybeError<String> token =
-        await OpenPricesAPIClient.getAuthenticationToken(
-      username: user.userId,
-      password: user.password,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+  Widget _buildProofsContent(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return Column(
+      children: <Widget>[
+        Builder(
+          builder: (BuildContext context) {
+            final int totalItems = _scrollController.totalItems ?? 0;
+            final int totalPages = _scrollController.totalPages ?? 1;
+            final int itemCount = _scrollController.items.length;
 
-    if (token.isError) {
-      return MaybeError<GetProofsResult>.error(
-        error: token.error ?? 'Could not authenticate with the server',
-        statusCode: token.statusCode ?? 500,
-      );
+            final String title = totalPages <= 1
+                ? appLocalizations.prices_proofs_list_length_one_page(itemCount)
+                : appLocalizations.prices_proofs_list_length_many_pages(
+                    _pageSize,
+                    totalItems,
+                  );
+
+            return SmoothCard(
+              child: ListTile(
+                title: Text(title),
+              ),
+            );
+          },
+        ),
+        Expanded(
+          child: _buildProofsGrid(context, appLocalizations),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildProofsGrid(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    if (_scrollController.items.isEmpty) {
+      if (_scrollController.isLoading) {
+        return const Center(child: CircularProgressIndicator());
+      } else {
+        return Center(child: Text(appLocalizations.proofs_empty_list));
+      }
     }
 
-    final String bearerToken = token.value;
-
-    final MaybeError<GetProofsResult> result =
-        await OpenPricesAPIClient.getProofs(
-      GetProofsParameters()
-        ..orderBy = <OrderBy<GetProofsOrderField>>[
-          const OrderBy<GetProofsOrderField>(
-            field: GetProofsOrderField.created,
-            ascending: false,
+    return CustomScrollView(
+      controller: _gridScrollController,
+      slivers: <Widget>[
+        SliverGrid(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: _columns,
           ),
-        ]
-        ..owner = user.userId
-        ..pageSize = _pageSize
-        ..pageNumber = 1,
-      uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerToken,
-    );
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              final Proof proof = _scrollController.items[index];
+              final double squareSize =
+                  MediaQuery.of(context).size.width / _columns;
 
-    await OpenPricesAPIClient.deleteUserSession(
-      uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerToken,
-    );
+              if (proof.filePath == null) {
+                return SizedBox(
+                  width: squareSize,
+                  height: squareSize,
+                );
+              }
 
-    return result;
+              return InkWell(
+                onTap: () async {
+                  if (widget.selectProof) {
+                    Navigator.of(context).pop(proof);
+                    return;
+                  }
+                  return Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => PriceProofPage(proof),
+                    ),
+                  );
+                },
+                child: _PriceProofImage(proof, squareSize: squareSize),
+              );
+            },
+            childCount: _scrollController.items.length,
+            addAutomaticKeepAlives: false,
+          ),
+        ),
+        if (_scrollController.isLoading)
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Center(child: CircularProgressIndicator()),
+            ),
+          ),
+      ],
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (_bearerToken != null &&
+        _scrollController.items.isEmpty &&
+        !_scrollController.isLoading) {
+      _scrollController.loadMore(_getProofsParameters());
+    }
   }
 }
 
-// TODO(monsieurtanuki): reuse whatever will be coded in https://github.com/openfoodfacts/smooth-app/pull/5366
+// Image widget for proof thumbnails
 class _PriceProofImage extends StatelessWidget {
   const _PriceProofImage(
     this.proof, {

@@ -6,12 +6,13 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/prices/generic_infinite_scroll.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-/// Page that displays the top prices products.
+/// Page that displays the top prices products with infinite scrolling.
 class PricesProductsPage extends StatefulWidget {
   const PricesProductsPage();
 
@@ -21,16 +22,66 @@ class PricesProductsPage extends StatefulWidget {
 
 class _PricesProductsPageState extends State<PricesProductsPage>
     with TraceableClientMixin {
-  late final Future<MaybeError<GetPriceProductsResult>> _products =
-      _showTopProducts();
-
-  // In this specific page, let's never try to go beyond the top 10.
-  // cf. https://github.com/openfoodfacts/smooth-app/pull/5383#issuecomment-2171117141
   static const int _pageSize = 10;
+  late final InfiniteScrollController<PriceProduct, GetPriceProductsParameters>
+      _scrollController;
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    _scrollController =
+        InfiniteScrollController<PriceProduct, GetPriceProductsParameters>(
+      initialItems: const <PriceProduct>[],
+      fetchItems: _fetchProducts,
+      onError: (dynamic error) {
+        // Handle error if needed
+        debugPrint('Error fetching products: $error');
+      },
+    );
+  }
+
+  Future<(List<PriceProduct>, bool)> _fetchProducts(
+    final GetPriceProductsParameters parameters,
+    final int page,
+  ) async {
+    try {
+      final MaybeError<GetPriceProductsResult> result =
+          await OpenPricesAPIClient.getPriceProducts(
+        parameters..pageNumber = page,
+        uriHelper: ProductQuery.uriPricesHelper,
+      );
+
+      if (result.isError) {
+        throw result.error!;
+      }
+
+      final List<PriceProduct> items = result.value.items ?? <PriceProduct>[];
+      final bool hasMore = page < (result.value.numberOfPages ?? 1);
+
+      // Update pagination info
+      _scrollController.updatePaginationInfo(
+        newTotalItems: result.value.total,
+        newTotalPages: result.value.numberOfPages,
+      );
+
+      return (items, hasMore);
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  @override
+  Widget build(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final GetPriceProductsParameters parameters = GetPriceProductsParameters()
+      ..orderBy = <OrderBy<GetPriceProductsOrderField>>[
+        const OrderBy<GetPriceProductsOrderField>(
+          field: GetPriceProductsOrderField.priceCount,
+          ascending: false,
+        ),
+      ]
+      ..pageSize = _pageSize;
+
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
@@ -51,76 +102,55 @@ class _PricesProductsPageState extends State<PricesProductsPage>
           ),
         ],
       ),
-      body: FutureBuilder<MaybeError<GetPriceProductsResult>>(
-        future: _products,
-        builder: (
-          final BuildContext context,
-          final AsyncSnapshot<MaybeError<GetPriceProductsResult>> snapshot,
-        ) {
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return Text(snapshot.error!.toString());
-          }
-          // highly improbable
-          if (!snapshot.hasData) {
-            return const Text('no data');
-          }
-          if (snapshot.data!.isError) {
-            return Text(snapshot.data!.error!);
-          }
-          final GetPriceProductsResult result = snapshot.data!.value;
-          // highly improbable
-          if (result.items == null) {
-            return const Text('empty list');
-          }
-          final List<Widget> children = <Widget>[];
+      body: InfiniteScrollList<PriceProduct, GetPriceProductsParameters>(
+        controller: _scrollController,
+        parameters: parameters,
+        loadMoreTriggerOffset: 200.0,
 
-          for (final PriceProduct item in result.items!) {
-            children.add(
-              SmoothCard(
-                child: PriceProductWidget(
-                  item,
-                  enableCountButton: true,
-                ),
-              ),
-            );
-          }
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
+        loadingBuilder: (final BuildContext context) =>
+            const Center(child: CircularProgressIndicator()),
+
+        errorBuilder: (final BuildContext context, final dynamic error) =>
+            Center(child: Text(error.toString())),
+
+        emptyBuilder: (final BuildContext context) => Center(
+          child: Text(appLocalizations.prices_no_results),
+        ),
+
+        loadingMoreBuilder: (final BuildContext context) => const Padding(
+          padding: EdgeInsets.symmetric(vertical: 16.0),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+
+        headerBuilder: (final BuildContext context) {
+          final int totalItems = _scrollController.totalItems ?? 0;
+
           final String title =
               appLocalizations.prices_products_list_length_many_pages(
             _pageSize,
-            result.total!,
+            totalItems,
           );
-          children.insert(
-            0,
-            SmoothCard(child: ListTile(title: Text(title))),
-          );
-          // so that the last content gets not hidden by the FAB
-          children.add(
+
+          return SmoothCard(child: ListTile(title: Text(title)));
+        },
+
+        footerBuilder: (final BuildContext context) =>
             const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
-          );
-          return ListView(
-            children: children,
+
+        // Individual item builder
+        itemBuilder: (
+          final BuildContext context,
+          final PriceProduct product,
+          final int index,
+        ) {
+          return SmoothCard(
+            child: PriceProductWidget(
+              product,
+              enableCountButton: true,
+            ),
           );
         },
       ),
     );
   }
-
-  static Future<MaybeError<GetPriceProductsResult>> _showTopProducts() async =>
-      OpenPricesAPIClient.getPriceProducts(
-        GetPriceProductsParameters()
-          ..orderBy = <OrderBy<GetPriceProductsOrderField>>[
-            const OrderBy<GetPriceProductsOrderField>(
-              field: GetPriceProductsOrderField.priceCount,
-              ascending: false,
-            ),
-          ]
-          ..pageSize = _pageSize
-          ..pageNumber = 1,
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
 }
