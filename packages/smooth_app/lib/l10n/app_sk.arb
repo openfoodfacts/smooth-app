@@ -518,7 +518,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_store": "Search for a store",
+  "search_store": "Vyhľadajte obchod",
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
@@ -565,7 +565,7 @@
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
   "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-  "packaging_editing_error": "Failed to save the packaging.",
+  "packaging_editing_error": "Nepodarilo sa uložiť balenie.",
   "packaging_editing_image_error": "Failed to get a new packaging image.",
   "packaging_editing_title": "Edit Packaging",
   "nutrition": "Nutričné hodnoty",
@@ -651,7 +651,7 @@
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
-  "crop_page_too_small_image_title": "The image is too small!",
+  "crop_page_too_small_image_title": "Obrázok je príliš malý!",
   "@crop_page_too_small_image_title": {
     "description": "Title of a dialog warning the user that the image is too small for upload"
   },
