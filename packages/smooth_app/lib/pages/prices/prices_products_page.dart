@@ -6,7 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/generic_infinite_scroll.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -34,8 +34,9 @@ class _PricesProductsPageState extends State<PricesProductsPage>
       initialItems: const <PriceProduct>[],
       fetchItems: _fetchProducts,
       onError: (dynamic error) {
-        // Handle error if needed
-        debugPrint('Error fetching products: $error');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Error loading products')),
+        );
       },
     );
   }
@@ -50,10 +51,6 @@ class _PricesProductsPageState extends State<PricesProductsPage>
         parameters..pageNumber = page,
         uriHelper: ProductQuery.uriPricesHelper,
       );
-
-      if (result.isError) {
-        throw result.error!;
-      }
 
       final List<PriceProduct> items = result.value.items ?? <PriceProduct>[];
       final bool hasMore = page < (result.value.numberOfPages ?? 1);
@@ -141,7 +138,6 @@ class _PricesProductsPageState extends State<PricesProductsPage>
         itemBuilder: (
           final BuildContext context,
           final PriceProduct product,
-          final int index,
         ) {
           return SmoothCard(
             child: PriceProductWidget(

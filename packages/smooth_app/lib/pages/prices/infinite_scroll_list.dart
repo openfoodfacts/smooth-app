@@ -1,96 +1,6 @@
-// generic_infinite_scroll.dart
-
+import 'dart:async';
 import 'package:flutter/material.dart';
-
-/// A generic class for handling infinite scrolling in lists.
-/// [T] is the type of items being displayed.
-/// [P] is the type of parameters used for pagination.
-class InfiniteScrollController<T, P> {
-  InfiniteScrollController({
-    required this.fetchItems,
-    Iterable<T> initialItems = _kEmptyIterable,
-    this.initialPage = 1,
-    this.onError,
-  })  : _currentPage = initialPage,
-        _items = List<T>.from(initialItems),
-        initialItems = List<T>.from(initialItems);
-
-  static const Iterable<Never> _kEmptyIterable = <Never>[];
-
-  /// Returns a Future with the fetched items and a boolean indicating if more items can be loaded
-  final Future<(List<T>, bool)> Function(P parameters, int page) fetchItems;
-
-  /// Parameters for the fetch operation
-  P? parameters;
-
-  /// Initial page number
-  final int initialPage;
-
-  /// Initial items to populate the list
-  final List<T> initialItems;
-
-  /// Called when an error occurs during fetching
-  final Function(dynamic error)? onError;
-
-  /// Current items in the list
-  List<T> _items;
-  List<T> get items => _items;
-
-  /// Current page being fetched
-  int _currentPage;
-  int get currentPage => _currentPage;
-
-  /// Whether currently loading more items
-  bool _isLoading = false;
-  bool get isLoading => _isLoading;
-
-  /// Whether more items can be loaded
-  bool _hasMoreItems = true;
-  bool get hasMoreItems => _hasMoreItems;
-
-  /// Additional pagination information
-  int? totalItems;
-  int? totalPages;
-
-  /// Load more items
-  Future<void> loadMore(P parameters) async {
-    if (_isLoading || !_hasMoreItems) {
-      return;
-    }
-
-    this.parameters = parameters;
-    _isLoading = true;
-
-    try {
-      final (List<T> newItems, bool hasMore) =
-          await fetchItems(parameters, _currentPage + 1);
-
-      _items.addAll(newItems);
-      _currentPage++;
-      _hasMoreItems = hasMore;
-    } catch (e) {
-      onError?.call(e);
-    } finally {
-      _isLoading = false;
-    }
-  }
-
-  /// Reset the controller to its initial state with optional new initial items
-  void reset({List<T>? newInitialItems}) {
-    _currentPage = initialPage;
-    _items = newInitialItems != null
-        ? List<T>.from(newInitialItems)
-        : List<T>.from(initialItems);
-    _isLoading = false;
-    _hasMoreItems = true;
-  }
-
-  /// Update pagination metadata
-  void updatePaginationInfo({int? newTotalItems, int? newTotalPages}) {
-    totalItems = newTotalItems;
-    totalPages = newTotalPages;
-  }
-}
+import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 
 /// A generic stateful widget for infinite scrolling lists.
 class InfiniteScrollList<T, P> extends StatefulWidget {
@@ -109,14 +19,14 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
     this.physics,
     this.padding,
     this.shrinkWrap = false,
-    this.onRefresh,
+    this.enablePullToRefresh = true,
   });
 
   /// Controller for managing the infinite scroll behavior
   final InfiniteScrollController<T, P> controller;
 
   /// Builder for individual list items
-  final Widget Function(BuildContext context, T item, int index) itemBuilder;
+  final Widget Function(BuildContext context, T item) itemBuilder;
 
   /// Builder for showing loading state
   final Widget Function(BuildContext context) loadingBuilder;
@@ -151,8 +61,9 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
   /// Whether the ListView should shrink-wrap its contents
   final bool shrinkWrap;
 
-  /// Callback for pull-to-refresh functionality
-  final Future<void> Function()? onRefresh;
+  /// Whether to enable pull-to-refresh functionality
+  final bool enablePullToRefresh;
+
 
   @override
   State<InfiniteScrollList<T, P>> createState() =>
@@ -162,7 +73,7 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
 class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   late ScrollController _scrollController;
   Object? _error;
-  bool _isInitialLoading = true;
+  bool _isInitialLoading = false;
 
   @override
   void initState() {
@@ -184,7 +95,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     super.didUpdateWidget(oldWidget);
     // If parameters change, reset and reload
     if (widget.parameters != oldWidget.parameters) {
-      _resetAndReload();
+      unawaited(_resetAndReload());
     }
   }
 
@@ -198,17 +109,13 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
       final (List<T> items, bool hasMore) = await widget.controller
           .fetchItems(widget.parameters, widget.controller.initialPage);
 
-      if (mounted) {
-        setState(() {
-          widget.controller.reset(newInitialItems: items);
-          widget.controller._hasMoreItems = hasMore;
-          _isInitialLoading = false;
-        });
-      }
+      widget.controller.reset(newInitialItems: items);
+      widget.controller.hasMoreItems = hasMore; // Fixed: directly set the property instead of calling a method
     } catch (e) {
+      _error = e;
+    } finally {
       if (mounted) {
         setState(() {
-          _error = e;
           _isInitialLoading = false;
         });
       }
@@ -224,7 +131,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     final double currentScroll = _scrollController.position.pixels;
 
     if (currentScroll > maxScroll - widget.loadMoreTriggerOffset) {
-      _loadMoreItems();
+      unawaited(_loadMoreItems());
     }
   }
 
@@ -251,11 +158,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   }
 
   Future<void> _handleRefresh() async {
-    if (widget.onRefresh != null) {
-      await widget.onRefresh!();
-    } else {
-      await _resetAndReload();
-    }
+    return _resetAndReload();
   }
 
   @override
@@ -281,7 +184,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
 
     // Add list items
     for (int i = 0; i < widget.controller.items.length; i++) {
-      children.add(widget.itemBuilder(context, widget.controller.items[i], i));
+      children.add(widget.itemBuilder(context, widget.controller.items[i]));
     }
 
     // Add loading indicator at the bottom if loading more
@@ -296,13 +199,13 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
 
     final ListView listView = ListView(
       controller: _scrollController,
+      shrinkWrap: widget.shrinkWrap,
       physics: widget.physics,
       padding: widget.padding,
-      shrinkWrap: widget.shrinkWrap,
       children: children,
     );
 
-    if (widget.onRefresh != null) {
+    if (widget.enablePullToRefresh) {
       return RefreshIndicator(
         onRefresh: _handleRefresh,
         child: listView,

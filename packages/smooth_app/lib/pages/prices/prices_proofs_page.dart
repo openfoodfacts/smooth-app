@@ -4,13 +4,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/generic_infinite_scroll.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -47,7 +46,9 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       initialItems: const <Proof>[],
       fetchItems: _fetchProofs,
       onError: (dynamic error) {
-        debugPrint('Error fetching proofs: $error');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error loading proofs : $error')),
+        );
       },
     );
 
@@ -100,7 +101,11 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     );
 
     if (token.isError) {
-      debugPrint('Authentication error: ${token.error}');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Authentication error: ${token.error}')),
+        );
+      }
       return;
     }
 
@@ -230,7 +235,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       if (_scrollController.isLoading) {
         return const Center(child: CircularProgressIndicator());
       } else {
-        return Center(child: Text(appLocalizations.proofs_empty_list));
+        return Center(child: Text(appLocalizations.prices_no_results));
       }
     }
 

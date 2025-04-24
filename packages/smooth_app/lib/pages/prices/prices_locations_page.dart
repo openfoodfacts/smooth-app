@@ -6,7 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/generic_infinite_scroll.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
@@ -36,36 +36,30 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
       initialItems: const <Location>[],
       fetchItems: _fetchLocations,
       onError: (dynamic error) {
-        debugPrint('Error fetching locations: $error');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error fetching locations: $error')),
+        );
       },
     );
   }
 
   Future<(List<Location>, bool)> _fetchLocations(
       GetLocationsParameters parameters, int page) async {
-    try {
-      final MaybeError<GetLocationsResult> result =
-          await OpenPricesAPIClient.getLocations(
-        parameters..pageNumber = page,
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
+    final MaybeError<GetLocationsResult> result =
+    await OpenPricesAPIClient.getLocations(
+      parameters..pageNumber = page,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
 
-      if (result.isError) {
-        throw result.error!;
-      }
+    final List<Location> items = result.value.items ?? <Location>[];
+    final bool hasMore = page < (result.value.numberOfPages ?? 1);
 
-      final List<Location> items = result.value.items ?? <Location>[];
-      final bool hasMore = page < (result.value.numberOfPages ?? 1);
+    _scrollController.updatePaginationInfo(
+      newTotalItems: result.value.total,
+      newTotalPages: result.value.numberOfPages,
+    );
 
-      _scrollController.updatePaginationInfo(
-        newTotalItems: result.value.total,
-        newTotalPages: result.value.numberOfPages,
-      );
-
-      return (items, hasMore);
-    } catch (e) {
-      throw e.toString();
-    }
+    return (items, hasMore);
   }
 
   @override
@@ -128,7 +122,7 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
         },
         footerBuilder: (BuildContext context) =>
             const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
-        itemBuilder: (BuildContext context, Location location, int index) {
+        itemBuilder: (BuildContext context, Location location) {
           final int priceCount = location.priceCount ?? 0;
 
           return SmoothCard(

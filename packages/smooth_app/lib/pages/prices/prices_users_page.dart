@@ -6,7 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/generic_infinite_scroll.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -124,7 +124,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
         },
         footerBuilder: (BuildContext context) =>
             const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
-        itemBuilder: (BuildContext context, PriceUser user, int index) {
+        itemBuilder: (BuildContext context, PriceUser user) {
           final int priceCount = user.priceCount ?? 0;
           return SmoothCard(
             child: Wrap(

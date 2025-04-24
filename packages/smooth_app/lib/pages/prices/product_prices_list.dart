@@ -8,8 +8,8 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/pages/prices/generic_infinite_scroll.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
@@ -42,8 +42,9 @@ class _ProductPricesListState extends State<ProductPricesList>
       initialItems: initialItems,
       fetchItems: _fetchPrices,
       onError: (dynamic error) {
-        // Handle error if needed
-        debugPrint('Error fetching prices: $error');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error fetching prices: $error')),
+        );
       },
     );
 
@@ -84,8 +85,6 @@ class _ProductPricesListState extends State<ProductPricesList>
     }
   }
 
-  Future<void> _refreshData() async {}
-
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
@@ -94,7 +93,6 @@ class _ProductPricesListState extends State<ProductPricesList>
       controller: _scrollController,
       parameters: widget.model.parameters,
       loadMoreTriggerOffset: 200.0,
-      onRefresh: _refreshData,
       loadingBuilder: (BuildContext context) =>
           const Center(child: CircularProgressIndicator()),
       errorBuilder: (BuildContext context, dynamic error) =>
@@ -173,7 +171,7 @@ class _ProductPricesListState extends State<ProductPricesList>
       },
       footerBuilder: (BuildContext context) =>
           const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
-      itemBuilder: (BuildContext context, Price price, int index) {
+      itemBuilder: (BuildContext context, Price price) {
         final PriceProduct? priceProduct = price.product;
 
         return SmoothCard(

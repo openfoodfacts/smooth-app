@@ -4354,9 +4354,5 @@
   "prices_no_results": "No results found.",
   "@price_no_result": {
     "description": "Message shown when there are no price results to display"
-  },
-  "proofs_empty_list": "No proofs available to display.",
-  "@proofs_empty_list": {
-    "description": "Message shown when there are no proofs available in the list"
   }
 }
