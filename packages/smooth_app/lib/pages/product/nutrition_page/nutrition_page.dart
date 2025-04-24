@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_validator.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_availability_container.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
@@ -247,6 +248,41 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       if (!mounted) {
         return false;
       }
+    }
+
+    final NutritionValidator validator = NutritionValidator();
+
+    String servingSize = '100.0';
+
+    if (_nutritionContainer.perSize == PerSize.serving) {
+      servingSize = _nutritionContainer.servingSize;
+    }
+
+    bool error = false;
+
+    for (final Nutrient nutrient in _controllers.keys) {
+      final TextEditingControllerWithHistory controller =
+          _controllers[nutrient]!;
+      final String quantity = controller.text.trim();
+      final Unit u = _nutritionContainer.getUnit(nutrient);
+
+      if (!validator.validate(nutrient, quantity, u, servingSize)) {
+        error = true;
+        controller.valid = false;
+      } else {
+        controller.valid = true;
+      }
+    }
+
+    if (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SmoothFloatingSnackbar.error(
+          context: context,
+          text: appLocalizations.nutrition_page_invalid_number,
+        ),
+      );
+
+      return false;
     }
 
     final Product? changedProduct = _getChangedProduct(

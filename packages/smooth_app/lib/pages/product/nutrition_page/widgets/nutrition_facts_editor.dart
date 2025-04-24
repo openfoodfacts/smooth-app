@@ -306,6 +306,11 @@ class _NutrientValueCell extends StatelessWidget {
                         controller: controller,
                         enabled: controller.isSet,
                         focusNode: focusNodes[orderedNutrient],
+                        style: TextStyle(
+                          color: !controller.valid ? Colors.red : null,
+                          fontWeight:
+                              !controller.valid ? FontWeight.w800 : null,
+                        ),
                         decoration: const InputDecoration.collapsed(
                           hintText: '',
                         ),
@@ -334,6 +339,11 @@ class _NutrientValueCell extends StatelessWidget {
 
                           focusNodes[focusNodes.keys.elementAt(position + 1)]
                               ?.requestFocus();
+                        },
+                        onChanged: (String? value) {
+                          if (!controller.valid) {
+                            controller.valid = true;
+                          }
                         },
                         validator: (String? value) {
                           if (value == null || value.trim().isEmpty) {
