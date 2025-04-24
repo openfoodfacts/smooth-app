@@ -784,20 +784,20 @@
   "score_add_missing_product_brands": "Add missing product brands",
   "score_update_nutrition_facts": "Opdatér ernæringsfakta",
   "nutrition_page_title": "Ernæringsfakta",
-  "nutrition_page_nutritional_info_title": "Nutritional information",
+  "nutrition_page_nutritional_info_title": "Ernæringsoplysninger",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
   "nutrition_page_nutritional_info_value_positive": "Ja",
   "nutrition_page_nutritional_info_value_negative": "Nej",
-  "nutrition_page_nutritional_info_open_photo": "Open photo",
-  "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+  "nutrition_page_nutritional_info_open_photo": "Åbn foto",
+  "nutrition_page_nutritional_info_explanation_title": "God praksis: Ernæringsoplysninger",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+  "nutrition_page_nutritional_info_explanation_info1": "Nogle gange er næringsindhold **ikke angivet på emballagen** eller i et medfølgende dokument. I dette tilfælde, og kun i dette tilfælde, kan du indstille værdien til **NEJ**.",
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
-  "nutrition_page_serving_type_label": "Nutritional values:",
+  "nutrition_page_serving_type_label": "Ernæringsværdier:",
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
@@ -806,28 +806,28 @@
   "nutrition_page_per_serving": "per portion",
   "nutrition_page_add_nutrient": "Tilføj et næringsstof",
   "nutrition_page_serving_size": "Portionsstørrelse",
-  "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_hint": "Angiv en portionsstørrelse (f.eks. 100 g)",
+  "nutrition_page_serving_size_explanation_title": "God praksis: Portionsstørrelse",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+  "nutrition_page_serving_size_explanation_info1": "Denne værdi hjælper med at **lave en proportional beregning af hvert næringsstof pr. portion**.",
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Tilladte enheder** er: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** eller **60 G** (foretræk den første)",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** eller **1L**",
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Ugyldig enhed",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -835,15 +835,15 @@
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Ugyldige enheder",
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **slik** og 2 **kiks**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Manglende enhed",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -854,11 +854,11 @@
   "nutrition_page_invalid_number": "Ugyldigt nummer",
   "nutrition_page_update_running": "Opdaterer produktet på serveren…",
   "nutrition_page_update_done": "Produkt opdateret!",
-  "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+  "nutrition_page_take_serving_size_from_product_quantity": "Brug produktmængden som portionsstørrelse",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
   },
-  "nutrition_page_photo_error": "Unable to load the photo",
+  "nutrition_page_photo_error": "Kan ikke indlæse billedet",
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
@@ -950,7 +950,7 @@
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
-  "product_image_details_contributor_producer": "Contributor (producer)",
+  "product_image_details_contributor_producer": "Bidragyder (producent)",
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
@@ -962,15 +962,15 @@
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
-  "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+  "homepage_main_card_logo_description": "Velkommen til Open Food Facts",
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
-  "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+  "homepage_main_card_subheading": "**Scan** en stregkode eller\n**søg** efter et produkt",
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Search for a product",
+  "homepage_main_card_search_field_hint": "Søg efter et produkt",
   "homepage_main_card_search_field_tooltip": "Start søgning",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
@@ -998,7 +998,7 @@
     "description": "The product data couldn't be refreshed"
   },
   "product_internet_error_modal_title": "Der opstod en fejl!",
-  "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+  "product_internet_error_modal_message": "Vi kan ikke hente oplysninger om dette produkt grundet en netværksfejl. Tjek venligst din internetforbindelse og prøv igen.",
   "@product_internet_error_modal_message": {
     "placeholders": {
       "error": {
@@ -1051,7 +1051,7 @@
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+  "product_search_same_category_error": "Denne funktion kan kun bruges til produkter med en kategori.\n\nRediger venligst produktet for at tilføje en kategori.",
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1091,7 +1091,7 @@
   "@country_change_message": {
     "description": "Message stating the change of countries"
   },
-  "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+  "currency_auto_change_message": "Vil du ændre valutaen fra {previousCurrency} til {possibleCurrency}?",
   "@currency_auto_change_message": {
     "description": "Message asking to confirm the change of currencies",
     "placeholders": {
@@ -1125,7 +1125,7 @@
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
-  "native_app_description": "Open systems settings for Open Food Facts",
+  "native_app_description": "Åbn systemindstillinger for Open Food Facts",
   "@native_app_description": {
     "description": "Native App description in app settings"
   },
@@ -1144,7 +1144,7 @@
   "@Lists": {},
   "no_prodcut_in_list": "Der er intet produkt på denne liste",
   "no_product_in_section": "Der er intet produkt i dette afsnit",
-  "recently_seen_products": "All viewed products",
+  "recently_seen_products": "Alle sete produkter",
   "clear": "Ryd",
   "@clear": {
     "description": "Clears a product list (short label)"
@@ -1162,68 +1162,68 @@
       "percent": {}
     }
   },
-  "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+  "plural_ago_days": "{count,plural,  one {}=1{en dag siden} other{{count} dage siden}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+  "plural_ago_hours": "{count,plural, =1{en time siden} other{{count} timer siden}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+  "plural_ago_minutes": "{count,plural,  =0{mindre end et minut siden} =1{et minut siden} other{{count} minutter siden}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
+  "plural_ago_months": "{count,plural,  =1{en måned siden} other{{count} måneder siden}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+  "plural_ago_weeks": "{count,plural,  =1{en uge siden} other{{count} uger siden}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+  "plural_compare_x_products": "{count,plural, =1{Sammenlign et produkt} other{Sammenlign {count} produkter}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+  "multiselect_title": "{count,plural, =0{Intet valgt produkt} =1{Ét valgt produkt} other{{count} valgte produkter}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
       "count": {}
     }
   },
-  "compare_products_mode": "Compare selected products",
+  "compare_products_mode": "Sammenlign valgte produkter",
   "@compare_products_mode": {
     "description": "Button to switch to 'compare products mode'"
   },
-  "delete_products_mode": "Delete selected products",
+  "delete_products_mode": "Slet valgte produkter",
   "@delete_products_mode": {
     "description": "Button to switch to 'delete products'"
   },
-  "select_all_products_mode": "Select all products",
+  "select_all_products_mode": "Vælg alle produkter",
   "@select_all_products_mode": {
     "description": "Button to switch to 'select all products'"
   },
-  "select_none_products_mode": "Select none",
+  "select_none_products_mode": "Vælg ingen",
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
@@ -1237,15 +1237,15 @@
   },
   "retry_button_label": "Forsøg igen",
   "connect_with_us": "Kom i forbindelse med os",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Følg os på TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
-  "instagram": "Follow us on Instagram",
+  "instagram": "Følg os på Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
-  "twitter": "Follow us on X (formerly Twitter)",
+  "twitter": "Følg os på X (tidligere Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Følg os på Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Følg os på BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
   "faq": "FAQ",
@@ -1753,11 +1753,11 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+  "edit_product_form_item_countries_explanations_title": "God praksis: Lande",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+  "edit_product_form_item_countries_explanations_info1": "**Lande, hvor produktet er udbredt** (omfatter ikke butikker, der specialiserer i udenlandske produkter).",
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
