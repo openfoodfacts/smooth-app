@@ -8,14 +8,8 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
     super.key,
     required this.controller,
     required this.itemBuilder,
-    required this.loadingBuilder,
-    required this.errorBuilder,
-    required this.emptyBuilder,
     required this.parameters,
-    this.loadMoreTriggerOffset = 200.0,
-    this.loadingMoreBuilder,
     this.headerBuilder,
-    this.footerBuilder,
     this.physics,
     this.padding,
     this.shrinkWrap = false,
@@ -28,29 +22,11 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
   /// Builder for individual list items
   final Widget Function(BuildContext context, T item) itemBuilder;
 
-  /// Builder for showing loading state
-  final Widget Function(BuildContext context) loadingBuilder;
-
-  /// Builder for showing error state
-  final Widget Function(BuildContext context, dynamic error) errorBuilder;
-
-  /// Builder for showing empty state
-  final Widget Function(BuildContext context) emptyBuilder;
-
-  /// Optional builder for showing loading more state at the bottom of the list
-  final Widget Function(BuildContext context)? loadingMoreBuilder;
-
   /// Optional builder for header
   final Widget Function(BuildContext context)? headerBuilder;
 
-  /// Optional builder for footer
-  final Widget Function(BuildContext context)? footerBuilder;
-
   /// Parameters for fetching items
   final P parameters;
-
-  /// Scroll offset from the bottom that triggers loading more items
-  final double loadMoreTriggerOffset;
 
   /// ScrollPhysics for the ListView
   final ScrollPhysics? physics;
@@ -64,13 +40,15 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
   /// Whether to enable pull-to-refresh functionality
   final bool enablePullToRefresh;
 
-
   @override
   State<InfiniteScrollList<T, P>> createState() =>
       _InfiniteScrollListState<T, P>();
 }
 
 class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
+  // Constants that were previously parameters
+  static const double _loadMoreTriggerOffset = 200.0;
+
   late ScrollController _scrollController;
   Object? _error;
   bool _isInitialLoading = false;
@@ -110,7 +88,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
           .fetchItems(widget.parameters, widget.controller.initialPage);
 
       widget.controller.reset(newInitialItems: items);
-      widget.controller.hasMoreItems = hasMore; // Fixed: directly set the property instead of calling a method
+      widget.controller.hasMoreItems = hasMore;
     } catch (e) {
       _error = e;
     } finally {
@@ -130,7 +108,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     final double maxScroll = _scrollController.position.maxScrollExtent;
     final double currentScroll = _scrollController.position.pixels;
 
-    if (currentScroll > maxScroll - widget.loadMoreTriggerOffset) {
+    if (currentScroll > maxScroll - _loadMoreTriggerOffset) {
       unawaited(_loadMoreItems());
     }
   }
@@ -161,18 +139,42 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     return _resetAndReload();
   }
 
+  // Default widget builders
+  Widget _buildLoadingState(BuildContext context) {
+    return const Center(child: CircularProgressIndicator());
+  }
+
+  Widget _buildErrorState(BuildContext context, dynamic error) {
+    return Text(error.toString());
+  }
+
+  Widget _buildEmptyState(BuildContext context) {
+    return const Text('No results'); // Use appropriate localization
+  }
+
+  Widget _buildLoadingMoreIndicator(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Center(child: CircularProgressIndicator()),
+    );
+  }
+
+  Widget _buildFooter(BuildContext context) {
+    return const SizedBox(height: 100); // Assuming MINIMUM_TOUCH_SIZE = 50
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_isInitialLoading) {
-      return widget.loadingBuilder(context);
+      return _buildLoadingState(context);
     }
 
     if (_error != null) {
-      return widget.errorBuilder(context, _error);
+      return _buildErrorState(context, _error);
     }
 
     if (widget.controller.items.isEmpty) {
-      return widget.emptyBuilder(context);
+      return _buildEmptyState(context);
     }
 
     final List<Widget> children = <Widget>[];
@@ -188,14 +190,12 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     }
 
     // Add loading indicator at the bottom if loading more
-    if (widget.controller.isLoading && widget.loadingMoreBuilder != null) {
-      children.add(widget.loadingMoreBuilder!(context));
+    if (widget.controller.isLoading) {
+      children.add(_buildLoadingMoreIndicator(context));
     }
 
-    // Add footer if provided
-    if (widget.footerBuilder != null) {
-      children.add(widget.footerBuilder!(context));
-    }
+    // Add footer
+    children.add(_buildFooter(context));
 
     final ListView listView = ListView(
       controller: _scrollController,

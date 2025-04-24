@@ -46,7 +46,7 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
   Future<(List<Location>, bool)> _fetchLocations(
       GetLocationsParameters parameters, int page) async {
     final MaybeError<GetLocationsResult> result =
-    await OpenPricesAPIClient.getLocations(
+        await OpenPricesAPIClient.getLocations(
       parameters..pageNumber = page,
       uriHelper: ProductQuery.uriPricesHelper,
     );

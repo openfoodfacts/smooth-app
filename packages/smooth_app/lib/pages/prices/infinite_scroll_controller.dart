@@ -75,7 +75,7 @@ class InfiniteScrollController<T, P> {
 
     try {
       final (List<T> newItems, bool hasMore) =
-      await fetchItems(parameters, _currentPage + 1);
+          await fetchItems(parameters, _currentPage + 1);
 
       _items.addAll(newItems);
       _currentPage++;
