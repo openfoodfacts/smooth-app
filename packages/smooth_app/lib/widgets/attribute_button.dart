@@ -6,6 +6,9 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatefulWidget {
@@ -38,6 +41,8 @@ class _AttributeButtonState extends State<AttributeButton> {
     final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = widget.attribute.settingNote;
     final List<Widget> children = <Widget>[];
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     if (!editMode) {
       children.add(
         InkWell(
@@ -46,7 +51,8 @@ class _AttributeButtonState extends State<AttributeButton> {
             currentImportanceId,
           ),
           child: ListTile(
-            tileColor: Theme.of(context).colorScheme.surface,
+            tileColor:
+                context.lightTheme() ? Colors.white : extension.primaryMedium,
             shape: widget.isLast
                 ? const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
@@ -57,16 +63,24 @@ class _AttributeButtonState extends State<AttributeButton> {
                 : null,
             leading: Icon(
               Icons.radio_button_checked,
-              color: Theme.of(context).primaryColor,
+              color: context.lightTheme()
+                  ? extension.primaryBlack
+                  : extension.primaryBlack,
               size: 32,
             ),
             title: AutoSizeText(
               widget.productPreferences
                   .getPreferenceImportanceFromImportanceId(currentImportanceId)!
                   .name!,
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.w600),
             ),
             trailing: GestureDetector(
-                child: const Icon(Icons.edit, size: DEFAULT_ICON_SIZE),
+                child: Icon(
+                  Icons.edit,
+                  size: DEFAULT_ICON_SIZE,
+                  color: extension.primaryBlack,
+                ),
                 onTap: () => setState(() => editMode = !editMode)),
           ),
         ),
@@ -88,7 +102,7 @@ class _AttributeButtonState extends State<AttributeButton> {
                 currentImportanceId == importanceId
                     ? Icons.radio_button_checked
                     : Icons.radio_button_off,
-                color: Theme.of(context).primaryColor,
+                color: extension.primaryBlack,
                 size: 32,
               ),
               title: AutoSizeText(
@@ -120,14 +134,16 @@ class _AttributeButtonState extends State<AttributeButton> {
             context: context,
             isFoodPreferences: true,
           ),
-          tileColor: Theme.of(context).colorScheme.secondary,
+          tileColor: context.lightTheme()
+              ? extension.primaryMedium
+              : extension.primaryDark,
           trailing: info == null
               ? null
               : const Icon(Icons.help_outline, size: DEFAULT_ICON_SIZE),
           title: AutoSizeText(
             widget.attribute.settingName ?? widget.attribute.name!,
             maxLines: 2,
-            style: style,
+            style: style.copyWith(fontWeight: FontWeight.bold),
           ),
           onTap: info == null
               ? null

@@ -6,6 +6,8 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
@@ -38,6 +40,8 @@ class UserPreferencesAttributeGroup {
   }
 
   List<UserPreferencesItem> getItems({bool? collapsed}) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     collapsed ??= _isCollapsed;
     final List<UserPreferencesItem> result = <UserPreferencesItem>[];
     result.add(
@@ -61,8 +65,16 @@ class UserPreferencesAttributeGroup {
                     topRight: ROUNDED_RADIUS,
                   ),
                 ),
-                tileColor: Theme.of(context).primaryColor,
-                leading: const Icon(Icons.circle, color: Colors.white),
+                tileColor: extension.primaryBlack,
+                leading: const SizedBox.square(
+                  dimension: 18.0,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(ROUNDED_RADIUS),
+                    ),
+                  ),
+                ),
                 title: Text(
                   group.name ?? appLocalizations.unknown,
                   style: themeData.textTheme.titleLarge!.copyWith(
@@ -121,10 +133,11 @@ class UserPreferencesAttributeGroup {
           builder: (_) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
             child: SmoothCard(
+              elevation: 8,
               padding: EdgeInsets.zero,
               borderRadius: const BorderRadius.only(
                   bottomLeft: ROUNDED_RADIUS, bottomRight: ROUNDED_RADIUS),
-              color: Theme.of(context).primaryColor,
+              color: extension.primaryBlack,
               margin: EdgeInsets.zero,
               child: AttributeButton(
                 attribute,
