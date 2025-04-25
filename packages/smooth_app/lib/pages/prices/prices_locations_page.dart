@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
@@ -97,18 +98,6 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
       body: InfiniteScrollList<Location, GetLocationsParameters>(
         controller: _scrollController,
         parameters: parameters,
-        loadMoreTriggerOffset: 200.0,
-        loadingBuilder: (BuildContext context) =>
-            const Center(child: CircularProgressIndicator()),
-        errorBuilder: (BuildContext context, dynamic error) =>
-            Center(child: Text(error.toString())),
-        emptyBuilder: (BuildContext context) => Center(
-          child: Text(appLocalizations.prices_no_results),
-        ),
-        loadingMoreBuilder: (BuildContext context) => const Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.0),
-          child: Center(child: CircularProgressIndicator()),
-        ),
         headerBuilder: (BuildContext context) {
           final int totalItems = _scrollController.totalItems ?? 0;
 
@@ -120,8 +109,6 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
 
           return SmoothCard(child: ListTile(title: Text(title)));
         },
-        footerBuilder: (BuildContext context) =>
-            const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
         itemBuilder: (BuildContext context, Location location) {
           final int priceCount = location.priceCount ?? 0;
 

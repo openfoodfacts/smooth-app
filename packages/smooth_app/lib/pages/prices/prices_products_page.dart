@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -102,23 +102,6 @@ class _PricesProductsPageState extends State<PricesProductsPage>
       body: InfiniteScrollList<PriceProduct, GetPriceProductsParameters>(
         controller: _scrollController,
         parameters: parameters,
-        loadMoreTriggerOffset: 200.0,
-
-        loadingBuilder: (final BuildContext context) =>
-            const Center(child: CircularProgressIndicator()),
-
-        errorBuilder: (final BuildContext context, final dynamic error) =>
-            Center(child: Text(error.toString())),
-
-        emptyBuilder: (final BuildContext context) => Center(
-          child: Text(appLocalizations.prices_no_results),
-        ),
-
-        loadingMoreBuilder: (final BuildContext context) => const Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.0),
-          child: Center(child: CircularProgressIndicator()),
-        ),
-
         headerBuilder: (final BuildContext context) {
           final int totalItems = _scrollController.totalItems ?? 0;
 
@@ -130,10 +113,6 @@ class _PricesProductsPageState extends State<PricesProductsPage>
 
           return SmoothCard(child: ListTile(title: Text(title)));
         },
-
-        footerBuilder: (final BuildContext context) =>
-            const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
-
         // Individual item builder
         itemBuilder: (
           final BuildContext context,

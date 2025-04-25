@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -33,7 +34,11 @@ class _PricesUsersPageState extends State<PricesUsersPage>
     _scrollController = InfiniteScrollController<PriceUser, GetUsersParameters>(
       initialItems: const <PriceUser>[],
       fetchItems: _fetchUsers,
-      onError: (dynamic error) {},
+      onError: (dynamic error) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error fetching users: $error')),
+        );
+      },
     );
   }
 
@@ -41,30 +46,21 @@ class _PricesUsersPageState extends State<PricesUsersPage>
     GetUsersParameters parameters,
     int page,
   ) async {
-    try {
-      final MaybeError<GetUsersResult> result =
-          await OpenPricesAPIClient.getUsers(
-        parameters..pageNumber = page,
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
+    final MaybeError<GetUsersResult> result =
+        await OpenPricesAPIClient.getUsers(
+      parameters..pageNumber = page,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
 
-      if (result.isError) {
-        throw result.error!;
-      }
+    final List<PriceUser> items = result.value.items ?? <PriceUser>[];
+    final bool hasMore = page < (result.value.numberOfPages ?? 1);
 
-      final List<PriceUser> items = result.value.items ?? <PriceUser>[];
-      final bool hasMore = page < (result.value.numberOfPages ?? 1);
+    _scrollController.updatePaginationInfo(
+      newTotalItems: result.value.total,
+      newTotalPages: result.value.numberOfPages,
+    );
 
-      // Update pagination info
-      _scrollController.updatePaginationInfo(
-        newTotalItems: result.value.total,
-        newTotalPages: result.value.numberOfPages,
-      );
-
-      return (items, hasMore);
-    } catch (e) {
-      throw e.toString();
-    }
+    return (items, hasMore);
   }
 
   @override
@@ -102,17 +98,6 @@ class _PricesUsersPageState extends State<PricesUsersPage>
       body: InfiniteScrollList<PriceUser, GetUsersParameters>(
         controller: _scrollController,
         parameters: parameters,
-        loadMoreTriggerOffset: 200.0,
-        loadingBuilder: (BuildContext context) =>
-            const Center(child: CircularProgressIndicator()),
-        errorBuilder: (BuildContext context, dynamic error) =>
-            Center(child: Text(error.toString())),
-        emptyBuilder: (BuildContext context) =>
-            Center(child: Text(appLocalizations.prices_no_results)),
-        loadingMoreBuilder: (BuildContext context) => const Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.0),
-          child: Center(child: CircularProgressIndicator()),
-        ),
         headerBuilder: (BuildContext context) {
           final int totalItems = _scrollController.totalItems ?? 0;
           final String title =
@@ -122,8 +107,6 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           );
           return SmoothCard(child: ListTile(title: Text(title)));
         },
-        footerBuilder: (BuildContext context) =>
-            const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
         itemBuilder: (BuildContext context, PriceUser user) {
           final int priceCount = user.priceCount ?? 0;
           return SmoothCard(

@@ -6,10 +6,10 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
@@ -60,51 +60,36 @@ class _ProductPricesListState extends State<ProductPricesList>
     GetPricesParameters parameters,
     int page,
   ) async {
-    try {
-      final MaybeError<GetPricesResult> result =
-          await OpenPricesAPIClient.getPrices(
-        parameters,
-      );
+    final MaybeError<GetPricesResult> result =
+        await OpenPricesAPIClient.getPrices(
+      parameters..pageNumber = page,
+    );
 
-      if (result.isError) {
-        throw result.detailError;
-      }
-
-      final List<Price> items = result.value.items ?? <Price>[];
-      final bool hasMore = page < (result.value.numberOfPages ?? 1);
-
-      // Update pagination info
-      _scrollController.updatePaginationInfo(
-        newTotalItems: result.value.total,
-        newTotalPages: result.value.numberOfPages,
-      );
-
-      return (items, hasMore);
-    } catch (e) {
-      throw e.toString();
+    if (result.isError) {
+      throw result.detailError;
     }
+
+    final List<Price> items = result.value.items ?? <Price>[];
+    final bool hasMore = page < (result.value.numberOfPages ?? 1);
+
+    // Update pagination info
+    _scrollController.updatePaginationInfo(
+      newTotalItems: result.value.total,
+      newTotalPages: result.value.numberOfPages,
+    );
+
+    return (items, hasMore);
   }
 
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return InfiniteScrollList<Price, GetPricesParameters>(
       controller: _scrollController,
       parameters: widget.model.parameters,
-      loadMoreTriggerOffset: 200.0,
-      loadingBuilder: (BuildContext context) =>
-          const Center(child: CircularProgressIndicator()),
-      errorBuilder: (BuildContext context, dynamic error) =>
-          Text(error.toString()),
-      emptyBuilder: (BuildContext context) => const Text('No prices available'),
-      loadingMoreBuilder: (BuildContext context) => const Padding(
-        padding: EdgeInsets.symmetric(vertical: 16.0),
-        child: Center(child: CircularProgressIndicator()),
-      ),
       headerBuilder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
         String title;
         final int totalPages = _scrollController.totalPages ?? 1;
         final int currentPage = _scrollController.currentPage;
@@ -169,8 +154,6 @@ class _ProductPricesListState extends State<ProductPricesList>
           children: headerChildren,
         );
       },
-      footerBuilder: (BuildContext context) =>
-          const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
       itemBuilder: (BuildContext context, Price price) {
         final PriceProduct? priceProduct = price.product;
 

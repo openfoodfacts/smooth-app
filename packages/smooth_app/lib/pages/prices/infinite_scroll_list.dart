@@ -1,19 +1,15 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 
 /// A generic stateful widget for infinite scrolling lists.
 class InfiniteScrollList<T, P> extends StatefulWidget {
   const InfiniteScrollList({
-    super.key,
     required this.controller,
     required this.itemBuilder,
     required this.parameters,
     this.headerBuilder,
-    this.physics,
-    this.padding,
-    this.shrinkWrap = false,
-    this.enablePullToRefresh = true,
   });
 
   /// Controller for managing the infinite scroll behavior
@@ -28,28 +24,16 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
   /// Parameters for fetching items
   final P parameters;
 
-  /// ScrollPhysics for the ListView
-  final ScrollPhysics? physics;
-
-  /// Padding for the ListView
-  final EdgeInsets? padding;
-
-  /// Whether the ListView should shrink-wrap its contents
-  final bool shrinkWrap;
-
-  /// Whether to enable pull-to-refresh functionality
-  final bool enablePullToRefresh;
-
   @override
   State<InfiniteScrollList<T, P>> createState() =>
       _InfiniteScrollListState<T, P>();
 }
 
 class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
-  // Constants that were previously parameters
+  // Hardcoded constant
   static const double _loadMoreTriggerOffset = 200.0;
 
-  late ScrollController _scrollController;
+  late final ScrollController _scrollController;
   Object? _error;
   bool _isInitialLoading = false;
 
@@ -149,7 +133,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   }
 
   Widget _buildEmptyState(BuildContext context) {
-    return const Text('No results'); // Use appropriate localization
+    return const Text('No results');
   }
 
   Widget _buildLoadingMoreIndicator(BuildContext context) {
@@ -160,7 +144,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   }
 
   Widget _buildFooter(BuildContext context) {
-    return const SizedBox(height: 100); // Assuming MINIMUM_TOUCH_SIZE = 50
+    return const SizedBox(height: MINIMUM_TOUCH_SIZE * 2);
   }
 
   @override
@@ -199,19 +183,12 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
 
     final ListView listView = ListView(
       controller: _scrollController,
-      shrinkWrap: widget.shrinkWrap,
-      physics: widget.physics,
-      padding: widget.padding,
       children: children,
     );
 
-    if (widget.enablePullToRefresh) {
-      return RefreshIndicator(
-        onRefresh: _handleRefresh,
-        child: listView,
-      );
-    } else {
-      return listView;
-    }
+    return RefreshIndicator(
+      onRefresh: _handleRefresh,
+      child: listView,
+    );
   }
 }
