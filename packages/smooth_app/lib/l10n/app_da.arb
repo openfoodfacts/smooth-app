@@ -370,9 +370,9 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donér til Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
+  "contribute_enroll_alpha": "Tilmeld dig intern alpha-version",
   "@contribute_enroll_alpha": {},
-  "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+  "contribute_enroll_alpha_warning": "Anerkend venligst, at med den interne alpha-version er det muligt at miste alle data, og appen kan blive ubrugelig når som helst!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Produkter, som skal færdiggøres",
   "@contribute_improve_ProductsToBeCompleted": {
@@ -407,7 +407,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Bidrage med priser ved at anmode om en GDPR-eksport af dine loyalitetskortdata",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
