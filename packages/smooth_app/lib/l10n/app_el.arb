@@ -1162,7 +1162,7 @@
       "percent": {}
     }
   },
-  "plural_ago_days": "{count,plural, one {} =1{μια μέρα πριν} other{{count} μέρες πριν}}",
+  "plural_ago_days": "{count,plural, =1{μια μέρα πριν} other{{count} μέρες πριν}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
