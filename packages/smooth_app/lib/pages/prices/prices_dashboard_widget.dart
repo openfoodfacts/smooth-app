@@ -90,15 +90,14 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
               child: customToggleButton(
                   0,
                   Icons.shopping_cart,
-                  'My Consumption',
+                  'Receipts & GDPR requests',
                   () => setState(() {
                         selectedIndex = 0;
                         pricesFuture = _getUserPrices();
                       }))),
           Expanded(
             flex: 1,
-            child:
-                customToggleButton(1, Icons.people, 'Other Contributions', () {
+            child: customToggleButton(1, Icons.people, 'Price labels', () {
               setState(() {
                 selectedIndex = 1;
                 pricesFuture = _getUserPrices();
