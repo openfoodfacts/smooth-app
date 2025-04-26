@@ -4351,10 +4351,6 @@
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "prices_no_results": "No results found.",
-  "@price_no_result": {
-    "description": "Message shown when there are no price results to display"
-  },
   "product_edit_robotoff_question_answered": "Question answered!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
