@@ -4200,7 +4200,7 @@
     "description": "Label for the discount on prices"
   },
   "prices_stats_statistics": "Statistics",
-  "@statistics": {
+  "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
   "prices_stats_title": "Prices Statistics",
@@ -4350,5 +4350,13 @@
   "prices_stats_error": "An error occurred while loading statistics.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "Question answered!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Proof",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
   }
 }
