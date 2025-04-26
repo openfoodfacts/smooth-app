@@ -702,9 +702,9 @@
   "new_product_additional_environmental_score": "Spresnite výpočet zeleného skóre pomocou pôvodu, balenia a ďalších údajov",
   "new_product_title_nova": "Vypočítajte úroveň spracovania potravín (NOVA)",
   "new_product_subtitle_nova": "Získajte ho vyplnením kategórie potravín a ingrediencií",
-  "new_product_desc_nova_unknown": "Food processing level unknown",
-  "new_product_title_pictures": "New product",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_desc_nova_unknown": "Úroveň spracovania potravín neznáma",
+  "new_product_title_pictures": "Nový produkt",
+  "new_product_title_pictures_details": "Urobte prosím nasledujúce fotografie a nástroj Open Food Facts môže vyriešiť zvyšok!",
   "new_product_title_misc": "A pár základných údajov …",
   "new_product_done_msg": "Ďakujeme za váš príspevok „{username}“!",
   "@new_product_done_msg": {
@@ -1241,33 +1241,33 @@
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Sledujte nás na Instagrame",
   "instagram_link": "https://instagram.com/open.food.facts",
-  "twitter": "Follow us on X (formerly Twitter)",
+  "twitter": "Sledujte nás na X (predtým Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Sledujte nás na Mastodon-e",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Sledujte nás na BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
-  "faq": "FAQ",
+  "faq": "Často kladené otázky",
   "discover": "Objavte",
-  "how_to_contribute": "How to Contribute",
-  "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+  "how_to_contribute": "Ako prispieť",
+  "hint_knowledge_panel_message": "Klepnutím na ktorúkoľvek časť karty získate ďalšie podrobnosti o tom, čo vidíte. Skúste to teraz!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
   },
-  "permissions_page_title": "Camera access",
+  "permissions_page_title": "Prístup k fotoaparátu",
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+  "permissions_page_body1": "Ak chcete skenovať čiarové kódy fotoaparátom svojho telefónu, povoľte prístup.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
-  "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+  "permissions_page_body2": "Ak zmeníte názor, túto možnosť môžete kedykoľvek povoliť alebo zakázať v nastaveniach.",
   "@permissions_page_body2": {
     "description": "second paragraph for the camera permission's page (onboarding)"
   },
-  "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+  "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProdukt: {product}\nZariadenie: {device}\nZnačka:{brand}",
   "@contact_form_body_android": {
     "description": "Contact form content for Android devices",
     "placeholders": {
@@ -1297,7 +1297,7 @@
       }
     }
   },
-  "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
+  "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLokalizovaný model: {localizedModel}",
   "@contact_form_body_ios": {
     "description": "Contact form content for iOS devices",
     "placeholders": {
@@ -1315,7 +1315,7 @@
       }
     }
   },
-  "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+  "contact_form_body": "{osContent}\nVerzia aplikácie: {appVersion}\nČíslo zostavy aplikácie: {appBuildNumber}\nNázov balíka aplikácie: {appPackageName}",
   "@contact_form_body": {
     "description": "Contact form content",
     "placeholders": {
@@ -1337,23 +1337,23 @@
       }
     }
   },
-  "authorize_button_label": "Authorise",
+  "authorize_button_label": "Povoliť",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
-  "refuse_button_label": "Refuse",
+  "refuse_button_label": "Odmietnuť",
   "@refuse": {
     "description": "Button to decline the request of sending the anonymous analytics"
   },
-  "ask_me_later_button_label": "Later",
+  "ask_me_later_button_label": "Neskôr",
   "@ask_me_later": {
     "description": "Button to ignore the camera permission request"
   },
-  "are_you_sure": "Are you sure?",
+  "are_you_sure": "Ste si istý?",
   "@are_you_sure": {
     "description": "Are you sure?"
   },
-  "knowledge_panel_text_source": "Go further on {sourceName}",
+  "knowledge_panel_text_source": "Pokračujte ďalej na {sourceName}",
   "@knowledge_panel_text_source": {
     "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
     "placeholders": {
@@ -1362,29 +1362,29 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "Welcome !",
-  "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+  "onboarding_home_welcome_text1": "Vitajte !",
+  "onboarding_home_welcome_text2": "Aplikácia, ktorá vám pomôže vybrať si jedlo, ktoré je dobré pre ** vás** a ** planétu**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
   "onboarding_continue_button": "Pokračovať",
-  "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+  "onboarding_welcome_loading_dialog_title": "Načítava sa váš prvý vzorový produkt",
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
-  "product_list_your_ranking": "Your ranking",
+  "product_list_your_ranking": "Vaše hodnotenie",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
   },
-  "product_list_empty_icon_desc": "History not available",
+  "product_list_empty_icon_desc": "História nie je k dispozícii",
   "@product_list_icon_desc": {
     "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
   },
-  "product_list_empty_title": "Start scanning",
+  "product_list_empty_title": "Spustiť skenovanie",
   "@product_list_empty_title": {
     "description": "When the history list is empty, title of the message explaining to start scanning"
   },
-  "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+  "product_list_empty_message": "Tu sa zobrazia naskenované produkty a môžete si o nich skontrolovať podrobné informácie",
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
@@ -1402,23 +1402,23 @@
       "count": {}
     }
   },
-  "loading_dialog_default_title": "Downloading data",
+  "loading_dialog_default_title": "Sťahovanie údajov",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
   },
-  "loading_dialog_default_error_message": "Could not download data",
+  "loading_dialog_default_error_message": "Údaje sa nepodarilo stiahnuť",
   "@loading_dialog_default_error_message": {
     "description": "Default loading dialog error message"
   },
-  "account_delete": "Delete account",
+  "account_delete": "Zmazať účet",
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Delete my account",
+  "account_deletion_subject": "Zmazať môj účet",
   "@account_deletion_subject": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
-  "user_profile": "Account",
+  "user_profile": "Účet",
   "@user_profile": {
     "description": "User account (if connected)"
   },
@@ -1426,8 +1426,8 @@
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_subtitle_guest": "Ak sa chcete pripojiť ku komunite Open Food Facts, prihláste sa alebo sa zaregistrujte",
+  "user_profile_title_id_email": "Open Food Facts prihlasovacie meno: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1445,7 +1445,7 @@
       }
     }
   },
-  "email_subject_account_deletion": "Delete account",
+  "email_subject_account_deletion": "Zmazať účet",
   "@email_subject_account_deletion": {
     "description": "Email subject for an account deletion"
   },
