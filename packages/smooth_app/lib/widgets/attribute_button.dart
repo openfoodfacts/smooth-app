@@ -63,9 +63,7 @@ class _AttributeButtonState extends State<AttributeButton> {
                 : null,
             leading: Icon(
               Icons.radio_button_checked,
-              color: context.lightTheme()
-                  ? extension.primaryBlack
-                  : extension.primaryBlack,
+              color: extension.primaryBlack,
               size: 32,
             ),
             title: AutoSizeText(
@@ -139,11 +137,19 @@ class _AttributeButtonState extends State<AttributeButton> {
               : extension.primaryDark,
           trailing: info == null
               ? null
-              : const Icon(Icons.help_outline, size: DEFAULT_ICON_SIZE),
+              : Icon(Icons.help_outline,
+                  size: DEFAULT_ICON_SIZE,
+                  color: context.lightTheme()
+                      ? extension.primaryBlack
+                      : extension.primaryLight),
           title: AutoSizeText(
             widget.attribute.settingName ?? widget.attribute.name!,
             maxLines: 2,
-            style: style.copyWith(fontWeight: FontWeight.bold),
+            style: style.copyWith(
+                fontWeight: FontWeight.bold,
+                color: context.lightTheme()
+                    ? extension.primaryUltraBlack
+                    : extension.primaryLight),
           ),
           onTap: info == null
               ? null
