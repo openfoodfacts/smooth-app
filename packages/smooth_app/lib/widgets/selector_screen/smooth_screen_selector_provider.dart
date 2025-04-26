@@ -25,7 +25,7 @@ abstract class PreferencesSelectorProvider<T>
   Future<List<T>> onLoadValues();
   T getSelectedValue(List<T> values);
 
-  bool _mounted = true;
+  bool _attached = true;
 
   @immutable
   void changeSelectedItem(T item) {
@@ -67,7 +67,7 @@ abstract class PreferencesSelectorProvider<T>
 
     final List<T> values = await onLoadValues();
 
-    if (!_mounted) {
+    if (!_attached) {
       return;
     }
 
@@ -81,7 +81,7 @@ abstract class PreferencesSelectorProvider<T>
   void dispose() {
     preferences.removeListener(onPreferencesChanged);
     super.dispose();
-    _mounted = false;
+    _attached = false;
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -31,6 +32,10 @@ abstract class PreferencesRoot extends StatelessWidget {
   final Widget? customAppBar;
 
   List<PreferenceCard> getCards(BuildContext context);
+
+  List<ExternalSearchPreferenceTile> getExternalSearchTiles(
+          BuildContext context) =>
+      <ExternalSearchPreferenceTile>[];
 
   Widget buildAppBar(BuildContext context) =>
       customAppBar ??
@@ -102,7 +107,10 @@ abstract class PreferencesRoot extends StatelessWidget {
 
     List<PreferenceTile> tiles = <PreferenceTile>[];
     if (displayTiles) {
-      tiles = searchTiles(context, searchController.query!);
+      tiles = <PreferenceTile>[
+        ...searchTiles(context, searchController.query!),
+        ...getExternalSearchTiles(context),
+      ];
     }
 
     final Widget content = CustomScrollView(

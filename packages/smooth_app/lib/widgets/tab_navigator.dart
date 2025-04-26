@@ -19,7 +19,7 @@ class TabNavigator extends StatelessWidget {
 
     switch (tabItem) {
       case BottomNavigationTab.Profile:
-        child = PreferencesPage(); // const UserPreferencesPage();
+        child = PreferencesPage();
         break;
       case BottomNavigationTab.List:
         child = const HistoryPage();

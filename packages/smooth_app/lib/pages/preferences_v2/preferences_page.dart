@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/logged_in_app_bar.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/logged_out_app_bar.dart';
@@ -9,6 +10,9 @@ import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/default_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/github_search_preference_tile.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/wiki_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
@@ -19,6 +23,7 @@ class PreferencesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     final String? userId = _getUserId();
 
@@ -62,6 +67,16 @@ class PreferencesPage extends StatelessWidget {
                 subtitleText: appLocalizations.myPreferences_settings_subtitle,
                 root: AppSettingsRoot(title: appLocalizations.settings_app_app),
               ),
+              if (userPreferences.devMode > 0)
+                NavigationPreferenceTile(
+                  icon: Icons.settings,
+                  title: appLocalizations.dev_preferences_screen_title,
+                  subtitleText:
+                      appLocalizations.dev_preferences_screen_subtitle,
+                  target: const UserPreferencesPage(
+                    type: PreferencePageType.DEV_MODE,
+                  ),
+                ),
             ],
           ),
           PreferenceCard(
@@ -104,6 +119,10 @@ class PreferencesPage extends StatelessWidget {
               ),
             ],
           ),
+        ],
+        externalSearchTiles: <ExternalSearchPreferenceTile>[
+          WikiSearchPreferenceTile(),
+          GithubSearchPreferenceTile(),
         ],
       ),
     );

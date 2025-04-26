@@ -2144,6 +2144,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Access experimental features and development tools",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -4430,5 +4434,17 @@
   "preferences_app_bar_see_all_stats": "See all stats",
   "@preferences_app_bar_see_all_stats": {
     "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Search {provider} for {keyword}",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
@@ -121,30 +122,46 @@ class LoggedInAppBar extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: MEDIUM_SPACE),
-                      padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                      decoration: const BoxDecoration(
-                        borderRadius: ROUNDED_BORDER_RADIUS,
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            appLocalizations.preferences_app_bar_see_all_stats,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(
+                          context,
+                          rootNavigator: true,
+                        ).push<dynamic>(
+                          MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) =>
+                                const UserPreferencesPage(
+                              type: PreferencePageType.ACCOUNT,
                             ),
                           ),
-                          const SizedBox(width: MEDIUM_SPACE),
-                          Icon(
-                            Icons.arrow_circle_right,
-                            size: 24.0,
-                            color: theme.primaryColor,
-                          ),
-                        ],
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(top: MEDIUM_SPACE),
+                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                        decoration: const BoxDecoration(
+                          borderRadius: ROUNDED_BORDER_RADIUS,
+                          color: Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              appLocalizations
+                                  .preferences_app_bar_see_all_stats,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(width: MEDIUM_SPACE),
+                            Icon(
+                              Icons.arrow_circle_right,
+                              size: 24.0,
+                              color: theme.primaryColor,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
