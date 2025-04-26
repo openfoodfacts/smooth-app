@@ -157,7 +157,7 @@
   "@user_management": {},
   "sign_in_text": "Prihláste sa do svojho účtu Open Food Facts a uložte svoje príspevky",
   "incorrect_credentials": "Nesprávne meno alebo heslo.",
-  "password_lost_incorrect_credentials": "Tento e-mail alebo používateľské meno neexistuje. Skontrolujte svoje poverenia.",
+  "password_lost_incorrect_credentials": "Tento email alebo používateľské meno neexistuje. Skontrolujte svoje poverenia.",
   "password_lost_server_unavailable": "Na našich serveroch momentálne dochádza k spomaleniu a ospravedlňujeme sa za to. Skúste to neskôr prosím.",
   "login": "Prihlásenie",
   "@login": {
@@ -167,11 +167,11 @@
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Problém na serveri. Prosím, skús neskôr.",
+  "login_result_type_server_issue": "Problém na serveri. Prosím, skúste neskôr.",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Zadajte používateľské meno alebo e-mail",
+  "login_page_username_or_email": "Zadajte prihlasovacie meno alebo email",
   "login_page_password_error_empty": "Prosím, zadajte heslo",
   "create_account": "Vytvoriť účet",
   "@create_account": {
@@ -202,7 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "view_profile": "Zobraziť profil",
+  "view_profile": "Zobraziť účet",
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
@@ -210,12 +210,12 @@
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "V prípade zabudnutého hesla zadajte svoje používateľské meno alebo e-mailovú adresu, aby ste dostali pokyny na obnovenie hesla. Nezabudnite tiež skontrolovať priečinok Spam.",
-  "username_or_email": "Používateľské meno alebo e-mail",
+  "reset_password_explanation_text": "V prípade zabudnutého hesla zadajte svoje používateľské meno alebo emailovú adresu, aby ste dostali pokyny na obnovenie hesla. Nezabudnite si tiež skontrolovať priečinok Spam.",
+  "username_or_email": "Používateľské meno alebo email",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "Na e-mailovú adresu priradenú k vášmu účtu bol odoslaný e-mail s odkazom na obnovenie hesla. Skontrolujte si aj spam",
+  "reset_password_done": "Na emailovú adresu priradenú k vášmu účtu bol odoslaný email s odkazom na obnovenie hesla. Skontrolujte si aj priečinok Spam",
   "send_reset_password_mail": "Zmeniť heslo",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
@@ -241,10 +241,10 @@
   "sign_up_page_display_name_error_empty": "Zadajte zobrazované meno, ktoré chcete použiť",
   "sign_up_page_email_hint": "Emailová adresa",
   "sign_up_page_email_error_empty": "E-mail je povinný",
-  "sign_up_page_email_error_invalid": "Neplatný e-mail",
+  "sign_up_page_email_error_invalid": "Neplatný email",
   "sign_up_page_username_hint": "Používateľské meno: verejne viditeľné",
-  "sign_up_page_username_error_empty": "Prosím, zadajte užívateľské meno",
-  "sign_up_page_username_error_invalid": "Zadajte platné užívateľské meno",
+  "sign_up_page_username_error_empty": "Prosím, zadajte používateľské meno",
+  "sign_up_page_username_error_invalid": "Zadajte platné používateľské meno",
   "sign_up_page_username_description": "Používateľské meno nemôže obsahovať medzery, veľké písmená ani špeciálne znaky.",
   "sign_up_page_username_length_invalid": "Používateľské meno nemôže presiahnuť {value} znakov",
   "@sign_up_page_username_length_invalid": {
@@ -284,8 +284,8 @@
   "sign_up_page_producer_hint": "Výrobca/značka",
   "sign_up_page_producer_error_empty": "Zadajte výrobcu alebo názov značky",
   "sign_up_page_subscribe_checkbox": "Chcem sa prihlásiť na odber noviniek Open Food Facts (z odberu sa môžete kedykoľvek odhlásiť)",
-  "sign_up_page_user_name_already_used": "Toto meno už existuje, prosím zadajte iné.",
-  "sign_up_page_email_already_exists": "už existuje, prihláste sa do účtu alebo skúste použiť iný e-mail.",
+  "sign_up_page_user_name_already_used": "Toto používateľské meno už existuje, prosím zadajte iné.",
+  "sign_up_page_email_already_exists": "už existuje, prihláste sa do účtu alebo skúste použiť iný email.",
   "sign_up_page_provide_valid_email": "Prosím zadajte platnú e-mailovú adresu.",
   "sign_up_page_server_busy": "Veľmi nás to mrzí, pri vytváraní vášho účtu máme technické problémy. Skúste neskôr prosím.",
   "settingsTitle": "Nastavenia",
@@ -334,9 +334,9 @@
   },
   "support_join_slack": "Požiadajte o pomoc na našom kanáli Slack",
   "support_via_forum": "Požiadajte o pomoc na našom fóre",
-  "support_via_email": "Pošlite nám e-mail",
-  "support_via_email_include_logs_dialog_title": "Chcete odoslať denníky aplikácie?",
-  "support_via_email_include_logs_dialog_body": "Prajete si zahrnúť denníky aplikácie do prílohy k vášmu e-mailu?",
+  "support_via_email": "Pošlite nám email",
+  "support_via_email_include_logs_dialog_title": "Chcete odoslať logy aplikácie?",
+  "support_via_email_include_logs_dialog_body": "Prajete si zahrnúť logy aplikácie do prílohy k vášmu emailu?",
   "termsOfUse": "Podmienky používania",
   "@termsOfUse": {},
   "legalNotices": "Právne oznámenia",
@@ -360,7 +360,7 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "Kód pre každý produkt Open Food Facts je dostupný na GitHub. Môžete znova použiť kód (je to otvorený zdroj) a pomôcť nám ho vylepšiť pre všetkých na celej planéte.",
+  "contribute_develop_text": "Kód pre každý produkt Open Food Facts je dostupný na GitHub. Môžete použiť kód (je to otvorený zdroj) a pomôcť nám ho vylepšiť pre všetkých na celej planéte.",
   "@contribute_develop_text": {},
   "contribute_develop_text_2": "Môžete sa pripojiť k diskusnej miestnosti Open Food Facts Slack, čo je preferovaný spôsob kladenia otázok.",
   "@contribute_develop_text_2": {},
@@ -403,7 +403,7 @@
   "contribute_join_skill_pool": "Prispejte svojimi schopnosťami do Open Food Facts. Pripojte sa k fondu zručností!",
   "contribute_share_header": "Zdieľajte Open Food Facts so svojimi priateľmi",
   "@contribute_share_header": {},
-  "contribute_share_content": "Chcel som vám dať vedieť o aplikácii, ktorú používam, Open Food Facts, ktorá vám umožňuje personalizovaným spôsobom získať informácie o vplyve vášho jedla na zdravie a životné prostredie. Funguje tak, že naskenujete čiarové kódy na obale. Nakoniec je to zadarmo, nevyžaduje registráciu a dokonca môžete pomôcť zvýšiť počet dešifrovaných produktov. Tu je odkaz na jeho získanie pre váš telefón: https://openfoodfacts.app",
+  "contribute_share_content": "Rád by som vám dal vedieť o aplikácii Open Food Facts, ktorú používam. Umožňuje personalizovaným spôsobom získať informácie o vplyve vášho jedla na zdravie a životné prostredie. Funguje tak, že naskenujete čiarové kódy na obale. Je zdarma, nevyžaduje registráciu a dokonca môžete pomôcť zvýšiť počet rozpoznateľných produktov v ich databáze. Tu je odkaz na jeho získanie pre váš telefón: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -449,14 +449,14 @@
   "@join_us": {
     "description": "Join which is actually Signup"
   },
-  "myPreferences_profile_title": "Váš profil",
-  "myPreferences_profile_subtitle": "Spravujte svoj účet prispievateľa Open Food Facts.",
+  "myPreferences_profile_title": "Váš účet",
+  "myPreferences_profile_subtitle": "Spravujte svoj účet Open Food Facts.",
   "myPreferences_settings_title": "Nastavenia aplikácie",
   "myPreferences_settings_subtitle": "Tmavý režim, jazyky…",
   "myPreferences_food_title": "Potravinové preferencie",
-  "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o jedle sú pre vás najdôležitejšie.",
-  "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť jedlo podľa svojich preferencií, pozrite si informácie, ktoré vás zaujímajú ako prvé, a získajte súhrn kompatibility. Tieto preferencie jedla zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
-  "confirmResetPreferences": "Obnoviť predvoľby jedla?",
+  "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie.",
+  "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť produkty podľa svojich preferencií, pozrite si informácie, ktoré vás zaujímajú ako prvé, a získajte súhrn kompatibility. Tieto potravinové preferencie zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
+  "confirmResetPreferences": "Obnoviť potravinové preferencie?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
@@ -468,20 +468,20 @@
   "ranking_subtitle_match_yes": "Veľká zhoda",
   "ranking_subtitle_match_no": "Veľmi slabá zhoda",
   "ranking_subtitle_match_maybe": "Neznáma zhoda",
-  "refresh_with_new_preferences": "Obnovte zoznam s novými preferenciami",
+  "refresh_with_new_preferences": "Obnovte zoznam s vašimi novými preferenciami",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
   },
-  "reloaded_with_new_preferences": "Znova načítané s novými predvoľbami",
+  "reloaded_with_new_preferences": "Znova načítané s vašimi novými preferenciami",
   "@reloaded_with_new_preferences": {
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Profil",
+  "profile_navbar_label": "Účet",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
-  "scan_navbar_label": "Sken",
+  "scan_navbar_label": "Skenovať",
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the scanning of products"
   },
@@ -574,7 +574,7 @@
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
-  "nutrition_facts_editing_title": "Upraviť výživové fakty",
+  "nutrition_facts_editing_title": "Upraviť výživové údaje",
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
@@ -615,7 +615,7 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "Ilustrácia s neznámym Nutričným skóre a Zeleným skóre",
+  "new_product_dialog_illustration_description": "Ilustrácia s neznámym Nutričným skóre a Green Score",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -678,7 +678,7 @@
     "description": "Action being performed on the crop page"
   },
   "front_packaging_photo_title": "Predná fotografia produktu",
-  "ingredients_photo_title": "Fotografia ingrediencií",
+  "ingredients_photo_title": "Fotografia zložiek",
   "nutritional_facts_photo_title": "Fotografia výživových údajov",
   "recycling_photo_title": "Fotografia recyklačných pokynov",
   "take_photo_title": "Odfotiť",
@@ -687,21 +687,21 @@
   "@front_photo_uploaded": {},
   "ingredients_photo_button_label": "Fotografia ingrediencií",
   "@ingredients_photo_button_label": {},
-  "ingredients_photo_uploaded": "Fotografia ingrediencií bola nahraná",
+  "ingredients_photo_uploaded": "Fotografia zložiek bola nahraná",
   "@ingredients_photo_uploaded": {},
   "nutrition_cache_loading_error": "Nie je možné načítať živiny z vyrovnávacej pamäte",
   "nutritional_facts_photo_button_label": "Foto výživových údajov",
   "@nutritional_facts_photo_button_label": {},
-  "nutritional_facts_input_button_label": "Aktualizujte fakty o nutričných hodnotách",
-  "nutritional_facts_added": "Nutričné hodnoty",
+  "nutritional_facts_input_button_label": "Aktualizujte fakty o nutričných údajoch",
+  "nutritional_facts_added": "Nutričné údaje",
   "categories_added": "Kategórie pridané",
-  "new_product_title_nutriscore": "Získajte Nutričné skóre",
-  "new_product_subtitle_nutriscore": "Pomôžte nám vyplnením aspoň kategórie a nutričných hodnôt",
-  "new_product_title_environmental_score": "Vypočítajte Zelené skóre",
+  "new_product_title_nutriscore": "Získajte Nutri-Score",
+  "new_product_subtitle_nutriscore": "Pomôžte nám vyplnením aspoň kategórie a nutričných údajov",
+  "new_product_title_environmental_score": "Vypočítajte Green Score",
   "new_product_subtitle_environmental_score": "Získajte ho vyplnením aspoň kategórie",
-  "new_product_additional_environmental_score": "Spresnite výpočet Zeleného skóre pomocou pôvodu, balenia a ďalších údajov",
+  "new_product_additional_environmental_score": "Spresnite výpočet Green Score pomocou pôvodu, balenia a ďalších údajov",
   "new_product_title_nova": "Vypočítajte úroveň spracovania potravín (NOVA)",
-  "new_product_subtitle_nova": "Získajte ho vyplnením kategórie potravín a ingrediencií",
+  "new_product_subtitle_nova": "Získajte ho vyplnením kategórie potravín a zložiek",
   "new_product_desc_nova_unknown": "Úroveň spracovania potravín neznáma",
   "new_product_title_pictures": "Nový produkt",
   "new_product_title_pictures_details": "Urobte prosím nasledujúce fotografie a nástroj Open Food Facts môže vyriešiť zvyšok!",
@@ -721,11 +721,11 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Klepnutím odpovedzte na 3 otázky a vypočítajte Nutričné skóre, Zelené skóre & Ultra-processing (NOVA)!",
+  "hey_incomplete_product_message": "Klepnutím odpovedzte na 3 otázky a vypočítajte Nutri-Score, Green Score & úroveň spracovania potravín (NOVA)!",
   "hey_incomplete_product_message_beauty": "Klepnutím teraz odpovedzte na 2 otázky, ktoré vám pomôžu analyzovať túto kozmetiku!",
   "hey_incomplete_product_message_pet_food": "Klepnutím teraz odpovedzte na 3 otázky, ktoré vám pomôžu analyzovať toto krmivo pre domáce zvieratá!",
   "hey_incomplete_product_message_product": "Klepnutím teraz pomôžte dokončiť tento produkt!",
-  "nutritional_facts_photo_uploaded": "Fotografia nutričných údajov bola nahraná",
+  "nutritional_facts_photo_uploaded": "Fotografia výživových údajov bola nahraná",
   "@nutritional_facts_photo_uploaded": {},
   "recycling_photo_button_label": "Recyklačná fotografia",
   "@recycling_photo_button_label": {},
@@ -751,11 +751,11 @@
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
-  "uploading_image_type_ingredients": "Nahrávanie obrázka ingrediencií do Open Food Facts",
+  "uploading_image_type_ingredients": "Nahrávanie obrázka zložiek do Open Food Facts",
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Nahrávanie obrázka výživy do Open Food Facts",
+  "uploading_image_type_nutrition": "Nahrávanie obrázka nutričných údajov do Open Food Facts",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
@@ -771,7 +771,7 @@
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
-  "score_add_missing_ingredients": "Pridajte chýbajúce ingrediencie",
+  "score_add_missing_ingredients": "Pridajte chýbajúce zložky",
   "score_add_missing_packaging_image": "Pridajte chýbajúci obrázok obalu",
   "score_add_missing_nutrition_facts": "Pridajte chýbajúce výživové údaje",
   "score_add_missing_product_traces": "Pridajte chýbajúce stopy produktu",
@@ -782,22 +782,22 @@
   "score_add_missing_product_origins": "Pridajte chýbajúci pôvod produktu",
   "score_add_missing_product_stores": "Pridajte chýbajúce obchody s produktmi",
   "score_add_missing_product_brands": "Pridajte chýbajúcu značku produktu",
-  "score_update_nutrition_facts": "Aktualizujte fakty o výžive",
+  "score_update_nutrition_facts": "Aktualizujte výživové údaje",
   "nutrition_page_title": "Výživové údaje",
   "nutrition_page_nutritional_info_title": "Nutričné informácie",
   "nutrition_page_nutritional_info_label": "Hodnoty uvedené na produkte:",
   "nutrition_page_nutritional_info_value_positive": "Áno",
   "nutrition_page_nutritional_info_value_negative": "Nie",
   "nutrition_page_nutritional_info_open_photo": "Otvoriť fotografiu",
-  "nutrition_page_nutritional_info_explanation_title": "Osvedčené postupy: Výživové informácie",
+  "nutrition_page_nutritional_info_explanation_title": "Osvedčené postupy: výživové údaje",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_nutritional_info_explanation_info1": "Niekedy nie sú nutričné údaje **uvedené na obale** alebo v dokumente priloženom k produktu. V tomto prípade a iba v tomto prípade môžete nastaviť hodnotu na **NIE**.",
+  "nutrition_page_nutritional_info_explanation_info1": "Niekedy nie sú výživové údaje **uvedené na obale** alebo v dokumente priloženom k produktu. V tomto prípade a iba v tomto prípade môžete nastaviť hodnotu na **NIE**.",
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
-  "nutrition_page_serving_type_label": "Nutričné hodnoty:",
+  "nutrition_page_serving_type_label": "Výživové hodnoty:",
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
@@ -807,7 +807,7 @@
   "nutrition_page_add_nutrient": "Pridajte živinu",
   "nutrition_page_serving_size": "Veľkosť porcie",
   "nutrition_page_serving_size_hint": "Zadajte veľkosť porcie (napr.: 100 g)",
-  "nutrition_page_serving_size_explanation_title": "Osvedčené postupy: Veľkosť porcie",
+  "nutrition_page_serving_size_explanation_title": "Osvedčené postupy: veľkosť porcie",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
@@ -950,7 +950,7 @@
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
-  "product_image_details_contributor_producer": "Prispievateľ (producent)",
+  "product_image_details_contributor_producer": "Prispievateľ (výrobca)",
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
@@ -990,7 +990,7 @@
   "tagline_app_review_button_later": "Opýtajte sa ma neskôr",
   "tagline_feed_news_button": "Zistiť viac",
   "app_review_negative_modal_title": "Nepáči sa vám naša aplikácia?",
-  "app_review_negative_modal_text": "Mohli by ste nám nájsť pár sekúnd a povedať nám prečo?",
+  "app_review_negative_modal_text": "Mohli by ste nám nájsť chvíľu a povedať nám prečo?",
   "app_review_negative_modal_positive_button": "Áno, jednoznačne!",
   "app_review_negative_modal_negative_button": "Nie",
   "could_not_refresh": "Produkt sa nepodarilo obnoviť",
@@ -1067,7 +1067,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Nutričné skóre pre tento produkt sa nedá vypočítať, čo môže byť spôsobené napr. neštandardnou kategóriou. Ak to považujete za chybu, kontaktujte nás.",
+  "product_improvement_categories_but_no_nutriscore": "Nutri-Score pre tento produkt sa nedá vypočítať, čo môže byť spôsobené napr. neštandardnou kategóriou. Ak to považujete za chybu, kontaktujte nás.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1075,7 +1075,7 @@
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "Zelené skóre zohľadňuje pôvod zložiek. Odfoťte zoznam zložiek a/alebo akékoľvek geografické tvrdenie alebo upravte produkt, aby ich bolo možné vziať do úvahy.",
+  "product_improvement_origins_to_be_completed": "Green Score zohľadňuje pôvod zložiek. Odfoťte zoznam zložiek a/alebo akékoľvek geografické tvrdenie alebo upravte produkt, aby ich bolo možné vziať do úvahy.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
@@ -1121,7 +1121,7 @@
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
-  "native_app_settings": "Nastavenia natívnej aplikácie",
+  "native_app_settings": "Nastavenia aplikácie",
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
@@ -1363,7 +1363,7 @@
     }
   },
   "onboarding_home_welcome_text1": "Vitajte!",
-  "onboarding_home_welcome_text2": "Aplikácia, ktorá vám pomôže vybrať si jedlo, ktoré je dobré pre ** vás** a ** planétu**!",
+  "onboarding_home_welcome_text2": "Aplikácia, ktorá vám pomôže vybrať si potravinu, ktorá je dobré pre ** vás** a ** planétu**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
@@ -1466,11 +1466,11 @@
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
   },
-  "camera_play_sound_title": "Prehrať zvuk pri skenovaní",
+  "camera_play_sound_title": "Prehrávať zvuk pri skenovaní",
   "@camera_play_sound_title": {
     "description": "Title for the Camera play sound toggle"
   },
-  "camera_play_sound_subtitle": "Pri každom úspešnom skenovaní pípne",
+  "camera_play_sound_subtitle": "Pri každom úspešnom skenovaní pípnuť",
   "@camera_play_sound_subtitle": {
     "description": "SubTitle for the Camera play sound toggle"
   },
@@ -1494,7 +1494,7 @@
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
-  "send_anonymous_data_toggle_title": "Posielajte anonymné údaje",
+  "send_anonymous_data_toggle_title": "Posielať anonymné údaje",
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
@@ -1725,7 +1725,7 @@
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
-  "edit_product_form_item_origins_explanation_title": "Osvedčené postupy: Pôvody",
+  "edit_product_form_item_origins_explanation_title": "Osvedčené postupy: pôvody",
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
@@ -1753,7 +1753,7 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Osvedčené postupy: Krajiny",
+  "edit_product_form_item_countries_explanations_title": "Osvedčené postupy: krajiny",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
@@ -1773,7 +1773,7 @@
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
-  "edit_product_form_item_emb_help_title": "Osvedčené postupy: Kódy sledovateľnosti",
+  "edit_product_form_item_emb_help_title": "Osvedčené postupy: kódy vysledovateľnosti",
   "@edit_product_form_item_emb_help_title": {
     "description": "Title for the help section about traceability codes"
   },
@@ -1781,7 +1781,7 @@
   "@edit_product_form_item_emb_help_info1": {
     "description": "Text explaining how to write a traceability code"
   },
-  "edit_product_form_item_emb_help_info2_title": "Príklady kódov sledovateľnosti",
+  "edit_product_form_item_emb_help_info2_title": "Príklady kódov vysledovateľnosti",
   "@edit_product_form_item_emb_help_info2_title": {
     "description": "Explanation about EMB/EC… codes"
   },
@@ -1829,7 +1829,7 @@
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Osvedčené postupy: Kategórie",
+  "edit_product_form_item_categories_explanation_title": "Osvedčené postupy: kategórie",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
@@ -1896,11 +1896,11 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Osvedčené postupy: Výživové informácie",
+  "edit_product_form_item_nutrition_facts_explanation_title": "Osvedčené postupy: výživové údaje",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutričné hodnoty",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Výživové hodnoty",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1912,7 +1912,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Potom zadajte nutričné hodnoty **ako je uvedené na obale**. Ak nie je žiadna hodnota, môžete kliknúť na ikonu \"Oko\".",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Potom zadajte výživové hodnoty **ako je uvedené na obale**. Ak nie je žiadna hodnota, môžete kliknúť na ikonu \"Oko\".",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1959,7 +1959,7 @@
   "completed_basic_details_btn_text": "Kompletné základné detaily",
   "not_implemented_snackbar_text": "Zatiaľ neimplementované",
   "category_picker_page_appbar_text": "Kategórie",
-  "edit_ingredients_extract_ingredients_btn_text": "Extrahovať ingrediencie z obrázka",
+  "edit_ingredients_extract_ingredients_btn_text": "Extrahovať zložky z obrázka",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
@@ -1967,7 +1967,7 @@
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
-  "edit_ingredients_extracting_ingredients_btn_text": "Extrahovanie ingrediencií z obrázka",
+  "edit_ingredients_extracting_ingredients_btn_text": "Extrahovanie zložiek z obrázka",
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
@@ -1979,7 +1979,7 @@
   "@edit_ingredients_loading_photo_help_dialog_title": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_ingredients_loading_photo_help_dialog_body": "Ak chcete použiť funkciu „Extrahovať ingrediencie“, musíte najprv nahrať fotografiu.\n\nPočkajte niekoľko sekúnd alebo ich zadajte ručne.",
+  "edit_ingredients_loading_photo_help_dialog_body": "Ak chcete použiť funkciu „Extrahovať zložky“, musíte najprv nahrať fotografiu.\n\nPočkajte niekoľko sekúnd alebo ich zadajte ručne.",
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
@@ -2261,7 +2261,7 @@
       }
     }
   },
-  "product_type_label_food": "Jedlo",
+  "product_type_label_food": "Potravina",
   "product_type_label_beauty": "Osobná starostlivosť",
   "product_type_label_pet_food": "Krmivo pre domáce zvieratá",
   "product_type_label_product": "Other",
@@ -2537,7 +2537,7 @@
   "@dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
-  "dev_mode_hide_environmental_score_title": "Vylúčiť Zelené skóre",
+  "dev_mode_hide_environmental_score_title": "Vylúčiť Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
   },
@@ -2777,7 +2777,7 @@
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Osvedčené postupy: Názov produktu",
+  "add_basic_details_product_name_help_title": "Osvedčené postupy: názov produktu",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
@@ -2826,7 +2826,7 @@
   "brand_names": "Názvy značiek",
   "add_basic_details_brand_name_error": "Zadajte názov značky",
   "add_basic_details_brand_names_hint": "Vstupné značky (napr.: Ferrero)",
-  "add_basic_details_product_brand_help_title": "Osvedčené postupy: Značky",
+  "add_basic_details_product_brand_help_title": "Osvedčené postupy: značky",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
@@ -3110,11 +3110,11 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_nutrition_facts_body": "Rozbaľovať tabuľku výživových údajov",
-  "expand_ingredients": "Rozbaliť ingrediencie",
+  "expand_ingredients": "Rozbaliť zložky",
   "@expand_ingredients": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_ingredients_body": "Rozbaľovať tabuľku ingrediencií",
+  "expand_ingredients_body": "Rozbaľovať tabuľku zložiek",
   "search_product_filter_visibility_title": "Zobraziť filter vo vyhľadávaní",
   "search_product_filter_visibility_subtitle": "Vyberte vyhľadávaciu lokalitu: Open Food Facts, Open Beauty Facts, Open Pet Food Facts alebo Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
@@ -3368,7 +3368,7 @@
   "@edit_packagings_element_example_shape": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_material": "Material",
+  "edit_packagings_element_field_material": "Materiál",
   "@edit_packagings_element_field_material": {
     "description": "Field label"
   },
@@ -3678,19 +3678,19 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Nutričné skóre (nový výpočet)",
+  "nutriscore_new_formula_title": "Nutri-Score (nový výpočet)Nutri-Score",
   "nutriscore_unknown": "Neznáme Nutričné skóre",
   "nutriscore_unknown_new_formula": "Neznáme Nutričné skóre (nový výpočet)",
   "nutriscore_not_applicable": "Nutričné skóre nie je použiteľné",
   "nutriscore_not_applicable_new_formula": "Nutričné skóre sa nedá použiť (Nový výpočet)",
-  "environmental_score_generic": "Zelené skóre",
-  "environmental_score_a": "Zelené skóre A",
-  "environmental_score_b": "Zelené skóre B",
-  "environmental_score_c": "Zelené skóre C",
-  "environmental_score_d": "Zelené skóre D",
-  "environmental_score_e": "Zelené skóre E",
-  "environmental_score_unknown": "Neznáme Zelené skóre",
-  "environmental_score_not_applicable": "Zelené skóre sa neaplikuje",
+  "environmental_score_generic": "Green Score",
+  "environmental_score_a": "Green Score A",
+  "environmental_score_b": "Green Score B",
+  "environmental_score_c": "Green Score C",
+  "environmental_score_d": "Green Score D",
+  "environmental_score_e": "Green Score E",
+  "environmental_score_unknown": "Neznáme Green Score",
+  "environmental_score_not_applicable": "Green Score sa neaplikuje",
   "nova_group_generic": "Ultra-spracovanie - skupiny NOVA",
   "nova_group_1": "Skupina NOVA 1",
   "nova_group_2": "Skupina NOVA 2",
@@ -4090,8 +4090,8 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Prečo sa toto Nutričné skóre líši od toho na obale?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "Existujú dve možné vysvetlenia:\nZoznam zložiek a/alebo výživových údajov nie je aktuálny.\n\nPoskytujeme \"Nový výpočet\" pre Nutričné skóre (alebo V2). Skontrolujte prosím, či máte na balíku informáciu \"Nová kalkulácia\".",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Prečo sa toto Nutri-Score líši od toho na obale?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "Existujú dve možné vysvetlenia:\nZoznam zložiek a/alebo výživových údajov nie je aktuálny.\n\nPoskytujeme \"Nový výpočet\" pre Nutri-Score (alebo V2). Skontrolujte prosím, či máte na balíku informáciu \"Nová kalkulácia\".",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Skontrolujte ingrediencie",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Skontrolujte výživové údaje",
   "url_not_supported": "Bohužiaľ nemôžeme otvoriť adresu URL:\n{url}",
@@ -4179,7 +4179,7 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NOVINKA: Môžete automaticky extrahovať nutričné hodnoty z obrázka!",
+  "nutrition_facts_extract_new": "Novinka: Môžete automaticky extrahovať nutričné údaje z obrázka!",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
@@ -4191,7 +4191,7 @@
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Nepodarilo sa extrahovať nutričné hodnoty z obrázka",
+  "nutrition_facts_extract_failed": "Nepodarilo sa extrahovať nutričné údaje z obrázka",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
@@ -4263,7 +4263,7 @@
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
-  "prices_stats_food": "Jedlo",
+  "prices_stats_food": "Potravina",
   "@prices_stats_food": {
     "description": "Label for food count"
   },
