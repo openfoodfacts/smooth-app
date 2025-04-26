@@ -257,7 +257,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       if (question.barcode != null &&
           question.insightId != null &&
           annotation != null) {
-        BackgroundTaskHungerGames.addTask(
+        await BackgroundTaskHungerGames.addTask(
           barcode: question.barcode!,
           insightId: question.insightId!,
           insightAnnotation: annotation,
