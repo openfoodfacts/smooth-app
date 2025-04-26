@@ -70,7 +70,7 @@
   "@error": {},
   "error_occurred": "Vyskytla sa chyba",
   "@error_occurred": {},
-  "featureInProgress": "Na tejto funkcii ešte pracujeme, zostaňte s nami",
+  "featureInProgress": "Na tejto funkcii ešte pracujeme, zostaňte s namimail",
   "@featureInProgress": {},
   "label_web": "Zobraziť na webe",
   "@label_web": {},
@@ -156,7 +156,7 @@
   "server_error_open_new_issue": "Žiadna odozva servera! Problém môžete otvoriť pomocou nasledujúceho odkazu.",
   "@user_management": {},
   "sign_in_text": "Prihláste sa do svojho účtu Open Food Facts a uložte svoje príspevky",
-  "incorrect_credentials": "Nesprávne meno alebo heslo.",
+  "incorrect_credentials": "Nesprávne používateľské meno alebo heslo.",
   "password_lost_incorrect_credentials": "Tento email alebo používateľské meno neexistuje. Skontrolujte svoje poverenia.",
   "password_lost_server_unavailable": "Na našich serveroch momentálne dochádza k spomaleniu a ospravedlňujeme sa za to. Skúste to neskôr prosím.",
   "login": "Prihlásenie",
@@ -171,7 +171,7 @@
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Zadajte prihlasovacie meno alebo email",
+  "login_page_username_or_email": "Zadajte používateľské meno alebo email",
   "login_page_password_error_empty": "Prosím, zadajte heslo",
   "create_account": "Vytvoriť účet",
   "@create_account": {
@@ -210,12 +210,12 @@
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "V prípade zabudnutého hesla zadajte svoje používateľské meno alebo emailovú adresu, aby ste dostali pokyny na obnovenie hesla. Nezabudnite si tiež skontrolovať priečinok Spam.",
+  "reset_password_explanation_text": "V prípade zabudnutého hesla zadajte svoje používateľské meno alebo emailovú adresu, aby ste dostali pokyny na obnovenie hesla. Nezabudnite si tiež skontrolovať priečinok s nevyžiadanou poštou – Spam.",
   "username_or_email": "Používateľské meno alebo email",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "Na emailovú adresu priradenú k vášmu účtu bol odoslaný email s odkazom na obnovenie hesla. Skontrolujte si aj priečinok Spam",
+  "reset_password_done": "Na emailovú adresu priradenú k vášmu účtu bol odoslaný email s odkazom na obnovenie hesla. Skontrolujte si aj priečinok s nevyžiadanou poštou – Spam",
   "send_reset_password_mail": "Zmeniť heslo",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
@@ -240,7 +240,7 @@
   "sign_up_page_display_name_hint": "Názov",
   "sign_up_page_display_name_error_empty": "Zadajte zobrazované meno, ktoré chcete použiť",
   "sign_up_page_email_hint": "Emailová adresa",
-  "sign_up_page_email_error_empty": "E-mail je povinný",
+  "sign_up_page_email_error_empty": "Email je povinný",
   "sign_up_page_email_error_invalid": "Neplatný email",
   "sign_up_page_username_hint": "Používateľské meno: verejne viditeľné",
   "sign_up_page_username_error_empty": "Prosím, zadajte používateľské meno",
@@ -2285,13 +2285,13 @@
   "prices_bulk_proof_upload_select": "Pridajte cenovky priamo z galérie",
   "prices_bulk_proof_upload_warning": "Po vybratí obrázkov ich už nebudete môcť upravovať!",
   "prices_bulk_proof_upload_subtitle": "Viaceré cenovky",
-  "prices_bulk_proof_upload_title": "Hromadné nahrávanie potvrdeniek",
+  "prices_bulk_proof_upload_title": "Hromadné nahrávanie potvrdení",
   "prices_generic_title": "Ceny",
   "prices_add_n_prices": "{count,plural, =1{Pridať cenu} other{Pridať {count} ceny}}",
   "prices_send_n_prices": "{count,plural, =1{Pošli cenu} other{Pošli {count} ceny}}",
   "prices_add_an_item": "Pridať položku",
   "prices_add_a_price": "Pridajte cenu",
-  "prices_add_a_receipt": "Pridajte potvrdenku",
+  "prices_add_a_receipt": "Pridajte účtenku",
   "prices_add_price_tags": "Pridajte cenovky",
   "prices_barcode_already": "Tento čiarový kód ({barcode}) je už v zozname!",
   "@prices_barcode_already": {
@@ -2367,7 +2367,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Otvoriť potvrdenku od „{user}“",
+  "prices_open_user_proofs": "Otvoriť potvrdenie od „{user}“",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -2376,11 +2376,11 @@
       }
     }
   },
-  "prices_open_proof": "Otvoriť potvrdenku o cene",
+  "prices_open_proof": "Otvoriť potvrdenie o cene",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{Žiadna potvrdenka} =1{Len jedna potvrdenka} other{{count} potvrdenky}}",
+  "prices_proofs_list_length_one_page": "{count,plural, =0{Žiadne potvrdenie} =1{Len jedno potvrdenie} other{{count} potvrdení}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2425,7 +2425,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, =0{Žiadna potvrdenka} =1{Jedna potvrdenka} other{{count} potvrdenky}}",
+  "prices_button_count_proof": "{count,plural, =0{Žiadne potvrdenie} =1{Jedno potvrdenie} other{{count} potvrdenia}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2475,11 +2475,11 @@
   "prices_location_find": "Nájdite obchod",
   "prices_location_mandatory": "Musíte vybrať obchod!",
   "prices_location_search_broader": "Nenašli ste, čo ste hľadali? Skúste širšie vyhľadávanie!",
-  "prices_proof_subtitle": "Potvrdenka",
-  "prices_proof_find": "Vyberte potvrdenku",
+  "prices_proof_subtitle": "Potvrdenie",
+  "prices_proof_find": "Vyberte potvrdenie",
   "prices_proof_receipt": "Účtenka",
   "prices_proof_price_tag": "Cenovka",
-  "prices_proof_mandatory": "Musíte si vybrať potvrdenku!",
+  "prices_proof_mandatory": "Musíte si vybrať potvrdenie!",
   "prices_add_validation_error": "Chyba overenia",
   "prices_privacy_warning_title": "Upozornenie na ochranu osobných údajov",
   "prices_unknown_product": "Neznámy produkt",
@@ -2604,11 +2604,11 @@
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
-  "user_search_proofs_title": "Moje potvrdenky",
+  "user_search_proofs_title": "Moje potvrdenia",
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
-  "user_search_proof_title": "Moja potvrdenka",
+  "user_search_proof_title": "Moja potvrdenie",
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
@@ -2637,7 +2637,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Pridať viacero potvrdeniek",
+  "prices_multiple_proof_addition_system": "Pridať viacero potvrdení",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -3170,7 +3170,7 @@
   "@product_task_background_schedule": {
     "description": "Message when a product is scheduled for background update"
   },
-  "no_email_client_available_dialog_title": "Žiadne e-mailové aplikácie!",
+  "no_email_client_available_dialog_title": "Žiadne emailové aplikácie!",
   "@no_email_client_available_dialog_title": {
     "description": "Title for the dialog when no email client is installed on the device"
   },
@@ -4200,7 +4200,7 @@
     "description": "Label for the discount on prices"
   },
   "prices_stats_statistics": "Štatistika",
-  "@statistics": {
+  "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
   "prices_stats_title": "Štatistika cien",
@@ -4350,5 +4350,13 @@
   "prices_stats_error": "Pri načítavaní štatistík sa vyskytla chyba.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "Question answered!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Potvrdenie",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
   }
 }
