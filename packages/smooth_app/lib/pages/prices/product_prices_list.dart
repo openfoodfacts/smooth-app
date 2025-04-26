@@ -41,11 +41,6 @@ class _ProductPricesListState extends State<ProductPricesList>
     _scrollController = InfiniteScrollController<Price, GetPricesParameters>(
       initialItems: initialItems,
       fetchItems: _fetchPrices,
-      onError: (dynamic error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error fetching prices: $error')),
-        );
-      },
     );
 
     if (widget.pricesResult != null) {
@@ -56,7 +51,7 @@ class _ProductPricesListState extends State<ProductPricesList>
     }
   }
 
-  Future<(List<Price>, bool)> _fetchPrices(
+  Future<List<Price>> _fetchPrices(
     GetPricesParameters parameters,
     int page,
   ) async {
@@ -65,20 +60,14 @@ class _ProductPricesListState extends State<ProductPricesList>
       parameters..pageNumber = page,
     );
 
-    if (result.isError) {
-      throw result.detailError;
-    }
-
     final List<Price> items = result.value.items ?? <Price>[];
-    final bool hasMore = page < (result.value.numberOfPages ?? 1);
 
-    // Update pagination info
     _scrollController.updatePaginationInfo(
       newTotalItems: result.value.total,
       newTotalPages: result.value.numberOfPages,
     );
 
-    return (items, hasMore);
+    return items;
   }
 
   @override

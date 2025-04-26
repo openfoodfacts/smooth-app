@@ -45,11 +45,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     _scrollController = InfiniteScrollController<Proof, GetProofsParameters>(
       initialItems: const <Proof>[],
       fetchItems: _fetchProofs,
-      onError: (dynamic error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error loading proofs : $error')),
-        );
-      },
     );
 
     _gridScrollController.addListener(_scrollListener);
@@ -58,7 +53,9 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   }
 
   void _scrollListener() {
-    if (_scrollController.isLoading || !_scrollController.hasMoreItems) {
+    if (_scrollController.isLoading ||
+        !(_scrollController.totalPages == null ||
+            _scrollController.currentPage < _scrollController.totalPages!)) {
       return;
     }
 
@@ -126,40 +123,31 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     }
   }
 
-  Future<(List<Proof>, bool)> _fetchProofs(
+  Future<List<Proof>> _fetchProofs(
       GetProofsParameters parameters, int page) async {
-    try {
-      if (_bearerToken == null) {
-        throw 'Not authenticated yet';
-      }
-
-      final User user = ProductQuery.getWriteUser();
-
-      final MaybeError<GetProofsResult> result =
-          await OpenPricesAPIClient.getProofs(
-        parameters
-          ..owner = user.userId
-          ..pageNumber = page,
-        uriHelper: ProductQuery.uriPricesHelper,
-        bearerToken: _bearerToken!,
-      );
-
-      if (result.isError) {
-        throw result.error!;
-      }
-
-      final List<Proof> items = result.value.items ?? <Proof>[];
-      final bool hasMore = page < (result.value.numberOfPages ?? 1);
-
-      _scrollController.updatePaginationInfo(
-        newTotalItems: result.value.total,
-        newTotalPages: result.value.numberOfPages,
-      );
-
-      return (items, hasMore);
-    } catch (e) {
-      throw e.toString();
+    if (_bearerToken == null) {
+      throw 'Not authenticated yet';
     }
+
+    final User user = ProductQuery.getWriteUser();
+
+    final MaybeError<GetProofsResult> result =
+        await OpenPricesAPIClient.getProofs(
+      parameters
+        ..owner = user.userId
+        ..pageNumber = page,
+      uriHelper: ProductQuery.uriPricesHelper,
+      bearerToken: _bearerToken!,
+    );
+
+    final List<Proof> items = result.value.items ?? <Proof>[];
+
+    _scrollController.updatePaginationInfo(
+      newTotalItems: result.value.total,
+      newTotalPages: result.value.numberOfPages,
+    );
+
+    return items;
   }
 
   @override
@@ -235,7 +223,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       if (_scrollController.isLoading) {
         return const Center(child: CircularProgressIndicator());
       } else {
-        return Center(child: Text(appLocalizations.prices_no_results));
+        return const Center(child: Text('No Result'));
       }
     }
 

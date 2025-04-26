@@ -55,13 +55,6 @@ class ProductPriceRefresher {
     }
   }
 
-  // Add a refresh method to reload first page
-  Future<void> refresh() async {
-    _loadingStatus = null;
-    pricesResult = null;
-    await _asyncLoad();
-  }
-
   Future<void> _asyncLoad() async {
     _loadingStatus = LoadingStatus.LOADING;
     refreshDisplay();

@@ -30,7 +30,6 @@ class InfiniteScrollList<T, P> extends StatefulWidget {
 }
 
 class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
-  // Hardcoded constant
   static const double _loadMoreTriggerOffset = 200.0;
 
   late final ScrollController _scrollController;
@@ -55,7 +54,6 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   @override
   void didUpdateWidget(covariant InfiniteScrollList<T, P> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // If parameters change, reset and reload
     if (widget.parameters != oldWidget.parameters) {
       unawaited(_resetAndReload());
     }
@@ -68,11 +66,12 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     });
 
     try {
-      final (List<T> items, bool hasMore) = await widget.controller
+      final List<T> items = await widget.controller
           .fetchItems(widget.parameters, widget.controller.initialPage);
 
       widget.controller.reset(newInitialItems: items);
-      widget.controller.hasMoreItems = hasMore;
+      // Update pagination info if needed
+      // widget.controller.updatePaginationInfo(...) could be called here
     } catch (e) {
       _error = e;
     } finally {
@@ -85,7 +84,9 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   }
 
   void _scrollListener() {
-    if (widget.controller.isLoading || !widget.controller.hasMoreItems) {
+    if (widget.controller.isLoading ||
+        !(widget.controller.totalPages == null ||
+            widget.controller.currentPage < widget.controller.totalPages!)) {
       return;
     }
 
@@ -99,10 +100,10 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
 
   Future<void> _loadMoreItems() async {
     if (mounted) {
-      setState(() {}); // Trigger rebuild to show loading indicator
+      setState(() {});
       await widget.controller.loadMore(widget.parameters);
       if (mounted) {
-        setState(() {}); // Update UI with new items
+        setState(() {});
       }
     }
   }
@@ -119,11 +120,6 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     }
   }
 
-  Future<void> _handleRefresh() async {
-    return _resetAndReload();
-  }
-
-  // Default widget builders
   Widget _buildLoadingState(BuildContext context) {
     return const Center(child: CircularProgressIndicator());
   }
@@ -163,32 +159,23 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
 
     final List<Widget> children = <Widget>[];
 
-    // Add header if provided
     if (widget.headerBuilder != null) {
       children.add(widget.headerBuilder!(context));
     }
 
-    // Add list items
     for (int i = 0; i < widget.controller.items.length; i++) {
       children.add(widget.itemBuilder(context, widget.controller.items[i]));
     }
 
-    // Add loading indicator at the bottom if loading more
     if (widget.controller.isLoading) {
       children.add(_buildLoadingMoreIndicator(context));
     }
 
-    // Add footer
     children.add(_buildFooter(context));
 
-    final ListView listView = ListView(
+    return ListView(
       controller: _scrollController,
       children: children,
-    );
-
-    return RefreshIndicator(
-      onRefresh: _handleRefresh,
-      child: listView,
     );
   }
 }

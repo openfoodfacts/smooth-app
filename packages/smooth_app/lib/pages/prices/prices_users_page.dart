@@ -34,15 +34,10 @@ class _PricesUsersPageState extends State<PricesUsersPage>
     _scrollController = InfiniteScrollController<PriceUser, GetUsersParameters>(
       initialItems: const <PriceUser>[],
       fetchItems: _fetchUsers,
-      onError: (dynamic error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error fetching users: $error')),
-        );
-      },
     );
   }
 
-  Future<(List<PriceUser>, bool)> _fetchUsers(
+  Future<List<PriceUser>> _fetchUsers(
     GetUsersParameters parameters,
     int page,
   ) async {
@@ -53,14 +48,13 @@ class _PricesUsersPageState extends State<PricesUsersPage>
     );
 
     final List<PriceUser> items = result.value.items ?? <PriceUser>[];
-    final bool hasMore = page < (result.value.numberOfPages ?? 1);
 
     _scrollController.updatePaginationInfo(
       newTotalItems: result.value.total,
       newTotalPages: result.value.numberOfPages,
     );
 
-    return (items, hasMore);
+    return items;
   }
 
   @override

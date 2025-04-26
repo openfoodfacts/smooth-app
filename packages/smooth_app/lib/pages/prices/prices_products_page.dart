@@ -33,38 +33,27 @@ class _PricesProductsPageState extends State<PricesProductsPage>
         InfiniteScrollController<PriceProduct, GetPriceProductsParameters>(
       initialItems: const <PriceProduct>[],
       fetchItems: _fetchProducts,
-      onError: (dynamic error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Error loading products')),
-        );
-      },
     );
   }
 
-  Future<(List<PriceProduct>, bool)> _fetchProducts(
+  Future<List<PriceProduct>> _fetchProducts(
     final GetPriceProductsParameters parameters,
     final int page,
   ) async {
-    try {
-      final MaybeError<GetPriceProductsResult> result =
-          await OpenPricesAPIClient.getPriceProducts(
-        parameters..pageNumber = page,
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
+    final MaybeError<GetPriceProductsResult> result =
+        await OpenPricesAPIClient.getPriceProducts(
+      parameters..pageNumber = page,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
 
-      final List<PriceProduct> items = result.value.items ?? <PriceProduct>[];
-      final bool hasMore = page < (result.value.numberOfPages ?? 1);
+    final List<PriceProduct> items = result.value.items ?? <PriceProduct>[];
 
-      // Update pagination info
-      _scrollController.updatePaginationInfo(
-        newTotalItems: result.value.total,
-        newTotalPages: result.value.numberOfPages,
-      );
+    _scrollController.updatePaginationInfo(
+      newTotalItems: result.value.total,
+      newTotalPages: result.value.numberOfPages,
+    );
 
-      return (items, hasMore);
-    } catch (e) {
-      throw e.toString();
-    }
+    return items;
   }
 
   @override
@@ -110,10 +99,8 @@ class _PricesProductsPageState extends State<PricesProductsPage>
             _pageSize,
             totalItems,
           );
-
           return SmoothCard(child: ListTile(title: Text(title)));
         },
-        // Individual item builder
         itemBuilder: (
           final BuildContext context,
           final PriceProduct product,

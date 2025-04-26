@@ -36,15 +36,10 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
         InfiniteScrollController<Location, GetLocationsParameters>(
       initialItems: const <Location>[],
       fetchItems: _fetchLocations,
-      onError: (dynamic error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error fetching locations: $error')),
-        );
-      },
     );
   }
 
-  Future<(List<Location>, bool)> _fetchLocations(
+  Future<List<Location>> _fetchLocations(
       GetLocationsParameters parameters, int page) async {
     final MaybeError<GetLocationsResult> result =
         await OpenPricesAPIClient.getLocations(
@@ -53,14 +48,13 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
     );
 
     final List<Location> items = result.value.items ?? <Location>[];
-    final bool hasMore = page < (result.value.numberOfPages ?? 1);
 
     _scrollController.updatePaginationInfo(
       newTotalItems: result.value.total,
       newTotalPages: result.value.numberOfPages,
     );
 
-    return (items, hasMore);
+    return items;
   }
 
   @override

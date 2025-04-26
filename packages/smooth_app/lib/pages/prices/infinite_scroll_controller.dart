@@ -8,13 +8,12 @@ class InfiniteScrollController<T, P> {
     required this.fetchItems,
     Iterable<T> initialItems = const <Never>[],
     this.initialPage = 1,
-    this.onError,
   })  : _currentPage = initialPage,
         _items = List<T>.from(initialItems),
         initialItems = List<T>.from(initialItems);
 
-  /// Returns a Future with the fetched items and a boolean indicating if more items can be loaded
-  final Future<(List<T>, bool)> Function(P parameters, int page) fetchItems;
+  /// Returns a Future with the fetched items
+  final Future<List<T>> Function(P parameters, int page) fetchItems;
 
   /// Parameters for the fetch operation
   P? parameters;
@@ -24,9 +23,6 @@ class InfiniteScrollController<T, P> {
 
   /// Initial items to populate the list
   final List<T> initialItems;
-
-  /// Called when an error occurs during fetching
-  final Function(dynamic error)? onError;
 
   /// Current items in the list
   List<T> _items;
@@ -40,32 +36,27 @@ class InfiniteScrollController<T, P> {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  /// Whether more items can be loaded
-  bool _hasMoreItems = true;
-
-  /// Set whether more items can be loaded
-  set hasMoreItems(bool value) {
-    _hasMoreItems = value;
-  }
-
-  /// Computed property for hasMoreItems that considers both the explicit flag and page information
-  bool get hasMoreItems {
-    if (!_hasMoreItems) {
-      return false;
-    }
-    if (totalPages == null) {
-      return _hasMoreItems;
-    }
-    return _currentPage < totalPages!;
-  }
-
   /// Additional pagination information
   int? totalItems;
   int? totalPages;
 
+  /// Returns a formatted page indicator (e.g., "Page 1 / 5")
+  String get formattedPageIndicator {
+    return totalPages != null
+        ? 'Page $currentPage / $totalPages'
+        : 'Page $currentPage';
+  }
+
+  /// Returns a formatted item count (e.g., "25 of 100 items")
+  String get formattedItemCount {
+    return totalItems != null
+        ? '${items.length} of $totalItems items'
+        : '${items.length} items';
+  }
+
   /// Load more items
   Future<void> loadMore(P parameters) async {
-    if (_isLoading || !hasMoreItems) {
+    if (_isLoading || (totalPages != null && !(_currentPage < totalPages!))) {
       return;
     }
 
@@ -73,15 +64,10 @@ class InfiniteScrollController<T, P> {
     _isLoading = true;
 
     try {
-      final (List<T> newItems, bool hasMore) =
-          await fetchItems(parameters, _currentPage + 1);
-
+      final List<T> newItems = await fetchItems(parameters, _currentPage + 1);
       _items.addAll(newItems);
       _currentPage++;
-      _hasMoreItems = hasMore;
     } catch (e) {
-      onError?.call(e);
-    } finally {
       _isLoading = false;
     }
   }
@@ -93,10 +79,11 @@ class InfiniteScrollController<T, P> {
         ? List<T>.from(newInitialItems)
         : List<T>.from(initialItems);
     _isLoading = false;
-    _hasMoreItems = true;
+    totalItems = null;
+    totalPages = null;
   }
 
-  /// Update pagination metadata
+  /// Update pagination information
   void updatePaginationInfo({int? newTotalItems, int? newTotalPages}) {
     totalItems = newTotalItems;
     totalPages = newTotalPages;
