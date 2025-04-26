@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-
-const double SEARCH_BOTTOM_HEIGHT = 86.0;
 
 class SearchBottomBar extends StatelessWidget {
   @override

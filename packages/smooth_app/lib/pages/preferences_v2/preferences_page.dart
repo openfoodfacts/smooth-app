@@ -20,11 +20,13 @@ class PreferencesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
+    final String? userId = _getUserId();
+
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
       child: DefaultPreferencesRoot(
-        customAppBar: _getUserId() != null
-            ? const LoggedInAppBar()
+        customAppBar: userId != null
+            ? LoggedInAppBar(userId: userId)
             : const LoggedOutAppBar(),
         cards: <PreferenceCard>[
           PreferenceCard(

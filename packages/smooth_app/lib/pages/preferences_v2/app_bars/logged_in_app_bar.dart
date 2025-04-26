@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
+import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
-const double TOOLBAR_HEIGHT = 92.0;
-
 class LoggedInAppBar extends StatelessWidget {
-  const LoggedInAppBar();
+  const LoggedInAppBar({super.key, required this.userId});
+
+  final String userId;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class LoggedInAppBar extends StatelessWidget {
       title: Row(
         children: <Widget>[
           Container(
-            width: 68.0,
-            height: 68.0,
+            width: PROFILE_PICTURE_SIZE,
+            height: PROFILE_PICTURE_SIZE,
             padding: const EdgeInsetsDirectional.all(8.0),
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
@@ -45,7 +45,7 @@ class LoggedInAppBar extends StatelessWidget {
                   children: <Widget>[
                     Flexible(
                       child: Text(
-                        OpenFoodAPIConfiguration.globalUser?.userId ?? '',
+                        userId,
                         style: TextStyle(
                           color: themeExtension.secondaryNormal,
                           fontSize: 16.0,
