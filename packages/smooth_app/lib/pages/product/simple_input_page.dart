@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/background/background_task_hunger_games.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
@@ -66,7 +67,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final List<String> titles = <String>[];
 
     for (int i = 0; i < widget.helpers.length; i++) {
-      titles.add(widget.helpers[i].getTitle(appLocalizations));
+      final AbstractSimpleInputPageHelper helper = widget.helpers[i];
+      titles.add(helper.getTitle(appLocalizations));
       simpleInputs.add(
         Padding(
           padding: i == 0
@@ -82,11 +84,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 },
               ),
               ChangeNotifierProvider<AbstractSimpleInputPageHelper>(
-                create: (_) => widget.helpers[i],
+                create: (_) => helper,
               ),
             ],
             child: SimpleInputWidget(
-              helper: widget.helpers[i],
+              helper: helper,
               product: widget.product,
               controller: _controllers[i],
               displayTitle: true,
@@ -236,7 +238,33 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       );
       first = false;
     }
+
+    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
+      await _saveRobotoffAnswers(helper);
+    }
+
     return true;
+  }
+
+  Future<void> _saveRobotoffAnswers(
+    AbstractSimpleInputPageHelper helper,
+  ) async {
+    for (final MapEntry<RobotoffQuestion, InsightAnnotation?> entry
+        in helper.getRobotoffQuestions().value.entries) {
+      final RobotoffQuestion question = entry.key;
+      final InsightAnnotation? annotation = entry.value;
+
+      if (question.barcode != null &&
+          question.insightId != null &&
+          annotation != null) {
+        await BackgroundTaskHungerGames.addTask(
+          barcode: question.barcode!,
+          insightId: question.insightId!,
+          insightAnnotation: annotation,
+          context: context,
+        );
+      }
+    }
   }
 
   @override
