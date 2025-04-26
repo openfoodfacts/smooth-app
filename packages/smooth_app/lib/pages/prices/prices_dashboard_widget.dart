@@ -71,8 +71,8 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
       GetPricesParameters()
         ..owner = OpenFoodAPIConfiguration.globalUser?.userId
         ..kind = selectedIndex == 0
-            ? 'CONSUMPTION'
-            : 'COMMUNITY', // TODO(chetanr25): This must be implemented in OpenFoodFacts flutter package
+            ? ContributionKind.consumption
+            : ContributionKind.community,
       uriHelper: ProductQuery.uriPricesHelper,
     );
     return prices;
