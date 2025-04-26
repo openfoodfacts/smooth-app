@@ -4351,6 +4351,14 @@
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
+  "product_edit_robotoff_question_answered": "Question answered!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Proof",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
+  },
   "preferences_card_general": "General",
   "@preferences_card_general": {
     "description": "Title for the general preferences card"
