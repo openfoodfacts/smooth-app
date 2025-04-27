@@ -230,12 +230,7 @@ class _SmoothGoRouter {
                   throw Exception('Unsupported preference page type: $type');
                 }
 
-                // TODO(primael): Hide behind dev flag
                 return PreferencesPage();
-
-                /* return UserPreferencesPage(
-                  type: pageType,
-                ); */
               },
             ),
             GoRoute(

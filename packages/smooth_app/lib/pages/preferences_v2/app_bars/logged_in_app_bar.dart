@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
+import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_statistics_card.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
+import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -102,22 +105,22 @@ class LoggedInAppBar extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: _buildStatisticCard(
+                          child: AppBarStatisticsCard(
                             imagePath: 'assets/preferences/ingredients.png',
-                            count: '150+',
                             description: appLocalizations
                                 .preferences_app_bar_products_modified,
-                            themeExtension: themeExtension,
+                            lazyCounter: const LazyCounterUserSearch(
+                              UserSearchType.CONTRIBUTOR,
+                            ),
                           ),
                         ),
                         const SizedBox(width: MEDIUM_SPACE),
                         Expanded(
-                          child: _buildStatisticCard(
+                          child: AppBarStatisticsCard(
                             imagePath: 'assets/preferences/cash.png',
-                            count: '950+',
                             description: appLocalizations
                                 .preferences_app_bar_prices_added,
-                            themeExtension: themeExtension,
+                            lazyCounter: LazyCounterPrices(userId),
                           ),
                         ),
                       ],
@@ -184,70 +187,6 @@ class LoggedInAppBar extends StatelessWidget {
         borderRadius: BorderRadius.vertical(
           bottom: ROUNDED_RADIUS,
         ),
-      ),
-    );
-  }
-
-  Widget _buildStatisticCard({
-    required String imagePath,
-    required String count,
-    required String description,
-    required SmoothColorsThemeExtension themeExtension,
-  }) {
-    return Container(
-      height: 68.0,
-      padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-      decoration: BoxDecoration(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-        color: themeExtension.secondaryVibrant.withValues(
-          alpha: 0.8,
-        ),
-      ),
-      child: Row(
-        children: <Widget>[
-          Image.asset(
-            imagePath,
-            height: 32.0,
-          ),
-          const SizedBox(width: MEDIUM_SPACE),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Flexible(
-                      child: Text(
-                        count,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Flexible(
-                      child: Text(
-                        description,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.fade,
-                        softWrap: false,
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
