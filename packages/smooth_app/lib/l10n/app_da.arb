@@ -4299,11 +4299,11 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "GDPR anmodning",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Butik import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
@@ -4319,7 +4319,7 @@
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "År",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
@@ -4331,7 +4331,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Mobil app",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
