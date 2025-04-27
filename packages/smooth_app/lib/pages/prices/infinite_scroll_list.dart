@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 
@@ -41,7 +42,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
-    _initialLoad();
+    unawaited(_initialLoad());
   }
 
   @override
@@ -66,8 +67,8 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     });
 
     try {
-      final List<T> items = await widget.controller
-          .fetchItems(widget.parameters, widget.controller.initialPage);
+      final List<T> items =
+          await widget.controller.fetchItems(widget.parameters, 1);
 
       widget.controller.reset(newInitialItems: items);
       // Update pagination info if needed
@@ -129,7 +130,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   }
 
   Widget _buildEmptyState(BuildContext context) {
-    return const Text('No results');
+    return Text(AppLocalizations.of(context).prices_no_result);
   }
 
   Widget _buildLoadingMoreIndicator(BuildContext context) {

@@ -9,8 +9,7 @@ class InfiniteScrollController<T, P> {
   InfiniteScrollController({
     required this.fetchItems,
     required Iterable<T> initialItems,
-    this.initialPage = 1,
-  })  : _currentPage = initialPage,
+  })  : _currentPage = _initialPage,
         _items = List<T>.from(initialItems),
         initialItems = List<T>.from(initialItems);
 
@@ -20,8 +19,7 @@ class InfiniteScrollController<T, P> {
   /// Parameters for the fetch operation
   P? parameters;
 
-  /// Initial page number
-  final int initialPage;
+  static const int _initialPage = 1;
 
   /// Initial items to populate the list
   final List<T> initialItems;
@@ -46,20 +44,20 @@ class InfiniteScrollController<T, P> {
   String formattedPageIndicator(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return totalPages != null
-        ? appLocalizations.pageIndicatorWithTotal(currentPage, totalPages!)
-        : appLocalizations.pageIndicator(currentPage);
+        ? appLocalizations.page_indicator_with_total(currentPage, totalPages!)
+        : appLocalizations.page_indicator(currentPage);
   }
 
   /// Returns a formatted item count (e.g., "25 of 100 items")
   String formattedItemCount(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return totalItems != null
-        ? appLocalizations.itemCountWithTotal(items.length, totalItems!)
-        : appLocalizations.itemCount(items.length);
+        ? appLocalizations.item_count_with_total(items.length, totalItems!)
+        : appLocalizations.item_count(items.length);
   }
 
   /// Load more items
-  Future<void> loadMore(P parameters) async {
+  Future<void> loadMore(P parameters, [BuildContext? context]) async {
     if (_isLoading || (totalPages != null && !(_currentPage < totalPages!))) {
       return;
     }
@@ -71,6 +69,12 @@ class InfiniteScrollController<T, P> {
       final List<T> newItems = await fetchItems(parameters, _currentPage + 1);
       _items.addAll(newItems);
       _currentPage++;
+    } catch (e) {
+      if (context != null && context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error loading more items: $e')),
+        );
+      }
     } finally {
       _isLoading = false;
     }
@@ -78,7 +82,7 @@ class InfiniteScrollController<T, P> {
 
   /// Reset the controller to its initial state with optional new initial items
   void reset({List<T>? newInitialItems}) {
-    _currentPage = initialPage;
+    _currentPage = _initialPage;
     _items = newInitialItems != null
         ? List<T>.from(newInitialItems)
         : List<T>.from(initialItems);

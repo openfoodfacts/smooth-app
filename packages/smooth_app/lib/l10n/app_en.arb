@@ -4359,37 +4359,38 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
-  "pageIndicatorWithTotal": "Page {current} / {total}",
-  "@pageIndicatorWithTotal": {
+  "page_indicator_with_total": "Page {current} / {total}",
+  "@page_indicator_with_total": {
     "description": "Page indicator showing current page and total pages",
     "placeholders": {
       "current": {"type": "int", "description": "Current page number"},
       "total": {"type": "int", "description": "Total number of pages"}
     }
   },
-
-  "pageIndicator": "Page {current}",
-  "@pageIndicator": {
+  "page_indicator": "Page {current}",
+  "@page_indicator": {
     "description": "Page indicator showing only current page when total is unknown",
     "placeholders": {
       "current": {"type": "int", "description": "Current page number"}
     }
   },
-
-  "itemCountWithTotal": "{count} of {total} items",
-  "@itemCountWithTotal": {
+  "item_count_with_total": "{count} of {total} items",
+  "@item_count_with_total": {
     "description": "Item count showing current number of items and total items",
     "placeholders": {
       "count": {"type": "int", "description": "Current number of items loaded"},
       "total": {"type": "int", "description": "Total number of items available"}
     }
   },
-
-  "itemCount": "{count} items",
-  "@itemCount": {
+  "item_count": "{count} items",
+  "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {"type": "int", "description": "Current number of items loaded"}
     }
+  },
+  "prices_no_result": "No price statistics found.",
+  "@prices_no_result": {
+    "description": "Message shown when there are no price statistics available to display"
   }
 }
