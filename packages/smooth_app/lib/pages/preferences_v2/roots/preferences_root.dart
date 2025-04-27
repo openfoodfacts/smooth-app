@@ -21,6 +21,18 @@ class PreferencesRootSearchController extends ChangeNotifier {
   }
 }
 
+/// Base class for all preference roots.
+/// [PreferencesRoot] corresponds to a page where each root can have its own
+/// app bar and cards.
+/// The [getCards] method should be overridden to provide the cards for the root.
+/// The [getExternalSearchTiles] method can be overridden to provide external
+/// search tiles for the root which will be displayed in the search results only.
+/// The [buildAppBar] method can be overridden to provide a custom app bar for
+/// the root.
+/// The [PreferencesRoot] also handles the search logic. When the user searches
+/// for a tile, the cards are replaced by individual tiles that match the search
+/// query.
+/// The search query is performed deep in the widget tree.
 abstract class PreferencesRoot extends StatelessWidget {
   const PreferencesRoot({
     super.key,

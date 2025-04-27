@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+/// A tile for preferences in the settings page.
+/// It can be used to display a title, an icon, a subtitle, and a trailing widget.
+/// It can also be used to handle tap events.
+/// The tiles are used inside a [PreferenceCard]. It will also be displayed
+/// outside of a card when the user is searching for a tile.
 class PreferenceTile extends StatelessWidget {
   const PreferenceTile({
     super.key,
