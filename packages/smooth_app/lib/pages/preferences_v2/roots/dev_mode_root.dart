@@ -68,7 +68,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_data,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.background_task_title,
             subtitleText: appLocalizations.background_task_subtitle,
             trailing: const BackgroundTaskBadge(
@@ -82,7 +81,6 @@ class DevModeRoot extends PreferencesRoot {
             ),
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.offline_data,
             onTap: () => Navigator.push<void>(
               context,
@@ -92,7 +90,6 @@ class DevModeRoot extends PreferencesRoot {
             ),
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_preferences_export_history_title,
             subtitleText: appLocalizations.clipboard_barcode_copy,
             onTap: () async {
@@ -160,7 +157,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Refresh all products from server (cf. Nutriscore v2)',
             trailing: const Icon(Icons.refresh),
             onTap: () async {
@@ -177,7 +173,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Reset app language',
             onTap: () async {
               userPreferences.setAppLanguageCode(null);
@@ -185,7 +180,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Add cards to scanner',
             subtitleText: 'Adds 3 sample products to the scanner',
             onTap: () async {
@@ -208,7 +202,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_server,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_preferences_environment_switch_title,
             trailing: DropdownButton<bool>(
               value: userPreferences.getFlag(userPreferencesFlagProd) ?? true,
@@ -252,7 +245,6 @@ class DevModeRoot extends PreferencesRoot {
         title: 'Prices Server configuration',
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title:
                 'Switch between prices.openfoodfacts.org (PROD) and test env',
             trailing: DropdownButton<bool>(
@@ -293,7 +285,6 @@ class DevModeRoot extends PreferencesRoot {
         title: 'Folksonomy Server configuration',
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Folksonomy host',
             subtitleText: ProductQuery.uriFolksonomyHelper.host,
             onTap: () async => _changeFolksonomyHost(
@@ -308,7 +299,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_news,
         tiles: <PreferenceTile>[
           ValueEditionPreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_preferences_news_custom_url_title,
             subtitleWithEmptyValue:
                 appLocalizations.dev_preferences_news_custom_url_empty_value,
@@ -324,7 +314,6 @@ class DevModeRoot extends PreferencesRoot {
                 value.isEmpty || Uri.tryParse(value) != null,
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_preferences_news_provider_status_title,
             subtitle: Consumer<AppNewsProvider>(
               builder: (_, AppNewsProvider provider, __) {
@@ -352,7 +341,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_product_page,
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_preferences_edit_ingredients_title,
             state:
                 userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
@@ -369,7 +357,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_mode_hide_environmental_score_title,
             state: userPreferences
                 .getExcludedAttributeIds()
@@ -386,7 +373,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_preferences_show_folksonomy_title,
             state: userPreferences.getFlag(userPreferencesFlagHideFolksonomy) ??
                 true,
@@ -409,7 +395,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_ui,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_preferences_reset_onboarding_title,
             subtitleText:
                 appLocalizations.dev_preferences_reset_onboarding_subtitle,
@@ -424,7 +409,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Accessibility: remove colors',
             state: userPreferences
                     .getFlag(userPreferencesFlagAccessibilityNoColor) ??
@@ -441,7 +425,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Accessibility: show emoji',
             state: userPreferences
                     .getFlag(userPreferencesFlagAccessibilityEmoji) ??
@@ -458,7 +441,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
             subtitleText:
                 appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
@@ -476,7 +458,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_experimental_features,
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: appLocalizations.prices_bulk_proof_upload_title,
             state:
                 userPreferences.getFlag(userPreferencesFlagBulkProofUpload) ??
@@ -487,7 +468,6 @@ class DevModeRoot extends PreferencesRoot {
             ),
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Multi-products selection for prices',
             state: userPreferences
                     .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
@@ -506,7 +486,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'User ordered knowledge panels',
             state: userPreferences.getFlag(userPreferencesFlagUserOrderedKP) ??
                 false,
@@ -522,7 +501,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Temporary access to location search',
             onTap: () async {
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -573,7 +551,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           PreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Preference Search...',
             onTap: () async => Navigator.of(context).push(
               MaterialPageRoute<void>(
@@ -583,7 +560,6 @@ class DevModeRoot extends PreferencesRoot {
             ),
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Side by side comparison for 2 or 3 products',
             state:
                 userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
@@ -600,7 +576,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.temple_buddhist,
             title: 'Product list import',
             state:
                 userPreferences.getFlag(userPreferencesFlagProductListImport) ??

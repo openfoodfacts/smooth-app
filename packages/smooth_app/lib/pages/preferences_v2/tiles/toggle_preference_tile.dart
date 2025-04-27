@@ -4,7 +4,7 @@ import 'package:smooth_app/widgets/smooth_switch.dart';
 
 class TogglePreferenceTile extends PreferenceTile {
   const TogglePreferenceTile({
-    required super.icon,
+    super.icon,
     required super.title,
     super.subtitleText,
     required this.state,
@@ -22,9 +22,7 @@ class TogglePreferenceTile extends PreferenceTile {
       subtitleText: subtitleText,
       trailing: SmoothSwitch(
         value: state,
-        onChanged: (bool value) {
-          onToggle(value);
-        },
+        onChanged: onToggle,
       ),
     );
   }

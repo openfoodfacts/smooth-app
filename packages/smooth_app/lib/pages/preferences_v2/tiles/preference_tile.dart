@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PreferenceTile extends StatelessWidget {
   const PreferenceTile({
     super.key,
-    required this.icon,
+    this.icon,
     required this.title,
     this.subtitleText,
     this.subtitle,
@@ -16,7 +16,7 @@ class PreferenceTile extends StatelessWidget {
           'Either subtitleText or subtitle must be provided, not both.',
         );
 
-  final IconData icon;
+  final IconData? icon;
   final String title;
   final String? subtitleText;
   final Widget? subtitle;
@@ -31,10 +31,12 @@ class PreferenceTile extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return ListTile(
-      leading: Icon(
-        icon,
-        color: theme.primaryColor,
-      ),
+      leading: icon != null
+          ? Icon(
+              icon,
+              color: theme.primaryColor,
+            )
+          : null,
       title: Text(title),
       subtitle: subtitle ?? (subtitleText != null ? Text(subtitleText!) : null),
       trailing: trailing,

@@ -7,7 +7,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
 class ValueEditionPreferenceTile extends PreferenceTile {
   const ValueEditionPreferenceTile({
-    required super.icon,
+    super.icon,
     required super.title,
     required String dialogAction,
     this.value,
