@@ -19,12 +19,10 @@ class UrlPreferenceTile extends PreferenceTile {
       title: title,
       subtitleText: subtitleText,
       trailing: const Icon(Icons.open_in_browser),
-      onTap: () {
-        LaunchUrlHelper.launchURLInWebViewOrBrowser(
-          context,
-          url,
-        );
-      },
+      onTap: () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
+        context,
+        url,
+      ),
     );
   }
 }
