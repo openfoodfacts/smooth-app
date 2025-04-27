@@ -6,7 +6,7 @@ import 'dart:async';
 class InfiniteScrollController<T, P> {
   InfiniteScrollController({
     required this.fetchItems,
-    Iterable<T> initialItems = const <Never>[],
+    required Iterable<T> initialItems,
     this.initialPage = 1,
   })  : _currentPage = initialPage,
         _items = List<T>.from(initialItems),
