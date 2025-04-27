@@ -4358,5 +4358,38 @@
   "product_edit_robotoff_proof": "Proof",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "pageIndicatorWithTotal": "Page {current} / {total}",
+  "@pageIndicatorWithTotal": {
+    "description": "Page indicator showing current page and total pages",
+    "placeholders": {
+      "current": {"type": "int", "description": "Current page number"},
+      "total": {"type": "int", "description": "Total number of pages"}
+    }
+  },
+
+  "pageIndicator": "Page {current}",
+  "@pageIndicator": {
+    "description": "Page indicator showing only current page when total is unknown",
+    "placeholders": {
+      "current": {"type": "int", "description": "Current page number"}
+    }
+  },
+
+  "itemCountWithTotal": "{count} of {total} items",
+  "@itemCountWithTotal": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {"type": "int", "description": "Current number of items loaded"},
+      "total": {"type": "int", "description": "Total number of items available"}
+    }
+  },
+
+  "itemCount": "{count} items",
+  "@itemCount": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {"type": "int", "description": "Current number of items loaded"}
+    }
   }
 }

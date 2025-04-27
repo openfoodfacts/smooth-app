@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// A generic controller for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.
@@ -41,17 +43,19 @@ class InfiniteScrollController<T, P> {
   int? totalPages;
 
   /// Returns a formatted page indicator (e.g., "Page 1 / 5")
-  String get formattedPageIndicator {
+  String formattedPageIndicator(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return totalPages != null
-        ? 'Page $currentPage / $totalPages'
-        : 'Page $currentPage';
+        ? appLocalizations.pageIndicatorWithTotal(currentPage, totalPages!)
+        : appLocalizations.pageIndicator(currentPage);
   }
 
   /// Returns a formatted item count (e.g., "25 of 100 items")
-  String get formattedItemCount {
+  String formattedItemCount(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return totalItems != null
-        ? '${items.length} of $totalItems items'
-        : '${items.length} items';
+        ? appLocalizations.itemCountWithTotal(items.length, totalItems!)
+        : appLocalizations.itemCount(items.length);
   }
 
   /// Load more items
