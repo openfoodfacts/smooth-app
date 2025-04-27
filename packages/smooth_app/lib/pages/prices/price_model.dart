@@ -204,6 +204,8 @@ class PriceModel with ChangeNotifier {
   Future<void> addTask(final BuildContext context) async {
     final List<String> barcodes = <String>[];
     final List<String> categories = <String>[];
+    final List<List<String>> origins = <List<String>>[];
+    final List<List<String>> labels = <List<String>>[];
     final List<String> pricePers = <String>[];
     final List<bool> pricesAreDiscounted = <bool>[];
     final List<double> prices = <double>[];
@@ -211,6 +213,9 @@ class PriceModel with ChangeNotifier {
     for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       barcodes.add(priceAmountModel.product.barcode);
       categories.add(priceAmountModel.product.categoryTag);
+      origins.add(priceAmountModel.product.originTags);
+      // TODO(monsieurtanuki): to be implemented when supported by "prices"
+      labels.add(<String>[]);
       pricePers.add(priceAmountModel.product.pricePer.offTag);
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);
@@ -228,6 +233,8 @@ class PriceModel with ChangeNotifier {
         // per item
         barcodes: barcodes,
         categories: categories,
+        origins: origins,
+        labels: labels,
         pricePers: pricePers,
         pricesAreDiscounted: pricesAreDiscounted,
         prices: prices,
@@ -247,6 +254,8 @@ class PriceModel with ChangeNotifier {
       // per item
       barcodes: barcodes,
       categories: categories,
+      origins: origins,
+      labels: labels,
       pricePers: pricePers,
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,

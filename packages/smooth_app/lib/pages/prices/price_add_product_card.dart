@@ -100,20 +100,21 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
             text: appLocalizations.prices_category_enter,
             leadingIcon: const Icon(Icons.restaurant),
             onPressed: () async {
-              final String? selected = await Navigator.push<String>(
+              final PriceMetaProduct? priceMetaProduct =
+                  await Navigator.push<PriceMetaProduct>(
                 context,
-                MaterialPageRoute<String>(
+                MaterialPageRoute<PriceMetaProduct>(
                   builder: (BuildContext context) =>
                       const PriceCategoryInputPage(),
                 ),
               );
-              if (selected == null) {
+              if (priceMetaProduct == null) {
                 return;
               }
               if (!context.mounted) {
                 return;
               }
-              _addCategoryToList(selected, context);
+              _addCategoryToList(priceMetaProduct, context);
             },
           ),
         ],
@@ -192,7 +193,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
   }
 
   void _addCategoryToList(
-    final String category,
+    final PriceMetaProduct priceMetaProduct,
     final BuildContext context,
   ) {
     final PriceModel priceModel = Provider.of<PriceModel>(
@@ -201,7 +202,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
     );
     _addProductToList(
       priceModel,
-      PriceMetaProduct.category(category),
+      priceMetaProduct,
       context,
     );
     priceModel.notifyListeners();

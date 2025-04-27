@@ -2314,7 +2314,7 @@
     }
   },
   "prices_barcode_enter": "Enter the Barcode",
-  "prices_category_enter": "Enter the Category",
+  "prices_category_enter": "Item without barcode",
   "prices_per_kilogram": "Price per kilogram",
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
@@ -2331,6 +2331,9 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_mandatory": "Mandatory",
+  "prices_category_optional": "Optional",
+  "prices_category_error_mandatory": "The category is mandatory",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
