@@ -138,27 +138,11 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         hintMaxLines: widget.maxLines ?? 2,
         border: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-          borderSide: widget.outlined
-              ? BorderSide(
-                  color: theme.primaryColor,
-                  width: 1.0,
-                )
-              : const BorderSide(
-                  color: Colors.transparent,
-                  width: 5.0,
-                ),
+          borderSide: _getBorder(theme).borderSide,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-          borderSide: widget.outlined
-              ? BorderSide(
-                  color: theme.primaryColor,
-                  width: 1.0,
-                )
-              : const BorderSide(
-                  color: Colors.transparent,
-                  width: 5.0,
-                ),
+          borderSide: _getBorder(theme).borderSide,
         ),
         suffixIcon: widget.suffixIcon ??
             (widget.type == TextFieldTypes.PASSWORD
@@ -177,4 +161,17 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       ),
     );
   }
+
+  OutlineInputBorder _getBorder(ThemeData theme) => OutlineInputBorder(
+        borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+        borderSide: widget.outlined
+            ? BorderSide(
+                color: theme.primaryColor,
+                width: 1.0,
+              )
+            : const BorderSide(
+                color: Colors.transparent,
+                width: 5.0,
+              ),
+      );
 }
