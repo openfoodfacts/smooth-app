@@ -9,8 +9,10 @@ import 'package:smooth_app/pages/preferences_v2/app_bars/logged_out_app_bar.dart
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/default_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/dev_mode_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/forum_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/github_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/wiki_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
@@ -73,8 +75,8 @@ class PreferencesPage extends StatelessWidget {
                   title: appLocalizations.dev_preferences_screen_title,
                   subtitleText:
                       appLocalizations.dev_preferences_screen_subtitle,
-                  target: const UserPreferencesPage(
-                    type: PreferencePageType.DEV_MODE,
+                  root: DevModeRoot(
+                    title: appLocalizations.dev_preferences_screen_title,
                   ),
                 ),
             ],
@@ -123,6 +125,7 @@ class PreferencesPage extends StatelessWidget {
         externalSearchTiles: <ExternalSearchPreferenceTile>[
           WikiSearchPreferenceTile(),
           GithubSearchPreferenceTile(),
+          const ForumSearchPreferenceTile(),
         ],
       ),
     );

@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
+
+class ForumSearchPreferenceTile extends ExternalSearchPreferenceTile {
+  const ForumSearchPreferenceTile() : super(icon: Icons.forum);
+
+  @override
+  String buildTitle(BuildContext context, String keyword) {
+    return AppLocalizations.of(context).external_search_tile_title(
+      'Forum',
+      keyword,
+    );
+  }
+
+  @override
+  String getSearchUrl(BuildContext context, String keyword) {
+    return 'https://forum.openfoodfacts.org/search?q=$keyword';
+  }
+}
