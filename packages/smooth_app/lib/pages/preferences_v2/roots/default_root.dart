@@ -6,11 +6,10 @@ import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/exte
 class DefaultPreferencesRoot extends PreferencesRoot {
   const DefaultPreferencesRoot({
     super.key,
-    super.title,
     super.customAppBar,
     required this.cards,
     this.externalSearchTiles = const <ExternalSearchPreferenceTile>[],
-  });
+  }) : super(title: '');
 
   final List<PreferenceCard> cards;
   final List<ExternalSearchPreferenceTile> externalSearchTiles;

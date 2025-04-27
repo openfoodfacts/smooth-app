@@ -24,11 +24,11 @@ class PreferencesRootSearchController extends ChangeNotifier {
 abstract class PreferencesRoot extends StatelessWidget {
   const PreferencesRoot({
     super.key,
-    this.title,
+    required this.title,
     this.customAppBar,
   });
 
-  final String? title;
+  final String title;
   final Widget? customAppBar;
 
   List<PreferenceCard> getCards(BuildContext context);
@@ -41,7 +41,7 @@ abstract class PreferencesRoot extends StatelessWidget {
       customAppBar ??
       SliverPinnedHeader(
         child: SmoothTopBar2(
-          title: title ?? 'Preferences',
+          title: title,
           leadingAction: SmoothTopBarLeadingAction.back,
         ),
       );
