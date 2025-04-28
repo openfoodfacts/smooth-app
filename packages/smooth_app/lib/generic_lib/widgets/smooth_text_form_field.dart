@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 enum TextFieldTypes {
@@ -89,7 +91,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         );
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
-    final ThemeData theme = Theme.of(context);
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -138,11 +141,11 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         hintMaxLines: widget.maxLines ?? 2,
         border: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-          borderSide: _getBorder(theme).borderSide,
+          borderSide: _getBorder(themeExtension).borderSide,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-          borderSide: _getBorder(theme).borderSide,
+          borderSide: _getBorder(themeExtension).borderSide,
         ),
         suffixIcon: widget.suffixIcon ??
             (widget.type == TextFieldTypes.PASSWORD
@@ -162,11 +165,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
     );
   }
 
-  OutlineInputBorder _getBorder(ThemeData theme) => OutlineInputBorder(
+  OutlineInputBorder _getBorder(SmoothColorsThemeExtension themeExtension) =>
+      OutlineInputBorder(
         borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
         borderSide: widget.outlined
             ? BorderSide(
-                color: theme.primaryColor,
+                color: themeExtension.primaryBlack,
                 width: 1.0,
               )
             : const BorderSide(

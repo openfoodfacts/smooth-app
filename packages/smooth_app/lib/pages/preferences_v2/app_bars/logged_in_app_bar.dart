@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart'
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class LoggedInAppBar extends StatelessWidget {
   const LoggedInAppBar({super.key, required this.userId});
@@ -24,6 +25,8 @@ class LoggedInAppBar extends StatelessWidget {
         context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
+    final bool lightTheme = context.lightTheme();
+
     return SliverAppBar(
       title: Row(
         children: <Widget>[
@@ -31,13 +34,15 @@ class LoggedInAppBar extends StatelessWidget {
             width: PROFILE_PICTURE_SIZE,
             height: PROFILE_PICTURE_SIZE,
             padding: const EdgeInsetsDirectional.all(8.0),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white,
+              color: theme.cardColor,
             ),
             child: Center(
               child: SvgPicture.asset(
-                'assets/app/release_icon_light_transparent_no_border.svg',
+                lightTheme
+                    ? 'assets/app/release_icon_light_transparent_no_border.svg'
+                    : 'assets/app/release_icon_dark_transparent_no_border.svg',
               ),
             ),
           ),
@@ -67,8 +72,8 @@ class LoggedInAppBar extends StatelessWidget {
                     Flexible(
                       child: Text(
                         appLocalizations.preferences_app_bar_message,
-                        style: TextStyle(
-                          color: theme.colorScheme.onPrimary,
+                        style: const TextStyle(
+                          color: Colors.white,
                           fontSize: 14.0,
                           fontWeight: FontWeight.w400,
                         ),
@@ -142,9 +147,9 @@ class LoggedInAppBar extends StatelessWidget {
                       child: Container(
                         margin: const EdgeInsets.only(top: MEDIUM_SPACE),
                         padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           borderRadius: ROUNDED_BORDER_RADIUS,
-                          color: Colors.white,
+                          color: theme.cardColor,
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -153,7 +158,10 @@ class LoggedInAppBar extends StatelessWidget {
                             Text(
                               appLocalizations
                                   .preferences_app_bar_see_all_stats,
-                              style: const TextStyle(
+                              style: TextStyle(
+                                color: lightTheme
+                                    ? theme.primaryColor
+                                    : Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -161,7 +169,9 @@ class LoggedInAppBar extends StatelessWidget {
                             Icon(
                               Icons.arrow_circle_right,
                               size: 24.0,
-                              color: theme.primaryColor,
+                              color: lightTheme
+                                  ? theme.primaryColor
+                                  : Colors.white,
                             ),
                           ],
                         ),

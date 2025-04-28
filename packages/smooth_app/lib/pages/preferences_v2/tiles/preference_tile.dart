@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A tile for preferences in the settings page.
 /// It can be used to display a title, an icon, a subtitle, and a trailing widget.
@@ -34,12 +35,13 @@ class PreferenceTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final bool lightTheme = context.lightTheme(listen: true);
 
     return ListTile(
       leading: icon != null
           ? Icon(
               icon,
-              color: theme.primaryColor,
+              color: lightTheme ? theme.primaryColor : Colors.white,
             )
           : null,
       title: Text(title),

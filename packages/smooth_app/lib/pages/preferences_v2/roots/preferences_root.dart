@@ -8,6 +8,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 class PreferencesRootSearchController extends ChangeNotifier {
@@ -102,7 +103,8 @@ abstract class PreferencesRoot extends StatelessWidget {
         context.extension<SmoothColorsThemeExtension>();
 
     return Scaffold(
-      backgroundColor: themeExtension.primaryLight,
+      backgroundColor:
+          !context.darkTheme() ? themeExtension.primaryLight : null,
       body: content,
     );
   }
