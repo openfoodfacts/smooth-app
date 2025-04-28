@@ -252,10 +252,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
     final NutritionValidator validator = NutritionValidator();
 
-    String servingSize = '100.0';
-
+    final String servingSize;
     if (_nutritionContainer.perSize == PerSize.serving) {
       servingSize = _nutritionContainer.servingSize;
+    } else {
+      servingSize = '100.0';
     }
 
     bool error = false;
@@ -264,9 +265,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       final TextEditingControllerWithHistory controller =
           _controllers[nutrient]!;
       final String quantity = controller.text.trim();
-      final Unit u = _nutritionContainer.getUnit(nutrient);
+      final Unit unit = _nutritionContainer.getUnit(nutrient);
 
-      if (!validator.validate(nutrient, quantity, u, servingSize)) {
+      if (!validator.validate(nutrient, quantity, unit, servingSize)) {
         error = true;
         controller.valid = false;
       } else {
