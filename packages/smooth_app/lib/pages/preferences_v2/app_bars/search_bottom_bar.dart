@@ -39,7 +39,7 @@ class SearchBottomBar extends StatelessWidget {
                 child: SmoothTextFormField(
                   type: TextFieldTypes.PLAIN_TEXT,
                   controller: TextEditingController(),
-                  hintText: 'Rechercher un paramètre (ex: NutriScore)',
+                  hintText: 'Rechercher un paramètre (ex: Nutri-Score)',
                   outlined: true,
                   suffixIcon: DecoratedBox(
                     decoration: BoxDecoration(
