@@ -409,7 +409,7 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            title: 'Accessibility: remove colors',
+            title: appLocalizations.preferences_accessibility_remove_colors,
             state: userPreferences
                     .getFlag(userPreferencesFlagAccessibilityNoColor) ??
                 false,
@@ -425,7 +425,7 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            title: 'Accessibility: show emoji',
+            title: appLocalizations.preferences_accessibility_show_emoji,
             state: userPreferences
                     .getFlag(userPreferencesFlagAccessibilityEmoji) ??
                 false,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
@@ -14,6 +15,7 @@ class SearchBottomBar extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final bool lightTheme = context.lightTheme();
 
@@ -39,7 +41,7 @@ class SearchBottomBar extends StatelessWidget {
                 child: SmoothTextFormField(
                   type: TextFieldTypes.PLAIN_TEXT,
                   controller: TextEditingController(),
-                  hintText: 'Rechercher un paramètre (ex: NutriScore)',
+                  hintText: appLocalizations.preferences_app_bar_search_hint,
                   outlined: true,
                   suffixIcon: DecoratedBox(
                     decoration: BoxDecoration(
