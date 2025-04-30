@@ -4458,5 +4458,9 @@
   "preferences_accessibility_remove_colors": "Accessibility: Remove colors",
   "@preferences_accessibility_remove_colors": {
     "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
   }
 }

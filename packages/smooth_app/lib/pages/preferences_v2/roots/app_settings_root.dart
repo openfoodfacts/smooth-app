@@ -26,31 +26,26 @@ class AppSettingsRoot extends PreferencesRoot {
         title: appLocalizations.settings_app_app,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.telegram,
             title: appLocalizations.darkmode,
             subtitle: const UserPreferencesChooseAppTheme(
               hideTitle: true,
             ),
           ),
           PreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.country_picker_label,
             subtitle: const CountrySelector(
               forceCurrencyChange: false,
             ),
           ),
           PreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.currency_picker_label,
             subtitle: CurrencySelector(),
           ),
           PreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.language_picker_label,
             subtitle: const LanguageSelector(),
           ),
           PreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.choose_image_source_title,
             subtitle: const UserPreferencesImageSource(
               hideTitle: true,
@@ -59,10 +54,9 @@ class AppSettingsRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: 'Products',
+        title: appLocalizations.preferences_app_settings_products,
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.expand_nutrition_facts,
             subtitleText: appLocalizations.expand_nutrition_facts_body,
             state: userPreferences.getFlag(KnowledgePanelCard.getExpandFlagTag(
@@ -78,7 +72,6 @@ class AppSettingsRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.expand_ingredients,
             subtitleText: appLocalizations.expand_ingredients_body,
             state: userPreferences.getFlag(KnowledgePanelCard.getExpandFlagTag(
@@ -94,7 +87,6 @@ class AppSettingsRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.search_product_filter_visibility_title,
             subtitleText:
                 appLocalizations.search_product_filter_visibility_subtitle,
@@ -108,7 +100,6 @@ class AppSettingsRoot extends PreferencesRoot {
         title: appLocalizations.crash_reporting_toggle_title,
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.crash_reporting_toggle_title,
             subtitleText: appLocalizations.crash_reporting_toggle_subtitle,
             state: userPreferences.crashReports,
@@ -117,7 +108,6 @@ class AppSettingsRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            icon: Icons.public,
             title: appLocalizations.send_anonymous_data_toggle_title,
             subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
             state: userPreferences.userTracking,
