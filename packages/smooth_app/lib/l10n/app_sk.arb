@@ -62,7 +62,7 @@
   "@calculate": {
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
-  "reset_food_prefs": "Obnoviť predvoľby jedla",
+  "reset_food_prefs": "Obnoviť potravinové predvoľby",
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
@@ -70,7 +70,7 @@
   "@error": {},
   "error_occurred": "Vyskytla sa chyba",
   "@error_occurred": {},
-  "featureInProgress": "Na tejto funkcii ešte pracujeme, zostaňte s namimail",
+  "featureInProgress": "Na tejto funkcii ešte pracujeme, zostaňte s nam",
   "@featureInProgress": {},
   "label_web": "Zobraziť na webe",
   "@label_web": {},
@@ -360,7 +360,7 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "Kód pre každý produkt Open Food Facts je dostupný na GitHub. Môžete použiť kód (je to otvorený zdroj) a pomôcť nám ho vylepšiť pre všetkých na celej planéte.",
+  "contribute_develop_text": "Kód pre každý produkt Open Food Facts je dostupný na GitHube. Môžete použiť kód (je to otvorený zdroj) a pomôcť nám ho vylepšiť pre všetkých na celej planéte.",
   "@contribute_develop_text": {},
   "contribute_develop_text_2": "Môžete sa pripojiť k diskusnej miestnosti Open Food Facts Slack, čo je preferovaný spôsob kladenia otázok.",
   "@contribute_develop_text_2": {},
@@ -400,7 +400,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Preklady sú jednou z kľúčových úloh projektu",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Prispejte svojimi schopnosťami do Open Food Facts. Pripojte sa k fondu zručností!",
+  "contribute_join_skill_pool": "Prispejte svojimi schopnosťami do Open Food Facts. Pridajte sa k tímu zručných!",
   "contribute_share_header": "Zdieľajte Open Food Facts so svojimi priateľmi",
   "@contribute_share_header": {},
   "contribute_share_content": "Rád by som vám dal vedieť o aplikácii Open Food Facts, ktorú používam. Umožňuje personalizovaným spôsobom získať informácie o vplyve vášho jedla na zdravie a životné prostredie. Funguje tak, že naskenujete čiarové kódy na obale. Je zdarma, nevyžaduje registráciu a dokonca môžete pomôcť zvýšiť počet rozpoznateľných produktov v ich databáze. Tu je odkaz na jeho získanie pre váš telefón: https://openfoodfacts.app",
@@ -455,7 +455,7 @@
   "myPreferences_settings_subtitle": "Tmavý režim, jazyky…",
   "myPreferences_food_title": "Potravinové preferencie",
   "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie.",
-  "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť produkty podľa svojich preferencií, pozrite si informácie, ktoré vás zaujímajú ako prvé, a získajte súhrn kompatibility. Tieto potravinové preferencie zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
+  "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť produkty podľa svojich preferencií. Pozrite si informácie, ktoré vás zaujímajú ako prvé a získajte súhrn kompatibility. Tieto potravinové preferencie zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
   "confirmResetPreferences": "Obnoviť potravinové preferencie?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -557,10 +557,10 @@
   "ingredients": "Ingrediencie",
   "@ingredients": {},
   "ingredients_editing_instructions": "Ponechajte pôvodné poradie. Uveďte percento ak je dostupné. Oddeľte ich čiarkou alebo pomlčkou a použite zátvorky pre zloženie zložiek.",
-  "ingredients_editing_error": "Nepodarilo sa uložiť prísady.",
-  "ingredients_editing_image_error": "Nepodarilo sa získať obrázok nových ingrediencií.",
-  "ingredients_editing_title": "Upraviť prísady",
-  "ingredients_photo": "Fotografia ingrediencií",
+  "ingredients_editing_error": "Nepodarilo sa uložiť zložky.",
+  "ingredients_editing_image_error": "Nepodarilo sa získať obrázok nových zložiek.",
+  "ingredients_editing_title": "Upraviť zložky",
+  "ingredients_photo": "Fotografia zložiek",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
@@ -621,7 +621,7 @@
   },
   "front_packaging_photo_button_label": "Predná fotografia produktu",
   "@front_packaging_photo_button_label": {},
-  "confirm_front_packaging_photo_button_label": "Potvrďte nahranie fotografie predného obalu",
+  "confirm_front_packaging_photo_button_label": "Potvrďte nahranie prednej fotografie produktu",
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
@@ -685,7 +685,7 @@
   "take_more_photo_title": "Odfotiť viacej fotografií",
   "front_photo_uploaded": "Predná fotografia produktu bola nahraná",
   "@front_photo_uploaded": {},
-  "ingredients_photo_button_label": "Fotografia ingrediencií",
+  "ingredients_photo_button_label": "Fotografia zložiek",
   "@ingredients_photo_button_label": {},
   "ingredients_photo_uploaded": "Fotografia zložiek bola nahraná",
   "@ingredients_photo_uploaded": {},
@@ -772,7 +772,7 @@
     "description": "Message when a new picture is being uploaded to the server"
   },
   "score_add_missing_ingredients": "Pridajte chýbajúce zložky",
-  "score_add_missing_packaging_image": "Pridajte chýbajúci obrázok obalu",
+  "score_add_missing_packaging_image": "Pridajte chýbajúcu fotografiu obalu",
   "score_add_missing_nutrition_facts": "Pridajte chýbajúce výživové údaje",
   "score_add_missing_product_traces": "Pridajte chýbajúce stopy produktu",
   "score_add_missing_product_category": "Pridajte chýbajúcu kategóriu produktu",
@@ -896,8 +896,8 @@
       }
     }
   },
-  "product_image_outdated": "Táto fotografia môže byť zastaraná",
-  "product_image_outdated_explanations_title": "Táto fotografia môže byť zastaraná",
+  "product_image_outdated": "Táto fotografia môže byť neaktuálna",
+  "product_image_outdated_explanations_title": "Táto fotografia môže byť neaktuálna",
   "product_image_outdated_explanations_content": "Táto fotografia vznikla pred viac ako rokom.\n**Skontrolujte, či je aktuálna**.\n\nToto je **len varovanie**. Ak je produkt stále rovnaký, môžete túto správu ignorovať.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
@@ -930,15 +930,15 @@
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
-  "product_image_action_from_gallery": "Vyberte si z galérie svojho telefónu",
+  "product_image_action_from_gallery": "Vyberte z galérie svojho telefónu",
   "@product_image_action_from_gallery": {
     "description": "Replace the existing picture with one from the device's gallery"
   },
-  "product_image_action_choose_existing_photo": "Vyberte si z fotografií produktu",
+  "product_image_action_choose_existing_photo": "Vyberte z fotografií produktu",
   "@product_image_action_choose_existing_photo": {
     "description": "Replace the existing picture with one from the product's photos"
   },
-  "product_image_details_label": "Informácie o fotke",
+  "product_image_details_label": "Informácie o fotografii",
   "@product_image_details_label": {
     "description": "Label for the photo details"
   },
@@ -1055,15 +1055,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Pridajte kategóriu na výpočet Nutričného skóre.",
+  "product_improvement_add_category": "Pridajte kategóriu na výpočet Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Pridajte výživové údaje na výpočet Nutričného skóre.",
+  "product_improvement_add_nutrition_facts": "Pridajte výživové údaje na výpočet Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Pridajte výživové údaje a kategóriu na výpočet Nutričného skóre.",
+  "product_improvement_add_nutrition_facts_and_category": "Pridajte výživové údaje a kategóriu na výpočet Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -1928,7 +1928,7 @@
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
-  "edit_product_ingredients_photo_title": "Fotografia ingrediencií",
+  "edit_product_ingredients_photo_title": "Fotografia zložiek",
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -4051,7 +4051,7 @@
     "description": "Example of products for other categories"
   },
   "photo_field_front": "Fotografia produktu",
-  "photo_field_ingredients": "Fotografia ingrediencií",
+  "photo_field_ingredients": "Fotografia zložiek",
   "photo_field_nutrition": "Fotografia nutričných hodnôt",
   "photo_field_packaging": "Informačná fotografia balenia",
   "photo_already_exists": "Táto fotografia už existuje",
