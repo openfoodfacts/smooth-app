@@ -887,7 +887,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Fotografia odfotená {date}. Táto fotografia môže byť zastaraná",
+  "product_image_outdated_accessibility_label": "Fotografia odfotená {date}. Táto fotografia môže byť neaktuálna",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -3032,7 +3032,7 @@
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Pozrite sa na tento produkt na Open Food Facts: {url}",
+  "share_product_text": "Pozrite si tento produkt na Open Food Facts: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3041,7 +3041,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Pozrite sa na tento produkt na Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Pozrite si tento produkt na Open Beauty Facts: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3050,7 +3050,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Pozrite sa na tento produkt na Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Pozrite si tento produkt na Open PetFood Facts: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3116,7 +3116,7 @@
   },
   "expand_ingredients_body": "Rozbaľovať tabuľku zložiek",
   "search_product_filter_visibility_title": "Zobraziť filter vo vyhľadávaní",
-  "search_product_filter_visibility_subtitle": "Vyberte vyhľadávaciu lokalitu: Open Food Facts, Open Beauty Facts, Open Pet Food Facts alebo Open Products Facts",
+  "search_product_filter_visibility_subtitle": "Vyberte zdroj vyhľadávania: Open Food Facts, Open Beauty Facts, Open Pet Food Facts alebo Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
@@ -3184,7 +3184,7 @@
   "@product_card_remove_product_tooltip": {
     "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
   },
-  "scan_announce_new_barcode": "Naskenovaný nový čiarový kód: {barcode}",
+  "scan_announce_new_barcode": "Nový naskenovaný čiarový kód: {barcode}",
   "@scan_announce_new_barcode": {
     "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
     "placeholders": {
@@ -3404,7 +3404,7 @@
   "@edit_packagings_element_field_weight": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_weight": "Pred vážením odstráňte všetky zvyšné potraviny a umyte a osušte časť obalu. Ak je to možné, použite váhu s presnosťou 0,1 g alebo 0,01 g.",
+  "edit_packagings_element_hint_weight": "Pred vážením odstráňte všetky zvyšky potraviny, umyte a osušte časti obalu. Ak je to možné, použite váhu s presnosťou 0,1 g alebo 0,01 g.",
   "@edit_packagings_element_hint_weight": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3556,7 +3556,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Stiahnite si najlepšie {count,plural,  other{{count} products}} vo vašej krajine na okamžité skenovanie",
+  "download_top_n_products": "Stiahnite si najlepšie {count,plural,  other{{count} produkty}} vo vašej krajine na okamžité skenovanie",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
@@ -3585,7 +3585,7 @@
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
-  "clear_local_database": "Vymazať údaje o produktoch offlineúdaje o produktoch",
+  "clear_local_database": "Vymazať údaje o produktoch offline údaje o produktoch",
   "@clear_local_database": {
     "description": "List tile title for the clear local database page"
   },
@@ -3610,7 +3610,7 @@
   "@know_more": {
     "description": "Know More"
   },
-  "offline_data_desc": "Kliknutím získate viac informácií o údajoch offline",
+  "offline_data_desc": "Kliknutím získate viac informácií o offline údajoch",
   "@offline_data_desc": {
     "description": "Click to know more about offline data"
   },
@@ -3699,12 +3699,12 @@
   "nova_group_unknown": "Neznáma skupina NOVA",
   "nutrition_facts": "Úrovne živín",
   "faq_title_partners": "Partneri a patróni mimovládnej organizácie",
-  "faq_title_vision": "The Open Food Facts Vízia, Misia, Hodnoty a Programy",
+  "faq_title_vision": "Open Food Facts vízia, misia, hodnoty a programy",
   "faq_title_install_beauty": "Nainštalujte si Open Beauty Facts a vytvorte kozmetickú databázu",
   "faq_title_install_pet": "Nainštalujte si Open Pet Food Facts a vytvorte databázu krmiva pre domáce zvieratá",
   "faq_title_install_product": "Nainštalujte si fakty o otvorených produktoch na vytvorenie databázy produktov na predĺženie životnosti objektov",
   "faq_nutriscore_nutriscore": "Nový výpočet Nutričného skóre: čo je nové?",
-  "contact_title_pro_page": "Pro? Importujte svoje produkty do Open Food Facts",
+  "contact_title_pro_page": "Profesionál? Importujte svoje produkty do Open Food Facts",
   "contact_title_pro_email": "Kontakt na výrobcu",
   "contact_title_press_page": "Stránka pre média",
   "contact_title_press_email": "Kontakty pre médiá",
@@ -3999,7 +3999,7 @@
   "@carousel_unsupported_header": {
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
-  "carousel_unsupported_title": "Ups!",
+  "carousel_unsupported_title": "Ojoj!",
   "carousel_unsupported_text": "Naskenovaný čiarový kód je nepodporovaný Open Food Facts!",
   "carousel_error_header": "Chyba!",
   "@carousel_error_header": {
@@ -4127,7 +4127,7 @@
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
-  "product_footer_action_contributor_guide": "Nápoveda",
+  "product_footer_action_contributor_guide": "Pomoc",
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
