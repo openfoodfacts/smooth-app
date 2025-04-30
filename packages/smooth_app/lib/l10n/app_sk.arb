@@ -6,7 +6,7 @@
   },
   "yes": "Áno",
   "@yes": {},
-  "add": "Pridať",
+  "add": "Pridať\n",
   "@add": {},
   "account_delete_message": "Naozaj chcete odstrániť svoj účet?\nAk existuje konkrétny dôvod, zdieľajte ho nižšie prosím",
   "@account_delete_message": {},
@@ -437,7 +437,7 @@
   "question_skip_button_accessibility_value": "Preskočte túto otázku",
   "tap_to_edit_search": "Klepnutím upravíte vyhľadávanie",
   "@Personal preferences": {},
-  "myPreferences": "My preferences",
+  "myPreferences": "Moje nastavenia",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
@@ -556,7 +556,7 @@
   },
   "ingredients": "Ingrediencie",
   "@ingredients": {},
-  "ingredients_editing_instructions": "Klepnutím zobrazíte ďalšie informácie...",
+  "ingredients_editing_instructions": "Ponechajte pôvodné poradie. Uveďte percento ak je dostupné. Oddeľte ich čiarkou alebo pomlčkou a použite zátvorky pre zloženie zložiek.",
   "ingredients_editing_error": "Nepodarilo sa uložiť prísady.",
   "ingredients_editing_image_error": "Nepodarilo sa získať obrázok nových ingrediencií.",
   "ingredients_editing_title": "Upraviť prísady",
@@ -615,7 +615,7 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "Ilustrácia s neznámym Nutričným skóre a Green Score",
+  "new_product_dialog_illustration_description": "Príklad s neznámym Nutri-Score a Green Score",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -639,7 +639,7 @@
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Ups… niečo je s vašou fotkou!",
+  "crop_page_action_local_failed_title": "Ojoj… niečo je s vašou fotkou!",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -898,7 +898,7 @@
   },
   "product_image_outdated": "Táto fotografia môže byť zastaraná",
   "product_image_outdated_explanations_title": "Táto fotografia môže byť zastaraná",
-  "product_image_outdated_explanations_content": "Táto fotografia vznikla pred viac ako rokom.\n**Skontrolujte, či je to stále aktuálna**.\n\nToto je **len varovanie**. Ak je obsah stále rovnaký, môžete túto správu ignorovať.",
+  "product_image_outdated_explanations_content": "Táto fotografia vznikla pred viac ako rokom.\n**Skontrolujte, či je aktuálna**.\n\nToto je **len varovanie**. Ak je produkt stále rovnaký, môžete túto správu ignorovať.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1873,7 +1873,7 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
-  "edit_product_form_item_add_valid_item_tooltip": "Pridať",
+  "edit_product_form_item_add_valid_item_tooltip": "Pridať\n",
   "edit_product_form_item_add_invalid_item_tooltip": "Najprv zadajte text",
   "edit_product_form_item_remove_item_tooltip": "Odstrániť",
   "edit_product_form_item_save_edit_item_tooltip": "Uložte svoju úpravu",
@@ -3669,7 +3669,7 @@
   "nutriscore_c": "Nutričné skóre C",
   "nutriscore_d": "Nutričné skóre D",
   "nutriscore_e": "Nutričné skóre E",
-  "nutriscore_new_formula": "Nutričné skóre {letter} (Nový výpočet)",
+  "nutriscore_new_formula": "Nutri-Score {letter} (nový výpočet)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3682,7 +3682,7 @@
   "nutriscore_unknown": "Neznáme Nutričné skóre",
   "nutriscore_unknown_new_formula": "Neznáme Nutričné skóre (nový výpočet)",
   "nutriscore_not_applicable": "Nutričné skóre nie je použiteľné",
-  "nutriscore_not_applicable_new_formula": "Nutričné skóre sa nedá použiť (Nový výpočet)",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score sa nedá použiť (nový výpočet)",
   "environmental_score_generic": "Green Score",
   "environmental_score_a": "Green Score A",
   "environmental_score_b": "Green Score B",
@@ -4091,7 +4091,7 @@
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
   "knowledge_panel_nutriscore_banner_incorrect_score_title": "Prečo sa toto Nutri-Score líši od toho na obale?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "Existujú dve možné vysvetlenia:\nZoznam zložiek a/alebo výživových údajov nie je aktuálny.\n\nPoskytujeme \"Nový výpočet\" pre Nutri-Score (alebo V2). Skontrolujte prosím, či máte na balíku informáciu \"Nová kalkulácia\".",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "Existujú dve možné vysvetlenia:\nZoznam zložiek a/alebo výživových údajov nie je aktuálny.\n\nPoskytujeme \"Nový výpočet\" pre Nutri-Score (alebo V2). Skontrolujte prosím, či máte na balíku informáciu \"Nová výpočet\".",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Skontrolujte ingrediencie",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Skontrolujte výživové údaje",
   "url_not_supported": "Bohužiaľ nemôžeme otvoriť adresu URL:\n{url}",
@@ -4147,7 +4147,7 @@
       }
     }
   },
-  "app_review_title": "Užívate si aplikáciu?",
+  "app_review_title": "Páči sa vám táto aplikácia?",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
@@ -4351,7 +4351,7 @@
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Otázka zodpovedaná!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
