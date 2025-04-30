@@ -2287,7 +2287,6 @@
   "prices_bulk_proof_upload_subtitle": "Πολλαπλές Ετικέτες Τιμής",
   "prices_bulk_proof_upload_title": "Μεταφόρτωση Μαζικής Απόδειξης",
   "prices_generic_title": "Τιμές",
-  "prices_bulk_proof_upload_action": "Send the proof",
   "prices_add_n_prices": "{count,plural, =1{Προσθήκη τιμής} other{Προσθήκη {count} τιμών}}",
   "prices_send_n_prices": "{count,plural, =1{Στείλτε την τιμή} other{Στείλτε {count} τιμές}}",
   "prices_add_an_item": "Προσθήκη αντικειμένου",
