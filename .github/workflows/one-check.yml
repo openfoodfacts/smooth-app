@@ -1,5 +1,8 @@
 name: Check for one {} in .arb Files
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
