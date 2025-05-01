@@ -49,7 +49,7 @@ class PricesCard extends StatelessWidget {
                   context: context,
                   product: PriceMetaProduct.product(product),
                   proofType: ProofType.priceTag,
-                  multipleProducts : false,
+                  multipleProducts: false,
                 ),
               ),
             ),
