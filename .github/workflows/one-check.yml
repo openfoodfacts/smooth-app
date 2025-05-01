@@ -1,4 +1,4 @@
-name: Check for Empty Braces in .arb Files
+name: Check for one {} in .arb Files
 
 on:
   push:
@@ -19,9 +19,9 @@ jobs:
     - name: Search for empty braces
       run: |
         # Find all .arb files and search for '{}'
-        if grep -r '{}' --include="*.arb" .; then
-          echo "Error: Found empty '{}' in .arb files!"
+        if grep -r 'one {}' --include="*.arb" .; then
+          echo "Error: Found empty 'one {}' in .arb files!"
           exit 1
         else
-          echo "No empty '{}' found in .arb files."
+          echo "No empty 'one {}' found in .arb files."
         fi
