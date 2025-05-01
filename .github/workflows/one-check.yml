@@ -1,0 +1,27 @@
+name: Check for Empty Braces in .arb Files
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  check-empty-braces:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Search for empty braces
+      run: |
+        # Find all .arb files and search for '{}'
+        if grep -r '{}' --include="*.arb" .; then
+          echo "Error: Found empty '{}' in .arb files!"
+          exit 1
+        else
+          echo "No empty '{}' found in .arb files."
+        fi
