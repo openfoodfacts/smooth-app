@@ -40,6 +40,7 @@ class GetPricesModel {
           context: context,
           product: product,
           proofType: ProofType.priceTag,
+          multipleProducts: false,
         ),
         enableCountButton: false,
       );

@@ -19,14 +19,13 @@ class PriceModel with ChangeNotifier {
     required final List<OsmLocation>? locations,
     required final Currency currency,
     final PriceMetaProduct? initialProduct,
-    final bool? multipleProducts,
+    required this.multipleProducts,
   })  : _proof = null,
         existingPrices = null,
         _proofType = proofType,
         _date = DateTime.now(),
         _currency = currency,
         _locations = locations,
-        _multipleProducts = multipleProducts ?? false,
         _priceAmountModels = <PriceAmountModel>[
           if (initialProduct != null) PriceAmountModel(product: initialProduct),
         ];
@@ -34,6 +33,7 @@ class PriceModel with ChangeNotifier {
   PriceModel.proof({
     required Proof proof,
     this.existingPrices,
+    required this.multipleProducts,
   }) : _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
   }
@@ -52,13 +52,8 @@ class PriceModel with ChangeNotifier {
     return false;
   }
 
-  late bool _multipleProducts;
-  bool showAddProductCard() {
-    if (_multipleProducts == true) {
-      return true;
-    }
-    return false;
-  }
+  /// "Should we support multiple products?" (instead of a single product).
+  final bool multipleProducts;
 
   void setProof(final Proof proof, {final bool init = false}) {
     if (!init) {

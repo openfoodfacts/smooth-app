@@ -60,6 +60,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                       PriceModel.proof(
                         proof: widget.proof,
                         existingPrices: _existingPrices,
+                        multipleProducts: false,
                       ),
                     ),
                   ),

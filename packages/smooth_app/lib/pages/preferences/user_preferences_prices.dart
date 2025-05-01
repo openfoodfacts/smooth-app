@@ -75,7 +75,7 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         () async => ProductPriceAddPage.showProductPage(
           context: context,
           proofType: ProofType.receipt,
-          multiProduct: true,
+          multipleProducts: true,
         ),
         Icons.add_shopping_cart,
       ),
@@ -84,7 +84,7 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         () async => ProductPriceAddPage.showProductPage(
           context: context,
           proofType: ProofType.priceTag,
-          multiProduct: true,
+          multipleProducts: true,
         ),
         Icons.add_shopping_cart,
       ),

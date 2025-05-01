@@ -247,6 +247,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       context: context,
                       product: PriceMetaProduct.product(upToDateProduct),
                       proofType: ProofType.priceTag,
+                      multipleProducts: false,
                     ),
                   );
                 },
