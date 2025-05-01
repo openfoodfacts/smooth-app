@@ -3556,7 +3556,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "הורדת {count,plural,  one {}  two {{count} המוצרים}  many {{count} המוצרים}other{{count} המוצרים}} במדינה שלך לסריקה מהירה",
+  "download_top_n_products": "הורדת {count,plural, two {{count} המוצרים}  many {{count} המוצרים}other{{count} המוצרים}} במדינה שלך לסריקה מהירה",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
