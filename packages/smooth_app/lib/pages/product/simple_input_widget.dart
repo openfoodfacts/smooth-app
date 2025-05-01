@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_boolean_button.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_icon_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/pages/hunger_games/question_image_full_page.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
@@ -58,6 +61,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
     _focusNode = FocusNode();
     widget.helper.reInit(widget.product);
     _localTerms = List<String>.of(widget.helper.terms);
+
+    widget.helper.loadRobotoffQuestions();
   }
 
   @override
@@ -70,10 +75,17 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
       widget.product,
     );
 
-    final Widget child =
+    final Widget child = MultiProvider(
+      providers: <ChangeNotifierProvider<dynamic>>[
         ChangeNotifierProvider<ValueNotifier<SimpleInputSuggestionsState>>(
-      create: (_) => widget.helper.getSuggestions(),
-      child: Column(
+          create: (_) => widget.helper.getSuggestions(),
+        ),
+        ChangeNotifierProvider<
+            ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>(
+          create: (_) => widget.helper.getRobotoffQuestions(),
+        ),
+      ],
+      builder: (BuildContext context, Widget? child) => Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           LayoutBuilder(
@@ -139,6 +151,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
               );
             },
           ),
+          _getRobotoffList(context, appLocalizations),
           _getList(appLocalizations),
           if (extraWidget != null)
             Padding(
@@ -161,14 +174,19 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
       appLocalizations,
     );
 
-    return SmoothCardWithRoundedHeader(
-      leading: widget.helper.getIcon(),
-      title: widget.helper.getTitle(appLocalizations),
-      trailing: trailingHeader,
-      contentPadding: const EdgeInsetsDirectional.only(
-        top: BALANCED_SPACE,
-      ),
-      child: child,
+    return Column(
+      children: <Widget>[
+        SmoothCardWithRoundedHeader(
+          leading: widget.helper.getIcon(),
+          title: widget.helper.getTitle(appLocalizations),
+          trailing: trailingHeader,
+          contentPadding: const EdgeInsetsDirectional.only(
+            top: BALANCED_SPACE,
+          ),
+          child: child,
+        ),
+        const SizedBox(height: MEDIUM_SPACE),
+      ],
     );
   }
 
@@ -296,6 +314,148 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
         widget.helper.replaceItem(position, term);
       },
       onRemoveItem: _onRemoveItem,
+    );
+  }
+
+  Widget _getRobotoffList(
+      BuildContext context, AppLocalizations appLocalizations) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+        questionsNotifier = context
+            .watch<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>();
+
+    final Map<RobotoffQuestion, InsightAnnotation?> questions =
+        questionsNotifier.value;
+
+    const double horizontalPadding = MEDIUM_SPACE * 2;
+
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: questions.isEmpty ? 0.0 : MEDIUM_SPACE,
+      ),
+      child: Column(
+        children: questions.entries.map(
+          (MapEntry<RobotoffQuestion, InsightAnnotation?> entry) {
+            final RobotoffQuestion question = entry.key;
+            final InsightAnnotation? annotation = entry.value;
+
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsetsDirectional.only(
+                      start: horizontalPadding,
+                      end: LARGE_SPACE,
+                      top: SMALL_SPACE,
+                      bottom: SMALL_SPACE),
+                  color: extension.successBackground,
+                  child: Row(
+                    children: <Widget>[
+                      ExcludeSemantics(
+                        child: icons.Sparkles(
+                          size: 18.0,
+                          color: extension.success,
+                        ),
+                      ),
+                      const SizedBox(width: SMALL_SPACE),
+                      Expanded(
+                        child: Text(
+                          question.value!,
+                          style: TextStyle(
+                            color: extension.success,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SmoothBooleanButton(
+                        value: annotation == null
+                            ? null
+                            : annotation == InsightAnnotation.YES,
+                        onChanged: (bool? value) {
+                          widget.helper.answerRobotoffQuestion(
+                            question,
+                            value == true
+                                ? InsightAnnotation.YES
+                                : value == false
+                                    ? InsightAnnotation.NO
+                                    : null,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                if (question.imageUrl != null)
+                  SizedBox(
+                    height: 100.0,
+                    width: double.infinity,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: Image.network(
+                            question.imageUrl!,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          left: 0.0,
+                          top: 0.0,
+                          child: Container(
+                            color: Colors.black54,
+                            padding: const EdgeInsetsDirectional.symmetric(
+                              horizontal: horizontalPadding,
+                              vertical: 6.0,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                const ExcludeSemantics(
+                                  child: icons.ImageGallery(
+                                    color: Colors.white,
+                                    size: 14.0,
+                                  ),
+                                ),
+                                const SizedBox(width: SMALL_SPACE),
+                                Text(
+                                  appLocalizations.product_edit_robotoff_proof,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: SMALL_SPACE,
+                          right: LARGE_SPACE,
+                          child: SmoothIconButton(
+                            size: 24.0,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute<void>(
+                                  builder: (BuildContext context) =>
+                                      QuestionImageFullPage(
+                                    question,
+                                  ),
+                                ),
+                              );
+                            },
+                            icon: const icons.Expand(),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+              ],
+            );
+          },
+        ).toList(growable: false),
+      ),
     );
   }
 

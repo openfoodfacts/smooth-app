@@ -1,0 +1,22 @@
+site_name: Open Food Facts mobile app
+docs_dir: doc
+repo_url: https://github.com/openfoodfacts/smooth-app
+edit_uri: blob/develop/docs/
+site_dir: gh_pages
+
+theme:
+  name: material
+  palette:
+    primary: beige
+    text: black
+  logo: assets/app/logo_text_black.svg
+
+markdown_extensions:
+  - footnotes
+  - mdx_truly_sane_lists
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+plugins:
+  - awesome-pages
+  - search

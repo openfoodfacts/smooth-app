@@ -165,6 +165,14 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       password: user.password,
       uriHelper: ProductQuery.uriPricesHelper,
     );
+
+    if (token.isError) {
+      return MaybeError<GetProofsResult>.error(
+        error: token.error ?? 'Could not authenticate with the server',
+        statusCode: token.statusCode ?? 500,
+      );
+    }
+
     final String bearerToken = token.value;
 
     final MaybeError<GetProofsResult> result =

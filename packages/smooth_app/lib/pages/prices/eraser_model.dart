@@ -1,5 +1,6 @@
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/rendering.dart';
+import 'package:smooth_app/pages/crop_helper.dart';
 
 /// Model about the eraser tool: coordinate computations.
 class EraserModel {
@@ -33,6 +34,7 @@ class EraserModel {
   }
 
   double get _deltaX => (_fullWidth - _imageWidth) / 2;
+
   double get _deltaY => (_fullHeight - _imageHeight) / 2;
 
   Offset? _latestStart;
@@ -42,11 +44,9 @@ class EraserModel {
 
   int get length => offsets.length ~/ 2;
 
-  static const Rect _fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
-
   // From full image [0,1] to possibly cropped
   Offset _fromPct(final Offset offset) {
-    final Rect rect = cropRect ?? _fullImageCropRect;
+    final Rect rect = cropRect ?? CropHelper.fullImageCropRect;
     return switch (rotation) {
       CropRotation.down => Offset(
           (1 - offset.dx - rect.left) / rect.width * _imageWidth,
