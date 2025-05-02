@@ -33,8 +33,8 @@ class PriceModel with ChangeNotifier {
   PriceModel.proof({
     required Proof proof,
     this.existingPrices,
-    required this.multipleProducts,
-  }) : _priceAmountModels = <PriceAmountModel>[] {
+  }) : multipleProducts = true,
+    _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
   }
 

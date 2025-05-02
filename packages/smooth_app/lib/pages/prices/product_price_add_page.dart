@@ -38,7 +38,6 @@ class ProductPriceAddPage extends StatefulWidget {
     required final BuildContext context,
     final PriceMetaProduct? product,
     required final ProofType proofType,
-    required final bool multipleProducts,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -57,6 +56,8 @@ class ProductPriceAddPage extends StatefulWidget {
     }
 
     final Currency currency = priceAddHelper.getCurrency();
+
+    final bool multipleProducts = product == null;
 
     await Navigator.of(context).push(
       MaterialPageRoute<void>(

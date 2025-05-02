@@ -40,7 +40,6 @@ class ProductFooterAddPriceButton extends StatelessWidget {
       context: context,
       product: PriceMetaProduct.product(context.read<Product>()),
       proofType: ProofType.priceTag,
-      multipleProducts: false,
     );
   }
 }

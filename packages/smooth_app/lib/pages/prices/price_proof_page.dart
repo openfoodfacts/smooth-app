@@ -59,8 +59,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                     builder: (BuildContext context) => ProductPriceAddPage(
                       PriceModel.proof(
                         proof: widget.proof,
-                        existingPrices: _existingPrices,
-                        multipleProducts: false,
+                        existingPrices: _existingPrices
                       ),
                     ),
                   ),
