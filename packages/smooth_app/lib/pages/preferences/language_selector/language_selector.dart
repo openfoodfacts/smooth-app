@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -204,11 +206,11 @@ class _LanguageSelectorButton extends StatelessWidget {
 
     // Refresh the news feed
     if (context.mounted) {
-      context.read<AppNewsProvider>().loadLatestNews();
+      unawaited(context.read<AppNewsProvider>().loadLatestNews());
     }
     // TODO(monsieurtanuki): make it a background task also?
     // no await
-    productPreferences.refresh();
+    unawaited(productPreferences.refresh());
   }
 }
 

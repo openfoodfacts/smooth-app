@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -59,7 +61,7 @@ class _ProductFooterAddToListButtonState
     );
 
     if (context.mounted) {
-      context.read<_ProductUserListsProvider>().reload();
+      unawaited(context.read<_ProductUserListsProvider>().reload());
     }
 
     return true;

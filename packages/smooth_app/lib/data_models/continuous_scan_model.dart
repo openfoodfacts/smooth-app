@@ -159,7 +159,7 @@ class ContinuousScanModel with ChangeNotifier {
 
       if (state != ScannedProductState.FOUND_BUT_CONSIDERED_AS_NOT_FOUND) {
         _setBarcodeState(barcode, ScannedProductState.LOADING);
-        _cacheOrLoadBarcode(barcode);
+        unawaited(_cacheOrLoadBarcode(barcode));
       }
       lastConsultedBarcode = barcode;
       return true;
@@ -168,9 +168,9 @@ class ContinuousScanModel with ChangeNotifier {
         state == ScannedProductState.CACHED) {
       _barcodes.remove(barcode);
       _barcodes.add(barcode);
-      _addProduct(barcode, state);
+      unawaited(_addProduct(barcode, state));
       if (state == ScannedProductState.CACHED) {
-        _updateBarcode(barcode);
+        unawaited(_updateBarcode(barcode));
       }
       lastConsultedBarcode = barcode;
       return true;
@@ -181,7 +181,7 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> _cacheOrLoadBarcode(final String barcode) async {
     final bool cached = await _cachedBarcode(barcode);
     if (!cached) {
-      _loadBarcode(barcode);
+      unawaited(_loadBarcode(barcode));
     }
   }
 
@@ -194,7 +194,7 @@ class ContinuousScanModel with ChangeNotifier {
             await _queryBarcode(barcode).timeout(SnackBarDuration.long);
         if (fetchedProduct.product != null) {
           if (fetchedProduct.isValid) {
-            _addProduct(barcode, ScannedProductState.CACHED);
+            unawaited(_addProduct(barcode, ScannedProductState.CACHED));
             return true;
           } else {
             _setBarcodeState(
@@ -208,10 +208,10 @@ class ContinuousScanModel with ChangeNotifier {
         // We tried to load the product from the server,
         // but it was taking more than 5 seconds.
         // So we'll just show the already cached product.
-        _addProduct(barcode, ScannedProductState.CACHED);
+        unawaited(_addProduct(barcode, ScannedProductState.CACHED));
         return true;
       }
-      _addProduct(barcode, ScannedProductState.CACHED);
+      unawaited(_addProduct(barcode, ScannedProductState.CACHED));
       return true;
     }
     return false;
@@ -233,7 +233,7 @@ class ContinuousScanModel with ChangeNotifier {
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
         if (fetchedProduct.isValid) {
-          _addProduct(barcode, ScannedProductState.FOUND);
+          unawaited(_addProduct(barcode, ScannedProductState.FOUND));
         } else {
           _setBarcodeState(
             barcode,
@@ -260,7 +260,7 @@ class ContinuousScanModel with ChangeNotifier {
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
         if (fetchedProduct.isValid) {
-          _addProduct(barcode, ScannedProductState.FOUND);
+          unawaited(_addProduct(barcode, ScannedProductState.FOUND));
         } else {
           _setBarcodeState(
             barcode,

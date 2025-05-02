@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -109,7 +110,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         _getListTile(
           appLocalizations.help_improve_country,
           () async {
-            LaunchUrlHelper.launchURL(country.wikiUrl!);
+            unawaited(LaunchUrlHelper.launchURL(country.wikiUrl!));
           },
           Icons.language,
           icon: UserPreferencesListTile.getTintedIcon(
@@ -183,7 +184,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 final LocalDatabase localDatabase =
                     context.read<LocalDatabase>();
                 Navigator.of(context).pop();
-                ProductQueryPageHelper.openBestChoice(
+                unawaited(ProductQueryPageHelper.openBestChoice(
                   name: appLocalizations.all_search_to_be_completed_title,
                   localDatabase: localDatabase,
                   productQuery: PagedToBeCompletedProductQuery(
@@ -193,7 +194,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                   // the other "context"s being popped
                   context: this.context,
                   editableAppBarTitle: false,
-                );
+                ));
               },
             ),
             negativeAction: SmoothActionButton(

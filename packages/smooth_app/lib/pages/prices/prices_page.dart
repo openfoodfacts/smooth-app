@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -104,10 +106,12 @@ class _PricesFeedbackForm extends StatelessWidget {
         data: const IconThemeData(color: Colors.white),
         child: InkWell(
           onTap: () async {
-            LaunchUrlHelper.launchURL(
+            unawaited(LaunchUrlHelper.launchURL(
               'https://forms.gle/Vmh9SR3HhPpjMnVF7',
-            );
-            context.read<UserPreferences>().markPricesFeedbackFormAsCompleted();
+            ));
+            unawaited(context
+                .read<UserPreferences>()
+                .markPricesFeedbackFormAsCompleted());
           },
           child: Padding(
             padding: const EdgeInsetsDirectional.symmetric(

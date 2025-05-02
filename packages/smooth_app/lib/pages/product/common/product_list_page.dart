@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -394,7 +396,8 @@ class _ProductListPageState extends State<ProductListPage>
 
             if (productList.listType == ProductListType.SCAN_SESSION &&
                 mounted) {
-              context.read<ContinuousScanModel>().removeBarcode(barcode);
+              unawaited(
+                  context.read<ContinuousScanModel>().removeBarcode(barcode));
             }
 
             setState(() => barcodes.removeAt(index));
@@ -470,7 +473,7 @@ class _ProductListPageState extends State<ProductListPage>
         return;
       case false:
         if (mounted) {
-          LoadingDialog.error(context: context);
+          unawaited(LoadingDialog.error(context: context));
         }
         return;
     }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -236,16 +238,16 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        context.read<FolksonomyProvider>().editTag(
+        unawaited(context.read<FolksonomyProvider>().editTag(
               res.key,
               res.value,
-            );
+            ));
       } else if (action == FolksonomyAction.add) {
         try {
-          context.read<FolksonomyProvider>().addTag(
+          unawaited(context.read<FolksonomyProvider>().addTag(
                 res.key,
                 res.value,
-              );
+              ));
         } catch (e) {
           ScaffoldMessenger.of(context).showSnackBar(
             SmoothFloatingSnackbar.error(

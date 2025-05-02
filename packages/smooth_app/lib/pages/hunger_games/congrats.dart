@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -118,13 +119,13 @@ class CongratsWidget extends StatelessWidget {
                     if (!context.mounted) {
                       return;
                     }
-                    LoadingDialog.run<void>(
+                    unawaited(LoadingDialog.run<void>(
                       context: context,
                       title: appLocalizations.saving_answer,
                       future: _postInsightAnnotations(
                         anonymousAnnotationList,
                       ),
-                    );
+                    ));
                   }
                 },
               ),

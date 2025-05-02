@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -233,12 +234,12 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   }
 
   Future<void> _listPictureChoices() async {
-    showPhotoBanner(
+    unawaited(showPhotoBanner(
       context: context,
       product: upToDateProduct,
       imageField: _helper.getImageField(),
       language: _multilingualHelper.getCurrentLanguage(),
-    );
+    ));
   }
 
   /// Exits the page if the [flag] is `true`.

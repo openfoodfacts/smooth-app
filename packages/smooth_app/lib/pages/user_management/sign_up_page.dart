@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -432,7 +434,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     }
     final UserPreferences userPreferences =
         await UserPreferences.getUserPreferences();
-    userPreferences.resetOnboarding();
+    unawaited(userPreferences.resetOnboarding());
     if (!mounted) {
       return;
     }

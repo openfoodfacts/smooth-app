@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:app_settings/app_settings.dart';
@@ -342,7 +343,7 @@ Future<bool?> _onGalleryAccessDenied(final BuildContext context) {
             onPressed: () async {
               await AppSettings.openAppSettings();
               if (context.mounted) {
-                Navigator.of(context).maybePop(true);
+                unawaited(Navigator.of(context).maybePop(true));
               }
             },
           ),

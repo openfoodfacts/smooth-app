@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class ProductFooterSettingsButton extends StatelessWidget {
     AppLocalizations appLocalizations,
   ) async {
     final double size = _computeContentSize(context);
-    showSmoothModalSheet(
+    unawaited(showSmoothModalSheet(
       context: context,
       minHeight: size,
       maxHeight: size,
@@ -54,7 +55,7 @@ class ProductFooterSettingsButton extends StatelessWidget {
           bodyPadding: EdgeInsets.zero,
         );
       },
-    );
+    ));
   }
 
   /// Header + list padding + for each action: height + separator
@@ -653,10 +654,11 @@ class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
       );
     }
 
-    preferences.setProductPageActions((value as _ProductActionBarChangedState)
-        .entries
-        .where((_ProductActionBarEntry e) => e.visible)
-        .map((_ProductActionBarEntry e) => e.action));
+    unawaited(preferences.setProductPageActions(
+        (value as _ProductActionBarChangedState)
+            .entries
+            .where((_ProductActionBarEntry e) => e.visible)
+            .map((_ProductActionBarEntry e) => e.action)));
   }
 
   void reorderPosition(int oldPosition, int newPosition) {

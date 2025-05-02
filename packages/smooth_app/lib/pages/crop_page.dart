@@ -180,7 +180,7 @@ class _CropPageState extends State<CropPage> {
                   onPressed: () async {
                     final File? file = await widget.onRetakePhoto?.call();
                     if (file != null && context.mounted) {
-                      Navigator.of(context).pushReplacement(
+                      unawaited(Navigator.of(context).pushReplacement(
                         MaterialPageRoute<CropParameters>(
                           builder: (BuildContext context) => CropPage(
                             inputFile: file,
@@ -190,7 +190,7 @@ class _CropPageState extends State<CropPage> {
                             onRetakePhoto: widget.onRetakePhoto,
                           ),
                         ),
-                      );
+                      ));
                     }
                   },
                 ),

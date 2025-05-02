@@ -141,7 +141,7 @@ class _CameraScannerPageState extends State<CameraScannerPage>
       return false;
     }
 
-    _userPreferences.incrementScanCount();
+    unawaited(_userPreferences.incrementScanCount());
     return true;
   }
 }

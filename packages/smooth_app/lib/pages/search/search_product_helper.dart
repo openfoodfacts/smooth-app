@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -92,13 +94,13 @@ class SearchProductHelper extends SearchHelper {
         searchCount: 1,
       );
       if (context.mounted) {
-        AppNavigator.of(context).push(
+        unawaited(AppNavigator.of(context).push(
           AppRoutes.PRODUCT(
             fetchedProduct.product!.barcode!,
             heroTag: 'search_${fetchedProduct.product!.barcode!}',
           ),
           extra: fetchedProduct.product,
-        );
+        ));
       }
     } else {
       AnalyticsHelper.trackSearch(

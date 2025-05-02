@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -397,16 +399,16 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         text: negativeLabel,
         onPressed: () async {
           if (_pageNumber == 0) {
-            Navigator.of(context).maybePop();
+            unawaited(Navigator.of(context).maybePop());
             return;
           }
           if (widget.displayProductType && _pageNumber == 1) {
             Navigator.of(context).pop();
           } else {
-            _pageController.previousPage(
+            unawaited(_pageController.previousPage(
               duration: SmoothAnimationsDuration.short,
               curve: Curves.easeOut,
-            );
+            ));
           }
         },
       ),
@@ -445,10 +447,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               productType: _inputProductType,
             );
           }
-          _pageController.nextPage(
+          unawaited(_pageController.nextPage(
             duration: SmoothAnimationsDuration.short,
             curve: Curves.easeOut,
-          );
+          ));
         },
       ),
     );

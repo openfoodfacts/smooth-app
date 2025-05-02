@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
@@ -185,7 +186,7 @@ class AppNewsProvider extends ChangeNotifier {
     if (prodEnv != _prodEnv || jsonURI != _uriOverride) {
       _prodEnv = prodEnv;
       _uriOverride = jsonURI;
-      loadLatestNews(forceUpdate: true);
+      unawaited(loadLatestNews(forceUpdate: true));
     }
   }
 

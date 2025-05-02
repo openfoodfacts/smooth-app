@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -229,7 +231,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     if (!context.mounted) {
       return;
     }
-    showDialog<void>(
+    unawaited(showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         final String logo = Theme.of(context).brightness == Brightness.light
@@ -351,7 +353,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           ),
         );
       },
-    );
+    ));
   }
 
   String _getFAQUrl() {

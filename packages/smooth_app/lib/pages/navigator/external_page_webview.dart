@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -71,7 +73,7 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
 
   Future<void> _fixUrl() async {
     _initialUrl = await ExternalPage.rewritePath(widget.path);
-    _controller.loadRequest(Uri.parse(_initialUrl!));
+    unawaited(_controller.loadRequest(Uri.parse(_initialUrl!)));
     setState(() {});
   }
 
@@ -86,7 +88,7 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
     userAgent.write(packageInfo.buildNumber);
     userAgent.write(')');
 
-    _controller.setUserAgent(userAgent.toString());
+    unawaited(_controller.setUserAgent(userAgent.toString()));
   }
 
   @override
@@ -196,7 +198,7 @@ class _WebViewBottomBar extends StatelessWidget {
                   return;
                 }
 
-                Share.shareUri(Uri.parse(url));
+                unawaited(Share.shareUri(Uri.parse(url)));
               },
             ),
           ],

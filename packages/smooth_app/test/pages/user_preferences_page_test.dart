@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -35,7 +36,7 @@ void main() {
         );
 
         userPreferences = await UserPreferences.getUserPreferences();
-        userPreferences.setTheme(theme);
+        unawaited(userPreferences.setTheme(theme));
 
         productPreferences = ProductPreferences(ProductPreferencesSelection(
           setImportance: userPreferences.setImportance,

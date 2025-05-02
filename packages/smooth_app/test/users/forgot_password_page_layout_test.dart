@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -29,7 +31,7 @@ void main() {
         );
 
         userPreferences = await UserPreferences.getUserPreferences();
-        userPreferences.setTheme(theme);
+        unawaited(userPreferences.setTheme(theme));
 
         productPreferences = ProductPreferences(ProductPreferencesSelection(
           setImportance: userPreferences.setImportance,

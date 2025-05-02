@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/widgets.dart';
@@ -19,7 +20,7 @@ class LaunchUrlHelper {
       r'http(s)?://[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)',
     ))) {
       AnalyticsHelper.trackOutlink(url: url);
-      GoRouter.of(context).push(url);
+      unawaited(GoRouter.of(context).push(url));
     } else {
       return launchURL(url);
     }
@@ -54,7 +55,7 @@ class LaunchUrlHelper {
     if (url.startsWith(RegExp(
       r'http(s)?://[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)',
     ))) {
-      AppNavigator.of(context).push(AppRoutes.EXTERNAL_WEBVIEW(url));
+      unawaited(AppNavigator.of(context).push(AppRoutes.EXTERNAL_WEBVIEW(url)));
     } else {
       return launchURL(url, mode: mode);
     }

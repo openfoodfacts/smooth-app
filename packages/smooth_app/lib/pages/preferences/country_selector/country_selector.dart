@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
@@ -192,7 +194,7 @@ class _CountrySelectorButton extends StatelessWidget {
     if (newCountry == null) {
       context.read<_CountrySelectorProvider>().dismissSelectedItem();
     } else if (newCountry is Country) {
-      _changeCurrencyIfRelevant(context, newCountry);
+      unawaited(_changeCurrencyIfRelevant(context, newCountry));
     }
   }
 

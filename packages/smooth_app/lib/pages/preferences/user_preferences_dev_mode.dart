@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -216,7 +218,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           // Do not translate
           title: 'Reset app language',
           onTap: () async {
-            userPreferences.setAppLanguageCode(null);
+            unawaited(userPreferences.setAppLanguageCode(null));
             ProductQuery.setLanguage(context, userPreferences);
           },
         ),

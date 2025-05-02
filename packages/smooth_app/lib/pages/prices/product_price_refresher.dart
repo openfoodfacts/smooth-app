@@ -74,11 +74,11 @@ class ProductPriceRefresher {
       pricesResult = result.value;
       _loadingStatus = LoadingStatus.LOADED;
       if (model.lazyCounterPrices != null && pricesResult!.total != null) {
-        model.lazyCounterPrices!.setLocalCount(
+        unawaited(model.lazyCounterPrices!.setLocalCount(
           pricesResult!.total!,
           userPreferences,
           notify: true,
-        );
+        ));
       }
       if (_barcode != null) {
         _setLatestRefresh(_barcode!);

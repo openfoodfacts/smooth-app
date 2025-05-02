@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -32,7 +34,7 @@ class ProductFooterBarcodeButton extends StatelessWidget {
   Future<void> _openBarcode(BuildContext context, String barcode) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    showSmoothModalSheet(
+    unawaited(showSmoothModalSheet(
       context: context,
       builder: (BuildContext context) => SmoothModalSheet(
         title: appLocalizations.barcode,
@@ -89,6 +91,6 @@ class ProductFooterBarcodeButton extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }

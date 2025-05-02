@@ -34,9 +34,9 @@ class UserManagementProvider with ChangeNotifier {
   /// Deletes saved credentials from storage
   Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
-    DaoSecuredString.remove(key: _USER_ID);
-    DaoSecuredString.remove(key: _PASSWORD);
-    DaoSecuredString.remove(key: _COOKIE);
+    unawaited(DaoSecuredString.remove(key: _USER_ID));
+    unawaited(DaoSecuredString.remove(key: _PASSWORD));
+    unawaited(DaoSecuredString.remove(key: _COOKIE));
     notifyListeners();
     final bool contains = await credentialsInStorage();
     return !contains;
@@ -58,9 +58,9 @@ class UserManagementProvider with ChangeNotifier {
     } on PlatformException {
       /// Decrypting the values can go wrong if, for example, the app was
       /// manually overwritten from an external apk.
-      DaoSecuredString.remove(key: _USER_ID);
-      DaoSecuredString.remove(key: _PASSWORD);
-      DaoSecuredString.remove(key: _COOKIE);
+      unawaited(DaoSecuredString.remove(key: _USER_ID));
+      unawaited(DaoSecuredString.remove(key: _PASSWORD));
+      unawaited(DaoSecuredString.remove(key: _COOKIE));
       Logs.e('Credentials query failed, you have been logged out');
     }
 
@@ -101,7 +101,7 @@ class UserManagementProvider with ChangeNotifier {
         value: user.cookie!,
       );
     } else {
-      DaoSecuredString.remove(key: _COOKIE);
+      unawaited(DaoSecuredString.remove(key: _COOKIE));
     }
     notifyListeners();
   }
@@ -129,7 +129,7 @@ class UserManagementProvider with ChangeNotifier {
 
     /// Save the cookie if necessary
     if (user.cookie == null && loginResult.user?.cookie != null) {
-      putUser(loginResult.user!);
+      unawaited(putUser(loginResult.user!));
     }
   }
 }

@@ -1,2 +1,5 @@
 # Shared rules
 include: package:openfoodfacts_flutter_lints/flutter.yaml
+linter:
+  rules:
+    - unawaited_futures

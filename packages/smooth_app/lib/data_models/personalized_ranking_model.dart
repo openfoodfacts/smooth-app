@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -38,7 +40,7 @@ class PersonalizedRankingModel with ChangeNotifier {
     final ProductPreferences productPreferences,
   ) async {
     _clear();
-    _asyncLoad(localDatabase, productPreferences);
+    unawaited(_asyncLoad(localDatabase, productPreferences));
   }
 
   /// Clears the computations.

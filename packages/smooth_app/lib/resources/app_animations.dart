@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -40,7 +42,7 @@ class _AnimationsLoaderState extends State<AnimationsLoader> {
   }
 
   Future<void> preload() async {
-    rootBundle.load('assets/animations/off.riv').then(
+    unawaited(rootBundle.load('assets/animations/off.riv').then(
       (ByteData data) async {
         // Load the RiveFile from the binary data.
         setState(() {
@@ -51,7 +53,7 @@ class _AnimationsLoaderState extends State<AnimationsLoader> {
         'Unable to load Rive file',
         ex: error,
       ),
-    );
+    ));
   }
 
   @override

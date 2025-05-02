@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -158,12 +159,12 @@ class _AskPermissionButton extends StatelessWidget {
 
     return OnboardingBottomButton(
       onPressed: () async {
-        context.read<PermissionListener>().askPermission(
+        unawaited(context.read<PermissionListener>().askPermission(
             onRationaleNotAvailable: () async {
           // Don't open settings and continue the navigation
           onPermissionIgnored.call();
           return false;
-        });
+        }));
       },
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,

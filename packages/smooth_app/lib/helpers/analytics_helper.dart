@@ -228,7 +228,7 @@ class AnalyticsHelper {
 
   static Future<void> linkPreferences(UserPreferences userPreferences) async {
     // Init the value
-    _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
+    unawaited(_setAnalyticsReports(userPreferences.onAnalyticsChanged.value));
     _setCrashReports(userPreferences.onCrashReportingChanged.value);
 
     // Listen to changes
@@ -315,7 +315,7 @@ class AnalyticsHelper {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
       _setCrashReports(false);
-      _setAnalyticsReports(false);
+      unawaited(_setAnalyticsReports(false));
       return;
     }
     try {

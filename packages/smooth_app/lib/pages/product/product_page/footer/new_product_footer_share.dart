@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -35,7 +37,7 @@ class ProductFooterShareButton extends StatelessWidget {
     final String url = 'https://'
         '${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org'
         '/product/${product.barcode}';
-    Share.share(
+    unawaited(Share.share(
       switch (product.productType) {
         ProductType.beauty => appLocalizations.share_product_text_beauty(url),
         ProductType.petFood =>
@@ -45,6 +47,6 @@ class ProductFooterShareButton extends StatelessWidget {
       },
       sharePositionOrigin:
           box == null ? null : box.localToGlobal(Offset.zero) & box.size,
-    );
+    ));
   }
 }

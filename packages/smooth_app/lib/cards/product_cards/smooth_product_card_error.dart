@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -68,7 +70,7 @@ class ScanProductCardError extends StatelessWidget {
               final ContinuousScanModel model =
                   context.read<ContinuousScanModel>();
 
-              model.retryBarcodeFetch(barcode);
+              unawaited(model.retryBarcodeFetch(barcode));
             },
           ),
         ],

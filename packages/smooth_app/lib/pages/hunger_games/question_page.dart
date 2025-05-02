@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:async/async.dart';
@@ -178,7 +179,7 @@ class _QuestionPageState extends State<_QuestionPage>
     final List<RobotoffQuestion>? widgetQuestions = widget.questions;
 
     try {
-      _request?.cancel();
+      unawaited(_request?.cancel());
       _request = CancelableOperation<List<RobotoffQuestion>>.fromFuture(
         request ??
             switch (widgetQuestions) {

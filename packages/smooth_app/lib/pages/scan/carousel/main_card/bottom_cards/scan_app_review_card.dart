@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -153,10 +155,10 @@ class ScanAppReview extends StatelessWidget {
     if (context.mounted) {
       if (res == true) {
         appReview.markAsReviewed(AppReviewResult.unsatisfied);
-        LaunchUrlHelper.launchURLInWebViewOrBrowser(
+        unawaited(LaunchUrlHelper.launchURLInWebViewOrBrowser(
           context,
           UserFeedbackHelper.getFeedbackFormLink(),
-        );
+        ));
       } else {
         appReview.hide();
       }

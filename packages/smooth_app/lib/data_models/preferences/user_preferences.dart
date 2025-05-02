@@ -452,18 +452,18 @@ class UserPreferences extends ChangeNotifier {
 
     if (!displayedNews.contains(ids)) {
       displayedNews.add(ids);
-      _sharedPreferences.setStringList(
+      unawaited(_sharedPreferences.setStringList(
         _TAG_TAGLINE_FEED_NEWS_DISPLAYED,
         displayedNews,
-      );
+      ));
     }
 
     if (clickedNews.contains(ids)) {
       clickedNews.remove(ids);
-      _sharedPreferences.setStringList(
+      unawaited(_sharedPreferences.setStringList(
         _TAG_TAGLINE_FEED_NEWS_CLICKED,
         clickedNews,
-      );
+      ));
     }
   }
 
@@ -474,18 +474,18 @@ class UserPreferences extends ChangeNotifier {
 
     if (displayedNews.contains(ids)) {
       displayedNews.remove(ids);
-      _sharedPreferences.setStringList(
+      unawaited(_sharedPreferences.setStringList(
         _TAG_TAGLINE_FEED_NEWS_DISPLAYED,
         displayedNews,
-      );
+      ));
     }
 
     if (!clickedNews.contains(ids)) {
       clickedNews.add(ids);
-      _sharedPreferences.setStringList(
+      unawaited(_sharedPreferences.setStringList(
         _TAG_TAGLINE_FEED_NEWS_CLICKED,
         clickedNews,
-      );
+      ));
     }
   }
 

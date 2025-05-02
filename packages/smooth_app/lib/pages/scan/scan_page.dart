@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:audioplayers/audioplayers.dart';
@@ -99,7 +100,7 @@ class _ScanPageState extends State<ScanPage> {
                   }
 
                   // Both are Future methods, but it doesn't matter to wait here
-                  SmoothHapticFeedback.lightNotification();
+                  unawaited(SmoothHapticFeedback.lightNotification());
 
                   if (_userPreferences.playCameraSound) {
                     await _initSoundManagerIfNecessary();
@@ -125,11 +126,11 @@ class _ScanPageState extends State<ScanPage> {
                     );
                   }
 
-                  SemanticsService.announce(
+                  unawaited(SemanticsService.announce(
                     appLocalizations.scan_announce_new_barcode(barcode),
                     direction,
                     assertiveness: Assertiveness.assertive,
-                  );
+                  ));
                 },
               ),
             ),
