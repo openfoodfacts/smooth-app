@@ -89,6 +89,8 @@
 
   final Currency currency = priceAddHelper.getCurrency();
 
+  final bool multipleProducts = product == null;
+
   await Navigator.of(context).push(
     MaterialPageRoute&lt;void&gt;(
       builder: (BuildContext context) =&gt; ProductPriceAddPage(
@@ -97,6 +99,7 @@
           locations: osmLocations,
           initialProduct: product,
           currency: currency,
+          multipleProducts: multipleProducts,
         ),
       ),
     ),
