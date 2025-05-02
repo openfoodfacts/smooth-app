@@ -137,7 +137,7 @@
   "@Introduction screen": {},
   "welcomeToOpenFoodFacts": "Velkommen til Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+  "whatIsOff": "Open Food Facts er en global non-profit drevet af lokale fællesskaber.",
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
@@ -153,21 +153,21 @@
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+  "server_error_open_new_issue": "Intet serversvar! Du kan åbne en sag med følgende link.",
   "@user_management": {},
-  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+  "sign_in_text": "Log ind på din Open Food Facts-konto for at gemme dine bidrag",
   "incorrect_credentials": "Forkert brugernavn eller adgangskode.",
   "password_lost_incorrect_credentials": "E-mail eller brugernavn eksisterer ikke. Tjek venligst dine legitimationsoplysninger.",
-  "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+  "password_lost_server_unavailable": "Vi oplever i øjeblikket opbremsninger på vores servere, og vi beklager det. Prøv venligst igen senere.",
   "login": "Brugernavn",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
-  "login_result_type_server_unreachable": "Network is unreachable",
+  "login_result_type_server_unreachable": "Netværk utilgængeligt",
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Problem on the server. Please try later.",
+  "login_result_type_server_issue": "Problem på serveren. Prøv venligst senere.",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Hjælp med at forbedre Open Food Facts i dit land",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -260,7 +260,7 @@
   "sign_up_page_confirm_password_hint": "Bekræft adgangskode",
   "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
   "sign_up_page_confirm_password_error_invalid": "Adgangskoder matcher ikke",
-  "sign_up_page_agree_text": "I agree to the Open Food Facts",
+  "sign_up_page_agree_text": "Jeg accepterer Open Food Facts",
   "@sign_up_page_agree_text": {
     "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
   },
@@ -283,11 +283,11 @@
   "sign_up_page_producer_checkbox": "Jeg er fødevareproducent",
   "sign_up_page_producer_hint": "Producent/mærke",
   "sign_up_page_producer_error_empty": "Angiv en producent eller et mærkenavn",
-  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+  "sign_up_page_subscribe_checkbox": "Jeg ønsker at abonnere på Open Food Facts-nyhedsbrevet (kan altid afmeldes)",
   "sign_up_page_user_name_already_used": "Brugernavn findes allerede, vælg et andet.",
   "sign_up_page_email_already_exists": "findes allerede. Log ind på kontoen eller prøv med en anden e-mail.",
   "sign_up_page_provide_valid_email": "Angiv en gyldig e-mailadresse.",
-  "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+  "sign_up_page_server_busy": "Vi beklager dybt, vi har nogle tekniske problemer med at oprette din konto. Prøv venligst igen senere.",
   "settingsTitle": "Indstillinger",
   "@settingsTitle": {
     "description": "The title of the Settings page"
@@ -308,8 +308,8 @@
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
-  "thanks_for_contributing": "Thanks for contributing!",
-  "contributors_label": "They are building the app",
+  "thanks_for_contributing": "Tak for dit bidrag!",
+  "contributors_label": "De bygger appen",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
@@ -317,14 +317,14 @@
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
-  "contributors_dialog_entry_description": "Contributor: {name}",
+  "contributors_dialog_entry_description": "Bidragyder: {name}",
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
       "name": {}
     }
   },
-  "contributors_description": "A list of all contributors of this app",
+  "contributors_description": "En liste over alle bidragydere til denne app",
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
@@ -339,7 +339,7 @@
   "support_via_email_include_logs_dialog_body": "Medtag app-logfiler i vedhæftning til e-mailen?",
   "termsOfUse": "Brugsvilkår",
   "@termsOfUse": {},
-  "legalNotices": "Legal notices",
+  "legalNotices": "Juridiske oplysninger",
   "@legalNotices": {
     "description": "A link to open the legal notices on the website"
   },
@@ -360,19 +360,19 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+  "contribute_develop_text": "Koden til hvert Open Food Facts-produkt er tilgængelig på GitHub. Man er velkommen til at genbruge koden (den er open-source) og hjælpe med at forbedre den for alle på hele planeten.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+  "contribute_develop_text_2": "Man kan deltage i Open Food Facts Slack-chatrum, der er den foretrukne måde at stille spørgsmål på.",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "DEV-tilstand?",
   "contribute_develop_dev_mode_subtitle": "Aktivér DEV-tilstand",
   "contribute_donate_title": "Donér",
   "@contribute_donate_title": {},
-  "contribute_donate_header": "Donate to Open Food Facts",
+  "contribute_donate_header": "Donér til Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
+  "contribute_enroll_alpha": "Tilmeld dig intern alpha-version",
   "@contribute_enroll_alpha": {},
-  "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+  "contribute_enroll_alpha_warning": "Anerkend venligst, at med den interne alpha-version er det muligt at miste alle data, og appen kan blive ubrugelig når som helst!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Produkter, som skal færdiggøres",
   "@contribute_improve_ProductsToBeCompleted": {
@@ -382,7 +382,7 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "Databasen er kernen i projektet. Det er let og meget hurtigt at hjælpe. Man kan downloade appen til sin mobil og begynde at tilføje/forbedre produkter.\n\nDerudover tilbyder Open Food Facts-webstedet mange bidragsmuligheder: ",
   "@contribute_improve_text": {},
   "contribute_translate_header": "Oversæt",
   "@contribute_translate_header": {
@@ -396,16 +396,20 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. Open Food Facts er oversat til snesevis af sprog med indhold i konstant udvikling.",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-  "contribute_share_header": "Share Open Food Facts with your friends",
+  "contribute_join_skill_pool": "Bidrage dine færdigheder til Open Food Facts. Deltag i dygtighedspuljen!",
+  "contribute_share_header": "Del Open Food Facts med dine venner",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "Jeg vil gerne lige fortælle om den app, jeg har brugt, Open Food Facts, der giver mulighed for at få viden om madens sundheds- og miljøpåvirkninger på en herlig nem måde. Den fungerer ved at skanne emballagestregkoder. Den er desuden gratis, kræver ingen registrering, og man kan endda hjælpe med at øge antallet af dechifrerede produkter. Her er linket til at få den på mobilen: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
+  },
+  "contribute_prices_gdpr": "Bidrage med priser ved at anmode om en GDPR-eksport af dine loyalitetskortdata",
+  "@contribute_prices_gdpr": {
+    "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
   "tap_to_answer": "Tryk her for at besvare spørgsmål",
   "@tap_to_answer": {
@@ -427,7 +431,7 @@
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+  "question_sign_in_text": "Log ind på Open Food Facts-kontoen for at blive anerkendt for dine bidrag",
   "question_yes_button_accessibility_value": "Svar med ja",
   "question_no_button_accessibility_value": "Svar med nej",
   "question_skip_button_accessibility_value": "Overspring spørgsmålet",
@@ -437,7 +441,7 @@
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+  "account_create_message": "Opret en konto og tilmeld dig Open Food Facts-fællesskabet for at hjælpe med at opbygge fødevareviden verden over!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
@@ -446,12 +450,12 @@
     "description": "Join which is actually Signup"
   },
   "myPreferences_profile_title": "Din profil",
-  "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+  "myPreferences_profile_subtitle": "Administrer din Open Food Facts bidragyderkonto.",
   "myPreferences_settings_title": "App-indstillinger",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "Mørk tilstand, Sprog…",
   "myPreferences_food_title": "Fødevarepræferencer",
   "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
-  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_food_comment": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante først, samt få en kompatibilitetsoversigt. Disse fødevarepræferencer forbliver lokale og tilknyttes ikke OpenFoodFacts-bidragsyderkontoen, såfremt du har én.",
   "confirmResetPreferences": "Nulstil dine fødevarepræferencer?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -502,7 +506,7 @@
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
-  "scan": "Products from the Scan screen",
+  "scan": "Produkter fra Scan-skærmen",
   "@scan": {
     "description": "Page title: List type: Products in the scan session"
   },
@@ -514,7 +518,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_store": "Search for a store",
+  "search_store": "Søg efter en butik",
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
@@ -530,7 +534,7 @@
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
-  "label_reload": "Reload",
+  "label_reload": "Genindlæs",
   "@label_reload": {
     "description": "Reload a page"
   },
@@ -539,20 +543,20 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+  "outdated_image_accessibility_label": "{imageType} (dette billede kan være forældet)",
   "@outdated_image_accessibility_label": {
     "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
     "placeholders": {
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "may be outdated",
+  "outdated_image_short_label": "kan være forældet",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
   "ingredients": "Ingredienser",
   "@ingredients": {},
-  "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+  "ingredients_editing_instructions": "Behold den oprindelige ordre. Angiv procentdelen, når den er angivet. Adskil med komma eller bindestreg, og brug parenteser til ingredienser i en ingrediens.",
   "ingredients_editing_error": "Mislykkedes at gemme ingredienser.",
   "ingredients_editing_image_error": "Mislykkedes at hente nyt ingrediensfoto.",
   "ingredients_editing_title": "Redigér ingredienser",
@@ -570,7 +574,7 @@
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
-  "nutrition_facts_editing_title": "Edit Nutrition Facts",
+  "nutrition_facts_editing_title": "Rediger ernæringsfakta",
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
@@ -582,7 +586,7 @@
   "@packaging_information_photo": {},
   "missing_product": "Nyt produkt blev fundet!",
   "@missing_product": {},
-  "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+  "add_product_take_photos": "Tag billeder af emballagen for at tilføje dette produkt til Open Food Facts",
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "Tag først nogle fotos. Produktet kan altid færdiggøre senere.",
   "@add_product_take_photos_descriptive": {},
@@ -590,11 +594,11 @@
   "@add_product_information_button_label": {},
   "new_product": "Nyt produkt",
   "@new_product": {},
-  "new_product_found_title": "New product found!",
+  "new_product_found_title": "Nyt produkt fundet!",
   "@new_product_found_title": {
     "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
   },
-  "new_product_found_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+  "new_product_found_text": "Vores samarbejdsdatabase indeholder mere end **3 millioner produkter**, men denne stregkode findes ikke: ",
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -607,11 +611,11 @@
   "@new_product_leave_message": {
     "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+  "new_product_dialog_description": "Tag venligst billeder af emballagen for at tilføje dette produkt til vores fælles database",
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+  "new_product_dialog_illustration_description": "En illustration med ukendt Nutri-Score og Green Score",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -643,7 +647,7 @@
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_retake": "Retake a photo",
+  "crop_page_action_retake": "Tag foto igen",
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
@@ -693,16 +697,16 @@
   "categories_added": "Kategorier tilføjet",
   "new_product_title_nutriscore": "Beregn Nutri-Score",
   "new_product_subtitle_nutriscore": "Få den ved at udfylde fødevarekategorien og næringsværdier",
-  "new_product_title_environmental_score": "Compute the Green Score",
-  "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+  "new_product_title_environmental_score": "Beregn den Grønne Score",
+  "new_product_subtitle_environmental_score": "Få det ved at udfylde mindst en kategori",
+  "new_product_additional_environmental_score": "Gør Green Score-beregningen mere præcis med oprindelse, emballage med mere",
   "new_product_title_nova": "Beregn fødevareforarbejdningsniveau (NOVA)",
   "new_product_subtitle_nova": "Få det ved at udfylde fødevarekategori og ingredienser",
   "new_product_desc_nova_unknown": "Fødevareforarbejdningsniveau ukendt",
   "new_product_title_pictures": "Lad os tage nogle fotos!",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "Tag venligst følgende billeder, og Open Food Facts kan klare resten!",
   "new_product_title_misc": "Og nogle basisdata…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_done_msg": "Tak for dit bidrag \"{username}\"!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -712,15 +716,15 @@
       }
     }
   },
-  "new_product_done_msg_no_user": "Thanks for your contribution!",
-  "new_product_done_button_label": "Discover the completed product",
+  "new_product_done_msg_no_user": "Tak for dit bidrag!",
+  "new_product_done_button_label": "Opdag det færdige produkt",
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
-  "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-  "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-  "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+  "hey_incomplete_product_message": "Tryk for at besvare 3 spørgsmål NU! for at beregne Nutri-Score, Green Score & Ultra-processing (NOVA).",
+  "hey_incomplete_product_message_beauty": "Tryk nu for at besvare 2 spørgsmål for at hjælpe med at analysere denne kosmetik!",
+  "hey_incomplete_product_message_pet_food": "Tryk nu for at besvare 3 spørgsmål for at hjælpe med at analysere dette dyrefoderprodukt!",
+  "hey_incomplete_product_message_product": "Tryk nu for at hjælpe med at færdiggøre dette produkt!",
   "nutritional_facts_photo_uploaded": "Næringsfaktafoto uploadet",
   "@nutritional_facts_photo_uploaded": {},
   "recycling_photo_button_label": "Genbrugsoplysningsfoto",
@@ -743,86 +747,87 @@
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Uploading front image to Open Food Facts",
+  "uploading_image_type_front": "Uploader forsidebillede til Open Food Facts",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
-  "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+  "uploading_image_type_ingredients": "Uploader ingrediensbillede til Open Food Facts",
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+  "uploading_image_type_nutrition": "Uploader ernæringsbillede til Open Food Facts",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
-  "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+  "uploading_image_type_packaging": "Uploader emballagebillede til Open Food Facts",
   "@uploading_image_type_packaging": {
     "description": "Message when a new packaging picture is being uploaded to the server"
   },
-  "uploading_image_type_other": "Uploading other image to Open Food Facts",
+  "uploading_image_type_other": "Uploader andet billede til Open Food Facts",
   "@uploading_image_type_other": {
     "description": "Message when a new other picture is being uploaded to the server"
   },
-  "uploading_image_type_generic": "Uploading image to Open Food Facts",
+  "uploading_image_type_generic": "Uploader billede til Open Food Facts",
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
   "score_add_missing_ingredients": "Tilføj manglende ingredienser",
   "score_add_missing_packaging_image": "Tilføj manglende emballagefoto",
   "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
+  "score_add_missing_product_traces": "Tilføj manglende produktspor",
   "score_add_missing_product_category": "Tilføj manglende produktkategori",
   "score_add_missing_product_countries": "Tilføj manglende produktlande",
   "score_add_missing_product_emb": "Tilføj manglende produktsporbarhedskoder",
   "score_add_missing_product_labels": "Tilføj manglende produktketiketter",
   "score_add_missing_product_origins": "Tilføj manglende produktoprindelser",
   "score_add_missing_product_stores": "Tilføj manglende produktbutikker",
-  "score_add_missing_product_brands": "Add missing product brands",
+  "score_add_missing_product_brands": "Tilføj manglende varemærker",
   "score_update_nutrition_facts": "Opdatér ernæringsfakta",
   "nutrition_page_title": "Ernæringsfakta",
-  "nutrition_page_nutritional_info_title": "Nutritional information",
-  "nutrition_page_nutritional_info_label": "Values specified on the product:",
+  "nutrition_page_nutritional_info_title": "Ernæringsoplysninger",
+  "nutrition_page_nutritional_info_label": "Værdier angivet på produktet:",
   "nutrition_page_nutritional_info_value_positive": "Ja",
   "nutrition_page_nutritional_info_value_negative": "Nej",
-  "nutrition_page_nutritional_info_open_photo": "Open photo",
-  "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+  "nutrition_page_nutritional_info_open_photo": "Åbn foto",
+  "nutrition_page_nutritional_info_explanation_title": "God praksis: Ernæringsoplysninger",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+  "nutrition_page_nutritional_info_explanation_info1": "Nogle gange er næringsindhold **ikke angivet på emballagen** eller i et medfølgende dokument. I dette tilfælde, og kun i dette tilfælde, kan du indstille værdien til **NEJ**.",
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
-  "nutrition_page_serving_type_label": "Nutritional values:",
+  "nutrition_page_serving_type_label": "Ernæringsværdier:",
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
   "nutrition_page_per_100g": "pr. 100g",
-  "nutrition_page_per_100g_100ml": "per 100g/ml",
+  "nutrition_page_per_100g_100ml": "pr. 100 g/ml",
   "nutrition_page_per_serving": "per portion",
   "nutrition_page_add_nutrient": "Tilføj et næringsstof",
   "nutrition_page_serving_size": "Portionsstørrelse",
-  "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_hint": "Angiv en portionsstørrelse (f.eks. 100 g)",
+  "nutrition_page_serving_size_explanation_title": "God praksis: Portionsstørrelse",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+  "nutrition_page_serving_size_explanation_info1": "Denne værdi hjælper med at **lave en proportional beregning af hvert næringsstof pr. portion**.",
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Tilladte enheder** er: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** eller **60 G** (foretræk den første)",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** eller **1L**",
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Ugyldig enhed",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -830,15 +835,15 @@
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Ugyldige enheder",
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **slik** og 2 **kiks**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Manglende enhed",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -849,21 +854,21 @@
   "nutrition_page_invalid_number": "Ugyldigt nummer",
   "nutrition_page_update_running": "Opdaterer produktet på serveren…",
   "nutrition_page_update_done": "Produkt opdateret!",
-  "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+  "nutrition_page_take_serving_size_from_product_quantity": "Brug produktmængden som portionsstørrelse",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
   },
-  "nutrition_page_photo_error": "Unable to load the photo",
+  "nutrition_page_photo_error": "Kan ikke indlæse billedet",
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
   "more_photos": "Flere interessante fotos",
   "@more_photos": {},
-  "view_more_photo_button": "View all existing photos for this product",
+  "view_more_photo_button": "Se alle eksisterende billeder for dette produkt",
   "@view_more_photo_button": {},
   "no_product_found": "Intet produkt fundet",
   "@no_product_found": {},
-  "no_location_found": "No location found",
+  "no_location_found": "Ingen placering fundet",
   "not_found": "ikke fundet:",
   "refreshing_product": "Opfrisker produkt",
   "@refreshing_product": {
@@ -873,7 +878,7 @@
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
-  "product_image_accessibility_label": "Image taken on {date}",
+  "product_image_accessibility_label": "Billede taget d. {date}",
   "@product_image_accessibility_label": {
     "placeholders": {
       "date": {
@@ -882,7 +887,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+  "product_image_outdated_accessibility_label": "Billede taget d. {date}. Dette billede kan være forældet",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -891,13 +896,13 @@
       }
     }
   },
-  "product_image_outdated": "This image may be outdated",
-  "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated": "Dette billede kan være forældet",
+  "product_image_outdated_explanations_title": "Dette billede kan være forældet",
+  "product_image_outdated_explanations_content": "Dette billede er taget for mere end et år siden.\n**Tjek venligst, at den stadig er opdateret**.\n\nDette er **bare en advarsel**. Hvis indholdet stadig er det samme, kan du ignorere denne besked.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_image_action_replace_photo": "Replace photo ({type})",
+  "product_image_action_replace_photo": "Erstat billede ({type})",
   "@product_image_action_replace_photo": {
     "description": "Action on the photo gallery to replace an existing picture",
     "placeholders": {
@@ -907,7 +912,7 @@
       }
     }
   },
-  "product_image_action_add_photo": "Add a photo ({type})",
+  "product_image_action_add_photo": "Tilføj et billede ({type})",
   "@product_image_action_add_photo": {
     "description": "Action on the photo gallery to add a photo (eg: ingredients)",
     "placeholders": {
@@ -925,19 +930,19 @@
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
-  "product_image_action_from_gallery": "Select from your phone's gallery",
+  "product_image_action_from_gallery": "Vælg fra din telefons kamerarulle",
   "@product_image_action_from_gallery": {
     "description": "Replace the existing picture with one from the device's gallery"
   },
-  "product_image_action_choose_existing_photo": "Select from the product photos",
+  "product_image_action_choose_existing_photo": "Vælg fra produktbillederne",
   "@product_image_action_choose_existing_photo": {
     "description": "Replace the existing picture with one from the product's photos"
   },
-  "product_image_details_label": "Information about the photo",
+  "product_image_details_label": "Oplysninger om billedet",
   "@product_image_details_label": {
     "description": "Label for the photo details"
   },
-  "product_image_details_from_producer": "From the producer",
+  "product_image_details_from_producer": "Fra producenten",
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
@@ -945,11 +950,11 @@
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
-  "product_image_details_contributor_producer": "Contributor (producer)",
+  "product_image_details_contributor_producer": "Bidragyder (producent)",
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Date",
+  "product_image_details_date": "Dato",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -957,20 +962,20 @@
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
-  "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+  "homepage_main_card_logo_description": "Velkommen til Open Food Facts",
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
-  "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+  "homepage_main_card_subheading": "**Scan** en stregkode eller\n**søg** efter et produkt",
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Search for a product",
-  "homepage_main_card_search_field_tooltip": "Start search",
+  "homepage_main_card_search_field_hint": "Søg efter et produkt",
+  "homepage_main_card_search_field_tooltip": "Start søgning",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
   },
-  "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+  "scan_tagline_news_item_accessibility": "Seneste nyt: {news_title}",
   "@scan_tagline_news_item_accessibility": {
     "description": "Accessibility label for the title of a news",
     "placeholders": {
@@ -983,7 +988,7 @@
   "tagline_app_review_button_positive": "Jeg elsker det! 😍",
   "tagline_app_review_button_negative": "Ikke rigtigt…",
   "tagline_app_review_button_later": "Spørg mig senere",
-  "tagline_feed_news_button": "Know more",
+  "tagline_feed_news_button": "Lær mere",
   "app_review_negative_modal_title": "Kan du ikke lide vores app?",
   "app_review_negative_modal_text": "Vil du bruge et par sekunder på at fortælle os hvorfor?",
   "app_review_negative_modal_positive_button": "Ja, selvfølgelig!",
@@ -992,8 +997,8 @@
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
-  "product_internet_error_modal_title": "An error has occurred!",
-  "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+  "product_internet_error_modal_title": "Der opstod en fejl!",
+  "product_internet_error_modal_message": "Vi kan ikke hente oplysninger om dette produkt grundet en netværksfejl. Tjek venligst din internetforbindelse og prøv igen.",
   "@product_internet_error_modal_message": {
     "placeholders": {
       "error": {
@@ -1002,7 +1007,7 @@
       }
     }
   },
-  "product_tags_title": "Product properties",
+  "product_tags_title": "Produktegenskaber",
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
@@ -1011,19 +1016,19 @@
     "description": "Message to show if there are no product properties found"
   },
   "add_tag": "Add property",
-  "add_tags": "Add properties",
-  "add_edit_tags": "Add or edit properties",
-  "edit_tag": "Edit property",
-  "remove_tag": "Remove property",
-  "tag_key": "Property",
-  "tag_key_uneditable": "Property (uneditable)",
-  "tag_key_input_hint": "Input a property",
+  "add_tags": "Tilføj egenskaber",
+  "add_edit_tags": "Tilføj eller rediger egenskaber",
+  "edit_tag": "Rediger egenskab",
+  "remove_tag": "Fjern egenskab",
+  "tag_key": "Egenskab",
+  "tag_key_uneditable": "Egenskab (ikke-redigerbar)",
+  "tag_key_input_hint": "Indtast en egenskab",
   "tag_value": "Værdi",
-  "tag_value_input_hint": "Input a value",
-  "tag_key_item": "Property:",
-  "tag_value_item": "Value:",
-  "tag_key_explanations": "A key must be lowercase and without any spaces.",
-  "tag_key_already_exists": "A tag with a property {property} already exists!",
+  "tag_value_input_hint": "Indtast en værdi",
+  "tag_key_item": "Egenskab:",
+  "tag_value_item": "Værdi:",
+  "tag_key_explanations": "En nøgle skal være små bogstaver og uden mellemrum.",
+  "tag_key_already_exists": "Et tag med en egenskab {property} findes allerede!",
   "@tag_key_already_exists": {
     "placeholders": {
       "property": {
@@ -1046,7 +1051,7 @@
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+  "product_search_same_category_error": "Denne funktion kan kun bruges til produkter med en kategori.\n\nRediger venligst produktet for at tilføje en kategori.",
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1070,7 +1075,7 @@
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+  "product_improvement_origins_to_be_completed": "Green Score tager højde for ingrediensernes oprindelse. Tag venligst et billede af ingredienslisten og/eller enhver geografisk påstand eller rediger produktet, så disse oplysninger kan tages i betragtning.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
@@ -1078,15 +1083,15 @@
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
-  "currency_chooser_label": "Please choose a currency",
+  "currency_chooser_label": "Vælg venligst en valuta",
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "country_change_message": "You have just changed countries.",
+  "country_change_message": "Du har lige skiftet lande.",
   "@country_change_message": {
     "description": "Message stating the change of countries"
   },
-  "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+  "currency_auto_change_message": "Vil du ændre valutaen fra {previousCurrency} til {possibleCurrency}?",
   "@currency_auto_change_message": {
     "description": "Message asking to confirm the change of currencies",
     "placeholders": {
@@ -1100,7 +1105,7 @@
       }
     }
   },
-  "onboarding_country_chooser_label": "Please choose a country:",
+  "onboarding_country_chooser_label": "Vælg venligst et land:",
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
   },
@@ -1120,7 +1125,7 @@
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
-  "native_app_description": "Open systems settings for Open Food Facts",
+  "native_app_description": "Åbn systemindstillinger for Open Food Facts",
   "@native_app_description": {
     "description": "Native App description in app settings"
   },
@@ -1139,7 +1144,7 @@
   "@Lists": {},
   "no_prodcut_in_list": "Der er intet produkt på denne liste",
   "no_product_in_section": "Der er intet produkt i dette afsnit",
-  "recently_seen_products": "All viewed products",
+  "recently_seen_products": "Alle sete produkter",
   "clear": "Ryd",
   "@clear": {
     "description": "Clears a product list (short label)"
@@ -1157,68 +1162,68 @@
       "percent": {}
     }
   },
-  "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+  "plural_ago_days": "{count,plural,  one {}=1{en dag siden} other{{count} dage siden}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+  "plural_ago_hours": "{count,plural, =1{en time siden} other{{count} timer siden}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+  "plural_ago_minutes": "{count,plural,  =0{mindre end et minut siden} =1{et minut siden} other{{count} minutter siden}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
+  "plural_ago_months": "{count,plural,  =1{en måned siden} other{{count} måneder siden}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+  "plural_ago_weeks": "{count,plural,  =1{en uge siden} other{{count} uger siden}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+  "plural_compare_x_products": "{count,plural, =1{Sammenlign et produkt} other{Sammenlign {count} produkter}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+  "multiselect_title": "{count,plural, =0{Intet valgt produkt} =1{Ét valgt produkt} other{{count} valgte produkter}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
       "count": {}
     }
   },
-  "compare_products_mode": "Compare selected products",
+  "compare_products_mode": "Sammenlign valgte produkter",
   "@compare_products_mode": {
     "description": "Button to switch to 'compare products mode'"
   },
-  "delete_products_mode": "Delete selected products",
+  "delete_products_mode": "Slet valgte produkter",
   "@delete_products_mode": {
     "description": "Button to switch to 'delete products'"
   },
-  "select_all_products_mode": "Select all products",
+  "select_all_products_mode": "Vælg alle produkter",
   "@select_all_products_mode": {
     "description": "Button to switch to 'select all products'"
   },
-  "select_none_products_mode": "Select none",
+  "select_none_products_mode": "Vælg ingen",
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
@@ -1232,15 +1237,15 @@
   },
   "retry_button_label": "Forsøg igen",
   "connect_with_us": "Kom i forbindelse med os",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Følg os på TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
-  "instagram": "Follow us on Instagram",
+  "instagram": "Følg os på Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
-  "twitter": "Follow us on X (formerly Twitter)",
+  "twitter": "Følg os på X (tidligere Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Følg os på Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Følg os på BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
   "faq": "FAQ",
@@ -1254,7 +1259,7 @@
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+  "permissions_page_body1": "For at scanne stregkoder med din telefons kamera skal du godkende adgangen.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
@@ -1332,7 +1337,7 @@
       }
     }
   },
-  "authorize_button_label": "Authorise",
+  "authorize_button_label": "Godkend",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -1421,8 +1426,8 @@
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_subtitle_guest": "Log ind eller tilmeld dig for at blive medlem af Open Food Facts-fællesskabet",
+  "user_profile_title_id_email": "Open Food Facts-login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1444,7 +1449,7 @@
   "@email_subject_account_deletion": {
     "description": "Email subject for an account deletion"
   },
-  "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+  "email_body_account_deletion": "Hej, slet venligst min Open Food Facts-konto: {userId}",
   "@email_body_account_deletion": {
     "description": "Email body for an account deletion",
     "placeholders": {
@@ -1469,7 +1474,7 @@
   "@camera_play_sound_subtitle": {
     "description": "SubTitle for the Camera play sound toggle"
   },
-  "camera_window_accessibility_label": "Scan a barcode with your camera",
+  "camera_window_accessibility_label": "Scan en stregkode med dit kamera",
   "@camera_window_accessibility_label": {
     "description": "Accessibility label for the camera window"
   },
@@ -1485,7 +1490,7 @@
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
-  "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+  "crash_reporting_toggle_subtitle": "Når det er aktiveret, sendes nedbrudsrapporter automatisk til Open Food Facts' fejlsporingssystem, så fejl kan rettes og dermed forbedre appen.",
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
@@ -1531,7 +1536,7 @@
   "@permission_photo_denied": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "show_product_pictures": "Show product pictures",
+  "show_product_pictures": "Vis produktbilleder",
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
@@ -1539,15 +1544,15 @@
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Uploader dine redigeringer…",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
-  "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+  "edit_product_pending_operations_banner_message": "Dine redigeringer **sendt i baggrunden** (eller senere i tilfælde af fejl).\nDu kan fortsætte med at redigere andre produktfelter.",
   "@edit_product_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+  "edit_product_pending_operations_banner_short_message": "Dine redigeringer **sendes i baggrunden** (eller senere i tilfælde af fejl).",
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
@@ -1555,7 +1560,7 @@
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
-  "edit_product_form_item_help": "How to enter \"{value}\"?",
+  "edit_product_form_item_help": "Hvordan indtaster jeg \"{value}\"?",
   "@edit_product_form_item_help": {
     "description": "Help text for the input field. Eg 'How to enter stores?'",
     "placeholders": {
@@ -1564,43 +1569,47 @@
       }
     }
   },
-  "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+  "edit_product_form_item_error_empty": "Indtast venligst en ikke-tom værdi!",
   "@edit_product_form_item_error_empty": {
     "description": "Error message when the user tries to submit an empty value"
   },
-  "edit_product_form_item_error_existing": "This value is already there!",
+  "edit_product_form_item_error_existing": "Denne værdi er der allerede!",
   "@edit_product_form_item_error_existing": {
     "description": "Error message when the user tries to re-submit an existing value"
   },
-  "edit_product_form_item_add_action_brand": "Add a new brand",
+  "edit_product_form_item_add_action_brand": "Tilføj et nyt varemærke",
   "@edit_product_form_item_add_action_brand": {
     "description": "Tooltip to show when the user long presses the (+) button on a brand"
   },
-  "edit_product_form_item_add_action_label": "Add a new label",
+  "edit_product_form_item_add_action_label": "Tilføj en ny etiket",
   "@edit_product_form_item_add_action_label": {
     "description": "Tooltip to show when the user long presses the (+) button on a label"
   },
-  "edit_product_form_item_add_action_store": "Add a new store",
+  "edit_product_form_item_add_action_store": "Tilføj en ny butik",
   "@edit_product_form_item_add_action_store": {
     "description": "Tooltip to show when the user long presses the (+) button on a store"
   },
-  "edit_product_form_item_add_action_origin": "Add a new origin",
+  "edit_product_form_item_add_action_origin": "Tilføj en ny oprindelse",
   "@edit_product_form_item_add_action_origin": {
     "description": "Tooltip to show when the user long presses the (+) button on an origin"
   },
-  "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+  "edit_product_form_item_add_action_emb_code": "Tilføj en ny sporbarhedskode",
   "@edit_product_form_item_add_action_emb_code": {
     "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
   },
-  "edit_product_form_item_add_action_country": "Add a new country",
+  "edit_product_form_item_add_action_country": "Tilføj et nyt land",
   "@edit_product_form_item_add_action_country": {
     "description": "Tooltip to show when the user long presses the (+) button on a country"
   },
-  "edit_product_form_item_add_action_category": "Add a new category",
+  "edit_product_form_item_add_action_category": "Tilføj en ny kategori",
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_suggestion": "Add suggestion",
+  "edit_product_form_item_add_action_trace": "Tilføj et nyt spor",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
+  "edit_product_form_item_add_suggestion": "Tilføj forslag",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
@@ -1616,7 +1625,7 @@
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Website…",
+  "edit_product_form_item_other_details_subtitle": "Hjemmeside…",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
@@ -1632,11 +1641,11 @@
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
+  "edit_product_form_item_labels_subtitle": "Miljø-, kvalitetsmærker…",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
-  "edit_product_form_item_labels_hint": "Input a label (eg: NutriScore)",
+  "edit_product_form_item_labels_hint": "Indtast en etiket (f.eks.: NutriScore)",
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
@@ -1644,11 +1653,11 @@
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
-  "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+  "edit_product_form_item_labels_explanation_title": "God praksis: Etiketter",
   "@edit_product_form_item_labels_explanation_title": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+  "edit_product_form_item_labels_explanation_info1": "Enhver egenskab ved produktet **som er faktuel** og forskellig fra de andre felter.",
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1656,7 +1665,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Fremstillet i Danmark, produceret i Skagen…",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1664,7 +1673,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Rig på fibre, kilde til jern…",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1676,7 +1685,7 @@
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
-  "edit_product_form_item_stores_hint": "Input a store",
+  "edit_product_form_item_stores_hint": "Indtast en butik",
   "@edit_product_form_item_stores_hint": {
     "description": "Product edition - Stores - input textfield hint"
   },
@@ -1684,11 +1693,11 @@
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
-  "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+  "edit_product_form_item_stores_explanation_title": "God praksis: Butikker",
   "@edit_product_form_item_stores_explanation_title": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+  "edit_product_form_item_stores_explanation_info1": "Indtast den butik, hvor du købte produktet.",
   "@edit_product_form_item_stores_explanation_info1": {
     "description": "Product edition - Stores - Explanation"
   },
@@ -1708,7 +1717,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+  "edit_product_form_item_origins_hint": "Indtast et oprindelsesland (f.eks.: Tyskland)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -1716,19 +1725,19 @@
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
-  "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+  "edit_product_form_item_origins_explanation_title": "God praksis: Oprindelse",
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+  "edit_product_form_item_origins_explanation_info1": "Tilføj **oprindelsesindikationer, som du kan finde på emballagen**.\nDu behøver ikke bekymre dig om oprindelse angivet direkte i ingredienslisten.",
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+  "edit_product_form_item_origins_explanation_good_examples_1": "Oksekød fra Argentina",
   "@edit_product_form_item_origins_explanation_good_examples_1": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+  "edit_product_form_item_origins_explanation_good_examples_2": "Sojaen kommer ikke fra EU",
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
@@ -1736,7 +1745,7 @@
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
-  "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+  "edit_product_form_item_countries_hint": "Indtast et land (f.eks.: Tyskland)",
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
@@ -1744,11 +1753,11 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+  "edit_product_form_item_countries_explanations_title": "God praksis: Lande",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+  "edit_product_form_item_countries_explanations_info1": "**Lande, hvor produktet er udbredt** (omfatter ikke butikker, der specialiserer i udenlandske produkter).",
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
@@ -1756,7 +1765,7 @@
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "Indtast en kode (f.eks.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
@@ -1764,19 +1773,19 @@
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
-  "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+  "edit_product_form_item_emb_help_title": "God praksis: Sporbarhedskoder",
   "@edit_product_form_item_emb_help_title": {
     "description": "Title for the help section about traceability codes"
   },
-  "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+  "edit_product_form_item_emb_help_info1": "I denne sektion kan du indtaste koder for **emballagemærker**, **identifikationsmærker** eller **sundhedsmærker**.",
   "@edit_product_form_item_emb_help_info1": {
     "description": "Text explaining how to write a traceability code"
   },
-  "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+  "edit_product_form_item_emb_help_info2_title": "Eksempler på sporbarhedskoder",
   "@edit_product_form_item_emb_help_info2_title": {
     "description": "Explanation about EMB/EC… codes"
   },
-  "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+  "edit_product_form_item_emb_help_info2_item1_text": "**EF-koder**, der bruges i Det Europæiske Fællesskab til at identificere fødevareproducenter eller pakkevirksomheder:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
     "description": "Explanation about EC codes"
   },
@@ -1784,17 +1793,29 @@
   "@edit_product_form_item_emb_help_info2_item1_example": {
     "description": "Example of an EC code (you can change with a valid code in another european country)"
   },
-  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: Landekode for **Frankrig**\n**72.264.002**: Geografiske data\n**CE**: Det Europæiske Fællesskab",
   "@edit_product_form_item_emb_help_info2_item1_explanation": {
     "description": "Example of an EC code (shouldn't be translated)"
   },
-  "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+  "edit_product_form_item_emb_help_info2_item2_text": "**EMB-koder** brugt i Frankrig:",
   "@edit_product_form_item_emb_help_info2_item2_text": {
     "description": "Explanation about EMB codes"
   },
   "edit_product_form_item_emb_help_info2_item2_explanation": "EMB 72264",
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
+  },
+  "edit_product_form_item_traces_title": "Spor",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "spor",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Indtast et spor (f.eks. sojabønner)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
   },
   "edit_product_form_item_categories_title": "Kategorier",
   "@edit_product_form_item_categories_title": {
@@ -1804,35 +1825,35 @@
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
-  "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+  "edit_product_form_item_categories_type": "Indtast en kategori (f.eks. appelsinjuice)",
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "God praksis: Kategorier",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "Angiv **kun den mest specifikke kategori**.\nOverordnede kategorier tilføjes automatisk.",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
-  "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+  "edit_product_form_item_categories_explanation_info2_title": "Manglende kategori?",
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "Hvis en kategori **ikke er tilgængelig i autofuldførelse**, må du gerne tilføje den alligevel.\nDet hjælper os med at forbedre Open Food Facts i dit land.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Sardiner i olivenolie",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Appelsinjuice fra koncentrat",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_exit_title": "Quit without saving?",
+  "edit_product_form_item_exit_title": "Afslut uden at gemme?",
   "edit_product_form_item_exit_confirmation": "Gem ændringerne, inden siden forlades?",
   "edit_product_form_item_exit_confirmation_positive_button": "Gem ændringer",
   "edit_product_form_item_exit_confirmation_negative_button": "Kassér ændringer",
@@ -1840,26 +1861,26 @@
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom ind og ud ved at knibe på skærmen",
   "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
     "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+  "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom ind og ud på billedet",
   "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation title"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Ved hjælp af bevægelsen **Knib for at zoome** kan du zoome ind eller ud på billedet:",
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
   "edit_product_form_item_add_valid_item_tooltip": "Tilføj",
   "edit_product_form_item_add_invalid_item_tooltip": "Angiv først en tekst",
   "edit_product_form_item_remove_item_tooltip": "Fjern",
-  "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+  "edit_product_form_item_save_edit_item_tooltip": "Gem din redigering",
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
   },
-  "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+  "edit_product_form_item_cancel_edit_item_tooltip": "Annuller din redigering",
   "@edit_product_form_item_cancel_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
   },
@@ -1875,15 +1896,15 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "God praksis: Næringsindhold",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Næringsværdier",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+  "edit_product_form_item_nutrition_facts_explanation_info1_content": "Vælg først, om **værdierne er angivet**:",
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1891,15 +1912,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Indtast derefter næringsværdierne **som angivet på emballagen**. Hvis der ikke er nogen værdi, kan du klikke på \"Øje\"-ikonet.",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Manglende felt?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "Hvis et felt mangler, kan du **klikke på \"Plus\"-ikonet** for at tilføje det (f.eks. D-vitamin, magnesium...).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -1915,15 +1936,15 @@
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_packaging_photo_title": "Packaging photo",
+  "edit_product_packaging_photo_title": "Emballagefoto",
   "@edit_product_packaging_photo_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_packaging_list_title": "Packaging list",
+  "edit_product_packaging_list_title": "Emballageliste",
   "@edit_product_packaging_list_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "no_data_available": "No data available",
+  "no_data_available": "Ingen data tilgængelig",
   "@no_data_available": {
     "description": "When there are no data to display"
   },
@@ -1931,14 +1952,14 @@
   "@product_field_website_title": {
     "description": "Title of a product field: website"
   },
-  "origins_editing_title": "Edit Origins",
+  "origins_editing_title": "Rediger oprindelse",
   "@origins_editing_title": {
     "description": "Title of the button where users can edit the origins of a product"
   },
   "completed_basic_details_btn_text": "Udfyld basisoplysninger",
   "not_implemented_snackbar_text": "Endnu ikke implementeret",
   "category_picker_page_appbar_text": "Kategorier",
-  "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
+  "edit_ingredients_extract_ingredients_btn_text": "Udtræk ingredienser fra billedet",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
@@ -1946,19 +1967,19 @@
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
-  "edit_ingredients_extracting_ingredients_btn_text": "Extracting ingredients\nfrom the photo",
+  "edit_ingredients_extracting_ingredients_btn_text": "Udtrækker ingredienser\nfra billedet",
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
-  "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+  "edit_ingredients_loading_photo_btn_text": "Indlæser billede…",
   "@edit_ingredients_loading_photo_btn_text": {
     "description": "Ingredients edition - Loading photo from the server"
   },
-  "edit_ingredients_loading_photo_help_dialog_title": "Why do I see this message?",
+  "edit_ingredients_loading_photo_help_dialog_title": "Hvorfor ser jeg denne besked?",
   "@edit_ingredients_loading_photo_help_dialog_title": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_ingredients_loading_photo_help_dialog_body": "To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+  "edit_ingredients_loading_photo_help_dialog_body": "For at bruge funktionen \"Udtræk ingredienser\" skal billedet først uploades.\n\nVent et par sekunder, eller indtast dem manuelt.",
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
@@ -1966,27 +1987,27 @@
   "@edit_ingredients_refresh_photo_btn_text": {
     "description": "Ingredients edition - Refresh photo"
   },
-  "edit_packaging_extract_btn_text": "Extract packaging\nfrom the photo",
+  "edit_packaging_extract_btn_text": "Udtræk emballage\nfra billedet",
   "@edit_packaging_extract_btn_text": {
     "description": "Packaging edition - OCR-Extract packaging"
   },
-  "edit_packaging_extract_btn_text_short": "Extract packaging",
+  "edit_packaging_extract_btn_text_short": "Udtræk emballage",
   "@edit_packaging_extract_btn_text_short": {
     "description": "Packaging edition - OCR-Extract packaging (short label)"
   },
-  "edit_packaging_extracting_btn_text": "Extracting packaging from the photo",
+  "edit_packaging_extracting_btn_text": "Udtrækker emballage fra billedet",
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
-  "edit_packaging_loading_photo_btn_text": "Loading photo…",
+  "edit_packaging_loading_photo_btn_text": "Indlæser billede…",
   "@edit_packaging_loading_photo_btn_text": {
     "description": "Packaging edition - Loading photo from the server"
   },
-  "edit_packaging_loading_photo_help_dialog_title": "Why do I see this message?",
+  "edit_packaging_loading_photo_help_dialog_title": "Hvorfor ser jeg denne besked?",
   "@edit_packaging_loading_photo_help_dialog_title": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_packaging_loading_photo_help_dialog_body": "To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+  "edit_packaging_loading_photo_help_dialog_body": "For at bruge funktionen \"Udtræk emballage\" skal billedet først uploades.\n\nVent et par sekunder, eller indtast dem manuelt.",
   "@edit_packaging_loading_photo_help_dialog_body": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
   },
@@ -1998,11 +2019,11 @@
   "@edit_ocr_extract_failed": {
     "description": "OCR extraction - message for failed"
   },
-  "edit_ocr_extract_disabled_title": "No picture!",
+  "edit_ocr_extract_disabled_title": "Intet billede!",
   "@edit_ocr_extract_disabled_title": {
     "description": "OCR extraction - title for disabled"
   },
-  "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+  "edit_ocr_extract_disabled_message": "For at bruge tekstudtrækningsfunktionen skal du først tage et billede.",
   "@edit_ocr_extract_disabled_message": {
     "description": "OCR extraction - message for disabled"
   },
@@ -2066,7 +2087,7 @@
   "@user_list_name_error_same": {
     "description": "Validation error about the renamed name that is the same as the initial list name"
   },
-  "user_list_name_input_hint": "Name of the list",
+  "user_list_name_input_hint": "Listens navn",
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
@@ -2215,15 +2236,15 @@
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
-  "dev_preferences_news_custom_url_title": "Custom URL for news",
+  "dev_preferences_news_custom_url_title": "Brugerdefineret URL til nyheder",
   "@dev_preferences_news_custom_url_title": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+  "dev_preferences_news_custom_url_subtitle": "URL til JSON-filen:",
   "@dev_preferences_news_custom_url_subtitle": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_empty_value": "Not set",
+  "dev_preferences_news_custom_url_empty_value": "Ikke indstillet",
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
@@ -2231,7 +2252,7 @@
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
-  "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+  "dev_preferences_news_provider_status_subtitle": "Sidste opdatering: {date}",
   "@dev_preferences_news_provider_status_subtitle": {
     "description": "News dev preferences - Custom URL for news - Subtitle",
     "placeholders": {
@@ -2240,17 +2261,17 @@
       }
     }
   },
-  "product_type_label_food": "Food",
-  "product_type_label_beauty": "Personal care",
-  "product_type_label_pet_food": "Pet food",
-  "product_type_label_product": "Other",
-  "product_type_selection_title": "Product type",
-  "product_type_selection_subtitle": "Select the type of this product",
-  "product_type_selection_empty": "You need to select a product type first!",
+  "product_type_label_food": "Fødevare",
+  "product_type_label_beauty": "Personlig pleje",
+  "product_type_label_pet_food": "Foder til kæledyr",
+  "product_type_label_product": "Andet",
+  "product_type_selection_title": "Produkttype",
+  "product_type_selection_subtitle": "Vælg typen af dette produkt",
+  "product_type_selection_empty": "Du skal først vælge en produkttype!",
   "@product_type_selection_empty": {
     "description": "Error message about product type that needs to be set"
   },
-  "product_type_selection_already": "You cannot change the product type ({productType})!",
+  "product_type_selection_already": "Du kan ikke ændre produkttypen ({productType})!",
   "@product_type_selection_already": {
     "description": "Error message about product type that cannot be set again",
     "placeholders": {
@@ -2259,18 +2280,20 @@
       }
     }
   },
-  "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
-  "prices_app_button": "Go to Prices app",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_bulk_proof_upload_action": "Send the proof",
-  "prices_generic_title": "Prices",
-  "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
-  "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-  "prices_add_an_item": "Add an item",
-  "prices_add_a_price": "Add a price",
-  "prices_add_a_receipt": "Add a receipt",
-  "prices_add_price_tags": "Add price tags",
-  "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+  "prices_app_dev_mode_flag": "Genvej til Priser-appen på produktsiden",
+  "prices_app_button": "Gå til appen Priser",
+  "prices_bulk_proof_upload_select": "Tilføj prismærker direkte fra galleriet",
+  "prices_bulk_proof_upload_warning": "Når du har valgt billeder, vil du ikke kunne redigere dem!",
+  "prices_bulk_proof_upload_subtitle": "Flere prismærker",
+  "prices_bulk_proof_upload_title": "Bulk bevis upload",
+  "prices_generic_title": "Priser",
+  "prices_add_n_prices": "{count,plural, one {}=1{Tilføj en pris} other{Tilføj {count} priser}}",
+  "prices_send_n_prices": "{count,plural, one {}=1{Send prisen} other{Send {count} priser}}",
+  "prices_add_an_item": "Tilføj et element",
+  "prices_add_a_price": "Tilføj en pris",
+  "prices_add_a_receipt": "Tilføj en kvittering",
+  "prices_add_price_tags": "Tilføj prismærker",
+  "prices_barcode_already": "Denne stregkode ({barcode}) er allerede på listen!",
   "@prices_barcode_already": {
     "description": "Error message about barcode being already there",
     "placeholders": {
@@ -2280,8 +2303,8 @@
     }
   },
   "prices_barcode_search_not_found": "Produktet blev ikke fundet",
-  "prices_barcode_search_none_yet": "No product yet",
-  "prices_barcode_search_running": "Looking for {barcode}",
+  "prices_barcode_search_none_yet": "Intet produkt endnu",
+  "prices_barcode_search_running": "Leder efter {barcode}",
   "@prices_barcode_search_running": {
     "description": "Dialog title about barcode look-up",
     "placeholders": {
@@ -2290,10 +2313,10 @@
       }
     }
   },
-  "prices_barcode_enter": "Enter the Barcode",
+  "prices_barcode_enter": "Indtast stregkoden",
   "prices_barcode_reader_action": "Stregkodelæser",
-  "prices_view_prices": "View the prices",
-  "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+  "prices_view_prices": "Se priserne",
+  "prices_product_accessibility_summary": "{count,plural, one {}=1{1 pris} other{{count} priser}} for {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2305,7 +2328,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+  "prices_list_length_one_page": "{count,plural, one {}=0{Ingen pris endnu} =1{Kun én pris} other{Alle {count} priser}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2314,7 +2337,7 @@
       }
     }
   },
-  "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+  "prices_list_length_many_pages": "Seneste {pageSize} priser (i alt: {total})",
   "@prices_list_length_many_pages": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2326,7 +2349,7 @@
       }
     }
   },
-  "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+  "prices_entry_accessibility_label": "Pris: {price} / Butik: \"{location}\" / Udgivet på {date} af \"{user}\"",
   "@prices_entry_accessibility_label": {
     "description": "Accessibility label for a price entry",
     "placeholders": {
@@ -2344,7 +2367,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Open proofs of \"{user}\"",
+  "prices_open_user_proofs": "Åbne beviser for \"{user}\"",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -2353,11 +2376,11 @@
       }
     }
   },
-  "prices_open_proof": "Open price proof",
+  "prices_open_proof": "Åben prisbevis",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+  "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Intet bevis endnu} =1{Kun ét bevis} other{Alle {count} beviser}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2366,7 +2389,7 @@
       }
     }
   },
-  "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+  "prices_proofs_list_length_many_pages": "Seneste {pageSize} beviser (i alt: {total})",
   "@prices_proofs_list_length_many_pages": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2378,7 +2401,7 @@
       }
     }
   },
-  "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+  "prices_users_list_length_many_pages": "Top {pageSize} bidragydere (i alt: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
     "placeholders": {
@@ -2390,7 +2413,7 @@
       }
     }
   },
-  "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+  "prices_locations_list_length_many_pages": "Top {pageSize} placeringer (i alt: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
     "placeholders": {
@@ -2402,7 +2425,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+  "prices_button_count_proof": "{count,plural, one {}=0{Intet bevis} =1{Et bevis} other{{count} beviser}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2411,7 +2434,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+  "prices_button_count_product": "{count,plural, one {}=0{Intet produkt} =1{Et produkt} other{{count} produkter}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2420,7 +2443,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+  "prices_button_count_user": "{count,plural, one {}=0{Ingen bruger} =1{Én bruger} other{{count} brugere}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2429,7 +2452,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+  "prices_button_count_price": "{count,plural, one {}=0{Ingen pris} =1{En pris} other{{count} priser}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -2438,36 +2461,36 @@
       }
     }
   },
-  "prices_amount_subtitle": "Amount",
-  "prices_amount_is_discounted": "Is discounted?",
-  "prices_amount_price_normal": "Price",
-  "prices_amount_price_discounted": "Discounted price",
-  "prices_amount_price_not_discounted": "Original price",
-  "prices_amount_no_product": "One product is missing!",
-  "prices_amount_price_incorrect": "Incorrect value",
-  "prices_amount_price_mandatory": "Mandatory value",
-  "prices_currency_subtitle": "Currency",
-  "prices_date_subtitle": "Date",
-  "prices_location_subtitle": "Shop",
-  "prices_location_find": "Find a shop",
-  "prices_location_mandatory": "You need to select a shop!",
-  "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
-  "prices_proof_subtitle": "Proof",
-  "prices_proof_find": "Select a proof",
-  "prices_proof_receipt": "Receipt",
+  "prices_amount_subtitle": "Beløb",
+  "prices_amount_is_discounted": "Er med rabat?",
+  "prices_amount_price_normal": "Pris",
+  "prices_amount_price_discounted": "Nedsat pris",
+  "prices_amount_price_not_discounted": "Vejledende pris",
+  "prices_amount_no_product": "Et produkt mangler!",
+  "prices_amount_price_incorrect": "Forkert værdi",
+  "prices_amount_price_mandatory": "Obligatorisk værdi",
+  "prices_currency_subtitle": "Valuta",
+  "prices_date_subtitle": "Dato",
+  "prices_location_subtitle": "Butik",
+  "prices_location_find": "Find en butik",
+  "prices_location_mandatory": "Du skal vælge en butik!",
+  "prices_location_search_broader": "Kunne du ikke finde det, du ledte efter? Lad os prøve en bredere søgning!",
+  "prices_proof_subtitle": "Bevis",
+  "prices_proof_find": "Vælg et bevis",
+  "prices_proof_receipt": "Kvittering",
   "prices_proof_price_tag": "Prisskilt",
-  "prices_proof_mandatory": "You need to select a proof!",
-  "prices_add_validation_error": "Validation error",
-  "prices_privacy_warning_title": "Privacy warning",
-  "prices_unknown_product": "Unknown product",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-  "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-  "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-  "i_refuse": "I refuse",
-  "i_accept": "I accept",
-  "prices_currency_change_proposal_title": "Change the currency?",
-  "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+  "prices_proof_mandatory": "Du skal vælge et bevis!",
+  "prices_add_validation_error": "Valideringsfejl",
+  "prices_privacy_warning_title": "Advarsel om personlige oplysninger",
+  "prices_unknown_product": "Ukendt produkt",
+  "prices_privacy_warning_main_message": "Priserne **vil være offentlige**, sammen med den butik, de henviser til.\n\nDet kan give folk, der kender til dit Open Food Facts-pseudonym, mulighed for at:\n",
+  "prices_privacy_warning_message_bullet_1": "Udlede, hvilket område du bor i",
+  "prices_privacy_warning_message_bullet_2": "Vide, hvad du køber",
+  "prices_privacy_warning_sub_message": "Hvis du er utryg ved det, bedes du ændre dit pseudonym eller oprette en ny Open Food Facts-konto og logge ind på appen med den.",
+  "i_refuse": "Jeg nægter",
+  "i_accept": "Jeg accepterer",
+  "prices_currency_change_proposal_title": "Ændr valutaen?",
+  "prices_currency_change_proposal_message": "Din nuværende valuta er **{currency}**. Vil du ændre det til **{newCurrency}**?",
   "@prices_currency_change_proposal_message": {
     "description": "Message to ask the user if they want to change the currency",
     "placeholders": {
@@ -2479,7 +2502,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+  "prices_currency_change_proposal_action_approve": "Ja, brug {newCurrency}",
   "@prices_currency_change_proposal_action_approve": {
     "description": "Button to approve the currency change",
     "placeholders": {
@@ -2488,7 +2511,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+  "prices_currency_change_proposal_action_cancel": "Nej, behold {currency}",
   "@prices_currency_change_proposal_action_cancel": {
     "description": "Button to cancel the currency change",
     "placeholders": {
@@ -2504,25 +2527,25 @@
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
   },
-  "dev_mode_section_server": "Server configuration",
-  "dev_mode_section_news": "News provider configuration",
-  "dev_mode_section_product_page": "Product page",
-  "dev_mode_section_ui": "User Interface",
+  "dev_mode_section_server": "Serverkonfiguration",
+  "dev_mode_section_news": "Konfiguration af nyhedsudbyder",
+  "dev_mode_section_product_page": "Produktside",
+  "dev_mode_section_ui": "Brugergrænseflade",
   "dev_mode_section_data": "Data",
-  "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+  "dev_mode_section_experimental_features": "Eksperimentelle funktioner",
+  "dev_preferences_show_folksonomy_title": "Ekskluder Folksonomy",
   "@dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
-  "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+  "dev_mode_hide_environmental_score_title": "Ekskluder GreenScore",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
   },
-  "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+  "dev_mode_spellchecker_for_ocr_title": "Brug en stavekontrol til OCR-skærme",
   "@dev_mode_spellchecker_for_ocr_title": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
   },
-  "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+  "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredienser og emballage)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
@@ -2554,7 +2577,7 @@
       }
     }
   },
-  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+  "product_search_loading_message": "Din søgning på {search} er i gang.\n\nVent et par sekunder…",
   "@product_search_loading_message": {
     "description": "This message will be displayed when a search is in progress.",
     "search": {
@@ -2577,52 +2600,52 @@
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
-  "user_search_prices_title": "My prices",
+  "user_search_prices_title": "Mine priser",
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
-  "user_search_proofs_title": "My proofs",
+  "user_search_proofs_title": "Mine beviser",
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
-  "user_search_proof_title": "My proof",
+  "user_search_proof_title": "Mit bevis",
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Contributor prices",
+  "user_any_search_prices_title": "Bidragyders priser",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title"
   },
-  "all_search_prices_latest_title": "Latest Prices added",
+  "all_search_prices_latest_title": "Seneste priser tilføjet",
   "@all_search_prices_latest_title": {
     "description": "Latest prices: list tile title"
   },
-  "all_search_prices_top_user_title": "Top price contributors",
+  "all_search_prices_top_user_title": "Toppris bidragydere",
   "@all_search_prices_top_user_title": {
     "description": "Top price users: list tile title"
   },
-  "all_search_prices_top_location_title": "Stores with the most prices",
+  "all_search_prices_top_location_title": "Butikker med flest priser",
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "Prisbidrag Assistent",
   "prices_validation_assistant": "Price Validation Assistant",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Udfordringer",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Tilføj flere beviser",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
-  "all_search_prices_top_location_single_title": "Prices in a store",
+  "all_search_prices_top_location_single_title": "Priser i en butik",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
   },
-  "all_search_prices_top_product_title": "Products with the most prices",
+  "all_search_prices_top_product_title": "Produkter med flest priser",
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
@@ -2630,7 +2653,7 @@
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
-  "categorize_products_country_title": "Help categorize products in your country",
+  "categorize_products_country_title": "Hjælp med at kategorisere produkter i dit land",
   "@categorize_products_country_title": {
     "description": "Help categorize products in your country: list tile title"
   },
@@ -2646,7 +2669,7 @@
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+  "signup_page_terms_of_use_line1": "Jeg accepterer Open Food Facts' ",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
@@ -2696,7 +2719,7 @@
   "@edit_photo_select_existing_all_label": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+  "edit_photo_select_existing_all_subtitle": "Vælg et billede ved at klikke på det",
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
@@ -2722,47 +2745,47 @@
   },
   "basic_details": "Basisoplysninger",
   "product_name": "Produktnavn",
-  "product_names": "Product Names",
+  "product_names": "Produktnavne",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
-  "add_basic_details_product_name_add_translation": "Add a new translation",
+  "add_basic_details_product_name_add_translation": "Tilføj en ny oversættelse",
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Før du validerer, skal du sørge for kun at tilføje en oversættelse, **hvis sproget er til stede på emballagen**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
-  "add_basic_details_product_name_open_photo": "View front photo",
+  "add_basic_details_product_name_open_photo": "Se frontbillede",
   "@add_basic_details_product_name_open_photo": {
     "description": "Button to view the front photo of the product (on top of the screen)"
   },
-  "add_basic_details_product_name_take_photo": "Take front photo",
+  "add_basic_details_product_name_take_photo": "Tag frontbillede",
   "@add_basic_details_product_name_take_photo": {
     "description": "Button to take a photo of the front of the product (when there is no photo yet)"
   },
-  "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+  "add_basic_details_product_name_hint": "Indtast produktets navn (f.eks.: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
-  "explanation_section_good_examples": "Good examples",
+  "explanation_section_good_examples": "Gode eksempler",
   "@explanation_section_good_examples": {
     "description": "Title for the section with good examples"
   },
-  "explanation_section_bad_examples": "Bad examples",
+  "explanation_section_bad_examples": "Dårlige eksempler",
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "God praksis: Produktnavn",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
-  "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+  "add_basic_details_product_name_help_info1": "Produktnavnet er **hovednavnet trykt på emballagen**. Det kan være et registreret varemærke.",
   "@add_basic_details_product_name_help_info1": {
     "description": "Text explaining how to write the product name"
   },
-  "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+  "add_basic_details_product_name_help_info2": "**Bemærk:** Tilføj venligst ikke en oversættelse **hvis sproget ikke er til stede på emballagen**.",
   "@add_basic_details_product_name_help_info2": {
     "description": "Text explaining how to write the product name"
   },
@@ -2770,19 +2793,19 @@
   "@add_basic_details_product_name_help_good_examples_1": {
     "description": "A 1st good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+  "add_basic_details_product_name_help_good_examples_2": "Tomat ketchup",
   "@add_basic_details_product_name_help_good_examples_2": {
     "description": "A 2nd good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+  "add_basic_details_product_name_help_bad_examples_1_explanation": "Udelad varemærket i navnet",
   "@add_basic_details_product_name_help_bad_examples_1_explanation": {
     "description": "Explanation for the first bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+  "add_basic_details_product_name_help_bad_examples_1_example": "Tomatketchup **af Heinz**",
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Brug ikke symboler ®, ™, © eller lignende",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
@@ -2790,7 +2813,7 @@
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
-  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} anden oversættelse} other{{count} andre oversættelser}}",
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
@@ -2800,42 +2823,42 @@
     }
   },
   "brand_name": "Mærkenavn",
-  "brand_names": "Brand names",
+  "brand_names": "Varemærker",
   "add_basic_details_brand_name_error": "Angiv mærkenavnet",
-  "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
-  "add_basic_details_product_brand_help_title": "Good practices: Brands",
+  "add_basic_details_brand_names_hint": "Input varemærker (f.eks: Ferrero)",
+  "add_basic_details_product_brand_help_title": "God praksis: Varemærker",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "Indtast **alle produktets mærker**.",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "Hovedmærke",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "**hovedmærket**, generelt tydeligt vist på frontpakken, skal **indtastes først**.",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "Andre mærker",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "Ved salg **af et stort firma**:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** sælges af **Danone**",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "Når det sælges med dets mærke **oversat til flere sprog**:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** er nogle gange skrevet **Val Nature**",
   "@add_basic_details_product_brand_help_info3_item2_explanation": {
     "description": "Text explaining how to write brands"
   },
@@ -2848,24 +2871,24 @@
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
   "quantity": "Mængde og vægt",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
-  "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+  "add_basic_details_quantity_hint": "Indtast vægten og om nødvendigt mængden (f.eks.: 4x100g)",
+  "add_basic_details_product_quantity_help_title": "God praksis: Kvantitet",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
   },
-  "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+  "add_basic_details_product_quantity_help_info1": "Kopier værdien angivet på produktet og **glem ikke enhederne**.",
   "@add_basic_details_product_quantity_help_info1": {
     "description": "Text explaining how to write quantity"
   },
-  "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+  "add_basic_details_product_quantity_help_good_examples_1": "**230g** eller **230 g**",
   "@add_basic_details_product_quantity_help_good_examples_1": {
     "description": "A 1st good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+  "add_basic_details_product_quantity_help_good_examples_2": "**6** (til 6 æg)",
   "@add_basic_details_product_quantity_help_good_examples_2": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for et produkt med 3 æsker, hver på 150g)",
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
@@ -3009,7 +3032,7 @@
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+  "share_product_text": "Se dette produkt på Open Food Facts: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3018,7 +3041,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Tag et kig på dette produkt på Open Beauty Facts: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3027,7 +3050,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Tag et kig på dette produkt på Open PetFood Facts: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3036,7 +3059,7 @@
       }
     }
   },
-  "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+  "share_product_text_product": "Tag et kig på dette produkt på Open Products Facts: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3045,7 +3068,7 @@
       }
     }
   },
-  "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+  "share_product_list_text": "Tag et kig på min liste over produkter på Open Food Facts: {url}",
   "@share_product_list_text": {
     "description": "The content which is send, when sharing a product list",
     "placeholders": {
@@ -3070,7 +3093,7 @@
   "@image_upload_queued": {
     "description": "Message when a photo is queued for upload"
   },
-  "add_price_queued": "The price will be sent to the server as soon as possible.",
+  "add_price_queued": "Prisen vil blive sendt til serveren hurtigst muligt.",
   "@add_price_queued": {
     "description": "Message when an added price is queued for the server"
   },
@@ -3092,8 +3115,8 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Hold ingredienspanelet udvidet",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
+  "search_product_filter_visibility_title": "Vis et filter i søgningen",
+  "search_product_filter_visibility_subtitle": "Vælg søgewebsted: Open Food Facts, Open Beauty Facts, Open Pet Food Facts eller Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
@@ -3113,11 +3136,11 @@
   "@copy_to_clipboard": {
     "description": "Copy to clipboard button description"
   },
-  "paste_from_clipboard": "Paste from clipboard",
+  "paste_from_clipboard": "Indsæt fra udklipsholder",
   "@paste_from_clipboard": {
     "description": "Paste the content of the clipboard"
   },
-  "no_data_available_in_clipboard": "No data available in your clipboard",
+  "no_data_available_in_clipboard": "Ingen tilgængelige data i din udklipsholder",
   "@no_data_available_in_clipboard": {
     "description": "No data available in your clipboard"
   },
@@ -3126,7 +3149,7 @@
     "description": "Snackbar label after clipboard copy"
   },
   "clipboard_barcode_copied": "Stregkoden {barcode} kopieret til udklipsholderen!",
-  "open_product_website": "Open this product on the website",
+  "open_product_website": "Åbn dette produkt på hjemmesiden",
   "language_picker_label": "Dit sprog",
   "@language_picker_label": {
     "description": "Choose Application Language"
@@ -3135,7 +3158,7 @@
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
-  "currency_picker_label": "Your currency",
+  "currency_picker_label": "Din valuta",
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3151,7 +3174,7 @@
   "@no_email_client_available_dialog_title": {
     "description": "Title for the dialog when no email client is installed on the device"
   },
-  "no_email_client_available_dialog_content": "Please send us manually an email to mobile@openfoodfacts.org",
+  "no_email_client_available_dialog_content": "Send os venligst en e-mail manuelt til mobile@openfoodfacts.org",
   "@no_email_client_available_dialog_content": {
     "description": "Content for the dialog when no email client is installed on the device"
   },
@@ -3227,7 +3250,7 @@
       }
     }
   },
-  "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+  "portion_calculator_computation_error": "Manglende data. Beregningen kunne ikke udføres.",
   "@portion_calculator_computation_error": {
     "description": "Error message to explain that the computation of the portion calculator failed."
   },
@@ -3272,7 +3295,7 @@
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
-  "user_picture_source_ask": "Ask each time",
+  "user_picture_source_ask": "Spørg hver gang",
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
@@ -3291,19 +3314,19 @@
   "@show_password": {
     "description": "Show hidden password in password field"
   },
-  "owner_field_info_title": "Producer provided values",
+  "owner_field_info_title": "Producentens angivne værdier",
   "@owner_field_info_title": {
     "description": "Title of the 'producer provided' info list-tile"
   },
-  "owner_field_info_message": "With that logo we highlight data provided by the producer, and that may not be editable.",
+  "owner_field_info_message": "Med dette logo fremhæver vi data leveret af producenten, og som muligvis ikke kan redigeres.",
   "@owner_field_info_message": {
     "description": "Title of the 'producer provided' info list-tile"
   },
-  "owner_field_info_close_button": "Close this info",
+  "owner_field_info_close_button": "Luk denne info",
   "@owner_field_info_close_button": {
     "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
   },
-  "owner_field_image": "This image is provided by the producer. It may not be editable.",
+  "owner_field_image": "Dette billede leveres af producenten og kan muligvis ikke redigeres.",
   "@owner_field_image": {
     "description": "An image is directly provided by the producer. It may be locked and not be editable."
   },
@@ -3558,7 +3581,7 @@
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+  "update_local_database_sub": "Opdater den lokale produktdatabase med de nyeste data fra Open Food Facts",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
@@ -3608,19 +3631,19 @@
   "@country_selector_title": {
     "description": "Label written as the title of the dialog to select the user country"
   },
-  "currency_selector_title": "Select your currency:",
+  "currency_selector_title": "Vælg din valuta:",
   "@currency_selector_title": {
     "description": "Label written as the title of the dialog to select the user currency"
   },
-  "language_selector_title": "Select your language:",
+  "language_selector_title": "Vælg dit sprog:",
   "@language_selector_title": {
     "description": "Label written as the title of the dialog to select the user language"
   },
-  "language_selector_section_selected": "Selected languages",
+  "language_selector_section_selected": "Valgte sprog",
   "@language_selector_section_selected": {
     "description": "Label to highlight the selected languages"
   },
-  "language_selector_section_frequently_used": "Frequently used",
+  "language_selector_section_frequently_used": "Ofte brugt",
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
@@ -3646,7 +3669,7 @@
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+  "nutriscore_new_formula": "Nutri-Score {letter} (Ny beregning)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3655,51 +3678,51 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
-  "nutriscore_not_applicable": "Nutri-Score is not applicable",
-  "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
-  "nova_group_1": "NOVA Group 1",
-  "nova_group_2": "NOVA Group 2",
-  "nova_group_3": "NOVA Group 3",
-  "nova_group_4": "NOVA Group 4",
-  "nova_group_unknown": "Unknown NOVA Group",
-  "nutrition_facts": "Nutrient Levels",
-  "faq_title_partners": "Partners & Patrons of the NGO",
-  "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
-  "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
-  "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
-  "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
+  "nutriscore_new_formula_title": "Nutri-Score (Ny beregning)",
+  "nutriscore_unknown": "Ukendt Nutri-Score",
+  "nutriscore_unknown_new_formula": "Ukendt Nutri-Score (Ny beregning)",
+  "nutriscore_not_applicable": "Nutri-Score er ikke tilgængeligt",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke tilgængeligt (Ny beregning)",
+  "environmental_score_generic": "Green-Score",
+  "environmental_score_a": "Green-Score A",
+  "environmental_score_b": "Green-Score B",
+  "environmental_score_c": "Green-Score C",
+  "environmental_score_d": "Green-Score D",
+  "environmental_score_e": "Green-Score E",
+  "environmental_score_unknown": "Ukendt Green-Score",
+  "environmental_score_not_applicable": "Green-Score er ikke tilgængeligt",
+  "nova_group_generic": "Ultra-processing - NOVA grupper",
+  "nova_group_1": "NOVA-gruppe 1",
+  "nova_group_2": "NOVA-gruppe 2",
+  "nova_group_3": "NOVA-gruppe 3",
+  "nova_group_4": "NOVA-gruppe 4",
+  "nova_group_unknown": "Ukendt NOVA-gruppe",
+  "nutrition_facts": "Næringsstofniveauer",
+  "faq_title_partners": "NGO'ens partnere og protektorer",
+  "faq_title_vision": "Open Food Facts' vision, mission, værdier og programmer",
+  "faq_title_install_beauty": "Installer Open Beauty Facts for at oprette en kosmetisk database",
+  "faq_title_install_pet": "Installer Open Pet Food Facts for at oprette en dyrefoderdatabase",
+  "faq_title_install_product": "Installer Open Products Facts for at oprette en produktdatabase for at forlænge objekternes levetid",
   "faq_nutriscore_nutriscore": "Ny beregning af Nutri-Score: hvad er nyt?",
-  "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-  "contact_title_pro_email": "Producer Contact",
-  "contact_title_press_page": "Press Page",
-  "contact_title_press_email": "Press Contact",
+  "contact_title_pro_page": "Prof? Importér dine produkter i Open Food Facts",
+  "contact_title_pro_email": "Producent kontakt",
+  "contact_title_press_page": "Presseside",
+  "contact_title_press_email": "Pressekontakt",
   "contact_title_newsletter": "Abonnér på nyhedsbrevet",
-  "contact_title_calendar": "Subscribe to our community calendar",
-  "hunger_games_loading_line1": "Please give us a few seconds…",
+  "contact_title_calendar": "Abonner på vores fællesskabskalender",
+  "hunger_games_loading_line1": "Giv os venligst et par sekunder…",
   "hunger_games_loading_line2": "Vi henter spørgsmålene!",
   "hunger_games_error_label": "Åh nej! Noget gik galt, og vi kunne ikke indlæse spørgsmålene.",
   "hunger_games_error_retry_button": "Lad os prøve igen!",
-  "reorder_attribute_action": "Reorder the attributes",
+  "reorder_attribute_action": "Omarranger attributterne",
   "@reorder_attribute_action": {
     "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
   },
-  "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+  "link_cant_be_opened": "Dette link kan ikke åbnes på din enhed. Tjek venligst, at du har en browser installeret.",
   "@link_cant_be_opened": {
     "description": "An error may happen if the device doesn't have a browser installed."
   },
-  "knowledge_panel_page_title_no_title": "Details for {productName}",
+  "knowledge_panel_page_title_no_title": "Detaljer for {productName}",
   "@knowledge_panel_page_title_no_title": {
     "description": "The title of the page when we click on an item in the product page and this page is unnamed",
     "placeholders": {
@@ -3708,7 +3731,7 @@
       }
     }
   },
-  "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+  "knowledge_panel_page_title": "Detaljer for {pageName} med {productName}",
   "@knowledge_panel_page_title": {
     "description": "The title of the page when we click on an item in the product page",
     "placeholders": {
@@ -3729,72 +3752,72 @@
   "@guide_nutriscore_v2_enabled": {
     "description": "Please NEVER touch this value and let the OFF team change it!"
   },
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score udvikler sig: forklaringer!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Hvad er Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score er et logo, der har til formål at informere dig om den **ernæringsmæssige kvalitet af fødevarer**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Farvekoden varierer fra mørkegrøn (**A**) for de **sundeste** produkter til mørkerøde (**E**) for de **mindre sunde**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-  "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A-logoet",
+  "guide_nutriscore_v2_why_v2_title": "Hvorfor udvikler Nutri-Score sig?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-formlen **er under udvikling** for at give bedre anbefalinger:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Bedre vurdere alle drikkevarer",
+  "guide_nutriscore_v2_why_v2_arg1_text": "De sammenlignende noter af **mælk**, **mælkedrikke** tilsat sukker og **vegetabilske drikkevarer var bedre differentieret i den nye algoritme.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Bedre rangering af drikkevarer",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Der tages bedre hensyn til **sukkerindholdet** og favoriserer **lavt sødede** drikke.\\n**Sødestoffer vil også blive straffet**: Diætsodavand nedgraderes fra en B-vurdering til mellem C og E. Vand er fortsat den anbefalede drik.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Salt og sukker straffes",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Produkter **for søde** eller **for salte** vil se deres **vurdering yderligere nedgraderet**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarki inden for olier og fisk",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Bedømmelsen af visse **fede fisk** og **olier rige på gode fedtstoffer** vil forbedres.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Begræns rødt kød",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Forbruget af **rødt kød bør begrænses**. Dette er grunden til, at **fjerkræ vil være forholdsvis bedre rangeret**.",
+  "guide_nutriscore_v2_new_logo_title": "Hvordan skelner man mellem gammel Nutri-Score og ny beregning?",
+  "guide_nutriscore_v2_new_logo_text": "Fra nu af kan logoet vise en omtale \"**Ny beregning**\" for at tydeliggøre, at dette faktisk er den nye beregning.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logoet for den nye Nutri-Score",
+  "guide_nutriscore_v2_where_title": "Hvor finder man den nye Nutri-Score-beregning?",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score anvendes i 7 lande: Frankrig, Tyskland, Belgien, Spanien, Luxembourg, Holland og Schweiz.",
+  "guide_nutriscore_v2_where_paragraph2": "Producenter har højst **2 år** senest efter underskrivelsen af dekretet **til at erstatte** den gamle beregning med den nye.",
+  "guide_nutriscore_v2_where_paragraph3": "Uden at vente **finder du allerede den nye beregning i OpenFoodFacts-applikationen**, herunder hvis producenterne ikke har opdateret scoren.",
+  "guide_nutriscore_v2_unchanged_title": "Hvad ændrer sig ikke",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en score designet til at **måle ernæringskvalitet**. Den er **supplerende til NOVA-gruppen** om **ultraforarbejdede fødevarer** (også til stede i ansøgningen).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "For producenter er visningen af Nutri-Score ** fortsat valgfri**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_nutriscore_v2_share_message": "",
   "@guide_nutriscore_v2_share_message": {
     "description": "Please let empty for now (maybe use in the future)"
   },
-  "preview_badge": "Preview",
+  "preview_badge": "Forhåndsvisning",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
   },
-  "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+  "prices_feedback_form": "Klik her for at sende os din feedback om denne nye funktion!",
   "@prices_feedback_form": {
     "description": "A button to send feedback about the prices feature"
   },
-  "menu_button_list_actions": "Select an action",
+  "menu_button_list_actions": "Vælg en handling",
   "@menu_button_list_actions": {
     "description": "Button to select an action in a list (eg: Share, Delete, …)"
   },
-  "error_loading_photo": "Error loading photo",
+  "error_loading_photo": "Fejl ved indlæsning af billede",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "Brug som…",
   "@photo_viewer_action_use_picture_as": {
     "description": "An action to use the current picture to be used as front/ingredients…"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Brug dette billede som…",
   "@photo_viewer_use_picture_as_tooltip": {
     "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+  "photo_viewer_use_picture_as_title": "Brug dette billede som… ({language})",
   "@photo_viewer_use_picture_as_title": {
     "description": "The title of a dialog to use the current picture as front/ingredients…",
     "placeholders": {
@@ -3803,15 +3826,15 @@
       }
     }
   },
-  "photo_viewer_details_button": "Details",
+  "photo_viewer_details_button": "Detaljer",
   "@photo_viewer_details_button": {
     "description": "Button to show details of the photo"
   },
-  "photo_viewer_details_button_accessibility_label": "Details of this photo",
+  "photo_viewer_details_button_accessibility_label": "Detaljer om dette foto",
   "@photo_viewer_details_button_accessibility_label": {
     "description": "Accessibility label for the Details button on a photo"
   },
-  "photo_viewer_details_title": "Details of the photo",
+  "photo_viewer_details_title": "Detaljer om billedet",
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
@@ -3819,7 +3842,7 @@
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
-  "photo_viewer_details_size_title": "Size",
+  "photo_viewer_details_size_title": "Størrelse",
   "@photo_viewer_details_size_title": {
     "description": "Label for the size of a photo"
   },
@@ -3835,7 +3858,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Date",
+  "photo_viewer_details_date_title": "Dato",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -3843,15 +3866,15 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "product_page_compatibility_score": "Compatible",
+  "product_page_compatibility_score": "Kompatibel",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
   },
-  "user_lists_action_multi_select": "Multi-select",
+  "user_lists_action_multi_select": "Vælg flere",
   "@user_lists_action_multi_select": {
     "description": "The button label for multi-selecting products in a user list"
   },
-  "product_page_compatibility_score_tooltip": "Your compatibility score: {score}%",
+  "product_page_compatibility_score_tooltip": "Din kompatibilitetsscore: {score}%",
   "@product_page_compatibility_score_tooltip": {
     "description": "Message explaining that the score is the compatibility score",
     "placeholders": {
@@ -3868,23 +3891,23 @@
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
-  "product_image_nutrition_accessibility_label": "Nutrition picture",
+  "product_image_nutrition_accessibility_label": "Ernæringsbillede",
   "@product_image_nutrition_accessibility_label": {
     "description": "Accessibility label for the image of the nutrition"
   },
-  "product_image_packaging_accessibility_label": "Packaging picture",
+  "product_image_packaging_accessibility_label": "Emballage billede",
   "@product_image_packaging_accessibility_label": {
     "description": "Accessibility label for the image of the packaging"
   },
-  "product_image_other_accessibility_label": "Other picture",
+  "product_image_other_accessibility_label": "Andet billede",
   "@product_image_other_accessibility_label": {
     "description": "Accessibility label for an image"
   },
-  "product_image_outdated_message": "This picture may be outdated",
+  "product_image_outdated_message": "Dette billede kan være forældet",
   "@product_image_outdated_message": {
     "description": "Small message to indicate that the image may be outdated"
   },
-  "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+  "product_image_outdated_message_accessibility_label": "{type} (dette billede kan være forældet)",
   "@product_image_outdated_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be outdated",
     "placeholders": {
@@ -3893,7 +3916,7 @@
       }
     }
   },
-  "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+  "product_image_locked_message_accessibility_label": "{type} (dette billede kan være låst af producenten)",
   "@product_image_locked_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
     "placeholders": {
@@ -3902,11 +3925,11 @@
       }
     }
   },
-  "product_image_error": "Unable to load the image!",
+  "product_image_error": "Kan ikke indlæse billedet!",
   "@product_image_error": {
     "description": "Small message that will be displayed above the picture (please keep it short)"
   },
-  "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+  "product_image_error_accessibility_label": "Kan ikke indlæse {type} (netværksfejl?)",
   "@product_image_error_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it fails to load",
     "placeholders": {
@@ -3915,51 +3938,51 @@
       }
     }
   },
-  "product_page_image_no_image_available": "No\nimage!",
+  "product_page_image_no_image_available": "Intet\nbillede!",
   "@product_page_image_no_image_available": {
     "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
   },
-  "product_page_image_no_image_available_accessibility_label": "No picture available for this product",
+  "product_page_image_no_image_available_accessibility_label": "Intet billede tilgængeligt for dette produkt",
   "@product_page_image_no_image_available_accessibility_label": {
     "description": "Accessibility label for the image on the product page when there is no image available on the database"
   },
-  "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+  "product_page_action_bar_settings_accessibility_label": "Omarranger eller skjul handlinger",
   "@product_page_action_bar_settings_accessibility_label": {
     "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
   },
-  "product_page_action_bar_setting_modal_title": "Edit actions",
+  "product_page_action_bar_setting_modal_title": "Rediger handlinger",
   "@product_page_action_bar_setting_modal_title": {
     "description": "Title for the modal allowing to show and reorder actions"
   },
-  "product_page_action_bar_item_move_up": "Move up",
+  "product_page_action_bar_item_move_up": "Flyt op",
   "@product_page_action_bar_item_move_up": {
     "description": "Accessibility label to move up an action"
   },
-  "product_page_action_bar_item_move_down": "Move down",
+  "product_page_action_bar_item_move_down": "Flyt ned",
   "@product_page_action_bar_item_move_down": {
     "description": "Accessibility label to move down an action"
   },
-  "product_page_action_bar_item_enable": "Enable action",
+  "product_page_action_bar_item_enable": "Aktiver handling",
   "@product_page_action_bar_item_enable": {
     "description": "Accessibility label to enable action (= make it visible)"
   },
-  "product_page_action_bar_item_disable": "Disable action",
+  "product_page_action_bar_item_disable": "Deaktiver handling",
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Uploader dine redigeringer…",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "Dataene vist på denne side **afspejler endnu ikke dine ændringer**.\nVent et par sekunder…",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
-  "product_add_a_language": "Add a language",
+  "product_add_a_language": "Tilføj et sprog",
   "@product_add_a_language": {
     "description": "Button to add a language (eg: for photos) to a product"
   },
-  "barcode_accessibility_label": "Barcode {barcode}",
+  "barcode_accessibility_label": "Stregkode {barcode}",
   "@barcode_accessibility_label": {
     "description": "Accessibility label for a barcode image",
     "placeholders": {
@@ -3968,72 +3991,72 @@
       }
     }
   },
-  "carousel_close_tooltip": "Remove this product from the carousel",
+  "carousel_close_tooltip": "Fjern dette produkt fra karrusellen",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
   },
-  "carousel_unsupported_header": "Unsupported barcode!",
+  "carousel_unsupported_header": "Ikke-understøttet stregkode!",
   "@carousel_unsupported_header": {
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
-  "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
-  "carousel_error_header": "Error!",
+  "carousel_unsupported_title": "Hovsa!",
+  "carousel_unsupported_text": "Den scannede stregkode understøttes ikke af Open Food Facts!",
+  "carousel_error_header": "Fejl!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
   },
-  "carousel_error_title": "It's a bummer!",
-  "carousel_error_text_1": "We couldn't download information on this barcode:",
-  "carousel_error_text_2": "Please check your Internet connection or click this button:",
+  "carousel_error_title": "Det er ærgerligt!",
+  "carousel_error_text_1": "Vi kunne ikke hente oplysninger om denne stregkode:",
+  "carousel_error_text_2": "Tjek din internetforbindelse, eller klik på denne knap:",
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_error_button": "Forsøg igen",
-  "carousel_unknown_product_header": "Unknown product",
+  "carousel_unknown_product_header": "Ukendt produkt",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
-  "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
+  "carousel_unknown_product_title": "Tillykke!\nDu har fundet __den sjældne perle!__",
   "@carousel_unknown_product_title": {
     "description": "Please keep the __ syntax to underline the text"
   },
-  "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+  "carousel_unknown_product_text": "Vores samarbejdsdatabase indeholder mere end **3 millioner produkter**, men denne stregkode findes ikke: ",
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_unknown_product_button": "Tilføj dette produkt",
-  "carousel_loading_header": "Loading information...",
+  "carousel_loading_header": "Indlæser oplysninger…",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
   },
-  "carousel_loading_title": "You've just scanned a product with the following barcode:",
-  "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+  "carousel_loading_title": "Du har lige scannet et produkt med følgende stregkode:",
+  "carousel_loading_text": "Vi søger efter det i vores database med mere end **3 millioner produkter!**",
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "Grøntsager, frugter, frosne fødevarer…",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "Makeup, sæber, tandpastaer…",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Foder til hunde, katte…",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "Smartphones, møbler…",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
-  "photo_field_front": "Product photo",
+  "photo_field_front": "Produktfoto",
   "photo_field_ingredients": "Ingrediensfoto",
-  "photo_field_nutrition": "Nutrition photo",
+  "photo_field_nutrition": "Ernæringsfoto",
   "photo_field_packaging": "Emballageoplysningsfoto",
-  "photo_already_exists": "This photo already exists",
-  "photo_missing": "This photo is missing",
-  "date": "Date",
+  "photo_already_exists": "Dette billede findes allerede",
+  "photo_missing": "Dette billede mangler",
+  "date": "Dato",
   "photo_rotate_left": "Rotér venstre om",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
@@ -4042,11 +4065,11 @@
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
-  "photo_undo_action": "Undo the previous action",
+  "photo_undo_action": "Fortryd den sidste handling",
   "@photo_undo_action": {
     "description": "Button to undo the previous action on a photo"
   },
-  "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+  "knowledge_panel_world_map_accessibility_label": "Et verdenskort over {location}",
   "@knowledge_panel_world_map_accessibility_label": {
     "description": "Accessibility label for the world map in the knowledge panel",
     "placeholders": {
@@ -4055,11 +4078,11 @@
       }
     }
   },
-  "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+  "open_street_map_contributor_attribution": "OpenStreetMap-bidragydere",
   "@open_street_map_contributor_attribution": {
     "description": "Attribution for OpenStreetMap contributors"
   },
-  "not_applicable_short": "N/A",
+  "not_applicable_short": "Ikke tilgængelig",
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
@@ -4067,11 +4090,11 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-  "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-  "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
-  "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Hvorfor er denne Nutri-Score anderledes end den på pakken?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "Der er to mulige forklaringer:\nIngredienslisten og/eller næringsindhold er ikke opdateret.\n\nVi leverer \"Ny beregning\" af Nutri-Score (eller V2). Tjek venligst, at du har banneret \"Ny beregning\" på pakken.",
+  "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Tjek ingredienser",
+  "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Tjek næringsindhold",
+  "url_not_supported": "Vi kan desværre ikke åbne URL'en:\n{url}",
   "@url_not_supported": {
     "description": "Error message when the app can't open a URL",
     "placeholders": {
@@ -4080,15 +4103,15 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Eksportér",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Importér",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
-  "product_footer_action_barcode": "View barcode",
+  "product_footer_action_barcode": "Se stregkode",
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
@@ -4096,23 +4119,23 @@
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
-  "product_footer_action_open_website": "Open website",
+  "product_footer_action_open_website": "Åbn hjemmeside",
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "Rapportér",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
-  "product_footer_action_contributor_guide": "Help",
+  "product_footer_action_contributor_guide": "Hjælp",
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
-  "product_footer_action_data_quality_tags": "Data quality",
+  "product_footer_action_data_quality_tags": "Datakvalitet",
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
-  "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+  "prices_products_list_length_many_pages": "Top {pageSize} produkter (i alt: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
     "placeholders": {
@@ -4124,31 +4147,31 @@
       }
     }
   },
-  "app_review_title": "Are you enjoying this app?",
+  "app_review_title": "Nyder du appen?",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "Kunne gøre det bedre",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "Ikke dårligt",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "Jeg elsker den!",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "Hjælp os med at forbedre vores applikation",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "Hvis du har et par minutter, kan du besvare denne formular, så **vi kan forbedre os i fremtidige opdateringer**:",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "Besvar formularen",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4156,20 +4179,184 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "NYHED: Du kan automatisk udtrække næringsstofferne fra billedet!",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "Udtræk nu",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
+  "nutrition_facts_extract_succesful": "Udvinding lykkedes",
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_failed": "Kunne ikke udtrække næringsstoffer fra billedet",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Rabat",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
+  },
+  "prices_stats_statistics": "Statistik",
+  "@prices_stats_statistics": {
+    "description": "Label for statistics section"
+  },
+  "prices_stats_title": "Prisstatistik",
+  "@prices_stats_title": {
+    "description": "Title for the prices statistics page"
+  },
+  "prices_stats_prices_section": "Priser",
+  "@prices_stats_prices_section": {
+    "description": "Title for the prices section"
+  },
+  "prices_stats_products_section": "Produkter",
+  "@prices_stats_products_section": {
+    "description": "Title for the products section"
+  },
+  "prices_stats_locations_section": "Placeringer",
+  "@prices_stats_locations_section": {
+    "description": "Title for the locations section"
+  },
+  "prices_stats_proofs_section": "Beviser",
+  "@prices_stats_proofs_section": {
+    "description": "Title for the proofs section"
+  },
+  "prices_stats_contributors_section": "Bidragsydere",
+  "@prices_stats_contributors_section": {
+    "description": "Title for the contributors section"
+  },
+  "prices_stats_experiments_section": "Eksperimenter",
+  "@prices_stats_experiments_section": {
+    "description": "Title for the experiments section"
+  },
+  "prices_stats_misc_section": "Diverse",
+  "@prices_stats_misc_section": {
+    "description": "Title for the miscellaneous section"
+  },
+  "prices_stats_total": "I alt",
+  "@prices_stats_total": {
+    "description": "Label for total count"
+  },
+  "prices_stats_with_barcode": "With a barcode",
+  "@prices_stats_with_barcode": {
+    "description": "Label for count with barcode"
+  },
+  "prices_stats_with_category": "With a category",
+  "@prices_stats_with_category": {
+    "description": "Label for count with category"
+  },
+  "prices_stats_with_discount": "With a discount",
+  "@prices_stats_with_discount": {
+    "description": "Label for count with discount"
+  },
+  "prices_stats_community": "Fællesskab",
+  "@prices_stats_community": {
+    "description": "Label for community count"
+  },
+  "prices_stats_consumption": "Forbrug",
+  "@prices_stats_consumption": {
+    "description": "Label for consumption count"
+  },
+  "prices_stats_with_price": "Med en pris",
+  "@prices_stats_with_price": {
+    "description": "Label for count with price"
+  },
+  "prices_stats_food": "Fødevare",
+  "@prices_stats_food": {
+    "description": "Label for food count"
+  },
+  "prices_stats_beauty": "Skønhed",
+  "@prices_stats_beauty": {
+    "description": "Label for beauty count"
+  },
+  "prices_stats_products": "Produkter",
+  "@prices_stats_products": {
+    "description": "Label for products count"
+  },
+  "prices_stats_pet_food": "Foder til kæledyr",
+  "@prices_stats_pet_food": {
+    "description": "Label for pet food count"
+  },
+  "prices_stats_osm": "OpenStreetMap",
+  "@prices_stats_osm": {
+    "description": "Label for OpenStreetMap count"
+  },
+  "prices_stats_online": "Online",
+  "@prices_stats_online": {
+    "description": "Label for online count"
+  },
+  "prices_stats_countries": "Lande",
+  "@prices_stats_countries": {
+    "description": "Label for countries count"
+  },
+  "prices_stats_price_tag": "Prisskilt",
+  "@prices_stats_price_tag": {
+    "description": "Label for price tag count"
+  },
+  "prices_stats_receipt": "Kvittering",
+  "@prices_stats_receipt": {
+    "description": "Label for receipt count"
+  },
+  "prices_stats_gdpr_request": "GDPR anmodning",
+  "@prices_stats_gdpr_request": {
+    "description": "Label for GDPR request count"
+  },
+  "prices_stats_shop_import": "Butik import",
+  "@prices_stats_shop_import": {
+    "description": "Label for shop import count"
+  },
+  "prices_stats_challenges": "Udfordringer",
+  "@prices_stats_challenges": {
+    "description": "Label for challenges count"
+  },
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "@prices_stats_linked_to_price_tag": {
+    "description": "Label for prices linked to a price tag count"
+  },
+  "prices_stats_currencies": "Valutaer",
+  "@prices_stats_currencies": {
+    "description": "Label for currencies count"
+  },
+  "prices_stats_years": "År",
+  "@prices_stats_years": {
+    "description": "Label for years count"
+  },
+  "prices_stats_by_source_title": "Prices and proofs per source",
+  "@prices_stats_by_source_title": {
+    "description": "Title for prices and proofs per source section"
+  },
+  "prices_stats_website": "Websted",
+  "@prices_stats_website": {
+    "description": "Label for website source"
+  },
+  "prices_stats_mobile_app": "Mobil app",
+  "@prices_stats_mobile_app": {
+    "description": "Label for mobile app source"
+  },
+  "prices_stats_api": "API",
+  "@prices_stats_api": {
+    "description": "Label for API source"
+  },
+  "prices_stats_other": "Andet",
+  "@prices_stats_other": {
+    "description": "Label for other sources"
+  },
+  "prices_stats_last_updated": "Sidst opdateret den",
+  "@prices_stats_last_updated": {
+    "description": "Label for last updated timestamp"
+  },
+  "prices_stats_error": "Der opstod en fejl under indlæsning af statistik.",
+  "@prices_stats_error": {
+    "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "Spørgsmål besvaret!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Bevis",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
   }
 }
