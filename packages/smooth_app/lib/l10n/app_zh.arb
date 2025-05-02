@@ -100,7 +100,7 @@
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "是否适合未知",
+  "match_unknown": "未知匹配",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
@@ -124,7 +124,7 @@
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "是否适合未知",
+  "match_short_unknown": "未知匹配",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
@@ -137,7 +137,7 @@
   "@Introduction screen": {},
   "welcomeToOpenFoodFacts": "欢迎使用 Open Food Facts！",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+  "whatIsOff": "Open Food Facts 是一个由当地社区推动的全球性非营利组织。",
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
@@ -153,21 +153,21 @@
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+  "server_error_open_new_issue": "服务器无响应！您可以使用以下链接反馈问题。",
   "@user_management": {},
-  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+  "sign_in_text": "登录您的 Open Food Facts 账号以保存您的贡献",
   "incorrect_credentials": "用户名或密码错误。",
-  "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-  "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+  "password_lost_incorrect_credentials": "此电子邮件或用户名不存在。请检查您的登录信息。",
+  "password_lost_server_unavailable": "我们的服务器目前速度缓慢，对此我们深表歉意。请稍后重试。",
   "login": "用户名",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
-  "login_result_type_server_unreachable": "Network is unreachable",
+  "login_result_type_server_unreachable": "网络无法访问",
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Problem on the server. Please try later.",
+  "login_result_type_server_issue": "服务器出现问题。请稍后再试。",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "帮助改善您所在国家/地区的 Open Food Facts",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -283,11 +283,11 @@
   "sign_up_page_producer_checkbox": "我是食品生产商",
   "sign_up_page_producer_hint": "生产商/品牌",
   "sign_up_page_producer_error_empty": "请输入生产商或品牌名称",
-  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+  "sign_up_page_subscribe_checkbox": "我想订阅 Open Food Facts 的最新动态（您可以随时取消订阅）",
   "sign_up_page_user_name_already_used": "该用户名已存在，请选择一个不同的用户名。",
   "sign_up_page_email_already_exists": "已存在。登录该账号或尝试其他电子邮件地址。",
   "sign_up_page_provide_valid_email": "请提供一个有效的电子邮箱地址。",
-  "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+  "sign_up_page_server_busy": "非常抱歉，创建您的帐户时遇到了一些技术问题。请稍后重试。",
   "settingsTitle": "设置",
   "@settingsTitle": {
     "description": "The title of the Settings page"
@@ -308,8 +308,8 @@
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
-  "thanks_for_contributing": "Thanks for contributing!",
-  "contributors_label": "They are building the app",
+  "thanks_for_contributing": "感谢您的贡献！",
+  "contributors_label": "他们正在开发应用程序",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
@@ -324,7 +324,7 @@
       "name": {}
     }
   },
-  "contributors_description": "A list of all contributors of this app",
+  "contributors_description": "此应用程序所有贡献者的列表",
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
@@ -332,7 +332,7 @@
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
-  "support_join_slack": "在我们的Slack频道寻求帮助",
+  "support_join_slack": "在我们的 Slack 频道寻求帮助",
   "support_via_forum": "在我们的社区上寻求帮助",
   "support_via_email": "给我们发送电子邮件",
   "support_via_email_include_logs_dialog_title": "发送应用日志?",
@@ -360,9 +360,9 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+  "contribute_develop_text": "所有 Open Food Facts 产品的代码均可在 GitHub 上获取。欢迎您复用代码（代码为开源），并帮助我们改进，造福全球所有人。",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+  "contribute_develop_text_2": "您可以加入 Open Food Facts Slack 聊天室，这是提问的首选方式。",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "开发模式？",
   "contribute_develop_dev_mode_subtitle": "启用开发者模式",
@@ -370,9 +370,9 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "捐助 Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
+  "contribute_enroll_alpha": "注册内部 Alpha 测试版本",
   "@contribute_enroll_alpha": {},
-  "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+  "contribute_enroll_alpha_warning": "请注意，使用内部 alpha 版本，可能会完全丢失数据，并且应用程序可能随时无法使用！",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "待完成的产品",
   "@contribute_improve_ProductsToBeCompleted": {
@@ -382,7 +382,7 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "数据库是该项目的核心。它简单易用，快速提供帮助。您可以下载手机应用程序，开始添加或改进产品。\n\n另一方面，Open Food Facts 网站提供了多种贡献方式：",
   "@contribute_improve_text": {},
   "contribute_translate_header": "翻译",
   "@contribute_translate_header": {
@@ -396,11 +396,11 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Open Food Facts 是一个全球项目，涵盖来自 160 多个国家的产品。Open Food Facts 已被翻译成数十种语言，内容也不断更新。",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "翻译是项目的关键任务之一",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+  "contribute_join_skill_pool": "为 Open Food Facts 贡献你的技能。加入技能库！",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
   "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -467,7 +467,7 @@
   "ranking_tab_all": "全部",
   "ranking_subtitle_match_yes": "非常适合",
   "ranking_subtitle_match_no": "非常不适合",
-  "ranking_subtitle_match_maybe": "是否适合未知",
+  "ranking_subtitle_match_maybe": "未知匹配",
   "refresh_with_new_preferences": "使用您的新偏好刷新列表",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
@@ -502,7 +502,7 @@
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(类别搜索)",
-  "filter": "过滤器",
+  "filter": "筛选",
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
@@ -647,7 +647,7 @@
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_retake": "Retake a photo",
+  "crop_page_action_retake": "重拍",
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
@@ -679,8 +679,8 @@
   },
   "front_packaging_photo_title": "正面包装照片",
   "ingredients_photo_title": "配料表照片",
-  "nutritional_facts_photo_title": "营养成分表",
-  "recycling_photo_title": "循环利用照片",
+  "nutritional_facts_photo_title": "营养成分表照片",
+  "recycling_photo_title": "“循环利用标记”的照片",
   "take_photo_title": "请拍照",
   "take_more_photo_title": "拍摄更多照片",
   "front_photo_uploaded": "已上传正面照片",
@@ -692,18 +692,18 @@
   "nutrition_cache_loading_error": "无法从缓存中加载营养成分",
   "nutritional_facts_photo_button_label": "营养成分的照片",
   "@nutritional_facts_photo_button_label": {},
-  "nutritional_facts_input_button_label": "Fill nutrition facts",
+  "nutritional_facts_input_button_label": "填写营养成分表",
   "nutritional_facts_added": "已添加营养成分表",
   "categories_added": "分类已添加",
-  "new_product_title_nutriscore": "计算 Nutri-Score",
+  "new_product_title_nutriscore": "计算营养评分（Nutri-Score）",
   "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
-  "new_product_title_environmental_score": "Compute the Green Score",
+  "new_product_title_environmental_score": "计算 Green Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+  "new_product_additional_environmental_score": "通过原产地、包装等因素使 Green Score 计算更加精确",
   "new_product_title_nova": "计算食品加工水平（NOVA）",
   "new_product_subtitle_nova": "通过填写食品类别和配料获得它",
   "new_product_desc_nova_unknown": "食品加工水平未知",
-  "new_product_title_pictures": "New product",
+  "new_product_title_pictures": "添加产品",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "还有一些基本数据…",
   "new_product_done_msg": "Thanks for your contribution “{username}”!",
@@ -729,7 +729,7 @@
   "@nutritional_facts_photo_uploaded": {},
   "recycling_photo_button_label": "Recycling photo",
   "@recycling_photo_button_label": {},
-  "recycling_photo_uploaded": "已上传循环利用照片",
+  "recycling_photo_uploaded": "已上传“循环利用标记”的照片",
   "@recycling_photo_uploaded": {},
   "take_more_photo_button_label": "拍摄更多照片",
   "@take_more_photo_button_label": {},
@@ -806,12 +806,12 @@
   "nutrition_page_per_serving": "每份",
   "nutrition_page_add_nutrient": "添加营养",
   "nutrition_page_serving_size": "份量",
-  "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+  "nutrition_page_serving_size_hint": "输入份量（例如：100g）",
   "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+  "nutrition_page_serving_size_explanation_info1": "这个值有助于**对每份食物中的每种营养素进行比例计算**。",
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
@@ -819,15 +819,15 @@
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**、**60g** 或 **60 G**（建议使用第一个，它们都代表克）",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+  "nutrition_page_serving_size_explanation_good_example2": "**1000 毫升** 或 **1 升**",
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "无效单位",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -835,7 +835,7 @@
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+  "nutrition_page_serving_size_explanation_bad_example2_explanation": "无效单位",
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -843,7 +843,7 @@
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "缺少单位",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -854,21 +854,21 @@
   "nutrition_page_invalid_number": "无效的数字",
   "nutrition_page_update_running": "正在更新服务器上的产品…",
   "nutrition_page_update_done": "产品已更新！",
-  "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+  "nutrition_page_take_serving_size_from_product_quantity": "使用产品数量作为份量",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
   },
-  "nutrition_page_photo_error": "Unable to load the photo",
+  "nutrition_page_photo_error": "无法加载照片",
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
   "more_photos": "更有趣的照片",
   "@more_photos": {},
-  "view_more_photo_button": "View all existing photos for this product",
+  "view_more_photo_button": "查看该产品的所有现有照片",
   "@view_more_photo_button": {},
   "no_product_found": "没有找到的产品",
   "@no_product_found": {},
-  "no_location_found": "No location found",
+  "no_location_found": "未找到位置",
   "not_found": "未找到:",
   "refreshing_product": "产品更新中",
   "@refreshing_product": {
@@ -878,7 +878,7 @@
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
-  "product_image_accessibility_label": "Image taken on {date}",
+  "product_image_accessibility_label": "图片拍摄于 {date}",
   "@product_image_accessibility_label": {
     "placeholders": {
       "date": {
@@ -887,7 +887,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+  "product_image_outdated_accessibility_label": "图片拍摄于 {date}。此图片可能已过时",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -1888,7 +1888,7 @@
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "營養成分",
+  "edit_product_form_item_nutrition_facts_title": "营养成分",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
@@ -1908,7 +1908,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "營養成分",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "营养成分",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -3692,9 +3692,9 @@
   "environmental_score_unknown": "Unknown Green Score",
   "environmental_score_not_applicable": "Green Score is not applicable",
   "nova_group_generic": "Ultra-processing - NOVA groups",
-  "nova_group_1": "NOVA Group 1",
-  "nova_group_2": "NOVA Group 2",
-  "nova_group_3": "NOVA Group 3",
+  "nova_group_1": "Nova 分组 — 第 1 级",
+  "nova_group_2": "Nova 分组 — 第 2 级",
+  "nova_group_3": "Nova 分组 — 第 3 级",
   "nova_group_4": "NOVA Group 4",
   "nova_group_unknown": "Unknown NOVA Group",
   "nutrition_facts": "Nutrient Levels",
@@ -4163,15 +4163,15 @@
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "帮助我们改进我们的应用程序",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "如果您有几分钟时间，请填写此表，以便我们可以在以后的更新中改进：",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "填写表格",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4179,19 +4179,19 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "新功能：您可以自动从图片中提取营养成分！",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "马上解析",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
+  "nutrition_facts_extract_succesful": "解析成功",
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_failed": "未能从图片中提取营养成分",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
@@ -4199,11 +4199,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "统计数据",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "价格统计",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4343,11 +4343,11 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "最后更新于",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "加载统计数据时发生错误。",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
