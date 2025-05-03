@@ -5,27 +5,36 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 /// A generic controller for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.
 /// [P] is the type of parameters used for pagination.
-class InfiniteScrollController<T, P> {
+/// [R] is the type of result returned from the fetch operation.
+class InfiniteScrollController<T, P, R> {
   InfiniteScrollController({
-    required this.fetchItems,
-    required Iterable<T> initialItems,
-  })  : _currentPage = _initialPage,
-        _items = List<T>.from(initialItems),
-        initialItems = List<T>.from(initialItems);
+    required Future<R> Function(P parameters, int page,
+            {void Function(int? totalItems, int? totalPages)?
+                onPageInfoUpdated})
+        fetchResult,
+    required List<T> Function(R result) extractItems,
+    Iterable<T>? initialItems,
+  })  : _fetchResult = fetchResult,
+        _extractItems = extractItems,
+        _currentPage =
+            initialItems != null && initialItems.isNotEmpty ? _initialPage : 0,
+        _items = List<T>.from(initialItems ?? <T>[]);
 
-  /// Returns a Future with the fetched items
-  final Future<List<T>> Function(P parameters, int page) fetchItems;
+  /// Future with the fetched items
+  final Future<R> Function(P parameters, int page,
+          {void Function(int? totalItems, int? totalPages)? onPageInfoUpdated})
+      _fetchResult;
+
+  /// Function to extract items from the result
+  final List<T> Function(R result) _extractItems;
 
   /// Parameters for the fetch operation
   P? parameters;
 
   static const int _initialPage = 1;
 
-  /// Initial items to populate the list
-  final List<T> initialItems;
-
   /// Current items in the list
-  List<T> _items;
+  final List<T> _items;
   List<T> get items => _items;
 
   /// Current page being fetched
@@ -57,8 +66,9 @@ class InfiniteScrollController<T, P> {
   }
 
   /// Load more items
-  Future<void> loadMore(P parameters, [BuildContext? context]) async {
-    if (_isLoading || (totalPages != null && !(_currentPage < totalPages!))) {
+  /// Private method to load items for a specific page
+  Future<void> _load(P parameters, BuildContext context, int page) async {
+    if (_isLoading) {
       return;
     }
 
@@ -66,13 +76,30 @@ class InfiniteScrollController<T, P> {
     _isLoading = true;
 
     try {
-      final List<T> newItems = await fetchItems(parameters, _currentPage + 1);
+      final R result = await _fetchResult(
+        parameters,
+        page,
+        onPageInfoUpdated: (int? newTotalItems, int? newTotalPages) {
+          _updatePaginationInfo(
+              newTotalItems: newTotalItems, newTotalPages: newTotalPages);
+        },
+      );
+
+      // Extract items from the result
+      final List<T> newItems = _extractItems(result);
+
+      if (page == _initialPage) {
+        _items.clear();
+      }
+
       _items.addAll(newItems);
-      _currentPage++;
+      _currentPage = page;
     } catch (e) {
-      if (context != null && context.mounted) {
+      if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error loading more items: $e')),
+          SnackBar(
+              content: Text(AppLocalizations.of(context)
+                  .prices_error_loading_more_items)),
         );
       }
     } finally {
@@ -80,19 +107,24 @@ class InfiniteScrollController<T, P> {
     }
   }
 
-  /// Reset the controller to its initial state with optional new initial items
-  void reset({List<T>? newInitialItems}) {
-    _currentPage = _initialPage;
-    _items = newInitialItems != null
-        ? List<T>.from(newInitialItems)
-        : List<T>.from(initialItems);
-    _isLoading = false;
-    totalItems = null;
-    totalPages = null;
+  /// Load initial data only if the list is empty
+  Future<void> loadInitiallyIfNeeded(P parameters, BuildContext context) async {
+    if (_items.isNotEmpty) {
+      return;
+    }
+    await _load(parameters, context, _initialPage);
+  }
+
+  /// Load more items (next page)
+  Future<void> loadMore(P parameters, BuildContext context) async {
+    if (totalPages != null && !(_currentPage < totalPages!)) {
+      return;
+    }
+    await _load(parameters, context, _currentPage + 1);
   }
 
   /// Update pagination information
-  void updatePaginationInfo({int? newTotalItems, int? newTotalPages}) {
+  void _updatePaginationInfo({int? newTotalItems, int? newTotalPages}) {
     totalItems = newTotalItems;
     totalPages = newTotalPages;
   }

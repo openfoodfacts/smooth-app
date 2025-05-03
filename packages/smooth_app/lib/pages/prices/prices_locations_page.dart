@@ -26,35 +26,39 @@ class PricesLocationsPage extends StatefulWidget {
 class _PricesLocationsPageState extends State<PricesLocationsPage>
     with TraceableClientMixin {
   static const int _pageSize = 10;
-  late final InfiniteScrollController<Location, GetLocationsParameters>
-      _scrollController;
+  late final InfiniteScrollController<Location, GetLocationsParameters,
+      GetLocationsResult> _scrollController;
 
   @override
   void initState() {
     super.initState();
-    _scrollController =
-        InfiniteScrollController<Location, GetLocationsParameters>(
+    _scrollController = InfiniteScrollController<Location,
+        GetLocationsParameters, GetLocationsResult>(
       initialItems: const <Location>[],
-      fetchItems: _fetchLocations,
+      fetchResult: _fetchLocationsResult,
+      extractItems: _extractLocationItems,
     );
   }
 
-  Future<List<Location>> _fetchLocations(
-      GetLocationsParameters parameters, int page) async {
+  Future<GetLocationsResult> _fetchLocationsResult(
+      GetLocationsParameters parameters, int page,
+      {void Function(int? totalItems, int? totalPages)?
+          onPageInfoUpdated}) async {
     final MaybeError<GetLocationsResult> result =
         await OpenPricesAPIClient.getLocations(
       parameters..pageNumber = page,
       uriHelper: ProductQuery.uriPricesHelper,
     );
 
-    final List<Location> items = result.value.items ?? <Location>[];
+    if (onPageInfoUpdated != null) {
+      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
+    }
 
-    _scrollController.updatePaginationInfo(
-      newTotalItems: result.value.total,
-      newTotalPages: result.value.numberOfPages,
-    );
+    return result.value;
+  }
 
-    return items;
+  List<Location> _extractLocationItems(GetLocationsResult result) {
+    return result.items ?? <Location>[];
   }
 
   @override
@@ -89,20 +93,10 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<Location, GetLocationsParameters>(
+      body: InfiniteScrollList<Location, GetLocationsParameters,
+          GetLocationsResult>(
         controller: _scrollController,
         parameters: parameters,
-        headerBuilder: (BuildContext context) {
-          final int totalItems = _scrollController.totalItems ?? 0;
-
-          final String title =
-              appLocalizations.prices_locations_list_length_many_pages(
-            _pageSize,
-            totalItems,
-          );
-
-          return SmoothCard(child: ListTile(title: Text(title)));
-        },
         itemBuilder: (BuildContext context, Location location) {
           final int priceCount = location.priceCount ?? 0;
 

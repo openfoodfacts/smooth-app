@@ -25,36 +25,38 @@ class PricesUsersPage extends StatefulWidget {
 class _PricesUsersPageState extends State<PricesUsersPage>
     with TraceableClientMixin {
   static const int _pageSize = 10;
-  late final InfiniteScrollController<PriceUser, GetUsersParameters>
-      _scrollController;
+  late final InfiniteScrollController<PriceUser, GetUsersParameters,
+      GetUsersResult> _scrollController;
 
   @override
   void initState() {
     super.initState();
-    _scrollController = InfiniteScrollController<PriceUser, GetUsersParameters>(
+    _scrollController =
+        InfiniteScrollController<PriceUser, GetUsersParameters, GetUsersResult>(
+      fetchResult: _fetchUsers,
+      extractItems: _extractItems,
       initialItems: const <PriceUser>[],
-      fetchItems: _fetchUsers,
     );
   }
 
-  Future<List<PriceUser>> _fetchUsers(
-    GetUsersParameters parameters,
-    int page,
-  ) async {
+  Future<GetUsersResult> _fetchUsers(GetUsersParameters parameters, int page,
+      {void Function(int? totalItems, int? totalPages)?
+          onPageInfoUpdated}) async {
     final MaybeError<GetUsersResult> result =
         await OpenPricesAPIClient.getUsers(
       parameters..pageNumber = page,
       uriHelper: ProductQuery.uriPricesHelper,
     );
 
-    final List<PriceUser> items = result.value.items ?? <PriceUser>[];
+    if (onPageInfoUpdated != null) {
+      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
+    }
 
-    _scrollController.updatePaginationInfo(
-      newTotalItems: result.value.total,
-      newTotalPages: result.value.numberOfPages,
-    );
+    return result.value;
+  }
 
-    return items;
+  List<PriceUser> _extractItems(GetUsersResult result) {
+    return result.items ?? <PriceUser>[];
   }
 
   @override
@@ -89,18 +91,9 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<PriceUser, GetUsersParameters>(
+      body: InfiniteScrollList<PriceUser, GetUsersParameters, GetUsersResult>(
         controller: _scrollController,
         parameters: parameters,
-        headerBuilder: (BuildContext context) {
-          final int totalItems = _scrollController.totalItems ?? 0;
-          final String title =
-              appLocalizations.prices_users_list_length_many_pages(
-            _pageSize,
-            totalItems,
-          );
-          return SmoothCard(child: ListTile(title: Text(title)));
-        },
         itemBuilder: (BuildContext context, PriceUser user) {
           final int priceCount = user.priceCount ?? 0;
           return SmoothCard(

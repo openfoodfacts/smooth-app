@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -34,17 +35,29 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   static const int _rows = 5;
   static const int _pageSize = _columns * _rows;
 
-  late final InfiniteScrollController<Proof, GetProofsParameters>
-      _scrollController;
+  late final InfiniteScrollController<Proof, GetProofsParameters,
+      GetProofsResult> _scrollController;
   String? _bearerToken;
+  late final GetProofsParameters _proofParameters;
   final ScrollController _gridScrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _scrollController = InfiniteScrollController<Proof, GetProofsParameters>(
+    _proofParameters = GetProofsParameters()
+      ..orderBy = <OrderBy<GetProofsOrderField>>[
+        const OrderBy<GetProofsOrderField>(
+          field: GetProofsOrderField.created,
+          ascending: false,
+        ),
+      ]
+      ..pageSize = _pageSize;
+
+    _scrollController =
+        InfiniteScrollController<Proof, GetProofsParameters, GetProofsResult>(
       initialItems: const <Proof>[],
-      fetchItems: _fetchProofs,
+      fetchResult: _fetchProofsResult,
+      extractItems: _extractProofItems,
     );
 
     _gridScrollController.addListener(_scrollListener);
@@ -64,27 +77,15 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     const double triggerOffset = 200.0;
 
     if (currentScroll > maxScroll - triggerOffset) {
-      final GetProofsParameters parameters = _getProofsParameters();
-      _scrollController.loadMore(parameters);
+      _scrollController.loadMore(_proofParameters, context);
     }
-  }
-
-  GetProofsParameters _getProofsParameters() {
-    return GetProofsParameters()
-      ..orderBy = <OrderBy<GetProofsOrderField>>[
-        const OrderBy<GetProofsOrderField>(
-          field: GetProofsOrderField.created,
-          ascending: false,
-        ),
-      ]
-      ..pageSize = _pageSize;
   }
 
   @override
   void dispose() {
     _gridScrollController.removeListener(_scrollListener);
     _gridScrollController.dispose();
-    _deleteSession();
+    unawaited(_deleteSession());
     super.dispose();
   }
 
@@ -109,7 +110,9 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     _bearerToken = token.value;
 
     if (mounted) {
-      setState(() {});
+      setState(() {
+        _scrollController.loadInitiallyIfNeeded(_proofParameters, context);
+      });
     }
   }
 
@@ -123,10 +126,22 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     }
   }
 
-  Future<List<Proof>> _fetchProofs(
-      GetProofsParameters parameters, int page) async {
+  Future<GetProofsResult> _fetchProofsResult(
+      GetProofsParameters parameters, int page,
+      {void Function(int? totalItems, int? totalPages)?
+          onPageInfoUpdated}) async {
     if (_bearerToken == null) {
-      throw 'Not authenticated yet';
+      await _authenticate();
+      if (_bearerToken == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+                content: Text(AppLocalizations.of(context).prices_proof_error)),
+          );
+        }
+        // Return empty result if authentication failed
+        return GetProofsResult();
+      }
     }
 
     final User user = ProductQuery.getWriteUser();
@@ -140,14 +155,15 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       bearerToken: _bearerToken!,
     );
 
-    final List<Proof> items = result.value.items ?? <Proof>[];
+    if (onPageInfoUpdated != null) {
+      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
+    }
 
-    _scrollController.updatePaginationInfo(
-      newTotalItems: result.value.total,
-      newTotalPages: result.value.numberOfPages,
-    );
+    return result.value;
+  }
 
-    return items;
+  List<Proof> _extractProofItems(GetProofsResult result) {
+    return result.items ?? <Proof>[];
   }
 
   @override
@@ -277,20 +293,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       ],
     );
   }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    if (_bearerToken != null &&
-        _scrollController.items.isEmpty &&
-        !_scrollController.isLoading) {
-      _scrollController.loadMore(_getProofsParameters());
-    }
-  }
 }
 
-// Image widget for proof thumbnails
 class _PriceProofImage extends StatelessWidget {
   const _PriceProofImage(
     this.proof, {

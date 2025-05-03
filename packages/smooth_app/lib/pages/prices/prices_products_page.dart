@@ -23,43 +23,22 @@ class PricesProductsPage extends StatefulWidget {
 class _PricesProductsPageState extends State<PricesProductsPage>
     with TraceableClientMixin {
   static const int _pageSize = 10;
-  late final InfiniteScrollController<PriceProduct, GetPriceProductsParameters>
-      _scrollController;
+  late final InfiniteScrollController<PriceProduct, GetPriceProductsParameters,
+      MaybeError<GetPriceProductsResult>> _scrollController;
+
+  late final GetPriceProductsParameters _parameters;
 
   @override
   void initState() {
     super.initState();
-    _scrollController =
-        InfiniteScrollController<PriceProduct, GetPriceProductsParameters>(
+    _scrollController = InfiniteScrollController<PriceProduct,
+        GetPriceProductsParameters, MaybeError<GetPriceProductsResult>>(
       initialItems: const <PriceProduct>[],
-      fetchItems: _fetchProducts,
-    );
-  }
-
-  Future<List<PriceProduct>> _fetchProducts(
-    final GetPriceProductsParameters parameters,
-    final int page,
-  ) async {
-    final MaybeError<GetPriceProductsResult> result =
-        await OpenPricesAPIClient.getPriceProducts(
-      parameters..pageNumber = page,
-      uriHelper: ProductQuery.uriPricesHelper,
+      fetchResult: _fetchPriceProductsResult,
+      extractItems: _extractProductsFromResult,
     );
 
-    final List<PriceProduct> items = result.value.items ?? <PriceProduct>[];
-
-    _scrollController.updatePaginationInfo(
-      newTotalItems: result.value.total,
-      newTotalPages: result.value.numberOfPages,
-    );
-
-    return items;
-  }
-
-  @override
-  Widget build(final BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final GetPriceProductsParameters parameters = GetPriceProductsParameters()
+    _parameters = GetPriceProductsParameters()
       ..orderBy = <OrderBy<GetPriceProductsOrderField>>[
         const OrderBy<GetPriceProductsOrderField>(
           field: GetPriceProductsOrderField.priceCount,
@@ -67,6 +46,32 @@ class _PricesProductsPageState extends State<PricesProductsPage>
         ),
       ]
       ..pageSize = _pageSize;
+  }
+
+  Future<MaybeError<GetPriceProductsResult>> _fetchPriceProductsResult(
+      final GetPriceProductsParameters parameters, final int page,
+      {Function(int? totalItems, int? totalPages)? onPageInfoUpdated}) async {
+    final MaybeError<GetPriceProductsResult> result =
+        await OpenPricesAPIClient.getPriceProducts(
+      parameters..pageNumber = page,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+
+    if (onPageInfoUpdated != null) {
+      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
+    }
+
+    return result;
+  }
+
+  List<PriceProduct> _extractProductsFromResult(
+      MaybeError<GetPriceProductsResult> result) {
+    return result.value.items ?? <PriceProduct>[];
+  }
+
+  @override
+  Widget build(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -88,19 +93,10 @@ class _PricesProductsPageState extends State<PricesProductsPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<PriceProduct, GetPriceProductsParameters>(
+      body: InfiniteScrollList<PriceProduct, GetPriceProductsParameters,
+          MaybeError<GetPriceProductsResult>>(
         controller: _scrollController,
-        parameters: parameters,
-        headerBuilder: (final BuildContext context) {
-          final int totalItems = _scrollController.totalItems ?? 0;
-
-          final String title =
-              appLocalizations.prices_products_list_length_many_pages(
-            _pageSize,
-            totalItems,
-          );
-          return SmoothCard(child: ListTile(title: Text(title)));
-        },
+        parameters: _parameters,
         itemBuilder: (
           final BuildContext context,
           final PriceProduct product,

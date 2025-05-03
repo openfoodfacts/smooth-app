@@ -4392,5 +4392,13 @@
   "prices_no_result": "No price statistics found.",
   "@prices_no_result": {
     "description": "Message shown when there are no price statistics available to display"
+  },
+  "prices_error_loading_more_items": "Error loading more items",
+  "@prices_error_loading_more_items": {
+    "description": "Error message shown when additional items fail to load"
+  },
+  "prices_proof_error": "Authentication failed, unable to fetch proofs",
+  "@prices_proof_error": {
+    "description": "Error message shown when unable to fetch proofs"
   }
 }

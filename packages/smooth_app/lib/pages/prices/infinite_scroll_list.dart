@@ -2,35 +2,33 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 
 /// A generic stateful widget for infinite scrolling lists.
-class InfiniteScrollList<T, P> extends StatefulWidget {
+class InfiniteScrollList<T, P, R> extends StatefulWidget {
   const InfiniteScrollList({
     required this.controller,
     required this.itemBuilder,
     required this.parameters,
-    this.headerBuilder,
   });
 
   /// Controller for managing the infinite scroll behavior
-  final InfiniteScrollController<T, P> controller;
+  final InfiniteScrollController<T, P, R> controller;
 
   /// Builder for individual list items
   final Widget Function(BuildContext context, T item) itemBuilder;
-
-  /// Optional builder for header
-  final Widget Function(BuildContext context)? headerBuilder;
 
   /// Parameters for fetching items
   final P parameters;
 
   @override
-  State<InfiniteScrollList<T, P>> createState() =>
-      _InfiniteScrollListState<T, P>();
+  State<InfiniteScrollList<T, P, R>> createState() =>
+      _InfiniteScrollListState<T, P, R>();
 }
 
-class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
+class _InfiniteScrollListState<T, P, R>
+    extends State<InfiniteScrollList<T, P, R>> {
   static const double _loadMoreTriggerOffset = 200.0;
 
   late final ScrollController _scrollController;
@@ -52,14 +50,6 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     super.dispose();
   }
 
-  @override
-  void didUpdateWidget(covariant InfiniteScrollList<T, P> oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.parameters != oldWidget.parameters) {
-      unawaited(_resetAndReload());
-    }
-  }
-
   Future<void> _initialLoad() async {
     setState(() {
       _isInitialLoading = true;
@@ -67,12 +57,7 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     });
 
     try {
-      final List<T> items =
-          await widget.controller.fetchItems(widget.parameters, 1);
-
-      widget.controller.reset(newInitialItems: items);
-      // Update pagination info if needed
-      // widget.controller.updatePaginationInfo(...) could be called here
+      await widget.controller.loadInitiallyIfNeeded(widget.parameters, context);
     } catch (e) {
       _error = e;
     } finally {
@@ -102,22 +87,10 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
   Future<void> _loadMoreItems() async {
     if (mounted) {
       setState(() {});
-      await widget.controller.loadMore(widget.parameters);
+      await widget.controller.loadMore(widget.parameters, context);
       if (mounted) {
         setState(() {});
       }
-    }
-  }
-
-  Future<void> _resetAndReload() async {
-    if (mounted) {
-      setState(() {
-        _isInitialLoading = true;
-        _error = null;
-      });
-
-      widget.controller.reset();
-      await _initialLoad();
     }
   }
 
@@ -144,6 +117,29 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
     return const SizedBox(height: MINIMUM_TOUCH_SIZE * 2);
   }
 
+  Widget _buildHeader(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    String title;
+    final int totalPages = widget.controller.totalPages ?? 1;
+    final int currentPage = widget.controller.currentPage;
+    final int itemsCount = widget.controller.items.length;
+    final int totalItems = widget.controller.totalItems ?? itemsCount;
+
+    if (totalPages > 1) {
+      title = appLocalizations.prices_list_length_many_pages(
+        itemsCount,
+        totalItems,
+      );
+      title = '$title ($currentPage / $totalPages)';
+    } else {
+      title = appLocalizations.prices_list_length_one_page(
+        itemsCount,
+      );
+    }
+
+    return SmoothCard(child: ListTile(title: Text(title)));
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_isInitialLoading) {
@@ -160,12 +156,10 @@ class _InfiniteScrollListState<T, P> extends State<InfiniteScrollList<T, P>> {
 
     final List<Widget> children = <Widget>[];
 
-    if (widget.headerBuilder != null) {
-      children.add(widget.headerBuilder!(context));
-    }
+    children.add(_buildHeader(context));
 
-    for (int i = 0; i < widget.controller.items.length; i++) {
-      children.add(widget.itemBuilder(context, widget.controller.items[i]));
+    for (final T item in widget.controller.items) {
+      children.add(widget.itemBuilder(context, item));
     }
 
     if (widget.controller.isLoading) {
