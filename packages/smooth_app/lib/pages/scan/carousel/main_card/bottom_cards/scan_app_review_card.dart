@@ -67,7 +67,7 @@ class ScanAppReview extends StatelessWidget {
               ),
               onTap: () async {
                 final AppReviewProvider appReview =
-                context.read<AppReviewProvider>();
+                    context.read<AppReviewProvider>();
                 await ApplicationStore.openAppReview();
                 appReview.markAsReviewed(AppReviewResult.satisfied);
               },
@@ -79,11 +79,11 @@ class ScanAppReview extends StatelessWidget {
   }
 
   Future<void> _showUserFeedBackModalSheet(
-      BuildContext context,
-      AppReviewResult result,
-      ) async {
+    BuildContext context,
+    AppReviewResult result,
+  ) async {
     final SmoothColorsThemeExtension colors =
-    context.extension<SmoothColorsThemeExtension>();
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme(listen: false);
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -109,9 +109,9 @@ class ScanAppReview extends StatelessWidget {
                     onPressed: () => Navigator.of(context).pop(true),
                     text: appLocalizations.app_review_feedback_modal_open_form,
                     backgroundColor:
-                    lightTheme ? colors.primaryBlack : colors.primaryLight,
+                        lightTheme ? colors.primaryBlack : colors.primaryLight,
                     foregroundColor:
-                    lightTheme ? Colors.white : colors.primaryBlack,
+                        lightTheme ? Colors.white : colors.primaryBlack,
                     icon: DecoratedBox(
                       decoration: ShapeDecoration(
                         shape: const CircleBorder(),
@@ -138,9 +138,9 @@ class ScanAppReview extends StatelessWidget {
                     onPressed: () => Navigator.of(context).pop(false),
                     text: appLocalizations.app_review_feedback_modal_later,
                     backgroundColor:
-                    lightTheme ? colors.primaryLight : colors.primaryDark,
+                        lightTheme ? colors.primaryLight : colors.primaryDark,
                     foregroundColor:
-                    lightTheme ? colors.primaryDark : colors.primaryLight,
+                        lightTheme ? colors.primaryDark : colors.primaryLight,
                   ),
                 ),
               ],
