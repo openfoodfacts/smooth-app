@@ -16,6 +16,7 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 
 part 'country_selector_provider.dart';
 
+/// A button that will open a list of countries and save it in the preferences.
 class CountrySelector extends StatelessWidget {
   const CountrySelector({
     required this.forceCurrencyChange,
@@ -33,6 +34,8 @@ class CountrySelector extends StatelessWidget {
   final Widget? icon;
   final bool forceCurrencyChange;
   final double loadingHeight;
+
+  /// A click on a new country will automatically save it
   final bool autoValidate;
 
   @override
