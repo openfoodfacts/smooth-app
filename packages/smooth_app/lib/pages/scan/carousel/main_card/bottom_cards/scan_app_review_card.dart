@@ -67,7 +67,7 @@ class ScanAppReview extends StatelessWidget {
               ),
               onTap: () async {
                 final AppReviewProvider appReview =
-                context.read<AppReviewProvider>();
+                    context.read<AppReviewProvider>();
                 await ApplicationStore.openAppReview();
                 appReview.markAsReviewed(AppReviewResult.satisfied);
               },
@@ -79,11 +79,11 @@ class ScanAppReview extends StatelessWidget {
   }
 
   Future<void> _showUserFeedBackModalSheet(
-      BuildContext context,
-      AppReviewResult result,
-      ) async {
+    BuildContext context,
+    AppReviewResult result,
+  ) async {
     final SmoothColorsThemeExtension colors =
-    context.extension<SmoothColorsThemeExtension>();
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme(listen: false);
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -133,10 +133,11 @@ class ScanAppReview extends StatelessWidget {
                   child: _AppReviewButton(
                     onPressed: () => Navigator.of(context).pop(false),
                     text: appLocalizations.app_review_feedback_modal_later,
-                    backgroundColor:
-                    lightTheme ? colors.primaryMedium : colors.primarySemiDark,
+                    backgroundColor: lightTheme
+                        ? colors.primaryMedium
+                        : colors.primarySemiDark,
                     foregroundColor:
-                    lightTheme ? colors.primaryBlack : Colors.white,
+                        lightTheme ? colors.primaryBlack : Colors.white,
                   ),
                 ),
               ],
