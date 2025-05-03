@@ -30,8 +30,6 @@ class QuestionCard extends StatelessWidget {
       context.read<LocalDatabase>(),
     );
 
-    final Size screenSize = MediaQuery.sizeOf(context);
-
     return FutureBuilder<FetchedProduct>(
       future: productFuture,
       builder: (
@@ -59,10 +57,9 @@ class QuestionCard extends StatelessWidget {
                 borderRadius: ROUNDED_BORDER_RADIUS,
               ),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
-                  SizedBox(
-                    height: screenSize.height / 6,
+                  Expanded(
                     child: question.imageUrl == null
                         ? EMPTY_WIDGET
                         : QuestionImageThumbnail(question),
