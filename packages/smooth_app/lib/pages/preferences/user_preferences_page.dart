@@ -215,8 +215,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       headerColor = abstractUserPreferences.getHeaderColor();
     }
 
-    const EdgeInsetsGeometry padding =
-        EdgeInsetsDirectional.only(top: MEDIUM_SPACE);
+    final EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
+      top: MEDIUM_SPACE,
+      bottom: bottomPadding,
+    );
     final ListView list;
     if (addDividers) {
       list = ListView.separated(
@@ -245,14 +247,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           ),
           leading: const SmoothBackButton(),
         ),
-        body: Padding(
-          padding: EdgeInsets.only(
-            bottom: bottomPadding,
-          ),
-          child: Scrollbar(
-            controller: _controller,
-            child: list,
-          ),
+        body: Scrollbar(
+          controller: _controller,
+          child: list,
         ),
       );
     }
