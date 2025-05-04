@@ -619,9 +619,9 @@
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
-  "front_packaging_photo_button_label": "Front packaging photo",
+  "front_packaging_photo_button_label": "正面包装照片",
   "@front_packaging_photo_button_label": {},
-  "confirm_front_packaging_photo_button_label": "Confirm upload of Front packaging photo",
+  "confirm_front_packaging_photo_button_label": "确认上传正面包装照片",
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
@@ -696,17 +696,17 @@
   "nutritional_facts_added": "已添加营养成分表",
   "categories_added": "分类已添加",
   "new_product_title_nutriscore": "计算营养评分（Nutri-Score）",
-  "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
+  "new_product_subtitle_nutriscore": "帮助我们填写至少一个类别和营养价值",
   "new_product_title_environmental_score": "计算 Green Score",
-  "new_product_subtitle_environmental_score": "Get it by filling at least a category",
+  "new_product_subtitle_environmental_score": "填写至少一个类别即可获得",
   "new_product_additional_environmental_score": "通过原产地、包装等因素使 Green Score 计算更加精确",
   "new_product_title_nova": "计算食品加工水平（NOVA）",
   "new_product_subtitle_nova": "通过填写食品类别和配料获得它",
   "new_product_desc_nova_unknown": "食品加工水平未知",
   "new_product_title_pictures": "添加产品",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "请拍摄以下照片，Open Food Facts 引擎可以解决剩下的问题！",
   "new_product_title_misc": "还有一些基本数据…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_done_msg": "感谢您的贡献“{username}”！",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -717,7 +717,7 @@
     }
   },
   "new_product_done_msg_no_user": "感谢您的贡献！",
-  "new_product_done_button_label": "Discover the completed product",
+  "new_product_done_button_label": "发现已完成录入的产品",
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
