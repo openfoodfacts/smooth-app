@@ -45,9 +45,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     try {
       robotoffQuestionsNotifier.value.clear();
       _loadRobotoffQuestions();
-    } catch (e) {
-      print(e);
-    }
+    } catch (_) {}
 
     notifyListeners();
   }
