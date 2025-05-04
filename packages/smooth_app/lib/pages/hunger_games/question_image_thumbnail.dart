@@ -14,27 +14,29 @@ class QuestionImageThumbnail extends StatelessWidget {
         margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
         decoration: const BoxDecoration(color: Colors.black12),
         child: GestureDetector(
-          onTap: () async => Navigator.of(context).push<void>(
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) =>
-                  QuestionImageFullPage(question),
-              fullscreenDialog: true,
-            ),
-          ),
-          child: Image(
-            image: NetworkImage(question.imageUrl!),
-            fit: BoxFit.cover,
-            height: double.infinity,
-            errorBuilder: (_, __, ___) => EMPTY_WIDGET,
-            loadingBuilder: (
-              _,
-              Widget child,
-              ImageChunkEvent? progress,
-            ) =>
-                progress == null
-                    ? child
-                    : const CircularProgressIndicator.adaptive(),
-          ),
-        ),
+            onTap: () async => Navigator.of(context).push<void>(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        QuestionImageFullPage(question),
+                    fullscreenDialog: true,
+                  ),
+                ),
+            child: SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Image(
+                image: NetworkImage(question.imageUrl!),
+                fit: BoxFit.contain,
+                errorBuilder: (_, __, ___) => EMPTY_WIDGET,
+                loadingBuilder: (
+                  _,
+                  Widget child,
+                  ImageChunkEvent? progress,
+                ) =>
+                    progress == null
+                        ? child
+                        : const CircularProgressIndicator.adaptive(),
+              ),
+            )),
       );
 }

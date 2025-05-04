@@ -407,6 +407,10 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
+  "contribute_prices_gdpr": "Додайте ціни, надіславши запит на експорт даних ваших карток постійного клієнта відповідно до GDPR",
+  "@contribute_prices_gdpr": {
+    "description": "Label for option to contribute prices using GDPR export from loyalty cards"
+  },
   "tap_to_answer": "Натисніть тут, що відповісти на запитання",
   "@tap_to_answer": {
     "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
@@ -770,6 +774,7 @@
   "score_add_missing_ingredients": "Додати відсутні інгредієнти",
   "score_add_missing_packaging_image": "Додайте відсутнє зображення упакування",
   "score_add_missing_nutrition_facts": "Додати відсутні поживні речовини",
+  "score_add_missing_product_traces": "Додайте відсутні сліди продукту",
   "score_add_missing_product_category": "Додати відсутню категорію продукту",
   "score_add_missing_product_countries": "Додайте відсутні країни для товарів",
   "score_add_missing_product_emb": "Додайте відсутні коди відстеження продукту",
@@ -1600,6 +1605,10 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
+  "edit_product_form_item_add_action_trace": "Додайте новий слід",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
   "edit_product_form_item_add_suggestion": "Додати пропозицію",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
@@ -1795,6 +1804,18 @@
   "edit_product_form_item_emb_help_info2_item2_explanation": "EMB 72264",
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
+  },
+  "edit_product_form_item_traces_title": "Сліди",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "залишок",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Введіть слід (наприклад: соєві боби)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
   },
   "edit_product_form_item_categories_title": "Категорії",
   "@edit_product_form_item_categories_title": {
@@ -2261,8 +2282,10 @@
   },
   "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
   "prices_app_button": "Перейдіть у додаток Ціни",
+  "prices_bulk_proof_upload_select": "Додайте цінники прямо з галереї",
+  "prices_bulk_proof_upload_warning": "Після вибору зображень Ви не зможете їх редагувати!",
+  "prices_bulk_proof_upload_subtitle": "Кілька цінників",
   "prices_bulk_proof_upload_title": "Масове підтвердження завантаження",
-  "prices_bulk_proof_upload_action": "Надіслати підтвердження",
   "prices_generic_title": "Ціни",
   "prices_add_n_prices": "{count,plural, =1{Додайте ціну} other{Додайте {count} цін}}",
   "prices_send_n_prices": "{count,plural, =1{Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}other{Надіслати {count} ціни}}",
@@ -4171,5 +4194,169 @@
   "nutrition_facts_extract_failed": "Не вдалося отримати поживні речовини із зображення",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Знижка",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
+  },
+  "prices_stats_statistics": "Статистика",
+  "@prices_stats_statistics": {
+    "description": "Label for statistics section"
+  },
+  "prices_stats_title": "Статистика цін",
+  "@prices_stats_title": {
+    "description": "Title for the prices statistics page"
+  },
+  "prices_stats_prices_section": "Ціни",
+  "@prices_stats_prices_section": {
+    "description": "Title for the prices section"
+  },
+  "prices_stats_products_section": "Товари",
+  "@prices_stats_products_section": {
+    "description": "Title for the products section"
+  },
+  "prices_stats_locations_section": "Місцезнаходження",
+  "@prices_stats_locations_section": {
+    "description": "Title for the locations section"
+  },
+  "prices_stats_proofs_section": "Докази",
+  "@prices_stats_proofs_section": {
+    "description": "Title for the proofs section"
+  },
+  "prices_stats_contributors_section": "Співучасники",
+  "@prices_stats_contributors_section": {
+    "description": "Title for the contributors section"
+  },
+  "prices_stats_experiments_section": "Експерименти",
+  "@prices_stats_experiments_section": {
+    "description": "Title for the experiments section"
+  },
+  "prices_stats_misc_section": "Різне",
+  "@prices_stats_misc_section": {
+    "description": "Title for the miscellaneous section"
+  },
+  "prices_stats_total": "Усього",
+  "@prices_stats_total": {
+    "description": "Label for total count"
+  },
+  "prices_stats_with_barcode": "Зі штрих-кодом",
+  "@prices_stats_with_barcode": {
+    "description": "Label for count with barcode"
+  },
+  "prices_stats_with_category": "З категорією",
+  "@prices_stats_with_category": {
+    "description": "Label for count with category"
+  },
+  "prices_stats_with_discount": "Зі знижкою",
+  "@prices_stats_with_discount": {
+    "description": "Label for count with discount"
+  },
+  "prices_stats_community": "Спільнота",
+  "@prices_stats_community": {
+    "description": "Label for community count"
+  },
+  "prices_stats_consumption": "Споживання",
+  "@prices_stats_consumption": {
+    "description": "Label for consumption count"
+  },
+  "prices_stats_with_price": "З ціною",
+  "@prices_stats_with_price": {
+    "description": "Label for count with price"
+  },
+  "prices_stats_food": "Їжа",
+  "@prices_stats_food": {
+    "description": "Label for food count"
+  },
+  "prices_stats_beauty": "Краса",
+  "@prices_stats_beauty": {
+    "description": "Label for beauty count"
+  },
+  "prices_stats_products": "Товари",
+  "@prices_stats_products": {
+    "description": "Label for products count"
+  },
+  "prices_stats_pet_food": "Корм для домашніх тварин",
+  "@prices_stats_pet_food": {
+    "description": "Label for pet food count"
+  },
+  "prices_stats_osm": "OpenStreetMap",
+  "@prices_stats_osm": {
+    "description": "Label for OpenStreetMap count"
+  },
+  "prices_stats_online": "Онлайн",
+  "@prices_stats_online": {
+    "description": "Label for online count"
+  },
+  "prices_stats_countries": "Країн",
+  "@prices_stats_countries": {
+    "description": "Label for countries count"
+  },
+  "prices_stats_price_tag": "Цінник",
+  "@prices_stats_price_tag": {
+    "description": "Label for price tag count"
+  },
+  "prices_stats_receipt": "Квитанція",
+  "@prices_stats_receipt": {
+    "description": "Label for receipt count"
+  },
+  "prices_stats_gdpr_request": "Запит GDPR",
+  "@prices_stats_gdpr_request": {
+    "description": "Label for GDPR request count"
+  },
+  "prices_stats_shop_import": "Імпорт магазину",
+  "@prices_stats_shop_import": {
+    "description": "Label for shop import count"
+  },
+  "prices_stats_challenges": "Challenges",
+  "@prices_stats_challenges": {
+    "description": "Label for challenges count"
+  },
+  "prices_stats_linked_to_price_tag": "Ціни, пов'язані з тегом ціни",
+  "@prices_stats_linked_to_price_tag": {
+    "description": "Label for prices linked to a price tag count"
+  },
+  "prices_stats_currencies": "Валюти",
+  "@prices_stats_currencies": {
+    "description": "Label for currencies count"
+  },
+  "prices_stats_years": "Years",
+  "@prices_stats_years": {
+    "description": "Label for years count"
+  },
+  "prices_stats_by_source_title": "Ціни та докази за джерелом",
+  "@prices_stats_by_source_title": {
+    "description": "Title for prices and proofs per source section"
+  },
+  "prices_stats_website": "Сайт",
+  "@prices_stats_website": {
+    "description": "Label for website source"
+  },
+  "prices_stats_mobile_app": "Мобільний додаток",
+  "@prices_stats_mobile_app": {
+    "description": "Label for mobile app source"
+  },
+  "prices_stats_api": "API",
+  "@prices_stats_api": {
+    "description": "Label for API source"
+  },
+  "prices_stats_other": "Інше",
+  "@prices_stats_other": {
+    "description": "Label for other sources"
+  },
+  "prices_stats_last_updated": "Останнє оновлення",
+  "@prices_stats_last_updated": {
+    "description": "Label for last updated timestamp"
+  },
+  "prices_stats_error": "Сталася помилка під час завантаження статистики.",
+  "@prices_stats_error": {
+    "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "На запитання відповіли!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Доказ",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
   }
 }

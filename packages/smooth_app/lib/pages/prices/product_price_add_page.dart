@@ -57,6 +57,8 @@ class ProductPriceAddPage extends StatefulWidget {
 
     final Currency currency = priceAddHelper.getCurrency();
 
+    final bool multipleProducts = product == null;
+
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
@@ -65,6 +67,7 @@ class ProductPriceAddPage extends StatefulWidget {
             locations: osmLocations,
             initialProduct: product,
             currency: currency,
+            multipleProducts: multipleProducts,
           ),
         ),
       ),
@@ -152,7 +155,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                         index: i,
                       ),
                     const SizedBox(height: LARGE_SPACE),
-                    const PriceAddProductCard(),
+                    if (model.multipleProducts) const PriceAddProductCard(),
                     // so that the last items don't get hidden by the FAB
                     const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
                   ],

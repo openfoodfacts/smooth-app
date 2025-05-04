@@ -407,6 +407,10 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
+  "contribute_prices_gdpr": "Tragen Sie zu den Preisen bei, indem Sie einen GDPR-Export Ihrer Treuekartendaten beantragen",
+  "@contribute_prices_gdpr": {
+    "description": "Label for option to contribute prices using GDPR export from loyalty cards"
+  },
   "tap_to_answer": "Tippen Sie hier, um Fragen zu beantworten",
   "@tap_to_answer": {
     "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
@@ -770,6 +774,7 @@
   "score_add_missing_ingredients": "Fehlende Zutaten hinzufügen",
   "score_add_missing_packaging_image": "Fehlendes Foto der Verpackung hinzufügen",
   "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
+  "score_add_missing_product_traces": "Fehlende Produktmerkmale hinzufügen",
   "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",
   "score_add_missing_product_countries": "Fehlende Produktländer hinzufügen",
   "score_add_missing_product_emb": "Fehlende Rückverfolgbarkeitscodes fürs Produkt hinzufügen",
@@ -1600,6 +1605,10 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
+  "edit_product_form_item_add_action_trace": "Neues Merkmal hinzufügen",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
   "edit_product_form_item_add_suggestion": "Vorschlag hinzufügen",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
@@ -1795,6 +1804,18 @@
   "edit_product_form_item_emb_help_info2_item2_explanation": "EMB 72264",
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
+  },
+  "edit_product_form_item_traces_title": "Spuren",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "Spur",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Merkmal eingeben (z.B.: Sojabohnen)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
   },
   "edit_product_form_item_categories_title": "Kategorien",
   "@edit_product_form_item_categories_title": {
@@ -2261,8 +2282,10 @@
   },
   "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
   "prices_app_button": "Zur Preise-App wechseln",
+  "prices_bulk_proof_upload_select": "Preisschilder direkt aus der Galerie hinzufügen",
+  "prices_bulk_proof_upload_warning": "Sobald Sie Fotos ausgewählt haben, können diese nicht mehr bearbeitet werden!",
+  "prices_bulk_proof_upload_subtitle": "Mehrere Preisschilder",
   "prices_bulk_proof_upload_title": "Massen-Upload von Nachweisen",
-  "prices_bulk_proof_upload_action": "Nachweis senden",
   "prices_generic_title": "Preise",
   "prices_add_n_prices": "{count,plural, =1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
   "prices_send_n_prices": "{count,plural, =1{Preis senden} other{{count} Preise senden}}",
@@ -4171,5 +4194,169 @@
   "nutrition_facts_extract_failed": "Nährstoffe konnten nicht aus dem Bild extrahiert werden",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Rabatt",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
+  },
+  "prices_stats_statistics": "Statistiken",
+  "@prices_stats_statistics": {
+    "description": "Label for statistics section"
+  },
+  "prices_stats_title": "Preisentwicklung",
+  "@prices_stats_title": {
+    "description": "Title for the prices statistics page"
+  },
+  "prices_stats_prices_section": "Preise",
+  "@prices_stats_prices_section": {
+    "description": "Title for the prices section"
+  },
+  "prices_stats_products_section": "Produkte",
+  "@prices_stats_products_section": {
+    "description": "Title for the products section"
+  },
+  "prices_stats_locations_section": "Orte",
+  "@prices_stats_locations_section": {
+    "description": "Title for the locations section"
+  },
+  "prices_stats_proofs_section": "Nachweise",
+  "@prices_stats_proofs_section": {
+    "description": "Title for the proofs section"
+  },
+  "prices_stats_contributors_section": "Mitwirkende",
+  "@prices_stats_contributors_section": {
+    "description": "Title for the contributors section"
+  },
+  "prices_stats_experiments_section": "Experimente",
+  "@prices_stats_experiments_section": {
+    "description": "Title for the experiments section"
+  },
+  "prices_stats_misc_section": "Verschiedenes",
+  "@prices_stats_misc_section": {
+    "description": "Title for the miscellaneous section"
+  },
+  "prices_stats_total": "Gesamt",
+  "@prices_stats_total": {
+    "description": "Label for total count"
+  },
+  "prices_stats_with_barcode": "Mit einem Strichcode",
+  "@prices_stats_with_barcode": {
+    "description": "Label for count with barcode"
+  },
+  "prices_stats_with_category": "Mit einer Kategorie",
+  "@prices_stats_with_category": {
+    "description": "Label for count with category"
+  },
+  "prices_stats_with_discount": "Mit einem Rabatt",
+  "@prices_stats_with_discount": {
+    "description": "Label for count with discount"
+  },
+  "prices_stats_community": "Gemeinschaft",
+  "@prices_stats_community": {
+    "description": "Label for community count"
+  },
+  "prices_stats_consumption": "Verbrauch",
+  "@prices_stats_consumption": {
+    "description": "Label for consumption count"
+  },
+  "prices_stats_with_price": "Mit einem Preis",
+  "@prices_stats_with_price": {
+    "description": "Label for count with price"
+  },
+  "prices_stats_food": "Nahrungsmittel",
+  "@prices_stats_food": {
+    "description": "Label for food count"
+  },
+  "prices_stats_beauty": "Schönheitspflege",
+  "@prices_stats_beauty": {
+    "description": "Label for beauty count"
+  },
+  "prices_stats_products": "Produkte",
+  "@prices_stats_products": {
+    "description": "Label for products count"
+  },
+  "prices_stats_pet_food": "Haustierfutter",
+  "@prices_stats_pet_food": {
+    "description": "Label for pet food count"
+  },
+  "prices_stats_osm": "OpenStreetMap",
+  "@prices_stats_osm": {
+    "description": "Label for OpenStreetMap count"
+  },
+  "prices_stats_online": "Online",
+  "@prices_stats_online": {
+    "description": "Label for online count"
+  },
+  "prices_stats_countries": "Länder",
+  "@prices_stats_countries": {
+    "description": "Label for countries count"
+  },
+  "prices_stats_price_tag": "Preisschild",
+  "@prices_stats_price_tag": {
+    "description": "Label for price tag count"
+  },
+  "prices_stats_receipt": "Kassenbon",
+  "@prices_stats_receipt": {
+    "description": "Label for receipt count"
+  },
+  "prices_stats_gdpr_request": "DSGVO-Anfrage",
+  "@prices_stats_gdpr_request": {
+    "description": "Label for GDPR request count"
+  },
+  "prices_stats_shop_import": "Shop-Import",
+  "@prices_stats_shop_import": {
+    "description": "Label for shop import count"
+  },
+  "prices_stats_challenges": "Herausforderungen",
+  "@prices_stats_challenges": {
+    "description": "Label for challenges count"
+  },
+  "prices_stats_linked_to_price_tag": "Mit einem Preisschild verbundene Preise",
+  "@prices_stats_linked_to_price_tag": {
+    "description": "Label for prices linked to a price tag count"
+  },
+  "prices_stats_currencies": "Währungen",
+  "@prices_stats_currencies": {
+    "description": "Label for currencies count"
+  },
+  "prices_stats_years": "Jahre",
+  "@prices_stats_years": {
+    "description": "Label for years count"
+  },
+  "prices_stats_by_source_title": "Preise und Nachweise je Quelle",
+  "@prices_stats_by_source_title": {
+    "description": "Title for prices and proofs per source section"
+  },
+  "prices_stats_website": "Website",
+  "@prices_stats_website": {
+    "description": "Label for website source"
+  },
+  "prices_stats_mobile_app": "App für mobile Geräte",
+  "@prices_stats_mobile_app": {
+    "description": "Label for mobile app source"
+  },
+  "prices_stats_api": "API",
+  "@prices_stats_api": {
+    "description": "Label for API source"
+  },
+  "prices_stats_other": "Weitere",
+  "@prices_stats_other": {
+    "description": "Label for other sources"
+  },
+  "prices_stats_last_updated": "Zuletzt aktualisiert am",
+  "@prices_stats_last_updated": {
+    "description": "Label for last updated timestamp"
+  },
+  "prices_stats_error": "Beim Laden der Statistiken ist ein Fehler aufgetreten.",
+  "@prices_stats_error": {
+    "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "Frage beantwortet!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Nachweis",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
   }
 }
