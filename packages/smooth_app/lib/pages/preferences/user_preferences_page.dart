@@ -173,8 +173,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final String? headerAsset;
     final Color? headerColor;
 
-    final double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
-
     if (widget.type == null) {
       final List<PreferencePageType> items =
           PreferencePageType.getPreferencePageTypes(userPreferences);
@@ -217,7 +215,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
     final EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
       top: MEDIUM_SPACE,
-      bottom: bottomPadding,
+      bottom: MediaQuery.viewPaddingOf(context).bottom,
     );
     final ListView list;
     if (addDividers) {
