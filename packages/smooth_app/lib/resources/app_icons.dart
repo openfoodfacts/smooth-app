@@ -1725,6 +1725,7 @@ class AppIconTheme extends InheritedWidget {
   @override
   bool updateShouldNotify(AppIconTheme oldWidget) {
     return color != oldWidget.color ||
+        size != oldWidget.size ||
         semanticLabel != oldWidget.semanticLabel ||
         shadow != oldWidget.shadow ||
         shadow != oldWidget.shadow;
