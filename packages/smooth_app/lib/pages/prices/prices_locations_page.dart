@@ -6,8 +6,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
@@ -25,53 +25,19 @@ class PricesLocationsPage extends StatefulWidget {
 
 class _PricesLocationsPageState extends State<PricesLocationsPage>
     with TraceableClientMixin {
-  static const int _pageSize = 10;
-  late final InfiniteScrollController<Location, GetLocationsParameters,
-      GetLocationsResult> _scrollController;
+  late final InfiniteScrollLocationManager _locationManager;
 
   @override
   void initState() {
     super.initState();
-    _scrollController = InfiniteScrollController<Location,
-        GetLocationsParameters, GetLocationsResult>(
+    _locationManager = InfiniteScrollLocationManager(
       initialItems: const <Location>[],
-      fetchResult: _fetchLocationsResult,
-      extractItems: _extractLocationItems,
     );
-  }
-
-  Future<GetLocationsResult> _fetchLocationsResult(
-      GetLocationsParameters parameters, int page,
-      {void Function(int? totalItems, int? totalPages)?
-          onPageInfoUpdated}) async {
-    final MaybeError<GetLocationsResult> result =
-        await OpenPricesAPIClient.getLocations(
-      parameters..pageNumber = page,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
-
-    if (onPageInfoUpdated != null) {
-      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
-    }
-
-    return result.value;
-  }
-
-  List<Location> _extractLocationItems(GetLocationsResult result) {
-    return result.items ?? <Location>[];
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final GetLocationsParameters parameters = GetLocationsParameters()
-      ..orderBy = <OrderBy<GetLocationsOrderField>>[
-        const OrderBy<GetLocationsOrderField>(
-          field: GetLocationsOrderField.priceCount,
-          ascending: false,
-        ),
-      ]
-      ..pageSize = _pageSize;
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -93,59 +59,93 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<Location, GetLocationsParameters,
-          GetLocationsResult>(
-        controller: _scrollController,
-        parameters: parameters,
-        itemBuilder: (BuildContext context, Location location) {
-          final int priceCount = location.priceCount ?? 0;
+      body: InfiniteScrollList<Location>(
+        manager: _locationManager,
+        itemBuilder: (BuildContext context, Location item) =>
+            _locationManager.buildItem(context: context, item: item, index: 0),
+      ),
+    );
+  }
+}
 
-          return SmoothCard(
-            child: Wrap(
-              spacing: VERY_SMALL_SPACE,
-              children: <Widget>[
-                PriceLocationWidget(location),
-                PriceCountWidget(
-                  count: priceCount,
-                  onPressed: () async => PriceLocationWidget.showLocationPrices(
-                    locationId: location.locationId,
-                    context: context,
-                  ),
-                ),
-                PriceButton(
-                  onPressed: () {},
-                  title: '${location.userCount}',
-                  iconData: PriceButton.userIconData,
-                  tooltip: location.userCount == null
-                      ? null
-                      : appLocalizations.prices_button_count_user(
-                          location.userCount!,
-                        ),
-                ),
-                PriceButton(
-                  onPressed: () {},
-                  title: '${location.productCount}',
-                  iconData: PriceButton.productIconData,
-                  tooltip: location.productCount == null
-                      ? null
-                      : appLocalizations.prices_button_count_product(
-                          location.productCount!,
-                        ),
-                ),
-                PriceButton(
-                  onPressed: () {},
-                  title: '${location.proofCount}',
-                  iconData: PriceButton.proofIconData,
-                  tooltip: location.proofCount == null
-                      ? null
-                      : appLocalizations.prices_button_count_proof(
-                          location.proofCount!,
-                        ),
-                ),
-              ],
+/// A manager for handling location data with infinite scrolling
+class InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
+  InfiniteScrollLocationManager({
+    super.initialItems,
+  });
+
+  @override
+  Future<void> fetchData(final int pageNumber) async {
+    final MaybeError<GetLocationsResult> result =
+        await OpenPricesAPIClient.getLocations(
+      GetLocationsParameters()
+        ..pageNumber = pageNumber
+        ..pageSize = 10,
+    );
+    if (result.isError) {
+      throw result.detailError;
+    }
+    final GetLocationsResult value = result.value;
+    updateItems(
+      newItems: value.items ?? <Location>[],
+      pageNumber: value.pageNumber ?? pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required Location item,
+    required int index,
+  }) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final int priceCount = item.priceCount ?? 0;
+
+    return SmoothCard(
+      child: Wrap(
+        spacing: VERY_SMALL_SPACE,
+        children: <Widget>[
+          PriceLocationWidget(item),
+          PriceCountWidget(
+            count: priceCount,
+            onPressed: () async => PriceLocationWidget.showLocationPrices(
+              locationId: item.locationId,
+              context: context,
             ),
-          );
-        },
+          ),
+          PriceButton(
+            onPressed: () {},
+            title: '${item.userCount}',
+            iconData: PriceButton.userIconData,
+            tooltip: item.userCount == null
+                ? null
+                : appLocalizations.prices_button_count_user(
+                    item.userCount!,
+                  ),
+          ),
+          PriceButton(
+            onPressed: () {},
+            title: '${item.productCount}',
+            iconData: PriceButton.productIconData,
+            tooltip: item.productCount == null
+                ? null
+                : appLocalizations.prices_button_count_product(
+                    item.productCount!,
+                  ),
+          ),
+          PriceButton(
+            onPressed: () {},
+            title: '${item.proofCount}',
+            iconData: PriceButton.proofIconData,
+            tooltip: item.proofCount == null
+                ? null
+                : appLocalizations.prices_button_count_proof(
+                    item.proofCount!,
+                  ),
+          ),
+        ],
       ),
     );
   }

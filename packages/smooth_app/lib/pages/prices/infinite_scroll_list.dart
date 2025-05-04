@@ -3,32 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 
-/// A generic stateful widget for infinite scrolling lists.
-class InfiniteScrollList<T, P, R> extends StatefulWidget {
+/// A generic stateful widget for infinite scrolling lists that works with InfiniteScrollManager.
+class InfiniteScrollList<T> extends StatefulWidget {
   const InfiniteScrollList({
-    required this.controller,
+    required this.manager,
     required this.itemBuilder,
-    required this.parameters,
+    super.key,
   });
 
-  /// Controller for managing the infinite scroll behavior
-  final InfiniteScrollController<T, P, R> controller;
+  /// Manager for handling the infinite scroll behavior
+  final InfiniteScrollManager<T> manager;
 
   /// Builder for individual list items
   final Widget Function(BuildContext context, T item) itemBuilder;
 
-  /// Parameters for fetching items
-  final P parameters;
-
   @override
-  State<InfiniteScrollList<T, P, R>> createState() =>
-      _InfiniteScrollListState<T, P, R>();
+  State<InfiniteScrollList<T>> createState() => _InfiniteScrollListState<T>();
 }
 
-class _InfiniteScrollListState<T, P, R>
-    extends State<InfiniteScrollList<T, P, R>> {
+class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   static const double _loadMoreTriggerOffset = 200.0;
 
   late final ScrollController _scrollController;
@@ -57,7 +52,7 @@ class _InfiniteScrollListState<T, P, R>
     });
 
     try {
-      await widget.controller.loadInitiallyIfNeeded(widget.parameters, context);
+      await widget.manager.loadInitiallyIfNeeded(context);
     } catch (e) {
       _error = e;
     } finally {
@@ -70,9 +65,9 @@ class _InfiniteScrollListState<T, P, R>
   }
 
   void _scrollListener() {
-    if (widget.controller.isLoading ||
-        !(widget.controller.totalPages == null ||
-            widget.controller.currentPage < widget.controller.totalPages!)) {
+    if (widget.manager.isLoading ||
+        !(widget.manager.totalPages == null ||
+            widget.manager.currentPage < widget.manager.totalPages!)) {
       return;
     }
 
@@ -87,7 +82,7 @@ class _InfiniteScrollListState<T, P, R>
   Future<void> _loadMoreItems() async {
     if (mounted) {
       setState(() {});
-      await widget.controller.loadMore(widget.parameters, context);
+      await widget.manager.loadMore(context);
       if (mounted) {
         setState(() {});
       }
@@ -120,10 +115,10 @@ class _InfiniteScrollListState<T, P, R>
   Widget _buildHeader(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     String title;
-    final int totalPages = widget.controller.totalPages ?? 1;
-    final int currentPage = widget.controller.currentPage;
-    final int itemsCount = widget.controller.items.length;
-    final int totalItems = widget.controller.totalItems ?? itemsCount;
+    final int totalPages = widget.manager.totalPages ?? 1;
+    final int currentPage = widget.manager.currentPage;
+    final int itemsCount = widget.manager.items.length;
+    final int totalItems = widget.manager.totalItems ?? itemsCount;
 
     if (totalPages > 1) {
       title = appLocalizations.prices_list_length_many_pages(
@@ -150,7 +145,7 @@ class _InfiniteScrollListState<T, P, R>
       return _buildErrorState(context, _error);
     }
 
-    if (widget.controller.items.isEmpty) {
+    if (widget.manager.items.isEmpty) {
       return _buildEmptyState(context);
     }
 
@@ -158,11 +153,11 @@ class _InfiniteScrollListState<T, P, R>
 
     children.add(_buildHeader(context));
 
-    for (final T item in widget.controller.items) {
+    for (final T item in widget.manager.items) {
       children.add(widget.itemBuilder(context, item));
     }
 
-    if (widget.controller.isLoading) {
+    if (widget.manager.isLoading) {
       children.add(_buildLoadingMoreIndicator(context));
     }
 

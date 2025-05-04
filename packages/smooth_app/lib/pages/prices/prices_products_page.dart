@@ -5,8 +5,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -23,50 +23,21 @@ class PricesProductsPage extends StatefulWidget {
 class _PricesProductsPageState extends State<PricesProductsPage>
     with TraceableClientMixin {
   static const int _pageSize = 10;
-  late final InfiniteScrollController<PriceProduct, GetPriceProductsParameters,
-      MaybeError<GetPriceProductsResult>> _scrollController;
-
-  late final GetPriceProductsParameters _parameters;
+  late final InfiniteScrollProductManager _productManager;
 
   @override
   void initState() {
     super.initState();
-    _scrollController = InfiniteScrollController<PriceProduct,
-        GetPriceProductsParameters, MaybeError<GetPriceProductsResult>>(
+    _productManager = InfiniteScrollProductManager(
       initialItems: const <PriceProduct>[],
-      fetchResult: _fetchPriceProductsResult,
-      extractItems: _extractProductsFromResult,
-    );
-
-    _parameters = GetPriceProductsParameters()
-      ..orderBy = <OrderBy<GetPriceProductsOrderField>>[
+      orderBy: <OrderBy<GetPriceProductsOrderField>>[
         const OrderBy<GetPriceProductsOrderField>(
           field: GetPriceProductsOrderField.priceCount,
           ascending: false,
         ),
-      ]
-      ..pageSize = _pageSize;
-  }
-
-  Future<MaybeError<GetPriceProductsResult>> _fetchPriceProductsResult(
-      final GetPriceProductsParameters parameters, final int page,
-      {Function(int? totalItems, int? totalPages)? onPageInfoUpdated}) async {
-    final MaybeError<GetPriceProductsResult> result =
-        await OpenPricesAPIClient.getPriceProducts(
-      parameters..pageNumber = page,
-      uriHelper: ProductQuery.uriPricesHelper,
+      ],
+      pageSize: _pageSize,
     );
-
-    if (onPageInfoUpdated != null) {
-      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
-    }
-
-    return result;
-  }
-
-  List<PriceProduct> _extractProductsFromResult(
-      MaybeError<GetPriceProductsResult> result) {
-    return result.value.items ?? <PriceProduct>[];
   }
 
   @override
@@ -93,14 +64,9 @@ class _PricesProductsPageState extends State<PricesProductsPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<PriceProduct, GetPriceProductsParameters,
-          MaybeError<GetPriceProductsResult>>(
-        controller: _scrollController,
-        parameters: _parameters,
-        itemBuilder: (
-          final BuildContext context,
-          final PriceProduct product,
-        ) {
+      body: InfiniteScrollList<PriceProduct>(
+        manager: _productManager,
+        itemBuilder: (BuildContext context, PriceProduct product) {
           return SmoothCard(
             child: PriceProductWidget(
               product,
@@ -108,6 +74,54 @@ class _PricesProductsPageState extends State<PricesProductsPage>
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+/// A manager for handling product data with infinite scrolling
+class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
+  InfiniteScrollProductManager({
+    super.initialItems,
+    required this.orderBy,
+    required this.pageSize,
+  });
+
+  final List<OrderBy<GetPriceProductsOrderField>> orderBy;
+  final int pageSize;
+
+  @override
+  Future<void> fetchData(final int pageNumber) async {
+    final MaybeError<GetPriceProductsResult> result =
+        await OpenPricesAPIClient.getPriceProducts(
+      GetPriceProductsParameters()
+        ..pageNumber = pageNumber
+        ..pageSize = pageSize
+        ..orderBy = orderBy,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+    if (result.isError) {
+      throw result.detailError;
+    }
+    final GetPriceProductsResult value = result.value;
+    updateItems(
+      newItems: value.items ?? <PriceProduct>[],
+      pageNumber: value.pageNumber ?? pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required PriceProduct item,
+    required int index,
+  }) {
+    return SmoothCard(
+      child: PriceProductWidget(
+        item,
+        enableCountButton: true,
       ),
     );
   }

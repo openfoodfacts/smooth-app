@@ -10,7 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -35,29 +35,18 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   static const int _rows = 5;
   static const int _pageSize = _columns * _rows;
 
-  late final InfiniteScrollController<Proof, GetProofsParameters,
-      GetProofsResult> _scrollController;
+  late final InfiniteScrollProofManager _proofManager;
   String? _bearerToken;
-  late final GetProofsParameters _proofParameters;
   final ScrollController _gridScrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _proofParameters = GetProofsParameters()
-      ..orderBy = <OrderBy<GetProofsOrderField>>[
-        const OrderBy<GetProofsOrderField>(
-          field: GetProofsOrderField.created,
-          ascending: false,
-        ),
-      ]
-      ..pageSize = _pageSize;
-
-    _scrollController =
-        InfiniteScrollController<Proof, GetProofsParameters, GetProofsResult>(
+    _proofManager = InfiniteScrollProofManager(
       initialItems: const <Proof>[],
-      fetchResult: _fetchProofsResult,
-      extractItems: _extractProofItems,
+      bearerTokenCallback: () => _bearerToken,
+      onAuthenticateNeeded: _authenticate,
+      pageSize: _pageSize,
     );
 
     _gridScrollController.addListener(_scrollListener);
@@ -66,9 +55,9 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   }
 
   void _scrollListener() {
-    if (_scrollController.isLoading ||
-        !(_scrollController.totalPages == null ||
-            _scrollController.currentPage < _scrollController.totalPages!)) {
+    if (_proofManager.isLoading ||
+        !(_proofManager.totalPages == null ||
+            _proofManager.currentPage < _proofManager.totalPages!)) {
       return;
     }
 
@@ -77,7 +66,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     const double triggerOffset = 200.0;
 
     if (currentScroll > maxScroll - triggerOffset) {
-      _scrollController.loadMore(_proofParameters, context);
+      _proofManager.loadMore(context);
     }
   }
 
@@ -111,7 +100,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
 
     if (mounted) {
       setState(() {
-        _scrollController.loadInitiallyIfNeeded(_proofParameters, context);
+        _proofManager.loadInitiallyIfNeeded(context);
       });
     }
   }
@@ -124,46 +113,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       );
       _bearerToken = null;
     }
-  }
-
-  Future<GetProofsResult> _fetchProofsResult(
-      GetProofsParameters parameters, int page,
-      {void Function(int? totalItems, int? totalPages)?
-          onPageInfoUpdated}) async {
-    if (_bearerToken == null) {
-      await _authenticate();
-      if (_bearerToken == null) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-                content: Text(AppLocalizations.of(context).prices_proof_error)),
-          );
-        }
-        // Return empty result if authentication failed
-        return GetProofsResult();
-      }
-    }
-
-    final User user = ProductQuery.getWriteUser();
-
-    final MaybeError<GetProofsResult> result =
-        await OpenPricesAPIClient.getProofs(
-      parameters
-        ..owner = user.userId
-        ..pageNumber = page,
-      uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: _bearerToken!,
-    );
-
-    if (onPageInfoUpdated != null) {
-      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
-    }
-
-    return result.value;
-  }
-
-  List<Proof> _extractProofItems(GetProofsResult result) {
-    return result.items ?? <Proof>[];
   }
 
   @override
@@ -206,9 +155,9 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       children: <Widget>[
         Builder(
           builder: (BuildContext context) {
-            final int totalItems = _scrollController.totalItems ?? 0;
-            final int totalPages = _scrollController.totalPages ?? 1;
-            final int itemCount = _scrollController.items.length;
+            final int totalItems = _proofManager.totalItems ?? 0;
+            final int totalPages = _proofManager.totalPages ?? 1;
+            final int itemCount = _proofManager.items.length;
 
             final String title = totalPages <= 1
                 ? appLocalizations.prices_proofs_list_length_one_page(itemCount)
@@ -235,8 +184,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     BuildContext context,
     AppLocalizations appLocalizations,
   ) {
-    if (_scrollController.items.isEmpty) {
-      if (_scrollController.isLoading) {
+    if (_proofManager.items.isEmpty) {
+      if (_proofManager.isLoading) {
         return const Center(child: CircularProgressIndicator());
       } else {
         return const Center(child: Text('No Result'));
@@ -252,7 +201,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              final Proof proof = _scrollController.items[index];
+              final Proof proof = _proofManager.items[index];
               final double squareSize =
                   MediaQuery.of(context).size.width / _columns;
 
@@ -279,11 +228,11 @@ class _PricesProofsPageState extends State<PricesProofsPage>
                 child: _PriceProofImage(proof, squareSize: squareSize),
               );
             },
-            childCount: _scrollController.items.length,
+            childCount: _proofManager.items.length,
             addAutomaticKeepAlives: false,
           ),
         ),
-        if (_scrollController.isLoading)
+        if (_proofManager.isLoading)
           const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.all(16.0),
@@ -292,6 +241,77 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           ),
       ],
     );
+  }
+}
+
+/// A manager for handling proof data with infinite scrolling
+class InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
+  InfiniteScrollProofManager({
+    required super.initialItems,
+    required this.bearerTokenCallback,
+    required this.onAuthenticateNeeded,
+    required this.pageSize,
+  });
+
+  /// Callback to get the bearer token for API requests
+  final String? Function() bearerTokenCallback;
+
+  /// Callback to authenticate when token is not available
+  final Future<void> Function() onAuthenticateNeeded;
+
+  /// Number of items per page
+  final int pageSize;
+
+  @override
+  Future<void> fetchData(final int pageNumber) async {
+    final String? bearerToken = bearerTokenCallback();
+    if (bearerToken == null) {
+      await onAuthenticateNeeded();
+      if (bearerTokenCallback() == null) {
+        throw Exception('Authentication failed');
+      }
+    }
+
+    final User user = ProductQuery.getWriteUser();
+
+    final GetProofsParameters parameters = GetProofsParameters()
+      ..orderBy = <OrderBy<GetProofsOrderField>>[
+        const OrderBy<GetProofsOrderField>(
+          field: GetProofsOrderField.created,
+          ascending: false,
+        ),
+      ]
+      ..pageSize = pageSize
+      ..owner = user.userId
+      ..pageNumber = pageNumber;
+
+    final MaybeError<GetProofsResult> result =
+        await OpenPricesAPIClient.getProofs(
+      parameters,
+      uriHelper: ProductQuery.uriPricesHelper,
+      bearerToken: bearerTokenCallback()!,
+    );
+
+    if (result.isError) {
+      throw result.detailError;
+    }
+
+    final GetProofsResult value = result.value;
+    updateItems(
+      newItems: value.items ?? <Proof>[],
+      pageNumber: value.pageNumber ?? pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required Proof item,
+    required int index,
+  }) {
+    return const SizedBox();
   }
 }
 

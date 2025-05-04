@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 
@@ -28,69 +28,89 @@ class ProductPricesList extends StatefulWidget {
 
 class _ProductPricesListState extends State<ProductPricesList>
     with TraceableClientMixin {
-  late final InfiniteScrollController<Price, GetPricesParameters,
-      GetPricesResult> _scrollController;
+  late final InfiniteScrollPriceManager _priceManager;
 
   @override
   void initState() {
     super.initState();
     final List<Price> initialItems = widget.pricesResult?.items ?? <Price>[];
 
-    _scrollController =
-        InfiniteScrollController<Price, GetPricesParameters, GetPricesResult>(
-      fetchResult: _fetchPricesResult,
-      extractItems: _extractPriceItems,
+    _priceManager = InfiniteScrollPriceManager(
       initialItems: initialItems,
+      model: widget.model,
     );
-  }
-
-  Future<GetPricesResult> _fetchPricesResult(
-      GetPricesParameters parameters, int page,
-      {void Function(int? totalItems, int? totalPages)?
-          onPageInfoUpdated}) async {
-    final MaybeError<GetPricesResult> result =
-        await OpenPricesAPIClient.getPrices(
-      parameters..pageNumber = page,
-    );
-
-    if (onPageInfoUpdated != null) {
-      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
-    }
-
-    return result.value;
-  }
-
-  List<Price> _extractPriceItems(GetPricesResult result) {
-    return result.items ?? <Price>[];
   }
 
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    return InfiniteScrollList<Price, GetPricesParameters, GetPricesResult>(
-      controller: _scrollController,
-      parameters: widget.model.parameters,
-      itemBuilder: (BuildContext context, Price price) {
-        final PriceProduct? priceProduct = price.product;
-
-        return SmoothCard(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              if (widget.model.displayEachProduct && priceProduct != null)
-                PriceProductWidget(
-                  priceProduct,
-                  enableCountButton: widget.model.enableCountButton,
-                ),
-              PriceDataWidget(
-                price,
-                model: widget.model,
-              ),
-            ],
-          ),
-        );
-      },
+    return InfiniteScrollList<Price>(
+      manager: _priceManager,
+      itemBuilder: (BuildContext context, Price price) =>
+          _buildPriceItem(context, price),
     );
+  }
+
+  Widget _buildPriceItem(BuildContext context, Price price) {
+    final PriceProduct? priceProduct = price.product;
+
+    return SmoothCard(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          if (widget.model.displayEachProduct && priceProduct != null)
+            PriceProductWidget(
+              priceProduct,
+              enableCountButton: widget.model.enableCountButton,
+            ),
+          PriceDataWidget(
+            price,
+            model: widget.model,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A manager for handling price data with infinite scrolling
+class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
+  InfiniteScrollPriceManager({
+    required List<Price> initialItems,
+    required this.model,
+  }) : super(initialItems: initialItems);
+
+  /// The model containing price query parameters
+  final GetPricesModel model;
+
+  @override
+  Future<void> fetchData(int pageNumber) async {
+    final GetPricesParameters parameters = model.parameters;
+    parameters.pageNumber = pageNumber;
+
+    final MaybeError<GetPricesResult> result =
+        await OpenPricesAPIClient.getPrices(parameters);
+
+    if (result.isError) {
+      throw result.detailError;
+    }
+
+    final GetPricesResult value = result.value;
+    updateItems(
+      newItems: value.items ?? <Price>[],
+      pageNumber: value.pageNumber ?? pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required Price item,
+    required int index,
+  }) {
+    return const SizedBox();
   }
 }

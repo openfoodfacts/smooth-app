@@ -6,8 +6,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_controller.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -25,51 +25,20 @@ class PricesUsersPage extends StatefulWidget {
 class _PricesUsersPageState extends State<PricesUsersPage>
     with TraceableClientMixin {
   static const int _pageSize = 10;
-  late final InfiniteScrollController<PriceUser, GetUsersParameters,
-      GetUsersResult> _scrollController;
+  late final InfiniteScrollUserManager _userManager;
 
   @override
   void initState() {
     super.initState();
-    _scrollController =
-        InfiniteScrollController<PriceUser, GetUsersParameters, GetUsersResult>(
-      fetchResult: _fetchUsers,
-      extractItems: _extractItems,
+    _userManager = InfiniteScrollUserManager(
       initialItems: const <PriceUser>[],
+      pageSize: _pageSize,
     );
-  }
-
-  Future<GetUsersResult> _fetchUsers(GetUsersParameters parameters, int page,
-      {void Function(int? totalItems, int? totalPages)?
-          onPageInfoUpdated}) async {
-    final MaybeError<GetUsersResult> result =
-        await OpenPricesAPIClient.getUsers(
-      parameters..pageNumber = page,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
-
-    if (onPageInfoUpdated != null) {
-      onPageInfoUpdated(result.value.total, result.value.numberOfPages);
-    }
-
-    return result.value;
-  }
-
-  List<PriceUser> _extractItems(GetUsersResult result) {
-    return result.items ?? <PriceUser>[];
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final GetUsersParameters parameters = GetUsersParameters()
-      ..orderBy = <OrderBy<GetUsersOrderField>>[
-        const OrderBy<GetUsersOrderField>(
-          field: GetUsersOrderField.priceCount,
-          ascending: false,
-        ),
-      ]
-      ..pageSize = _pageSize;
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -91,9 +60,8 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<PriceUser, GetUsersParameters, GetUsersResult>(
-        controller: _scrollController,
-        parameters: parameters,
+      body: InfiniteScrollList<PriceUser>(
+        manager: _userManager,
         itemBuilder: (BuildContext context, PriceUser user) {
           final int priceCount = user.priceCount ?? 0;
           return SmoothCard(
@@ -112,6 +80,72 @@ class _PricesUsersPageState extends State<PricesUsersPage>
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+/// A manager for handling user data with infinite scrolling
+class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
+  InfiniteScrollUserManager({
+    required super.initialItems,
+    required this.pageSize,
+  });
+
+  /// Number of items per page
+  final int pageSize;
+
+  @override
+  Future<void> fetchData(final int pageNumber) async {
+    final GetUsersParameters parameters = GetUsersParameters()
+      ..orderBy = <OrderBy<GetUsersOrderField>>[
+        const OrderBy<GetUsersOrderField>(
+          field: GetUsersOrderField.priceCount,
+          ascending: false,
+        ),
+      ]
+      ..pageSize = pageSize
+      ..pageNumber = pageNumber;
+
+    final MaybeError<GetUsersResult> result =
+        await OpenPricesAPIClient.getUsers(
+      parameters,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+
+    if (result.isError) {
+      throw result.detailError;
+    }
+
+    final GetUsersResult value = result.value;
+    updateItems(
+      newItems: value.items ?? <PriceUser>[],
+      pageNumber: value.pageNumber ?? pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required PriceUser item,
+    required int index,
+  }) {
+    final int priceCount = item.priceCount ?? 0;
+    return SmoothCard(
+      child: Wrap(
+        spacing: VERY_SMALL_SPACE,
+        children: <Widget>[
+          PriceUserButton(item.userId),
+          PriceCountWidget(
+            count: priceCount,
+            onPressed: () async => PriceUserButton.showUserPrices(
+              user: item.userId,
+              context: context,
+            ),
+          ),
+        ],
       ),
     );
   }
