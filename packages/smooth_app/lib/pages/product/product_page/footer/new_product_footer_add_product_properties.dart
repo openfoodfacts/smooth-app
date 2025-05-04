@@ -17,7 +17,7 @@ class ProductFooterAddPropertyButton extends StatelessWidget {
 
     return ProductFooterButton(
       label: appLocalizations.add_tag,
-      icon: const icons.Personalization(),
+      icon: const icons.AddProperty.alt(),
       onTap: () => _openFolksonomyPage(
         context,
         context.read<Product>(),
