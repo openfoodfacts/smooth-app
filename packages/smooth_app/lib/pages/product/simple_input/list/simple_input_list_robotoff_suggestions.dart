@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_image_full_page.dart';
@@ -465,9 +466,9 @@ class _SimpleInputListRobotoffSuggestionPicture extends StatelessWidget {
               tag: heroTag,
               child: Material(
                 type: MaterialType.transparency,
-                child: Ink.image(
-                  image: NetworkImage(imageUrl),
-                  fit: BoxFit.cover,
+                child: SmoothImage(
+                  imageProvider: NetworkImage(imageUrl),
+                  rounded: false,
                 ),
               ),
             ),
