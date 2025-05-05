@@ -13,6 +13,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 class FolksonomyPage extends StatelessWidget {
@@ -54,7 +55,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     return SmoothScaffold(
       appBar: SmoothTopBar2(
         title: appLocalizations.product_tags_title,
-        leadingAction: SmoothTopBarLeadingAction.back,
+        leadingAction: SmoothLeadingAction.back,
       ),
       body: Listener<FolksonomyProvider>(
         listener: _onProviderChanged,
