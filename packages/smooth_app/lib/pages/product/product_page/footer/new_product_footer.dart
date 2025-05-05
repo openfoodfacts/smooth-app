@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_add_price.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_add_product_properties.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_add_to_lists.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_barcode.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_compare.dart';
@@ -74,7 +75,8 @@ enum ProductFooterActionBar {
   openWebsite('open_website'),
   report('report_product'),
   contributionGuide('contribution_guide'),
-  dataQuality('data_quality');
+  dataQuality('data_quality'),
+  addProperty('add_property');
 
   const ProductFooterActionBar(this.key);
 
@@ -91,6 +93,7 @@ enum ProductFooterActionBar {
       'barcode' => ProductFooterActionBar.barcode,
       'open_website' => ProductFooterActionBar.openWebsite,
       'flag' => ProductFooterActionBar.report,
+      'add_property' => ProductFooterActionBar.addProperty,
       _ => throw Exception('Unknown key $key'),
     };
   }
@@ -102,6 +105,7 @@ enum ProductFooterActionBar {
         addPrice,
         compare,
         addToList,
+        addProperty,
         share,
       ];
 }
@@ -232,6 +236,8 @@ class _ProductFooterButtonsBarItems extends StatelessWidget {
               const ProductFooterContributorGuideButton(),
             ProductFooterActionBar.dataQuality =>
               const ProductFooterDataQualityButton(),
+            ProductFooterActionBar.addProperty =>
+              const ProductFooterAddPropertyButton(),
           },
         );
       },

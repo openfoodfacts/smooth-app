@@ -122,6 +122,24 @@ class AddPrice extends AppIcon {
   }) : super._(_IconsFont.add_price_yen);
 }
 
+class AddProperty extends AppIcon {
+  const AddProperty({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.add_property);
+
+  const AddProperty.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.add_property_alt);
+}
+
 class AddToList extends AppIcon {
   factory AddToList({
     required int count,
@@ -1331,6 +1349,16 @@ class Recycling extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.recycling);
+}
+
+class Remove extends AppIcon {
+  const Remove({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.remove);
 }
 
 class Salt extends AppIcon {
