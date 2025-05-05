@@ -1613,7 +1613,7 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
-  "edit_product_form_item_deny_suggestion": "דחה את ההצעה",
+  "edit_product_form_item_deny_suggestion": "דחיית ההצעה",
   "@edit_product_form_item_deny_suggestion": {
     "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
   },
@@ -4363,19 +4363,19 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
-  "product_edit_robotoff_positive_button": "קבל את ההצעה",
+  "product_edit_robotoff_positive_button": "קבלת ההצעה",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
   },
-  "product_edit_robotoff_negative_button": "דחה את ההצעה",
+  "product_edit_robotoff_negative_button": "דחיית ההצעה",
   "@product_edit_robotoff_negative_button": {
     "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
   },
-  "product_edit_robotoff_show_proof": "הצג הוכחה",
+  "product_edit_robotoff_show_proof": "הצגת הוכחה",
   "@product_edit_robotoff_show_proof": {
     "description": "Button to show the proof related to a suggestion"
   },
-  "product_edit_robotoff_expand_proof": "הרחב את ההוכחה",
+  "product_edit_robotoff_expand_proof": "הרחבת ההוכחה",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   }
