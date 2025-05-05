@@ -4195,6 +4195,12 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
+  "sorting": "Sort by: ",
+  "@sorting":{
+    "description": "used to display sorting options while editing the product details"
+  },
+  "sort_by_fields": "Fields",
+  "sort_by_missing_data": "Missing data",
   "prices_discount": "Discount",
   "@prices_discount": {
     "description": "Label for the discount on prices"
