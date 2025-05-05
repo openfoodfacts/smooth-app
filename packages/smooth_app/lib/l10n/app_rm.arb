@@ -1613,6 +1613,10 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
+  "edit_product_form_item_deny_suggestion": "Deny suggestion",
+  "@edit_product_form_item_deny_suggestion": {
+    "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
+  },
   "edit_product_form_item_details_title": "Basic details",
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
@@ -4358,5 +4362,21 @@
   "product_edit_robotoff_proof": "Proof",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "product_edit_robotoff_positive_button": "Accept suggestion",
+  "@product_edit_robotoff_positive_button": {
+    "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_negative_button": "Reject suggestion",
+  "@product_edit_robotoff_negative_button": {
+    "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_show_proof": "Show proof",
+  "@product_edit_robotoff_show_proof": {
+    "description": "Button to show the proof related to a suggestion"
+  },
+  "product_edit_robotoff_expand_proof": "Expand proof",
+  "@product_edit_robotoff_expand_proof": {
+    "description": "Button to open in fullscreen the proof"
   }
 }
