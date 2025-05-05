@@ -7,7 +7,7 @@ abstract class InfiniteScrollManager<T> {
   /// Creates an instance of [InfiniteScrollManager] with optional initial items.
   InfiniteScrollManager({
     List<T>? initialItems,
-  })  : _items = List<T>.from(initialItems ?? <T>[]),
+  })  : _items = initialItems ?? <T>[],
         _currentPage =
             initialItems != null && initialItems.isNotEmpty ? _initialPage : 0;
 
@@ -42,7 +42,6 @@ abstract class InfiniteScrollManager<T> {
   int? get totalPages => _totalPages;
 
   /// Abstract method to implement the data fetching logic for a specific page
-  /// This method must be implemented by subclasses to handle API calls or data fetching
   @protected
   Future<void> fetchData(int pageNumber);
 
@@ -52,16 +51,13 @@ abstract class InfiniteScrollManager<T> {
   Widget buildItem({
     required BuildContext context,
     required T item,
-    required int index,
-  }) {
-    // Default implementation returns a simple ListTile
-    // Subclasses should override this with their specific UI
-    return ListTile(
-      title: Text(item.toString()),
-    );
+  });
+
+  Widget getItemWidget({required BuildContext context, required T item}) {
+    return buildItem(context: context, item: item);
   }
 
-  /// Protected method for subclasses to update the list with new items and pagination info
+  /// Update the list with new items and pagination info
   @protected
   void updateItems({
     required List<T> newItems,
@@ -93,11 +89,6 @@ abstract class InfiniteScrollManager<T> {
       return;
     }
     await _load(context: context, pageNumber: _currentPage + 1);
-  }
-
-  /// Reload data from the first page
-  Future<void> refresh(BuildContext context) async {
-    await _load(context: context, pageNumber: _initialPage);
   }
 
   /// Internal method to handle loading with error handling

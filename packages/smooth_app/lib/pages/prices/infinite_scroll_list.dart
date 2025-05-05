@@ -9,15 +9,10 @@ import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 class InfiniteScrollList<T> extends StatefulWidget {
   const InfiniteScrollList({
     required this.manager,
-    required this.itemBuilder,
-    super.key,
   });
 
   /// Manager for handling the infinite scroll behavior
   final InfiniteScrollManager<T> manager;
-
-  /// Builder for individual list items
-  final Widget Function(BuildContext context, T item) itemBuilder;
 
   @override
   State<InfiniteScrollList<T>> createState() => _InfiniteScrollListState<T>();
@@ -154,7 +149,10 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     children.add(_buildHeader(context));
 
     for (final T item in widget.manager.items) {
-      children.add(widget.itemBuilder(context, item));
+      children.add(widget.manager.getItemWidget(
+        context: context,
+        item: item,
+      ));
     }
 
     if (widget.manager.isLoading) {

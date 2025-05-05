@@ -35,19 +35,19 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   static const int _rows = 5;
   static const int _pageSize = _columns * _rows;
 
-  late final InfiniteScrollProofManager _proofManager;
+  late final InfiniteScrollProofManager _proofManager =
+      InfiniteScrollProofManager(
+    initialItems: <Proof>[],
+    bearerTokenCallback: () => _bearerToken,
+    onAuthenticateNeeded: _authenticate,
+  );
+
   String? _bearerToken;
   final ScrollController _gridScrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _proofManager = InfiniteScrollProofManager(
-      initialItems: const <Proof>[],
-      bearerTokenCallback: () => _bearerToken,
-      onAuthenticateNeeded: _authenticate,
-      pageSize: _pageSize,
-    );
 
     _gridScrollController.addListener(_scrollListener);
 
@@ -153,25 +153,18 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   ) {
     return Column(
       children: <Widget>[
-        Builder(
-          builder: (BuildContext context) {
-            final int totalItems = _proofManager.totalItems ?? 0;
-            final int totalPages = _proofManager.totalPages ?? 1;
-            final int itemCount = _proofManager.items.length;
-
-            final String title = totalPages <= 1
-                ? appLocalizations.prices_proofs_list_length_one_page(itemCount)
-                : appLocalizations.prices_proofs_list_length_many_pages(
-                    _pageSize,
-                    totalItems,
-                  );
-
-            return SmoothCard(
-              child: ListTile(
-                title: Text(title),
-              ),
-            );
-          },
+        SmoothCard(
+          child: ListTile(
+            title: Text(
+              (_proofManager.totalPages ?? 1) <= 1
+                  ? appLocalizations.prices_proofs_list_length_one_page(
+                      _proofManager.items.length)
+                  : appLocalizations.prices_proofs_list_length_many_pages(
+                      _pageSize,
+                      _proofManager.totalItems ?? 0,
+                    ),
+            ),
+          ),
         ),
         Expanded(
           child: _buildProofsGrid(context, appLocalizations),
@@ -250,7 +243,6 @@ class InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
     required super.initialItems,
     required this.bearerTokenCallback,
     required this.onAuthenticateNeeded,
-    required this.pageSize,
   });
 
   /// Callback to get the bearer token for API requests
@@ -259,8 +251,7 @@ class InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   /// Callback to authenticate when token is not available
   final Future<void> Function() onAuthenticateNeeded;
 
-  /// Number of items per page
-  final int pageSize;
+  static const int pageSize = _PricesProofsPageState._pageSize;
 
   @override
   Future<void> fetchData(final int pageNumber) async {
@@ -298,20 +289,38 @@ class InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
 
     final GetProofsResult value = result.value;
     updateItems(
-      newItems: value.items ?? <Proof>[],
-      pageNumber: value.pageNumber ?? pageNumber,
+      newItems: value.items!,
+      pageNumber: value.pageNumber!,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
   }
 
+  static const int _columns = _PricesProofsPageState._columns;
+
   @override
   Widget buildItem({
     required BuildContext context,
     required Proof item,
-    required int index,
   }) {
-    return const SizedBox();
+    final double squareSize = MediaQuery.of(context).size.width / _columns;
+
+    return SmoothCard(
+      child: InkWell(
+        onTap: () {
+          Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => PriceProofPage(item),
+            ),
+          );
+        },
+        child: _PriceProofImage(
+          item,
+          squareSize: squareSize,
+        ),
+      ),
+    );
   }
 }
 

@@ -22,22 +22,17 @@ class PricesProductsPage extends StatefulWidget {
 
 class _PricesProductsPageState extends State<PricesProductsPage>
     with TraceableClientMixin {
-  static const int _pageSize = 10;
-  late final InfiniteScrollProductManager _productManager;
+  late final InfiniteScrollProductManager _productManager =
+      InfiniteScrollProductManager(
+    initialItems: <PriceProduct>[],
+  );
 
   @override
   void initState() {
     super.initState();
-    _productManager = InfiniteScrollProductManager(
-      initialItems: const <PriceProduct>[],
-      orderBy: <OrderBy<GetPriceProductsOrderField>>[
-        const OrderBy<GetPriceProductsOrderField>(
-          field: GetPriceProductsOrderField.priceCount,
-          ascending: false,
-        ),
-      ],
-      pageSize: _pageSize,
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _productManager.fetchData(1);
+    });
   }
 
   @override
@@ -66,14 +61,6 @@ class _PricesProductsPageState extends State<PricesProductsPage>
       ),
       body: InfiniteScrollList<PriceProduct>(
         manager: _productManager,
-        itemBuilder: (BuildContext context, PriceProduct product) {
-          return SmoothCard(
-            child: PriceProductWidget(
-              product,
-              enableCountButton: true,
-            ),
-          );
-        },
       ),
     );
   }
@@ -82,13 +69,17 @@ class _PricesProductsPageState extends State<PricesProductsPage>
 /// A manager for handling product data with infinite scrolling
 class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
   InfiniteScrollProductManager({
-    super.initialItems,
-    required this.orderBy,
-    required this.pageSize,
+    required super.initialItems,
   });
 
-  final List<OrderBy<GetPriceProductsOrderField>> orderBy;
-  final int pageSize;
+  static const int _pageSize = 10;
+  static const List<OrderBy<GetPriceProductsOrderField>> orderBy =
+      <OrderBy<GetPriceProductsOrderField>>[
+    OrderBy<GetPriceProductsOrderField>(
+      field: GetPriceProductsOrderField.priceCount,
+      ascending: false,
+    ),
+  ];
 
   @override
   Future<void> fetchData(final int pageNumber) async {
@@ -96,17 +87,19 @@ class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
         await OpenPricesAPIClient.getPriceProducts(
       GetPriceProductsParameters()
         ..pageNumber = pageNumber
-        ..pageSize = pageSize
+        ..pageSize = _pageSize
         ..orderBy = orderBy,
       uriHelper: ProductQuery.uriPricesHelper,
     );
+
     if (result.isError) {
       throw result.detailError;
     }
+
     final GetPriceProductsResult value = result.value;
     updateItems(
-      newItems: value.items ?? <PriceProduct>[],
-      pageNumber: value.pageNumber ?? pageNumber,
+      newItems: value.items!,
+      pageNumber: value.pageNumber!,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
@@ -116,7 +109,6 @@ class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
   Widget buildItem({
     required BuildContext context,
     required PriceProduct item,
-    required int index,
   }) {
     return SmoothCard(
       child: PriceProductWidget(

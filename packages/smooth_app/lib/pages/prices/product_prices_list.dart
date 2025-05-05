@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
@@ -38,6 +39,7 @@ class _ProductPricesListState extends State<ProductPricesList>
     _priceManager = InfiniteScrollPriceManager(
       initialItems: initialItems,
       model: widget.model,
+      buildPriceItem: _buildPriceItem,
     );
   }
 
@@ -46,8 +48,6 @@ class _ProductPricesListState extends State<ProductPricesList>
     context.watch<LocalDatabase>();
     return InfiniteScrollList<Price>(
       manager: _priceManager,
-      itemBuilder: (BuildContext context, Price price) =>
-          _buildPriceItem(context, price),
     );
   }
 
@@ -77,20 +77,26 @@ class _ProductPricesListState extends State<ProductPricesList>
 /// A manager for handling price data with infinite scrolling
 class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   InfiniteScrollPriceManager({
-    required List<Price> initialItems,
+    required super.initialItems,
     required this.model,
-  }) : super(initialItems: initialItems);
+    required this.buildPriceItem,
+  });
 
   /// The model containing price query parameters
   final GetPricesModel model;
+
+  /// Function to build price item widget
+  final Widget Function(BuildContext context, Price price) buildPriceItem;
 
   @override
   Future<void> fetchData(int pageNumber) async {
     final GetPricesParameters parameters = model.parameters;
     parameters.pageNumber = pageNumber;
 
+    // Use ProductQuery.uriPricesHelper as shown in the example
     final MaybeError<GetPricesResult> result =
-        await OpenPricesAPIClient.getPrices(parameters);
+        await OpenPricesAPIClient.getPrices(parameters,
+            uriHelper: ProductQuery.uriPricesHelper);
 
     if (result.isError) {
       throw result.detailError;
@@ -98,8 +104,8 @@ class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 
     final GetPricesResult value = result.value;
     updateItems(
-      newItems: value.items ?? <Price>[],
-      pageNumber: value.pageNumber ?? pageNumber,
+      newItems: value.items!,
+      pageNumber: value.pageNumber!,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
@@ -109,8 +115,7 @@ class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   Widget buildItem({
     required BuildContext context,
     required Price item,
-    required int index,
   }) {
-    return const SizedBox();
+    return buildPriceItem(context, item);
   }
 }

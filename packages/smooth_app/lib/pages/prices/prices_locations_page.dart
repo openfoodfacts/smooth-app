@@ -25,15 +25,8 @@ class PricesLocationsPage extends StatefulWidget {
 
 class _PricesLocationsPageState extends State<PricesLocationsPage>
     with TraceableClientMixin {
-  late final InfiniteScrollLocationManager _locationManager;
-
-  @override
-  void initState() {
-    super.initState();
-    _locationManager = InfiniteScrollLocationManager(
-      initialItems: const <Location>[],
-    );
-  }
+  final InfiniteScrollLocationManager _locationManager =
+      InfiniteScrollLocationManager();
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +54,6 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
       ),
       body: InfiniteScrollList<Location>(
         manager: _locationManager,
-        itemBuilder: (BuildContext context, Location item) =>
-            _locationManager.buildItem(context: context, item: item, index: 0),
       ),
     );
   }
@@ -87,8 +78,8 @@ class InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
     }
     final GetLocationsResult value = result.value;
     updateItems(
-      newItems: value.items ?? <Location>[],
-      pageNumber: value.pageNumber ?? pageNumber,
+      newItems: value.items!,
+      pageNumber: value.pageNumber!,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
@@ -98,7 +89,6 @@ class InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
   Widget buildItem({
     required BuildContext context,
     required Location item,
-    required int index,
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final int priceCount = item.priceCount ?? 0;

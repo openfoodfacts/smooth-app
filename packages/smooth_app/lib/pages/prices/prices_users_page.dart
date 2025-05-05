@@ -25,15 +25,38 @@ class PricesUsersPage extends StatefulWidget {
 class _PricesUsersPageState extends State<PricesUsersPage>
     with TraceableClientMixin {
   static const int _pageSize = 10;
-  late final InfiniteScrollUserManager _userManager;
+
+  final InfiniteScrollUserManager _userManager = InfiniteScrollUserManager(
+    initialItems: <PriceUser>[], // Use non-const empty list
+    pageSize: _pageSize,
+    itemBuilder: (BuildContext context, PriceUser user) {
+      final int priceCount = user.priceCount ?? 0;
+      return SmoothCard(
+        child: Wrap(
+          spacing: VERY_SMALL_SPACE,
+          children: <Widget>[
+            PriceUserButton(user.userId),
+            PriceCountWidget(
+              count: priceCount,
+              onPressed: () async => PriceUserButton.showUserPrices(
+                user: user.userId,
+                context: context,
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 
   @override
   void initState() {
     super.initState();
-    _userManager = InfiniteScrollUserManager(
-      initialItems: const <PriceUser>[],
-      pageSize: _pageSize,
-    );
+    // Trigger initial data fetch after the first frame
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Force the manager to fetch the first page
+      _userManager.fetchData(1);
+    });
   }
 
   @override
@@ -62,24 +85,6 @@ class _PricesUsersPageState extends State<PricesUsersPage>
       ),
       body: InfiniteScrollList<PriceUser>(
         manager: _userManager,
-        itemBuilder: (BuildContext context, PriceUser user) {
-          final int priceCount = user.priceCount ?? 0;
-          return SmoothCard(
-            child: Wrap(
-              spacing: VERY_SMALL_SPACE,
-              children: <Widget>[
-                PriceUserButton(user.userId),
-                PriceCountWidget(
-                  count: priceCount,
-                  onPressed: () async => PriceUserButton.showUserPrices(
-                    user: user.userId,
-                    context: context,
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
       ),
     );
   }
@@ -90,10 +95,14 @@ class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   InfiniteScrollUserManager({
     required super.initialItems,
     required this.pageSize,
+    required this.itemBuilder,
   });
 
   /// Number of items per page
   final int pageSize;
+
+  /// The item builder function
+  final Widget Function(BuildContext, PriceUser) itemBuilder;
 
   @override
   Future<void> fetchData(final int pageNumber) async {
@@ -119,8 +128,8 @@ class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
 
     final GetUsersResult value = result.value;
     updateItems(
-      newItems: value.items ?? <PriceUser>[],
-      pageNumber: value.pageNumber ?? pageNumber,
+      newItems: value.items!,
+      pageNumber: value.pageNumber!,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
@@ -130,23 +139,7 @@ class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   Widget buildItem({
     required BuildContext context,
     required PriceUser item,
-    required int index,
   }) {
-    final int priceCount = item.priceCount ?? 0;
-    return SmoothCard(
-      child: Wrap(
-        spacing: VERY_SMALL_SPACE,
-        children: <Widget>[
-          PriceUserButton(item.userId),
-          PriceCountWidget(
-            count: priceCount,
-            onPressed: () async => PriceUserButton.showUserPrices(
-              user: item.userId,
-              context: context,
-            ),
-          ),
-        ],
-      ),
-    );
+    return itemBuilder(context, item);
   }
 }
