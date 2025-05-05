@@ -74,30 +74,28 @@ Widget build(BuildContext context) =&gt; Container(
       margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
       decoration: const BoxDecoration(color: Colors.black12),
       child: GestureDetector(
-          onTap: () async =&gt; Navigator.of(context).push&lt;void&gt;(
-                MaterialPageRoute&lt;void&gt;(
-                  builder: (BuildContext context) =&gt;
-                      QuestionImageFullPage(question),
-                  fullscreenDialog: true,
-                ),
-              ),
-          child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: Image(
-              image: NetworkImage(question.imageUrl!),
-              fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) =&gt; EMPTY_WIDGET,
-              loadingBuilder: (
-                _,
-                Widget child,
-                ImageChunkEvent? progress,
-              ) =&gt;
-                  progress == null
-                      ? child
-                      : const CircularProgressIndicator.adaptive(),
-            ),
-          )),
+        onTap: () async =&gt; Navigator.of(context).push&lt;void&gt;(
+          MaterialPageRoute&lt;void&gt;(
+            builder: (BuildContext context) =&gt;
+                QuestionImageFullPage(question: question),
+            fullscreenDialog: true,
+          ),
+        ),
+        child: Image(
+          image: NetworkImage(question.imageUrl!),
+          fit: BoxFit.cover,
+          height: double.infinity,
+          errorBuilder: (_, __, ___) =&gt; EMPTY_WIDGET,
+          loadingBuilder: (
+            _,
+            Widget child,
+            ImageChunkEvent? progress,
+          ) =&gt;
+              progress == null
+                  ? child
+                  : const CircularProgressIndicator.adaptive(),
+        ),
+      ),
     );</code></pre>
 </section>
 
