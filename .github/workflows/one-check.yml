@@ -22,7 +22,7 @@ jobs:
     - name: Search for empty braces
       run: |
         # Find all .arb files and search for '{}'
-        if grep -r 'one {}' --include="*.arb" .; then
+        if grep -r 'one {}\\|one{}' --include="*.arb" .; then
           echo "Error: Found empty 'one {}' in .arb files!"
           exit 1
         else
