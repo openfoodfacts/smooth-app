@@ -35,12 +35,8 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   static const int _rows = 5;
   static const int _pageSize = _columns * _rows;
 
-  late final InfiniteScrollProofManager _proofManager =
-      InfiniteScrollProofManager(
-    initialItems: <Proof>[],
-    bearerTokenCallback: () => _bearerToken,
-    onAuthenticateNeeded: _authenticate,
-  );
+  final _InfiniteScrollProofManager _proofManager =
+      _InfiniteScrollProofManager();
 
   String? _bearerToken;
   final ScrollController _gridScrollController = ScrollController();
@@ -48,10 +44,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   @override
   void initState() {
     super.initState();
-
     _gridScrollController.addListener(_scrollListener);
-
-    _authenticate();
   }
 
   void _scrollListener() {
@@ -67,51 +60,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
 
     if (currentScroll > maxScroll - triggerOffset) {
       _proofManager.loadMore(context);
-    }
-  }
-
-  @override
-  void dispose() {
-    _gridScrollController.removeListener(_scrollListener);
-    _gridScrollController.dispose();
-    unawaited(_deleteSession());
-    super.dispose();
-  }
-
-  Future<void> _authenticate() async {
-    final User user = ProductQuery.getWriteUser();
-    final MaybeError<String> token =
-        await OpenPricesAPIClient.getAuthenticationToken(
-      username: user.userId,
-      password: user.password,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
-
-    if (token.isError) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Authentication error: ${token.error}')),
-        );
-      }
-      return;
-    }
-
-    _bearerToken = token.value;
-
-    if (mounted) {
-      setState(() {
-        _proofManager.loadInitiallyIfNeeded(context);
-      });
-    }
-  }
-
-  Future<void> _deleteSession() async {
-    if (_bearerToken != null) {
-      await OpenPricesAPIClient.deleteUserSession(
-        uriHelper: ProductQuery.uriPricesHelper,
-        bearerToken: _bearerToken!,
-      );
-      _bearerToken = null;
     }
   }
 
@@ -238,27 +186,33 @@ class _PricesProofsPageState extends State<PricesProofsPage>
 }
 
 /// A manager for handling proof data with infinite scrolling
-class InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
-  InfiniteScrollProofManager({
-    required super.initialItems,
-    required this.bearerTokenCallback,
-    required this.onAuthenticateNeeded,
-  });
-
-  /// Callback to get the bearer token for API requests
-  final String? Function() bearerTokenCallback;
-
-  /// Callback to authenticate when token is not available
-  final Future<void> Function() onAuthenticateNeeded;
+class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
+  String? _bearerToken;
 
   static const int pageSize = _PricesProofsPageState._pageSize;
 
   @override
+  Future<void> fetchInit() async {
+    if (_bearerToken != null) {
+      return;
+    }
+
+    final User user = ProductQuery.getWriteUser();
+    final MaybeError<String> token =
+        await OpenPricesAPIClient.getAuthenticationToken(
+      username: user.userId,
+      password: user.password,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+
+    _bearerToken = token.value;
+  }
+
+  @override
   Future<void> fetchData(final int pageNumber) async {
-    final String? bearerToken = bearerTokenCallback();
-    if (bearerToken == null) {
-      await onAuthenticateNeeded();
-      if (bearerTokenCallback() == null) {
+    if (_bearerToken == null) {
+      await fetchInit();
+      if (_bearerToken == null) {
         throw Exception('Authentication failed');
       }
     }
@@ -280,7 +234,7 @@ class InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
         await OpenPricesAPIClient.getProofs(
       parameters,
       uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerTokenCallback()!,
+      bearerToken: _bearerToken!,
     );
 
     if (result.isError) {
@@ -289,11 +243,21 @@ class InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
 
     final GetProofsResult value = result.value;
     updateItems(
-      newItems: value.items!,
-      pageNumber: value.pageNumber!,
+      newItems: value.items,
+      pageNumber: value.pageNumber,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
+  }
+
+  Future<void> deleteSession() async {
+    if (_bearerToken != null) {
+      await OpenPricesAPIClient.deleteUserSession(
+        uriHelper: ProductQuery.uriPricesHelper,
+        bearerToken: _bearerToken!,
+      );
+      _bearerToken = null;
+    }
   }
 
   static const int _columns = _PricesProofsPageState._columns;

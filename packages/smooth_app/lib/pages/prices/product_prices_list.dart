@@ -29,13 +29,13 @@ class ProductPricesList extends StatefulWidget {
 
 class _ProductPricesListState extends State<ProductPricesList>
     with TraceableClientMixin {
-  late final InfiniteScrollPriceManager _priceManager;
+  late final _InfiniteScrollPriceManager _priceManager;
 
   @override
   void initState() {
     super.initState();
-    _priceManager = InfiniteScrollPriceManager(
-      initialItems: widget.pricesResult?.items ?? <Price>[],
+    _priceManager = _InfiniteScrollPriceManager(
+      initialItems: widget.pricesResult?.items,
       model: widget.model,
     );
   }
@@ -50,8 +50,8 @@ class _ProductPricesListState extends State<ProductPricesList>
 }
 
 /// A manager for handling price data with infinite scrolling
-class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
-  InfiniteScrollPriceManager({
+class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
+  _InfiniteScrollPriceManager({
     super.initialItems,
     required this.model,
   });
@@ -75,8 +75,8 @@ class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 
     final GetPricesResult value = result.value;
     updateItems(
-      newItems: value.items!,
-      pageNumber: value.pageNumber!,
+      newItems: value.items,
+      pageNumber: value.pageNumber,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );

@@ -25,8 +25,8 @@ class PricesLocationsPage extends StatefulWidget {
 
 class _PricesLocationsPageState extends State<PricesLocationsPage>
     with TraceableClientMixin {
-  final InfiniteScrollLocationManager _locationManager =
-      InfiniteScrollLocationManager();
+  final _InfiniteScrollLocationManager _locationManager =
+      _InfiniteScrollLocationManager();
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +60,7 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
 }
 
 /// A manager for handling location data with infinite scrolling
-class InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
-  InfiniteScrollLocationManager({
-    super.initialItems,
-  });
-
+class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
   @override
   Future<void> fetchData(final int pageNumber) async {
     final MaybeError<GetLocationsResult> result =
@@ -78,8 +74,8 @@ class InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
     }
     final GetLocationsResult value = result.value;
     updateItems(
-      newItems: value.items!,
-      pageNumber: value.pageNumber!,
+      newItems: value.items,
+      pageNumber: value.pageNumber,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );

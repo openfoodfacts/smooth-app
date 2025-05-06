@@ -41,11 +41,14 @@ abstract class InfiniteScrollManager<T> {
   /// Getter for total pages
   int? get totalPages => _totalPages;
 
-  /// Abstract method to implement the data fetching logic for a specific page
+  @protected
+  Future<void> fetchInit() async {}
+
+  /// Fetches data for a specific page
   @protected
   Future<void> fetchData(int pageNumber);
 
-  /// Optional method to implement custom item rendering
+  /// Displays an item.
   @protected
   Widget buildItem({
     required BuildContext context,
@@ -59,17 +62,20 @@ abstract class InfiniteScrollManager<T> {
   /// Update the list with new items and pagination info
   @protected
   void updateItems({
-    required List<T> newItems,
-    required int pageNumber,
-    int? totalItems,
-    int? totalPages,
+    required List<T>? newItems,
+    required int? pageNumber,
+    required int? totalItems,
+    required int? totalPages,
   }) {
-    if (pageNumber == _initialPage) {
-      _items.clear();
+    if (newItems == null && pageNumber == null) {
+      return;
     }
-
-    _items.addAll(newItems);
-    _currentPage = pageNumber;
+    if (newItems != null) {
+      _items.addAll(newItems);
+    }
+    if (pageNumber != null) {
+      _currentPage = pageNumber;
+    }
     _totalItems = totalItems ?? _totalItems;
     _totalPages = totalPages ?? _totalPages;
   }
@@ -79,7 +85,10 @@ abstract class InfiniteScrollManager<T> {
     if (_items.isNotEmpty) {
       return;
     }
-    await _load(context: context, pageNumber: _initialPage);
+    await fetchInit();
+    if (context.mounted) {
+      await _load(context: context, pageNumber: _initialPage);
+    }
   }
 
   bool canLoadMore() {

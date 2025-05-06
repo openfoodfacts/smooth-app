@@ -22,11 +22,8 @@ class PricesProductsPage extends StatefulWidget {
 
 class _PricesProductsPageState extends State<PricesProductsPage>
     with TraceableClientMixin {
-  static const int _pageSize = 10;
-  final InfiniteScrollProductManager _productManager =
-      InfiniteScrollProductManager(
-    pageSize: _pageSize,
-  );
+  final _InfiniteScrollProductManager _productManager =
+      _InfiniteScrollProductManager();
 
   @override
   Widget build(final BuildContext context) {
@@ -60,13 +57,9 @@ class _PricesProductsPageState extends State<PricesProductsPage>
 }
 
 /// A manager for handling product data with infinite scrolling
-class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
-  InfiniteScrollProductManager({
-    super.initialItems,
-    required this.pageSize,
-  });
-
-  final int pageSize;
+class _InfiniteScrollProductManager
+    extends InfiniteScrollManager<PriceProduct> {
+  static const int _pageSize = 10;
 
   static const List<OrderBy<GetPriceProductsOrderField>> _orderBy =
       <OrderBy<GetPriceProductsOrderField>>[
@@ -82,7 +75,7 @@ class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
         await OpenPricesAPIClient.getPriceProducts(
       GetPriceProductsParameters()
         ..pageNumber = pageNumber
-        ..pageSize = pageSize
+        ..pageSize = _pageSize
         ..orderBy = _orderBy,
       uriHelper: ProductQuery.uriPricesHelper,
     );
@@ -93,8 +86,8 @@ class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
 
     final GetPriceProductsResult value = result.value;
     updateItems(
-      newItems: value.items!,
-      pageNumber: value.pageNumber!,
+      newItems: value.items,
+      pageNumber: value.pageNumber,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );

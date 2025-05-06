@@ -24,11 +24,7 @@ class PricesUsersPage extends StatefulWidget {
 
 class _PricesUsersPageState extends State<PricesUsersPage>
     with TraceableClientMixin {
-  static const int _pageSize = 10;
-
-  final InfiniteScrollUserManager _userManager = InfiniteScrollUserManager(
-    pageSize: _pageSize,
-  );
+  final _InfiniteScrollUserManager _userManager = _InfiniteScrollUserManager();
 
   @override
   Widget build(BuildContext context) {
@@ -62,13 +58,8 @@ class _PricesUsersPageState extends State<PricesUsersPage>
 }
 
 /// A manager for handling user data with infinite scrolling
-class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
-  InfiniteScrollUserManager({
-    super.initialItems,
-    required this.pageSize,
-  });
-
-  final int pageSize;
+class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
+  static const int _pageSize = 10;
 
   @override
   Future<void> fetchData(final int pageNumber) async {
@@ -79,7 +70,7 @@ class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
           ascending: false,
         ),
       ]
-      ..pageSize = pageSize
+      ..pageSize = _pageSize
       ..pageNumber = pageNumber;
 
     final MaybeError<GetUsersResult> result =
@@ -94,8 +85,8 @@ class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
 
     final GetUsersResult value = result.value;
     updateItems(
-      newItems: value.items!,
-      pageNumber: value.pageNumber!,
+      newItems: value.items,
+      pageNumber: value.pageNumber,
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
