@@ -9,6 +9,7 @@ import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -109,7 +110,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                 existingKeys: _getExistingKeys(provider),
               ),
               label: Text(appLocalizations.add_tag),
-              icon: const Icon(Icons.add),
+              icon: const icons.AddProperty.alt(),
             )
           : EMPTY_WIDGET,
     );

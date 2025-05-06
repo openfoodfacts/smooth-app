@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Βοηθήστε στη βελτίωση των Open Food Facts στη χώρα σας",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -406,6 +406,10 @@
   "contribute_share_content": "Ήθελα να σας ενημερώσω για την εφαρμογή που χρησιμοποιώ, το Open Food Facts, η οποία σας επιτρέπει να μαθαίνετε τις επιπτώσεις των τροφίμων σας στην υγεία και το περιβάλλον, με εξατομικευμένο τρόπο. Λειτουργεί σαρώνοντας τους γραμμωτούς κώδικες στη συσκευασία. Τέλος, είναι δωρεάν, δεν απαιτεί εγγραφή και μπορείτε ακόμη και να αυξήσετε τον αριθμό των προϊόντων που αποκρυπτογραφούνται. Ο σύνδεσμος για να το αποκτήσετε για το τηλέφωνό σας: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
+  },
+  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "@contribute_prices_gdpr": {
+    "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
   "tap_to_answer": "Πατήστε εδώ για να απαντήσετε σε ερωτήσεις",
   "@tap_to_answer": {
@@ -770,6 +774,7 @@
   "score_add_missing_ingredients": "Προσθήκη συστατικών που λείπουν",
   "score_add_missing_packaging_image": "Προσθήκη εικόνας συσκευασίας που λείπει",
   "score_add_missing_nutrition_facts": "Προσθήκη διατροφικών στοιχείων που λείπουν",
+  "score_add_missing_product_traces": "Προσθήκη ιχνών προϊόντων που λείπουν",
   "score_add_missing_product_category": "Προσθήκη κατηγορίας",
   "score_add_missing_product_countries": "Προσθήκη χωρών προϊόντος που λείπουν",
   "score_add_missing_product_emb": "Προσθήκη κωδικών ιχνηλασιμότητας προϊόντος που λείπουν",
@@ -949,7 +954,7 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Date",
+  "product_image_details_date": "Ημερομηνία",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -965,7 +970,7 @@
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Search for a product",
+  "homepage_main_card_search_field_hint": "Αναζητήσετε ένα προϊόν",
   "homepage_main_card_search_field_tooltip": "Έναρξη αναζήτησης",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
@@ -1157,7 +1162,7 @@
       "percent": {}
     }
   },
-  "plural_ago_days": "{count,plural,  =1{μια μέρα πριν} other{{count} μέρες πριν}}",
+  "plural_ago_days": "{count,plural, =1{μια μέρα πριν} other{{count} μέρες πριν}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
@@ -1232,15 +1237,15 @@
   },
   "retry_button_label": "Προσπαθήστε ξανά",
   "connect_with_us": "Συνδεθείτε μαζί μας",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Ακολουθήστε μας στο TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Ακολουθήστε μας στο Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
   "twitter": "Ακολουθήστε μας στο X (πρώην Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Ακολουθήστε μας στο Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Ακολουθήστε μας στο BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Ιστολόγιο",
   "faq": "Συχνές ερωτήσεις",
@@ -1600,6 +1605,10 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
+  "edit_product_form_item_add_action_trace": "Προσθήκη νέου ίχνους",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
   "edit_product_form_item_add_suggestion": "Προσθήκη πρότασης",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
@@ -1795,6 +1804,18 @@
   "edit_product_form_item_emb_help_info2_item2_explanation": "EMB 72264",
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
+  },
+  "edit_product_form_item_traces_title": "Ίχνη",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "ίχνος",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Εισαγάγετε ένα ίχνος (πχ: φασόλια σόγιας)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
   },
   "edit_product_form_item_categories_title": "Κατηγορίες",
   "@edit_product_form_item_categories_title": {
@@ -2240,9 +2261,9 @@
       }
     }
   },
-  "product_type_label_food": "Food",
+  "product_type_label_food": "Τροφή",
   "product_type_label_beauty": "Προσωπική φροντίδα",
-  "product_type_label_pet_food": "Pet food",
+  "product_type_label_pet_food": "Τροφή κατοικιδίων",
   "product_type_label_product": "Άλλο",
   "product_type_selection_title": "Τύπος προϊόντος",
   "product_type_selection_subtitle": "Επιλέξτε τον τύπο αυτού του προϊόντος",
@@ -2261,13 +2282,16 @@
   },
   "prices_app_dev_mode_flag": "Συντόμευση στην εφαρμογή Τιμές στη σελίδα προϊόντος",
   "prices_app_button": "Μεταβείτε στην εφαρμογή Τιμές",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_select": "Προσθήκη ετικετών τιμών απευθείας από τη συλλογή",
+  "prices_bulk_proof_upload_warning": "Μόλις επιλέξετε εικόνες, δεν θα μπορείτε να τις επεξεργαστείτε!",
+  "prices_bulk_proof_upload_subtitle": "Πολλαπλές Ετικέτες Τιμής",
+  "prices_bulk_proof_upload_title": "Μεταφόρτωση Μαζικής Απόδειξης",
+  "prices_generic_title": "Τιμές",
   "prices_bulk_proof_upload_action": "Send the proof",
-  "prices_generic_title": "Prices",
   "prices_add_n_prices": "{count,plural, =1{Προσθήκη τιμής} other{Προσθήκη {count} τιμών}}",
   "prices_send_n_prices": "{count,plural, =1{Στείλτε την τιμή} other{Στείλτε {count} τιμές}}",
   "prices_add_an_item": "Προσθήκη αντικειμένου",
-  "prices_add_a_price": "Add a price",
+  "prices_add_a_price": "Προσθήκη μίας τιμής",
   "prices_add_a_receipt": "Προσθήκη απόδειξης",
   "prices_add_price_tags": "Προσθήκη ετικετών τιμής",
   "prices_barcode_already": "Αυτός ο γραμμωτός κώδικας ({barcode}) είναι ήδη στη λίστα!",
@@ -2440,26 +2464,26 @@
   },
   "prices_amount_subtitle": "Ποσότητα",
   "prices_amount_is_discounted": "Σε έκπτωση;",
-  "prices_amount_price_normal": "Price",
-  "prices_amount_price_discounted": "Discounted price",
+  "prices_amount_price_normal": "Τιμή",
+  "prices_amount_price_discounted": "Τιμή με έκπτωση",
   "prices_amount_price_not_discounted": "Αρχική τιμή",
   "prices_amount_no_product": "Ένα προϊόν λείπει!",
   "prices_amount_price_incorrect": "Λάθος τιμή",
   "prices_amount_price_mandatory": "Υποχρεωτική τιμή",
-  "prices_currency_subtitle": "Currency",
-  "prices_date_subtitle": "Date",
+  "prices_currency_subtitle": "Νόμισμα",
+  "prices_date_subtitle": "Ημερομηνία",
   "prices_location_subtitle": "Κατάστημα",
   "prices_location_find": "Βρείτε ένα κατάστημα",
   "prices_location_mandatory": "Πρέπει να επιλέξετε ένα κατάστημα!",
   "prices_location_search_broader": "Δεν βρήκατε αυτό που ψάχνατε; Ας δοκιμάσουμε μια ευρύτερη αναζήτηση!",
-  "prices_proof_subtitle": "Proof",
+  "prices_proof_subtitle": "Επαλήθευση",
   "prices_proof_find": "Επιλέξτε μια απόδειξη",
-  "prices_proof_receipt": "Receipt",
-  "prices_proof_price_tag": "Price tag",
+  "prices_proof_receipt": "Απόδειξη",
+  "prices_proof_price_tag": "Ετικέτα τιμής",
   "prices_proof_mandatory": "Πρέπει να επιλέξετε μια απόδειξη!",
   "prices_add_validation_error": "Σφάλμα επικύρωσης",
   "prices_privacy_warning_title": "Ειδοποίηση απορρήτου",
-  "prices_unknown_product": "Unknown product",
+  "prices_unknown_product": "Άγνωστο προϊόν",
   "prices_privacy_warning_main_message": "Οι τιμές **θα είναι δημόσιες**, μαζί με το κατάστημα στο οποίο αναφέρονται.\n\nΑυτό μπορεί να επιτρέψει σε άτομα που γνωρίζουν το ψευδώνυμό σας Open Food Facts να:\n",
   "prices_privacy_warning_message_bullet_1": "Συμπεράνει σε ποια περιοχή μένετε",
   "prices_privacy_warning_message_bullet_2": "Μάθει τι αγοράζετε",
@@ -2577,11 +2601,11 @@
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
-  "user_search_prices_title": "My prices",
+  "user_search_prices_title": "Οι τιμές μου",
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
-  "user_search_proofs_title": "My proofs",
+  "user_search_proofs_title": "Οι επαληθεύσεις μου",
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
@@ -2605,7 +2629,7 @@
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "Βοηθός Συνεισφοράς Τιμής",
   "prices_validation_assistant": "Price Validation Assistant",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
@@ -2614,7 +2638,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Προσθήκη Πολλαπλών Επαληθεύσεων",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2730,7 +2754,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Πριν από την επικύρωση, βεβαιωθείτε ότι προσθέτετε μία μετάφραση **μόνο αν υπάρχει η γλώσσα στη συσκευασία**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3686,7 +3710,7 @@
   "contact_title_press_page": "Σελίδα Τύπου",
   "contact_title_press_email": "Επικοινωνία Τύπου",
   "contact_title_newsletter": "Εγγραφείτε στο ενημερωτικό μας δελτίο",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Εγγραφείτε στο ημερολόγιο της κοινότητάς μας",
   "hunger_games_loading_line1": "Δώστε μας λίγα δευτερόλεπτα…",
   "hunger_games_loading_line2": "Κατεβάζουμε τις ερωτήσεις!",
   "hunger_games_error_label": "Πω! Κάτι πήγε στραβά… και δεν μπορέσαμε να φορτώσουμε τις ερωτήσεις.",
@@ -3759,8 +3783,8 @@
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
   "guide_nutriscore_v2_where_title": "Πού θα βρείτε τον νέο υπολογισμό Nutri-Score;",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "Το Nutri-Score εφαρμόζεται σε 7 χώρες: Γαλλία, Γερμανία, Βέλγιο, Ισπανία, Λουξεμβούργο, Ολλανδία και Ελβετία.",
+  "guide_nutriscore_v2_where_paragraph2": "Οι κατασκευαστές έχουν το πολύ **2 έτη** το αργότερο μετά την υπογραφή του διατάγματος **για να αντικαταστήσουν** τον παλιό υπολογισμό με τον νέο.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
@@ -3803,7 +3827,7 @@
       }
     }
   },
-  "photo_viewer_details_button": "Details",
+  "photo_viewer_details_button": "Λεπτομέρειες",
   "@photo_viewer_details_button": {
     "description": "Button to show details of the photo"
   },
@@ -3835,7 +3859,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Date",
+  "photo_viewer_details_date_title": "Ημερομηνία",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -3989,7 +4013,7 @@
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_error_button": "Προσπαθήστε ξανά",
-  "carousel_unknown_product_header": "Unknown product",
+  "carousel_unknown_product_header": "Άγνωστο προϊόν",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
@@ -4033,7 +4057,7 @@
   "photo_field_packaging": "Φωτογραφία πληροφοριών συσκευασίας",
   "photo_already_exists": "Αυτή η φωτογραφία υπάρχει ήδη",
   "photo_missing": "Αυτή η φωτογραφία λείπει",
-  "date": "Date",
+  "date": "Ημερομηνία",
   "photo_rotate_left": "Περιστροφή αριστερά",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
@@ -4080,11 +4104,11 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Εξαγωγή",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Εισαγωγή",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
@@ -4104,7 +4128,7 @@
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
-  "product_footer_action_contributor_guide": "Help",
+  "product_footer_action_contributor_guide": "Βοήθεια",
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
@@ -4124,31 +4148,31 @@
       }
     }
   },
-  "app_review_title": "Are you enjoying this app?",
+  "app_review_title": "Σας αρέσει η εφαρμογή;",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "Θα μπορούσε καλύτερα",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "Όχι και άσχημα",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "Τη λατρεύω!",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "Βοηθήστε μας να βελτιώσουμε την εφαρμογή μας",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "Εάν έχετε λίγα λεπτά, θα μπορούσατε να απαντήσετε σε αυτήν τη φόρμα, ώστε **να βελτιωθούμε σε μελλοντικές ενημερώσεις**:",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "Απαντήστε τη φόρμα",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4156,20 +4180,184 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "ΝΕΟ: Μπορείτε να εξαγάγετε αυτόματα τα θρεπτικά συστατικά από την εικόνα!",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "Εξαγωγή τώρα",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
+  "nutrition_facts_extract_succesful": "Επιτυχής εξαγωγή",
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_failed": "Αποτυχία εξαγωγής θρεπτικών συστατικών από την εικόνα",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Discount",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
+  },
+  "prices_stats_statistics": "Statistics",
+  "@prices_stats_statistics": {
+    "description": "Label for statistics section"
+  },
+  "prices_stats_title": "Prices Statistics",
+  "@prices_stats_title": {
+    "description": "Title for the prices statistics page"
+  },
+  "prices_stats_prices_section": "Τιμές",
+  "@prices_stats_prices_section": {
+    "description": "Title for the prices section"
+  },
+  "prices_stats_products_section": "Προϊόντα",
+  "@prices_stats_products_section": {
+    "description": "Title for the products section"
+  },
+  "prices_stats_locations_section": "Locations",
+  "@prices_stats_locations_section": {
+    "description": "Title for the locations section"
+  },
+  "prices_stats_proofs_section": "Proofs",
+  "@prices_stats_proofs_section": {
+    "description": "Title for the proofs section"
+  },
+  "prices_stats_contributors_section": "Χρηστες",
+  "@prices_stats_contributors_section": {
+    "description": "Title for the contributors section"
+  },
+  "prices_stats_experiments_section": "Experiments",
+  "@prices_stats_experiments_section": {
+    "description": "Title for the experiments section"
+  },
+  "prices_stats_misc_section": "Διάφορα",
+  "@prices_stats_misc_section": {
+    "description": "Title for the miscellaneous section"
+  },
+  "prices_stats_total": "Σύνολο",
+  "@prices_stats_total": {
+    "description": "Label for total count"
+  },
+  "prices_stats_with_barcode": "With a barcode",
+  "@prices_stats_with_barcode": {
+    "description": "Label for count with barcode"
+  },
+  "prices_stats_with_category": "With a category",
+  "@prices_stats_with_category": {
+    "description": "Label for count with category"
+  },
+  "prices_stats_with_discount": "With a discount",
+  "@prices_stats_with_discount": {
+    "description": "Label for count with discount"
+  },
+  "prices_stats_community": "Community",
+  "@prices_stats_community": {
+    "description": "Label for community count"
+  },
+  "prices_stats_consumption": "Κατανάλωση",
+  "@prices_stats_consumption": {
+    "description": "Label for consumption count"
+  },
+  "prices_stats_with_price": "With a price",
+  "@prices_stats_with_price": {
+    "description": "Label for count with price"
+  },
+  "prices_stats_food": "Τροφή",
+  "@prices_stats_food": {
+    "description": "Label for food count"
+  },
+  "prices_stats_beauty": "Ομορφιά",
+  "@prices_stats_beauty": {
+    "description": "Label for beauty count"
+  },
+  "prices_stats_products": "Προϊόντα",
+  "@prices_stats_products": {
+    "description": "Label for products count"
+  },
+  "prices_stats_pet_food": "Τροφή κατοικιδίων",
+  "@prices_stats_pet_food": {
+    "description": "Label for pet food count"
+  },
+  "prices_stats_osm": "OpenStreetMap",
+  "@prices_stats_osm": {
+    "description": "Label for OpenStreetMap count"
+  },
+  "prices_stats_online": "Online",
+  "@prices_stats_online": {
+    "description": "Label for online count"
+  },
+  "prices_stats_countries": "Χώρες",
+  "@prices_stats_countries": {
+    "description": "Label for countries count"
+  },
+  "prices_stats_price_tag": "Ετικέτα τιμής",
+  "@prices_stats_price_tag": {
+    "description": "Label for price tag count"
+  },
+  "prices_stats_receipt": "Απόδειξη",
+  "@prices_stats_receipt": {
+    "description": "Label for receipt count"
+  },
+  "prices_stats_gdpr_request": "GDPR request",
+  "@prices_stats_gdpr_request": {
+    "description": "Label for GDPR request count"
+  },
+  "prices_stats_shop_import": "Shop import",
+  "@prices_stats_shop_import": {
+    "description": "Label for shop import count"
+  },
+  "prices_stats_challenges": "Challenges",
+  "@prices_stats_challenges": {
+    "description": "Label for challenges count"
+  },
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "@prices_stats_linked_to_price_tag": {
+    "description": "Label for prices linked to a price tag count"
+  },
+  "prices_stats_currencies": "Currencies",
+  "@prices_stats_currencies": {
+    "description": "Label for currencies count"
+  },
+  "prices_stats_years": "Years",
+  "@prices_stats_years": {
+    "description": "Label for years count"
+  },
+  "prices_stats_by_source_title": "Prices and proofs per source",
+  "@prices_stats_by_source_title": {
+    "description": "Title for prices and proofs per source section"
+  },
+  "prices_stats_website": "Ιστοσελίδα",
+  "@prices_stats_website": {
+    "description": "Label for website source"
+  },
+  "prices_stats_mobile_app": "Mobile app",
+  "@prices_stats_mobile_app": {
+    "description": "Label for mobile app source"
+  },
+  "prices_stats_api": "API",
+  "@prices_stats_api": {
+    "description": "Label for API source"
+  },
+  "prices_stats_other": "Άλλο",
+  "@prices_stats_other": {
+    "description": "Label for other sources"
+  },
+  "prices_stats_last_updated": "Last updated on",
+  "@prices_stats_last_updated": {
+    "description": "Label for last updated timestamp"
+  },
+  "prices_stats_error": "An error occurred while loading statistics.",
+  "@prices_stats_error": {
+    "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "Question answered!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Επαλήθευση",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
   }
 }
