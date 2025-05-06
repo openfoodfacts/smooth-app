@@ -94,11 +94,12 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
   final MediaType initialMediaType =
       HttpHelper().imagineMediaType(initialImageUri.path)!;
   final MaybeError&lt;Proof&gt; uploadProof = await OpenPricesAPIClient.uploadProof(
-    proofType: proofType,
-    date: date,
-    currency: currency,
-    locationOSMId: locationOSMId,
-    locationOSMType: locationOSMType,
+    createProofParameters: CreateProofParameters(proofType)
+      ..date = date
+      ..currency = currency
+      ..locationOSMId = locationOSMId
+      ..locationOSMType = locationOSMType
+      ..readyForPriceTagValidation = proofType == ProofType.priceTag,
     imageUri: initialImageUri,
     mediaType: initialMediaType,
     bearerToken: bearerToken,
