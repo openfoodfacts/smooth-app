@@ -32,6 +32,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
+import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -255,7 +256,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         appBar: SmoothTopBar2(
           title: _appBarTitles![_pageNumber],
           forceMultiLines: true,
-          leadingAction: SmoothTopBarLeadingAction.back,
+          leadingAction: SmoothLeadingAction.back,
           topWidget: PreferredSize(
             preferredSize: const Size(
               double.infinity,

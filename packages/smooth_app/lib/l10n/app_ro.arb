@@ -3556,7 +3556,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Descărcați partea de sus {count,plural,  one {}  few {{count} produse}other{{count} produse}} în țara dvs. pentru scanare instantanee",
+  "download_top_n_products": "Descărcați partea de sus {count,plural, few {{count} produse}other{{count} produse}} în țara dvs. pentru scanare instantanee",
   "@download_top_n_products": {
     "placeholders": {
       "count": {

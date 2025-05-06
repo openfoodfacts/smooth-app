@@ -27,6 +27,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
@@ -75,7 +76,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         topBar: SmoothTopBar2(
           title: AppLocalizations.of(context).edit_product_label,
           subTitle: '$productName, $productBrands',
-          leadingAction: SmoothTopBarLeadingAction.back,
+          leadingAction: SmoothLeadingAction.back,
           backgroundColor:
               lightTheme ? extension.primaryBlack : extension.primaryUltraBlack,
           foregroundColor: lightTheme ? Colors.white : null,
