@@ -60,9 +60,7 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   }
 
   void _scrollListener() {
-    if (widget.manager.isLoading ||
-        !(widget.manager.totalPages == null ||
-            widget.manager.currentPage < widget.manager.totalPages!)) {
+    if (!widget.manager.canLoadMore()) {
       return;
     }
 

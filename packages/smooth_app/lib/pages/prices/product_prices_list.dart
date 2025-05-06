@@ -34,12 +34,9 @@ class _ProductPricesListState extends State<ProductPricesList>
   @override
   void initState() {
     super.initState();
-    final List<Price> initialItems = widget.pricesResult?.items ?? <Price>[];
-
     _priceManager = InfiniteScrollPriceManager(
-      initialItems: initialItems,
+      initialItems: widget.pricesResult?.items ?? <Price>[],
       model: widget.model,
-      buildPriceItem: _buildPriceItem,
     );
   }
 
@@ -50,43 +47,17 @@ class _ProductPricesListState extends State<ProductPricesList>
       manager: _priceManager,
     );
   }
-
-  Widget _buildPriceItem(BuildContext context, Price price) {
-    final PriceProduct? priceProduct = price.product;
-
-    return SmoothCard(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (widget.model.displayEachProduct && priceProduct != null)
-            PriceProductWidget(
-              priceProduct,
-              enableCountButton: widget.model.enableCountButton,
-            ),
-          PriceDataWidget(
-            price,
-            model: widget.model,
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 /// A manager for handling price data with infinite scrolling
 class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   InfiniteScrollPriceManager({
-    required super.initialItems,
+    super.initialItems,
     required this.model,
-    required this.buildPriceItem,
   });
 
   /// The model containing price query parameters
   final GetPricesModel model;
-
-  /// Function to build price item widget
-  final Widget Function(BuildContext context, Price price) buildPriceItem;
 
   @override
   Future<void> fetchData(int pageNumber) async {
@@ -116,6 +87,23 @@ class InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
     required BuildContext context,
     required Price item,
   }) {
-    return buildPriceItem(context, item);
+    final PriceProduct? priceProduct = item.product;
+    return SmoothCard(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          if (model.displayEachProduct && priceProduct != null)
+            PriceProductWidget(
+              priceProduct,
+              enableCountButton: model.enableCountButton,
+            ),
+          PriceDataWidget(
+            item,
+            model: model,
+          ),
+        ],
+      ),
+    );
   }
 }

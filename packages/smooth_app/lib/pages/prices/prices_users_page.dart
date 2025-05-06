@@ -27,37 +27,8 @@ class _PricesUsersPageState extends State<PricesUsersPage>
   static const int _pageSize = 10;
 
   final InfiniteScrollUserManager _userManager = InfiniteScrollUserManager(
-    initialItems: <PriceUser>[], // Use non-const empty list
     pageSize: _pageSize,
-    itemBuilder: (BuildContext context, PriceUser user) {
-      final int priceCount = user.priceCount ?? 0;
-      return SmoothCard(
-        child: Wrap(
-          spacing: VERY_SMALL_SPACE,
-          children: <Widget>[
-            PriceUserButton(user.userId),
-            PriceCountWidget(
-              count: priceCount,
-              onPressed: () async => PriceUserButton.showUserPrices(
-                user: user.userId,
-                context: context,
-              ),
-            ),
-          ],
-        ),
-      );
-    },
   );
-
-  @override
-  void initState() {
-    super.initState();
-    // Trigger initial data fetch after the first frame
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Force the manager to fetch the first page
-      _userManager.fetchData(1);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,16 +64,11 @@ class _PricesUsersPageState extends State<PricesUsersPage>
 /// A manager for handling user data with infinite scrolling
 class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   InfiniteScrollUserManager({
-    required super.initialItems,
+    super.initialItems,
     required this.pageSize,
-    required this.itemBuilder,
   });
 
-  /// Number of items per page
   final int pageSize;
-
-  /// The item builder function
-  final Widget Function(BuildContext, PriceUser) itemBuilder;
 
   @override
   Future<void> fetchData(final int pageNumber) async {
@@ -140,6 +106,21 @@ class InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
     required BuildContext context,
     required PriceUser item,
   }) {
-    return itemBuilder(context, item);
+    final int priceCount = item.priceCount ?? 0;
+    return SmoothCard(
+      child: Wrap(
+        spacing: VERY_SMALL_SPACE,
+        children: <Widget>[
+          PriceUserButton(item.userId),
+          PriceCountWidget(
+            count: priceCount,
+            onPressed: () async => PriceUserButton.showUserPrices(
+              user: item.userId,
+              context: context,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

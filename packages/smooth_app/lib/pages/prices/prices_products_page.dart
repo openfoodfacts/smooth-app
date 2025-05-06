@@ -22,18 +22,11 @@ class PricesProductsPage extends StatefulWidget {
 
 class _PricesProductsPageState extends State<PricesProductsPage>
     with TraceableClientMixin {
-  late final InfiniteScrollProductManager _productManager =
+  static const int _pageSize = 10;
+  final InfiniteScrollProductManager _productManager =
       InfiniteScrollProductManager(
-    initialItems: <PriceProduct>[],
+    pageSize: _pageSize,
   );
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _productManager.fetchData(1);
-    });
-  }
 
   @override
   Widget build(final BuildContext context) {
@@ -69,11 +62,13 @@ class _PricesProductsPageState extends State<PricesProductsPage>
 /// A manager for handling product data with infinite scrolling
 class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
   InfiniteScrollProductManager({
-    required super.initialItems,
+    super.initialItems,
+    required this.pageSize,
   });
 
-  static const int _pageSize = 10;
-  static const List<OrderBy<GetPriceProductsOrderField>> orderBy =
+  final int pageSize;
+
+  static const List<OrderBy<GetPriceProductsOrderField>> _orderBy =
       <OrderBy<GetPriceProductsOrderField>>[
     OrderBy<GetPriceProductsOrderField>(
       field: GetPriceProductsOrderField.priceCount,
@@ -87,8 +82,8 @@ class InfiniteScrollProductManager extends InfiniteScrollManager<PriceProduct> {
         await OpenPricesAPIClient.getPriceProducts(
       GetPriceProductsParameters()
         ..pageNumber = pageNumber
-        ..pageSize = _pageSize
-        ..orderBy = orderBy,
+        ..pageSize = pageSize
+        ..orderBy = _orderBy,
       uriHelper: ProductQuery.uriPricesHelper,
     );
 

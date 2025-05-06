@@ -46,7 +46,6 @@ abstract class InfiniteScrollManager<T> {
   Future<void> fetchData(int pageNumber);
 
   /// Optional method to implement custom item rendering
-  /// Subclasses can override this to provide custom item display logic
   @protected
   Widget buildItem({
     required BuildContext context,
@@ -81,6 +80,10 @@ abstract class InfiniteScrollManager<T> {
       return;
     }
     await _load(context: context, pageNumber: _initialPage);
+  }
+
+  bool canLoadMore() {
+    return !_isLoading && (totalPages == null || currentPage < totalPages!);
   }
 
   /// Load more items (next page)

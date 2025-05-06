@@ -4420,4 +4420,5 @@
   "prices_proof_error": "Authentication failed, unable to fetch proofs",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  }
 }
