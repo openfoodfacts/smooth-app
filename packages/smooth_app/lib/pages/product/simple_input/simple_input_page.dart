@@ -12,8 +12,8 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/pages/product/simple_input_widget.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_widget.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -250,7 +250,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     AbstractSimpleInputPageHelper helper,
   ) async {
     for (final MapEntry<RobotoffQuestion, InsightAnnotation?> entry
-        in helper.getRobotoffQuestions().value.entries) {
+        in helper.robotoffQuestionsNotifier.value.entries) {
       final RobotoffQuestion question = entry.key;
       final InsightAnnotation? annotation = entry.value;
 

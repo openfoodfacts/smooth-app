@@ -3556,7 +3556,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Téléchargez le top {count,plural,  one {}other{{count} produits}} dans votre pays pour une numérisation instantanée",
+  "download_top_n_products": "Téléchargez le top {count,plural, other{{count} produits}} dans votre pays pour une scan instantané",
   "@download_top_n_products": {
     "placeholders": {
       "count": {

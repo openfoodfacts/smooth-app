@@ -1162,7 +1162,7 @@
       "percent": {}
     }
   },
-  "plural_ago_days": "{count,plural,  one {}=1{en dag siden} other{{count} dage siden}}",
+  "plural_ago_days": "{count,plural, =1{en dag siden} other{{count} dage siden}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
@@ -2287,8 +2287,8 @@
   "prices_bulk_proof_upload_subtitle": "Flere prismærker",
   "prices_bulk_proof_upload_title": "Bulk bevis upload",
   "prices_generic_title": "Priser",
-  "prices_add_n_prices": "{count,plural, one {}=1{Tilføj en pris} other{Tilføj {count} priser}}",
-  "prices_send_n_prices": "{count,plural, one {}=1{Send prisen} other{Send {count} priser}}",
+  "prices_add_n_prices": "{count,plural, =1{Tilføj en pris} other{Tilføj {count} priser}}",
+  "prices_send_n_prices": "{count,plural, =1{Send prisen} other{Send {count} priser}}",
   "prices_add_an_item": "Tilføj et element",
   "prices_add_a_price": "Tilføj en pris",
   "prices_add_a_receipt": "Tilføj en kvittering",
@@ -2316,7 +2316,7 @@
   "prices_barcode_enter": "Indtast stregkoden",
   "prices_barcode_reader_action": "Stregkodelæser",
   "prices_view_prices": "Se priserne",
-  "prices_product_accessibility_summary": "{count,plural, one {}=1{1 pris} other{{count} priser}} for {product}",
+  "prices_product_accessibility_summary": "{count,plural, =1{1 pris} other{{count} priser}} for {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2328,7 +2328,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, one {}=0{Ingen pris endnu} =1{Kun én pris} other{Alle {count} priser}}",
+  "prices_list_length_one_page": "{count,plural, =0{Ingen pris endnu} =1{Kun én pris} other{Alle {count} priser}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2380,7 +2380,7 @@
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Intet bevis endnu} =1{Kun ét bevis} other{Alle {count} beviser}}",
+  "prices_proofs_list_length_one_page": "{count,plural, =0{Intet bevis endnu} =1{Kun ét bevis} other{Alle {count} beviser}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2425,7 +2425,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, one {}=0{Intet bevis} =1{Et bevis} other{{count} beviser}}",
+  "prices_button_count_proof": "{count,plural, =0{Intet bevis} =1{Et bevis} other{{count} beviser}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2434,7 +2434,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, one {}=0{Intet produkt} =1{Et produkt} other{{count} produkter}}",
+  "prices_button_count_product": "{count,plural, =0{Intet produkt} =1{Et produkt} other{{count} produkter}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2443,7 +2443,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, one {}=0{Ingen bruger} =1{Én bruger} other{{count} brugere}}",
+  "prices_button_count_user": "{count,plural, =0{Ingen bruger} =1{Én bruger} other{{count} brugere}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2452,7 +2452,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, one {}=0{Ingen pris} =1{En pris} other{{count} priser}}",
+  "prices_button_count_price": "{count,plural, =0{Ingen pris} =1{En pris} other{{count} priser}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -3556,7 +3556,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Download {count,plural,  one {}other{{count} topprodukterne}} i dit land til øjeblikkelig skanning",
+  "download_top_n_products": "Download {count,plural,  other{{count} topprodukterne}} i dit land til øjeblikkelig skanning",
   "@download_top_n_products": {
     "placeholders": {
       "count": {

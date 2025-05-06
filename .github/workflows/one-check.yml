@@ -1,0 +1,30 @@
+name: Check for one {} in .arb Files
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  check-empty-braces:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Search for empty braces
+      run: |
+        # Find all .arb files and search for '{}'
+        if grep -r 'one {}\\|one{}' --include="*.arb" .; then
+          echo "Error: Found empty 'one {}' in .arb files!"
+          exit 1
+        else
+          echo "No empty 'one {}' found in .arb files."
+        fi
