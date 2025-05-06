@@ -87,8 +87,8 @@ Widget build(BuildContext context) {
         topBar: SmoothTopBar2(
           title: title,
           leadingAction: provider.autoValidate
-              ? SmoothTopBarLeadingAction.minimize
-              : SmoothTopBarLeadingAction.close,
+              ? SmoothLeadingAction.minimize
+              : SmoothLeadingAction.close,
           elevationOnScroll: false,
         ),
         bottomBar: !provider.autoValidate

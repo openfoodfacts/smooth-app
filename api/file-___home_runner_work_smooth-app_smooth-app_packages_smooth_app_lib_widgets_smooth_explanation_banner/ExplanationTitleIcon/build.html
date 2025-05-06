@@ -73,6 +73,8 @@
 Widget build(BuildContext context) {
   final String title = this.title ??
       AppLocalizations.of(context).edit_product_form_item_help(type!);
+  final SmoothColorsThemeExtension extension =
+      context.extension&lt;SmoothColorsThemeExtension&gt;();
 
   return SmoothCardHeaderButton(
     tooltip: title,
@@ -85,10 +87,9 @@ Widget build(BuildContext context) {
           return SmoothModalSheet(
             title: title,
             prefixIndicator: true,
-            headerBackgroundColor:
-                SmoothCardWithRoundedHeaderTop.getHeaderColor(
-              context,
-            ),
+            headerBackgroundColor: context.lightTheme(listen: false)
+                ? extension.primaryBlack
+                : extension.primarySemiDark,
             bodyPadding: margin,
             body: SmoothModalSheetBodyContainer(
               padding: padding,
