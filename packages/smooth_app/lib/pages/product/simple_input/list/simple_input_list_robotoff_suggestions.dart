@@ -149,19 +149,23 @@ class _SimpleInputListRobotoffSuggestionState
 
                   return Offstage(
                     offstage: _pictureAnimation.value == 0.0,
-                    child: _SimpleInputListRobotoffSuggestionPicture(
+                    child: Opacity(
+                      opacity: _pictureAnimation.value,
+                      child: _SimpleInputListRobotoffSuggestionPicture(
                         onTap: (String heroTag) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              QuestionImageFullPage(
-                            question: question,
-                            heroTag: heroTag,
-                          ),
-                        ),
-                      );
-                    }),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) =>
+                                  QuestionImageFullPage(
+                                question: question,
+                                heroTag: heroTag,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   );
                 },
               ),
@@ -199,6 +203,11 @@ class _SimpleInputListRobotoffSuggestionState
     } else {
       widget.onChanged(newValue);
       SmoothHapticFeedback.lightNotification();
+
+      // Hide the proof
+      if (_imageController.value < 1.0) {
+        _imageController.forward();
+      }
     }
   }
 
@@ -237,7 +246,11 @@ class _SimpleInputListRobotoffSuggestionHeaderState
     _valueController = AnimationController(
       duration: SmoothAnimationsDuration.short,
       vsync: this,
-    )..addListener(() => setState(() {}));
+    )..addListener(() {
+        try {
+          setState(() {});
+        } catch (_) {}
+      });
 
     _valueAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
@@ -275,16 +288,13 @@ class _SimpleInputListRobotoffSuggestionHeaderState
             end: _getTextColor(currentValue, lightTheme),
           ).animate(_valueController);
 
-          if (currentValue != null) {
-            _valueController.forward();
-          } else if (currentValue == null) {
-            _valueController.reverse();
-          }
+          _valueController.forward(from: 0.0);
         }
       },
       child: Material(
         color: Color.lerp(
-          lightTheme ? extension.primaryMedium : extension.primarySemiDark,
+          (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
+              .withValues(alpha: 0.9),
           lightTheme
               ? const Color(0xEAFFFFFF)
               : extension.primaryUltraBlack.withValues(alpha: 0.9),
@@ -363,9 +373,11 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                     tooltip:
                         appLocalizations.edit_product_form_item_deny_suggestion,
                     onTap: () => widget.onValueChanged(false),
-                    visibility: annotation == InsightAnnotation.NO
-                        ? 1 - _valueAnimation.value
-                        : 1.0,
+                    visibility: switch (annotation) {
+                      InsightAnnotation.YES => _valueAnimation.value,
+                      InsightAnnotation.NO => 1 - _valueAnimation.value,
+                      _ => 1.0,
+                    },
                   ),
                   _SimpleInputListRobotoffSuggestionButton(
                     icon: const icons.Add(size: 20.0),
@@ -373,9 +385,11 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                     tooltip:
                         appLocalizations.edit_product_form_item_add_suggestion,
                     onTap: () => widget.onValueChanged(true),
-                    visibility: annotation == InsightAnnotation.YES
-                        ? 1 - _valueAnimation.value
-                        : 1.0,
+                    visibility: switch (annotation) {
+                      InsightAnnotation.YES => 1 - _valueAnimation.value,
+                      InsightAnnotation.NO => _valueAnimation.value,
+                      _ => 1.0,
+                    },
                   ),
                 ],
               ),
@@ -398,6 +412,12 @@ class _SimpleInputListRobotoffSuggestionHeaderState
       _ => lightTheme ? Colors.black : Colors.white,
     };
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _valueController.dispose();
+  }
 }
 
 class _SimpleInputListRobotoffSuggestionButton extends StatelessWidget {
@@ -417,20 +437,27 @@ class _SimpleInputListRobotoffSuggestionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //double visibility = 0.5;
+
     if (visibility == 0.0) {
       return EMPTY_WIDGET;
     }
 
-    return Tooltip(
-      message: tooltip,
-      child: InkWell(
-        customBorder: const CircleBorder(),
-        onTap: onTap,
-        child: Opacity(
-          opacity: visibility,
-          child: Padding(
-            padding: padding,
-            child: icon,
+    return SizedBox.square(
+      dimension: 40.0 * visibility,
+      child: FittedBox(
+        child: Tooltip(
+          message: tooltip,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: onTap,
+            child: Opacity(
+              opacity: visibility,
+              child: Padding(
+                padding: padding,
+                child: icon,
+              ),
+            ),
           ),
         ),
       ),
@@ -464,6 +491,8 @@ class _SimpleInputListRobotoffSuggestionPicture extends StatelessWidget {
           child: Material(
             child: Hero(
               tag: heroTag,
+              createRectTween: (begin, end) =>
+                  RectTween(begin: begin, end: end),
               child: Material(
                 type: MaterialType.transparency,
                 child: SmoothImage(
