@@ -403,7 +403,7 @@
   "contribute_join_skill_pool": "为 Open Food Facts 贡献你的技能。加入技能库！",
   "contribute_share_header": "与朋友分享 Open Food Facts",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "我想介绍一下我一直在用的一款应用——Open Food Facts，它能让你以个性化的方式了解食物对健康和环境的影响。它的工作原理是扫描包装上的条形码。它完全免费，无需注册，你甚至可以帮助增加了解产品的数量。以下是手机应用下载链接：https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -431,7 +431,7 @@
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+  "question_sign_in_text": "登录您的 Open Food Facts 帐户，获取您的贡献值",
   "question_yes_button_accessibility_value": "回答“是”",
   "question_no_button_accessibility_value": "回答“否”",
   "question_skip_button_accessibility_value": "跳过该题",
@@ -506,7 +506,7 @@
   "@filter": {
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
-  "scan": "Products from the Scan screen",
+  "scan": "来自扫描屏幕的产品",
   "@scan": {
     "description": "Page title: List type: Products in the scan session"
   },
@@ -518,7 +518,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_store": "Search for a store",
+  "search_store": "搜索商店",
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
@@ -543,14 +543,14 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+  "outdated_image_accessibility_label": "{imageType} （此图片可能已过时）",
   "@outdated_image_accessibility_label": {
     "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
     "placeholders": {
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "may be outdated",
+  "outdated_image_short_label": "可能已经过时",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
@@ -611,7 +611,7 @@
   "@new_product_leave_message": {
     "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+  "new_product_dialog_description": "请拍摄包装照片以将此产品添加到我们的公共数据库中",
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
@@ -721,10 +721,10 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
-  "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-  "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-  "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+  "hey_incomplete_product_message": "立即点击回答 3 个问题来计算营养分数、绿色分数和超加工分组 (NOVA)！",
+  "hey_incomplete_product_message_beauty": "立即点击回答 2 个问题来帮助分析这款化妆品！",
+  "hey_incomplete_product_message_pet_food": "立即点击回答 3 个问题来帮助分析这种宠物食品！",
+  "hey_incomplete_product_message_product": "立即点击以帮助完成该产品信息的收集！",
   "nutritional_facts_photo_uploaded": "已上传营养成分表照片",
   "@nutritional_facts_photo_uploaded": {},
   "recycling_photo_button_label": "“循环利用标记”的照片",
@@ -747,7 +747,7 @@
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Uploading front image to Open Food Facts",
+  "uploading_image_type_front": "将正面图片上传至 Open Food Facts",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
@@ -3747,7 +3747,7 @@
       }
     }
   },
-  "guide_title": "Guide",
+  "guide_title": "指南",
   "@guide_title": {
     "description": "A title for a guide"
   },
@@ -3756,41 +3756,41 @@
   "@guide_nutriscore_v2_enabled": {
     "description": "Please NEVER touch this value and let the OFF team change it!"
   },
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score 正在不断发展！",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score 是什么？",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score 是一个标志，旨在告诉您**食品的营养质量**。",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "颜色代码各不相同，深绿色（**A**）代表**最健康**的产品，深红色（**E**）代表**不太健康**的产品。",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A 级标志",
+  "guide_nutriscore_v2_why_v2_title": "Nutri-Score 为何不断发展？",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score 公式**正在不断发展**，以提供更好的建议：",
+  "guide_nutriscore_v2_why_v2_arg1_title": "更好地评估所有饮料",
+  "guide_nutriscore_v2_why_v2_arg1_text": "在新算法中，**牛奶**、添加糖的**乳制品饮料**和**植物**饮料的得到了更好的区分。",
+  "guide_nutriscore_v2_why_v2_arg2_title": "更合理的饮料排名",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**糖含量**需要更好地考虑，并且更倾向于**低糖**饮料。\\n**甜味剂也会受到惩罚**：低糖汽水的评级将从 B 级降至 C 到 E 级之间。水仍然是推荐的饮料。",
+  "guide_nutriscore_v2_why_v2_arg3_title": "含有较多盐和糖的产品将受到惩罚（译者注：生理盐水虽然含盐，但对人体应该一定程度上有益）",
+  "guide_nutriscore_v2_why_v2_arg3_text": "**太甜**或**太咸**的产品的**评级将会进一步降低**。",
+  "guide_nutriscore_v2_why_v2_arg4_title": "油和鱼的营养情况也将被进一步细分",
+  "guide_nutriscore_v2_why_v2_arg4_text": "某些**富含脂肪的鱼**和**富含有益脂肪的油**的评级将会提高。",
+  "guide_nutriscore_v2_why_v2_arg5_title": "限制红肉",
+  "guide_nutriscore_v2_why_v2_arg5_text": "**红肉的摄入量应该受到限制**。这就是为什么**家禽的排名相对较高**。",
+  "guide_nutriscore_v2_new_logo_title": "如何区分旧的 Nutri-Score 和新的计算？",
+  "guide_nutriscore_v2_new_logo_text": "从现在开始，标志上可以显示“**新算法**”标记以表明这确实是新的算法。",
+  "guide_nutriscore_v2_new_logo_image_caption": "新版 Nutri-Score 的标志",
   "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
   "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
   "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
+  "guide_nutriscore_v2_where_paragraph3": "无需等待，您**将在 OpenFoodFacts 应用程序中找到**新的计算结果，包括制造商是否尚未更新分数的产品。",
+  "guide_nutriscore_v2_unchanged_title": "哪些要素没有改变",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score 是一个旨在**衡量营养质量**的评分系统。它作为 NOVA 分组关于**超加工食品的补充**（也包含在应用中）。",
   "guide_nutriscore_v2_unchanged_paragraph2": "对于制造商来说，Nutri-Score 的显示**仍然是可选的**。",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_nutriscore_v2_share_message": "",
