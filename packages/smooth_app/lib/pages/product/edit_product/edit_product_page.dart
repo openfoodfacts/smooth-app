@@ -20,9 +20,9 @@ import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_trace_helper.dart';
-import 'package:smooth_app/pages/product/simple_input_page.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';

@@ -159,6 +159,10 @@ class _IconsFont {
       IconData(0xe849, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData delete_trash =
       IconData(0xe84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_property =
+      IconData(0xe84b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_property_alt =
+      IconData(0xe84c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData app_store =
       IconData(0xe84d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData document =
@@ -295,6 +299,8 @@ class _IconsFont {
       IconData(0xe8e1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData recycling =
       IconData(0xe8e2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData remove =
+      IconData(0xe91c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
 
 class _FoodIconsFont {
