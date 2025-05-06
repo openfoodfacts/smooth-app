@@ -4,105 +4,32 @@ import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_image_full_page.dart';
-import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input/list/suggestions/robotoff/robotoff_suggestion_item_button.dart';
+import 'package:smooth_app/pages/product/simple_input/list/suggestions/robotoff/robotoff_suggestion_item_picture.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class SimpleInputListRobotoffSuggestions extends StatelessWidget {
-  const SimpleInputListRobotoffSuggestions({
-    required this.helper,
-    super.key,
-  });
-
-  final AbstractSimpleInputPageHelper helper;
-
-  @override
-  Widget build(BuildContext context) {
-    final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
-        questionsNotifier = context
-            .watch<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>();
-
-    final Map<RobotoffQuestion, InsightAnnotation?> questions =
-        questionsNotifier.value;
-
-    return ListView.separated(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: EdgeInsetsDirectional.only(
-        top: questions.isEmpty ? 0.0 : MEDIUM_SPACE,
-      ),
-      itemCount: questions.entries.length,
-      itemBuilder: (BuildContext context, int position) {
-        final MapEntry<RobotoffQuestion, InsightAnnotation?> entry =
-            questions.entries.elementAt(position);
-
-        return MultiProvider(
-          providers: <SingleChildWidget>[
-            Provider<InsightAnnotation?>.value(
-              value: entry.value,
-            ),
-            Provider<RobotoffQuestion>.value(
-              value: entry.key,
-            ),
-          ],
-          child: _SimpleInputListRobotoffSuggestion(
-            onChanged: (bool? value) {
-              helper.answerRobotoffQuestion(
-                entry.key,
-                value == true
-                    ? InsightAnnotation.YES
-                    : value == false
-                        ? InsightAnnotation.NO
-                        : null,
-              );
-            },
-          ),
-        );
-      },
-      separatorBuilder: (BuildContext context, int position) {
-        if (questions.values.elementAt(position + 1) != null) {
-          return EMPTY_WIDGET;
-        }
-
-        final SmoothColorsThemeExtension extension =
-            context.extension<SmoothColorsThemeExtension>();
-        final bool lightTheme = context.lightTheme();
-
-        return Divider(
-          height: 0.0,
-          thickness: 1.0,
-          color:
-              lightTheme ? extension.primaryLight : extension.primaryUltraBlack,
-        );
-      },
-      shrinkWrap: true,
-    );
-  }
-}
-
-class _SimpleInputListRobotoffSuggestion extends StatefulWidget {
-  const _SimpleInputListRobotoffSuggestion({
+class RobotoffSuggestionListItem extends StatefulWidget {
+  const RobotoffSuggestionListItem({
     required this.onChanged,
   });
 
   final Function(bool? value) onChanged;
 
   @override
-  State<_SimpleInputListRobotoffSuggestion> createState() =>
-      _SimpleInputListRobotoffSuggestionState();
+  State<RobotoffSuggestionListItem> createState() =>
+      _RobotoffSuggestionListItemState();
 }
 
-class _SimpleInputListRobotoffSuggestionState
-    extends State<_SimpleInputListRobotoffSuggestion>
+class _RobotoffSuggestionListItemState extends State<RobotoffSuggestionListItem>
     with SingleTickerProviderStateMixin {
   late final AnimationController _imageController;
   late final Animation<double> _pictureAnimation;
@@ -114,16 +41,16 @@ class _SimpleInputListRobotoffSuggestionState
     _imageController = AnimationController(
       duration: SmoothAnimationsDuration.short,
       vsync: this,
-    )..addListener(() => setState(() {}));
+    )
+      ..addListener(() => setState(() {}))
+      // Image is disabled by default
+      ..value = 1.0;
     _pictureAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
         parent: _imageController,
         curve: Curves.easeInOut,
       ),
     );
-
-    // Disable the image by default
-    _imageController.forward(from: 1.0);
   }
 
   @override
@@ -151,7 +78,7 @@ class _SimpleInputListRobotoffSuggestionState
                     offstage: _pictureAnimation.value == 0.0,
                     child: Opacity(
                       opacity: _pictureAnimation.value,
-                      child: _SimpleInputListRobotoffSuggestionPicture(
+                      child: RobotoffSuggestionListItemPicture(
                         onTap: (String heroTag) {
                           Navigator.push(
                             context,
@@ -246,11 +173,9 @@ class _SimpleInputListRobotoffSuggestionHeaderState
     _valueController = AnimationController(
       duration: SmoothAnimationsDuration.short,
       vsync: this,
-    )..addListener(() {
-        try {
-          setState(() {});
-        } catch (_) {}
-      });
+    )
+      ..addListener(() => setState(() {}))
+      ..value = 0.0;
 
     _valueAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
@@ -262,9 +187,6 @@ class _SimpleInputListRobotoffSuggestionHeaderState
       begin: null,
       end: null,
     ).animate(_valueController);
-
-    // Use the default background
-    _valueController.reverse(from: 0.0);
   }
 
   @override
@@ -281,16 +203,8 @@ class _SimpleInputListRobotoffSuggestionHeaderState
         BuildContext context,
         InsightAnnotation? previousValue,
         InsightAnnotation? currentValue,
-      ) {
-        if (previousValue != currentValue) {
-          _colorAnimation = ColorTween(
-            begin: _getTextColor(previousValue, lightTheme),
-            end: _getTextColor(currentValue, lightTheme),
-          ).animate(_valueController);
-
-          _valueController.forward(from: 0.0);
-        }
-      },
+      ) =>
+          _updateAnimations(context, previousValue, currentValue, lightTheme),
       child: Material(
         color: Color.lerp(
           (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
@@ -318,12 +232,9 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                       child: Row(
                         children: <Widget>[
                           const SizedBox(width: 10.0),
-                          ExcludeSemantics(
-                            child: SparkleAnimation(
-                              type: SparkleAnimationType.grow,
-                              color: _getTextColor(annotation, lightTheme),
-                              size: 18.0,
-                              animated: annotation == null,
+                          _RobotoffSuggestionSparkles(
+                            status: _RobotoffSuggestionStatus.fromAnnotation(
+                              annotation,
                             ),
                           ),
                           const SizedBox(width: SMALL_SPACE),
@@ -364,7 +275,7 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                       ),
                     ),
                   ),
-                  _SimpleInputListRobotoffSuggestionButton(
+                  RobotoffSuggestionListItemButton(
                     icon: const Icon(
                       Icons.delete,
                       size: 25.0,
@@ -373,23 +284,17 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                     tooltip:
                         appLocalizations.edit_product_form_item_deny_suggestion,
                     onTap: () => widget.onValueChanged(false),
-                    visibility: switch (annotation) {
-                      InsightAnnotation.YES => _valueAnimation.value,
-                      InsightAnnotation.NO => 1 - _valueAnimation.value,
-                      _ => 1.0,
-                    },
+                    visible: annotation == null ||
+                        annotation == InsightAnnotation.YES,
                   ),
-                  _SimpleInputListRobotoffSuggestionButton(
+                  RobotoffSuggestionListItemButton(
                     icon: const icons.Add(size: 20.0),
                     padding: const EdgeInsetsDirectional.all(10.0),
                     tooltip:
                         appLocalizations.edit_product_form_item_add_suggestion,
                     onTap: () => widget.onValueChanged(true),
-                    visibility: switch (annotation) {
-                      InsightAnnotation.YES => 1 - _valueAnimation.value,
-                      InsightAnnotation.NO => _valueAnimation.value,
-                      _ => 1.0,
-                    },
+                    visible: annotation == null ||
+                        annotation == InsightAnnotation.NO,
                   ),
                 ],
               ),
@@ -398,6 +303,26 @@ class _SimpleInputListRobotoffSuggestionHeaderState
         ),
       ),
     );
+  }
+
+  void _updateAnimations(
+    BuildContext context,
+    InsightAnnotation? previousValue,
+    InsightAnnotation? currentValue,
+    bool lightTheme,
+  ) {
+    if (previousValue != currentValue) {
+      _colorAnimation = ColorTween(
+        begin: _getTextColor(previousValue, lightTheme),
+        end: _getTextColor(currentValue, lightTheme),
+      ).animate(_valueController);
+
+      if (currentValue != null) {
+        _valueController.forward();
+      } else if (currentValue == null) {
+        _valueController.reverse();
+      }
+    }
   }
 
   Color _getTextColor(InsightAnnotation? value, bool lightTheme) {
@@ -420,113 +345,144 @@ class _SimpleInputListRobotoffSuggestionHeaderState
   }
 }
 
-class _SimpleInputListRobotoffSuggestionButton extends StatelessWidget {
-  const _SimpleInputListRobotoffSuggestionButton({
-    required this.icon,
-    required this.padding,
-    required this.tooltip,
-    required this.onTap,
-    required this.visibility,
+class _RobotoffSuggestionSparkles extends StatefulWidget {
+  const _RobotoffSuggestionSparkles({
+    required this.status,
   });
 
-  final Widget icon;
-  final EdgeInsetsGeometry padding;
-  final String tooltip;
-  final VoidCallback onTap;
-  final double visibility;
+  final _RobotoffSuggestionStatus status;
+
+  @override
+  State<_RobotoffSuggestionSparkles> createState() =>
+      _RobotoffSuggestionSparklesState();
+}
+
+class _RobotoffSuggestionSparklesState
+    extends State<_RobotoffSuggestionSparkles>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late Animation<Color?> _circleColorAnimation;
+  late Animation<Color?> _iconColorAnimation;
+  bool _isInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: SmoothAnimationsDuration.short,
+    )..addListener(() => setState(() {}));
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (_isInitialized) {
+      return;
+    }
+    _isInitialized = true;
+
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    _circleColorAnimation = ColorTween(
+      begin: _backgroundColor(widget.status, extension, lightTheme),
+    ).animate(_controller);
+    _iconColorAnimation = ColorTween(
+      begin: _iconColor(widget.status, extension, lightTheme),
+    ).animate(_controller);
+  }
+
+  @override
+  void didUpdateWidget(_RobotoffSuggestionSparkles oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.status != widget.status) {
+      final SmoothColorsThemeExtension extension =
+          context.extension<SmoothColorsThemeExtension>();
+      final bool lightTheme = context.lightTheme();
+
+      _circleColorAnimation = ColorTween(
+        begin: _backgroundColor(oldWidget.status, extension, lightTheme),
+        end: _backgroundColor(widget.status, extension, lightTheme),
+      ).animate(_controller);
+      _iconColorAnimation = ColorTween(
+        begin: _iconColor(oldWidget.status, extension, lightTheme),
+        end: _iconColor(widget.status, extension, lightTheme),
+      ).animate(_controller);
+
+      _controller.forward(from: 0.0);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    //double visibility = 0.5;
-
-    if (visibility == 0.0) {
-      return EMPTY_WIDGET;
-    }
-
-    return SizedBox.square(
-      dimension: 40.0 * visibility,
-      child: FittedBox(
-        child: Tooltip(
-          message: tooltip,
-          child: InkWell(
-            customBorder: const CircleBorder(),
-            onTap: onTap,
-            child: Opacity(
-              opacity: visibility,
-              child: Padding(
-                padding: padding,
-                child: icon,
-              ),
+    return ExcludeSemantics(
+      child: SizedBox.square(
+        dimension: 32.0, // 8 + 8 + 16
+        child: DecoratedBox(
+          decoration: ShapeDecoration(
+            shape: const CircleBorder(),
+            color: _circleColorAnimation.value,
+          ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: 9.5,
+              end: 6.5,
+              top: 8.0,
+              bottom: 8.0,
+            ),
+            child: SparkleAnimation(
+              type: SparkleAnimationType.glow,
+              color: _iconColorAnimation.value!,
+              size: 18.0,
+              animated: widget.status == _RobotoffSuggestionStatus.neutral,
             ),
           ),
         ),
       ),
     );
   }
-}
 
-class _SimpleInputListRobotoffSuggestionPicture extends StatelessWidget {
-  const _SimpleInputListRobotoffSuggestionPicture({
-    required this.onTap,
-  });
+  Color _backgroundColor(_RobotoffSuggestionStatus status,
+      SmoothColorsThemeExtension ext, bool lightTheme) {
+    return switch (status) {
+      _RobotoffSuggestionStatus.positive => ext.successBackground,
+      _RobotoffSuggestionStatus.negative => ext.errorBackground,
+      _ => lightTheme ? Colors.white54 : Colors.black54,
+    };
+  }
 
-  final Function(String heroTag) onTap;
+  Color _iconColor(_RobotoffSuggestionStatus status,
+      SmoothColorsThemeExtension ext, bool lightTheme) {
+    return switch (status) {
+      _RobotoffSuggestionStatus.positive => ext.success,
+      _RobotoffSuggestionStatus.negative => ext.error,
+      _ => lightTheme ? Colors.black : Colors.white,
+    };
+  }
 
   @override
-  Widget build(BuildContext context) {
-    final RobotoffQuestion question = context.watch<RobotoffQuestion>();
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+}
 
-    final String? imageUrl = question.imageUrl;
+enum _RobotoffSuggestionStatus {
+  positive,
+  negative,
+  neutral;
 
-    if (imageUrl == null || imageUrl.isEmpty) {
-      return EMPTY_WIDGET;
-    }
-
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String heroTag = '$imageUrl ${question.insightId}';
-
-    return Stack(
-      children: <Widget>[
-        Positioned.fill(
-          child: Material(
-            child: Hero(
-              tag: heroTag,
-              createRectTween: (begin, end) =>
-                  RectTween(begin: begin, end: end),
-              child: Material(
-                type: MaterialType.transparency,
-                child: SmoothImage(
-                  imageProvider: NetworkImage(imageUrl),
-                  rounded: false,
-                ),
-              ),
-            ),
-          ),
-        ),
-        PositionedDirectional(
-          end: 0.0,
-          bottom: 0.0,
-          child: InkWell(
-            onTap: () => onTap(heroTag),
-            child: Tooltip(
-              message: appLocalizations.product_edit_robotoff_expand_proof,
-              child: Container(
-                color: Colors.black54,
-                padding: const EdgeInsetsDirectional.symmetric(
-                  horizontal: 20.0,
-                  vertical: MEDIUM_SPACE,
-                ),
-                child: const ExcludeSemantics(
-                  child: icons.Expand(
-                    color: Colors.white,
-                    size: 14.0,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
+  static _RobotoffSuggestionStatus fromAnnotation(
+    InsightAnnotation? annotation,
+  ) {
+    return switch (annotation) {
+      InsightAnnotation.YES => positive,
+      InsightAnnotation.NO => negative,
+      _ => neutral,
+    };
   }
 }

@@ -30,28 +30,6 @@ class QuestionImageFullPage extends StatelessWidget {
             child: HeroMode(
               enabled: heroTag?.isNotEmpty == true,
               child: Hero(
-                flightShuttleBuilder: (
-                  BuildContext flightContext,
-                  Animation<double> animation,
-                  HeroFlightDirection flightDirection,
-                  BuildContext fromHeroContext,
-                  BuildContext toHeroContext,
-                ) {
-                  return AnimatedBuilder(
-                      animation: animation,
-                      builder: (BuildContext context, _) {
-                        if (flightDirection == HeroFlightDirection.push) {
-                          return ClipRect(
-                              clipper: MyRectClipper(animation.value, fromHeroContext.widget),
-                              child: toHeroContext.widget);
-                        } else {
-                          return ClipRect(
-                            clipper: MyRectClipper(animation.value, toHeroContext.widget.),
-                            child: toHeroContext.widget,
-                          );
-                        }
-                      });
-                },
                 tag: heroTag ?? '',
                 child: Image(
                   fit: BoxFit.contain,
@@ -62,21 +40,4 @@ class QuestionImageFullPage extends StatelessWidget {
           ),
         ),
       );
-}
-
-class MyRectClipper extends CustomClipper<Rect> {
-  MyRectClipper(this.progress, this.size);
-
-  final double progress;
-  final Size size;
-
-  @override
-  Rect getClip(Size size) {
-    print(size);
-    return Rect.fromLTWH(0, 0, size.width, size.height * progress);
-  }
-
-  @override
-  bool shouldReclip(MyRectClipper oldClipper) =>
-      progress != oldClipper.progress;
 }
