@@ -35,7 +35,7 @@ class _ProductPricesListState extends State<ProductPricesList>
   void initState() {
     super.initState();
     _priceManager = _InfiniteScrollPriceManager(
-      initialItems: widget.pricesResult?.items,
+      pricesResult: widget.pricesResult,
       model: widget.model,
     );
   }
@@ -52,9 +52,9 @@ class _ProductPricesListState extends State<ProductPricesList>
 /// A manager for handling price data with infinite scrolling
 class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   _InfiniteScrollPriceManager({
-    super.initialItems,
+    GetPricesResult? pricesResult,
     required this.model,
-  });
+  }) : super(initialItems: pricesResult?.items);
 
   /// The model containing price query parameters
   final GetPricesModel model;

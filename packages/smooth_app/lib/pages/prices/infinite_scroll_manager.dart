@@ -82,10 +82,10 @@ abstract class InfiniteScrollManager<T> {
 
   /// Load initial data only if the list is empty
   Future<void> loadInitiallyIfNeeded(BuildContext context) async {
+    await fetchInit();
     if (_items.isNotEmpty) {
       return;
     }
-    await fetchInit();
     if (context.mounted) {
       await _load(context: context, pageNumber: _initialPage);
     }

@@ -38,13 +38,20 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   final _InfiniteScrollProofManager _proofManager =
       _InfiniteScrollProofManager();
 
-  String? _bearerToken;
   final ScrollController _gridScrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
     _gridScrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _gridScrollController.removeListener(_scrollListener);
+    _gridScrollController.dispose();
+    _proofManager.deleteSession();
   }
 
   void _scrollListener() {
@@ -87,7 +94,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           ),
         ],
       ),
-      body: _bearerToken == null
+      body: _proofManager._bearerToken == null
           ? // Show loading while authenticating
           const Center(child: CircularProgressIndicator())
           : // Show content once authenticated
@@ -129,7 +136,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       if (_proofManager.isLoading) {
         return const Center(child: CircularProgressIndicator());
       } else {
-        return const Center(child: Text('No Result'));
+        return Center(child: Text(appLocalizations.prices_proof_error));
       }
     }
 
