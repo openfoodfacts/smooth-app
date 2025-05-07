@@ -2633,7 +2633,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Prisbidrag Assistent",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Prisvalideringsassistent",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -4243,15 +4243,15 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "Med en stregkode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "Med en kategori",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Med rabat",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
@@ -4315,7 +4315,7 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Priser knyttet til en prisskiltning",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
@@ -4327,7 +4327,7 @@
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Priser og beviser pr. kilde",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
