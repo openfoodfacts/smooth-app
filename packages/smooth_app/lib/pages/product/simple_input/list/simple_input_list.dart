@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/simple_input/list/simple_input_list_item.dart';
-import 'package:smooth_app/pages/product/simple_input/list/simple_input_list_suggestions.dart';
+import 'package:smooth_app/pages/product/simple_input/list/suggestions/list_suggestions.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
