@@ -15,7 +15,7 @@ class GithubSearchPreferenceTile extends ExternalSearchPreferenceTile {
   }
 
   @override
-  String getSearchUrl(BuildContext context, String? keyword) {
-    return 'https://github.com/search?q=org%3Aopenfoodfacts+$keyword&type=repositories';
+  String getSearchUrl(BuildContext context, String keyword) {
+    return 'https://github.com/search?q=org%3Aopenfoodfacts+${Uri.encodeComponent(keyword)}&type=repositories';
   }
 }

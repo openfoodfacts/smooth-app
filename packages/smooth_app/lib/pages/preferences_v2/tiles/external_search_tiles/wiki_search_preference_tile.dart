@@ -16,6 +16,6 @@ class WikiSearchPreferenceTile extends ExternalSearchPreferenceTile {
 
   @override
   String getSearchUrl(BuildContext context, String keyword) {
-    return 'https://wiki.openfoodfacts.org/index.php?search=$keyword&title=Special%3ASearch&go=Lire';
+    return 'https://wiki.openfoodfacts.org/index.php?search=${Uri.encodeComponent(keyword)}&title=Special%3ASearch&go=Lire';
   }
 }

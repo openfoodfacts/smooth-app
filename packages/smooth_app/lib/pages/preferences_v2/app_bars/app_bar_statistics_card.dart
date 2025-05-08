@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
+import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -36,7 +37,7 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
     return GestureDetector(
       onTap: () => _asyncLoad(),
       child: Container(
-        height: 68.0,
+        height: STATISTICS_CARD_HEIGTHT,
         padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
         decoration: BoxDecoration(
           borderRadius: ROUNDED_BORDER_RADIUS,

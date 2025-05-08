@@ -15,6 +15,6 @@ class ForumSearchPreferenceTile extends ExternalSearchPreferenceTile {
 
   @override
   String getSearchUrl(BuildContext context, String keyword) {
-    return 'https://forum.openfoodfacts.org/search?q=$keyword';
+    return 'https://forum.openfoodfacts.org/search?q=${Uri.encodeComponent(keyword)}';
   }
 }

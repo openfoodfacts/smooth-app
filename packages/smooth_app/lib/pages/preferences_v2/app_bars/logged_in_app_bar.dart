@@ -191,7 +191,7 @@ class LoggedInAppBar extends StatelessWidget {
       toolbarHeight: TOOLBAR_HEIGHT,
       pinned: true,
       floating: true,
-      expandedHeight: 310.0,
+      expandedHeight: LOGGED_IN_APP_BAR_EXPANDED_HEIGHT,
       backgroundColor: theme.primaryColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(

@@ -134,7 +134,7 @@ class LoggedOutAppBar extends StatelessWidget {
       toolbarHeight: TOOLBAR_HEIGHT,
       pinned: true,
       floating: true,
-      expandedHeight: 268.0,
+      expandedHeight: LOGGED_OUT_APP_BAR_EXPANDED_HEIGHT,
       backgroundColor: theme.primaryColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
