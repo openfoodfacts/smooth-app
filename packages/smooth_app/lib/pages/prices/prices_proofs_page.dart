@@ -30,7 +30,7 @@ class PricesProofsPage extends StatefulWidget {
 
 class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
-  late final _InfiniteScrollProofManager _proofManager =
+  final _InfiniteScrollProofManager _proofManager =
       _InfiniteScrollProofManager(
     selectProof: widget.selectProof,
   );
