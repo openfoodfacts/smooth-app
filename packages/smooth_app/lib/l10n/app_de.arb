@@ -4417,7 +4417,7 @@
       }
     }
   },
-  "item_count": "{count} Gegenstände",
+  "item_count": "{count} Artikel",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
