@@ -30,10 +30,16 @@ class PricesProofsPage extends StatefulWidget {
 
 class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
-  final _InfiniteScrollProofManager _proofManager =
+  late final _InfiniteScrollProofManager _proofManager =
       _InfiniteScrollProofManager(
     selectProof: widget.selectProof,
   );
+
+  @override
+  void dispose() {
+    _proofManager.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +79,10 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
 
   static const int _pageSize = 10;
   final bool selectProof;
+  String? _bearerToken;
 
   @override
-  Future<void> fetchData(final int pageNumber) async {
+  Future<void> fetchInit() async {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<String> token =
         await OpenPricesAPIClient.getAuthenticationToken(
@@ -84,8 +91,20 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
       uriHelper: ProductQuery.uriPricesHelper,
     );
 
-    final String bearerToken = token.value;
+    if (token.isError) {
+      throw Exception(token.error ?? 'Could not authenticate with the server');
+    }
 
+    _bearerToken = token.value;
+  }
+
+  @override
+  Future<void> fetchData(final int pageNumber) async {
+    if (_bearerToken == null) {
+      await fetchInit();
+    }
+
+    final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(
       GetProofsParameters()
@@ -99,16 +118,11 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
         ..pageSize = _pageSize
         ..pageNumber = pageNumber,
       uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerToken,
-    );
-
-    await OpenPricesAPIClient.deleteUserSession(
-      uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerToken,
+      bearerToken: _bearerToken!,
     );
 
     if (result.isError) {
-      throw result.detailError;
+      throw Exception(result.error ?? 'Failed to fetch proofs');
     }
 
     final GetProofsResult value = result.value;
@@ -118,6 +132,16 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
+  }
+
+  /// Properly dispose of the session when the manager is no longer needed
+  void dispose() {
+    if (_bearerToken != null) {
+      OpenPricesAPIClient.deleteUserSession(
+        uriHelper: ProductQuery.uriPricesHelper,
+        bearerToken: _bearerToken!,
+      );
+    }
   }
 
   @override
@@ -183,7 +207,6 @@ class _PriceProofListItem extends StatelessWidget {
           const SizedBox(width: MEDIUM_SPACE),
           Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
                   date,
