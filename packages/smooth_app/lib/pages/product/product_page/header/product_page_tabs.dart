@@ -4,12 +4,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
-import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_page.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -237,14 +235,6 @@ class ProductPageTabBar extends StatelessWidget {
         ),
       );
     }
-
-    tabs.add(
-      ProductPageTab(
-          id: 'raw_data',
-          labelBuilder: (BuildContext context) =>
-              AppLocalizations.of(context).product_page_tab_raw_data,
-          builder: (_, Product product) => ProductRawDataPage(product)),
-    );
 
     return tabs;
   }
