@@ -64,7 +64,6 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
     final GetPricesParameters parameters = model.parameters;
     parameters.pageNumber = pageNumber;
 
-    // Use ProductQuery.uriPricesHelper as shown in the example
     final MaybeError<GetPricesResult> result =
         await OpenPricesAPIClient.getPrices(parameters,
             uriHelper: ProductQuery.uriPricesHelper);
