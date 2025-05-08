@@ -157,7 +157,7 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           PreferenceTile(
-            title: 'Refresh all products from server (cf. Nutriscore v2)',
+            title: 'Refresh all products from the server',
             trailing: const Icon(Icons.refresh),
             onTap: () async {
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
