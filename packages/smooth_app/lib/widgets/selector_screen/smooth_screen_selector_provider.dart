@@ -80,8 +80,8 @@ abstract class PreferencesSelectorProvider<T>
   @override
   void dispose() {
     preferences.removeListener(onPreferencesChanged);
-    super.dispose();
     _attached = false;
+    super.dispose();
   }
 }
 
