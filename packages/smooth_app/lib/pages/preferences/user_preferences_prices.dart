@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_products_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
+import 'package:smooth_app/pages/prices/prices_stats_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/proof_bulk_add_page.dart';
@@ -133,6 +134,15 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         PriceButton.productIconData,
       ),
+      _getListTile(
+        appLocalizations.prices_stats_statistics,
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesStatsPage(),
+          ),
+        ),
+        Icons.bar_chart,
+      ),
       if (userPreferences.getFlag(
               UserPreferencesDevMode.userPreferencesFlagBulkProofUpload) ??
           false)
@@ -148,6 +158,33 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         () async => LaunchUrlHelper.launchURL(
           'https://prices.openfoodfacts.org/experiments/contribution-assistant',
         ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_validation_assistant,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_multiple_proof_addition_system,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/proofs/add/multiple',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_challenges_page,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/challenge',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.contribute_prices_gdpr,
+        () async => LaunchUrlHelper.launchURL(
+            'https://wiki.openfoodfacts.org/GDPR_request'),
         Icons.open_in_new,
       ),
     ];

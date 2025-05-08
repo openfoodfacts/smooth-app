@@ -16,9 +16,11 @@ import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
+import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -43,8 +45,26 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   late final NumberFormat _unitNumberFormat;
 
   late bool? _packagingsComplete;
+  bool _imageVisible = false;
 
   final List<EditNewPackagingsHelper> _helpers = <EditNewPackagingsHelper>[];
+
+  void _openPackagingImage(BuildContext context) {
+    final Iterable<OpenFoodFactsLanguage> languages =
+        getProductImageLanguages(upToDateProduct, ImageField.PACKAGING);
+
+    if (languages.isNotEmpty) {
+      setState(() {
+        _imageVisible = !_imageVisible;
+      });
+    } else {
+      ImageField.PACKAGING.openDetails(
+        context,
+        upToDateProduct,
+        widget.isLoggedInMandatory,
+      );
+    }
+  }
 
   void _addPackagingToControllers(
     final ProductPackaging packaging, {
@@ -95,6 +115,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     context.watch<LocalDatabase>();
     refreshUpToDate();
     final List<Widget> children = <Widget>[];
+    final bool hasPackagingImages = getProductImageLanguages(
+      upToDateProduct,
+      ImageField.PACKAGING,
+    ).isNotEmpty;
     children.add(
       Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
@@ -187,24 +211,50 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
-      child: UnfocusFieldWhenTapOutside(
-        child: SmoothScaffold(
-          fixKeyboard: true,
-          appBar: buildEditProductAppBar(
-            context: context,
-            title: appLocalizations.edit_packagings_title,
-            product: upToDateProduct,
-          ),
-          body: ListView(
-            padding: const EdgeInsets.only(top: LARGE_SPACE),
-            children: children,
-          ),
-          bottomNavigationBar: ProductBottomButtonsBar(
-            onSave: () async => _exitPage(
-              await _mayExitPage(saving: true),
+      child: Provider<Product>.value(
+        value: upToDateProduct,
+        child: UnfocusFieldWhenTapOutside(
+          child: SmoothScaffold(
+            fixKeyboard: true,
+            appBar: buildEditProductAppBar(
+              context: context,
+              title: appLocalizations.edit_packagings_title,
+              product: upToDateProduct,
+              actions: <Widget>[
+                if (!_imageVisible)
+                  IconButton(
+                    icon: hasPackagingImages
+                        ? const Picture.open()
+                        : const Icon(Icons.add_a_photo),
+                    tooltip: ImageField.PACKAGING
+                        .getProductImageButtonText(appLocalizations),
+                    onPressed: () => _openPackagingImage(context),
+                  ),
+              ],
             ),
-            onCancel: () async => _exitPage(
-              await _mayExitPage(saving: false),
+            body: Column(
+              children: <Widget>[
+                EditProductImageViewer(
+                  imageField: ImageField.PACKAGING,
+                  language: upToDateProduct.lang,
+                  visible: _imageVisible,
+                  onClose: () => setState(() => _imageVisible = false),
+                ),
+                Expanded(
+                  child: ListView(
+                    padding: const EdgeInsets.only(top: LARGE_SPACE),
+                    children: children,
+                  ),
+                ),
+              ],
+            ),
+            bottomNavigationBar: ProductBottomButtonsBar(
+              onSave: () async => _exitPage(
+                await _mayExitPage(saving: true),
+              ),
+              onCancel: () async => _exitPage(
+                await _mayExitPage(saving: false),
+              ),
             ),
           ),
         ),

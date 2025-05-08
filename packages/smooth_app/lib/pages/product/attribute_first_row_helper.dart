@@ -6,7 +6,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 
 class StringPair {
   const StringPair({
