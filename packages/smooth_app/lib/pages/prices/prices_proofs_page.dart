@@ -187,7 +187,6 @@ class _PriceProofListItem extends StatelessWidget {
               children: <Widget>[
                 Text(
                   date,
-                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ],
             ),
