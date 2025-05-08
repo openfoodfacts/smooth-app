@@ -261,9 +261,19 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       final List<Widget> attributeChips = _buildAttributeChips(
         getFilteredAttributes(
           group,
-          PreferenceImportance.ID_IMPORTANT,
+          PreferenceImportance.ID_VERY_IMPORTANT,
           _attributesToExcludeIfStatusIsUnknown,
           widget._productPreferences,
+        ),
+      );
+      attributeChips.addAll(
+        _buildAttributeChips(
+          getFilteredAttributes(
+            group,
+            PreferenceImportance.ID_IMPORTANT,
+            _attributesToExcludeIfStatusIsUnknown,
+            widget._productPreferences,
+          ),
         ),
       );
       if (attributeChips.isNotEmpty) {

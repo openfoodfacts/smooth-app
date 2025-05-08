@@ -14,7 +14,6 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -175,7 +174,17 @@ class _ProductHeaderBackButton extends StatelessWidget {
             child: SizedBox.expand(
               child: backButtonType == ProductPageBackButton.minimize
                   ? const icons.Chevron.down(size: 16.0)
-                  : Icon(ConstantIcons.backIcon),
+                  : const Padding(
+                      padding: EdgeInsetsDirectional.all(8.0),
+                      child: DecoratedBox(
+                        decoration: ShapeDecoration(
+                          shape: CircleBorder(
+                            side: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        child: icons.Arrow.left(size: 16.0),
+                      ),
+                    ),
             ),
           ),
         ),
@@ -191,40 +200,43 @@ class _ProductHeaderName extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return ConsumerFilter<Product>(
-      buildWhen: (Product? previousValue, Product currentValue) {
-        return previousValue?.brands != currentValue.brands ||
-            previousValue?.productName != currentValue.productName;
-      },
-      builder: (BuildContext context, Product product, _) {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              getProductName(product, appLocalizations),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17.0,
-                height: 1.0,
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(top: 4.0),
+      child: ConsumerFilter<Product>(
+        buildWhen: (Product? previousValue, Product currentValue) {
+          return previousValue?.brands != currentValue.brands ||
+              previousValue?.productName != currentValue.productName;
+        },
+        builder: (BuildContext context, Product product, _) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                getProductName(product, appLocalizations),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17.0,
+                  height: 1.0,
+                ),
+                strutStyle: const StrutStyle(
+                  forceStrutHeight: true,
+                ),
               ),
-              strutStyle: const StrutStyle(
-                forceStrutHeight: true,
+              Text(
+                getProductBrands(product, appLocalizations),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 16.5,
+                ),
               ),
-            ),
-            Text(
-              getProductBrands(product, appLocalizations),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 16.5,
-              ),
-            ),
-          ],
-        );
-      },
+            ],
+          );
+        },
+      ),
     );
   }
 }
@@ -366,7 +378,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
 
   double computeWidth(BuildContext context) {
     return math.min(
-      80.0,
+      90.0,
       (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (18 / 100),
     );
   }

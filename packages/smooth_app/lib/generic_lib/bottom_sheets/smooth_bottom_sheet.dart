@@ -380,14 +380,12 @@ class SmoothModalSheet extends StatelessWidget {
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              header,
-              bodyChild,
-            ],
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            header,
+            bodyChild,
+          ],
         ),
       ),
     );
@@ -484,7 +482,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
       SmoothModalSheetType.error => ERROR_COLOR,
       SmoothModalSheetType.info => context.lightTheme()
           ? context.extension<SmoothColorsThemeExtension>().primaryBlack
-          : Colors.black,
+          : context.extension<SmoothColorsThemeExtension>().primarySemiDark,
     };
   }
 
