@@ -191,7 +191,6 @@ class _PriceProofListItem extends StatelessWidget {
               ],
             ),
           ),
-          const Icon(Icons.chevron_right),
         ],
       ),
     );
