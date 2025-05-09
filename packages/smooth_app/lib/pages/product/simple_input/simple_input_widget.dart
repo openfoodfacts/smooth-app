@@ -9,7 +9,7 @@ import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input/list/simple_input_list.dart';
-import 'package:smooth_app/pages/product/simple_input/list/simple_input_list_robotoff_suggestions.dart';
+import 'package:smooth_app/pages/product/simple_input/list/suggestions/robotoff/robotoff_suggestions_list.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -144,7 +144,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
               );
             },
           ),
-          SimpleInputListRobotoffSuggestions(
+          RobotoffSuggestionList(
             helper: widget.helper,
           ),
           SimpleInputList(

@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SimpleInputListSuggestions extends StatelessWidget {
   const SimpleInputListSuggestions(
@@ -25,11 +26,12 @@ class SimpleInputListSuggestions extends StatelessWidget {
 
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
       child: ColoredBox(
-        color: extension.successBackground,
+        color: lightTheme ? extension.primaryMedium : extension.primarySemiDark,
         child: Padding(
           padding: const EdgeInsetsDirectional.only(
             start: 22.0,
@@ -65,39 +67,33 @@ class _SimpleInputListSuggestionItem extends StatelessWidget {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
-    return ColoredBox(
-      color: extension.successBackground,
-      child: Row(
-        children: <Widget>[
-          ExcludeSemantics(
-            child: icons.Sparkles(
-              color: extension.success,
-              size: 18.0,
-            ),
+    return Row(
+      children: <Widget>[
+        ExcludeSemantics(
+          child: icons.Sparkles(
+            color: extension.success,
+            size: 18.0,
           ),
-          const SizedBox(width: SMALL_SPACE),
-          Expanded(
-            child: Text(
-              label,
-              style: TextTheme.of(context).bodyLarge?.copyWith(
-                    color: extension.success,
-                    fontWeight: FontWeight.w500,
-                  ),
-            ),
+        ),
+        const SizedBox(width: SMALL_SPACE),
+        Expanded(
+          child: Text(
+            label,
+            style: TextTheme.of(context).bodyLarge?.copyWith(
+                  color: extension.success,
+                  fontWeight: FontWeight.w500,
+                ),
           ),
-          Tooltip(
-            message: AppLocalizations.of(context)
-                .edit_product_form_item_add_suggestion,
-            child: IconButton(
-              onPressed: onSelected,
-              icon: Icon(
-                Icons.add_circle_outlined,
-                color: extension.success,
-              ),
-            ),
-          )
-        ],
-      ),
+        ),
+        Tooltip(
+          message: AppLocalizations.of(context)
+              .edit_product_form_item_add_suggestion,
+          child: IconButton(
+            onPressed: onSelected,
+            icon: const icons.Add(size: 20.0),
+          ),
+        )
+      ],
     );
   }
 }
