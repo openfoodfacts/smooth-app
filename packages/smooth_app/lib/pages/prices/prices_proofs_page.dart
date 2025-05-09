@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
+import 'package:smooth_app/pages/prices/price_proof_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -167,54 +165,13 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
             ),
           );
         },
-        child: _PriceProofListItem(item),
-      ),
-    );
-  }
-}
-
-class _PriceProofListItem extends StatelessWidget {
-  const _PriceProofListItem(this.proof);
-
-  final Proof proof;
-
-  @override
-  Widget build(BuildContext context) {
-    final DateFormat dateFormat =
-        DateFormat.yMd(ProductQuery.getLocaleString());
-    final String date = dateFormat.format(proof.date ?? proof.created);
-
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double imageSize = screenWidth * 0.3;
-
-    return Padding(
-      padding: const EdgeInsets.all(SMALL_SPACE),
-      child: Row(
-        children: <Widget>[
-          SmoothImage(
-            width: imageSize,
-            height: imageSize,
-            imageProvider: NetworkImage(
-              proof
-                  .getFileUrl(
-                    uriProductHelper: ProductQuery.uriPricesHelper,
-                    isThumbnail: true,
-                  )
-                  .toString(),
-            ),
-            rounded: false,
-          ),
-          const SizedBox(width: MEDIUM_SPACE),
-          Expanded(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  date,
-                ),
-              ],
-            ),
-          ),
-        ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            PriceProofWidget(item),
+          ],
+        ),
       ),
     );
   }
