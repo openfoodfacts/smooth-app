@@ -25,13 +25,14 @@ import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
+import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -255,7 +256,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         appBar: SmoothTopBar2(
           title: _appBarTitles![_pageNumber],
           forceMultiLines: true,
-          leadingAction: SmoothTopBarLeadingAction.back,
+          leadingAction: SmoothLeadingAction.back,
           topWidget: PreferredSize(
             preferredSize: const Size(
               double.infinity,

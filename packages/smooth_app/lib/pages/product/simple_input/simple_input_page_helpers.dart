@@ -41,6 +41,12 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     _terms = List<String>.from(initTerms(this.product));
     _initTerms = List<String>.from(_terms);
     _changed = false;
+
+    try {
+      robotoffQuestionsNotifier.value.clear();
+      _loadRobotoffQuestions();
+    } catch (_) {}
+
     notifyListeners();
   }
 
@@ -62,6 +68,8 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the current terms to be displayed.
   List<String> get terms => _terms;
 
+  bool isNewTerm(String term) => !_initTerms.contains(term);
+
   /// Returns true if the field is populated.
   bool isPopulated(final Product product) => initTerms(product).isNotEmpty;
 
@@ -74,10 +82,36 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     if (_terms.contains(term)) {
       return false;
     }
+
+    final MapEntry<RobotoffQuestion, InsightAnnotation?>? robotoffQuestion =
+        _findRobotoffQuestion(term);
+
+    if (robotoffQuestion != null) {
+      robotoffQuestionsNotifier
+        ..value[robotoffQuestion.key] = InsightAnnotation.YES
+        ..notifyListeners();
+
+      _changed = true;
+      return true;
+    }
+
     _terms.add(term);
-    _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
+    _changed = _computeHasChanged();
     notifyListeners();
     return true;
+  }
+
+  MapEntry<RobotoffQuestion, InsightAnnotation?>? _findRobotoffQuestion(
+    String term,
+  ) {
+    final String localTerm = term.toLowerCase();
+    for (final MapEntry<RobotoffQuestion, InsightAnnotation?> entry
+        in robotoffQuestionsNotifier.value.entries) {
+      if (entry.key.value?.toLowerCase() == localTerm) {
+        return entry;
+      }
+    }
+    return null;
   }
 
   /// Returns true if the term was in the list and then was removed.
@@ -86,12 +120,18 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// as we remove existing items.
   bool removeTerm(final String term) {
     if (_terms.remove(term)) {
-      _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
+      _changed = _computeHasChanged();
       notifyListeners();
       return true;
     }
     return false;
   }
+
+  bool _computeHasChanged() =>
+      robotoffQuestionsNotifier.value.values.any(
+        (final InsightAnnotation? annotation) => annotation != null,
+      ) ||
+      !const DeepCollectionEquality().equals(_terms, _initTerms);
 
   /// Returns the title on the main "edit product" page.
   String getTitle(final AppLocalizations appLocalizations);
@@ -280,6 +320,72 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns true if the field is an owner field.
   bool isOwnerField(final Product product) => false;
+
+  final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+      robotoffQuestionsNotifier =
+      ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>(
+          <RobotoffQuestion, InsightAnnotation?>{});
+
+  InsightType? get _robotoffInsightType;
+
+  Future<bool> _loadRobotoffQuestions() async {
+    final InsightType? type = _robotoffInsightType;
+
+    if (type == null) {
+      return false;
+    }
+
+    try {
+      final List<RobotoffQuestion> questions =
+          (await RobotoffAPIClient.getProductQuestions(
+                product.barcode!,
+                getLanguage(),
+                insightTypes: <InsightType>[type],
+              ))
+                  .questions ??
+              <RobotoffQuestion>[];
+
+      robotoffQuestionsNotifier.value = <RobotoffQuestion, InsightAnnotation?>{
+        for (final RobotoffQuestion question in questions) question: null,
+      };
+
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  void answerRobotoffQuestion(
+    final RobotoffQuestion question,
+    final InsightAnnotation? annotation,
+  ) {
+    robotoffQuestionsNotifier.value = robotoffQuestionsNotifier.value
+        .map<RobotoffQuestion, InsightAnnotation?>(
+      (final RobotoffQuestion key, final InsightAnnotation? value) {
+        if (key == question) {
+          return MapEntry<RobotoffQuestion, InsightAnnotation?>(
+            key,
+            annotation,
+          );
+        }
+        return MapEntry<RobotoffQuestion, InsightAnnotation?>(key, value);
+      },
+    );
+
+    _changed = _computeHasChanged();
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    try {
+      robotoffQuestionsNotifier.dispose();
+    } catch (_) {
+      // Already disposed
+    }
+  }
 }
 
 sealed class SimpleInputSuggestionsState {
@@ -437,6 +543,9 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() =>
       AnalyticsEditEvents.basicDetails;
+
+  @override
+  InsightType get _robotoffInsightType => InsightType.BRAND;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -511,6 +620,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.stores;
+
+  @override
+  InsightType get _robotoffInsightType => InsightType.STORE;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -594,6 +706,9 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
         product,
         AppLocalizations.of(context).add_origin_photo_button_label,
       );
+
+  @override
+  InsightType? get _robotoffInsightType => null;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -716,6 +831,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   TextCapitalization getTextCapitalization() => TextCapitalization.characters;
+
+  @override
+  InsightType? get _robotoffInsightType => null;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
@@ -817,6 +935,9 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
         product,
         AppLocalizations.of(context).add_label_photo_button_label,
       );
+
+  @override
+  InsightType get _robotoffInsightType => InsightType.LABEL;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -916,6 +1037,9 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
+
+  @override
+  InsightType get _robotoffInsightType => InsightType.CATEGORY;
 }
 
 class SimpleInputPageCategoryNotFoodHelper
@@ -1061,6 +1185,9 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
+
+  @override
+  InsightType? get _robotoffInsightType => null;
 
   @override
   void dispose() {

@@ -552,6 +552,85 @@ class _ScaleAnimationState extends State<ScaleAnimation> {
   }
 }
 
+class SparkleAnimation extends StatefulWidget {
+  const SparkleAnimation({
+    required this.type,
+    required this.color,
+    this.animated = true,
+    this.size,
+    super.key,
+  });
+
+  final SparkleAnimationType type;
+  final Color color;
+  final double? size;
+  final bool animated;
+
+  @override
+  State<SparkleAnimation> createState() => _SparkleAnimationState();
+}
+
+class _SparkleAnimationState extends State<SparkleAnimation> {
+  StateMachineController? _controller;
+
+  @override
+  void didUpdateWidget(covariant SparkleAnimation oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.animated != widget.animated) {
+      _changeAnimation(widget.animated);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final IconThemeData iconTheme = IconTheme.of(context);
+    final double size = widget.size ?? iconTheme.size ?? 24.0;
+
+    return SizedBox.square(
+      dimension: size,
+      child: ColorFiltered(
+        colorFilter: ColorFilter.mode(
+          widget.color,
+          BlendMode.srcIn,
+        ),
+        child: RiveAnimation.direct(
+          AnimationsLoader.of(context)!,
+          artboard: 'sparkles',
+          onInit: (Artboard artboard) {
+            _controller = StateMachineController.fromArtboard(
+              artboard,
+              switch (widget.type) {
+                SparkleAnimationType.glow => 'Glow',
+                SparkleAnimationType.grow => 'Grow',
+                SparkleAnimationType.scale => 'Scale',
+              },
+            );
+
+            artboard.addController(_controller!);
+            _changeAnimation(widget.animated);
+          },
+        ),
+      ),
+    );
+  }
+
+  void _changeAnimation(bool animated) {
+    final SMIBool toggle = _controller!.findInput<bool>('animate')! as SMIBool;
+    if (toggle.value != animated) {
+      toggle.value = animated;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+}
+
+enum SparkleAnimationType { glow, grow, scale }
+
 class NutriScoreAnimation extends StatefulWidget {
   factory NutriScoreAnimation({
     required NutriScoreValue value,

@@ -172,6 +172,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
     final String? headerAsset;
     final Color? headerColor;
+
     if (widget.type == null) {
       final List<PreferencePageType> items =
           PreferencePageType.getPreferencePageTypes(userPreferences);
@@ -212,8 +213,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       headerColor = abstractUserPreferences.getHeaderColor();
     }
 
-    const EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
+    final EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
       top: MEDIUM_SPACE,
+      bottom: MediaQuery.viewPaddingOf(context).bottom,
     );
     final ListView list;
     if (addDividers) {
