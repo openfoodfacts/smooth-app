@@ -4420,5 +4420,13 @@
   "prices_proof_error": "Authentication failed, unable to fetch proofs",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "prices_proof_type_generic": "Generic",
+  "@price_proof_type_generic": {
+    "description": "General type of price proof that does not fall under any specific category"
+  },
+  "prices_proof_type_receipt": "Receipt",
+  "@price_proof_type_receipt": {
+    "description": "Official document that shows proof of purchase"
   }
 }
