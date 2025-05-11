@@ -14,6 +14,13 @@ extension CurrencyExtension on Currency {
     return '$name ($symbol)';
   }
 
+  /// Returns just the symbol for the currency
+  String get symbol {
+    final String? currencySymbol = _symbols[this];
+    // Return the symbol if available, otherwise return the currency code
+    return currencySymbol ?? name;
+  }
+
 // source: https://www.xe.com/symbols/
   static final Map<Currency, String> _symbols = <Currency, String>{
     Currency.ALL: 'Lek',

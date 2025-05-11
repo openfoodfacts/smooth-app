@@ -4421,9 +4421,9 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
-  "prices_proof_type_generic": "Generic",
-  "@price_proof_type_generic": {
-    "description": "General type of price proof that does not fall under any specific category"
+  "prices_proof_type_price_tag": "Price Tag",
+  "@price_proof_type_price_tag": {
+    "description": "Proof of price provided through a visible price tag or label attached to the product"
   },
   "prices_proof_type_receipt": "Receipt",
   "@price_proof_type_receipt": {

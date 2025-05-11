@@ -4,12 +4,13 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
-import 'package:smooth_app/pages/prices/price_button.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/pages/prices/currency_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Widget that displays a price proof with its image and metadata.
 class PriceProofWidget extends StatelessWidget {
-  const PriceProofWidget(this.proof);
+  const PriceProofWidget(this.proof, {super.key});
 
   final Proof proof;
 
@@ -24,7 +25,10 @@ class PriceProofWidget extends StatelessWidget {
     final TimeOfDay timeOfDay = TimeOfDay.fromDateTime(proof.created);
     final String time = timeOfDay.format(context);
     final int priceCount = proof.priceCount;
-    final String proofType = _getProofTypeLabel(appLocalizations);
+    final String timeAgo = _getTimeAgo(proof.created);
+
+    // Format as "date (time ago)" when recent
+    final String dateDisplay = timeAgo.isNotEmpty ? '$date ($timeAgo)' : date;
 
     return Semantics(
       label: _generateSemanticsLabel(
@@ -36,32 +40,31 @@ class PriceProofWidget extends StatelessWidget {
       ),
       container: true,
       excludeSemantics: true,
-      child: Padding(
+      child: SmoothCard(
+        elevation: 2,
+        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+        borderRadius: ROUNDED_BORDER_RADIUS,
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: IntrinsicHeight(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               // Left: Image with fixed dimensions
-              SizedBox(
-                width: imageSize,
-                height: imageSize,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: SmoothImage(
-                    width: imageSize,
-                    height: imageSize,
-                    fit: BoxFit.cover,
-                    imageProvider: NetworkImage(
-                      proof
-                          .getFileUrl(
-                            uriProductHelper: ProductQuery.uriPricesHelper,
-                            isThumbnail: true,
-                          )
-                          .toString(),
-                    ),
-                    rounded: false,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: SmoothImage(
+                  width: imageSize,
+                  height: imageSize,
+                  fit: BoxFit.cover,
+                  imageProvider: NetworkImage(
+                    proof
+                        .getFileUrl(
+                          uriProductHelper: ProductQuery.uriPricesHelper,
+                          isThumbnail: true,
+                        )
+                        .toString(),
                   ),
+                  rounded: false,
                 ),
               ),
               const SizedBox(width: SMALL_SPACE),
@@ -71,54 +74,36 @@ class PriceProofWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    // Single Wrap widget for all buttons
-                    Wrap(
-                      spacing: VERY_SMALL_SPACE,
-                      runSpacing: VERY_SMALL_SPACE,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: <Widget>[
-                        // Proof type button
-                        PriceButton(
-                          title: proofType,
-                          onPressed: () {},
-                          iconData: _getProofTypeIcon(),
-                        ),
-
-                        // Price count button
-                        if (priceCount > 0)
-                          PriceButton(
-                            title: priceCount == 1
-                                ? '1 price'
-                                : '$priceCount prices',
-                            onPressed: () {},
-                            iconData: Icons.receipt_long,
-                          ),
-
-                        // Currency button if available
-                        if (proof.currency != null)
-                          PriceButton(
-                            title: _formatCurrency(proof.currency.toString()),
-                            onPressed: () {},
-                            iconData: Icons.monetization_on,
-                          ),
-
-                        // Date and time button
-                        PriceButton(
-                          title: '$date, $time',
-                          onPressed: () {},
-                          iconData: Icons.calendar_today,
-                        ),
-
-                        // Location button if available
-                        if (proof.location != null)
-                          PriceButton(
-                            title: proof.location!.name ??
-                                appLocalizations.unknown,
-                            onPressed: () {},
-                            iconData: Icons.location_on,
-                          ),
-                      ],
+                    _buildProofTypeRow(context),
+                    Text(
+                      dateDisplay,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
+                    if (proof.location != null)
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.public,
+                            size: 16,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              proof.location!.name ?? appLocalizations.unknown,
+                              style: Theme.of(context).textTheme.bodyMedium,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                    const SizedBox(height: SMALL_SPACE),
+                    if (priceCount > 0)
+                      _buildInfoChip(
+                        context,
+                        priceCount == 1 ? '1 price' : '$priceCount prices',
+                        Icons.receipt_long,
+                      ),
                   ],
                 ),
               ),
@@ -129,38 +114,101 @@ class PriceProofWidget extends StatelessWidget {
     );
   }
 
-  String _formatCurrency(String currencyString) {
-    // Extract only the currency code from formats like "Currency.inr"
-    if (currencyString.contains('.')) {
-      return currencyString.split('.').last.toUpperCase();
-    }
-    return currencyString.toUpperCase();
+  /// Builds the proof type row with currency symbol when available
+  Widget _buildProofTypeRow(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String proofTypeLabel = _getProofTypeLabel(appLocalizations);
+
+    return Row(
+      children: <Widget>[
+        Text(
+          proofTypeLabel,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        if (proof.currency != null) ...<Widget>[
+          const SizedBox(width: 4),
+          const Text(
+            '(',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            proof.currency!.symbol,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Text(
+            ')',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  /// Builds a styled information chip with icon
+  Widget _buildInfoChip(BuildContext context, String label, IconData icon) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Icon(
+            icon,
+            size: 14,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   String _getProofTypeLabel(AppLocalizations appLocalizations) {
     if (proof.type == null) {
-      return appLocalizations.prices_proof_type_generic;
+      return appLocalizations.prices_proof_type_price_tag;
     }
 
     switch (proof.type) {
       case ProofType.receipt:
         return appLocalizations.prices_proof_type_receipt;
       default:
-        return appLocalizations.prices_proof_type_generic;
+        return appLocalizations.prices_proof_type_price_tag;
     }
   }
 
-  IconData? _getProofTypeIcon() {
-    if (proof.type == null) {
-      return Icons.receipt_long;
+  String _getTimeAgo(DateTime dateTime) {
+    final DateTime now = DateTime.now();
+    final Duration difference = now.difference(dateTime);
+    if (difference.inDays < 7) {
+      if (difference.inDays > 0) {
+        return '${difference.inDays}d ago';
+      } else if (difference.inHours > 0) {
+        return '${difference.inHours}h ago';
+      } else if (difference.inMinutes > 0) {
+        return '${difference.inMinutes}min ago';
+      } else {
+        return 'just now';
+      }
     }
-
-    switch (proof.type) {
-      case ProofType.receipt:
-        return Icons.receipt;
-      default:
-        return Icons.receipt_long;
-    }
+    return '';
   }
 
   String _generateSemanticsLabel(
@@ -170,15 +218,33 @@ class PriceProofWidget extends StatelessWidget {
     String? location,
     int priceCount,
   ) {
-    final StringBuffer info = StringBuffer(date);
-    info.write(' $time');
-
-    if (location?.isNotEmpty == true) {
-      info.write(' - $location');
-    }
+    final StringBuffer info = StringBuffer();
+    final String timeAgo = _getTimeAgo(proof.created);
 
     final String proofType = _getProofTypeLabel(appLocalizations);
-    final String priceText = priceCount == 1 ? '1 price' : '$priceCount prices';
-    return '$priceText - $proofType';
+    info.write(proofType);
+
+    if (priceCount > 0) {
+      final String priceText =
+          priceCount == 1 ? '1 price' : '$priceCount prices';
+      info.write(', $priceText');
+    }
+
+    if (timeAgo.isNotEmpty) {
+      info.write(', $date ($timeAgo)');
+    } else {
+      info.write(', $date');
+    }
+
+    if (location?.isNotEmpty == true) {
+      info.write(', at $location');
+    }
+
+    if (proof.currency != null) {
+      info.write(
+          ', ${proof.currency!.symbol} (${proof.currency!.name}) currency');
+    }
+
+    return info.toString();
   }
 }
