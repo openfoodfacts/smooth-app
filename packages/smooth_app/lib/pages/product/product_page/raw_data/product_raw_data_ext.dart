@@ -76,7 +76,8 @@ extension RawDataExt on Product {
     List<StringPair>? toAdd,
   ) {
     if (toAdd != null) {
-      final List<StringPair> mapWithUnit = RawDataUnitHelper().addNutritionUnit(toAdd);
+      final List<StringPair> mapWithUnit =
+          RawDataUnitHelper().addNutritionUnit(toAdd);
       _addRawDataDoubleTextInList(
         toBeFilled,
         label,
