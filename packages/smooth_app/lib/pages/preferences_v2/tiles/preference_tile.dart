@@ -35,13 +35,12 @@ class PreferenceTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final bool lightTheme = context.lightTheme(listen: true);
 
     return ListTile(
       leading: icon != null
           ? Icon(
               icon,
-              color: lightTheme ? theme.primaryColor : Colors.white,
+              color: context.lightTheme() ? theme.primaryColor : Colors.white,
             )
           : null,
       title: Text(title),

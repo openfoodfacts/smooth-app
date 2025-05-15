@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/preferences_v2/app_bars/logged_out/app_bar_authentication_button.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
@@ -26,7 +27,7 @@ class LoggedOutAppBar extends StatelessWidget {
           Container(
             width: PROFILE_PICTURE_SIZE,
             height: PROFILE_PICTURE_SIZE,
-            padding: const EdgeInsetsDirectional.all(8.0),
+            padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.white,
@@ -37,7 +38,7 @@ class LoggedOutAppBar extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 12.0),
+          const SizedBox(width: MEDIUM_SPACE),
           Expanded(
             child: Column(
               children: <Widget>[
@@ -65,16 +66,18 @@ class LoggedOutAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         collapseMode: CollapseMode.none,
         background: Padding(
-          padding:
-              const EdgeInsetsDirectional.only(bottom: SEARCH_BOTTOM_HEIGHT),
+          padding: const EdgeInsetsDirectional.only(
+            bottom: SEARCH_BOTTOM_HEIGHT,
+          ),
           child: Stack(
             children: <Widget>[
               AppBarBackground(),
               Container(
                 margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top +
-                        TOOLBAR_HEIGHT +
-                        MEDIUM_SPACE),
+                  top: MediaQuery.of(context).padding.top +
+                      TOOLBAR_HEIGHT +
+                      MEDIUM_SPACE,
+                ),
                 padding: const EdgeInsetsDirectional.symmetric(
                   horizontal: MEDIUM_SPACE,
                 ),
@@ -84,9 +87,8 @@ class LoggedOutAppBar extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: _buildActionCard(
+                          child: AppBarAuthenticationButton(
                             title: appLocalizations.create_account,
-                            themeExtension: themeExtension,
                             onPressed: () {
                               Navigator.of(
                                 context,
@@ -102,9 +104,8 @@ class LoggedOutAppBar extends StatelessWidget {
                         ),
                         const SizedBox(width: MEDIUM_SPACE),
                         Expanded(
-                          child: _buildActionCard(
+                          child: AppBarAuthenticationButton(
                             title: appLocalizations.sign_in,
-                            themeExtension: themeExtension,
                             onPressed: () {
                               Navigator.of(
                                 context,
@@ -127,10 +128,7 @@ class LoggedOutAppBar extends StatelessWidget {
           ),
         ),
       ),
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(SEARCH_BOTTOM_HEIGHT),
-        child: SearchBottomBar(),
-      ),
+      bottom: SearchBottomBar(),
       toolbarHeight: TOOLBAR_HEIGHT,
       pinned: true,
       floating: true,
@@ -139,59 +137,6 @@ class LoggedOutAppBar extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: ROUNDED_RADIUS,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildActionCard({
-    required String title,
-    required SmoothColorsThemeExtension themeExtension,
-    required VoidCallback onPressed,
-  }) {
-    return Material(
-      borderRadius: ROUNDED_BORDER_RADIUS,
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: ROUNDED_BORDER_RADIUS,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                              color: themeExtension.primaryBlack,
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Icon(
-                          Icons.arrow_circle_right,
-                          color: themeExtension.primaryBlack,
-                          size: 28.0,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );

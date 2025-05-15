@@ -5,9 +5,9 @@ class AppBarBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Positioned(
+        PositionedDirectional(
           bottom: 0.0,
-          left: 0.0,
+          start: 0.0,
           width: 240.0,
           height: 240.0,
           child: Transform.translate(
@@ -23,9 +23,9 @@ class AppBarBackground extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
+        PositionedDirectional(
           top: 0.0,
-          right: 0.0,
+          end: 0.0,
           width: 220.0,
           height: 220.0,
           child: Transform.translate(

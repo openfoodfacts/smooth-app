@@ -59,7 +59,7 @@ class ValueEditionPreferenceTile extends PreferenceTile {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(title),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: BALANCED_SPACE),
                     TextField(
                       controller: Provider.of<TextEditingController>(context),
                       autocorrect: false,
@@ -105,7 +105,7 @@ class ValueEditionPreferenceTile extends PreferenceTile {
       },
     );
 
-    if (res is String && res != value) {
+    if (res != value) {
       onNewValue.call(res);
     }
   }

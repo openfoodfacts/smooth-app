@@ -9,7 +9,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class SearchBottomBar extends StatelessWidget {
+class SearchBottomBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -22,7 +22,7 @@ class SearchBottomBar extends StatelessWidget {
     return SizedBox(
       height: SEARCH_BOTTOM_HEIGHT,
       child: CustomPaint(
-        painter: _BottomPainter(
+        painter: _SearchBottomBarBackgroundPainter(
           color: lightTheme
               ? themeExtension.primaryMedium
               : themeExtension.primaryDark,
@@ -66,10 +66,13 @@ class SearchBottomBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(SEARCH_BOTTOM_HEIGHT);
 }
 
-class _BottomPainter extends CustomPainter {
-  _BottomPainter({
+class _SearchBottomBarBackgroundPainter extends CustomPainter {
+  _SearchBottomBarBackgroundPainter({
     required Color color,
     required this.radius,
   }) : _paint = Paint()..color = color;
@@ -112,13 +115,13 @@ class _BottomPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(
-    _BottomPainter oldDelegate,
+    _SearchBottomBarBackgroundPainter oldDelegate,
   ) =>
       radius != oldDelegate.radius;
 
   @override
   bool shouldRebuildSemantics(
-    _BottomPainter oldDelegate,
+    _SearchBottomBarBackgroundPainter oldDelegate,
   ) =>
       false;
 }

@@ -265,7 +265,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
 
     return ListTile(
       visualDensity: hideTitle ? VisualDensity.compact : null,
-      contentPadding: hideTitle ? EdgeInsets.zero : null,
+      contentPadding: hideTitle ? EdgeInsetsDirectional.zero : null,
       dense: hideTitle,
       minTileHeight: hideTitle ? 0 : null,
       title: !hideTitle
