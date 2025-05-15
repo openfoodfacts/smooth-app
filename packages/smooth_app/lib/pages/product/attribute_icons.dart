@@ -145,6 +145,34 @@ abstract class AttributeIcon extends StatelessWidget {
           size: size,
           semanticsLabel: semanticsLabel,
         ),
+      'nova' when attribute.iconUrl?.endsWith('nova-group-1.svg') == true =>
+        _AttributeNOVAIcon.group1(
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          size: size,
+          semanticsLabel: semanticsLabel,
+        ),
+      'nova' when attribute.iconUrl?.endsWith('nova-group-2.svg') == true =>
+        _AttributeNOVAIcon.group2(
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          size: size,
+          semanticsLabel: semanticsLabel,
+        ),
+      'nova' when attribute.iconUrl?.endsWith('nova-group-3.svg') == true =>
+        _AttributeNOVAIcon.group3(
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          size: size,
+          semanticsLabel: semanticsLabel,
+        ),
+      'nova' when attribute.iconUrl?.endsWith('nova-group-4.svg') == true =>
+        _AttributeNOVAIcon.group4(
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          size: size,
+          semanticsLabel: semanticsLabel,
+        ),
       'nova' => _AttributeNOVAIcon(
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
@@ -468,6 +496,62 @@ class _AttributeNOVAIcon extends AttributeIcon {
   }) : super._(
           icon: const FoodIcons.nova(),
           iconSizeFactor: 0.75,
+        );
+
+  const _AttributeNOVAIcon.group1({
+    required super.backgroundColor,
+    required super.size,
+    super.foregroundColor,
+    super.semanticsLabel,
+  }) : super._(
+          icon: const FoodIcons.nova1(),
+          iconSizeFactor: 0.68,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.12,
+            start: 0.025,
+          ),
+        );
+
+  const _AttributeNOVAIcon.group2({
+    required super.backgroundColor,
+    required super.size,
+    super.foregroundColor,
+    super.semanticsLabel,
+  }) : super._(
+          icon: const FoodIcons.nova2(),
+          iconSizeFactor: 0.67,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.08,
+            start: 0.025,
+          ),
+        );
+
+  const _AttributeNOVAIcon.group3({
+    required super.backgroundColor,
+    required super.size,
+    super.foregroundColor,
+    super.semanticsLabel,
+  }) : super._(
+          icon: const FoodIcons.nova3(),
+          iconSizeFactor: 0.68,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.12,
+            start: 0.025,
+          ),
+        );
+
+  const _AttributeNOVAIcon.group4({
+    required super.backgroundColor,
+    required super.size,
+    super.foregroundColor,
+    super.semanticsLabel,
+  }) : super._(
+          icon: const FoodIcons.nova4(),
+          iconSizeFactor: 0.65,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.09,
+            start: 0.025,
+          ),
         );
 }
 

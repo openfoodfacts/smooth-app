@@ -133,7 +133,7 @@ class _RawGridGallery extends StatelessWidget {
           return Padding(
             padding: EdgeInsetsDirectional.only(
               start: VERY_SMALL_SPACE,
-              end: index % _columns == 0 ? VERY_SMALL_SPACE : 0.0,
+              end: (index - 1) % _columns == 0 ? VERY_SMALL_SPACE : 0.0,
               bottom: VERY_SMALL_SPACE,
             ),
             child: Stack(

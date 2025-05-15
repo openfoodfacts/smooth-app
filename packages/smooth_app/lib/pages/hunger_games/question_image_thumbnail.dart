@@ -17,7 +17,7 @@ class QuestionImageThumbnail extends StatelessWidget {
           onTap: () async => Navigator.of(context).push<void>(
             MaterialPageRoute<void>(
               builder: (BuildContext context) =>
-                  QuestionImageFullPage(question),
+                  QuestionImageFullPage(question: question),
               fullscreenDialog: true,
             ),
           ),
