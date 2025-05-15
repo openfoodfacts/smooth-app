@@ -1613,6 +1613,10 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
+  "edit_product_form_item_deny_suggestion": "നിർദ്ദേശം നിരസിക്കുക",
+  "@edit_product_form_item_deny_suggestion": {
+    "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
+  },
   "edit_product_form_item_details_title": "Basic details",
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
@@ -4358,5 +4362,81 @@
   "product_edit_robotoff_proof": "Proof",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "product_edit_robotoff_positive_button": "നിർദ്ദേശം സ്വീകരിക്കുക",
+  "@product_edit_robotoff_positive_button": {
+    "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_negative_button": "നിർദ്ദേശം നിരസിക്കുക",
+  "@product_edit_robotoff_negative_button": {
+    "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_show_proof": "തെളിവ് കാണിക്കുക",
+  "@product_edit_robotoff_show_proof": {
+    "description": "Button to show the proof related to a suggestion"
+  },
+  "product_edit_robotoff_expand_proof": "പ്രൂഫ് വികസിപ്പിക്കുക",
+  "@product_edit_robotoff_expand_proof": {
+    "description": "Button to open in fullscreen the proof"
+  },
+  "page_indicator_with_total": "പേജ് {current} / {total}",
+  "@page_indicator_with_total": {
+    "description": "Page indicator showing current page and total pages",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of pages"
+      }
+    }
+  },
+  "page_indicator": "പേജ് {current}",
+  "@page_indicator": {
+    "description": "Page indicator showing only current page when total is unknown",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      }
+    }
+  },
+  "item_count_with_total": "{count} ന്റെ {total} ഇനങ്ങൾ",
+  "@item_count_with_total": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count": "{count} ഇനങ്ങൾ",
+  "@item_count": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "prices_no_result": "വില സ്ഥിതിവിവരക്കണക്കുകളൊന്നും കണ്ടെത്തിയില്ല.",
+  "@prices_no_result": {
+    "description": "Message shown when there are no price statistics available to display"
+  },
+  "prices_error_loading_more_items": "കൂടുതൽ ഇനങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പിശക്",
+  "@prices_error_loading_more_items": {
+    "description": "Error message shown when additional items fail to load"
+  },
+  "prices_proof_error": "ആധികാരികത ഉറപ്പാക്കൽ പരാജയപ്പെട്ടു, തെളിവുകൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല.",
+  "@prices_proof_error": {
+    "description": "Error message shown when unable to fetch proofs"
   }
 }

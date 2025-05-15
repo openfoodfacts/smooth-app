@@ -1204,7 +1204,7 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{Geen geselecteerd product} =1{Eén geselecteerd product} other{{count} geselecteerde producten}}",
+  "multiselect_title": "{count,plural, one {}=0{Geen geselecteerd product} =1{Eén geselecteerd product} other{{count} geselecteerde producten}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
@@ -1612,6 +1612,10 @@
   "edit_product_form_item_add_suggestion": "Suggestie toevoegen",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
+  },
+  "edit_product_form_item_deny_suggestion": "Suggestie weigeren",
+  "@edit_product_form_item_deny_suggestion": {
+    "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
   },
   "edit_product_form_item_details_title": "Basisdetails",
   "@edit_product_form_item_details_title": {
@@ -2287,8 +2291,8 @@
   "prices_bulk_proof_upload_subtitle": "Meerdere prijskaartjes",
   "prices_bulk_proof_upload_title": "Bulkbewijs uploaden",
   "prices_generic_title": "Prijzen",
-  "prices_add_n_prices": "{count,plural, =1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
-  "prices_send_n_prices": "{count,plural, =1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
+  "prices_add_n_prices": "{count,plural, one {}=1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
+  "prices_send_n_prices": "{count,plural, one {}=1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
   "prices_add_an_item": "Item toevoegen",
   "prices_add_a_price": "Voeg een prijs toe",
   "prices_add_a_receipt": "Een ontvangstbewijs toevoegen",
@@ -2316,7 +2320,7 @@
   "prices_barcode_enter": "Voer de streepjescode in",
   "prices_barcode_reader_action": "Streepjescodelezer",
   "prices_view_prices": "Bekijk de prijzen",
-  "prices_product_accessibility_summary": "{count,plural, =1{1 prijs} other{{count} prijzen}} voor {product}",
+  "prices_product_accessibility_summary": "{count,plural, one {}=1{1 prijs} other{{count} prijzen}} voor {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2328,7 +2332,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, =0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
+  "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2380,7 +2384,7 @@
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
+  "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2425,7 +2429,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, =0{Geen bewijs} =1{Eén bewijs} other{{count} bewijzen}}",
+  "prices_button_count_proof": "{count,plural, one {}=0{Geen bewijs} =1{Eén bewijs} other{{count} bewijzen}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2434,7 +2438,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, =0{Geen product} =1{Eén product} other{{count} producten}}",
+  "prices_button_count_product": "{count,plural, one {}=0{Geen product} =1{Eén product} other{{count} producten}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2443,7 +2447,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, =0{Geen gebruiker} =1{Eén gebruiker} other{{count} gebruikers}}",
+  "prices_button_count_user": "{count,plural, one {}=0{Geen gebruiker} =1{Eén gebruiker} other{{count} gebruikers}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2452,7 +2456,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, =0{Geen prijs} =1{Eén prijs} other{{count} prijzen}}",
+  "prices_button_count_price": "{count,plural, one {}=0{Geen prijs} =1{Eén prijs} other{{count} prijzen}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -3556,7 +3560,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Top {count,plural,  other{{count} producten}} downloaden in uw land voor direct scannen",
+  "download_top_n_products": "Top {count,plural,  one {}other{{count} producten}} downloaden in uw land voor direct scannen",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
@@ -4358,5 +4362,81 @@
   "product_edit_robotoff_proof": "Bewijs",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "product_edit_robotoff_positive_button": "Suggestie accepteren",
+  "@product_edit_robotoff_positive_button": {
+    "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_negative_button": "Suggestie afwijzen",
+  "@product_edit_robotoff_negative_button": {
+    "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_show_proof": "Toon bewijs",
+  "@product_edit_robotoff_show_proof": {
+    "description": "Button to show the proof related to a suggestion"
+  },
+  "product_edit_robotoff_expand_proof": "Uitbreiden bewijs",
+  "@product_edit_robotoff_expand_proof": {
+    "description": "Button to open in fullscreen the proof"
+  },
+  "page_indicator_with_total": "Pagina {current} / {total}",
+  "@page_indicator_with_total": {
+    "description": "Page indicator showing current page and total pages",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of pages"
+      }
+    }
+  },
+  "page_indicator": "Pagina {current}",
+  "@page_indicator": {
+    "description": "Page indicator showing only current page when total is unknown",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      }
+    }
+  },
+  "item_count_with_total": "{count} van {total} items",
+  "@item_count_with_total": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count": "{count} artikelen",
+  "@item_count": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "prices_no_result": "Geen prijsstatistieken gevonden.",
+  "@prices_no_result": {
+    "description": "Message shown when there are no price statistics available to display"
+  },
+  "prices_error_loading_more_items": "Fout bij het laden van meer items",
+  "@prices_error_loading_more_items": {
+    "description": "Error message shown when additional items fail to load"
+  },
+  "prices_proof_error": "Authenticatie mislukt, kan geen bewijzen ophalen",
+  "@prices_proof_error": {
+    "description": "Error message shown when unable to fetch proofs"
   }
 }

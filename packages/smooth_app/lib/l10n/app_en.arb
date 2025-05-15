@@ -4379,34 +4379,52 @@
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   },
-   "page_indicator_with_total": "Page {current} / {total}",
+  "page_indicator_with_total": "Page {current} / {total}",
   "@page_indicator_with_total": {
     "description": "Page indicator showing current page and total pages",
     "placeholders": {
-      "current": {"type": "int", "description": "Current page number"},
-      "total": {"type": "int", "description": "Total number of pages"}
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of pages"
+      }
     }
   },
   "page_indicator": "Page {current}",
   "@page_indicator": {
     "description": "Page indicator showing only current page when total is unknown",
     "placeholders": {
-      "current": {"type": "int", "description": "Current page number"}
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      }
     }
   },
   "item_count_with_total": "{count} of {total} items",
   "@item_count_with_total": {
     "description": "Item count showing current number of items and total items",
     "placeholders": {
-      "count": {"type": "int", "description": "Current number of items loaded"},
-      "total": {"type": "int", "description": "Total number of items available"}
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of items available"
+      }
     }
   },
   "item_count": "{count} items",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
-      "count": {"type": "int", "description": "Current number of items loaded"}
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      }
     }
   },
   "prices_no_result": "No price statistics found.",
