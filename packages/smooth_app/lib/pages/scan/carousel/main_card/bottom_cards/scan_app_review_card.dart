@@ -113,9 +113,9 @@ class ScanAppReview extends StatelessWidget {
                     foregroundColor:
                         lightTheme ? Colors.white : colors.primaryDark,
                     icon: DecoratedBox(
-                      decoration: const ShapeDecoration(
-                        shape: CircleBorder(),
-                        color: Colors.white,
+                      decoration: ShapeDecoration(
+                        shape: const CircleBorder(),
+                        color: lightTheme ? Colors.white : colors.primaryDark,
                       ),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.all(
