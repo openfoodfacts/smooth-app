@@ -1,20 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
-import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
-import 'package:smooth_app/pages/prices/product_price_refresher.dart';
-import 'package:smooth_app/pages/product/common/loading_status.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
@@ -32,140 +29,80 @@ class ProductPricesList extends StatefulWidget {
 
 class _ProductPricesListState extends State<ProductPricesList>
     with TraceableClientMixin {
-  late final ProductPriceRefresher _productPriceRefresher;
+  late final _InfiniteScrollPriceManager _priceManager;
 
   @override
   void initState() {
     super.initState();
-    _productPriceRefresher = ProductPriceRefresher(
-      model: widget.model,
-      userPreferences: context.read<UserPreferences>(),
+    _priceManager = _InfiniteScrollPriceManager(
       pricesResult: widget.pricesResult,
-      refreshDisplay: () {
-        if (mounted) {
-          setState(() {});
-        }
-      },
+      model: widget.model,
     );
   }
 
-  // TODO(monsieurtanuki): add a refresh gesture
-  // TODO(monsieurtanuki): add a "download the next 10" items
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    unawaited(_productPriceRefresher.runIfNeeded());
-
-    switch (_productPriceRefresher.loadingStatus) {
-      case null:
-      case LoadingStatus.LOADING:
-        return const Center(child: CircularProgressIndicator());
-      case LoadingStatus.ERROR:
-        return Text(_productPriceRefresher.loadingError.toString());
-      case LoadingStatus.LOADED:
-        break;
-    }
-    // highly improbable
-    if (_productPriceRefresher.pricesResult!.items == null) {
-      return const Text('empty list');
-    }
-
-    return _ActualList(
-      model: widget.model,
-      result: _productPriceRefresher.pricesResult!,
+    return InfiniteScrollList<Price>(
+      manager: _priceManager,
     );
   }
 }
 
-class _ActualList extends StatelessWidget {
-  const _ActualList({
+/// A manager for handling price data with infinite scrolling
+class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
+  _InfiniteScrollPriceManager({
+    GetPricesResult? pricesResult,
     required this.model,
-    required this.result,
-  });
+  }) : super(initialItems: pricesResult?.items);
 
+  /// The model containing price query parameters
   final GetPricesModel model;
-  final GetPricesResult result;
 
   @override
-  Widget build(BuildContext context) {
-    final List<Widget> children = <Widget>[];
+  Future<void> fetchData(int pageNumber) async {
+    final GetPricesParameters parameters = model.parameters;
+    parameters.pageNumber = pageNumber;
 
-    if (!model.displayEachProduct) {
-      // in that case we display the product only once, if possible.
-      for (final Price price in result.items!) {
-        final PriceProduct? priceProduct = price.product;
-        if (priceProduct == null) {
-          continue;
-        }
-        children.add(
-          SmoothCard(
-            child: PriceProductWidget(
+    final MaybeError<GetPricesResult> result =
+        await OpenPricesAPIClient.getPrices(parameters,
+            uriHelper: ProductQuery.uriPricesHelper);
+
+    if (result.isError) {
+      throw result.detailError;
+    }
+
+    final GetPricesResult value = result.value;
+    updateItems(
+      newItems: value.items,
+      pageNumber: value.pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required Price item,
+  }) {
+    final PriceProduct? priceProduct = item.product;
+    return SmoothCard(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          if (model.displayEachProduct && priceProduct != null)
+            PriceProductWidget(
               priceProduct,
               enableCountButton: model.enableCountButton,
             ),
+          PriceDataWidget(
+            item,
+            model: model,
           ),
-        );
-        break;
-      }
-    }
-    if (!model.displayEachLocation) {
-      // in that case we display the location only once, if possible.
-      for (final Price price in result.items!) {
-        final Location? location = price.location;
-        if (location == null) {
-          continue;
-        }
-        children.add(
-          SmoothCard(
-            child: PriceLocationWidget(location),
-          ),
-        );
-        break;
-      }
-    }
-
-    for (final Price price in result.items!) {
-      final PriceProduct? priceProduct = price.product;
-      children.add(
-        SmoothCard(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              if (model.displayEachProduct && priceProduct != null)
-                PriceProductWidget(
-                  priceProduct,
-                  enableCountButton: model.enableCountButton,
-                ),
-              PriceDataWidget(
-                price,
-                model: model,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String title =
-        result.numberOfPages != null && result.numberOfPages! <= 1
-            ? appLocalizations.prices_list_length_one_page(
-                result.items!.length,
-              )
-            : appLocalizations.prices_list_length_many_pages(
-                model.parameters.pageSize!,
-                result.total!,
-              );
-    children.insert(
-      0,
-      SmoothCard(child: ListTile(title: Text(title))),
-    );
-    // so that the last content gets not hidden by the FAB
-    children.add(
-      const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
-    );
-    return ListView(
-      children: children,
+        ],
+      ),
     );
   }
 }

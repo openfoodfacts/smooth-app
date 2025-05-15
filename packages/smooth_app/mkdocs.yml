@@ -10,7 +10,8 @@ theme:
     primary: beige
     text: black
   logo: assets/app/logo_text_black.svg
-
+  features:
+    - content.action.edit
 markdown_extensions:
   - footnotes
   - mdx_truly_sane_lists

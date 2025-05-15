@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Remove</title>
+    <g id="Remove" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M10,0 C4.477,0 0,4.477 0,10 C0,15.523 4.477,20 10,20 C15.523,20 20,15.523 20,10 C20,4.477 15.523,0 10,0 Z M13,11 L7,11 C6.448,11 6,10.552 6,10 C6,9.448 6.448,9 7,9 L13,9 C13.552,9 14,9.448 14,10 C14,10.552 13.552,11 13,11 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

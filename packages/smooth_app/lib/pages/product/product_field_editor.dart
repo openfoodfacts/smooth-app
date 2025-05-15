@@ -10,8 +10,8 @@ import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_packaging_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
-import 'package:smooth_app/pages/product/simple_input_page.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 
 // TODO(monsieurtanuki): refactor - move all product field edit files to a new "field" folder
 /// Helper class about product fields.
