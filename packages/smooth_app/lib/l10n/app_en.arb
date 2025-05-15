@@ -4466,8 +4466,8 @@
   "preferences_app_settings_products": "Products",
   "@preferences_app_settings_products": {
     "description": "Title for the app settings products card"
-
-  "product_edit_robotoff_positive_button": "Accept suggestion",
+  },
+"product_edit_robotoff_positive_button": "Accept suggestion",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
   },
