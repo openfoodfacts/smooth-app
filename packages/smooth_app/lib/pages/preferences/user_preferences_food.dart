@@ -103,7 +103,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
   List<Widget> getOnboardingContent() {
     final List<Widget> result = <Widget>[
       Padding(
-        padding: const EdgeInsets.symmetric(
+        padding: const EdgeInsetsDirectional.symmetric(
           horizontal: LARGE_SPACE,
         ),
         child: Text(
@@ -114,9 +114,8 @@ class UserPreferencesFood extends AbstractUserPreferences {
     ];
     for (final UserPreferencesItem item in _getOnboardingBody()) {
       result.add(Padding(
-        padding: const EdgeInsets.only(
-          left: SMALL_SPACE,
-          right: SMALL_SPACE,
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: SMALL_SPACE,
         ),
         child: item.builder(context),
       ));

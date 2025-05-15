@@ -48,21 +48,19 @@ class UserPreferencesAttributeGroup {
       UserPreferencesItemSimple(
         labels: <String>[],
         builder: (_) => Padding(
-          padding: const EdgeInsets.only(
-            left: LARGE_SPACE,
-            right: LARGE_SPACE,
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: LARGE_SPACE,
           ),
           child: SmoothCard(
-            padding: EdgeInsets.zero,
-            margin: const EdgeInsets.only(top: LARGE_SPACE),
+            padding: EdgeInsetsDirectional.zero,
+            margin: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
             child: InkWell(
               onTap: () async =>
                   userPreferences.setActiveAttributeGroup(group.id!),
               child: ListTile(
                 shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: ROUNDED_RADIUS,
-                    topRight: ROUNDED_RADIUS,
+                  borderRadius: BorderRadiusDirectional.vertical(
+                    top: ROUNDED_RADIUS,
                   ),
                 ),
                 tileColor: extension.primaryBlack,
@@ -71,7 +69,7 @@ class UserPreferencesAttributeGroup {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(ROUNDED_RADIUS),
+                      borderRadius: BorderRadiusDirectional.all(ROUNDED_RADIUS),
                     ),
                   ),
                 ),
@@ -103,8 +101,8 @@ class UserPreferencesAttributeGroup {
             return Container(
               color: colorScheme.error,
               width: double.infinity,
-              padding: const EdgeInsets.all(LARGE_SPACE),
-              margin: const EdgeInsets.all(LARGE_SPACE),
+              padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+              margin: const EdgeInsetsDirectional.all(LARGE_SPACE),
               child: Text(
                 group.warning!,
                 style: TextStyle(
@@ -131,14 +129,16 @@ class UserPreferencesAttributeGroup {
             if (attribute.name != null) attribute.name!,
           ],
           builder: (_) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+            padding:
+                const EdgeInsetsDirectional.symmetric(horizontal: LARGE_SPACE),
             child: SmoothCard(
               elevation: 8,
-              padding: EdgeInsets.zero,
-              borderRadius: const BorderRadius.only(
-                  bottomLeft: ROUNDED_RADIUS, bottomRight: ROUNDED_RADIUS),
+              padding: EdgeInsetsDirectional.zero,
+              borderRadius: const BorderRadiusDirectional.vertical(
+                bottom: ROUNDED_RADIUS,
+              ),
               color: extension.primaryBlack,
-              margin: EdgeInsets.zero,
+              margin: EdgeInsetsDirectional.zero,
               child: AttributeButton(
                 attribute,
                 productPreferences,

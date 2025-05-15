@@ -12,8 +12,12 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatefulWidget {
-  const AttributeButton(this.attribute, this.productPreferences,
-      {this.isFirst = false, this.isLast = false});
+  const AttributeButton(
+    this.attribute,
+    this.productPreferences, {
+    this.isFirst = false,
+    this.isLast = false,
+  });
 
   final bool isFirst;
   final bool isLast;
@@ -33,6 +37,7 @@ class AttributeButton extends StatefulWidget {
 
 class _AttributeButtonState extends State<AttributeButton> {
   bool editMode = false;
+
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
@@ -55,23 +60,24 @@ class _AttributeButtonState extends State<AttributeButton> {
                 context.lightTheme() ? Colors.white : extension.primaryMedium,
             shape: widget.isLast
                 ? const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: ROUNDED_RADIUS,
-                      bottomRight: ROUNDED_RADIUS,
+                    borderRadius: BorderRadiusDirectional.vertical(
+                      bottom: ROUNDED_RADIUS,
                     ),
                   )
                 : null,
             leading: Icon(
               Icons.radio_button_checked,
               color: extension.primaryBlack,
-              size: 32,
+              size: 32.0,
             ),
             title: AutoSizeText(
               widget.productPreferences
                   .getPreferenceImportanceFromImportanceId(currentImportanceId)!
                   .name!,
               style: const TextStyle(
-                  color: Colors.black, fontWeight: FontWeight.w600),
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             trailing: GestureDetector(
                 child: Icon(
@@ -121,9 +127,8 @@ class _AttributeButtonState extends State<AttributeButton> {
         ListTile(
           shape: widget.isFirst
               ? const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: ROUNDED_RADIUS,
-                    topRight: ROUNDED_RADIUS,
+                  borderRadius: BorderRadiusDirectional.vertical(
+                    top: ROUNDED_RADIUS,
                   ),
                 )
               : null,
@@ -137,19 +142,22 @@ class _AttributeButtonState extends State<AttributeButton> {
               : extension.primaryDark,
           trailing: info == null
               ? null
-              : Icon(Icons.help_outline,
+              : Icon(
+                  Icons.help_outline,
                   size: DEFAULT_ICON_SIZE,
                   color: context.lightTheme()
                       ? extension.primaryBlack
-                      : extension.primaryLight),
+                      : extension.primaryLight,
+                ),
           title: AutoSizeText(
             widget.attribute.settingName ?? widget.attribute.name!,
             maxLines: 2,
             style: style.copyWith(
-                fontWeight: FontWeight.bold,
-                color: context.lightTheme()
-                    ? extension.primaryUltraBlack
-                    : extension.primaryLight),
+              fontWeight: FontWeight.bold,
+              color: context.lightTheme()
+                  ? extension.primaryUltraBlack
+                  : extension.primaryLight,
+            ),
           ),
           onTap: info == null
               ? null
