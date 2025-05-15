@@ -86,17 +86,11 @@ Otherwise, they will be filtered</p>
   final List&lt;OpenFoodFactsLanguage&gt; allLanguages =
       _languages.getSupportedLanguagesNameInEnglish();
 
-  &#47;&#47;&#47; Take the 3 most popular languages
-  final Iterable&lt;MapEntry&lt;String, int&gt;&gt; popularList = userPreferences
-      .languagesUsage.entries
-      .sorted((final MapEntry&lt;String, int&gt; entry1,
-          final MapEntry&lt;String, int&gt; entry2) {
-    return entry1.value.compareTo(entry2.value);
-  }).take(3);
+  final Map&lt;String, int&gt; popularList = userPreferences.languagesUsage;
 
   final List&lt;OpenFoodFactsLanguage&gt; selectedLanguagesList =
       &lt;OpenFoodFactsLanguage&gt;[];
-  final List&lt;OpenFoodFactsLanguage&gt; popularLanguagesList =
+  List&lt;OpenFoodFactsLanguage&gt; popularLanguagesList =
       &lt;OpenFoodFactsLanguage&gt;[];
   final List&lt;OpenFoodFactsLanguage&gt; otherLanguagesList =
       &lt;OpenFoodFactsLanguage&gt;[];
@@ -108,14 +102,19 @@ Otherwise, they will be filtered</p>
       } else {
         selectedLanguagesList.add(language);
       }
-    } else if (popularList.any(
-        (final MapEntry&lt;String, int&gt; entry) =&gt; entry.key == language.code)) {
+    } else if (popularList.containsKey(language.code)) {
       popularLanguagesList.add(language);
     } else {
       otherLanguagesList.add(language);
     }
   }
 
+  &#47;&#47; Only keep the 3 most popular languages
+  popularLanguagesList =
+      _filterLanguagesByPopularity(popularLanguagesList, popularList)
+          .toList(growable: false);
+
+  &#47;&#47; Sort the languages alphabetically
   final Languages languagesHelper = Languages();
   _sortLanguages(selectedLanguagesList, languagesHelper);
   _sortLanguages(popularLanguagesList, languagesHelper);
