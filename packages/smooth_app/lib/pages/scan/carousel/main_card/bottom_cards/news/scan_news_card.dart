@@ -145,7 +145,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       textStyle: TextStyle(
         color: widget.textColor ??
             (!themeProvider.isDarkMode(context)
-                ? theme.primarySemiDark
+                ? theme.primaryBlack
                 : theme.primaryLight),
         fontSize: 15.0,
       ),
@@ -258,7 +258,7 @@ class _TagLineContentButton extends StatelessWidget {
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
-            color: backgroundColor ?? theme.primaryBlack,
+            color: backgroundColor ?? theme.primarySemiDark,
           ),
           child: Padding(
             padding: const EdgeInsetsDirectional.symmetric(
