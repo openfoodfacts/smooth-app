@@ -26,6 +26,7 @@ enum BackgroundTaskDetailsStamp {
   embCodes('emb_codes'),
   labels('labels'),
   categories('categories'),
+  traces('traces'),
   countries('countries');
 
   const BackgroundTaskDetailsStamp(this.tag);
@@ -125,8 +126,6 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   Product getProductChange() {
     final Product result =
         Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
-    // for good multilingual management
-    result.lang = getLanguage();
     return result;
   }
 

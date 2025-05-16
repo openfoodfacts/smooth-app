@@ -8,7 +8,6 @@ import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_sliver_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
@@ -18,19 +17,20 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
+import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_availability_container.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_facts_editor.dart';
-import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_image_viewer.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_size.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
-import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -60,6 +60,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
   late final TextEditingControllerWithHistory _servingController;
   late final NutritionContainerHelper _nutritionContainer;
+  late final WillPopScope2Controller _willPopScope2Controller;
   late final NumberFormat _decimalNumberFormat;
 
   bool _imageVisible = false;
@@ -68,13 +69,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
+
     _nutritionContainer = NutritionContainerHelper(
       orderedNutrients: widget.orderedNutrients,
       product: upToDateProduct,
-    );
+    )..addListener(_onChanged);
 
     _servingController =
-        TextEditingControllerWithHistory(text: _nutritionContainer.servingSize);
+        TextEditingControllerWithHistory(text: _nutritionContainer.servingSize)
+          ..addListener(_onChanged);
     _servingController.selection =
         TextSelection.collapsed(offset: _servingController.text.length - 1);
     _decimalNumberFormat =
@@ -89,6 +93,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
+      controller: _willPopScope2Controller,
       child: MultiProvider(
         providers: <SingleChildWidget>[
           ChangeNotifierProvider<NutritionContainerHelper>(
@@ -116,37 +121,24 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             child: SmoothScaffold(
               fixKeyboard: true,
               appBar: buildEditProductAppBar(
-                  context: context,
-                  title: appLocalizations.nutrition_page_title,
-                  product: upToDateProduct,
-                  actions: <Widget>[
-                    if (!_imageVisible)
-                      IconButton(
-                        icon: const Icon(Icons.image_rounded),
-                        tooltip: ImageField.NUTRITION
-                            .getProductImageButtonText(appLocalizations),
-                        onPressed: () {
-                          if (TransientFile.fromProduct(
-                            upToDateProduct,
-                            ImageField.NUTRITION,
-                            ProductQuery.getLanguage(),
-                          ).isImageAvailable()) {
-                            setState(() {
-                              _imageVisible = !_imageVisible;
-                            });
-                          } else {
-                            ImageField.NUTRITION.openDetails(
-                              context,
-                              upToDateProduct,
-                              widget.isLoggedInMandatory,
-                            );
-                          }
-                        },
-                      ),
-                  ]),
+                context: context,
+                title: appLocalizations.nutrition_page_title,
+                product: upToDateProduct,
+                actions: <Widget>[
+                  if (!_imageVisible)
+                    IconButton(
+                      icon: const Picture.open(),
+                      tooltip: ImageField.NUTRITION
+                          .getProductImageButtonText(appLocalizations),
+                      onPressed: () => _openProductImage(context),
+                    ),
+                ],
+              ),
               body: Column(
                 children: <Widget>[
-                  NutritionImageViewer(
+                  EditProductImageViewer(
+                    imageField: ImageField.NUTRITION,
+                    language: ProductQuery.getLanguage(),
                     visible: _imageVisible,
                     onClose: () => setState(() => _imageVisible = false),
                   ),
@@ -154,6 +146,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                     child: _NutritionPageBody(
                       servingController: _servingController,
                       formKey: _formKey,
+                      onNutrientChanged: _onChanged,
+                      product: upToDateProduct,
                     ),
                   ),
                 ],
@@ -171,6 +165,23 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         ),
       ),
     );
+  }
+
+  void _openProductImage(BuildContext context) {
+    final Iterable<OpenFoodFactsLanguage> languages =
+        getProductImageLanguages(upToDateProduct, ImageField.NUTRITION);
+
+    if (languages.isNotEmpty) {
+      setState(() {
+        _imageVisible = !_imageVisible;
+      });
+    } else {
+      ImageField.NUTRITION.openDetails(
+        context,
+        upToDateProduct,
+        widget.isLoggedInMandatory,
+      );
+    }
   }
 
   /// Returns `true` if any value differs with initial state.
@@ -202,6 +213,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     }
     _nutritionContainer.setServingText(_servingController.text);
     return _nutritionContainer.getChangedProduct(product);
+  }
+
+  void _onChanged() {
+    _willPopScope2Controller.canPop(!_isEdited());
   }
 
   /// Exits the page if the [flag] is `true`.
@@ -271,6 +286,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       controller.dispose();
     }
     _servingController.dispose();
+    _willPopScope2Controller.dispose();
     super.dispose();
   }
 }
@@ -279,10 +295,14 @@ class _NutritionPageBody extends StatefulWidget {
   const _NutritionPageBody({
     required this.formKey,
     required this.servingController,
+    required this.onNutrientChanged,
+    required this.product,
   });
 
   final GlobalKey<FormState> formKey;
   final TextEditingControllerWithHistory servingController;
+  final VoidCallback onNutrientChanged;
+  final Product product;
 
   @override
   State<_NutritionPageBody> createState() => _NutritionPageBodyState();
@@ -344,8 +364,13 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
     NutritionContainerHelper nutritionContainer,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
     final List<Widget> widgets = <Widget>[
       const NutritionServingSwitch(),
+      /* if (nutritionContainer.robotoffNutrientExtraction == null)
+        _extractNutrientsButton(context, nutritionContainer), */
     ];
 
     final Iterable<OrderedNutrient> displayableNutrients =
@@ -369,7 +394,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
         final double? value = nutritionContainer.getValue(nutrient);
         controllers[nutrient] = TextEditingControllerWithHistory(
           text: value == null ? '' : decimalNumberFormat.format(value),
-        );
+        )..addListener(widget.onNutrientChanged);
       }
 
       widgets.add(
@@ -408,6 +433,80 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
         bottom: MEDIUM_SPACE,
       ),
       sliver: SliverCardWithRoundedHeader(
+        banner: nutritionContainer.robotoffNutrientExtraction == null
+            ? Consumer<NutritionContainerHelper>(
+                builder: (
+                  BuildContext context,
+                  NutritionContainerHelper nutritionContainer,
+                  _,
+                ) {
+                  final bool loading =
+                      nutritionContainer.loadingRobotoffExtraction;
+
+                  return Padding(
+                    padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+                    child: Row(
+                      children: <Widget>[
+                        const ExcludeSemantics(
+                          child: icons.Sparkles(
+                            size: 18.0,
+                          ),
+                        ),
+                        const SizedBox(width: MEDIUM_SPACE),
+                        Expanded(
+                          child: Text(
+                            appLocalizations.nutrition_facts_extract_new,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: nutritionContainer
+                                          .robotoffNutrientExtraction !=
+                                      null ||
+                                  loading
+                              ? null
+                              : () async {
+                                  if (widget.product.barcode == null) {
+                                    return;
+                                  }
+
+                                  final bool success = await nutritionContainer
+                                      .fetchRobotoffExtraction(widget.product);
+
+                                  if (context.mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      success
+                                          ? SmoothFloatingSnackbar.positive(
+                                              context: context,
+                                              text: appLocalizations
+                                                  .nutrition_facts_extract_succesful,
+                                            )
+                                          : SmoothFloatingSnackbar.error(
+                                              context: context,
+                                              text: appLocalizations
+                                                  .nutrition_facts_extract_failed,
+                                            ),
+                                    );
+                                  }
+                                },
+                          child: loading
+                              ? const SizedBox.square(
+                                  dimension: 20.0,
+                                  child: CircularProgressIndicator(),
+                                )
+                              : Text(
+                                  appLocalizations
+                                      .nutrition_facts_extract_button_text,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              )
+            : null,
         title: appLocalizations.edit_product_form_item_nutrition_facts_title,
         leading: const NutritionFacts(),
         trailing: Row(
@@ -418,17 +517,57 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
                 setState(() => _nutrientToHighlight = nutrient);
               },
             ),
-            ExplanationTitleIcon(
-              title:
-                  appLocalizations.edit_product_form_item_nutrition_facts_title,
-              text: appLocalizations
-                  .edit_product_form_item_nutrition_facts_explanation,
-            ),
+            const NutritionFactsEditorExplanation(),
           ],
         ),
         contentPadding: EdgeInsets.zero,
-        child: Column(
-          children: widgets,
+        child: Stack(
+          children: <Widget>[
+            Column(
+              children: widgets,
+            ),
+            if (nutritionContainer.loadingRobotoffExtraction)
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: extension.secondaryLight.withAlpha(140),
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        constraints: const BoxConstraints(minHeight: 56.0),
+                        padding: const EdgeInsets.all(LARGE_SPACE),
+                        decoration: BoxDecoration(
+                          color: extension.secondaryLight,
+                          borderRadius: BorderRadius.only(
+                            topLeft: ROUNDED_BORDER_RADIUS.topLeft,
+                            topRight: ROUNDED_BORDER_RADIUS.topRight,
+                          ),
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            const ExcludeSemantics(
+                              child: icons.Sparkles(
+                                size: 18.0,
+                              ),
+                            ),
+                            const SizedBox(width: MEDIUM_SPACE),
+                            Text(
+                              appLocalizations
+                                  .nutrition_facts_extract_button_text,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );

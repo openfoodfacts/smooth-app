@@ -12,6 +12,7 @@ class SmoothFloatingSnackbar extends SnackBar {
     required super.content,
     super.backgroundColor,
     super.elevation,
+    EdgeInsetsGeometry? margin,
     super.padding,
     super.width,
     super.shape,
@@ -27,7 +28,7 @@ class SmoothFloatingSnackbar extends SnackBar {
     Duration? duration,
     super.key,
   }) : super(
-          margin: const EdgeInsetsDirectional.all(SMALL_SPACE),
+          margin: margin ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
           duration: duration ??
               (action != null
                   ? const Duration(seconds: 10)
@@ -39,6 +40,7 @@ class SmoothFloatingSnackbar extends SnackBar {
     required BuildContext context,
     required String text,
     super.elevation,
+    EdgeInsetsGeometry? margin,
     super.padding,
     super.width,
     super.shape,
@@ -54,7 +56,7 @@ class SmoothFloatingSnackbar extends SnackBar {
     Duration? duration,
     super.key,
   }) : super(
-          margin: const EdgeInsetsDirectional.all(SMALL_SPACE),
+          margin: margin ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
           duration: duration ??
               (action != null
                   ? const Duration(seconds: 10)

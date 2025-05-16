@@ -6,15 +6,19 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 class NutrientRow extends StatefulWidget {
   const NutrientRow({
@@ -83,6 +87,26 @@ class _NutrientRowState extends State<NutrientRow>
       color = _getColor(extension);
     }
 
+    final TextEditingControllerWithHistory controller =
+        context.watch<TextEditingControllerWithHistory>();
+
+    final RobotoffNutrientEntity? robotoffNutrientEntity =
+        widget.nutritionContainer.robotoffNutrientExtraction?.getNutrientEntity(
+      widget.orderedNutrient.nutrient!,
+      PerSize.oneHundredGrams,
+    );
+
+    String? extractionValue = robotoffNutrientEntity?.value;
+
+    // We need to make sure the value is formatted properly
+    // We also ignore text extractions such as "traces" until the API is ready
+    if (extractionValue != null) {
+      final num? extractionValueNum = NumberFormat().tryParse(extractionValue);
+      if (extractionValueNum == null) {
+        extractionValue = extractionValueNum.toString();
+      }
+    }
+
     return ColoredBox(
       color: color,
       child: Padding(
@@ -90,41 +114,104 @@ class _NutrientRowState extends State<NutrientRow>
           start: MEDIUM_SPACE,
           end: MEDIUM_SPACE,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 6,
-              child: KeyedSubtree(
-                key: Key('$key-value'),
-                child: _NutrientValueCell(
-                  widget.decimalNumberFormat,
-                  widget.orderedNutrient,
-                  widget.position,
-                  widget.isLast,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: KeyedSubtree(
-                key: Key('$key-unit'),
-                child: IntrinsicHeight(
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: _NutrientUnitCell(
-                          widget.nutritionContainer,
-                          widget.orderedNutrient,
-                        ),
-                      ),
-                      const _NutrientUnitVisibility()
-                    ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  flex: 6,
+                  child: KeyedSubtree(
+                    key: Key('$key-value'),
+                    child: _NutrientValueCell(
+                      controller,
+                      widget.decimalNumberFormat,
+                      widget.orderedNutrient,
+                      widget.position,
+                      widget.isLast,
+                    ),
                   ),
                 ),
-              ),
+                Expanded(
+                  flex: 5,
+                  child: KeyedSubtree(
+                    key: Key('$key-unit'),
+                    child: IntrinsicHeight(
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: _NutrientUnitCell(
+                              nutritionContainer: widget.nutritionContainer,
+                              orderedNutrient: widget.orderedNutrient,
+                            ),
+                          ),
+                          const _NutrientUnitVisibility()
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
+            if (extractionValue != null && extractionValue != controller.text)
+              Container(
+                margin: const EdgeInsetsDirectional.only(
+                  bottom: SMALL_SPACE,
+                ),
+                padding: const EdgeInsetsDirectional.only(
+                  start: MEDIUM_SPACE,
+                ),
+                decoration: BoxDecoration(
+                  color: extension.successBackground,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    ExcludeSemantics(
+                      child: icons.Sparkles(
+                        color: extension.success,
+                        size: 18.0,
+                      ),
+                    ),
+                    Text(
+                      extractionValue,
+                      style: TextStyle(
+                        color: extension.success,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Tooltip(
+                      message: AppLocalizations.of(context)
+                          .edit_product_form_item_add_suggestion,
+                      child: IconButton(
+                        onPressed: () {
+                          controller.text = extractionValue!;
+                          final Unit? unit = robotoffNutrientEntity?.unit;
+                          if (unit != null) {
+                            widget.nutritionContainer.setNutrientUnit(
+                              widget.orderedNutrient.nutrient!,
+                              unit,
+                            );
+                            AnalyticsHelper.trackRobotoffExtraction(
+                              AnalyticsRobotoffEvents
+                                  .robotoffNutritionInsightAccepted,
+                              widget.orderedNutrient.nutrient!,
+                              context.read<Product>(),
+                            );
+                          }
+                        },
+                        icon: Icon(
+                          Icons.add_circle_rounded,
+                          color: extension.success,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
           ],
         ),
       ),
@@ -143,12 +230,14 @@ class _NutrientRowState extends State<NutrientRow>
 
 class _NutrientValueCell extends StatelessWidget {
   const _NutrientValueCell(
+    this.controller,
     this.decimalNumberFormat,
     this.orderedNutrient,
     this.position,
     this.isLast,
   );
 
+  final TextEditingControllerWithHistory controller;
   final NumberFormat decimalNumberFormat;
   final OrderedNutrient orderedNutrient;
   final int position;
@@ -159,8 +248,6 @@ class _NutrientValueCell extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Map<OrderedNutrient, FocusNode> focusNodes =
         context.watch<Map<OrderedNutrient, FocusNode>>();
-    final TextEditingControllerWithHistory controller =
-        context.watch<TextEditingControllerWithHistory>();
 
     final Product product = context.watch<Product>();
     final bool isLast = position == focusNodes.length - 1;
@@ -185,16 +272,22 @@ class _NutrientValueCell extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      start: VERY_SMALL_SPACE,
-                      bottom: VERY_SMALL_SPACE,
-                    ),
-                    child: Text(
-                      orderedNutrient.name!,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15.0,
+                  GestureDetector(
+                    onTap: () => focusNodes[orderedNutrient]?.requestFocus(),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          start: VERY_SMALL_SPACE,
+                          bottom: VERY_SMALL_SPACE,
+                        ),
+                        child: Text(
+                          orderedNutrient.name!,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15.0,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -224,10 +317,24 @@ class _NutrientValueCell extends StatelessWidget {
                         inputFormatters: <TextInputFormatter>[
                           FilteringTextInputFormatter.allow(
                             SimpleInputNumberField.getNumberRegExp(
-                                decimal: true),
+                              decimal: true,
+                            ),
                           ),
                           DecimalSeparatorRewriter(decimalNumberFormat),
                         ],
+                        onFieldSubmitted: (final String value) {
+                          focusNodes[orderedNutrient]?.unfocus();
+
+                          if (isLast) {
+                            return;
+                          }
+
+                          final int position =
+                              focusNodes.keys.indexOf(orderedNutrient);
+
+                          focusNodes[focusNodes.keys.elementAt(position + 1)]
+                              ?.requestFocus();
+                        },
                         validator: (String? value) {
                           if (value == null || value.trim().isEmpty) {
                             return null;
@@ -261,10 +368,10 @@ class _NutrientValueCell extends StatelessWidget {
 }
 
 class _NutrientUnitCell extends StatefulWidget {
-  const _NutrientUnitCell(
-    this.nutritionContainer,
-    this.orderedNutrient,
-  );
+  const _NutrientUnitCell({
+    required this.nutritionContainer,
+    required this.orderedNutrient,
+  });
 
   final NutritionContainerHelper nutritionContainer;
   final OrderedNutrient orderedNutrient;
@@ -417,6 +524,66 @@ class _NutritionCellTextWatcher extends StatelessWidget {
           TextEditingControllerWithHistory controller, _) {
         return builder(context, controller);
       },
+    );
+  }
+}
+
+class NutritionFactsEditorExplanation extends StatelessWidget {
+  const NutritionFactsEditorExplanation({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return ExplanationTitleIcon(
+      title: appLocalizations
+          .edit_product_form_item_nutrition_facts_explanation_title,
+      child: Column(
+        children: <Widget>[
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info1_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info1_content,
+              ),
+              ExplanationTextContainerContentItem(
+                text: appLocalizations.nutrition_page_per_100g,
+                padding: EdgeInsets.zero,
+              ),
+              ExplanationTextContainerContentItem(
+                text: appLocalizations.nutrition_page_per_100g_100ml,
+                padding: const EdgeInsetsDirectional.only(
+                  bottom: VERY_SMALL_SPACE,
+                ),
+              ),
+            ],
+          ),
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info2_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info2_content,
+              ),
+            ],
+          ),
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info3_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info3_content,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

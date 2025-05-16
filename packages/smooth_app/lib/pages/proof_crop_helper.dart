@@ -5,10 +5,10 @@ import 'dart:ui' as ui;
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
+import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
 
 /// Crop Helper for proof images: brand new image.
 class ProofCropHelper extends CropHelper {
@@ -23,11 +23,7 @@ class ProofCropHelper extends CropHelper {
 
   @override
   String getPageTitle(final AppLocalizations appLocalizations) =>
-      switch (model.proofType) {
-        ProofType.receipt => appLocalizations.prices_proof_receipt,
-        ProofType.priceTag => appLocalizations.prices_proof_price_tag,
-        _ => 'unexpected'
-      };
+      model.proofType.getTitle(appLocalizations);
 
   @override
   IconData getProcessIcon() => Icons.check;
@@ -48,7 +44,7 @@ class ProofCropHelper extends CropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
-    final List<Offset>? offsets,
+    required final List<Offset> offsets,
   }) async {
     // It's a brand new picture, with crop parameters.
     // For performance reasons, we do not crop the image full-size here,

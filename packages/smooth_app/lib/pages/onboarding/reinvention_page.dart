@@ -99,8 +99,9 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
                 child: TextWithBubbleParts(
                   text: appLocalizations.onboarding_home_welcome_text2,
                   fontMultiplier: fontMultiplier,
-                  backgroundColor:
-                      context.extension<SmoothColorsThemeExtension>().orange,
+                  backgroundColor: context
+                      .extension<SmoothColorsThemeExtension>()
+                      .secondaryVibrant,
                   textAlign: TextAlign.center,
                   textStyle: const TextStyle(
                     fontSize: 26,

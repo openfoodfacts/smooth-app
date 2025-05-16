@@ -249,6 +249,10 @@ abstract class ProductQuery {
     );
   }
 
+  static String getProductTypeFromDomain(UriProductHelper uriProductHelper) {
+    return uriProductHelper.domain;
+  }
+
   static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
         ProductField.NAME_ALL_LANGUAGES,
@@ -303,5 +307,8 @@ abstract class ProductQuery {
         ProductField.OBSOLETE,
         ProductField.OWNER_FIELDS,
         ProductField.OWNER,
+        ProductField.TRACES,
+        ProductField.TRACES_TAGS,
+        ProductField.TRACES_TAGS_IN_LANGUAGES,
       ];
 }

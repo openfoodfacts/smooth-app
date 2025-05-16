@@ -193,7 +193,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: themeExtension.orange,
+                          color: themeExtension.secondaryVibrant,
                         ),
                         padding: const EdgeInsets.all(VERY_SMALL_SPACE),
                         child: const icons.Arrow.right(
@@ -261,9 +261,19 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       final List<Widget> attributeChips = _buildAttributeChips(
         getFilteredAttributes(
           group,
-          PreferenceImportance.ID_IMPORTANT,
+          PreferenceImportance.ID_VERY_IMPORTANT,
           _attributesToExcludeIfStatusIsUnknown,
           widget._productPreferences,
+        ),
+      );
+      attributeChips.addAll(
+        _buildAttributeChips(
+          getFilteredAttributes(
+            group,
+            PreferenceImportance.ID_IMPORTANT,
+            _attributesToExcludeIfStatusIsUnknown,
+            widget._productPreferences,
+          ),
         ),
       );
       if (attributeChips.isNotEmpty) {
@@ -279,11 +289,13 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         );
       }
     }
-    final Widget attributesContainer = Container(
-      alignment: AlignmentDirectional.topStart,
-      margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
-      child: Column(children: displayedGroups),
-    );
+    final Widget attributesContainer = displayedGroups.isNotEmpty
+        ? Container(
+            alignment: AlignmentDirectional.topStart,
+            margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
+            child: Column(children: displayedGroups),
+          )
+        : const SizedBox(height: SMALL_SPACE);
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
 
     final List<Widget> summaryCardButtons = <Widget>[];

@@ -13,11 +13,11 @@ dependencies:
     sdk: flutter
 
   async: 2.11.0
-  go_router: 14.6.3
+  go_router: 14.7.2
   barcode_widget: 2.0.4
   carousel_slider: 5.0.0
   cupertino_icons: 1.0.8
-  flutter_svg: 2.0.16
+  flutter_svg: 2.1.0
   flutter_map: 7.0.2
   html: 0.15.5
   flutter_widget_from_html_core: 0.15.2
@@ -30,28 +30,28 @@ dependencies:
   iso_countries: 2.2.0
   latlong2: 0.9.1
   matomo_tracker: 5.1.0
-  package_info_plus: 8.1.3
+  package_info_plus: 8.2.1
   device_info_plus: 10.1.2
   permission_handler: 11.3.1
   photo_view: 0.15.0
   uuid: 4.5.1
-  provider: 6.1.2
-  sentry_flutter: 8.12.0
+  provider: 6.1.4
+  sentry_flutter: 8.14.1
   sqflite: 2.4.1
   sqflite_common_ffi: 2.3.4+4
   url_launcher: 6.3.1
   visibility_detector: 0.4.0+2
-  app_settings: 5.1.1
+  app_settings: 5.2.0
   diacritic: 0.1.6
   app_store_shared:
     path: ../app_store/shared
-  audioplayers: 6.1.0
+  audioplayers: 6.1.1
   flutter_email_sender: 6.0.3
   flutter_native_splash: 2.4.4
   image: 4.5.2
   auto_size_text: 3.0.0
   crop_image: 1.0.15
-  shared_preferences: 2.3.5
+  shared_preferences: 2.5.2
   intl: 0.19.0
   collection: 1.19.0
   path: 1.9.0
@@ -61,7 +61,7 @@ dependencies:
   shimmer: ^3.0.0
   rive: 0.13.20
   webview_flutter: 4.10.0
-  webview_flutter_android: 4.2.0
+  webview_flutter_android: 4.3.2
   webview_flutter_wkwebview: 3.16.3
   flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.4.0
@@ -72,6 +72,8 @@ dependencies:
   email_validator: 3.0.0
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
+  file_picker: 8.1.7
+  animated_line_through: 1.0.5
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -99,7 +101,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.18.1
+  openfoodfacts: 3.22.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
@@ -178,3 +180,7 @@ flutter:
     - family: SmoothIcons
       fonts:
         - asset: assets/fonts/SmoothIcons.ttf
+
+    - family: FoodIcons
+      fonts:
+        - asset: assets/fonts/FoodIcons.ttf

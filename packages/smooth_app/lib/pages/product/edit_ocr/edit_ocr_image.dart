@@ -21,6 +21,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
+import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class EditOCRImageWidget extends StatefulWidget {
@@ -29,6 +30,7 @@ class EditOCRImageWidget extends StatefulWidget {
     required this.transientFile,
     required this.ownerField,
     required this.onTakePicture,
+    required this.onTakePictureWithChoices,
     required this.onEditImage,
     required this.onExtractText,
   });
@@ -38,6 +40,7 @@ class EditOCRImageWidget extends StatefulWidget {
   final bool ownerField;
 
   final VoidCallback onTakePicture;
+  final VoidCallback onTakePictureWithChoices;
   final VoidCallback onEditImage;
   final VoidCallback onExtractText;
 
@@ -96,24 +99,33 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
         headerIcons = Tooltip(
           message: appLocalizations.product_image_outdated_message,
           textAlign: TextAlign.center,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: extension.warning,
-              borderRadius: ROUNDED_BORDER_RADIUS,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: 40.0,
+              minWidth: 40.0,
             ),
-            child: Material(
-              type: MaterialType.transparency,
-              child: InkWell(
-                customBorder: const CircleBorder(),
-                onTap: () => _openOutdatedPictureExplanations(context),
-                child: const Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    top: 6.5,
-                    bottom: 7.5,
-                    start: 7.0,
-                    end: 7.0,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+              child: Material(
+                type: MaterialType.transparency,
+                child: InkWell(
+                  customBorder: const CircleBorder(),
+                  onTap: () => _openOutdatedPictureExplanations(context),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: extension.warning,
+                      borderRadius: ROUNDED_BORDER_RADIUS,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsetsDirectional.only(
+                        top: 6.5,
+                        bottom: 7.5,
+                        start: 7.0,
+                        end: 7.0,
+                      ),
+                      child: icons.Outdated(size: 15.0),
+                    ),
                   ),
-                  child: icons.Outdated(size: 15.0),
                 ),
               ),
             ),
@@ -138,7 +150,7 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
       }
     } else {
       child = _EditOCRImageNotFound(
-        onTap: widget.onTakePicture,
+        onTap: widget.onTakePictureWithChoices,
       );
     }
 
@@ -174,6 +186,7 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
               hasImage: hasImage,
               hasError: _imageError,
               onTakePicture: widget.onTakePicture,
+              onTakePictureWithChoices: widget.onTakePictureWithChoices,
               onEditImage: widget.onEditImage,
               onExtractText: widget.onExtractText,
             ),
@@ -253,7 +266,7 @@ class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
               Positioned.fill(
                 child: AbsorbPointer(
                   absorbing: state == OcrState.EXTRACTING_DATA,
-                  child: InteractiveViewer(
+                  child: SmoothInteractiveViewer(
                     interactionEndFrictionCoefficient: double.infinity,
                     minScale: 0.1,
                     maxScale: 5.0,
@@ -363,7 +376,8 @@ class _EditOCRImageNotFound extends StatelessWidget {
             alignment: AlignmentDirectional.bottomEnd,
             child: ExcludeSemantics(
               child: SmoothIndicatorIcon(
-                icon: Icon(Icons.add_a_photo_rounded),
+                padding: EdgeInsetsDirectional.all(6.0),
+                icon: Icon(Icons.more_vert_outlined, size: 19.0),
               ),
             ),
           ),
@@ -379,6 +393,7 @@ class _EditOCRImageActions extends StatelessWidget {
     required this.hasImage,
     required this.hasError,
     required this.onTakePicture,
+    required this.onTakePictureWithChoices,
     required this.onEditImage,
     required this.onExtractText,
   });
@@ -387,6 +402,7 @@ class _EditOCRImageActions extends StatelessWidget {
   final bool hasImage;
   final bool hasError;
   final VoidCallback onTakePicture;
+  final VoidCallback onTakePictureWithChoices;
   final VoidCallback onEditImage;
   final VoidCallback onExtractText;
 
@@ -610,10 +626,10 @@ class _ExtractTextAnimation extends StatefulWidget {
   final Color tintColorGradient;
 
   @override
-  State<_ExtractTextAnimation> createState() => __ExtractTextAnimationState();
+  State<_ExtractTextAnimation> createState() => _ExtractTextAnimationState();
 }
 
-class __ExtractTextAnimationState extends State<_ExtractTextAnimation>
+class _ExtractTextAnimationState extends State<_ExtractTextAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _progress;
@@ -624,7 +640,9 @@ class __ExtractTextAnimationState extends State<_ExtractTextAnimation>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
-    )
+    );
+
+    _controller
       ..addListener(() => setState(() {}))
       ..addStatusListener((AnimationStatus status) {
         if (_controller.isCompleted) {

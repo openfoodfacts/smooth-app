@@ -70,7 +70,7 @@ class SmoothButtonWithArrow extends StatelessWidget {
               height: 20.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: arrowColor ?? theme.orange,
+                color: arrowColor ?? theme.secondaryVibrant,
               ),
               padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
               child: icons.Arrow.right(

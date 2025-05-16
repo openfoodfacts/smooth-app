@@ -106,7 +106,7 @@ class ProductImageWidget extends StatelessWidget {
                           ),
                           child: icons.Outdated(
                             size: 18.0,
-                            color: colors.orange,
+                            color: colors.warning,
                           ),
                         ),
                     ],

@@ -19,9 +19,10 @@ class SmoothTheme {
     final ColorProvider Function() colorProvider,
     final TextContrastProvider Function() textContrastProvider,
   ) {
+    final bool lightTheme = brightness == Brightness.light;
     ColorScheme myColorScheme;
 
-    if (brightness == Brightness.light) {
+    if (lightTheme) {
       myColorScheme = lightColorScheme;
     } else {
       if (themeProvider.currentTheme == THEME_AMOLED) {
@@ -42,7 +43,7 @@ class SmoothTheme {
 
     final SmoothColorsThemeExtension smoothExtension =
         SmoothColorsThemeExtension.defaultValues(
-      brightness == Brightness.light,
+      lightTheme,
     );
 
     final TextTheme textTheme = brightness == Brightness.dark
@@ -57,8 +58,7 @@ class SmoothTheme {
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.surface
           : null,
-      scaffoldBackgroundColor:
-          brightness == Brightness.light ? null : const Color(0xFF303030),
+      scaffoldBackgroundColor: lightTheme ? null : const Color(0xFF303030),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(
@@ -75,8 +75,10 @@ class SmoothTheme {
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: myColorScheme.primary,
-          foregroundColor: myColorScheme.onPrimary),
+        backgroundColor:
+            lightTheme ? smoothExtension.primaryDark : myColorScheme.primary,
+        foregroundColor: myColorScheme.onPrimary,
+      ),
       textTheme: textTheme,
       appBarTheme: AppBarTheme(
         centerTitle: false,
@@ -116,14 +118,14 @@ class SmoothTheme {
             return null;
           }
           if (states.contains(WidgetState.selected)) {
-            return brightness == Brightness.light
+            return lightTheme
                 ? smoothExtension.primarySemiDark
                 : smoothExtension.primaryNormal;
           }
           return null;
         }),
         side: BorderSide(
-          color: brightness == Brightness.light
+          color: lightTheme
               ? smoothExtension.primaryBlack
               : smoothExtension.primarySemiDark,
           width: 2.0,
@@ -149,13 +151,13 @@ class SmoothTheme {
         thumbColor:
             WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
           if (states.contains(WidgetState.selected)) {
-            if (brightness == Brightness.light) {
+            if (lightTheme) {
               return smoothExtension.primaryDark;
             } else {
               return smoothExtension.primarySemiDark;
             }
           } else if (states.contains(WidgetState.disabled)) {
-            if (brightness == Brightness.light) {
+            if (lightTheme) {
               return const Color(0xFFC2B5B0);
             } else {
               return smoothExtension.primaryNormal;
@@ -166,7 +168,7 @@ class SmoothTheme {
         }),
         trackColor:
             WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-          if (brightness == Brightness.light) {
+          if (lightTheme) {
             return smoothExtension.primaryMedium;
           } else {
             return const Color(0xFFEDE0DB);

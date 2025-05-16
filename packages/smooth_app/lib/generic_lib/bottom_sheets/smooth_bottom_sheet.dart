@@ -39,7 +39,7 @@ Future<T?> showSmoothModalSheet<T>({
 
   return showModalBottomSheet<T>(
     constraints: constraints,
-    isScrollControlled: isScrollControlled ?? minHeight != null,
+    isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
@@ -54,9 +54,13 @@ Future<T?> showSmoothModalSheetForTextField<T>({
   required BuildContext context,
   required SmoothModalSheetHeader header,
   required WidgetBuilder bodyBuilder,
+  double? minHeight,
+  double? maxHeight,
 }) {
   return showSmoothModalSheet<T>(
     context: context,
+    minHeight: minHeight,
+    maxHeight: maxHeight,
     builder: (BuildContext context) => SizedBox(
       width: double.infinity,
       child: ClipRRect(
@@ -215,7 +219,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
       prefixIndicatorColor: prefixIndicatorColor,
       headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
-      body: Column(children: items),
+      body: IntrinsicHeight(
+          child: Column(mainAxisSize: MainAxisSize.min, children: items)),
     ),
   );
 }
@@ -453,8 +458,9 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
 
     return switch (type) {
       SmoothModalSheetType.error => ERROR_COLOR,
-      SmoothModalSheetType.info =>
-        context.extension<SmoothColorsThemeExtension>().primaryDark,
+      SmoothModalSheetType.info => context.lightTheme()
+          ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+          : context.extension<SmoothColorsThemeExtension>().primarySemiDark,
     };
   }
 
@@ -682,20 +688,34 @@ abstract class SizeWidget implements Widget {
 class SmoothModalSheetBodyContainer extends StatelessWidget {
   const SmoothModalSheetBodyContainer({
     required this.child,
+    this.padding,
+    this.safeArea = true,
     super.key,
   });
 
   final Widget child;
+  final EdgeInsetsGeometry? padding;
+  final bool safeArea;
 
   @override
   Widget build(BuildContext context) {
+    EdgeInsetsGeometry padding = this.padding ??
+        const EdgeInsetsDirectional.only(
+          start: MEDIUM_SPACE,
+          end: MEDIUM_SPACE,
+          top: VERY_SMALL_SPACE,
+          bottom: VERY_SMALL_SPACE,
+        );
+
+    if (safeArea) {
+      padding = padding.add(
+        EdgeInsetsDirectional.only(
+          bottom: MediaQuery.viewPaddingOf(context).bottom,
+        ),
+      );
+    }
     return Padding(
-      padding: EdgeInsetsDirectional.only(
-        start: MEDIUM_SPACE,
-        end: MEDIUM_SPACE,
-        top: VERY_SMALL_SPACE,
-        bottom: VERY_SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
-      ),
+      padding: padding,
       child: DefaultTextStyle.merge(
         style: const TextStyle(
           fontSize: 15.0,

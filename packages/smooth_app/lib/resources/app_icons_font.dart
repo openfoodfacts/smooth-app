@@ -159,9 +159,9 @@ class _IconsFont {
       IconData(0xe849, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData delete_trash =
       IconData(0xe84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData image_check =
+  static const IconData add_property =
       IconData(0xe84b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData image_add =
+  static const IconData add_property_alt =
       IconData(0xe84c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData app_store =
       IconData(0xe84d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -237,8 +237,6 @@ class _IconsFont {
       IconData(0xe870, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData photo_select =
       IconData(0xe871, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData image_check_alt =
-      IconData(0xe875, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData image_error =
       IconData(0xe876, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData milk_download =
@@ -251,8 +249,6 @@ class _IconsFont {
       IconData(0xe87b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData scale =
       IconData(0xe87c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData gallery =
-      IconData(0xe87d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData milk_filled_unhappy =
       IconData(0xe87e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData move =
@@ -271,6 +267,28 @@ class _IconsFont {
       IconData(0xe885, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData nutrition_facts =
       IconData(0xe886, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData checklist =
+      IconData(0xe887, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData copy =
+      IconData(0xe888, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData creative_commons_attribution =
+      IconData(0xe889, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData creative_commons_share_alike =
+      IconData(0xe88a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData creative_commons =
+      IconData(0xe88b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData message_edit =
+      IconData(0xe88c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData drag_start =
+      IconData(0xe88d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_add =
+      IconData(0xe88e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_check =
+      IconData(0xe88f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gallery =
+      IconData(0xe890, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_open =
+      IconData(0xe891, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =
@@ -281,4 +299,74 @@ class _IconsFont {
       IconData(0xe8e1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData recycling =
       IconData(0xe8e2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData remove =
+      IconData(0xe91c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+}
+
+class _FoodIconsFont {
+  _FoodIconsFont._();
+
+  static const String _kFontFam = 'FoodIcons';
+  static const String? _kFontPkg = null;
+
+  static const IconData additives =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData celery =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData crustaceans =
+      IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData eggs =
+      IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fair_trade =
+      IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fat =
+      IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fish =
+      IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData forest_footprint =
+      IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gluten =
+      IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData lupin =
+      IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk =
+      IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData molluscs =
+      IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData mustard =
+      IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nuts =
+      IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData organic_farming =
+      IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData palm_oil =
+      IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData peanuts =
+      IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData salt =
+      IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData saturated_fat =
+      IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sesame_seeds =
+      IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData soybeans =
+      IconData(0xe814, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sugar =
+      IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova =
+      IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData vegan =
+      IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData vegetarian =
+      IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sulphites =
+      IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_3 =
+      IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_2 =
+      IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_1 =
+      IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nova_4 =
+      IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

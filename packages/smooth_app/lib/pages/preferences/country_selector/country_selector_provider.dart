@@ -48,20 +48,10 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
 
   @override
   Future<List<Country>> onLoadValues() async {
-    List<Country> localizedCountries;
-
-    try {
-      localizedCountries =
-          await IsoCountries.isoCountriesForLocale(userAppLanguageCode);
-    } on MissingPluginException catch (_) {
-      // Locales are not implemented on desktop and web
-      localizedCountries = <Country>[
-        const Country(name: 'United States', countryCode: 'US'),
-        const Country(name: 'France', countryCode: 'FR'),
-        const Country(name: 'Germany', countryCode: 'DE'),
-        const Country(name: 'India', countryCode: 'IN'),
-      ];
-    }
+    final List<Country> localizedCountries = await CountriesHelper.getCountries(
+          userAppLanguageCode,
+        ) ??
+        <Country>[];
 
     final List<Country> countries = await compute(
       _reformatCountries,
@@ -178,4 +168,25 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
   Future<void> onSaveItem(Country country) => preferences.setUserCountryCode(
         country.countryCode,
       );
+}
+
+class CountriesHelper {
+  const CountriesHelper._();
+
+  static Future<List<Country>?> getCountries(String? userLanguageCode) async {
+    try {
+      return await IsoCountries.isoCountriesForLocale(userLanguageCode);
+    } on MissingPluginException catch (_) {
+      // Locales are not implemented on desktop and web
+      return <Country>[
+        const Country(name: 'United States', countryCode: 'US'),
+        const Country(name: 'France', countryCode: 'FR'),
+        const Country(name: 'Germany', countryCode: 'DE'),
+        const Country(name: 'India', countryCode: 'IN'),
+      ];
+    } catch (e) {
+      Logs.e('Failed to load countries', ex: e);
+      return null;
+    }
+  }
 }

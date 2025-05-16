@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/prices/product_price_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract background task about adding prices.
@@ -174,8 +175,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   Future<void> addPrices({
     required final String bearerToken,
     required final int proofId,
+    required final LocalDatabase localDatabase,
   }) async {
     for (int i = 0; i < barcodes.length; i++) {
+      final String barcode = barcodes[i];
       final Price newPrice = Price()
         ..date = date
         ..currency = currency
@@ -185,7 +188,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
         ..priceIsDiscounted = pricesAreDiscounted[i]
         ..price = prices[i]
         ..priceWithoutDiscount = pricesWithoutDiscount[i]
-        ..productCode = barcodes[i];
+        ..productCode = barcode;
 
       // create price
       final MaybeError<Price?> addedPrice =
@@ -197,7 +200,9 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       if (addedPrice.isError) {
         throw Exception('Could not add price: ${addedPrice.error}');
       }
+      ProductPriceRefresher.setLatestUpdate(barcode);
     }
+    localDatabase.notifyListeners();
   }
 
   @protected
