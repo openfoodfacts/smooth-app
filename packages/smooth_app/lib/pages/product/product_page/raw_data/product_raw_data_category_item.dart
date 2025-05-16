@@ -50,7 +50,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
         lightTheme ? const Color(0xFFF9F9F9) : Colors.white;
 
     return Container(
-      color: const Color(0x66FFFFFF),
+      color: context.extension<SmoothColorsThemeExtension>().primarySemiDark,
       child: Column(
         children: <Widget>[
           Container(
