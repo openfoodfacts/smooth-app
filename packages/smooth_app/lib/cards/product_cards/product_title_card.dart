@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
+import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 
@@ -32,12 +32,37 @@ class ProductTitleCard extends StatelessWidget {
       selectable: isSelectable,
     );
 
-    final List<Widget> children;
-
     final Size imageSize =
         Size.square(MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25));
 
-    children = <Widget>[
+    Widget child = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: DefaultTextStyle.of(context).style.fontSize! * 2.0,
+          ),
+          child: _ProductTitleCardName(
+            selectable: isSelectable,
+            dense: dense,
+          ),
+        ),
+        const SizedBox(height: SMALL_SPACE),
+        _ProductTitleCardBrand(
+          selectable: isSelectable,
+          dense: dense,
+        ),
+        const SizedBox(height: 2.0),
+        trailing,
+      ],
+    );
+
+    if (isSelectable) {
+      child = SelectionArea(child: child);
+    }
+
+    final List<Widget> children = <Widget>[
       Padding(
         padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
         child: IntrinsicHeight(
@@ -54,12 +79,13 @@ class ProductTitleCard extends StatelessWidget {
                     product: product,
                     imageField: ImageField.FRONT,
                     fallbackUrl: product.imageFrontUrl,
+                    allowAlternativeLanguage: true,
                     size: imageSize,
                     showObsoleteIcon: true,
                     imageFoundBorder: 1.0,
                     imageNotFoundBorder: 1.0,
                     heroTag: heroTag,
-                    borderRadius: BorderRadius.circular(14.0),
+                    noImageBuilder: (_) => const PictureNotFound(),
                     onTap: !dense
                         ? () async => Navigator.push<void>(
                               context,
@@ -80,29 +106,7 @@ class ProductTitleCard extends StatelessWidget {
                     top: VERY_SMALL_SPACE,
                     bottom: VERY_SMALL_SPACE,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight:
-                              DefaultTextStyle.of(context).style.fontSize! *
-                                  2.0,
-                        ),
-                        child: _ProductTitleCardName(
-                          selectable: isSelectable,
-                          dense: dense,
-                        ),
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                      _ProductTitleCardBrand(
-                        selectable: isSelectable,
-                      ),
-                      const SizedBox(height: 2.0),
-                      trailing,
-                    ],
-                  ),
+                  child: child,
                 ),
               ),
             ],
@@ -144,18 +148,20 @@ class _ProductTitleCardName extends StatelessWidget {
       getProductName(product, appLocalizations),
       style: dense ? textStyle : textStyle?.copyWith(fontSize: 18.0),
       textAlign: TextAlign.start,
-      maxLines: dense ? 2 : null,
+      maxLines: 2,
       overflow: TextOverflow.ellipsis,
-    ).selectable(isSelectable: selectable);
+    );
   }
 }
 
 class _ProductTitleCardBrand extends StatelessWidget {
   const _ProductTitleCardBrand({
     required this.selectable,
+    this.dense = false,
   });
 
   final bool selectable;
+  final bool dense;
 
   @override
   Widget build(BuildContext context) {
@@ -166,9 +172,11 @@ class _ProductTitleCardBrand extends StatelessWidget {
 
     return Text(
       brands,
+      maxLines: dense ? 1 : 2,
+      overflow: dense ? TextOverflow.ellipsis : null,
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.start,
-    ).selectable(isSelectable: selectable);
+    );
   }
 }
 
@@ -187,6 +195,6 @@ class _ProductTitleCardTrailing extends StatelessWidget {
       product.quantity ?? '',
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.end,
-    ).selectable(isSelectable: selectable);
+    );
   }
 }

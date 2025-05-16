@@ -59,7 +59,7 @@ class Languages {
     OpenFoodFactsLanguage.EWE: 'Eʋegbe',
     OpenFoodFactsLanguage.BASQUE: 'euskara',
     OpenFoodFactsLanguage.PERSIAN: 'فارسی',
-    OpenFoodFactsLanguage.FINNISH: 'Suomalainen',
+    OpenFoodFactsLanguage.FINNISH: 'Suomi',
     OpenFoodFactsLanguage.FAROESE: 'Faroese',
     OpenFoodFactsLanguage.FRENCH: 'Français',
     OpenFoodFactsLanguage.FIJIAN_LANGUAGE: 'Fijian',

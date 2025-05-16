@@ -23,7 +23,10 @@ class KnowledgePanelProductCards extends StatelessWidget {
         content = buildProductSmoothCard(
           title: Text((widget.children.first as KnowledgePanelTitle).title),
           body: Padding(
-            padding: SMOOTH_CARD_PADDING,
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SMALL_SPACE,
+              vertical: SMALL_SPACE,
+            ),
             child: Column(
               children: widget.children.sublist(1),
             ),

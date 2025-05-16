@@ -22,7 +22,8 @@ enum AnalyticsCategory {
   robotoff(tag: 'robotoff'),
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
-  hungerGame(tag: 'hunger game');
+  hungerGame(tag: 'hunger game'),
+  appRating(tag: 'app rating');
 
   const AnalyticsCategory({required this.tag});
 
@@ -147,6 +148,18 @@ enum AnalyticsEvent {
   hungerGameOpened(
     tag: 'hunger game opened',
     category: AnalyticsCategory.hungerGame,
+  ),
+  appRatingSatisfied(
+    tag: 'satisfied',
+    category: AnalyticsCategory.appRating,
+  ),
+  appRatingNeutral(
+    tag: 'neutral',
+    category: AnalyticsCategory.appRating,
+  ),
+  appRatingNotSatisfied(
+    tag: 'not satisfied',
+    category: AnalyticsCategory.appRating,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -155,12 +168,29 @@ enum AnalyticsEvent {
   final AnalyticsCategory category;
 }
 
+enum AnalyticsRobotoffEvents {
+  robotoffNutritionExtracted(
+    name: 'robotoff nutrition extracted',
+  ),
+  robotoffNutritionInsightAccepted(
+    name: 'robotoff nutrition insight accepted',
+  ),
+  robotoffNutritionInsightRejected(
+    name: 'robotoff nutrition insight rejected',
+  );
+
+  const AnalyticsRobotoffEvents({required this.name});
+
+  final String name;
+}
+
 enum AnalyticsEditEvents {
   basicDetails(name: 'BasicDetails'),
   photos(name: 'Photos'),
   powerEditScreen(name: 'Power Edit Screen'),
   ingredients_and_Origins(name: 'Ingredient And Origins'),
   categories(name: 'Categories'),
+  traces(name: 'Traces'),
   nutrition_Facts(name: 'Nutrition Facts'),
   labelsAndCertifications(name: 'Labels And Certifications'),
   packagingComponents(name: 'Packaging Components'),
@@ -237,6 +267,7 @@ class AnalyticsHelper {
         options
           ..tracesSampleRate = 1.0
           ..beforeSend = _beforeSend
+          ..captureFailedRequests = false
           ..environment =
               '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
       },
@@ -362,6 +393,19 @@ class AnalyticsHelper {
       dimensions: dimensions,
     );
   }
+
+  static void trackRobotoffExtraction(
+    AnalyticsRobotoffEvents event,
+    Nutrient nutrient,
+    Product product,
+  ) =>
+      trackCustomEvent(
+        event.name,
+        AnalyticsCategory.robotoff.tag,
+        action: nutrient.name,
+        barcode: product.barcode,
+        productType: product.productType ?? ProductType.food,
+      );
 
   static void trackProductEdit(
     AnalyticsEditEvents editEventName,

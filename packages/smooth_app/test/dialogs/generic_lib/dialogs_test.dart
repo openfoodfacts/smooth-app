@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -58,6 +59,7 @@ void main() {
               );
               await productPreferences.init(PlatformAssetBundle());
               await userPreferences.init(productPreferences);
+              await ProductQuery.setCountry(userPreferences, 'fr');
               themeProvider = ThemeProvider(userPreferences);
               colorProvider = ColorProvider(userPreferences);
               textContrastProvider = TextContrastProvider(userPreferences);

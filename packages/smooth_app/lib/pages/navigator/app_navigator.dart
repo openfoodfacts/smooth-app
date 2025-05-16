@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -11,11 +13,12 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
+import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
-import 'package:smooth_app/pages/product/edit_product_page.dart';
+import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
@@ -268,7 +271,19 @@ class _SmoothGoRouter {
           path: '/${_InternalAppRoutes.EXTERNAL_PAGE}',
           builder: (BuildContext context, GoRouterState state) {
             return ExternalPage(
-              path: Uri.decodeFull(state.uri.queryParameters['path']!),
+              path: _decodePath(state.uri.queryParameters['path']!),
+            );
+          },
+        ),
+        GoRoute(
+          path: '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return OpenUpwardsPage.getTransition<void>(
+              key: state.pageKey,
+              child: ExternalPageInAWebView(
+                path: _decodePath(state.uri.queryParameters['path']!),
+                pageName: state.uri.queryParameters['title'],
+              ),
             );
           },
         ),
@@ -329,7 +344,7 @@ class _SmoothGoRouter {
         }
 
         if (externalLink) {
-          return _openExternalLink(path);
+          return _openExternalLink(state.uri.toString());
         } else if (path.isEmpty) {
           // Force the Homepage
           return _InternalAppRoutes.HOME_PAGE;
@@ -433,6 +448,7 @@ class _InternalAppRoutes {
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
+  static const String EXTERNAL_WEBVIEW_PAGE = '_external_webview';
   static const String SIGNUP_PAGE = '_signup';
 
   static const String _GUIDES = '_guides';
@@ -495,7 +511,15 @@ class AppRoutes {
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 
-  // Open an external link (where path is relative to the OFF website)
+  // Open an external link in the browser or custom tabs
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${Uri.encodeFull(path)}';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${_encodePath(path)}';
+
+  // Open an external link in a WebView
+  static String EXTERNAL_WEBVIEW(String path, {String? pageTitle}) =>
+      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&path=${_encodePath(path)}';
 }
+
+String _encodePath(String path) => base64Encode(utf8.encode(path));
+
+String _decodePath(String path) => utf8.decode(base64Decode(path));

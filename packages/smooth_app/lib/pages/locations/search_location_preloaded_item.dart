@@ -21,22 +21,28 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
     final BuildContext context, {
     final VoidCallback? onDismissItem,
   }) {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool isFavorite = FavoriteLocationHelper().isFavorite(
-      localDatabase,
-      osmLocation,
-    );
     final String? title = osmLocation.getTitle();
     final String? subtitle = osmLocation.getSubtitle();
     final Widget child = SmoothCard(
       child: ListTile(
-        leading: IconButton(
-          icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
-          onPressed: () async => FavoriteLocationHelper().setFavorite(
-            localDatabase,
-            osmLocation,
-            !isFavorite,
-          ),
+        leading: Consumer<LocalDatabase>(
+          builder: (BuildContext context, LocalDatabase localDatabase, _) {
+            final bool isFavorite = FavoriteLocationHelper().isFavorite(
+              localDatabase,
+              osmLocation,
+            );
+
+            return IconButton(
+              icon: Icon(
+                isFavorite ? Icons.favorite : Icons.favorite_border,
+              ),
+              onPressed: () async => FavoriteLocationHelper().setFavorite(
+                localDatabase,
+                osmLocation,
+                !isFavorite,
+              ),
+            );
+          },
         ),
         onTap: () {
           if (popFirst) {

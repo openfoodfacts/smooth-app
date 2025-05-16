@@ -64,6 +64,11 @@ String getProductName(
 ) =>
     _clearString(product.productNameInLanguages?[ProductQuery.getLanguage()]) ??
     _clearString(product.productName) ??
+
+    /// Fallback to the first language available
+    _clearString(
+        product.productNameInLanguages?[OpenFoodFactsLanguage.ENGLISH]) ??
+    _clearString(product.productNameInLanguages?.values.firstOrNull) ??
     appLocalizations.unknownProductName;
 
 String getProductBrands(
@@ -86,7 +91,7 @@ String formatProductBrands(String brands) {
 }
 
 /// Padding to be used while building the SmoothCard on any Product card.
-const EdgeInsets SMOOTH_CARD_PADDING = EdgeInsets.symmetric(
+const EdgeInsetsGeometry SMOOTH_CARD_PADDING = EdgeInsetsDirectional.symmetric(
   horizontal: MEDIUM_SPACE,
   vertical: VERY_SMALL_SPACE,
 );
@@ -308,17 +313,27 @@ List<Attribute> getFilteredAttributes(
 
 Widget addPanelButton(
   final String label, {
-  final IconData? iconData,
+  final Widget? leadingIcon,
+  final Widget? trailingIcon,
   final String? textAlign,
+  final EdgeInsetsGeometry? padding,
   required final Function() onPressed,
+  BorderRadiusGeometry? borderRadius,
+  WidgetStateProperty<double?>? elevation,
 }) =>
     Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: SmoothLargeButtonWithIcon(
         text: label,
-        icon: iconData ?? Icons.add,
+        leadingIcon: leadingIcon,
+        trailingIcon: trailingIcon,
+        borderRadius: borderRadius,
+        elevation: elevation,
         onPressed: onPressed,
-        textAlign: iconData == null ? TextAlign.center : null,
+        textAlign: leadingIcon == null && trailingIcon == null
+            ? TextAlign.center
+            : null,
+        padding: padding,
       ),
     );
 

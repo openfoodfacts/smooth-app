@@ -10,6 +10,7 @@ import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -93,7 +94,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                 await daoProductLastAccess.deleteAll();
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    SmoothFloatingSnackbar(
                       content: Text(
                         appLocalizations.deleted_products(totalProductsDeleted),
                       ),

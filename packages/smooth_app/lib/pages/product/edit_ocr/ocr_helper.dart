@@ -39,6 +39,9 @@ abstract class OcrHelper {
   /// Returns the "extract text" button label
   String getActionExtractText(final AppLocalizations appLocalizations);
 
+  /// Returns the "extract text" button label (short version)
+  String getActionExtractShortText(final AppLocalizations appLocalizations);
+
   /// Returns the "loading photo" button label
   String getActionLoadingPhoto(final AppLocalizations appLocalizations);
 
@@ -67,6 +70,25 @@ abstract class OcrHelper {
 
   /// Returns the image field we try to run OCR on.
   ImageField getImageField();
+
+  /// Returns the type of the field (eg: ingredients).
+  String getType(final AppLocalizations appLocalizations);
+
+  /// Eg: list of ingredients, packaging, etc.
+  String getEditableContentTitle(final AppLocalizations appLocalizations);
+
+  /// Eg: Ingredients photo, packaging photo, etc.
+  String getPhotoTitle(final AppLocalizations appLocalizations);
+
+  /// Returns the icon to be displayed in the edit page.
+  WidgetBuilder getIcon();
+
+  /// Returns if a given product has an owner field
+  /// (= value provided by the producer).
+  bool isOwnerField(
+    final Product product,
+    final OpenFoodFactsLanguage language,
+  );
 
   /// Returns the text that the server OCR managed to extract from the image.
   Future<String?> getExtractedText(

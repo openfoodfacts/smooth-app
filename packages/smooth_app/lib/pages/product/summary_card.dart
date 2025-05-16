@@ -46,6 +46,7 @@ class SummaryCard extends StatefulWidget {
     this.isPictureVisible = true,
     this.attributeGroupsClickable = true,
     this.scrollableContent = false,
+    this.isTextSelectable,
     this.margin,
     this.contentPadding,
     this.buttonPadding,
@@ -75,6 +76,9 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
+
+  /// If true, the text will be selectable
+  final bool? isTextSelectable;
 
   /// Margin for the card
   final EdgeInsetsGeometry? margin;
@@ -189,7 +193,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: themeExtension.orange,
+                          color: themeExtension.secondaryVibrant,
                         ),
                         padding: const EdgeInsets.all(VERY_SMALL_SPACE),
                         child: const icons.Arrow.right(
@@ -257,9 +261,19 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       final List<Widget> attributeChips = _buildAttributeChips(
         getFilteredAttributes(
           group,
-          PreferenceImportance.ID_IMPORTANT,
+          PreferenceImportance.ID_VERY_IMPORTANT,
           _attributesToExcludeIfStatusIsUnknown,
           widget._productPreferences,
+        ),
+      );
+      attributeChips.addAll(
+        _buildAttributeChips(
+          getFilteredAttributes(
+            group,
+            PreferenceImportance.ID_IMPORTANT,
+            _attributesToExcludeIfStatusIsUnknown,
+            widget._productPreferences,
+          ),
         ),
       );
       if (attributeChips.isNotEmpty) {
@@ -275,11 +289,13 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         );
       }
     }
-    final Widget attributesContainer = Container(
-      alignment: AlignmentDirectional.topStart,
-      margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
-      child: Column(children: displayedGroups),
-    );
+    final Widget attributesContainer = displayedGroups.isNotEmpty
+        ? Container(
+            alignment: AlignmentDirectional.topStart,
+            margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
+            child: Column(children: displayedGroups),
+          )
+        : const SizedBox(height: SMALL_SPACE);
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
 
     final List<Widget> summaryCardButtons = <Widget>[];
@@ -309,7 +325,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       children: <Widget>[
         ProductTitleCard(
           upToDateProduct,
-          widget.isFullVersion,
+          widget.isTextSelectable ?? widget.isFullVersion,
           heroTag: widget.heroTag,
           dense: !widget.isFullVersion,
           isPictureVisible: widget.isPictureVisible,

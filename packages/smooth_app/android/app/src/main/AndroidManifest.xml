@@ -565,7 +565,11 @@
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
                 android:name="flutterEmbedding"
-                android:value="2"/>
+                android:value="2" />
+
+        <meta-data
+                android:name="io.flutter.embedding.android.EnableImpeller"
+                android:value="false" />
 
         <!-- Quick tile / setting (only available on Android 24+ / Nougat) -->
         <service android:name=".AppMainTile"

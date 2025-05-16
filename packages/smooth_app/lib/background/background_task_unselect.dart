@@ -77,7 +77,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
           final AppLocalizations appLocalizations) =>
       (
         appLocalizations.product_task_background_schedule,
-        AlignmentDirectional.topCenter,
+        AlignmentDirectional.bottomCenter,
       );
 
   /// Returns a new background task about unselecting a product image.

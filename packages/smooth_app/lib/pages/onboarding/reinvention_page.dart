@@ -33,8 +33,16 @@ class OnboardingHomePage extends StatelessWidget {
                 final LocalDatabase localDatabase =
                     context.read<LocalDatabase>();
 
-                await OnboardingLoader(localDatabase)
-                    .runAtNextTime(OnboardingPage.HOME_PAGE, context);
+                /// Enable crash reports and user tracking by default
+                /// (Can be disabled by the user later in the settings)
+                await userPreferences.setCrashReports(true);
+                await userPreferences.setUserTracking(true);
+
+                if (context.mounted) {
+                  await OnboardingLoader(localDatabase)
+                      .runAtNextTime(OnboardingPage.HOME_PAGE, context);
+                }
+
                 if (context.mounted) {
                   await OnboardingFlowNavigator(userPreferences).navigateToPage(
                     context,
@@ -91,8 +99,9 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
                 child: TextWithBubbleParts(
                   text: appLocalizations.onboarding_home_welcome_text2,
                   fontMultiplier: fontMultiplier,
-                  backgroundColor:
-                      context.extension<SmoothColorsThemeExtension>().orange,
+                  backgroundColor: context
+                      .extension<SmoothColorsThemeExtension>()
+                      .secondaryVibrant,
                   textAlign: TextAlign.center,
                   textStyle: const TextStyle(
                     fontSize: 26,

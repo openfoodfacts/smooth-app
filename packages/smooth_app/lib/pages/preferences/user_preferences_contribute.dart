@@ -50,89 +50,114 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Color? getHeaderColor() => const Color(0xFFFFF2DF);
 
   @override
-  List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
-        _getListTile(
-          'Hunger Games',
-          () async => _hungerGames(),
-          Icons.games,
+  List<UserPreferencesItem> getChildren() {
+    final OpenFoodFactsCountry country = ProductQuery.getCountry();
+
+    return <UserPreferencesItem>[
+      _getListTile(
+        'Hunger Games',
+        () async => _hungerGames(),
+        Icons.games,
+      ),
+      _getListTile(
+        appLocalizations.contribute_improve_header,
+        () async => _contribute(),
+        Icons.data_saver_on,
+      ),
+      _getListTile(
+        appLocalizations.contribute_sw_development,
+        () async => _develop(),
+        Icons.app_shortcut,
+      ),
+      _getListTile(
+        appLocalizations.contribute_translate_header,
+        () async => _translate(),
+        Icons.translate,
+      ),
+      _getListTile(
+        appLocalizations.contribute_data_quality,
+        () async => LaunchUrlHelper.launchURL(
+          'https://wiki.openfoodfacts.org/Data_quality',
         ),
-        _getListTile(
-          appLocalizations.contribute_improve_header,
-          () async => _contribute(),
-          Icons.data_saver_on,
-        ),
-        _getListTile(
-          appLocalizations.contribute_sw_development,
-          () async => _develop(),
-          Icons.app_shortcut,
-        ),
-        _getListTile(
-          appLocalizations.contribute_translate_header,
-          () async => _translate(),
-          Icons.translate,
-        ),
-        _getListTile(
-          appLocalizations.how_to_contribute,
-          () async => LaunchUrlHelper.launchURL(
-            ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/contribute',
-            ),
+        Icons.cleaning_services,
+        externalLink: true,
+      ),
+      _getListTile(
+        appLocalizations.how_to_contribute,
+        () async => LaunchUrlHelper.launchURL(
+          ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/contribute',
           ),
-          Icons.volunteer_activism_outlined,
+        ),
+        Icons.volunteer_activism_outlined,
+        externalLink: true,
+      ),
+      _getListTile(
+        appLocalizations.contribute_join_skill_pool,
+        () async => LaunchUrlHelper.launchURL(
+          'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
+        ),
+        Icons.group,
+        externalLink: true,
+      ),
+      _getListTile(
+        appLocalizations.contribute_share_header,
+        () async => _share(appLocalizations.contribute_share_content),
+        Icons.adaptive.share,
+      ),
+      if (country.wikiUrl != null)
+        _getListTile(
+          appLocalizations.help_improve_country,
+          () async {
+            LaunchUrlHelper.launchURL(country.wikiUrl!);
+          },
+          Icons.language,
+          icon: UserPreferencesListTile.getTintedIcon(
+            Icons.open_in_new,
+            context,
+          ),
           externalLink: true,
         ),
+      if (GlobalVars.appStore.getEnrollInBetaURL() != null)
         _getListTile(
-          appLocalizations.contribute_join_skill_pool,
-          () async => LaunchUrlHelper.launchURL(
-            'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
-          ),
-          Icons.group,
-          externalLink: true,
-        ),
-        _getListTile(
-          appLocalizations.contribute_share_header,
-          () async => _share(appLocalizations.contribute_share_content),
-          Icons.adaptive.share,
-        ),
-        if (GlobalVars.appStore.getEnrollInBetaURL() != null)
-          _getListTile(
-            appLocalizations.contribute_enroll_alpha,
-            () async {
-              final bool? result = await showDialog<bool>(
-                context: context,
-                builder: (BuildContext context) => SmoothAlertDialog(
-                  title: appLocalizations.contribute_enroll_alpha,
-                  body: Text(appLocalizations.contribute_enroll_alpha_warning),
-                  negativeAction: SmoothActionButton(
-                    text: appLocalizations.close,
-                    onPressed: () => Navigator.pop(context, false),
-                  ),
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.okay,
-                    onPressed: () => Navigator.pop(context, true),
-                  ),
+          appLocalizations.contribute_enroll_alpha,
+          () async {
+            final bool? result = await showDialog<bool>(
+              context: context,
+              builder: (BuildContext context) => SmoothAlertDialog(
+                title: appLocalizations.contribute_enroll_alpha,
+                body: Text(appLocalizations.contribute_enroll_alpha_warning),
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.close,
+                  onPressed: () => Navigator.pop(context, false),
                 ),
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.okay,
+                  onPressed: () => Navigator.pop(context, true),
+                ),
+              ),
+            );
+            if (result == true) {
+              await LaunchUrlHelper.launchURL(
+                GlobalVars.appStore.getEnrollInBetaURL()!,
               );
-              if (result == true) {
-                await LaunchUrlHelper.launchURL(
-                  GlobalVars.appStore.getEnrollInBetaURL()!,
-                );
-              }
-            },
-            CupertinoIcons.lab_flask_solid,
-            icon: UserPreferencesListTile.getTintedIcon(
-              Icons.open_in_new,
-              context,
-            ),
-            externalLink: true,
+            }
+          },
+          CupertinoIcons.lab_flask_solid,
+          icon: UserPreferencesListTile.getTintedIcon(
+            Icons.open_in_new,
+            context,
           ),
-        _getListTile(
-          appLocalizations.contributors_label,
-          () async => _contributors(),
-          Icons.emoji_people,
-          description: appLocalizations.contributors_description,
+          externalLink: true,
         ),
-      ];
+      _getListTile(
+        appLocalizations.contributors_label,
+        () async => _contributors(),
+        Icons.emoji_people,
+        description: appLocalizations.contributors_description,
+      ),
+    ];
+  }
 
   Future<void> _contribute() => showDialog<void>(
         context: context,
@@ -283,7 +308,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.hungerGameOpened,
     );
-    await openQuestionPage(context);
+
+    await Navigator.push<int>(
+      context,
+      MaterialPageRoute<int>(
+        builder: (BuildContext context) => const QuestionsPage(),
+      ),
+    );
   }
 
   UserPreferencesItem _getListTile(

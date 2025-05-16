@@ -60,11 +60,16 @@ extension StatelessWidgetExtension on StatelessWidget {
   }
 }
 
-extension StateExtension on State {
-  void onNextFrame(VoidCallback callback) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+extension StateExtension<T extends StatefulWidget> on State<T> {
+  void onNextFrame(VoidCallback callback, {bool forceRedraw = false}) {
+    final WidgetsBinding binding = WidgetsBinding.instance;
+    binding.addPostFrameCallback((_) {
       callback();
     });
+
+    if (forceRedraw) {
+      binding.ensureVisualUpdate();
+    }
   }
 }
 

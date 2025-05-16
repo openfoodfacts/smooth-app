@@ -29,6 +29,7 @@ import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -82,7 +83,7 @@ class ProductPageState extends State<ProductPage>
         ExternalScanCarouselManager.read(context);
     carouselManager.currentBarcode = barcode;
     final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
 
     _productPreferences = context.watch<ProductPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -142,7 +143,10 @@ class ProductPageState extends State<ProductPage>
                 },
                 child: hasPendingOperations
                     ? const ProductPageLoadingIndicator()
-                    : ProductQuestionsWidget(upToDateProduct),
+                    : KeepQuestionWidgetAlive(
+                        keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                        child: ProductQuestionsWidget(upToDateProduct),
+                      ),
               ),
             ),
           ],
@@ -194,14 +198,11 @@ class ProductPageState extends State<ProductPage>
               child: HeroMode(
                 enabled: widget.withHeroAnimation &&
                     widget.heroTag?.isNotEmpty == true,
-                child: KeepQuestionWidgetAlive(
-                  keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                  child: SummaryCard(
-                    upToDateProduct,
-                    _productPreferences,
-                    heroTag: widget.heroTag,
-                    isFullVersion: true,
-                  ),
+                child: SummaryCard(
+                  upToDateProduct,
+                  _productPreferences,
+                  heroTag: widget.heroTag,
+                  isFullVersion: true,
                 ),
               ),
             ),
@@ -227,7 +228,7 @@ class ProductPageState extends State<ProductPage>
                 padding: const EdgeInsets.all(SMALL_SPACE),
                 child: SmoothLargeButtonWithIcon(
                   text: appLocalizations.reorder_attribute_action,
-                  icon: Icons.sort,
+                  leadingIcon: const Icon(Icons.sort),
                   onPressed: () async => Navigator.push(
                     context,
                     MaterialPageRoute<void>(

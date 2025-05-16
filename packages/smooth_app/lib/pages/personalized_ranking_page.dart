@@ -11,10 +11,12 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -67,7 +69,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     }
     if (added != null && added) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        SmoothFloatingSnackbar(
           content: Text(
             appLocalizations.added_to_list_msg,
           ),
@@ -105,6 +107,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
                 SmoothPopupMenuItem<String>(
                   value: 'add_to_list',
                   label: appLocalizations.user_list_button_add_product,
+                  icon: const AddToList.symbol().icon,
                 ),
               ];
             },
@@ -131,7 +134,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
                 child: Padding(
                   padding: const EdgeInsets.all(SMALL_SPACE),
                   child: SmoothLargeButtonWithIcon(
-                    icon: Icons.refresh,
+                    leadingIcon: const Icon(Icons.refresh),
                     text: appLocalizations.refresh_with_new_preferences,
                     onPressed: () {
                       _compactPreferences = compactPreferences;
@@ -199,12 +202,21 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   ) {
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.status(status);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
-        child: Text(
-          helper.getHeaderText(appLocalizations),
-          style: Theme.of(context).textTheme.titleMedium,
+    return SizedBox(
+      width: double.infinity,
+      child: ColoredBox(
+        color: helper.getColor(context),
+        child: Padding(
+          padding: const EdgeInsets.all(MEDIUM_SPACE),
+          child: Text(
+            helper.getHeaderText(appLocalizations),
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15.0,
+                  color: Colors.white,
+                ),
+          ),
         ),
       ),
     );
@@ -219,7 +231,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         direction: DismissDirection.endToStart,
         background: Container(
           alignment: AlignmentDirectional.centerEnd,
-          margin: const EdgeInsets.symmetric(vertical: 14.0),
           color: RED_COLOR,
           padding: const EdgeInsetsDirectional.only(end: 30.0),
           child: const Icon(
@@ -231,7 +242,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         onDismissed: (final DismissDirection direction) {
           _model.dismiss(matchedProduct.barcode);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            SmoothFloatingSnackbar(
               content: Text(appLocalizations.product_removed_comparison),
               duration: SnackBarDuration.medium,
             ),
@@ -250,6 +261,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 /// Virtual item in the list: either a product or a status header
 class _VirtualItem {
   const _VirtualItem.score(this.score) : status = null;
+
   const _VirtualItem.status(this.status) : score = null;
   final MatchedScoreV2? score;
   final MatchedProductStatusV2? status;

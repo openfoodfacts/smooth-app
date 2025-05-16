@@ -3,17 +3,15 @@ import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_string_list.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/language_priority.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
+import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -253,7 +251,7 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
                 width: lightTheme ? 1.5 : 2.0,
               ),
             ),
-            color: lightTheme ? theme.primaryDark : theme.primaryNormal,
+            color: lightTheme ? theme.primaryBlack : theme.primaryNormal,
           ),
           child: Material(
             type: MaterialType.transparency,
@@ -277,24 +275,13 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
   }
 
   Future<void> _addLanguage(BuildContext context) async {
-    // TODO(g123k): Improve the language selector
-    final DaoStringList daoStringList =
-        DaoStringList(context.read<LocalDatabase>());
-
     final List<OpenFoodFactsLanguage>? selectedLanguages =
         context.read<_EditLanguageProvider>().value.languages;
 
-    final LanguagePriority languagePriority = LanguagePriority(
-      product: context.read<Product>(),
-      selectedLanguages: selectedLanguages,
-      daoStringList: daoStringList,
-    );
-
     final OpenFoodFactsLanguage? language =
-        await LanguageSelector.openLanguageSelector(
+        await LanguagesSelector.openLanguageSelector(
       context,
       selectedLanguages: selectedLanguages,
-      languagePriority: languagePriority,
     );
 
     if (language != null && context.mounted) {
@@ -359,13 +346,20 @@ class _EditLanguageProvider
     if (mainLanguage != userLanguage) {
       final int index = imageLanguages.indexOf(userLanguage);
 
-      if (forceUserLanguage || index >= 0) {
-        languages.add(userLanguage);
-        states.add(
-          index >= 0
-              ? languagesStates[index]
-              : userLanguageMissingState ?? mainLanguageMissingState,
+      if (mainLanguage == OpenFoodFactsLanguage.UNKNOWN_LANGUAGE &&
+          userLanguage == OpenFoodFactsLanguage.ENGLISH) {
+        Logs.d(
+          'This product has a main unknown language, considering it as English',
         );
+      } else {
+        if (forceUserLanguage || index >= 0) {
+          languages.add(userLanguage);
+          states.add(
+            index >= 0
+                ? languagesStates[index]
+                : userLanguageMissingState ?? mainLanguageMissingState,
+          );
+        }
       }
     }
 

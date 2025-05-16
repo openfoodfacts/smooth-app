@@ -1,37 +1,37 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:provider/single_child_widget.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
+import 'package:smooth_app/pages/product/common/product_buttons.dart';
+import 'package:smooth_app/pages/product/common/product_picture_banner.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_image.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_tabbar.dart';
+import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_textfield.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
-import 'package:smooth_app/pages/product/explanation_widget.dart';
+import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
-import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
-
-part 'edit_ocr_main_action.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -52,8 +52,9 @@ class EditOcrPage extends StatefulWidget {
 }
 
 class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
-  final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller;
   late final MultilingualHelper _multilingualHelper;
+  late final WillPopScope2Controller _willPopScope2Controller;
 
   OcrHelper get _helper => widget.helper;
   bool _extractingData = false;
@@ -62,6 +63,10 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
+
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
+    _controller = TextEditingController()..addListener(_onValueChanged);
+
     _multilingualHelper = MultilingualHelper(controller: _controller);
     _multilingualHelper.init(
       multilingualTexts: _helper.getMultilingualTexts(upToDateProduct),
@@ -69,6 +74,119 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       selectedImages: upToDateProduct.selectedImages,
       imageField: _helper.getImageField(),
       productLanguage: upToDateProduct.lang,
+    );
+    _multilingualHelper.addListener(_onValueChanged);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    context.watch<LocalDatabase>();
+    refreshUpToDate();
+    final TransientFile transientFile = TransientFile.fromProduct(
+      upToDateProduct,
+      _helper.getImageField(),
+      _multilingualHelper.getCurrentLanguage(),
+    );
+
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
+      controller: _willPopScope2Controller,
+      child: MultiProvider(
+        providers: <SingleChildWidget>[
+          Provider<Product>(
+            create: (BuildContext context) => upToDateProduct,
+          ),
+          Provider<OcrState>.value(
+            value: _extractState(transientFile),
+          ),
+        ],
+        child: UnfocusFieldWhenTapOutside(
+          child: SmoothScaffold(
+            extendBodyBehindAppBar: false,
+            appBar: buildEditProductAppBar(
+              context: context,
+              title: _helper.getTitle(appLocalizations),
+              product: upToDateProduct,
+              bottom: !_multilingualHelper.isMonolingual()
+                  ? EditOcrTabBar(
+                      onTabChanged: (OpenFoodFactsLanguage language) {
+                        if (_multilingualHelper.changeLanguage(language)) {
+                          onNextFrame(
+                            () => setState(() {}),
+                            forceRedraw: true,
+                          );
+                        }
+                      },
+                      imageField: _helper.getImageField(),
+                      languagesWithText: _getLanguagesWithText(),
+                    )
+                  : null,
+            ),
+            backgroundColor: context.lightTheme()
+                ? context.extension<SmoothColorsThemeExtension>().primaryLight
+                : null,
+            body: ListView(
+              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+              children: <Widget>[
+                EditOCRImageWidget(
+                  helper: _helper,
+                  transientFile: transientFile,
+                  ownerField: upToDateProduct.isImageLocked(
+                        _helper.getImageField(),
+                        _multilingualHelper.getCurrentLanguage(),
+                      ) ??
+                      false,
+                  onEditImage: () async => _openImageViewer(),
+                  onExtractText: () async => _extractData(),
+                  onTakePicture: () async => _takePicture(),
+                  onTakePictureWithChoices: () async => _listPictureChoices(),
+                ),
+                const SizedBox(height: MEDIUM_SPACE),
+                EditOCRTextField(
+                  helper: _helper,
+                  controller: _controller,
+                  extraButton: _helper.hasAddExtraPhotoButton()
+                      ? EditOCRExtraButton(
+                          barcode: upToDateProduct.barcode!,
+                          productType: upToDateProduct.productType,
+                          multilingualHelper: _multilingualHelper,
+                          isLoggedInMandatory: widget.isLoggedInMandatory,
+                        )
+                      : null,
+                  isOwnerField: _helper.isOwnerField(
+                    upToDateProduct,
+                    _multilingualHelper.getCurrentLanguage(),
+                  ),
+                ),
+              ],
+            ),
+            resizeToAvoidBottomInset: true,
+            bottomNavigationBar: ProductBottomButtonsBar(
+              onSave: () async => _exitPage(
+                await _mayExitPage(saving: true),
+              ),
+              onCancel: () async => _exitPage(
+                await _mayExitPage(saving: false),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _openImageViewer() {
+    return Navigator.push(
+      context,
+      MaterialPageRoute<void>(
+        builder: (_) => ProductImageSwipeableView.imageField(
+          imageField: _helper.getImageField(),
+          product: upToDateProduct,
+          initialLanguage: _multilingualHelper.getCurrentLanguage(),
+          isLoggedInMandatory: widget.isLoggedInMandatory,
+        ),
+      ),
     );
   }
 
@@ -104,8 +222,60 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     }
   }
 
+  Future<File?> _takePicture() async {
+    return ProductImageGalleryView.takePicture(
+      context: context,
+      product: upToDateProduct,
+      language: _multilingualHelper.getCurrentLanguage(),
+      imageField: _helper.getImageField(),
+      pictureSource: UserPictureSource.SELECT,
+    );
+  }
+
+  Future<void> _listPictureChoices() async {
+    showPhotoBanner(
+      context: context,
+      product: upToDateProduct,
+      imageField: _helper.getImageField(),
+      language: _multilingualHelper.getCurrentLanguage(),
+    );
+  }
+
+  /// Exits the page if the [flag] is `true`.
+  void _exitPage(final bool flag) {
+    if (flag) {
+      Navigator.of(context).pop();
+    }
+  }
+
+  /// Returns `true` if we should really exit the page.
+  ///
+  /// Parameter [saving] tells about the context: are we leaving the page,
+  /// or have we clicked on the "save" button?
+  Future<bool> _mayExitPage({required final bool saving}) async {
+    final Product? changedProduct = _getMinimalistProduct();
+    if (changedProduct == null) {
+      return true;
+    }
+
+    if (!saving) {
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+
+      if (pleaseSave == false) {
+        return true;
+      }
+      if (!mounted) {
+        return false;
+      }
+    }
+
+    await _saveChanges();
+    return true;
+  }
+
   /// Updates the product field on the server.
-  Future<void> _updateText() async {
+  Future<void> _saveChanges() async {
     final Product? changedProduct = _getMinimalistProduct();
     if (changedProduct == null) {
       return;
@@ -133,48 +303,6 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     return;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    context.watch<LocalDatabase>();
-    refreshUpToDate();
-    final TransientFile transientFile = TransientFile.fromProduct(
-      upToDateProduct,
-      _helper.getImageField(),
-      _multilingualHelper.getCurrentLanguage(),
-    );
-
-    // TODO(monsieurtanuki): add WillPopScope / MayExitPage system
-    return Provider<Product>(
-      create: (BuildContext context) => upToDateProduct,
-      child: SmoothScaffold(
-        extendBodyBehindAppBar: true,
-        appBar: buildEditProductAppBar(
-          context: context,
-          title: _helper.getTitle(appLocalizations),
-          product: upToDateProduct,
-          bottom: !_multilingualHelper.isMonolingual()
-              ? EditOcrTabBar(
-                  onTabChanged: (OpenFoodFactsLanguage language) {
-                    if (_multilingualHelper.changeLanguage(language)) {
-                      setState(() {});
-                    }
-                  },
-                  imageField: _helper.getImageField(),
-                  languagesWithText: _getLanguagesWithText(),
-                )
-              : null,
-        ),
-        body: Stack(
-          children: <Widget>[
-            _getImageWidget(transientFile),
-            _getOcrWidget(transientFile),
-          ],
-        ),
-      ),
-    );
-  }
-
   List<OpenFoodFactsLanguage> _getLanguagesWithText() {
     final Map<OpenFoodFactsLanguage, String> allLanguages =
         _multilingualHelper.getInitialMultiLingualTexts();
@@ -188,260 +316,6 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     }
 
     return languages;
-  }
-
-  Widget _getImageButton(
-    final ProductImageButtonType type,
-    final bool imageExists,
-  ) =>
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-        child: type.getButton(
-          product: upToDateProduct,
-          imageField: _helper.getImageField(),
-          imageExists: imageExists,
-          language: _multilingualHelper.getCurrentLanguage(),
-          isLoggedInMandatory: widget.isLoggedInMandatory,
-          borderWidth: 2,
-        ),
-      );
-
-  Widget _getImageWidget(final TransientFile transientFile) {
-    final Size size = MediaQuery.sizeOf(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ImageProvider? imageProvider = transientFile.getImageProvider();
-
-    if (imageProvider != null) {
-      return ConstrainedBox(
-        constraints: const BoxConstraints.expand(),
-        child: InteractiveViewer(
-          boundaryMargin: const EdgeInsets.only(
-            left: VERY_LARGE_SPACE,
-            top: 10,
-            right: VERY_LARGE_SPACE,
-            bottom: 200,
-          ),
-          minScale: 0.1,
-          maxScale: 5,
-          child: Image(
-            fit: BoxFit.contain,
-            image: imageProvider,
-          ),
-        ),
-      );
-    }
-
-    return Container(
-      alignment: Alignment.center,
-      margin: EdgeInsets.only(bottom: size.height * 0.25),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            width: size.width,
-            height: size.height / 4,
-            child: const PictureNotFound(boxFit: BoxFit.fitHeight),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(LARGE_SPACE),
-            child: Text(
-              appLocalizations.ocr_image_upload_instruction,
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _getOcrWidget(final TransientFile transientFile) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final OpenFoodFactsLanguage language =
-        _multilingualHelper.getCurrentLanguage();
-    final ImageProvider? imageProvider = transientFile.getImageProvider();
-    final bool imageExists = imageProvider != null;
-
-    return Align(
-      alignment: AlignmentDirectional.bottomStart,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          Flexible(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                bottom: LARGE_SPACE,
-                start: LARGE_SPACE,
-                end: LARGE_SPACE,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      Expanded(
-                        child: _getImageButton(
-                          ProductImageButtonType.server,
-                          imageExists,
-                        ),
-                      ),
-                      Expanded(
-                        child: _getImageButton(
-                          ProductImageButtonType.local,
-                          imageExists,
-                        ),
-                      ),
-                    ],
-                  ),
-                  if (imageProvider != null)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        Expanded(
-                          child: _getImageButton(
-                            ProductImageButtonType.unselect,
-                            imageExists,
-                          ),
-                        ),
-                        Expanded(
-                          child: _getImageButton(
-                            ProductImageButtonType.edit,
-                            imageExists,
-                          ),
-                        ),
-                      ],
-                    ),
-                ],
-              ),
-            ),
-          ),
-          Flexible(
-            flex: 1,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
-                borderRadius: const BorderRadiusDirectional.only(
-                  topStart: ANGULAR_RADIUS,
-                  topEnd: ANGULAR_RADIUS,
-                ),
-              ),
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: LARGE_SPACE,
-                    end: LARGE_SPACE,
-                    top: LARGE_SPACE,
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      _EditOcrMainAction(
-                        onPressed: _extractData,
-                        helper: _helper,
-                        state: _extractState(transientFile),
-                      ),
-                      const SizedBox(height: MEDIUM_SPACE),
-                      ConsumerFilter<UserPreferences>(
-                        buildWhen: (
-                          UserPreferences? previousValue,
-                          UserPreferences currentValue,
-                        ) {
-                          return previousValue?.getFlag(UserPreferencesDevMode
-                                  .userPreferencesFlagSpellCheckerOnOcr) !=
-                              currentValue.getFlag(UserPreferencesDevMode
-                                  .userPreferencesFlagSpellCheckerOnOcr);
-                        },
-                        builder: (
-                          BuildContext context,
-                          UserPreferences prefs,
-                          Widget? child,
-                        ) {
-                          final ThemeData theme = Theme.of(context);
-
-                          return Theme(
-                            data: theme.copyWith(
-                              colorScheme: theme.colorScheme.copyWith(
-                                onSurface: context
-                                        .read<ThemeProvider>()
-                                        .isDarkMode(context)
-                                    ? Colors.white
-                                    : Colors.black,
-                              ),
-                            ),
-                            child: TextField(
-                              controller: _controller,
-                              decoration: InputDecoration(
-                                fillColor: Colors.white.withValues(alpha: 0.2),
-                                filled: true,
-                                enabledBorder: const OutlineInputBorder(
-                                  borderRadius: ANGULAR_BORDER_RADIUS,
-                                ),
-                              ),
-                              maxLines: null,
-                              textInputAction: TextInputAction.newline,
-                              spellCheckConfiguration: (prefs.getFlag(
-                                              UserPreferencesDevMode
-                                                  .userPreferencesFlagSpellCheckerOnOcr) ??
-                                          false) &&
-                                      (Platform.isAndroid || Platform.isIOS)
-                                  ? const SpellCheckConfiguration()
-                                  : const SpellCheckConfiguration.disabled(),
-                            ),
-                          );
-                        },
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                      ExplanationWidget(
-                        _helper.getInstructions(appLocalizations),
-                      ),
-                      if (_helper.hasAddExtraPhotoButton())
-                        Padding(
-                          padding: const EdgeInsets.only(top: SMALL_SPACE),
-                          child: addPanelButton(
-                            appLocalizations.add_packaging_photo_button_label
-                                .toUpperCase(),
-                            onPressed: () async => confirmAndUploadNewPicture(
-                              context,
-                              imageField: ImageField.OTHER,
-                              barcode: barcode,
-                              productType: upToDateProduct.productType,
-                              language: language,
-                              isLoggedInMandatory: widget.isLoggedInMandatory,
-                            ),
-                            iconData: Icons.add_a_photo,
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SmoothButtonsBar2(
-            positiveButton: SmoothActionButton2(
-              text: appLocalizations.save,
-              onPressed: () async {
-                await _updateText();
-                if (!mounted) {
-                  return;
-                }
-                Navigator.pop(context);
-              },
-            ),
-            negativeButton: SmoothActionButton2(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.pop(context),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 
   /// Returns a [Product] with the values from the text fields.
@@ -467,15 +341,34 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     return result;
   }
 
-  _OcrState _extractState(TransientFile transientFile) {
+  void _onValueChanged() {
+    _willPopScope2Controller.canPop(!_multilingualHelper.hasChanged());
+  }
+
+  OcrState _extractState(TransientFile transientFile) {
     if (_extractingData) {
-      return _OcrState.EXTRACTING_DATA;
+      return OcrState.EXTRACTING_DATA;
     } else if (transientFile.isServerImage()) {
-      return _OcrState.IMAGE_LOADED;
+      return OcrState.IMAGE_LOADED;
     } else if (transientFile.isImageAvailable()) {
-      return _OcrState.IMAGE_LOADING;
+      return OcrState.IMAGE_LOADING;
     } else {
-      return _OcrState.OTHER;
+      return OcrState.OTHER;
     }
   }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _multilingualHelper.dispose();
+    _willPopScope2Controller.dispose();
+    super.dispose();
+  }
+}
+
+enum OcrState {
+  IMAGE_LOADING,
+  IMAGE_LOADED,
+  EXTRACTING_DATA,
+  OTHER,
 }

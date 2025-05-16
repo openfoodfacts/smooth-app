@@ -39,6 +39,48 @@ class _ListenerState<T> extends SingleChildState<Listener<T>> {
   }
 }
 
+class ChangeNotifierListener<T extends ChangeNotifier> extends StatefulWidget {
+  const ChangeNotifierListener({
+    required this.child,
+    required this.listener,
+    super.key,
+  });
+
+  final Widget child;
+  final Function(BuildContext context, T notifier) listener;
+
+  @override
+  State<ChangeNotifierListener<T>> createState() =>
+      _ChangeNotifierListenerState<T>();
+}
+
+class _ChangeNotifierListenerState<T extends ChangeNotifier>
+    extends State<ChangeNotifierListener<T>> {
+  T? _notifier;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _notifier ??= context.read<T>()..replaceListener(_onNotifierChanged);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.child;
+  }
+
+  void _onNotifierChanged() {
+    widget.listener(context, _notifier!);
+  }
+
+  @override
+  void dispose() {
+    _notifier?.removeListener(_onNotifierChanged);
+    _notifier = null;
+    super.dispose();
+  }
+}
+
 /// Same as [Listener] but for [ValueNotifier] : notifies when the value changes
 class ValueNotifierListener<T extends ValueNotifier<S>, S>
     extends SingleChildStatefulWidget {
@@ -208,6 +250,31 @@ class _ConsumerValueNotifierFilterState<T extends ValueNotifier<S>, S>
   }
 }
 
+extension ChangeNotifierExtensions on ChangeNotifier {
+  void replaceListener(VoidCallback listener) {
+    removeListener(listener);
+    addListener(listener);
+  }
+}
+
 extension ValueNotifierExtensions<T> on ValueNotifier<T> {
   void emit(T value) => this.value = value;
+}
+
+extension ProviderExtension on BuildContext {
+  T? readSafe<T>() {
+    try {
+      return read<T>();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  T? watchSafe<T>() {
+    try {
+      return watch<T>();
+    } catch (_) {
+      return null;
+    }
+  }
 }

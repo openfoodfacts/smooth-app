@@ -3,12 +3,15 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -27,7 +30,6 @@ class AddOtherDetailsPage extends StatefulWidget {
 class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
   late final TextEditingControllerWithHistory _websiteController;
 
-  final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final Product _product;
 
@@ -35,8 +37,9 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
   void initState() {
     super.initState();
     _product = widget.product;
-    _websiteController =
-        TextEditingControllerWithHistory(text: _product.website ?? '');
+    _websiteController = TextEditingControllerWithHistory(
+      text: _product.website ?? '',
+    );
   }
 
   @override
@@ -52,8 +55,8 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: SmoothScaffold(
@@ -63,24 +66,40 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
           title: appLocalizations.edit_product_form_item_other_details_title,
           product: widget.product,
         ),
+        backgroundColor: context.lightTheme()
+            ? Theme.of(context)
+                .extension<SmoothColorsThemeExtension>()!
+                .primaryLight
+            : null,
         body: Form(
           key: _formKey,
           child: Scrollbar(
             child: ListView(
+              padding: const EdgeInsetsDirectional.only(
+                top: MEDIUM_SPACE,
+                start: MEDIUM_SPACE,
+                end: MEDIUM_SPACE,
+              ),
               children: <Widget>[
-                SizedBox(height: _heightSpace),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: _heightSpace),
-                      SmoothTextFormField(
-                        controller: _websiteController,
-                        type: TextFieldTypes.PLAIN_TEXT,
-                        hintText: appLocalizations.product_field_website_title,
-                      ),
-                      SizedBox(height: _heightSpace),
-                    ],
+                SmoothCardWithRoundedHeader(
+                  title: appLocalizations.product_field_website_title,
+                  leading: const Icon(Icons.link),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      bottom: MEDIUM_SPACE,
+                      start: MEDIUM_SPACE,
+                      end: MEDIUM_SPACE,
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        SmoothTextFormField(
+                          controller: _websiteController,
+                          type: TextFieldTypes.PLAIN_TEXT,
+                          hintText:
+                              appLocalizations.product_field_website_title,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

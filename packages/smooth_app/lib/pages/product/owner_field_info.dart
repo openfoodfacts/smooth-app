@@ -1,30 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_banner.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
 /// Icon to display when the product field value is "producer provided".
 const IconData _ownerFieldIconData = Icons.factory;
-
-/// Standard info tile about "owner fields".
-class OwnerFieldInfo extends StatelessWidget {
-  const OwnerFieldInfo({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final Color? darkGrey = Colors.grey[700];
-    final Color? lightGrey = Colors.grey[300];
-    return ListTile(
-      tileColor: dark ? darkGrey : lightGrey,
-      leading: const Icon(_ownerFieldIconData),
-      title: Text(appLocalizations.owner_field_info_title),
-      subtitle: Text(appLocalizations.owner_field_info_message),
-    );
-  }
-}
 
 class OwnerFieldBanner extends StatelessWidget {
   const OwnerFieldBanner({
@@ -54,14 +39,20 @@ class OwnerFieldBanner extends StatelessWidget {
 
 /// Standard icon about "owner fields".
 class OwnerFieldIcon extends StatelessWidget {
-  const OwnerFieldIcon({this.size, super.key});
+  const OwnerFieldIcon({
+    this.size,
+    this.color,
+    super.key,
+  });
 
   final double? size;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) => Icon(
         _ownerFieldIconData,
         size: size,
+        color: color,
         semanticLabel: AppLocalizations.of(context).owner_field_info_title,
       );
 }
@@ -165,5 +156,59 @@ class _AnimatedOwnerFieldBannerState extends State<AnimatedOwnerFieldBanner>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+}
+
+Future<void> showOwnerFieldInfoInModalSheet(
+  BuildContext context, {
+  Color? headerColor,
+}) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+  return showSmoothModalSheet<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return SmoothModalSheet(
+        title: appLocalizations.owner_field_info_title,
+        headerBackgroundColor: headerColor,
+        prefixIndicator: true,
+        body: SmoothModalSheetBodyContainer(
+          child: Text(appLocalizations.owner_field_info_message),
+        ),
+      );
+    },
+  );
+}
+
+class OwnerFieldSmoothCardIcon extends StatelessWidget {
+  const OwnerFieldSmoothCardIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return SmoothCardHeaderButton(
+      tooltip: appLocalizations.owner_field_info_title,
+      child: const OwnerFieldIcon(),
+      onTap: () => showOwnerFieldInfoInModalSheet(
+        context,
+        headerColor: SmoothCardWithRoundedHeaderTop.getHeaderColor(context),
+      ),
+    );
+  }
+}
+
+extension OwnerFieldProductExtension on Product {
+  bool hasOwnerField(
+    ProductField productField, {
+    OpenFoodFactsLanguage? language,
+  }) {
+    return getOwnerFieldTimestamp(
+          OwnerField.productField(
+            productField,
+            language ?? ProductQuery.getLanguage(),
+          ),
+        ) !=
+        null;
   }
 }

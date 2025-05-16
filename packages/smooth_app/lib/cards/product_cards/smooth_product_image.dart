@@ -25,20 +25,26 @@ class ProductPicture extends StatefulWidget {
     required ImageField imageField,
     required Size size,
     OpenFoodFactsLanguage? language,
+    bool allowAlternativeLanguage = false,
     String? fallbackUrl,
     VoidCallback? onTap,
     String? heroTag,
     bool showObsoleteIcon = false,
     bool showOwnerIcon = false,
-    BorderRadius? borderRadius,
+    BorderRadius? borderRadius = const BorderRadius.all(
+      Radius.circular(14.0),
+    ),
     double imageFoundBorder = 0.0,
     double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
+    WidgetBuilder? noImageBuilder,
+    bool blurFilter = true,
   }) : this._(
           transientFile: null,
           product: product,
           imageField: imageField,
           language: language ?? ProductQuery.getLanguage(),
+          allowAlternativeLanguage: allowAlternativeLanguage,
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
@@ -49,12 +55,15 @@ class ProductPicture extends StatefulWidget {
           errorTextStyle: errorTextStyle,
           showObsoleteIcon: showObsoleteIcon,
           showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
         );
 
   ProductPicture.fromTransientFile({
     required TransientFile transientFile,
     required Size size,
     OpenFoodFactsLanguage? language,
+    bool allowAlternativeLanguage = false,
     Product? product,
     ImageField? imageField,
     String? fallbackUrl,
@@ -66,11 +75,14 @@ class ProductPicture extends StatefulWidget {
     double imageFoundBorder = 0.0,
     double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
+    WidgetBuilder? noImageBuilder,
+    bool blurFilter = true,
   }) : this._(
           transientFile: transientFile,
           product: product,
           imageField: imageField,
           language: language,
+          allowAlternativeLanguage: allowAlternativeLanguage,
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
@@ -81,14 +93,18 @@ class ProductPicture extends StatefulWidget {
           errorTextStyle: errorTextStyle,
           showObsoleteIcon: showObsoleteIcon,
           showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
         );
 
   ProductPicture._({
     required this.product,
     required this.imageField,
     required this.language,
+    required this.allowAlternativeLanguage,
     required this.transientFile,
     required this.size,
+    required this.blurFilter,
     this.fallbackUrl,
     this.heroTag,
     this.onTap,
@@ -98,6 +114,7 @@ class ProductPicture extends StatefulWidget {
     this.errorTextStyle,
     this.showObsoleteIcon = false,
     this.showOwnerIcon = false,
+    this.noImageBuilder,
     super.key,
   })  : assert(imageFoundBorder >= 0.0),
         assert(imageNotFoundBorder >= 0.0),
@@ -115,6 +132,10 @@ class ProductPicture extends StatefulWidget {
 
   final String? heroTag;
 
+  /// When an image is unavailable in the [language] or product main language,
+  /// we try to find another one in an alternative language.
+  final bool allowAlternativeLanguage;
+
   /// Show the obsolete icon on top of the image
   final bool showObsoleteIcon;
 
@@ -128,6 +149,11 @@ class ProductPicture extends StatefulWidget {
 
   /// Style when there is no image/an error
   final TextStyle? errorTextStyle;
+
+  /// Allows to change the placeholder
+  final WidgetBuilder? noImageBuilder;
+
+  final bool blurFilter;
 
   @override
   State<ProductPicture> createState() => _ProductPictureState();
@@ -144,6 +170,7 @@ class _ProductPictureState extends State<ProductPicture> {
     final (ImageProvider?, bool)? imageProvider = _getImageProvider(
       widget.product,
       widget.transientFile,
+      widget.allowAlternativeLanguage,
     );
 
     final Widget? inkWell = widget.onTap != null
@@ -166,7 +193,7 @@ class _ProductPictureState extends State<ProductPicture> {
         ),
         text: appLocalizations.product_image_error,
         textStyle: TextStyle(
-          color: context.extension<SmoothColorsThemeExtension>().red,
+          color: context.extension<SmoothColorsThemeExtension>().error,
         ).merge(widget.errorTextStyle ?? const TextStyle()),
         size: widget.size,
         borderRadius: widget.borderRadius,
@@ -190,6 +217,7 @@ class _ProductPictureState extends State<ProductPicture> {
         showOwner: widget.showOwnerIcon,
         borderRadius: widget.borderRadius,
         border: widget.imageFoundBorder,
+        blurFilter: widget.blurFilter,
         onError: () {
           SchedulerBinding.instance.addPostFrameCallback((_) {
             setState(() => _imageError = true);
@@ -202,9 +230,12 @@ class _ProductPictureState extends State<ProductPicture> {
 
       child = _ProductPictureAssetsSvg(
         asset: 'assets/product/product_not_found_text.svg',
+        imageOverride: widget.noImageBuilder,
         semanticsLabel: appLocalizations
             .product_page_image_no_image_available_accessibility_label,
-        text: appLocalizations.product_page_image_no_image_available,
+        text: widget.noImageBuilder == null
+            ? appLocalizations.product_page_image_no_image_available
+            : null,
         textStyle: TextStyle(
           color: context.extension<SmoothColorsThemeExtension>().primaryDark,
         ).merge(widget.errorTextStyle ?? const TextStyle()),
@@ -243,6 +274,7 @@ class _ProductPictureState extends State<ProductPicture> {
   (ImageProvider?, bool)? _getImageProvider(
     Product? product,
     TransientFile? transientFile,
+    bool allowAlternativeLanguage,
   ) {
     if (transientFile != null) {
       return (transientFile.getImageProvider(), transientFile.expired);
@@ -258,8 +290,44 @@ class _ProductPictureState extends State<ProductPicture> {
 
     if (imageProvider != null) {
       return (imageProvider, productTransientFile.expired);
-    } else if (widget.fallbackUrl?.isNotEmpty == true) {
+    }
+
+    if (widget.fallbackUrl?.isNotEmpty == true) {
       return (NetworkImage(widget.fallbackUrl!), false);
+    } else if (allowAlternativeLanguage) {
+      Iterable<ProductImage>? images = widget.product?.images?.where(
+        (ProductImage image) =>
+            image.field == widget.imageField && image.url != null,
+      );
+
+      if (images == null || images.isEmpty) {
+        return null;
+      }
+
+      /// Let's try with English images
+      final Iterable<ProductImage> englishImages = images.where(
+        (ProductImage image) => image.language == OpenFoodFactsLanguage.ENGLISH,
+      );
+
+      if (englishImages.isNotEmpty) {
+        images = englishImages;
+      }
+
+      /// We prefer a display image
+      ProductImage? productImage;
+
+      for (final ProductImage image in images) {
+        if (image.size == ImageSize.DISPLAY) {
+          productImage = image;
+          break;
+        } else if (image.size == ImageSize.ORIGINAL) {
+          productImage = image;
+        }
+      }
+
+      productImage ??= images.first;
+
+      return (NetworkImage(productImage.url!), false);
     } else {
       return null;
     }
@@ -277,6 +345,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     required this.showOutdated,
     required this.showOwner,
     required this.border,
+    required this.blurFilter,
     this.imageField,
     this.borderRadius,
     this.heroTag,
@@ -294,6 +363,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
   final BorderRadius? borderRadius;
   final double border;
   final String? heroTag;
+  final bool blurFilter;
 
   @override
   Widget build(BuildContext context) {
@@ -314,9 +384,12 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
                 color: lightTheme ? Colors.white : Colors.black,
                 child: ClipRRect(
                   child: Opacity(
-                    opacity: lightTheme ? 0.3 : 0.55,
+                    opacity: lightTheme
+                        ? (blurFilter ? 0.3 : 0.05)
+                        : (blurFilter ? 0.55 : 0.15),
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+                      enabled: blurFilter,
                       child: Image(
                         image: imageProvider,
                         fit: BoxFit.cover,
@@ -412,18 +485,34 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       height: size.height,
       fit: BoxFit.contain,
       image: imageProvider,
-      loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
+      loadingBuilder: (
+        BuildContext context,
+        Widget child,
+        ImageChunkEvent? loadingProgress,
+      ) {
         if (loadingProgress == null) {
           return child;
         }
 
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
+        return _loadingPlaceholder(context);
       },
       errorBuilder: (_, __, ___) {
         onError.call();
         return EMPTY_WIDGET;
+      },
+      frameBuilder: (
+        BuildContext context,
+        Widget child,
+        int? frame,
+        _,
+      ) {
+        /// Force a loader, as the [loadingBuilder] has a [loadingProgress] of null,
+        /// which is not expected.
+        if (frame == null) {
+          return _loadingPlaceholder(context);
+        }
+
+        return child;
       },
     );
 
@@ -436,6 +525,21 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       return image;
     }
   }
+
+  Widget _loadingPlaceholder(BuildContext context) => DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+          border: border > 0.0
+              ? Border.all(
+                  color: Theme.of(context).dividerColor,
+                  width: 1.0,
+                )
+              : null,
+        ),
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
 }
 
 class _OutdatedProductPictureIcon extends StatelessWidget {
@@ -547,6 +651,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
     required this.textStyle,
     required this.size,
     required this.child,
+    this.imageOverride,
     this.borderRadius,
     this.border = 0.0,
   })  : assert(asset.isNotEmpty),
@@ -560,6 +665,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
   final Widget? child;
   final BorderRadius? borderRadius;
   final double border;
+  final WidgetBuilder? imageOverride;
 
   @override
   Widget build(BuildContext context) {
@@ -572,12 +678,13 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Positioned.fill(
-              child: SvgPicture.asset(
-                asset,
-                width: size.width,
-                height: size.height,
-                fit: BoxFit.cover,
-              ),
+              child: imageOverride?.call(context) ??
+                  SvgPicture.asset(
+                    asset,
+                    width: size.width,
+                    height: size.height,
+                    fit: BoxFit.cover,
+                  ),
             ),
             if (text != null)
               Padding(

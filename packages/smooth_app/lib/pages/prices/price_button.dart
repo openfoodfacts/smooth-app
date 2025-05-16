@@ -28,16 +28,23 @@ class PriceButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget widget;
 
+    ButtonStyle? buttonStyleOverride;
+    if (buttonStyle != null && buttonStyle!.foregroundColor != null) {
+      buttonStyleOverride = buttonStyle!.copyWith(
+        iconColor: buttonStyle!.foregroundColor,
+      );
+    }
+
     if (iconData == null) {
       widget = ElevatedButton(
         onPressed: onPressed,
-        style: buttonStyle,
+        style: buttonStyleOverride ?? buttonStyle,
         child: Text(title!),
       );
     } else if (title == null) {
       widget = ElevatedButton(
         onPressed: onPressed,
-        style: buttonStyle,
+        style: buttonStyleOverride ?? buttonStyle,
         child: Icon(iconData),
       );
     } else {
@@ -45,7 +52,7 @@ class PriceButton extends StatelessWidget {
         onPressed: onPressed,
         icon: Icon(iconData),
         label: Text(title!),
-        style: buttonStyle,
+        style: buttonStyleOverride ?? buttonStyle,
       );
     }
 

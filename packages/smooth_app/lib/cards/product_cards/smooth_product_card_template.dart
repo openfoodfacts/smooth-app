@@ -1,10 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Empty template for a product card display.
 ///
@@ -20,106 +20,115 @@ class SmoothProductCardTemplate extends StatelessWidget {
   final String? barcode;
   final Widget? actionButton;
 
-  // TODO(m123): Animate
-
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
     final ThemeData themeData = Theme.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
     final Color itemColor = isDarkMode ? PRIMARY_GREY_COLOR : LIGHT_GREY_COLOR;
-    final Color backgroundColor = isDarkMode ? Colors.black : Colors.white;
-    final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
-    final Widget textWidget = Container(
+
+    final Widget textWidget = SizedBox(
       width: double.infinity,
       height: screenSize.width * .04,
-      decoration: BoxDecoration(
-        color: itemColor,
-        borderRadius: ROUNDED_BORDER_RADIUS,
-      ),
     );
-    // In the actual display, it's a 240x130 svg resized with iconSize
-    final double svgWidth = 240 * iconSize / 130;
-    final Widget svgWidget = Container(
-      height: iconSize * .9,
-      width: svgWidth,
-      color: itemColor,
-    );
+
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: MEDIUM_SPACE,
-        vertical: SMALL_SPACE,
+      padding: const EdgeInsetsDirectional.symmetric(
+        horizontal: LARGE_SPACE,
+        vertical: LARGE_SPACE,
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          color: backgroundColor,
-        ),
-        child: SmoothCard(
-          elevation: SmoothProductCardItemFound.elevation,
-          color: Colors.transparent,
-          padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-          child: Row(
-            children: <Widget>[
-              SmoothImage(
-                width: screenSize.width * 0.20,
-                height: screenSize.width * 0.20,
-                color: itemColor,
-              ),
-              const Padding(
-                  padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
-              Expanded(
-                child: SizedBox(
-                  height: screenSize.width * 0.2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      if (barcode == null)
-                        textWidget
-                      else
-                        Text(
-                          barcode!,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      if (message == null)
-                        textWidget
-                      else
-                        Padding(
-                          padding: const EdgeInsetsDirectional.only(
-                              top: SMALL_SPACE),
-                          child: AutoSizeText(
-                            message!,
-                            maxLines: 3,
-                            minFontSize: 5,
-                          ),
-                        ),
-                      Opacity(opacity: 0, child: textWidget)
-                    ],
+      child: IntrinsicHeight(
+        child: Row(
+          children: <Widget>[
+            SizedBox(
+              width: screenSize.width * 0.25,
+              height: screenSize.width * 0.265,
+              child: PictureNotFound.decoration(
+                backgroundDecoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                  border: Border.all(
+                    color: extension.greyNormal,
+                    width: 1.0,
                   ),
                 ),
               ),
-              const Padding(
-                  padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
-              Padding(
-                padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                child: actionButton == null
-                    ? Column(
-                        children: <Widget>[
-                          svgWidget,
-                          Container(height: iconSize * .2),
-                          svgWidget,
-                        ],
+            ),
+            const SizedBox(width: BALANCED_SPACE),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(vertical: 2.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight:
+                            themeData.textTheme.headlineMedium!.fontSize! * 2.0,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: barcode == null
+                            ? textWidget
+                            : Text(
+                                barcode!,
+                                style: const TextStyle(
+                                  fontSize: 17.0,
+                                  fontWeight: FontWeight.w700,
+                                  height: 1.3,
+                                ),
+                              ),
+                      ),
+                    ),
+                    const SizedBox(height: VERY_SMALL_SPACE),
+                    if (message == null)
+                      textWidget
+                    else
+                      Text(
+                        message!,
+                        maxLines: 3,
+                      ),
+                    const Spacer(),
+                    if (actionButton == null)
+                      Shimmer.fromColors(
+                        baseColor: itemColor,
+                        highlightColor: itemColor.withValues(alpha: 0.8),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            _fakeScoreWidget(itemColor),
+                            const SizedBox(width: BALANCED_SPACE),
+                            _fakeScoreWidget(itemColor),
+                          ],
+                        ),
                       )
-                    : SizedBox(
-                        width: svgWidth,
-                        height: iconSize * (.9 * 2 + .2),
+                    else
+                      SizedBox(
+                        width: 240 * 39.0 / 130,
+                        height: 39.0,
                         child: actionButton,
                       ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
+    );
+  }
+
+  Widget _fakeScoreWidget(Color itemColor) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+        color: itemColor,
+      ),
+      child: const SizedBox(
+        height: 39.0,
+        width: 240 * 39.0 / 130,
       ),
     );
   }

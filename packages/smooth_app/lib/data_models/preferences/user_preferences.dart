@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class UserPreferences extends ChangeNotifier {
       : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
+    _incrementAppLaunches();
   }
 
   /// Singleton
@@ -68,6 +70,7 @@ class UserPreferences extends ChangeNotifier {
   /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
   static const int _PREFS_CURRENT_VERSION = 3;
+  static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
@@ -90,6 +93,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER =
       '_search_show_product_type_filter';
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
+  static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
 
   /// Camera preferences
 
@@ -126,6 +130,10 @@ class UserPreferences extends ChangeNotifier {
       'taglineFeedNewsDisplayed';
   static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
 
+  /// Info messages
+  static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
+      'bannerInputProductName';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     await _onMigrate();
 
@@ -148,6 +156,13 @@ class UserPreferences extends ChangeNotifier {
       _TAG_VERSION,
       UserPreferences._PREFS_CURRENT_VERSION,
     );
+  }
+
+  int get appLaunches => _sharedPreferences.getInt(_TAG_APP_LAUNCHES) ?? 0;
+
+  Future<void> _incrementAppLaunches() async {
+    await _sharedPreferences.setInt(_TAG_APP_LAUNCHES, appLaunches + 1);
+    // No need to call notifyListeners here
   }
 
   String _getImportanceTag(final String variable) =>
@@ -474,6 +489,17 @@ class UserPreferences extends ChangeNotifier {
     }
   }
 
+  bool showInputProductNameBanner() =>
+      _sharedPreferences.getBool(_TAG_SHOW_BANNER_INPUT_PRODUCT_NAME) ?? true;
+
+  Future<void> hideInputProductNameBanner() async {
+    await _sharedPreferences.setBool(
+      _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME,
+      false,
+    );
+    notifyListeners();
+  }
+
   ProductType get latestProductType =>
       ProductType.fromOffTag(
           _sharedPreferences.getString(_TAG_LATEST_PRODUCT_TYPE)) ??
@@ -519,5 +545,31 @@ class UserPreferences extends ChangeNotifier {
           .toList(growable: false),
     );
     notifyListeners();
+  }
+
+  void increaseLanguageUsage(final OpenFoodFactsLanguage language) {
+    final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
+    final Map<String, int> languages;
+    if (usage == null || usage.isEmpty) {
+      languages = <String, int>{};
+    } else {
+      languages = Map<String, int>.from(jsonDecode(usage));
+    }
+
+    languages[language.code] = (languages[language.code] ?? 0) + 1;
+    unawaited(
+      _sharedPreferences.setString(
+        _TAG_LANGUAGES_USAGE,
+        jsonEncode(languages),
+      ),
+    );
+  }
+
+  Map<String, int> get languagesUsage {
+    final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
+    if (usage == null || usage.isEmpty) {
+      return <String, int>{};
+    }
+    return Map<String, int>.from(jsonDecode(usage));
   }
 }

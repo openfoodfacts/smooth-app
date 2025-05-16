@@ -51,13 +51,16 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
     final PriceAmountModel model = priceModel.elementAt(widget.index);
     final int total = priceModel.length;
 
-    return SmoothCard(
+    return SmoothCardWithRoundedHeader(
+      title: '${appLocalizations.prices_amount_subtitle}'
+          '${total == 1 ? '' : ' (${widget.index + 1}/$total)'}',
+      leading: const Icon(Icons.calculate_rounded),
+      contentPadding: const EdgeInsetsDirectional.symmetric(
+        vertical: MEDIUM_SPACE,
+        horizontal: SMALL_SPACE,
+      ),
       child: Column(
         children: <Widget>[
-          Text(
-            '${appLocalizations.prices_amount_subtitle}'
-            '${total == 1 ? '' : ' (${widget.index + 1}/$total)'}',
-          ),
           PriceProductListTile(
             product: model.product,
             trailingIconData: total == 1 ? null : Icons.clear,

@@ -15,10 +15,15 @@ class _TagLineJSON {
   final _TagLineJSONNewsList news;
   final _TaglineJSONFeed taglineFeed;
 
-  Future<AppNews> toTagLine(String locale, String appVersion) async {
+  Future<AppNews> toTagLine(
+    String locale,
+    String appVersion,
+    int appLaunches,
+  ) async {
     final Map<String, AppNewsItem> tagLineNews = _getAppNewsItem(
       locale,
       appVersion,
+      appLaunches,
     );
 
     final _TagLineJSONFeedLocale localizedFeed = taglineFeed.loadNews(locale);
@@ -33,23 +38,35 @@ class _TagLineJSON {
     );
   }
 
-  Map<String, AppNewsItem> _getAppNewsItem(String locale, String appVersion) {
+  Map<String, AppNewsItem> _getAppNewsItem(
+    String locale,
+    String appVersion,
+    int appLaunches,
+  ) {
     final Map<String, AppNewsItem> tagLineNews = news.map(
       (String key, _TagLineItemNewsItem value) => MapEntry<String, AppNewsItem>(
         key,
         value.toTagLineItem(locale),
       ),
     );
+    final Iterable<AppNewsItem> values =
+        List<AppNewsItem>.of(tagLineNews.values);
 
     final int? appVersionNumber = _extractVersionNumber(appVersion);
 
-    for (final AppNewsItem item in tagLineNews.values) {
+    for (final AppNewsItem item in values) {
+      if (item.minLaunches != null && appLaunches < item.minLaunches!) {
+        tagLineNews.remove(item.id);
+        continue;
+      }
+
       if (item.minAppVersion != null) {
         final int? minVersionNumber = _extractVersionNumber(item.minAppVersion);
 
         if (minVersionNumber != null && appVersionNumber != null) {
           if (appVersionNumber < minVersionNumber) {
             tagLineNews.remove(item.id);
+            continue;
           }
         }
       }
@@ -59,6 +76,7 @@ class _TagLineJSON {
         if (maxVersionNumber != null && appVersionNumber != null) {
           if (appVersionNumber > maxVersionNumber) {
             tagLineNews.remove(item.id);
+            continue;
           }
         }
       }
@@ -100,6 +118,7 @@ class _TagLineItemNewsItem {
     required this.id,
     required this.url,
     required _TagLineItemNewsTranslations translations,
+    this.minLaunches,
     this.startDate,
     this.endDate,
     this.minVersion,
@@ -124,6 +143,7 @@ class _TagLineItemNewsItem {
             );
           }
         }),
+        minLaunches = json['min_launches'] is int ? json['min_launches'] : null,
         startDate = DateTime.tryParse(json['start_date']),
         endDate = DateTime.tryParse(json['end_date']),
         minVersion = json['min_version'],
@@ -134,6 +154,7 @@ class _TagLineItemNewsItem {
 
   final String id;
   final String url;
+  final int? minLaunches;
   final _TagLineItemNewsTranslations _translations;
   final DateTime? startDate;
   final DateTime? endDate;
@@ -169,6 +190,7 @@ class _TagLineItemNewsItem {
       message: translation.message!,
       url: translation.url ?? url,
       buttonLabel: translation.buttonLabel,
+      minLaunches: minLaunches,
       startDate: startDate,
       endDate: endDate,
       minAppVersion: minVersion,
@@ -183,6 +205,7 @@ class _TagLineItemNewsItem {
   _TagLineItemNewsItem copyWith({
     String? url,
     _TagLineItemNewsTranslations? translations,
+    int? minLaunches,
     DateTime? startDate,
     DateTime? endDate,
     String? minVersion,
@@ -194,6 +217,7 @@ class _TagLineItemNewsItem {
       // Still the same
       url: url ?? this.url,
       translations: translations ?? _translations,
+      minLaunches: minLaunches ?? this.minLaunches,
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
       minVersion: minVersion ?? this.minVersion,

@@ -1,17 +1,18 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/location_list_supplier.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 
-/// Location query model.
-///
-/// We use 2 location suppliers:
-/// * the first one optimized on shops, as it's what we want
-/// * an optional one with no restrictions, in case OSM data is a bit clumsy
+/// Location query model, from location suppliers.
 class LocationQueryModel with ChangeNotifier {
   LocationQueryModel(this.query) {
-    _asyncLoad(_supplierOptimized);
+    _currentSupplier = LocationListSupplier.getBestInitialSupplier(query);
+    unawaited(_asyncLoad());
   }
+
+  late LocationListSupplier _currentSupplier;
 
   final String query;
 
@@ -19,30 +20,20 @@ class LocationQueryModel with ChangeNotifier {
   String? _loadingError;
   List<OsmLocation> displayedResults = <OsmLocation>[];
 
-  bool _isOptimized = true;
-  bool get isOptimized => _isOptimized;
-
   bool isEmpty() => displayedResults.isEmpty;
 
   String? get loadingError => _loadingError;
+
   LoadingStatus get loadingStatus => _loadingStatus;
 
-  /// A location supplier focused on shops.
-  late final LocationListSupplier _supplierOptimized =
-      LocationListSupplier(query, true);
-
-  /// A location supplier without restrictions.
-  late final LocationListSupplier _supplierBroader =
-      LocationListSupplier(query, false);
-
-  Future<bool> _asyncLoad(final LocationListSupplier supplier) async {
+  Future<bool> _asyncLoad() async {
     _loadingStatus = LoadingStatus.LOADING;
     notifyListeners();
-    _loadingError = await supplier.asyncLoad();
+    _loadingError = await _currentSupplier.asyncLoad();
     if (_loadingError != null) {
       _loadingStatus = LoadingStatus.ERROR;
     } else {
-      await _process(supplier.locations);
+      await _process(_currentSupplier.locations);
       _loadingStatus = LoadingStatus.LOADED;
     }
     notifyListeners();
@@ -65,8 +56,11 @@ class LocationQueryModel with ChangeNotifier {
     _loadingStatus = LoadingStatus.LOADED;
   }
 
-  Future<void> loadMore() async {
-    _isOptimized = false;
-    _asyncLoad(_supplierBroader);
+  LocationListSupplier? get alternateSupplier =>
+      _currentSupplier.alternateSupplier;
+
+  Future<void> loadMore(final LocationListSupplier supplier) async {
+    _currentSupplier = supplier;
+    await _asyncLoad();
   }
 }

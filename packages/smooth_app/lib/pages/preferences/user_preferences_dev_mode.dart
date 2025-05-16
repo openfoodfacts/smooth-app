@@ -48,6 +48,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
   static const String userPreferencesFlagBoostedComparison =
       '__boostedComparison';
+  static const String userPreferencesFlagProductListImport =
+      '__productListImport';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesFlagAccessibilityNoColor =
@@ -59,6 +61,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__pricesReceiptMultiSelection';
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
+  static const String userPreferencesFlagBulkProofUpload = '__bulkProofUpload';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
 
   final TextEditingController _textFieldController = TextEditingController();
@@ -265,6 +268,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 .getPostUri(path: '')
                 .toString(),
           ),
+          visibleWhen: (BuildContext context) {
+            return userPreferences.getFlag(userPreferencesFlagProd) == false;
+          },
           onTap: () async => _changeTestEnvDomain(),
         ),
         const UserPreferencesItemSection(
@@ -434,6 +440,15 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           label: appLocalizations.dev_mode_section_experimental_features,
         ),
         UserPreferencesItemSwitch(
+          title: appLocalizations.prices_bulk_proof_upload_title,
+          value: userPreferences.getFlag(userPreferencesFlagBulkProofUpload) ??
+              false,
+          onChanged: (bool value) async => userPreferences.setFlag(
+            userPreferencesFlagBulkProofUpload,
+            value,
+          ),
+        ),
+        UserPreferencesItemSwitch(
           title: 'Multi-products selection for prices',
           value: userPreferences
                   .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
@@ -521,6 +536,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagBoostedComparison, value);
+            _showSuccessMessage();
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: 'Product list import',
+          value:
+              userPreferences.getFlag(userPreferencesFlagProductListImport) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagProductListImport, value);
             _showSuccessMessage();
           },
         ),

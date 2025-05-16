@@ -64,7 +64,7 @@ class ProductFooterSettingsButton extends StatelessWidget {
         _ProductActionBarModalEditorState.PADDING.vertical +
         (_ProductActionBarModalItemEditorState.MIN_HEIGHT +
                 _ProductActionBarModalEditorState.SEPARATOR_SIZE) *
-            (ProductFooterActionBar.values.length - 1) +
+            (ProductFooterActionBar.defaultOrder().length) +
         MediaQuery.viewPaddingOf(context).bottom;
   }
 }
@@ -318,6 +318,12 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.compare => const icons.Compare(),
       ProductFooterActionBar.addToList => const icons.AddToList.symbol(),
       ProductFooterActionBar.share => icons.Share(),
+      ProductFooterActionBar.barcode => const icons.Barcode.rounded(),
+      ProductFooterActionBar.openWebsite => const icons.ExternalLink(),
+      ProductFooterActionBar.report => const icons.Flag(),
+      ProductFooterActionBar.contributionGuide => const icons.Lifebuoy(),
+      ProductFooterActionBar.dataQuality => const icons.CheckList(),
+      ProductFooterActionBar.addProperty => const icons.AddProperty.alt(),
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
@@ -332,6 +338,17 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.addToList =>
         appLocalizations.user_list_button_add_product,
       ProductFooterActionBar.share => appLocalizations.share,
+      ProductFooterActionBar.barcode =>
+        appLocalizations.product_footer_action_barcode_short,
+      ProductFooterActionBar.openWebsite =>
+        appLocalizations.product_footer_action_open_website,
+      ProductFooterActionBar.report =>
+        appLocalizations.product_footer_action_report,
+      ProductFooterActionBar.contributionGuide =>
+        appLocalizations.product_footer_action_contributor_guide,
+      ProductFooterActionBar.dataQuality =>
+        appLocalizations.product_footer_action_data_quality_tags,
+      ProductFooterActionBar.addProperty => appLocalizations.add_tag,
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
@@ -367,6 +384,7 @@ class _ProductActionBarModalItemActionMoveUp extends StatelessWidget {
       semanticsLabel:
           AppLocalizations.of(context).product_page_action_bar_item_move_up,
       enabled: enabled,
+      visible: visible,
       disabledColor: visible ? extension.primaryLight : extension.primaryMedium,
       onTap: enabled ? onTap : () {},
     );
@@ -397,6 +415,7 @@ class _ProductActionBarModalItemActionMoveDown extends StatelessWidget {
       semanticsLabel:
           AppLocalizations.of(context).product_page_action_bar_item_move_down,
       enabled: enabled,
+      visible: visible,
       disabledColor: visible ? extension.primaryLight : extension.primaryMedium,
       onTap: enabled ? onTap : () {},
     );
@@ -430,8 +449,9 @@ class _ProductActionBarModalItemActionVisibility extends StatelessWidget {
           : localizations.product_page_action_bar_item_enable,
       enabledColor: (visible
           ? null
-          : Theme.of(context).extension<SmoothColorsThemeExtension>()!.red),
+          : Theme.of(context).extension<SmoothColorsThemeExtension>()!.error),
       enabled: true,
+      visible: true,
       onTap: onTap,
     );
   }
@@ -442,6 +462,7 @@ class _ProductActionBarModalItemAction extends StatefulWidget {
     required this.icon,
     required this.semanticsLabel,
     required this.enabled,
+    required this.visible,
     required this.onTap,
     this.padding,
     this.enabledColor,
@@ -452,6 +473,7 @@ class _ProductActionBarModalItemAction extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final String semanticsLabel;
   final bool enabled;
+  final bool visible;
   final Color? enabledColor;
   final Color? disabledColor;
   final VoidCallback onTap;
@@ -531,7 +553,11 @@ class _ProductActionBarModalItemActionState
         message: widget.semanticsLabel,
         preferBelow: false,
         child: IconTheme(
-          data: const IconThemeData(color: Colors.white),
+          data: IconThemeData(
+            color: context.lightTheme() || widget.enabled || !widget.visible
+                ? Colors.white
+                : Colors.transparent,
+          ),
           child: InkWell(
             onTap: widget.onTap,
             customBorder: const CircleBorder(),

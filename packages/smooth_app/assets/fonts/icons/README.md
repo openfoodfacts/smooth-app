@@ -1,5 +1,8 @@
 # App icons
 
+![List of icons](thumbnail.png)
+
+
 We don't use icons from SVG, but from a font.
 
 Font icons are way more efficient for multiple reasons:

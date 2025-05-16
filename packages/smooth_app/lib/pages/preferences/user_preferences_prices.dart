@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -14,9 +15,12 @@ import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
+import 'package:smooth_app/pages/prices/prices_products_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
+import 'package:smooth_app/pages/prices/prices_stats_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
+import 'package:smooth_app/pages/prices/proof_bulk_add_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Display of "Prices" for the preferences page.
@@ -121,9 +125,67 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         PriceButton.locationIconData,
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.all_search_prices_top_product_title,
-        'products',
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesProductsPage(),
+          ),
+        ),
+        PriceButton.productIconData,
+      ),
+      _getListTile(
+        appLocalizations.prices_stats_statistics,
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesStatsPage(),
+          ),
+        ),
+        Icons.bar_chart,
+      ),
+      if (userPreferences.getFlag(
+              UserPreferencesDevMode.userPreferencesFlagBulkProofUpload) ??
+          false)
+        _getListTile(
+          appLocalizations.prices_bulk_proof_upload_title,
+          () async => ProofBulkAddPage.showPage(
+            context: context,
+          ),
+          Icons.upload_file,
+        ),
+      _getListTile(
+        appLocalizations.prices_contribution_assistant,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/contribution-assistant',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_validation_assistant,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_multiple_proof_addition_system,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/proofs/add/multiple',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.prices_challenges_page,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/challenge',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.contribute_prices_gdpr,
+        () async => LaunchUrlHelper.launchURL(
+            'https://wiki.openfoodfacts.org/GDPR_request'),
+        Icons.open_in_new,
       ),
     ];
   }
@@ -132,21 +194,6 @@ class UserPreferencesPrices extends AbstractUserPreferences {
   @override
   Future<void> runHeaderAction() async => AppNavigator.of(context).push(
         AppRoutes.PREFERENCES(PreferencePageType.PRICES),
-      );
-
-  UserPreferencesItem _getPriceListTile(
-    final String title,
-    final String path,
-  ) =>
-      _getListTile(
-        title,
-        () async => LaunchUrlHelper.launchURL(
-          OpenPricesAPIClient.getUri(
-            path: path,
-            uriHelper: ProductQuery.uriPricesHelper,
-          ).toString(),
-        ),
-        Icons.open_in_new,
       );
 
   UserPreferencesItem _getListTile(

@@ -120,7 +120,7 @@ class ScoreCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
+              if (isClickable) Icon(ConstantIcons.forwardIcon),
             ],
           ),
         ),

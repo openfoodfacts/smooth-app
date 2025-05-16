@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/helpers/robotoff_question_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -76,24 +77,35 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   Future<void> _openQuestions() async {
     _trackEvent(AnalyticsEvent.questionClicked);
 
-    final int? answeredQuestions = await openQuestionPage(
+    final int? answeredQuestions = await Navigator.push<int>(
       context,
-      product: widget.product,
-      questions: (_state as _ProductQuestionsWithQuestions)
-          .questions
-          .toList(growable: false),
+      MaterialPageRoute<int>(
+        builder: (BuildContext context) => QuestionsPage(
+          product: widget.product,
+          questions: (_state as _ProductQuestionsWithQuestions)
+              .questions
+              .toList(growable: false),
+        ),
+      ),
     );
 
     if (context.mounted && answeredQuestions != null && answeredQuestions > 0) {
-      return _reloadQuestions(
+      await _reloadQuestions(
         updateInsightAnnotations: true,
+        ignoreExistingQuestions: true,
       );
     }
   }
 
   Future<void> _reloadQuestions({
     bool updateInsightAnnotations = false,
+    bool ignoreExistingQuestions = false,
   }) async {
+    final List<RobotoffQuestion>? currentQuestions =
+        _state is _ProductQuestionsWithQuestions
+            ? (_state as _ProductQuestionsWithQuestions).questions
+            : null;
+
     setState(() => _state = const _ProductQuestionsLoading());
 
     final List<RobotoffQuestion> questions =
@@ -118,8 +130,14 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     }
 
     if (questions.isNotEmpty == true && !_annotationVoted) {
-      setState(() => _state = _ProductQuestionsWithQuestions(questions));
-      _trackEvent(AnalyticsEvent.questionVisible);
+      if (ignoreExistingQuestions &&
+          currentQuestions != null &&
+          questions.areSameAs(currentQuestions)) {
+        setState(() => _state = const _ProductQuestionsWithoutQuestions());
+      } else {
+        setState(() => _state = _ProductQuestionsWithQuestions(questions));
+        _trackEvent(AnalyticsEvent.questionVisible);
+      }
     } else {
       setState(() => _state = const _ProductQuestionsWithoutQuestions());
     }

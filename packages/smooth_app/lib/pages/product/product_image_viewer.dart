@@ -10,7 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
+import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
@@ -100,19 +100,36 @@ class _ProductImageViewerState extends State<ProductImageViewer>
               child: imageProvider == null
                   ? Stack(
                       children: <Widget>[
-                        const SizedBox.expand(child: PictureNotFound()),
-                        Center(
-                          child: Text(
-                            selectedLanguages.isEmpty
-                                ? appLocalizations.edit_photo_language_none
-                                : appLocalizations
-                                    .edit_photo_language_not_this_one,
-                            style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium
-                                    ?.copyWith(color: Colors.black) ??
-                                const TextStyle(color: Colors.black),
-                            textAlign: TextAlign.center,
+                        const Positioned.fill(
+                          child: ExcludeSemantics(
+                            child: PictureNotFound(),
+                          ),
+                        ),
+                        Align(
+                          alignment: const Alignment(0.0, -0.8),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: ROUNDED_BORDER_RADIUS,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                horizontal: LARGE_SPACE,
+                                vertical: SMALL_SPACE,
+                              ),
+                              child: Text(
+                                selectedLanguages.isEmpty
+                                    ? appLocalizations.edit_photo_language_none
+                                    : appLocalizations
+                                        .edit_photo_language_not_this_one,
+                                style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium
+                                        ?.copyWith(color: Colors.black) ??
+                                    const TextStyle(color: Colors.black),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
                           ),
                         ),
                         Positioned.fill(
@@ -216,11 +233,12 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                         width: 3,
                       ),
                     ),
-                    child: LanguageSelector(
+                    child: LanguagesSelector(
                       setLanguage: widget.setLanguage,
                       displayedLanguage: widget.language,
                       selectedLanguages: selectedLanguages,
                       foregroundColor: Colors.white,
+                      checkedIcon: const Icon(Icons.camera_alt_rounded),
                       padding: const EdgeInsetsDirectional.symmetric(
                         horizontal: 13.0,
                         vertical: SMALL_SPACE,

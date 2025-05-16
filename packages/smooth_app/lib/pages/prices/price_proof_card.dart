@@ -6,19 +6,28 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
+import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
 import 'package:smooth_app/pages/proof_crop_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Card that displays the proof for price adding.
 class PriceProofCard extends StatelessWidget {
-  const PriceProofCard();
+  const PriceProofCard({
+    this.forcedProofType,
+    this.includeMyProofs = true,
+  });
+
+  final ProofType? forcedProofType;
+  final bool includeMyProofs;
 
   static const IconData _iconTodo = CupertinoIcons.exclamationmark;
   static const IconData _iconDone = Icons.receipt;
@@ -27,10 +36,15 @@ class PriceProofCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final PriceModel model = context.watch<PriceModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return SmoothCard(
+    return SmoothCardWithRoundedHeader(
+      title: appLocalizations.prices_proof_subtitle,
+      leading: const Icon(Icons.document_scanner_rounded),
+      contentPadding: const EdgeInsetsDirectional.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: MEDIUM_SPACE,
+      ),
       child: Column(
         children: <Widget>[
-          Text(appLocalizations.prices_proof_subtitle),
           if (model.proof != null)
             Image(
               image: NetworkImage(
@@ -47,61 +61,75 @@ class PriceProofCard extends StatelessWidget {
               builder: (BuildContext context, BoxConstraints constraints) =>
                   Image(
                 image: FileImage(
-                  File(model.cropParameters!.smallCroppedFile.path),
+                  File(model.cropParameters!.smallCroppedFile!.path),
                 ),
                 width: constraints.maxWidth,
                 height: constraints.maxWidth,
               ),
             ),
-          SmoothLargeButtonWithIcon(
-            text: !model.hasImage
-                ? appLocalizations.prices_proof_find
-                : model.proofType == ProofType.receipt
-                    ? appLocalizations.prices_proof_receipt
-                    : appLocalizations.prices_proof_price_tag,
-            icon: !model.hasImage ? _iconTodo : _iconDone,
-            onPressed: model.proof != null
-                ? null
-                : () async {
-                    final _ProofSource? proofSource =
-                        await _ProofSource.select(context);
-                    if (proofSource == null) {
-                      return;
-                    }
-                    if (!context.mounted) {
-                      return;
-                    }
-                    return proofSource.process(context, model);
-                  },
+          Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
+            child: SmoothLargeButtonWithIcon(
+              text: !model.hasImage
+                  ? appLocalizations.prices_proof_find
+                  : model.proofType.getTitle(appLocalizations),
+              leadingIcon: !model.hasImage
+                  ? const Icon(_iconTodo)
+                  : const Icon(_iconDone),
+              onPressed: model.proof != null
+                  ? null
+                  : () async {
+                      final List<_ProofSource> sources =
+                          _ProofSource.getPossibleProofSources(
+                        includeMyProofs: includeMyProofs,
+                      );
+                      // not very likely
+                      if (sources.isEmpty) {
+                        return;
+                      }
+                      final _ProofSource? proofSource;
+                      if (sources.length == 1) {
+                        proofSource = sources.first;
+                      } else {
+                        proofSource = await _ProofSource.select(
+                          context,
+                          sources: sources,
+                        );
+                      }
+                      if (proofSource == null) {
+                        return;
+                      }
+                      if (!context.mounted) {
+                        return;
+                      }
+                      return proofSource.process(context, model);
+                    },
+            ),
           ),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => Row(
-              children: <Widget>[
-                SizedBox(
-                  width: constraints.maxWidth / 2,
-                  child: RadioListTile<ProofType>(
-                    title: Text(appLocalizations.prices_proof_receipt),
-                    value: ProofType.receipt,
-                    groupValue: model.proofType,
-                    onChanged: model.proof != null
-                        ? null
-                        : (final ProofType? proofType) =>
-                            model.proofType = proofType!,
-                  ),
-                ),
-                SizedBox(
-                  width: constraints.maxWidth / 2,
-                  child: RadioListTile<ProofType>(
-                    title: Text(appLocalizations.prices_proof_price_tag),
-                    value: ProofType.priceTag,
-                    groupValue: model.proofType,
-                    onChanged: model.proof != null
-                        ? null
-                        : (final ProofType? proofType) =>
-                            model.proofType = proofType!,
-                  ),
-                ),
-              ],
+              children: (const <ProofType>[
+                ProofType.receipt,
+                ProofType.priceTag,
+              ])
+                  .map<Widget>(
+                    (final ProofType item) => SizedBox(
+                      width: constraints.maxWidth / 2,
+                      child: RadioListTile<ProofType>(
+                        title: Text(item.getTitle(appLocalizations)),
+                        value: item,
+                        groupValue: model.proofType,
+                        onChanged:
+                            model.proof != null || forcedProofType != null
+                                ? null
+                                : (final ProofType? proofType) =>
+                                    model.proofType = proofType!,
+                      ),
+                    ),
+                  )
+                  .toList(),
             ),
           ),
         ],
@@ -114,6 +142,18 @@ enum _ProofSource {
   camera,
   gallery,
   history;
+
+  String getTitle(final AppLocalizations appLocalizations) => switch (this) {
+        _ProofSource.camera => appLocalizations.settings_app_camera,
+        _ProofSource.gallery => appLocalizations.gallery_source_label,
+        _ProofSource.history => appLocalizations.user_search_proofs_title,
+      };
+
+  IconData getIconData() => switch (this) {
+        _ProofSource.camera => Icons.camera_rounded,
+        _ProofSource.gallery => Icons.perm_media_rounded,
+        _ProofSource.history => Icons.document_scanner_rounded,
+      };
 
   Future<void> process(
     final BuildContext context,
@@ -149,46 +189,40 @@ enum _ProofSource {
     }
   }
 
-  static Future<_ProofSource?> select(final BuildContext context) async {
+  static List<_ProofSource> getPossibleProofSources({
+    required final bool includeMyProofs,
+  }) {
+    final List<_ProofSource> result = <_ProofSource>[];
+    final bool hasCamera = CameraHelper.hasACamera;
+    if (hasCamera) {
+      result.add(_ProofSource.camera);
+    }
+    result.add(_ProofSource.gallery);
+    if (includeMyProofs) {
+      result.add(_ProofSource.history);
+    }
+    return result;
+  }
+
+  static Future<_ProofSource?> select(
+    final BuildContext context, {
+    required final List<_ProofSource> sources,
+  }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return showCupertinoModalPopup<_ProofSource>(
+
+    return showSmoothListOfChoicesModalSheet<_ProofSource>(
       context: context,
-      builder: (final BuildContext context) => CupertinoActionSheet(
-        title: Text(appLocalizations.prices_proof_find),
-        cancelButton: CupertinoActionSheetAction(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(
-            appLocalizations.cancel,
-          ),
-        ),
-        actions: <Widget>[
-          if (CameraHelper.hasACamera)
-            CupertinoActionSheetAction(
-              onPressed: () => Navigator.of(context).pop(
-                _ProofSource.camera,
-              ),
-              child: Text(
-                appLocalizations.settings_app_camera,
-              ),
-            ),
-          CupertinoActionSheetAction(
-            onPressed: () => Navigator.of(context).pop(
-              _ProofSource.gallery,
-            ),
-            child: Text(
-              appLocalizations.gallery_source_label,
-            ),
-          ),
-          CupertinoActionSheetAction(
-            onPressed: () => Navigator.of(context).pop(
-              _ProofSource.history,
-            ),
-            child: Text(
-              appLocalizations.user_search_proofs_title,
-            ),
-          ),
-        ],
+      title: appLocalizations.prices_proof_find,
+      labels: sources.map<String>(
+        (_ProofSource source) => source.getTitle(appLocalizations),
       ),
+      prefixIcons: sources
+          .map<Widget>(
+            (_ProofSource source) => Icon(source.getIconData()),
+          )
+          .toList(),
+      addEndArrowToItems: true,
+      values: sources,
     );
   }
 }

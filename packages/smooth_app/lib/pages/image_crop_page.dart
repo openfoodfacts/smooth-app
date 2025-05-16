@@ -311,14 +311,17 @@ Future<CropParameters?> confirmAndUploadNewImage(
   if (!context.mounted) {
     return null;
   }
-  return Navigator.push<CropParameters>(
-    context,
+  return Navigator.of(context).push<CropParameters>(
     MaterialPageRoute<CropParameters>(
       builder: (BuildContext context) => CropPage(
         inputFile: File(fullPhoto.path),
         initiallyDifferent: true,
         isLoggedInMandatory: isLoggedInMandatory,
         cropHelper: cropHelper,
+        onRetakePhoto: () => pickImageFile(
+          context,
+          forcedSource: forcedSource,
+        ).then((XFile? file) => file != null ? File(file.path) : null),
       ),
       fullscreenDialog: true,
     ),
