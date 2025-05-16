@@ -221,17 +221,15 @@ class ProductPageTabBar extends StatelessWidget {
     BuildContext context,
     Product product,
     List<ProductPageTab> tabs,
-  ){
+  ) {
     tabs.add(
       ProductPageTab(
-        id: 'raw_data',
-        labelBuilder: (BuildContext context) =>
+          id: 'raw_data',
+          labelBuilder: (BuildContext context) =>
               AppLocalizations.of(context).product_page_tab_raw_data,
-      builder: (_, Product product) => ProductRawDataPage(product)
-      ),
+          builder: (_, Product product) => ProductRawDataPage(product)),
     );
     return tabs;
-
   }
 }
 
