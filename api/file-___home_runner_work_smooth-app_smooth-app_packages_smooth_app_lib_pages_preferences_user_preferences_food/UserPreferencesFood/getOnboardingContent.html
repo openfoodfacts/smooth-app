@@ -69,7 +69,9 @@
   <pre class="language-dart"><code class="language-dart">List&lt;Widget&gt; getOnboardingContent() {
   final List&lt;Widget&gt; result = &lt;Widget&gt;[
     Padding(
-      padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+      padding: const EdgeInsetsDirectional.symmetric(
+        horizontal: LARGE_SPACE,
+      ),
       child: Text(
         getTitleString(),
         style: themeData.textTheme.displayMedium,
@@ -77,7 +79,12 @@
     ),
   ];
   for (final UserPreferencesItem item in _getOnboardingBody()) {
-    result.add(item.builder(context));
+    result.add(Padding(
+      padding: const EdgeInsetsDirectional.symmetric(
+        horizontal: SMALL_SPACE,
+      ),
+      child: item.builder(context),
+    ));
   }
   return result;
 }</code></pre>

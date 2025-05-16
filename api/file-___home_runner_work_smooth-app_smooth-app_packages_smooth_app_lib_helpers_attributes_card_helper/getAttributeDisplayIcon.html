@@ -52,7 +52,9 @@
         
 
 <span class="returntype">dynamic</span>
-<span class="name ">getAttributeDisplayIcon</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAttributeDisplayIcon-param-attribute"><span class="type-annotation">dynamic</span> <span class="parameter-name">attribute</span></span></li>
+<span class="name ">getAttributeDisplayIcon</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAttributeDisplayIcon-param-attribute"><span class="type-annotation">dynamic</span> <span class="parameter-name">attribute</span>, </span></li>
+<li><span class="parameter" id="getAttributeDisplayIcon-param-isFoodPreferences">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">isFoodPreferences</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="getAttributeDisplayIcon-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>}</span></li>
 </ol>)
 
     </section>
@@ -62,11 +64,13 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute) {
-  return Padding(
-    padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute,
+    {bool? isFoodPreferences = false, BuildContext? context}) {
+  return Container(
     child: attribute.getCircledIcon(
-      backgroundColor: getAttributeDisplayBackgroundColor(attribute),
+      backgroundColor: isFoodPreferences!
+          ? Theme.of(context!).primaryColor
+          : getAttributeDisplayBackgroundColor(attribute),
       size: 32.0,
     ),
   );

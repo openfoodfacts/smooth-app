@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the build method from the AttributeButton class, for the Dart programming language.">
-  <title>build method - AttributeButton class - attribute_button library - Dart API</title>
+  <meta name="description" content="API docs for the isLast property from the AttributeButton class, for the Dart programming language.">
+  <title>isLast property - AttributeButton class - attribute_button library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button-library.html">attribute_button</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton-class.html">AttributeButton</a></li>
-    <li class="self-crumb">build method</li>
+    <li class="self-crumb">isLast property</li>
   </ol>
-  <div class="self-name">build</div>
+  <div class="self-name">isLast</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,127 +44,24 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">build</span> method 
+<h1><span class="kind-property">isLast</span> property 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      
-<div>
-  <ol class="annotation-list">
-    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
-  </ol>
-</div>
+        <section class="multi-line-signature">
+          <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>
+          <span class="name ">isLast</span>
+          <div class="features">final</div>
 
-<span class="returntype">dynamic</span>
-<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
-</ol>)
+        </section>
+        
 
-      
-
-    </section>
-    
-
-
-    
+        
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) {
-  final ThemeData themeData = Theme.of(context);
-  final String currentImportanceId =
-      productPreferences.getImportanceIdForAttributeId(attribute.id!);
-  const double horizontalPadding = LARGE_SPACE;
-  final double widgetWidth =
-      MediaQuery.sizeOf(context).width - 2 * horizontalPadding;
-  final double importanceWidth = widgetWidth &#47; 4;
-  final TextStyle style = themeData.textTheme.headlineMedium!;
-  final String? info = attribute.settingNote;
-  final List&lt;Widget&gt; children = &lt;Widget&gt;[];
-  for (final String importanceId in _importanceIds) {
-    children.add(
-      Expanded(
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            onTap: () async =&gt; productPreferences.setImportance(
-              attribute.id!,
-              importanceId,
-            ),
-            child: Container(
-              width: importanceWidth,
-              margin: const EdgeInsets.symmetric(horizontal: 2.0),
-              constraints:
-                  const BoxConstraints(minHeight: MINIMUM_TOUCH_SIZE),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: &lt;Widget&gt;[
-                  Icon(
-                    currentImportanceId == importanceId
-                        ? Icons.radio_button_checked
-                        : Icons.radio_button_off,
-                    color: themeData.colorScheme.primary,
-                  ),
-                  const SizedBox(height: VERY_SMALL_SPACE),
-                  AutoSizeText(
-                    productPreferences
-                        .getPreferenceImportanceFromImportanceId(
-                            importanceId)!
-                        .name!,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-  return Padding(
-    padding: const EdgeInsets.symmetric(
-      vertical: SMALL_SPACE,
-      horizontal: horizontalPadding,
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: &lt;Widget&gt;[
-        ListTile(
-          trailing: info == null ? null : const Icon(Icons.info_outline),
-          title: AutoSizeText(
-            attribute.settingName ?? attribute.name!,
-            maxLines: 2,
-            style: style,
-          ),
-          onTap: info == null
-              ? null
-              : () async =&gt; showDialog&lt;void&gt;(
-                    context: context,
-                    builder: (BuildContext context) {
-                      final AppLocalizations appLocalizations =
-                          AppLocalizations.of(context);
-                      return SmoothAlertDialog(
-                        body: Text(info),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.close,
-                          onPressed: () =&gt; Navigator.pop(context),
-                        ),
-                      );
-                    },
-                  ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: children,
-        ),
-      ],
-    ),
-  );
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">final bool isLast;
+
+</code></pre>
 </section>
 
 
@@ -181,7 +78,7 @@ Widget build(BuildContext context) {
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button-library.html">attribute_button</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton-class.html">AttributeButton</a></li>
-  <li class="self-crumb">build method</li>
+  <li class="self-crumb">isLast property</li>
 </ol>
 
 
@@ -197,11 +94,13 @@ Widget build(BuildContext context) {
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/attribute.html">attribute</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/isFirst.html">isFirst</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/isLast.html">isLast</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/productPreferences.html">productPreferences</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/build.html">build</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/createState.html">createState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 

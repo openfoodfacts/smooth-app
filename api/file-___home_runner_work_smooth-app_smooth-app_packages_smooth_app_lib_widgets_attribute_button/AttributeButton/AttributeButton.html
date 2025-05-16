@@ -50,7 +50,9 @@
 
     <section class="multi-line-signature">const
       <span class="name ">AttributeButton</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-attribute"><span class="type-annotation">dynamic</span> <span class="parameter-name">attribute</span>, </span></li>
-<li><span class="parameter" id="-param-productPreferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">productPreferences</span></span></li>
+<li><span class="parameter" id="-param-productPreferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">productPreferences</span>, </span></li>
+<li><span class="parameter" id="-param-isFirst">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isFirst</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-isLast"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isLast</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
     </section>
 
@@ -62,8 +64,10 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const AttributeButton(
   this.attribute,
-  this.productPreferences,
-);</code></pre>
+  this.productPreferences, {
+  this.isFirst = false,
+  this.isLast = false,
+});</code></pre>
 </section>
 
 
@@ -96,11 +100,13 @@
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/attribute.html">attribute</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/isFirst.html">isFirst</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/isLast.html">isLast</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/productPreferences.html">productPreferences</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/build.html">build</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/createState.html">createState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
