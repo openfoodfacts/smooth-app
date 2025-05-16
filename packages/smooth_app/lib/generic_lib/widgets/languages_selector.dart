@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -140,17 +139,11 @@ class LanguagesSelector extends StatelessWidget {
     final List<OpenFoodFactsLanguage> allLanguages =
         _languages.getSupportedLanguagesNameInEnglish();
 
-    /// Take the 3 most popular languages
-    final Iterable<MapEntry<String, int>> popularList = userPreferences
-        .languagesUsage.entries
-        .sorted((final MapEntry<String, int> entry1,
-            final MapEntry<String, int> entry2) {
-      return entry1.value.compareTo(entry2.value);
-    }).take(3);
+    final Map<String, int> popularList = userPreferences.languagesUsage;
 
     final List<OpenFoodFactsLanguage> selectedLanguagesList =
         <OpenFoodFactsLanguage>[];
-    final List<OpenFoodFactsLanguage> popularLanguagesList =
+    List<OpenFoodFactsLanguage> popularLanguagesList =
         <OpenFoodFactsLanguage>[];
     final List<OpenFoodFactsLanguage> otherLanguagesList =
         <OpenFoodFactsLanguage>[];
@@ -162,14 +155,19 @@ class LanguagesSelector extends StatelessWidget {
         } else {
           selectedLanguagesList.add(language);
         }
-      } else if (popularList.any(
-          (final MapEntry<String, int> entry) => entry.key == language.code)) {
+      } else if (popularList.containsKey(language.code)) {
         popularLanguagesList.add(language);
       } else {
         otherLanguagesList.add(language);
       }
     }
 
+    // Only keep the 3 most popular languages
+    popularLanguagesList =
+        _filterLanguagesByPopularity(popularLanguagesList, popularList)
+            .toList(growable: false);
+
+    // Sort the languages alphabetically
     final Languages languagesHelper = Languages();
     _sortLanguages(selectedLanguagesList, languagesHelper);
     _sortLanguages(popularLanguagesList, languagesHelper);
@@ -219,6 +217,22 @@ class LanguagesSelector extends StatelessWidget {
           .compareTo(languagesHelper.getNameInEnglish(b));
     });
   }
+
+  /// Sort popular languages by usage and keep only the top 3.
+  static Iterable<OpenFoodFactsLanguage> _filterLanguagesByPopularity(
+    List<OpenFoodFactsLanguage> languagesList,
+    Map<String, int> popularList,
+  ) {
+    languagesList.sort(
+      (OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
+        final int aUsage = popularList[a.offTag] ?? 0;
+        final int bUsage = popularList[b.offTag] ?? 0;
+        return bUsage.compareTo(aUsage);
+      },
+    );
+
+    return languagesList.take(3);
+  }
 }
 
 class _LanguagesList extends StatefulWidget {
@@ -249,7 +263,8 @@ class _LanguagesListState extends State<_LanguagesList> {
   void initState() {
     super.initState();
     _otherLanguages = List<OpenFoodFactsLanguage>.of(widget.otherLanguages);
-    _popularLanguages = List<OpenFoodFactsLanguage>.of(widget.popularLanguages);
+    _popularLanguages =
+        List<OpenFoodFactsLanguage>.of(widget.popularLanguages.take(3));
     _selectedLanguages =
         List<OpenFoodFactsLanguage>.of(widget.selectedLanguages);
   }

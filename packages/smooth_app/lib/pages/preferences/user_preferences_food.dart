@@ -103,7 +103,9 @@ class UserPreferencesFood extends AbstractUserPreferences {
   List<Widget> getOnboardingContent() {
     final List<Widget> result = <Widget>[
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: LARGE_SPACE,
+        ),
         child: Text(
           getTitleString(),
           style: themeData.textTheme.displayMedium,
@@ -111,7 +113,12 @@ class UserPreferencesFood extends AbstractUserPreferences {
       ),
     ];
     for (final UserPreferencesItem item in _getOnboardingBody()) {
-      result.add(item.builder(context));
+      result.add(Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: SMALL_SPACE,
+        ),
+        child: item.builder(context),
+      ));
     }
     return result;
   }

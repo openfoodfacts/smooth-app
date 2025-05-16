@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -9,6 +8,8 @@ import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -29,11 +30,16 @@ class PricesProofsPage extends StatefulWidget {
 
 class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
-  late final Future<MaybeError<GetProofsResult>> _results = _download();
+  late final _InfiniteScrollProofManager _proofManager =
+      _InfiniteScrollProofManager(
+    selectProof: widget.selectProof,
+  );
 
-  static const int _columns = 3;
-  static const int _rows = 5;
-  static const int _pageSize = _columns * _rows;
+  @override
+  void dispose() {
+    _proofManager.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,106 +64,25 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           ),
         ],
       ),
-      body: FutureBuilder<MaybeError<GetProofsResult>>(
-        future: _results,
-        builder: (
-          final BuildContext context,
-          final AsyncSnapshot<MaybeError<GetProofsResult>> snapshot,
-        ) {
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return Text(snapshot.error!.toString());
-          }
-          // highly improbable
-          if (!snapshot.hasData) {
-            return const Text('no data');
-          }
-          if (snapshot.data!.isError) {
-            return Text(snapshot.data!.error!);
-          }
-          final GetProofsResult result = snapshot.data!.value;
-          // highly improbable
-          if (result.items == null) {
-            return const Text('empty list');
-          }
-          final double squareSize = MediaQuery.sizeOf(context).width / _columns;
-
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          final String title = result.numberOfPages == 1
-              ? appLocalizations.prices_proofs_list_length_one_page(
-                  result.items!.length,
-                )
-              : appLocalizations.prices_proofs_list_length_many_pages(
-                  _pageSize,
-                  result.total!,
-                );
-          return Column(
-            children: <Widget>[
-              SmoothCard(
-                child: ListTile(
-                  title: Text(title),
-                ),
-              ),
-              if (result.items!.isNotEmpty)
-                Expanded(
-                  child: CustomScrollView(
-                    slivers: <Widget>[
-                      SliverGrid(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: _columns,
-                        ),
-                        delegate: SliverChildBuilderDelegate(
-                          (
-                            final BuildContext context,
-                            final int index,
-                          ) {
-                            final Proof proof = result.items![index];
-                            if (proof.filePath == null) {
-                              // highly improbable
-                              return SizedBox(
-                                width: squareSize,
-                                height: squareSize,
-                              );
-                            }
-                            return InkWell(
-                              onTap: () async {
-                                if (widget.selectProof) {
-                                  Navigator.of(context).pop(proof);
-                                  return;
-                                }
-                                return Navigator.push<void>(
-                                  context,
-                                  MaterialPageRoute<void>(
-                                    builder: (BuildContext context) =>
-                                        PriceProofPage(
-                                      proof,
-                                    ),
-                                  ),
-                                );
-                              }, // PriceProofPage
-                              child: _PriceProofImage(proof,
-                                  squareSize: squareSize),
-                            );
-                          },
-                          addAutomaticKeepAlives: false,
-                          childCount: result.items!.length,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-            ],
-          );
-        },
+      body: InfiniteScrollList<Proof>(
+        manager: _proofManager,
       ),
     );
   }
+}
 
-  static Future<MaybeError<GetProofsResult>> _download() async {
+/// A manager for handling proof data with infinite scrolling
+class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
+  _InfiniteScrollProofManager({
+    required this.selectProof,
+  });
+
+  static const int _pageSize = 10;
+  final bool selectProof;
+  String? _bearerToken;
+
+  @override
+  Future<void> fetchInit() async {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<String> token =
         await OpenPricesAPIClient.getAuthenticationToken(
@@ -167,14 +92,19 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     );
 
     if (token.isError) {
-      return MaybeError<GetProofsResult>.error(
-        error: token.error ?? 'Could not authenticate with the server',
-        statusCode: token.statusCode ?? 500,
-      );
+      throw Exception(token.error ?? 'Could not authenticate with the server');
     }
 
-    final String bearerToken = token.value;
+    _bearerToken = token.value;
+  }
 
+  @override
+  Future<void> fetchData(final int pageNumber) async {
+    if (_bearerToken == null) {
+      await fetchInit();
+    }
+
+    final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(
       GetProofsParameters()
@@ -186,71 +116,106 @@ class _PricesProofsPageState extends State<PricesProofsPage>
         ]
         ..owner = user.userId
         ..pageSize = _pageSize
-        ..pageNumber = 1,
+        ..pageNumber = pageNumber,
       uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerToken,
+      bearerToken: _bearerToken!,
     );
 
-    await OpenPricesAPIClient.deleteUserSession(
-      uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerToken,
-    );
+    if (result.isError) {
+      throw Exception(result.error ?? 'Failed to fetch proofs');
+    }
 
-    return result;
+    final GetProofsResult value = result.value;
+    updateItems(
+      newItems: value.items,
+      pageNumber: value.pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  /// Properly dispose of the session when the manager is no longer needed
+  void dispose() {
+    if (_bearerToken != null) {
+      OpenPricesAPIClient.deleteUserSession(
+        uriHelper: ProductQuery.uriPricesHelper,
+        bearerToken: _bearerToken!,
+      );
+    }
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required Proof item,
+  }) {
+    if (item.filePath == null) {
+      return const SizedBox.shrink();
+    }
+
+    return SmoothCard(
+      child: InkWell(
+        onTap: () async {
+          if (selectProof) {
+            Navigator.of(context).pop(item);
+            return;
+          }
+          return Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => PriceProofPage(item),
+            ),
+          );
+        },
+        child: _PriceProofListItem(item),
+      ),
+    );
   }
 }
 
-// TODO(monsieurtanuki): reuse whatever will be coded in https://github.com/openfoodfacts/smooth-app/pull/5366
-class _PriceProofImage extends StatelessWidget {
-  const _PriceProofImage(
-    this.proof, {
-    required this.squareSize,
-  });
+class _PriceProofListItem extends StatelessWidget {
+  const _PriceProofListItem(this.proof);
 
   final Proof proof;
-  final double squareSize;
 
   @override
   Widget build(BuildContext context) {
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLocaleString());
-    final String date = dateFormat.format(proof.created);
-    return Stack(
-      children: <Widget>[
-        SmoothImage(
-          width: squareSize,
-          height: squareSize,
-          imageProvider: NetworkImage(
-            proof
-                .getFileUrl(
-                  uriProductHelper: ProductQuery.uriPricesHelper,
-                  isThumbnail: true,
-                )
-                .toString(),
+    final String date = dateFormat.format(proof.date ?? proof.created);
+
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double imageSize = screenWidth * 0.3;
+
+    return Padding(
+      padding: const EdgeInsets.all(SMALL_SPACE),
+      child: Row(
+        children: <Widget>[
+          SmoothImage(
+            width: imageSize,
+            height: imageSize,
+            imageProvider: NetworkImage(
+              proof
+                  .getFileUrl(
+                    uriProductHelper: ProductQuery.uriPricesHelper,
+                    isThumbnail: true,
+                  )
+                  .toString(),
+            ),
+            rounded: false,
           ),
-          rounded: false,
-        ),
-        SizedBox(
-          width: squareSize,
-          height: squareSize,
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Container(
-                height: VERY_LARGE_SPACE,
-                color: Colors.white.withAlpha(128),
-                child: Center(
-                  child: AutoSizeText(
-                    date,
-                    maxLines: 1,
-                  ),
+          const SizedBox(width: MEDIUM_SPACE),
+          Expanded(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  date,
                 ),
-              ),
+              ],
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
