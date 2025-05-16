@@ -49,7 +49,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
     final Color dividerColor =
         lightTheme ? const Color(0xFFF9F9F9) : Colors.white;
 
-    final categoryColor = lightTheme
+    final Color categoryColor = lightTheme
         ? context.extension<SmoothColorsThemeExtension>().primaryLight
         : context.extension<SmoothColorsThemeExtension>().primarySemiDark;
 
