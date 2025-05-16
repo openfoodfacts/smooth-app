@@ -36,6 +36,17 @@ class SmoothHapticFeedback {
     return HapticFeedback.lightImpact();
   }
 
+  /// Same as [lightNotification] but played twice
+  static Future<void> lightNotificationTwice() async {
+    if (!(await _areHapticFeedbackEnabled())) {
+      return;
+    }
+
+    await HapticFeedback.lightImpact();
+    await Future<void>.delayed(const Duration(milliseconds: 100));
+    return HapticFeedback.lightImpact();
+  }
+
   /// Will vibrate heavily twice
   static Future<void> error() async {
     if (!(await _areHapticFeedbackEnabled())) {

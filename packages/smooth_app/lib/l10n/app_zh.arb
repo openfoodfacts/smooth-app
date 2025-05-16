@@ -407,6 +407,10 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
+  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "@contribute_prices_gdpr": {
+    "description": "Label for option to contribute prices using GDPR export from loyalty cards"
+  },
   "tap_to_answer": "點擊此處回答問題",
   "@tap_to_answer": {
     "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
@@ -770,6 +774,7 @@
   "score_add_missing_ingredients": "添加缺少的成分",
   "score_add_missing_packaging_image": "添加缺失的包装照片",
   "score_add_missing_nutrition_facts": "補充營養成分",
+  "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Select a category",
   "score_add_missing_product_countries": "添加缺失的产品产地国",
   "score_add_missing_product_emb": "添加缺失的产品代码（翻译注：可能是条形码",
@@ -949,7 +954,7 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Date",
+  "product_image_details_date": "日期",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -965,7 +970,7 @@
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Search for a product",
+  "homepage_main_card_search_field_hint": "搜尋產品",
   "homepage_main_card_search_field_tooltip": "Start search",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
@@ -1254,7 +1259,7 @@
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "请授权访问摄像头，不然你不能扫描条形码",
+  "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
@@ -1332,7 +1337,7 @@
       }
     }
   },
-  "authorize_button_label": "授权",
+  "authorize_button_label": "Authorise",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -1600,9 +1605,17 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
+  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
   "edit_product_form_item_add_suggestion": "Add suggestion",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
+  },
+  "edit_product_form_item_deny_suggestion": "Deny suggestion",
+  "@edit_product_form_item_deny_suggestion": {
+    "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
   },
   "edit_product_form_item_details_title": "基本資料",
   "@edit_product_form_item_details_title": {
@@ -1796,6 +1809,18 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
+  "edit_product_form_item_traces_title": "含少量",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "追蹤",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
+  },
   "edit_product_form_item_categories_title": "類別",
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
@@ -1867,7 +1892,7 @@
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "營養成分",
+  "edit_product_form_item_nutrition_facts_title": "營養成分 ",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
@@ -1887,7 +1912,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "營養成分",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "營養成分 ",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -2240,9 +2265,9 @@
       }
     }
   },
-  "product_type_label_food": "Food",
+  "product_type_label_food": "食物",
   "product_type_label_beauty": "Personal care",
-  "product_type_label_pet_food": "Pet food",
+  "product_type_label_pet_food": "寵物食品",
   "product_type_label_product": "Other",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
@@ -2261,13 +2286,15 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
+  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
+  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_bulk_proof_upload_action": "Send the proof",
-  "prices_generic_title": "Prices",
+  "prices_generic_title": "價格",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
   "prices_add_an_item": "Add an item",
-  "prices_add_a_price": "Add a price",
+  "prices_add_a_price": "新增價格",
   "prices_add_a_receipt": "Add a receipt",
   "prices_add_price_tags": "Add price tags",
   "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
@@ -2440,26 +2467,26 @@
   },
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
-  "prices_amount_price_normal": "Price",
-  "prices_amount_price_discounted": "Discounted price",
+  "prices_amount_price_normal": "價格",
+  "prices_amount_price_discounted": "折扣價",
   "prices_amount_price_not_discounted": "Original price",
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
-  "prices_currency_subtitle": "Currency",
-  "prices_date_subtitle": "Date",
+  "prices_currency_subtitle": "幣別",
+  "prices_date_subtitle": "日期",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
-  "prices_proof_subtitle": "Proof",
+  "prices_proof_subtitle": "證明",
   "prices_proof_find": "Select a proof",
-  "prices_proof_receipt": "Receipt",
-  "prices_proof_price_tag": "Price tag",
+  "prices_proof_receipt": "收據",
+  "prices_proof_price_tag": "價格標籤",
   "prices_proof_mandatory": "You need to select a proof!",
   "prices_add_validation_error": "Validation error",
   "prices_privacy_warning_title": "Privacy warning",
-  "prices_unknown_product": "Unknown product",
+  "prices_unknown_product": "不明產品",
   "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
   "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
   "prices_privacy_warning_message_bullet_2": "Know what you are buying",
@@ -2577,11 +2604,11 @@
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
-  "user_search_prices_title": "My prices",
+  "user_search_prices_title": "我的價格",
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
-  "user_search_proofs_title": "My proofs",
+  "user_search_proofs_title": "我的證明",
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
@@ -3803,7 +3830,7 @@
       }
     }
   },
-  "photo_viewer_details_button": "Details",
+  "photo_viewer_details_button": "詳細資訊",
   "@photo_viewer_details_button": {
     "description": "Button to show details of the photo"
   },
@@ -3835,11 +3862,11 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Date",
+  "photo_viewer_details_date_title": "日期",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
-  "photo_viewer_details_url_title": "URL",
+  "photo_viewer_details_url_title": "網址",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
@@ -3989,7 +4016,7 @@
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_error_button": "重試",
-  "carousel_unknown_product_header": "Unknown product",
+  "carousel_unknown_product_header": "不明產品",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
@@ -4033,7 +4060,7 @@
   "photo_field_packaging": "包裝資訊照片",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
-  "date": "Date",
+  "date": "日期",
   "photo_rotate_left": "向左旋轉",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
@@ -4104,7 +4131,7 @@
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
-  "product_footer_action_contributor_guide": "Help",
+  "product_footer_action_contributor_guide": "幫助",
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
@@ -4171,5 +4198,245 @@
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Discount",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
+  },
+  "prices_stats_statistics": "Statistics",
+  "@prices_stats_statistics": {
+    "description": "Label for statistics section"
+  },
+  "prices_stats_title": "Prices Statistics",
+  "@prices_stats_title": {
+    "description": "Title for the prices statistics page"
+  },
+  "prices_stats_prices_section": "價格",
+  "@prices_stats_prices_section": {
+    "description": "Title for the prices section"
+  },
+  "prices_stats_products_section": "产品",
+  "@prices_stats_products_section": {
+    "description": "Title for the products section"
+  },
+  "prices_stats_locations_section": "Locations",
+  "@prices_stats_locations_section": {
+    "description": "Title for the locations section"
+  },
+  "prices_stats_proofs_section": "Proofs",
+  "@prices_stats_proofs_section": {
+    "description": "Title for the proofs section"
+  },
+  "prices_stats_contributors_section": "合作者",
+  "@prices_stats_contributors_section": {
+    "description": "Title for the contributors section"
+  },
+  "prices_stats_experiments_section": "Experiments",
+  "@prices_stats_experiments_section": {
+    "description": "Title for the experiments section"
+  },
+  "prices_stats_misc_section": "其他",
+  "@prices_stats_misc_section": {
+    "description": "Title for the miscellaneous section"
+  },
+  "prices_stats_total": "Total",
+  "@prices_stats_total": {
+    "description": "Label for total count"
+  },
+  "prices_stats_with_barcode": "With a barcode",
+  "@prices_stats_with_barcode": {
+    "description": "Label for count with barcode"
+  },
+  "prices_stats_with_category": "With a category",
+  "@prices_stats_with_category": {
+    "description": "Label for count with category"
+  },
+  "prices_stats_with_discount": "With a discount",
+  "@prices_stats_with_discount": {
+    "description": "Label for count with discount"
+  },
+  "prices_stats_community": "Community",
+  "@prices_stats_community": {
+    "description": "Label for community count"
+  },
+  "prices_stats_consumption": "Consumption",
+  "@prices_stats_consumption": {
+    "description": "Label for consumption count"
+  },
+  "prices_stats_with_price": "With a price",
+  "@prices_stats_with_price": {
+    "description": "Label for count with price"
+  },
+  "prices_stats_food": "食物",
+  "@prices_stats_food": {
+    "description": "Label for food count"
+  },
+  "prices_stats_beauty": "Beauty",
+  "@prices_stats_beauty": {
+    "description": "Label for beauty count"
+  },
+  "prices_stats_products": "产品",
+  "@prices_stats_products": {
+    "description": "Label for products count"
+  },
+  "prices_stats_pet_food": "寵物食品",
+  "@prices_stats_pet_food": {
+    "description": "Label for pet food count"
+  },
+  "prices_stats_osm": "OpenStreetMap",
+  "@prices_stats_osm": {
+    "description": "Label for OpenStreetMap count"
+  },
+  "prices_stats_online": "Online",
+  "@prices_stats_online": {
+    "description": "Label for online count"
+  },
+  "prices_stats_countries": "國家地區",
+  "@prices_stats_countries": {
+    "description": "Label for countries count"
+  },
+  "prices_stats_price_tag": "價格標籤",
+  "@prices_stats_price_tag": {
+    "description": "Label for price tag count"
+  },
+  "prices_stats_receipt": "收據",
+  "@prices_stats_receipt": {
+    "description": "Label for receipt count"
+  },
+  "prices_stats_gdpr_request": "GDPR request",
+  "@prices_stats_gdpr_request": {
+    "description": "Label for GDPR request count"
+  },
+  "prices_stats_shop_import": "Shop import",
+  "@prices_stats_shop_import": {
+    "description": "Label for shop import count"
+  },
+  "prices_stats_challenges": "Challenges",
+  "@prices_stats_challenges": {
+    "description": "Label for challenges count"
+  },
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "@prices_stats_linked_to_price_tag": {
+    "description": "Label for prices linked to a price tag count"
+  },
+  "prices_stats_currencies": "Currencies",
+  "@prices_stats_currencies": {
+    "description": "Label for currencies count"
+  },
+  "prices_stats_years": "Years",
+  "@prices_stats_years": {
+    "description": "Label for years count"
+  },
+  "prices_stats_by_source_title": "Prices and proofs per source",
+  "@prices_stats_by_source_title": {
+    "description": "Title for prices and proofs per source section"
+  },
+  "prices_stats_website": "网站",
+  "@prices_stats_website": {
+    "description": "Label for website source"
+  },
+  "prices_stats_mobile_app": "Mobile app",
+  "@prices_stats_mobile_app": {
+    "description": "Label for mobile app source"
+  },
+  "prices_stats_api": "API",
+  "@prices_stats_api": {
+    "description": "Label for API source"
+  },
+  "prices_stats_other": "Other",
+  "@prices_stats_other": {
+    "description": "Label for other sources"
+  },
+  "prices_stats_last_updated": "Last updated on",
+  "@prices_stats_last_updated": {
+    "description": "Label for last updated timestamp"
+  },
+  "prices_stats_error": "An error occurred while loading statistics.",
+  "@prices_stats_error": {
+    "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "Question answered!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "證明",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
+  },
+  "product_edit_robotoff_positive_button": "Accept suggestion",
+  "@product_edit_robotoff_positive_button": {
+    "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_negative_button": "Reject suggestion",
+  "@product_edit_robotoff_negative_button": {
+    "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_show_proof": "Show proof",
+  "@product_edit_robotoff_show_proof": {
+    "description": "Button to show the proof related to a suggestion"
+  },
+  "product_edit_robotoff_expand_proof": "Expand proof",
+  "@product_edit_robotoff_expand_proof": {
+    "description": "Button to open in fullscreen the proof"
+  },
+  "page_indicator_with_total": "Page {current} / {total}",
+  "@page_indicator_with_total": {
+    "description": "Page indicator showing current page and total pages",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of pages"
+      }
+    }
+  },
+  "page_indicator": "Page {current}",
+  "@page_indicator": {
+    "description": "Page indicator showing only current page when total is unknown",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      }
+    }
+  },
+  "item_count_with_total": "{count} of {total} items",
+  "@item_count_with_total": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count": "{count} items",
+  "@item_count": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "prices_no_result": "No price statistics found.",
+  "@prices_no_result": {
+    "description": "Message shown when there are no price statistics available to display"
+  },
+  "prices_error_loading_more_items": "Error loading more items",
+  "@prices_error_loading_more_items": {
+    "description": "Error message shown when additional items fail to load"
+  },
+  "prices_proof_error": "Authentication failed, unable to fetch proofs",
+  "@prices_proof_error": {
+    "description": "Error message shown when unable to fetch proofs"
   }
 }

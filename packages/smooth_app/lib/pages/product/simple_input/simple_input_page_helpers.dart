@@ -43,14 +43,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     _changed = false;
 
     try {
-      _robotoffQuestionsNotifier.notifyListeners();
-    } catch (_) {
-      // The Notifier was disposed
-      _robotoffQuestionsNotifier =
-          ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>(
-        const <RobotoffQuestion, InsightAnnotation?>{},
-      );
-    }
+      robotoffQuestionsNotifier.value.clear();
+      _loadRobotoffQuestions();
+    } catch (_) {}
 
     notifyListeners();
   }
@@ -73,6 +68,8 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the current terms to be displayed.
   List<String> get terms => _terms;
 
+  bool isNewTerm(String term) => !_initTerms.contains(term);
+
   /// Returns true if the field is populated.
   bool isPopulated(final Product product) => initTerms(product).isNotEmpty;
 
@@ -85,10 +82,36 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     if (_terms.contains(term)) {
       return false;
     }
+
+    final MapEntry<RobotoffQuestion, InsightAnnotation?>? robotoffQuestion =
+        _findRobotoffQuestion(term);
+
+    if (robotoffQuestion != null) {
+      robotoffQuestionsNotifier
+        ..value[robotoffQuestion.key] = InsightAnnotation.YES
+        ..notifyListeners();
+
+      _changed = true;
+      return true;
+    }
+
     _terms.add(term);
-    _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
+    _changed = _computeHasChanged();
     notifyListeners();
     return true;
+  }
+
+  MapEntry<RobotoffQuestion, InsightAnnotation?>? _findRobotoffQuestion(
+    String term,
+  ) {
+    final String localTerm = term.toLowerCase();
+    for (final MapEntry<RobotoffQuestion, InsightAnnotation?> entry
+        in robotoffQuestionsNotifier.value.entries) {
+      if (entry.key.value?.toLowerCase() == localTerm) {
+        return entry;
+      }
+    }
+    return null;
   }
 
   /// Returns true if the term was in the list and then was removed.
@@ -97,12 +120,18 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// as we remove existing items.
   bool removeTerm(final String term) {
     if (_terms.remove(term)) {
-      _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
+      _changed = _computeHasChanged();
       notifyListeners();
       return true;
     }
     return false;
   }
+
+  bool _computeHasChanged() =>
+      robotoffQuestionsNotifier.value.values.any(
+        (final InsightAnnotation? annotation) => annotation != null,
+      ) ||
+      !const DeepCollectionEquality().equals(_terms, _initTerms);
 
   /// Returns the title on the main "edit product" page.
   String getTitle(final AppLocalizations appLocalizations);
@@ -292,20 +321,14 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns true if the field is an owner field.
   bool isOwnerField(final Product product) => false;
 
-  ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
-      _robotoffQuestionsNotifier =
+  final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+      robotoffQuestionsNotifier =
       ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>(
-          const <RobotoffQuestion, InsightAnnotation?>{});
-
-  ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
-      getRobotoffQuestions() {
-    loadRobotoffQuestions();
-    return _robotoffQuestionsNotifier;
-  }
+          <RobotoffQuestion, InsightAnnotation?>{});
 
   InsightType? get _robotoffInsightType;
 
-  Future<bool> loadRobotoffQuestions() async {
+  Future<bool> _loadRobotoffQuestions() async {
     final InsightType? type = _robotoffInsightType;
 
     if (type == null) {
@@ -322,7 +345,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
                   .questions ??
               <RobotoffQuestion>[];
 
-      _robotoffQuestionsNotifier.value = <RobotoffQuestion, InsightAnnotation?>{
+      robotoffQuestionsNotifier.value = <RobotoffQuestion, InsightAnnotation?>{
         for (final RobotoffQuestion question in questions) question: null,
       };
 
@@ -336,7 +359,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     final RobotoffQuestion question,
     final InsightAnnotation? annotation,
   ) {
-    _robotoffQuestionsNotifier.value = _robotoffQuestionsNotifier.value
+    robotoffQuestionsNotifier.value = robotoffQuestionsNotifier.value
         .map<RobotoffQuestion, InsightAnnotation?>(
       (final RobotoffQuestion key, final InsightAnnotation? value) {
         if (key == question) {
@@ -349,7 +372,19 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       },
     );
 
-    _changed = true;
+    _changed = _computeHasChanged();
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    try {
+      robotoffQuestionsNotifier.dispose();
+    } catch (_) {
+      // Already disposed
+    }
   }
 }
 
