@@ -1613,6 +1613,10 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
+  "edit_product_form_item_deny_suggestion": "Відхилити пропозицію",
+  "@edit_product_form_item_deny_suggestion": {
+    "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
+  },
   "edit_product_form_item_details_title": "Основні деталі",
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
@@ -4358,5 +4362,81 @@
   "product_edit_robotoff_proof": "Доказ",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "product_edit_robotoff_positive_button": "Прийняти пропозицію",
+  "@product_edit_robotoff_positive_button": {
+    "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_negative_button": "Відхилити пропозицію",
+  "@product_edit_robotoff_negative_button": {
+    "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_show_proof": "Показати доказ",
+  "@product_edit_robotoff_show_proof": {
+    "description": "Button to show the proof related to a suggestion"
+  },
+  "product_edit_robotoff_expand_proof": "Розгорнути доказ",
+  "@product_edit_robotoff_expand_proof": {
+    "description": "Button to open in fullscreen the proof"
+  },
+  "page_indicator_with_total": "Сторінка {current} / {total}",
+  "@page_indicator_with_total": {
+    "description": "Page indicator showing current page and total pages",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of pages"
+      }
+    }
+  },
+  "page_indicator": "Сторінка {current}",
+  "@page_indicator": {
+    "description": "Page indicator showing only current page when total is unknown",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      }
+    }
+  },
+  "item_count_with_total": "{count} від {total} елементів",
+  "@item_count_with_total": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count": "{count} елементів",
+  "@item_count": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "prices_no_result": "Статистика цін не знайдена.",
+  "@prices_no_result": {
+    "description": "Message shown when there are no price statistics available to display"
+  },
+  "prices_error_loading_more_items": "Помилка завантаження додаткових елементів",
+  "@prices_error_loading_more_items": {
+    "description": "Error message shown when additional items fail to load"
+  },
+  "prices_proof_error": "Не вдалося пройти автентифікацію, неможливо отримати докази",
+  "@prices_proof_error": {
+    "description": "Error message shown when unable to fetch proofs"
   }
 }
