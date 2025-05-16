@@ -37,10 +37,13 @@ abstract class CropHelper {
   /// Should we display the eraser with the crop grid?
   bool get enableEraser;
 
+  static Rect getLocalCropRectFromRect(final Rect crop) =>
+      BackgroundTaskImage.getUpsizedRect(crop);
+
   /// Returns the crop rect according to local cropping method * factor.
   @protected
   Rect getLocalCropRect(final CropController controller) =>
-      BackgroundTaskImage.getUpsizedRect(controller.crop);
+      getLocalCropRectFromRect(controller.crop);
 
   @protected
   CropParameters getCropParameters({
@@ -55,13 +58,13 @@ abstract class CropHelper {
       fullFile: fullFile,
       smallCroppedFile: smallCroppedFile,
       rotation: controller.rotation.degrees,
-      x1: cropRect.left.ceil(),
-      y1: cropRect.top.ceil(),
-      x2: cropRect.right.floor(),
-      y2: cropRect.bottom.floor(),
+      cropRect: cropRect,
       eraserCoordinates: eraserCoordinates,
     );
   }
+
+  /// Full-size crop, aka no crop.
+  static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
 
   static List<double> getEraserCoordinates(
     final List<Offset> offsets,

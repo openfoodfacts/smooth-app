@@ -334,6 +334,7 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.report => const icons.Flag(),
       ProductFooterActionBar.contributionGuide => const icons.Lifebuoy(),
       ProductFooterActionBar.dataQuality => const icons.CheckList(),
+      ProductFooterActionBar.addProperty => const icons.AddProperty.alt(),
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
@@ -358,6 +359,7 @@ class _ProductActionBarModalItemEditorState
         appLocalizations.product_footer_action_contributor_guide,
       ProductFooterActionBar.dataQuality =>
         appLocalizations.product_footer_action_data_quality_tags,
+      ProductFooterActionBar.addProperty => appLocalizations.add_tag,
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
@@ -393,6 +395,7 @@ class _ProductActionBarModalItemActionMoveUp extends StatelessWidget {
       semanticsLabel:
           AppLocalizations.of(context).product_page_action_bar_item_move_up,
       enabled: enabled,
+      visible: visible,
       disabledColor: visible ? extension.primaryLight : extension.primaryMedium,
       onTap: enabled ? onTap : () {},
     );
@@ -423,6 +426,7 @@ class _ProductActionBarModalItemActionMoveDown extends StatelessWidget {
       semanticsLabel:
           AppLocalizations.of(context).product_page_action_bar_item_move_down,
       enabled: enabled,
+      visible: visible,
       disabledColor: visible ? extension.primaryLight : extension.primaryMedium,
       onTap: enabled ? onTap : () {},
     );
@@ -458,6 +462,7 @@ class _ProductActionBarModalItemActionVisibility extends StatelessWidget {
           ? null
           : Theme.of(context).extension<SmoothColorsThemeExtension>()!.error),
       enabled: true,
+      visible: true,
       onTap: onTap,
     );
   }
@@ -468,6 +473,7 @@ class _ProductActionBarModalItemAction extends StatefulWidget {
     required this.icon,
     required this.semanticsLabel,
     required this.enabled,
+    required this.visible,
     required this.onTap,
     this.padding,
     this.enabledColor,
@@ -478,6 +484,7 @@ class _ProductActionBarModalItemAction extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final String semanticsLabel;
   final bool enabled;
+  final bool visible;
   final Color? enabledColor;
   final Color? disabledColor;
   final VoidCallback onTap;
@@ -557,7 +564,11 @@ class _ProductActionBarModalItemActionState
         message: widget.semanticsLabel,
         preferBelow: false,
         child: IconTheme(
-          data: const IconThemeData(color: Colors.white),
+          data: IconThemeData(
+            color: context.lightTheme() || widget.enabled || !widget.visible
+                ? Colors.white
+                : Colors.transparent,
+          ),
           child: InkWell(
             onTap: widget.onTap,
             customBorder: const CircleBorder(),

@@ -17,7 +17,7 @@ dependencies:
   barcode_widget: 2.0.4
   carousel_slider: 5.0.0
   cupertino_icons: 1.0.8
-  flutter_svg: 2.0.17
+  flutter_svg: 2.1.0
   flutter_map: 7.0.2
   html: 0.15.5
   flutter_widget_from_html_core: 0.15.2
@@ -35,8 +35,8 @@ dependencies:
   permission_handler: 11.3.1
   photo_view: 0.15.0
   uuid: 4.5.1
-  provider: 6.1.2
-  sentry_flutter: 8.12.0
+  provider: 6.1.4
+  sentry_flutter: 8.14.1
   sqflite: 2.4.1
   sqflite_common_ffi: 2.3.4+4
   url_launcher: 6.3.1
@@ -73,6 +73,7 @@ dependencies:
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
   file_picker: 8.1.7
+  animated_line_through: 1.0.5
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -100,7 +101,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.20.0
+  openfoodfacts: 3.22.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

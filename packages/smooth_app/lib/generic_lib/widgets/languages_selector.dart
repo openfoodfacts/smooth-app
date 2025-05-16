@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -140,17 +140,11 @@ class LanguagesSelector extends StatelessWidget {
     final List<OpenFoodFactsLanguage> allLanguages =
         _languages.getSupportedLanguagesNameInEnglish();
 
-    /// Take the 3 most popular languages
-    final Iterable<MapEntry<String, int>> popularList = userPreferences
-        .languagesUsage.entries
-        .sorted((final MapEntry<String, int> entry1,
-            final MapEntry<String, int> entry2) {
-      return entry1.value.compareTo(entry2.value);
-    }).take(3);
+    final Map<String, int> popularList = userPreferences.languagesUsage;
 
     final List<OpenFoodFactsLanguage> selectedLanguagesList =
         <OpenFoodFactsLanguage>[];
-    final List<OpenFoodFactsLanguage> popularLanguagesList =
+    List<OpenFoodFactsLanguage> popularLanguagesList =
         <OpenFoodFactsLanguage>[];
     final List<OpenFoodFactsLanguage> otherLanguagesList =
         <OpenFoodFactsLanguage>[];
@@ -162,18 +156,27 @@ class LanguagesSelector extends StatelessWidget {
         } else {
           selectedLanguagesList.add(language);
         }
-      } else if (popularList.any(
-          (final MapEntry<String, int> entry) => entry.key == language.code)) {
+      } else if (popularList.containsKey(language.code)) {
         popularLanguagesList.add(language);
+        otherLanguagesList.add(language);
       } else {
         otherLanguagesList.add(language);
       }
     }
 
+    // Only keep the 3 most popular languages
+    popularLanguagesList =
+        _filterLanguagesByPopularity(popularLanguagesList, popularList)
+            .toList(growable: false);
+
+    // Sort the languages alphabetically
     final Languages languagesHelper = Languages();
     _sortLanguages(selectedLanguagesList, languagesHelper);
     _sortLanguages(popularLanguagesList, languagesHelper);
-    _sortLanguages(otherLanguagesList, languagesHelper);
+    _sortLanguages(
+      otherLanguagesList.diff(popularLanguagesList).toList(growable: false),
+      languagesHelper,
+    );
 
     final OpenFoodFactsLanguage? language =
         await showSmoothModalSheetForTextField<OpenFoodFactsLanguage>(
@@ -218,6 +221,22 @@ class LanguagesSelector extends StatelessWidget {
           .getNameInEnglish(a)
           .compareTo(languagesHelper.getNameInEnglish(b));
     });
+  }
+
+  /// Sort popular languages by usage and keep only the top 3.
+  static Iterable<OpenFoodFactsLanguage> _filterLanguagesByPopularity(
+    List<OpenFoodFactsLanguage> languagesList,
+    Map<String, int> popularList,
+  ) {
+    languagesList.sort(
+      (OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
+        final int aUsage = popularList[a.offTag] ?? 0;
+        final int bUsage = popularList[b.offTag] ?? 0;
+        return bUsage.compareTo(aUsage);
+      },
+    );
+
+    return languagesList.take(3);
   }
 }
 
@@ -425,17 +444,21 @@ class _LanguagesListState extends State<_LanguagesList> {
   }
 
   List<OpenFoodFactsLanguage> _filterList(
-      List<OpenFoodFactsLanguage> list, String query) {
+    List<OpenFoodFactsLanguage> list,
+    String query,
+  ) {
+    final String queryForComparison = query.toLowerCase();
+
     return list
         .where((OpenFoodFactsLanguage item) =>
             Languages()
                 .getNameInEnglish(item)
                 .getComparisonSafeString()
-                .contains(query.toLowerCase()) ||
+                .contains(queryForComparison) ||
             Languages()
                 .getNameInLanguage(item)
                 .getComparisonSafeString()
-                .contains(query.toLowerCase()) ||
+                .contains(queryForComparison) ||
             item.code.contains(query))
         .toList(growable: false);
   }

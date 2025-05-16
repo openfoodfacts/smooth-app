@@ -55,6 +55,8 @@ class ExplanationTitleIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final String title = this.title ??
         AppLocalizations.of(context).edit_product_form_item_help(type!);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return SmoothCardHeaderButton(
       tooltip: title,
@@ -67,10 +69,9 @@ class ExplanationTitleIcon extends StatelessWidget {
             return SmoothModalSheet(
               title: title,
               prefixIndicator: true,
-              headerBackgroundColor:
-                  SmoothCardWithRoundedHeaderTop.getHeaderColor(
-                context,
-              ),
+              headerBackgroundColor: context.lightTheme(listen: false)
+                  ? extension.primaryBlack
+                  : extension.primarySemiDark,
               bodyPadding: margin,
               body: SmoothModalSheetBodyContainer(
                 padding: padding,
@@ -163,7 +164,7 @@ class ExplanationBodyInfo extends StatelessWidget {
 
     return ColoredBox(
       color: backgroundColor ??
-          (lightTheme ? extension.primaryMedium : extension.primaryTone),
+          (lightTheme ? extension.primaryMedium : Colors.white12),
       child: ClipRect(
         child: SizedBox(
           width: double.infinity,

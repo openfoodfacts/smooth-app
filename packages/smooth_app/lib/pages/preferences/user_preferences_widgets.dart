@@ -431,7 +431,7 @@ class _ChoiceItem<T> extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     final Color backgroundColor = selected
-        ? (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
+        ? (lightTheme ? extension.primaryMedium : extension.primaryTone)
         : context.lightTheme()
             ? Colors.transparent
             : extension.primaryUltraBlack;

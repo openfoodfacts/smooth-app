@@ -113,6 +113,38 @@ class FoodIcons extends AppIcon {
     super.key,
   }) : super._(_FoodIconsFont.nova);
 
+  const FoodIcons.nova1({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_FoodIconsFont.nova_1);
+
+  const FoodIcons.nova2({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_FoodIconsFont.nova_2);
+
+  const FoodIcons.nova3({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_FoodIconsFont.nova_3);
+
+  const FoodIcons.nova4({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_FoodIconsFont.nova_4);
+
   const FoodIcons.nuts({
     super.color,
     super.size,

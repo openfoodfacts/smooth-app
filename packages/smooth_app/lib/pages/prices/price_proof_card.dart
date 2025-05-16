@@ -61,7 +61,7 @@ class PriceProofCard extends StatelessWidget {
               builder: (BuildContext context, BoxConstraints constraints) =>
                   Image(
                 image: FileImage(
-                  File(model.cropParameters!.smallCroppedFile.path),
+                  File(model.cropParameters!.smallCroppedFile!.path),
                 ),
                 width: constraints.maxWidth,
                 height: constraints.maxWidth,

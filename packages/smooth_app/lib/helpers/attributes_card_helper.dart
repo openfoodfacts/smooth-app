@@ -33,11 +33,13 @@ enum AttributeEvaluation {
   }
 }
 
-Widget getAttributeDisplayIcon(final Attribute attribute) {
-  return Padding(
-    padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+Widget getAttributeDisplayIcon(final Attribute attribute,
+    {bool? isFoodPreferences = false, BuildContext? context}) {
+  return Container(
     child: attribute.getCircledIcon(
-      backgroundColor: getAttributeDisplayBackgroundColor(attribute),
+      backgroundColor: isFoodPreferences!
+          ? Theme.of(context!).primaryColor
+          : getAttributeDisplayBackgroundColor(attribute),
       size: 32.0,
     ),
   );
@@ -46,7 +48,7 @@ Widget getAttributeDisplayIcon(final Attribute attribute) {
 Color getAttributeDisplayBackgroundColor(final Attribute attribute) =>
     _attributeMatchComparison<Color>(
       attribute,
-      RED_COLOR,
+      FAIR_GREY_COLOR,
       RED_COLOR,
       LIGHT_ORANGE_COLOR,
       LIGHT_ORANGE_COLOR,
