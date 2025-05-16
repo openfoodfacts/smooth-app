@@ -104,6 +104,7 @@ Otherwise, they will be filtered</p>
       }
     } else if (popularList.containsKey(language.code)) {
       popularLanguagesList.add(language);
+      otherLanguagesList.add(language);
     } else {
       otherLanguagesList.add(language);
     }
@@ -118,7 +119,10 @@ Otherwise, they will be filtered</p>
   final Languages languagesHelper = Languages();
   _sortLanguages(selectedLanguagesList, languagesHelper);
   _sortLanguages(popularLanguagesList, languagesHelper);
-  _sortLanguages(otherLanguagesList, languagesHelper);
+  _sortLanguages(
+    otherLanguagesList.diff(popularLanguagesList).toList(growable: false),
+    languagesHelper,
+  );
 
   final OpenFoodFactsLanguage? language =
       await showSmoothModalSheetForTextField&lt;OpenFoodFactsLanguage&gt;(

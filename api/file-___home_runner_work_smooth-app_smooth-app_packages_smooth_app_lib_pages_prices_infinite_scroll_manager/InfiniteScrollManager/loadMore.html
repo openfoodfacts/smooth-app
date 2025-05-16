@@ -68,7 +68,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; loadMore(BuildContext context) async {
-  if (_totalPages != null &amp;&amp; _currentPage &gt;= _totalPages!) {
+  if (_totalPages == null || _currentPage &gt;= _totalPages!) {
     return;
   }
   await _load(context: context, pageNumber: _currentPage + 1);

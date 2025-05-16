@@ -71,7 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return Scaffold(
+  return SmoothScaffold(
+    brightness: Brightness.light,
     body: _GuidesPageBody(
       pageName: pageName,
       slivers: &lt;Widget&gt;[
