@@ -4198,5 +4198,29 @@
   "product_page_tab_raw_data": "Raw data",
     "@product_page_tab_raw_data": {
         "description": "Label of the raw data tab on the product page"
-    }
+    },
+    "product_page_tab_for_me": "For me",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Website",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Prices",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "product_page_tab_folksonomy": "Folksonomy",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
+  "product_page_reorder_tabs": "Reorder tabs",
+  "@product_page_reorder_tabs": {
+    "description": "Used for reorder tabs button and bottom sheet"
+  },
+  "dev_preferences_use_product_tabs_title": "Use tabs",
+  "@dev_preferences_use_product_tabs_title": {
+    "description": "Title for the preference to use tabs on the product page"
+  }
 }
