@@ -6,13 +6,15 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-/// Page that displays the top prices users.
+/// Page that displays the top prices users with infinite scrolling.
 class PricesUsersPage extends StatefulWidget {
   const PricesUsersPage();
 
@@ -22,15 +24,12 @@ class PricesUsersPage extends StatefulWidget {
 
 class _PricesUsersPageState extends State<PricesUsersPage>
     with TraceableClientMixin {
-  late final Future<MaybeError<GetUsersResult>> _users = _showTopUsers();
-
-  // In this specific page, let's never try to go beyond the top 10.
-  // cf. https://github.com/openfoodfacts/smooth-app/pull/5383#issuecomment-2171117141
-  static const int _pageSize = 10;
+  final _InfiniteScrollUserManager _userManager = _InfiniteScrollUserManager();
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
@@ -51,86 +50,68 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           ),
         ],
       ),
-      body: FutureBuilder<MaybeError<GetUsersResult>>(
-        future: _users,
-        builder: (
-          final BuildContext context,
-          final AsyncSnapshot<MaybeError<GetUsersResult>> snapshot,
-        ) {
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return Text(snapshot.error!.toString());
-          }
-          // highly improbable
-          if (!snapshot.hasData) {
-            return const Text('no data');
-          }
-          if (snapshot.data!.isError) {
-            return Text(snapshot.data!.error!);
-          }
-          final GetUsersResult result = snapshot.data!.value;
-          // highly improbable
-          if (result.items == null) {
-            return const Text('empty list');
-          }
-          final List<Widget> children = <Widget>[];
-
-          for (final PriceUser item in result.items!) {
-            final int priceCount = item.priceCount ?? 0;
-            children.add(
-              SmoothCard(
-                child: Wrap(
-                  spacing: VERY_SMALL_SPACE,
-                  children: <Widget>[
-                    PriceUserButton(item.userId),
-                    PriceCountWidget(
-                      count: priceCount,
-                      onPressed: () async => PriceUserButton.showUserPrices(
-                        user: item.userId,
-                        context: context,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          final String title =
-              appLocalizations.prices_users_list_length_many_pages(
-            _pageSize,
-            result.total!,
-          );
-          children.insert(
-            0,
-            SmoothCard(child: ListTile(title: Text(title))),
-          );
-          // so that the last content gets not hidden by the FAB
-          children.add(
-            const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
-          );
-          return ListView(
-            children: children,
-          );
-        },
+      body: InfiniteScrollList<PriceUser>(
+        manager: _userManager,
       ),
     );
   }
+}
 
-  static Future<MaybeError<GetUsersResult>> _showTopUsers() async =>
-      OpenPricesAPIClient.getUsers(
-        GetUsersParameters()
-          ..orderBy = <OrderBy<GetUsersOrderField>>[
-            const OrderBy<GetUsersOrderField>(
-              field: GetUsersOrderField.priceCount,
-              ascending: false,
+/// A manager for handling user data with infinite scrolling
+class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
+  static const int _pageSize = 10;
+
+  @override
+  Future<void> fetchData(final int pageNumber) async {
+    final GetUsersParameters parameters = GetUsersParameters()
+      ..orderBy = <OrderBy<GetUsersOrderField>>[
+        const OrderBy<GetUsersOrderField>(
+          field: GetUsersOrderField.priceCount,
+          ascending: false,
+        ),
+      ]
+      ..pageSize = _pageSize
+      ..pageNumber = pageNumber;
+
+    final MaybeError<GetUsersResult> result =
+        await OpenPricesAPIClient.getUsers(
+      parameters,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+
+    if (result.isError) {
+      throw result.detailError;
+    }
+
+    final GetUsersResult value = result.value;
+    updateItems(
+      newItems: value.items,
+      pageNumber: value.pageNumber,
+      totalItems: value.total,
+      totalPages: value.numberOfPages,
+    );
+  }
+
+  @override
+  Widget buildItem({
+    required BuildContext context,
+    required PriceUser item,
+  }) {
+    final int priceCount = item.priceCount ?? 0;
+    return SmoothCard(
+      child: Wrap(
+        spacing: VERY_SMALL_SPACE,
+        children: <Widget>[
+          PriceUserButton(item.userId),
+          PriceCountWidget(
+            count: priceCount,
+            onPressed: () async => PriceUserButton.showUserPrices(
+              user: item.userId,
+              context: context,
             ),
-          ]
-          ..pageSize = _pageSize
-          ..pageNumber = 1,
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
+          ),
+        ],
+      ),
+    );
+  }
 }
