@@ -522,9 +522,9 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.nova2(),
-          iconSizeFactor: 0.67,
+          iconSizeFactor: 0.64,
           paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.08,
+            top: 0.05,
             start: 0.025,
           ),
         );
@@ -536,9 +536,9 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.nova3(),
-          iconSizeFactor: 0.68,
+          iconSizeFactor: 0.64,
           paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.12,
+            top: 0.07,
             start: 0.025,
           ),
         );
