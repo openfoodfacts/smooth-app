@@ -151,24 +151,22 @@ class NutritionValidator {
       return null;
     }
 
-    input = input.trim().toLowerCase();
-
-    final RegExp regex = RegExp(r'^([0-9]+\.?[0-9]*)\s*([a-zA-Z%]+)?$');
-    final RegExpMatch? match = regex.firstMatch(input);
-
-    if (match == null) {
-      throw FormatException('Invalid input format: $input');
+    try {
+      input = input.trim().toLowerCase();
+      final RegExp regex = RegExp(r'^([0-9]+\.?[0-9]*)\s*([a-zA-Z%]+)?$');
+      final RegExpMatch? match = regex.firstMatch(input);
+      if (match == null) {
+        return null; // Invalid format
+      }
+      final double value = double.parse(match.group(1)!);
+      // Default to grams if unit not specified
+      final String unitStr = match.group(2) ?? 'g';
+      // Convert unit string to Unit enum
+      final Unit unit = UnitHelper.stringToUnit(unitStr) ?? Unit.G;
+      // Use _unitConversionFactor to convert from source unit to grams
+      return value * _unitConversionFactor(unit, Unit.G);
+    } catch (e) {
+      return null; // Handle any parsing errors
     }
-
-    final double value = double.parse(match.group(1)!);
-
-    // Default to grams if unit not specified
-    final String unitStr = match.group(2) ?? 'g';
-
-    // Convert unit string to Unit enum
-    final Unit unit = UnitHelper.stringToUnit(unitStr) ?? Unit.G;
-
-    // Use _unitConversionFactor to convert from source unit to grams
-    return value * _unitConversionFactor(unit, Unit.G);
   }
 }

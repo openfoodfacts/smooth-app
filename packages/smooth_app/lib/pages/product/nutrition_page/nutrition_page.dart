@@ -59,6 +59,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       <Nutrient, TextEditingControllerWithHistory>{};
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final NutritionValidator validator = NutritionValidator();
+
   late final TextEditingControllerWithHistory _servingController;
   late final NutritionContainerHelper _nutritionContainer;
   late final WillPopScope2Controller _willPopScope2Controller;
@@ -250,8 +252,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       }
     }
 
-    final NutritionValidator validator = NutritionValidator();
-
     final String servingSize;
     if (_nutritionContainer.perSize == PerSize.serving) {
       servingSize = _nutritionContainer.servingSize;
@@ -267,11 +267,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       final String quantity = controller.text.trim();
       final Unit unit = _nutritionContainer.getUnit(nutrient);
 
-      if (!validator.validate(nutrient, quantity, unit, servingSize)) {
+      try {
+        if (!validator.validate(nutrient, quantity, unit, servingSize)) {
+          error = true;
+          controller.valid = false;
+        } else {
+          controller.valid = true;
+        }
+      } catch (e) {
         error = true;
         controller.valid = false;
-      } else {
-        controller.valid = true;
       }
     }
 
