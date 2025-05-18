@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth App</title>
+  <script src="https://unpkg.com/@flutter-web/engine@latest"></script>
+  <script src="main.dart.js"></script>
+</head>
+<body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('flutter_service_worker.js');
+    }
+  </script>
+  <script>
+    window.addEventListener('load', function() {
+      if (window.flutterWebRenderer) {
+        window.flutterWebRenderer.initialize();
+      }
+    });
+  </script>
+</body>
+</html>

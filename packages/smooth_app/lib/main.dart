@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:app_store_shared/app_store_shared.dart';
 import 'package:dart_ping_ios/dart_ping_ios.dart';
 import 'package:flutter/foundation.dart';
@@ -40,6 +39,13 @@ import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+
+import 'package:smooth_app/helpers/sqlite_web_helper.dart'
+    if (dart.library.html) 'package:smooth_app/helpers/sqlite_web_helper.dart';
+import 'package:smooth_app/helpers/web_scanner_helper.dart'
+    if (dart.library.html) 'package:smooth_app/helpers/web_scanner_helper.dart';
+import 'package:smooth_app/helpers/camera_web_helper.dart'
+    if (dart.library.html) 'package:smooth_app/helpers/camera_web_helper.dart';
 
 void main() {
   debugPrint('--------');
@@ -92,6 +98,17 @@ Future<void> launchSmoothApp({
         appRunner: () => runApp(const SmoothApp()));
   } else {
     runApp(const SmoothApp());
+  }
+
+  if (kIsWeb) {
+    final SqliteWebHelper sqliteWebHelper = SqliteWebHelper();
+    await sqliteWebHelper.initialize();
+
+    final WebScannerHelper webScannerHelper = WebScannerHelper();
+    await webScannerHelper.initialize();
+
+    final CameraWebHelper cameraWebHelper = CameraWebHelper();
+    await cameraWebHelper.initialize();
   }
 }
 
