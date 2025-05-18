@@ -1,5 +1,3 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/ubuntu
 {
     "image": "ghcr.io/cirruslabs/flutter:3.16.7",
 	"forwardPorts": [
@@ -14,6 +12,6 @@
 		}
   },
   "tasks": {
-    "build": "flutter pub get && flutter build apk --release -t lib/entrypoints/android/main_google_play.dart"
+    "build": "flutter pub get && flutter build web"
   }
 }
