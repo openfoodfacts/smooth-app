@@ -12,5 +12,8 @@
 				"dart-code.dart-code"
 			]
 		}
-	}
+  },
+  "tasks": {
+    "build": "flutter pub get && flutter build apk --release -t lib/entrypoints/android/main_google_play.dart"
+  }
 }
