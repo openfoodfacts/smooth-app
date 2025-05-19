@@ -10,10 +10,11 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductRawDataCategoryItem extends StatelessWidget {
-  const ProductRawDataCategoryItem(this.category, {this.controller});
+  const ProductRawDataCategoryItem(this.category, this.onEditTap, {this.controller});
 
   final ProductRawDataCategory category;
   final ScrollController? controller;
+  final GestureTapCallback? onEditTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class ProductRawDataCategoryItem extends StatelessWidget {
           _ProductRawDataCategoryTile(
             category.category.toIcon(),
             category.category.toL10nString(appLocalizations),
+            onEditTap,
           ),
           CategoryElementsListView(
             elements: category.rawDatas,
@@ -35,10 +37,12 @@ class ProductRawDataCategoryItem extends StatelessWidget {
 }
 
 class _ProductRawDataCategoryTile extends StatelessWidget {
-  const _ProductRawDataCategoryTile(this.icon, this.label);
+  const _ProductRawDataCategoryTile(this.icon, this.label, this.onEditTap);
 
   final Widget icon;
   final String label;
+  final GestureTapCallback? onEditTap;
+
   @override
   Widget build(BuildContext context) {
     final bool lightTheme = context.lightTheme();
@@ -80,16 +84,22 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
                   ],
                 ),
                 //Edit button
-                const Row(
+                Row(
                   children: <Widget>[
                     IconTheme(
-                      data: IconThemeData(
+                      data: const IconThemeData(
                         color: Colors.grey,
                         size: 18.0,
                       ),
-                      child: icons.Edit(),
+                      child: InkWell(
+                          customBorder: const CircleBorder(),
+                          onTap: onEditTap,
+                          child: const Tooltip(
+                              message: "A CHANGER",
+                              enableFeedback: true,
+                              child: icons.Edit())),
                     ),
-                    SizedBox(width: 28.0),
+                    const SizedBox(width: 28.0),
                   ],
                 ),
               ],
