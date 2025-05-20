@@ -49,7 +49,7 @@ class LoggedInAppBarBody extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: AppBarStatisticsCard(
-                          imagePath: 'assets/preferences/ingredients.png',
+                          imagePath: 'assets/preferences/ingredients.svg',
                           description: appLocalizations
                               .preferences_app_bar_products_modified,
                           lazyCounter: const LazyCounterUserSearch(
@@ -60,7 +60,7 @@ class LoggedInAppBarBody extends StatelessWidget {
                       const SizedBox(width: MEDIUM_SPACE),
                       Expanded(
                         child: AppBarStatisticsCard(
-                          imagePath: 'assets/preferences/cash.png',
+                          imagePath: 'assets/preferences/cash.svg',
                           description:
                               appLocalizations.preferences_app_bar_prices_added,
                           lazyCounter: LazyCounterPrices(userId),
