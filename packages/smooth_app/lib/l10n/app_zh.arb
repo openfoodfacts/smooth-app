@@ -4,9 +4,9 @@
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "是 ",
+  "yes": "是",
   "@yes": {},
-  "add": "新增",
+  "add": "加入产品",
   "@add": {},
   "account_delete_message": "您確定要刪除您的帳戶嗎？\n如果有具體原因，請在下方分享",
   "@account_delete_message": {},
@@ -18,17 +18,17 @@
   "@validate": {
     "description": "Button label: Validate the input"
   },
-  "create": "Create",
+  "create": "创建",
   "@create": {
     "description": "An action to create"
   },
-  "applyButtonText": "應用",
+  "applyButtonText": "套用",
   "@applyButtonText": {},
   "next_label": "下一個",
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
-  "continue_label": "Continue",
+  "continue_label": "继续",
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
@@ -43,8 +43,8 @@
   "go_back_to_top": "回到頂端",
   "save": "儲存",
   "save_confirmation": "您確定要存檔嗎？",
-  "skip": "略過 ",
-  "cancel": "取消 ",
+  "skip": "略過",
+  "cancel": "取消",
   "@cancel": {},
   "ignore": "忽略",
   "@ignore": {
@@ -52,11 +52,11 @@
   },
   "close": "關閉",
   "@close": {},
-  "no": "否 ",
+  "no": "否",
   "@no": {},
   "stop": "停止",
   "@stop": {},
-  "finish": "Finish",
+  "finish": "完成",
   "@finish": {},
   "calculate": "計算",
   "@calculate": {
@@ -66,9 +66,9 @@
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "error": "出現錯誤",
+  "error": "出错",
   "@error": {},
-  "error_occurred": "發生錯誤",
+  "error_occurred": "发生错误",
   "@error_occurred": {},
   "featureInProgress": "我們仍在開發此功能，敬請期待",
   "@featureInProgress": {},
@@ -76,55 +76,55 @@
   "@label_web": {},
   "learnMore": "瞭解更多",
   "@learnMore": {},
-  "unknown": "不明",
+  "unknown": "未知",
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "Very good match",
+  "match_very_good": "优秀的配对",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Good match",
+  "match_good": "不错的配对",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
-  "match_poor": "Poor match",
+  "match_poor": "较差的配对",
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "May not match",
+  "match_may_not": "可能不匹配",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
-  "match_does_not": "Does not match",
+  "match_does_not": "不匹配",
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "Unknown match",
+  "match_unknown": "是否适合未知",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "Very good match",
+  "match_short_very_good": "优秀的配对",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Good match",
+  "match_short_good": "不错的配对",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
-  "match_short_poor": "Poor match",
+  "match_short_poor": "较差的配对",
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "May not match",
+  "match_short_may_not": "可能不匹配",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
-  "match_short_does_not": "Does not match",
+  "match_short_does_not": "不匹配",
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "Unknown match",
+  "match_short_unknown": "是否适合未知",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
@@ -159,7 +159,7 @@
   "incorrect_credentials": "使用者名稱或密碼錯誤。",
   "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
   "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-  "login": "登录",
+  "login": "用戶名",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -177,7 +177,7 @@
   "@create_account": {
     "description": "Button label: Opens a page where a new user can register"
   },
-  "sign_in": "登入",
+  "sign_in": "登录",
   "@sign_in": {
     "description": "Button label: For sign in"
   },
@@ -197,8 +197,8 @@
   "@sign_out_confirmation": {
     "description": "Pop up title: Reassuring if the user really want to sign out"
   },
-  "password": "密碼",
-  "forgot_password": "忘記密碼",
+  "password": "密码",
+  "forgot_password": "忘记密码",
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
@@ -206,7 +206,7 @@
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
-  "reset_password": "重設密碼",
+  "reset_password": "重置密码",
   "@reset_password": {
     "description": "Forgot password page title"
   },
@@ -224,11 +224,11 @@
   "@enter_some_text": {
     "description": "Error when a required text field is empty"
   },
-  "sign_up_page_title": "註冊",
+  "sign_up_page_title": "注册",
   "@sign_up_page_title": {
     "description": "Header"
   },
-  "sign_up_page_action_button": "註冊",
+  "sign_up_page_action_button": "注册",
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
@@ -237,7 +237,7 @@
     "description": "Progress indicator dialog during the actual signing up process"
   },
   "sign_up_page_action_ok": "恭喜！您已經成功創建帳號。",
-  "sign_up_page_display_name_hint": "名稱",
+  "sign_up_page_display_name_hint": "名称",
   "sign_up_page_display_name_error_empty": "請輸入您想要使用的顯示名稱",
   "sign_up_page_email_hint": "電子郵件",
   "sign_up_page_email_error_empty": "電子郵件（必填）",
@@ -254,7 +254,7 @@
       }
     }
   },
-  "sign_up_page_password_hint": "密碼",
+  "sign_up_page_password_hint": "密码",
   "sign_up_page_password_error_empty": "請輸入密碼",
   "sign_up_page_password_error_invalid": "請輸入有效密碼（至少 6 個字元）",
   "sign_up_page_confirm_password_hint": "再次輸入密碼",
@@ -328,7 +328,7 @@
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
-  "support": "Support",
+  "support": "支持",
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
@@ -337,7 +337,7 @@
   "support_via_email": "給我們傳送電子郵件",
   "support_via_email_include_logs_dialog_title": "要將紀錄送出嗎？",
   "support_via_email_include_logs_dialog_body": "您是否希望將應用程式紀錄附在電子郵件中？",
-  "termsOfUse": "使用條款",
+  "termsOfUse": "使用条款",
   "@termsOfUse": {},
   "legalNotices": "Legal notices",
   "@legalNotices": {
@@ -374,7 +374,7 @@
   "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "Products to be completed",
+  "contribute_improve_ProductsToBeCompleted": "待完成的产品",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
@@ -388,7 +388,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "資料品質",
+  "contribute_data_quality": "Data Quality",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -419,7 +419,7 @@
   "@tap_to_answer_hint": {
     "description": "Hint for accessibility readers to answer Robotoff questions."
   },
-  "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+  "robotoff_questions_loading_hint": "正在加载有关该产品的问题，请稍候",
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
@@ -435,7 +435,7 @@
   "question_yes_button_accessibility_value": "回答是",
   "question_no_button_accessibility_value": "回答不是",
   "question_skip_button_accessibility_value": "跳過此問題",
-  "tap_to_edit_search": "Tap to edit search",
+  "tap_to_edit_search": "点击打开搜索框",
   "@Personal preferences": {},
   "myPreferences": "我的偏好設定",
   "@myPreferences": {
@@ -464,15 +464,15 @@
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "ranking_tab_all": "全部 ",
-  "ranking_subtitle_match_yes": "A great match for you",
-  "ranking_subtitle_match_no": "Very poor match",
-  "ranking_subtitle_match_maybe": "Unknown match",
-  "refresh_with_new_preferences": "Refresh the list with your new preferences",
+  "ranking_tab_all": "全部",
+  "ranking_subtitle_match_yes": "非常适合",
+  "ranking_subtitle_match_no": "非常不适合",
+  "ranking_subtitle_match_maybe": "是否适合未知",
+  "refresh_with_new_preferences": "使用您的新偏好刷新列表",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
   },
-  "reloaded_with_new_preferences": "Reloaded with your new preferences",
+  "reloaded_with_new_preferences": "重新加载新的偏好设置",
   "@reloaded_with_new_preferences": {
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
@@ -489,7 +489,7 @@
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the history and compare mode"
   },
-  "list_navbar_label": "Lists",
+  "list_navbar_label": "列表",
   "@list_navbar_label": {
     "description": "BottomNavigationBarLabel: For the lists"
   },
@@ -497,7 +497,7 @@
   "@category": {
     "description": "From a product list, there's a category filter: this is its title"
   },
-  "category_all": "全部 ",
+  "category_all": "全部",
   "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
@@ -510,7 +510,7 @@
   "@scan": {
     "description": "Page title: List type: Products in the scan session"
   },
-  "scan_history": "Scan history",
+  "scan_history": "扫描历史记录",
   "@scan_history": {
     "description": "Page title: List type: Products in the whole scan history"
   },
@@ -522,7 +522,7 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "tap_for_more": "Tap to see more info…",
+  "tap_for_more": "点击获取更多信息",
   "@Product": {},
   "product": "產品",
   "@product": {},
@@ -554,7 +554,7 @@
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
-  "ingredients": "成分 ",
+  "ingredients": "成分",
   "@ingredients": {},
   "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
   "ingredients_editing_error": "儲存成分失敗。",
@@ -564,10 +564,10 @@
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
-  "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-  "packaging_editing_error": "Failed to save the packaging.",
-  "packaging_editing_image_error": "Failed to get a new packaging image.",
-  "packaging_editing_title": "Edit Packaging",
+  "packaging_editing_instructions": "列出用逗号或换行符分隔的所有包装零件，以及它们的数量（例如1或6）类型（例如瓶、盒、罐）、材料（例如塑料、金属、铝）以及它们的尺寸（例如33cl）和回收说明。示例：1个要回收的玻璃瓶，1个要丢弃的塑料软木塞",
+  "packaging_editing_error": "无法保存包装信息。",
+  "packaging_editing_image_error": "无法获得新的包装图片。",
+  "packaging_editing_title": "编辑包装信息",
   "nutrition": "營養成分",
   "@nutrition": {},
   "nutrition_facts_photo": "營養標示相片",
@@ -588,7 +588,7 @@
   "@missing_product": {},
   "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
   "@add_product_take_photos": {},
-  "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
+  "add_product_take_photos_descriptive": "请您先拍几张照片，你可以在以后完成操作",
   "@add_product_take_photos_descriptive": {},
   "add_product_information_button_label": "Add product information",
   "@add_product_information_button_label": {},
@@ -602,12 +602,12 @@
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "new_product_found_button": "Add this product",
+  "new_product_found_button": "加入此產品",
   "new_product_leave_title": "Leave this page?",
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+  "new_product_leave_message": "看起来你没有输入任何内容。你真的想要离开这个页面吗？",
   "@new_product_leave_message": {
     "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
@@ -625,25 +625,25 @@
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
-  "confirm_button_label": "Confirm",
-  "send_image_button_label": "Send image",
-  "crop_page_action_saving": "Saving the image…",
+  "confirm_button_label": "确认",
+  "send_image_button_label": "发送图片",
+  "crop_page_action_saving": "正在保存图像…",
   "@crop_page_action_saving": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_cropping": "Cropping the image…",
+  "crop_page_action_cropping": "剪裁图像…",
   "@crop_page_action_cropping": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local": "Saving a local version…",
+  "crop_page_action_local": "保存本地版本…",
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Oops… there's something with your photo!",
+  "crop_page_action_local_failed_title": "啊噢…你的照片有点问题！",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_local_failed_message": "We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.",
+  "crop_page_action_local_failed_message": "在把图片上传到服务器前，我们没有办法在本地进行处理。请稍后再试，如果仍有问题请联系我们。",
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -651,11 +651,11 @@
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
-  "crop_page_too_small_image_title": "The image is too small!",
+  "crop_page_too_small_image_title": "图片尺寸过小",
   "@crop_page_too_small_image_title": {
     "description": "Title of a dialog warning the user that the image is too small for upload"
   },
-  "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+  "crop_page_too_small_image_message": "图片上传的最小尺寸（以像素为单位）为 {expectedMinWidth}x{expectedMinHeight}。当前图片的尺寸为 {actualWidth}x{actualHeight}。",
   "@crop_page_too_small_image_message": {
     "description": "Message of a dialog warning the user that the image is too small for upload",
     "placeholders": {
@@ -673,39 +673,39 @@
       }
     }
   },
-  "crop_page_action_server": "Preparing a call to the server…",
+  "crop_page_action_server": "准备调用服务器…",
   "@crop_page_action_server": {
     "description": "Action being performed on the crop page"
   },
-  "front_packaging_photo_title": "Front Packaging Photo",
-  "ingredients_photo_title": "Ingredients Photo",
-  "nutritional_facts_photo_title": "Nutrition Facts Photo",
-  "recycling_photo_title": "Recycling Photo",
-  "take_photo_title": "選一張圖",
-  "take_more_photo_title": "Take more pictures",
+  "front_packaging_photo_title": "正面包装照片",
+  "ingredients_photo_title": "配料表照片",
+  "nutritional_facts_photo_title": "营养成分表",
+  "recycling_photo_title": "循环利用照片",
+  "take_photo_title": "選一張圖片",
+  "take_more_photo_title": "拍攝更多照片",
   "front_photo_uploaded": "已上載正面包裝的相片",
   "@front_photo_uploaded": {},
   "ingredients_photo_button_label": "成分照片",
   "@ingredients_photo_button_label": {},
   "ingredients_photo_uploaded": "已上載成分的相片",
   "@ingredients_photo_uploaded": {},
-  "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+  "nutrition_cache_loading_error": "无法从缓存中加载营养成分",
   "nutritional_facts_photo_button_label": "營養標示相片",
   "@nutritional_facts_photo_button_label": {},
   "nutritional_facts_input_button_label": "Fill nutrition facts",
-  "nutritional_facts_added": "Nutrition facts added",
-  "categories_added": "Categories added",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "nutritional_facts_added": "已添加营养成分表",
+  "categories_added": "分类已添加",
+  "new_product_title_nutriscore": "计算 Nutri-Score",
   "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
   "new_product_title_environmental_score": "Compute the Green Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
   "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
-  "new_product_title_nova": "Compute the food processing level (NOVA)",
-  "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
+  "new_product_title_nova": "计算食品加工水平（NOVA）",
+  "new_product_subtitle_nova": "通过填写食品类别和配料获得它",
   "new_product_desc_nova_unknown": "食品加工程度未知",
   "new_product_title_pictures": "New product",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-  "new_product_title_misc": "And some basic data…",
+  "new_product_title_misc": "还有一些基本数据…",
   "new_product_done_msg": "「{username}」，感謝您的貢獻！",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
@@ -725,13 +725,13 @@
   "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
   "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
   "hey_incomplete_product_message_product": "Tap now to help complete this product!",
-  "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+  "nutritional_facts_photo_uploaded": "已上传营养成分表照片",
   "@nutritional_facts_photo_uploaded": {},
   "recycling_photo_button_label": "Recycling photo",
   "@recycling_photo_button_label": {},
   "recycling_photo_uploaded": "已上載回收的相片",
   "@recycling_photo_uploaded": {},
-  "take_more_photo_button_label": "Take more pictures",
+  "take_more_photo_button_label": "拍攝更多照片",
   "@take_more_photo_button_label": {},
   "other_photo_uploaded": "已上傳其它相片",
   "@other_photo_uploaded": {},
@@ -743,7 +743,7 @@
   "@selecting_photo": {
     "description": "Progress indicator when the users takes a photo"
   },
-  "uploading_image": "Uploading photo to the server",
+  "uploading_image": "正在向服务器上传照片",
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
@@ -772,22 +772,22 @@
     "description": "Message when a new picture is being uploaded to the server"
   },
   "score_add_missing_ingredients": "添加缺少的成分",
-  "score_add_missing_packaging_image": "Add missing packaging image",
+  "score_add_missing_packaging_image": "添加缺失的包装照片",
   "score_add_missing_nutrition_facts": "補充營養成分",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Select a category",
-  "score_add_missing_product_countries": "Add missing product countries",
-  "score_add_missing_product_emb": "Add missing product traceability codes",
-  "score_add_missing_product_labels": "Add missing product labels",
-  "score_add_missing_product_origins": "Add missing product origins",
-  "score_add_missing_product_stores": "Add missing product stores",
+  "score_add_missing_product_countries": "添加缺失的产品产地国",
+  "score_add_missing_product_emb": "添加缺失的产品代码（翻译注：可能是条形码",
+  "score_add_missing_product_labels": "添加缺失的产品标签",
+  "score_add_missing_product_origins": "添加缺失的产品来源",
+  "score_add_missing_product_stores": "添加缺失的产品来源商店",
   "score_add_missing_product_brands": "Add missing product brands",
   "score_update_nutrition_facts": "更新營養成分",
   "nutrition_page_title": "營養成分",
   "nutrition_page_nutritional_info_title": "Nutritional information",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
-  "nutrition_page_nutritional_info_value_positive": "是 ",
-  "nutrition_page_nutritional_info_value_negative": "否 ",
+  "nutrition_page_nutritional_info_value_positive": "是",
+  "nutrition_page_nutritional_info_value_negative": "否",
   "nutrition_page_nutritional_info_open_photo": "Open photo",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
   "@nutrition_page_nutritional_info_explanation_title": {
@@ -803,7 +803,7 @@
   },
   "nutrition_page_per_100g": "每 100 克",
   "nutrition_page_per_100g_100ml": "per 100g/ml",
-  "nutrition_page_per_serving": "每個包含",
+  "nutrition_page_per_serving": "每份",
   "nutrition_page_add_nutrient": "新增營養",
   "nutrition_page_serving_size": "份量",
   "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
@@ -852,7 +852,7 @@
     "description": "Example of an incorrect serving size"
   },
   "nutrition_page_invalid_number": "無效數值",
-  "nutrition_page_update_running": "Updating the product on the server…",
+  "nutrition_page_update_running": "正在更新服务器上的产品…",
   "nutrition_page_update_done": "產品更新了！",
   "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
   "@nutrition_page_take_serving_size_from_product_quantity": {
@@ -922,11 +922,11 @@
       }
     }
   },
-  "product_image_action_take_new_picture": "Take a new picture",
+  "product_image_action_take_new_picture": "拍摄",
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "選一張圖",
+  "product_image_action_take_picture": "選一張圖片",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -946,7 +946,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "貢獻人",
+  "product_image_details_contributor": "貢獻者",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -958,7 +958,7 @@
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
-  "product_image_details_date_unknown": "不明",
+  "product_image_details_date_unknown": "未知",
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
@@ -992,7 +992,7 @@
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
-  "app_review_negative_modal_negative_button": "否 ",
+  "app_review_negative_modal_negative_button": "否",
   "could_not_refresh": "無法重新整理產品",
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
@@ -1011,11 +1011,11 @@
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
-  "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way.",
+  "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "add_tag": "Add a property",
+  "add_tag": "Add property",
   "add_tags": "Add properties",
   "add_edit_tags": "Add or edit properties",
   "edit_tag": "Edit property",
@@ -1047,7 +1047,7 @@
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "Compare",
+  "product_search_same_category_short": "比較",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1067,7 +1067,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+  "product_improvement_categories_but_no_nutriscore": "无法计算此产品的营养评分，这可能是由于例如：非标准类别。如果这被认为是错误，请与我们联系。",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1113,15 +1113,15 @@
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Some environmental features are location-specific",
+  "country_selection_explanation": "有些环境特征是因地而异的。",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
-  "product_removed_comparison": "Product removed from comparison",
+  "product_removed_comparison": "已从对比中删除该产品",
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
-  "native_app_settings": "Native App Settings",
+  "native_app_settings": "本机应用程序设置",
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
@@ -1133,7 +1133,7 @@
   "@product_removed_history": {
     "description": "Product got removed from history"
   },
-  "product_removed_list": "Product removed from list",
+  "product_removed_list": "把产品从列表移除",
   "@product_removed_list": {
     "description": "Product got removed from list"
   },
@@ -1155,49 +1155,49 @@
   },
   "really_clear": "您確定要刪除此清單嗎？",
   "@Plural": {},
-  "pct_match": "{percent}% match",
+  "pct_match": "{percent}% 匹配度",
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
       "percent": {}
     }
   },
-  "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+  "plural_ago_days": "{count,plural,  =1{一天前} other{{count} 天前}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+  "plural_ago_hours": "{count,plural,  =1{一小时前} other{{count} 小时前}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+  "plural_ago_minutes": "{count,plural,  =0{不到一分钟前} =1{1 分钟前} other{{count} 分钟前}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
+  "plural_ago_months": "{count,plural,  =1{一个月前} other{{count} 个月前}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+  "plural_ago_weeks": "{count,plural,  =1{一周前} other{{count} 周前}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+  "plural_compare_x_products": "{count,plural, =1{比较一种产品} other{比较 {count} 种产品}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
@@ -1231,7 +1231,7 @@
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
-  "compare_products_appbar_subtitle": "Please select at least two products",
+  "compare_products_appbar_subtitle": "请至少选择两个产品",
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
@@ -1255,7 +1255,7 @@
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
   },
-  "permissions_page_title": "Camera access",
+  "permissions_page_title": "相机访问权限",
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
@@ -1263,11 +1263,11 @@
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
-  "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+  "permissions_page_body2": "如果您改变主意，可以随时在设置里启用或禁用此功能。",
   "@permissions_page_body2": {
     "description": "second paragraph for the camera permission's page (onboarding)"
   },
-  "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+  "contact_form_body_android": "操作系统：Android（SDK Int： {sdkInt} / 版本： {release}）\n型号： {model}\n产品： {product}\n设备： {device}\n品牌：{brand}",
   "@contact_form_body_android": {
     "description": "Contact form content for Android devices",
     "placeholders": {
@@ -1297,7 +1297,7 @@
       }
     }
   },
-  "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
+  "contact_form_body_ios": "操作系统： iOS （{version})\n型： {model}\n本地化模型： {localizedModel}",
   "@contact_form_body_ios": {
     "description": "Contact form content for iOS devices",
     "placeholders": {
@@ -1315,7 +1315,7 @@
       }
     }
   },
-  "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+  "contact_form_body": "{osContent}\n应用版本：{appVersion}\n应用内部版本号：{appBuildNumber}\n应用包名称：{appPackageName}",
   "@contact_form_body": {
     "description": "Contact form content",
     "placeholders": {
@@ -1345,15 +1345,15 @@
   "@refuse": {
     "description": "Button to decline the request of sending the anonymous analytics"
   },
-  "ask_me_later_button_label": "Later",
+  "ask_me_later_button_label": "稍后",
   "@ask_me_later": {
     "description": "Button to ignore the camera permission request"
   },
-  "are_you_sure": "Are you sure?",
+  "are_you_sure": "确定吗？",
   "@are_you_sure": {
     "description": "Are you sure?"
   },
-  "knowledge_panel_text_source": "Go further on {sourceName}",
+  "knowledge_panel_text_source": "继续了解 {sourceName}",
   "@knowledge_panel_text_source": {
     "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
     "placeholders": {
@@ -1367,8 +1367,8 @@
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
-  "onboarding_continue_button": "Continue",
-  "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+  "onboarding_continue_button": "继续",
+  "onboarding_welcome_loading_dialog_title": "正在加载您的第一个产品",
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
@@ -1380,22 +1380,22 @@
   "@product_list_icon_desc": {
     "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
   },
-  "product_list_empty_title": "Start scanning",
+  "product_list_empty_title": "开始扫描",
   "@product_list_empty_title": {
     "description": "When the history list is empty, title of the message explaining to start scanning"
   },
-  "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+  "product_list_empty_message": "扫描的产品会出现在这里，您可以查看详细信息。",
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
-  "product_list_reloading_in_progress_multiple": "Refreshing {count,plural,  =0{product} =1{product} other{products}} in your history",
+  "product_list_reloading_in_progress_multiple": "重新加载在你历史记录中的{count,plural,  =0{产品} =1{产品} other{产品}}",
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
       "count": {}
     }
   },
-  "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
+  "product_list_reloading_success_multiple": "{count,plural,  =0{产品} =1{产品} other{产品}}重新加载完成",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
@@ -1414,11 +1414,11 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Delete my account",
+  "account_deletion_subject": "注销 删除账号",
   "@account_deletion_subject": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
-  "user_profile": "Account",
+  "user_profile": "账户",
   "@user_profile": {
     "description": "User account (if connected)"
   },
@@ -1436,7 +1436,7 @@
       }
     }
   },
-  "user_profile_title_id_default": "Welcome {id}!",
+  "user_profile_title_id_default": "欢迎 {id}！",
   "@user_profile_title_id_default": {
     "description": "User login (when it's an id)",
     "placeholders": {
@@ -1458,19 +1458,19 @@
       }
     }
   },
-  "settings_app_app": "Application",
-  "settings_app_data": "Features & Crash monitoring",
-  "settings_app_camera": "Camera",
-  "settings_app_products": "產品",
-  "settings_app_miscellaneous": "Miscellaneous",
+  "settings_app_app": "应用程序",
+  "settings_app_data": "隐私和监控",
+  "settings_app_camera": "相机",
+  "settings_app_products": "产品",
+  "settings_app_miscellaneous": "其他",
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
   },
-  "camera_play_sound_title": "Play a sound on scan",
+  "camera_play_sound_title": "在扫描时播放声音",
   "@camera_play_sound_title": {
     "description": "Title for the Camera play sound toggle"
   },
-  "camera_play_sound_subtitle": "Will beep on each successful scan",
+  "camera_play_sound_subtitle": "每次成功扫描都会发出蜂鸣声",
   "@camera_play_sound_subtitle": {
     "description": "SubTitle for the Camera play sound toggle"
   },
@@ -1478,15 +1478,15 @@
   "@camera_window_accessibility_label": {
     "description": "Accessibility label for the camera window"
   },
-  "app_haptic_feedback_title": "Vibration & Haptics",
+  "app_haptic_feedback_title": "振动 触觉",
   "@app_haptic_feedback_title": {
     "description": "Title for the Haptic feedback toggle"
   },
-  "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+  "app_haptic_feedback_subtitle": "执行某些操作后的振动（条形码已解码，产品已移除…）。",
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
-  "crash_reporting_toggle_title": "Report us bugs and crashes",
+  "crash_reporting_toggle_title": "崩溃报告",
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
@@ -1494,24 +1494,24 @@
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
-  "send_anonymous_data_toggle_title": "Report us feature usage",
+  "send_anonymous_data_toggle_title": "发送匿名数据",
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
-  "send_anonymous_data_toggle_subtitle": "When enabled, strictly anonymous information regarding feature usage will be sent to the Open Food Facts servers, so that we can understand how features are used in order to improve them. Otherwise, a 0 id will be sent.",
+  "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
-  "product_edit_photo_title": "Edit Photo",
+  "product_edit_photo_title": "编辑照片",
   "@product_edit_photo_title": {
     "description": "Toolbar Title while editing a photo (Android only)"
   },
-  "permission_photo_error": "錯誤",
+  "permission_photo_error": "错误",
   "@permission_photo_error": {
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
-  "permission_photo_denied_title": "Allow camera use to scan barcodes",
-  "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+  "permission_photo_denied_title": "允许使用照相机扫描条码",
+  "permission_photo_denied_message": "为了提高使用体验，请允许{appName}访问您的照相机。以便于直接扫描条码。",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
     "placeholders": {
@@ -1520,15 +1520,15 @@
       }
     }
   },
-  "permission_photo_denied_button": "Allow",
+  "permission_photo_denied_button": "允许",
   "@permission_photo_denied_button": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "permission_photo_denied_dialog_settings_title": "Permission denied",
-  "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
-  "permission_photo_denied_dialog_settings_button_open": "開啟設定",
-  "permission_photo_denied_dialog_settings_button_cancel": "取消 ",
-  "permission_photo_none_found": "No camera detected",
+  "permission_photo_denied_dialog_settings_title": "没有权限",
+  "permission_photo_denied_dialog_settings_message": "因为之前拒绝了访问照相机，所以只能在设置里手动允许使用照相机。",
+  "permission_photo_denied_dialog_settings_button_open": "打开权限设置",
+  "permission_photo_denied_dialog_settings_button_cancel": "取消",
+  "permission_photo_none_found": "没有检测到摄像头",
   "@permission_photo_none_found": {
     "description": "Message for the user when no camera was detected, replacing the barcode scanner"
   },
@@ -1540,7 +1540,7 @@
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
-  "edit_product_label": "編輯產品",
+  "edit_product_label": "编辑产品",
   "@edit_product_label": {
     "description": "Edit product button label"
   },
@@ -1556,7 +1556,7 @@
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_label_short": "編輯 ",
+  "edit_product_label_short": "編輯",
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
@@ -1613,6 +1613,10 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
+  "edit_product_form_item_deny_suggestion": "Deny suggestion",
+  "@edit_product_form_item_deny_suggestion": {
+    "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
+  },
   "edit_product_form_item_details_title": "基本資料",
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
@@ -1621,15 +1625,15 @@
   "@edit_product_form_item_details_subtitle": {
     "description": "Product edition - Basic Details - Subtitle"
   },
-  "edit_product_form_item_other_details_title": "Additional details",
+  "edit_product_form_item_other_details_title": "额外细节",
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Website…",
+  "edit_product_form_item_other_details_subtitle": "产品网站…",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
-  "edit_product_form_item_photos_title": "照片",
+  "edit_product_form_item_photos_title": "相片",
   "@edit_product_form_item_photos_title": {
     "description": "Product edition - Photos - Title"
   },
@@ -1641,7 +1645,7 @@
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
+  "edit_product_form_item_labels_subtitle": "环保、质量标签…",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
@@ -1721,7 +1725,7 @@
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
-  "edit_product_form_item_origins_type": "國家 ",
+  "edit_product_form_item_origins_type": "國家",
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
@@ -1749,7 +1753,7 @@
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
-  "edit_product_form_item_countries_type": "國家 ",
+  "edit_product_form_item_countries_type": "國家",
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
@@ -1805,7 +1809,7 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_traces_title": "追蹤",
+  "edit_product_form_item_traces_title": "含少量",
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
@@ -1817,7 +1821,7 @@
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
-  "edit_product_form_item_categories_title": "種類",
+  "edit_product_form_item_categories_title": "類別",
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
   },
@@ -1854,10 +1858,10 @@
     "description": "Product edition - Categories - input explainer, part 3"
   },
   "edit_product_form_item_exit_title": "Quit without saving?",
-  "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
-  "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
-  "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-  "edit_product_form_item_ingredients_title": "成分 ",
+  "edit_product_form_item_exit_confirmation": "是否再离开页面前保存?",
+  "edit_product_form_item_exit_confirmation_positive_button": "保存更改",
+  "edit_product_form_item_exit_confirmation_negative_button": "放弃更改",
+  "edit_product_form_item_ingredients_title": "成分",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
@@ -1873,9 +1877,9 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
-  "edit_product_form_item_add_valid_item_tooltip": "新增",
-  "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-  "edit_product_form_item_remove_item_tooltip": "Remove",
+  "edit_product_form_item_add_valid_item_tooltip": "加入产品",
+  "edit_product_form_item_add_invalid_item_tooltip": "请先输入文字",
+  "edit_product_form_item_remove_item_tooltip": "移除",
   "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
@@ -1884,7 +1888,7 @@
   "@edit_product_form_item_cancel_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
   },
-  "edit_product_form_item_packaging_title": "Recycling instructions photo",
+  "edit_product_form_item_packaging_title": "回收说明照片",
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
@@ -1924,7 +1928,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_save": "編輯 ",
+  "edit_product_form_save": "編輯",
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
@@ -1948,7 +1952,7 @@
   "@no_data_available": {
     "description": "When there are no data to display"
   },
-  "product_field_website_title": "Website",
+  "product_field_website_title": "网站",
   "@product_field_website_title": {
     "description": "Title of a product field: website"
   },
@@ -1956,14 +1960,14 @@
   "@origins_editing_title": {
     "description": "Title of the button where users can edit the origins of a product"
   },
-  "completed_basic_details_btn_text": "Complete basic details",
-  "not_implemented_snackbar_text": "Not implemented yet",
-  "category_picker_page_appbar_text": "種類",
+  "completed_basic_details_btn_text": "完善基本信息",
+  "not_implemented_snackbar_text": "尚未生效",
+  "category_picker_page_appbar_text": "類別",
   "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
-  "edit_ingredients_extract_ingredients_btn_text_short": "Extract ingredients",
+  "edit_ingredients_extract_ingredients_btn_text_short": "提取成分",
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
@@ -1983,7 +1987,7 @@
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+  "edit_ingredients_refresh_photo_btn_text": "刷新照片",
   "@edit_ingredients_refresh_photo_btn_text": {
     "description": "Ingredients edition - Refresh photo"
   },
@@ -2011,11 +2015,11 @@
   "@edit_packaging_loading_photo_help_dialog_body": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
   },
-  "edit_packaging_refresh_photo_btn_text": "Refresh photo",
+  "edit_packaging_refresh_photo_btn_text": "刷新照片",
   "@edit_packaging_refresh_photo_btn_text": {
     "description": "Packaging edition - Refresh photo"
   },
-  "edit_ocr_extract_failed": "Failed to detect text in image.",
+  "edit_ocr_extract_failed": "无法检测图像中的文本。",
   "@edit_ocr_extract_failed": {
     "description": "OCR extraction - message for failed"
   },
@@ -2027,23 +2031,23 @@
   "@edit_ocr_extract_disabled_message": {
     "description": "OCR extraction - message for disabled"
   },
-  "user_list_dialog_new_title": "New list of products",
+  "user_list_dialog_new_title": "新产品列表",
   "@user_list_dialog_new_title": {
     "description": "Title of the 'new user list' dialog"
   },
-  "user_list_dialog_rename_title": "Rename list",
+  "user_list_dialog_rename_title": "重命名列表",
   "@user_list_dialog_rename_title": {
     "description": "Title of the 'rename user list' dialog"
   },
-  "user_list_subtitle_product": "Lists",
+  "user_list_subtitle_product": "列表",
   "@user_list_subtitle_product": {
     "description": "Subtitle of a paragraph about user lists in a product context"
   },
-  "user_list_title": "Your lists",
+  "user_list_title": "您的清單",
   "@user_list_title": {
     "description": "Label for the user lists (when the user wants to add a product to a list)"
   },
-  "user_list_add_product": "Add the product to your lists",
+  "user_list_add_product": "将产品添加到您的列表",
   "@user_list_add_product": {
     "description": "Label for the dialog to add a product to a list"
   },
@@ -2051,39 +2055,39 @@
   "@user_list_button_new": {
     "description": "Short label of a 'create a new list' button"
   },
-  "user_list_empty_label": "No list available yet!\nPlease start by creating one.",
+  "user_list_empty_label": "暂无可用列表，请从创建一个新列表开始",
   "@user_list_empty_label": {
     "description": "Content displayed when there is no list"
   },
-  "user_list_button_add_product": "Add to list",
+  "user_list_button_add_product": "添加到列表",
   "@user_list_button_add_product": {
     "description": "Short label of an 'add to list' button from a product context"
   },
-  "added_to_list_msg": "Added to list",
+  "added_to_list_msg": "已添加到列表",
   "@added_to_list_msg": {
     "description": "Message when products have been successfully added to a list"
   },
-  "user_list_popup_clear": "Clear your history",
+  "user_list_popup_clear": "清除历史记录",
   "@user_list_popup_clear": {
     "description": "Short label of a 'clear your history list' popup"
   },
-  "user_list_popup_rename": "Rename",
+  "user_list_popup_rename": "重命名",
   "@user_list_popup_rename": {
     "description": "Short label of a 'rename list' popup"
   },
-  "user_list_name_hint": "My list",
+  "user_list_name_hint": "我的列表",
   "@user_list_name_hint": {
     "description": "Hint of a user list name text-field in a 'user list' dialog"
   },
-  "user_list_name_error_empty": "Name is mandatory",
+  "user_list_name_error_empty": "名称是必填项",
   "@user_list_name_error_empty": {
     "description": "Validation error about the name that cannot be empty"
   },
-  "user_list_name_error_already": "That name is already used",
+  "user_list_name_error_already": "名称已被使用",
   "@user_list_name_error_already": {
     "description": "Validation error about the name that is already used for another list"
   },
-  "user_list_name_error_same": "That is the same name",
+  "user_list_name_error_same": "名称重复",
   "@user_list_name_error_same": {
     "description": "Validation error about the renamed name that is the same as the initial list name"
   },
@@ -2091,15 +2095,15 @@
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
-  "try_again": "Try Again",
+  "try_again": "重试",
   "@try_again": {
     "description": "Label for buttons that try to repeat a failed action"
   },
-  "there_was_an_error": "There was an error",
+  "there_was_an_error": "有错误产生",
   "@there_was_an_error": {
     "description": "Label that presents a error"
   },
-  "category_picker_no_category_found_message": "No category found for {items}",
+  "category_picker_no_category_found_message": "没有 {items} 对应的类别",
   "@category_picker_no_category_found_message": {
     "description": "Label when no category is available",
     "placeholders": {
@@ -2108,27 +2112,27 @@
       }
     }
   },
-  "camera_toggle_camera": "Switch between back and front camera",
+  "camera_toggle_camera": "在后置和前置相机之间切换",
   "@camera_toggle_camera": {
     "description": "Explanation for the icon to switch between cameras"
   },
-  "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+  "camera_toggle_flash": "打开或关闭摄像头的闪光灯",
   "@camera_toggle_flash": {
     "description": "Explanation for the icon to turn on/off the flash"
   },
-  "camera_enable_flash": "Enable flash",
+  "camera_enable_flash": "打开闪光灯",
   "@camera_enable_flash": {
     "description": "Enable flash (tooltip)"
   },
-  "camera_disable_flash": "Disable flash",
+  "camera_disable_flash": "禁用闪光灯",
   "@camera_disable_flash": {
     "description": "Disable flash (tooltip)"
   },
-  "camera_flash_error_dialog_title": "An error occurred!",
+  "camera_flash_error_dialog_title": "发生错误",
   "@camera_flash_error_dialog_title": {
     "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+  "camera_flash_error_dialog_message": "更改闪光灯状态时发生错误。请确保你的智能手机尚未启用手电筒。",
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
@@ -2140,27 +2144,27 @@
   "@user_preferences_item_accessibility_hint": {
     "description": "A hint for screen readers to explain how external links work"
   },
-  "dev_preferences_screen_title": "DEV Mode",
+  "dev_preferences_screen_title": "开发模式",
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
-  "dev_preferences_reset_onboarding_title": "Restart onboarding",
+  "dev_preferences_reset_onboarding_title": "重置引导流程",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
   },
-  "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
+  "dev_preferences_reset_onboarding_subtitle": "你必须重新启动应用才能再次看到它。",
   "@dev_preferences_reset_onboarding_subtitle": {
     "description": "User dev preferences - Reset onboarding - Subtitle"
   },
-  "dev_preferences_environment_switch_title": "Switch between openfoodfacts.org (PROD) and test env",
+  "dev_preferences_environment_switch_title": "在 openfoodfacts.org (PROD) 和测试环境之间切换",
   "@dev_preferences_environment_switch_title": {
     "description": "User dev preferences - Environment (prod/test) switcher - Title"
   },
-  "dev_preferences_test_environment_title": "Test environment parameters",
+  "dev_preferences_test_environment_title": "测试环境参数",
   "@dev_preferences_test_environment_title": {
     "description": "User dev preferences - Info about test environment - Title"
   },
-  "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
+  "dev_preferences_test_environment_subtitle": "当前测试环境的基本 URL： {url}",
   "@dev_preferences_test_environment_subtitle": {
     "description": "User dev preferences - Info about test environment - Value",
     "placeholders": {
@@ -2169,43 +2173,43 @@
       }
     }
   },
-  "dev_preferences_test_environment_dialog_title": "Test environment host",
+  "dev_preferences_test_environment_dialog_title": "测试环境主机",
   "@dev_preferences_test_environment_dialog_title": {
     "description": "User dev preferences - Info about test environment - Dialog title"
   },
-  "dev_preferences_ml_kit_title": "Use ML Kit",
+  "dev_preferences_ml_kit_title": "使用机器学习套件",
   "@dev_preferences_ml_kit_title": {
     "description": "User dev preferences - Enable ML Kit - Title"
   },
-  "dev_preferences_ml_kit_subtitle": "then you have to restart this app",
+  "dev_preferences_ml_kit_subtitle": "您需要重新启动此应用",
   "@dev_preferences_ml_kit_subtitle": {
     "description": "User dev preferences - Enable ML Kit - Subtitle"
   },
-  "dev_preferences_product_additional_features_title": "Additional button on product page",
+  "dev_preferences_product_additional_features_title": "产品页面上的附加按钮",
   "@dev_preferences_product_additional_features_title": {
     "description": "User dev preferences - Additional buttons on product page - Title"
   },
-  "dev_preferences_edit_ingredients_title": "Edit ingredients via a knowledge panel button",
+  "dev_preferences_edit_ingredients_title": "通过信息面板按钮编辑成分",
   "@dev_preferences_edit_ingredients_title": {
     "description": "User dev preferences - Additional buttons on product page - Subtitle"
   },
-  "dev_preferences_export_history_title": "Export History",
+  "dev_preferences_export_history_title": "导出历史记录",
   "@dev_preferences_export_history_title": {
     "description": "User dev preferences - Export history - Title"
   },
-  "dev_preferences_export_history_progress_error": "exception",
+  "dev_preferences_export_history_progress_error": "异常",
   "@dev_preferences_export_history_progress_error": {
     "description": "User dev preferences - Export history - Item - Error"
   },
-  "dev_preferences_export_history_progress_found": "product found",
+  "dev_preferences_export_history_progress_found": "找到产品",
   "@dev_preferences_export_history_progress_found": {
     "description": "User dev preferences - Export history - Item - Found"
   },
-  "dev_preferences_export_history_progress_not_found": "product NOT found",
+  "dev_preferences_export_history_progress_not_found": "未找到产品",
   "@dev_preferences_export_history_progress_not_found": {
     "description": "User dev preferences - Export history - Item - Not found"
   },
-  "dev_preferences_export_history_dialog_title": "Export history",
+  "dev_preferences_export_history_dialog_title": "导出历史记录",
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
@@ -2213,12 +2217,12 @@
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
-  "dev_preferences_button_negative": "取消 ",
+  "dev_preferences_button_negative": "取消",
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
-  "dev_preferences_migration_title": "Data migration from V1",
-  "dev_preferences_migration_subtitle": "Status: {status}",
+  "dev_preferences_migration_title": "从 V1 迁移数据",
+  "dev_preferences_migration_subtitle": "状态：{status}",
   "@dev_preferences_migration_subtitle": {
     "placeholders": {
       "status": {
@@ -2226,13 +2230,13 @@
       }
     }
   },
-  "dev_preferences_migration_status_already_done": "success or fresh install",
-  "dev_preferences_migration_status_success": "success",
-  "dev_preferences_migration_status_error": "error",
-  "dev_preferences_migration_status_in_progress": "in progress",
-  "dev_preferences_migration_status_required": "required (click to start)",
-  "dev_preferences_migration_status_not_started": "unknown",
-  "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
+  "dev_preferences_migration_status_already_done": "成功或全新安装",
+  "dev_preferences_migration_status_success": "成功",
+  "dev_preferences_migration_status_error": "错误",
+  "dev_preferences_migration_status_in_progress": "进行中",
+  "dev_preferences_migration_status_required": "需要（点击开始）",
+  "dev_preferences_migration_status_not_started": "未知",
+  "dev_preferences_import_history_subtitle": "将清除历史记录并在其中放置 3 个产品",
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
@@ -2264,7 +2268,7 @@
   "product_type_label_food": "食物",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "寵物食品",
-  "product_type_label_product": "其它",
+  "product_type_label_product": "Other",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2302,7 +2306,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "無此產品",
+  "prices_barcode_search_not_found": "Product not found",
   "prices_barcode_search_none_yet": "No product yet",
   "prices_barcode_search_running": "Looking for {barcode}",
   "@prices_barcode_search_running": {
@@ -2531,7 +2535,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "資料",
+  "dev_mode_section_data": "數據",
   "dev_mode_section_experimental_features": "Experimental features",
   "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
   "@dev_preferences_show_folksonomy_title": {
@@ -2553,7 +2557,7 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
-  "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
+  "product_search_no_more_results": "已成功加载 {totalSize} 产品.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
     "placeholders": {
@@ -2562,7 +2566,7 @@
       }
     }
   },
-  "product_search_button_download_more": "Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.",
+  "product_search_button_download_more": "再加载 {count} 产品\n已经加载 {totalSize} 产品中的 {downloaded} 产品.",
   "@product_search_button_download_more": {
     "description": "Product search list - Button to download more results",
     "placeholders": {
@@ -2584,19 +2588,19 @@
       "type": "String"
     }
   },
-  "user_search_contributor_title": "Products I added",
+  "user_search_contributor_title": "我添加的产品",
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
-  "user_search_informer_title": "Products I edited",
+  "user_search_informer_title": "我编辑过的产品",
   "@user_search_informer_title": {
     "description": "User search (informer): list tile title"
   },
-  "user_search_photographer_title": "Products I photographed",
+  "user_search_photographer_title": "我拍摄过的产品",
   "@user_search_photographer_title": {
     "description": "User search (photographer): list tile title"
   },
-  "user_search_to_be_completed_title": "My to-be-completed products",
+  "user_search_to_be_completed_title": "需要完善信息的产品",
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
@@ -2649,7 +2653,7 @@
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
-  "all_search_to_be_completed_title": "All to-be-completed products",
+  "all_search_to_be_completed_title": "所有待完善产品",
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
@@ -2657,15 +2661,15 @@
   "@categorize_products_country_title": {
     "description": "Help categorize products in your country: list tile title"
   },
-  "edit_product_action_retake_picture": "Retake photo",
+  "edit_product_action_retake_picture": "重拍",
   "@edit_product_action_retake_picture": {
     "description": "Product edition - FAB actions - retake a picture"
   },
-  "edit_product_action_take_picture": "Take photo",
+  "edit_product_action_take_picture": "拍摄",
   "@edit_product_action_take_picture": {
     "description": "Product edition - FAB actions - take a picture"
   },
-  "edit_product_action_confirm": "Confirm",
+  "edit_product_action_confirm": "确认",
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
@@ -2677,11 +2681,11 @@
   "@signup_page_terms_of_use_line2": {
     "description": "User consent for terms of use (line 2)"
   },
-  "analytics_consent_image_semantic_label": "Analytics icon",
+  "analytics_consent_image_semantic_label": "分析图标",
   "@analytics_consent_image_semantic_label": {
     "description": "Consent Analytics icon semantics label"
   },
-  "knowledge_panel_page_loading_error": "Fatal Error: {error}",
+  "knowledge_panel_page_loading_error": "错误: {error}",
   "@knowledge_panel_page_loading_error": {
     "description": "Knowledge panel page template - Error while loading future",
     "placeholders": {
@@ -2690,7 +2694,7 @@
       }
     }
   },
-  "preferences_page_loading_error": "Fatal Error: {error}",
+  "preferences_page_loading_error": "错误: {error}",
   "@preferences_page_loading_error": {
     "description": "Preferences page - Error while loading future",
     "placeholders": {
@@ -2699,23 +2703,23 @@
       }
     }
   },
-  "summary_card_button_add_basic_details": "Complete basic details",
+  "summary_card_button_add_basic_details": "完善基本信息",
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
-  "edit_photo_button_label": "編輯 ",
+  "edit_photo_button_label": "編輯",
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
-  "edit_photo_unselect_button_label": "Unselect photo",
+  "edit_photo_unselect_button_label": "取消选择照片",
   "@edit_photo_unselect_button_label": {
     "description": "Edit 'unselect photo' button label"
   },
-  "edit_photo_select_existing_button_label": "Select an existing image",
+  "edit_photo_select_existing_button_label": "选择现有图像",
   "@edit_photo_select_existing_button_label": {
     "description": "Edit 'select existing image' button label"
   },
-  "edit_photo_select_existing_all_label": "Existing images",
+  "edit_photo_select_existing_all_label": "Existing images for this product",
   "@edit_photo_select_existing_all_label": {
     "description": "Page title"
   },
@@ -2723,28 +2727,28 @@
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_download_label": "Retrieving existing images…",
+  "edit_photo_select_existing_download_label": "正在获取现有图像…",
   "@edit_photo_select_existing_download_label": {
     "description": "Dialog label"
   },
-  "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
+  "edit_photo_select_existing_downloaded_none": "没有以前上传的与此产品相关的图像。",
   "@edit_photo_select_existing_downloaded_none": {
     "description": "Error message"
   },
-  "edit_photo_language_not_this_one": "No image in that language yet",
+  "edit_photo_language_not_this_one": "暂无该语言的图像",
   "@edit_photo_language_not_this_one": {
     "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
   },
-  "edit_photo_language_none": "No image yet",
+  "edit_photo_language_none": "暂无图像",
   "@edit_photo_language_none": {
     "description": "Warning message: for this product and this field, there are no images at all, in any language"
   },
-  "category_picker_screen_title": "種類",
+  "category_picker_screen_title": "類別",
   "@category_picker_screen_title": {
     "description": "Categories picker screen title"
   },
-  "basic_details": "Basic Details",
-  "product_name": "Product Name",
+  "basic_details": "基本信息",
+  "product_name": "产品名称",
   "product_names": "Product Names",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
@@ -2822,9 +2826,9 @@
       }
     }
   },
-  "brand_name": "Brand name",
+  "brand_name": "品牌",
   "brand_names": "Brand names",
-  "add_basic_details_brand_name_error": "Please enter the brand name",
+  "add_basic_details_brand_name_error": "请输入品牌名称",
   "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
   "add_basic_details_product_brand_help_title": "Good practices: Brands",
   "@add_basic_details_product_brand_help_title": {
@@ -2870,7 +2874,7 @@
   "@add_basic_details_product_brand_help_good_examples_2": {
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
-  "quantity": "Quantity and weight",
+  "quantity": "数量和重量",
   "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
   "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
   "@add_basic_details_product_quantity_help_title": {
@@ -2892,8 +2896,8 @@
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "barcode": "條碼 ",
-  "barcode_barcode": "Barcode: {barcode}",
+  "barcode": "條碼",
+  "barcode_barcode": "条码: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
     "placeholders": {
@@ -2903,8 +2907,8 @@
     }
   },
   "barcode_invalid_error": "條碼無效",
-  "basic_details_add_success": "Basic details added successfully",
-  "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+  "basic_details_add_success": "基本信息添加成功",
+  "basic_details_add_error": "无法添加基本信息，请稍后再试",
   "@basic_details_add_error": {
     "description": "Error message when error occurs while submitting basic details"
   },
@@ -2912,14 +2916,14 @@
   "@confirm_clearclear_search": {
     "description": "Tooltip to explain that the X button clears the content of the search"
   },
-  "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
+  "confirm_clear": "您即将清除整个历史记录：您确定要继续吗？",
   "@confirm_clear": {
     "description": "Asking about whether to clear the history list or not"
   },
-  "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-  "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-  "alert_select_items_to_clear": "Please select one or more items to clear",
-  "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
+  "alert_clear_selected_user_list": "你即将清除历史记录中选定的项目",
+  "confirm_clear_selected_user_list": "您确定要继续吗？",
+  "alert_select_items_to_clear": "请选择一个或多个要清理的项目",
+  "confirm_clear_user_list": "您即将清除此列表 ({name})：您确定要继续吗？",
   "@confirm_clear_user_list": {
     "description": "Asking about whether to clear the list or not",
     "placeholders": {
@@ -2945,7 +2949,7 @@
   "@confirm_delete_user_list_button": {
     "description": "Button to delete a list"
   },
-  "importance_label": "{name} importance: {id}",
+  "importance_label": "{name} 重要性: {id}",
   "@importance_label": {
     "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
     "placeholders": {
@@ -2957,38 +2961,38 @@
       }
     }
   },
-  "user_list_all_title": "Lists",
+  "user_list_all_title": "列表",
   "@user_list_all_title": {
     "description": "Title about the user lists in the user preferences"
   },
-  "user_list_all_empty": "Create your first list",
+  "user_list_all_empty": "创建您的第一个列表",
   "@user_list_all_empty": {
     "description": "Small message when there are no user lists"
   },
-  "product_list_select": "Select a list",
+  "product_list_select": "请选择一个列表",
   "@product_list_select": {
     "description": "Top title for the selection of a list"
   },
-  "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+  "user_list_length": "{count,plural, =0{空列表} =1{一款产品} other{{count} 产品}}",
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
       "count": {}
     }
   },
-  "add_list_label": "Add list",
+  "add_list_label": "创建列表",
   "@add_list_label": {
     "description": "Label for the add list button"
   },
-  "open_food_preferences_tooltip": "Edit your food preferences",
+  "open_food_preferences_tooltip": "编辑您的食物偏好",
   "@open_food_preferences_tooltip": {
     "description": "Tooltip (message displayed on long press) to open the user food preferences"
   },
-  "add_photo_button_label": "Add photo",
+  "add_photo_button_label": "添加照片",
   "@add_photo_button_label": {
     "description": "Label for the add photo button"
   },
-  "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+  "add_packaging_photo_button_label": "对任何包装/回收信息拍照",
   "@add_packaging_photo_button_label": {
     "description": "Label for the add PACKAGING photo button"
   },
@@ -3004,15 +3008,15 @@
   "@add_label_photo_button_label": {
     "description": "Label for the add LABELS photo button"
   },
-  "choose_image_source_title": "Choose image source",
+  "choose_image_source_title": "选择图片来源",
   "@choose_image_source_title": {
     "description": "Title for the image source chooser"
   },
-  "choose_image_source_body": "Please choose a image source",
+  "choose_image_source_body": "请选择图片来源",
   "@choose_image_source_body": {
     "description": "Body for the image source chooser"
   },
-  "gallery_source_label": "Gallery",
+  "gallery_source_label": "相册",
   "@gallery_source_label": {
     "description": "Label for the gallery image source"
   },
@@ -3028,7 +3032,7 @@
   "@gallery_source_access_denied_dialog_button": {
     "description": "Button to open the app settings"
   },
-  "share": "分享",
+  "share": "推荐给好友",
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
@@ -3077,19 +3081,19 @@
       }
     }
   },
-  "capture": "Take a new picture",
+  "capture": "拍摄",
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "選一張圖",
+  "capture_new_picture": "選一張圖片",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
-  "choose_from_gallery": "Choose from gallery",
+  "choose_from_gallery": "从相册选择",
   "@choose_from_gallery": {
     "description": "Button label for choosing a photo from gallery"
   },
-  "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+  "image_upload_queued": "图片将尽快上传。",
   "@image_upload_queued": {
     "description": "Message when a photo is queued for upload"
   },
@@ -3097,42 +3101,42 @@
   "@add_price_queued": {
     "description": "Message when an added price is queued for the server"
   },
-  "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
+  "background_task_title_full_refresh": "开始刷新本地存储的所有产品",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
-  "background_task_title_top_n": "Starting the download of the most popular products",
+  "background_task_title_top_n": "开始下载最受欢迎的产品",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
   },
-  "expand_nutrition_facts": "Expand nutrition facts table",
+  "expand_nutrition_facts": "展开营养成分表",
   "@expand_nutrition_facts": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-  "expand_ingredients": "Expand ingredients",
+  "expand_nutrition_facts_body": "扩大营养成分表",
+  "expand_ingredients": "展开成分",
   "@expand_ingredients": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_ingredients_body": "Keep the ingredients panel expanded",
+  "expand_ingredients_body": "保持成分面板扩展",
   "search_product_filter_visibility_title": "Show a filter in the search",
   "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
-  "no_internet_connection": "No internet connection",
+  "no_internet_connection": "无互联网连接",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
   },
-  "world_results_label": "Entire world",
+  "world_results_label": "整个世界",
   "@world_results_label": {
     "description": "Label describing the current source of the results: the entire world. Keep it short"
   },
-  "world_results_action": "Extend your search to the world",
+  "world_results_action": "将您的搜索扩大到全世界",
   "@world_results_action": {
     "description": "Label for the action button that displays the results from the entire world"
   },
-  "copy_to_clipboard": "Copy",
+  "copy_to_clipboard": "复制",
   "@copy_to_clipboard": {
     "description": "Copy to clipboard button description"
   },
@@ -3144,11 +3148,11 @@
   "@no_data_available_in_clipboard": {
     "description": "No data available in your clipboard"
   },
-  "clipboard_barcode_copy": "Copy barcode to clipboard",
+  "clipboard_barcode_copy": "将条形码复制到剪贴板",
   "@clipboard_barcode_copied": {
     "description": "Snackbar label after clipboard copy"
   },
-  "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
+  "clipboard_barcode_copied": "条码 {barcode} 已复制到剪贴板！",
   "open_product_website": "Open this product on the website",
   "language_picker_label": "Your language",
   "@language_picker_label": {
@@ -3162,15 +3166,15 @@
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
-  "help_with_openfoodfacts": "Help with OpenFoodFacts",
+  "help_with_openfoodfacts": "帮助 OpenFoodFacts",
   "@help_with_openfoodfacts": {
     "description": "Label for the email title"
   },
-  "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+  "product_task_background_schedule": "产品将尽快在后台更新。",
   "@product_task_background_schedule": {
     "description": "Message when a product is scheduled for background update"
   },
-  "no_email_client_available_dialog_title": "No email apps!",
+  "no_email_client_available_dialog_title": "没有电子邮件应用！",
   "@no_email_client_available_dialog_title": {
     "description": "Title for the dialog when no email client is installed on the device"
   },
@@ -3178,13 +3182,13 @@
   "@no_email_client_available_dialog_content": {
     "description": "Content for the dialog when no email client is installed on the device"
   },
-  "all_images": "All Images",
-  "selected_images": "Selected Images",
-  "product_card_remove_product_tooltip": "Remove product",
+  "all_images": "所有图像",
+  "selected_images": "选定图片",
+  "product_card_remove_product_tooltip": "移除产品",
   "@product_card_remove_product_tooltip": {
     "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
   },
-  "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+  "scan_announce_new_barcode": "扫描到一个新条形码：{barcode}",
   "@scan_announce_new_barcode": {
     "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
     "placeholders": {
@@ -3194,15 +3198,15 @@
       }
     }
   },
-  "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+  "scan_header_clear_button_tooltip": "从扫描结果轮播中删除所有产品",
   "@scan_header_clear_button_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
   },
-  "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+  "scan_header_compare_button_invalid_state_tooltip": "请扫描至少两个产品以进行比较",
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
-  "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+  "scan_header_compare_button_valid_state_tooltip": "点击以比较您扫描过的产品",
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
@@ -3226,7 +3230,7 @@
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
-  "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+  "portion_calculator_description": "计算特定数量的营养成分",
   "@portion_calculator_description": {
     "description": "Sort of title that describes the portion calculator."
   },
@@ -3254,7 +3258,7 @@
   "@portion_calculator_computation_error": {
     "description": "Error message to explain that the computation of the portion calculator failed."
   },
-  "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+  "portion_calculator_result_title": "{grams} 克（或毫升）的营养成分",
   "@portion_calculator_result_title": {
     "description": "Title of the results of the portion calculator.",
     "placeholders": {
@@ -3263,15 +3267,15 @@
       }
     }
   },
-  "offline_data": "Offline Data",
+  "offline_data": "离线数据",
   "@offline_data": {
     "description": "App bar title for the offline data page"
   },
-  "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+  "ocr_image_upload_instruction": "上传图片以自动提取其包含的信息。",
   "@ocr_image_upload_instruction": {
     "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
   },
-  "upload_image": "Upload Photo",
+  "upload_image": "上传图片",
   "@upload_image": {
     "description": "Message shown on asking to upload image"
   },
@@ -3279,19 +3283,19 @@
   "@word_separator_char": {
     "description": "Word separator character. In English language, this is a comma: ','"
   },
-  "word_separator": ", ",
+  "word_separator": "，",
   "@word_separator": {
     "description": "Word separator string. In English, this is a comma followed by a space: ', '"
   },
-  "image_download_error": "Failed to download image",
+  "image_download_error": "图片下载失败",
   "@image_download_error": {
     "description": "Error message, when image download fails"
   },
-  "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+  "image_edit_url_error": "由于未设置图片 URL，无法编辑图片。",
   "@image_edit_url_error": {
     "description": "Error message, when editing image fails, due to missing url."
   },
-  "user_picture_source_remember": "Remember my choice",
+  "user_picture_source_remember": "记住我的选择",
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
@@ -3299,18 +3303,18 @@
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
-  "robotoff_continue": "Continue",
+  "robotoff_continue": "继续",
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+  "robotoff_next_n_questions": "下{count,plural,  =1{一个问题} other{ {count} 个问题}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
       "count": {}
     }
   },
-  "show_password": "Show Password",
+  "show_password": "显示密码",
   "@show_password": {
     "description": "Show hidden password in password field"
   },
@@ -3330,16 +3334,16 @@
   "@owner_field_image": {
     "description": "An image is directly provided by the producer. It may be locked and not be editable."
   },
-  "edit_packagings_title": "Packaging components",
+  "edit_packagings_title": "包装成分",
   "@edit_packagings_title": {
     "description": "Title of the structured packagings page"
   },
-  "edit_packagings_element_add": "Add a packaging component",
+  "edit_packagings_element_add": "添加包装成分",
   "@edit_packagings_element_add": {
     "description": "Button label"
   },
-  "edit_packagings_completed": "The packaging is complete",
-  "edit_packagings_element_title": "Packaging component #{index}",
+  "edit_packagings_completed": "此包装成分已完整",
+  "edit_packagings_element_title": "包装成分 #{index}",
   "@edit_packagings_element_title": {
     "description": "Element title. Please do not change the index placeholder",
     "placeholders": {
@@ -3352,7 +3356,7 @@
   "@edit_packagings_element_field_units": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+  "edit_packagings_element_hint_units": "输入产品中包含的相同形状和材料的包装单位数量。",
   "@edit_packagings_element_hint_units": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3360,76 +3364,76 @@
   "@edit_packagings_element_field_shape": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+  "edit_packagings_element_hint_shape": "输入回收说明中列出的形状名称（如果可用），或选择一个形状。",
   "@edit_packagings_element_hint_shape": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_shape": "Bottle",
+  "edit_packagings_element_example_shape": "瓶子",
   "@edit_packagings_element_example_shape": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_material": "Material",
+  "edit_packagings_element_field_material": "材料",
   "@edit_packagings_element_field_material": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+  "edit_packagings_element_hint_material": "如果可以确定，请输入具体材料（三角形内的材料代码通常可以在包装部件上找到），如果您不确定，请输入通用材料（例如塑料或金属）。",
   "@edit_packagings_element_hint_material": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_material": "Glass",
+  "edit_packagings_element_example_material": "玻璃",
   "@edit_packagings_element_example_material": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_recycling": "Recycling instruction",
+  "edit_packagings_element_field_recycling": "回收说明",
   "@edit_packagings_element_field_recycling": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+  "edit_packagings_element_hint_recycling": "只有在产品上列出的回收说明才可输入。",
   "@edit_packagings_element_hint_recycling": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_recycling": "Recycle",
+  "edit_packagings_element_example_recycling": "回收",
   "@edit_packagings_element_example_recycling": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+  "edit_packagings_element_field_quantity": "每单位产品净数量",
   "@edit_packagings_element_field_quantity": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+  "edit_packagings_element_hint_quantity": "输入净重或净体积并注明单位（例如克 g 或毫升 ml）。",
   "@edit_packagings_element_hint_quantity": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+  "edit_packagings_element_field_weight": "一个空单位的重量（克）",
   "@edit_packagings_element_field_weight": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
+  "edit_packagings_element_hint_weight": "在称重之前，请清除所有剩余的食物并清洗和干燥包装部分。如果可能，使用精度为 0.1g 或 0.01g 的秤。",
   "@edit_packagings_element_hint_weight": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "background_task_title": "Pending contributions",
-  "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-  "background_task_list_empty": "No Pending Background Tasks",
-  "background_task_error_server_time_out": "Server timeout",
-  "background_task_error_no_internet": "Internet connection error. Try later.",
-  "background_task_operation_unknown": "unknown operation type",
-  "background_task_operation_details": "detailed changes",
-  "background_task_operation_image": "photo upload",
-  "background_task_operation_refresh": "refresh delayed after photo upload",
-  "background_task_run_started": "started",
-  "background_task_run_not_started": "not started yet",
-  "background_task_run_to_be_deleted": "to be deleted",
-  "background_task_question_stop": "Do you want to stop that task ASAP?",
-  "feed_back": "Feedback",
-  "undo": "Undo",
-  "copy_email_to_clip_board": "Copy email to clipboard",
+  "background_task_title": "待处理贡献",
+  "background_task_subtitle": "您的贡献会自动保存到我们的服务器，但并不总是实时的。",
+  "background_task_list_empty": "没有待处理的后台任务",
+  "background_task_error_server_time_out": "服务器超时",
+  "background_task_error_no_internet": "网络连接错误，请稍后再试。",
+  "background_task_operation_unknown": "未知操作类型",
+  "background_task_operation_details": "详细更改",
+  "background_task_operation_image": "照片上传",
+  "background_task_operation_refresh": "照片上传后刷新延迟",
+  "background_task_run_started": "已开始",
+  "background_task_run_not_started": "尚未开始",
+  "background_task_run_to_be_deleted": "待删除",
+  "background_task_question_stop": "您想尽快停止该任务吗？",
+  "feed_back": "意见反馈",
+  "undo": "撤销",
+  "copy_email_to_clip_board": "复制电子邮箱到剪贴板",
   "@copy_email_to_clip_board": {
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
-  "please_send_us_an_email_to": "Please send us manually an email to",
-  "email_copied_to_clip_board": "Email copied to clipboard!",
-  "select_accent_color": "Select Accent Color",
+  "please_send_us_an_email_to": "请手动向我们发送电子邮件至",
+  "email_copied_to_clip_board": "电子邮件地址已复制到剪贴板",
+  "select_accent_color": "选择强调色",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
   },
@@ -3437,63 +3441,63 @@
   "@theme_amoled": {
     "description": "AMOLED theme mode."
   },
-  "color_blue": "Blue",
+  "color_blue": "蓝色",
   "@color_blue": {
     "description": "Color Blue"
   },
-  "color_cyan": "Cyan",
+  "color_cyan": "青色",
   "@color_cyan": {
     "description": "Color Cyan"
   },
-  "color_green": "Green",
+  "color_green": "绿色",
   "@color_green": {
     "description": "Color Green"
   },
-  "color_light_brown": "Default",
+  "color_light_brown": "默认",
   "@color_light_brown": {
     "description": "Color Light Brown, Default Open Food Facts Color"
   },
-  "color_magenta": "Magenta",
+  "color_magenta": "洋红色",
   "@color_magenta": {
     "description": "Color Magenta"
   },
-  "color_orange": "Orange",
+  "color_orange": "橙色",
   "@color_orange": {
     "description": "Color Orange"
   },
-  "color_pink": "Pink",
+  "color_pink": "粉色",
   "@color_pink": {
     "description": "Color Pink"
   },
-  "color_red": "Red",
+  "color_red": "红色",
   "@color_red": {
     "description": "Color Red"
   },
-  "color_rust": "Rust",
+  "color_rust": "赤色",
   "@color_rust": {
     "description": "Color Rust"
   },
-  "color_teal": "Teal",
+  "color_teal": "鸭青色",
   "@color_teal": {
     "description": "Color Teal"
   },
-  "text_contrast_mode": "Text Contrast",
+  "text_contrast_mode": "文本对比度",
   "@text_contrast_mode": {
     "description": "Text Contrast Color Mode"
   },
-  "contrast_high": "High",
+  "contrast_high": "高",
   "@contrast_high": {
     "description": "High Contrast Text Color"
   },
-  "contrast_medium": "Medium",
+  "contrast_medium": "中等",
   "@contrast_medium": {
     "description": "Medium Contrast Text Color"
   },
-  "contrast_low": "Low",
+  "contrast_low": "低",
   "@contrast_low": {
     "description": "Low Contrast Text Color"
   },
-  "product_refresher_internet_not_found": "Product not found!",
+  "product_refresher_internet_not_found": "未找到该产品！",
   "@product_refresher_internet_not_found": {
     "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
   },
@@ -3519,11 +3523,11 @@
       }
     }
   },
-  "product_loader_not_found_title": "Product not found!",
+  "product_loader_not_found_title": "未找到该产品！",
   "@product_loader_not_found_title": {
     "description": "When fetching a product opened via a link and it doesn't exist"
   },
-  "product_loader_not_found_message": "A product with the following barcode doesn't exist in our database: {barcode}",
+  "product_loader_not_found_message": "我们的数据库中不存在以下条形码对应的产品：{barcode}",
   "@product_loader_not_found_message": {
     "description": "When fetching a product opened via a link, it doesn't exist",
     "placeholders": {
@@ -3532,31 +3536,31 @@
       }
     }
   },
-  "product_loader_network_error_title": "No internet connection!",
+  "product_loader_network_error_title": "无网络连接",
   "@product_loader_network_error_title": {
     "description": "When fetching a product opened via a link and there is no connection"
   },
-  "product_loader_network_error_message": "Please check that your smartphone is on a WiFi network or has mobile data enabled",
+  "product_loader_network_error_message": "请检查您的智能手机是否已连接无线网络或已启用移动数据",
   "@product_loader_network_error_message": {
     "description": "When fetching a product opened via a link and there is no connection"
   },
-  "page_not_found_title": "Page not found!",
+  "page_not_found_title": "页面未找到",
   "@page_not_found_title": {
     "description": "Title for a page not found (when an URL is not recognized)"
   },
-  "page_not_found_button": "Go back to the homepage",
+  "page_not_found_button": "返回首页",
   "@page_not_found_button": {
     "description": "Button to go back to the homepage"
   },
-  "download_data": "Download data",
+  "download_data": "下载数据",
   "@download_data": {
     "description": "App bar title for the download data page"
   },
-  "download_top_products": "Download the top 1000 products in your country for instant scanning",
+  "download_top_products": "下载您所在国家/地区排名前 1000 的产品进行即时扫描",
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+  "download_top_n_products": "下载您所在国家/地区排名前 {count,plural,  other{{count} 的产品}}进行即时扫描",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
@@ -3564,11 +3568,11 @@
       }
     }
   },
-  "download_in_progress": "Downloading data\nThis may take a while",
+  "download_in_progress": "正在下载数据\n这可能需要一段时间",
   "@download_in_progress": {
     "description": "Download in progress"
   },
-  "downloaded_products": "{num} products added",
+  "downloaded_products": "{num} 个产品被添加",
   "@downloaded_products": {
     "description": "text to show when products added",
     "placeholders": {
@@ -3577,7 +3581,7 @@
       }
     }
   },
-  "update_offline_data": "Update offline product data",
+  "update_offline_data": "更新离线产品数据",
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
@@ -3585,15 +3589,15 @@
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
-  "clear_local_database": "Clear offline product data",
+  "clear_local_database": "清除离线产品数据",
   "@clear_local_database": {
     "description": "List tile title for the clear local database page"
   },
-  "clear_local_database_sub": "Clear all local product data from your app to free up space",
+  "clear_local_database_sub": "清除应用中的所有本地产品数据以释放空间",
   "@clear_local_database_sub": {
     "description": "Clear all local product data from your app to free up space"
   },
-  "deleted_products": "{num} products deleted",
+  "deleted_products": "{num} 个产品被删除",
   "@deleted_products": {
     "description": "text to show when products are deleted from local databse",
     "placeholders": {
@@ -3606,19 +3610,19 @@
   "@loading": {
     "description": "Loading…"
   },
-  "know_more": "Know More",
+  "know_more": "了解更多",
   "@know_more": {
     "description": "Know More"
   },
-  "offline_data_desc": "Click to know more about offline data",
+  "offline_data_desc": "点击了解更多有关离线数据的信息",
   "@offline_data_desc": {
     "description": "Click to know more about offline data"
   },
-  "offline_product_data_title": "Offline product data",
+  "offline_product_data_title": "离线产品数据",
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scaning",
+  "available_for_download": "{num} 产品可供立即扫描",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3647,7 +3651,7 @@
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
-  "action_delete_list": "刪除",
+  "action_delete_list": "删除",
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
@@ -3655,7 +3659,7 @@
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
-  "product_list_create": "Create",
+  "product_list_create": "创建",
   "@product_list_create": {
     "description": "Button label to create a new list (short word)"
   },
@@ -3747,7 +3751,7 @@
   "@guide_title": {
     "description": "A title for a guide"
   },
-  "guide_share_label": "分享",
+  "guide_share_label": "推荐给好友",
   "guide_nutriscore_v2_enabled": "true",
   "@guide_nutriscore_v2_enabled": {
     "description": "Please NEVER touch this value and let the OFF team change it!"
@@ -3838,7 +3842,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "貢獻人",
+  "photo_viewer_details_contributor_title": "貢獻者",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
@@ -3883,11 +3887,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "前端照片",
+  "product_image_front_accessibility_label": "封面圖片",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "配料照片",
+  "product_image_ingredients_accessibility_label": "成分照片",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -4024,7 +4028,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "Add this product",
+  "carousel_unknown_product_button": "加入此產品",
   "carousel_loading_header": "Loading information...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
@@ -4115,7 +4119,7 @@
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
-  "product_footer_action_barcode_short": "條碼 ",
+  "product_footer_action_barcode_short": "條碼",
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
@@ -4195,7 +4199,7 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "折扣",
+  "prices_discount": "Discount",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
@@ -4211,15 +4215,15 @@
   "@prices_stats_prices_section": {
     "description": "Title for the prices section"
   },
-  "prices_stats_products_section": "產品",
+  "prices_stats_products_section": "产品",
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "地點",
+  "prices_stats_locations_section": "Locations",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "證明",
+  "prices_stats_proofs_section": "Proofs",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4227,11 +4231,11 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "實驗",
+  "prices_stats_experiments_section": "Experiments",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
-  "prices_stats_misc_section": "Miscellaneous",
+  "prices_stats_misc_section": "其他",
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
@@ -4239,11 +4243,11 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "有條碼",
+  "prices_stats_with_barcode": "With a barcode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "有類別",
+  "prices_stats_with_category": "With a category",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
@@ -4259,7 +4263,7 @@
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "有價格",
+  "prices_stats_with_price": "With a price",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4267,11 +4271,11 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "美妝",
+  "prices_stats_beauty": "Beauty",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
-  "prices_stats_products": "產品",
+  "prices_stats_products": "产品",
   "@prices_stats_products": {
     "description": "Label for products count"
   },
@@ -4283,11 +4287,11 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "在線",
+  "prices_stats_online": "Online",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
-  "prices_stats_countries": "國家 ",
+  "prices_stats_countries": "國家地區",
   "@prices_stats_countries": {
     "description": "Label for countries count"
   },
@@ -4299,11 +4303,11 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR 要求",
+  "prices_stats_gdpr_request": "GDPR request",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "商家導入",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
@@ -4327,7 +4331,7 @@
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
-  "prices_stats_website": "Website",
+  "prices_stats_website": "网站",
   "@prices_stats_website": {
     "description": "Label for website source"
   },
@@ -4339,7 +4343,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "其它",
+  "prices_stats_other": "Other",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -4358,5 +4362,81 @@
   "product_edit_robotoff_proof": "證明",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "product_edit_robotoff_positive_button": "Accept suggestion",
+  "@product_edit_robotoff_positive_button": {
+    "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_negative_button": "Reject suggestion",
+  "@product_edit_robotoff_negative_button": {
+    "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_show_proof": "Show proof",
+  "@product_edit_robotoff_show_proof": {
+    "description": "Button to show the proof related to a suggestion"
+  },
+  "product_edit_robotoff_expand_proof": "Expand proof",
+  "@product_edit_robotoff_expand_proof": {
+    "description": "Button to open in fullscreen the proof"
+  },
+  "page_indicator_with_total": "Page {current} / {total}",
+  "@page_indicator_with_total": {
+    "description": "Page indicator showing current page and total pages",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of pages"
+      }
+    }
+  },
+  "page_indicator": "Page {current}",
+  "@page_indicator": {
+    "description": "Page indicator showing only current page when total is unknown",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      }
+    }
+  },
+  "item_count_with_total": "{count} of {total} items",
+  "@item_count_with_total": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count": "{count} items",
+  "@item_count": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "prices_no_result": "No price statistics found.",
+  "@prices_no_result": {
+    "description": "Message shown when there are no price statistics available to display"
+  },
+  "prices_error_loading_more_items": "Error loading more items",
+  "@prices_error_loading_more_items": {
+    "description": "Error message shown when additional items fail to load"
+  },
+  "prices_proof_error": "Authentication failed, unable to fetch proofs",
+  "@prices_proof_error": {
+    "description": "Error message shown when unable to fetch proofs"
   }
 }
