@@ -17,7 +17,7 @@
 - Google Play offers a Beta version you can join freely. We typically push to beta a couple of days before final release.
 
 ### Testing version
-- Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or **iPhone/iPad** ([App Store](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of your PRs quicker.
+- Note that an internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or **iPhone/iPad** ([App Store](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of your PRs quicker.
 
 <img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
 
@@ -28,7 +28,7 @@
 
 ## Weekly meetings
 
-- We e-meet Thursdays at 12:30 Paris Time (11:30 London Time, 17:00 IST, 03:30 AM PT)
+- We e-meet on Fridays at 09:00 Paris Time (08:00 London Time, 11:30 IST, 12:00 AM PT)
 - ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: <https://meet.google.com/gnp-frks-esc>
 - Join by phone: <https://tel.meet/gnp-frks-esc?pin=1110549945262>
 - Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
@@ -39,8 +39,8 @@
 
 ## Current Release
 - https://github.com/openfoodfacts/smooth-app/releases
-- Latest commit deployed to Apple App Store: Released on March 10th, 2025 as Version 4.19.0
-- Latest commit deployed to PlayStore: March 10th, 2025 as Version 4.19.0
+- Latest commit deployed to Apple App Store: Released on May 15th, 2025 as Version 4.20.0
+- Latest commit deployed to PlayStore: May 15th, 2025 as Version 4.20.0
 - Latest commit deployed to F-Droid: March 10th, 2025 as Version 4.19.0
 
 ## 📚 Code documentation
