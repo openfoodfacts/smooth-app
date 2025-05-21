@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_category_item.dart';
 
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_ext.dart';
+import 'package:smooth_app/pages/product/product_page/raw_data/raw_data_edit_helper.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductRawDataPage extends StatefulWidget {
@@ -33,7 +37,9 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
           height: 0,
         ),
         itemBuilder: (_, int index) {
-          return ProductRawDataCategoryItem(productRawDatas[index]);
+          return ProductRawDataCategoryItem(
+            productRawDatas[index], 
+            () {RawDataEditHelper().onPackagingEditClick(context, widget.product);},);
         },
       ),
     );
