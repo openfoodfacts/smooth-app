@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_background.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/app_bar_statistics_card.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/logged_in/app_bar_statistics_card.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -32,9 +32,11 @@ class LoggedInAppBarBody extends StatelessWidget {
         ),
         child: Stack(
           children: <Widget>[
-            AppBarBackground(),
+            const AppBarBackground(
+              height: LOGGED_IN_APP_BAR_EXPANDED_HEIGHT,
+            ),
             Container(
-              margin: EdgeInsets.only(
+              margin: EdgeInsetsDirectional.only(
                 top: MediaQuery.of(context).padding.top +
                     TOOLBAR_HEIGHT +
                     MEDIUM_SPACE,
@@ -68,54 +70,57 @@ class LoggedInAppBarBody extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      top: MEDIUM_SPACE,
-                    ),
-                    child: InkWell(
-                      borderRadius: ROUNDED_BORDER_RADIUS,
-                      onTap: () {
-                        Navigator.of(
-                          context,
-                          rootNavigator: true,
-                        ).push<dynamic>(
-                          MaterialPageRoute<dynamic>(
-                            builder: (BuildContext context) =>
-                                const UserPreferencesPage(
-                              type: PreferencePageType.ACCOUNT,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                        top: MEDIUM_SPACE,
+                      ),
+                      child: InkWell(
+                        borderRadius: ROUNDED_BORDER_RADIUS,
+                        onTap: () {
+                          Navigator.of(
+                            context,
+                            rootNavigator: true,
+                          ).push<dynamic>(
+                            MaterialPageRoute<dynamic>(
+                              builder: (BuildContext context) =>
+                                  const UserPreferencesPage(
+                                type: PreferencePageType.ACCOUNT,
+                              ),
                             ),
+                          );
+                        },
+                        child: Container(
+                          // padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                          decoration: BoxDecoration(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                            color: theme.cardColor,
                           ),
-                        );
-                      },
-                      child: Container(
-                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                        decoration: BoxDecoration(
-                          borderRadius: ROUNDED_BORDER_RADIUS,
-                          color: theme.cardColor,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              appLocalizations
-                                  .preferences_app_bar_see_all_stats,
-                              style: TextStyle(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                appLocalizations
+                                    .preferences_app_bar_see_all_stats,
+                                style: TextStyle(
+                                  color: lightTheme
+                                      ? theme.primaryColor
+                                      : Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(width: MEDIUM_SPACE),
+                              Icon(
+                                Icons.arrow_circle_right,
+                                size: 24.0,
                                 color: lightTheme
                                     ? theme.primaryColor
                                     : Colors.white,
-                                fontWeight: FontWeight.bold,
                               ),
-                            ),
-                            const SizedBox(width: MEDIUM_SPACE),
-                            Icon(
-                              Icons.arrow_circle_right,
-                              size: 24.0,
-                              color: lightTheme
-                                  ? theme.primaryColor
-                                  : Colors.white,
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),

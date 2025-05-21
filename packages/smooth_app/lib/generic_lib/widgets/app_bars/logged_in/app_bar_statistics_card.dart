@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -16,11 +16,11 @@ class AppBarStatisticsCard extends StatefulWidget {
     super.key,
   })  : assert(
           imagePath.isNotEmpty,
-          'AppBarStatisticsCard imagePath must not be empty.',
+          'imagePath must not be empty.',
         ),
         assert(
           description.isNotEmpty,
-          'AppBarStatisticsCard description must not be empty.',
+          'description must not be empty.',
         );
 
   final String imagePath;
@@ -51,7 +51,6 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
           onTap: () => _asyncLoad(),
           child: Container(
             height: STATISTICS_CARD_HEIGHT,
-            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
             decoration: BoxDecoration(
               borderRadius: ROUNDED_BORDER_RADIUS,
               color: themeExtension.secondaryVibrant.withValues(
@@ -63,6 +62,7 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                 Positioned.fill(
                   child: Row(
                     children: <Widget>[
+                      const SizedBox(width: MEDIUM_SPACE),
                       SvgPicture.asset(
                         widget.imagePath,
                         height: 32.0,
@@ -70,8 +70,10 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                       const SizedBox(width: MEDIUM_SPACE),
                       Expanded(
                         child: Column(
+                          mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
+                            const Spacer(),
                             Row(
                               children: <Widget>[
                                 Expanded(
@@ -99,9 +101,10 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                                     overflow: TextOverflow.fade,
                                     softWrap: false,
                                   ),
-                                )
+                                ),
                               ],
                             ),
+                            const Spacer(),
                           ],
                         ),
                       ),
@@ -109,8 +112,8 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                   ),
                 ),
                 PositionedDirectional(
-                  end: 0.0,
-                  top: 0.0,
+                  end: MEDIUM_SPACE,
+                  top: MEDIUM_SPACE,
                   child: _loading
                       ? const SizedBox(
                           width: 16.0,

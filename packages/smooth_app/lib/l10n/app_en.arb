@@ -4199,7 +4199,7 @@
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Extraction failed",
+  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
@@ -4379,7 +4379,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "The Open Food Facts project",
+  "preferences_card_project": "The Open Food Facts project",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -4467,7 +4467,7 @@
   "@preferences_app_settings_products": {
     "description": "Title for the app settings products card"
   },
-"product_edit_robotoff_positive_button": "Accept suggestion",
+  "product_edit_robotoff_positive_button": "Accept suggestion",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
   },

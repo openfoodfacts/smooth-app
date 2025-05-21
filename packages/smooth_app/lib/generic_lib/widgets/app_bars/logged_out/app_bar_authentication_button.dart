@@ -4,11 +4,14 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class AppBarAuthenticationButton extends StatelessWidget {
-  const AppBarAuthenticationButton({
+  AppBarAuthenticationButton({
     super.key,
     required this.title,
     required this.onPressed,
-  });
+  }) : assert(
+          title.isNotEmpty,
+          'title must not be empty.',
+        );
 
   final String title;
   final VoidCallback onPressed;

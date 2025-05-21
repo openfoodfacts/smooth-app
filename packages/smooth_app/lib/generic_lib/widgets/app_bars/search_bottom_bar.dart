@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -42,6 +42,7 @@ class SearchBottomBar extends StatelessWidget implements PreferredSizeWidget {
                   type: TextFieldTypes.PLAIN_TEXT,
                   controller: TextEditingController(),
                   hintText: appLocalizations.preferences_app_bar_search_hint,
+                  maxLines: 1,
                   outlined: true,
                   suffixIcon: DecoratedBox(
                     decoration: BoxDecoration(

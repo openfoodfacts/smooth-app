@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_background.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/logged_out/app_bar_authentication_button.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_background.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/app_bar_authentication_button.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/search_bottom_bar.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -71,7 +71,9 @@ class LoggedOutAppBar extends StatelessWidget {
           ),
           child: Stack(
             children: <Widget>[
-              AppBarBackground(),
+              const AppBarBackground(
+                height: LOGGED_OUT_APP_BAR_EXPANDED_HEIGHT,
+              ),
               Container(
                 margin: EdgeInsets.only(
                   top: MediaQuery.of(context).padding.top +

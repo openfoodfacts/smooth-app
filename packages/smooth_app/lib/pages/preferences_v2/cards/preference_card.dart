@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
@@ -25,7 +26,7 @@ class PreferenceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothCardWithRoundedHeader(
-      leading: const SizedBox.square(dimension: 0.0),
+      leading: EMPTY_WIDGET,
       title: title,
       titleTextStyle: Theme.of(context).textTheme.bodyLarge,
       child: Column(

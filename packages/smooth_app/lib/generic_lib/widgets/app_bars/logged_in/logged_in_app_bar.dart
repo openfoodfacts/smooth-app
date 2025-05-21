@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/app_bar_constanst.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/logged_in/logged_in_app_bar_body.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/logged_in/logged_in_app_bar_header.dart';
-import 'package:smooth_app/pages/preferences_v2/app_bars/search_bottom_bar.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar_body.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar_header.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/search_bottom_bar.dart';
 
 class LoggedInAppBar extends StatelessWidget {
   const LoggedInAppBar({required this.userId, super.key});
