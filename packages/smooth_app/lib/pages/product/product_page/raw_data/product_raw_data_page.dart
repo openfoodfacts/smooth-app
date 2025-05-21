@@ -41,11 +41,11 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
             switch(productRawDatas[index].category){
               ProductRawDataCategories.labels => () async {RawDataEditHelper().onInformationsEdit(context, widget.product);},
               ProductRawDataCategories.category => () async {RawDataEditHelper().onCategoryEditClick(context, widget.product);},
-              ProductRawDataCategories.ingredients => null,
-              ProductRawDataCategories.nutriment => () async {RawDataEditHelper().onNutritionEdit(context, widget.product);},
+              ProductRawDataCategories.ingredients => () async {RawDataEditHelper().onIngredientsEditClick(context, widget.product);},
+              ProductRawDataCategories.nutriment => () async {RawDataEditHelper().onNutritionEditClick(context, widget.product);},
               ProductRawDataCategories.packaging => () {RawDataEditHelper().onPackagingEditClick(context, widget.product);},
-              ProductRawDataCategories.stores => () async {RawDataEditHelper().onStoresEdit(context, widget.product);},
-              ProductRawDataCategories.countries => () async {RawDataEditHelper().onCountriesEdit(context, widget.product, context.read<UserPreferences>());},
+              ProductRawDataCategories.stores => () async {RawDataEditHelper().onStoresEditClick(context, widget.product);},
+              ProductRawDataCategories.countries => () async {RawDataEditHelper().onCountriesEditClick(context, widget.product, context.read<UserPreferences>());},
             },
           );
         },

@@ -17,13 +17,6 @@ class RawDataEditHelper {
           );
   }
 
-  void onPackagingEditClick(BuildContext context, Product upToDateProduct){
-    ProductFieldPackagingEditor().edit(
-                  context: context,
-                  product: upToDateProduct,
-                );
-  }
-
   Future<void> onCategoryEditClick(BuildContext context, Product upToDateProduct) async {
     ProductFieldSimpleEditor(SimpleInputPageCategoryHelper()).edit(
             context: context,
@@ -31,7 +24,14 @@ class RawDataEditHelper {
           );
   }
 
-  Future<void> onNutritionEdit(BuildContext context, Product upToDateProduct) async {
+  Future<void> onIngredientsEditClick(BuildContext context, Product upToDateProduct) async {
+    ProductFieldOcrIngredientEditor().edit(
+                    context: context,
+                    product: upToDateProduct,
+            );
+  }
+
+  Future<void> onNutritionEditClick(BuildContext context, Product upToDateProduct) async {
     if (!await ProductRefresher().checkIfLoggedIn(
         context,
         isLoggedInMandatory: true,
@@ -52,18 +52,21 @@ class RawDataEditHelper {
       );
   }
 
-  void onPackagingEdit(){
-
+  void onPackagingEditClick(BuildContext context, Product upToDateProduct){
+    ProductFieldPackagingEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
+                );
   }
 
-  Future<void> onStoresEdit(BuildContext context, Product upToDateProduct) async {
+  Future<void> onStoresEditClick(BuildContext context, Product upToDateProduct) async {
     ProductFieldSimpleEditor(SimpleInputPageStoreHelper()).edit(
             context: context,
             product: upToDateProduct,
           );
   }
 
-  Future<void> onCountriesEdit(BuildContext context, Product upToDateProduct, UserPreferences preferences) async {
+  Future<void> onCountriesEditClick(BuildContext context, Product upToDateProduct, UserPreferences preferences) async {
     ProductFieldSimpleEditor(SimpleInputPageCountryHelper(preferences)).edit(
             context: context,
             product: upToDateProduct,
