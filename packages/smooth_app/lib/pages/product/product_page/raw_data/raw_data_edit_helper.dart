@@ -30,8 +30,25 @@ class RawDataEditHelper {
           );
   }
 
-  void onNutritionEdit(){
-
+  Future<void> onNutritionEdit(BuildContext context, Product upToDateProduct) async {
+    if (!await ProductRefresher().checkIfLoggedIn(
+        context,
+        isLoggedInMandatory: true,
+      )) {
+        return;
+      }
+      AnalyticsHelper.trackProductEdit(
+        AnalyticsEditEvents.nutrition_Facts,
+        upToDateProduct,
+      );
+      if (!context.mounted) {
+        return;
+      }
+      await NutritionPageLoader.showNutritionPage(
+        product: upToDateProduct,
+        isLoggedInMandatory: true,
+        context: context,
+      );
   }
 
   void onPackagingEdit(){
