@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
@@ -55,12 +56,18 @@ class RawDataEditHelper {
 
   }
 
-  void onStoresEdit(){
-
+  Future<void> onStoresEdit(BuildContext context, Product upToDateProduct) async {
+    ProductFieldSimpleEditor(SimpleInputPageStoreHelper()).edit(
+            context: context,
+            product: upToDateProduct,
+          );
   }
 
-  void onCountriesEdit(){
-    
+  Future<void> onCountriesEdit(BuildContext context, Product upToDateProduct, UserPreferences preferences) async {
+    ProductFieldSimpleEditor(SimpleInputPageCountryHelper(preferences)).edit(
+            context: context,
+            product: upToDateProduct,
+          );
   }
 
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_add_nutrient_button.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_category_item.dart';
@@ -43,8 +44,8 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
               ProductRawDataCategories.ingredients => null,
               ProductRawDataCategories.nutriment => () async {RawDataEditHelper().onNutritionEdit(context, widget.product);},
               ProductRawDataCategories.packaging => () {RawDataEditHelper().onPackagingEditClick(context, widget.product);},
-              ProductRawDataCategories.stores => null,
-              ProductRawDataCategories.countries => null
+              ProductRawDataCategories.stores => () async {RawDataEditHelper().onStoresEdit(context, widget.product);},
+              ProductRawDataCategories.countries => () async {RawDataEditHelper().onCountriesEdit(context, widget.product, context.read<UserPreferences>());},
             },
           );
         },
