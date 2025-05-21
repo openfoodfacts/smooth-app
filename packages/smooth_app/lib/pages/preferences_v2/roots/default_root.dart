@@ -9,7 +9,7 @@ class DefaultPreferencesRoot extends PreferencesRoot {
     super.customAppBar,
     required this.cards,
     this.externalSearchTiles = const <ExternalSearchPreferenceTile>[],
-  }) : super(title: '');
+  });
 
   final List<PreferenceCard> cards;
   final List<ExternalSearchPreferenceTile> externalSearchTiles;
