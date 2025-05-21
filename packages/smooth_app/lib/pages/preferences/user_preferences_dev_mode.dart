@@ -61,6 +61,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__pricesReceiptMultiSelection';
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
+  static const String userPreferencesFlagEnablePreferencesV2 =
+      '__enablePreferencesV2';
   static const String userPreferencesFlagBulkProofUpload = '__bulkProofUpload';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
 
@@ -436,6 +438,20 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             value,
           ),
         ),
+        UserPreferencesItemSwitch(
+            title: appLocalizations.dev_mode_enable_preferences_v2_title,
+            subtitle: appLocalizations.dev_mode_enable_preferences_v2_subtitle,
+            value: userPreferences
+                    .getFlag(userPreferencesFlagEnablePreferencesV2) ??
+                false,
+            onChanged: (bool value) async {
+              userPreferences.setFlag(
+                userPreferencesFlagEnablePreferencesV2,
+                value,
+              );
+
+              _showMessage(context, appLocalizations.restart_to_apply_message);
+            }),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_experimental_features,
         ),
@@ -558,6 +574,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               content: Text(appLocalizations.dev_preferences_button_positive),
             ),
           );
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> _showMessage(
+    BuildContext context,
+    String message,
+  ) =>
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+        ),
+      );
 
   Future<void> _changeTestEnvDomain() async {
     _textFieldController.text =

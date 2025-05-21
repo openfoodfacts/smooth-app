@@ -20,6 +20,7 @@ import 'package:smooth_app/pages/locations/search_location_helper.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_search_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
@@ -31,30 +32,6 @@ import 'package:smooth_app/query/product_query.dart';
 
 class DevModeRoot extends PreferencesRoot {
   DevModeRoot({required super.title});
-
-  static const String userPreferencesFlagProd = '__devWorkingOnProd';
-  static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';
-  static const String userPreferencesTestEnvDomain = '__testEnvHost';
-  static const String userPreferencesFolksonomyHost = '__folksonomyHost';
-  static const String userPreferencesFlagEditIngredients = '__editIngredients';
-  static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
-  static const String userPreferencesFlagBoostedComparison =
-      '__boostedComparison';
-  static const String userPreferencesFlagProductListImport =
-      '__productListImport';
-  static const String userPreferencesEnumScanMode = '__scanMode';
-  static const String userPreferencesAppLanguageCode = '__appLanguage';
-  static const String userPreferencesFlagAccessibilityNoColor =
-      '__accessibilityNoColor';
-  static const String userPreferencesFlagAccessibilityEmoji =
-      '__accessibilityEmoji';
-  static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
-  static const String userPreferencesFlagPricesReceiptMultiSelection =
-      '__pricesReceiptMultiSelection';
-  static const String userPreferencesFlagSpellCheckerOnOcr =
-      '__spellcheckerOcr';
-  static const String userPreferencesFlagBulkProofUpload = '__bulkProofUpload';
-  static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -204,11 +181,16 @@ class DevModeRoot extends PreferencesRoot {
           PreferenceTile(
             title: appLocalizations.dev_preferences_environment_switch_title,
             trailing: DropdownButton<bool>(
-              value: userPreferences.getFlag(userPreferencesFlagProd) ?? true,
+              value: userPreferences.getFlag(
+                    UserPreferencesDevMode.userPreferencesFlagProd,
+                  ) ??
+                  true,
               elevation: 16,
               onChanged: (bool? newValue) async {
                 await userPreferences.setFlag(
-                    userPreferencesFlagProd, newValue);
+                  UserPreferencesDevMode.userPreferencesFlagProd,
+                  newValue,
+                );
                 ProductQuery.setQueryType(userPreferences);
               },
               items: const <DropdownMenuItem<bool>>[
@@ -223,7 +205,10 @@ class DevModeRoot extends PreferencesRoot {
               ],
             ),
           ),
-          if (userPreferences.getFlag(userPreferencesFlagProd) == false)
+          if (userPreferences.getFlag(
+                UserPreferencesDevMode.userPreferencesFlagProd,
+              ) ==
+              false)
             PreferenceTile(
               icon: Icons.temple_buddhist,
               title: appLocalizations.dev_preferences_test_environment_title,
@@ -248,12 +233,14 @@ class DevModeRoot extends PreferencesRoot {
             title:
                 'Switch between prices.openfoodfacts.org (PROD) and test env',
             trailing: DropdownButton<bool>(
-              value:
-                  userPreferences.getFlag(userPreferencesFlagPriceProd) ?? true,
+              value: userPreferences.getFlag(
+                    UserPreferencesDevMode.userPreferencesFlagPriceProd,
+                  ) ??
+                  true,
               elevation: 16,
               onChanged: (bool? newValue) async {
                 await userPreferences.setFlag(
-                  userPreferencesFlagPriceProd,
+                  UserPreferencesDevMode.userPreferencesFlagPriceProd,
                   newValue,
                 );
                 ProductQuery.setQueryType(userPreferences);
@@ -304,10 +291,10 @@ class DevModeRoot extends PreferencesRoot {
                 appLocalizations.dev_preferences_news_custom_url_empty_value,
             dialogAction:
                 appLocalizations.dev_preferences_news_custom_url_subtitle,
-            value: userPreferences
-                .getDevModeString(userPreferencesCustomNewsJSONURI),
+            value: userPreferences.getDevModeString(
+                UserPreferencesDevMode.userPreferencesCustomNewsJSONURI),
             onNewValue: (String newUrl) => userPreferences.setDevModeString(
-              userPreferencesCustomNewsJSONURI,
+              UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
               newUrl,
             ),
             validator: (String value) =>
@@ -342,12 +329,14 @@ class DevModeRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
             title: appLocalizations.dev_preferences_edit_ingredients_title,
-            state:
-                userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
-                    false,
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+                ) ??
+                false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  userPreferencesFlagEditIngredients, value);
+                  UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+                  value);
 
               if (!context.mounted) {
                 return;
@@ -358,9 +347,9 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: appLocalizations.dev_mode_hide_environmental_score_title,
-            state: userPreferences
-                .getExcludedAttributeIds()
-                .contains(Attribute.ATTRIBUTE_ECOSCORE),
+            state: userPreferences.getExcludedAttributeIds().contains(
+                  Attribute.ATTRIBUTE_ECOSCORE,
+                ),
             onToggle: (bool value) async {
               const String tag = Attribute.ATTRIBUTE_ECOSCORE;
               final List<String> list =
@@ -374,11 +363,13 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: appLocalizations.dev_preferences_show_folksonomy_title,
-            state: userPreferences.getFlag(userPreferencesFlagHideFolksonomy) ??
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
+                ) ??
                 true,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                userPreferencesFlagHideFolksonomy,
+                UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
                 value,
               );
 
@@ -410,12 +401,16 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: appLocalizations.preferences_accessibility_remove_colors,
-            state: userPreferences
-                    .getFlag(userPreferencesFlagAccessibilityNoColor) ??
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode
+                      .userPreferencesFlagAccessibilityNoColor,
+                ) ??
                 false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  userPreferencesFlagAccessibilityNoColor, value);
+                UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
+                value,
+              );
 
               if (!context.mounted) {
                 return;
@@ -426,12 +421,14 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: appLocalizations.preferences_accessibility_show_emoji,
-            state: userPreferences
-                    .getFlag(userPreferencesFlagAccessibilityEmoji) ??
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
+                ) ??
                 false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  userPreferencesFlagAccessibilityEmoji, value);
+                  UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
+                  value);
 
               if (!context.mounted) {
                 return;
@@ -444,14 +441,32 @@ class DevModeRoot extends PreferencesRoot {
             title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
             subtitleText:
                 appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
-            state:
-                userPreferences.getFlag(userPreferencesFlagSpellCheckerOnOcr) ??
-                    false,
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
+                ) ??
+                false,
             onToggle: (bool value) async => userPreferences.setFlag(
-              userPreferencesFlagSpellCheckerOnOcr,
+              UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
               value,
             ),
           ),
+          TogglePreferenceTile(
+              title: appLocalizations.dev_mode_enable_preferences_v2_title,
+              subtitleText:
+                  appLocalizations.dev_mode_enable_preferences_v2_subtitle,
+              state: userPreferences.getFlag(
+                    UserPreferencesDevMode
+                        .userPreferencesFlagEnablePreferencesV2,
+                  ) ??
+                  false,
+              onToggle: (bool value) async {
+                userPreferences.setFlag(
+                  UserPreferencesDevMode.userPreferencesFlagEnablePreferencesV2,
+                  value,
+                );
+                _showMessage(
+                    context, appLocalizations.restart_to_apply_message);
+              }),
         ],
       ),
       PreferenceCard(
@@ -459,22 +474,26 @@ class DevModeRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
             title: appLocalizations.prices_bulk_proof_upload_title,
-            state:
-                userPreferences.getFlag(userPreferencesFlagBulkProofUpload) ??
-                    false,
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
+                ) ??
+                false,
             onToggle: (bool value) async => userPreferences.setFlag(
-              userPreferencesFlagBulkProofUpload,
+              UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
               value,
             ),
           ),
           TogglePreferenceTile(
             title: 'Multi-products selection for prices',
-            state: userPreferences
-                    .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode
+                      .userPreferencesFlagPricesReceiptMultiSelection,
+                ) ??
                 false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                userPreferencesFlagPricesReceiptMultiSelection,
+                UserPreferencesDevMode
+                    .userPreferencesFlagPricesReceiptMultiSelection,
                 value,
               );
 
@@ -487,11 +506,15 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: 'User ordered knowledge panels',
-            state: userPreferences.getFlag(userPreferencesFlagUserOrderedKP) ??
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
+                ) ??
                 false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  userPreferencesFlagUserOrderedKP, value);
+                UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
+                value,
+              );
 
               if (!context.mounted) {
                 return;
@@ -561,12 +584,15 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: 'Side by side comparison for 2 or 3 products',
-            state:
-                userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
-                    false,
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
+                ) ??
+                false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  userPreferencesFlagBoostedComparison, value);
+                UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
+                value,
+              );
 
               if (!context.mounted) {
                 return;
@@ -577,12 +603,15 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: 'Product list import',
-            state:
-                userPreferences.getFlag(userPreferencesFlagProductListImport) ??
-                    false,
+            state: userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagProductListImport,
+                ) ??
+                false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  userPreferencesFlagProductListImport, value);
+                UserPreferencesDevMode.userPreferencesFlagProductListImport,
+                value,
+              );
 
               if (!context.mounted) {
                 return;
@@ -604,14 +633,25 @@ class DevModeRoot extends PreferencesRoot {
         ),
       );
 
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> _showMessage(
+    BuildContext context,
+    String message,
+  ) =>
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+        ),
+      );
+
   Future<void> _changeTestEnvDomain(
     BuildContext context,
     UserPreferences userPreferences,
     AppLocalizations appLocalizations,
   ) async {
-    _textFieldController.text =
-        userPreferences.getDevModeString(userPreferencesTestEnvDomain) ??
-            uriHelperFoodTest.domain;
+    _textFieldController.text = userPreferences.getDevModeString(
+          UserPreferencesDevMode.userPreferencesTestEnvDomain,
+        ) ??
+        uriHelperFoodTest.domain;
     final bool? result = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
@@ -629,7 +669,9 @@ class DevModeRoot extends PreferencesRoot {
     );
     if (result == true) {
       await userPreferences.setDevModeString(
-          userPreferencesTestEnvDomain, _textFieldController.text);
+        UserPreferencesDevMode.userPreferencesTestEnvDomain,
+        _textFieldController.text,
+      );
       ProductQuery.setQueryType(userPreferences);
     }
   }
@@ -657,7 +699,7 @@ class DevModeRoot extends PreferencesRoot {
     );
     if (result != null) {
       await userPreferences.setDevModeString(
-        userPreferencesFolksonomyHost,
+        UserPreferencesDevMode.userPreferencesFolksonomyHost,
         result,
       );
       ProductQuery.setQueryType(userPreferences);

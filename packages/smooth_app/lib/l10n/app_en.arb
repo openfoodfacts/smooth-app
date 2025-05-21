@@ -4542,5 +4542,17 @@
   "prices_proof_error": "Authentication failed, unable to fetch proofs",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "dev_mode_enable_preferences_v2_title": "Enable Preferences V2",
+  "@dev_mode_enable_preferences_v2_title": {
+    "description": "Title for the preferences V2 preferences tile"
+  },
+  "dev_mode_enable_preferences_v2_subtitle": "Try out the new design of the preferences screen",
+  "@dev_mode_enable_preferences_v2_subtitle": {
+    "description": "Subtitle for the preferences V2 preferences tile"
+  },
+  "restart_to_apply_message": "Please restart the app to apply the changes.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
   }
 }
