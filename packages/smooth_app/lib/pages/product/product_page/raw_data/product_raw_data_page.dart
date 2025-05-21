@@ -37,7 +37,7 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
           return ProductRawDataCategoryItem(
             productRawDatas[index], 
             switch(productRawDatas[index].category){
-              ProductRawDataCategories.labels => null,
+              ProductRawDataCategories.labels => () async {RawDataEditHelper().onInformationsEdit(context, widget.product);},
               ProductRawDataCategories.category => null,
               ProductRawDataCategories.ingredients => null,
               ProductRawDataCategories.nutriment => null,

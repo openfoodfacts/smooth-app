@@ -8,8 +8,11 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 //Je n'aime pas le fait que j'ai du copié collé des fonctions dans edit_product_page
 //TODO s'assurer qu'il soit connecté
 class RawDataEditHelper {
-  void onInformationsEdit(){
-
+  Future<void> onInformationsEdit(BuildContext context, Product upToDateProduct) async {
+        ProductFieldDetailsEditor().edit(
+            context: context,
+            product: upToDateProduct,
+          );
   }
 
   void onPackagingEditClick(BuildContext context, Product upToDateProduct){
