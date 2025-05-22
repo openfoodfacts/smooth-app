@@ -45,8 +45,8 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     outputs:
-      VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
-      VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
+      VERSION_NAME: ${{ env.VERSION_NAME }}
+      VERSION_CODE: ${{ env.VERSION_CODE }}
 
     steps:
       - uses: actions/checkout@v4
@@ -103,9 +103,10 @@ jobs:
           tag: "v${{ env.VERSION_NAME }}"
           overwrite: true
 
-      - name: Set output
-        id: set_output
-        run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
+      - name: Set output variables
+        run: |
+          echo "VERSION_NAME=${{ env.VERSION_NAME }}" >> $GITHUB_ENV
+          echo "VERSION_CODE=${{ env.VERSION_CODE }}" >> $GITHUB_ENV
 
   android-release:
     concurrency: 
