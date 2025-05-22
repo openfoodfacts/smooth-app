@@ -289,11 +289,13 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         );
       }
     }
-    final Widget attributesContainer = Container(
-      alignment: AlignmentDirectional.topStart,
-      margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
-      child: Column(children: displayedGroups),
-    );
+    final Widget attributesContainer = displayedGroups.isNotEmpty
+        ? Container(
+            alignment: AlignmentDirectional.topStart,
+            margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
+            child: Column(children: displayedGroups),
+          )
+        : const SizedBox(height: SMALL_SPACE);
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
 
     final List<Widget> summaryCardButtons = <Widget>[];

@@ -52,6 +52,7 @@ class ProofBulkAddPage extends StatefulWidget {
       proofType: ProofType.priceTag,
       locations: osmLocations,
       currency: currency,
+      multipleProducts: true,
     );
   }
 
