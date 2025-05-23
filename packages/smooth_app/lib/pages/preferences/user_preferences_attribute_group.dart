@@ -4,8 +4,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences/attribute_group_list_tile.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
@@ -38,21 +40,51 @@ class UserPreferencesAttributeGroup {
   }
 
   List<UserPreferencesItem> getItems({bool? collapsed}) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     collapsed ??= _isCollapsed;
     final List<UserPreferencesItem> result = <UserPreferencesItem>[];
     result.add(
       UserPreferencesItemSimple(
         labels: <String>[],
-        builder: (_) => InkWell(
-          onTap: () async => userPreferences.setActiveAttributeGroup(group.id!),
-          child: AttributeGroupListTile(
-            title: Text(
-              group.name ?? appLocalizations.unknown,
-              style: themeData.textTheme.titleLarge,
+        builder: (_) => Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: LARGE_SPACE,
+          ),
+          child: SmoothCard(
+            padding: EdgeInsetsDirectional.zero,
+            margin: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
+            child: InkWell(
+              onTap: () async =>
+                  userPreferences.setActiveAttributeGroup(group.id!),
+              child: ListTile(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadiusDirectional.vertical(
+                    top: ROUNDED_RADIUS,
+                  ),
+                ),
+                tileColor: extension.primaryBlack,
+                leading: const SizedBox.square(
+                  dimension: 18.0,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadiusDirectional.all(ROUNDED_RADIUS),
+                    ),
+                  ),
+                ),
+                title: Text(
+                  group.name ?? appLocalizations.unknown,
+                  style: themeData.textTheme.titleLarge!.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                trailing: collapsed!
+                    ? const Icon(Icons.keyboard_arrow_right,
+                        color: Colors.white)
+                    : const Icon(Icons.keyboard_arrow_down,
+                        color: Colors.white),
+              ),
             ),
-            icon: collapsed!
-                ? const Icon(Icons.keyboard_arrow_right)
-                : const Icon(Icons.keyboard_arrow_down),
           ),
         ),
       ),
@@ -69,8 +101,8 @@ class UserPreferencesAttributeGroup {
             return Container(
               color: colorScheme.error,
               width: double.infinity,
-              padding: const EdgeInsets.all(LARGE_SPACE),
-              margin: const EdgeInsets.all(LARGE_SPACE),
+              padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+              margin: const EdgeInsetsDirectional.all(LARGE_SPACE),
               child: Text(
                 group.warning!,
                 style: TextStyle(
@@ -96,7 +128,26 @@ class UserPreferencesAttributeGroup {
             if (attribute.id != null) attribute.id!,
             if (attribute.name != null) attribute.name!,
           ],
-          builder: (_) => AttributeButton(attribute, productPreferences),
+          builder: (_) => Padding(
+            padding:
+                const EdgeInsetsDirectional.symmetric(horizontal: LARGE_SPACE),
+            child: SmoothCard(
+              elevation: 8,
+              padding: EdgeInsetsDirectional.zero,
+              borderRadius: const BorderRadiusDirectional.vertical(
+                bottom: ROUNDED_RADIUS,
+              ),
+              color: extension.primaryBlack,
+              margin: EdgeInsetsDirectional.zero,
+              child: AttributeButton(
+                attribute,
+                productPreferences,
+                isFirst: attribute == group.attributes!.first &&
+                    group.warning == null,
+                isLast: attribute == group.attributes!.last,
+              ),
+            ),
+          ),
         ),
       );
     }
