@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/attribute_first_row_helper.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
-import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_element.dart';
+import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_element.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_unit_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -100,7 +100,7 @@ extension RawDataExt on Product {
   }
 
   List<ProductRawDataElement> _toRawData(List<String> list) =>
-      list.map((String element) => ProductRawDataElement(element)).toList();
+      list.map((String element) => ProductRawDataElementSimple(element)).toList();
 
   List<ProductRawDataElementDoubleText> _toRawDataDoubleText(
           List<StringPair> list) =>

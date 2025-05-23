@@ -3,14 +3,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/category_label_ext.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
-import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_category_elements_item.dart';
+import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_elements_list_widget.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class ProductRawDataCategoryItem extends StatelessWidget {
-  const ProductRawDataCategoryItem(this.category, this.onEditTap, {this.controller});
+class ProductRawDataCategoryWidget extends StatelessWidget { //Rename ProductRawDataCategoryWidget
+  const ProductRawDataCategoryWidget(this.category, this.onEditTap, {this.controller});
 
   final ProductRawDataCategory category;
   final ScrollController? controller;
@@ -23,12 +23,12 @@ class ProductRawDataCategoryItem extends StatelessWidget {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _ProductRawDataCategoryTile(
+          _ProductRawDataCategoryTile( //Rename Header _ProductRawDataSectionHeader
             category.category.toIcon(),
             category.category.toL10nString(appLocalizations),
             onEditTap,
           ),
-          CategoryElementsListView(
+          ProductRawDataElementsListWidget(
             elements: category.rawDatas,
             controller: controller,
           ),

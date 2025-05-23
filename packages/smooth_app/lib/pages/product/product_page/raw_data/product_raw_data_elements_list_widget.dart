@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/product/product_page/raw_data/models/raw_data_element.dart';
-import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_element_item.dart';
+import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_element.dart';
+import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_element_widget.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class CategoryElementsListView extends StatefulWidget {
-  const CategoryElementsListView({
+class ProductRawDataElementsListWidget extends StatefulWidget { //rename ProductRawDataElementsListWidget
+  const ProductRawDataElementsListWidget({
     required this.elements,
     this.controller,
   });
 
-  final List<ProductRawDataSubCategory> elements;
+  final List<ProductRawDataElement> elements;
   final ScrollController? controller;
 
   @override
   State<StatefulWidget> createState() => _CategoryElementsListViewState();
 }
 
-class _CategoryElementsListViewState extends State<CategoryElementsListView> {
+class _CategoryElementsListViewState extends State<ProductRawDataElementsListWidget> {
   bool extended = false;
 
   void extendList() {
@@ -28,7 +28,7 @@ class _CategoryElementsListViewState extends State<CategoryElementsListView> {
 
   @override
   Widget build(BuildContext context) {
-    final List<ProductRawDataSubCategory> listToShow;
+    final List<ProductRawDataElement> listToShow;
     if (extended) {
       listToShow = widget.elements;
     } else {
@@ -39,7 +39,7 @@ class _CategoryElementsListViewState extends State<CategoryElementsListView> {
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 90.0),
-      child: ListView.separated(
+      child: ListView.separated( //Turn it into a column
         controller: widget.controller,
         physics: const ClampingScrollPhysics(),
         shrinkWrap: true,
@@ -49,7 +49,7 @@ class _CategoryElementsListViewState extends State<CategoryElementsListView> {
         itemBuilder: (BuildContext context, int index) {
           return Container(
             margin: const EdgeInsetsDirectional.only(start: 21),
-            child: ProductRawDataElementItem(
+            child: ProductRawDataElementWidget(
               listToShow[index],
               () => extendList(),
             ),
@@ -65,11 +65,11 @@ class _CategoryElementsListViewState extends State<CategoryElementsListView> {
 
   static const int _SUB_LIST_LENGTH = 3;
 
-  List<ProductRawDataSubCategory> _shortenIfTooLong(
-      List<ProductRawDataSubCategory> list) {
+  List<ProductRawDataElement> _shortenIfTooLong(
+      List<ProductRawDataElement> list) {
     if (list.length > _SUB_LIST_LENGTH) {
-      final List<ProductRawDataSubCategory> toReturn =
-          <ProductRawDataSubCategory>[
+      final List<ProductRawDataElement> toReturn =
+          <ProductRawDataElement>[
         ...list.sublist(0, _SUB_LIST_LENGTH),
         ProductRawDataSeeMoreButton()
       ];
