@@ -93,6 +93,7 @@ class _SmoothAutocompleteTextFieldState
               FocusNode focusNode,
               VoidCallback onFieldSubmitted) =>
           TextField(
+        maxLines: 1,
         controller: widget.controller,
         onChanged: (_) {
           if (mounted) {
