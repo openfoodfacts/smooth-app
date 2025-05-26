@@ -23,6 +23,7 @@ enum AnalyticsCategory {
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
+  changedPreferences(tag: 'changed preferences'),
   appRating(tag: 'app rating');
 
   const AnalyticsCategory({required this.tag});
@@ -180,6 +181,19 @@ enum AnalyticsRobotoffEvents {
   );
 
   const AnalyticsRobotoffEvents({required this.name});
+
+  final String name;
+}
+
+enum AnalyticsChangedPreferences {
+  preferencesSet(
+    name: 'set',
+  ),
+  preferencesClear(
+    name: 'clear',
+  );
+
+  const AnalyticsChangedPreferences({required this.name});
 
   final String name;
 }
@@ -405,6 +419,19 @@ class AnalyticsHelper {
         action: nutrient.name,
         barcode: product.barcode,
         productType: product.productType ?? ProductType.food,
+      );
+
+  static void trackChangedPreferences(
+    AnalyticsChangedPreferences event, {
+    final String? attributeId,
+    final String? importanceId,
+  }) =>
+      trackCustomEvent(
+        event.name,
+        AnalyticsCategory.changedPreferences.tag,
+        action: attributeId == null || importanceId == null
+            ? null
+            : '$attributeId=$importanceId',
       );
 
   static void trackProductEdit(

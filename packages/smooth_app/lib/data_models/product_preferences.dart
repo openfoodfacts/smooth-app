@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/downloadable_string.dart';
 import 'package:smooth_app/database/dao_string.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -199,6 +200,9 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   }
 
   Future<void> resetImportances() async {
+    AnalyticsHelper.trackChangedPreferences(
+      AnalyticsChangedPreferences.preferencesClear,
+    );
     await clearImportances(notifyListeners: false);
     if (attributeGroups != null) {
       for (final AttributeGroup attributeGroup in attributeGroups!) {
@@ -217,6 +221,26 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       }
     }
     notify();
+  }
+
+  @override
+  Future<void> setImportance(
+    final String attributeId,
+    final String importanceId, {
+    final bool notifyListeners = true,
+  }) async {
+    await super.setImportance(
+      attributeId,
+      importanceId,
+      notifyListeners: notifyListeners,
+    );
+    if (notifyListeners) {
+      AnalyticsHelper.trackChangedPreferences(
+        AnalyticsChangedPreferences.preferencesSet,
+        attributeId: attributeId,
+        importanceId: importanceId,
+      );
+    }
   }
 
   AttributeGroup getAttributeGroup(final String attributeId) {
