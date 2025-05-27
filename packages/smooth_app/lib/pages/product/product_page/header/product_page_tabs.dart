@@ -15,6 +15,18 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
+enum ProductPageHarcodedTabs {
+  FOR_ME(key: 'for_me'),
+  WEBSITE(key: 'website'),
+  PRICES(key: 'prices'),
+  FOLKSONOMY(key: 'folksonomy'),
+  RAW_DATA(key: 'raw_data');
+
+  const ProductPageHarcodedTabs({required this.key});
+
+  final String key;
+}
+
 class ProductPageTab {
   const ProductPageTab({
     required this.id,
@@ -183,7 +195,7 @@ class ProductPageTabBar extends StatelessWidget {
     tabs.insert(
       0,
       ProductPageTab(
-        id: 'for_me',
+        id: ProductPageHarcodedTabs.FOR_ME.key,
         labelBuilder: (BuildContext context) =>
             AppLocalizations.of(context).product_page_tab_for_me,
         builder: (BuildContext context, __) => const Row(
@@ -195,7 +207,7 @@ class ProductPageTabBar extends StatelessWidget {
     if (product.website?.trim().isNotEmpty == true) {
       tabs.add(
         ProductPageTab(
-          id: 'website',
+          id: ProductPageHarcodedTabs.WEBSITE.key,
           labelBuilder: (BuildContext context) =>
               AppLocalizations.of(context).product_page_tab_website,
           builder: (_, Product product) => ListView(
@@ -209,7 +221,7 @@ class ProductPageTabBar extends StatelessWidget {
     }
     tabs.add(
       ProductPageTab(
-        id: 'prices',
+        id: ProductPageHarcodedTabs.PRICES.key,
         labelBuilder: (BuildContext context) =>
             AppLocalizations.of(context).product_page_tab_prices,
         builder: (_, Product product) => ListView(
@@ -226,7 +238,7 @@ class ProductPageTabBar extends StatelessWidget {
         false) {
       tabs.add(
         ProductPageTab(
-          id: 'folksonomy',
+          id: ProductPageHarcodedTabs.FOLKSONOMY.key,
           labelBuilder: (BuildContext context) =>
               AppLocalizations.of(context).product_page_tab_folksonomy,
           builder: (_, Product product) => ListView(
@@ -249,7 +261,7 @@ class ProductPageTabBar extends StatelessWidget {
   ) {
     tabs.add(
       ProductPageTab(
-          id: 'raw_data',
+          id: ProductPageHarcodedTabs.RAW_DATA.key,
           labelBuilder: (BuildContext context) =>
               AppLocalizations.of(context).product_page_tab_raw_data,
           builder: (_, Product product) => ProductRawDataPage(product)),
