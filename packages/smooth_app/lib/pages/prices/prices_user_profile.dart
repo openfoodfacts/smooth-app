@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/data_models/users_profile_data.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 
 class PricesUserProfile extends StatelessWidget {
   const PricesUserProfile({super.key, required this.profile});
-  final UserProfile profile;
+  final PriceUser profile;
 
   @override
   Widget build(BuildContext context) {
@@ -16,39 +16,38 @@ class PricesUserProfile extends StatelessWidget {
         shrinkWrap: true,
         children: <Widget>[
           ListTile(
-            leading: const Icon(Icons.person, size: DEFAULT_ICON_SIZE * 2),
+            leading: const Icon(Icons.person),
             title: Text(
               profile.userId,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
               ),
             ),
           ),
           Wrap(
             alignment: WrapAlignment.spaceEvenly,
             children: <Widget>[
-              profileStatsButton(
+              _profileStatsButton(
                 Icons.sell_outlined,
-                profile.priceCount,
+                profile.priceCount ?? 0,
                 appLocalizations.prices_generic_title,
                 context,
               ),
-              profileStatsButton(
+              _profileStatsButton(
                 Icons.location_on,
-                profile.locationCount,
+                profile.locationCount ?? 0,
                 'locations',
                 context,
               ),
-              profileStatsButton(
+              _profileStatsButton(
                 Icons.restaurant_menu,
-                profile.productCount,
+                profile.productCount ?? 0,
                 appLocalizations.settings_app_products,
                 context,
               ),
-              profileStatsButton(
+              _profileStatsButton(
                 Icons.image,
-                profile.proofCount,
+                profile.proofCount ?? 0,
                 appLocalizations.prices_proof_subtitle,
                 context,
               )
@@ -59,7 +58,7 @@ class PricesUserProfile extends StatelessWidget {
     );
   }
 
-  Widget profileStatsButton(
+  Widget _profileStatsButton(
       IconData icon, int count, String label, BuildContext context,
       {Color? color}) {
     return SmoothCard(
