@@ -7,8 +7,6 @@ import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.da
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 
-//I don't like the fact that I had to copy and paste functions into edit_product_page
-//TODO: Make sure it's connected
 class RawDataEditHelper {
   Future<void> onInformationsEdit(BuildContext context, Product upToDateProduct) async {
         ProductFieldDetailsEditor().edit(
