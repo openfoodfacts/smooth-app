@@ -94,8 +94,8 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
                       child: InkWell(
                           customBorder: const CircleBorder(),
                           onTap: onEditTap,
-                          child: const Tooltip(
-                              message: "A CHANGER",
+                          child: Tooltip(
+                              message: AppLocalizations.of(context).raw_data_edit_tooltip,
                               enableFeedback: true,
                               child: icons.Edit())),
                     ),

@@ -4466,5 +4466,37 @@
   "prices_proof_error": "Authentication failed, unable to fetch proofs",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "raw_data_category_labels": "Labels & Certification",
+  "@raw_data_category_labels": {
+      "description": "Labels & Certification Category"
+  },
+  "raw_data_category_categories": "Categories",
+  "@raw_data_category_categories": {
+      "description": "Categories Category"
+  },
+  "raw_data_category_ingredients": "Ingrédients",
+  "@raw_data_category_ingredients": {
+      "description": "Ingrédients Category"
+  },
+  "raw_data_category_nutrition": "Nutrition facts",
+  "@raw_data_category_nutrition": {
+      "description": "Nutrition facts Category"
+  },
+  "raw_data_category_packages": "Packaging",
+  "@raw_data_category_packages": {
+      "description": "Packaging Category"
+  },
+  "raw_data_category_stores": "Stores",
+  "@raw_data_category_stores": {
+      "description": "Stores Category"
+  },
+  "raw_data_category_countries": "Countries",
+  "@raw_data_category_countries": {
+      "description": "Countries Category"
+  },
+  "raw_data_edit_tooltip": "Edit",
+  "@raw_data_edit_tooltip": {
+      "description": "Countries Category"
   }
 }

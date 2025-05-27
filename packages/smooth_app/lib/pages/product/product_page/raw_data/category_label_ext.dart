@@ -5,16 +5,16 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 extension CategoryLabelExt on ProductRawDataCategories {
   String toL10nString(AppLocalizations appLocalizations) => switch (this) {
-        ProductRawDataCategories.labels => appLocalizations.label_refresh,
-        ProductRawDataCategories.category => appLocalizations.category,
-        ProductRawDataCategories.ingredients => appLocalizations.ingredients,
+        ProductRawDataCategories.labels => appLocalizations.raw_data_category_labels,
+        ProductRawDataCategories.category => appLocalizations.raw_data_category_categories,
+        ProductRawDataCategories.ingredients => appLocalizations.raw_data_category_ingredients,
         ProductRawDataCategories.countries =>
-          appLocalizations.country_chooser_label_from_settings,
-        ProductRawDataCategories.nutriment => appLocalizations.nutrition,
+          appLocalizations.raw_data_category_countries,
+        ProductRawDataCategories.nutriment => appLocalizations.raw_data_category_nutrition,
         ProductRawDataCategories.packaging =>
-          appLocalizations.packaging_information,
+          appLocalizations.raw_data_category_packages,
         ProductRawDataCategories.stores =>
-          appLocalizations.edit_product_form_item_stores_title,
+          appLocalizations.raw_data_category_stores,
       };
 
   Widget toIcon() => switch (this) {
