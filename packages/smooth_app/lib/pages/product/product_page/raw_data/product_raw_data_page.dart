@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
@@ -29,19 +30,15 @@ late final List<ProductRawDataCategory> productRawDatas;
     productRawDatas = widget.product.toRawDatas();
   }
 
+
   @override
   Widget build(BuildContext context) {
-    final Color dividerColor =
-        context.lightTheme() ? const Color(0xFFF9F9F9) : Colors.white;
-
     return Scaffold(
       body: ListView.separated(
         itemCount: productRawDatas.length,
-        separatorBuilder: (BuildContext context, _) => Divider(
-          color: dividerColor,
+        separatorBuilder: (BuildContext context, _) =>
           //remove default margin between elements
-          height: 0,
-        ),
+          EMPTY_WIDGET,
         itemBuilder: (_, int index) {
           return ProductRawDataCategoryWidget(
             productRawDatas[index],

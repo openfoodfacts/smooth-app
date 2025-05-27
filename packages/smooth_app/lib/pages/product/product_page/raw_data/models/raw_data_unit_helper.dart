@@ -7,7 +7,7 @@ class RawDataUnitHelper {
         .map((StringPair element) => StringPair(
             first: element.first,
             second: '${element.second} ${getUnit(element.first)}'))
-        .toList();
+        .toList(growable: false);
   }
 
   String getUnit(String element) {
