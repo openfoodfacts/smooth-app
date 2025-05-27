@@ -20,10 +20,17 @@ class ProductRawDataPage extends StatefulWidget {
 }
 
 class _ProductRawDataPageState extends State<ProductRawDataPage> {
+late final List<ProductRawDataCategory> productRawDatas;
+
+  @override
+  void initState() {
+    super.initState();
+    
+    productRawDatas = widget.product.toRawDatas();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<ProductRawDataCategory> productRawDatas =
-        widget.product.toRawDatas();
     final Color dividerColor =
         context.lightTheme() ? const Color(0xFFF9F9F9) : Colors.white;
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_element.dart';
 
-class ProductRawDataElementWidget extends StatelessWidget { //Rename ProductRawDataElementWidget
+class ProductRawDataElementWidget extends StatelessWidget {
   const ProductRawDataElementWidget(
     this.element,
     this.onSeeMoreTap, {
@@ -23,14 +23,9 @@ class ProductRawDataElementWidget extends StatelessWidget { //Rename ProductRawD
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text((element as ProductRawDataElementDoubleText).text1),
-            Row(
-              children: <Widget>[
-                Text((element as ProductRawDataElementDoubleText).text2),
-                const SizedBox(
-                  width: 29.0,
-                )
-              ],
-            )
+            Padding(
+                padding: const EdgeInsetsDirectional.only(end: 29.0),
+                child: Text((element as ProductRawDataElementDoubleText).text2))
           ],
         );
       case const (ProductRawDataSeeMoreButton):
