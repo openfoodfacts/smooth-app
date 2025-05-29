@@ -339,6 +339,10 @@ class _NutrientValueCell extends StatelessWidget {
                           if (value == null || value.trim().isEmpty) {
                             return null;
                           }
+                          // special case: "hidden" nutrient
+                          if (value == _hiddenNutrientValue) {
+                            return null;
+                          }
                           try {
                             decimalNumberFormat.parse(value);
                             return null;
@@ -469,10 +473,11 @@ class _NutrientUnitVisibility extends StatelessWidget {
                 customBorder: const CircleBorder(),
                 onTap: () {
                   if (isValueSet) {
-                    controller.text = '-';
+                    controller.text = _hiddenNutrientValue;
                   } else {
-                    if (controller.previousValue != '-') {
-                      controller.text = controller.previousValue ?? '-';
+                    if (controller.previousValue != _hiddenNutrientValue) {
+                      controller.text =
+                          controller.previousValue ?? _hiddenNutrientValue;
                     } else {
                       controller.text = '';
                     }
@@ -493,10 +498,10 @@ class _NutrientUnitVisibility extends StatelessWidget {
   }
 }
 
-extension NutritionTextEditionController on TextEditingController {
-  bool get isSet => text.trim() != '-';
+const String _hiddenNutrientValue = '-';
 
-  bool get isNotSet => text.trim() == '-';
+extension NutritionTextEditionController on TextEditingController {
+  bool get isSet => text.trim() != _hiddenNutrientValue;
 }
 
 /// Use this Widget to be notified when the value is set or not
