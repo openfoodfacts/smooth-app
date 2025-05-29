@@ -339,8 +339,8 @@ class _NutrientValueCell extends StatelessWidget {
                           if (value == null || value.trim().isEmpty) {
                             return null;
                           }
-                          // special case: "hidden" nutrient
-                          if (value == _hiddenNutrientValue) {
+                          // special case: "missing" nutrient
+                          if (value == _missingNutrientValue) {
                             return null;
                           }
                           try {
@@ -473,11 +473,11 @@ class _NutrientUnitVisibility extends StatelessWidget {
                 customBorder: const CircleBorder(),
                 onTap: () {
                   if (isValueSet) {
-                    controller.text = _hiddenNutrientValue;
+                    controller.text = _missingNutrientValue;
                   } else {
-                    if (controller.previousValue != _hiddenNutrientValue) {
+                    if (controller.previousValue != _missingNutrientValue) {
                       controller.text =
-                          controller.previousValue ?? _hiddenNutrientValue;
+                          controller.previousValue ?? _missingNutrientValue;
                     } else {
                       controller.text = '';
                     }
@@ -498,10 +498,10 @@ class _NutrientUnitVisibility extends StatelessWidget {
   }
 }
 
-const String _hiddenNutrientValue = '-';
+const String _missingNutrientValue = '-';
 
 extension NutritionTextEditionController on TextEditingController {
-  bool get isSet => text.trim() != _hiddenNutrientValue;
+  bool get isSet => text.trim() != _missingNutrientValue;
 }
 
 /// Use this Widget to be notified when the value is set or not
