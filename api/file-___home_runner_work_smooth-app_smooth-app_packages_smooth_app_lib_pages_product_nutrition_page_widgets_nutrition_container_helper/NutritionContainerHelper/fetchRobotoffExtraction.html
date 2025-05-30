@@ -82,6 +82,29 @@
     &#47;&#47; When using Robotoff extraction we enforce the perSize to 100g
     perSize = PerSize.oneHundredGrams;
 
+    Set&lt;String&gt; extractedNutrients =
+        extractionResult.latestInsight?.data?.nutrients?.keys.toSet() ??
+            &lt;String&gt;{};
+
+    extractedNutrients = extractedNutrients
+        .where((String nutrient) =&gt; !nutrient.contains(&#39;_serving&#39;))
+        .map((String key) =&gt; key.replaceAll(&#39;_100g&#39;, &#39;&#39;))
+        .toSet();
+
+    for (final String nutrientOffTag in extractedNutrients) {
+      &#47;&#47; If the nutrient is not in the list of nutrients, we add it
+      final OrderedNutrient? missingNutrient =
+          getLeftoverNutrients().firstWhereOrNull(
+        (final OrderedNutrient orderedNutrient) {
+          return orderedNutrient.nutrient?.offTag == nutrientOffTag;
+        },
+      );
+
+      if (missingNutrient != null) {
+        add(missingNutrient);
+      }
+    }
+
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final Nutrient nutrient = getNutrient(orderedNutrient)!;
       final RobotoffNutrientEntity? robotoffNutrientEntity =
