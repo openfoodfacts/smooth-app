@@ -97,7 +97,7 @@ abstract class InfiniteScrollManager<T> {
 
   /// Load more items (next page)
   Future<void> loadMore(BuildContext context) async {
-    if (_totalPages != null && _currentPage >= _totalPages!) {
+    if (_totalPages == null || _currentPage >= _totalPages!) {
       return;
     }
     await _load(context: context, pageNumber: _currentPage + 1);

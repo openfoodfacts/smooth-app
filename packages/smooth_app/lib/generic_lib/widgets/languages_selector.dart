@@ -8,6 +8,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -157,6 +158,7 @@ class LanguagesSelector extends StatelessWidget {
         }
       } else if (popularList.containsKey(language.code)) {
         popularLanguagesList.add(language);
+        otherLanguagesList.add(language);
       } else {
         otherLanguagesList.add(language);
       }
@@ -171,7 +173,10 @@ class LanguagesSelector extends StatelessWidget {
     final Languages languagesHelper = Languages();
     _sortLanguages(selectedLanguagesList, languagesHelper);
     _sortLanguages(popularLanguagesList, languagesHelper);
-    _sortLanguages(otherLanguagesList, languagesHelper);
+    _sortLanguages(
+      otherLanguagesList.diff(popularLanguagesList).toList(growable: false),
+      languagesHelper,
+    );
 
     final OpenFoodFactsLanguage? language =
         await showSmoothModalSheetForTextField<OpenFoodFactsLanguage>(
@@ -263,8 +268,7 @@ class _LanguagesListState extends State<_LanguagesList> {
   void initState() {
     super.initState();
     _otherLanguages = List<OpenFoodFactsLanguage>.of(widget.otherLanguages);
-    _popularLanguages =
-        List<OpenFoodFactsLanguage>.of(widget.popularLanguages.take(3));
+    _popularLanguages = List<OpenFoodFactsLanguage>.of(widget.popularLanguages);
     _selectedLanguages =
         List<OpenFoodFactsLanguage>.of(widget.selectedLanguages);
   }
@@ -440,17 +444,21 @@ class _LanguagesListState extends State<_LanguagesList> {
   }
 
   List<OpenFoodFactsLanguage> _filterList(
-      List<OpenFoodFactsLanguage> list, String query) {
+    List<OpenFoodFactsLanguage> list,
+    String query,
+  ) {
+    final String queryForComparison = query.toLowerCase();
+
     return list
         .where((OpenFoodFactsLanguage item) =>
             Languages()
                 .getNameInEnglish(item)
                 .getComparisonSafeString()
-                .contains(query.toLowerCase()) ||
+                .contains(queryForComparison) ||
             Languages()
                 .getNameInLanguage(item)
                 .getComparisonSafeString()
-                .contains(query.toLowerCase()) ||
+                .contains(queryForComparison) ||
             item.code.contains(query))
         .toList(growable: false);
   }

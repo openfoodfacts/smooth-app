@@ -292,7 +292,7 @@ class _AttributeAdditivesIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.additives(),
-          iconSizeFactor: 0.6,
+          iconSizeFactor: 0.58,
           paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.05),
         );
 }
@@ -322,7 +322,7 @@ class _AttributeCrustaceansIcon extends AttributeIcon {
           icon: const FoodIcons.crustaceans(),
           iconSizeFactor: 0.95,
           clip: true,
-          paddingFactor: const EdgeInsetsDirectional.only(top: 0.15),
+          paddingFactor: const EdgeInsetsDirectional.only(top: 0.18),
         );
 }
 
@@ -347,7 +347,7 @@ class _AttributeFishIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.fish(),
-          iconSizeFactor: 0.8,
+          iconSizeFactor: 0.75,
           paddingFactor: const EdgeInsetsDirectional.only(
             top: 0.06,
             start: 0.02,
@@ -379,10 +379,10 @@ class _AttributeFairTradeIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.fairTrade(),
-          iconSizeFactor: 0.8,
+          iconSizeFactor: 0.75,
           paddingFactor: const EdgeInsetsDirectional.only(
             top: 0.1,
-            start: 0.01,
+            start: 0.015,
           ),
         );
 }
@@ -396,6 +396,9 @@ class _AttributeFatIcon extends AttributeIcon {
   }) : super._(
           icon: const FoodIcons.fat(),
           iconSizeFactor: 0.7,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            end: 0.02,
+          ),
         );
 }
 
@@ -407,7 +410,7 @@ class _AttributeForestFootprintIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.forestFootprint(),
-          iconSizeFactor: 0.68,
+          iconSizeFactor: 0.65,
         );
 }
 
@@ -435,7 +438,7 @@ class _AttributeMilkIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.milk(),
-          iconSizeFactor: 1.02,
+          iconSizeFactor: 1.0,
           clip: true,
           paddingFactor: const EdgeInsetsDirectional.only(
             top: 0.25,
@@ -451,7 +454,7 @@ class _AttributeMolluscsIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.molluscs(),
-          iconSizeFactor: 0.7,
+          iconSizeFactor: 0.65,
         );
 }
 
@@ -519,9 +522,9 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.nova2(),
-          iconSizeFactor: 0.67,
+          iconSizeFactor: 0.64,
           paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.08,
+            top: 0.05,
             start: 0.025,
           ),
         );
@@ -533,9 +536,9 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.nova3(),
-          iconSizeFactor: 0.68,
+          iconSizeFactor: 0.64,
           paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.12,
+            top: 0.07,
             start: 0.025,
           ),
         );
@@ -547,10 +550,10 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.nova4(),
-          iconSizeFactor: 0.65,
+          iconSizeFactor: 0.64,
           paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.09,
-            start: 0.025,
+            top: 0.07,
+            start: 0.02,
           ),
         );
 }
@@ -577,7 +580,7 @@ class _AttributePalmOilIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.palmOil(),
-          iconSizeFactor: 0.75,
+          iconSizeFactor: 0.7,
           paddingFactor: const EdgeInsetsDirectional.only(top: 0.04),
         );
 }
@@ -617,7 +620,7 @@ class _AttributeSaturatedFatIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.saturatedFat(),
-          iconSizeFactor: 0.75,
+          iconSizeFactor: 0.70,
         );
 }
 
@@ -629,7 +632,7 @@ class _AttributeSesameSeedsIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.sesameSeeds(),
-          iconSizeFactor: 0.81,
+          iconSizeFactor: 0.80,
           paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.02),
         );
 }
@@ -658,8 +661,8 @@ class _AttributeSugarIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.sugar(),
-          iconSizeFactor: 0.65,
-          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.1),
+          iconSizeFactor: 0.60,
+          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.05),
         );
 }
 
@@ -671,8 +674,9 @@ class _AttributeSulphitesIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.sulphites(),
-          iconSizeFactor: 0.9,
+          iconSizeFactor: 0.76,
           clip: true,
+          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.02),
         );
 }
 
@@ -684,7 +688,7 @@ class _AttributeVeganIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.vegan(),
-          iconSizeFactor: 0.7,
+          iconSizeFactor: 0.62,
           paddingFactor: const EdgeInsetsDirectional.only(top: 0.07),
         );
 }
@@ -697,9 +701,8 @@ class _AttributeVegetarianIcon extends AttributeIcon {
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.vegetarian(),
-          iconSizeFactor: 0.65,
+          iconSizeFactor: 0.62,
           paddingFactor: const EdgeInsetsDirectional.only(
-            bottom: 0.04,
             end: 0.06,
           ),
         );
