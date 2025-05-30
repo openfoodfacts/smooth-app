@@ -104,10 +104,14 @@ class NutritionContainerHelper extends ChangeNotifier {
       // When using Robotoff extraction we enforce the perSize to 100g
       perSize = PerSize.oneHundredGrams;
 
-      for (final String key
-          in extractionResult.latestInsight?.data?.nutrients?.keys ??
-              <String>[]) {
-        final String nutrientOffTag = key.replaceAll('_100g', '');
+      final Set<String> extractedNutrients = extractionResult
+              .latestInsight?.data?.nutrients?.keys
+              .map((String key) =>
+                  key.replaceAll('_100g', '').replaceAll('_serving', ''))
+              .toSet() ??
+          <String>{};
+
+      for (final String nutrientOffTag in extractedNutrients) {
         // If the nutrient is not in the list of nutrients, we add it
         final OrderedNutrient? missingNutrient =
             getLeftoverNutrients().firstWhereOrNull(
