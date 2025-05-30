@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -12,27 +11,15 @@ import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/prices/prices_card.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
-import 'package:smooth_app/pages/product/reorderable_knowledge_panel_page.dart';
-import 'package:smooth_app/pages/product/reordered_knowledge_panel_cards.dart';
-import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
-import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
@@ -113,9 +100,6 @@ class ProductPageState extends State<ProductPage>
         .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool useTabView = userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagUseProductTabs) ??
-        false;
 
     return MultiProvider(
       providers: <SingleChildWidget>[
@@ -133,9 +117,7 @@ class ProductPageState extends State<ProductPage>
           value: _scrollController,
         ),
       ],
-      child: useTabView
-          ? _buildTabLayout(hasPendingOperations)
-          : _buildOldLayout(userPreferences, hasPendingOperations),
+      child: _buildTabLayout(hasPendingOperations),
     );
   }
 
@@ -205,133 +187,6 @@ class ProductPageState extends State<ProductPage>
           ),
           const ProductFooter(),
         ],
-      ),
-    );
-  }
-
-  Widget _buildOldLayout(
-    UserPreferences userPreferences,
-    bool hasPendingOperations,
-  ) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    return SmoothScaffold(
-      contentBehindStatusBar: true,
-      spaceBehindStatusBar: false,
-      changeStatusBarBrightness: false,
-      statusBarBackgroundColor: Colors.transparent,
-      backgroundColor:
-          !context.darkTheme() ? themeExtension.primaryLight : null,
-      body: Stack(
-        children: <Widget>[
-          _buildProductBody(context, bottomPadding),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
-            top: 0.0,
-            child: ProductHeader(
-              backButtonType: widget.backButton,
-            ),
-          ),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
-            bottom: 0.0,
-            child: MeasureSize(
-              onChange: (Size size) {
-                if (size.height != bottomPadding) {
-                  setState(() => bottomPadding = size.height);
-                }
-              },
-              child: hasPendingOperations
-                  ? const ProductPageLoadingIndicator()
-                  : KeepQuestionWidgetAlive(
-                      keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                      child: ProductQuestionsWidget(upToDateProduct),
-                    ),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: const ProductFooter(),
-    );
-  }
-
-  Widget _buildProductBody(BuildContext context, double bottomPadding) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return SafeArea(
-      child: RefreshIndicator(
-        onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: barcode,
-          context: context,
-        ),
-        child: ListView(
-          // /!\ Smart Dart
-          // `physics: const AlwaysScrollableScrollPhysics()`
-          // means that we will always scroll, even if it's pointless.
-          // Why do we need to? For the RefreshIndicator, that wouldn't be
-          // triggered on a ListView smaller than the screen
-          // (as there will be no scroll).
-          physics: const AlwaysScrollableScrollPhysics(),
-          controller: _scrollController,
-          padding: const EdgeInsets.only(
-            top: kToolbarHeight + LARGE_SPACE,
-            bottom: LARGE_SPACE,
-          ),
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: SMALL_SPACE,
-              ),
-              child: HeroMode(
-                enabled: widget.withHeroAnimation &&
-                    widget.heroTag?.isNotEmpty == true,
-                child: SummaryCard(
-                  upToDateProduct,
-                  _productPreferences,
-                  heroTag: widget.heroTag,
-                  isFullVersion: true,
-                ),
-              ),
-            ),
-            if (userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
-                false)
-              ReorderedKnowledgePanelCards(upToDateProduct)
-            else
-              StandardKnowledgePanelCards(upToDateProduct),
-            // TODO(monsieurtanuki): include website in reordered knowledge panels
-            if (upToDateProduct.website != null &&
-                upToDateProduct.website!.trim().isNotEmpty)
-              WebsiteCard(upToDateProduct.website!),
-            PricesCard(upToDateProduct),
-            if (userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagHideFolksonomy) ==
-                false)
-              FolksonomyCard(upToDateProduct),
-            if (userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
-                false)
-              Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
-                child: SmoothLargeButtonWithIcon(
-                  text: appLocalizations.reorder_attribute_action,
-                  leadingIcon: const Icon(Icons.sort),
-                  onPressed: () async => Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (_) =>
-                          ReorderableKnowledgePanelPage(upToDateProduct),
-                    ),
-                  ),
-                ),
-              ),
-            if (bottomPadding > 0) SizedBox(height: bottomPadding),
-          ],
-        ),
       ),
     );
   }
