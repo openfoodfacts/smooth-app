@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -102,6 +103,29 @@ class NutritionContainerHelper extends ChangeNotifier {
     if (extractionSuccessful) {
       // When using Robotoff extraction we enforce the perSize to 100g
       perSize = PerSize.oneHundredGrams;
+
+      Set<String> extractedNutrients =
+          extractionResult.latestInsight?.data?.nutrients?.keys.toSet() ??
+              <String>{};
+
+      extractedNutrients = extractedNutrients
+          .where((String nutrient) => !nutrient.contains('_serving'))
+          .map((String key) => key.replaceAll('_100g', ''))
+          .toSet();
+
+      for (final String nutrientOffTag in extractedNutrients) {
+        // If the nutrient is not in the list of nutrients, we add it
+        final OrderedNutrient? missingNutrient =
+            getLeftoverNutrients().firstWhereOrNull(
+          (final OrderedNutrient orderedNutrient) {
+            return orderedNutrient.nutrient?.offTag == nutrientOffTag;
+          },
+        );
+
+        if (missingNutrient != null) {
+          add(missingNutrient);
+        }
+      }
 
       for (final OrderedNutrient orderedNutrient in _nutrients) {
         final Nutrient nutrient = getNutrient(orderedNutrient)!;

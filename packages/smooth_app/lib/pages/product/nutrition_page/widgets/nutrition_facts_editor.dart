@@ -99,11 +99,13 @@ class _NutrientRowState extends State<NutrientRow>
     String? extractionValue = robotoffNutrientEntity?.value;
 
     // We need to make sure the value is formatted properly
-    // We also ignore text extractions such as "traces" until the API is ready
     if (extractionValue != null) {
-      final num? extractionValueNum = NumberFormat().tryParse(extractionValue);
-      if (extractionValueNum == null) {
-        extractionValue = extractionValueNum.toString();
+      if (extractionValue != 'traces') {
+        final num? extractionValueNum =
+            NumberFormat().tryParse(extractionValue);
+        if (extractionValueNum == null) {
+          extractionValue = extractionValueNum.toString();
+        }
       }
     }
 
@@ -336,7 +338,9 @@ class _NutrientValueCell extends StatelessWidget {
                               ?.requestFocus();
                         },
                         validator: (String? value) {
-                          if (value == null || value.trim().isEmpty) {
+                          if (value == null ||
+                              value.trim().isEmpty ||
+                              value == 'traces') {
                             return null;
                           }
                           try {
