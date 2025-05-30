@@ -16,7 +16,6 @@ import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
@@ -222,23 +221,17 @@ class _SmoothGoRouter {
             GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
               builder: (BuildContext context, GoRouterState state) {
-                final String? type = state.pathParameters['preferenceType'];
+                /// See if this should be re-implemented in the new preferences V2
+                /* final String? type = state.pathParameters['preferenceType'];
 
                 final PreferencePageType? pageType = PreferencePageType.values
                     .firstWhereOrNull((PreferencePageType e) => e.name == type);
 
                 if (pageType == null) {
                   throw Exception('Unsupported preference page type: $type');
-                }
+                } */
 
-                if (context.read<UserPreferences>().getFlag(
-                          UserPreferencesDevMode
-                              .userPreferencesFlagEnablePreferencesV2,
-                        ) ??
-                    false) {
-                  return PreferencesPage();
-                }
-                return UserPreferencesPage(type: pageType);
+                return PreferencesPage();
               },
             ),
             GoRoute(

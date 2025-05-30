@@ -450,23 +450,6 @@ class DevModeRoot extends PreferencesRoot {
               value,
             ),
           ),
-          TogglePreferenceTile(
-              title: appLocalizations.dev_mode_enable_preferences_v2_title,
-              subtitleText:
-                  appLocalizations.dev_mode_enable_preferences_v2_subtitle,
-              state: userPreferences.getFlag(
-                    UserPreferencesDevMode
-                        .userPreferencesFlagEnablePreferencesV2,
-                  ) ??
-                  false,
-              onToggle: (bool value) async {
-                userPreferences.setFlag(
-                  UserPreferencesDevMode.userPreferencesFlagEnablePreferencesV2,
-                  value,
-                );
-                _showMessage(
-                    context, appLocalizations.restart_to_apply_message);
-              }),
         ],
       ),
       PreferenceCard(
