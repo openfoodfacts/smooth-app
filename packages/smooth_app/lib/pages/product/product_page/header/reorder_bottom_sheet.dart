@@ -34,7 +34,6 @@ class ReorderBottomSheet<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension theme =
         context.extension<SmoothColorsThemeExtension>();
-    final ThemeData themeData = Theme.of(context);
     final bool lightTheme = context.lightTheme();
 
     return ChangeNotifierProvider<_ReorderBottomSheetProvider<T>>(

@@ -66,7 +66,9 @@ class ProductPageTabBar extends StatelessWidget {
     );
   }
 
-  void _showReorderBottomSheet(
+  /// Keeping this as it will be useful when we re-impletment the reordering
+  /// of tabs in the future.
+  /* void _showReorderBottomSheet(
     BuildContext context,
     List<ProductPageTab> tabs,
   ) {
@@ -99,7 +101,7 @@ class ProductPageTabBar extends StatelessWidget {
       },
       title: AppLocalizations.of(context).product_page_reorder_tabs,
     );
-  }
+  } */
 
   static List<ProductPageTab> extractTabsFromProduct({
     required BuildContext context,
