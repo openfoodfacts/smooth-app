@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Hjälp till att förbättra Open Food Facts i ditt land",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -372,7 +372,7 @@
   "@contribute_donate_header": {},
   "contribute_enroll_alpha": "Registrera dig i intern alfaversion",
   "@contribute_enroll_alpha": {},
-  "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+  "contribute_enroll_alpha_warning": "Vänligen observera att med den interna alfaversionen är fullständig dataförlust möjlig, och appen kan bli oanvändbar när som helst!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Produkter att slutföra",
   "@contribute_improve_ProductsToBeCompleted": {
@@ -382,7 +382,7 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "Databasen är kärnan i projektet. Det är enkelt och väldigt snabbt att hjälpa till. Du kan ladda ner mobilappen till din telefon och börja lägga till eller förbättra produkter.\n\nÅ andra sidan, så erbjuder Open Food Facts webbsida många sätt att bidra: ",
   "@contribute_improve_text": {},
   "contribute_translate_header": "Översätt",
   "@contribute_translate_header": {
@@ -396,18 +396,18 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Open Food Facts är ett globalt projekt som innehåller produkter från mer än 160 länder. Open Food Facts översätts till dussintals språk, med innehåll som ständigt förändras.",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Översättningar är ett av projektets viktigaste uppgifter",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+  "contribute_join_skill_pool": "Bidra med dina färdigheter till Open Food Facts. Gå med i kunskapspoolen!",
   "contribute_share_header": "Dela Open Food Facts med dina vänner",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "Jag ville tipsa er om appen jag använder, Open Food Facts, som låter er få information om er mats hälso- och miljöpåverkan på ett personligt sätt. Den fungerar genom att skanna streckkoderna på förpackningen. Den är dessutom gratis, kräver ingen registrering och ni kan till och med bidra till att öka antalet dechiffrerade produkter. Här är länken för att ladda ner den till er telefon: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Bidra till priser genom att begära en GDPR-export av dina lojalitetskortsdata",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -415,11 +415,11 @@
   "@tap_to_answer": {
     "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
   },
-  "tap_to_answer_hint": "Tap here to answer questions about this product",
+  "tap_to_answer_hint": "Tryck här för att svara på frågor om denna produkt",
   "@tap_to_answer_hint": {
     "description": "Hint for accessibility readers to answer Robotoff questions."
   },
-  "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+  "robotoff_questions_loading_hint": "Vänligen vänta medan frågor om den här produkten laddas",
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
@@ -431,31 +431,31 @@
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-  "question_yes_button_accessibility_value": "Answer with yes",
-  "question_no_button_accessibility_value": "Answer with no",
-  "question_skip_button_accessibility_value": "Skip this question",
-  "tap_to_edit_search": "Tap to edit search",
+  "question_sign_in_text": "Logga in på ditt Open Food Facts-konto för att få kredit för dina bidrag",
+  "question_yes_button_accessibility_value": "Svara med ja",
+  "question_no_button_accessibility_value": "Svara med nej",
+  "question_skip_button_accessibility_value": "Hoppa över den här frågan",
+  "tap_to_edit_search": "Tryck för att redigera sökningen",
   "@Personal preferences": {},
   "myPreferences": "Mina preferenser",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+  "account_create_message": "Skapa ditt konto och gå med i Open Food Facts-communityn för att hjälpa till att bygga upp matkunskap över hela världen!",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
-  "join_us": "Join us",
+  "join_us": "Anslut till oss",
   "@join_us": {
     "description": "Join which is actually Signup"
   },
   "myPreferences_profile_title": "Din profil",
-  "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+  "myPreferences_profile_subtitle": "Hantera ditt Open Food Facts bidragsgivarkonto.",
   "myPreferences_settings_title": "Appinställningar",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "Mörkt läge, Språk…",
   "myPreferences_food_title": "Matpreferenser",
   "myPreferences_food_subtitle": "Välj vilken information om mat som är viktigast för dig.",
-  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_food_comment": "Välj vilken information om mat som är viktigast för dig, för att rangordna mat enligt dina preferenser, se den information du bryr dig om först, och få en kompatibilitetssammanfattning. Dessa matpreferenser stannar på din enhet, och är inte associerade med ditt Open Food Facts bidragsgivarkonto om du har ett.",
   "confirmResetPreferences": "Återställa dina matpreferenser?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -468,7 +468,7 @@
   "ranking_subtitle_match_yes": "En bra match för dig",
   "ranking_subtitle_match_no": "Mycket dålig matchning",
   "ranking_subtitle_match_maybe": "Okänd matchning",
-  "refresh_with_new_preferences": "Refresh the list with your new preferences",
+  "refresh_with_new_preferences": "Uppdatera listan med dina nya inställningar",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
   },
@@ -489,7 +489,7 @@
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the history and compare mode"
   },
-  "list_navbar_label": "Lists",
+  "list_navbar_label": "Listor",
   "@list_navbar_label": {
     "description": "BottomNavigationBarLabel: For the lists"
   },
@@ -2039,7 +2039,7 @@
   "@user_list_dialog_rename_title": {
     "description": "Title of the 'rename user list' dialog"
   },
-  "user_list_subtitle_product": "Lists",
+  "user_list_subtitle_product": "Listor",
   "@user_list_subtitle_product": {
     "description": "Subtitle of a paragraph about user lists in a product context"
   },
@@ -2961,7 +2961,7 @@
       }
     }
   },
-  "user_list_all_title": "Lists",
+  "user_list_all_title": "Listor",
   "@user_list_all_title": {
     "description": "Title about the user lists in the user preferences"
   },
