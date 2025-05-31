@@ -616,16 +616,6 @@ class DevModeRoot extends PreferencesRoot {
         ),
       );
 
-  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> _showMessage(
-    BuildContext context,
-    String message,
-  ) =>
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(message),
-        ),
-      );
-
   Future<void> _changeTestEnvDomain(
     BuildContext context,
     UserPreferences userPreferences,
