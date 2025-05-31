@@ -17,8 +17,8 @@ jobs:
     steps:
     - name: Get branch name
       # see https://github.com/actions/checkout/issues/331
-      id: get-branch
-      run: echo ::set-output name=branch::$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')
+      id: get-commit-sha
+      run: echo ::set-output name=sha::$(gh pr view $PR_NO --repo $REPO --json headRefOid --jq '.headRefOid')
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
@@ -27,8 +27,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 1
-        # grab the PR branch
-        ref: ${{ steps.get-branch.outputs.branch }}
+        # grab the PR commit SHA
+        ref: ${{ steps.get-commit-sha.outputs.sha }}
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
