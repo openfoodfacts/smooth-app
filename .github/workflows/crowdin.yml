@@ -3,6 +3,9 @@ name: Crowdin Action
 on:
   push:
     branches: [ crowdin-trigger ]
+permissions:
+  contents: read
+  pull-requests: write
 jobs:
   synchronize-with-crowdin:
     runs-on: ubuntu-latest
