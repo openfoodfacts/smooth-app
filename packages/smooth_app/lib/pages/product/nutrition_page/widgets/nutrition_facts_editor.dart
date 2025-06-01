@@ -104,7 +104,15 @@ class _NutrientRowState extends State<NutrientRow>
         final num? extractionValueNum =
             NumberFormat().tryParse(extractionValue);
         if (extractionValueNum == null) {
-          extractionValue = extractionValueNum.toString();
+          extractionValue = null;
+        } else {
+          try {
+            // get a decent displayable numeric value if possible
+            extractionValue =
+                widget.decimalNumberFormat.format(extractionValueNum);
+          } catch (e) {
+            // at least we tried
+          }
         }
       }
     }
