@@ -165,9 +165,8 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
   }
 
   @override
-  Future<void> onSaveItem(Country country) => preferences.setUserCountryCode(
-        country.countryCode,
-      );
+  Future<void> onSaveItem(Country country) =>
+      ProductQuery.setCountry(preferences, country.countryCode);
 }
 
 class CountriesHelper {
