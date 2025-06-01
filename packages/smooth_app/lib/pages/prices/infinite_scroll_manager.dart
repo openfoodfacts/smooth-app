@@ -131,14 +131,6 @@ abstract class InfiniteScrollManager<T> {
     }
   }
 
-  /// Returns a formatted page indicator (e.g., "Page 1 / 5")
-  String formattedPageIndicator(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return _totalPages != null
-        ? appLocalizations.page_indicator_with_total(_currentPage, _totalPages!)
-        : appLocalizations.page_indicator(_currentPage);
-  }
-
   /// Returns a formatted item count (e.g., "25 of 100 items")
   String formattedItemCount(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
