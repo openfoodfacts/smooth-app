@@ -63,6 +63,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String title = _getTitle();
 
+    print(title);
+
     context.watch<LocalDatabase>();
     refreshUpToDate();
     return Provider<Product>.value(
