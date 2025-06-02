@@ -8,6 +8,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_acti
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_image_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
@@ -48,6 +49,18 @@ class KnowledgePanelsBuilder {
           );
           if (widget != null) {
             children.add(widget);
+          }
+
+          final List<KnowledgePanel> squarePanels = lookForSquarePanels(
+            context: context,
+            element: element,
+            product: product,
+          );
+
+          if (squarePanels.isNotEmpty) {
+            children.add(
+              KnowledgePanelSquareCard(panels: squarePanels),
+            );
           }
         }
       }
@@ -90,6 +103,69 @@ class KnowledgePanelsBuilder {
       );
     }
     return children;
+  }
+
+  static List<KnowledgePanel> lookForSquarePanels({
+    required final BuildContext context,
+    required final KnowledgePanelElement element,
+    required final Product product,
+  }) {
+    if (element.elementType == KnowledgePanelElementType.PANEL_GROUP) {
+      final List<String>? panelIds = element.panelGroupElement?.panelIds;
+      final List<KnowledgePanel> result = <KnowledgePanel>[];
+
+      for (final String panelId in panelIds ?? <String>[]) {
+        final KnowledgePanel? panelElement =
+            getKnowledgePanel(product, panelId);
+
+        if (panelElement == null) {
+          continue;
+        }
+
+        result.addAll(getSquarePanels(
+          context: context,
+          panel: panelElement,
+          product: product,
+        ));
+      }
+
+      return result;
+    }
+
+    final KnowledgePanel? panelElement =
+        getKnowledgePanel(product, element.panelElement?.panelId ?? '');
+
+    if (panelElement == null) {
+      return <KnowledgePanel>[];
+    }
+
+    return getSquarePanels(
+      context: context,
+      panel: panelElement,
+      product: product,
+    );
+  }
+
+  static List<KnowledgePanel> getSquarePanels({
+    required final BuildContext context,
+    required final KnowledgePanel panel,
+    required final Product product,
+  }) {
+    if (panel.halfWidthOnMobile ?? false) {
+      return <KnowledgePanel>[panel];
+    }
+
+    return panel.elements
+            ?.map(
+              (KnowledgePanelElement e) => lookForSquarePanels(
+                context: context,
+                element: e,
+                product: product,
+              ),
+            )
+            .expand((List<KnowledgePanel> e) => e)
+            .toList() ??
+        <KnowledgePanel>[];
   }
 
   /// Returns all the panel elements from "root".

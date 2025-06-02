@@ -39,6 +39,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     if (panel.elements != null) {
       for (int i = 0; i < panel.elements!.length; i++) {
         final KnowledgePanelElement element = panel.elements![i];
+
         final Widget? elementWidget = KnowledgePanelsBuilder.getElementWidget(
           knowledgePanelElement: element,
           product: product,
