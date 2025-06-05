@@ -59,7 +59,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
 
 /// A manager for handling user data with infinite scrolling
 class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
-  static const int _pageSize = 10;
+  static const int _pageSize = 20;
 
   @override
   Future<void> fetchData(final int pageNumber) async {
