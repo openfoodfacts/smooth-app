@@ -21,15 +21,14 @@ class ProductRawDataPage extends StatefulWidget {
 }
 
 class _ProductRawDataPageState extends State<ProductRawDataPage> {
-late final List<ProductRawDataCategory> productRawDatas;
+  late final List<ProductRawDataCategory> productRawDatas;
 
   @override
   void initState() {
     super.initState();
-    
+
     productRawDatas = widget.product.toRawDatas();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,44 +36,57 @@ late final List<ProductRawDataCategory> productRawDatas;
       body: ListView.separated(
         itemCount: productRawDatas.length,
         separatorBuilder: (BuildContext context, _) =>
-          //remove default margin between elements
-          EMPTY_WIDGET,
+            //remove default margin between elements
+            EMPTY_WIDGET,
         itemBuilder: (_, int index) {
           return ProductRawDataCategoryWidget(
             productRawDatas[index],
-            switch (productRawDatas[index].category) {
-              ProductRawDataCategories.labels => () async {
-                  RawDataEditHelper()
-                      .onInformationsEdit(context, widget.product);
-                },
-              ProductRawDataCategories.category => () async {
-                  RawDataEditHelper()
-                      .onCategoryEditClick(context, widget.product);
-                },
-              ProductRawDataCategories.ingredients => () async {
-                  RawDataEditHelper()
-                      .onIngredientsEditClick(context, widget.product);
-                },
-              ProductRawDataCategories.nutriment => () async {
-                  RawDataEditHelper()
-                      .onNutritionEditClick(context, widget.product);
-                },
-              ProductRawDataCategories.packaging => () {
-                  RawDataEditHelper()
-                      .onPackagingEditClick(context, widget.product);
-                },
-              ProductRawDataCategories.stores => () async {
-                  RawDataEditHelper()
-                      .onStoresEditClick(context, widget.product);
-                },
-              ProductRawDataCategories.countries => () async {
-                  RawDataEditHelper().onCountriesEditClick(
-                      context, widget.product, context.read<UserPreferences>());
-                },
-            },
+            getEditCallbackForCategory(
+              context,
+              productRawDatas[index],
+              widget.product,
+            ),
           );
         },
       ),
     );
+  }
+
+  GestureTapCallback? getEditCallbackForCategory(
+    BuildContext context,
+    ProductRawDataCategory category,
+    Product product,
+  ) {
+    switch (category.category) {
+      case ProductRawDataCategories.labels:
+        return () async {
+          RawDataEditHelper().onInformationsEdit(context, product);
+        };
+      case ProductRawDataCategories.category:
+        return () async {
+          RawDataEditHelper().onCategoryEditClick(context, product);
+        };
+      case ProductRawDataCategories.ingredients:
+        return () async {
+          RawDataEditHelper().onIngredientsEditClick(context, product);
+        };
+      case ProductRawDataCategories.nutriment:
+        return () async {
+          RawDataEditHelper().onNutritionEditClick(context, product);
+        };
+      case ProductRawDataCategories.packaging:
+        return () {
+          RawDataEditHelper().onPackagingEditClick(context, product);
+        };
+      case ProductRawDataCategories.stores:
+        return () async {
+          RawDataEditHelper().onStoresEditClick(context, product);
+        };
+      case ProductRawDataCategories.countries:
+        return () async {
+          RawDataEditHelper().onCountriesEditClick(
+              context, product, context.read<UserPreferences>());
+        };
+    }
   }
 }
