@@ -4,7 +4,8 @@ import 'package:smooth_app/pages/product/product_page/raw_data/models/product_ra
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_element_widget.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class ProductRawDataElementsListWidget extends StatefulWidget { //rename ProductRawDataElementsListWidget
+class ProductRawDataElementsListWidget extends StatefulWidget {
+  //rename ProductRawDataElementsListWidget
   const ProductRawDataElementsListWidget({
     required this.elements,
     this.controller,
@@ -17,7 +18,8 @@ class ProductRawDataElementsListWidget extends StatefulWidget { //rename Product
   State<StatefulWidget> createState() => _CategoryElementsListViewState();
 }
 
-class _CategoryElementsListViewState extends State<ProductRawDataElementsListWidget> {
+class _CategoryElementsListViewState
+    extends State<ProductRawDataElementsListWidget> {
   bool extended = false;
 
   void extendList() {
@@ -37,15 +39,9 @@ class _CategoryElementsListViewState extends State<ProductRawDataElementsListWid
     final Color dividerColor =
         context.lightTheme() ? const Color(0xFFF9F9F9) : Colors.white;
 
-    return Padding(
+    return SliverPadding(
       padding: const EdgeInsetsDirectional.only(start: 90.0),
-      child: ListView.separated( //Turn it into a column
-        controller: widget.controller,
-        physics: const ClampingScrollPhysics(),
-        shrinkWrap: true,
-        padding: const EdgeInsetsDirectional.symmetric(
-          vertical: MEDIUM_SPACE,
-        ),
+      sliver: SliverList.separated(
         itemBuilder: (BuildContext context, int index) {
           return Container(
             margin: const EdgeInsetsDirectional.only(start: 21),
@@ -68,8 +64,7 @@ class _CategoryElementsListViewState extends State<ProductRawDataElementsListWid
   List<ProductRawDataElement> _shortenIfTooLong(
       List<ProductRawDataElement> list) {
     if (list.length > _SUB_LIST_LENGTH) {
-      final List<ProductRawDataElement> toReturn =
-          <ProductRawDataElement>[
+      final List<ProductRawDataElement> toReturn = <ProductRawDataElement>[
         ...list.sublist(0, _SUB_LIST_LENGTH),
         ProductRawDataSeeMoreButton()
       ];

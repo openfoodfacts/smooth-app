@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/category_label_ext.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
@@ -9,8 +10,10 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class ProductRawDataCategoryWidget extends StatelessWidget { //Rename ProductRawDataCategoryWidget
-  const ProductRawDataCategoryWidget(this.category, this.onEditTap, {this.controller});
+class ProductRawDataCategoryWidget extends StatelessWidget {
+  //Rename ProductRawDataCategoryWidget
+  const ProductRawDataCategoryWidget(this.category, this.onEditTap,
+      {this.controller});
 
   final ProductRawDataCategory category;
   final ScrollController? controller;
@@ -20,19 +23,21 @@ class ProductRawDataCategoryWidget extends StatelessWidget { //Rename ProductRaw
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _ProductRawDataCategoryTile( //Rename Header _ProductRawDataSectionHeader
+    return MultiSliver(
+      children: [
+        SliverToBoxAdapter(
+          child: _ProductRawDataCategoryTile(
             category.category.toIcon(),
             category.category.toL10nString(appLocalizations),
             onEditTap,
           ),
-          ProductRawDataElementsListWidget(
-            elements: category.rawDatas,
-            controller: controller,
-          ),
-        ]);
+        ),
+        ProductRawDataElementsListWidget(
+          elements: category.rawDatas,
+        )
+      ],
+    );
+    ;
   }
 }
 
@@ -95,7 +100,8 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
                           customBorder: const CircleBorder(),
                           onTap: onEditTap,
                           child: Tooltip(
-                              message: AppLocalizations.of(context).raw_data_edit_tooltip,
+                              message: AppLocalizations.of(context)
+                                  .raw_data_edit_tooltip,
                               enableFeedback: true,
                               child: icons.Edit())),
                     ),

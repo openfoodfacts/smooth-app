@@ -33,20 +33,15 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: productRawDatas.length,
-        itemBuilder: (_, int index) {
-          return ProductRawDataCategoryWidget(
-            productRawDatas[index],
-            getEditCallbackForCategory(
-              context,
-              productRawDatas[index],
-              widget.product,
-            ),
-          );
-        },
-      ),
-    );
+        body: CustomScrollView(
+      slivers: [
+        for (final category in productRawDatas)
+          ProductRawDataCategoryWidget(
+            category,
+            getEditCallbackForCategory(context, category, widget.product),
+          ),
+      ],
+    ));
   }
 
   GestureTapCallback? getEditCallbackForCategory(
