@@ -33,11 +33,8 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.separated(
+      body: ListView.builder(
         itemCount: productRawDatas.length,
-        separatorBuilder: (BuildContext context, _) =>
-            //remove default margin between elements
-            EMPTY_WIDGET,
         itemBuilder: (_, int index) {
           return ProductRawDataCategoryWidget(
             productRawDatas[index],
