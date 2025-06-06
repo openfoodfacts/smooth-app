@@ -86,7 +86,7 @@ dependencies:
   app_store_uri:
     path: ../app_store/uri_store
 
-  # We use two different scanning engines, 
+  # We use two different scanning engines,
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
   camera: 0.11.1
@@ -101,9 +101,9 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.22.0
-  # openfoodfacts:
-  #   path: ../../../openfoodfacts-dart
+  # openfoodfacts: 3.22.0
+  openfoodfacts:
+    path: ../../../openfoodfacts-dart
 
 dev_dependencies:
   integration_test:

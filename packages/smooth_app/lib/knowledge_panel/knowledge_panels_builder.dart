@@ -393,6 +393,8 @@ class KnowledgePanelsBuilder {
           isClickable: isClickable,
           margin: margin,
         );
+      case TitleElementType.PERCENTAGE:
+        return Text('Waiting for implementation');
 
       case null:
       case TitleElementType.UNKNOWN:
