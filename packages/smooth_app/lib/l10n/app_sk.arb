@@ -1047,7 +1047,7 @@
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "Compare",
+  "product_search_same_category_short": "Porovnať",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1809,7 +1809,7 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_traces_title": "Traces",
+  "edit_product_form_item_traces_title": "Stopy",
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
