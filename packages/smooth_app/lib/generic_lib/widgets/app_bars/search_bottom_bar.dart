@@ -9,7 +9,17 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class SearchBottomBar extends StatelessWidget implements PreferredSizeWidget {
+class SearchBottomBar extends StatefulWidget implements PreferredSizeWidget {
+  @override
+  State<SearchBottomBar> createState() => _SearchBottomBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(SEARCH_BOTTOM_HEIGHT);
+}
+
+class _SearchBottomBarState extends State<SearchBottomBar> {
+  final TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -40,7 +50,7 @@ class SearchBottomBar extends StatelessWidget implements PreferredSizeWidget {
               Expanded(
                 child: SmoothTextFormField(
                   type: TextFieldTypes.PLAIN_TEXT,
-                  controller: TextEditingController(),
+                  controller: _controller,
                   hintText: appLocalizations.preferences_app_bar_search_hint,
                   maxLines: 1,
                   outlined: true,
@@ -67,9 +77,6 @@ class SearchBottomBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(SEARCH_BOTTOM_HEIGHT);
 }
 
 class _SearchBottomBarBackgroundPainter extends CustomPainter {

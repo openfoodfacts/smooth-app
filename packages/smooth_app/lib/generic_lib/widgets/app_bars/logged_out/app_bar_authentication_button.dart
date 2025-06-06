@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class AppBarAuthenticationButton extends StatelessWidget {
   AppBarAuthenticationButton({
@@ -20,6 +21,8 @@ class AppBarAuthenticationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
+
+    final bool lightTheme = context.lightTheme();
 
     return Material(
       borderRadius: ROUNDED_BORDER_RADIUS,
@@ -40,7 +43,9 @@ class AppBarAuthenticationButton extends StatelessWidget {
                           child: Text(
                             title,
                             style: TextStyle(
-                              color: themeExtension.primaryBlack,
+                              color: lightTheme
+                                  ? themeExtension.primaryBlack
+                                  : Colors.white,
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -54,7 +59,9 @@ class AppBarAuthenticationButton extends StatelessWidget {
                       children: <Widget>[
                         Icon(
                           Icons.arrow_circle_right,
-                          color: themeExtension.primaryBlack,
+                          color: lightTheme
+                              ? themeExtension.primaryBlack
+                              : Colors.white,
                           size: 28.0,
                         )
                       ],
