@@ -43,6 +43,7 @@ class AppNewsItem {
     this.minAppVersion,
     this.maxAppVersion,
     this.image,
+    this.darkImage,
     this.style,
   });
 
@@ -57,11 +58,12 @@ class AppNewsItem {
   final String? minAppVersion;
   final String? maxAppVersion;
   final AppNewsImage? image;
+  final AppNewsImage? darkImage;
   final AppNewsStyle? style;
 
   @override
   String toString() {
-    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, style: $style}';
+    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, darkImage: $darkImage, style: $style}';
   }
 }
 
