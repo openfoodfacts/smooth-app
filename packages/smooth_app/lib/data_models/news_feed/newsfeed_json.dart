@@ -199,6 +199,9 @@ class _TagLineItemNewsItem {
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
           : null,
+      darkImage: translation.darkImage?.overridesContent == true
+          ? translation.darkImage?.toTagLineImage()
+          : null,
     );
   }
 
@@ -236,6 +239,7 @@ class _TagLineItemNewsTranslation {
     this.url,
     this.buttonLabel,
     this.image,
+    this.darkImage,
   });
 
   _TagLineItemNewsTranslation.fromJson(Map<dynamic, dynamic> json)
@@ -251,12 +255,16 @@ class _TagLineItemNewsTranslation {
         buttonLabel = json['button_label'],
         image = json['image'] == null
             ? null
-            : _TagLineNewsImage.fromJson(json['image']);
+            : _TagLineNewsImage.fromJson(json['image']),
+        darkImage = json['image_dark'] == null
+            ? null
+            : _TagLineNewsImage.fromJson(json['image_dark']);
   final String? title;
   final String? message;
   final String? url;
   final String? buttonLabel;
   final _TagLineNewsImage? image;
+  final _TagLineNewsImage? darkImage;
 
   _TagLineItemNewsTranslation copyWith({
     String? title,
@@ -264,6 +272,7 @@ class _TagLineItemNewsTranslation {
     String? url,
     String? buttonLabel,
     _TagLineNewsImage? image,
+    _TagLineNewsImage? darkImage,
   }) {
     return _TagLineItemNewsTranslation._(
       title: title ?? this.title,
@@ -271,6 +280,7 @@ class _TagLineItemNewsTranslation {
       url: url ?? this.url,
       buttonLabel: buttonLabel ?? this.buttonLabel,
       image: image ?? this.image,
+      darkImage: darkImage ?? this.darkImage,
     );
   }
 
@@ -285,6 +295,7 @@ class _TagLineItemNewsTranslation {
       url: other.url,
       buttonLabel: other.buttonLabel,
       image: other.image,
+      darkImage: other.darkImage,
     );
   }
 }
@@ -295,6 +306,9 @@ class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
         assert((json['message'] as String).isNotEmpty),
         assert(json['image'] == null ||
             ((json['image'] as Map<String, dynamic>)['url'] as String)
+                .isNotEmpty),
+        assert(json['image_dark'] == null ||
+            ((json['image_dark'] as Map<String, dynamic>)['url'] as String)
                 .isNotEmpty),
         super.fromJson();
 }

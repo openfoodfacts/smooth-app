@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';

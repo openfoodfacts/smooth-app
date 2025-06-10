@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 
 /// A generic stateful widget for infinite scrolling lists that works with InfiniteScrollManager.
@@ -73,13 +74,20 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   }
 
   Future<void> _loadMoreItems() async {
-    if (mounted) {
-      setState(() {});
-      await widget.manager.loadMore(context);
-      if (mounted) {
-        setState(() {});
-      }
+    if (!mounted) {
+      return;
     }
+    setState(() {});
+    await widget.manager.loadMore(context);
+    if (!mounted) {
+      return;
+    }
+    setState(() {});
+    ScaffoldMessenger.of(context).showSnackBar(
+      SmoothFloatingSnackbar(
+        content: Text(_getItemCount(context)),
+      ),
+    );
   }
 
   Widget _buildLoadingState(BuildContext context) {
@@ -101,32 +109,20 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     );
   }
 
+  String _getItemCount(BuildContext context) =>
+      widget.manager.formattedItemCount(context);
+
   Widget _buildFooter(BuildContext context) {
     return const SizedBox(height: MINIMUM_TOUCH_SIZE * 2);
   }
 
-  Widget _buildHeader(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    String title;
-    final int totalPages = widget.manager.totalPages ?? 1;
-    final int currentPage = widget.manager.currentPage;
-    final int itemsCount = widget.manager.items.length;
-    final int totalItems = widget.manager.totalItems ?? itemsCount;
-
-    if (totalPages > 1) {
-      title = appLocalizations.prices_list_length_many_pages(
-        itemsCount,
-        totalItems,
+  Widget _buildHeader(BuildContext context) => SmoothCard(
+        child: ListTile(
+          title: Text(
+            _getItemCount(context),
+          ),
+        ),
       );
-      title = '$title ($currentPage / $totalPages)';
-    } else {
-      title = appLocalizations.prices_list_length_one_page(
-        itemsCount,
-      );
-    }
-
-    return SmoothCard(child: ListTile(title: Text(title)));
-  }
 
   @override
   Widget build(BuildContext context) {

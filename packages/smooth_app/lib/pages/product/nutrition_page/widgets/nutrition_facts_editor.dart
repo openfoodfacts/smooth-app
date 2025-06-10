@@ -99,11 +99,21 @@ class _NutrientRowState extends State<NutrientRow>
     String? extractionValue = robotoffNutrientEntity?.value;
 
     // We need to make sure the value is formatted properly
-    // We also ignore text extractions such as "traces" until the API is ready
     if (extractionValue != null) {
-      final num? extractionValueNum = NumberFormat().tryParse(extractionValue);
-      if (extractionValueNum == null) {
-        extractionValue = extractionValueNum.toString();
+      if (extractionValue != 'traces') {
+        final num? extractionValueNum =
+            NumberFormat().tryParse(extractionValue);
+        if (extractionValueNum == null) {
+          extractionValue = null;
+        } else {
+          try {
+            // get a decent displayable numeric value if possible
+            extractionValue =
+                widget.decimalNumberFormat.format(extractionValueNum);
+          } catch (e) {
+            // at least we tried
+          }
+        }
       }
     }
 
@@ -336,7 +346,13 @@ class _NutrientValueCell extends StatelessWidget {
                               ?.requestFocus();
                         },
                         validator: (String? value) {
-                          if (value == null || value.trim().isEmpty) {
+                          if (value == null ||
+                              value.trim().isEmpty ||
+                              value == 'traces') {
+                            return null;
+                          }
+                          // special case: "missing" nutrient
+                          if (value == _missingNutrientValue) {
                             return null;
                           }
                           try {
@@ -469,10 +485,11 @@ class _NutrientUnitVisibility extends StatelessWidget {
                 customBorder: const CircleBorder(),
                 onTap: () {
                   if (isValueSet) {
-                    controller.text = '-';
+                    controller.text = _missingNutrientValue;
                   } else {
-                    if (controller.previousValue != '-') {
-                      controller.text = controller.previousValue ?? '-';
+                    if (controller.previousValue != _missingNutrientValue) {
+                      controller.text =
+                          controller.previousValue ?? _missingNutrientValue;
                     } else {
                       controller.text = '';
                     }
@@ -493,10 +510,10 @@ class _NutrientUnitVisibility extends StatelessWidget {
   }
 }
 
-extension NutritionTextEditionController on TextEditingController {
-  bool get isSet => text.trim() != '-';
+const String _missingNutrientValue = '-';
 
-  bool get isNotSet => text.trim() == '-';
+extension NutritionTextEditionController on TextEditingController {
+  bool get isSet => text.trim() != _missingNutrientValue;
 }
 
 /// Use this Widget to be notified when the value is set or not
