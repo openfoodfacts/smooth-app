@@ -45,14 +45,18 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     outputs:
-      VERSION_NAME: ${{ env.VERSION_NAME }}
-      VERSION_CODE: ${{ env.VERSION_CODE }}
+      VERSION_NAME: ${{ steps.set_version.outputs.version_name }}
+      VERSION_CODE: ${{ steps.get_code.outputs.version_code }}
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set VERSION_NAME env
-        run: echo "VERSION_NAME=${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}" >> $GITHUB_ENV
+      - name: Compute & set VERSION_NAME
+        id: set_version
+        run: |
+          VERSION_NAME="${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}"
+          echo "VERSION_NAME=$VERSION_NAME" >> "$GITHUB_ENV"
+          echo "version_name=$VERSION_NAME" >> "$GITHUB_OUTPUT"
         #run: echo "VERSION_NAME=1.9.0" >> $GITHUB_ENV
 
       - name: Decrypt Android API JSON file
@@ -75,10 +79,14 @@ jobs:
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
+        id: get_code
         uses: maierj/fastlane-action@v3.1.0
         with:
           lane: getOldVersionCode
           subdirectory: packages/smooth_app/android
+
+      - name: Output VERSION_CODE to step output
+        run: echo "version_code=${VERSION_CODE}" >> "$GITHUB_OUTPUT"
 
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
@@ -102,11 +110,6 @@ jobs:
           file: ./version-code.txt
           tag: "v${{ env.VERSION_NAME }}"
           overwrite: true
-
-      - name: Set output variables
-        run: |
-          echo "VERSION_NAME=${{ env.VERSION_NAME }}" >> $GITHUB_ENV
-          echo "VERSION_CODE=${{ env.VERSION_CODE }}" >> $GITHUB_ENV
 
   android-release:
     concurrency: 
