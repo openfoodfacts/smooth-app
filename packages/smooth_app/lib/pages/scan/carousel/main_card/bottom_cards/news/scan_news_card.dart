@@ -79,6 +79,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
                 message: currentNews.message,
                 textColor: currentNews.style?.messageTextColor,
                 image: currentNews.image,
+                darkImage: currentNews.darkImage,
                 dense: dense,
               ),
               SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
@@ -111,12 +112,14 @@ class _TagLineContentBody extends StatefulWidget {
     required this.dense,
     this.textColor,
     this.image,
+    this.darkImage,
   });
 
   final String message;
   final bool dense;
   final Color? textColor;
   final AppNewsImage? image;
+  final AppNewsImage? darkImage;
 
   @override
   State<_TagLineContentBody> createState() => _TagLineContentBodyState();
@@ -132,7 +135,6 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
@@ -144,13 +146,14 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       overflow: widget.dense ? TextOverflow.ellipsis : null,
       textStyle: TextStyle(
         color: widget.textColor ??
-            (!themeProvider.isDarkMode(context)
+            (context.lightTheme(listen: true)
                 ? theme.primaryBlack
                 : theme.primaryLight),
         fontSize: 15.0,
       ),
     );
 
+    // There's no check for the dark image, as it's optional.
     if (widget.image == null || _imageError) {
       return Padding(
         padding: _contentPadding,
@@ -188,16 +191,20 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
   }
 
   Widget _image() {
-    if (widget.image!.src?.endsWith('svg') == true) {
+    final AppNewsImage image = widget.darkImage == null
+        ? widget.image!
+        : (context.darkTheme() ? widget.darkImage! : widget.image!);
+
+    if (image.src?.endsWith('svg') == true) {
       return SvgCache(
-        widget.image!.src,
-        semanticsLabel: widget.image!.alt,
+        image.src,
+        semanticsLabel: image.alt,
         loadingBuilder: (_) => _onLoading(),
         errorBuilder: (_, __) => _onError(),
       );
     } else {
       return Image.network(
-        semanticLabel: widget.image!.alt,
+        semanticLabel: image.alt,
         loadingBuilder: (
           _,
           Widget child,
@@ -210,7 +217,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
           return child;
         },
         errorBuilder: (_, __, ___) => _onError(),
-        widget.image!.src ?? '-',
+        image.src ?? '-',
       );
     }
   }

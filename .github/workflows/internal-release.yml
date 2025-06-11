@@ -10,7 +10,7 @@ jobs:
     concurrency: 
       group: release
       cancel-in-progress: true
-    if: github.triggering_actor == 'teolemon' || github.triggering_actor == 'stephanegigandet' || github.triggering_actor == 'g123k' || github.triggering_actor == 'monsieurtanuki' || github.triggering_actor == 'M123-dev'
+    if: github.triggering_actor == 'teolemon' || github.triggering_actor == 'stephanegigandet' || github.triggering_actor == 'g123k' || github.triggering_actor == 'monsieurtanuki' || github.triggering_actor == 'M123-dev' || github.triggering_actor == 'raphael0202'
     runs-on: ubuntu-latest
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
