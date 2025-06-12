@@ -41,6 +41,8 @@ enum AnalyticsEvent {
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
   registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
   logoutAction(tag: 'logged out', category: AnalyticsCategory.userManagement),
+  producerSignup(
+      tag: 'signed up as producer', category: AnalyticsCategory.userManagement),
   couldNotScanProduct(
     tag: 'could not scan product',
     category: AnalyticsCategory.couldNotFindProduct,
@@ -190,6 +192,7 @@ enum AnalyticsEditEvents {
   powerEditScreen(name: 'Power Edit Screen'),
   ingredients_and_Origins(name: 'Ingredient And Origins'),
   categories(name: 'Categories'),
+  traces(name: 'Traces'),
   nutrition_Facts(name: 'Nutrition Facts'),
   labelsAndCertifications(name: 'Labels And Certifications'),
   packagingComponents(name: 'Packaging Components'),

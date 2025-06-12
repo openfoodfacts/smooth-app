@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Gegevenskwaliteit",
+  "@contribute_data_quality": {
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
+  },
   "contribute_translate_link_text": "Begin met vertalen",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
@@ -402,6 +406,10 @@
   "contribute_share_content": "Ik wil je laten weten dat ik de app Open Food Facts gebruik, waarmee je op een gepersonaliseerde manier de gezondheids- en milieueffecten van je eten kunt zien. Het werkt door de barcodes op de verpakking te scannen. Het is gratis, vereist geen registratie en je kunt zelfs helpen het aantal ontcijferde producten te vergroten. Download de app voor jouw telefoon via deze link: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
+  },
+  "contribute_prices_gdpr": "Draag de prijzen bij door een GDPR export van je spaarkaartgegevens aan te vragen",
+  "@contribute_prices_gdpr": {
+    "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
   "tap_to_answer": "Tik hier om vragen te beantwoorden",
   "@tap_to_answer": {
@@ -766,6 +774,7 @@
   "score_add_missing_ingredients": "Ontbrekende ingrediënten toevoegen",
   "score_add_missing_packaging_image": "Ontbrekende verpakkingsafbeelding toevoegen",
   "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
+  "score_add_missing_product_traces": "Ontbrekende productsporen toevoegen",
   "score_add_missing_product_category": "Selecteer een categorie",
   "score_add_missing_product_countries": "Voeg ontbrekende productlanden toe",
   "score_add_missing_product_emb": "Voeg ontbrekende producttraceerbaarheidscodes toe",
@@ -1195,7 +1204,7 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, one {}=0{Geen geselecteerd product} =1{Eén geselecteerd product} other{{count} geselecteerde producten}}",
+  "multiselect_title": "{count,plural, =0{Geen geselecteerd product} =1{Eén geselecteerd product} other{{count} geselecteerde producten}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
@@ -1596,9 +1605,17 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
+  "edit_product_form_item_add_action_trace": "Een nieuw spoor toevoegen",
+  "@edit_product_form_item_add_action_trace": {
+    "description": "Tooltip to show when the user long presses the (+) button on a trace"
+  },
   "edit_product_form_item_add_suggestion": "Suggestie toevoegen",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
+  },
+  "edit_product_form_item_deny_suggestion": "Suggestie weigeren",
+  "@edit_product_form_item_deny_suggestion": {
+    "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
   },
   "edit_product_form_item_details_title": "Basisdetails",
   "@edit_product_form_item_details_title": {
@@ -1704,7 +1721,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Invoer van oorsprong (bv: rundvlees uit Argentinië)",
+  "edit_product_form_item_origins_hint": "Voer een herkomst in (bijv. Duitsland)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -1792,6 +1809,18 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
+  "edit_product_form_item_traces_title": "Sporen",
+  "@edit_product_form_item_traces_title": {
+    "description": "Product edition - Traces - Title"
+  },
+  "edit_product_form_item_traces_hint": "spoor",
+  "@edit_product_form_item_traces_hint": {
+    "description": "Product edition - Traces - input textfield hint"
+  },
+  "edit_product_form_item_traces_type": "Voer een spoor in (bijv. sojabonen)",
+  "@edit_product_form_item_traces_type": {
+    "description": "Product edition - Traces - input textfield type"
+  },
   "edit_product_form_item_categories_title": "Categorieën",
   "@edit_product_form_item_categories_title": {
     "description": "Product edition - Categories - Title"
@@ -1836,7 +1865,7 @@
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in en uit door het beeldscherm samen te knijpen",
   "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
     "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
   },
@@ -1844,7 +1873,7 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation title"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Met het **knijp-om-te-zoomen-gebaar** kun je in- of uitzoomen op de foto:",
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
@@ -2257,9 +2286,13 @@
   },
   "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
   "prices_app_button": "Ga naar de Prijzen-app",
+  "prices_bulk_proof_upload_select": "Voeg prijskaartjes rechtstreeks vanuit de galerij toe",
+  "prices_bulk_proof_upload_warning": "Nadat u afbeeldingen hebt geselecteerd, kunt u deze niet meer bewerken!",
+  "prices_bulk_proof_upload_subtitle": "Meerdere prijskaartjes",
+  "prices_bulk_proof_upload_title": "Bulkbewijs uploaden",
   "prices_generic_title": "Prijzen",
-  "prices_add_n_prices": "{count,plural, one {}=1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
-  "prices_send_n_prices": "{count,plural, one {}=1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
+  "prices_add_n_prices": "{count,plural, =1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
+  "prices_send_n_prices": "{count,plural, =1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
   "prices_add_an_item": "Item toevoegen",
   "prices_add_a_price": "Voeg een prijs toe",
   "prices_add_a_receipt": "Een ontvangstbewijs toevoegen",
@@ -2287,7 +2320,7 @@
   "prices_barcode_enter": "Voer de streepjescode in",
   "prices_barcode_reader_action": "Streepjescodelezer",
   "prices_view_prices": "Bekijk de prijzen",
-  "prices_product_accessibility_summary": "{count,plural, one {}=1{1 prijs} other{{count} prijzen}} voor {product}",
+  "prices_product_accessibility_summary": "{count,plural, =1{1 prijs} other{{count} prijzen}} voor {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2299,7 +2332,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
+  "prices_list_length_one_page": "{count,plural, =0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2351,7 +2384,7 @@
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
+  "prices_proofs_list_length_one_page": "{count,plural, =0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2396,7 +2429,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, one {}=0{Geen bewijs} =1{Eén bewijs} other{{count} bewijzen}}",
+  "prices_button_count_proof": "{count,plural, =0{Geen bewijs} =1{Eén bewijs} other{{count} bewijzen}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2405,7 +2438,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, one {}=0{Geen product} =1{Eén product} other{{count} producten}}",
+  "prices_button_count_product": "{count,plural, =0{Geen product} =1{Eén product} other{{count} producten}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2414,7 +2447,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, one {}=0{Geen gebruiker} =1{Eén gebruiker} other{{count} gebruikers}}",
+  "prices_button_count_user": "{count,plural, =0{Geen gebruiker} =1{Eén gebruiker} other{{count} gebruikers}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2423,7 +2456,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, one {}=0{Geen prijs} =1{Eén prijs} other{{count} prijzen}}",
+  "prices_button_count_price": "{count,plural, =0{Geen prijs} =1{Eén prijs} other{{count} prijzen}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -2600,6 +2633,18 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Prijsbijdrageassistent",
+  "prices_validation_assistant": "Prijsvalidatie-assistent",
+  "@prices_validation_assistant": {
+    "description": "List of prices to validate"
+  },
+  "prices_challenges_page": "Uitdagingen",
+  "@prices_challenges_page": {
+    "description": "Community challenges of open prices"
+  },
+  "prices_multiple_proof_addition_system": "Meerdere bewijzen toevoegen",
+  "@prices_multiple_proof_addition_system": {
+    "description": "Upload multiple proofs"
+  },
   "all_search_prices_top_location_single_title": "Prijzen in een winkel",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
@@ -3161,7 +3206,7 @@
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
-  "scan_header_compare_button_valid_state_tooltip": "Vergelijk de producten die u hebt gescand",
+  "scan_header_compare_button_valid_state_tooltip": "Klik om de door u gescande producten te vergelijken",
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
@@ -3515,7 +3560,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Top {count,plural,  one {}other{{count} producten}} downloaden in uw land voor direct scannen",
+  "download_top_n_products": "Top {count,plural,  other{{count} producten}} downloaden in uw land voor direct scannen",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
@@ -3668,6 +3713,7 @@
   "contact_title_press_page": "Perspagina",
   "contact_title_press_email": "Perscontact",
   "contact_title_newsletter": "Abonneer op onze nieuwsbrief",
+  "contact_title_calendar": "Abonneer je op onze communitykalender",
   "hunger_games_loading_line1": "Geef ons een paar seconden…",
   "hunger_games_loading_line2": "We zijn de vragen aan het downloaden!",
   "hunger_games_error_label": "Argh! Er ging iets mis… en we konden de vragen niet laden.",
@@ -3714,10 +3760,6 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_file_language": "nl",
-  "@guide_nutriscore_v2_file_language": {
-    "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
-  },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Wat is de Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "De Nutri-Score is een logo dat tot doel heeft u te informeren over de **voedingskwaliteit van voedingsmiddelen**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
@@ -3744,8 +3786,8 @@
   "guide_nutriscore_v2_new_logo_text": "Vanaf nu kan het logo een vermelding \"**Nieuwe berekening**\" weergeven om te verduidelijken dat het daadwerkelijk om de nieuwe berekening gaat.",
   "guide_nutriscore_v2_new_logo_image_caption": "Het logo van de nieuwe Nutri-Score",
   "guide_nutriscore_v2_where_title": "Waar vind je de nieuwe Nutri-Score berekening?",
-  "guide_nutriscore_v2_where_paragraph1": "De Nutri-Score wordt in meerdere landen toegepast: Duitsland, België, Spanje, Frankrijk, Luxemburg, Nederland en Zwitserland.",
-  "guide_nutriscore_v2_where_paragraph2": "Fabrikanten hebben tot uiterlijk **2026** de tijd om de oude berekening door de nieuwe te **vervangen**.",
+  "guide_nutriscore_v2_where_paragraph1": "De Nutri-Score wordt toegepast in 7 landen: Frankrijk, Duitsland, België, Spanje, Luxemburg, Nederland en Zwitserland.",
+  "guide_nutriscore_v2_where_paragraph2": "Fabrikanten hebben maximaal **2 jaar** na ondertekening van het besluit de tijd om de oude berekening te vervangen door de nieuwe.",
   "guide_nutriscore_v2_where_paragraph3": "Zonder te moeten wachten **vind je in de OpenFoodFacts applicatie** al de nieuwe berekening, ook als de fabrikanten de score nog niet hebben aangepast.",
   "guide_nutriscore_v2_unchanged_title": "Wat niet verandert",
   "guide_nutriscore_v2_unchanged_paragraph1": "De Nutri-Score is een score die is ontworpen om **de voedingskwaliteit te meten**. Het is **complementair aan de NOVA-groep** op **ultrabewerkte voedingsmiddelen** (ook aanwezig in de applicatie).",
@@ -4156,5 +4198,245 @@
   "nutrition_facts_extract_failed": "Het is niet gelukt om voedingsstoffen uit de foto te extraheren",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
+  },
+  "prices_discount": "Korting",
+  "@prices_discount": {
+    "description": "Label for the discount on prices"
+  },
+  "prices_stats_statistics": "Statistieken",
+  "@prices_stats_statistics": {
+    "description": "Label for statistics section"
+  },
+  "prices_stats_title": "Prijzen Statistieken",
+  "@prices_stats_title": {
+    "description": "Title for the prices statistics page"
+  },
+  "prices_stats_prices_section": "Prijzen",
+  "@prices_stats_prices_section": {
+    "description": "Title for the prices section"
+  },
+  "prices_stats_products_section": "Producten",
+  "@prices_stats_products_section": {
+    "description": "Title for the products section"
+  },
+  "prices_stats_locations_section": "Locaties",
+  "@prices_stats_locations_section": {
+    "description": "Title for the locations section"
+  },
+  "prices_stats_proofs_section": "Bewijzen",
+  "@prices_stats_proofs_section": {
+    "description": "Title for the proofs section"
+  },
+  "prices_stats_contributors_section": "Bijdragers",
+  "@prices_stats_contributors_section": {
+    "description": "Title for the contributors section"
+  },
+  "prices_stats_experiments_section": "Experimenten",
+  "@prices_stats_experiments_section": {
+    "description": "Title for the experiments section"
+  },
+  "prices_stats_misc_section": "Diversen",
+  "@prices_stats_misc_section": {
+    "description": "Title for the miscellaneous section"
+  },
+  "prices_stats_total": "Totaal",
+  "@prices_stats_total": {
+    "description": "Label for total count"
+  },
+  "prices_stats_with_barcode": "Met een streepjescode",
+  "@prices_stats_with_barcode": {
+    "description": "Label for count with barcode"
+  },
+  "prices_stats_with_category": "Met een categorie",
+  "@prices_stats_with_category": {
+    "description": "Label for count with category"
+  },
+  "prices_stats_with_discount": "Met een korting",
+  "@prices_stats_with_discount": {
+    "description": "Label for count with discount"
+  },
+  "prices_stats_community": "Gemeenschap",
+  "@prices_stats_community": {
+    "description": "Label for community count"
+  },
+  "prices_stats_consumption": "Consumptie",
+  "@prices_stats_consumption": {
+    "description": "Label for consumption count"
+  },
+  "prices_stats_with_price": "Met een prijs",
+  "@prices_stats_with_price": {
+    "description": "Label for count with price"
+  },
+  "prices_stats_food": "Voedsel",
+  "@prices_stats_food": {
+    "description": "Label for food count"
+  },
+  "prices_stats_beauty": "Schoonheidsindustrie",
+  "@prices_stats_beauty": {
+    "description": "Label for beauty count"
+  },
+  "prices_stats_products": "Producten",
+  "@prices_stats_products": {
+    "description": "Label for products count"
+  },
+  "prices_stats_pet_food": "Dierenvoeding",
+  "@prices_stats_pet_food": {
+    "description": "Label for pet food count"
+  },
+  "prices_stats_osm": "OpenStreetMap",
+  "@prices_stats_osm": {
+    "description": "Label for OpenStreetMap count"
+  },
+  "prices_stats_online": "Online",
+  "@prices_stats_online": {
+    "description": "Label for online count"
+  },
+  "prices_stats_countries": "Landen",
+  "@prices_stats_countries": {
+    "description": "Label for countries count"
+  },
+  "prices_stats_price_tag": "Prijskaartje",
+  "@prices_stats_price_tag": {
+    "description": "Label for price tag count"
+  },
+  "prices_stats_receipt": "Bon",
+  "@prices_stats_receipt": {
+    "description": "Label for receipt count"
+  },
+  "prices_stats_gdpr_request": "AVG-verzoek",
+  "@prices_stats_gdpr_request": {
+    "description": "Label for GDPR request count"
+  },
+  "prices_stats_shop_import": "Winkel import",
+  "@prices_stats_shop_import": {
+    "description": "Label for shop import count"
+  },
+  "prices_stats_challenges": "Uitdagingen",
+  "@prices_stats_challenges": {
+    "description": "Label for challenges count"
+  },
+  "prices_stats_linked_to_price_tag": "Prijzen gekoppeld aan een prijskaartje",
+  "@prices_stats_linked_to_price_tag": {
+    "description": "Label for prices linked to a price tag count"
+  },
+  "prices_stats_currencies": "Valuta's",
+  "@prices_stats_currencies": {
+    "description": "Label for currencies count"
+  },
+  "prices_stats_years": "Jaren",
+  "@prices_stats_years": {
+    "description": "Label for years count"
+  },
+  "prices_stats_by_source_title": "Prijzen en bewijzen per bron",
+  "@prices_stats_by_source_title": {
+    "description": "Title for prices and proofs per source section"
+  },
+  "prices_stats_website": "Website",
+  "@prices_stats_website": {
+    "description": "Label for website source"
+  },
+  "prices_stats_mobile_app": "Mobiele app",
+  "@prices_stats_mobile_app": {
+    "description": "Label for mobile app source"
+  },
+  "prices_stats_api": "API",
+  "@prices_stats_api": {
+    "description": "Label for API source"
+  },
+  "prices_stats_other": "Andere",
+  "@prices_stats_other": {
+    "description": "Label for other sources"
+  },
+  "prices_stats_last_updated": "Laatst bijgewerkt op",
+  "@prices_stats_last_updated": {
+    "description": "Label for last updated timestamp"
+  },
+  "prices_stats_error": "Er is een fout opgetreden bij het laden van de statistieken.",
+  "@prices_stats_error": {
+    "description": "Error message shown when price statistics fail to load"
+  },
+  "product_edit_robotoff_question_answered": "Vraag beantwoord!",
+  "@product_edit_robotoff_question_answered": {
+    "description": "Message displayed when a question from the Robotoff is answered"
+  },
+  "product_edit_robotoff_proof": "Bewijs",
+  "@product_edit_robotoff_proof": {
+    "description": "Title of the image section of the Robotoff question"
+  },
+  "product_edit_robotoff_positive_button": "Suggestie accepteren",
+  "@product_edit_robotoff_positive_button": {
+    "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_negative_button": "Suggestie afwijzen",
+  "@product_edit_robotoff_negative_button": {
+    "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
+  },
+  "product_edit_robotoff_show_proof": "Toon bewijs",
+  "@product_edit_robotoff_show_proof": {
+    "description": "Button to show the proof related to a suggestion"
+  },
+  "product_edit_robotoff_expand_proof": "Uitbreiden bewijs",
+  "@product_edit_robotoff_expand_proof": {
+    "description": "Button to open in fullscreen the proof"
+  },
+  "page_indicator_with_total": "Pagina {current} / {total}",
+  "@page_indicator_with_total": {
+    "description": "Page indicator showing current page and total pages",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of pages"
+      }
+    }
+  },
+  "page_indicator": "Pagina {current}",
+  "@page_indicator": {
+    "description": "Page indicator showing only current page when total is unknown",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "description": "Current page number"
+      }
+    }
+  },
+  "item_count_with_total": "{count} van {total} items",
+  "@item_count_with_total": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count": "{count} artikelen",
+  "@item_count": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "prices_no_result": "Geen prijsstatistieken gevonden.",
+  "@prices_no_result": {
+    "description": "Message shown when there are no price statistics available to display"
+  },
+  "prices_error_loading_more_items": "Fout bij het laden van meer items",
+  "@prices_error_loading_more_items": {
+    "description": "Error message shown when additional items fail to load"
+  },
+  "prices_proof_error": "Authenticatie mislukt, kan geen bewijzen ophalen",
+  "@prices_proof_error": {
+    "description": "Error message shown when unable to fetch proofs"
   }
 }

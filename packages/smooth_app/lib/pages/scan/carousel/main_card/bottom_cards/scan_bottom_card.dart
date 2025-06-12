@@ -132,7 +132,7 @@ class ScanBottomCardContainer extends StatelessWidget {
             color: titleBackgroundColor ??
                 (context.lightTheme()
                     ? extension.primarySemiDark
-                    : extension.primaryBlack),
+                    : extension.secondaryVibrant),
             borderRadius: const BorderRadiusDirectional.only(
               topStart: radius,
               topEnd: radius,
@@ -173,7 +173,7 @@ class ScanBottomCardContainer extends StatelessWidget {
       color: backgroundColor ??
           (context.lightTheme()
               ? extension.primaryMedium
-              : extension.primaryDark),
+              : extension.primaryUltraBlack),
       borderRadius: const BorderRadius.vertical(bottom: radius),
       child: body,
     );

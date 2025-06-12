@@ -58,9 +58,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => ProductPriceAddPage(
                       PriceModel.proof(
-                        proof: widget.proof,
-                        existingPrices: _existingPrices,
-                      ),
+                          proof: widget.proof, existingPrices: _existingPrices),
                     ),
                   ),
                 );
