@@ -308,7 +308,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.hungerGameOpened,
     );
-    await openQuestionPage(context);
+
+    await Navigator.push<int>(
+      context,
+      MaterialPageRoute<int>(
+        builder: (BuildContext context) => const QuestionsPage(),
+      ),
+    );
   }
 
   UserPreferencesItem _getListTile(

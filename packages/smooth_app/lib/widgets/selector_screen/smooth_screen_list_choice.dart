@@ -11,6 +11,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
+import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
@@ -58,8 +59,8 @@ class SmoothSelectorScreen<T> extends StatelessWidget {
           topBar: SmoothTopBar2(
             title: title,
             leadingAction: provider.autoValidate
-                ? SmoothTopBarLeadingAction.minimize
-                : SmoothTopBarLeadingAction.close,
+                ? SmoothLeadingAction.minimize
+                : SmoothLeadingAction.close,
             elevationOnScroll: false,
           ),
           bottomBar: !provider.autoValidate

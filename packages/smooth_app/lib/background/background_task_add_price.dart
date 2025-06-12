@@ -212,11 +212,12 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     final MediaType initialMediaType =
         HttpHelper().imagineMediaType(initialImageUri.path)!;
     final MaybeError<Proof> uploadProof = await OpenPricesAPIClient.uploadProof(
-      proofType: proofType,
-      date: date,
-      currency: currency,
-      locationOSMId: locationOSMId,
-      locationOSMType: locationOSMType,
+      createProofParameters: CreateProofParameters(proofType)
+        ..date = date
+        ..currency = currency
+        ..locationOSMId = locationOSMId
+        ..locationOSMType = locationOSMType
+        ..readyForPriceTagValidation = proofType == ProofType.priceTag,
       imageUri: initialImageUri,
       mediaType: initialMediaType,
       bearerToken: bearerToken,
