@@ -2323,7 +2323,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Prix à l'unité",
+  "prices_per_unit": "Prix a l'unité",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
