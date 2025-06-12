@@ -72,7 +72,9 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final TextEditingController controller = TextEditingController();
-  controller.text = value == null ? &#39;&#39; : &#39;$value${_getPricePer()}&#39;;
+  controller.text = value == null
+      ? &#39;&#39;
+      : &#39;$value${pricePer?.getShortTitle(AppLocalizations.of(context)) ?? &#39;&#39;}&#39;;
   return SmoothTextFormField(
     type: TextFieldTypes.PLAIN_TEXT,
     controller: controller,

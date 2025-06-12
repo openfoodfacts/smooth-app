@@ -68,6 +68,13 @@
       barcodes = json.containsKey(_jsonTagBarcode)
           ? &lt;String&gt;[json[_jsonTagBarcode] as String]
           : _fromJsonListString(json[_jsonTagBarcodes])!,
+      categories =
+          _fromJsonListString(json[_jsonTagCategories]) ?? &lt;String&gt;[],
+      origins =
+          _fromJsonListListString(json[_jsonTagOrigins]) ?? &lt;List&lt;String&gt;&gt;[],
+      labels =
+          _fromJsonListListString(json[_jsonTagLabels]) ?? &lt;List&lt;String&gt;&gt;[],
+      pricePers = _fromJsonListString(json[_jsonTagPricePers]) ?? &lt;String&gt;[],
       pricesAreDiscounted = json.containsKey(_jsonTagIsDiscounted)
           ? &lt;bool&gt;[json[_jsonTagIsDiscounted] as bool]
           : _fromJsonListBool(json[_jsonTagAreDiscounted])!,
@@ -110,11 +117,15 @@
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/barcodes.html">barcodes</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/categories.html">categories</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/currency.html">currency</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/date.html">date</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/labels.html">labels</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/locationOSMId.html">locationOSMId</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/locationOSMType.html">locationOSMType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/origins.html">origins</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/pricePers.html">pricePers</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/prices.html">prices</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/pricesAreDiscounted.html">pricesAreDiscounted</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/pricesWithoutDiscount.html">pricesWithoutDiscount</a></li>

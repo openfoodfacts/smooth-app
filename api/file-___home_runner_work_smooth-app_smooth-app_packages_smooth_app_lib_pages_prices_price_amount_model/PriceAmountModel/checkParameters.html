@@ -66,7 +66,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String? checkParameters(final BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  if (product.barcode.isEmpty) {
+  if (product.barcode.isEmpty &amp;&amp; product.categoryTag.isEmpty) {
     return appLocalizations.prices_amount_no_product;
   }
   _checkedPaidPrice = validateDouble(paidPrice)!;

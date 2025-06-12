@@ -69,11 +69,20 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; addTask(final BuildContext context) async {
   final List&lt;String&gt; barcodes = &lt;String&gt;[];
+  final List&lt;String&gt; categories = &lt;String&gt;[];
+  final List&lt;List&lt;String&gt;&gt; origins = &lt;List&lt;String&gt;&gt;[];
+  final List&lt;List&lt;String&gt;&gt; labels = &lt;List&lt;String&gt;&gt;[];
+  final List&lt;String&gt; pricePers = &lt;String&gt;[];
   final List&lt;bool&gt; pricesAreDiscounted = &lt;bool&gt;[];
   final List&lt;double&gt; prices = &lt;double&gt;[];
   final List&lt;double?&gt; pricesWithoutDiscount = &lt;double?&gt;[];
   for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
     barcodes.add(priceAmountModel.product.barcode);
+    categories.add(priceAmountModel.product.categoryTag);
+    origins.add(priceAmountModel.product.originTags);
+    &#47;&#47; TODO(monsieurtanuki): to be implemented when supported by &quot;prices&quot;
+    labels.add(&lt;String&gt;[]);
+    pricePers.add(priceAmountModel.product.pricePer.offTag);
     pricesAreDiscounted.add(priceAmountModel.promo);
     prices.add(priceAmountModel.checkedPaidPrice);
     pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
@@ -89,6 +98,10 @@
       proofId: proof!.id,
       &#47;&#47; per item
       barcodes: barcodes,
+      categories: categories,
+      origins: origins,
+      labels: labels,
+      pricePers: pricePers,
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
@@ -106,6 +119,10 @@
     currency: currency,
     &#47;&#47; per item
     barcodes: barcodes,
+    categories: categories,
+    origins: origins,
+    labels: labels,
+    pricePers: pricePers,
     pricesAreDiscounted: pricesAreDiscounted,
     prices: prices,
     pricesWithoutDiscount: pricesWithoutDiscount,
