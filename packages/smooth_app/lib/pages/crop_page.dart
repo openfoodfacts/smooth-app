@@ -105,14 +105,14 @@ class _CropPageState extends State<CropPage> {
 
   Rect _getInitialRect() {
     if (widget.initialCropRect == null) {
-      return const Rect.fromLTRB(0, 0, 1, 1);
+      return CropHelper.fullImageCropRect;
     }
     // sometimes the server returns those crop values, meaning full photo.
     if (widget.initialCropRect!.left == -1 ||
         widget.initialCropRect!.top == -1 ||
         widget.initialCropRect!.right == -1 ||
         widget.initialCropRect!.bottom == -1) {
-      return const Rect.fromLTRB(0, 0, 1, 1);
+      return CropHelper.fullImageCropRect;
     }
     final Rect result;
     final CropRotation rotation = widget.initialRotation ?? CropRotation.up;

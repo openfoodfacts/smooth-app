@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart' as off;
 
+part 'app_food_icons.dart';
 part 'app_icons_font.dart';
 
 class Add extends AppIcon {
@@ -119,6 +120,24 @@ class AddPrice extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_yen);
+}
+
+class AddProperty extends AppIcon {
+  const AddProperty({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.add_property);
+
+  const AddProperty.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.add_property_alt);
 }
 
 class AddToList extends AppIcon {
@@ -1332,6 +1351,16 @@ class Recycling extends AppIcon {
   }) : super._(_IconsFont.recycling);
 }
 
+class Remove extends AppIcon {
+  const Remove({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.remove);
+}
+
 class Salt extends AppIcon {
   const Salt({
     super.color,
@@ -1696,6 +1725,7 @@ class AppIconTheme extends InheritedWidget {
   @override
   bool updateShouldNotify(AppIconTheme oldWidget) {
     return color != oldWidget.color ||
+        size != oldWidget.size ||
         semanticLabel != oldWidget.semanticLabel ||
         shadow != oldWidget.shadow ||
         shadow != oldWidget.shadow;
