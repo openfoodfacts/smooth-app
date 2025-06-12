@@ -71,7 +71,16 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
               ),
               const SizedBox(height: VERY_SMALL_SPACE),
               InkWell(
-                onTap: () => launchUrl(Uri.parse('https://wiki.openfoodfacts.org/Folksonomy/Property')),
+                onTap: () async {
+                  final Uri url = Uri.parse('https://wiki.openfoodfacts.org/Folksonomy/Property');
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(url);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Could not open the link.')),
+                    );
+                  }
+                },
                 child: Text(
                   'Search for documented properties',
                   style: TextStyle(
