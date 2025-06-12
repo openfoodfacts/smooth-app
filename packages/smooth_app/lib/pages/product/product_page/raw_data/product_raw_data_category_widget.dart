@@ -11,9 +11,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductRawDataCategoryWidget extends StatelessWidget {
-  //Rename ProductRawDataCategoryWidget
-  const ProductRawDataCategoryWidget(this.category, this.onEditTap,
-      {this.controller});
+  const ProductRawDataCategoryWidget(this.category, this.onEditTap, {this.controller});
 
   final ProductRawDataCategory category;
   final ScrollController? controller;
@@ -24,7 +22,7 @@ class ProductRawDataCategoryWidget extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return MultiSliver(
-      children: [
+      children: <Widget>[
         SliverToBoxAdapter(
           child: _ProductRawDataCategoryTile(
             category.category.toIcon(),
@@ -37,7 +35,6 @@ class ProductRawDataCategoryWidget extends StatelessWidget {
         )
       ],
     );
-    ;
   }
 }
 
@@ -103,7 +100,7 @@ class _ProductRawDataCategoryTile extends StatelessWidget {
                               message: AppLocalizations.of(context)
                                   .raw_data_edit_tooltip,
                               enableFeedback: true,
-                              child: icons.Edit())),
+                              child: const icons.Edit())),
                     ),
                     const SizedBox(width: 28.0),
                   ],

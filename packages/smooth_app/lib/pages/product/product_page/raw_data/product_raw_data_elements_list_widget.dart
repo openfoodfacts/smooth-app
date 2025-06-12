@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_element.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_element_widget.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -18,8 +17,7 @@ class ProductRawDataElementsListWidget extends StatefulWidget {
   State<StatefulWidget> createState() => _CategoryElementsListViewState();
 }
 
-class _CategoryElementsListViewState
-    extends State<ProductRawDataElementsListWidget> {
+class _CategoryElementsListViewState extends State<ProductRawDataElementsListWidget> {
   bool extended = false;
 
   void extendList() {

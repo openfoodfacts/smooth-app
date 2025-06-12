@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-
 import 'package:smooth_app/pages/product/product_page/raw_data/models/product_raw_data_category.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_category_widget.dart';
-
 import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_ext.dart';
 import 'package:smooth_app/pages/product/product_page/raw_data/raw_data_edit_helper.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductRawDataPage extends StatefulWidget {
   const ProductRawDataPage(this.product);
@@ -34,8 +30,8 @@ class _ProductRawDataPageState extends State<ProductRawDataPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: CustomScrollView(
-      slivers: [
-        for (final category in productRawDatas)
+      slivers: <Widget>[
+        for (final ProductRawDataCategory category in productRawDatas)
           ProductRawDataCategoryWidget(
             category,
             getEditCallbackForCategory(context, category, widget.product),
