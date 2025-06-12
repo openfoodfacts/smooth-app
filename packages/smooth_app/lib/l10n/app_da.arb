@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Indtast stregkoden",
+  "prices_category_enter": "Vare uden stregkode",
+  "prices_per_kilogram": "Pris pr. kilogram",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Pris pr. enhed",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / enhed",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Obligatorisk",
+  "prices_category_optional": "Valgfri",
+  "prices_category_error_mandatory": "Kategorien er obligatorisk",
   "prices_barcode_reader_action": "Stregkodelæser",
   "prices_view_prices": "Se priserne",
   "prices_product_accessibility_summary": "{count,plural, =1{1 pris} other{{count} priser}} for {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Prisen er tidligere tilføjet",
   "prices_amount_subtitle": "Beløb",
   "prices_amount_is_discounted": "Er med rabat?",
   "prices_amount_price_normal": "Pris",
