@@ -56,7 +56,7 @@ jobs:
     - name: Check for formatting issues (run "dart format . ")
       run: dart format .
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v6
       with:
         commit_message: "chore: Linting changes"
         branch: ${{ github.event.pull_request.head.ref }}
@@ -104,7 +104,7 @@ jobs:
     - name: Deletion of 3-letter translation files (2/2)
       run: packages/smooth_app/lib/l10n/remove_3_letter_locales.sh
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v6
       with:
         commit_message: "chore: Deletion of 3-letter translation files"
         branch: ${{ github.event.pull_request.head.ref }}
