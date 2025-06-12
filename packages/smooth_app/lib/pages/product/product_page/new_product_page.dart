@@ -226,17 +226,17 @@ class ProductPageState extends State<ProductPage>
       body: Stack(
         children: <Widget>[
           _buildProductBody(context, bottomPadding),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
+          PositionedDirectional(
+            start: 0.0,
+            end: 0.0,
             top: 0.0,
             child: ProductHeader(
               backButtonType: widget.backButton,
             ),
           ),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
+          PositionedDirectional(
+            start: 0.0,
+            end: 0.0,
             bottom: 0.0,
             child: MeasureSize(
               onChange: (Size size) {
