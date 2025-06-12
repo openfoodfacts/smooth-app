@@ -2318,7 +2318,7 @@
     }
   },
   "prices_barcode_enter": "Barcode eingeben",
-  "prices_category_enter": "Artikel ohne Barcode",
+  "prices_category_enter": "Artikel ohne Strichcode",
   "prices_per_kilogram": "Preis pro Kilogramm",
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
@@ -2337,7 +2337,7 @@
   },
   "prices_category_mandatory": "Pflichtfeld",
   "prices_category_optional": "Optional",
-  "prices_category_error_mandatory": "Die Kategorie ist obligatorisch",
+  "prices_category_error_mandatory": "Die Kategorie ist verpflichtend",
   "prices_barcode_reader_action": "Barcodelesegerät",
   "prices_view_prices": "Preise anzeigen",
   "prices_product_accessibility_summary": "{count,plural, =1{1 Preis} other{{count} Preise}} für {product}",
