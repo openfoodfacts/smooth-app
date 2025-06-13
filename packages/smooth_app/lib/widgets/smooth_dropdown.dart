@@ -12,6 +12,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
     this.onChanged,
     this.textAlignment,
     this.loading = false,
+    this.isExpanded = false,
     super.key,
   }) : assert(items.length > 0);
 
@@ -20,6 +21,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
   final ValueChanged<T?>? onChanged;
   final AlignmentGeometry? textAlignment;
   final bool loading;
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +73,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
       ),
       elevation: 4,
       isDense: true,
+      isExpanded: isExpanded,
       underline: EMPTY_WIDGET,
       borderRadius: ROUNDED_BORDER_RADIUS,
       padding: const EdgeInsetsDirectional.only(

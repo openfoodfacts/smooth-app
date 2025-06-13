@@ -60,7 +60,7 @@ class PriceAmountModel {
 
   String? checkParameters(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (product.barcode.isEmpty) {
+    if (product.barcode.isEmpty && product.categoryTag.isEmpty) {
       return appLocalizations.prices_amount_no_product;
     }
     _checkedPaidPrice = validateDouble(paidPrice)!;
