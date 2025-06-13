@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -20,14 +21,13 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 
 class PreferencesPage extends StatelessWidget {
-  String? _getUserId() => OpenFoodAPIConfiguration.globalUser?.userId;
-
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    context.watch<UserManagementProvider>();
 
-    final String? userId = _getUserId();
+    final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
