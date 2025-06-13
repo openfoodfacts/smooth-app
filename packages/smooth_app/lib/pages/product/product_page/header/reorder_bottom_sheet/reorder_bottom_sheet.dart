@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/product/product_page/header/reorder_bottom_sheet/reorder_bottom_sheet_provider.dart';
+import 'package:smooth_app/pages/product/product_page/header/reorder_bottom_sheet/reorderable_item.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -21,10 +23,10 @@ class ReorderBottomSheet<T> extends StatelessWidget {
     this.onVisibilityToggle,
     required this.title,
   }) : _items = items
-            .map((T data) => _ReorderableItem<T>(data: data))
+            .map((T data) => ReorderableItem<T>(data: data))
             .toList(growable: true);
 
-  final List<_ReorderableItem<T>> _items;
+  final List<ReorderableItem<T>> _items;
   final ValueChanged<List<T>> onReorder;
   final LabelBuilder<T> labelBuilder;
   final ValueChanged<T>? onVisibilityToggle;
@@ -36,11 +38,11 @@ class ReorderBottomSheet<T> extends StatelessWidget {
         context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
-    return ChangeNotifierProvider<_ReorderBottomSheetProvider<T>>(
-      create: (_) => _ReorderBottomSheetProvider<T>(_items),
-      child: Consumer<_ReorderBottomSheetProvider<T>>(
+    return ChangeNotifierProvider<ReorderBottomSheetProvider<T>>(
+      create: (_) => ReorderBottomSheetProvider<T>(_items),
+      child: Consumer<ReorderBottomSheetProvider<T>>(
         builder:
-            (BuildContext context, _ReorderBottomSheetProvider<T> provider, _) {
+            (BuildContext context, ReorderBottomSheetProvider<T> provider, _) {
           return DraggableScrollableSheet(
             expand: false,
             initialChildSize: 0.6,
@@ -79,7 +81,7 @@ class ReorderBottomSheet<T> extends StatelessWidget {
                             ),
                           ),
                           itemBuilder: (BuildContext context, int index) {
-                            final _ReorderableItem<T> item =
+                            final ReorderableItem<T> item =
                                 provider.items[index];
                             return Container(
                               key: ValueKey<T>(item.data),
@@ -101,7 +103,7 @@ class ReorderBottomSheet<T> extends StatelessWidget {
                               child: Row(
                                 children: <Widget>[
                                   if (onVisibilityToggle != null)
-                                    Container(
+                                    DecoratedBox(
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: lightTheme
@@ -138,7 +140,7 @@ class ReorderBottomSheet<T> extends StatelessWidget {
                           onReorder: (int oldIndex, int newIndex) {
                             provider.reorder(oldIndex, newIndex);
                             onReorder(provider.items
-                                .map((_ReorderableItem<T> item) => item.data)
+                                .map((ReorderableItem<T> item) => item.data)
                                 .toList(growable: false));
                           },
                         ),
@@ -152,42 +154,5 @@ class ReorderBottomSheet<T> extends StatelessWidget {
         },
       ),
     );
-  }
-}
-
-class _ReorderableItem<T> {
-  _ReorderableItem({required this.data, this.visible = true});
-
-  final T data;
-  final bool visible;
-
-  _ReorderableItem<T> copyWith({bool? visible}) {
-    return _ReorderableItem<T>(
-      data: data,
-      visible: visible ?? this.visible,
-    );
-  }
-}
-
-class _ReorderBottomSheetProvider<T> extends ChangeNotifier {
-  _ReorderBottomSheetProvider(this.items);
-
-  List<_ReorderableItem<T>> items;
-
-  void reorder(int oldIndex, int newIndex) {
-    if (newIndex > oldIndex) {
-      newIndex -= 1;
-    }
-    final _ReorderableItem<T> item = items.removeAt(oldIndex);
-    items.insert(newIndex, item);
-    notifyListeners();
-  }
-
-  void toggleVisibility(_ReorderableItem<T> item) {
-    final int index = items.indexOf(item);
-    if (index != -1) {
-      items[index] = item.copyWith(visible: !item.visible);
-      notifyListeners();
-    }
   }
 }
