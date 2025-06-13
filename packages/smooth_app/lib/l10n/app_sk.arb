@@ -304,7 +304,7 @@
   "@darkmode_light": {
     "description": "Indicator inside the darkmode switch (light)"
   },
-  "darkmode_system_default": "Východzie nastavenie systému",
+  "darkmode_system_default": "Predvolené nastavenie systému",
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
@@ -450,7 +450,7 @@
     "description": "Join which is actually Signup"
   },
   "myPreferences_profile_title": "Váš účet",
-  "myPreferences_profile_subtitle": "Spravujte svoj účet Open Food Facts.",
+  "myPreferences_profile_subtitle": "Spravujte svoj Open Food Facts účet.",
   "myPreferences_settings_title": "Nastavenia aplikácie",
   "myPreferences_settings_subtitle": "Tmavý režim, jazyky…",
   "myPreferences_food_title": "Potravinové preferencie",
@@ -1047,7 +1047,7 @@
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "Compare",
+  "product_search_same_category_short": "Porovnať",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1809,7 +1809,7 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_traces_title": "Traces",
+  "edit_product_form_item_traces_title": "Stopy",
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
@@ -3307,7 +3307,7 @@
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "Ďalšia {count,plural,  =1{otázka} other{{count} otázky}}",
+  "robotoff_next_n_questions": "{count,plural,  =1{Ďalšia otázka} other{Ďalších {count} otázok}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {

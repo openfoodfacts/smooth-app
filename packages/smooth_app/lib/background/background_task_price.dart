@@ -21,6 +21,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     required this.locationOSMType,
     // multi
     required this.barcodes,
+    required this.categories,
+    required this.origins,
+    required this.labels,
+    required this.pricePers,
     required this.pricesAreDiscounted,
     required this.prices,
     required this.pricesWithoutDiscount,
@@ -35,6 +39,13 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
         barcodes = json.containsKey(_jsonTagBarcode)
             ? <String>[json[_jsonTagBarcode] as String]
             : _fromJsonListString(json[_jsonTagBarcodes])!,
+        categories =
+            _fromJsonListString(json[_jsonTagCategories]) ?? <String>[],
+        origins =
+            _fromJsonListListString(json[_jsonTagOrigins]) ?? <List<String>>[],
+        labels =
+            _fromJsonListListString(json[_jsonTagLabels]) ?? <List<String>>[],
+        pricePers = _fromJsonListString(json[_jsonTagPricePers]) ?? <String>[],
         pricesAreDiscounted = json.containsKey(_jsonTagIsDiscounted)
             ? <bool>[json[_jsonTagIsDiscounted] as bool]
             : _fromJsonListBool(json[_jsonTagAreDiscounted])!,
@@ -51,6 +62,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   static const String _jsonTagOSMId = 'osmId';
   static const String _jsonTagOSMType = 'osmType';
   static const String _jsonTagBarcodes = 'barcodes';
+  static const String _jsonTagCategories = 'categories';
+  static const String _jsonTagOrigins = 'origins';
+  static const String _jsonTagLabels = 'labels';
+  static const String _jsonTagPricePers = 'pricePers';
   static const String _jsonTagAreDiscounted = 'areDiscounted';
   static const String _jsonTagPrices = 'prices';
   static const String _jsonTagPricesWithoutDiscount = 'pricesWithoutDiscount';
@@ -98,6 +113,23 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     return result;
   }
 
+  static List<List<String>>? _fromJsonListListString(
+    final List<dynamic>? input,
+  ) {
+    if (input == null) {
+      return null;
+    }
+    final List<List<String>> result = <List<String>>[];
+    for (final dynamic item in input) {
+      final List<String> list = <String>[];
+      for (final dynamic string in item) {
+        list.add(string as String);
+      }
+      result.add(list);
+    }
+    return result;
+  }
+
   static List<bool>? _fromJsonListBool(final List<dynamic>? input) {
     if (input == null) {
       return null;
@@ -116,6 +148,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
 
   // per line
   final List<String> barcodes;
+  final List<String> categories;
+  final List<List<String>> origins;
+  final List<List<String>> labels;
+  final List<String> pricePers;
   final List<bool> pricesAreDiscounted;
   final List<double> prices;
   final List<double?> pricesWithoutDiscount;
@@ -128,6 +164,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     result[_jsonTagOSMId] = locationOSMId;
     result[_jsonTagOSMType] = locationOSMType.offTag;
     result[_jsonTagBarcodes] = barcodes;
+    result[_jsonTagCategories] = categories;
+    result[_jsonTagOrigins] = origins;
+    result[_jsonTagLabels] = labels;
+    result[_jsonTagPricePers] = pricePers;
     result[_jsonTagAreDiscounted] = pricesAreDiscounted;
     result[_jsonTagPrices] = prices;
     result[_jsonTagPricesWithoutDiscount] = pricesWithoutDiscount;
@@ -179,16 +219,22 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   }) async {
     for (int i = 0; i < barcodes.length; i++) {
       final String barcode = barcodes[i];
+      final bool isProduct = barcode.isNotEmpty;
       final Price newPrice = Price()
         ..date = date
         ..currency = currency
         ..locationOSMId = locationOSMId
         ..locationOSMType = locationOSMType
         ..proofId = proofId
+        ..productCode = isProduct ? barcode : null
+        ..categoryTag = isProduct ? null : categories[i]
+        ..originsTags = isProduct ? null : origins[i]
+        ..labelsTags = isProduct ? null : labels[i]
+        ..pricePer = isProduct ? null : PricePer.fromOffTag(pricePers[i])
+        ..type = isProduct ? PriceType.product : PriceType.category
         ..priceIsDiscounted = pricesAreDiscounted[i]
         ..price = prices[i]
-        ..priceWithoutDiscount = pricesWithoutDiscount[i]
-        ..productCode = barcode;
+        ..priceWithoutDiscount = pricesWithoutDiscount[i];
 
       // create price
       final MaybeError<Price?> addedPrice =
@@ -200,7 +246,9 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       if (addedPrice.isError) {
         throw Exception('Could not add price: ${addedPrice.error}');
       }
-      ProductPriceRefresher.setLatestUpdate(barcode);
+      if (isProduct) {
+        ProductPriceRefresher.setLatestUpdate(barcode);
+      }
     }
     localDatabase.notifyListeners();
   }

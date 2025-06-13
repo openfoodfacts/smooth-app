@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
+import 'package:smooth_app/pages/prices/price_per_extension.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
+import 'package:smooth_app/widgets/smooth_dropdown.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
 class PriceAmountCard extends StatefulWidget {
@@ -67,6 +70,27 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
             onPressed:
                 total == 1 ? null : () => priceModel.removeAt(widget.index),
           ),
+          if (model.product.categoryTag.isNotEmpty)
+            const SizedBox(height: SMALL_SPACE),
+          if (model.product.categoryTag.isNotEmpty)
+            SmoothDropdownButton<PricePer>(
+              isExpanded: true,
+              value: model.product.pricePer,
+              items: PricePer.values
+                  .map(
+                    (final PricePer pricePer) => SmoothDropdownItem<PricePer>(
+                      value: pricePer,
+                      label: pricePer.getTitle(appLocalizations),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (final PricePer? value) {
+                if (value == null) {
+                  return;
+                }
+                model.product.pricePer = value;
+              },
+            ),
           SwitchListTile(
             value: model.promo,
             onChanged: (final bool value) => setState(

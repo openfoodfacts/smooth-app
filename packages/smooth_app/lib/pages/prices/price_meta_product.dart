@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -12,30 +14,76 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Meta version of a product, coming from OFF or from Prices.
 class PriceMetaProduct {
-  PriceMetaProduct.product(final Product product)
-      : _product = product,
+  PriceMetaProduct.category({
+    required final String categoryName,
+    required final List<String> originNames,
+    required final OpenFoodFactsLanguage language,
+  })  : _product = null,
+        _categoryName = categoryName,
+        _categoryTag = _getTag(categoryName, language),
+        _originNames = originNames,
+        _originTags = _getTags(originNames, language),
         _priceProduct = null,
         _barcode = null;
+
+  PriceMetaProduct.product(final Product product)
+      : _product = product,
+        _categoryTag = null,
+        _categoryName = null,
+        _priceProduct = null,
+        _barcode = null;
+
   PriceMetaProduct.priceProduct(final PriceProduct priceProduct)
       : _product = null,
+        _categoryTag = null,
+        _categoryName = null,
         _priceProduct = priceProduct,
         _barcode = null;
+
   PriceMetaProduct.unknown(
     final String barcode,
     final LocalDatabase localDatabase,
     final PriceModel priceModel,
   )   : _product = null,
+        _categoryTag = null,
+        _categoryName = null,
         _priceProduct = null,
         _barcode = barcode {
-    _search(localDatabase, priceModel);
+    unawaited(_search(localDatabase, priceModel));
   }
 
+  static String _getTag(
+    final String name,
+    final OpenFoodFactsLanguage language,
+  ) =>
+      '${language.offTag}:$name';
+
+  static List<String> _getTags(
+    final List<String> names,
+    final OpenFoodFactsLanguage language,
+  ) {
+    final List<String> result = <String>[];
+    for (final String name in names) {
+      result.add(_getTag(name, language));
+    }
+    return result;
+  }
+
+  final String? _categoryTag;
+  final String? _categoryName;
+  List<String>? _originTags;
+  List<String>? _originNames;
+
+  PricePer pricePer = PricePer.kilogram;
   Product? _product;
   final PriceProduct? _priceProduct;
   bool _loading = false;
   final String? _barcode;
 
   String get barcode {
+    if (_categoryTag != null) {
+      return '';
+    }
     if (_product != null) {
       return _product!.barcode!;
     }
@@ -45,7 +93,20 @@ class PriceMetaProduct {
     return _barcode!;
   }
 
+  String get categoryTag => _categoryTag ?? '';
+
+  String get categoryName => _categoryName ?? '';
+
+  List<String> get originTags =>
+      _categoryTag == null ? <String>[] : _originTags!;
+
+  List<String> get originNames =>
+      _categoryTag == null ? <String>[] : _originNames!;
+
   String getName(final AppLocalizations appLocalizations) {
+    if (_categoryName != null) {
+      return _categoryName;
+    }
     if (_product != null) {
       return getProductNameAndBrands(
         _product!,

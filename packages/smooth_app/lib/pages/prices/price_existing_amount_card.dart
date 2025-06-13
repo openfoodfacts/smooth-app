@@ -26,12 +26,16 @@ class PriceExistingAmountCard extends StatefulWidget {
 class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
   String? _categoryTag;
   String? _categoryName;
+  List<String>? _originTags;
+  List<String>? _originNames;
 
   @override
   void initState() {
     super.initState();
     _categoryTag = widget.price.categoryTag;
+    _originTags = widget.price.originsTags;
     unawaited(_loadCategoryName());
+    unawaited(_loadOriginNames());
   }
 
   Future<void> _loadCategoryName() async {
@@ -68,13 +72,51 @@ class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
     }
   }
 
+  Future<void> _loadOriginNames() async {
+    if (_originTags == null || _originTags!.isEmpty) {
+      return;
+    }
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+    final Map<String, TaxonomyOrigin>? map =
+        await OpenFoodAPIClient.getTaxonomyOrigins(
+      TaxonomyOriginQueryConfiguration(
+        tags: _originTags!,
+        country: ProductQuery.getCountry(),
+        languages: <OpenFoodFactsLanguage>[language],
+        fields: <TaxonomyOriginField>[TaxonomyOriginField.NAME],
+        includeChildren: false,
+      ),
+    );
+    if (map == null) {
+      return;
+    }
+    final List<String> result = <String>[];
+    for (final String originTag in _originTags!) {
+      String? toBeAdded;
+      final TaxonomyOrigin? origin = map[originTag];
+      if (origin != null) {
+        final Map<OpenFoodFactsLanguage, String>? names = origin.name;
+        if (names != null && names.isNotEmpty) {
+          toBeAdded ??= names[language];
+        }
+      }
+      toBeAdded ??= originTag;
+      result.add(toBeAdded);
+    }
+    _originNames = result;
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDiscounted = widget.price.priceIsDiscounted ?? false;
+    final String? category = _categoryName ?? _categoryTag;
+    final String? origins = _originNames?.join(', ') ?? _originTags?.join(', ');
     return SmoothCardWithRoundedHeader(
-      // TODO(monsieurtanuki): localize
-      title: 'Price previously added',
+      title: appLocalizations.prices_amount_existing_subtitle,
       leading: const Icon(Icons.history),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         vertical: MEDIUM_SPACE,
@@ -86,9 +128,10 @@ class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
             PriceProductListTile(
               product: PriceMetaProduct.priceProduct(widget.price.product!),
             ),
-          if (_categoryName != null || _categoryTag != null)
+          if (category != null || origins != null)
             ListTile(
-              title: Text((_categoryName ?? _categoryTag)!),
+              title: category == null ? null : Text(category),
+              subtitle: origins == null ? null : Text(origins),
             ),
           SwitchListTile(
             value: isDiscounted,
