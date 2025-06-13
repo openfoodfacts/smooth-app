@@ -35,7 +35,9 @@ class PriceProductListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(product.getName(appLocalizations)),
-              Text(product.barcode),
+              if (product.barcode.isNotEmpty) Text(product.barcode),
+              if (product.originNames.isNotEmpty)
+                Text(product.originNames.join(', ')),
             ],
           ),
         ),

@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Saisie du code-barres",
+  "prices_category_enter": "Article sans code-barres",
+  "prices_per_kilogram": "Prix au kilo",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Prix à l'unité",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / unité",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Obligatoire",
+  "prices_category_optional": "Facultatif",
+  "prices_category_error_mandatory": "La catégorie est obligatoire",
   "prices_barcode_reader_action": "Lecteur de code-barres",
   "prices_view_prices": "Voir les prix",
   "prices_product_accessibility_summary": "{count,plural, =1{1 prix} other{{count} prix}} pour {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Prix déjà ajouté",
   "prices_amount_subtitle": "Montant",
   "prices_amount_is_discounted": "En promotion ?",
   "prices_amount_price_normal": "Prix",

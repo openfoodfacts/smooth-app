@@ -4203,11 +4203,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Statistiky",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Statistiky cen",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4347,7 +4347,7 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Naposled aktualizováno",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
