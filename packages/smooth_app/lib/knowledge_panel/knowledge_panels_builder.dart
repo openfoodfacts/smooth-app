@@ -8,7 +8,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_acti
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_image_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square_card.dart';
+import 'package:smooth_app/knowledge_panel/new_knowledge_panels/knowledge_panel_square_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
