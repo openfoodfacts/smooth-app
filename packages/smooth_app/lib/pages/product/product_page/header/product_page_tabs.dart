@@ -65,43 +65,6 @@ class ProductPageTabBar extends StatelessWidget {
     );
   }
 
-  /// Keeping this as it will be useful when we re-impletment the reordering
-  /// of tabs in the future.
-  /* void _showReorderBottomSheet(
-    BuildContext context,
-    List<ProductPageTab> tabs,
-  ) {
-    showSmoothReorderBottomSheet<ProductPageTab>(
-      context,
-      items: tabs.map((ProductPageTab tab) {
-        return tab;
-      }).toList(growable: false),
-      onReorder: (List<ProductPageTab> reorderedItems) {
-        context
-            .read<UserPreferences>()
-            .setProductPageTabs(reorderedItems.map((ProductPageTab tab) {
-              return tab.id;
-            }).toList(growable: false));
-        tabs
-          ..clear()
-          ..addAll(reorderedItems);
-      },
-      labelBuilder: (
-        BuildContext context,
-        ProductPageTab item,
-        int index,
-      ) {
-        return Text(
-          item.labelBuilder(context),
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        );
-      },
-      title: AppLocalizations.of(context).product_page_reorder_tabs,
-    );
-  } */
-
   static List<ProductPageTab> extractTabsFromProduct({
     required BuildContext context,
     required Product product,
