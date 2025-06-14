@@ -102,8 +102,10 @@ class _LanguageSelectorProvider
   }
 
   @override
-  Future<void> onSaveItem(OpenFoodFactsLanguage country) =>
-      preferences.setAppLanguageCode(
-        country.offTag,
+  Future<void> onSaveItem(OpenFoodFactsLanguage language) async =>
+      ProductQuery.setLanguage(
+        null,
+        preferences,
+        languageCode: language.offTag,
       );
 }

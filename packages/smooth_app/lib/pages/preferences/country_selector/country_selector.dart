@@ -1,18 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -123,8 +120,7 @@ class _CountrySelectorButton extends StatelessWidget {
                       SizedBox(
                         width: IconTheme.of(context).size! + LARGE_SPACE,
                         child: AutoSizeText(
-                          EmojiHelper.getEmojiByCountryCode(
-                              country.countryCode)!,
+                          EmojiHelper.getCountryEmoji(country)!,
                           textAlign: TextAlign.center,
                           style:
                               TextStyle(fontSize: IconTheme.of(context).size),
@@ -203,9 +199,7 @@ class _CountrySelectorButton extends StatelessWidget {
     final Country country,
   ) async {
     final UserPreferences userPreferences = context.read<UserPreferences>();
-    final OpenFoodFactsCountry? offCountry =
-        OpenFoodFactsCountry.fromOffTag(country.countryCode);
-    final String? possibleCurrencyCode = offCountry?.currency?.name;
+    final String? possibleCurrencyCode = country.currency?.name;
 
     if (possibleCurrencyCode == null) {
       return;
@@ -274,14 +268,14 @@ class _CountrySelectorScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                EmojiHelper.getEmojiByCountryCode(country.countryCode) ?? '',
+                EmojiHelper.getCountryEmoji(country)!,
                 style: const TextStyle(fontSize: 25.0),
               ),
             ),
             Expanded(
               flex: 2,
               child: Text(
-                country.countryCode.toUpperCase(),
+                country.offTag.toUpperCase(),
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -328,7 +322,7 @@ class _CountrySelectorScreen extends StatelessWidget {
           country.name.toLowerCase().contains(
                 filter.toLowerCase(),
               ) ||
-          country.countryCode.toLowerCase().contains(
+          country.offTag.toLowerCase().contains(
                 filter.toLowerCase(),
               ),
     );
