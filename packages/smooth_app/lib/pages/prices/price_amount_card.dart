@@ -66,9 +66,12 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
         children: <Widget>[
           PriceProductListTile(
             product: model.product,
-            trailingIconData: total == 1 ? null : Icons.clear,
-            onPressed:
-                total == 1 ? null : () => priceModel.removeAt(widget.index),
+            trailing: total == 1
+                ? null
+                : InkWell(
+                    onTap: () => priceModel.removeAt(widget.index),
+                    child: const Icon(Icons.clear),
+                  ),
           ),
           if (model.product.categoryTag.isNotEmpty)
             const SizedBox(height: SMALL_SPACE),

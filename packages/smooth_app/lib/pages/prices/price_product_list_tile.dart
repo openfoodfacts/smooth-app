@@ -7,20 +7,18 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 class PriceProductListTile extends StatelessWidget {
   const PriceProductListTile({
     required this.product,
-    this.trailingIconData,
-    this.onPressed,
+    this.trailing,
   });
 
   final PriceMetaProduct product;
-  final IconData? trailingIconData;
-  final VoidCallback? onPressed;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.sizeOf(context);
     final double size = screenSize.width * 0.20;
-    final Widget child = Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -41,15 +39,8 @@ class PriceProductListTile extends StatelessWidget {
             ],
           ),
         ),
-        if (trailingIconData != null) Icon(trailingIconData),
+        if (trailing != null) trailing!,
       ],
-    );
-    if (onPressed == null) {
-      return child;
-    }
-    return InkWell(
-      onTap: onPressed,
-      child: child,
     );
   }
 }
