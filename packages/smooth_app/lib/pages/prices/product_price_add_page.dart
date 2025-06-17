@@ -167,7 +167,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                           PriceExistingAmountCard(price),
                       for (int i = 0; i < model.length; i++)
                         PriceAmountCard(
-                          key: Key(model.elementAt(i).product.barcode),
+                          key: UniqueKey(),
                           index: i,
                         ),
                       const SizedBox(height: LARGE_SPACE),
