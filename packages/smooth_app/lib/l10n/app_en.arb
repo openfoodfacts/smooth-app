@@ -4438,5 +4438,21 @@
   "prices_proof_error": "Authentication failed, unable to fetch proofs",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "prices_dashboard_title": "My Dashboard",
+  "@prices_dashboard_title": {
+    "description": "Title for the dashboard page"
+  },
+  "prices_dashboard_receipts_and_gdpr_requests": "Receipts & GDPR requests",
+  "@prices_dashboard_receipts_and_gdpr_requests": {
+    "description": "Label for receipts and GDPR requests"
+  },
+  "prices_dashboard_price_labels": "Price labels",
+  "@prices_dashboard_price_labels": {
+    "description": "Label for price labels"
+  },
+  "prices_dashboard_open_in_browser": "Open Prices Dashboard in browser",
+  "@prices_dashboard_open_in_browser": {
+    "description": "Tooltip for the button to open the Prices Dashboard in browser"
   }
 }
