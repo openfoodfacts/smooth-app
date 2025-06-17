@@ -8,11 +8,11 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_acti
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_image_card.dart';
-import 'package:smooth_app/knowledge_panel/new_knowledge_panels/knowledge_panel_square_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
+import 'package:smooth_app/knowledge_panel/new_knowledge_panels/knowledge_panel_square_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
@@ -28,6 +28,7 @@ class KnowledgePanelsBuilder {
     required KnowledgePanelElement panelElement,
     required Product product,
     required bool onboardingMode,
+    bool squaresOnly = true,
   }) {
     final String? panelId = panelElement.panelElement?.panelId;
     final KnowledgePanel? rootPanel =
@@ -46,20 +47,28 @@ class KnowledgePanelsBuilder {
             isTextSelectable: !onboardingMode,
             position: i,
           );
-          if (widget != null) {
-            children.add(widget);
+
+          if (squaresOnly) {
+            final List<KnowledgePanel> squarePanels = lookForSquarePanels(
+              context: context,
+              element: element,
+              product: product,
+            );
+
+            if (squarePanels.isNotEmpty) {
+              if (widget != null) {
+                children.add(widget);
+              }
+              children.add(
+                KnowledgePanelSquareCard(panels: squarePanels),
+              );
+            }
+
+            continue;
           }
 
-          final List<KnowledgePanel> squarePanels = lookForSquarePanels(
-            context: context,
-            element: element,
-            product: product,
-          );
-
-          if (squarePanels.isNotEmpty) {
-            children.add(
-              KnowledgePanelSquareCard(panels: squarePanels),
-            );
+          if (widget != null) {
+            children.add(widget);
           }
         }
       }
@@ -394,8 +403,6 @@ class KnowledgePanelsBuilder {
           margin: margin,
         );
       case TitleElementType.PERCENTAGE:
-        return Text('Waiting for implementation');
-
       case null:
       case TitleElementType.UNKNOWN:
         return Padding(

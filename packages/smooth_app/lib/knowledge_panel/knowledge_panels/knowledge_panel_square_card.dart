@@ -86,7 +86,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
                 ),
                 const SizedBox(width: MEDIUM_SPACE),
                 Text(
-                  '${panel.titleElement?.value}%',
+                  '${_formatValue(panel.titleElement?.value)}${panel.titleElement?.type == TitleElementType.PERCENTAGE ? '%' : ''}',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: indicatorColor(panel.evaluation, themeExtension)),
@@ -97,6 +97,19 @@ class KnowledgePanelSquareCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _formatValue(double? value) {
+    if (value == null) {
+      return '';
+    }
+
+    String formatted = value.toString();
+    if (formatted.contains('.')) {
+      formatted = formatted.replaceAll(RegExp(r'0*$'), '');
+      formatted = formatted.replaceAll(RegExp(r'\.$'), '');
+    }
+    return formatted;
   }
 
   Color indicatorColor(
