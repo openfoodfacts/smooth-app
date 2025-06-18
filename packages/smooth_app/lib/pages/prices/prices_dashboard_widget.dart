@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/data_models/users_profile_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
@@ -13,13 +12,13 @@ import 'package:smooth_app/query/product_query.dart';
 
 class PricesDashboardWidget extends StatefulWidget {
   const PricesDashboardWidget({super.key, required this.userProfile});
-  final UserProfile? userProfile;
+  final PriceUser userProfile;
   @override
   State<PricesDashboardWidget> createState() => _PricesDashboardWidgetState();
 }
 
 class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
-  int selectedIndex = 0;
+  String selectedCategory = 'consumption';
   late Future<MaybeError<GetPricesResult?>> pricesFuture = _getUserPrices();
 
   @override
@@ -32,9 +31,9 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: MEDIUM_SPACE,
       children: <Widget>[
-        categorySwitch(),
+        _categorySwitch(),
         const SizedBox(height: SMALL_SPACE),
-        priceProofButton(widget.userProfile!, appLocalizations),
+        _priceProofButton(widget.userProfile, appLocalizations),
         FutureBuilder<MaybeError<GetPricesResult?>>(
           future: _getUserPrices(),
           builder: (BuildContext context,
@@ -52,7 +51,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
                   title: appLocalizations.prices_generic_title,
                   parameters: GetPricesParameters(),
                   uri: OpenPricesAPIClient.getUri(
-                    path: 'users/${widget.userProfile!.userId}',
+                    path: 'users/${widget.userProfile.userId}',
                     uriHelper: ProductQuery.uriPricesHelper,
                   ),
                 ),
@@ -70,7 +69,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
         await OpenPricesAPIClient.getPrices(
       GetPricesParameters()
         ..owner = OpenFoodAPIConfiguration.globalUser?.userId
-        ..kind = selectedIndex == 0
+        ..kind = selectedCategory == 'consumption'
             ? ContributionKind.consumption
             : ContributionKind.community,
       uriHelper: ProductQuery.uriPricesHelper,
@@ -79,7 +78,8 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
   }
 
   /// Toggle between "My Consumption" and "Other Contributions"
-  Widget categorySwitch() {
+  Widget _categorySwitch() {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.all(VERY_LARGE_SPACE),
       child: Row(
@@ -88,18 +88,19 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
           Expanded(
               flex: 1,
               child: customToggleButton(
-                  0,
+                  'consumption',
                   Icons.shopping_cart,
-                  'Receipts & GDPR requests',
+                  appLocalizations.prices_dashboard_receipts_and_gdpr_requests,
                   () => setState(() {
-                        selectedIndex = 0;
+                        selectedCategory = 'consumption';
                         pricesFuture = _getUserPrices();
                       }))),
           Expanded(
             flex: 1,
-            child: customToggleButton(1, Icons.people, 'Price labels', () {
+            child: customToggleButton('community', Icons.people,
+                appLocalizations.prices_dashboard_price_labels, () {
               setState(() {
-                selectedIndex = 1;
+                selectedCategory = 'community';
                 pricesFuture = _getUserPrices();
               });
             }),
@@ -110,10 +111,10 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
   }
 
   Widget customToggleButton(
-      int index, IconData icon, String label, VoidCallback onTap) {
+      String category, IconData icon, String label, VoidCallback onTap) {
     final Color selectedColor = Theme.of(context).colorScheme.onSurface;
     final Color unselectedColor = selectedColor.withAlpha(128);
-    final bool isSelected = selectedIndex == index;
+    final bool isSelected = selectedCategory == category;
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -151,8 +152,8 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
     );
   }
 
-  Widget priceProofButton(
-      UserProfile profile, AppLocalizations appLocalizations) {
+  Widget _priceProofButton(
+      PriceUser profile, AppLocalizations appLocalizations) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -168,7 +169,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
                 );
               },
               subtitle: Text(appLocalizations.prices_generic_title),
-              title: Text(selectedIndex == 0
+              title: Text(selectedCategory == 'consumption'
                   ? profile.priceKindConsumptionCount.toString()
                   : profile.priceKindCommunityCount.toString()),
               trailing: const Icon(Icons.arrow_forward),
@@ -188,7 +189,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
                 );
               },
               subtitle: Text(appLocalizations.prices_proof_subtitle),
-              title: Text(selectedIndex == 0
+              title: Text(selectedCategory == 'consumption'
                   ? profile.proofKindConsumptionCount.toString()
                   : profile.proofKindCommunityCount.toString()),
               trailing: const Icon(Icons.arrow_forward),

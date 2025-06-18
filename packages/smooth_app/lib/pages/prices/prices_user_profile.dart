@@ -62,7 +62,7 @@ class PricesUserProfile extends StatelessWidget {
       IconData icon, int count, String label, BuildContext context,
       {Color? color}) {
     return SmoothCard(
-      color: Theme.of(context).colorScheme.onSurface.withAlpha(24),
+      // color: Theme.of(context).colorScheme.onSurface.withAlpha(24),
       child: Container(
         width: MediaQuery.sizeOf(context).width / 2 - 3 * LARGE_SPACE,
         padding: const EdgeInsets.all(SMALL_SPACE),
