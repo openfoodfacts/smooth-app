@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
+import 'package:smooth_app/pages/prices/price_category_input_page.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_scan_page.dart';
@@ -95,6 +96,27 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
               await _addBarcodesToList(<String>[barcode], context);
             },
           ),
+          SmoothLargeButtonWithIcon(
+            text: appLocalizations.prices_category_enter,
+            leadingIcon: const Icon(Icons.restaurant),
+            onPressed: () async {
+              final PriceMetaProduct? priceMetaProduct =
+                  await Navigator.push<PriceMetaProduct>(
+                context,
+                MaterialPageRoute<PriceMetaProduct>(
+                  builder: (BuildContext context) =>
+                      const PriceCategoryInputPage(),
+                ),
+              );
+              if (priceMetaProduct == null) {
+                return;
+              }
+              if (!context.mounted) {
+                return;
+              }
+              _addCategoryToList(priceMetaProduct, context);
+            },
+          ),
         ],
       ),
     );
@@ -168,6 +190,22 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
         ),
       );
     }
+  }
+
+  void _addCategoryToList(
+    final PriceMetaProduct priceMetaProduct,
+    final BuildContext context,
+  ) {
+    final PriceModel priceModel = Provider.of<PriceModel>(
+      context,
+      listen: false,
+    );
+    _addProductToList(
+      priceModel,
+      priceMetaProduct,
+      context,
+    );
+    priceModel.notifyListeners();
   }
 
   void _addProductToList(

@@ -41,6 +41,8 @@ enum AnalyticsEvent {
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
   registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
   logoutAction(tag: 'logged out', category: AnalyticsCategory.userManagement),
+  producerSignup(
+      tag: 'signed up as producer', category: AnalyticsCategory.userManagement),
   couldNotScanProduct(
     tag: 'could not scan product',
     category: AnalyticsCategory.couldNotFindProduct,
