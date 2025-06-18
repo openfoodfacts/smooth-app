@@ -330,6 +330,13 @@ class KnowledgePanelsBuilder {
             isClickable: isClickable,
           ),
         );
+      case TitleElementType.PERCENTAGE:
+        // TODO: Implement percentage case for title element.
+        /// The case is added to fix type errors but functionality is not implemented yet.
+        /// TitleElementType.PERCENTAGE was introduced after PR #1086
+        /// (https://github.com/openfoodfacts/openfoodfacts-dart/pull/1086).
+        /// Implementation for percentage case still needs to be added.
+        throw UnimplementedError();
     }
   }
 }

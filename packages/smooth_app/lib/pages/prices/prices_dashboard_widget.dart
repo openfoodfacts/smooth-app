@@ -35,7 +35,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
         const SizedBox(height: SMALL_SPACE),
         _priceProofButton(widget.userProfile, appLocalizations),
         FutureBuilder<MaybeError<GetPricesResult?>>(
-          future: _getUserPrices(),
+          future: pricesFuture,
           builder: (BuildContext context,
               AsyncSnapshot<MaybeError<GetPricesResult?>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {

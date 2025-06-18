@@ -12,8 +12,7 @@ class PricesUserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothCard(
-      child: ListView(
-        shrinkWrap: true,
+      child: Column(
         children: <Widget>[
           ListTile(
             leading: const Icon(Icons.person),
