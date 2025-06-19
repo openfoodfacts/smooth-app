@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/prices_dashboard_widget.dart';
 import 'package:smooth_app/pages/prices/prices_user_profile.dart';
@@ -48,12 +49,14 @@ class PricesDashboardPage extends StatelessWidget {
               return Text(snapshot.error!.toString());
             }
             final PriceUser userProfile = snapshot.data!.value;
-            return Column(
-              children: <Widget>[
-                PricesUserProfile(profile: userProfile),
-                Expanded(
-                    child: PricesDashboardWidget(userProfile: userProfile)),
-              ],
+            return SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  PricesUserProfile(profile: userProfile),
+                  PricesDashboardWidget(userProfile: userProfile),
+                  const SizedBox(height: VERY_LARGE_SPACE),
+                ],
+              ),
             );
           }),
     );

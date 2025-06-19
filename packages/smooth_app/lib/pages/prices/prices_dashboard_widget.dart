@@ -5,9 +5,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_data_widget.dart';
+import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
-import 'package:smooth_app/pages/prices/product_prices_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class PricesDashboardWidget extends StatefulWidget {
@@ -24,12 +25,10 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: MEDIUM_SPACE,
       children: <Widget>[
         _categorySwitch(),
         const SizedBox(height: SMALL_SPACE),
@@ -45,18 +44,53 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
               return Center(child: Text(snapshot.error.toString()));
             }
 
-            return Expanded(
-              child: ProductPricesList(
-                GetPricesModel(
-                  title: appLocalizations.prices_generic_title,
-                  parameters: GetPricesParameters(),
-                  uri: OpenPricesAPIClient.getUri(
-                    path: 'users/${widget.userProfile.userId}',
-                    uriHelper: ProductQuery.uriPricesHelper,
-                  ),
+            if (snapshot.data?.value == null ||
+                snapshot.data?.value!.items == null ||
+                snapshot.data!.value!.items!.isEmpty) {
+              return const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(LARGE_SPACE),
+                  child:
+                      Text('No prices found', style: TextStyle(fontSize: 14)),
                 ),
-                pricesResult: snapshot.data!.value,
+              );
+            }
+            final List<Price> prices = snapshot.data!.value!.items!;
+
+            final GetPricesModel model = GetPricesModel(
+              title: appLocalizations.prices_generic_title,
+              parameters: GetPricesParameters()
+                ..owner = widget.userProfile.userId
+                ..kind = selectedCategory == 'consumption'
+                    ? ContributionKind.consumption
+                    : ContributionKind.community,
+              uri: OpenPricesAPIClient.getUri(
+                path: 'users/${widget.userProfile.userId}',
+                uriHelper: ProductQuery.uriPricesHelper,
               ),
+            );
+
+            return Column(
+              children: prices.map((Price item) {
+                final PriceProduct? priceProduct = item.product;
+                return SmoothCard(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      if (model.displayEachProduct && priceProduct != null)
+                        PriceProductWidget(
+                          priceProduct,
+                          enableCountButton: model.enableCountButton,
+                        ),
+                      PriceDataWidget(
+                        item,
+                        model: model,
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
             );
           },
         ),
@@ -65,16 +99,14 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
   }
 
   Future<MaybeError<GetPricesResult?>> _getUserPrices() async {
-    final MaybeError<GetPricesResult?> prices =
-        await OpenPricesAPIClient.getPrices(
+    return OpenPricesAPIClient.getPrices(
       GetPricesParameters()
-        ..owner = OpenFoodAPIConfiguration.globalUser?.userId
+        ..owner = widget.userProfile.userId
         ..kind = selectedCategory == 'consumption'
             ? ContributionKind.consumption
             : ContributionKind.community,
       uriHelper: ProductQuery.uriPricesHelper,
     );
-    return prices;
   }
 
   /// Toggle between "My Consumption" and "Other Contributions"
@@ -87,7 +119,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
         children: <Widget>[
           Expanded(
               flex: 1,
-              child: customToggleButton(
+              child: _categoryToggleButton(
                   'consumption',
                   Icons.shopping_cart,
                   appLocalizations.prices_dashboard_receipts_and_gdpr_requests,
@@ -97,7 +129,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
                       }))),
           Expanded(
             flex: 1,
-            child: customToggleButton('community', Icons.people,
+            child: _categoryToggleButton('community', Icons.people,
                 appLocalizations.prices_dashboard_price_labels, () {
               setState(() {
                 selectedCategory = 'community';
@@ -110,7 +142,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
     );
   }
 
-  Widget customToggleButton(
+  Widget _categoryToggleButton(
       String category, IconData icon, String label, VoidCallback onTap) {
     final Color selectedColor = Theme.of(context).colorScheme.onSurface;
     final Color unselectedColor = selectedColor.withAlpha(128);
