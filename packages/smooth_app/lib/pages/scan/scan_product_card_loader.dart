@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_not_supported.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
@@ -31,12 +31,11 @@ class ScanProductCardLoader extends StatelessWidget {
             product: snapshot.data!,
             onRemoveProduct: onRemoveProduct,
           );
-        } else {
-          return ScanProductCardNotSupported(
-            barcode: barcode,
-            onRemoveProduct: onRemoveProduct,
-          );
         }
+        return ScanProductCardLoading(
+          barcode: barcode,
+          onRemoveProduct: onRemoveProduct,
+        );
       },
     );
   }
