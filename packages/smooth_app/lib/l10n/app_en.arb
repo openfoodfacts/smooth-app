@@ -4172,6 +4172,10 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "product_page_tab_folksonomy": "Folksonomy",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
   "product_page_reorder_tabs": "Reorder tabs",
   "@product_page_reorder_tabs": {
     "description": "Used for reorder tabs button and bottom sheet"
