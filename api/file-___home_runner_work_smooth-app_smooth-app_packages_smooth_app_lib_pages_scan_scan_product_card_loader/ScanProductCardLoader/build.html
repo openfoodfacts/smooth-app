@@ -83,12 +83,11 @@ Widget build(BuildContext context) {
           product: snapshot.data!,
           onRemoveProduct: onRemoveProduct,
         );
-      } else {
-        return ScanProductCardNotSupported(
-          barcode: barcode,
-          onRemoveProduct: onRemoveProduct,
-        );
       }
+      return ScanProductCardLoading(
+        barcode: barcode,
+        onRemoveProduct: onRemoveProduct,
+      );
     },
   );
 }</code></pre>
