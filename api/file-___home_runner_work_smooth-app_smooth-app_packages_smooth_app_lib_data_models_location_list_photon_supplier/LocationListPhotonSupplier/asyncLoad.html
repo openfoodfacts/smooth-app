@@ -96,7 +96,9 @@ Future&lt;String?&gt; asyncLoad() async {
     if (response.statusCode != 200) {
       return &#39;Could not retrieve locations&#39;;
     }
-    final Map&lt;String, dynamic&gt; map = json.decode(response.body);
+    final Map&lt;String, dynamic&gt; map = jsonDecode(
+      utf8.decode(response.bodyBytes),
+    );
     if (map[&#39;type&#39;] != &#39;FeatureCollection&#39;) {
       return &#39;Unexpected result type: ${map[&#39;type&#39;]}&#39;;
     }
