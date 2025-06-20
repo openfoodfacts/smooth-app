@@ -23,7 +23,6 @@ enum ScannedProductState {
   LOADING,
   CACHED,
   ERROR_INTERNET,
-  ERROR_INVALID_CODE,
 }
 
 class ContinuousScanModel with ChangeNotifier {

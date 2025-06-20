@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:uuid/uuid.dart';
@@ -39,12 +40,13 @@ abstract class ProductQuery {
 
   /// Sets the global language for API queries.
   static void setLanguage(
-    final BuildContext context,
+    final BuildContext? context,
     final UserPreferences userPreferences, {
     String? languageCode,
   }) {
     languageCode ??= userPreferences.appLanguageCode ??
-        Localizations.localeOf(context).languageCode;
+        (context == null ? 'en' : Localizations.localeOf(context).languageCode);
+    OpenFoodFactsCountryLocalization.setLocale(languageCode);
 
     final OpenFoodFactsLanguage language =
         LanguageHelper.fromJson(languageCode);

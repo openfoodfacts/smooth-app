@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +19,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -373,72 +373,50 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
 
-    return FutureBuilder<String?>(
-      future: _getTranslatedCountry(),
-      builder: (
-        final BuildContext context,
-        final AsyncSnapshot<String?> snapshot,
-      ) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final List<String> messages = <String>[];
-        String counting = appLocalizations.user_list_length(
-          _model.supplier.partialProductList.totalSize,
-        );
-        if (pagedProductQuery.hasDifferentCountryWorldData()) {
-          if (pagedProductQuery.world) {
-            counting += ' (${appLocalizations.world_results_label})';
-          } else {
-            if (snapshot.data != null) {
-              counting += ' (${snapshot.data})';
-            }
-          }
-        }
-        messages.add(counting);
-        final int? lastUpdate = _model.supplier.timestamp;
-        if (lastUpdate != null) {
-          final String lastTime =
-              ProductQueryPageHelper.getDurationStringFromTimestamp(
-                  lastUpdate, context);
-          messages.add('${appLocalizations.cached_results_from} $lastTime');
-        }
-        return SizedBox(
-          width: double.infinity,
-          child: SmoothCard(
-            child: Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Row(
-                children: <Widget>[
-                  Expanded(child: Text(messages.join('\n'))),
-                  if (pagedProductQuery.getWorldQuery() != null)
-                    _getIconButton(
-                      _getWorldAction(
-                        appLocalizations,
-                        worldQuery!,
-                        widget.includeAppBar,
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> messages = <String>[];
+    String counting = appLocalizations.user_list_length(
+      _model.supplier.partialProductList.totalSize,
     );
-  }
-
-  Future<String?> _getTranslatedCountry() async {
-    if (_country == null) {
-      return null;
-    }
-    final String locale = Localizations.localeOf(context).languageCode;
-    final List<Country> localizedCountries =
-        await IsoCountries.isoCountriesForLocale(locale);
-    for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() == _country?.offTag.toLowerCase()) {
-        return country.name;
+    if (pagedProductQuery.hasDifferentCountryWorldData()) {
+      if (pagedProductQuery.world) {
+        counting += ' (${appLocalizations.world_results_label})';
+      } else {
+        final String? countryName = _country?.name;
+        if (countryName != null) {
+          counting += ' ($countryName)';
+        }
       }
     }
-    return null;
+    messages.add(counting);
+    final int? lastUpdate = _model.supplier.timestamp;
+    if (lastUpdate != null) {
+      final String lastTime =
+          ProductQueryPageHelper.getDurationStringFromTimestamp(
+              lastUpdate, context);
+      messages.add('${appLocalizations.cached_results_from} $lastTime');
+    }
+    return SizedBox(
+      width: double.infinity,
+      child: SmoothCard(
+        child: Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: Row(
+            children: <Widget>[
+              Expanded(child: Text(messages.join('\n'))),
+              if (pagedProductQuery.getWorldQuery() != null)
+                _getIconButton(
+                  _getWorldAction(
+                    appLocalizations,
+                    worldQuery!,
+                    widget.includeAppBar,
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _getLargeButtonWithIcon(final _Action action) =>

@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:iso_countries/country.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -9,7 +8,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/country_selector.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -1051,13 +1050,7 @@ class SimpleInputPageCategoryNotFoodHelper
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   SimpleInputPageCountryHelper(UserPreferences userPreferences)
-      : _userCountryCode = userPreferences.userCountryCode ?? 'en' {
-    CountriesHelper.getCountries(
-      getLanguage().offTag,
-    ).then((List<Country>? countries) {
-      _countries = countries ?? <Country>[];
-    });
-  }
+      : _userCountryCode = userPreferences.userCountryCode ?? 'fr';
 
   final String _userCountryCode;
 
@@ -1065,7 +1058,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       ValueNotifier<SimpleInputSuggestionsState>(
     const SimpleInputSuggestionsLoading(),
   );
-  List<Country>? _countries;
+  final List<Country> _countries = OpenFoodFactsCountry.values;
 
   @override
   List<String> initTerms(final Product product) =>
@@ -1116,16 +1109,8 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       _suggestionsNotifier;
 
   Future<void> _reloadSuggestions() async {
-    _countries ??= await CountriesHelper.getCountries(
-      getLanguage().offTag,
-    );
-    if (_countries == null) {
-      _suggestionsNotifier.value = const SimpleInputSuggestionsNoSuggestion();
-      return;
-    }
-
-    final Country? country = _countries!.firstWhereOrNull(
-      (Country country) => country.countryCode == _userCountryCode,
+    final Country? country = _countries.firstWhereOrNull(
+      (Country country) => country.offTag == _userCountryCode,
     );
 
     if (country == null || _terms.contains(country.name) == true) {
