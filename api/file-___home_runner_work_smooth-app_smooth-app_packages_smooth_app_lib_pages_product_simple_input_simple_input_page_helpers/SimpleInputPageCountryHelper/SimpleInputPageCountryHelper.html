@@ -60,13 +60,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">SimpleInputPageCountryHelper(UserPreferences userPreferences)
-    : _userCountryCode = userPreferences.userCountryCode ?? &#39;en&#39; {
-  CountriesHelper.getCountries(
-    getLanguage().offTag,
-  ).then((List&lt;Country&gt;? countries) {
-    _countries = countries ?? &lt;Country&gt;[];
-  });
-}</code></pre>
+    : _userCountryCode = userPreferences.userCountryCode ?? &#39;fr&#39;;</code></pre>
 </section>
 
 
