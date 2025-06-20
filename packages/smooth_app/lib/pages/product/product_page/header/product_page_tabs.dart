@@ -86,6 +86,10 @@ class ProductPageTabBar extends StatelessWidget {
         onboardingMode: false,
       );
 
+      if (children.isEmpty) {
+        continue;
+      }
+
       final KnowledgePanelTitle knowledgePanelTitle =
           children.first as KnowledgePanelTitle;
 

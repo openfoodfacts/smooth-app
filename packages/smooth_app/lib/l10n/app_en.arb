@@ -4172,10 +4172,6 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
-  "product_page_tab_folksonomy": "Folksonomy",
-  "@product_page_tab_folksonomy": {
-    "description": "Label of the folksonomy tab on the product page"
-  },
   "product_page_reorder_tabs": "Reorder tabs",
   "@product_page_reorder_tabs": {
     "description": "Used for reorder tabs button and bottom sheet"
@@ -4426,7 +4422,7 @@
   },
   "product_page_tab_raw_data": "Raw data",
   "@product_page_tab_raw_data": {
-      "description": "Label of the raw data tab on the product page"
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Page {current} / {total}",
   "@page_indicator_with_total": {
