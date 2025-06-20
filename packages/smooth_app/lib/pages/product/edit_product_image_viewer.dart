@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/common/product_picture_banner.dart';
 import 'package:smooth_app/pages/product/helpers/pinch_to_zoom_indicator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -108,6 +109,38 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
                           message: AppLocalizations.of(context).close,
                           child: const SmoothIndicatorIcon(
                             icon: icons.Close(
+                              size: 14.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                PositionedDirectional(
+                  bottom: 60.0,
+                  end: 3.5,
+                  child: Offstage(
+                    offstage: _animation.value != 1.0,
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: InkWell(
+                        customBorder: const CircleBorder(),
+                        onTap: () async {
+                          final Product product = context.read<Product>();
+                          await showPhotoBanner(
+                            context: context,
+                            product: product,
+                            imageField: widget.imageField,
+                            language:
+                                widget.language ?? ProductQuery.getLanguage(),
+                          );
+                        },
+                        child: Tooltip(
+                          message: AppLocalizations.of(context)
+                              .edit_photo_button_label,
+                          child: const SmoothIndicatorIcon(
+                            icon: icons.Edit(
                               size: 14.0,
                             ),
                           ),
