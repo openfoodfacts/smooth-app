@@ -12,7 +12,6 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_tabl
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
-import 'package:smooth_app/knowledge_panel/new_knowledge_panels/knowledge_panel_square_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
@@ -47,25 +46,6 @@ class KnowledgePanelsBuilder {
             isTextSelectable: !onboardingMode,
             position: i,
           );
-
-          if (squaresOnly) {
-            final List<KnowledgePanel> squarePanels = lookForSquarePanels(
-              context: context,
-              element: element,
-              product: product,
-            );
-
-            if (squarePanels.isNotEmpty) {
-              if (widget != null) {
-                children.add(widget);
-              }
-              children.add(
-                KnowledgePanelSquareCard(panels: squarePanels),
-              );
-            }
-
-            continue;
-          }
 
           if (widget != null) {
             children.add(widget);
@@ -111,7 +91,6 @@ class KnowledgePanelsBuilder {
   }
 
   static List<KnowledgePanel> lookForSquarePanels({
-    required final BuildContext context,
     required final KnowledgePanelElement element,
     required final Product product,
   }) {
@@ -128,7 +107,6 @@ class KnowledgePanelsBuilder {
         }
 
         result.addAll(getSquarePanels(
-          context: context,
           panel: panelElement,
           product: product,
         ));
@@ -145,14 +123,12 @@ class KnowledgePanelsBuilder {
     }
 
     return getSquarePanels(
-      context: context,
       panel: panelElement,
       product: product,
     );
   }
 
   static List<KnowledgePanel> getSquarePanels({
-    required final BuildContext context,
     required final KnowledgePanel panel,
     required final Product product,
   }) {
@@ -163,7 +139,6 @@ class KnowledgePanelsBuilder {
     return panel.elements
             ?.map(
               (KnowledgePanelElement e) => lookForSquarePanels(
-                context: context,
                 element: e,
                 product: product,
               ),
