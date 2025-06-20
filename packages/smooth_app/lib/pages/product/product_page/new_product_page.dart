@@ -15,8 +15,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/knowledge_panel/environment_knowledge_panel.dart';
-import 'package:smooth_app/knowledge_panel/health_knowledge_panel.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
@@ -208,15 +206,6 @@ class ProductPageState extends State<ProductPage>
                 ),
               ),
             ),
-            const SizedBox(height: VERY_LARGE_SPACE),
-            HealthKnowledgePanel(
-              product: upToDateProduct,
-            ),
-            const SizedBox(height: VERY_LARGE_SPACE),
-            EnvironmentKnowledgePanel(
-              product: upToDateProduct,
-            ),
-            const SizedBox(height: VERY_LARGE_SPACE),
             if (userPreferences.getFlag(
                     UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
                 false)
