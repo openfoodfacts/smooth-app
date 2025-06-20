@@ -2574,28 +2574,28 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_barcode_enter => 'Syötä viivakoodi';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Tuote ilman viivakoodia';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Kilohinta';
 
   @override
-  String get prices_per_unit => 'Price per unit';
+  String get prices_per_unit => 'Hinta per yksikkö';
 
   @override
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / yksikkö';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Pakollinen';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Valinnainen';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Luokka on pakollinen';
 
   @override
   String get prices_barcode_reader_action => 'Viivakoodinlukija';
@@ -2725,7 +2725,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Hinta lisätty aiemmin';
 
   @override
   String get prices_amount_subtitle => 'Määrä';

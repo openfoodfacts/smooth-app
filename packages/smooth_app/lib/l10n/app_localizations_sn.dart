@@ -2572,10 +2572,10 @@ class AppLocalizationsSn extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Chinhu chisina barcode';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Mutengo pakirogiramu';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2584,7 +2584,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / chikwata';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
@@ -2593,7 +2593,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get prices_category_optional => 'Optional';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Chikamu chinosungirwa';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2723,7 +2723,7 @@ class AppLocalizationsSn extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Mutengo wakambowedzerwa';
 
   @override
   String get prices_amount_subtitle => 'Amount';

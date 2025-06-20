@@ -2644,7 +2644,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_per_kilogram => 'Prix au kilo';
 
   @override
-  String get prices_per_unit => 'Prix à l\'unité';
+  String get prices_per_unit => 'Prix a l\'unité';
 
   @override
   String get prices_per_kilogram_short => ' / kg';

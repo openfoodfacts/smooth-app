@@ -2574,10 +2574,10 @@ class AppLocalizationsBs extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Artikal bez barkoda';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Cijena po kilogramu';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2586,16 +2586,16 @@ class AppLocalizationsBs extends AppLocalizations {
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / jedinica';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Opcionalno';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Kategorija je obavezna';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2725,7 +2725,7 @@ class AppLocalizationsBs extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Cijena je prethodno dodana';
 
   @override
   String get prices_amount_subtitle => 'Amount';

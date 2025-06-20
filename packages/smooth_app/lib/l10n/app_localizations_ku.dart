@@ -2572,10 +2572,10 @@ class AppLocalizationsKu extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Babet bê barkod';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Bihayê her kîlogramê';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2584,16 +2584,16 @@ class AppLocalizationsKu extends AppLocalizations {
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / yekîneyê';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Bixwe';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Kategoriyê mecbûrî ye';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2723,7 +2723,7 @@ class AppLocalizationsKu extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Bihayê berê lê zêdekirî';
 
   @override
   String get prices_amount_subtitle => 'Amount';

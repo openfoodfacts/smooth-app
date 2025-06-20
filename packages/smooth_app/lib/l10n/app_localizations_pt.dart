@@ -2624,28 +2624,28 @@ class AppLocalizationsPt extends AppLocalizations {
   String get prices_barcode_enter => 'Digite o código de barras';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Artigo sem código de barras';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Preço por quilograma';
 
   @override
-  String get prices_per_unit => 'Price per unit';
+  String get prices_per_unit => 'Preço por unidade';
 
   @override
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / unidade';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Obrigatório';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Opcional';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'A categoria é obrigatória';
 
   @override
   String get prices_barcode_reader_action => 'Leitor de código de barras';
@@ -2775,7 +2775,8 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle =>
+      'Preço adicionado anteriormente';
 
   @override
   String get prices_amount_subtitle => 'Montante';
@@ -7366,6 +7367,30 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get prices_barcode_enter => 'Digite o código de barras';
 
   @override
+  String get prices_category_enter => 'Item sem código de barras';
+
+  @override
+  String get prices_per_kilogram => 'Preço por quilograma';
+
+  @override
+  String get prices_per_unit => 'Valor por unidade';
+
+  @override
+  String get prices_per_kilogram_short => ' / kg';
+
+  @override
+  String get prices_per_unit_short => ' / unidade';
+
+  @override
+  String get prices_category_mandatory => 'Obrigatório';
+
+  @override
+  String get prices_category_optional => 'Opcional';
+
+  @override
+  String get prices_category_error_mandatory => 'A categoria é obrigatória';
+
+  @override
   String get prices_barcode_reader_action => 'Leitor de código de barras';
 
   @override
@@ -7491,6 +7516,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
     );
     return '$_temp0';
   }
+
+  @override
+  String get prices_amount_existing_subtitle =>
+      'Preço adicionado anteriormente';
 
   @override
   String get prices_amount_subtitle => 'Montante';

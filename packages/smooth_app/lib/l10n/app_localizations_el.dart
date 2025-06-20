@@ -2635,28 +2635,28 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_barcode_enter => 'Εισαγάγετε τον Γραμμωτό κώδικα';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Προϊόν χωρίς γραμμωτό κώδικα (barcode)';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Τιμή ανά κιλό';
 
   @override
   String get prices_per_unit => 'Price per unit';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' / κιλό';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / μονάδα';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Υποχρεωτικό';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Προαιρετικός';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Η κατηγορία είναι υποχρεωτική';
 
   @override
   String get prices_barcode_reader_action => 'Αναγνώστης γραμμωτού κώδικα';
@@ -2786,7 +2786,8 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle =>
+      'Τιμή που προστέθηκε προηγουμένως';
 
   @override
   String get prices_amount_subtitle => 'Ποσότητα';

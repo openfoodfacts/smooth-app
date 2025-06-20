@@ -2596,28 +2596,28 @@ class AppLocalizationsBe extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Прадмет без штрых-кода';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Кошт за кілаграм';
 
   @override
   String get prices_per_unit => 'Price per unit';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' / кг';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / адзінка';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Дадаткова';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Катэгорыя абавязковая';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2747,7 +2747,7 @@ class AppLocalizationsBe extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Кошт быў дададзены раней';
 
   @override
   String get prices_amount_subtitle => 'Amount';

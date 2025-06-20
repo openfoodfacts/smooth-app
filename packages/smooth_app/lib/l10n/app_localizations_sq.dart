@@ -184,7 +184,7 @@ class AppLocalizationsSq extends AppLocalizations {
       'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
-  String get login => 'Login';
+  String get login => 'Identifikohu';
 
   @override
   String get login_result_type_server_unreachable => 'Network is unreachable';
@@ -2584,10 +2584,10 @@ class AppLocalizationsSq extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Artikull pa barkod. ...';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Çmimi për kilogram';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2596,16 +2596,16 @@ class AppLocalizationsSq extends AppLocalizations {
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / njësi';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Opsionale';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Kategoria është e detyrueshme';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2735,7 +2735,7 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Çmimi i shtuar më parë';
 
   @override
   String get prices_amount_subtitle => 'Amount';

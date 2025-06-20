@@ -2571,10 +2571,10 @@ class AppLocalizationsSw extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Kipengee kisicho na msimbopau';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Bei kwa kilo';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2583,16 +2583,16 @@ class AppLocalizationsSw extends AppLocalizations {
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / kitengo';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Hiari';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Jamii ni ya lazima';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2722,7 +2722,7 @@ class AppLocalizationsSw extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Bei iliongezwa hapo awali';
 
   @override
   String get prices_amount_subtitle => 'Amount';

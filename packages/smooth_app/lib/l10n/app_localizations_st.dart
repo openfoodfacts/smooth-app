@@ -2572,10 +2572,10 @@ class AppLocalizationsSt extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Ntho e se nang barcode';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Theko ka kilogram';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2590,10 +2590,10 @@ class AppLocalizationsSt extends AppLocalizations {
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Taba ea boikhethelo';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Sehlopha se tlamehile';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2723,7 +2723,7 @@ class AppLocalizationsSt extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Theko e kentsoe pele';
 
   @override
   String get prices_amount_subtitle => 'Amount';

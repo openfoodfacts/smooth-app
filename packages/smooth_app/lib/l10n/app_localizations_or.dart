@@ -2576,28 +2576,28 @@ class AppLocalizationsOr extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'ବାରକୋଡ୍ ବିନା ଆଇଟମ୍';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'ପ୍ରତି କିଲୋଗ୍ରାମ ମୂଲ୍ୟ';
 
   @override
   String get prices_per_unit => 'Price per unit';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' / କିଲୋଗ୍ରାମ';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / ୟୁନିଟ୍';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'ଇଚ୍ଛାଧୀନ';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'ବର୍ଗଟି ବାଧ୍ୟତାମୂଳକ ଅଟେ';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2727,7 +2727,7 @@ class AppLocalizationsOr extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'ପୂର୍ବରୁ ଯୋଗ କରାଯାଇଥିବା ମୂଲ୍ୟ';
 
   @override
   String get prices_amount_subtitle => 'Amount';

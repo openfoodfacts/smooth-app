@@ -2611,28 +2611,28 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_barcode_enter => 'Įvesti brūkšninį kodą';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Prekė be brūkšninio kodo';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Kaina už kilogramą';
 
   @override
-  String get prices_per_unit => 'Price per unit';
+  String get prices_per_unit => 'Kaina už vienetą';
 
   @override
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / vnt.';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Privaloma';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Pasirinktinai';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Kategorija yra privaloma';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2764,7 +2764,7 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Anksčiau pridėta kaina';
 
   @override
   String get prices_amount_subtitle => 'Amount';
