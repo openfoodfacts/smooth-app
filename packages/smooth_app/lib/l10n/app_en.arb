@@ -4176,10 +4176,6 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "product_page_reorder_tabs": "Reorder tabs",
-  "@product_page_reorder_tabs": {
-    "description": "Used for reorder tabs button and bottom sheet"
-  },
   "dev_preferences_use_product_tabs_title": "Use tabs",
   "@dev_preferences_use_product_tabs_title": {
     "description": "Title for the preference to use tabs on the product page"
