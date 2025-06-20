@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
 
   visibility_detector: 0.4.0+2
-  async: 2.11.0
+  async: 2.13.0
   provider: 6.1.4
 
   mobile_scanner: 6.0.2

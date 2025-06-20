@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// A custom [AppBar] with an action mode.
 /// If [action mode] is true, please provide at least an [actionModeTitle].

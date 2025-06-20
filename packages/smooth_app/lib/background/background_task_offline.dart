@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
@@ -10,6 +9,7 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/background/work_type.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Main background task about pre-downloading top n products for offline usage.
 class BackgroundTaskOffline extends BackgroundTaskProgressing {
