@@ -60,7 +60,9 @@ class LocationListPhotonSupplier extends LocationListSupplier {
       if (response.statusCode != 200) {
         return 'Could not retrieve locations';
       }
-      final Map<String, dynamic> map = json.decode(response.body);
+      final Map<String, dynamic> map = jsonDecode(
+        utf8.decode(response.bodyBytes),
+      );
       if (map['type'] != 'FeatureCollection') {
         return 'Unexpected result type: ${map['type']}';
       }
