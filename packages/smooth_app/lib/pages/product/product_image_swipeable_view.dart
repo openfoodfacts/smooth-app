@@ -9,10 +9,13 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Widget to display swipeable product images of particular category.
@@ -103,7 +106,12 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
               valueListenable: _currentImageDataIndex,
               builder: (_, int index, __) {
                 return _lockedIcon(_imageFields[index]);
-              })
+              }),
+          ValueListenableBuilder<int>(
+              valueListenable: _currentImageDataIndex,
+              builder: (_, int index, __) {
+                return _buildPopupMenuButton(context, _imageFields[index]);
+              }),
         ],
       ),
       body: PageView.builder(
@@ -125,6 +133,76 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         ),
       ),
     );
+  }
+
+  Widget _buildPopupMenuButton(BuildContext context, ImageField imageField) {
+    return SmoothPopupMenuButton<String>(
+        buttonIcon: const Icon(Icons.more_vert),
+        onSelected: (String value) =>
+            _handlePopupMenuItemSelected(imageField, value),
+        itemBuilder: (BuildContext context) => <SmoothPopupMenuItem<String>>[
+              _getPopupMenuEditItem(
+                  context, imageField, AppLocalizations.of(context)),
+            ]);
+  }
+
+  SmoothPopupMenuItem<String> _getPopupMenuEditItem(BuildContext context,
+      ImageField imageField, AppLocalizations appLocalizations) {
+    if (imageField == ImageField.INGREDIENTS ||
+        imageField == ImageField.NUTRITION ||
+        imageField == ImageField.PACKAGING) {
+      return SmoothPopupMenuItem<String>(
+        label: _getPopupMenuItemLabel(imageField, appLocalizations),
+        value: 'edit',
+        icon: Icons.edit,
+      );
+    } else {
+      return SmoothPopupMenuItem<String>(
+        enabled: false,
+        label: appLocalizations.there_was_an_error,
+        value: 'none',
+      );
+    }
+  }
+
+  String _getPopupMenuItemLabel(
+      ImageField imageField, AppLocalizations appLocalizations) {
+    switch (imageField) {
+      case ImageField.INGREDIENTS:
+        return appLocalizations.ingredients_editing_title;
+      case ImageField.NUTRITION:
+        return appLocalizations.nutrition_facts_editing_title;
+      case ImageField.PACKAGING:
+        return appLocalizations.origins_editing_title;
+      default:
+        return appLocalizations.there_was_an_error;
+    }
+  }
+
+  void _handlePopupMenuItemSelected(ImageField imageField, String value) {
+    if (value == 'edit') {
+      switch (imageField) {
+        case ImageField.INGREDIENTS:
+          ProductFieldOcrIngredientEditor()
+              .edit(context: context, product: upToDateProduct);
+          break;
+        case ImageField.NUTRITION:
+          NutritionPageLoader.showNutritionPage(
+            product: upToDateProduct,
+            isLoggedInMandatory: true,
+            context: context,
+          );
+          break;
+        case ImageField.PACKAGING:
+          ProductFieldPackagingEditor().edit(
+            product: upToDateProduct,
+            context: context,
+          );
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   Widget _lockedIcon(ImageField imageField) {
