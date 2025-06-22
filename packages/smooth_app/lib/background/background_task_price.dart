@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/prices/price_to_oxf.dart';
 import 'package:smooth_app/pages/prices/product_price_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -217,6 +218,12 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     required final int proofId,
     required final LocalDatabase localDatabase,
   }) async {
+    await PriceToOxF.updateOxF(
+      localDatabase: localDatabase,
+      initialBarcodes: barcodes,
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
+    );
     for (int i = 0; i < barcodes.length; i++) {
       final String barcode = barcodes[i];
       final bool isProduct = barcode.isNotEmpty;

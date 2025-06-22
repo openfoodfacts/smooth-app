@@ -69,14 +69,22 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       localDatabase.upToDate.addChange(uniqueId, getProductChange());
 
   /// Adds the background task about changing a product.
+  ///
+  /// The typical use-case is that the user changes a product live. That's where
+  /// [context] is not null.
+  /// Another rarer case is when we change a product in stealth mode. That's
+  /// where [localDatabase] is not null.
+  /// At least one of [context] and [localDatabase] must be not null.
   static Future<void> addTask(
     final Product minimalistProduct, {
-    required final BuildContext context,
+    required BuildContext? context,
+    LocalDatabase? localDatabase,
     required final BackgroundTaskDetailsStamp stamp,
     final bool showSnackBar = true,
     required final ProductType? productType,
   }) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    assert(context != null || localDatabase != null);
+    localDatabase ??= context!.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: minimalistProduct.barcode,
@@ -87,13 +95,18 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       stamp,
       productType ?? ProductType.food,
     );
-    if (!context.mounted) {
-      return;
+    if (context != null && context.mounted) {
+      return task.addToManager(
+        localDatabase,
+        context: context,
+        showSnackBar: showSnackBar,
+        queue: BackgroundTaskQueue.fast,
+      );
     }
-    await task.addToManager(
+    return task.addToManager(
       localDatabase,
-      context: context,
-      showSnackBar: showSnackBar,
+      context: null,
+      showSnackBar: false,
       queue: BackgroundTaskQueue.fast,
     );
   }

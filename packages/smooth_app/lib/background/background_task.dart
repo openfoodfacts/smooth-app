@@ -137,10 +137,6 @@ abstract class BackgroundTask {
     if (!showSnackBar) {
       return;
     }
-
-    if (!context.mounted) {
-      return;
-    }
     if (getFloatingMessage(AppLocalizations.of(context))
         case (
           final String message,
