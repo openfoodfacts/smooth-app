@@ -32,9 +32,8 @@ class PriceProductWidget extends StatelessWidget {
     final bool unknown = priceProduct.name == null;
     final String? imageURL = priceProduct.imageURL;
     final int priceCount = priceProduct.priceCount ?? 0;
-    final List<String>? brands = priceProduct.brands == ''
-        ? null
-        : priceProduct.brands?.split(',');
+    final List<String>? brands =
+        priceProduct.brands == '' ? null : priceProduct.brands?.split(',');
     final String? quantity = priceProduct.quantity == null
         ? null
         : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';
@@ -81,8 +80,8 @@ class PriceProductWidget extends StatelessWidget {
                       onPressed: !enableCountButton
                           ? null
                           : () async {
-                              final LocalDatabase localDatabase = context
-                                  .read<LocalDatabase>();
+                              final LocalDatabase localDatabase =
+                                  context.read<LocalDatabase>();
                               final Product? newProduct = await DaoProduct(
                                 localDatabase,
                               ).get(priceProduct.code);

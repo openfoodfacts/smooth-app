@@ -6,10 +6,9 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 abstract class InfiniteScrollManager<T> {
   /// Creates an instance of [InfiniteScrollManager] with optional initial items.
   InfiniteScrollManager({List<T>? initialItems})
-    : _items = initialItems ?? <T>[],
-      _currentPage = initialItems != null && initialItems.isNotEmpty
-          ? _initialPage
-          : 0;
+      : _items = initialItems ?? <T>[],
+        _currentPage =
+            initialItems != null && initialItems.isNotEmpty ? _initialPage : 0;
 
   static const int _initialPage = 1;
 

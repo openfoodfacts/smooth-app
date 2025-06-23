@@ -93,26 +93,24 @@ class SmoothDropdownButton<T> extends StatelessWidget {
               .toList(growable: false);
         }
 
-        return items
-            .map((SmoothDropdownItem<T> item) {
-              return SizedBox(
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
-                  child: Center(
-                    child: Text(
-                      item.label,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14.5,
-                      ),
-                    ),
+        return items.map((SmoothDropdownItem<T> item) {
+          return SizedBox(
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
+              child: Center(
+                child: Text(
+                  item.label,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14.5,
                   ),
                 ),
-              );
-            })
-            .toList(growable: false);
+              ),
+            ),
+          );
+        }).toList(growable: false);
       },
       style: TextStyle(
         fontSize: 14.0,

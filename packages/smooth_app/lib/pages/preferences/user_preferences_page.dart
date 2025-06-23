@@ -53,8 +53,8 @@ enum PreferencePageType {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeProvider themeProvider = context.read<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
-    final ProductPreferences productPreferences = context
-        .read<ProductPreferences>();
+    final ProductPreferences productPreferences =
+        context.read<ProductPreferences>();
     // TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
     context.read<UserManagementProvider>();
 
@@ -129,17 +129,18 @@ enum PreferencePageType {
 
   static List<PreferencePageType> getPreferencePageTypes(
     final UserPreferences userPreferences,
-  ) => <PreferencePageType>[
-    PreferencePageType.ACCOUNT,
-    PreferencePageType.FOOD,
-    PreferencePageType.PRICES,
-    PreferencePageType.DONATION,
-    PreferencePageType.SETTINGS,
-    PreferencePageType.CONTRIBUTE,
-    PreferencePageType.FAQ,
-    PreferencePageType.CONNECT,
-    if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
-  ];
+  ) =>
+      <PreferencePageType>[
+        PreferencePageType.ACCOUNT,
+        PreferencePageType.FOOD,
+        PreferencePageType.PRICES,
+        PreferencePageType.DONATION,
+        PreferencePageType.SETTINGS,
+        PreferencePageType.CONTRIBUTE,
+        PreferencePageType.FAQ,
+        PreferencePageType.CONNECT,
+        if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
+      ];
 }
 
 /// Preferences page: main or detailed.
@@ -176,14 +177,14 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       final List<PreferencePageType> items =
           PreferencePageType.getPreferencePageTypes(userPreferences);
       for (final PreferencePageType type in items) {
-        final AbstractUserPreferences abstractUserPreferences = type
-            .getUserPreferences(
-              userPreferences: userPreferences,
-              context: context,
-            );
+        final AbstractUserPreferences abstractUserPreferences =
+            type.getUserPreferences(
+          userPreferences: userPreferences,
+          context: context,
+        );
         children.add(abstractUserPreferences.getOnlyHeader());
-        final Widget? additionalSubtitle = abstractUserPreferences
-            .getAdditionalSubtitle();
+        final Widget? additionalSubtitle =
+            abstractUserPreferences.getAdditionalSubtitle();
         if (additionalSubtitle != null) {
           children.add(additionalSubtitle);
         }
@@ -195,11 +196,11 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       appBarTitle = appLocalizations.myPreferences;
       addDividers = true;
     } else {
-      final AbstractUserPreferences abstractUserPreferences = widget.type!
-          .getUserPreferences(
-            userPreferences: userPreferences,
-            context: context,
-          );
+      final AbstractUserPreferences abstractUserPreferences =
+          widget.type!.getUserPreferences(
+        userPreferences: userPreferences,
+        context: context,
+      );
 
       for (final UserPreferencesItem item
           in abstractUserPreferences.getChildren()) {

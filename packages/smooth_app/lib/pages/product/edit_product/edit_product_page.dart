@@ -50,8 +50,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -80,9 +80,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           title: AppLocalizations.of(context).edit_product_label,
           subTitle: '$productName, $productBrands',
           leadingAction: SmoothLeadingAction.back,
-          backgroundColor: lightTheme
-              ? extension.primaryBlack
-              : extension.primaryUltraBlack,
+          backgroundColor:
+              lightTheme ? extension.primaryBlack : extension.primaryUltraBlack,
           foregroundColor: lightTheme ? Colors.white : null,
           elevationColor: lightTheme ? Colors.black54 : Colors.white12,
           elevationOnScroll: false,
@@ -239,20 +238,20 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               Consumer<UserPreferences>(
                 builder:
                     (BuildContext context, UserPreferences preferences, _) {
-                      return _ListTitleItem(
-                        title: appLocalizations.prices_add_a_price,
-                        leading: icons.AddPrice(
-                          CurrencySelectorHelper().getSelected(
-                            preferences.userCurrencyCode,
-                          ),
-                        ),
-                        onTap: () async => ProductPriceAddPage.showProductPage(
-                          context: context,
-                          product: PriceMetaProduct.product(upToDateProduct),
-                          proofType: ProofType.priceTag,
-                        ),
-                      );
-                    },
+                  return _ListTitleItem(
+                    title: appLocalizations.prices_add_a_price,
+                    leading: icons.AddPrice(
+                      CurrencySelectorHelper().getSelected(
+                        preferences.userCurrencyCode,
+                      ),
+                    ),
+                    onTap: () async => ProductPriceAddPage.showProductPage(
+                      context: context,
+                      product: PriceMetaProduct.product(upToDateProduct),
+                      proofType: ProofType.priceTag,
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -320,11 +319,12 @@ class _ListTitleItem extends SmoothListTileCard {
     String? subtitle,
     super.onTap,
   }) : super.icon(
-         title: title == null
-             ? null
-             : Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-         icon: leading,
-         subtitle: subtitle == null ? null : Text(subtitle),
-         margin: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-       );
+          title: title == null
+              ? null
+              : Text(title,
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
+          icon: leading,
+          subtitle: subtitle == null ? null : Text(subtitle),
+          margin: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+        );
 }

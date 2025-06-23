@@ -226,8 +226,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   }
 
   Widget get _verticalDivider {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return VerticalDivider(
       width: 1.0,
@@ -238,8 +238,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   }
 
   Widget get _horizontalDivider {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return Divider(
       height: 1.0,
@@ -412,8 +412,8 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final EdgeInsetsGeometry padding;
 
@@ -539,19 +539,18 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
               value: widget.cell.columnGroup!.currentColumn,
               items: widget.cell.columnGroup!.columns
                   .map((KnowledgePanelTableColumn column) {
-                    return DropdownMenuItem<KnowledgePanelTableColumn>(
-                      value: column,
-                      child: SizedBox(
-                        width: width.toDouble() - 21.0 - padding.horizontal,
-                        child: Text(
-                          column.textForSmallScreens ?? column.text,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                        ),
-                      ),
-                    );
-                  })
-                  .toList(growable: false),
+                return DropdownMenuItem<KnowledgePanelTableColumn>(
+                  value: column,
+                  child: SizedBox(
+                    width: width.toDouble() - 21.0 - padding.horizontal,
+                    child: Text(
+                      column.textForSmallScreens ?? column.text,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  ),
+                );
+              }).toList(growable: false),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
                 if (selectedColumn == null) {
                   return;

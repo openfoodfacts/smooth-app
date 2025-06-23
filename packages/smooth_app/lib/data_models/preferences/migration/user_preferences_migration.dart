@@ -7,10 +7,10 @@ class UserPreferencesMigrationTool {
 
   static final Iterable<UserPreferencesMigration> _versions =
       <UserPreferencesMigration>[
-        const _UserPreferencesMigrationV1(),
-        const _UserPreferencesMigrationV2(),
-        const _UserPreferencesMigrationV3(),
-      ];
+    const _UserPreferencesMigrationV1(),
+    const _UserPreferencesMigrationV2(),
+    const _UserPreferencesMigrationV3(),
+  ];
 
   static Future<void> onUpgrade(
     UserPreferences preferences,

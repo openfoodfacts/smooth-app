@@ -42,8 +42,9 @@ class MultilingualHelper extends ChangeNotifier {
     void setMultilingualText(
       final OpenFoodFactsLanguage language,
       final String text,
-    ) => _initialMultilingualTexts[language] =
-        _currentMultilingualTexts[language] = text;
+    ) =>
+        _initialMultilingualTexts[language] =
+            _currentMultilingualTexts[language] = text;
 
     _initialMonolingualText = monolingualText;
 

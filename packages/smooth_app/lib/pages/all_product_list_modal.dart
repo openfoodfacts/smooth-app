@@ -62,8 +62,7 @@ class AllProductListModal extends StatelessWidget {
                   }
                   return _ModalProductListItem(
                     productList: productList,
-                    selected:
-                        productList.listType == currentList.listType &&
+                    selected: productList.listType == currentList.listType &&
                         productList.parameters == currentList.parameters,
                   );
                 },
@@ -88,8 +87,8 @@ class _ModalProductListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -101,8 +100,7 @@ class _ModalProductListItem extends StatelessWidget {
     final bool hasProducts = productsLength > 0;
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool showImport =
-        userPreferences.getFlag(
+    final bool showImport = userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagProductListImport,
         ) ??
         false;
@@ -156,9 +154,8 @@ class _ModalProductListItem extends StatelessWidget {
             )
           : null,
       selected: selected,
-      selectedColor: lightTheme
-          ? extension.primaryMedium
-          : extension.primarySemiDark,
+      selectedColor:
+          lightTheme ? extension.primaryMedium : extension.primarySemiDark,
       contentPadding: const EdgeInsetsDirectional.only(
         start: VERY_LARGE_SPACE,
         end: LARGE_SPACE,

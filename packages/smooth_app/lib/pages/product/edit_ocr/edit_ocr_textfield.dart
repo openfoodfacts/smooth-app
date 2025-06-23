@@ -63,70 +63,68 @@ class EditOCRTextField extends StatelessWidget {
         child: Column(
           children: <Widget>[
             ConsumerFilter<UserPreferences>(
-              buildWhen:
-                  (
-                    UserPreferences? previousValue,
-                    UserPreferences currentValue,
-                  ) {
-                    return previousValue?.getFlag(
-                          UserPreferencesDevMode
-                              .userPreferencesFlagSpellCheckerOnOcr,
-                        ) !=
-                        currentValue.getFlag(
-                          UserPreferencesDevMode
-                              .userPreferencesFlagSpellCheckerOnOcr,
-                        );
-                  },
+              buildWhen: (
+                UserPreferences? previousValue,
+                UserPreferences currentValue,
+              ) {
+                return previousValue?.getFlag(
+                      UserPreferencesDevMode
+                          .userPreferencesFlagSpellCheckerOnOcr,
+                    ) !=
+                    currentValue.getFlag(
+                      UserPreferencesDevMode
+                          .userPreferencesFlagSpellCheckerOnOcr,
+                    );
+              },
               builder:
                   (BuildContext context, UserPreferences prefs, Widget? child) {
-                    final ThemeData theme = Theme.of(context);
+                final ThemeData theme = Theme.of(context);
 
-                    return Theme(
-                      data: theme.copyWith(
-                        colorScheme: theme.colorScheme.copyWith(
-                          onSurface:
-                              context.read<ThemeProvider>().isDarkMode(context)
+                return Theme(
+                  data: theme.copyWith(
+                    colorScheme: theme.colorScheme.copyWith(
+                      onSurface:
+                          context.read<ThemeProvider>().isDarkMode(context)
                               ? Colors.white
                               : Colors.black,
+                    ),
+                  ),
+                  child: TextFormField(
+                    minLines: null,
+                    maxLines: null,
+                    controller: controller,
+                    textInputAction: TextInputAction.newline,
+                    textCapitalization: TextCapitalization.sentences,
+                    spellCheckConfiguration: (prefs.getFlag(
+                                  UserPreferencesDevMode
+                                      .userPreferencesFlagSpellCheckerOnOcr,
+                                ) ??
+                                false) &&
+                            (Platform.isAndroid || Platform.isIOS)
+                        ? const SpellCheckConfiguration()
+                        : const SpellCheckConfiguration.disabled(),
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: LARGE_SPACE,
+                        vertical: SMALL_SPACE,
+                      ),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: ROUNDED_BORDER_RADIUS,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: ROUNDED_BORDER_RADIUS,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 5.0,
                         ),
                       ),
-                      child: TextFormField(
-                        minLines: null,
-                        maxLines: null,
-                        controller: controller,
-                        textInputAction: TextInputAction.newline,
-                        textCapitalization: TextCapitalization.sentences,
-                        spellCheckConfiguration:
-                            (prefs.getFlag(
-                                      UserPreferencesDevMode
-                                          .userPreferencesFlagSpellCheckerOnOcr,
-                                    ) ??
-                                    false) &&
-                                (Platform.isAndroid || Platform.isIOS)
-                            ? const SpellCheckConfiguration()
-                            : const SpellCheckConfiguration.disabled(),
-                        decoration: const InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: LARGE_SPACE,
-                            vertical: SMALL_SPACE,
-                          ),
-                          filled: true,
-                          border: OutlineInputBorder(
-                            borderRadius: ROUNDED_BORDER_RADIUS,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: ROUNDED_BORDER_RADIUS,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 5.0,
-                            ),
-                          ),
-                        ),
-                        onTapOutside: (_) =>
-                            FocusManager.instance.primaryFocus?.unfocus(),
-                      ),
-                    );
-                  },
+                    ),
+                    onTapOutside: (_) =>
+                        FocusManager.instance.primaryFocus?.unfocus(),
+                  ),
+                );
+              },
             ),
             if (extraButton != null) extraButton!,
           ],

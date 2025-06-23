@@ -84,8 +84,7 @@ class SmoothCard extends StatelessWidget {
       elevation: elevation,
       shadowColor: const Color.fromARGB(25, 0, 0, 0),
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-      color:
-          color ??
+      color: color ??
           (Theme.of(context).brightness == Brightness.light
               ? Colors.white
               : Colors.black),
@@ -177,8 +176,8 @@ class SmoothCardWithRoundedHeaderBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return CustomPaint(
       painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
@@ -186,7 +185,7 @@ class SmoothCardWithRoundedHeaderBanner extends StatelessWidget {
         radius: ROUNDED_RADIUS,
         shadowElevation:
             SmoothCardWithRoundedHeaderTopShadowProvider.of(context)?.shadow ??
-            0.0,
+                0.0,
       ),
       child: child,
     );
@@ -234,15 +233,13 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
             painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
               color: color,
               radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
-              shadowElevation:
-                  SmoothCardWithRoundedHeaderTopShadowProvider.of(
+              shadowElevation: SmoothCardWithRoundedHeaderTopShadowProvider.of(
                     context,
                   )?.shadow ??
                   0.0,
             ),
             child: Padding(
-              padding:
-                  titlePadding ??
+              padding: titlePadding ??
                   (trailing != null
                       ? const EdgeInsetsDirectional.only(
                           top: 2.0,
@@ -268,8 +265,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
-                          padding:
-                              leadingPadding ??
+                          padding: leadingPadding ??
                               const EdgeInsetsDirectional.all(6.0),
                           child: leading,
                         ),
@@ -281,10 +277,9 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style:
-                          (titleTextStyle ??
-                                  Theme.of(context).textTheme.displaySmall)
-                              ?.copyWith(color: Colors.white),
+                      style: (titleTextStyle ??
+                              Theme.of(context).textTheme.displaySmall)
+                          ?.copyWith(color: Colors.white),
                     ),
                   ),
                   if (trailing != null) ...<Widget>[
@@ -307,8 +302,8 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   }
 
   static Color getHeaderColor(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     return context.lightTheme(listen: false)
         ? extension.primaryBlack
         : Colors.black;
@@ -327,10 +322,9 @@ class SmoothCardWithRoundedHeaderTopShadowProvider extends InheritedWidget {
   static SmoothCardWithRoundedHeaderTopShadowProvider? of(
     BuildContext context,
   ) {
-    final SmoothCardWithRoundedHeaderTopShadowProvider? result = context
-        .dependOnInheritedWidgetOfExactType<
-          SmoothCardWithRoundedHeaderTopShadowProvider
-        >();
+    final SmoothCardWithRoundedHeaderTopShadowProvider? result =
+        context.dependOnInheritedWidgetOfExactType<
+            SmoothCardWithRoundedHeaderTopShadowProvider>();
     return result;
   }
 
@@ -362,12 +356,11 @@ class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
       padding:
           contentPadding ?? const EdgeInsetsDirectional.only(top: MEDIUM_SPACE),
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-      color:
-          contentBackgroundColor ??
+      color: contentBackgroundColor ??
           (context.darkTheme()
               ? context
-                    .extension<SmoothColorsThemeExtension>()
-                    .primaryUltraBlack
+                  .extension<SmoothColorsThemeExtension>()
+                  .primaryUltraBlack
               : null),
       child: child,
     );
@@ -426,12 +419,14 @@ class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
   @override
   bool shouldRepaint(
     _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
-  ) => shadowElevation != oldDelegate.shadowElevation;
+  ) =>
+      shadowElevation != oldDelegate.shadowElevation;
 
   @override
   bool shouldRebuildSemantics(
     _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
-  ) => false;
+  ) =>
+      false;
 }
 
 class SmoothCardHeaderButton extends StatelessWidget {

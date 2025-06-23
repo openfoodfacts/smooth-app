@@ -26,16 +26,15 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
 
   @override
   ProductList getProductList() => ProductList.allToBeCompleted(
-    pageSize: pageSize,
-    pageNumber: pageNumber,
-    language: language,
-    country: country,
-    productType: productType,
-  );
+        pageSize: pageSize,
+        pageNumber: pageNumber,
+        language: language,
+        country: country,
+        productType: productType,
+      );
 
   @override
-  String toString() =>
-      'PagedToBeCompletedProductQuery('
+  String toString() => 'PagedToBeCompletedProductQuery('
       '$pageSize'
       ', $pageNumber'
       ', $language'

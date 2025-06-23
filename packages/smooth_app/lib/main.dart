@@ -259,15 +259,16 @@ class _SmoothAppState extends State<SmoothApp> {
 
   ChangeNotifierProvider<T> _lazyProvide<T extends ChangeNotifier>(
     T Function(BuildContext) valueBuilder,
-  ) => ChangeNotifierProvider<T>(create: valueBuilder, lazy: true);
+  ) =>
+      ChangeNotifierProvider<T>(create: valueBuilder, lazy: true);
 
   Widget _buildApp(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
     OnboardingFlowNavigator(_userPreferences);
-    final bool isOnboardingComplete = lastVisitedOnboardingPage
-        .isOnboardingComplete();
+    final bool isOnboardingComplete =
+        lastVisitedOnboardingPage.isOnboardingComplete();
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
     // Still need the value from the UserPreferences here, not the ProductQuery

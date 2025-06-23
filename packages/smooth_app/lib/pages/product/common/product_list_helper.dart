@@ -65,11 +65,11 @@ class ProductListHelper {
     // TODOhow should we handle different product types?
     final List<String> existingBarcodes =
         await ProductRefresher().silentFetchAndRefreshList(
-          barcodes: barcodes,
-          localDatabase: localDatabase,
-          productType: ProductType.food,
-        ) ??
-        <String>[];
+              barcodes: barcodes,
+              localDatabase: localDatabase,
+              productType: ProductType.food,
+            ) ??
+            <String>[];
 
     await DaoProductList(
       localDatabase,

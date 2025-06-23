@@ -22,8 +22,8 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
   });
 
   BackgroundTaskRefreshLater.fromJson(super.json)
-    : timestamp = json[_jsonTagTimestamp] as int,
-      super.fromJson();
+      : timestamp = json[_jsonTagTimestamp] as int,
+        super.fromJson();
 
   static const String _jsonTagTimestamp = 'timestamp';
 
@@ -69,21 +69,23 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) => null;
+  ) =>
+      null;
 
   /// Returns a new background task about refreshing a product later.
   static BackgroundTaskRefreshLater _getNewTask(
     final String barcode,
     final String uniqueId,
     final ProductType productType,
-  ) => BackgroundTaskRefreshLater._(
-    uniqueId: uniqueId,
-    processName: _operationType.processName,
-    barcode: barcode,
-    productType: productType,
-    timestamp: LocalDatabase.nowInMillis(),
-    stamp: _getStamp(barcode),
-  );
+  ) =>
+      BackgroundTaskRefreshLater._(
+        uniqueId: uniqueId,
+        processName: _operationType.processName,
+        barcode: barcode,
+        productType: productType,
+        timestamp: LocalDatabase.nowInMillis(),
+        stamp: _getStamp(barcode),
+      );
 
   static String _getStamp(final String barcode) => '$barcode;refresh';
 

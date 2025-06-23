@@ -59,22 +59,22 @@ class _InfiniteScrollProductManager
 
   static const List<OrderBy<GetPriceProductsOrderField>> _orderBy =
       <OrderBy<GetPriceProductsOrderField>>[
-        OrderBy<GetPriceProductsOrderField>(
-          field: GetPriceProductsOrderField.priceCount,
-          ascending: false,
-        ),
-      ];
+    OrderBy<GetPriceProductsOrderField>(
+      field: GetPriceProductsOrderField.priceCount,
+      ascending: false,
+    ),
+  ];
 
   @override
   Future<void> fetchData(final int pageNumber) async {
     final MaybeError<GetPriceProductsResult> result =
         await OpenPricesAPIClient.getPriceProducts(
-          GetPriceProductsParameters()
-            ..pageNumber = pageNumber
-            ..pageSize = _pageSize
-            ..orderBy = _orderBy,
-          uriHelper: ProductQuery.uriPricesHelper,
-        );
+      GetPriceProductsParameters()
+        ..pageNumber = pageNumber
+        ..pageSize = _pageSize
+        ..orderBy = _orderBy,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
 
     if (result.isError) {
       throw result.detailError;

@@ -26,9 +26,8 @@ class SmoothHero extends StatelessWidget {
       enabled: enabled,
       child: Hero(
         tag: tag ?? '',
-        flightShuttleBuilder: onAnimationEnded == null
-            ? null
-            : _flightShuttleBuilder,
+        flightShuttleBuilder:
+            onAnimationEnded == null ? null : _flightShuttleBuilder,
         child: child,
       ),
     );

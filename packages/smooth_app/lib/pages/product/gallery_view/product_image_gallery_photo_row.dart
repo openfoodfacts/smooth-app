@@ -68,8 +68,8 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
       appLocalizations,
     );
 
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return Provider<TransientFile>(
       create: (_) => transientFile,
@@ -150,33 +150,33 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
                           child: LayoutBuilder(
                             builder:
                                 (BuildContext context, BoxConstraints box) {
-                                  if (_temporaryFile != null) {
-                                    return Image.file(
-                                      _temporaryFile!,
-                                      fit: BoxFit.contain,
-                                    );
-                                  }
+                              if (_temporaryFile != null) {
+                                return Image.file(
+                                  _temporaryFile!,
+                                  fit: BoxFit.contain,
+                                );
+                              }
 
-                                  return ProductPicture.fromTransientFile(
-                                    product: product,
-                                    imageField: widget.imageField,
-                                    language: widget.language,
-                                    allowAlternativeLanguage: false,
-                                    transientFile: transientFile,
-                                    size: Size(box.maxWidth, box.maxHeight),
-                                    onTap: null,
-                                    errorTextStyle: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    heroTag: ProductPicture.generateHeroTag(
-                                      product.barcode!,
-                                      widget.imageField,
-                                    ),
-                                    showObsoleteIcon: false,
-                                    showOwnerIcon: true,
-                                  );
-                                },
+                              return ProductPicture.fromTransientFile(
+                                product: product,
+                                imageField: widget.imageField,
+                                language: widget.language,
+                                allowAlternativeLanguage: false,
+                                transientFile: transientFile,
+                                size: Size(box.maxWidth, box.maxHeight),
+                                onTap: null,
+                                errorTextStyle: const TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                heroTag: ProductPicture.generateHeroTag(
+                                  product.barcode!,
+                                  widget.imageField,
+                                ),
+                                showObsoleteIcon: false,
+                                showOwnerIcon: true,
+                              );
+                            },
                           ),
                         ),
                         // Border
@@ -250,22 +250,24 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
     required BuildContext context,
     required final Product product,
     required int initialImageIndex,
-  }) async => Navigator.push(
-    context,
-    MaterialPageRoute<void>(
-      builder: (_) => ProductImageSwipeableView(
-        initialImageIndex: initialImageIndex,
-        product: product,
-        isLoggedInMandatory: true,
-        initialLanguage: widget.language,
-      ),
-    ),
-  );
+  }) async =>
+      Navigator.push(
+        context,
+        MaterialPageRoute<void>(
+          builder: (_) => ProductImageSwipeableView(
+            initialImageIndex: initialImageIndex,
+            product: product,
+            isLoggedInMandatory: true,
+            initialLanguage: widget.language,
+          ),
+        ),
+      );
 
   TransientFile _getTransientFile(
     final Product product,
     final ImageField imageField,
-  ) => TransientFile.fromProduct(product, imageField, widget.language);
+  ) =>
+      TransientFile.fromProduct(product, imageField, widget.language);
 }
 
 class _PhotoRowIndicator extends StatelessWidget {
@@ -318,8 +320,8 @@ class _PhotoBorder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 

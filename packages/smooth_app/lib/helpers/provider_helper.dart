@@ -7,7 +7,7 @@ class Listener<T> extends SingleChildStatefulWidget {
   const Listener({required this.listener, super.key, super.child});
 
   final void Function(BuildContext context, T? previousValue, T currentValue)
-  listener;
+      listener;
 
   @override
   State<Listener<T>> createState() => _ListenerState<T>();
@@ -79,20 +79,19 @@ class ValueNotifierListener<T extends ValueNotifier<S>, S>
     super.key,
     super.child,
   }) : assert(
-         listener != null || listenerWithValueNotifier != null,
-         'At least one listener must be provided',
-       );
+          listener != null || listenerWithValueNotifier != null,
+          'At least one listener must be provided',
+        );
 
   final void Function(BuildContext context, S? previousValue, S currentValue)?
-  listener;
+      listener;
 
   final void Function(
     BuildContext context,
     T valueNotifier,
     S? previousValue,
     S currentValue,
-  )?
-  listenerWithValueNotifier;
+  )? listenerWithValueNotifier;
 
   @override
   State<ValueNotifierListener<T, S>> createState() =>

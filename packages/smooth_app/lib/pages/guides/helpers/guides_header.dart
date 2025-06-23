@@ -53,8 +53,8 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
     required this.title,
     required this.illustration,
     required this.topPadding,
-  }) : assert(title.length > 0),
-       assert(topPadding >= 0.0);
+  })  : assert(title.length > 0),
+        assert(topPadding >= 0.0);
 
   final String title;
   final Widget illustration;
@@ -108,8 +108,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
                   opacity: 1 - progress,
                   child: OverflowBox(
                     fit: OverflowBoxFit.deferToChild,
-                    maxHeight:
-                        GuidesHeader.HEADER_HEIGHT -
+                    maxHeight: GuidesHeader.HEADER_HEIGHT -
                         10 -
                         _CloseButtonLayout._CLOSE_BUTTON_SIZE,
                     child: Align(
@@ -347,7 +346,7 @@ class _BackButton extends StatelessWidget {
 
 class _CloseButtonLayout extends MultiChildLayoutDelegate {
   _CloseButtonLayout({required this.progress})
-    : assert(progress >= 0.0 && progress <= 1.0);
+      : assert(progress >= 0.0 && progress <= 1.0);
 
   static const double _CLOSE_BUTTON_SIZE = 36.0;
 

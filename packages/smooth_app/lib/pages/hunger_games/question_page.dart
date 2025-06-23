@@ -68,9 +68,9 @@ class _QuestionsPageState extends State<QuestionsPage>
         request ??
             switch (widgetQuestions) {
               null => _questionsQuery.getQuestions(
-                _localDatabase,
-                _numberQuestionsInit,
-              ),
+                  _localDatabase,
+                  _numberQuestionsInit,
+                ),
               _ => Future<List<RobotoffQuestion>>.value(widgetQuestions),
             },
       );
@@ -156,8 +156,8 @@ class _QuestionsPageState extends State<QuestionsPage>
                     const _LoadingQuestionsView(),
                   _RobotoffQuestionSuccessState _ => _buildQuestionsWidget(),
                   _RobotoffQuestionErrorState _ => _ErrorLoadingView(
-                    onRetry: _loadQuestions,
-                  ),
+                      onRetry: _loadQuestions,
+                    ),
                 },
               ),
             ),
@@ -372,8 +372,7 @@ class _ErrorLoadingView extends StatelessWidget {
     return Center(
       child: DefaultTextStyle(
         textAlign: TextAlign.center,
-        style:
-            textTheme.bodyLarge?.copyWith(
+        style: textTheme.bodyLarge?.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 20.0,
               color: colorScheme.onSurface,
@@ -421,5 +420,6 @@ class _QuestionsAnsweredNotifier extends ValueNotifier<int> {
   static _QuestionsAnsweredNotifier of(
     BuildContext context, {
     bool listen = true,
-  }) => Provider.of<_QuestionsAnsweredNotifier>(context, listen: listen);
+  }) =>
+      Provider.of<_QuestionsAnsweredNotifier>(context, listen: listen);
 }

@@ -31,14 +31,14 @@ enum UserPictureSource {
 
   static UserPictureSource get defaultValue => UserPictureSource.SELECT;
 
-  static UserPictureSource fromString(final String tag) => UserPictureSource
-      .values
-      .firstWhere((final UserPictureSource source) => source.tag == tag);
+  static UserPictureSource fromString(final String tag) =>
+      UserPictureSource.values
+          .firstWhere((final UserPictureSource source) => source.tag == tag);
 }
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
-    : _sharedPreferences = sharedPreferences {
+      : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
     _incrementAppLaunches();
@@ -428,9 +428,9 @@ class UserPreferences extends ChangeNotifier {
       AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY;
 
   UserPictureSource get userPictureSource => UserPictureSource.fromString(
-    _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
-        UserPictureSource.defaultValue.tag,
-  );
+        _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
+            UserPictureSource.defaultValue.tag,
+      );
 
   Future<void> setUserPictureSource(final UserPictureSource source) async {
     await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
@@ -519,8 +519,8 @@ class UserPreferences extends ChangeNotifier {
       ProductType.food;
 
   set latestProductType(final ProductType value) => unawaited(
-    _sharedPreferences.setString(_TAG_LATEST_PRODUCT_TYPE, value.offTag),
-  );
+        _sharedPreferences.setString(_TAG_LATEST_PRODUCT_TYPE, value.offTag),
+      );
 
   Future<void> setSearchProductTypeFilter(final bool visible) async {
     await _sharedPreferences.setBool(

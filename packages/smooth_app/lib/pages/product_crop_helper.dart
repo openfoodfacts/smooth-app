@@ -211,12 +211,13 @@ class ProductCropAgainHelper extends ProductCropHelper {
     final Offset offset,
     final CropController controller,
     final ui.Image image,
-  ) => _getRotatedOffsetForOffHelper(
-    controller.rotation,
-    offset,
-    image.width.toDouble(),
-    image.height.toDouble(),
-  );
+  ) =>
+      _getRotatedOffsetForOffHelper(
+        controller.rotation,
+        offset,
+        image.width.toDouble(),
+        image.height.toDouble(),
+      );
 
   /// Returns the offset as rotated, for the OFF-dart rotation/crop tool.
   Offset _getRotatedOffsetForOffHelper(

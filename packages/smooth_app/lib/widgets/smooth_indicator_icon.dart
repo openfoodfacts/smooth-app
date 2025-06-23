@@ -28,8 +28,7 @@ class SmoothIndicatorIcon extends StatelessWidget {
         child: Padding(
           padding: padding ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
           child: IconTheme(
-            data:
-                iconTheme ??
+            data: iconTheme ??
                 const IconThemeData(color: Colors.white, size: 15.0),
             child: icon,
           ),

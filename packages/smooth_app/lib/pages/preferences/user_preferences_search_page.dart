@@ -73,11 +73,11 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
     final List<PreferencePageType> types =
         PreferencePageType.getPreferencePageTypes(userPreferences);
     for (final PreferencePageType type in types) {
-      final AbstractUserPreferences abstractUserPreferences = type
-          .getUserPreferences(
-            userPreferences: userPreferences,
-            context: context,
-          );
+      final AbstractUserPreferences abstractUserPreferences =
+          type.getUserPreferences(
+        userPreferences: userPreferences,
+        context: context,
+      );
       // we find the label in the page description: we add all the page items.
       if (_findLabels(needle, abstractUserPreferences.getLabels())) {
         for (final UserPreferencesItem item

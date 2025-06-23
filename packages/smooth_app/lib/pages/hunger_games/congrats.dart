@@ -33,8 +33,8 @@ class CongratsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserManagementProvider userManagementProvider = context
-        .watch<UserManagementProvider>();
+    final UserManagementProvider userManagementProvider =
+        context.watch<UserManagementProvider>();
 
     return Center(
       child: SmoothCard(
@@ -56,17 +56,17 @@ class CongratsWidget extends StatelessWidget {
                   future: userManagementProvider.credentialsInStorage(),
                   builder:
                       (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                        if (!snapshot.hasData) {
-                          return EMPTY_WIDGET;
-                        }
-                        final bool isUserLoggedIn = snapshot.data!;
-                        if (isUserLoggedIn) {
-                          // TODO(jasmeet): Show leaderboard button.
-                          return EMPTY_WIDGET;
-                        } else {
-                          return _buildSignInButton(context, appLocalizations);
-                        }
-                      },
+                    if (!snapshot.hasData) {
+                      return EMPTY_WIDGET;
+                    }
+                    final bool isUserLoggedIn = snapshot.data!;
+                    if (isUserLoggedIn) {
+                      // TODO(jasmeet): Show leaderboard button.
+                      return EMPTY_WIDGET;
+                    } else {
+                      return _buildSignInButton(context, appLocalizations);
+                    }
+                  },
                 ),
               ),
               if (continueButtonLabel != null)

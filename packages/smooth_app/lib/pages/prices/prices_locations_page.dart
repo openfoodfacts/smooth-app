@@ -61,21 +61,21 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
   Future<void> fetchData(final int pageNumber) async {
     final MaybeError<GetLocationsResult> result =
         await OpenPricesAPIClient.getLocations(
-          GetLocationsParameters()
-            ..orderBy = const <OrderBy<GetLocationsOrderField>>[
-              OrderBy<GetLocationsOrderField>(
-                field: GetLocationsOrderField.priceCount,
-                ascending: false,
-              ),
-              OrderBy<GetLocationsOrderField>(
-                field: GetLocationsOrderField.created,
-                ascending: false,
-              ),
-            ]
-            ..pageNumber = pageNumber
-            ..pageSize = 10,
-          uriHelper: ProductQuery.uriPricesHelper,
-        );
+      GetLocationsParameters()
+        ..orderBy = const <OrderBy<GetLocationsOrderField>>[
+          OrderBy<GetLocationsOrderField>(
+            field: GetLocationsOrderField.priceCount,
+            ascending: false,
+          ),
+          OrderBy<GetLocationsOrderField>(
+            field: GetLocationsOrderField.created,
+            ascending: false,
+          ),
+        ]
+        ..pageNumber = pageNumber
+        ..pageSize = 10,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
     if (result.isError) {
       throw result.detailError;
     }

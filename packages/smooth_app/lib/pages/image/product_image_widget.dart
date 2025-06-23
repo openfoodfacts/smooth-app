@@ -34,16 +34,16 @@ class ProductImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DateFormat dateFormat = DateFormat.yMd(
       ProductQuery.getLanguage().offTag,
     );
 
     final Widget image = SmoothImage(
-      cacheHeight: (squareSize * MediaQuery.devicePixelRatioOf(context))
-          .toInt(),
+      cacheHeight:
+          (squareSize * MediaQuery.devicePixelRatioOf(context)).toInt(),
       width: squareSize,
       height: squareSize,
       imageProvider: NetworkImage(

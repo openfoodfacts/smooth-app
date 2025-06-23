@@ -334,12 +334,13 @@ class AnalyticsHelper {
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
-  }) => trackCustomEvent(
-    msg.name,
-    msg.category.tag,
-    eventValue: eventValue,
-    barcode: barcode,
-  );
+  }) =>
+      trackCustomEvent(
+        msg.name,
+        msg.category.tag,
+        eventValue: eventValue,
+        barcode: barcode,
+      );
 
   // Used by code which is outside of the core:smooth_app code
   // e.g. the scanner implementation
@@ -373,37 +374,40 @@ class AnalyticsHelper {
     AnalyticsRobotoffEvents event,
     Nutrient nutrient,
     Product product,
-  ) => trackCustomEvent(
-    event.name,
-    AnalyticsCategory.robotoff.tag,
-    action: nutrient.name,
-    barcode: product.barcode,
-    productType: product.productType ?? ProductType.food,
-  );
+  ) =>
+      trackCustomEvent(
+        event.name,
+        AnalyticsCategory.robotoff.tag,
+        action: nutrient.name,
+        barcode: product.barcode,
+        productType: product.productType ?? ProductType.food,
+      );
 
   static void trackProductEdit(
     AnalyticsEditEvents editEventName,
     Product product, [
     bool saved = false,
-  ]) => trackCustomEvent(
-    saved ? '${editEventName.name}-saved' : editEventName.name,
-    AnalyticsCategory.productEdit.tag,
-    action: editEventName.name,
-    barcode: product.barcode,
-    productType: product.productType ?? ProductType.food,
-  );
+  ]) =>
+      trackCustomEvent(
+        saved ? '${editEventName.name}-saved' : editEventName.name,
+        AnalyticsCategory.productEdit.tag,
+        action: editEventName.name,
+        barcode: product.barcode,
+        productType: product.productType ?? ProductType.food,
+      );
 
   static void trackProductEvent(
     AnalyticsEvent msg, {
     int? eventValue,
     required Product product,
-  }) => trackCustomEvent(
-    msg.name,
-    msg.category.tag,
-    eventValue: eventValue,
-    barcode: product.barcode,
-    productType: product.productType ?? ProductType.food,
-  );
+  }) =>
+      trackCustomEvent(
+        msg.name,
+        msg.category.tag,
+        eventValue: eventValue,
+        barcode: product.barcode,
+        productType: product.productType ?? ProductType.food,
+      );
 
   static void trackSearch({
     required String search,

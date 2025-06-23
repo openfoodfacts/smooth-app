@@ -207,5 +207,6 @@ class _SliverCardWithRoundedHeaderClipPainter extends CustomPainter {
   @override
   bool shouldRebuildSemantics(
     _SliverCardWithRoundedHeaderClipPainter oldDelegate,
-  ) => false;
+  ) =>
+      false;
 }

@@ -46,11 +46,11 @@ class OwnerFieldIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Icon(
-    _ownerFieldIconData,
-    size: size,
-    color: color,
-    semanticLabel: AppLocalizations.of(context).owner_field_info_title,
-  );
+        _ownerFieldIconData,
+        size: size,
+        color: color,
+        semanticLabel: AppLocalizations.of(context).owner_field_info_title,
+      );
 }
 
 class AnimatedOwnerFieldBanner extends StatefulWidget {

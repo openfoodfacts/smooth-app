@@ -331,10 +331,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       userId: _userController.trimmedText,
       password: _password1Controller.text,
     );
-    final bool prodUrl =
-        context.read<UserPreferences>().getFlag(
-          UserPreferencesDevMode.userPreferencesFlagProd,
-        ) ??
+    final bool prodUrl = context.read<UserPreferences>().getFlag(
+              UserPreferencesDevMode.userPreferencesFlagProd,
+            ) ??
         true;
 
     final SignUpStatus? status = await LoadingDialog.run<SignUpStatus>(

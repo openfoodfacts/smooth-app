@@ -20,18 +20,19 @@ SmoothAppBar buildEditProductAppBar({
   required final Product product,
   final PreferredSizeWidget? bottom,
   final List<Widget>? actions,
-}) => SmoothAppBar(
-  centerTitle: false,
-  title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
-  subTitle: Text(
-    getProductNameAndBrands(product, AppLocalizations.of(context)),
-    maxLines: 1,
-    overflow: TextOverflow.ellipsis,
-  ),
-  actions: actions,
-  bottom: bottom,
-  ignoreSemanticsForSubtitle: true,
-);
+}) =>
+    SmoothAppBar(
+      centerTitle: false,
+      title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
+      subTitle: Text(
+        getProductNameAndBrands(product, AppLocalizations.of(context)),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      actions: actions,
+      bottom: bottom,
+      ignoreSemanticsForSubtitle: true,
+    );
 
 String getProductNameAndBrands(
   final Product product,
@@ -59,6 +60,7 @@ String getProductName(
 ) =>
     _clearString(product.productNameInLanguages?[ProductQuery.getLanguage()]) ??
     _clearString(product.productName) ??
+
     /// Fallback to the first language available
     _clearString(
       product.productNameInLanguages?[OpenFoodFactsLanguage.ENGLISH],
@@ -146,8 +148,7 @@ class _ProductSmoothCardTitle extends StatelessWidget {
     final SmoothColorsThemeExtension colors = Theme.of(
       context,
     ).extension<SmoothColorsThemeExtension>()!;
-    final EdgeInsetsGeometry effectivePadding =
-        padding ??
+    final EdgeInsetsGeometry effectivePadding = padding ??
         const EdgeInsetsDirectional.symmetric(vertical: MEDIUM_SPACE);
     final TextStyle titleStyle =
         Theme.of(context).textTheme.displaySmall ?? const TextStyle();
@@ -213,13 +214,14 @@ List<Attribute> getMandatoryAttributes(
   final List<String> attributeGroupOrder,
   final Set<String> attributesToExcludeIfStatusIsUnknown,
   final ProductPreferences preferences,
-) => getSortedAttributes(
-  product,
-  attributeGroupOrder,
-  attributesToExcludeIfStatusIsUnknown,
-  preferences,
-  PreferenceImportance.ID_MANDATORY,
-);
+) =>
+    getSortedAttributes(
+      product,
+      attributeGroupOrder,
+      attributesToExcludeIfStatusIsUnknown,
+      preferences,
+      PreferenceImportance.ID_MANDATORY,
+    );
 
 /// Returns the attributes, ordered by importance desc and attribute group order
 List<Attribute> getSortedAttributes(
@@ -301,21 +303,22 @@ Widget addPanelButton(
   required final Function() onPressed,
   BorderRadiusGeometry? borderRadius,
   WidgetStateProperty<double?>? elevation,
-}) => Padding(
-  padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-  child: SmoothLargeButtonWithIcon(
-    text: label,
-    leadingIcon: leadingIcon,
-    trailingIcon: trailingIcon,
-    borderRadius: borderRadius,
-    elevation: elevation,
-    onPressed: onPressed,
-    textAlign: leadingIcon == null && trailingIcon == null
-        ? TextAlign.center
-        : null,
-    padding: padding,
-  ),
-);
+}) =>
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: SmoothLargeButtonWithIcon(
+        text: label,
+        leadingIcon: leadingIcon,
+        trailingIcon: trailingIcon,
+        borderRadius: borderRadius,
+        elevation: elevation,
+        onPressed: onPressed,
+        textAlign: leadingIcon == null && trailingIcon == null
+            ? TextAlign.center
+            : null,
+        padding: padding,
+      ),
+    );
 
 List<ProductImageData> getProductMainImagesData(
   final Product product,
@@ -324,8 +327,8 @@ List<ProductImageData> getProductMainImagesData(
   final List<ProductImageData> result = <ProductImageData>[];
   for (final ImageField imageField
       in ImageFieldSmoothieExtension.getOrderedMainImageFields(
-        product.productType,
-      )) {
+    product.productType,
+  )) {
     result.add(getProductImageData(product, imageField, language));
   }
   return result;

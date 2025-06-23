@@ -51,8 +51,8 @@ class AppNavigator extends InheritedWidget {
   final _SmoothGoRouter _router;
 
   static AppNavigator of(BuildContext context) {
-    final AppNavigator? result = context
-        .dependOnInheritedWidgetOfExactType<AppNavigator>();
+    final AppNavigator? result =
+        context.dependOnInheritedWidgetOfExactType<AppNavigator>();
     assert(result != null, 'No AppNavigator found in context');
     return result!;
   }
@@ -166,9 +166,9 @@ class _SmoothGoRouter {
                   state.uri.queryParameters['transition'],
                 )) {
                   ProductPageTransition.standard => MaterialPage<void>(
-                    key: state.pageKey,
-                    child: widget,
-                  ),
+                      key: state.pageKey,
+                      child: widget,
+                    ),
                   ProductPageTransition.slideUp =>
                     OpenUpwardsPage.getTransition<void>(
                       key: state.pageKey,

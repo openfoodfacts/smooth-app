@@ -73,9 +73,8 @@ class SmoothTheme {
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: lightTheme
-            ? smoothExtension.primaryDark
-            : myColorScheme.primary,
+        backgroundColor:
+            lightTheme ? smoothExtension.primaryDark : myColorScheme.primary,
         foregroundColor: myColorScheme.onPrimary,
       ),
       textTheme: textTheme,

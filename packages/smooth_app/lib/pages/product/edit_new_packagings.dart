@@ -326,8 +326,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     }
 
     if (!saving) {
-      final bool? pleaseSave = await MayExitPageHelper()
-          .openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }
@@ -357,8 +357,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
 Color _getSmoothCardColor(final BuildContext context) =>
     Theme.of(context).brightness == Brightness.light
-    ? GREY_COLOR
-    : PRIMARY_GREY_COLOR;
+        ? GREY_COLOR
+        : PRIMARY_GREY_COLOR;
 
 Color _getSmoothCardColorAlternate(final BuildContext context, int index) {
   final bool lightTheme = Theme.of(context).brightness == Brightness.light;

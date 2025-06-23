@@ -20,9 +20,9 @@ class SmoothFloatingMessage {
     required this.message,
     this.type = SmoothFloatingMessageType.success,
   }) : header = const Padding(
-         padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
-         child: CloudUploadAnimation(size: 50.0),
-       );
+          padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
+          child: CloudUploadAnimation(size: 50.0),
+        );
 
   final String message;
   final Widget? header;
@@ -117,8 +117,8 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final SnackBarThemeData snackBarTheme = Theme.of(context).snackBarTheme;
 
@@ -172,10 +172,10 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
   }
 
   Color _getColor(SmoothColorsThemeExtension theme) => switch (widget.type) {
-    SmoothFloatingMessageType.success => theme.success,
-    SmoothFloatingMessageType.error => theme.error,
-    SmoothFloatingMessageType.warning => theme.warning,
-  };
+        SmoothFloatingMessageType.success => theme.success,
+        SmoothFloatingMessageType.error => theme.error,
+        SmoothFloatingMessageType.warning => theme.warning,
+      };
 }
 
 enum SmoothFloatingMessageType { success, error, warning }

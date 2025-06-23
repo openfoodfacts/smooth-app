@@ -76,10 +76,10 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<String> token =
         await OpenPricesAPIClient.getAuthenticationToken(
-          username: user.userId,
-          password: user.password,
-          uriHelper: ProductQuery.uriPricesHelper,
-        );
+      username: user.userId,
+      password: user.password,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
 
     if (token.isError) {
       throw Exception(token.error ?? 'Could not authenticate with the server');
@@ -97,19 +97,19 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(
-          GetProofsParameters()
-            ..orderBy = <OrderBy<GetProofsOrderField>>[
-              const OrderBy<GetProofsOrderField>(
-                field: GetProofsOrderField.created,
-                ascending: false,
-              ),
-            ]
-            ..owner = user.userId
-            ..pageSize = _pageSize
-            ..pageNumber = pageNumber,
-          uriHelper: ProductQuery.uriPricesHelper,
-          bearerToken: _bearerToken!,
-        );
+      GetProofsParameters()
+        ..orderBy = <OrderBy<GetProofsOrderField>>[
+          const OrderBy<GetProofsOrderField>(
+            field: GetProofsOrderField.created,
+            ascending: false,
+          ),
+        ]
+        ..owner = user.userId
+        ..pageSize = _pageSize
+        ..pageNumber = pageNumber,
+      uriHelper: ProductQuery.uriPricesHelper,
+      bearerToken: _bearerToken!,
+    );
 
     if (result.isError) {
       throw Exception(result.error ?? 'Failed to fetch proofs');

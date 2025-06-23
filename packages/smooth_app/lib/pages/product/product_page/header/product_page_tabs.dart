@@ -48,14 +48,12 @@ class ProductPageTabBar extends StatelessWidget {
           preferredSize: const Size.fromHeight(SmoothTabBar.TAB_BAR_HEIGHT),
           child: SmoothTabBar<ProductPageTab>(
             tabController: tabController,
-            items: tabs
-                .map((ProductPageTab tab) {
-                  return SmoothTabBarItem<ProductPageTab>(
-                    label: tab.labelBuilder(context),
-                    value: tab,
-                  );
-                })
-                .toList(growable: false),
+            items: tabs.map((ProductPageTab tab) {
+              return SmoothTabBarItem<ProductPageTab>(
+                label: tab.labelBuilder(context),
+                value: tab,
+              );
+            }).toList(growable: false),
             onTabChanged: (_) {},
           ),
         ),
@@ -171,8 +169,8 @@ class ProductPageTabBar extends StatelessWidget {
     );
 
     if (context.read<UserPreferences>().getFlag(
-          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-        ) ==
+              UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
+            ) ==
         false) {
       tabs.add(
         ProductPageTab(

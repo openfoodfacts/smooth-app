@@ -41,7 +41,7 @@ class GuidesPage extends StatelessWidget {
 
 class _GuidesPageBody extends StatefulWidget {
   const _GuidesPageBody({required this.slivers, required this.pageName})
-    : assert(pageName.length > 0);
+      : assert(pageName.length > 0);
 
   final List<Widget> slivers;
   final String pageName;
@@ -257,8 +257,8 @@ class GuidesIllustratedText extends StatelessWidget {
     required this.imagePath,
     required this.desiredWidthPercent,
     super.key,
-  }) : assert(text.length > 0),
-       assert(imagePath.length > 0);
+  })  : assert(text.length > 0),
+        assert(imagePath.length > 0);
 
   final String text;
   final String imagePath;
@@ -271,8 +271,8 @@ class GuidesIllustratedText extends StatelessWidget {
     ).extension<SmoothColorsThemeExtension>()!;
     final int imageWidth =
         (desiredWidthPercent != null ? desiredWidthPercent! : 0.25) *
-        100.0 ~/
-        1;
+            100.0 ~/
+            1;
 
     return Semantics(
       label: text,
@@ -347,7 +347,7 @@ class GuidesTitleWithText extends StatelessWidget {
 
 class _GuidesTextTitle extends StatelessWidget {
   const _GuidesTextTitle({required this.title, required this.icon})
-    : assert(title.length > 0);
+      : assert(title.length > 0);
 
   final String title;
   final AppIcon icon;
@@ -405,15 +405,15 @@ class GuidesImage extends StatelessWidget {
     this.desiredWidthPercent,
     this.desiredHeightPercent,
     super.key,
-  }) : assert(caption.length > 0),
-       assert(
-         desiredWidthPercent == null ||
-             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
-       ),
-       assert(
-         desiredHeightPercent == null ||
-             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
-       );
+  })  : assert(caption.length > 0),
+        assert(
+          desiredWidthPercent == null ||
+              desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
+        ),
+        assert(
+          desiredHeightPercent == null ||
+              desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
+        );
 
   final String imagePath;
   final double? desiredWidthPercent;
@@ -478,14 +478,14 @@ class _ImageFromAssets extends StatelessWidget {
     required this.imagePath,
     this.desiredWidthPercent,
     this.desiredHeightPercent,
-  }) : assert(
-         desiredWidthPercent == null ||
-             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
-       ),
-       assert(
-         desiredHeightPercent == null ||
-             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
-       );
+  })  : assert(
+          desiredWidthPercent == null ||
+              desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
+        ),
+        assert(
+          desiredHeightPercent == null ||
+              desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
+        );
 
   final String imagePath;
   final double? desiredWidthPercent;

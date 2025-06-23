@@ -14,9 +14,9 @@ class AddSimpleInputButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-    helper.getAddButtonLabel(AppLocalizations.of(context)),
-    onPressed: () async => ProductFieldSimpleEditor(
-      helper,
-    ).edit(isLoggedInMandatory: true, context: context, product: product),
-  );
+        helper.getAddButtonLabel(AppLocalizations.of(context)),
+        onPressed: () async => ProductFieldSimpleEditor(
+          helper,
+        ).edit(isLoggedInMandatory: true, context: context, product: product),
+      );
 }

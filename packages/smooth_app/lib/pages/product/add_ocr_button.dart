@@ -13,7 +13,7 @@ class AddOcrButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-    editor.getLabel(AppLocalizations.of(context)),
-    onPressed: () async => editor.edit(context: context, product: product),
-  );
+        editor.getLabel(AppLocalizations.of(context)),
+        onPressed: () async => editor.edit(context: context, product: product),
+      );
 }

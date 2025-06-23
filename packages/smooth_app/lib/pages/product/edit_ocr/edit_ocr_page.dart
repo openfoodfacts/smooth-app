@@ -125,8 +125,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                 EditOCRImageWidget(
                   helper: _helper,
                   transientFile: transientFile,
-                  ownerField:
-                      upToDateProduct.isImageLocked(
+                  ownerField: upToDateProduct.isImageLocked(
                         _helper.getImageField(),
                         _multilingualHelper.getCurrentLanguage(),
                       ) ??
@@ -250,8 +249,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     }
 
     if (!saving) {
-      final bool? pleaseSave = await MayExitPageHelper()
-          .openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
 
       if (pleaseSave == false) {
         return true;
@@ -295,8 +294,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   }
 
   List<OpenFoodFactsLanguage> _getLanguagesWithText() {
-    final Map<OpenFoodFactsLanguage, String> allLanguages = _multilingualHelper
-        .getInitialMultiLingualTexts();
+    final Map<OpenFoodFactsLanguage, String> allLanguages =
+        _multilingualHelper.getInitialMultiLingualTexts();
 
     final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
 
@@ -322,8 +321,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
         _helper.setMonolingualText(result, changed);
       }
     } else {
-      final Map<OpenFoodFactsLanguage, String>? changed = _multilingualHelper
-          .getChangedMultilingualText();
+      final Map<OpenFoodFactsLanguage, String>? changed =
+          _multilingualHelper.getChangedMultilingualText();
       if (changed != null) {
         result ??= getBasicProduct();
         _helper.setMultilingualTexts(result, changed);

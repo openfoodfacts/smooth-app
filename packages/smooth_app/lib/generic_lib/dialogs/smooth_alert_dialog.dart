@@ -37,9 +37,9 @@ class SmoothAlertDialog extends StatelessWidget {
     this.margin,
     this.contentPadding,
   }) : assert(
-         body is! LayoutBuilder,
-         "LayoutBuilder isn't supported with Dialogs",
-       );
+          body is! LayoutBuilder,
+          "LayoutBuilder isn't supported with Dialogs",
+        );
 
   final String? title;
   final Widget? leadingTitle;
@@ -61,19 +61,19 @@ class SmoothAlertDialog extends StatelessWidget {
 
   static const EdgeInsetsDirectional _smallContentPadding =
       EdgeInsetsDirectional.only(
-        start: SMALL_SPACE,
-        top: MEDIUM_SPACE,
-        end: SMALL_SPACE,
-        bottom: SMALL_SPACE,
-      );
+    start: SMALL_SPACE,
+    top: MEDIUM_SPACE,
+    end: SMALL_SPACE,
+    bottom: SMALL_SPACE,
+  );
 
   static const EdgeInsetsDirectional _contentPadding =
       EdgeInsetsDirectional.only(
-        start: 22.0,
-        top: VERY_LARGE_SPACE,
-        end: 22.0,
-        bottom: 22.0,
-      );
+    start: 22.0,
+    top: VERY_LARGE_SPACE,
+    end: 22.0,
+    bottom: 22.0,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -107,8 +107,7 @@ class SmoothAlertDialog extends StatelessWidget {
   }
 
   Padding _buildBottomBar(EdgeInsetsDirectional padding) {
-    final bool singleButton =
-        (positiveAction != null &&
+    final bool singleButton = (positiveAction != null &&
             negativeAction == null &&
             neutralAction == null) ||
         (negativeAction != null &&
@@ -142,20 +141,20 @@ class SmoothAlertDialog extends StatelessWidget {
       positiveAction != null || negativeAction != null || neutralAction != null;
 
   Widget _buildContent(final BuildContext context) => DefaultTextStyle.merge(
-    style: const TextStyle(height: 1.5),
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        if (title != null)
-          _SmoothDialogTitle(
-            label: title!,
-            close: close,
-            leading: leadingTitle,
-          ),
-        body,
-      ],
-    ),
-  );
+        style: const TextStyle(height: 1.5),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            if (title != null)
+              _SmoothDialogTitle(
+                label: title!,
+                close: close,
+                leading: leadingTitle,
+              ),
+            body,
+          ],
+        ),
+      );
 
   static EdgeInsetsDirectional defaultContentPadding(BuildContext context) {
     return (context.isSmallDevice() ? _smallContentPadding : _contentPadding);
@@ -281,11 +280,11 @@ class SmoothActionButtonsBar extends StatelessWidget {
     this.padding,
     super.key,
   }) : assert(
-         positiveAction != null ||
-             negativeAction != null ||
-             neutralAction != null,
-         'At least one action must be passed!',
-       );
+          positiveAction != null ||
+              negativeAction != null ||
+              neutralAction != null,
+          'At least one action must be passed!',
+        );
 
   const SmoothActionButtonsBar.single({
     required SmoothActionButton action,
@@ -653,8 +652,7 @@ class SmoothListAlertDialog extends StatelessWidget {
         vertical: SMALL_SPACE,
       ),
       body: SizedBox(
-        height:
-            MediaQuery.sizeOf(context).height /
+        height: MediaQuery.sizeOf(context).height /
             (context.keyboardVisible ? 1.0 : 1.5),
         width: MediaQuery.sizeOf(context).width,
         child: Column(

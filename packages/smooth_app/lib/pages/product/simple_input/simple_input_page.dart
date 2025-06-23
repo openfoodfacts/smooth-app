@@ -25,12 +25,12 @@ class SimpleInputPage extends StatefulWidget {
     required final AbstractSimpleInputPageHelper helper,
     required final Product product,
   }) : this.multiple(
-         helpers: <AbstractSimpleInputPageHelper>[helper],
-         product: product,
-       );
+          helpers: <AbstractSimpleInputPageHelper>[helper],
+          product: product,
+        );
 
   SimpleInputPage.multiple({required this.helpers, required this.product})
-    : assert(helpers.isNotEmpty);
+      : assert(helpers.isNotEmpty);
 
   final List<AbstractSimpleInputPageHelper> helpers;
   final Product product;
@@ -184,8 +184,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave = await MayExitPageHelper()
-          .openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         for (int i = 0; i < widget.helpers.length; i++) {
           widget.helpers[i].restoreItemsBeforeLastAddition();
