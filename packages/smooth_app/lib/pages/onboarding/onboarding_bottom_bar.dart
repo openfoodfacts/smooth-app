@@ -8,11 +8,13 @@ class OnboardingBottomBar extends StatelessWidget {
     required this.rightButton,
     required this.backgroundColor,
     required this.leftButton,
+    required this.progress,
     this.semanticsHorizontalOrder = true,
   });
 
   final Widget? leftButton;
   final Widget rightButton;
+  final double progress;
 
   /// If [true], the [leftButton] will be said first by the screen reader.
   final bool semanticsHorizontalOrder;
@@ -25,16 +27,17 @@ class OnboardingBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
-    // Side padding is 8% of total width.
     final double sidePadding = screenSize.width * .08;
     final bool hasPrevious = leftButton != null;
     return Column(
       children: <Widget>[
-        Container(
-          height: SMALL_SPACE,
-          width: screenSize.width,
-          color: backgroundColor == null ? null : LIGHT_GREY_COLOR,
-        ),
+        if (progress > 0.0)
+          LinearProgressIndicator(
+            value: progress,
+            backgroundColor: Colors.grey[300],
+            valueColor: const AlwaysStoppedAnimation<Color>(DARK_GREEN_COLOR),
+            minHeight: SMALL_SPACE,
+          ),
         Container(
           padding: EdgeInsets.symmetric(
             vertical: VERY_LARGE_SPACE,
