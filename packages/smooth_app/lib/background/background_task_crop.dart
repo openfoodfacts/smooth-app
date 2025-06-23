@@ -31,8 +31,8 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   });
 
   BackgroundTaskCrop.fromJson(super.json)
-      : imageId = json[_jsonTagImageId] as int,
-        super.fromJson();
+    : imageId = json[_jsonTagImageId] as int,
+      super.fromJson();
 
   static const String _jsonTagImageId = 'imageId';
 
@@ -93,11 +93,11 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      (
-        appLocalizations.product_task_background_schedule,
-        AlignmentDirectional.topCenter,
-      );
+    final AppLocalizations appLocalizations,
+  ) => (
+    appLocalizations.product_task_background_schedule,
+    AlignmentDirectional.topCenter,
+  );
 
   /// Returns a new background task about cropping an existing image.
   static BackgroundTaskCrop _getNewTask(
@@ -113,44 +113,43 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
     final int cropY1,
     final int cropX2,
     final int cropY2,
-  ) =>
-      BackgroundTaskCrop._(
-        uniqueId: uniqueId,
-        barcode: barcode,
-        productType: productType,
-        processName: _operationType.processName,
-        imageId: imageId,
-        imageField: imageField.offTag,
-        croppedPath: croppedFile.path,
-        rotationDegrees: rotationDegrees,
-        cropX1: cropX1,
-        cropY1: cropY1,
-        cropX2: cropX2,
-        cropY2: cropY2,
-        language: language,
-        stamp: BackgroundTaskUpload.getStamp(
-          barcode,
-          imageField.offTag,
-          language.code,
-        ),
-      );
+  ) => BackgroundTaskCrop._(
+    uniqueId: uniqueId,
+    barcode: barcode,
+    productType: productType,
+    processName: _operationType.processName,
+    imageId: imageId,
+    imageField: imageField.offTag,
+    croppedPath: croppedFile.path,
+    rotationDegrees: rotationDegrees,
+    cropX1: cropX1,
+    cropY1: cropY1,
+    cropX2: cropX2,
+    cropY2: cropY2,
+    language: language,
+    stamp: BackgroundTaskUpload.getStamp(
+      barcode,
+      imageField.offTag,
+      language.code,
+    ),
+  );
 
   /// Returns the actual crop parameters.
   ///
   /// cf. [UpToDateChanges._overwrite] regarding `images` field.
   @override
   ProductImage getProductImageChange() => ProductImage(
-        field: ImageField.fromOffTag(imageField)!,
-        language: getLanguage(),
-        size: ImageSize.ORIGINAL,
-        angle: ImageAngleExtension.fromInt(rotationDegrees),
-        imgid: '$imageId',
-        x1: cropX1,
-        y1: cropY1,
-        x2: cropX2,
-        y2: cropY2,
-        coordinatesImageSize: ImageSize.ORIGINAL.number,
-      );
+    field: ImageField.fromOffTag(imageField)!,
+    language: getLanguage(),
+    size: ImageSize.ORIGINAL,
+    angle: ImageAngleExtension.fromInt(rotationDegrees),
+    imgid: '$imageId',
+    x1: cropX1,
+    y1: cropY1,
+    x2: cropX2,
+    y2: cropY2,
+    coordinatesImageSize: ImageSize.ORIGINAL.number,
+  );
 
   @override
   Future<void> postExecute(

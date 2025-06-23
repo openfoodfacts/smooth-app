@@ -45,16 +45,14 @@ class AppNavigator extends InheritedWidget {
     super.key,
     List<NavigatorObserver>? observers,
     required super.child,
-  }) : _router = _SmoothGoRouter(
-          observers: observers,
-        );
+  }) : _router = _SmoothGoRouter(observers: observers);
 
   // GoRouter is never accessible directly
   final _SmoothGoRouter _router;
 
   static AppNavigator of(BuildContext context) {
-    final AppNavigator? result =
-        context.dependOnInheritedWidgetOfExactType<AppNavigator>();
+    final AppNavigator? result = context
+        .dependOnInheritedWidgetOfExactType<AppNavigator>();
     assert(result != null, 'No AppNavigator found in context');
     return result!;
   }
@@ -112,19 +110,13 @@ class AppNavigator extends InheritedWidget {
 /// One drawback of the implementation is that we never know the base URL of the
 /// deep link (eg: es.openfoodfacts.org)
 class _SmoothGoRouter {
-  factory _SmoothGoRouter({
-    List<NavigatorObserver>? observers,
-  }) {
-    _singleton ??= _SmoothGoRouter._internal(
-      observers: observers,
-    );
+  factory _SmoothGoRouter({List<NavigatorObserver>? observers}) {
+    _singleton ??= _SmoothGoRouter._internal(observers: observers);
 
     return _singleton!;
   }
 
-  _SmoothGoRouter._internal({
-    List<NavigatorObserver>? observers,
-  }) {
+  _SmoothGoRouter._internal({List<NavigatorObserver>? observers}) {
     router = GoRouter(
       observers: observers,
       routes: <GoRoute>[
@@ -171,11 +163,12 @@ class _SmoothGoRouter {
                 }
 
                 return switch (ProductPageTransition.byName(
-                    state.uri.queryParameters['transition'])) {
+                  state.uri.queryParameters['transition'],
+                )) {
                   ProductPageTransition.standard => MaterialPage<void>(
-                      key: state.pageKey,
-                      child: widget,
-                    ),
+                    key: state.pageKey,
+                    child: widget,
+                  ),
                   ProductPageTransition.slideUp =>
                     OpenUpwardsPage.getTransition<void>(
                       key: state.pageKey,
@@ -229,9 +222,7 @@ class _SmoothGoRouter {
                   throw Exception('Unsupported preference page type: $type');
                 }
 
-                return UserPreferencesPage(
-                  type: pageType,
-                );
+                return UserPreferencesPage(type: pageType);
               },
             ),
             GoRoute(
@@ -264,7 +255,7 @@ class _SmoothGoRouter {
             GoRoute(
               path: _InternalAppRoutes.SIGNUP_PAGE,
               builder: (_, __) => const SignUpPage(),
-            )
+            ),
           ],
         ),
         GoRoute(
@@ -352,9 +343,8 @@ class _SmoothGoRouter {
           return state.uri.toString();
         }
       },
-      errorBuilder: (_, GoRouterState state) => ErrorPage(
-        url: state.uri.toString(),
-      ),
+      errorBuilder: (_, GoRouterState state) =>
+          ErrorPage(url: state.uri.toString()),
     );
   }
 
@@ -370,14 +360,10 @@ class _SmoothGoRouter {
   }
 
   String _openExternalLink(String path) {
-    AnalyticsHelper.trackEvent(
-      AnalyticsEvent.genericDeepLink,
-    );
+    AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
 
     // Unsupported link -> open the browser
-    return AppRoutes.EXTERNAL(
-      path[0] == '/' ? path.substring(1) : path,
-    );
+    return AppRoutes.EXTERNAL(path[0] == '/' ? path.substring(1) : path);
   }
 
   static _SmoothGoRouter? _singleton;
@@ -433,7 +419,7 @@ class _SmoothGoRouter {
     return lastVisitedOnboardingPage;
   }
 
-//endregion Onboarding
+  //endregion Onboarding
 }
 
 /// Internal routes

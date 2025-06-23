@@ -39,40 +39,39 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
   AddNewProductPage.fromBarcode(final String barcode)
-      : assert(barcode != ''),
-        product = Product(barcode: barcode),
-        events = const <EditProductAction, AnalyticsEvent>{
-          EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
-          EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
-          EditProductAction.ingredients:
-              AnalyticsEvent.ingredientsNewProductPage,
-          EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
-          EditProductAction.nutritionFacts:
-              AnalyticsEvent.nutritionNewProductPage,
-        },
-        displayProductType = true,
-        displayPictures = true,
-        displayMisc = true,
-        isLoggedInMandatory = false;
+    : assert(barcode != ''),
+      product = Product(barcode: barcode),
+      events = const <EditProductAction, AnalyticsEvent>{
+        EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
+        EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
+        EditProductAction.ingredients: AnalyticsEvent.ingredientsNewProductPage,
+        EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
+        EditProductAction.nutritionFacts:
+            AnalyticsEvent.nutritionNewProductPage,
+      },
+      displayProductType = true,
+      displayPictures = true,
+      displayMisc = true,
+      isLoggedInMandatory = false;
 
   const AddNewProductPage.fromProduct(
     this.product, {
     required this.isLoggedInMandatory,
-  })  : events = const <EditProductAction, AnalyticsEvent>{
-          EditProductAction.openPage:
-              AnalyticsEvent.openFastTrackProductEditPage,
-          EditProductAction.leaveEmpty:
-              AnalyticsEvent.closeEmptyFastTrackProductPage,
-          EditProductAction.ingredients:
-              AnalyticsEvent.ingredientsFastTrackProductPage,
-          EditProductAction.category:
-              AnalyticsEvent.categoriesFastTrackProductPage,
-          EditProductAction.nutritionFacts:
-              AnalyticsEvent.nutritionFastTrackProductPage,
-        },
-        displayProductType = false,
-        displayPictures = false,
-        displayMisc = false;
+  }) : events = const <EditProductAction, AnalyticsEvent>{
+         EditProductAction.openPage:
+             AnalyticsEvent.openFastTrackProductEditPage,
+         EditProductAction.leaveEmpty:
+             AnalyticsEvent.closeEmptyFastTrackProductPage,
+         EditProductAction.ingredients:
+             AnalyticsEvent.ingredientsFastTrackProductPage,
+         EditProductAction.category:
+             AnalyticsEvent.categoriesFastTrackProductPage,
+         EditProductAction.nutritionFacts:
+             AnalyticsEvent.nutritionFastTrackProductPage,
+       },
+       displayProductType = false,
+       displayPictures = false,
+       displayMisc = false;
 
   final Product product;
   final bool displayProductType;
@@ -116,12 +115,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   final ProductFieldEditor _packagingEditor = ProductFieldPackagingEditor();
   final ProductFieldEditor _ingredientsEditor =
       ProductFieldOcrIngredientEditor();
-  final ProductFieldEditor _originEditor =
-      ProductFieldSimpleEditor(SimpleInputPageOriginHelper());
-  final ProductFieldEditor _categoryEditor =
-      ProductFieldSimpleEditor(SimpleInputPageCategoryHelper());
-  final ProductFieldEditor _labelEditor =
-      ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
+  final ProductFieldEditor _originEditor = ProductFieldSimpleEditor(
+    SimpleInputPageOriginHelper(),
+  );
+  final ProductFieldEditor _categoryEditor = ProductFieldSimpleEditor(
+    SimpleInputPageCategoryHelper(),
+  );
+  final ProductFieldEditor _labelEditor = ProductFieldSimpleEditor(
+    SimpleInputPageLabelHelper(),
+  );
   final ProductFieldEditor _detailsEditor = ProductFieldDetailsEditor();
   final ProductFieldEditor _nutritionEditor = ProductFieldNutritionEditor();
   late final List<ProductFieldEditor> _editors;
@@ -246,8 +248,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       tracker.track();
     }
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return WillPopScope2(
@@ -293,8 +295,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                   controller: _pageController,
                   physics:
                       widget.displayProductType && _inputProductType == null
-                          ? const NeverScrollableScrollPhysics()
-                          : null,
+                      ? const NeverScrollableScrollPhysics()
+                      : null,
                   children: <Widget>[
                     if (widget.displayProductType)
                       _buildCard(_getProductTypes(context)),
@@ -365,18 +367,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     return false;
   }
 
-  Widget _buildCard(
-    final List<Widget> children,
-  ) =>
-      SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(LARGE_SPACE),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: children,
-          ),
-        ),
-      );
+  Widget _buildCard(final List<Widget> children) => SingleChildScrollView(
+    child: Padding(
+      padding: const EdgeInsets.all(LARGE_SPACE),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: children,
+      ),
+    ),
+  );
 
   Attribute? _getAttribute(final String tag) =>
       upToDateProduct.getAttributes(<String>[tag])[tag];
@@ -412,8 +411,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         },
       ),
       positiveButton: SmoothActionButton2(
-        text:
-            _isLastPage ? appLocalizations.finish : appLocalizations.next_label,
+        text: _isLastPage
+            ? appLocalizations.finish
+            : appLocalizations.next_label,
         onPressed: () async {
           if (_isLastPage) {
             Navigator.of(context).pop();
@@ -425,9 +425,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                 context: context,
                 builder: (final BuildContext context) => SmoothAlertDialog(
                   title: appLocalizations.product_type_selection_title,
-                  body: Text(
-                    appLocalizations.product_type_selection_empty,
-                  ),
+                  body: Text(appLocalizations.product_type_selection_empty),
                   positiveAction: SmoothActionButton(
                     text: appLocalizations.okay,
                     onPressed: () => Navigator.of(context).pop(),
@@ -469,16 +467,17 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         !_categoryEditor.isPopulated(upToDateProduct)
             ? null
             : () async => NutritionPageLoader.showNutritionPage(
-                  product: upToDateProduct,
-                  isLoggedInMandatory: widget.isLoggedInMandatory,
-                  context: context,
-                ),
+                product: upToDateProduct,
+                isLoggedInMandatory: widget.isLoggedInMandatory,
+                context: context,
+              ),
         done: _nutritionEditor.isPopulated(upToDateProduct),
       ),
       _buildIngredientsButton(
         context,
         forceIconData: Icons.filter_3,
-        disabled: (!_categoryEditor.isPopulated(upToDateProduct)) ||
+        disabled:
+            (!_categoryEditor.isPopulated(upToDateProduct)) ||
             (!_nutritionEditor.isPopulated(upToDateProduct)),
       ),
       Center(
@@ -492,14 +491,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   List<Widget> _getEnvironmentalScoreRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
       const SizedBox(height: 15.0),
       AddNewProductSubTitle(
-          appLocalizations.new_product_subtitle_environmental_score),
+        appLocalizations.new_product_subtitle_environmental_score,
+      ),
       const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       Center(
@@ -513,7 +513,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () {
           setState(
-              () => _environmentalScoreExpanded = !_environmentalScoreExpanded);
+            () => _environmentalScoreExpanded = !_environmentalScoreExpanded,
+          );
         },
         child: Ink(
           padding: const EdgeInsets.symmetric(
@@ -528,17 +529,12 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           ),
           child: Row(
             children: <Widget>[
-              Icon(
-                Icons.filter_2,
-                color: _colorScheme.onPrimary,
-              ),
+              Icon(Icons.filter_2, color: _colorScheme.onPrimary),
               const SizedBox(width: 15.0),
               Flexible(
                 child: Text(
                   appLocalizations.new_product_additional_environmental_score,
-                  style: TextStyle(
-                    color: _colorScheme.onPrimary,
-                  ),
+                  style: TextStyle(color: _colorScheme.onPrimary),
                 ),
               ),
               const SizedBox(width: 5.0),
@@ -600,7 +596,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                   appLocalizations.new_product_desc_nova_unknown,
               maxLines: 5,
             ),
-          )
+          ),
         ],
       ),
     ];
@@ -652,7 +648,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     rows.add(const SizedBox(height: 15.0));
     rows.add(
       AddNewProductSubTitle(
-          appLocalizations.new_product_title_pictures_details),
+        appLocalizations.new_product_title_pictures_details,
+      ),
     );
 
     // Main images first.
@@ -682,29 +679,27 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   Widget _buildOtherImageButton(
     final BuildContext context, {
     required final bool done,
-  }) =>
-      AddNewProductButton(
-        ImageField.OTHER.getAddPhotoButtonText(AppLocalizations.of(context)),
-        done
-            ? AddNewProductButton.doneIconData
-            : AddNewProductButton.cameraIconData,
-        () async {
-          final CropParameters? cropParameters =
-              await confirmAndUploadNewPicture(
-            context,
-            barcode: barcode,
-            productType: upToDateProduct.productType,
-            imageField: ImageField.OTHER,
-            language: ProductQuery.getLanguage(),
-            isLoggedInMandatory: widget.isLoggedInMandatory,
-          );
-          if (cropParameters != null) {
-            setState(() => ++_otherCount);
-          }
-        },
-        done: done,
-        showTrailing: false,
+  }) => AddNewProductButton(
+    ImageField.OTHER.getAddPhotoButtonText(AppLocalizations.of(context)),
+    done
+        ? AddNewProductButton.doneIconData
+        : AddNewProductButton.cameraIconData,
+    () async {
+      final CropParameters? cropParameters = await confirmAndUploadNewPicture(
+        context,
+        barcode: barcode,
+        productType: upToDateProduct.productType,
+        imageField: ImageField.OTHER,
+        language: ProductQuery.getLanguage(),
+        isLoggedInMandatory: widget.isLoggedInMandatory,
       );
+      if (cropParameters != null) {
+        setState(() => ++_otherCount);
+      }
+    },
+    done: done,
+    showTrailing: false,
+  );
 
   /// Button specific to one of the main 4 images.
   Widget _buildMainImageButton(
@@ -714,8 +709,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   ) {
     final bool done = _helper.isMainImagePopulated(productImageData, product);
     return AddNewProductButton(
-      productImageData.imageField
-          .getAddPhotoButtonText(AppLocalizations.of(context)),
+      productImageData.imageField.getAddPhotoButtonText(
+        AppLocalizations.of(context),
+      ),
       done
           ? AddNewProductButton.doneIconData
           : AddNewProductButton.cameraIconData,
@@ -743,11 +739,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       );
 
   List<Widget> _getMiscRows(final BuildContext context) => <Widget>[
-        AddNewProductTitle(
-          AppLocalizations.of(context).new_product_title_misc,
-        ),
-        _buildDetailsButton(context),
-      ];
+    AddNewProductTitle(AppLocalizations.of(context).new_product_title_misc),
+    _buildDetailsButton(context),
+  ];
 
   Widget _buildDetailsButton(final BuildContext context) =>
       AddNewProductEditorButton(
@@ -760,12 +754,11 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final BuildContext context, {
     final IconData? forceIconData,
     final bool disabled = false,
-  }) =>
-      AddNewProductEditorButton(
-        upToDateProduct,
-        _ingredientsEditor,
-        forceIconData: forceIconData,
-        disabled: disabled,
-        isLoggedInMandatory: widget.isLoggedInMandatory,
-      );
+  }) => AddNewProductEditorButton(
+    upToDateProduct,
+    _ingredientsEditor,
+    forceIconData: forceIconData,
+    disabled: disabled,
+    isLoggedInMandatory: widget.isLoggedInMandatory,
+  );
 }

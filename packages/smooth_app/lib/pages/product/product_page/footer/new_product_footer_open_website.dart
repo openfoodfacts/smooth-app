@@ -21,9 +21,11 @@ class ProductFooterOpenWebsiteButton extends StatelessWidget {
       semanticsLabel: appLocalizations.product_footer_action_open_website,
       icon: const icons.ExternalLink(),
       onTap: () => AppNavigator.of(context).push(
-        AppRoutes.EXTERNAL('https://'
-            '${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org'
-            '/product/${product.barcode}'),
+        AppRoutes.EXTERNAL(
+          'https://'
+          '${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org'
+          '/product/${product.barcode}',
+        ),
       ),
     );
   }

@@ -799,8 +799,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get crop_page_too_small_image_title => 'Gambar terlalu kecil!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Ukuran minimum piksel untuk unggahan gambar adalah ${expectedMinWidth}x$expectedMinHeight. Gambar ini $actualHeight×$actualWidth.';
   }
 
@@ -1372,7 +1376,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Apakah Anda ingin mengganti mata uang dari $previousCurrency ke $possibleCurrency?';
   }
 
@@ -1592,20 +1598,33 @@ class AppLocalizationsId extends AppLocalizations {
       'Jika anda berubah pikiran, pilihan ini dapat diaktikan dan dinonaktifkan kapan saja dari pengaturan.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'OS: Android (SDK Int: $sdkInt / Rilis: $release)\nModel: $model\nProduk: $product\nPerangkat: $device\nJenama:$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'OS: iOS ($version)\nModel: $model\nModel lokal: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nVersi aplikasi:$appVersion\nNomor pembuatan aplikasi:$appBuildNumber\nNama paket aplikasi:$appPackageName';
   }
 
@@ -2636,7 +2655,11 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Harga: $price / Toko: \"$location\" / Diterbitkan pada $date oleh \"$user\"';
   }
 
@@ -2820,7 +2843,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Mata uang Anda saat ini adalah **$currency**. Apa Anda mau mengubahnya ke **$newCurrency**?';
   }
 
@@ -2879,7 +2904,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Unduh $count lebih banyak produk\nSudah mengunduh $downloaded dari $totalSize.';
   }
 

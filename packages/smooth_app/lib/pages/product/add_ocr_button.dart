@@ -6,17 +6,14 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 
 /// "Add OCR image" button for user contribution.
 class AddOcrButton extends StatelessWidget {
-  const AddOcrButton({
-    required this.product,
-    required this.editor,
-  });
+  const AddOcrButton({required this.product, required this.editor});
 
   final Product product;
   final ProductFieldOcrEditor editor;
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-        editor.getLabel(AppLocalizations.of(context)),
-        onPressed: () async => editor.edit(context: context, product: product),
-      );
+    editor.getLabel(AppLocalizations.of(context)),
+    onPressed: () async => editor.edit(context: context, product: product),
+  );
 }

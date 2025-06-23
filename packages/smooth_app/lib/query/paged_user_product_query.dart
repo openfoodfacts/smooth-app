@@ -17,10 +17,7 @@ enum UserSearchType {
   /// Where the user edited a product that still needs to be completed.
   TO_BE_COMPLETED(TagFilterType.INFORMERS, toBeCompleted: true);
 
-  const UserSearchType(
-    this.type, {
-    this.toBeCompleted = false,
-  });
+  const UserSearchType(this.type, {this.toBeCompleted = false});
 
   final TagFilterType type;
   final bool toBeCompleted;
@@ -31,23 +28,20 @@ enum UserSearchType {
     final int pageNumber,
     final OpenFoodFactsLanguage language,
     final List<ProductField> fields,
-  ) =>
-      ProductSearchQueryConfiguration(
-        parametersList: <Parameter>[
-          TagFilter.fromType(tagFilterType: type, tagName: userId),
-          PageSize(size: pageSize),
-          PageNumber(page: pageNumber),
-          if (toBeCompleted)
-            const StatesTagsParameter(
-              map: <ProductState, bool>{
-                ProductState.COMPLETED: false,
-              },
-            ),
-        ],
-        language: language,
-        fields: fields,
-        version: ProductQuery.productQueryVersion,
-      );
+  ) => ProductSearchQueryConfiguration(
+    parametersList: <Parameter>[
+      TagFilter.fromType(tagFilterType: type, tagName: userId),
+      PageSize(size: pageSize),
+      PageNumber(page: pageNumber),
+      if (toBeCompleted)
+        const StatesTagsParameter(
+          map: <ProductState, bool>{ProductState.COMPLETED: false},
+        ),
+    ],
+    language: language,
+    fields: fields,
+    version: ProductQuery.productQueryVersion,
+  );
 }
 
 /// Back-end paged queries around User.
@@ -63,12 +57,12 @@ class PagedUserProductQuery extends PagedProductQuery {
 
   @override
   AbstractQueryConfiguration getQueryConfiguration() => type.getConfiguration(
-        userId,
-        pageSize,
-        pageNumber,
-        language,
-        ProductQuery.fields,
-      );
+    userId,
+    pageSize,
+    pageNumber,
+    language,
+    ProductQuery.fields,
+  );
 
   @override
   ProductList getProductList() {
@@ -109,7 +103,8 @@ class PagedUserProductQuery extends PagedProductQuery {
   }
 
   @override
-  String toString() => 'PagedUserProductQuery('
+  String toString() =>
+      'PagedUserProductQuery('
       '$type'
       ', "$userId"'
       ', $pageSize'

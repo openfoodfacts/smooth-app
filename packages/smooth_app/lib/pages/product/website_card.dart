@@ -47,20 +47,14 @@ class WebsiteCard extends StatelessWidget {
                     child: Text(
                       website,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: Colors.blue),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(color: Colors.blue),
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(
-                      start: 5.0,
-                      end: 3.0,
-                    ),
-                    child: icons.ExternalLink(
-                      size: 20.0,
-                    ),
+                    padding: EdgeInsetsDirectional.only(start: 5.0, end: 3.0),
+                    child: icons.ExternalLink(size: 20.0),
                   ),
                 ],
               ),

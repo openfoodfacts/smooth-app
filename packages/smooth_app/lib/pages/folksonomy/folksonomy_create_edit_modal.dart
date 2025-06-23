@@ -54,9 +54,7 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
           isValueValid: isValueValid,
           onSave: _onSubmit,
         ),
-        _FolksonomyEditTagContentFooter(
-          onSave: _onSubmit,
-        ),
+        _FolksonomyEditTagContentFooter(onSave: _onSubmit),
       ],
     );
   }
@@ -68,7 +66,8 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
       isKeyValid =
           isKeyValid && !widget.existingKeys!.contains(keyController.text);
     } else if (widget.action == FolksonomyAction.edit) {
-      isKeyValid = isKeyValid &&
+      isKeyValid =
+          isKeyValid &&
           (keyController.text == widget.oldKey ||
               !widget.existingKeys!.contains(keyController.text));
     }
@@ -80,12 +79,9 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
       return SmoothHapticFeedback.error();
     }
 
-    return Navigator.of(context).pop(
-      FolksonomyTag(
-        key: keyController.text,
-        value: valueController.text,
-      ),
-    );
+    return Navigator.of(
+      context,
+    ).pop(FolksonomyTag(key: keyController.text, value: valueController.text));
   }
 
   @override
@@ -142,9 +138,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             textCapitalization: TextCapitalization.none,
             keyboardType: TextInputType.text,
             inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.allow(
-                RegExp(r'[a-zA-Z0-9_\-\:]'),
-              ),
+              FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9_\-\:]')),
               LowerCaseTextFormatter(),
             ],
             decoration: InputDecoration(
@@ -200,16 +194,17 @@ class _FolksonomyEditTagContentTitleState
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..addStatusListener((AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          _controller.reverse();
-        }
-      });
+    _controller =
+        AnimationController(
+            duration: const Duration(milliseconds: 500),
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..addStatusListener((AnimationStatus status) {
+            if (status == AnimationStatus.completed) {
+              _controller.reverse();
+            }
+          });
   }
 
   @override
@@ -224,8 +219,8 @@ class _FolksonomyEditTagContentTitleState
   @override
   Widget build(BuildContext context) {
     if (_animation == null) {
-      final SmoothColorsThemeExtension extension =
-          context.extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension = context
+          .extension<SmoothColorsThemeExtension>();
 
       _animation = ColorTween(
         begin: DefaultTextStyle.of(context).style.color,
@@ -249,10 +244,7 @@ class _FolksonomyEditTagContentTitleState
           text,
           Text(
             widget.explanation!,
-            style: TextStyle(
-              color: _animation!.value,
-              fontSize: 14.5,
-            ),
+            style: TextStyle(color: _animation!.value, fontSize: 14.5),
           ),
         ],
       );
@@ -263,9 +255,7 @@ class _FolksonomyEditTagContentTitleState
 }
 
 class _FolksonomyEditTagContentFooter extends StatelessWidget {
-  const _FolksonomyEditTagContentFooter({
-    required this.onSave,
-  });
+  const _FolksonomyEditTagContentFooter({required this.onSave});
 
   final VoidCallback onSave;
 
@@ -311,10 +301,7 @@ class LowerCaseTextFormatter extends TextInputFormatter {
 }
 
 class FolksonomyTag {
-  FolksonomyTag({
-    required this.key,
-    required this.value,
-  });
+  FolksonomyTag({required this.key, required this.value});
 
   final String key;
   final String value;

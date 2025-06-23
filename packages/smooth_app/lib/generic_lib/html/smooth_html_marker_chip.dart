@@ -9,14 +9,15 @@ class SmoothHtmlChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     /// We can't use top Padding, so we draw on a canvas
     return CustomPaint(
       painter: _HtmlChipPainter(
-        color:
-            context.lightTheme() ? extension.greyMedium : extension.greyNormal,
+        color: context.lightTheme()
+            ? extension.greyMedium
+            : extension.greyNormal,
         textDirection: Directionality.of(context),
       ),
       child: const SizedBox.square(dimension: 10.0),
@@ -25,10 +26,7 @@ class SmoothHtmlChip extends StatelessWidget {
 }
 
 class _HtmlChipPainter extends CustomPainter {
-  _HtmlChipPainter({
-    required this.color,
-    required this.textDirection,
-  });
+  _HtmlChipPainter({required this.color, required this.textDirection});
 
   final Color color;
   final TextDirection textDirection;
@@ -55,10 +53,7 @@ class _HtmlChipPainter extends CustomPainter {
     textPainter.layout();
     textPainter.paint(
       canvas,
-      Offset(
-        (size.width - dimension) / 2,
-        (size.height - dimension) / 2,
-      ),
+      Offset((size.width - dimension) / 2, (size.height - dimension) / 2),
     );
   }
 

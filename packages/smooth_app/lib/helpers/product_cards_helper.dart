@@ -20,23 +20,18 @@ SmoothAppBar buildEditProductAppBar({
   required final Product product,
   final PreferredSizeWidget? bottom,
   final List<Widget>? actions,
-}) =>
-    SmoothAppBar(
-      centerTitle: false,
-      title: Text(
-        title,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
-      subTitle: Text(
-        getProductNameAndBrands(product, AppLocalizations.of(context)),
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
-      actions: actions,
-      bottom: bottom,
-      ignoreSemanticsForSubtitle: true,
-    );
+}) => SmoothAppBar(
+  centerTitle: false,
+  title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
+  subTitle: Text(
+    getProductNameAndBrands(product, AppLocalizations.of(context)),
+    maxLines: 1,
+    overflow: TextOverflow.ellipsis,
+  ),
+  actions: actions,
+  bottom: bottom,
+  ignoreSemanticsForSubtitle: true,
+);
 
 String getProductNameAndBrands(
   final Product product,
@@ -64,10 +59,10 @@ String getProductName(
 ) =>
     _clearString(product.productNameInLanguages?[ProductQuery.getLanguage()]) ??
     _clearString(product.productName) ??
-
     /// Fallback to the first language available
     _clearString(
-        product.productNameInLanguages?[OpenFoodFactsLanguage.ENGLISH]) ??
+      product.productNameInLanguages?[OpenFoodFactsLanguage.ENGLISH],
+    ) ??
     _clearString(product.productNameInLanguages?.values.firstOrNull) ??
     appLocalizations.unknownProductName;
 
@@ -119,20 +114,14 @@ Widget buildProductSmoothCard({
     child = Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        _ProductSmoothCardTitle(
-          title: title,
-          padding: titlePadding,
-        ),
+        _ProductSmoothCardTitle(title: title, padding: titlePadding),
         body,
       ],
     );
   } else if (header != null) {
     child = Column(
       mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        header,
-        body,
-      ],
+      children: <Widget>[header, body],
     );
   } else {
     child = body;
@@ -147,22 +136,19 @@ Widget buildProductSmoothCard({
 }
 
 class _ProductSmoothCardTitle extends StatelessWidget {
-  const _ProductSmoothCardTitle({
-    required this.title,
-    this.padding,
-  });
+  const _ProductSmoothCardTitle({required this.title, this.padding});
 
   final Widget title;
   final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-    final EdgeInsetsGeometry effectivePadding = padding ??
-        const EdgeInsetsDirectional.symmetric(
-          vertical: MEDIUM_SPACE,
-        );
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
+    final EdgeInsetsGeometry effectivePadding =
+        padding ??
+        const EdgeInsetsDirectional.symmetric(vertical: MEDIUM_SPACE);
     final TextStyle titleStyle =
         Theme.of(context).textTheme.displaySmall ?? const TextStyle();
     final double fontSize = titleStyle.fontSize ?? 15.0;
@@ -176,19 +162,14 @@ class _ProductSmoothCardTitle extends StatelessWidget {
         color: context.lightTheme()
             ? colors.primaryMedium
             : colors.primarySemiDark,
-        borderRadius: const BorderRadius.vertical(
-          top: ROUNDED_RADIUS,
-        ),
+        borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
       ),
       padding: effectivePadding,
       child: Center(
         child: DefaultTextStyle(
           style: titleStyle,
           textAlign: TextAlign.center,
-          child: SizedBox(
-            width: double.infinity,
-            child: title,
-          ),
+          child: SizedBox(width: double.infinity, child: title),
         ),
       ),
     );
@@ -208,11 +189,11 @@ List<Attribute> getPopulatedAttributes(
       continue;
     }
     Attribute? attribute = attributes[attributeId];
-// Some attributes selected in the user preferences might be unavailable for some products
+    // Some attributes selected in the user preferences might be unavailable for some products
     if (attribute == null) {
       continue;
     } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
-// TODO(stephanegigandet): remove that cheat when additives are more standard
+      // TODO(stephanegigandet): remove that cheat when additives are more standard
       final List<String>? additiveNames = product.additives?.names;
       attribute = Attribute(
         id: attribute.id,
@@ -232,14 +213,13 @@ List<Attribute> getMandatoryAttributes(
   final List<String> attributeGroupOrder,
   final Set<String> attributesToExcludeIfStatusIsUnknown,
   final ProductPreferences preferences,
-) =>
-    getSortedAttributes(
-      product,
-      attributeGroupOrder,
-      attributesToExcludeIfStatusIsUnknown,
-      preferences,
-      PreferenceImportance.ID_MANDATORY,
-    );
+) => getSortedAttributes(
+  product,
+  attributeGroupOrder,
+  attributesToExcludeIfStatusIsUnknown,
+  preferences,
+  PreferenceImportance.ID_MANDATORY,
+);
 
 /// Returns the attributes, ordered by importance desc and attribute group order
 List<Attribute> getSortedAttributes(
@@ -256,7 +236,7 @@ List<Attribute> getSortedAttributes(
   }
   final Map<String, List<Attribute>> mandatoryAttributesByGroup =
       <String, List<Attribute>>{};
-// collecting all the mandatory attributes, by group
+  // collecting all the mandatory attributes, by group
   for (final AttributeGroup attributeGroup in product.attributeGroups!) {
     mandatoryAttributesByGroup[attributeGroup.id!] = getFilteredAttributes(
       attributeGroup,
@@ -267,7 +247,7 @@ List<Attribute> getSortedAttributes(
     );
   }
 
-// now ordering by attribute group order
+  // now ordering by attribute group order
   for (final String attributeGroupId in attributeGroupOrder) {
     final List<Attribute>? attributes =
         mandatoryAttributesByGroup[attributeGroupId];
@@ -302,8 +282,9 @@ List<Attribute> getFilteredAttributes(
     if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
       attributesToExcludeIfStatusIsUnknown.add(attributeId);
     }
-    final String importanceId =
-        preferences.getImportanceIdForAttributeId(attributeId);
+    final String importanceId = preferences.getImportanceIdForAttributeId(
+      attributeId,
+    );
     if (importance == importanceId) {
       result.add(attribute);
     }
@@ -320,22 +301,21 @@ Widget addPanelButton(
   required final Function() onPressed,
   BorderRadiusGeometry? borderRadius,
   WidgetStateProperty<double?>? elevation,
-}) =>
-    Padding(
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: SmoothLargeButtonWithIcon(
-        text: label,
-        leadingIcon: leadingIcon,
-        trailingIcon: trailingIcon,
-        borderRadius: borderRadius,
-        elevation: elevation,
-        onPressed: onPressed,
-        textAlign: leadingIcon == null && trailingIcon == null
-            ? TextAlign.center
-            : null,
-        padding: padding,
-      ),
-    );
+}) => Padding(
+  padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+  child: SmoothLargeButtonWithIcon(
+    text: label,
+    leadingIcon: leadingIcon,
+    trailingIcon: trailingIcon,
+    borderRadius: borderRadius,
+    elevation: elevation,
+    onPressed: onPressed,
+    textAlign: leadingIcon == null && trailingIcon == null
+        ? TextAlign.center
+        : null,
+    padding: padding,
+  ),
+);
 
 List<ProductImageData> getProductMainImagesData(
   final Product product,
@@ -344,7 +324,8 @@ List<ProductImageData> getProductMainImagesData(
   final List<ProductImageData> result = <ProductImageData>[];
   for (final ImageField imageField
       in ImageFieldSmoothieExtension.getOrderedMainImageFields(
-          product.productType)) {
+        product.productType,
+      )) {
     result.add(getProductImageData(product, imageField, language));
   }
   return result;
@@ -362,7 +343,7 @@ ProductImageData getProductImageData(
     language,
   );
   if (productImage != null) {
-// we found a localized version for this image
+    // we found a localized version for this image
     return ProductImageData(
       imageId: productImage.imgid,
       imageField: imageField,
@@ -439,7 +420,7 @@ List<ProductImage> getRawProductImages(
   for (final ProductImage productImage in rawImages) {
     final int? imageId = int.tryParse(productImage.imgid!);
     if (imageId == null) {
-// highly unlikely
+      // highly unlikely
       continue;
     }
     final ProductImage? previous = map[imageId];
@@ -449,32 +430,27 @@ List<ProductImage> getRawProductImages(
     }
     final ImageSize? currentImageSize = productImage.size;
     if (currentImageSize == null) {
-// highly unlikely
+      // highly unlikely
       continue;
     }
     final ImageSize? previousImageSize = previous.size;
     if (previousImageSize == imageSize) {
-// we already have the best
+      // we already have the best
       continue;
     }
     map[imageId] = productImage;
   }
   final List<ProductImage> result = List<ProductImage>.of(map.values);
-  result.sort(
-    (
-      final ProductImage a,
-      final ProductImage b,
-    ) {
-      final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
-        b.uploaded?.millisecondsSinceEpoch ?? 0,
-      );
-      if (result != 0) {
-        return result;
-      }
-      return (int.tryParse(a.imgid ?? '0') ?? 0).compareTo(
-        int.tryParse(b.imgid ?? '0') ?? 0,
-      );
-    },
-  );
+  result.sort((final ProductImage a, final ProductImage b) {
+    final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
+      b.uploaded?.millisecondsSinceEpoch ?? 0,
+    );
+    if (result != 0) {
+      return result;
+    }
+    return (int.tryParse(a.imgid ?? '0') ?? 0).compareTo(
+      int.tryParse(b.imgid ?? '0') ?? 0,
+    );
+  });
   return result;
 }

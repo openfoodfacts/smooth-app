@@ -17,12 +17,12 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
   });
 
   BackgroundTaskBarcode.fromJson(super.json)
-      : barcode = json[_jsonTagBarcode] as String,
-        productType =
-            ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
-                // for legacy reason (not refreshed products = no product type)
-                ProductType.food,
-        super.fromJson();
+    : barcode = json[_jsonTagBarcode] as String,
+      productType =
+          ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
+          // for legacy reason (not refreshed products = no product type)
+          ProductType.food,
+      super.fromJson();
 
   final String barcode;
   final ProductType productType;
@@ -57,7 +57,6 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
       );
 
   @protected
-  UriProductHelper get uriProductHelper => ProductQuery.getUriProductHelper(
-        productType: productType,
-      );
+  UriProductHelper get uriProductHelper =>
+      ProductQuery.getUriProductHelper(productType: productType);
 }

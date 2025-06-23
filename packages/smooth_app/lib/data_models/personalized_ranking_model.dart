@@ -7,10 +7,7 @@ import 'package:smooth_app/pages/product/common/loading_status.dart';
 
 /// Model that computes the scores and sorts the barcodes accordingly.
 class PersonalizedRankingModel with ChangeNotifier {
-  PersonalizedRankingModel(
-    this.initialBarcodes,
-    this.localDatabase,
-  ) {
+  PersonalizedRankingModel(this.initialBarcodes, this.localDatabase) {
     initialBarcodes.forEach(localDatabase.upToDate.showInterest);
   }
 
@@ -34,9 +31,7 @@ class PersonalizedRankingModel with ChangeNotifier {
   }
 
   /// Refreshes the computations.
-  Future<void> refresh(
-    final ProductPreferences productPreferences,
-  ) async {
+  Future<void> refresh(final ProductPreferences productPreferences) async {
     _clear();
     _asyncLoad(localDatabase, productPreferences);
   }

@@ -12,9 +12,7 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return UserPreferencesItemSimple(
-      labels: <String>[
-        appLocalizations.language_picker_label,
-      ],
+      labels: <String>[appLocalizations.language_picker_label],
       builder: (_) => const UserPreferencesLanguageSelector(),
     );
   }
@@ -38,9 +36,7 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
           autoValidate: false,
           textStyle: themeData.textTheme.bodyMedium,
           icon: const Icon(Icons.edit),
-          padding: const EdgeInsetsDirectional.only(
-            start: SMALL_SPACE,
-          ),
+          padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
           loadingHeight: 40.0,
         ),
       ),

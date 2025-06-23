@@ -43,19 +43,14 @@ class SmoothCloseButton extends StatelessWidget {
                 width: circleSize,
                 height: circleSize,
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: circleColor,
-                    border: circleBorderColor != null
-                        ? Border.all(
-                            color: circleBorderColor!,
-                            width: 1.5,
-                          )
-                        : null),
-                padding: padding ?? const EdgeInsetsDirectional.all(7.0),
-                child: icons.Close(
-                  size: crossSize,
-                  color: crossColor,
+                  shape: BoxShape.circle,
+                  color: circleColor,
+                  border: circleBorderColor != null
+                      ? Border.all(color: circleBorderColor!, width: 1.5)
+                      : null,
                 ),
+                padding: padding ?? const EdgeInsetsDirectional.all(7.0),
+                child: icons.Close(size: crossSize, color: crossColor),
               ),
             ),
           ),

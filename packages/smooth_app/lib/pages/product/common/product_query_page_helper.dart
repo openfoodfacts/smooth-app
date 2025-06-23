@@ -19,10 +19,7 @@ class ProductQueryPageHelper {
     bool searchResult = true,
   }) async {
     final ProductListSupplier supplier =
-        await ProductListSupplier.getBestSupplier(
-      productQuery,
-      localDatabase,
-    );
+        await ProductListSupplier.getBestSupplier(productQuery, localDatabase);
 
     return ProductQueryPage(
       productListSupplier: supplier,
@@ -55,9 +52,7 @@ class ProductQueryPageHelper {
     }
 
     final bool? result = await Navigator.of(context).push<bool>(
-      MaterialPageRoute<bool>(
-        builder: (BuildContext context) => widget,
-      ),
+      MaterialPageRoute<bool>(builder: (BuildContext context) => widget),
     );
 
     if (result == true) {

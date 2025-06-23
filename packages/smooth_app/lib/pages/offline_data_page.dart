@@ -38,13 +38,12 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     final double backgroundHeight = MediaQuery.sizeOf(context).height * .20;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final DaoProductLastAccess daoProductLastAccess =
-        DaoProductLastAccess(localDatabase);
+    final DaoProductLastAccess daoProductLastAccess = DaoProductLastAccess(
+      localDatabase,
+    );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
-      appBar: SmoothAppBar(
-        title: Text(appLocalizations.offline_data),
-      ),
+      appBar: SmoothAppBar(title: Text(appLocalizations.offline_data)),
       body: RefreshIndicator(
         onRefresh: () async {
           setState(() {});
@@ -60,9 +59,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                 package: AppHelper.APP_PACKAGE,
               ),
             ),
-            _StatsWidget(
-              daoProduct: daoProduct,
-            ),
+            _StatsWidget(daoProduct: daoProduct),
             for (final ProductType productType in ProductType.values)
               _OfflinePageListTile(
                 title:
@@ -122,9 +119,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
 // Widget to display the stats of the local databas, ie. the number of products
 // in the database and the size of the database
 class _StatsWidget extends StatelessWidget {
-  const _StatsWidget({
-    required this.daoProduct,
-  });
+  const _StatsWidget({required this.daoProduct});
 
   final DaoProduct daoProduct;
 
@@ -137,25 +132,27 @@ class _StatsWidget extends StatelessWidget {
         title: Text(applocalizations.offline_product_data_title),
         subtitle: FutureBuilder<Map<ProductType, int>>(
           future: daoProduct.getTotalNoOfProducts(),
-          builder: (
-            BuildContext context,
-            AsyncSnapshot<Map<ProductType, int>> snapshot,
-          ) {
-            if (!snapshot.hasData) {
-              return Text(applocalizations.loading);
-            }
-            int count = 0;
-            final List<String> list = <String>[];
-            for (final MapEntry<ProductType, int> item
-                in snapshot.data!.entries) {
-              count += item.value;
-              list.add(
-                  '${item.value} (${item.key.getLabel(applocalizations)})');
-            }
-            return Text(
-              '${applocalizations.available_for_download(count)} ${list.join(', ')}',
-            );
-          },
+          builder:
+              (
+                BuildContext context,
+                AsyncSnapshot<Map<ProductType, int>> snapshot,
+              ) {
+                if (!snapshot.hasData) {
+                  return Text(applocalizations.loading);
+                }
+                int count = 0;
+                final List<String> list = <String>[];
+                for (final MapEntry<ProductType, int> item
+                    in snapshot.data!.entries) {
+                  count += item.value;
+                  list.add(
+                    '${item.value} (${item.key.getLabel(applocalizations)})',
+                  );
+                }
+                return Text(
+                  '${applocalizations.available_for_download(count)} ${list.join(', ')}',
+                );
+              },
         ),
         trailing: FutureBuilder<double>(
           future: daoProduct.getEstimatedTotalSizeInMB(),

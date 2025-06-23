@@ -41,12 +41,9 @@ class PriceDateCard extends StatelessWidget {
                     // cf. https://stackoverflow.com/questions/50321182/how-to-customize-a-date-picker
                     final ThemeData themeData =
                         Theme.of(context).brightness == Brightness.light
-                            ? ThemeData.light()
-                            : ThemeData.dark();
-                    return Theme(
-                      data: themeData.copyWith(),
-                      child: child!,
-                    );
+                        ? ThemeData.light()
+                        : ThemeData.dark();
+                    return Theme(data: themeData.copyWith(), child: child!);
                   },
                 );
                 if (newDate == null) {

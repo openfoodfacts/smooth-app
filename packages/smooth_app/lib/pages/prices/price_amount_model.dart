@@ -4,9 +4,7 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
 /// Model for the price of a single product.
 class PriceAmountModel {
-  PriceAmountModel({
-    required this.product,
-  });
+  PriceAmountModel({required this.product});
 
   final PriceMetaProduct product;
 

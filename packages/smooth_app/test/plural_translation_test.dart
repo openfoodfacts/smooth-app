@@ -20,8 +20,9 @@ void main() {
           if (!delegate.isSupported(locale)) {
             continue;
           }
-          final AppLocalizations appLocalizations =
-              lookupAppLocalizations(locale);
+          final AppLocalizations appLocalizations = lookupAppLocalizations(
+            locale,
+          );
 
           final List<String> minutes = <String>[];
           final List<String> hours = <String>[];
@@ -71,32 +72,68 @@ void main() {
           );
           expect(
             appLocalizations.contact_form_body_android(
-                crazyInt, '', '', '', '', ''),
+              crazyInt,
+              '',
+              '',
+              '',
+              '',
+              '',
+            ),
             contains(crazyInt.toString()),
           );
           expect(
             appLocalizations.contact_form_body_android(
-                0, crazyString, '', '', '', ''),
+              0,
+              crazyString,
+              '',
+              '',
+              '',
+              '',
+            ),
             contains(crazyString),
           );
           expect(
             appLocalizations.contact_form_body_android(
-                0, '', crazyString, '', '', ''),
+              0,
+              '',
+              crazyString,
+              '',
+              '',
+              '',
+            ),
             contains(crazyString),
           );
           expect(
             appLocalizations.contact_form_body_android(
-                0, '', '', crazyString, '', ''),
+              0,
+              '',
+              '',
+              crazyString,
+              '',
+              '',
+            ),
             contains(crazyString),
           );
           expect(
             appLocalizations.contact_form_body_android(
-                0, '', '', '', crazyString, ''),
+              0,
+              '',
+              '',
+              '',
+              crazyString,
+              '',
+            ),
             contains(crazyString),
           );
           expect(
             appLocalizations.contact_form_body_android(
-                0, '', '', '', '', crazyString),
+              0,
+              '',
+              '',
+              '',
+              '',
+              crazyString,
+            ),
             contains(crazyString),
           );
           expect(
@@ -150,13 +187,15 @@ void main() {
             contains(crazyString),
           );
           expect(
-            appLocalizations
-                .category_picker_no_category_found_message(crazyString),
+            appLocalizations.category_picker_no_category_found_message(
+              crazyString,
+            ),
             contains(crazyString),
           );
           expect(
-            appLocalizations
-                .dev_preferences_test_environment_subtitle(crazyString),
+            appLocalizations.dev_preferences_test_environment_subtitle(
+              crazyString,
+            ),
             contains(crazyString),
           );
           expect(
@@ -169,17 +208,26 @@ void main() {
           );
           expect(
             appLocalizations.product_search_button_download_more(
-                crazyInt, 0, 0),
+              crazyInt,
+              0,
+              0,
+            ),
             contains(crazyInt.toString()),
           );
           expect(
             appLocalizations.product_search_button_download_more(
-                0, crazyInt, 0),
+              0,
+              crazyInt,
+              0,
+            ),
             contains(crazyInt.toString()),
           );
           expect(
             appLocalizations.product_search_button_download_more(
-                0, 0, crazyInt),
+              0,
+              0,
+              crazyInt,
+            ),
             contains(crazyInt.toString()),
           );
           expect(

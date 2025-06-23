@@ -33,9 +33,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
             );
 
             return IconButton(
-              icon: Icon(
-                isFavorite ? Icons.favorite : Icons.favorite_border,
-              ),
+              icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
               onPressed: () async => FavoriteLocationHelper().setFavorite(
                 localDatabase,
                 osmLocation,
@@ -58,10 +56,8 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
           onPressed: () async => Navigator.push<OsmLocation>(
             context,
             MaterialPageRoute<OsmLocation>(
-              builder: (BuildContext context) => LocationMapPage(
-                osmLocation,
-                popFirst: popFirst,
-              ),
+              builder: (BuildContext context) =>
+                  LocationMapPage(osmLocation, popFirst: popFirst),
             ),
           ),
           icon: const Icon(Icons.map),
@@ -79,10 +75,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
         color: RED_COLOR,
         alignment: AlignmentDirectional.centerEnd,
         padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
-        child: const Icon(
-          Icons.delete,
-          color: Colors.white,
-        ),
+        child: const Icon(Icons.delete, color: Colors.white),
       ),
       child: child,
     );

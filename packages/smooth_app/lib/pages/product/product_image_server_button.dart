@@ -99,18 +99,16 @@ class ProductImageServerButton extends ProductImageButton {
     }
     if (latestProduct != null) {
       // very likely
-      rawImages = getRawProductImages(
-        latestProduct,
-        ImageSize.DISPLAY,
-      );
+      rawImages = getRawProductImages(latestProduct, ImageSize.DISPLAY);
     }
 
     if (rawImages.isEmpty) {
       await showDialog<void>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
-          body:
-              Text(appLocalizations.edit_photo_select_existing_downloaded_none),
+          body: Text(
+            appLocalizations.edit_photo_select_existing_downloaded_none,
+          ),
           actionsAxis: Axis.vertical,
           positiveAction: SmoothActionButton(
             text: appLocalizations.okay,
@@ -139,18 +137,17 @@ class ProductImageServerButton extends ProductImageButton {
     required final ImageField imageField,
     required final OpenFoodFactsLanguage language,
     required final bool isLoggedInMandatory,
-  }) =>
-      Navigator.push<CropParameters?>(
-        context,
-        MaterialPageRoute<CropParameters?>(
-          builder: (BuildContext context) => UploadedImageGallery(
-            barcode: barcode,
-            rawImages: rawImages,
-            imageField: imageField,
-            language: language,
-            isLoggedInMandatory: isLoggedInMandatory,
-            productType: productType,
-          ),
-        ),
-      );
+  }) => Navigator.push<CropParameters?>(
+    context,
+    MaterialPageRoute<CropParameters?>(
+      builder: (BuildContext context) => UploadedImageGallery(
+        barcode: barcode,
+        rawImages: rawImages,
+        imageField: imageField,
+        language: language,
+        isLoggedInMandatory: isLoggedInMandatory,
+        productType: productType,
+      ),
+    ),
+  );
 }

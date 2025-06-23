@@ -11,10 +11,7 @@ import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 /// A toggle to indicate whether a product has nutrition facts.
 class NutritionServingSize extends StatelessWidget {
-  const NutritionServingSize({
-    required this.controller,
-    super.key,
-  });
+  const NutritionServingSize({required this.controller, super.key});
 
   final TextEditingController controller;
 
@@ -73,10 +70,12 @@ class NutritionServingSize extends StatelessWidget {
   }
 
   bool hasOwnerField(Product product) =>
-      product.getOwnerFieldTimestamp(OwnerField.productField(
-        ProductField.SERVING_SIZE,
-        ProductQuery.getLanguage(),
-      )) !=
+      product.getOwnerFieldTimestamp(
+        OwnerField.productField(
+          ProductField.SERVING_SIZE,
+          ProductQuery.getLanguage(),
+        ),
+      ) !=
       null;
 }
 

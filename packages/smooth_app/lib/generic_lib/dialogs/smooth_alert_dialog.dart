@@ -37,9 +37,9 @@ class SmoothAlertDialog extends StatelessWidget {
     this.margin,
     this.contentPadding,
   }) : assert(
-          body is! LayoutBuilder,
-          "LayoutBuilder isn't supported with Dialogs",
-        );
+         body is! LayoutBuilder,
+         "LayoutBuilder isn't supported with Dialogs",
+       );
 
   final String? title;
   final Widget? leadingTitle;
@@ -61,19 +61,19 @@ class SmoothAlertDialog extends StatelessWidget {
 
   static const EdgeInsetsDirectional _smallContentPadding =
       EdgeInsetsDirectional.only(
-    start: SMALL_SPACE,
-    top: MEDIUM_SPACE,
-    end: SMALL_SPACE,
-    bottom: SMALL_SPACE,
-  );
+        start: SMALL_SPACE,
+        top: MEDIUM_SPACE,
+        end: SMALL_SPACE,
+        bottom: SMALL_SPACE,
+      );
 
   static const EdgeInsetsDirectional _contentPadding =
       EdgeInsetsDirectional.only(
-    start: 22.0,
-    top: VERY_LARGE_SPACE,
-    end: 22.0,
-    bottom: 22.0,
-  );
+        start: 22.0,
+        top: VERY_LARGE_SPACE,
+        end: 22.0,
+        bottom: 22.0,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +107,8 @@ class SmoothAlertDialog extends StatelessWidget {
   }
 
   Padding _buildBottomBar(EdgeInsetsDirectional padding) {
-    final bool singleButton = (positiveAction != null &&
+    final bool singleButton =
+        (positiveAction != null &&
             negativeAction == null &&
             neutralAction == null) ||
         (negativeAction != null &&
@@ -141,20 +142,20 @@ class SmoothAlertDialog extends StatelessWidget {
       positiveAction != null || negativeAction != null || neutralAction != null;
 
   Widget _buildContent(final BuildContext context) => DefaultTextStyle.merge(
-        style: const TextStyle(height: 1.5),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            if (title != null)
-              _SmoothDialogTitle(
-                label: title!,
-                close: close,
-                leading: leadingTitle,
-              ),
-            body,
-          ],
-        ),
-      );
+    style: const TextStyle(height: 1.5),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        if (title != null)
+          _SmoothDialogTitle(
+            label: title!,
+            close: close,
+            leading: leadingTitle,
+          ),
+        body,
+      ],
+    ),
+  );
 
   static EdgeInsetsDirectional defaultContentPadding(BuildContext context) {
     return (context.isSmallDevice() ? _smallContentPadding : _contentPadding);
@@ -195,19 +196,13 @@ class _SmoothDialogTitle extends StatelessWidget {
                     end: SMALL_SPACE,
                   ),
                   child: IconTheme(
-                      data: IconThemeData(
-                        color: textStyle.color,
-                      ),
-                      child: leading!),
+                    data: IconThemeData(color: textStyle.color),
+                    child: leading!,
+                  ),
                 ),
               _buildCross(true),
               Expanded(
-                child: FittedBox(
-                  child: Text(
-                    label,
-                    style: textStyle,
-                  ),
-                ),
+                child: FittedBox(child: Text(label, style: textStyle)),
               ),
               _buildCross(false),
             ],
@@ -221,9 +216,7 @@ class _SmoothDialogTitle extends StatelessWidget {
 
   Widget _buildCross(final bool isPlaceHolder) {
     if (close) {
-      return _SmoothDialogCrossButton(
-        visible: !isPlaceHolder,
-      );
+      return _SmoothDialogCrossButton(visible: !isPlaceHolder);
     } else {
       return EMPTY_WIDGET;
     }
@@ -231,9 +224,7 @@ class _SmoothDialogTitle extends StatelessWidget {
 }
 
 class _SmoothDialogCrossButton extends StatelessWidget {
-  const _SmoothDialogCrossButton({
-    required this.visible,
-  });
+  const _SmoothDialogCrossButton({required this.visible});
 
   final bool visible;
 
@@ -290,18 +281,16 @@ class SmoothActionButtonsBar extends StatelessWidget {
     this.padding,
     super.key,
   }) : assert(
-            positiveAction != null ||
-                negativeAction != null ||
-                neutralAction != null,
-            'At least one action must be passed!');
+         positiveAction != null ||
+             negativeAction != null ||
+             neutralAction != null,
+         'At least one action must be passed!',
+       );
 
   const SmoothActionButtonsBar.single({
     required SmoothActionButton action,
     Key? key,
-  }) : this(
-          positiveAction: action,
-          key: key,
-        );
+  }) : this(positiveAction: action, key: key);
 
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
@@ -327,16 +316,10 @@ class SmoothActionButtonsBar extends StatelessWidget {
       if (actions.length > 1) {
         if (actions.length > 2) {
           // space injected before 3rd item
-          actions.insert(
-            2,
-            const SizedBox(width: VERY_SMALL_SPACE),
-          );
+          actions.insert(2, const SizedBox(width: VERY_SMALL_SPACE));
         }
         // space injected before 2nd item
-        actions.insert(
-          1,
-          const SizedBox(width: VERY_SMALL_SPACE),
-        );
+        actions.insert(1, const SizedBox(width: VERY_SMALL_SPACE));
       }
 
       return Padding(
@@ -391,22 +374,12 @@ List<Widget>? _buildActions(
     // Negative action first
     actions = <Widget>[
       if (negativeAction != null)
-        Expanded(
-          child: _SmoothActionFlatButton(
-            buttonData: negativeAction,
-          ),
-        ),
+        Expanded(child: _SmoothActionFlatButton(buttonData: negativeAction)),
       if (neutralAction != null)
-        Expanded(
-          child: _SmoothActionFlatButton(
-            buttonData: neutralAction,
-          ),
-        ),
+        Expanded(child: _SmoothActionFlatButton(buttonData: neutralAction)),
       if (positiveAction != null)
         Expanded(
-          child: _SmoothActionElevatedButton(
-            buttonData: positiveAction,
-          ),
+          child: _SmoothActionElevatedButton(buttonData: positiveAction),
         ),
     ];
   } else {
@@ -415,23 +388,17 @@ List<Widget>? _buildActions(
       if (positiveAction != null)
         SizedBox(
           width: double.infinity,
-          child: _SmoothActionElevatedButton(
-            buttonData: positiveAction,
-          ),
+          child: _SmoothActionElevatedButton(buttonData: positiveAction),
         ),
       if (neutralAction != null)
         SizedBox(
           width: double.infinity,
-          child: _SmoothActionFlatButton(
-            buttonData: neutralAction,
-          ),
+          child: _SmoothActionFlatButton(buttonData: neutralAction),
         ),
       if (negativeAction != null)
         SizedBox(
           width: double.infinity,
-          child: _SmoothActionFlatButton(
-            buttonData: negativeAction,
-          ),
+          child: _SmoothActionFlatButton(buttonData: negativeAction),
         ),
     ];
 
@@ -467,9 +434,7 @@ class SmoothActionButton {
 }
 
 class _SmoothActionElevatedButton extends StatelessWidget {
-  const _SmoothActionElevatedButton({
-    required this.buttonData,
-  });
+  const _SmoothActionElevatedButton({required this.buttonData});
 
   final SmoothActionButton buttonData;
 
@@ -505,9 +470,7 @@ class _SmoothActionElevatedButton extends StatelessWidget {
 }
 
 class _SmoothActionFlatButton extends StatelessWidget {
-  const _SmoothActionFlatButton({
-    required this.buttonData,
-  });
+  const _SmoothActionFlatButton({required this.buttonData});
 
   final SmoothActionButton buttonData;
 
@@ -518,9 +481,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
     return Theme(
       data: themeData.copyWith(
         buttonTheme: const ButtonThemeData(
-          shape: RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-          ),
+          shape: RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
         ),
       ),
       child: Semantics(
@@ -538,9 +499,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
               textStyle: themeData.textTheme.bodyMedium!.copyWith(
                 color: themeData.colorScheme.onPrimary,
               ),
-              padding: const EdgeInsets.symmetric(
-                horizontal: SMALL_SPACE,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
               minimumSize: const Size(0, 46.0),
             ),
             child: SizedBox(
@@ -590,13 +549,8 @@ class SmoothAlertContentButton extends StatelessWidget {
         widthFactor: 0.8,
         child: Row(
           children: <Widget>[
-            Expanded(
-              child: Text(label),
-            ),
-            if (icon != null)
-              ExcludeSemantics(
-                child: Icon(icon),
-              ),
+            Expanded(child: Text(label)),
+            if (icon != null) ExcludeSemantics(child: Icon(icon)),
           ],
         ),
       ),
@@ -699,7 +653,8 @@ class SmoothListAlertDialog extends StatelessWidget {
         vertical: SMALL_SPACE,
       ),
       body: SizedBox(
-        height: MediaQuery.sizeOf(context).height /
+        height:
+            MediaQuery.sizeOf(context).height /
             (context.keyboardVisible ? 1.0 : 1.5),
         width: MediaQuery.sizeOf(context).width,
         child: Column(
@@ -728,11 +683,8 @@ class SmoothListAlertDialog extends StatelessWidget {
                 child: header,
               ),
             Expanded(
-              child: Scrollbar(
-                controller: _scrollController,
-                child: list,
-              ),
-            )
+              child: Scrollbar(controller: _scrollController, child: list),
+            ),
           ],
         ),
       ),

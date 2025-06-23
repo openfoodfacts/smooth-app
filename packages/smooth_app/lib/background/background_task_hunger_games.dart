@@ -21,9 +21,9 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   });
 
   BackgroundTaskHungerGames.fromJson(super.json)
-      : insightId = json[_jsonTagInsightId] as String,
-        insightAnnotation = json[_jsonTagInsightAnnotation] as int,
-        super.fromJson();
+    : insightId = json[_jsonTagInsightId] as String,
+      insightAnnotation = json[_jsonTagInsightAnnotation] as int,
+      super.fromJson();
 
   static const String _jsonTagInsightId = 'insightId';
   static const String _jsonTagInsightAnnotation = 'insightAnnotation';
@@ -72,8 +72,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) =>
-      null;
+  ) => null;
 
   /// Returns a new background task about hunger games.
   static BackgroundTaskHungerGames _getNewTask(
@@ -81,17 +80,16 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     final String insightId,
     final int insightAnnotation,
     final String uniqueId,
-  ) =>
-      BackgroundTaskHungerGames._(
-        processName: _operationType.processName,
-        uniqueId: uniqueId,
-        barcode: barcode,
-        // not really relevant for Robotoff
-        productType: ProductType.food,
-        stamp: _getStamp(barcode, insightId),
-        insightId: insightId,
-        insightAnnotation: insightAnnotation,
-      );
+  ) => BackgroundTaskHungerGames._(
+    processName: _operationType.processName,
+    uniqueId: uniqueId,
+    barcode: barcode,
+    // not really relevant for Robotoff
+    productType: ProductType.food,
+    stamp: _getStamp(barcode, insightId),
+    insightId: insightId,
+    insightAnnotation: insightAnnotation,
+  );
 
   static String _getStamp(final String barcode, final String insightId) =>
       '$barcode;hungerGames;$insightId';
@@ -105,19 +103,18 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     final bool success,
   ) async {
     await super.postExecute(localDatabase, success);
-    final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(localDatabase);
-    await robotoffInsightHelper.cacheInsightAnnotationVoted(
-      barcode,
-      insightId,
+    final RobotoffInsightHelper robotoffInsightHelper = RobotoffInsightHelper(
+      localDatabase,
     );
+    await robotoffInsightHelper.cacheInsightAnnotationVoted(barcode, insightId);
   }
 
   /// Unselects the product image.
   @override
   Future<void> upload() async {
-    final InsightAnnotation? annotation =
-        InsightAnnotation.fromInt(insightAnnotation);
+    final InsightAnnotation? annotation = InsightAnnotation.fromInt(
+      insightAnnotation,
+    );
     if (annotation == null) {
       // very unlikely
       return;

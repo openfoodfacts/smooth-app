@@ -12,11 +12,9 @@ import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 
 class ScanProductCardFound extends StatelessWidget {
-  ScanProductCardFound({
-    required this.product,
-    required this.onRemoveProduct,
-  })  : assert(product.barcode!.isNotEmpty),
-        super(key: Key(product.barcode!));
+  ScanProductCardFound({required this.product, required this.onRemoveProduct})
+    : assert(product.barcode!.isNotEmpty),
+      super(key: Key(product.barcode!));
 
   final Product product;
   final OnRemoveCallback? onRemoveProduct;
@@ -25,14 +23,11 @@ class ScanProductCardFound extends StatelessWidget {
   Widget build(BuildContext context) {
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.product(
-      MatchedProductV2(
-        product,
-        context.watch<ProductPreferences>(),
-      ),
-    );
+          MatchedProductV2(product, context.watch<ProductPreferences>()),
+        );
 
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
     final String? compatibilityScore = helper.getFormattedScore();
 
     return GestureDetector(
@@ -70,10 +65,8 @@ class ScanProductCardFound extends StatelessWidget {
     );
   }
 
-  String get _heroTag => ProductPicture.generateHeroTag(
-        product.barcode!,
-        ImageField.FRONT,
-      );
+  String get _heroTag =>
+      ProductPicture.generateHeroTag(product.barcode!, ImageField.FRONT);
 
   void _openProductPage(BuildContext context) {
     AppNavigator.of(context).push(

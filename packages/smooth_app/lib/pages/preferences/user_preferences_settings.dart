@@ -66,9 +66,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       _getDivider(),
       UserPreferencesImageSource.getUserPreferencesItem(context),
       if (CameraHelper.hasACamera)
-        _getTitle(
-          label: appLocalizations.settings_app_camera,
-        ),
+        _getTitle(label: appLocalizations.settings_app_camera),
       if (CameraHelper.hasACamera)
         UserPreferencesItemSwitch(
           title: appLocalizations.camera_play_sound_title,
@@ -77,9 +75,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           onChanged: (final bool value) async =>
               userPreferences.setPlayCameraSound(value),
         ),
-      _getTitle(
-        label: appLocalizations.settings_app_products,
-      ),
+      _getTitle(label: appLocalizations.settings_app_products),
       _getExpandPanel(
         title: appLocalizations.expand_nutrition_facts,
         subtitle: appLocalizations.expand_nutrition_facts_body,
@@ -100,9 +96,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             userPreferences.setSearchProductTypeFilter(visible),
       ),
       if (CameraHelper.hasACamera)
-        _getTitle(
-          label: appLocalizations.settings_app_miscellaneous,
-        ),
+        _getTitle(label: appLocalizations.settings_app_miscellaneous),
       if (CameraHelper.hasACamera)
         UserPreferencesItemSwitch(
           title: appLocalizations.app_haptic_feedback_title,
@@ -137,38 +131,34 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   UserPreferencesItem _getTitle({
     required final String label,
     final bool addExtraPadding = true,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[label],
-        builder: (_) => _UserPreferencesTitle(
-          label: label,
-          addExtraPadding: addExtraPadding,
-        ),
-      );
+  }) => UserPreferencesItemSimple(
+    labels: <String>[label],
+    builder: (_) =>
+        _UserPreferencesTitle(label: label, addExtraPadding: addExtraPadding),
+  );
 
   UserPreferencesItem _getDivider() => UserPreferencesItemSimple(
-        labels: <String>[],
-        builder: (_) => const UserPreferencesListItemDivider(),
-      );
+    labels: <String>[],
+    builder: (_) => const UserPreferencesListItemDivider(),
+  );
 
   UserPreferencesItem _getExpandPanel({
     required String title,
     required String subtitle,
     required String panelId,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title, subtitle],
-        builder: (_) {
-          final String flagTag = KnowledgePanelCard.getExpandFlagTag(panelId);
-          return UserPreferencesSwitchWidget(
-            title: title,
-            subtitle: subtitle,
-            value: userPreferences.getFlag(flagTag) ?? false,
-            onChanged: (final bool value) async =>
-                userPreferences.setFlag(flagTag, value),
-          );
-        },
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title, subtitle],
+    builder: (_) {
+      final String flagTag = KnowledgePanelCard.getExpandFlagTag(panelId);
+      return UserPreferencesSwitchWidget(
+        title: title,
+        subtitle: subtitle,
+        value: userPreferences.getFlag(flagTag) ?? false,
+        onChanged: (final bool value) async =>
+            userPreferences.setFlag(flagTag, value),
       );
+    },
+  );
 }
 
 class _UserPreferencesTitle extends StatelessWidget {
@@ -182,19 +172,16 @@ class _UserPreferencesTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsetsDirectional.only(
-            top: addExtraPadding ? LARGE_SPACE : LARGE_SPACE,
-            bottom: SMALL_SPACE,
-            // Horizontal = same as ListTile
-            start: LARGE_SPACE,
-            end: LARGE_SPACE,
-          ),
-          child: Text(
-            label,
-            style: Theme.of(context).textTheme.displayLarge,
-          ),
-        ),
-      );
+    width: double.infinity,
+    child: Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: addExtraPadding ? LARGE_SPACE : LARGE_SPACE,
+        bottom: SMALL_SPACE,
+        // Horizontal = same as ListTile
+        start: LARGE_SPACE,
+        end: LARGE_SPACE,
+      ),
+      child: Text(label, style: Theme.of(context).textTheme.displayLarge),
+    ),
+  );
 }

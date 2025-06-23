@@ -47,9 +47,7 @@ class ProductImageUnselectButton extends ProductImageButton {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: appLocalizations.confirm_button_label,
-          body: Text(
-            appLocalizations.are_you_sure,
-          ),
+          body: Text(appLocalizations.are_you_sure),
           close: true,
           positiveAction: SmoothActionButton(
             text: appLocalizations.yes,

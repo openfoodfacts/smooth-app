@@ -779,8 +779,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get crop_page_too_small_image_title => 'התמונה קטנה מדי!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'הגודל המזערי בפיקסלים להעלאת תמונה הוא ‎$expectedMinWidth×$expectedMinHeight. גודל התמונה הנוכחית הוא ‎$actualWidth×$actualHeight.';
   }
 
@@ -1332,7 +1336,9 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'להחליף מהמטבע $previousCurrency למטבע $possibleCurrency?';
   }
 
@@ -1561,20 +1567,33 @@ class AppLocalizationsHe extends AppLocalizations {
       'אפשר להפעיל או להשבית את האפשרות הזאת דרך ההגדרות במקרה של חרטה.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'מערכת הפעלה: Android (SDK Int: $sdkInt / מהדורה: $release)\nדגם: $model\nמוצר: $product\nמכשיר: $device\nמותג: $brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'מערכת הפעלה: iOS ($version)\nדגם: $model\nדגם מתורגם: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nגרסת יישומון:$appVersion\nמספר בניית יישומון:$appBuildNumber\nשם חבילת יישומון:$appPackageName';
   }
 
@@ -2602,7 +2621,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'מחיר: $price / חנות: „$location” / פורסם ב־$date על ידי „$user”';
   }
 
@@ -2795,7 +2818,9 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'המטבע הנוכחי שלך הוא **$currency**. לשנות אותו למטבע **$newCurrency**?';
   }
 
@@ -2853,7 +2878,10 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'הורדת $count מוצרים נוספים\nכבר הורדת $downloaded מתוך $totalSize.';
   }
 

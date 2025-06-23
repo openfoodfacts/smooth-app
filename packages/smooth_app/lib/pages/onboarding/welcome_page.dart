@@ -60,7 +60,8 @@ class WelcomePage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.only(
-                              top: SMALL_SPACE),
+                            top: SMALL_SPACE,
+                          ),
                           child: SizedBox(
                             height: screenSize.height * .15,
                             child: AutoSizeText(
@@ -83,7 +84,8 @@ class WelcomePage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: MEDIUM_SPACE),
+                            vertical: MEDIUM_SPACE,
+                          ),
                           child: Container(
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
@@ -124,8 +126,9 @@ class WelcomePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  textStyle:
-                                      TextStyle(color: theme.primaryColor),
+                                  textStyle: TextStyle(
+                                    color: theme.primaryColor,
+                                  ),
                                 ),
                               ),
                             ),

@@ -805,8 +805,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get crop_page_too_small_image_title => 'A imagem é muito pequena!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Para carregar imagens o tamanho mínimo em píxeis é ${expectedMinWidth}x$expectedMinHeight. A imagem selecionada tem ${actualWidth}x$actualHeight.';
   }
 
@@ -1383,7 +1387,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Quer alterar a moeda de $previousCurrency para $possibleCurrency?';
   }
 
@@ -1601,20 +1607,33 @@ class AppLocalizationsPt extends AppLocalizations {
       'Se mudar de ideias, esta opção pode ser ativada e desativada a qualquer momento nas configurações.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'SO: Android (SDK Int: $sdkInt / lançamento: $release)\nModelo: $model\nProduto: $product\nDispositivo: $device\nMarca: $brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'SO: iOS ($version)\nModelo: $model\nModelo localizado: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nVersão da aplicação: $appVersion\nNúmero de compilação da aplicação: $appBuildNumber\nNome do pacote da aplicação: $appPackageName';
   }
 
@@ -2664,7 +2683,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Preço: $price / Loja: \"$location\" / Publicado em $date por \"$user\"';
   }
 
@@ -2847,7 +2870,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'A moeda atual é **$currency**. Quer alterá-la para **$newCurrency**?';
   }
 
@@ -2908,7 +2933,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Descarregar mais $count produtos\nJá descarregou $downloaded de $totalSize.';
   }
 
@@ -5519,8 +5547,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get crop_page_too_small_image_title => 'A imagem é muito pequena!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Para carregar imagens o tamanho mínimo em píxeis é ${expectedMinWidth}x$expectedMinHeight. A imagem selecionada tem ${actualWidth}x$actualHeight.';
   }
 
@@ -6097,7 +6129,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Quer alterar a moeda de $previousCurrency para $possibleCurrency?';
   }
 
@@ -6315,20 +6349,33 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Se mudar de ideias, esta opção pode ser ativada e desativada a qualquer momento nas configurações.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'SO: Android (SDK Int: $sdkInt / lançamento: $release)\nModelo: $model\nProduto: $product\nDispositivo: $device\nMarca: $brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'SO: iOS ($version)\nModelo: $model\nModelo localizado: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nVersão da aplicação: $appVersion\nNúmero de compilação da aplicação: $appBuildNumber\nNome do pacote da aplicação: $appPackageName';
   }
 
@@ -7354,7 +7401,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Preço: $price / Loja: \"$location\" / Publicado em $date por \"$user\"';
   }
 
@@ -7534,7 +7585,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'A moeda atual é **$currency**. Quer alterá-la para **$newCurrency**?';
   }
 
@@ -7595,7 +7648,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Descarregar mais $count produtos\nJá descarregou $downloaded de $totalSize.';
   }
 

@@ -18,10 +18,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ProductHeader extends StatefulWidget {
-  const ProductHeader({
-    this.backButtonType,
-    super.key,
-  });
+  const ProductHeader({this.backButtonType, super.key});
 
   final ProductPageBackButton? backButtonType;
 
@@ -42,61 +39,61 @@ class _ProductHeaderState extends State<ProductHeader> {
       key: const Key('product_header'),
       onVisibilityChanged: _onVisibilityChanged,
       child: Listener<ScrollController>(
-        listener: (
-          _,
-          __,
-          ScrollController scrollController,
-        ) =>
+        listener: (_, __, ScrollController scrollController) =>
             _onScroll(scrollController),
         child: Consumer<ProductPageCompatibility>(
-          builder: (
-            BuildContext context,
-            ProductPageCompatibility productCompatibility,
-            _,
-          ) {
-            final Color tintColor = productCompatibility.color ??
-                Theme.of(context)
-                    .extension<SmoothColorsThemeExtension>()!
-                    .greyNormal;
+          builder:
+              (
+                BuildContext context,
+                ProductPageCompatibility productCompatibility,
+                _,
+              ) {
+                final Color tintColor =
+                    productCompatibility.color ??
+                    Theme.of(
+                      context,
+                    ).extension<SmoothColorsThemeExtension>()!.greyNormal;
 
-            return Material(
-              color: tintColor,
-              shadowColor: tintColor,
-              elevation: _shadow,
-              child: DefaultTextStyle.merge(
-                style: const TextStyle(color: Colors.white),
-                child: IconTheme(
-                  data: const IconThemeData(color: Colors.white),
-                  child: SizedBox(
-                    height: kToolbarHeight + statusBarHeight,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.only(top: statusBarHeight),
-                      child: Row(
-                        children: <Widget>[
-                          _ProductHeaderBackButton(
-                            backButtonType: widget.backButtonType,
+                return Material(
+                  color: tintColor,
+                  shadowColor: tintColor,
+                  elevation: _shadow,
+                  child: DefaultTextStyle.merge(
+                    style: const TextStyle(color: Colors.white),
+                    child: IconTheme(
+                      data: const IconThemeData(color: Colors.white),
+                      child: SizedBox(
+                        height: kToolbarHeight + statusBarHeight,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.only(
+                            top: statusBarHeight,
                           ),
-                          Expanded(
-                            child: Offstage(
-                              offstage: _titleOpacity == 0.0,
-                              child: Opacity(
-                                opacity: _titleOpacity,
-                                child: const _ProductHeaderName(),
+                          child: Row(
+                            children: <Widget>[
+                              _ProductHeaderBackButton(
+                                backButtonType: widget.backButtonType,
                               ),
-                            ),
+                              Expanded(
+                                child: Offstage(
+                                  offstage: _titleOpacity == 0.0,
+                                  child: Opacity(
+                                    opacity: _titleOpacity,
+                                    child: const _ProductHeaderName(),
+                                  ),
+                                ),
+                              ),
+                              if (productCompatibility.score != null)
+                                _ProductCompatibilityScore(
+                                  progress: _compatibilityScoreOpacity,
+                                ),
+                            ],
                           ),
-                          if (productCompatibility.score != null)
-                            _ProductCompatibilityScore(
-                              progress: _compatibilityScoreOpacity,
-                            ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            );
-          },
+                );
+              },
         ),
       ),
     );
@@ -109,12 +106,12 @@ class _ProductHeaderState extends State<ProductHeader> {
       LARGE_SPACE * 2 + kToolbarHeight * 1.5,
       1.0,
     );
-    final double compatibilityScoreOpacity =
-        scrollController.offset.progressAndClamp(
-      LARGE_SPACE * 1.5,
-      LARGE_SPACE + kToolbarHeight * 2,
-      1.0,
-    );
+    final double compatibilityScoreOpacity = scrollController.offset
+        .progressAndClamp(
+          LARGE_SPACE * 1.5,
+          LARGE_SPACE + kToolbarHeight * 2,
+          1.0,
+        );
     final double shadow = scrollController.offset.progressAndClamp(
       0.0,
       kToolbarHeight / 2,
@@ -150,9 +147,7 @@ class _ProductHeaderState extends State<ProductHeader> {
 }
 
 class _ProductHeaderBackButton extends StatelessWidget {
-  const _ProductHeaderBackButton({
-    this.backButtonType,
-  });
+  const _ProductHeaderBackButton({this.backButtonType});
 
   final ProductPageBackButton? backButtonType;
 
@@ -221,17 +216,13 @@ class _ProductHeaderName extends StatelessWidget {
                   fontSize: 17.0,
                   height: 1.0,
                 ),
-                strutStyle: const StrutStyle(
-                  forceStrutHeight: true,
-                ),
+                strutStyle: const StrutStyle(forceStrutHeight: true),
               ),
               Text(
                 getProductBrands(product, appLocalizations),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 16.5,
-                ),
+                style: const TextStyle(fontSize: 16.5),
               ),
             ],
           );
@@ -242,9 +233,7 @@ class _ProductHeaderName extends StatelessWidget {
 }
 
 class _ProductCompatibilityScore extends StatelessWidget {
-  const _ProductCompatibilityScore({
-    required this.progress,
-  });
+  const _ProductCompatibilityScore({required this.progress});
 
   //ignore: constant_identifier_names
   static const double MAX_WIDTH = 40.0;
@@ -257,13 +246,12 @@ class _ProductCompatibilityScore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductPageCompatibility compatibility =
-        context.watch<ProductPageCompatibility>();
+    final ProductPageCompatibility compatibility = context
+        .watch<ProductPageCompatibility>();
 
-    final String tooltipMessage =
-        AppLocalizations.of(context).product_page_compatibility_score_tooltip(
-      compatibility.score!,
-    );
+    final String tooltipMessage = AppLocalizations.of(
+      context,
+    ).product_page_compatibility_score_tooltip(compatibility.score!);
 
     return Semantics(
       excludeSemantics: true,
@@ -281,9 +269,9 @@ class _ProductCompatibilityScore extends StatelessWidget {
                 border: Border.all(color: Colors.white),
               ),
               child: InkWell(
-                onTap: () => AppNavigator.of(context).push(
-                  AppRoutes.PREFERENCES(PreferencePageType.FOOD),
-                ),
+                onTap: () => AppNavigator.of(
+                  context,
+                ).push(AppRoutes.PREFERENCES(PreferencePageType.FOOD)),
                 borderRadius: ROUNDED_BORDER_RADIUS,
                 child: ClipRRect(
                   borderRadius: ROUNDED_BORDER_RADIUS,
@@ -301,8 +289,9 @@ class _ProductCompatibilityScore extends StatelessWidget {
     BuildContext context,
     ProductPageCompatibility compatibility,
   ) {
-    final String compatibilityLabel =
-        AppLocalizations.of(context).product_page_compatibility_score;
+    final String compatibilityLabel = AppLocalizations.of(
+      context,
+    ).product_page_compatibility_score;
 
     return IntrinsicHeight(
       child: Row(
@@ -322,11 +311,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
               ),
               child: Transform.translate(
                 offset: Offset((1 - progress) * 10, 0.0),
-                child: SizedBox(
-                  child: icons.Info(
-                    color: compatibility.color,
-                  ),
-                ),
+                child: SizedBox(child: icons.Info(color: compatibility.color)),
               ),
             ),
           ),

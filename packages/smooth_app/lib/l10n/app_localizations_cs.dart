@@ -799,8 +799,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get crop_page_too_small_image_title => 'Obrázek je příliš malý!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Minimální velikost v pixelech pro nahrávání obrázků je ${expectedMinWidth}x$expectedMinHeight. Aktuální obrázek je ${actualWidth}x$actualHeight.';
   }
 
@@ -1369,7 +1373,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Chcete změnit měnu z $previousCurrency na $possibleCurrency?';
   }
 
@@ -1589,20 +1595,33 @@ class AppLocalizationsCs extends AppLocalizations {
       'Pokud si to rozmyslíte, můžete tuto možnost kdykoli povolit nebo zakázat v nastavení.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProdukt: $product\nZařízení: $device\nZnačka:$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'OS: iOS ($version)\nModel: $model\nLokalizovaný model: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nVerze aplikace:$appVersion\nČíslo sestavení aplikace:$appBuildNumber\nNázev balíčku aplikace:$appPackageName';
   }
 
@@ -2635,7 +2654,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Cena: $price / Obchod: \"$location\" / Zveřejněno dne $date od \"$user\"';
   }
 
@@ -2818,7 +2841,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Vaše současná měna je **$currency**. Chcete ji změnit na **$newCurrency**?';
   }
 
@@ -2878,7 +2903,10 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Stáhnout $count dalších produktů\nJiž staženo $downloaded ze $totalSize.';
   }
 

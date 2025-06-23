@@ -33,13 +33,15 @@ class SmoothSelectorScreen<T> extends StatelessWidget {
     T value,
     bool selected,
     String filter,
-  ) itemBuilder;
+  )
+  itemBuilder;
   final Iterable<T> Function(
     List<T> list,
     T? selectedItem,
     T? selectedItemOverride,
     String filter,
-  ) itemsFilter;
+  )
+  itemsFilter;
 
   @override
   Widget build(BuildContext context) {
@@ -52,46 +54,49 @@ class SmoothSelectorScreen<T> extends StatelessWidget {
           create: (_) => TextEditingController(),
         ),
       ],
-      child: ValueNotifierListener<PreferencesSelectorProvider<T>,
-          PreferencesSelectorState<T>>(
-        listenerWithValueNotifier: _onValueChanged,
-        child: SmoothScaffold2(
-          topBar: SmoothTopBar2(
-            title: title,
-            leadingAction: provider.autoValidate
-                ? SmoothLeadingAction.minimize
-                : SmoothLeadingAction.close,
-            elevationOnScroll: false,
-          ),
-          bottomBar: !provider.autoValidate
-              ? _SmoothSelectorScreenBottomBar<T>(
-                  onSave: () {
-                    provider.saveSelectedItem();
-
-                    if (provider.value is PreferencesSelectorEditingState<T>) {
-                      Navigator.of(context).pop(
-                        (provider.value as PreferencesSelectorEditingState<T>)
-                            .selectedItemOverride,
-                      );
-                    }
-                  },
-                )
-              : null,
-          injectPaddingInBody: false,
-          children: <Widget>[
-            const _SmoothSelectorScreenSearchBar(),
-            const SliverPadding(
-              padding: EdgeInsetsDirectional.only(
-                top: SMALL_SPACE,
+      child:
+          ValueNotifierListener<
+            PreferencesSelectorProvider<T>,
+            PreferencesSelectorState<T>
+          >(
+            listenerWithValueNotifier: _onValueChanged,
+            child: SmoothScaffold2(
+              topBar: SmoothTopBar2(
+                title: title,
+                leadingAction: provider.autoValidate
+                    ? SmoothLeadingAction.minimize
+                    : SmoothLeadingAction.close,
+                elevationOnScroll: false,
               ),
+              bottomBar: !provider.autoValidate
+                  ? _SmoothSelectorScreenBottomBar<T>(
+                      onSave: () {
+                        provider.saveSelectedItem();
+
+                        if (provider.value
+                            is PreferencesSelectorEditingState<T>) {
+                          Navigator.of(context).pop(
+                            (provider.value
+                                    as PreferencesSelectorEditingState<T>)
+                                .selectedItemOverride,
+                          );
+                        }
+                      },
+                    )
+                  : null,
+              injectPaddingInBody: false,
+              children: <Widget>[
+                const _SmoothSelectorScreenSearchBar(),
+                const SliverPadding(
+                  padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
+                ),
+                _SmoothSelectorScreenList<T>(
+                  itemsFilter: itemsFilter,
+                  itemBuilder: itemBuilder,
+                ),
+              ],
             ),
-            _SmoothSelectorScreenList<T>(
-              itemsFilter: itemsFilter,
-              itemBuilder: itemBuilder,
-            ),
-          ],
-        ),
-      ),
+          ),
     );
   }
 
@@ -137,8 +142,9 @@ class _SmoothSelectorScreenSearchBarDelegate
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
     final bool darkMode = context.darkTheme();
 
     return ColoredBox(
@@ -152,17 +158,12 @@ class _SmoothSelectorScreenSearchBarDelegate
         child: TextFormField(
           controller: context.read<TextEditingController>(),
           textAlignVertical: TextAlignVertical.center,
-          style: const TextStyle(
-            fontSize: 15.0,
-          ),
+          style: const TextStyle(fontSize: 15.0),
           decoration: InputDecoration(
             hintText: AppLocalizations.of(context).search,
             enabledBorder: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-              borderSide: BorderSide(
-                color: colors.primaryNormal,
-                width: 2.0,
-              ),
+              borderSide: BorderSide(color: colors.primaryNormal, width: 2.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
@@ -195,32 +196,28 @@ class _SmoothSelectorScreenSearchBarDelegate
 
   @override
   bool shouldRebuild(
-          covariant _SmoothSelectorScreenSearchBarDelegate oldDelegate) =>
-      false;
+    covariant _SmoothSelectorScreenSearchBarDelegate oldDelegate,
+  ) => false;
 }
 
 class _SmoothSelectorScreenBottomBar<T> extends StatelessWidget {
-  const _SmoothSelectorScreenBottomBar({
-    required this.onSave,
-  });
+  const _SmoothSelectorScreenBottomBar({required this.onSave});
 
   final VoidCallback onSave;
 
   @override
   Widget build(BuildContext context) {
-    return ConsumerValueNotifierFilter<PreferencesSelectorProvider<T>,
-        PreferencesSelectorState<T>>(
-      builder: (
-        BuildContext context,
-        PreferencesSelectorState<T> value,
-        _,
-      ) {
+    return ConsumerValueNotifierFilter<
+      PreferencesSelectorProvider<T>,
+      PreferencesSelectorState<T>
+    >(
+      builder: (BuildContext context, PreferencesSelectorState<T> value, _) {
         if (value is! PreferencesSelectorEditingState) {
           return EMPTY_WIDGET;
         }
 
-        final SmoothColorsThemeExtension colors =
-            context.extension<SmoothColorsThemeExtension>();
+        final SmoothColorsThemeExtension colors = context
+            .extension<SmoothColorsThemeExtension>();
 
         return SmoothButtonsBar2(
           animate: true,
@@ -249,13 +246,15 @@ class _SmoothSelectorScreenList<T> extends StatefulWidget {
     T? selectedItem,
     T? selectedItemOverride,
     String filter,
-  ) itemsFilter;
+  )
+  itemsFilter;
   final Widget Function(
     BuildContext context,
     T value,
     bool selected,
     String filter,
-  ) itemBuilder;
+  )
+  itemBuilder;
 
   @override
   State<_SmoothSelectorScreenList<T>> createState() =>
@@ -267,44 +266,46 @@ class _SmoothSelectorScreenListState<T>
   @override
   Widget build(BuildContext context) {
     return Consumer2<PreferencesSelectorProvider<T>, TextEditingController>(
-      builder: (
-        BuildContext context,
-        PreferencesSelectorProvider<T> provider,
-        TextEditingController controller,
-        _,
-      ) {
-        final PreferencesSelectorLoadedState<T> state =
-            provider.value as PreferencesSelectorLoadedState<T>;
-        final T? selectedItem = state is PreferencesSelectorEditingState
-            ? (state as PreferencesSelectorEditingState<T>).selectedItemOverride
-            : state.selectedItem;
+      builder:
+          (
+            BuildContext context,
+            PreferencesSelectorProvider<T> provider,
+            TextEditingController controller,
+            _,
+          ) {
+            final PreferencesSelectorLoadedState<T> state =
+                provider.value as PreferencesSelectorLoadedState<T>;
+            final T? selectedItem = state is PreferencesSelectorEditingState
+                ? (state as PreferencesSelectorEditingState<T>)
+                      .selectedItemOverride
+                : state.selectedItem;
 
-        final Iterable<T> values = widget.itemsFilter(
-          state.items,
-          state.selectedItem,
-          selectedItem,
-          controller.text,
-        );
+            final Iterable<T> values = widget.itemsFilter(
+              state.items,
+              state.selectedItem,
+              selectedItem,
+              controller.text,
+            );
 
-        return SliverFixedExtentList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              final T value = values.elementAt(index);
-              final bool selected = selectedItem == value;
+            return SliverFixedExtentList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  final T value = values.elementAt(index);
+                  final bool selected = selectedItem == value;
 
-              return _SmoothSelectorScreenListItem<T>(
-                builder: widget.itemBuilder,
-                item: value,
-                selected: selected,
-                filter: controller.text,
-              );
-            },
-            childCount: values.length,
-            addAutomaticKeepAlives: false,
-          ),
-          itemExtent: 60.0,
-        );
-      },
+                  return _SmoothSelectorScreenListItem<T>(
+                    builder: widget.itemBuilder,
+                    item: value,
+                    selected: selected,
+                    filter: controller.text,
+                  );
+                },
+                childCount: values.length,
+                addAutomaticKeepAlives: false,
+              ),
+              itemExtent: 60.0,
+            );
+          },
     );
   }
 }
@@ -322,7 +323,8 @@ class _SmoothSelectorScreenListItem<T> extends StatelessWidget {
     T value,
     bool selected,
     String filter,
-  ) builder;
+  )
+  builder;
 
   final T item;
   final bool selected;
@@ -330,10 +332,11 @@ class _SmoothSelectorScreenListItem<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-    final PreferencesSelectorProvider<T> provider =
-        context.watch<PreferencesSelectorProvider<T>>();
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
+    final PreferencesSelectorProvider<T> provider = context
+        .watch<PreferencesSelectorProvider<T>>();
 
     return Semantics(
       value: item.toString(),
@@ -355,8 +358,8 @@ class _SmoothSelectorScreenListItem<T> extends StatelessWidget {
           ),
           color: selected
               ? context.darkTheme()
-                  ? colors.primarySemiDark
-                  : colors.primaryLight
+                    ? colors.primarySemiDark
+                    : colors.primaryLight
               : Colors.transparent,
         ),
         child: InkWell(

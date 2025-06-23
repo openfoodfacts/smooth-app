@@ -97,9 +97,7 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
           title: Text(widget.pageName ?? AppLocalizations.of(context).loading),
           leading: const CloseButton(),
         ),
-        body: const Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
+        body: const Center(child: CircularProgressIndicator.adaptive()),
       );
     } else {
       return SmoothScaffold(
@@ -113,18 +111,14 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
           bottom: _progress < 100
               ? PreferredSize(
                   preferredSize: const Size(double.infinity, 5.0),
-                  child: LinearProgressIndicator(
-                    value: _progress / 100,
-                  ),
+                  child: LinearProgressIndicator(value: _progress / 100),
                 )
               : null,
         ),
         bottomNavigationBar: _WebViewBottomBar(controller: _controller),
         body: RefreshIndicator(
           onRefresh: () => _controller.reload(),
-          child: WebViewWidget(
-            controller: _controller,
-          ),
+          child: WebViewWidget(controller: _controller),
         ),
       );
     }
@@ -138,9 +132,7 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
 }
 
 class _WebViewBottomBar extends StatelessWidget {
-  const _WebViewBottomBar({
-    required this.controller,
-  });
+  const _WebViewBottomBar({required this.controller});
 
   final WebViewController controller;
 

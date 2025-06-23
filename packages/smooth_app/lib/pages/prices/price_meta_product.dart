@@ -18,45 +18,44 @@ class PriceMetaProduct {
     required final String categoryName,
     required final List<String> originNames,
     required final OpenFoodFactsLanguage language,
-  })  : _product = null,
-        _categoryName = categoryName,
-        _categoryTag = _getTag(categoryName, language),
-        _originNames = originNames,
-        _originTags = _getTags(originNames, language),
-        _priceProduct = null,
-        _barcode = null;
+  }) : _product = null,
+       _categoryName = categoryName,
+       _categoryTag = _getTag(categoryName, language),
+       _originNames = originNames,
+       _originTags = _getTags(originNames, language),
+       _priceProduct = null,
+       _barcode = null;
 
   PriceMetaProduct.product(final Product product)
-      : _product = product,
-        _categoryTag = null,
-        _categoryName = null,
-        _priceProduct = null,
-        _barcode = null;
+    : _product = product,
+      _categoryTag = null,
+      _categoryName = null,
+      _priceProduct = null,
+      _barcode = null;
 
   PriceMetaProduct.priceProduct(final PriceProduct priceProduct)
-      : _product = null,
-        _categoryTag = null,
-        _categoryName = null,
-        _priceProduct = priceProduct,
-        _barcode = null;
+    : _product = null,
+      _categoryTag = null,
+      _categoryName = null,
+      _priceProduct = priceProduct,
+      _barcode = null;
 
   PriceMetaProduct.unknown(
     final String barcode,
     final LocalDatabase localDatabase,
     final PriceModel priceModel,
-  )   : _product = null,
-        _categoryTag = null,
-        _categoryName = null,
-        _priceProduct = null,
-        _barcode = barcode {
+  ) : _product = null,
+      _categoryTag = null,
+      _categoryName = null,
+      _priceProduct = null,
+      _barcode = barcode {
     unawaited(_search(localDatabase, priceModel));
   }
 
   static String _getTag(
     final String name,
     final OpenFoodFactsLanguage language,
-  ) =>
-      '${language.offTag}:$name';
+  ) => '${language.offTag}:$name';
 
   static List<String> _getTags(
     final List<String> names,
@@ -108,10 +107,7 @@ class PriceMetaProduct {
       return _categoryName;
     }
     if (_product != null) {
-      return getProductNameAndBrands(
-        _product!,
-        appLocalizations,
-      );
+      return getProductNameAndBrands(_product!, appLocalizations);
     }
     if (_priceProduct != null) {
       return _priceProduct.name ?? _priceProduct.code;
@@ -141,10 +137,7 @@ class PriceMetaProduct {
         imageProvider: imageURL == null ? null : NetworkImage(imageURL),
       );
     }
-    return SmoothImage(
-      width: size,
-      height: size,
-    );
+    return SmoothImage(width: size, height: size);
   }
 
   Future<void> _search(
@@ -158,11 +151,11 @@ class PriceMetaProduct {
         _product = product;
         return;
       }
-      final FetchedProduct fetchAndRefreshed =
-          await ProductRefresher().silentFetchAndRefresh(
-        localDatabase: localDatabase,
-        barcode: barcode,
-      );
+      final FetchedProduct fetchAndRefreshed = await ProductRefresher()
+          .silentFetchAndRefresh(
+            localDatabase: localDatabase,
+            barcode: barcode,
+          );
       if (fetchAndRefreshed.product == null) {
         return;
       }

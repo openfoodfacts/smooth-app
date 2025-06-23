@@ -801,8 +801,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get crop_page_too_small_image_title => 'Зрбраження занадто маленьке!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Мінімальний розмір зображення у пікселях - ${expectedMinWidth}x$expectedMinHeight. Поточна картинка ${actualWidth}x$actualHeight.';
   }
 
@@ -1375,7 +1379,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Ви хочете змінити валюту з $previousCurrency на $possibleCurrency?';
   }
 
@@ -1593,20 +1599,33 @@ class AppLocalizationsUk extends AppLocalizations {
       'Якщо ви передумаєте, цю опцію можна будь-коли ввімкнути або вимкнути в налаштуваннях.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'ОС: Android (SDK Int: $sdkInt / Випуск: $release)\nМодель: $model\nПродукт: $product\nПрилад: $device\nМарка: $brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'ОС: iOS ($version)\nМодель: $model\nЛокалізована модель: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nВерсія додатку:$appVersion\nПартія збірки додатку:$appBuildNumber\nПартія пакету:$appPackageName';
   }
 
@@ -2645,7 +2664,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Ціна: $price / Магазин: \"$location\" / Опубліковано $date користувачем \"$user\"';
   }
 
@@ -2830,7 +2853,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
@@ -2891,7 +2916,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Завантажити ще $count товарів\nВже завантажено $downloaded з $totalSize.';
   }
 

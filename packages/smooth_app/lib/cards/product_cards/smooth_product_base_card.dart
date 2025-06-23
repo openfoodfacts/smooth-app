@@ -68,9 +68,9 @@ class ScanProductBaseCard extends StatelessWidget {
               borderRadius: ROUNDED_BORDER_RADIUS,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: Theme.of(context)
-                      .shadowColor
-                      .withValues(alpha: context.lightTheme() ? 0.08 : 0.3),
+                  color: Theme.of(context).shadowColor.withValues(
+                    alpha: context.lightTheme() ? 0.08 : 0.3,
+                  ),
                   offset: const Offset(0.0, 2.0),
                   blurRadius: 5.0,
                   spreadRadius: 1.0,
@@ -87,12 +87,11 @@ class ScanProductBaseCard extends StatelessWidget {
                     backgroundColor: headerBackgroundColor,
                     label: headerLabel,
                     indicatorColor: headerIndicatorColor,
-                    onClose:
-                        onRemove != null ? () => onRemove?.call(context) : null,
+                    onClose: onRemove != null
+                        ? () => onRemove?.call(context)
+                        : null,
                   ),
-                  Expanded(
-                    child: child,
-                  ),
+                  Expanded(child: child),
                 ],
               ),
             ),
@@ -105,7 +104,8 @@ class ScanProductBaseCard extends StatelessWidget {
   Widget _buildChild() {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final EdgeInsetsGeometry padding = childPadding ??
+        final EdgeInsetsGeometry padding =
+            childPadding ??
             const EdgeInsetsDirectional.only(
               start: VERY_LARGE_SPACE,
               end: VERY_LARGE_SPACE,
@@ -146,10 +146,12 @@ class _SmoothProductCardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color bgColor = backgroundColor ??
+    final Color bgColor =
+        backgroundColor ??
         context.extension<SmoothColorsThemeExtension>().primarySemiDark;
-    final String closeTooltip =
-        AppLocalizations.of(context).carousel_close_tooltip;
+    final String closeTooltip = AppLocalizations.of(
+      context,
+    ).carousel_close_tooltip;
     final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
     return ConstrainedBox(
@@ -227,14 +229,15 @@ class ScanProductBaseCardTitle extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Padding(
-        padding: EdgeInsetsDirectional.only(
-          bottom: dense ? SMALL_SPACE : MEDIUM_SPACE,
-        ).copyWith(
-          top: padding?.top,
-          bottom: padding?.bottom,
-          start: padding?.start,
-          end: padding?.end,
-        ),
+        padding:
+            EdgeInsetsDirectional.only(
+              bottom: dense ? SMALL_SPACE : MEDIUM_SPACE,
+            ).copyWith(
+              top: padding?.top,
+              bottom: padding?.bottom,
+              start: padding?.start,
+              end: padding?.end,
+            ),
         child: TextWithUnderlinedParts(
           text: title,
           textStyle: const TextStyle(
@@ -248,10 +251,7 @@ class ScanProductBaseCardTitle extends StatelessWidget {
 }
 
 class ScanProductBaseCardText extends StatelessWidget {
-  const ScanProductBaseCardText({
-    required this.text,
-    super.key,
-  });
+  const ScanProductBaseCardText({required this.text, super.key});
 
   final Widget text;
 
@@ -278,21 +278,22 @@ class ScanProductBaseCardBarcode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
     return Padding(
-      padding: EdgeInsetsDirectional.only(
-        top: dense ? SMALL_SPACE : MEDIUM_SPACE,
-        bottom: dense ? BALANCED_SPACE : LARGE_SPACE * 2,
-      ).copyWith(
-        top: padding?.top,
-        bottom: padding?.bottom,
-        start: padding?.start,
-        end: padding?.end,
-      ),
+      padding:
+          EdgeInsetsDirectional.only(
+            top: dense ? SMALL_SPACE : MEDIUM_SPACE,
+            bottom: dense ? BALANCED_SPACE : LARGE_SPACE * 2,
+          ).copyWith(
+            top: padding?.top,
+            bottom: padding?.bottom,
+            start: padding?.start,
+            end: padding?.end,
+          ),
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: ANGULAR_BORDER_RADIUS,
@@ -300,9 +301,7 @@ class ScanProductBaseCardBarcode extends StatelessWidget {
         ),
         child: Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: dense ? 75.0 : 100.0,
-            ),
+            constraints: BoxConstraints(minHeight: dense ? 75.0 : 100.0),
             child: SmoothBarcodeWidget(
               height: height ?? 100.0,
               padding: EdgeInsetsDirectional.symmetric(
@@ -332,9 +331,6 @@ class ScanProductBaseCardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SmoothButtonWithArrow(
-      text: text,
-      onTap: onTap,
-    );
+    return SmoothButtonWithArrow(text: text, onTap: onTap);
   }
 }

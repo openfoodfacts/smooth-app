@@ -40,8 +40,8 @@ class UserPreferencesAttributeGroup {
   }
 
   List<UserPreferencesItem> getItems({bool? collapsed}) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     collapsed ??= _isCollapsed;
     final List<UserPreferencesItem> result = <UserPreferencesItem>[];
     result.add(
@@ -76,13 +76,19 @@ class UserPreferencesAttributeGroup {
                 title: Text(
                   group.name ?? appLocalizations.unknown,
                   style: themeData.textTheme.titleLarge!.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 trailing: collapsed!
-                    ? const Icon(Icons.keyboard_arrow_right,
-                        color: Colors.white)
-                    : const Icon(Icons.keyboard_arrow_down,
-                        color: Colors.white),
+                    ? const Icon(
+                        Icons.keyboard_arrow_right,
+                        color: Colors.white,
+                      )
+                    : const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.white,
+                      ),
               ),
             ),
           ),
@@ -105,17 +111,15 @@ class UserPreferencesAttributeGroup {
               margin: const EdgeInsetsDirectional.all(LARGE_SPACE),
               child: Text(
                 group.warning!,
-                style: TextStyle(
-                  color: colorScheme.onError,
-                ),
+                style: TextStyle(color: colorScheme.onError),
               ),
             );
           },
         ),
       );
     }
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
+    final List<String> excludedAttributeIds = userPreferences
+        .getExcludedAttributeIds();
     for (final Attribute attribute in group.attributes!) {
       if (excludedAttributeIds.contains(attribute.id)) {
         continue;
@@ -129,8 +133,9 @@ class UserPreferencesAttributeGroup {
             if (attribute.name != null) attribute.name!,
           ],
           builder: (_) => Padding(
-            padding:
-                const EdgeInsetsDirectional.symmetric(horizontal: LARGE_SPACE),
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: LARGE_SPACE,
+            ),
             child: SmoothCard(
               elevation: 8,
               padding: EdgeInsetsDirectional.zero,
@@ -142,7 +147,8 @@ class UserPreferencesAttributeGroup {
               child: AttributeButton(
                 attribute,
                 productPreferences,
-                isFirst: attribute == group.attributes!.first &&
+                isFirst:
+                    attribute == group.attributes!.first &&
                     group.warning == null,
                 isLast: attribute == group.attributes!.last,
               ),

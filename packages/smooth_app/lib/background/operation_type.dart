@@ -61,8 +61,10 @@ enum OperationType {
     final String? work,
     final ProductType? productType,
   }) async {
-    final int sequentialId =
-        await getNextSequenceNumber(DaoInt(localDatabase), _uniqueSequenceKey);
+    final int sequentialId = await getNextSequenceNumber(
+      DaoInt(localDatabase),
+      _uniqueSequenceKey,
+    );
     return '$header'
         '$_transientHeaderSeparator$sequentialId'
         '$_transientHeaderSeparator$barcode'
@@ -73,46 +75,46 @@ enum OperationType {
   }
 
   BackgroundTask fromJson(Map<String, dynamic> map) => switch (this) {
-        crop => BackgroundTaskCrop.fromJson(map),
-        addPrice => BackgroundTaskAddPrice.fromJson(map),
-        addOtherPrice => BackgroundTaskAddOtherPrice.fromJson(map),
-        details => BackgroundTaskDetails.fromJson(map),
-        hungerGames => BackgroundTaskHungerGames.fromJson(map),
-        image => BackgroundTaskImage.fromJson(map),
-        refreshLater => BackgroundTaskRefreshLater.fromJson(map),
-        unselect => BackgroundTaskUnselect.fromJson(map),
-        offline => BackgroundTaskOffline.fromJson(map),
-        offlineBarcodes => BackgroundTaskTopBarcodes.fromJson(map),
-        offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
-        fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
-        languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
-      };
+    crop => BackgroundTaskCrop.fromJson(map),
+    addPrice => BackgroundTaskAddPrice.fromJson(map),
+    addOtherPrice => BackgroundTaskAddOtherPrice.fromJson(map),
+    details => BackgroundTaskDetails.fromJson(map),
+    hungerGames => BackgroundTaskHungerGames.fromJson(map),
+    image => BackgroundTaskImage.fromJson(map),
+    refreshLater => BackgroundTaskRefreshLater.fromJson(map),
+    unselect => BackgroundTaskUnselect.fromJson(map),
+    offline => BackgroundTaskOffline.fromJson(map),
+    offlineBarcodes => BackgroundTaskTopBarcodes.fromJson(map),
+    offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
+    fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
+    languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
+  };
 
   bool matches(final TransientOperation action) =>
       action.key.startsWith('$header$_transientHeaderSeparator');
 
   String getLabel(final AppLocalizations appLocalizations) => switch (this) {
-        OperationType.details =>
-          appLocalizations.background_task_operation_details,
-        OperationType.addPrice => 'Add price',
-        OperationType.addOtherPrice => 'Add price to existing proof',
-        OperationType.image => appLocalizations.background_task_operation_image,
-        OperationType.unselect => 'Unselect a product image',
-        OperationType.hungerGames => 'Answering to a Hunger Games question',
-        OperationType.crop => 'Crop an existing image',
-        OperationType.refreshLater =>
-          'Waiting 10 min before refreshing product to get all automatic edits',
-        OperationType.offline => 'Downloading top n products for offline usage',
-        OperationType.offlineBarcodes => 'Downloading top n barcodes',
-        OperationType.offlineProducts => 'Downloading products',
-        OperationType.fullRefresh => 'Refreshing the full local database',
-        OperationType.languageRefresh =>
-          'Refreshing the local database to a new language',
-      };
+    OperationType.details => appLocalizations.background_task_operation_details,
+    OperationType.addPrice => 'Add price',
+    OperationType.addOtherPrice => 'Add price to existing proof',
+    OperationType.image => appLocalizations.background_task_operation_image,
+    OperationType.unselect => 'Unselect a product image',
+    OperationType.hungerGames => 'Answering to a Hunger Games question',
+    OperationType.crop => 'Crop an existing image',
+    OperationType.refreshLater =>
+      'Waiting 10 min before refreshing product to get all automatic edits',
+    OperationType.offline => 'Downloading top n products for offline usage',
+    OperationType.offlineBarcodes => 'Downloading top n barcodes',
+    OperationType.offlineProducts => 'Downloading products',
+    OperationType.fullRefresh => 'Refreshing the full local database',
+    OperationType.languageRefresh =>
+      'Refreshing the local database to a new language',
+  };
 
   static int getSequentialId(final TransientOperation operation) {
-    final List<String> keyItems =
-        operation.key.split(_transientHeaderSeparator);
+    final List<String> keyItems = operation.key.split(
+      _transientHeaderSeparator,
+    );
     return int.parse(keyItems[1]);
   }
 
@@ -156,6 +158,5 @@ enum OperationType {
   static int sort(
     final TransientOperation operationA,
     final TransientOperation operationB,
-  ) =>
-      getSequentialId(operationA).compareTo(getSequentialId(operationB));
+  ) => getSequentialId(operationA).compareTo(getSequentialId(operationB));
 }

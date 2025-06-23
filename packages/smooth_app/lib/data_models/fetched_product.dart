@@ -23,19 +23,16 @@ class FetchedProduct {
 
   // The reason behind the "ignore": I want to force "product" to be not null
   const FetchedProduct.found(final Product product)
-      // ignore: prefer_initializing_formals
-      : this._(
-          status: FetchedProductStatus.ok,
-          product: product,
-        );
+    // ignore: prefer_initializing_formals
+    : this._(status: FetchedProductStatus.ok, product: product);
 
   /// The internet Product search said it couldn't find the product.
   const FetchedProduct.internetNotFound()
-      : this._(status: FetchedProductStatus.internetNotFound);
+    : this._(status: FetchedProductStatus.internetNotFound);
 
   /// The user cancelled the operation.
   const FetchedProduct.userCancelled()
-      : this._(status: FetchedProductStatus.userCancelled);
+    : this._(status: FetchedProductStatus.userCancelled);
 
   /// When the "fetch product" operation had an internet error.
   const FetchedProduct.error({
@@ -43,11 +40,11 @@ class FetchedProduct {
     required final bool isConnected,
     final String? failedPingedHost,
   }) : this._(
-          status: FetchedProductStatus.internetError,
-          isConnected: isConnected,
-          exceptionString: exceptionString,
-          failedPingedHost: failedPingedHost,
-        );
+         status: FetchedProductStatus.internetError,
+         isConnected: isConnected,
+         exceptionString: exceptionString,
+         failedPingedHost: failedPingedHost,
+       );
 
   final Product? product;
   final FetchedProductStatus status;
@@ -61,9 +58,7 @@ class FetchedProduct {
   /// When relevant, host of the query that we couldn't even ping.
   final String? failedPingedHost;
 
-  String getErrorTitle(
-    final AppLocalizations appLocalizations,
-  ) {
+  String getErrorTitle(final AppLocalizations appLocalizations) {
     switch (status) {
       case FetchedProductStatus.ok:
         return 'Not supposed to happen...';

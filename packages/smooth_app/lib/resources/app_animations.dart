@@ -15,10 +15,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 /// Widget to inject in the hierarchy to have a single instance of the RiveFile
 /// (assets/animations/off.riv)
 class AnimationsLoader extends StatefulWidget {
-  const AnimationsLoader({
-    required this.child,
-    super.key,
-  });
+  const AnimationsLoader({required this.child, super.key});
 
   final Widget child;
 
@@ -47,26 +44,18 @@ class _AnimationsLoaderState extends State<AnimationsLoader> {
           _file = RiveFile.import(data);
         });
       },
-      onError: (dynamic error) => Logs.e(
-        'Unable to load Rive file',
-        ex: error,
-      ),
+      onError: (dynamic error) => Logs.e('Unable to load Rive file', ex: error),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Provider<RiveFile?>.value(
-      value: _file,
-      child: widget.child,
-    );
+    return Provider<RiveFile?>.value(value: _file, child: widget.child);
   }
 }
 
 class BarcodeAnimation extends StatelessWidget {
-  const BarcodeAnimation({
-    super.key,
-  });
+  const BarcodeAnimation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,11 +75,8 @@ class BarcodeAnimation extends StatelessWidget {
 }
 
 class CloudUploadAnimation extends StatelessWidget {
-  const CloudUploadAnimation({
-    required this.size,
-    this.color,
-    super.key,
-  }) : _circleColor = null;
+  const CloudUploadAnimation({required this.size, this.color, super.key})
+    : _circleColor = null;
 
   const CloudUploadAnimation.circle({
     required this.size,
@@ -113,15 +99,13 @@ class CloudUploadAnimation extends StatelessWidget {
         animations: const <String>['Animation'],
         onInit: (Artboard artboard) {
           if (color != null) {
-            artboard.forEachComponent(
-              (Component child) {
-                if (child is Stroke) {
-                  child.paint.color = color!;
-                } else if (child is SolidColor) {
-                  child.color = color!;
-                }
-              },
-            );
+            artboard.forEachComponent((Component child) {
+              if (child is Stroke) {
+                child.paint.color = color!;
+              } else if (child is SolidColor) {
+                child.color = color!;
+              }
+            });
           }
         },
       ),
@@ -129,10 +113,7 @@ class CloudUploadAnimation extends StatelessWidget {
 
     if (_circleColor != null) {
       widget = DecoratedBox(
-        decoration: BoxDecoration(
-          color: _circleColor,
-          shape: BoxShape.circle,
-        ),
+        decoration: BoxDecoration(color: _circleColor, shape: BoxShape.circle),
         child: Padding(
           padding: EdgeInsetsDirectional.only(
             top: size * 0.2,
@@ -145,23 +126,16 @@ class CloudUploadAnimation extends StatelessWidget {
       );
     }
 
-    return SizedBox.square(
-      dimension: size,
-      child: widget,
-    );
+    return SizedBox.square(dimension: size, child: widget);
   }
 }
 
 class DoubleChevronAnimation extends StatefulWidget {
-  const DoubleChevronAnimation.animate({
-    this.size,
-    super.key,
-  }) : animated = true;
+  const DoubleChevronAnimation.animate({this.size, super.key})
+    : animated = true;
 
-  const DoubleChevronAnimation.stopped({
-    this.size,
-    super.key,
-  }) : animated = false;
+  const DoubleChevronAnimation.stopped({this.size, super.key})
+    : animated = false;
 
   final double? size;
   final bool animated;
@@ -189,10 +163,7 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
         AnimationsLoader.of(context)!,
         artboard: 'Double chevron',
         onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(
-            artboard,
-            'Loop',
-          );
+          _controller = StateMachineController.fromArtboard(artboard, 'Loop');
 
           artboard.addController(_controller!);
           _changeAnimation(widget.animated);
@@ -216,10 +187,7 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
 }
 
 class OrangeErrorAnimation extends StatefulWidget {
-  const OrangeErrorAnimation({
-    this.sizeMultiplier = 1.0,
-    super.key,
-  });
+  const OrangeErrorAnimation({this.sizeMultiplier = 1.0, super.key});
 
   final double sizeMultiplier;
 
@@ -269,10 +237,7 @@ class _OrangeErrorAnimationState extends State<OrangeErrorAnimation> {
 }
 
 class SearchEyeAnimation extends StatefulWidget {
-  const SearchEyeAnimation({
-    this.size,
-    super.key,
-  });
+  const SearchEyeAnimation({this.size, super.key});
 
   final double? size;
 
@@ -292,16 +257,19 @@ class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
       child: SizedBox(
         width: size,
         height: (80 / 87) * size,
-        child: RiveAnimation.direct(AnimationsLoader.of(context)!,
-            artboard: 'Search eye', onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(
-            artboard,
-            'LoopMachine',
-          );
+        child: RiveAnimation.direct(
+          AnimationsLoader.of(context)!,
+          artboard: 'Search eye',
+          onInit: (Artboard artboard) {
+            _controller = StateMachineController.fromArtboard(
+              artboard,
+              'LoopMachine',
+            );
 
-          artboard.addController(_controller!);
-          _controller!.findInput<bool>('light')?.value = !lightTheme;
-        }),
+            artboard.addController(_controller!);
+            _controller!.findInput<bool>('light')?.value = !lightTheme;
+          },
+        ),
       ),
     );
   }
@@ -383,10 +351,7 @@ enum SearchAnimationType {
 }
 
 class SunAnimation extends StatelessWidget {
-  const SunAnimation({
-    required this.type,
-    super.key,
-  });
+  const SunAnimation({required this.type, super.key});
 
   final SunAnimationType type;
 
@@ -401,7 +366,7 @@ class SunAnimation extends StatelessWidget {
           riveFile,
           artboard: 'Success',
           stateMachines: <String>[
-            if (type == SunAnimationType.loop) 'Loop' else 'Animation'
+            if (type == SunAnimationType.loop) 'Loop' else 'Animation',
           ],
         );
       },
@@ -409,21 +374,12 @@ class SunAnimation extends StatelessWidget {
   }
 }
 
-enum SunAnimationType {
-  loop,
-  fullAnimation,
-}
+enum SunAnimationType { loop, fullAnimation }
 
 class TorchAnimation extends StatefulWidget {
-  const TorchAnimation.on({
-    this.size,
-    super.key,
-  }) : isOn = true;
+  const TorchAnimation.on({this.size, super.key}) : isOn = true;
 
-  const TorchAnimation.off({
-    this.size,
-    super.key,
-  }) : isOn = false;
+  const TorchAnimation.off({this.size, super.key}) : isOn = false;
 
   final bool isOn;
   final double? size;
@@ -459,10 +415,7 @@ class _TorchAnimationState extends State<TorchAnimation> {
         artboard: 'Torch',
         fit: BoxFit.cover,
         onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(
-            artboard,
-            'Switch',
-          );
+          _controller = StateMachineController.fromArtboard(artboard, 'Switch');
 
           artboard.addController(_controller!);
           _changeTorchValue(widget.isOn);
@@ -479,11 +432,7 @@ class _TorchAnimationState extends State<TorchAnimation> {
 }
 
 class ScaleAnimation extends StatefulWidget {
-  const ScaleAnimation({
-    required this.animated,
-    this.size,
-    super.key,
-  });
+  const ScaleAnimation({required this.animated, this.size, super.key});
 
   final double? size;
   final bool animated;
@@ -522,13 +471,11 @@ class _ScaleAnimationState extends State<ScaleAnimation> {
 
           _controller!.artboard!.forEachComponent((Component child) {
             if (child is RuntimeNestedArtboard) {
-              child.sourceArtboard!.forEachComponent(
-                (Component nestedChild) {
-                  if (nestedChild is SolidColor) {
-                    nestedChild.colorValue = color.intValue;
-                  }
-                },
-              );
+              child.sourceArtboard!.forEachComponent((Component nestedChild) {
+                if (nestedChild is SolidColor) {
+                  nestedChild.colorValue = color.intValue;
+                }
+              });
             }
           });
 
@@ -590,10 +537,7 @@ class _SparkleAnimationState extends State<SparkleAnimation> {
     return SizedBox.square(
       dimension: size,
       child: ColorFiltered(
-        colorFilter: ColorFilter.mode(
-          widget.color,
-          BlendMode.srcIn,
-        ),
+        colorFilter: ColorFilter.mode(widget.color, BlendMode.srcIn),
         child: RiveAnimation.direct(
           AnimationsLoader.of(context)!,
           artboard: 'sparkles',
@@ -647,35 +591,17 @@ class NutriScoreAnimation extends StatefulWidget {
     };
   }
 
-  const NutriScoreAnimation.unknown({
-    this.size,
-    super.key,
-  }) : level = -1;
+  const NutriScoreAnimation.unknown({this.size, super.key}) : level = -1;
 
-  const NutriScoreAnimation.A({
-    this.size,
-    super.key,
-  }) : level = 0;
+  const NutriScoreAnimation.A({this.size, super.key}) : level = 0;
 
-  const NutriScoreAnimation.B({
-    this.size,
-    super.key,
-  }) : level = 1;
+  const NutriScoreAnimation.B({this.size, super.key}) : level = 1;
 
-  const NutriScoreAnimation.C({
-    this.size,
-    super.key,
-  }) : level = 2;
+  const NutriScoreAnimation.C({this.size, super.key}) : level = 2;
 
-  const NutriScoreAnimation.D({
-    this.size,
-    super.key,
-  }) : level = 3;
+  const NutriScoreAnimation.D({this.size, super.key}) : level = 3;
 
-  const NutriScoreAnimation.E({
-    this.size,
-    super.key,
-  }) : level = 4;
+  const NutriScoreAnimation.E({this.size, super.key}) : level = 4;
 
   final int level;
   final Size? size;
@@ -724,10 +650,8 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
       },
       image: true,
       child: SizedBox.fromSize(
-        size: widget.size ??
-            Size.fromHeight(
-              IconTheme.of(context).size ?? 24.0,
-            ),
+        size:
+            widget.size ?? Size.fromHeight(IconTheme.of(context).size ?? 24.0),
         child: AspectRatio(
           aspectRatio: 176 / 94,
           child: RiveAnimation.asset(

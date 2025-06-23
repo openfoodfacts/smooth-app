@@ -803,8 +803,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get crop_page_too_small_image_title => 'Imaginea este prea mică!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Dimensiunea minimă în pixeli pentru încărcarea imaginii este ${expectedMinWidth}x$expectedMinHeight. Poza curentă este ${actualWidth}x$actualHeight.';
   }
 
@@ -1378,7 +1382,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
@@ -1603,20 +1609,33 @@ class AppLocalizationsRo extends AppLocalizations {
       'Dacă vă răzgândiți, această opțiune poate fi activată și dezactivată în orice moment din setări.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'OS: Android (SDK Int: $sdkInt / Lansare: $release)\nModel: $model\nProdus: $product\nDispozitiv: $device\nBrand:$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'OS: iOS ($version)\nModel: $model\nModel localizat: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nVersiunea aplicației:$appVersion\nNumărul versiunii aplicației:$appBuildNumber\nNumele pachetului aplicației:$appPackageName';
   }
 
@@ -2654,7 +2673,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
@@ -2838,7 +2861,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
@@ -2898,7 +2923,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Descarcă încă $count produse\nDeja descărcate $downloaded din $totalSize.';
   }
 

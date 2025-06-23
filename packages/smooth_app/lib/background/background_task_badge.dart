@@ -21,10 +21,7 @@ class BackgroundTaskBadge extends StatelessWidget {
     }
     return Badge(
       backgroundColor: Colors.blue.shade900,
-      label: Text(
-        '$count',
-        style: const TextStyle(color: Colors.white),
-      ),
+      label: Text('$count', style: const TextStyle(color: Colors.white)),
       child: child,
     );
   }

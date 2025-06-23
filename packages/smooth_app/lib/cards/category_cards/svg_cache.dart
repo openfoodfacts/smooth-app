@@ -92,8 +92,10 @@ class SvgCache extends AbstractCache {
       'nova-group-3.svg' => localizations.nova_group_3,
       'nova-group-4.svg' => localizations.nova_group_4,
       'nova-group-unknown.svg' => localizations.nova_group_unknown,
-      String _ when fileName.startsWith('nutriscore-') =>
-        _extractNutriScore(localizations, fileName),
+      String _ when fileName.startsWith('nutriscore-') => _extractNutriScore(
+        localizations,
+        fileName,
+      ),
       _ => null,
     };
   }
@@ -178,12 +180,4 @@ class SvgCache extends AbstractCache {
   }
 }
 
-enum NutriScoreValue {
-  a,
-  b,
-  c,
-  d,
-  e,
-  unknown,
-  notApplicable,
-}
+enum NutriScoreValue { a, b, c, d, e, unknown, notApplicable }

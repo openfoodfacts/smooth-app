@@ -22,21 +22,19 @@ class ScanProductCardLoader extends StatelessWidget {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     return FutureBuilder<Product?>(
       future: DaoProduct(localDatabase).get(barcode),
-      builder: (
-        final BuildContext context,
-        final AsyncSnapshot<Product?> snapshot,
-      ) {
-        if (snapshot.data != null) {
-          return ScanProductCardFound(
-            product: snapshot.data!,
-            onRemoveProduct: onRemoveProduct,
-          );
-        }
-        return ScanProductCardLoading(
-          barcode: barcode,
-          onRemoveProduct: onRemoveProduct,
-        );
-      },
+      builder:
+          (final BuildContext context, final AsyncSnapshot<Product?> snapshot) {
+            if (snapshot.data != null) {
+              return ScanProductCardFound(
+                product: snapshot.data!,
+                onRemoveProduct: onRemoveProduct,
+              );
+            }
+            return ScanProductCardLoading(
+              barcode: barcode,
+              onRemoveProduct: onRemoveProduct,
+            );
+          },
     );
   }
 }

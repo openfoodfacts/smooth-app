@@ -64,11 +64,12 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
     final bool expired = transientFile.expired;
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String label =
-        widget.imageField.getProductImageTitle(appLocalizations);
+    final String label = widget.imageField.getProductImageTitle(
+      appLocalizations,
+    );
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Provider<TransientFile>(
       create: (_) => transientFile,
@@ -149,39 +150,37 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
                           child: LayoutBuilder(
                             builder:
                                 (BuildContext context, BoxConstraints box) {
-                              if (_temporaryFile != null) {
-                                return Image.file(
-                                  _temporaryFile!,
-                                  fit: BoxFit.contain,
-                                );
-                              }
+                                  if (_temporaryFile != null) {
+                                    return Image.file(
+                                      _temporaryFile!,
+                                      fit: BoxFit.contain,
+                                    );
+                                  }
 
-                              return ProductPicture.fromTransientFile(
-                                product: product,
-                                imageField: widget.imageField,
-                                language: widget.language,
-                                allowAlternativeLanguage: false,
-                                transientFile: transientFile,
-                                size: Size(box.maxWidth, box.maxHeight),
-                                onTap: null,
-                                errorTextStyle: const TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                heroTag: ProductPicture.generateHeroTag(
-                                  product.barcode!,
-                                  widget.imageField,
-                                ),
-                                showObsoleteIcon: false,
-                                showOwnerIcon: true,
-                              );
-                            },
+                                  return ProductPicture.fromTransientFile(
+                                    product: product,
+                                    imageField: widget.imageField,
+                                    language: widget.language,
+                                    allowAlternativeLanguage: false,
+                                    transientFile: transientFile,
+                                    size: Size(box.maxWidth, box.maxHeight),
+                                    onTap: null,
+                                    errorTextStyle: const TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    heroTag: ProductPicture.generateHeroTag(
+                                      product.barcode!,
+                                      widget.imageField,
+                                    ),
+                                    showObsoleteIcon: false,
+                                    showOwnerIcon: true,
+                                  );
+                                },
                           ),
                         ),
                         // Border
-                        const Positioned.fill(
-                          child: _PhotoBorder(),
-                        ),
+                        const Positioned.fill(child: _PhotoBorder()),
                         // Upload animation
                         if (_temporaryFile != null ||
                             transientFile.isImageAvailable() &&
@@ -251,34 +250,26 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
     required BuildContext context,
     required final Product product,
     required int initialImageIndex,
-  }) async =>
-      Navigator.push(
-        context,
-        MaterialPageRoute<void>(
-          builder: (_) => ProductImageSwipeableView(
-            initialImageIndex: initialImageIndex,
-            product: product,
-            isLoggedInMandatory: true,
-            initialLanguage: widget.language,
-          ),
-        ),
-      );
+  }) async => Navigator.push(
+    context,
+    MaterialPageRoute<void>(
+      builder: (_) => ProductImageSwipeableView(
+        initialImageIndex: initialImageIndex,
+        product: product,
+        isLoggedInMandatory: true,
+        initialLanguage: widget.language,
+      ),
+    ),
+  );
 
   TransientFile _getTransientFile(
     final Product product,
     final ImageField imageField,
-  ) =>
-      TransientFile.fromProduct(
-        product,
-        imageField,
-        widget.language,
-      );
+  ) => TransientFile.fromProduct(product, imageField, widget.language);
 }
 
 class _PhotoRowIndicator extends StatelessWidget {
-  const _PhotoRowIndicator({
-    required this.transientFile,
-  });
+  const _PhotoRowIndicator({required this.transientFile});
 
   final TransientFile transientFile;
 
@@ -289,16 +280,10 @@ class _PhotoRowIndicator extends StatelessWidget {
       height: double.infinity,
       child: Ink(
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
-            topLeft: ANGULAR_RADIUS,
-          ),
-          color: _getColor(
-            context.extension<SmoothColorsThemeExtension>(),
-          ),
+          borderRadius: const BorderRadius.only(topLeft: ANGULAR_RADIUS),
+          color: _getColor(context.extension<SmoothColorsThemeExtension>()),
         ),
-        child: Center(
-          child: child(),
-        ),
+        child: Center(child: child()),
       ),
     );
   }
@@ -306,18 +291,12 @@ class _PhotoRowIndicator extends StatelessWidget {
   Widget? child() {
     if (transientFile.isImageAvailable()) {
       if (transientFile.expired) {
-        return const icons.Outdated(
-          size: 18.0,
-          color: Colors.white,
-        );
+        return const icons.Outdated(size: 18.0, color: Colors.white);
       } else {
         return null;
       }
     } else {
-      return const icons.Warning(
-        size: 15.0,
-        color: Colors.white,
-      );
+      return const icons.Warning(size: 15.0, color: Colors.white);
     }
   }
 
@@ -339,8 +318,8 @@ class _PhotoBorder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 
@@ -351,14 +330,8 @@ class _PhotoBorder extends StatelessWidget {
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.vertical(
-          bottom: ANGULAR_RADIUS,
-        ),
-        border: Border(
-          right: borderSide,
-          left: borderSide,
-          bottom: borderSide,
-        ),
+        borderRadius: const BorderRadius.vertical(bottom: ANGULAR_RADIUS),
+        border: Border(right: borderSide, left: borderSide, bottom: borderSide),
       ),
     );
   }

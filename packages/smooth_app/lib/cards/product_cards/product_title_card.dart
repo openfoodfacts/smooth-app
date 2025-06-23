@@ -28,12 +28,11 @@ class ProductTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget trailing = _ProductTitleCardTrailing(
-      selectable: isSelectable,
-    );
+    final Widget trailing = _ProductTitleCardTrailing(selectable: isSelectable);
 
-    final Size imageSize =
-        Size.square(MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25));
+    final Size imageSize = Size.square(
+      MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25),
+    );
 
     Widget child = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,16 +42,10 @@ class ProductTitleCard extends StatelessWidget {
           constraints: BoxConstraints(
             minHeight: DefaultTextStyle.of(context).style.fontSize! * 2.0,
           ),
-          child: _ProductTitleCardName(
-            selectable: isSelectable,
-            dense: dense,
-          ),
+          child: _ProductTitleCardName(selectable: isSelectable, dense: dense),
         ),
         const SizedBox(height: SMALL_SPACE),
-        _ProductTitleCardBrand(
-          selectable: isSelectable,
-          dense: dense,
-        ),
+        _ProductTitleCardBrand(selectable: isSelectable, dense: dense),
         const SizedBox(height: 2.0),
         trailing,
       ],
@@ -88,14 +81,12 @@ class ProductTitleCard extends StatelessWidget {
                     noImageBuilder: (_) => const PictureNotFound(),
                     onTap: !dense
                         ? () async => Navigator.push<void>(
-                              context,
-                              MaterialPageRoute<bool>(
-                                builder: (BuildContext context) =>
-                                    ProductImageGalleryView(
-                                  product: product,
-                                ),
-                              ),
-                            )
+                            context,
+                            MaterialPageRoute<bool>(
+                              builder: (BuildContext context) =>
+                                  ProductImageGalleryView(product: product),
+                            ),
+                          )
                         : null,
                   ),
                 ),
@@ -129,10 +120,7 @@ class ProductTitleCard extends StatelessWidget {
 }
 
 class _ProductTitleCardName extends StatelessWidget {
-  const _ProductTitleCardName({
-    required this.selectable,
-    this.dense = false,
-  });
+  const _ProductTitleCardName({required this.selectable, this.dense = false});
 
   final bool dense;
   final bool selectable;
@@ -155,10 +143,7 @@ class _ProductTitleCardName extends StatelessWidget {
 }
 
 class _ProductTitleCardBrand extends StatelessWidget {
-  const _ProductTitleCardBrand({
-    required this.selectable,
-    this.dense = false,
-  });
+  const _ProductTitleCardBrand({required this.selectable, this.dense = false});
 
   final bool selectable;
   final bool dense;
@@ -181,9 +166,7 @@ class _ProductTitleCardBrand extends StatelessWidget {
 }
 
 class _ProductTitleCardTrailing extends StatelessWidget {
-  const _ProductTitleCardTrailing({
-    required this.selectable,
-  });
+  const _ProductTitleCardTrailing({required this.selectable});
 
   final bool selectable;
 

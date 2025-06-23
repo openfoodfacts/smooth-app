@@ -29,10 +29,7 @@ class SearchAppBarTitle extends StatelessWidget {
         onTap: () => Navigator.of(context).pop(true),
         child: Tooltip(
           message: appLocalizations.tap_to_edit_search,
-          child: SizedBox(
-            width: double.infinity,
-            child: child,
-          ),
+          child: SizedBox(width: double.infinity, child: child),
         ),
       );
     }

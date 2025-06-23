@@ -9,9 +9,7 @@ import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 
 /// A generic stateful widget for infinite scrolling lists that works with InfiniteScrollManager.
 class InfiniteScrollList<T> extends StatefulWidget {
-  const InfiniteScrollList({
-    required this.manager,
-  });
+  const InfiniteScrollList({required this.manager});
 
   /// Manager for handling the infinite scroll behavior
   final InfiniteScrollManager<T> manager;
@@ -85,9 +83,7 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     }
     setState(() {});
     ScaffoldMessenger.of(context).showSnackBar(
-      SmoothFloatingSnackbar(
-        content: Text(_getItemCount(context)),
-      ),
+      SmoothFloatingSnackbar(content: Text(_getItemCount(context))),
     );
   }
 
@@ -117,13 +113,8 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     return const SizedBox(height: MINIMUM_TOUCH_SIZE * 2);
   }
 
-  Widget _buildHeader(BuildContext context) => SmoothCard(
-        child: ListTile(
-          title: Text(
-            _getItemCount(context),
-          ),
-        ),
-      );
+  Widget _buildHeader(BuildContext context) =>
+      SmoothCard(child: ListTile(title: Text(_getItemCount(context))));
 
   @override
   Widget build(BuildContext context) {
@@ -144,10 +135,7 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     children.add(_buildHeader(context));
 
     for (final T item in widget.manager.items) {
-      children.add(widget.manager.getItemWidget(
-        context: context,
-        item: item,
-      ));
+      children.add(widget.manager.getItemWidget(context: context, item: item));
     }
 
     if (widget.manager.isLoading) {
@@ -156,9 +144,6 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
 
     children.add(_buildFooter(context));
 
-    return ListView(
-      controller: _scrollController,
-      children: children,
-    );
+    return ListView(controller: _scrollController, children: children);
   }
 }

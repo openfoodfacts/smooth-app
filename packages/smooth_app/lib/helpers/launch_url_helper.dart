@@ -15,9 +15,11 @@ class LaunchUrlHelper {
   ) async {
     assert(url.isNotEmpty);
 
-    if (url.startsWith(RegExp(
-      r'http(s)?://[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)',
-    ))) {
+    if (url.startsWith(
+      RegExp(
+        r'http(s)?://[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)',
+      ),
+    )) {
       AnalyticsHelper.trackOutlink(url: url);
       GoRouter.of(context).push(url);
     } else {
@@ -26,16 +28,14 @@ class LaunchUrlHelper {
   }
 
   /// Launches the url in an external browser.
-  static Future<void> launchURL(
-    String url, {
-    LaunchMode? mode,
-  }) async {
+  static Future<void> launchURL(String url, {LaunchMode? mode}) async {
     AnalyticsHelper.trackOutlink(url: url);
 
     try {
       await launchUrl(
         Uri.parse(url),
-        mode: mode ??
+        mode:
+            mode ??
             (Platform.isAndroid
                 ? LaunchMode.externalApplication
                 : LaunchMode.platformDefault),
@@ -51,9 +51,11 @@ class LaunchUrlHelper {
     String url, {
     LaunchMode? mode,
   }) async {
-    if (url.startsWith(RegExp(
-      r'http(s)?://[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)',
-    ))) {
+    if (url.startsWith(
+      RegExp(
+        r'http(s)?://[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)',
+      ),
+    )) {
       AppNavigator.of(context).push(AppRoutes.EXTERNAL_WEBVIEW(url));
     } else {
       return launchURL(url, mode: mode);

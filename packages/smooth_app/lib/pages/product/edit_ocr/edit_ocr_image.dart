@@ -53,14 +53,14 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final ImageProvider? imageProvider =
-        widget.transientFile.getImageProvider();
+    final ImageProvider? imageProvider = widget.transientFile
+        .getImageProvider();
     final bool hasImage = imageProvider != null;
 
     final Size screenSize = MediaQuery.sizeOf(context);
@@ -100,10 +100,7 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
           message: appLocalizations.product_image_outdated_message,
           textAlign: TextAlign.center,
           child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              minHeight: 40.0,
-              minWidth: 40.0,
-            ),
+            constraints: const BoxConstraints(minHeight: 40.0, minWidth: 40.0),
             child: Padding(
               padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
               child: Material(
@@ -141,17 +138,12 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
         } else {
           headerIcons = Row(
             mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const OwnerFieldSmoothCardIcon(),
-              headerIcons,
-            ],
+            children: <Widget>[const OwnerFieldSmoothCardIcon(), headerIcons],
           );
         }
       }
     } else {
-      child = _EditOCRImageNotFound(
-        onTap: widget.onTakePictureWithChoices,
-      );
+      child = _EditOCRImageNotFound(onTap: widget.onTakePictureWithChoices);
     }
 
     return SmoothCardWithRoundedHeader(
@@ -273,31 +265,33 @@ class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
                     child: Image(
                       fit: BoxFit.contain,
                       image: widget.imageProvider,
-                      frameBuilder: (
-                        BuildContext context,
-                        Widget child,
-                        int? frame,
-                        bool wasSynchronouslyLoaded,
-                      ) {
-                        if (frame == null) {
-                          return _loadingWidget();
-                        } else if (_isLoading) {
-                          onNextFrame(
-                            () => setState(() => _isLoading = false),
-                          );
-                        }
-                        return child;
-                      },
-                      loadingBuilder: (
-                        BuildContext context,
-                        Widget child,
-                        ImageChunkEvent? loadingProgress,
-                      ) {
-                        if (loadingProgress == null) {
-                          return child;
-                        }
-                        return _loadingWidget();
-                      },
+                      frameBuilder:
+                          (
+                            BuildContext context,
+                            Widget child,
+                            int? frame,
+                            bool wasSynchronouslyLoaded,
+                          ) {
+                            if (frame == null) {
+                              return _loadingWidget();
+                            } else if (_isLoading) {
+                              onNextFrame(
+                                () => setState(() => _isLoading = false),
+                              );
+                            }
+                            return child;
+                          },
+                      loadingBuilder:
+                          (
+                            BuildContext context,
+                            Widget child,
+                            ImageChunkEvent? loadingProgress,
+                          ) {
+                            if (loadingProgress == null) {
+                              return child;
+                            }
+                            return _loadingWidget();
+                          },
                       errorBuilder: _onError,
                     ),
                   ),
@@ -309,21 +303,21 @@ class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
                   child: PinchToZoomExplainer(),
                 )
               else if (state == OcrState.IMAGE_LOADING)
-                const Center(
-                  child: CloudUploadAnimation.circle(size: 65.0),
-                )
+                const Center(child: CloudUploadAnimation.circle(size: 65.0))
               else if (state == OcrState.EXTRACTING_DATA)
-                Builder(builder: (BuildContext context) {
-                  final SmoothColorsThemeExtension extension =
-                      context.extension<SmoothColorsThemeExtension>();
+                Builder(
+                  builder: (BuildContext context) {
+                    final SmoothColorsThemeExtension extension = context
+                        .extension<SmoothColorsThemeExtension>();
 
-                  return Positioned.fill(
-                    child: _ExtractTextAnimation(
-                      tintColor: extension.secondaryNormal,
-                      tintColorGradient: extension.secondaryLight,
-                    ),
-                  );
-                }),
+                    return Positioned.fill(
+                      child: _ExtractTextAnimation(
+                        tintColor: extension.secondaryNormal,
+                        tintColorGradient: extension.secondaryLight,
+                      ),
+                    );
+                  },
+                ),
             ],
           );
         },
@@ -334,26 +328,18 @@ class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
   ColoredBox _loadingWidget() {
     return const ColoredBox(
       color: PictureNotFound.defaultBackgroundColor,
-      child: Center(
-        child: CircularProgressIndicator(),
-      ),
+      child: Center(child: CircularProgressIndicator()),
     );
   }
 
-  Widget _onError(
-    BuildContext context,
-    Object error,
-    StackTrace? stackTrace,
-  ) {
+  Widget _onError(BuildContext context, Object error, StackTrace? stackTrace) {
     widget.onError.call();
     return EMPTY_WIDGET;
   }
 }
 
 class _EditOCRImageNotFound extends StatelessWidget {
-  const _EditOCRImageNotFound({
-    required this.onTap,
-  });
+  const _EditOCRImageNotFound({required this.onTap});
 
   final VoidCallback onTap;
 
@@ -421,12 +407,7 @@ class _EditOCRImageActions extends StatelessWidget {
         builder: (BuildContext context, OcrState ocrState, _) {
           return Column(
             children: <Widget>[
-              _extractTextButton(
-                context,
-                appLocalizations,
-                ocrState,
-                hasError,
-              ),
+              _extractTextButton(context, appLocalizations, ocrState, hasError),
               const SizedBox(height: BALANCED_SPACE),
               if (hasImage)
                 _editPictureButton(appLocalizations, ocrState)
@@ -459,9 +440,7 @@ class _EditOCRImageActions extends StatelessWidget {
 
     return _EditOCRImageButton(
       label: helper.getActionExtractShortText(appLocalizations),
-      icon: const icons.OCR(
-        size: 18.0,
-      ),
+      icon: const icons.OCR(size: 18.0),
       onPressed: onTap,
       enabled: hasImage && state == OcrState.IMAGE_LOADED && !hasError,
     );
@@ -473,9 +452,7 @@ class _EditOCRImageActions extends StatelessWidget {
   ) {
     return _EditOCRImageButton(
       label: appLocalizations.product_edit_photo_title,
-      icon: const icons.Edit(
-        size: 16.0,
-      ),
+      icon: const icons.Edit(size: 16.0),
       onPressed: state != OcrState.EXTRACTING_DATA ? onEditImage : null,
     );
   }
@@ -486,10 +463,7 @@ class _EditOCRImageActions extends StatelessWidget {
   ) {
     return _EditOCRImageButton(
       label: appLocalizations.edit_product_action_take_picture,
-      icon: const Icon(
-        Icons.add_a_photo_rounded,
-        size: 18.0,
-      ),
+      icon: const Icon(Icons.add_a_photo_rounded, size: 18.0),
       padding: const EdgeInsetsDirectional.only(
         start: VERY_SMALL_SPACE,
         end: 6.0,
@@ -552,16 +526,14 @@ class _EditOCRImageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color color =
-        (onPressed != null && enabled) ? Colors.white : const Color(0x88FFFFFF);
+    final Color color = (onPressed != null && enabled)
+        ? Colors.white
+        : const Color(0x88FFFFFF);
 
     return Ink(
       decoration: BoxDecoration(
         borderRadius: ROUNDED_BORDER_RADIUS,
-        border: Border.all(
-          color: color,
-          width: 1.0,
-        ),
+        border: Border.all(color: color, width: 1.0),
       ),
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
@@ -580,10 +552,8 @@ class _EditOCRImageButton extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Padding(
-                    padding: padding ??
-                        const EdgeInsetsDirectional.all(
-                          SMALL_SPACE,
-                        ),
+                    padding:
+                        padding ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
                     child: icon,
                   ),
                 ),
@@ -654,9 +624,10 @@ class _ExtractTextAnimationState extends State<_ExtractTextAnimation>
       })
       ..repeat();
 
-    _progress = Tween<double>(begin: 0.0, end: 1.0)
-        .chain(CurveTween(curve: Curves.easeInOutCubic))
-        .animate(_controller);
+    _progress = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).chain(CurveTween(curve: Curves.easeInOutCubic)).animate(_controller);
     _controller.forward();
   }
 
@@ -673,9 +644,7 @@ class _ExtractTextAnimationState extends State<_ExtractTextAnimation>
         gradient: LinearGradient(
           colors: <Color>[
             Colors.transparent,
-            widget.tintColorGradient.withValues(
-              alpha: progress,
-            ),
+            widget.tintColorGradient.withValues(alpha: progress),
           ],
           stops: const <double>[0.4, 1.0],
         ),
@@ -719,11 +688,7 @@ class _ExtractTextAnimationPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..shader = null;
 
-    canvas.drawLine(
-      Offset(width, 0),
-      Offset(width, size.height),
-      paint,
-    );
+    canvas.drawLine(Offset(width, 0), Offset(width, size.height), paint);
   }
 
   @override

@@ -132,11 +132,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   }
 
   Widget _buildLimitedSizeSummaryCard() {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Padding(
-      padding: widget.margin ??
+      padding:
+          widget.margin ??
           const EdgeInsets.symmetric(
             horizontal: SMALL_SPACE,
             vertical: VERY_SMALL_SPACE,
@@ -157,16 +158,16 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             ),
             Container(
               width: double.infinity,
-              padding: widget.buttonPadding ??
-                  const EdgeInsets.symmetric(
-                    vertical: SMALL_SPACE,
-                  ),
+              padding:
+                  widget.buttonPadding ??
+                  const EdgeInsets.symmetric(vertical: SMALL_SPACE),
               decoration: BoxDecoration(
                 color: context.lightTheme()
                     ? themeExtension.primaryDark
                     : themeExtension.primarySemiDark,
-                borderRadius:
-                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+                borderRadius: const BorderRadius.vertical(
+                  bottom: ROUNDED_RADIUS,
+                ),
               ),
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(
@@ -187,9 +188,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(
-                        width: BALANCED_SPACE,
-                      ),
+                      const SizedBox(width: BALANCED_SPACE),
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
@@ -216,8 +215,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
+    final List<String> excludedAttributeIds = userPreferences
+        .getExcludedAttributeIds();
     final List<Attribute> scoreAttributes = getPopulatedAttributes(
       upToDateProduct,
       SCORE_ATTRIBUTE_IDS,
@@ -305,10 +304,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           upToDateProduct.statesTags ?? List<String>.empty();
 
       // Complete basic details
-      if (statesTags
-              .contains(ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag) ||
-          statesTags
-              .contains(ProductState.QUANTITY_COMPLETED.toBeCompletedTag)) {
+      if (statesTags.contains(
+            ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag,
+          ) ||
+          statesTags.contains(
+            ProductState.QUANTITY_COMPLETED.toBeCompletedTag,
+          )) {
         final ProductFieldEditor editor = ProductFieldDetailsEditor();
         summaryCardButtons.add(
           addPanelButton(
@@ -331,8 +332,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           isPictureVisible: widget.isPictureVisible,
           onRemove: (BuildContext context) async {
             HideableContainerState.of(context).hide(() async {
-              final ContinuousScanModel model =
-                  context.read<ContinuousScanModel>();
+              final ContinuousScanModel model = context
+                  .read<ContinuousScanModel>();
               await model.removeBarcode(barcode);
 
               // Vibrate twice
@@ -349,9 +350,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     );
 
     if (widget.scrollableContent) {
-      return SingleChildScrollView(
-        child: child,
-      );
+      return SingleChildScrollView(child: child);
     } else {
       return child;
     }
@@ -367,9 +366,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
             child: InkWell(
               borderRadius: ANGULAR_BORDER_RADIUS,
-              onTap: () async => _openFullKnowledgePanel(
-                attribute: attribute,
-              ),
+              onTap: () async => _openFullKnowledgePanel(attribute: attribute),
               child: ScoreCard.attribute(
                 attribute: attribute,
                 isClickable: true,
@@ -380,10 +377,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         );
       } else {
         attributes.add(
-          ScoreCard.attribute(
-            attribute: attribute,
-            isClickable: false,
-          ),
+          ScoreCard.attribute(attribute: attribute, isClickable: false),
         );
       }
     }
@@ -393,8 +387,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   List<Widget> _buildAttributeChips(final List<Attribute> attributes) {
     final List<Widget> result = <Widget>[];
     for (final Attribute attribute in attributes) {
-      final Widget? attributeChip =
-          _buildAttributeChipForValidAttributes(attribute);
+      final Widget? attributeChip = _buildAttributeChipForValidAttributes(
+        attribute,
+      );
       if (attributeChip != null) {
         result.add(attributeChip);
       }
@@ -419,9 +414,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           child: InkWell(
             borderRadius: ANGULAR_BORDER_RADIUS,
             enableFeedback: _isAttributeOpeningAllowed(attribute),
-            onTap: () async => _openFullKnowledgePanel(
-              attribute: attribute,
-            ),
+            onTap: () async => _openFullKnowledgePanel(attribute: attribute),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
               child: Row(
@@ -456,10 +449,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       return;
     }
     final KnowledgePanel? knowledgePanel =
-        KnowledgePanelsBuilder.getKnowledgePanel(
-      upToDateProduct,
-      panelId,
-    );
+        KnowledgePanelsBuilder.getKnowledgePanel(upToDateProduct, panelId);
     if (knowledgePanel == null) {
       return;
     }
@@ -467,10 +457,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => KnowledgePanelPage(
-          panelId: panelId,
-          product: upToDateProduct,
-        ),
+        builder: (BuildContext context) =>
+            KnowledgePanelPage(panelId: panelId, product: upToDateProduct),
       ),
     );
   }

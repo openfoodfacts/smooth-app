@@ -46,81 +46,83 @@ class MockSmoothApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: <ChangeNotifierProvider<dynamic>>[
-          ChangeNotifierProvider<UserPreferences>.value(value: userPreferences),
-          ChangeNotifierProvider<ProductPreferences>.value(
-              value: productPreferences),
-          ChangeNotifierProvider<ThemeProvider>.value(value: themeProvider),
-          ChangeNotifierProvider<UserManagementProvider>.value(
-              value: userManagementProvider),
-          if (localDatabase != null)
-            ChangeNotifierProvider<LocalDatabase>.value(value: localDatabase!),
-        ],
-        child: MaterialApp(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          theme: SmoothTheme.getThemeData(
-            Brightness.light,
-            themeProvider,
-            () => colorProvider,
-            () => textContrastProvider,
-          ),
-          darkTheme: SmoothTheme.getThemeData(
-            Brightness.dark,
-            themeProvider,
-            () => colorProvider,
-            () => textContrastProvider,
-          ),
-          themeMode: themeProvider.currentThemeMode,
-          home: child,
-        ));
+      providers: <ChangeNotifierProvider<dynamic>>[
+        ChangeNotifierProvider<UserPreferences>.value(value: userPreferences),
+        ChangeNotifierProvider<ProductPreferences>.value(
+          value: productPreferences,
+        ),
+        ChangeNotifierProvider<ThemeProvider>.value(value: themeProvider),
+        ChangeNotifierProvider<UserManagementProvider>.value(
+          value: userManagementProvider,
+        ),
+        if (localDatabase != null)
+          ChangeNotifierProvider<LocalDatabase>.value(value: localDatabase!),
+      ],
+      child: MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        theme: SmoothTheme.getThemeData(
+          Brightness.light,
+          themeProvider,
+          () => colorProvider,
+          () => textContrastProvider,
+        ),
+        darkTheme: SmoothTheme.getThemeData(
+          Brightness.dark,
+          themeProvider,
+          () => colorProvider,
+          () => textContrastProvider,
+        ),
+        themeMode: themeProvider.currentThemeMode,
+        home: child,
+      ),
+    );
   }
 }
 
 Map<String, Object> mockSharedPreferences({
   bool init = true,
   bool themeDark = false,
-}) =>
-    <String, Object>{
-      // Configured by test
-      'init': init,
-      'currentThemeMode': themeDark ? 'Dark' : 'Light',
+}) => <String, Object>{
+  // Configured by test
+  'init': init,
+  'currentThemeMode': themeDark ? 'Dark' : 'Light',
 
-      // Very important by default
-      'IMPORTANCE_AS_STRINGnutriscore': 'very_important',
+  // Very important by default
+  'IMPORTANCE_AS_STRINGnutriscore': 'very_important',
 
-      // Important by default
-      'IMPORTANCE_AS_STRINGecoscore': 'important',
-      'IMPORTANCE_AS_STRINGnova': 'important',
+  // Important by default
+  'IMPORTANCE_AS_STRINGecoscore': 'important',
+  'IMPORTANCE_AS_STRINGnova': 'important',
 
-      // Not important by default
-      'IMPORTANCE_AS_STRINGadditives': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_celery': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_crustaceans': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_eggs': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_fish': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_gluten': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_lupin': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_milk': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_molluscs': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_mustard': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_nuts': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_peanuts': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_sesame_seeds': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_soybeans': 'not_important',
-      'IMPORTANCE_AS_STRINGallergens_no_sulphur_dioxide_and_sulphites':
-          'not_important',
-      'IMPORTANCE_AS_STRINGforest_footprint': 'not_important',
-      'IMPORTANCE_AS_STRINGlabels_fair_trade': 'not_important',
-      'IMPORTANCE_AS_STRINGlabels_organic': 'not_important',
-      'IMPORTANCE_AS_STRINGlow_fat': 'not_important',
-      'IMPORTANCE_AS_STRINGlow_salt': 'not_important',
-      'IMPORTANCE_AS_STRINGlow_saturated_fat': 'not_important',
-      'IMPORTANCE_AS_STRINGlow_sugars': 'not_important',
-      'IMPORTANCE_AS_STRINGpalm_oil_free': 'not_important',
-      'IMPORTANCE_AS_STRINGvegan': 'not_important',
-      'IMPORTANCE_AS_STRINGvegetarian': 'not_important',
-    };
+  // Not important by default
+  'IMPORTANCE_AS_STRINGadditives': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_celery': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_crustaceans': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_eggs': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_fish': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_gluten': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_lupin': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_milk': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_molluscs': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_mustard': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_nuts': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_peanuts': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_sesame_seeds': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_soybeans': 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_sulphur_dioxide_and_sulphites':
+      'not_important',
+  'IMPORTANCE_AS_STRINGforest_footprint': 'not_important',
+  'IMPORTANCE_AS_STRINGlabels_fair_trade': 'not_important',
+  'IMPORTANCE_AS_STRINGlabels_organic': 'not_important',
+  'IMPORTANCE_AS_STRINGlow_fat': 'not_important',
+  'IMPORTANCE_AS_STRINGlow_salt': 'not_important',
+  'IMPORTANCE_AS_STRINGlow_saturated_fat': 'not_important',
+  'IMPORTANCE_AS_STRINGlow_sugars': 'not_important',
+  'IMPORTANCE_AS_STRINGpalm_oil_free': 'not_important',
+  'IMPORTANCE_AS_STRINGvegan': 'not_important',
+  'IMPORTANCE_AS_STRINGvegetarian': 'not_important',
+};
 
 class MockHttpOverrides extends HttpOverrides {
   @override
@@ -134,7 +136,8 @@ class _MockHttpClient extends Mock implements HttpClient {
       return Future<HttpClientRequest>.value(_MockHttpClientSVGRequest());
     } else {
       throw UnimplementedError(
-          'A mock for this request has not been created yet.');
+        'A mock for this request has not been created yet.',
+      );
     }
   }
 }
@@ -183,40 +186,42 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
 Future<void> mockMatomo() async {
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(
-          const MethodChannel('dev.fluttercommunity.plus/device_info'),
-          (MethodCall call) async {
-    if (call.method == 'getDeviceInfo') {
-      return <String, dynamic>{
-        'computerName': '_',
-        'hostName': '_',
-        'arch': '_',
-        'model': '_',
-        'kernelVersion': '_',
-        'osRelease': '_',
-        'activeCPUs': 1,
-        'memorySize': 1,
-        'cpuFrequency': 1,
-      };
-    }
-    return null;
-  });
+        const MethodChannel('dev.fluttercommunity.plus/device_info'),
+        (MethodCall call) async {
+          if (call.method == 'getDeviceInfo') {
+            return <String, dynamic>{
+              'computerName': '_',
+              'hostName': '_',
+              'arch': '_',
+              'model': '_',
+              'kernelVersion': '_',
+              'osRelease': '_',
+              'activeCPUs': 1,
+              'memorySize': 1,
+              'cpuFrequency': 1,
+            };
+          }
+          return null;
+        },
+      );
 
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(
-          const MethodChannel('dev.fluttercommunity.plus/package_info'),
-          (MethodCall call) async {
-    if (call.method == 'getAll') {
-      return <String, dynamic>{
-        'appName': '_',
-        'packageName': '_',
-        'version': '_',
-        'buildNumber': '_',
-        'buildSignature': '_',
-        'installerStore': '_',
-      };
-    }
-    return null;
-  });
+        const MethodChannel('dev.fluttercommunity.plus/package_info'),
+        (MethodCall call) async {
+          if (call.method == 'getAll') {
+            return <String, dynamic>{
+              'appName': '_',
+              'packageName': '_',
+              'version': '_',
+              'buildNumber': '_',
+              'buildSignature': '_',
+              'installerStore': '_',
+            };
+          }
+          return null;
+        },
+      );
 
   await AnalyticsHelper.initMatomo(false);
   MatomoTracker.instance.setOptOut(optOut: true);

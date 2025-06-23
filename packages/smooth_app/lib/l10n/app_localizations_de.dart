@@ -808,8 +808,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get crop_page_too_small_image_title => 'Das Bild ist zu klein!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Die Mindestgröße in Pixeln für das Hochladen von Bildern ist $expectedMinWidth×$expectedMinHeight. Das aktuelle Bild hat die Maße $actualWidth×$actualHeight.';
   }
 
@@ -1387,7 +1391,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Möchten Sie die Währung von $previousCurrency in $possibleCurrency ändern?';
   }
 
@@ -1605,20 +1611,33 @@ class AppLocalizationsDe extends AppLocalizations {
       'Wenn Sie Ihre Meinung ändern, können Sie diese Option jederzeit in den Einstellungen aktivieren und deaktivieren.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModell: $model\nProdukt: $product\nGerät: $device\nMarke: $brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'OS: iOS ($version)\nModell: $model\nLokalisiertes Modell: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nApp-Version: $appVersion\nApp-Build-Nummer: $appBuildNumber\nApp-Paketname: $appPackageName';
   }
 
@@ -2664,7 +2683,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Preis: $price / Laden: „$location” / Veröffentlicht am $date von „$user”';
   }
 
@@ -2848,7 +2871,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Ihre aktuelle Währung ist **$currency**. Möchten Sie diese in **$newCurrency** ändern?';
   }
 
@@ -2910,7 +2935,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Downloade $count weitere Produkte\nBereits heruntergeladen $downloaded von $totalSize.';
   }
 

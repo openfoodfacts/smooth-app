@@ -30,17 +30,16 @@ class NextButton extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final OnboardingFlowNavigator navigator =
-        OnboardingFlowNavigator(userPreferences);
+    final OnboardingFlowNavigator navigator = OnboardingFlowNavigator(
+      userPreferences,
+    );
     final OnboardingPage previousPage = currentPage.getPrevPage();
     return OnboardingBottomBar(
       leftButton: previousPage.isOnboardingNotStarted()
           ? null
           : OnboardingBottomIcon(
-              onPressed: () async => navigator.navigateToPage(
-                context,
-                previousPage,
-              ),
+              onPressed: () async =>
+                  navigator.navigateToPage(context, previousPage),
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,
               icon: Directionality.of(context) == TextDirection.ltr
@@ -50,13 +49,11 @@ class NextButton extends StatelessWidget {
             ),
       rightButton: OnboardingBottomButton(
         onPressed: () async {
-          await OnboardingLoader(localDatabase)
-              .runAtNextTime(currentPage, context);
+          await OnboardingLoader(
+            localDatabase,
+          ).runAtNextTime(currentPage, context);
           if (context.mounted) {
-            await navigator.navigateToPage(
-              context,
-              currentPage.getNextPage(),
-            );
+            await navigator.navigateToPage(context, currentPage.getNextPage());
           }
         },
         backgroundColor: Colors.black,

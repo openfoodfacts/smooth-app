@@ -23,8 +23,9 @@ class OnboardingLoader {
         await LoadingDialog.run<bool>(
           context: context,
           future: _downloadData().timeout(const Duration(seconds: 4)),
-          title: AppLocalizations.of(context)
-              .onboarding_welcome_loading_dialog_title,
+          title: AppLocalizations.of(
+            context,
+          ).onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
       case OnboardingPage.NOT_STARTED:

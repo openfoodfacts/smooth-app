@@ -7,10 +7,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 /// Similar to a 404 page
 class ErrorPage extends StatelessWidget {
-  const ErrorPage({
-    required this.url,
-    super.key,
-  });
+  const ErrorPage({required this.url, super.key});
 
   final String url;
 
@@ -33,10 +30,7 @@ class ErrorPage extends StatelessWidget {
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               const SizedBox(height: LARGE_SPACE),
-              Text(
-                url,
-                textAlign: TextAlign.center,
-              ),
+              Text(url, textAlign: TextAlign.center),
               const SizedBox(height: VERY_LARGE_SPACE * 2),
               SmoothLargeButtonWithIcon(
                 text: localizations.page_not_found_button,
@@ -45,7 +39,7 @@ class ErrorPage extends StatelessWidget {
                 onPressed: () {
                   AppNavigator.of(context).pop();
                 },
-              )
+              ),
             ],
           ),
         ),

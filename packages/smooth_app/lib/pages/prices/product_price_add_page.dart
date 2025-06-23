@@ -29,9 +29,7 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
-  const ProductPriceAddPage(
-    this.model,
-  );
+  const ProductPriceAddPage(this.model);
 
   final PriceModel model;
 
@@ -96,10 +94,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PriceModel>.value(
       value: widget.model,
-      builder: (
-        final BuildContext context,
-        final Widget? child,
-      ) {
+      builder: (final BuildContext context, final Widget? child) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
         return ChangeNotifierListener<PriceModel>(
@@ -108,13 +103,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
           },
           child: WillPopScope2(
             controller: _willPopScope2Controller,
-            onWillPop: () async => (
-              await _mayExitPage(
-                saving: false,
-                model: model,
-              ),
-              null
-            ),
+            onWillPop: () async =>
+                (await _mayExitPage(saving: false, model: model), null),
             child: Form(
               key: _formKey,
               child: SmoothScaffold(
@@ -122,22 +112,21 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                   centerTitle: false,
                   leading: const SmoothBackButton(),
                   title: Text(
-                    appLocalizations.prices_add_n_prices(
-                      model.length,
-                    ),
+                    appLocalizations.prices_add_n_prices(model.length),
                   ),
                   actions: <Widget>[
                     IconButton(
                       icon: const Icon(Icons.info),
-                      onPressed: () async => PriceAddHelper(context)
-                          .doesAcceptWarning(justInfo: true),
+                      onPressed: () async => PriceAddHelper(
+                        context,
+                      ).doesAcceptWarning(justInfo: true),
                     ),
                   ],
                 ),
                 backgroundColor: context.lightTheme()
                     ? context
-                        .extension<SmoothColorsThemeExtension>()
-                        .primaryLight
+                          .extension<SmoothColorsThemeExtension>()
+                          .primaryLight
                     : null,
                 body: SingleChildScrollView(
                   controller: _scrollController,
@@ -149,15 +138,11 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                       const PriceDateCard(),
                       const SizedBox(height: LARGE_SPACE),
                       PriceLocationCard(
-                        onLocationChanged: (
-                          OsmLocation? oldLocation,
-                          OsmLocation location,
-                        ) =>
-                            PriceAddHelper(context).updateCurrency(
-                          oldLocation,
-                          location,
-                          model,
-                        ),
+                        onLocationChanged:
+                            (OsmLocation? oldLocation, OsmLocation location) =>
+                                PriceAddHelper(
+                                  context,
+                                ).updateCurrency(oldLocation, location, model),
                       ),
                       const SizedBox(height: LARGE_SPACE),
                       const PriceCurrencyCard(),
@@ -166,10 +151,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                         for (final Price price in model.existingPrices!)
                           PriceExistingAmountCard(price),
                       for (int i = 0; i < model.length; i++)
-                        PriceAmountCard(
-                          key: UniqueKey(),
-                          index: i,
-                        ),
+                        PriceAmountCard(key: UniqueKey(), index: i),
                       const SizedBox(height: LARGE_SPACE),
                       if (model.multipleProducts) const PriceAddProductCard(),
                       // so that the last items don't get hidden by the FAB
@@ -179,17 +161,11 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                 ),
                 floatingActionButton: SmoothExpandableFloatingActionButton(
                   scrollController: _scrollController,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(
-                      saving: true,
-                      model: model,
-                    ),
-                  ),
+                  onPressed: () async =>
+                      _exitPage(await _mayExitPage(saving: true, model: model)),
                   icon: const Icon(Icons.send),
                   label: Text(
-                    appLocalizations.prices_send_n_prices(
-                      model.length,
-                    ),
+                    appLocalizations.prices_send_n_prices(model.length),
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 15.0,
@@ -228,13 +204,13 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(
-        context,
-        title: AppLocalizations.of(context).prices_add_n_prices(
-          model.length,
-        ),
-      );
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(
+            context,
+            title: AppLocalizations.of(
+              context,
+            ).prices_add_n_prices(model.length),
+          );
       if (pleaseSave == null) {
         return false;
       }

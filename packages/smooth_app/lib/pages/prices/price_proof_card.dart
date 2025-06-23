@@ -21,10 +21,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Card that displays the proof for price adding.
 class PriceProofCard extends StatelessWidget {
-  const PriceProofCard({
-    this.forcedProofType,
-    this.includeMyProofs = true,
-  });
+  const PriceProofCard({this.forcedProofType, this.includeMyProofs = true});
 
   final ProofType? forcedProofType;
   final bool includeMyProofs;
@@ -60,12 +57,12 @@ class PriceProofCard extends StatelessWidget {
             LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) =>
                   Image(
-                image: FileImage(
-                  File(model.cropParameters!.smallCroppedFile!.path),
-                ),
-                width: constraints.maxWidth,
-                height: constraints.maxWidth,
-              ),
+                    image: FileImage(
+                      File(model.cropParameters!.smallCroppedFile!.path),
+                    ),
+                    width: constraints.maxWidth,
+                    height: constraints.maxWidth,
+                  ),
             ),
           Padding(
             padding: const EdgeInsetsDirectional.symmetric(
@@ -83,8 +80,8 @@ class PriceProofCard extends StatelessWidget {
                   : () async {
                       final List<_ProofSource> sources =
                           _ProofSource.getPossibleProofSources(
-                        includeMyProofs: includeMyProofs,
-                      );
+                            includeMyProofs: includeMyProofs,
+                          );
                       // not very likely
                       if (sources.isEmpty) {
                         return;
@@ -110,26 +107,24 @@ class PriceProofCard extends StatelessWidget {
           ),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => Row(
-              children: (const <ProofType>[
-                ProofType.receipt,
-                ProofType.priceTag,
-              ])
-                  .map<Widget>(
-                    (final ProofType item) => SizedBox(
-                      width: constraints.maxWidth / 2,
-                      child: RadioListTile<ProofType>(
-                        title: Text(item.getTitle(appLocalizations)),
-                        value: item,
-                        groupValue: model.proofType,
-                        onChanged:
-                            model.proof != null || forcedProofType != null
+              children:
+                  (const <ProofType>[ProofType.receipt, ProofType.priceTag])
+                      .map<Widget>(
+                        (final ProofType item) => SizedBox(
+                          width: constraints.maxWidth / 2,
+                          child: RadioListTile<ProofType>(
+                            title: Text(item.getTitle(appLocalizations)),
+                            value: item,
+                            groupValue: model.proofType,
+                            onChanged:
+                                model.proof != null || forcedProofType != null
                                 ? null
                                 : (final ProofType? proofType) =>
-                                    model.proofType = proofType!,
-                      ),
-                    ),
-                  )
-                  .toList(),
+                                      model.proofType = proofType!,
+                          ),
+                        ),
+                      )
+                      .toList(),
             ),
           ),
         ],
@@ -144,16 +139,16 @@ enum _ProofSource {
   history;
 
   String getTitle(final AppLocalizations appLocalizations) => switch (this) {
-        _ProofSource.camera => appLocalizations.settings_app_camera,
-        _ProofSource.gallery => appLocalizations.gallery_source_label,
-        _ProofSource.history => appLocalizations.user_search_proofs_title,
-      };
+    _ProofSource.camera => appLocalizations.settings_app_camera,
+    _ProofSource.gallery => appLocalizations.gallery_source_label,
+    _ProofSource.history => appLocalizations.user_search_proofs_title,
+  };
 
   IconData getIconData() => switch (this) {
-        _ProofSource.camera => Icons.camera_rounded,
-        _ProofSource.gallery => Icons.perm_media_rounded,
-        _ProofSource.history => Icons.document_scanner_rounded,
-      };
+    _ProofSource.camera => Icons.camera_rounded,
+    _ProofSource.gallery => Icons.perm_media_rounded,
+    _ProofSource.history => Icons.document_scanner_rounded,
+  };
 
   Future<void> process(
     final BuildContext context,
@@ -163,9 +158,8 @@ enum _ProofSource {
       case _ProofSource.history:
         final Proof? proof = await Navigator.of(context).push<Proof>(
           MaterialPageRoute<Proof>(
-            builder: (BuildContext context) => const PricesProofsPage(
-              selectProof: true,
-            ),
+            builder: (BuildContext context) =>
+                const PricesProofsPage(selectProof: true),
           ),
         );
         if (proof != null) {
@@ -217,9 +211,7 @@ enum _ProofSource {
         (_ProofSource source) => source.getTitle(appLocalizations),
       ),
       prefixIcons: sources
-          .map<Widget>(
-            (_ProofSource source) => Icon(source.getIconData()),
-          )
+          .map<Widget>((_ProofSource source) => Icon(source.getIconData()))
           .toList(),
       addEndArrowToItems: true,
       values: sources,

@@ -50,53 +50,50 @@ class _FolksonomyCard extends StatelessWidget {
           children: <Widget>[
             Expanded(child: Text(appLocalizations.product_tags_title)),
             IconButton(
-              onPressed: () => _openFolksonomyPage(
-                context,
-                context.read<Product>(),
-              ),
+              onPressed: () =>
+                  _openFolksonomyPage(context, context.read<Product>()),
               icon: Consumer<FolksonomyProvider>(
-                builder: (
-                  BuildContext context,
-                  FolksonomyProvider provider,
-                  _,
-                ) {
-                  Widget getIcon(List<ProductTag> tags) {
-                    if (tags.isNotEmpty == true) {
-                      return Tooltip(
-                        message: appLocalizations.add_edit_tags,
-                        child: const icons.Edit(size: 15.0),
-                      );
-                    } else {
-                      return Tooltip(
-                        message: appLocalizations.add_tags,
-                        child: const icons.Add(),
-                      );
-                    }
-                  }
+                builder:
+                    (BuildContext context, FolksonomyProvider provider, _) {
+                      Widget getIcon(List<ProductTag> tags) {
+                        if (tags.isNotEmpty == true) {
+                          return Tooltip(
+                            message: appLocalizations.add_edit_tags,
+                            child: const icons.Edit(size: 15.0),
+                          );
+                        } else {
+                          return Tooltip(
+                            message: appLocalizations.add_tags,
+                            child: const icons.Add(),
+                          );
+                        }
+                      }
 
-                  return switch (provider.value) {
-                    FolksonomyStateError(action: final FolksonomyAction? action)
-                        when action == null =>
-                      EMPTY_WIDGET,
-                    FolksonomyStateError(
-                      tags: final List<ProductTag> tags,
-                    ) =>
-                      getIcon(tags),
-                    FolksonomyStateLoaded(
-                      tags: final List<ProductTag> tags,
-                    ) =>
-                      getIcon(tags),
-                    FolksonomyStateAddedItem(
-                      tags: final List<ProductTag> tags
-                    ) =>
-                      getIcon(tags),
-                    FolksonomyStateRemovedItem(
-                      tags: final List<ProductTag> tags
-                    ) =>
-                      getIcon(tags),
-                    _ => EMPTY_WIDGET,
-                  };
-                },
+                      return switch (provider.value) {
+                        FolksonomyStateError(
+                          action: final FolksonomyAction? action,
+                        )
+                            when action == null =>
+                          EMPTY_WIDGET,
+                        FolksonomyStateError(
+                          tags: final List<ProductTag> tags,
+                        ) =>
+                          getIcon(tags),
+                        FolksonomyStateLoaded(
+                          tags: final List<ProductTag> tags,
+                        ) =>
+                          getIcon(tags),
+                        FolksonomyStateAddedItem(
+                          tags: final List<ProductTag> tags,
+                        ) =>
+                          getIcon(tags),
+                        FolksonomyStateRemovedItem(
+                          tags: final List<ProductTag> tags,
+                        ) =>
+                          getIcon(tags),
+                        _ => EMPTY_WIDGET,
+                      };
+                    },
               ),
             ),
           ],
@@ -105,10 +102,8 @@ class _FolksonomyCard extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
           child: _FolksonomyCardBody(
-            onEmptyPageTag: () => _openFolksonomyPage(
-              context,
-              context.read<Product>(),
-            ),
+            onEmptyPageTag: () =>
+                _openFolksonomyPage(context, context.read<Product>()),
           ),
         ),
       ),
@@ -144,9 +139,7 @@ class _FolksonomyCard extends StatelessWidget {
 }
 
 class _FolksonomyCardBody extends StatelessWidget {
-  const _FolksonomyCardBody({
-    required this.onEmptyPageTag,
-  });
+  const _FolksonomyCardBody({required this.onEmptyPageTag});
 
   final VoidCallback onEmptyPageTag;
 
@@ -155,15 +148,9 @@ class _FolksonomyCardBody extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Consumer<FolksonomyProvider>(
-      builder: (
-        BuildContext context,
-        FolksonomyProvider provider,
-        _,
-      ) {
+      builder: (BuildContext context, FolksonomyProvider provider, _) {
         if (provider.value is FolksonomyStateLoading) {
-          return const Center(
-            child: CircularProgressIndicator.adaptive(),
-          );
+          return const Center(child: CircularProgressIndicator.adaptive());
         } else if (provider.value.tags?.isNotEmpty != true) {
           return InkWell(
             onTap: onEmptyPageTag,
@@ -189,11 +176,14 @@ class _FolksonomyCardBody extends StatelessWidget {
                   padding: const EdgeInsets.all(SMALL_SPACE),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: displayTags.map((ProductTag tag) {
-                      return Tag(
-                          text:
-                              '${tag.key}${appLocalizations.sep}: ${tag.value}');
-                    }).toList(growable: false),
+                    children: displayTags
+                        .map((ProductTag tag) {
+                          return Tag(
+                            text:
+                                '${tag.key}${appLocalizations.sep}: ${tag.value}',
+                          );
+                        })
+                        .toList(growable: false),
                   ),
                 ),
               ],

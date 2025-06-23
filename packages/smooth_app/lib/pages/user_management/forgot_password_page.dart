@@ -77,9 +77,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
       appBar: SmoothAppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.primary,
-        ),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary),
       ),
       body: Form(
         key: _formKey,
@@ -115,9 +113,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                       color: _send ? Colors.green : Colors.red,
                       child: Text(_message),
                     ),
-                    const Spacer(
-                      flex: 1,
-                    )
+                    const Spacer(flex: 1),
                   ],
                   if (!_send)
                     SmoothTextFormField(

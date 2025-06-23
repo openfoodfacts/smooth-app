@@ -12,10 +12,10 @@ class LoadingSliverChildBuilderDelegate extends SliverChildBuilderDelegate {
     Widget? loadingWidget,
     int loadingCount = 4,
     bool loading = false,
-  })  : assert(loading == false || loadingWidget != null),
-        super(
-          (BuildContext context, int index) =>
-              loading ? loadingWidget : childBuilder(context, index),
-          childCount: loading ? loadingCount : childCount,
-        );
+  }) : assert(loading == false || loadingWidget != null),
+       super(
+         (BuildContext context, int index) =>
+             loading ? loadingWidget : childBuilder(context, index),
+         childCount: loading ? loadingCount : childCount,
+       );
 }

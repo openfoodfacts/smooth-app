@@ -17,10 +17,7 @@ class PriceAmountField extends StatelessWidget {
 
   // TODO(monsieurtanuki): TextInputAction + focus
   static const TextInputType _priceTextInputType =
-      TextInputType.numberWithOptions(
-    signed: false,
-    decimal: true,
-  );
+      TextInputType.numberWithOptions(signed: false, decimal: true);
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +28,8 @@ class PriceAmountField extends StatelessWidget {
       hintText: !isPaidPrice
           ? appLocalizations.prices_amount_price_not_discounted
           : model.promo
-              ? appLocalizations.prices_amount_price_discounted
-              : appLocalizations.prices_amount_price_normal,
+          ? appLocalizations.prices_amount_price_discounted
+          : appLocalizations.prices_amount_price_normal,
       textInputType: _priceTextInputType,
       onChanged: (final String? value) {
         if (isPaidPrice) {

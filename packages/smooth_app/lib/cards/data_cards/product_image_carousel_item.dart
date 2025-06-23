@@ -64,28 +64,24 @@ class _ProductImageCarouselItemState extends State<ProductImageCarouselItem> {
           image: imageProvider,
           fit: BoxFit.cover,
           height: 1000,
-          errorBuilder: (
-            BuildContext context,
-            Object exception,
-            StackTrace? stackTrace,
-          ) =>
-              Column(
-            children: <Widget>[
-              Icon(
-                Icons.cloud_off_sharp,
-                size: screenSize.width / 4,
+          errorBuilder:
+              (
+                BuildContext context,
+                Object exception,
+                StackTrace? stackTrace,
+              ) => Column(
+                children: <Widget>[
+                  Icon(Icons.cloud_off_sharp, size: screenSize.width / 4),
+                  Text(appLocalizations.no_internet_connection),
+                ],
               ),
-              Text(appLocalizations.no_internet_connection),
-            ],
-          ),
         ),
       ),
       onTap: () async => Navigator.push<void>(
         context,
         MaterialPageRoute<bool>(
-          builder: (BuildContext context) => ProductImageGalleryView(
-            product: widget.product,
-          ),
+          builder: (BuildContext context) =>
+              ProductImageGalleryView(product: widget.product),
         ),
       ),
     );

@@ -16,10 +16,7 @@ class UserPreferencesChooseAccentColor extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Map<String, String> labels = _localizedNames(appLocalizations);
     return UserPreferencesItemSimple(
-      labels: <String>[
-        appLocalizations.select_accent_color,
-        ...labels.values,
-      ],
+      labels: <String>[appLocalizations.select_accent_color, ...labels.values],
       builder: (_) => const UserPreferencesChooseAccentColor(),
     );
   }
@@ -33,7 +30,8 @@ class UserPreferencesChooseAccentColor extends StatelessWidget {
     return UserPreferencesMultipleChoicesItem<String>(
       title: appLocalizations.select_accent_color,
       leadingBuilder: labels.keys.map(
-        (String key) => (_) => CircleAvatar(
+        (String key) =>
+            (_) => CircleAvatar(
               backgroundColor: getColorValue(key),
               radius: SMALL_SPACE,
             ),
@@ -47,17 +45,16 @@ class UserPreferencesChooseAccentColor extends StatelessWidget {
 
   static Map<String, String> _localizedNames(
     AppLocalizations appLocalizations,
-  ) =>
-      <String, String>{
-        'Blue': appLocalizations.color_blue,
-        'Cyan': appLocalizations.color_cyan,
-        'Green': appLocalizations.color_green,
-        'Default': appLocalizations.color_light_brown,
-        'Magenta': appLocalizations.color_magenta,
-        'Orange': appLocalizations.color_orange,
-        'Pink': appLocalizations.color_pink,
-        'Red': appLocalizations.color_red,
-        'Rust': appLocalizations.color_rust,
-        'Teal': appLocalizations.color_teal,
-      };
+  ) => <String, String>{
+    'Blue': appLocalizations.color_blue,
+    'Cyan': appLocalizations.color_cyan,
+    'Green': appLocalizations.color_green,
+    'Default': appLocalizations.color_light_brown,
+    'Magenta': appLocalizations.color_magenta,
+    'Orange': appLocalizations.color_orange,
+    'Pink': appLocalizations.color_pink,
+    'Red': appLocalizations.color_red,
+    'Rust': appLocalizations.color_rust,
+    'Teal': appLocalizations.color_teal,
+  };
 }

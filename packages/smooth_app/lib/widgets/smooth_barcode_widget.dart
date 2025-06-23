@@ -44,9 +44,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
             data: barcode,
             barcode: _barcodeType,
             color: color ?? Colors.black,
-            style: TextStyle(
-              color: contentColor,
-            ),
+            style: TextStyle(color: contentColor),
             errorBuilder: (final BuildContext context, String? error) {
               onInvalidBarcode?.call();
 

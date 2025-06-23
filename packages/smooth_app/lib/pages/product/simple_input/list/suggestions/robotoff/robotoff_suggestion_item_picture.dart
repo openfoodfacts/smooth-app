@@ -7,9 +7,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class RobotoffSuggestionListItemPicture extends StatelessWidget {
-  const RobotoffSuggestionListItemPicture({
-    required this.onTap,
-  });
+  const RobotoffSuggestionListItemPicture({required this.onTap});
 
   final Function(String heroTag) onTap;
 
@@ -56,10 +54,7 @@ class RobotoffSuggestionListItemPicture extends StatelessWidget {
                   vertical: MEDIUM_SPACE,
                 ),
                 child: const ExcludeSemantics(
-                  child: icons.Expand(
-                    color: Colors.white,
-                    size: 14.0,
-                  ),
+                  child: icons.Expand(color: Colors.white, size: 14.0),
                 ),
               ),
             ),

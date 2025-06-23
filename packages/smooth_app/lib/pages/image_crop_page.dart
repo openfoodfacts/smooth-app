@@ -78,10 +78,7 @@ Future<XFile?> pickImageFile(
     if (!context.mounted) {
       return null;
     }
-    return innerPickImageFile(
-      context,
-      ignorePlatformException: true,
-    );
+    return innerPickImageFile(context, ignorePlatformException: true);
   }
 }
 
@@ -99,23 +96,24 @@ Future<UserPictureSource?> _getUserPictureSource(
   }
 
   return showSmoothModalSheet<UserPictureSource>(
-      context: context,
-      builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return SmoothModalSheet(
-          title: appLocalizations.choose_image_source_title,
-          closeButton: true,
-          closeButtonSemanticsOrder: 5.0,
-          body: const _ImageSourcePicker(),
-          bodyPadding: const EdgeInsetsDirectional.only(
-            start: BALANCED_SPACE,
-            end: MEDIUM_SPACE,
-            top: LARGE_SPACE,
-            bottom: MEDIUM_SPACE,
-          ),
-        );
-      });
+      return SmoothModalSheet(
+        title: appLocalizations.choose_image_source_title,
+        closeButton: true,
+        closeButtonSemanticsOrder: 5.0,
+        body: const _ImageSourcePicker(),
+        bodyPadding: const EdgeInsetsDirectional.only(
+          start: BALANCED_SPACE,
+          end: MEDIUM_SPACE,
+          top: LARGE_SPACE,
+          bottom: MEDIUM_SPACE,
+        ),
+      );
+    },
+  );
 }
 
 class _ImageSourcePicker extends StatefulWidget {
@@ -192,14 +190,13 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
                       activeColor: Theme.of(context).primaryColor,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       value: rememberChoice,
-                      onChanged: (final bool? value) => setState(
-                        () => rememberChoice = value ?? false,
-                      ),
+                      onChanged: (final bool? value) =>
+                          setState(() => rememberChoice = value ?? false),
                     ),
                   ),
                   Expanded(
                     child: Text(appLocalizations.user_picture_source_remember),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -244,8 +241,8 @@ class _ImageSourceButton extends StatelessWidget {
               color: context.lightTheme()
                   ? primaryColor
                   : context
-                      .extension<SmoothColorsThemeExtension>()
-                      .primaryLight,
+                        .extension<SmoothColorsThemeExtension>()
+                        .primaryLight,
             ),
           ),
           padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
@@ -281,18 +278,17 @@ Future<CropParameters?> confirmAndUploadNewPicture(
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
   final UserPictureSource? forcedSource,
-}) async =>
-    confirmAndUploadNewImage(
-      context,
-      cropHelper: ProductCropNewHelper(
-        imageField: imageField,
-        language: language,
-        barcode: barcode,
-        productType: productType,
-      ),
-      isLoggedInMandatory: isLoggedInMandatory,
-      forcedSource: forcedSource,
-    );
+}) async => confirmAndUploadNewImage(
+  context,
+  cropHelper: ProductCropNewHelper(
+    imageField: imageField,
+    language: language,
+    barcode: barcode,
+    productType: productType,
+  ),
+  isLoggedInMandatory: isLoggedInMandatory,
+  forcedSource: forcedSource,
+);
 
 /// Lets the user pick a picture, crop it, and save it.
 Future<CropParameters?> confirmAndUploadNewImage(
@@ -330,31 +326,32 @@ Future<CropParameters?> confirmAndUploadNewImage(
 
 Future<bool?> _onGalleryAccessDenied(final BuildContext context) {
   return showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        return SmoothSimpleErrorAlertDialog(
-          title: appLocalizations.gallery_source_access_denied_dialog_title,
-          message:
-              appLocalizations.gallery_source_access_denied_dialog_message_ios,
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.gallery_source_access_denied_dialog_button,
-            onPressed: () async {
-              await AppSettings.openAppSettings();
-              if (context.mounted) {
-                Navigator.of(context).maybePop(true);
-              }
-            },
-          ),
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.close,
-            onPressed: () {
-              Navigator.of(context).maybePop(false);
-            },
-          ),
-          actionsAxis: Axis.vertical,
-        );
-      });
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      return SmoothSimpleErrorAlertDialog(
+        title: appLocalizations.gallery_source_access_denied_dialog_title,
+        message:
+            appLocalizations.gallery_source_access_denied_dialog_message_ios,
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.gallery_source_access_denied_dialog_button,
+          onPressed: () async {
+            await AppSettings.openAppSettings();
+            if (context.mounted) {
+              Navigator.of(context).maybePop(true);
+            }
+          },
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.close,
+          onPressed: () {
+            Navigator.of(context).maybePop(false);
+          },
+        ),
+        actionsAxis: Axis.vertical,
+      );
+    },
+  );
 }
 
 /// Downloads an image URL into a file, with a dialog.
@@ -401,8 +398,10 @@ Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
 
   const String CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
 
-  final int sequenceNumber =
-      await getNextSequenceNumber(daoInt, CROP_IMAGE_SEQUENCE_KEY);
+  final int sequenceNumber = await getNextSequenceNumber(
+    daoInt,
+    CROP_IMAGE_SEQUENCE_KEY,
+  );
 
   final File file = File('${tempDirectory.path}/editing_image_$sequenceNumber');
 

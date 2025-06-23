@@ -767,8 +767,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get crop_page_too_small_image_title => '图片尺寸过小';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return '图片上传的最小尺寸（以像素为单位）为 ${expectedMinWidth}x$expectedMinHeight。当前图片的尺寸为 ${actualWidth}x$actualHeight。';
   }
 
@@ -1318,7 +1322,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
@@ -1533,20 +1539,33 @@ class AppLocalizationsZh extends AppLocalizations {
   String get permissions_page_body2 => '如果您改变主意，可以随时在设置里启用或禁用此功能。';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return '操作系统：Android（SDK Int： $sdkInt / 版本： $release）\n型号： $model\n产品： $product\n设备： $device\n品牌：$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return '操作系统： iOS （$version)\n型： $model\n本地化模型： $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\n应用版本：$appVersion\n应用内部版本号：$appBuildNumber\n应用包名称：$appPackageName';
   }
 
@@ -2547,7 +2566,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
@@ -2731,7 +2754,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
@@ -2790,7 +2815,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return '再加载 $count 产品\n已经加载 $totalSize 产品中的 $downloaded 产品.';
   }
 

@@ -15,8 +15,8 @@ class NutritionServingSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return DecoratedBox(
@@ -47,32 +47,34 @@ class NutritionServingSwitch extends StatelessWidget {
               ),
             ),
             Consumer<NutritionContainerHelper>(
-              builder: (
-                BuildContext context,
-                NutritionContainerHelper nutritionContainer,
-                _,
-              ) {
-                return SmoothDropdownButton<PerSize>(
-                    loading: nutritionContainer.loadingRobotoffExtraction,
-                    value: nutritionContainer.perSize,
-                    items: <SmoothDropdownItem<PerSize>>[
-                      SmoothDropdownItem<PerSize>(
-                        value: PerSize.oneHundredGrams,
-                        label: appLocalizations.nutrition_page_per_100g_100ml,
-                      ),
-                      SmoothDropdownItem<PerSize>(
-                        value: PerSize.serving,
-                        label: appLocalizations.nutrition_page_per_serving,
-                      ),
-                    ],
-                    onChanged: (final PerSize? value) {
-                      if (value == null) {
-                        return;
-                      }
+              builder:
+                  (
+                    BuildContext context,
+                    NutritionContainerHelper nutritionContainer,
+                    _,
+                  ) {
+                    return SmoothDropdownButton<PerSize>(
+                      loading: nutritionContainer.loadingRobotoffExtraction,
+                      value: nutritionContainer.perSize,
+                      items: <SmoothDropdownItem<PerSize>>[
+                        SmoothDropdownItem<PerSize>(
+                          value: PerSize.oneHundredGrams,
+                          label: appLocalizations.nutrition_page_per_100g_100ml,
+                        ),
+                        SmoothDropdownItem<PerSize>(
+                          value: PerSize.serving,
+                          label: appLocalizations.nutrition_page_per_serving,
+                        ),
+                      ],
+                      onChanged: (final PerSize? value) {
+                        if (value == null) {
+                          return;
+                        }
 
-                      nutritionContainer.perSize = value;
-                    });
-              },
+                        nutritionContainer.perSize = value;
+                      },
+                    );
+                  },
             ),
           ],
         ),

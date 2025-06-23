@@ -66,9 +66,7 @@ abstract class CropHelper {
   /// Full-size crop, aka no crop.
   static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
 
-  static List<double> getEraserCoordinates(
-    final List<Offset> offsets,
-  ) {
+  static List<double> getEraserCoordinates(final List<Offset> offsets) {
     final List<double> eraserCoordinates = <double>[];
     for (final Offset offset in offsets) {
       eraserCoordinates.add(offset.dx);
@@ -77,9 +75,7 @@ abstract class CropHelper {
     return eraserCoordinates;
   }
 
-  static List<Offset> getOffsets(
-    final List<double>? eraserCoordinates,
-  ) {
+  static List<Offset> getOffsets(final List<double>? eraserCoordinates) {
     final List<Offset> offsets = <Offset>[];
     if (eraserCoordinates != null) {
       for (int i = 0; i < eraserCoordinates.length; i += 2) {

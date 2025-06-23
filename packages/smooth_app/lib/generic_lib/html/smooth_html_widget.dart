@@ -23,22 +23,19 @@ class SmoothHtmlWidget extends StatelessWidget {
       textStyle: textStyle,
       customStylesBuilder: (dom.Element element) =>
           element.classes.contains('unknown_ingredient')
-              ? <String, String>{
-                  'font-weight': 'bold',
-                }
-              : null,
+          ? <String, String>{'font-weight': 'bold'}
+          : null,
       onTapUrl: (String url) async {
         try {
           await LaunchUrlHelper.launchURL(url);
         } catch (_) {
           if (context.mounted) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
+            final AppLocalizations appLocalizations = AppLocalizations.of(
+              context,
+            );
 
             ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-              SnackBar(
-                content: Text(appLocalizations.link_cant_be_opened),
-              ),
+              SnackBar(content: Text(appLocalizations.link_cant_be_opened)),
             );
           }
         }

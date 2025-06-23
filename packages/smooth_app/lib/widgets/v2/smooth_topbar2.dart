@@ -24,8 +24,8 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.productType,
     super.key,
-  })  : assert(title.length > 0),
-        assert(forceMultiLines == false || subTitle == null);
+  }) : assert(title.length > 0),
+       assert(forceMultiLines == false || subTitle == null);
 
   /// Height without the top view padding
   static double kTopBar2Height = 100;
@@ -48,8 +48,10 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   State<SmoothTopBar2> createState() => _SmoothTopBar2State();
 
   @override
-  Size get preferredSize => Size(double.infinity,
-      kTopBar2Height + (topWidget?.preferredSize.height ?? 0.0));
+  Size get preferredSize => Size(
+    double.infinity,
+    kTopBar2Height + (topWidget?.preferredSize.height ?? 0.0),
+  );
 }
 
 class _SmoothTopBar2State extends State<SmoothTopBar2> {
@@ -62,9 +64,9 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
 
     if (widget.elevationOnScroll || widget.reducedHeightOnScroll) {
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) => PrimaryScrollController.maybeOf(context)?.addListener(
-          () => _onScroll(),
-        ),
+        (_) => PrimaryScrollController.maybeOf(
+          context,
+        )?.addListener(() => _onScroll()),
       );
     }
 
@@ -95,24 +97,28 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final TextDirection textDirection = Directionality.of(context);
     final bool darkTheme = context.darkTheme();
 
     final double imageWidth = MediaQuery.sizeOf(context).width * 0.22;
     final double imageHeight = imageWidth * 114 / 92;
     final BorderRadius borderRadius = BorderRadius.vertical(
-        bottom:
-            Radius.circular(HEADER_BORDER_RADIUS.topRight.x * (1 - _progress)));
+      bottom: Radius.circular(
+        HEADER_BORDER_RADIUS.topRight.x * (1 - _progress),
+      ),
+    );
 
-    final Color backgroundColor = widget.backgroundColor ??
+    final Color backgroundColor =
+        widget.backgroundColor ??
         (darkTheme ? colors.primaryDark : colors.primaryMedium);
 
     return PhysicalModel(
       color: Colors.transparent,
       elevation: _elevation,
-      shadowColor: widget.elevationColor ??
+      shadowColor:
+          widget.elevationColor ??
           (darkTheme ? Colors.white10 : Colors.black12),
       borderRadius: borderRadius,
       child: ClipRRect(
@@ -149,7 +155,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                         start: widget.leadingAction != null
                             ? BALANCED_SPACE
                             : VERY_LARGE_SPACE,
-                        end: (imageWidth * 0.7) *
+                        end:
+                            (imageWidth * 0.7) *
                             (1 - _progress.progressAndClamp(0.5, 0.9, 1.0)),
                         child: Align(
                           alignment: AlignmentDirectional.topStart,
@@ -168,7 +175,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                                     foregroundColor: widget.foregroundColor,
                                   ),
                                 ),
-                                const SizedBox(width: BALANCED_SPACE)
+                                const SizedBox(width: BALANCED_SPACE),
                               ],
                               Expanded(
                                 child: Padding(
@@ -182,7 +189,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -260,7 +267,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
       maxLines: widget.subTitle != null ? 1 : 2,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
-        color: widget.foregroundColor ??
+        color:
+            widget.foregroundColor ??
             (darkTheme ? colors.primaryMedium : colors.primaryBlack),
         fontSize: 20.0,
         height: widget.reducedHeightOnScroll ? 1.3 : 1.5,
@@ -271,10 +279,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     if (widget.forceMultiLines) {
       return SizedBox(
         height: (MediaQuery.textScalerOf(context).scale(20.0) * 2.0) * 1.5,
-        child: Align(
-          alignment: AlignmentDirectional.centerStart,
-          child: text,
-        ),
+        child: Align(alignment: AlignmentDirectional.centerStart, child: text),
       );
     } else if (widget.subTitle == null) {
       return text;
@@ -290,7 +295,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            color: widget.foregroundColor ??
+            color:
+                widget.foregroundColor ??
                 (darkTheme ? colors.primaryMedium : colors.primaryBlack),
             fontSize: 16.0,
             height: 1.5,

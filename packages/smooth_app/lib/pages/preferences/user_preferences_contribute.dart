@@ -54,11 +54,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     final OpenFoodFactsCountry country = ProductQuery.getCountry();
 
     return <UserPreferencesItem>[
-      _getListTile(
-        'Hunger Games',
-        () async => _hungerGames(),
-        Icons.games,
-      ),
+      _getListTile('Hunger Games', () async => _hungerGames(), Icons.games),
       _getListTile(
         appLocalizations.contribute_improve_header,
         () async => _contribute(),
@@ -160,154 +156,137 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   }
 
   Future<void> _contribute() => showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          return SmoothAlertDialog(
-            title: appLocalizations.contribute_improve_header,
-            body: Column(
-              children: <Widget>[
-                Text(
-                  appLocalizations.contribute_improve_text,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
-            positiveAction: SmoothActionButton(
-              text: AppLocalizations.of(context)
-                  .contribute_improve_ProductsToBeCompleted,
-              onPressed: () async {
-                final LocalDatabase localDatabase =
-                    context.read<LocalDatabase>();
-                Navigator.of(context).pop();
-                ProductQueryPageHelper.openBestChoice(
-                  name: appLocalizations.all_search_to_be_completed_title,
-                  localDatabase: localDatabase,
-                  productQuery: PagedToBeCompletedProductQuery(
-                    // TODO(monsieurtanuki): only food?
-                    productType: ProductType.food,
-                  ),
-                  // the other "context"s being popped
-                  context: this.context,
-                  editableAppBarTitle: false,
-                );
-              },
-            ),
-            negativeAction: SmoothActionButton(
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true).pop('dialog');
-              },
-              text: appLocalizations.close,
-              minWidth: 100,
-            ),
-            actionsAxis: Axis.vertical,
-            actionsOrder: SmoothButtonsBarOrder.auto,
-          );
-        },
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      return SmoothAlertDialog(
+        title: appLocalizations.contribute_improve_header,
+        body: Column(
+          children: <Widget>[
+            Text(appLocalizations.contribute_improve_text),
+            const SizedBox(height: 10),
+          ],
+        ),
+        positiveAction: SmoothActionButton(
+          text: AppLocalizations.of(
+            context,
+          ).contribute_improve_ProductsToBeCompleted,
+          onPressed: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            Navigator.of(context).pop();
+            ProductQueryPageHelper.openBestChoice(
+              name: appLocalizations.all_search_to_be_completed_title,
+              localDatabase: localDatabase,
+              productQuery: PagedToBeCompletedProductQuery(
+                // TODO(monsieurtanuki): only food?
+                productType: ProductType.food,
+              ),
+              // the other "context"s being popped
+              context: this.context,
+              editableAppBarTitle: false,
+            );
+          },
+        ),
+        negativeAction: SmoothActionButton(
+          onPressed: () {
+            Navigator.of(context, rootNavigator: true).pop('dialog');
+          },
+          text: appLocalizations.close,
+          minWidth: 100,
+        ),
+        actionsAxis: Axis.vertical,
+        actionsOrder: SmoothButtonsBarOrder.auto,
       );
+    },
+  );
 
   Future<void> _develop() => showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          context.watch<UserPreferences>();
-          return SmoothAlertDialog(
-            title: appLocalizations.contribute_sw_development,
-            body: Column(
-              children: <Widget>[
-                Text(appLocalizations.contribute_develop_text),
-                const SizedBox(height: VERY_LARGE_SPACE),
-                Text(appLocalizations.contribute_develop_text_2),
-                const SizedBox(height: 10),
-                SmoothAlertContentButton(
-                  label: 'Slack',
-                  icon: Icons.open_in_new,
-                  onPressed: () async => LaunchUrlHelper.launchURL(
-                    'https://slack.openfoodfacts.org/',
-                  ),
-                ),
-                const SizedBox(height: SMALL_SPACE),
-                SmoothAlertContentButton(
-                  label: 'GitHub',
-                  icon: Icons.open_in_new,
-                  onPressed: () async => LaunchUrlHelper.launchURL(
-                    'https://github.com/openfoodfacts',
-                  ),
-                ),
-                const SizedBox(height: 10),
-                UserPreferencesSwitchWidget(
-                  title: appLocalizations.contribute_develop_dev_mode_title,
-                  subtitle:
-                      appLocalizations.contribute_develop_dev_mode_subtitle,
-                  value: userPreferences.devMode != 0,
-                  onChanged: (final bool devMode) async =>
-                      userPreferences.setDevMode(devMode ? 1 : 0),
-                ),
-              ],
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      context.watch<UserPreferences>();
+      return SmoothAlertDialog(
+        title: appLocalizations.contribute_sw_development,
+        body: Column(
+          children: <Widget>[
+            Text(appLocalizations.contribute_develop_text),
+            const SizedBox(height: VERY_LARGE_SPACE),
+            Text(appLocalizations.contribute_develop_text_2),
+            const SizedBox(height: 10),
+            SmoothAlertContentButton(
+              label: 'Slack',
+              icon: Icons.open_in_new,
+              onPressed: () async =>
+                  LaunchUrlHelper.launchURL('https://slack.openfoodfacts.org/'),
             ),
-            negativeAction: SmoothActionButton(
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true).pop('dialog');
-              },
-              text: appLocalizations.close,
-              minWidth: 100,
+            const SizedBox(height: SMALL_SPACE),
+            SmoothAlertContentButton(
+              label: 'GitHub',
+              icon: Icons.open_in_new,
+              onPressed: () async =>
+                  LaunchUrlHelper.launchURL('https://github.com/openfoodfacts'),
             ),
-          );
-        },
+            const SizedBox(height: 10),
+            UserPreferencesSwitchWidget(
+              title: appLocalizations.contribute_develop_dev_mode_title,
+              subtitle: appLocalizations.contribute_develop_dev_mode_subtitle,
+              value: userPreferences.devMode != 0,
+              onChanged: (final bool devMode) async =>
+                  userPreferences.setDevMode(devMode ? 1 : 0),
+            ),
+          ],
+        ),
+        negativeAction: SmoothActionButton(
+          onPressed: () {
+            Navigator.of(context, rootNavigator: true).pop('dialog');
+          },
+          text: appLocalizations.close,
+          minWidth: 100,
+        ),
       );
+    },
+  );
 
   Future<void> _translate() => showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          return SmoothAlertDialog(
-            title: appLocalizations.contribute_translate_header,
-            body: Column(
-              children: <Widget>[
-                Text(
-                  appLocalizations.contribute_translate_text,
-                ),
-                Text(
-                  appLocalizations.contribute_translate_text_2,
-                ),
-              ],
-            ),
-            positiveAction: SmoothActionButton(
-              onPressed: () async => LaunchUrlHelper.launchURL(
-                'https://translate.openfoodfacts.org/',
-              ),
-              text: appLocalizations.contribute_translate_link_text,
-            ),
-            negativeAction: SmoothActionButton(
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true).pop('dialog');
-              },
-              text: appLocalizations.close,
-              minWidth: 100,
-            ),
-            actionsAxis: Axis.vertical,
-            actionsOrder: SmoothButtonsBarOrder.auto,
-          );
-        },
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      return SmoothAlertDialog(
+        title: appLocalizations.contribute_translate_header,
+        body: Column(
+          children: <Widget>[
+            Text(appLocalizations.contribute_translate_text),
+            Text(appLocalizations.contribute_translate_text_2),
+          ],
+        ),
+        positiveAction: SmoothActionButton(
+          onPressed: () async =>
+              LaunchUrlHelper.launchURL('https://translate.openfoodfacts.org/'),
+          text: appLocalizations.contribute_translate_link_text,
+        ),
+        negativeAction: SmoothActionButton(
+          onPressed: () {
+            Navigator.of(context, rootNavigator: true).pop('dialog');
+          },
+          text: appLocalizations.close,
+          minWidth: 100,
+        ),
+        actionsAxis: Axis.vertical,
+        actionsOrder: SmoothButtonsBarOrder.auto,
       );
+    },
+  );
 
   Future<void> _share(String content) async => Share.share(content);
 
   Future<void> _contributors() => showDialog<void>(
-        context: context,
-        builder: (BuildContext context) => _ContributorsDialog(),
-      );
+    context: context,
+    builder: (BuildContext context) => _ContributorsDialog(),
+  );
 
   Future<void> _hungerGames() async {
     // Track the hunger game analytics event
-    AnalyticsHelper.trackEvent(
-      AnalyticsEvent.hungerGameOpened,
-    );
+    AnalyticsHelper.trackEvent(AnalyticsEvent.hungerGameOpened);
 
     await Navigator.push<int>(
       context,
@@ -380,44 +359,48 @@ class _ContributorsDialog extends StatelessWidget {
                 controller: _scrollController,
                 child: Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
-                  children: contributors.map((dynamic contributorsData) {
-                    final ContributorsModel contributor =
-                        ContributorsModel.fromJson(
-                            contributorsData as Map<String, dynamic>);
-                    return Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Semantics(
-                        value: appLocalizations
-                            .contributors_dialog_entry_description(
-                          contributor.login,
-                        ),
-                        excludeSemantics: true,
-                        child: Tooltip(
-                          message: contributor.login,
-                          child: InkWell(
-                            customBorder: const CircleBorder(),
-                            onTap: () async => LaunchUrlHelper.launchURL(
-                              contributor.profilePath,
-                            ),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(20)),
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                    contributor.avatarUrl,
+                  children: contributors
+                      .map((dynamic contributorsData) {
+                        final ContributorsModel contributor =
+                            ContributorsModel.fromJson(
+                              contributorsData as Map<String, dynamic>,
+                            );
+                        return Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Semantics(
+                            value: appLocalizations
+                                .contributors_dialog_entry_description(
+                                  contributor.login,
+                                ),
+                            excludeSemantics: true,
+                            child: Tooltip(
+                              message: contributor.login,
+                              child: InkWell(
+                                customBorder: const CircleBorder(),
+                                onTap: () async => LaunchUrlHelper.launchURL(
+                                  contributor.profilePath,
+                                ),
+                                child: Ink(
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(20),
+                                    ),
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        contributor.avatarUrl,
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                  fit: BoxFit.cover,
+                                  width: 40.0,
+                                  height: 40.0,
                                 ),
                               ),
-                              width: 40.0,
-                              height: 40.0,
                             ),
                           ),
-                        ),
-                      ),
-                    );
-                  }).toList(growable: false),
+                        );
+                      })
+                      .toList(growable: false),
                 ),
               ),
             );

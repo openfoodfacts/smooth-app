@@ -6,17 +6,14 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SmoothHtmlFakeButton extends StatelessWidget {
-  const SmoothHtmlFakeButton({
-    required this.children,
-    super.key,
-  });
+  const SmoothHtmlFakeButton({required this.children, super.key});
 
   final List<InlineSpan> children;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return SizedBox(
       width: double.infinity,
@@ -57,10 +54,7 @@ class SmoothHtmlFakeButton extends StatelessWidget {
                   ),
                 ),
               ),
-              const icons.ExternalLink(
-                color: Colors.black,
-                size: 16.0,
-              )
+              const icons.ExternalLink(color: Colors.black, size: 16.0),
             ],
           ),
         ),

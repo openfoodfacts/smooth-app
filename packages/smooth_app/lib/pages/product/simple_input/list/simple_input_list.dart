@@ -31,40 +31,40 @@ class SimpleInputList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> localTerms =
-        context.watch<ValueNotifier<List<String>>>().value;
+    final List<String> localTerms = context
+        .watch<ValueNotifier<List<String>>>()
+        .value;
 
     if (!helper.reorderable) {
       return Column(
         children: <Widget>[
-          SimpleInputListSuggestions(
-            (String suggestion) {
-              controller.text = suggestion;
-              onAddItem.call();
-            },
-          ),
+          SimpleInputListSuggestions((String suggestion) {
+            controller.text = suggestion;
+            onAddItem.call();
+          }),
           AnimatedList(
             key: listKey,
             initialItemCount: localTerms.length,
             padding: EdgeInsets.zero,
-            itemBuilder: (
-              BuildContext context,
-              int position,
-              Animation<double> animation,
-            ) {
-              return KeyedSubtree(
-                key: ValueKey<String>(localTerms[position]),
-                child: SizeTransition(
-                  sizeFactor: animation,
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: SMALL_SPACE,
+            itemBuilder:
+                (
+                  BuildContext context,
+                  int position,
+                  Animation<double> animation,
+                ) {
+                  return KeyedSubtree(
+                    key: ValueKey<String>(localTerms[position]),
+                    child: SizeTransition(
+                      sizeFactor: animation,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          horizontal: SMALL_SPACE,
+                        ),
+                        child: _getItem(context, localTerms, position),
+                      ),
                     ),
-                    child: _getItem(context, localTerms, position),
-                  ),
-                ),
-              );
-            },
+                  );
+                },
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
           ),
@@ -110,11 +110,7 @@ class SimpleInputList extends StatelessWidget {
     );
   }
 
-  Widget _getItem(
-    BuildContext context,
-    List<String> localTerms,
-    int position,
-  ) {
+  Widget _getItem(BuildContext context, List<String> localTerms, int position) {
     final String localTerm = localTerms[position];
 
     return SimpleInputListItem(

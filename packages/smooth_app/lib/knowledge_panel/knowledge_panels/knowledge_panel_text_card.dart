@@ -14,16 +14,15 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Card that displays a Knowledge Panel _Text_ element.
 class KnowledgePanelTextCard extends StatelessWidget {
-  const KnowledgePanelTextCard({
-    required this.textElement,
-  });
+  const KnowledgePanelTextCard({required this.textElement});
 
   final KnowledgePanelTextElement textElement;
 
   @override
   Widget build(BuildContext context) {
-    final String warningLabel =
-        AppLocalizations.of(context).knowledge_panel_warning_text;
+    final String warningLabel = AppLocalizations.of(
+      context,
+    ).knowledge_panel_warning_text;
     final RegExp regExp = RegExp('$warningLabel\\s?:\\s?');
 
     final Widget text;
@@ -43,10 +42,8 @@ class KnowledgePanelTextCard extends StatelessWidget {
         child: MergeSemantics(
           child: SmoothHtmlWidget(
             textElement.html,
-            textStyle:
-                WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED.copyWith(
-              fontSize: 15.5,
-            ),
+            textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED
+                .copyWith(fontSize: 15.5),
           ),
         ),
       );
@@ -66,12 +63,11 @@ class KnowledgePanelTextCard extends StatelessWidget {
         // TODO(g123k): Would it be difficult to remove the Icon directly?
         // Remove Icon
         IconTheme.merge(
-          data: const IconThemeData(
-            size: 0.0,
-          ),
+          data: const IconThemeData(size: 0.0),
           child: addPanelButton(
-            appLocalizations
-                .knowledge_panel_text_source(textElement.sourceText!),
+            appLocalizations.knowledge_panel_text_source(
+              textElement.sourceText!,
+            ),
             trailingIcon: Icon(ConstantIcons.forwardIcon),
             onPressed: () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
               context,
@@ -122,10 +118,7 @@ class _KnowledgePanelWarningTextCard extends StatelessWidget {
           contentBackgroundColor: const Color(0xFFF3F3F3),
           borderRadius: BorderRadius.circular(14.0),
           leading: const Padding(
-            padding: EdgeInsetsDirectional.only(
-              bottom: 1.0,
-              end: 1.0,
-            ),
+            padding: EdgeInsetsDirectional.only(bottom: 1.0, end: 1.0),
             child: icons.Warning(size: 15.0),
           ),
           contentPadding: const EdgeInsetsDirectional.symmetric(
@@ -134,10 +127,7 @@ class _KnowledgePanelWarningTextCard extends StatelessWidget {
           ),
           child: Text(
             text.firstLetterInUppercase(),
-            style: const TextStyle(
-              color: Colors.black,
-              height: 1.5,
-            ),
+            style: const TextStyle(color: Colors.black, height: 1.5),
           ),
         ),
       ),

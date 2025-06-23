@@ -10,9 +10,7 @@ import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 /// A toggle to indicate whether a product has nutrition facts.
 class NutritionAvailabilityContainer extends StatelessWidget {
-  const NutritionAvailabilityContainer({
-    super.key,
-  });
+  const NutritionAvailabilityContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,36 +40,38 @@ class NutritionAvailabilityContainer extends StatelessWidget {
                   ),
                 ),
                 Consumer<NutritionContainerHelper>(
-                  builder: (
-                    BuildContext context,
-                    NutritionContainerHelper helper,
-                    _,
-                  ) {
-                    return SmoothDropdownButton<bool>(
-                      value: !helper.noNutritionData,
-                      items: <SmoothDropdownItem<bool>>[
-                        SmoothDropdownItem<bool>(
-                          value: true,
-                          label: appLocalizations
-                              .nutrition_page_nutritional_info_value_positive,
-                        ),
-                        SmoothDropdownItem<bool>(
-                          value: false,
-                          label: appLocalizations
-                              .nutrition_page_nutritional_info_value_negative,
-                        ),
-                      ],
-                      onChanged: (bool? value) {
-                        if (value == null) {
-                          return;
-                        }
+                  builder:
+                      (
+                        BuildContext context,
+                        NutritionContainerHelper helper,
+                        _,
+                      ) {
+                        return SmoothDropdownButton<bool>(
+                          value: !helper.noNutritionData,
+                          items: <SmoothDropdownItem<bool>>[
+                            SmoothDropdownItem<bool>(
+                              value: true,
+                              label: appLocalizations
+                                  .nutrition_page_nutritional_info_value_positive,
+                            ),
+                            SmoothDropdownItem<bool>(
+                              value: false,
+                              label: appLocalizations
+                                  .nutrition_page_nutritional_info_value_negative,
+                            ),
+                          ],
+                          onChanged: (bool? value) {
+                            if (value == null) {
+                              return;
+                            }
 
-                        context
-                            .read<NutritionContainerHelper>()
-                            .noNutritionData = !value;
+                            context
+                                    .read<NutritionContainerHelper>()
+                                    .noNutritionData =
+                                !value;
+                          },
+                        );
                       },
-                    );
-                  },
                 ),
               ],
             ),

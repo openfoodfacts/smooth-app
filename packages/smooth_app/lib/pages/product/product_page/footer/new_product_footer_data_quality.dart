@@ -21,7 +21,9 @@ class ProductFooterDataQualityButton extends StatelessWidget {
   }
 
   Future<void> _openDataQualityWarnings(
-      BuildContext context, Product product) async {
+    BuildContext context,
+    Product product,
+  ) async {
     // TODO(g123k): Not implemented in off-dart
   }
 }

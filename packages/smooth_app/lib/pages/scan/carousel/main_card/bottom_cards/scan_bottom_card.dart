@@ -16,10 +16,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ScanBottomCard extends StatelessWidget {
-  const ScanBottomCard({
-    required this.dense,
-    super.key,
-  });
+  const ScanBottomCard({required this.dense, super.key});
 
   final bool dense;
 
@@ -37,40 +34,36 @@ class ScanBottomCard extends StatelessWidget {
         ),
       ],
       child: Consumer2<ScanNewsFeedProvider, AppReviewProvider>(
-        builder: (
-          BuildContext context,
-          ScanNewsFeedProvider scanTagLineProvider,
-          AppReviewProvider appReviewProvider,
-          Widget? child,
-        ) {
-          switch (appReviewProvider.value) {
-            case AppReviewState.checking:
-              return const ScanBottomCardLoading();
-            case AppReviewState.askForReview:
-              return const ScanAppReview();
-            default:
-            // Nothing (-> news)
-          }
+        builder:
+            (
+              BuildContext context,
+              ScanNewsFeedProvider scanTagLineProvider,
+              AppReviewProvider appReviewProvider,
+              Widget? child,
+            ) {
+              switch (appReviewProvider.value) {
+                case AppReviewState.checking:
+                  return const ScanBottomCardLoading();
+                case AppReviewState.askForReview:
+                  return const ScanAppReview();
+                default:
+                // Nothing (-> news)
+              }
 
-          final ScanTagLineState state = scanTagLineProvider.value;
+              final ScanTagLineState state = scanTagLineProvider.value;
 
-          return switch (state) {
-            ScanTagLineStateLoading() => const ScanBottomCardLoading(),
-            ScanTagLineStateNoContent() => EMPTY_WIDGET,
-            ScanTagLineStateLoaded() => ScanNewsCard(
-                news: state.tagLine,
-              ),
-          };
-        },
+              return switch (state) {
+                ScanTagLineStateLoading() => const ScanBottomCardLoading(),
+                ScanTagLineStateNoContent() => EMPTY_WIDGET,
+                ScanTagLineStateLoaded() => ScanNewsCard(news: state.tagLine),
+              };
+            },
       ),
     );
   }
 }
 
-enum ScanBottomCardDensity {
-  dense,
-  normal,
-}
+enum ScanBottomCardDensity { dense, normal }
 
 class ScanBottomCardLoading extends StatelessWidget {
   const ScanBottomCardLoading({super.key});
@@ -86,8 +79,9 @@ class ScanBottomCardLoading extends StatelessWidget {
         margin: EdgeInsets.zero,
         child: SizedBox(
           width: double.infinity,
-          height:
-              density == ScanBottomCardDensity.dense ? 200.0 : double.infinity,
+          height: density == ScanBottomCardDensity.dense
+              ? 200.0
+              : double.infinity,
         ),
       ),
     );
@@ -119,8 +113,8 @@ class ScanBottomCardContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool dense =
         context.read<ScanBottomCardDensity>() == ScanBottomCardDensity.dense;
@@ -129,7 +123,8 @@ class ScanBottomCardContainer extends StatelessWidget {
       children: <Widget>[
         DecoratedBox(
           decoration: BoxDecoration(
-            color: titleBackgroundColor ??
+            color:
+                titleBackgroundColor ??
                 (context.lightTheme()
                     ? extension.primarySemiDark
                     : extension.secondaryVibrant),
@@ -154,11 +149,7 @@ class ScanBottomCardContainer extends StatelessWidget {
             ),
           ),
         ),
-        _buildBody(
-          context: context,
-          dense: dense,
-          extension: extension,
-        ),
+        _buildBody(context: context, dense: dense, extension: extension),
       ],
     );
   }
@@ -170,7 +161,8 @@ class ScanBottomCardContainer extends StatelessWidget {
   }) {
     final Widget child = Material(
       type: MaterialType.card,
-      color: backgroundColor ??
+      color:
+          backgroundColor ??
           (context.lightTheme()
               ? extension.primaryMedium
               : extension.primaryUltraBlack),
@@ -246,8 +238,9 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                   onTap: onClose,
                   customBorder: const CircleBorder(),
                   child: Tooltip(
-                    message:
-                        MaterialLocalizations.of(context).closeButtonTooltip,
+                    message: MaterialLocalizations.of(
+                      context,
+                    ).closeButtonTooltip,
                     child: Padding(
                       padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
                       child: Close(
@@ -258,7 +251,7 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                   ),
                 ),
               ),
-            ]
+            ],
           ],
         ),
       ),

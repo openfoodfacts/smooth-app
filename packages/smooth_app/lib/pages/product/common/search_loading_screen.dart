@@ -7,9 +7,7 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Common search loading screen.
 class SearchLoadingScreen extends StatelessWidget {
-  const SearchLoadingScreen({
-    required this.title,
-  });
+  const SearchLoadingScreen({required this.title});
 
   final String title;
 
@@ -25,9 +23,7 @@ class SearchLoadingScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            SearchEyeAnimation(
-              size: MediaQuery.sizeOf(context).width * 0.2,
-            ),
+            SearchEyeAnimation(size: MediaQuery.sizeOf(context).width * 0.2),
             const SizedBox(height: VERY_LARGE_SPACE * 2),
             TextHighlighter(
               text: appLocalizations.product_search_loading_message(title),

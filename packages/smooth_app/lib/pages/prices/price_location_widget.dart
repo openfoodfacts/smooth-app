@@ -9,9 +9,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Price Location display (no price data here).
 class PriceLocationWidget extends StatelessWidget {
-  const PriceLocationWidget(
-    this.location,
-  );
+  const PriceLocationWidget(this.location);
 
   final Location location;
 
@@ -22,11 +20,7 @@ class PriceLocationWidget extends StatelessWidget {
       leading: const Icon(PriceButton.locationIconData),
       title: title == null
           ? null
-          : Text(
-              title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
+          : Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
       subtitle: location.displayName == null
           ? null
           : Text(
@@ -72,22 +66,22 @@ class PriceLocationWidget extends StatelessWidget {
   static Future<void> showLocationPrices({
     required final int locationId,
     required final BuildContext context,
-  }) async =>
-      Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => PricesPage(
-            GetPricesModel(
-              parameters: GetPricesModel.getStandardPricesParameters()
-                ..locationId = locationId,
-              displayEachLocation: false,
-              uri: OpenPricesAPIClient.getUri(
-                path: 'locations/$locationId',
-                uriHelper: ProductQuery.uriPricesHelper,
-              ),
-              title: AppLocalizations.of(context)
-                  .all_search_prices_top_location_single_title,
-            ),
+  }) async => Navigator.of(context).push(
+    MaterialPageRoute<void>(
+      builder: (BuildContext context) => PricesPage(
+        GetPricesModel(
+          parameters: GetPricesModel.getStandardPricesParameters()
+            ..locationId = locationId,
+          displayEachLocation: false,
+          uri: OpenPricesAPIClient.getUri(
+            path: 'locations/$locationId',
+            uriHelper: ProductQuery.uriPricesHelper,
           ),
+          title: AppLocalizations.of(
+            context,
+          ).all_search_prices_top_location_single_title,
         ),
-      );
+      ),
+    ),
+  );
 }

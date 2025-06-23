@@ -5,12 +5,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// How did the login attempt work?
-enum LoginResultType {
-  successful,
-  unsuccessful,
-  serverIssue,
-  exception,
-}
+enum LoginResultType { successful, unsuccessful, serverIssue, exception }
 
 /// Result of a log in attempt, more subtle than a `bool`.
 class LoginResult {
@@ -26,9 +21,10 @@ class LoginResult {
         LoginResultType.unsuccessful => appLocalizations.incorrect_credentials,
         LoginResultType.serverIssue =>
           appLocalizations.login_result_type_server_issue,
-        LoginResultType.exception => isNoNetworkException(text!)
-            ? appLocalizations.login_result_type_server_unreachable
-            : text!,
+        LoginResultType.exception =>
+          isNoNetworkException(text!)
+              ? appLocalizations.login_result_type_server_unreachable
+              : text!,
       };
 
   static bool isNoNetworkException(final String text) =>
@@ -41,8 +37,10 @@ class LoginResult {
     final UserPreferences userPreferences,
   ) async {
     try {
-      final bool prodUrl = userPreferences
-              .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+      final bool prodUrl =
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagProd,
+          ) ??
           true;
 
       final LoginStatus? loginStatus = await OpenFoodAPIClient.login2(

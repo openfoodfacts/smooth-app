@@ -48,8 +48,8 @@ class _PortionCalculatorState extends State<PortionCalculator> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final bool isQuantityValid = _isInputValid();
 
@@ -66,9 +66,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
               color: lightTheme
                   ? extension.primaryMedium
                   : extension.primaryUltraBlack,
-              borderRadius: const BorderRadius.vertical(
-                top: ROUNDED_RADIUS,
-              ),
+              borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
             ),
             child: Padding(
               padding: const EdgeInsetsDirectional.symmetric(
@@ -104,9 +102,10 @@ class _PortionCalculatorState extends State<PortionCalculator> {
         Container(
           height:
               MediaQuery.textScalerOf(context).scale(SMALL_SPACE * 2 + 15.0) *
-                  1.2,
-          padding:
-              const EdgeInsetsDirectional.symmetric(horizontal: MEDIUM_SPACE),
+              1.2,
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: MEDIUM_SPACE,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -199,8 +198,9 @@ class _PortionCalculatorState extends State<PortionCalculator> {
       _onComputationError();
       return;
     }
-    final OrderedNutrientsCache? cache =
-        await OrderedNutrientsCache.getCache(context);
+    final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
+      context,
+    );
     if (cache == null) {
       _onComputationError();
       return;
@@ -227,37 +227,35 @@ class _PortionCalculatorState extends State<PortionCalculator> {
       initHeight: 0.6,
       bodyBuilder: (BuildContext context) {
         return SliverList(
-          delegate: SliverChildBuilderDelegate(
-            childCount: helper.length,
-            (BuildContext context, int position) {
-              return Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: VERY_LARGE_SPACE,
-                      vertical: LARGE_SPACE,
-                    ),
-                    child: MergeSemantics(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            helper.getName(position),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(helper.getValue(position)),
-                        ],
-                      ),
+          delegate: SliverChildBuilderDelegate(childCount: helper.length, (
+            BuildContext context,
+            int position,
+          ) {
+            return Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                    horizontal: VERY_LARGE_SPACE,
+                    vertical: LARGE_SPACE,
+                  ),
+                  child: MergeSemantics(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          helper.getName(position),
+                          style: const TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                        Text(helper.getValue(position)),
+                      ],
                     ),
                   ),
-                  if (position < helper.length - 1) const Divider(height: 1.0)
-                ],
-              );
-            },
-          ),
+                ),
+                if (position < helper.length - 1) const Divider(height: 1.0),
+              ],
+            );
+          }),
         );
       },
     );

@@ -48,7 +48,8 @@ void main() {
   debugPrint(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
   debugPrint(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
   debugPrint(
-      'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project');
+    'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project',
+  );
   debugPrint('--------');
 
   if (Platform.isAndroid) {
@@ -89,7 +90,8 @@ Future<void> launchSmoothApp({
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-        appRunner: () => runApp(const SmoothApp()));
+      appRunner: () => runApp(const SmoothApp()),
+    );
   } else {
     runApp(const SmoothApp());
   }
@@ -99,9 +101,7 @@ void _enableEdgeToEdgeMode() {
   if (Platform.isAndroid) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.transparent,
-      ),
+      const SystemUiOverlayStyle(systemNavigationBarColor: Colors.transparent),
     );
   }
 }
@@ -226,9 +226,7 @@ class _SmoothAppState extends State<SmoothApp> {
             _provide<ThemeProvider>(_themeProvider),
 
             /// The next two providers are only used with the AMOLED theme
-            _lazyProvide<ColorProvider>(
-              (_) => ColorProvider(_userPreferences),
-            ),
+            _lazyProvide<ColorProvider>((_) => ColorProvider(_userPreferences)),
             _lazyProvide<TextContrastProvider>(
               (_) => TextContrastProvider(_userPreferences),
             ),
@@ -257,32 +255,27 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   ChangeNotifierProvider<T> _provide<T extends ChangeNotifier>(T value) =>
-      ChangeNotifierProvider<T>(
-        create: (BuildContext context) => value,
-      );
+      ChangeNotifierProvider<T>(create: (BuildContext context) => value);
 
   ChangeNotifierProvider<T> _lazyProvide<T extends ChangeNotifier>(
     T Function(BuildContext) valueBuilder,
-  ) =>
-      ChangeNotifierProvider<T>(
-        create: valueBuilder,
-        lazy: true,
-      );
+  ) => ChangeNotifierProvider<T>(create: valueBuilder, lazy: true);
 
   Widget _buildApp(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
     OnboardingFlowNavigator(_userPreferences);
-    final bool isOnboardingComplete =
-        lastVisitedOnboardingPage.isOnboardingComplete();
+    final bool isOnboardingComplete = lastVisitedOnboardingPage
+        .isOnboardingComplete();
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
     // Still need the value from the UserPreferences here, not the ProductQuery
     // as the value is not available at this time
     // will refresh each time the language changes
-    final String? languageCode =
-        context.select((UserPreferences up) => up.appLanguageCode);
+    final String? languageCode = context.select(
+      (UserPreferences up) => up.appLanguageCode,
+    );
 
     return SentryScreenshotWidget(
       child: MaterialApp.router(
@@ -312,11 +305,7 @@ class _SmoothAppState extends State<SmoothApp> {
     return MaterialApp(
       theme: ThemeData(),
       home: SmoothScaffold(
-        body: Center(
-          child: Text(
-            'Fatal Error: ${snapshot.error}',
-          ),
-        ),
+        body: Center(child: Text('Fatal Error: ${snapshot.error}')),
       ),
     );
   }

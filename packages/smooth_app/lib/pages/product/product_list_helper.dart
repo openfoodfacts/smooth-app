@@ -33,18 +33,21 @@ class AddProductToListContainer extends StatelessWidget {
         barcode,
       ),
       child: Consumer<_ProductUserListsProvider>(
-        builder: (
-          final BuildContext context,
-          final _ProductUserListsProvider productUserListsProvider,
-          final Widget? child,
-        ) {
-          return switch (productUserListsProvider.value) {
-            _ProductUserListsLoadingState _ => const _AddToProductListLoading(),
-            _ProductUserListsEmptyState _ =>
-              const _AddToProductListNoListAvailable(),
-            _ProductUserListsWithState _ => const _AddToProductListWithLists(),
-          };
-        },
+        builder:
+            (
+              final BuildContext context,
+              final _ProductUserListsProvider productUserListsProvider,
+              final Widget? child,
+            ) {
+              return switch (productUserListsProvider.value) {
+                _ProductUserListsLoadingState _ =>
+                  const _AddToProductListLoading(),
+                _ProductUserListsEmptyState _ =>
+                  const _AddToProductListNoListAvailable(),
+                _ProductUserListsWithState _ =>
+                  const _AddToProductListWithLists(),
+              };
+            },
       ),
     );
   }
@@ -57,9 +60,7 @@ class _AddToProductListLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SliverFillRemaining(
-      child: Center(
-        child: CircularProgressIndicator.adaptive(),
-      ),
+      child: Center(child: CircularProgressIndicator.adaptive()),
     );
   }
 }
@@ -93,10 +94,7 @@ class _AddToProductListNoListAvailable extends StatelessWidget {
                         .secondaryLight,
                   ),
                   padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                  child: const Milk(
-                    size: 40.0,
-                    color: Colors.white,
-                  ),
+                  child: const Milk(size: 40.0, color: Colors.white),
                 ),
               ),
               const SizedBox(height: VERY_LARGE_SPACE),
@@ -109,14 +107,12 @@ class _AddToProductListNoListAvailable extends StatelessWidget {
               SmoothSimpleButton(
                 onPressed: () async {
                   final ProductList? list = await ProductListUserDialogHelper(
-                          DaoProductList(context.read<LocalDatabase>()))
-                      .showCreateUserListDialog(
-                    context,
-                  );
+                    DaoProductList(context.read<LocalDatabase>()),
+                  ).showCreateUserListDialog(context);
 
                   if (list != null && context.mounted) {
-                    final _ProductUserListsProvider provider =
-                        context.read<_ProductUserListsProvider>();
+                    final _ProductUserListsProvider provider = context
+                        .read<_ProductUserListsProvider>();
                     await provider.addAProductToAList(list.parameters);
                     await provider.reloadLists();
                   }
@@ -125,7 +121,7 @@ class _AddToProductListNoListAvailable extends StatelessWidget {
                   appLocalizations.user_list_button_new,
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -145,9 +141,9 @@ class _AddToProductListWithLists extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _ProductUserListsWithState state = context
-        .watch<_ProductUserListsProvider>()
-        .value as _ProductUserListsWithState;
+    final _ProductUserListsWithState state =
+        context.watch<_ProductUserListsProvider>().value
+            as _ProductUserListsWithState;
     final List<MapEntry<String, bool>> userLists = state.userLists;
     final bool? scrollBarVisible = userLists.length > 5 ? true : null;
 
@@ -174,7 +170,8 @@ class _AddToProductListWithLists extends StatelessWidget {
                         listId: entry.key,
                         selected: entry.value,
                         // Force the divider when there is just one item
-                        includeDivider: userLists.length == 1 ||
+                        includeDivider:
+                            userLists.length == 1 ||
                             index < userLists.length - 1,
                       ),
                     );
@@ -183,9 +180,10 @@ class _AddToProductListWithLists extends StatelessWidget {
               ),
             ),
             _AddToProductListAddNewList(
-              userLists:
-                  userLists.map((MapEntry<String, bool> entry) => entry.key),
-            )
+              userLists: userLists.map(
+                (MapEntry<String, bool> entry) => entry.key,
+              ),
+            ),
           ],
         ),
       ),
@@ -212,8 +210,10 @@ class _AddToProductListItem extends StatelessWidget {
         InkWell(
           onTap: () {
             SmoothHapticFeedback.lightNotification();
-            Provider.of<_ProductUserListsProvider>(context, listen: false)
-                .toggleProductToList(listId);
+            Provider.of<_ProductUserListsProvider>(
+              context,
+              listen: false,
+            ).toggleProductToList(listId);
           },
           child: ConstrainedBox(
             constraints: const BoxConstraints(
@@ -224,16 +224,14 @@ class _AddToProductListItem extends StatelessWidget {
                 horizontal: LARGE_SPACE,
                 // The CupertinoCheckbox has huge paddings
                 // (that we can't override)
-                vertical:
-                    (Platform.isIOS || Platform.isMacOS) ? 2.0 : MEDIUM_SPACE,
+                vertical: (Platform.isIOS || Platform.isMacOS)
+                    ? 2.0
+                    : MEDIUM_SPACE,
               ),
               child: Row(
                 children: <Widget>[
                   IgnorePointer(
-                    child: SmoothCheckbox(
-                      value: selected,
-                      onChanged: (_) {},
-                    ),
+                    child: SmoothCheckbox(value: selected, onChanged: (_) {}),
                   ),
                   const SizedBox(width: MEDIUM_SPACE),
                   Expanded(
@@ -248,7 +246,7 @@ class _AddToProductListItem extends StatelessWidget {
             ),
           ),
         ),
-        if (includeDivider) const _AddToProductListDivider()
+        if (includeDivider) const _AddToProductListDivider(),
       ],
     );
   }
@@ -290,26 +288,31 @@ class _AddToProductListAddNewListState
   }
 
   void _initAnimation() {
-    final SmoothColorsThemeExtension extension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme(listen: false);
 
-    _colorAnimation = ColorTween(
-      begin: lightTheme ? extension.primaryLight : extension.primarySemiDark,
-      end: extension.error,
-    ).animate(_animationController)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((AnimationStatus status) {
-        // Run back and forth the animation twice
-        if (status == AnimationStatus.completed && animationRepeat < 2) {
-          _animationController.reverse();
-        } else if (status == AnimationStatus.dismissed && animationRepeat < 1) {
-          animationRepeat++;
-          _animationController.forward();
-        }
-      });
+    _colorAnimation =
+        ColorTween(
+            begin: lightTheme
+                ? extension.primaryLight
+                : extension.primarySemiDark,
+            end: extension.error,
+          ).animate(_animationController)
+          ..addListener(() {
+            setState(() {});
+          })
+          ..addStatusListener((AnimationStatus status) {
+            // Run back and forth the animation twice
+            if (status == AnimationStatus.completed && animationRepeat < 2) {
+              _animationController.reverse();
+            } else if (status == AnimationStatus.dismissed &&
+                animationRepeat < 1) {
+              animationRepeat++;
+              _animationController.forward();
+            }
+          });
 
     setState(() {});
   }
@@ -317,15 +320,15 @@ class _AddToProductListAddNewListState
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme();
 
     final Color iconColor = lightTheme
-        ? Theme.of(context)
-            .checkboxTheme
-            .fillColor!
-            .resolve(<WidgetState>{WidgetState.selected})!
+        ? Theme.of(context).checkboxTheme.fillColor!.resolve(<WidgetState>{
+            WidgetState.selected,
+          })!
         : Colors.white;
 
     return IconTheme(
@@ -374,7 +377,8 @@ class _AddToProductListAddNewListState
                         child: _editMode
                             ? Padding(
                                 padding: const EdgeInsetsDirectional.only(
-                                    bottom: 1.0),
+                                  bottom: 1.0,
+                                ),
                                 child: TextField(
                                   controller: _controller,
                                   autofocus: true,
@@ -408,8 +412,9 @@ class _AddToProductListAddNewListState
                         IconButton(
                           icon: const Icon(Icons.cancel),
                           onPressed: () => setState(() => _editMode = false),
-                          tooltip: MaterialLocalizations.of(context)
-                              .cancelButtonLabel,
+                          tooltip: MaterialLocalizations.of(
+                            context,
+                          ).cancelButtonLabel,
                         ),
                       if (_editMode)
                         IconButton(
@@ -449,8 +454,10 @@ class _AddToProductListAddNewListState
     }
 
     SmoothHapticFeedback.lightNotification();
-    Provider.of<_ProductUserListsProvider>(context, listen: false)
-        .createUserList(_controller.value.text);
+    Provider.of<_ProductUserListsProvider>(
+      context,
+      listen: false,
+    ).createUserList(_controller.value.text);
 
     setState(() => _editMode = false);
   }
@@ -474,12 +481,11 @@ class _AddToProductListDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
     return Padding(
-      padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: LARGE_SPACE,
-      ),
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: LARGE_SPACE),
       child: CustomPaint(
         size: const Size(double.infinity, 1.0),
         painter: _AddToProductListDividerPainter(
@@ -499,13 +505,13 @@ class _AddToProductListDividerPainter extends CustomPainter {
     required Color color,
     required this.dashWidth,
     required this.dashSpace,
-  })  : assert(color != Colors.transparent),
-        assert(dashWidth >= 0),
-        assert(dashSpace >= 0),
-        _paint = Paint()
-          ..color = color
-          ..strokeWidth = 1.0
-          ..style = PaintingStyle.stroke;
+  }) : assert(color != Colors.transparent),
+       assert(dashWidth >= 0),
+       assert(dashSpace >= 0),
+       _paint = Paint()
+         ..color = color
+         ..strokeWidth = 1.0
+         ..style = PaintingStyle.stroke;
 
   final Paint _paint;
   final double dashWidth;
@@ -515,11 +521,7 @@ class _AddToProductListDividerPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     double startX = 0.0;
     while (startX < size.width) {
-      canvas.drawLine(
-        Offset(startX, 0),
-        Offset(startX + dashWidth, 0),
-        _paint,
-      );
+      canvas.drawLine(Offset(startX, 0), Offset(startX + dashWidth, 0), _paint);
       startX += dashWidth + dashSpace;
     }
   }
@@ -534,10 +536,8 @@ class _AddToProductListDividerPainter extends CustomPainter {
 
 /// Logic for the user lists
 class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
-  _ProductUserListsProvider(
-    this.dao,
-    this.barcode,
-  ) : super(const _ProductUserListsLoadingState()) {
+  _ProductUserListsProvider(this.dao, this.barcode)
+    : super(const _ProductUserListsLoadingState()) {
     reloadLists();
   }
 
@@ -553,14 +553,15 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
       return;
     }
 
-// Sort by ignoring case
+    // Sort by ignoring case
     lists.sort(
       (String a, String b) => a.toLowerCase().compareTo(b.toLowerCase()),
     );
 
-// Create a list of user lists with a boolean if the product is in it
-    final List<String> listsWithProduct =
-        await dao.getUserListsWithBarcodes(<String>[barcode]);
+    // Create a list of user lists with a boolean if the product is in it
+    final List<String> listsWithProduct = await dao.getUserListsWithBarcodes(
+      <String>[barcode],
+    );
 
     final List<MapEntry<String, bool>> userLists = <MapEntry<String, bool>>[];
     for (final String listId in lists) {
@@ -578,21 +579,13 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
     }
 
     /// Fake the UI first (otherwise there is a slight delay)
-    final bool selected = !(value as _ProductUserListsWithState)
-        .userLists
+    final bool selected = !(value as _ProductUserListsWithState).userLists
         .firstWhere((MapEntry<String, bool> item) => item.key == listId)
         .value;
 
-    _fakeStateChange(
-      listId,
-      selected,
-    );
+    _fakeStateChange(listId, selected);
 
-    return dao.set(
-      ProductList.user(listId),
-      barcode,
-      selected,
-    );
+    return dao.set(ProductList.user(listId), barcode, selected);
   }
 
   /// Create a new user list and add the product to it
@@ -613,10 +606,12 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
   /// If [listId] doesn't exist, it will be added at the top.
   bool _fakeStateChange(String listId, bool selected) {
     final List<MapEntry<String, bool>> lists = List<MapEntry<String, bool>>.of(
-        (value as _ProductUserListsWithState).userLists);
+      (value as _ProductUserListsWithState).userLists,
+    );
 
-    final int position =
-        lists.indexWhere((MapEntry<String, bool> item) => item.key == listId);
+    final int position = lists.indexWhere(
+      (MapEntry<String, bool> item) => item.key == listId,
+    );
 
     if (position >= 0) {
       lists[position] = MapEntry<String, bool>(listId, selected);

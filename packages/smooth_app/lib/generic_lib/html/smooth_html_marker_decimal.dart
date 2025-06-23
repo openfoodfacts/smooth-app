@@ -4,22 +4,20 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothHtmlDecimal extends StatelessWidget {
-  const SmoothHtmlDecimal({
-    required this.index,
-    super.key,
-  });
+  const SmoothHtmlDecimal({required this.index, super.key});
 
   final int index;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return CustomPaint(
       painter: _HtmlDecimalPainter(
-        color:
-            context.lightTheme() ? extension.greyMedium : extension.greyNormal,
+        color: context.lightTheme()
+            ? extension.greyMedium
+            : extension.greyNormal,
         index: index,
         textDirection: Directionality.of(context),
         textStyle: const TextStyle(
@@ -59,10 +57,7 @@ class _HtmlDecimalPainter extends CustomPainter {
     );
 
     final TextPainter textPainter = TextPainter(textDirection: textDirection);
-    textPainter.text = TextSpan(
-      text: index.toString(),
-      style: textStyle,
-    );
+    textPainter.text = TextSpan(text: index.toString(), style: textStyle);
     textPainter.layout();
     textPainter.paint(
       canvas,

@@ -12,9 +12,7 @@ import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
 
 /// Crop Helper for proof images: brand new image.
 class ProofCropHelper extends CropHelper {
-  ProofCropHelper({
-    required this.model,
-  });
+  ProofCropHelper({required this.model});
 
   final PriceModel model;
 

@@ -14,9 +14,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a proof.
 class PriceProofPage extends StatefulWidget {
-  const PriceProofPage(
-    this.proof,
-  );
+  const PriceProofPage(this.proof);
 
   final Proof proof;
 
@@ -36,8 +34,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final DateFormat dateFormat =
-        DateFormat.yMd(ProductQuery.getLocaleString()).add_Hms();
+    final DateFormat dateFormat = DateFormat.yMd(
+      ProductQuery.getLocaleString(),
+    ).add_Hms();
     return SmoothScaffold(
       floatingActionButton: _existingPrices == null
           ? null
@@ -58,7 +57,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => ProductPriceAddPage(
                       PriceModel.proof(
-                          proof: widget.proof, existingPrices: _existingPrices),
+                        proof: widget.proof,
+                        existingPrices: _existingPrices,
+                      ),
                     ),
                   ),
                 );
@@ -79,22 +80,23 @@ class _PriceProofPageState extends State<PriceProofPage> {
         child: Image.network(
           _getUrl(false),
           fit: BoxFit.cover,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) {
-              return child;
-            }
-            return Center(
-              child: SizedBox(
-                width: double.maxFinite,
-                height: double.maxFinite,
-                child: Image.network(
-                  _getUrl(true),
-                  fit: BoxFit.contain,
-                ),
-              ),
-            );
-          },
+          loadingBuilder:
+              (
+                BuildContext context,
+                Widget child,
+                ImageChunkEvent? loadingProgress,
+              ) {
+                if (loadingProgress == null) {
+                  return child;
+                }
+                return Center(
+                  child: SizedBox(
+                    width: double.maxFinite,
+                    height: double.maxFinite,
+                    child: Image.network(_getUrl(true), fit: BoxFit.contain),
+                  ),
+                );
+              },
         ),
       ),
     );
@@ -113,9 +115,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
     }
     final MaybeError<GetPricesResult> prices =
         await OpenPricesAPIClient.getPrices(
-      GetPricesParameters()..proofId = widget.proof.id,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          GetPricesParameters()..proofId = widget.proof.id,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (prices.isError) {
       return;
     }

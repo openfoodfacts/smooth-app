@@ -36,8 +36,9 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
 
   void _fetchQueries() {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final List<String> queries =
-        widget.searchHelper.getAllQueries(localDatabase);
+    final List<String> queries = widget.searchHelper.getAllQueries(
+      localDatabase,
+    );
     setState(() => _queries = queries);
   }
 
@@ -91,7 +92,8 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
             },
           );
         },
-        itemCount: _queries.length +
+        itemCount:
+            _queries.length +
             widget.preloadedList.length +
             1, // +1 for the "Copy from clipboard"
       ),
@@ -105,8 +107,9 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
     );
 
     controller.text = query;
-    controller.selection =
-        TextSelection.fromPosition(TextPosition(offset: query.length));
+    controller.selection = TextSelection.fromPosition(
+      TextPosition(offset: query.length),
+    );
 
     // If the keyboard is hidden, show it.
     if (View.of(context).viewInsets.bottom == 0) {
@@ -144,10 +147,7 @@ class _SearchHistoryTile extends StatelessWidget {
         color: RED_COLOR,
         alignment: AlignmentDirectional.centerEnd,
         padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
-        child: const Icon(
-          Icons.delete,
-          color: Colors.white,
-        ),
+        child: const Icon(Icons.delete, color: Colors.white),
       ),
       child: InkWell(
         onTap: () => onTap(),
@@ -156,9 +156,7 @@ class _SearchHistoryTile extends StatelessWidget {
           child: ListTile(
             leading: const Padding(
               padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
-              child: Icon(
-                Icons.search,
-              ),
+              child: Icon(Icons.search),
             ),
             trailing: InkWell(
               customBorder: const CircleBorder(),
@@ -182,9 +180,7 @@ class _SearchHistoryTile extends StatelessWidget {
 }
 
 class _SearchItemPasteFromClipboard extends StatelessWidget {
-  const _SearchItemPasteFromClipboard({
-    required this.onData,
-  });
+  const _SearchItemPasteFromClipboard({required this.onData});
 
   final Function(String) onData;
 

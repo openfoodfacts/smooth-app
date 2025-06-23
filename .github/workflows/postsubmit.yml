@@ -41,8 +41,7 @@ jobs:
 
       # Check for formatting issues
       - name: Check for formatting issues (run "dart format . ")
-        #run: dart format --set-exit-if-changed .
-        run: dart format .
+        run: dart format --set-exit-if-changed .
 
       # analyze Dart for errors
       - name: Analyze code

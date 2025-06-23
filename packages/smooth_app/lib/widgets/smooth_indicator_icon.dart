@@ -19,10 +19,7 @@ class SmoothIndicatorIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: margin ??
-          const EdgeInsetsDirectional.all(
-            VERY_SMALL_SPACE,
-          ),
+      padding: margin ?? const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
       child: DecoratedBox(
         decoration: const BoxDecoration(
           color: Colors.black38,
@@ -31,11 +28,9 @@ class SmoothIndicatorIcon extends StatelessWidget {
         child: Padding(
           padding: padding ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
           child: IconTheme(
-            data: iconTheme ??
-                const IconThemeData(
-                  color: Colors.white,
-                  size: 15.0,
-                ),
+            data:
+                iconTheme ??
+                const IconThemeData(color: Colors.white, size: 15.0),
             child: icon,
           ),
         ),

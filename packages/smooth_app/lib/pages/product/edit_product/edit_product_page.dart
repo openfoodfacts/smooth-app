@@ -50,8 +50,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -63,10 +63,13 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       upToDateProduct,
       appLocalizations,
     );
-    final String productBrands =
-        getProductBrands(upToDateProduct, appLocalizations);
-    final bool hasUploadIndicator = UpToDateChanges(localDatabase)
-        .hasNotTerminatedOperations(upToDateProduct.barcode!);
+    final String productBrands = getProductBrands(
+      upToDateProduct,
+      appLocalizations,
+    );
+    final bool hasUploadIndicator = UpToDateChanges(
+      localDatabase,
+    ).hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return Provider<Product>.value(
       value: upToDateProduct,
@@ -77,8 +80,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           title: AppLocalizations.of(context).edit_product_label,
           subTitle: '$productName, $productBrands',
           leadingAction: SmoothLeadingAction.back,
-          backgroundColor:
-              lightTheme ? extension.primaryBlack : extension.primaryUltraBlack,
+          backgroundColor: lightTheme
+              ? extension.primaryBlack
+              : extension.primaryUltraBlack,
           foregroundColor: lightTheme ? Colors.white : null,
           elevationColor: lightTheme ? Colors.black54 : Colors.white12,
           elevationOnScroll: false,
@@ -123,25 +127,19 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     context,
                     MaterialPageRoute<void>(
                       builder: (BuildContext context) =>
-                          ProductImageGalleryView(
-                        product: upToDateProduct,
-                      ),
+                          ProductImageGalleryView(product: upToDateProduct),
                     ),
                   );
                 },
               ),
-              _getMultipleListTileItem(
-                <AbstractSimpleInputPageHelper>[
-                  SimpleInputPageLabelHelper(),
-                  SimpleInputPageStoreHelper(),
-                  SimpleInputPageOriginHelper(),
-                  SimpleInputPageEmbCodeHelper(),
-                  SimpleInputPageCountryHelper(
-                    context.read<UserPreferences>(),
-                  ),
-                  SimpleInputPageCategoryHelper(),
-                ],
-              ),
+              _getMultipleListTileItem(<AbstractSimpleInputPageHelper>[
+                SimpleInputPageLabelHelper(),
+                SimpleInputPageStoreHelper(),
+                SimpleInputPageOriginHelper(),
+                SimpleInputPageEmbCodeHelper(),
+                SimpleInputPageCountryHelper(context.read<UserPreferences>()),
+                SimpleInputPageCategoryHelper(),
+              ]),
               if (upToDateProduct.productType != ProductType.product)
                 _ListTitleItem(
                   leading: const icons.Ingredients.alt(),
@@ -162,31 +160,32 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               if (upToDateProduct.productType != ProductType.beauty &&
                   upToDateProduct.productType != ProductType.product)
                 _ListTitleItem(
-                    leading: const icons.NutritionFacts(size: 18.0),
-                    title: appLocalizations
-                        .edit_product_form_item_nutrition_facts_title,
-                    subtitle: appLocalizations
-                        .edit_product_form_item_nutrition_facts_subtitle,
-                    onTap: () async {
-                      if (!await ProductRefresher().checkIfLoggedIn(
-                        context,
-                        isLoggedInMandatory: true,
-                      )) {
-                        return;
-                      }
-                      AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.nutrition_Facts,
-                        upToDateProduct,
-                      );
-                      if (!context.mounted) {
-                        return;
-                      }
-                      await NutritionPageLoader.showNutritionPage(
-                        product: upToDateProduct,
-                        isLoggedInMandatory: true,
-                        context: context,
-                      );
-                    }),
+                  leading: const icons.NutritionFacts(size: 18.0),
+                  title: appLocalizations
+                      .edit_product_form_item_nutrition_facts_title,
+                  subtitle: appLocalizations
+                      .edit_product_form_item_nutrition_facts_subtitle,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(
+                      context,
+                      isLoggedInMandatory: true,
+                    )) {
+                      return;
+                    }
+                    AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.nutrition_Facts,
+                      upToDateProduct,
+                    );
+                    if (!context.mounted) {
+                      return;
+                    }
+                    await NutritionPageLoader.showNutritionPage(
+                      product: upToDateProduct,
+                      isLoggedInMandatory: true,
+                      context: context,
+                    );
+                  },
+                ),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
                 leading: const icons.Packaging(),
@@ -207,9 +206,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               _getSimpleListTileItem(SimpleInputPageStoreHelper()),
               _getSimpleListTileItem(SimpleInputPageOriginHelper()),
               _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-              _getSimpleListTileItem(SimpleInputPageCountryHelper(
-                context.read<UserPreferences>(),
-              )),
+              _getSimpleListTileItem(
+                SimpleInputPageCountryHelper(context.read<UserPreferences>()),
+              ),
               _ListTitleItem(
                 title:
                     appLocalizations.edit_product_form_item_other_details_title,
@@ -240,20 +239,20 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               Consumer<UserPreferences>(
                 builder:
                     (BuildContext context, UserPreferences preferences, _) {
-                  return _ListTitleItem(
-                    title: appLocalizations.prices_add_a_price,
-                    leading: icons.AddPrice(
-                      CurrencySelectorHelper().getSelected(
-                        preferences.userCurrencyCode,
-                      ),
-                    ),
-                    onTap: () async => ProductPriceAddPage.showProductPage(
-                      context: context,
-                      product: PriceMetaProduct.product(upToDateProduct),
-                      proofType: ProofType.priceTag,
-                    ),
-                  );
-                },
+                      return _ListTitleItem(
+                        title: appLocalizations.prices_add_a_price,
+                        leading: icons.AddPrice(
+                          CurrencySelectorHelper().getSelected(
+                            preferences.userCurrencyCode,
+                          ),
+                        ),
+                        onTap: () async => ProductPriceAddPage.showProductPage(
+                          context: context,
+                          product: PriceMetaProduct.product(upToDateProduct),
+                          proofType: ProofType.priceTag,
+                        ),
+                      );
+                    },
               ),
             ],
           ),
@@ -269,10 +268,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
       subtitle: helper.getSubtitle(appLocalizations),
-      onTap: () async => ProductFieldSimpleEditor(helper).edit(
-        context: context,
-        product: upToDateProduct,
-      ),
+      onTap: () async => ProductFieldSimpleEditor(
+        helper,
+      ).edit(context: context, product: upToDateProduct),
     );
   }
 
@@ -322,16 +320,11 @@ class _ListTitleItem extends SmoothListTileCard {
     String? subtitle,
     super.onTap,
   }) : super.icon(
-          title: title == null
-              ? null
-              : Text(
-                  title,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-          icon: leading,
-          subtitle: subtitle == null ? null : Text(subtitle),
-          margin: const EdgeInsetsDirectional.only(
-            top: SMALL_SPACE,
-          ),
-        );
+         title: title == null
+             ? null
+             : Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+         icon: leading,
+         subtitle: subtitle == null ? null : Text(subtitle),
+         margin: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+       );
 }

@@ -51,13 +51,14 @@ class ProductDialogHelper {
 
   Future<FetchedProduct> openUniqueProductSearch() async =>
       await LoadingDialog.run<FetchedProduct>(
-          context: context,
-          future: BarcodeProductQuery(
-            barcode: barcode,
-            daoProduct: DaoProduct(localDatabase),
-            isScanned: false,
-          ).getFetchedProduct(),
-          title: '${AppLocalizations.of(context).looking_for}: $barcode') ??
+        context: context,
+        future: BarcodeProductQuery(
+          barcode: barcode,
+          daoProduct: DaoProduct(localDatabase),
+          isScanned: false,
+        ).getFetchedProduct(),
+        title: '${AppLocalizations.of(context).looking_for}: $barcode',
+      ) ??
       const FetchedProduct.userCancelled();
 
   void _openProductNotFoundDialog() {
@@ -65,8 +66,8 @@ class ProductDialogHelper {
       context: context,
       builder: (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final SmoothColorsThemeExtension theme =
-            context.extension<SmoothColorsThemeExtension>();
+        final SmoothColorsThemeExtension theme = context
+            .extension<SmoothColorsThemeExtension>();
         final bool lightTheme = context.lightTheme();
 
         return SmoothModalSheet(
@@ -84,9 +85,7 @@ class ProductDialogHelper {
                 start: 5.0,
                 child: Transform.scale(
                   scale: -1.1,
-                  child: const OrangeErrorAnimation(
-                    sizeMultiplier: 1.2,
-                  ),
+                  child: const OrangeErrorAnimation(sizeMultiplier: 1.2),
                 ),
               ),
               Column(
@@ -97,9 +96,7 @@ class ProductDialogHelper {
                   TextWithBubbleParts(
                     text: appLocalizations.new_product_found_text,
                     backgroundColor: theme.primarySemiDark,
-                    textStyle: const TextStyle(
-                      fontSize: 15.5,
-                    ),
+                    textStyle: const TextStyle(fontSize: 15.5),
                     bubbleTextStyle: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
@@ -116,8 +113,9 @@ class ProductDialogHelper {
                   DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius: ANGULAR_BORDER_RADIUS,
-                      color:
-                          lightTheme ? theme.primaryMedium : theme.primaryLight,
+                      color: lightTheme
+                          ? theme.primaryMedium
+                          : theme.primaryLight,
                     ),
                     child: SmoothBarcodeWidget(
                       barcode: barcode,
@@ -129,8 +127,9 @@ class ProductDialogHelper {
                         bottom: MEDIUM_SPACE,
                       ),
                       color: Colors.black,
-                      backgroundColor:
-                          lightTheme ? Colors.white : Colors.transparent,
+                      backgroundColor: lightTheme
+                          ? Colors.white
+                          : Colors.transparent,
                     ),
                   ),
                   const SizedBox(height: MEDIUM_SPACE * 2),
@@ -139,9 +138,9 @@ class ProductDialogHelper {
                     child: SmoothButtonWithArrow(
                       text: appLocalizations.new_product_found_button,
                       onTap: () async {
-                        await AppNavigator.of(context).push(
-                          AppRoutes.PRODUCT_CREATOR(barcode),
-                        );
+                        await AppNavigator.of(
+                          context,
+                        ).push(AppRoutes.PRODUCT_CREATOR(barcode));
                         if (context.mounted) {
                           Navigator.of(context).pop();
                         }
@@ -164,28 +163,28 @@ class ProductDialogHelper {
   }
 
   static Widget getErrorMessage(final String message) => Row(
-        children: <Widget>[
-          const Icon(Icons.error_outline, color: Colors.red),
-          const SizedBox(width: SMALL_SPACE),
-          Expanded(child: Text(message))
-        ],
-      );
+    children: <Widget>[
+      const Icon(Icons.error_outline, color: Colors.red),
+      const SizedBox(width: SMALL_SPACE),
+      Expanded(child: Text(message)),
+    ],
+  );
 
   void _openErrorMessage(final String message) => showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          final AppLocalizations localizations = AppLocalizations.of(context);
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations localizations = AppLocalizations.of(context);
 
-          return SmoothAlertDialog(
-            title: localizations.product_internet_error_modal_title,
-            body: getErrorMessage(message),
-            positiveAction: SmoothActionButton(
-              text: localizations.close,
-              onPressed: () => Navigator.pop(context),
-            ),
-          );
-        },
+      return SmoothAlertDialog(
+        title: localizations.product_internet_error_modal_title,
+        body: getErrorMessage(message),
+        positiveAction: SmoothActionButton(
+          text: localizations.close,
+          onPressed: () => Navigator.pop(context),
+        ),
       );
+    },
+  );
 
   /// Opens an error dialog; to be used only if the status is not ok.
   void openError(final FetchedProduct fetchedProduct) {
@@ -202,7 +201,8 @@ class ProductDialogHelper {
       case FetchedProductStatus.internetError:
         _openErrorMessage(
           appLocalizations.product_internet_error_modal_message(
-              fetchedProduct.exceptionString ?? '-'),
+            fetchedProduct.exceptionString ?? '-',
+          ),
         );
         return;
       case FetchedProductStatus.internetNotFound:

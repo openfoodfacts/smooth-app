@@ -17,9 +17,7 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Input of a product's less significant details, like website.
 class AddOtherDetailsPage extends StatefulWidget {
-  const AddOtherDetailsPage(
-    this.product,
-  );
+  const AddOtherDetailsPage(this.product);
 
   final Product product;
 
@@ -67,9 +65,9 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
           product: widget.product,
         ),
         backgroundColor: context.lightTheme()
-            ? Theme.of(context)
-                .extension<SmoothColorsThemeExtension>()!
-                .primaryLight
+            ? Theme.of(
+                context,
+              ).extension<SmoothColorsThemeExtension>()!.primaryLight
             : null,
         body: Form(
           key: _formKey,
@@ -107,12 +105,8 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
           ),
         ),
         bottomNavigationBar: ProductBottomButtonsBar(
-          onSave: () async => _exitPage(
-            await _mayExitPage(saving: true),
-          ),
-          onCancel: () async => _exitPage(
-            await _mayExitPage(saving: false),
-          ),
+          onSave: () async => _exitPage(await _mayExitPage(saving: true)),
+          onCancel: () async => _exitPage(await _mayExitPage(saving: false)),
         ),
       ),
     );
@@ -138,8 +132,8 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }

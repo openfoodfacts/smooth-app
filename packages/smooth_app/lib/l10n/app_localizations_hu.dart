@@ -805,8 +805,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get crop_page_too_small_image_title => 'A fénykép túl kicsi!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Képfeltöltésnél a minimális méret ${expectedMinWidth}x$expectedMinHeight pixel. Az aktuális kép ${actualWidth}x$actualHeight pixeles.';
   }
 
@@ -1369,7 +1373,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Meg akarja változtatni a pénznemet erről: $previousCurrency erre: $possibleCurrency?';
   }
 
@@ -1588,20 +1594,33 @@ class AppLocalizationsHu extends AppLocalizations {
       'Ha meggondolná magát, ez az opció bármikor engedélyezhető vagy letiltható a beállításokban.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'OS: Android (SDK Int: $sdkInt / Kiadás: $release)\nModell: $model\nTermék: $product\nKészülék: $device\nMárka:$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'OS: iOS ($version)\nModell: $model\nLokalizált modell: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nApp verziója:$appVersion\nApp build száma:$appBuildNumber\nApp csomagneve:$appPackageName';
   }
 
@@ -2641,7 +2660,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Ár: $price / Bolt: \"$location\" / Hozzáadva $date, „$user” által';
   }
 
@@ -2825,7 +2848,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Jelenlegi pénzneme **$currency**. Szeretné módosítani a következőre: **$newCurrency**?';
   }
 
@@ -2885,7 +2910,10 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'További $count termék letöltése\n $downloaded már letöltve ennyiből: $totalSize.';
   }
 

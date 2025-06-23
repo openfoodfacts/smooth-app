@@ -9,10 +9,7 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 
 class StringPair {
-  const StringPair({
-    required this.first,
-    this.second,
-  });
+  const StringPair({required this.first, this.second});
 
   final String first;
   final String? second;
@@ -25,15 +22,11 @@ abstract class AttributeFirstRowHelper {
 
   String getTitle(BuildContext context);
 
-  Future<void> onTap({
-    required BuildContext context,
-  });
+  Future<void> onTap({required BuildContext context});
 }
 
 class AttributeFirstRowSimpleHelper extends AttributeFirstRowHelper {
-  AttributeFirstRowSimpleHelper({
-    required this.helper,
-  });
+  AttributeFirstRowSimpleHelper({required this.helper});
 
   final AbstractSimpleInputPageHelper helper;
 
@@ -42,11 +35,7 @@ class AttributeFirstRowSimpleHelper extends AttributeFirstRowHelper {
     final List<StringPair> allTerms = <StringPair>[];
 
     for (final String element in helper.terms) {
-      allTerms.add(
-        StringPair(
-          first: element,
-        ),
-      );
+      allTerms.add(StringPair(first: element));
     }
 
     return allTerms;
@@ -60,42 +49,33 @@ class AttributeFirstRowSimpleHelper extends AttributeFirstRowHelper {
   @override
   String getTitle(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return helper.getTitle(
-      appLocalizations,
-    );
+    return helper.getTitle(appLocalizations);
   }
 
   @override
-  Future<void> onTap({
-    required BuildContext context,
-  }) {
-    return ProductFieldSimpleEditor(helper).edit(
-      context: context,
-      product: helper.product,
-    );
+  Future<void> onTap({required BuildContext context}) {
+    return ProductFieldSimpleEditor(
+      helper,
+    ).edit(context: context, product: helper.product);
   }
 }
 
 class AttributeFirstRowNutritionHelper extends AttributeFirstRowHelper {
-  AttributeFirstRowNutritionHelper({
-    required this.product,
-  });
+  AttributeFirstRowNutritionHelper({required this.product});
 
   final Product product;
 
   @override
   List<StringPair> getAllTerms() {
     final List<StringPair> allNutrients = <StringPair>[];
-    product.nutriments?.toData().forEach(
-      (String nutrientName, String quantity) {
-        allNutrients.add(
-          StringPair(
-            first: nutrientName.split('_100g')[0],
-            second: quantity,
-          ),
-        );
-      },
-    );
+    product.nutriments?.toData().forEach((
+      String nutrientName,
+      String quantity,
+    ) {
+      allNutrients.add(
+        StringPair(first: nutrientName.split('_100g')[0], second: quantity),
+      );
+    });
 
     return allNutrients;
   }
@@ -115,9 +95,7 @@ class AttributeFirstRowNutritionHelper extends AttributeFirstRowHelper {
   }
 
   @override
-  Future<void> onTap({
-    required BuildContext context,
-  }) async {
+  Future<void> onTap({required BuildContext context}) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: true,
@@ -143,26 +121,18 @@ class AttributeFirstRowNutritionHelper extends AttributeFirstRowHelper {
 }
 
 class AttributeFirstRowIngredientsHelper extends AttributeFirstRowHelper {
-  AttributeFirstRowIngredientsHelper({
-    required this.product,
-  });
+  AttributeFirstRowIngredientsHelper({required this.product});
 
   final Product product;
 
   @override
   List<StringPair> getAllTerms() {
     final List<StringPair> allIngredients = <StringPair>[];
-    product.ingredients?.forEach(
-      (Ingredient element) {
-        if (element.text != null) {
-          allIngredients.add(
-            StringPair(
-              first: element.text!,
-            ),
-          );
-        }
-      },
-    );
+    product.ingredients?.forEach((Ingredient element) {
+      if (element.text != null) {
+        allIngredients.add(StringPair(first: element.text!));
+      }
+    });
 
     return allIngredients;
   }
@@ -182,9 +152,7 @@ class AttributeFirstRowIngredientsHelper extends AttributeFirstRowHelper {
   }
 
   @override
-  Future<void> onTap({
-    required BuildContext context,
-  }) {
+  Future<void> onTap({required BuildContext context}) {
     return ProductFieldOcrIngredientEditor().edit(
       context: context,
       product: product,

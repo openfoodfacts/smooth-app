@@ -35,10 +35,8 @@ class SearchLocationHelper extends SearchHelper {
     Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => LocationQueryPage(
-          query: query,
-          editableAppBarTitle: true,
-        ),
+        builder: (BuildContext context) =>
+            LocationQueryPage(query: query, editableAppBarTitle: true),
       ),
     );
   }

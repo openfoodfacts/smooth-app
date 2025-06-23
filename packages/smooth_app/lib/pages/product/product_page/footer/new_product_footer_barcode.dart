@@ -57,9 +57,7 @@ class ProductFooterBarcodeButton extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pop();
 
-                  Clipboard.setData(
-                    ClipboardData(text: barcode),
-                  );
+                  Clipboard.setData(ClipboardData(text: barcode));
 
                   SmoothHapticFeedback.click();
 
@@ -69,7 +67,8 @@ class ProductFooterBarcodeButton extends StatelessWidget {
                       margin: EdgeInsetsDirectional.only(
                         start: SMALL_SPACE,
                         end: SMALL_SPACE,
-                        bottom: ProductFooter.kHeight +
+                        bottom:
+                            ProductFooter.kHeight +
                             MediaQuery.viewPaddingOf(context).bottom,
                       ),
                       text: appLocalizations.clipboard_barcode_copied(barcode),

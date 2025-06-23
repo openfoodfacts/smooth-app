@@ -47,9 +47,7 @@ void main() {
   });
 
   Future<void> pumpSmoothErrorCardOnScreen(WidgetTester tester) async {
-    SharedPreferences.setMockInitialValues(
-      mockSharedPreferences(),
-    );
+    SharedPreferences.setMockInitialValues(mockSharedPreferences());
 
     final UserPreferences prefs = await UserPreferences.getUserPreferences();
 

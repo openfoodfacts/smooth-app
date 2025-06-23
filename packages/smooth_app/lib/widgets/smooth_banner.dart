@@ -51,8 +51,9 @@ class SmoothBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double bottomPadding =
-        addSafeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
+    final double bottomPadding = addSafeArea
+        ? MediaQuery.viewPaddingOf(context).bottom
+        : 0.0;
 
     Widget child = IntrinsicHeight(
       child: Row(
@@ -104,12 +105,15 @@ class SmoothBanner extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 title!,
-                                style: (titleStyle ??
-                                        const TextStyle(
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        ))
-                                    .copyWith(color: titleColor ?? _titleColor),
+                                style:
+                                    (titleStyle ??
+                                            const TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                            ))
+                                        .copyWith(
+                                          color: titleColor ?? _titleColor,
+                                        ),
                               ),
                             ),
                           if (onDismissClicked != null) ...<Widget>[
@@ -122,8 +126,9 @@ class SmoothBanner extends StatelessWidget {
                               crossColor: Colors.white,
                               circleSize: 26.0,
                               crossSize: 12.0,
-                              tooltip: AppLocalizations.of(context)
-                                  .owner_field_info_close_button,
+                              tooltip: AppLocalizations.of(
+                                context,
+                              ).owner_field_info_close_button,
                             ),
                           ],
                         ],
@@ -141,11 +146,12 @@ class SmoothBanner extends StatelessWidget {
                     ),
                     child: TextWithBoldParts(
                       text: content,
-                      textStyle: (contentStyle ??
-                              const TextStyle(fontSize: 14.0, height: 1.6))
-                          .copyWith(
-                        color: contentColor ?? const Color(0xFF373737),
-                      ),
+                      textStyle:
+                          (contentStyle ??
+                                  const TextStyle(fontSize: 14.0, height: 1.6))
+                              .copyWith(
+                                color: contentColor ?? const Color(0xFF373737),
+                              ),
                     ),
                   ),
                   if (bottomPadding > 0) SizedBox(height: bottomPadding),
@@ -158,10 +164,7 @@ class SmoothBanner extends StatelessWidget {
     );
 
     if (borderRadius != null) {
-      child = ClipRRect(
-        borderRadius: borderRadius!,
-        child: child,
-      );
+      child = ClipRRect(borderRadius: borderRadius!, child: child);
     }
 
     if (topShadow) {
@@ -199,7 +202,4 @@ class SmoothBanner extends StatelessWidget {
   }
 }
 
-enum SmoothBannerDismissEvent {
-  fromSwipe,
-  fromButton,
-}
+enum SmoothBannerDismissEvent { fromSwipe, fromButton }
