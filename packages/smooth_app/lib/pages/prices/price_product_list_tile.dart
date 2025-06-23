@@ -5,10 +5,7 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
 /// Displays a meta product with an action button, as a ListTile.
 class PriceProductListTile extends StatelessWidget {
-  const PriceProductListTile({
-    required this.product,
-    this.trailing,
-  });
+  const PriceProductListTile({required this.product, this.trailing});
 
   final PriceMetaProduct product;
   final Widget? trailing;
@@ -22,10 +19,7 @@ class PriceProductListTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        SizedBox(
-          width: size,
-          child: product.getImageWidget(size),
-        ),
+        SizedBox(width: size, child: product.getImageWidget(size)),
         const SizedBox(width: SMALL_SPACE),
         Expanded(
           child: Column(

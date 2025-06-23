@@ -56,14 +56,15 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
             text: appLocalizations.prices_barcode_reader_action,
             leadingIcon: const Icon(Icons.barcode_reader),
             onPressed: () async {
-              final UserPreferences userPreferences =
-                  context.read<UserPreferences>();
-              final List<String>? barcodes =
-                  await Navigator.of(context).push<List<String>>(
+              final UserPreferences userPreferences = context
+                  .read<UserPreferences>();
+              final List<String>?
+              barcodes = await Navigator.of(context).push<List<String>>(
                 MaterialPageRoute<List<String>>(
                   builder: (BuildContext context) => PriceScanPage(
                     latestScannedBarcode: _latestScannedBarcode,
-                    isMultiProducts: userPreferences.getFlag(
+                    isMultiProducts:
+                        userPreferences.getFlag(
                           UserPreferencesDevMode
                               .userPreferencesFlagPricesReceiptMultiSelection,
                         ) ??
@@ -102,12 +103,12 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
             onPressed: () async {
               final PriceMetaProduct? priceMetaProduct =
                   await Navigator.push<PriceMetaProduct>(
-                context,
-                MaterialPageRoute<PriceMetaProduct>(
-                  builder: (BuildContext context) =>
-                      const PriceCategoryInputPage(),
-                ),
-              );
+                    context,
+                    MaterialPageRoute<PriceMetaProduct>(
+                      builder: (BuildContext context) =>
+                          const PriceCategoryInputPage(),
+                    ),
+                  );
               if (priceMetaProduct == null) {
                 return;
               }
@@ -164,11 +165,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
       for (final String barcode in notThere) {
         _addProductToList(
           priceModel,
-          PriceMetaProduct.unknown(
-            barcode,
-            localDatabase,
-            priceModel,
-          ),
+          PriceMetaProduct.unknown(barcode, localDatabase, priceModel),
           context,
         );
       }
@@ -200,11 +197,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
       context,
       listen: false,
     );
-    _addProductToList(
-      priceModel,
-      priceMetaProduct,
-      context,
-    );
+    _addProductToList(priceModel, priceMetaProduct, context);
     priceModel.notifyListeners();
   }
 
@@ -228,38 +221,38 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
     return showDialog<String>(
       context: context,
       builder: (final BuildContext context) => StatefulBuilder(
-        builder: (
-          final BuildContext context,
-          void Function(VoidCallback fn) setState,
-        ) =>
-            SmoothAlertDialog(
-          title: appLocalizations.prices_add_an_item,
-          body: SmoothTextFormField(
-            autofocus: true,
-            type: TextFieldTypes.PLAIN_TEXT,
-            controller: controller,
-            hintText: appLocalizations.barcode,
-            textInputType: _textInputType,
-            onChanged: (_) {
-              final String barcode = controller.text;
-              final String cleanBarcode = _getCleanBarcode(barcode);
-              setState(() => controller.text = cleanBarcode);
-            },
-            onFieldSubmitted: (_) => !_isValidBarcode(controller.text)
-                ? null
-                : Navigator.of(context).pop(controller.text),
-          ),
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.validate,
-            onPressed: !_isValidBarcode(controller.text)
-                ? null
-                : () => Navigator.of(context).pop(controller.text),
-          ),
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.cancel,
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
+        builder:
+            (
+              final BuildContext context,
+              void Function(VoidCallback fn) setState,
+            ) => SmoothAlertDialog(
+              title: appLocalizations.prices_add_an_item,
+              body: SmoothTextFormField(
+                autofocus: true,
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: controller,
+                hintText: appLocalizations.barcode,
+                textInputType: _textInputType,
+                onChanged: (_) {
+                  final String barcode = controller.text;
+                  final String cleanBarcode = _getCleanBarcode(barcode);
+                  setState(() => controller.text = cleanBarcode);
+                },
+                onFieldSubmitted: (_) => !_isValidBarcode(controller.text)
+                    ? null
+                    : Navigator.of(context).pop(controller.text),
+              ),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.validate,
+                onPressed: !_isValidBarcode(controller.text)
+                    ? null
+                    : () => Navigator.of(context).pop(controller.text),
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.cancel,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
       ),
     );
   }

@@ -22,8 +22,8 @@ class MayExitPageHelper {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return showSmoothAlertModalSheet<bool>(
       context: context,
@@ -40,10 +40,7 @@ class MayExitPageHelper {
         Icon(Icons.save_rounded, color: extension.success),
         Icon(Icons.cancel_rounded, color: extension.error),
       ],
-      actionValues: <bool>[
-        true,
-        false,
-      ],
+      actionValues: <bool>[true, false],
     );
   }
 }

@@ -6,10 +6,7 @@ import 'package:smooth_app/pages/prices/price_per_extension.dart';
 
 /// Text field that displays a read-only amount for an existing price.
 class PriceExistingAmountField extends StatelessWidget {
-  const PriceExistingAmountField({
-    required this.value,
-    required this.pricePer,
-  });
+  const PriceExistingAmountField({required this.value, required this.pricePer});
 
   final num? value;
   final PricePer? pricePer;

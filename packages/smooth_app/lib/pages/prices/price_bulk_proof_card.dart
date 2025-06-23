@@ -45,9 +45,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         children: <Widget>[
           ListTile(
             trailing: const Icon(Icons.warning),
-            title: Text(
-              appLocalizations.prices_bulk_proof_upload_warning,
-            ),
+            title: Text(appLocalizations.prices_bulk_proof_upload_warning),
           ),
           SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_bulk_proof_upload_select,
@@ -62,9 +60,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     );
   }
 
-  Future<void> _selectAndUpload({
-    required PriceModel model,
-  }) async {
+  Future<void> _selectAndUpload({required PriceModel model}) async {
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     const int imageQuality = 80;
@@ -106,9 +102,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         final File toBeUploadedFile = File(
           '${directory.path}/bulk_proof_${sequenceNumber}_$filename',
         );
-        setState(
-          () => _text = 'Locally copying file #$index/$count',
-        );
+        setState(() => _text = 'Locally copying file #$index/$count');
         await temporaryFile.copy(toBeUploadedFile.path);
         await temporaryFile.delete();
 

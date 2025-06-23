@@ -8,10 +8,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class OnboardingBottomHills extends StatelessWidget {
-  const OnboardingBottomHills({
-    required this.onTap,
-    super.key,
-  });
+  const OnboardingBottomHills({required this.onTap, super.key});
 
   final VoidCallback onTap;
 
@@ -32,8 +29,9 @@ class OnboardingBottomHills extends StatelessWidget {
     }
 
     final double maxHeight = OnboardingBottomHills.height(context);
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return Positioned(
       top: null,
@@ -68,9 +66,7 @@ class OnboardingBottomHills extends StatelessWidget {
               end: 15.0,
               child: TextButton(
                 style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(
-                    Colors.white,
-                  ),
+                  backgroundColor: WidgetStateProperty.all<Color>(Colors.white),
                   padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
                     const EdgeInsetsDirectional.only(
                       start: LARGE_SPACE + 1.0,

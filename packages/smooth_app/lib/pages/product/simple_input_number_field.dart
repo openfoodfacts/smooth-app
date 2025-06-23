@@ -39,49 +39,50 @@ class SimpleInputNumberField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsetsDirectional.only(start: LARGE_SPACE),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            SizedBox(
-              width: constraints.maxWidth -
-                  LARGE_SPACE -
-                  (withClearButton ? MINIMUM_TOUCH_SIZE : 0),
-              child: TextField(
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: false,
-                  decimal: decimal,
-                ),
-                controller: controller,
-                decoration: InputDecoration(
-                  filled: true,
-                  border: const OutlineInputBorder(
-                    borderRadius: ANGULAR_BORDER_RADIUS,
-                    borderSide: BorderSide.none,
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: SMALL_SPACE,
-                    vertical: SMALL_SPACE,
-                  ),
-                  hintText: hintText,
-                ),
-                // a lot of confusion if set to `true`
-                autofocus: false,
-                focusNode: focusNode,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(numberRegExp),
-                  if (decimal) DecimalSeparatorRewriter(numberFormat),
-                ],
-              ),
+    padding: const EdgeInsetsDirectional.only(start: LARGE_SPACE),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        SizedBox(
+          width:
+              constraints.maxWidth -
+              LARGE_SPACE -
+              (withClearButton ? MINIMUM_TOUCH_SIZE : 0),
+          child: TextField(
+            keyboardType: TextInputType.numberWithOptions(
+              signed: false,
+              decimal: decimal,
             ),
-            if (withClearButton)
-              IconButton(
-                icon: const Icon(Icons.clear),
-                onPressed: () => controller.text = '',
+            controller: controller,
+            decoration: InputDecoration(
+              filled: true,
+              border: const OutlineInputBorder(
+                borderRadius: ANGULAR_BORDER_RADIUS,
+                borderSide: BorderSide.none,
               ),
-          ],
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: SMALL_SPACE,
+                vertical: SMALL_SPACE,
+              ),
+              hintText: hintText,
+            ),
+            // a lot of confusion if set to `true`
+            autofocus: false,
+            focusNode: focusNode,
+            inputFormatters: <TextInputFormatter>[
+              FilteringTextInputFormatter.allow(numberRegExp),
+              if (decimal) DecimalSeparatorRewriter(numberFormat),
+            ],
+          ),
         ),
-      );
+        if (withClearButton)
+          IconButton(
+            icon: const Icon(Icons.clear),
+            onPressed: () => controller.text = '',
+          ),
+      ],
+    ),
+  );
 }

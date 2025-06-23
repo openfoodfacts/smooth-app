@@ -8,19 +8,16 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class GuidesFooter extends StatelessWidget {
-  const GuidesFooter({
-    required this.shareUrl,
-    this.shareMessage,
-    super.key,
-  });
+  const GuidesFooter({required this.shareUrl, this.shareMessage, super.key});
 
   final String? shareMessage;
   final String shareUrl;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return CustomPaint(
       painter: _FooterPainter(
@@ -75,13 +72,11 @@ class GuidesFooter extends StatelessWidget {
 }
 
 class _FooterPainter extends CustomPainter {
-  _FooterPainter({
-    this.wazeSize = WAVE_SIZE,
-    required Color color,
-  })  : assert(color.a > 0.0),
-        _localPaint = Paint()
-          ..color = color
-          ..style = PaintingStyle.fill;
+  _FooterPainter({this.wazeSize = WAVE_SIZE, required Color color})
+    : assert(color.a > 0.0),
+      _localPaint = Paint()
+        ..color = color
+        ..style = PaintingStyle.fill;
 
   static const double WAVE_SIZE = 24.0;
   final double wazeSize;
@@ -94,11 +89,7 @@ class _FooterPainter extends CustomPainter {
     /// Draw top waves
     while (true) {
       canvas.drawArc(
-        Rect.fromCenter(
-          center: offset,
-          height: wazeSize,
-          width: wazeSize,
-        ),
+        Rect.fromCenter(center: offset, height: wazeSize, width: wazeSize),
         math.pi,
         math.pi,
         false,
@@ -113,14 +104,15 @@ class _FooterPainter extends CustomPainter {
 
     /// Draw background color
     canvas.drawRect(
-        Rect.fromLTWH(
-          0,
-          // 0.5 to eliminate some glitches
-          (wazeSize / 2) - 0.5,
-          size.width,
-          size.height,
-        ),
-        _localPaint);
+      Rect.fromLTWH(
+        0,
+        // 0.5 to eliminate some glitches
+        (wazeSize / 2) - 0.5,
+        size.width,
+        size.height,
+      ),
+      _localPaint,
+    );
   }
 
   @override

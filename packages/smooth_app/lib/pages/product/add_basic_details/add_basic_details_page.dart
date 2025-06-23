@@ -31,10 +31,7 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 /// The product name input is either monolingual or multilingual, depending on
 /// the product data version.
 class AddBasicDetailsPage extends StatefulWidget {
-  const AddBasicDetailsPage(
-    this.product, {
-    required this.isLoggedInMandatory,
-  });
+  const AddBasicDetailsPage(this.product, {required this.isLoggedInMandatory});
 
   final Product product;
   final bool isLoggedInMandatory;
@@ -107,12 +104,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
               ),
             ),
             bottomNavigationBar: ProductBottomButtonsBar(
-              onSave: () async => _exitPage(
-                await _mayExitPage(saving: true),
-              ),
-              onCancel: () async => _exitPage(
-                await _mayExitPage(saving: false),
-              ),
+              onSave: () async => _exitPage(await _mayExitPage(saving: true)),
+              onCancel: () async =>
+                  _exitPage(await _mayExitPage(saving: false)),
             ),
           ),
         ),
@@ -155,8 +149,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     product: widget.product,
                     onShowImagePreview: (_, OpenFoodFactsLanguage language) =>
                         setState(() {
-                      _imageLanguagePreview = language;
-                    }),
+                          _imageLanguagePreview = language;
+                        }),
                   ),
                   SizedBox(height: _heightSpace),
                   _ProductBrandsInputWidget(
@@ -197,8 +191,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         _brandsHelper.restoreItemsBeforeLastAddition();
         return false;
@@ -241,9 +235,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }
 
   void _onValueChanged() {
-    onNextFrame(
-      () => _willPopScope2Controller.canPop(!_hasProductChanged()),
-    );
+    onNextFrame(() => _willPopScope2Controller.canPop(!_hasProductChanged()));
   }
 
   bool _hasProductChanged() =>
@@ -272,8 +264,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     if (_productNameEditorProvider.hasChanged()) {
       hasChanged = true;
-      result.productNameInLanguages =
-          _productNameEditorProvider.getChangedProductNames();
+      result.productNameInLanguages = _productNameEditorProvider
+          .getChangedProductNames();
     }
 
     if (hasChanged) {
@@ -286,8 +278,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   bool _isOwnerField(
     final ProductField productField, {
     final OpenFoodFactsLanguage? language,
-  }) =>
-      _product.hasOwnerField(productField, language: language);
+  }) => _product.hasOwnerField(productField, language: language);
 }
 
 class _ProductBrandsInputWidget extends StatelessWidget {

@@ -74,9 +74,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
           create: (_) => ValueNotifier<List<String>>(_localTerms),
         ),
         ChangeNotifierProvider<
-            ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>.value(
-          value: widget.helper.robotoffQuestionsNotifier,
-        ),
+          ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+        >.value(value: widget.helper.robotoffQuestionsNotifier),
       ],
       builder: (BuildContext context, Widget? child) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -99,10 +98,10 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                         focusNode: _focusNode,
                         constraints: constraints,
                         tagType: widget.helper.getTagType(),
-                        autocompleteManager:
-                            widget.helper.getAutocompleteManager(),
-                        textCapitalization:
-                            widget.helper.getTextCapitalization(),
+                        autocompleteManager: widget.helper
+                            .getAutocompleteManager(),
+                        textCapitalization: widget.helper
+                            .getTextCapitalization(),
                         allowEmojis: widget.helper.getAllowEmojis(),
                         hintText: widget.helper.getAddHint(appLocalizations),
                         controller: widget.controller,
@@ -110,9 +109,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                           horizontal: LARGE_SPACE,
                           vertical: MEDIUM_SPACE,
                         ),
-                        margin: const EdgeInsetsDirectional.only(
-                          start: 3.0,
-                        ),
+                        margin: const EdgeInsetsDirectional.only(start: 3.0),
                         productType: widget.product.productType,
                         borderRadius: CIRCULAR_BORDER_RADIUS,
                       ),
@@ -124,29 +121,21 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                         splashRadius: 20.0,
                         icon: ListenableBuilder(
                           listenable: widget.controller,
-                          builder: (
-                            BuildContext context,
-                            _,
-                          ) =>
-                              icons.Add(
+                          builder: (BuildContext context, _) => icons.Add(
                             size: 20.0,
                             color: IconTheme.of(context).color?.withValues(
-                                  alpha: widget.controller.text.isEmpty
-                                      ? 0.7
-                                      : 1.0,
-                                ),
+                              alpha: widget.controller.text.isEmpty ? 0.7 : 1.0,
+                            ),
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               );
             },
           ),
-          RobotoffSuggestionList(
-            helper: widget.helper,
-          ),
+          RobotoffSuggestionList(helper: widget.helper),
           SimpleInputList(
             listKey: _listKey,
             helper: widget.helper,
@@ -164,16 +153,19 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
             )
           else if (_localTerms.isEmpty)
             Consumer<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>(
-              builder: (BuildContext context,
-                  ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
-                      notif,
-                  _) {
-                if (notif.value.isEmpty) {
-                  return const SizedBox(height: VERY_SMALL_SPACE);
-                } else {
-                  return EMPTY_WIDGET;
-                }
-              },
+              builder:
+                  (
+                    BuildContext context,
+                    ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+                    notif,
+                    _,
+                  ) {
+                    if (notif.value.isEmpty) {
+                      return const SizedBox(height: VERY_SMALL_SPACE);
+                    } else {
+                      return EMPTY_WIDGET;
+                    }
+                  },
             )
           else
             const SizedBox(height: VERY_SMALL_SPACE),
@@ -193,9 +185,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
           leading: widget.helper.getIcon(),
           title: widget.helper.getTitle(appLocalizations),
           trailing: trailingHeader,
-          contentPadding: const EdgeInsetsDirectional.only(
-            top: BALANCED_SPACE,
-          ),
+          contentPadding: const EdgeInsetsDirectional.only(top: BALANCED_SPACE),
           child: child,
         ),
         const SizedBox(height: MEDIUM_SPACE),
@@ -230,10 +220,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
     } else if (children.length == 1) {
       return children.first;
     } else {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: children,
-      );
+      return Row(mainAxisSize: MainAxisSize.min, children: children);
     }
   }
 
@@ -269,8 +256,9 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
       ScaffoldMessenger.of(context).showSnackBar(
         SmoothFloatingSnackbar.error(
           context: context,
-          text: AppLocalizations.of(context)
-              .edit_product_form_item_error_existing,
+          text: AppLocalizations.of(
+            context,
+          ).edit_product_form_item_error_existing,
         ),
       );
 

@@ -32,10 +32,8 @@ abstract class AbstractUserPreferences {
 
   /// Title of the header, always visible.
   @protected
-  Widget getTitle() => Text(
-        getTitleString(),
-        style: themeData.textTheme.displayMedium,
-      );
+  Widget getTitle() =>
+      Text(getTitleString(), style: themeData.textTheme.displayMedium);
 
   /// Subtitle of the header, always visible.
   @protected
@@ -47,38 +45,38 @@ abstract class AbstractUserPreferences {
       getSubtitleString() == null ? null : Text(getSubtitleString()!);
 
   List<String> getLabels() => <String>[
-        getPageTitleString(),
-        getTitleString(),
-        if (getSubtitleString() != null) getSubtitleString()!,
-      ];
+    getPageTitleString(),
+    getTitleString(),
+    if (getSubtitleString() != null) getSubtitleString()!,
+  ];
 
   Widget getOnlyHeader() => InkWell(
-        onTap: () async => runHeaderAction(),
-        child: getHeaderHelper(false),
-      );
+    onTap: () async => runHeaderAction(),
+    child: getHeaderHelper(false),
+  );
 
   @protected
-  Icon? getForwardIcon() => UserPreferencesListTile.getTintedIcon(
-        ConstantIcons.forwardIcon,
-        context,
-      );
+  Icon? getForwardIcon() =>
+      UserPreferencesListTile.getTintedIcon(ConstantIcons.forwardIcon, context);
 
   /// Returns the tappable header.
   @protected
   Widget getHeader() => InkWell(
-        onTap: () async => runHeaderAction(),
-        child: getHeaderHelper(true),
-      );
+    onTap: () async => runHeaderAction(),
+    child: getHeaderHelper(true),
+  );
 
   /// Returns the header (helper) (no padding, no tapping).
   @protected
   Widget getHeaderHelper(final bool? collapsed) => UserPreferencesListTile(
-        title: getTitle(),
-        subtitle: getSubtitle(),
-        trailing: collapsed != null ? getForwardIcon() : null,
-        leading: UserPreferencesListTile.getTintedIcon(
-            getLeadingIconData(), context),
-      );
+    title: getTitle(),
+    subtitle: getSubtitle(),
+    trailing: collapsed != null ? getForwardIcon() : null,
+    leading: UserPreferencesListTile.getTintedIcon(
+      getLeadingIconData(),
+      context,
+    ),
+  );
 
   @protected
   IconData getLeadingIconData();
@@ -89,13 +87,12 @@ abstract class AbstractUserPreferences {
   /// Returns the action when we tap on the header.
   @protected
   Future<void> runHeaderAction() async => Navigator.push<Widget>(
-        context,
-        MaterialPageRoute<Widget>(
-          builder: (BuildContext context) => UserPreferencesPage(
-            type: getPreferencePageType(),
-          ),
-        ),
-      );
+    context,
+    MaterialPageRoute<Widget>(
+      builder: (BuildContext context) =>
+          UserPreferencesPage(type: getPreferencePageType()),
+    ),
+  );
 
   /// Svg asset for the header.
   ///

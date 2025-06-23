@@ -28,8 +28,8 @@ class NutritionAddNutrientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(
@@ -48,10 +48,8 @@ class NutritionAddNutrientButton extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: InkWell(
-            onTap: () => _openNutrientSelectorModalSheet(
-              context,
-              onNutrientSelected,
-            ),
+            onTap: () =>
+                _openNutrientSelectorModalSheet(context, onNutrientSelected),
             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             child: Padding(
               padding: const EdgeInsetsDirectional.symmetric(
@@ -96,10 +94,8 @@ class NutritionAddNutrientHeaderButton extends StatelessWidget {
     return SmoothCardHeaderButton(
       tooltip: appLocalizations.nutrition_page_add_nutrient,
       child: const icons.Add.circled(),
-      onTap: () async => _openNutrientSelectorModalSheet(
-        context,
-        onNutrientSelected,
-      ),
+      onTap: () async =>
+          _openNutrientSelectorModalSheet(context, onNutrientSelected),
     );
   }
 }
@@ -110,28 +106,31 @@ Future<void> _openNutrientSelectorModalSheet(
 ) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  final NutritionContainerHelper nutritionContainer =
-      context.read<NutritionContainerHelper>();
+  final NutritionContainerHelper nutritionContainer = context
+      .read<NutritionContainerHelper>();
   final List<OrderedNutrient> leftovers = List<OrderedNutrient>.from(
     nutritionContainer.getLeftoverNutrients(),
   );
-  leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
-      a.name!.compareTo(b.name!));
-  final List<OrderedNutrient> filteredList =
-      List<OrderedNutrient>.from(leftovers);
+  leftovers.sort(
+    (final OrderedNutrient a, final OrderedNutrient b) =>
+        a.name!.compareTo(b.name!),
+  );
+  final List<OrderedNutrient> filteredList = List<OrderedNutrient>.from(
+    leftovers,
+  );
 
   final OrderedNutrient? selected =
       await showSmoothModalSheetForTextField<OrderedNutrient>(
-    context: context,
-    header: SmoothModalSheetHeader(
-      title: appLocalizations.nutrition_page_add_nutrient,
-      prefix: const SmoothModalSheetHeaderPrefixIndicator(),
-      suffix: const SmoothModalSheetHeaderCloseButton(),
-    ),
-    bodyBuilder: (BuildContext context) {
-      return _NutrientList(list: filteredList);
-    },
-  );
+        context: context,
+        header: SmoothModalSheetHeader(
+          title: appLocalizations.nutrition_page_add_nutrient,
+          prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+          suffix: const SmoothModalSheetHeaderCloseButton(),
+        ),
+        bodyBuilder: (BuildContext context) {
+          return _NutrientList(list: filteredList);
+        },
+      );
 
   if (selected != null) {
     nutritionContainer.add(selected);
@@ -142,9 +141,7 @@ Future<void> _openNutrientSelectorModalSheet(
 typedef OnNutrientSelected = Function(OrderedNutrient nutrient);
 
 class _NutrientList extends StatefulWidget {
-  const _NutrientList({
-    required this.list,
-  });
+  const _NutrientList({required this.list});
 
   final List<OrderedNutrient> list;
 
@@ -214,10 +211,10 @@ class _NutrientListState extends State<_NutrientList> {
               setState(
                 () => _nutrients = widget.list
                     .where(
-                      (OrderedNutrient item) =>
-                          item.name!.trim().getComparisonSafeString().contains(
-                                query!.trim().getComparisonSafeString(),
-                              ),
+                      (OrderedNutrient item) => item.name!
+                          .trim()
+                          .getComparisonSafeString()
+                          .contains(query!.trim().getComparisonSafeString()),
                     )
                     .toList(),
               );
@@ -230,7 +227,7 @@ class _NutrientListState extends State<_NutrientList> {
           height: keyboardHeight > 0.0
               ? keyboardHeight
               : MediaQuery.viewPaddingOf(context).bottom,
-        )
+        ),
       ],
     );
   }

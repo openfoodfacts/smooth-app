@@ -44,11 +44,11 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
       _state = _ProductLoaderState.loading;
     });
 
-    final FetchedProduct fetchedProduct =
-        await ProductRefresher().silentFetchAndRefresh(
-      barcode: widget.barcode,
-      localDatabase: context.read<LocalDatabase>(),
-    );
+    final FetchedProduct fetchedProduct = await ProductRefresher()
+        .silentFetchAndRefresh(
+          barcode: widget.barcode,
+          localDatabase: context.read<LocalDatabase>(),
+        );
 
     if (mounted) {
       if (fetchedProduct.product != null) {
@@ -62,9 +62,7 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
           );
         } else if (widget.mode == ProductLoaderMode.editProduct) {
           navigator.pushReplacement(
-            AppRoutes.PRODUCT_EDITOR(
-              widget.barcode,
-            ),
+            AppRoutes.PRODUCT_EDITOR(widget.barcode),
             extra: fetchedProduct.product,
           );
         }
@@ -92,20 +90,14 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
         child = const _ProductLoaderLoadingState();
         break;
       case _ProductLoaderState.productNotFound:
-        child = _ProductLoaderNotFoundState(
-          barcode: widget.barcode,
-        );
+        child = _ProductLoaderNotFoundState(barcode: widget.barcode);
         break;
       case _ProductLoaderState.serverError:
-        child = _ProductLoaderNetworkErrorState(
-          onRetry: () => _loadProduct(),
-        );
+        child = _ProductLoaderNetworkErrorState(onRetry: () => _loadProduct());
         break;
     }
 
-    return Scaffold(
-      body: Center(child: child),
-    );
+    return Scaffold(body: Center(child: child));
   }
 }
 
@@ -119,9 +111,7 @@ class _ProductLoaderLoadingState extends StatelessWidget {
 }
 
 class _ProductLoaderNotFoundState extends StatelessWidget {
-  const _ProductLoaderNotFoundState({
-    required this.barcode,
-  });
+  const _ProductLoaderNotFoundState({required this.barcode});
 
   final String barcode;
 
@@ -152,11 +142,11 @@ class _ProductLoaderNotFoundState extends StatelessWidget {
             leadingIcon: const Icon(Icons.add),
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: () {
-              AppNavigator.of(context).pushReplacement(
-                AppRoutes.PRODUCT_CREATOR(barcode),
-              );
+              AppNavigator.of(
+                context,
+              ).pushReplacement(AppRoutes.PRODUCT_CREATOR(barcode));
             },
-          )
+          ),
         ],
       ),
     );
@@ -164,9 +154,7 @@ class _ProductLoaderNotFoundState extends StatelessWidget {
 }
 
 class _ProductLoaderNetworkErrorState extends StatelessWidget {
-  const _ProductLoaderNetworkErrorState({
-    required this.onRetry,
-  });
+  const _ProductLoaderNetworkErrorState({required this.onRetry});
 
   final VoidCallback onRetry;
 
@@ -197,20 +185,13 @@ class _ProductLoaderNetworkErrorState extends StatelessWidget {
             leadingIcon: const Icon(Icons.sync),
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: onRetry,
-          )
+          ),
         ],
       ),
     );
   }
 }
 
-enum _ProductLoaderState {
-  loading,
-  productNotFound,
-  serverError;
-}
+enum _ProductLoaderState { loading, productNotFound, serverError }
 
-enum ProductLoaderMode {
-  viewProduct,
-  editProduct,
-}
+enum ProductLoaderMode { viewProduct, editProduct }

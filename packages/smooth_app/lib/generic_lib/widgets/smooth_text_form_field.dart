@@ -5,10 +5,7 @@ import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-enum TextFieldTypes {
-  PLAIN_TEXT,
-  PASSWORD,
-}
+enum TextFieldTypes { PLAIN_TEXT, PASSWORD }
 
 class SmoothTextFormField extends StatefulWidget {
   const SmoothTextFormField({
@@ -62,11 +59,11 @@ class SmoothTextFormField extends StatefulWidget {
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
 
   static TextStyle defaultHintTextStyle(BuildContext context) => TextStyle(
-        fontStyle: FontStyle.italic,
-        color: context.lightTheme()
-            ? const Color(0x99000000)
-            : const Color(0xBBFFFFFF),
-      );
+    fontStyle: FontStyle.italic,
+    color: context.lightTheme()
+        ? const Color(0x99000000)
+        : const Color(0xBBFFFFFF),
+  );
 }
 
 class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
@@ -82,9 +79,9 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
   Widget build(BuildContext context) {
     final bool enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
     final bool autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
-    final TextStyle textStyle = DefaultTextStyle.of(context).style.copyWith(
-          fontSize: 15.0,
-        );
+    final TextStyle textStyle = DefaultTextStyle.of(
+      context,
+    ).style.copyWith(fontSize: 15.0);
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
 
@@ -103,14 +100,16 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       autofocus: widget.autofocus ?? false,
       maxLines: widget.maxLines,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      onChanged: widget.onChanged ??
+      onChanged:
+          widget.onChanged ??
           (String data) {
             // Rebuilds for changing the eye icon
             if (widget.type == TextFieldTypes.PASSWORD && data.length != 1) {
               setState(() {});
             }
           },
-      spellCheckConfiguration: widget.spellCheckConfiguration ??
+      spellCheckConfiguration:
+          widget.spellCheckConfiguration ??
           const SpellCheckConfiguration.disabled(),
       onFieldSubmitted: widget.onFieldSubmitted,
       style: TextStyle(fontSize: textSize),
@@ -120,7 +119,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
           FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
       ],
       decoration: InputDecoration(
-        contentPadding: widget.contentPadding ??
+        contentPadding:
+            widget.contentPadding ??
             const EdgeInsets.symmetric(
               horizontal: LARGE_SPACE,
               vertical: SMALL_SPACE,
@@ -138,12 +138,10 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-          borderSide: const BorderSide(
-            color: Colors.transparent,
-            width: 5.0,
-          ),
+          borderSide: const BorderSide(color: Colors.transparent, width: 5.0),
         ),
-        suffixIcon: widget.suffixIcon ??
+        suffixIcon:
+            widget.suffixIcon ??
             (widget.type == TextFieldTypes.PASSWORD
                 ? IconButton(
                     tooltip: appLocalization.show_password,

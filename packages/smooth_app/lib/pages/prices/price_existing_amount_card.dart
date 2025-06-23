@@ -12,9 +12,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Card that displays an existing amount.
 class PriceExistingAmountCard extends StatefulWidget {
-  const PriceExistingAmountCard(
-    this.price,
-  );
+  const PriceExistingAmountCard(this.price);
 
   final Price price;
 
@@ -45,14 +43,14 @@ class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final Map<String, TaxonomyCategory>? map =
         await OpenFoodAPIClient.getTaxonomyCategories(
-      TaxonomyCategoryQueryConfiguration(
-        tags: <String>[_categoryTag!],
-        country: ProductQuery.getCountry(),
-        languages: <OpenFoodFactsLanguage>[language],
-        fields: <TaxonomyCategoryField>[TaxonomyCategoryField.NAME],
-        includeChildren: false,
-      ),
-    );
+          TaxonomyCategoryQueryConfiguration(
+            tags: <String>[_categoryTag!],
+            country: ProductQuery.getCountry(),
+            languages: <OpenFoodFactsLanguage>[language],
+            fields: <TaxonomyCategoryField>[TaxonomyCategoryField.NAME],
+            includeChildren: false,
+          ),
+        );
     if (map == null) {
       return;
     }
@@ -79,14 +77,14 @@ class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final Map<String, TaxonomyOrigin>? map =
         await OpenFoodAPIClient.getTaxonomyOrigins(
-      TaxonomyOriginQueryConfiguration(
-        tags: _originTags!,
-        country: ProductQuery.getCountry(),
-        languages: <OpenFoodFactsLanguage>[language],
-        fields: <TaxonomyOriginField>[TaxonomyOriginField.NAME],
-        includeChildren: false,
-      ),
-    );
+          TaxonomyOriginQueryConfiguration(
+            tags: _originTags!,
+            country: ProductQuery.getCountry(),
+            languages: <OpenFoodFactsLanguage>[language],
+            fields: <TaxonomyOriginField>[TaxonomyOriginField.NAME],
+            includeChildren: false,
+          ),
+        );
     if (map == null) {
       return;
     }

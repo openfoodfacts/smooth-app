@@ -25,14 +25,12 @@ class SimpleInputPage extends StatefulWidget {
     required final AbstractSimpleInputPageHelper helper,
     required final Product product,
   }) : this.multiple(
-          helpers: <AbstractSimpleInputPageHelper>[helper],
-          product: product,
-        );
+         helpers: <AbstractSimpleInputPageHelper>[helper],
+         product: product,
+       );
 
-  SimpleInputPage.multiple({
-    required this.helpers,
-    required this.product,
-  }) : assert(helpers.isNotEmpty);
+  SimpleInputPage.multiple({required this.helpers, required this.product})
+    : assert(helpers.isNotEmpty);
 
   final List<AbstractSimpleInputPageHelper> helpers;
   final Product product;
@@ -50,9 +48,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     super.initState();
 
     for (int i = 0; i < widget.helpers.length; i++) {
-      _controllers.add(
-        TextEditingController()..addListener(_onChanged),
-      );
+      _controllers.add(TextEditingController()..addListener(_onChanged));
 
       widget.helpers[i].addListener(_onChanged);
     }
@@ -110,9 +106,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
             product: widget.product,
           ),
           backgroundColor: context.lightTheme()
-              ? Theme.of(context)
-                  .extension<SmoothColorsThemeExtension>()!
-                  .primaryLight
+              ? Theme.of(
+                  context,
+                ).extension<SmoothColorsThemeExtension>()!.primaryLight
               : null,
           body: Scrollbar(
             child: ListView(
@@ -121,12 +117,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
             ),
           ),
           bottomNavigationBar: ProductBottomButtonsBar(
-            onSave: () async => _exitPage(
-              await _mayExitPage(saving: true),
-            ),
-            onCancel: () async => _exitPage(
-              await _mayExitPage(saving: false),
-            ),
+            onSave: () async => _exitPage(await _mayExitPage(saving: true)),
+            onCancel: () async => _exitPage(await _mayExitPage(saving: false)),
           ),
         ),
       ),
@@ -192,8 +184,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         for (int i = 0; i < widget.helpers.length; i++) {
           widget.helpers[i].restoreItemsBeforeLastAddition();
@@ -208,9 +200,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
     }
 
-// If there is more than one helper, we are in the power edit mode.
-// else we take the only helper ie 0th element of the [helpers] list
-// and get the analytics event from it.
+    // If there is more than one helper, we are in the power edit mode.
+    // else we take the only helper ie 0th element of the [helpers] list
+    // and get the analytics event from it.
 
     if (widget.helpers.length > 1) {
       AnalyticsHelper.trackProductEdit(

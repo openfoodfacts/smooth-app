@@ -221,19 +221,16 @@ class _CropPageState extends State<CropPage> {
                             _IconButton(
                               iconData: Icons.rotate_90_degrees_ccw_outlined,
                               tooltip: appLocalizations.photo_rotate_left,
-                              onPressed: () => setState(
-                                () {
-                                  _controller.rotateLeft();
-                                  _eraserModel.rotation = _controller.rotation;
-                                },
-                              ),
+                              onPressed: () => setState(() {
+                                _controller.rotateLeft();
+                                _eraserModel.rotation = _controller.rotation;
+                              }),
                             ),
                           if (widget.cropHelper.enableEraser)
                             _IconButton(
                               iconData: _isErasing ? Icons.crop : Icons.brush,
-                              onPressed: () => setState(
-                                () => _isErasing = !_isErasing,
-                              ),
+                              onPressed: () =>
+                                  setState(() => _isErasing = !_isErasing),
                             ),
                           if (_isErasing)
                             _IconButton(
@@ -241,20 +238,16 @@ class _CropPageState extends State<CropPage> {
                               tooltip: appLocalizations.photo_undo_action,
                               onPressed: _eraserModel.isEmpty
                                   ? null
-                                  : () => setState(
-                                        () => _eraserModel.undo(),
-                                      ),
+                                  : () => setState(() => _eraserModel.undo()),
                             ),
                           if (!_isErasing)
                             _IconButton(
                               iconData: Icons.rotate_90_degrees_cw_outlined,
                               tooltip: appLocalizations.photo_rotate_right,
-                              onPressed: () => setState(
-                                () {
-                                  _controller.rotateRight();
-                                  _eraserModel.rotation = _controller.rotation;
-                                },
-                              ),
+                              onPressed: () => setState(() {
+                                _controller.rotateRight();
+                                _eraserModel.rotation = _controller.rotation;
+                              }),
                             ),
                         ],
                       ),
@@ -274,41 +267,40 @@ class _CropPageState extends State<CropPage> {
                               alwaysMove: true,
                               overlayPainter: !widget.cropHelper.enableEraser
                                   ? null
-                                  : EraserPainter(
-                                      eraserModel: _eraserModel,
-                                    ),
+                                  : EraserPainter(eraserModel: _eraserModel),
                             ),
                           ),
                           if (_isErasing)
                             LayoutBuilder(
-                              builder: (
-                                final BuildContext context,
-                                final BoxConstraints constraints,
-                              ) =>
-                                  Center(
-                                child: GestureDetector(
-                                  onPanStart:
-                                      (final DragStartDetails details) =>
-                                          setState(
-                                    () => _eraserModel.panStart(
-                                      details.localPosition,
-                                      constraints,
+                              builder:
+                                  (
+                                    final BuildContext context,
+                                    final BoxConstraints constraints,
+                                  ) => Center(
+                                    child: GestureDetector(
+                                      onPanStart:
+                                          (final DragStartDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panStart(
+                                                  details.localPosition,
+                                                  constraints,
+                                                ),
+                                              ),
+                                      onPanUpdate:
+                                          (final DragUpdateDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panUpdate(
+                                                  details.localPosition,
+                                                  constraints,
+                                                ),
+                                              ),
+                                      onPanEnd:
+                                          (final DragEndDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panEnd(),
+                                              ),
                                     ),
                                   ),
-                                  onPanUpdate:
-                                      (final DragUpdateDetails details) =>
-                                          setState(
-                                    () => _eraserModel.panUpdate(
-                                      details.localPosition,
-                                      constraints,
-                                    ),
-                                  ),
-                                  onPanEnd: (final DragEndDetails details) =>
-                                      setState(
-                                    () => _eraserModel.panEnd(),
-                                  ),
-                                ),
-                              ),
                             ),
                         ],
                       ),
@@ -322,8 +314,9 @@ class _CropPageState extends State<CropPage> {
                         width: double.infinity,
                         child: EditImageButton.center(
                           iconData: widget.cropHelper.getProcessIcon(),
-                          label: widget.cropHelper
-                              .getProcessLabel(appLocalizations),
+                          label: widget.cropHelper.getProcessLabel(
+                            appLocalizations,
+                          ),
                           onPressed: () async => _saveImageAndPop(),
                         ),
                       ),
@@ -364,8 +357,10 @@ class _CropPageState extends State<CropPage> {
     setState(() => _progress = appLocalizations.crop_page_action_local);
 
     try {
-      await saveBmp(file: result, source: cropped)
-          .timeout(const Duration(seconds: 10));
+      await saveBmp(
+        file: result,
+        source: cropped,
+      ).timeout(const Duration(seconds: 10));
     } catch (e, trace) {
       AnalyticsHelper.sendException(e, stackTrace: trace);
       rethrow;
@@ -432,8 +427,10 @@ class _CropPageState extends State<CropPage> {
     }
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
-    final int sequenceNumber =
-        await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
+    final int sequenceNumber = await getNextSequenceNumber(
+      daoInt,
+      _CROP_PAGE_SEQUENCE_KEY,
+    );
     final Directory directory = await BackgroundTaskUpload.getDirectory();
 
     final File smallCroppedFile = await _getSmallCroppedImageFile(
@@ -441,9 +438,7 @@ class _CropPageState extends State<CropPage> {
       sequenceNumber,
     );
 
-    setState(
-      () => _progress = appLocalizations.crop_page_action_server,
-    );
+    setState(() => _progress = appLocalizations.crop_page_action_server);
     if (!mounted) {
       return null;
     }
@@ -520,11 +515,11 @@ class _CropPageState extends State<CropPage> {
     }
 
     // the cropped image has changed, but the user went back without saving
-    final bool? pleaseSave =
-        await MayExitPageHelper().openSaveBeforeLeavingDialog(
-      context,
-      title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
-    );
+    final bool? pleaseSave = await MayExitPageHelper()
+        .openSaveBeforeLeavingDialog(
+          context,
+          title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
+        );
     if (pleaseSave == null) {
       return (false, null);
     }
@@ -594,17 +589,11 @@ class _IconButton extends StatelessWidget {
     final Widget icon = ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-      child: Icon(
-        iconData,
-        semanticLabel: tooltip,
-      ),
+      child: Icon(iconData, semanticLabel: tooltip),
     );
 
     if (tooltip != null) {
-      return Tooltip(
-        message: tooltip,
-        child: icon,
-      );
+      return Tooltip(message: tooltip, child: icon);
     } else {
       return icon;
     }

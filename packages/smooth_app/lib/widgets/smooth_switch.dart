@@ -74,8 +74,8 @@ class _SmoothSwitchState extends State<SmoothSwitch>
   @override
   Widget build(BuildContext context) {
     final SwitchThemeData switchTheme = Theme.of(context).switchTheme;
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Semantics(
       toggled: widget.value,
@@ -85,7 +85,8 @@ class _SmoothSwitchState extends State<SmoothSwitch>
           widget.onChanged(!widget.value);
         },
         child: Padding(
-          padding: widget.padding ??
+          padding:
+              widget.padding ??
               const EdgeInsets.symmetric(
                 horizontal: SMALL_SPACE,
                 vertical: SMALL_SPACE,
@@ -94,21 +95,29 @@ class _SmoothSwitchState extends State<SmoothSwitch>
             size: widget.size ?? const Size(52.0, 30.0),
             painter: _SmoothSwitchPainter(
               progress: _progressAnimation.value,
-              thumbActiveColor: widget.thumbActiveColor ??
-                  switchTheme.thumbColor
-                      ?.resolve(<WidgetState>{WidgetState.selected}) ??
+              thumbActiveColor:
+                  widget.thumbActiveColor ??
+                  switchTheme.thumbColor?.resolve(<WidgetState>{
+                    WidgetState.selected,
+                  }) ??
                   theme.primaryDark,
-              thumbInactiveColor: widget.thumbInactiveColor ??
-                  switchTheme.thumbColor
-                      ?.resolve(<WidgetState>{WidgetState.disabled}) ??
+              thumbInactiveColor:
+                  widget.thumbInactiveColor ??
+                  switchTheme.thumbColor?.resolve(<WidgetState>{
+                    WidgetState.disabled,
+                  }) ??
                   const Color(0xFFC2B5B0),
-              backgroundActiveColor: widget.backgroundActiveColor ??
-                  switchTheme.trackColor
-                      ?.resolve(<WidgetState>{WidgetState.selected}) ??
+              backgroundActiveColor:
+                  widget.backgroundActiveColor ??
+                  switchTheme.trackColor?.resolve(<WidgetState>{
+                    WidgetState.selected,
+                  }) ??
                   theme.primaryMedium,
-              backgroundInactiveColor: widget.backgroundInactiveColor ??
-                  switchTheme.trackColor
-                      ?.resolve(<WidgetState>{WidgetState.disabled}) ??
+              backgroundInactiveColor:
+                  widget.backgroundInactiveColor ??
+                  switchTheme.trackColor?.resolve(<WidgetState>{
+                    WidgetState.disabled,
+                  }) ??
                   theme.primaryMedium,
             ),
           ),
@@ -159,11 +168,7 @@ class _SmoothSwitchPainter extends CustomPainter {
 
     canvas.drawRRect(rrect, paint);
 
-    paint.color = Color.lerp(
-      thumbInactiveColor,
-      thumbActiveColor,
-      progress,
-    )!;
+    paint.color = Color.lerp(thumbInactiveColor, thumbActiveColor, progress)!;
 
     canvas.drawCircle(Offset(thumbPosition, radius), thumbRadius, paint);
   }

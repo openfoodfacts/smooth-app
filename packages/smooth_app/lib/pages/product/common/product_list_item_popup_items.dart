@@ -14,11 +14,7 @@ import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 /// Popup menu item entries for the product list page, for selected items.
-enum ProductListItemPopupMenuEntry {
-  compareSideBySide,
-  rank,
-  delete,
-}
+enum ProductListItemPopupMenuEntry { compareSideBySide, rank, delete }
 
 /// Popup menu items for the product list page, for selected items.
 abstract class ProductListItemPopupItem {
@@ -45,13 +41,12 @@ abstract class ProductListItemPopupItem {
   SmoothPopupMenuItem<ProductListItemPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
     final bool enabled,
-  ) =>
-      SmoothPopupMenuItem<ProductListItemPopupItem>(
-        value: this,
-        icon: getIconData(),
-        label: getTitle(appLocalizations),
-        enabled: enabled,
-      );
+  ) => SmoothPopupMenuItem<ProductListItemPopupItem>(
+    value: this,
+    icon: getIconData(),
+    label: getTitle(appLocalizations),
+    enabled: enabled,
+  );
 }
 
 /// Popup menu item for the product list page: compare side by side selected items.
@@ -70,8 +65,9 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
     required final BuildContext context,
     required final Set<String> selectedBarcodes,
   }) async {
-    final OrderedNutrientsCache? cache =
-        await OrderedNutrientsCache.getCache(context);
+    final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
+      context,
+    );
     if (context.mounted) {
       if (cache == null) {
         ScaffoldMessenger.of(context).showSnackBar(

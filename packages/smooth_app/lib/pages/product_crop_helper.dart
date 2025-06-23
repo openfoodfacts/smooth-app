@@ -211,13 +211,12 @@ class ProductCropAgainHelper extends ProductCropHelper {
     final Offset offset,
     final CropController controller,
     final ui.Image image,
-  ) =>
-      _getRotatedOffsetForOffHelper(
-        controller.rotation,
-        offset,
-        image.width.toDouble(),
-        image.height.toDouble(),
-      );
+  ) => _getRotatedOffsetForOffHelper(
+    controller.rotation,
+    offset,
+    image.width.toDouble(),
+    image.height.toDouble(),
+  );
 
   /// Returns the offset as rotated, for the OFF-dart rotation/crop tool.
   Offset _getRotatedOffsetForOffHelper(
@@ -229,16 +228,10 @@ class ProductCropAgainHelper extends ProductCropHelper {
     switch (rotation) {
       case CropRotation.up:
       case CropRotation.down:
-        return Offset(
-          noonWidth * offset01.dx,
-          noonHeight * offset01.dy,
-        );
+        return Offset(noonWidth * offset01.dx, noonHeight * offset01.dy);
       case CropRotation.right:
       case CropRotation.left:
-        return Offset(
-          noonHeight * offset01.dx,
-          noonWidth * offset01.dy,
-        );
+        return Offset(noonHeight * offset01.dx, noonWidth * offset01.dy);
     }
   }
 }

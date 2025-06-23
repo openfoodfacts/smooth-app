@@ -28,10 +28,10 @@ class OnboardingHomePage extends StatelessWidget {
             const _OnboardingWelcomePageContent(),
             OnboardingBottomHills(
               onTap: () async {
-                final UserPreferences userPreferences =
-                    context.read<UserPreferences>();
-                final LocalDatabase localDatabase =
-                    context.read<LocalDatabase>();
+                final UserPreferences userPreferences = context
+                    .read<UserPreferences>();
+                final LocalDatabase localDatabase = context
+                    .read<LocalDatabase>();
 
                 /// Enable crash reports and user tracking by default
                 /// (Can be disabled by the user later in the settings)
@@ -39,8 +39,9 @@ class OnboardingHomePage extends StatelessWidget {
                 await userPreferences.setUserTracking(true);
 
                 if (context.mounted) {
-                  await OnboardingLoader(localDatabase)
-                      .runAtNextTime(OnboardingPage.HOME_PAGE, context);
+                  await OnboardingLoader(
+                    localDatabase,
+                  ).runAtNextTime(OnboardingPage.HOME_PAGE, context);
                 }
 
                 if (context.mounted) {
@@ -86,10 +87,7 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const Expanded(
-            flex: 37,
-            child: _SunAndCloud(),
-          ),
+          const Expanded(flex: 37, child: _SunAndCloud()),
           Expanded(
             flex: 45,
             child: FractionallySizedBox(
@@ -145,13 +143,11 @@ class _SunAndCloudState extends State<_SunAndCloud>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2))
-          ..addListener(() => setState(() {}));
-    _animation = Tween<double>(
-      begin: -1.0,
-      end: 1.0,
-    ).animate(_controller);
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..addListener(() => setState(() {}));
+    _animation = Tween<double>(begin: -1.0, end: 1.0).animate(_controller);
     _controller.repeat(reverse: true);
   }
 
@@ -160,33 +156,32 @@ class _SunAndCloudState extends State<_SunAndCloud>
     final TextDirection textDirection = Directionality.of(context);
 
     return RepaintBoundary(
-      child: LayoutBuilder(builder: (
-        BuildContext context,
-        BoxConstraints constraints,
-      ) {
-        return Stack(
-          children: <Widget>[
-            Positioned.directional(
-              top: constraints.maxHeight * 0.3,
-              bottom: constraints.maxHeight * 0.2,
-              start: (_animation.value * 161.0) * 0.3,
-              textDirection: textDirection,
-              child: SvgPicture.asset('assets/onboarding/cloud.svg'),
-            ),
-            const Align(
-              alignment: Alignment.center,
-              child: SunAnimation(type: SunAnimationType.loop),
-            ),
-            Positioned.directional(
-              top: constraints.maxHeight * 0.22,
-              bottom: constraints.maxHeight * 0.35,
-              end: (_animation.value * 40.0) - 31,
-              textDirection: textDirection,
-              child: SvgPicture.asset('assets/onboarding/cloud.svg'),
-            ),
-          ],
-        );
-      }),
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Stack(
+            children: <Widget>[
+              Positioned.directional(
+                top: constraints.maxHeight * 0.3,
+                bottom: constraints.maxHeight * 0.2,
+                start: (_animation.value * 161.0) * 0.3,
+                textDirection: textDirection,
+                child: SvgPicture.asset('assets/onboarding/cloud.svg'),
+              ),
+              const Align(
+                alignment: Alignment.center,
+                child: SunAnimation(type: SunAnimationType.loop),
+              ),
+              Positioned.directional(
+                top: constraints.maxHeight * 0.22,
+                bottom: constraints.maxHeight * 0.35,
+                end: (_animation.value * 40.0) - 31,
+                textDirection: textDirection,
+                child: SvgPicture.asset('assets/onboarding/cloud.svg'),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 
@@ -200,7 +195,7 @@ class _SunAndCloudState extends State<_SunAndCloud>
 // TODO(g123k): Move elsewhere when the onboarding will be redesigned
 class OnboardingConfig {
   OnboardingConfig._(Size screenSize)
-      : fontMultiplier = computeFontMultiplier(screenSize);
+    : fontMultiplier = computeFontMultiplier(screenSize);
   final double fontMultiplier;
 
   static double computeFontMultiplier(Size screenSize) =>

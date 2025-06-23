@@ -22,8 +22,9 @@ class NutritionPageLoader {
       return;
     }
     if (context.mounted) {
-      final OrderedNutrientsCache? cache =
-          await OrderedNutrientsCache.getCache(context);
+      final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
+        context,
+      );
       if (context.mounted) {
         if (cache == null) {
           ScaffoldMessenger.of(context).showSnackBar(

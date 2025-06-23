@@ -13,10 +13,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Price Data display (no product data here).
 class PriceDataWidget extends StatelessWidget {
-  const PriceDataWidget(
-    this.price, {
-    required this.model,
-  });
+  const PriceDataWidget(this.price, {required this.model});
 
   final Price price;
   final GetPricesModel model;
@@ -31,8 +28,9 @@ class PriceDataWidget extends StatelessWidget {
       locale: locale,
       name: price.currency.name,
     );
-    final String? locationTitle =
-        PriceLocationWidget.getLocationTitle(price.location);
+    final String? locationTitle = PriceLocationWidget.getLocationTitle(
+      price.location,
+    );
 
     String? getPricePerKg() {
       if (price.product == null) {
@@ -64,7 +62,8 @@ class PriceDataWidget extends StatelessWidget {
     final String? notDiscountedPrice = getNotDiscountedPrice();
     final bool isDiscounted = price.priceIsDiscounted == true;
 
-    final String priceLabel = '${currencyFormat.format(price.price)}'
+    final String priceLabel =
+        '${currencyFormat.format(price.price)}'
         ' ${pricePerKg == null ? '' : ' ($pricePerKg)'}';
     return Semantics(
       container: true,
@@ -97,15 +96,16 @@ class PriceDataWidget extends StatelessWidget {
                 onPressed: price.locationId == null
                     ? () {}
                     : () async => PriceLocationWidget.showLocationPrices(
-                          locationId: price.locationId!,
-                          context: context,
-                        ),
+                        locationId: price.locationId!,
+                        context: context,
+                      ),
               ),
             ),
           if (model.displayEachOwner) PriceUserButton(price.owner),
           ExcludeSemantics(
             child: Tooltip(
-              message: '${dateFormat.format(price.created)}'
+              message:
+                  '${dateFormat.format(price.created)}'
                   ' '
                   '${timeFormat.format(price.created)}',
               child: PriceButton(
@@ -127,9 +127,8 @@ class PriceDataWidget extends StatelessWidget {
               onPressed: () async => Navigator.push<void>(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => PriceProofPage(
-                    price.proof!,
-                  ),
+                  builder: (BuildContext context) =>
+                      PriceProofPage(price.proof!),
                 ),
               ), // PriceProofPage
             ),

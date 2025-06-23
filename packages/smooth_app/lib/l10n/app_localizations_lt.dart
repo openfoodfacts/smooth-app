@@ -805,8 +805,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get crop_page_too_small_image_title => 'Paveikslėlis per mažas!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'Mažiausias įkeliamų nuotraukų dydis pikseliais yra ${expectedMinWidth}x$expectedMinHeight. Dabartinė nuotrauka yra ${actualWidth}x$actualHeight.';
   }
 
@@ -1382,7 +1386,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
@@ -1600,20 +1606,33 @@ class AppLocalizationsLt extends AppLocalizations {
       'Jei apsigalvosite, šią parinktį galite bet kada įjungti ir išjungti nustatymuose.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'Operacinė sistema: „Android“ („SDK“ Int: $sdkInt / Išleidimas: $release)\nModelis: $model\nProduktas: $product\nĮrenginys: $device\nGamintojas: $brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'Operacinė sistema: iOS ($version)\nModelis: $model\nLokalizuotas modelis: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nProgramos versija: $appVersion\nProgramos versijos numeris: $appBuildNumber\nProgramos paketo pavadinimas: $appPackageName';
   }
 
@@ -2651,7 +2670,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Kaina: $price / parduotuvė: \"$location\" / Paskėlbė $date \"$user\"';
   }
 
@@ -2836,7 +2859,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Jūsų dabartinė valiuta yra **$currency**. Ar norėtumėte ją pakeisti į **$newCurrency**?';
   }
 
@@ -2898,7 +2923,10 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Atsisiųskite dar $count produktų\nJau atsisiųsta $downloaded iš $totalSize.';
   }
 

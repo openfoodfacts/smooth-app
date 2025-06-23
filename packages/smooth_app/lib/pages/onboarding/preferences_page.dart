@@ -39,26 +39,26 @@ class _PreferencesPageState extends State<PreferencesPage> {
   }
 
   Future<void> _init() async =>
-      _product = await OnboardingDataProduct.forProduct(widget._localDatabase)
-          .getData(rootBundle);
+      _product = await OnboardingDataProduct.forProduct(
+        widget._localDatabase,
+      ).getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(
-        future: _initFuture,
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.hasError) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
-            return Text(
-              appLocalizations.preferences_page_loading_error(snapshot.error),
-            );
-          }
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator.adaptive());
-          }
-          return _Helper(_product, widget.backgroundColor);
-        },
-      );
+    future: _initFuture,
+    builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+      if (snapshot.hasError) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return Text(
+          appLocalizations.preferences_page_loading_error(snapshot.error),
+        );
+      }
+      if (snapshot.connectionState != ConnectionState.done) {
+        return const Center(child: CircularProgressIndicator.adaptive());
+      }
+      return _Helper(_product, widget.backgroundColor);
+    },
+  );
 }
 
 // In order to avoid to reload the product when refreshing the preferences.
@@ -75,8 +75,8 @@ class _Helper extends StatefulWidget {
 class _HelperState extends State<_Helper> {
   @override
   Widget build(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[

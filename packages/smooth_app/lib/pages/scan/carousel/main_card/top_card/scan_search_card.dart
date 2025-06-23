@@ -15,9 +15,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ScanSearchCard extends StatelessWidget {
-  const ScanSearchCard({
-    required this.expandedMode,
-  });
+  const ScanSearchCard({required this.expandedMode});
 
   /// Expanded is when this card is the only one (no tagline, no app review…)
   final bool expandedMode;
@@ -43,16 +41,18 @@ class ScanSearchCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            LayoutBuilder(builder: (_, BoxConstraints constraints) {
-              return SvgPicture.asset(
-                lightTheme
-                    ? 'assets/app/logo_text_black.svg'
-                    : 'assets/app/logo_text_white.svg',
-                width: math.min(311.0, constraints.maxWidth * 0.85),
-                semanticsLabel:
-                    localizations.homepage_main_card_logo_description,
-              );
-            }),
+            LayoutBuilder(
+              builder: (_, BoxConstraints constraints) {
+                return SvgPicture.asset(
+                  lightTheme
+                      ? 'assets/app/logo_text_black.svg'
+                      : 'assets/app/logo_text_white.svg',
+                  width: math.min(311.0, constraints.maxWidth * 0.85),
+                  semanticsLabel:
+                      localizations.homepage_main_card_logo_description,
+                );
+              },
+            ),
             const SizedBox(height: VERY_SMALL_SPACE),
             TextWithBoldParts(
               text: localizations.homepage_main_card_subheading,

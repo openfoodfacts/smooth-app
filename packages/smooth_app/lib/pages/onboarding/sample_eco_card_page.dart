@@ -12,12 +12,12 @@ class SampleEcoCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => KnowledgePanelPageTemplate(
-        headerTitle: AppLocalizations.of(context).ecoCardUtility,
-        page: OnboardingPage.ECO_CARD_EXAMPLE,
-        panelId: 'environment_card',
-        localDatabase: _localDatabase,
-        backgroundColor: backgroundColor,
-        svgAsset: 'assets/onboarding/eco.svg',
-        nextKey: const Key('nextAfterEco'),
-      );
+    headerTitle: AppLocalizations.of(context).ecoCardUtility,
+    page: OnboardingPage.ECO_CARD_EXAMPLE,
+    panelId: 'environment_card',
+    localDatabase: _localDatabase,
+    backgroundColor: backgroundColor,
+    svgAsset: 'assets/onboarding/eco.svg',
+    nextKey: const Key('nextAfterEco'),
+  );
 }

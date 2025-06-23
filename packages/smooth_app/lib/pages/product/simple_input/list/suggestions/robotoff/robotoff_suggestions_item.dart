@@ -18,9 +18,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class RobotoffSuggestionListItem extends StatefulWidget {
-  const RobotoffSuggestionListItem({
-    required this.onChanged,
-  });
+  const RobotoffSuggestionListItem({required this.onChanged});
 
   final Function(bool? value) onChanged;
 
@@ -38,38 +36,30 @@ class _RobotoffSuggestionListItemState extends State<RobotoffSuggestionListItem>
   void initState() {
     super.initState();
 
-    _imageController = AnimationController(
-      duration: SmoothAnimationsDuration.short,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      // Image is disabled by default
-      ..value = 1.0;
+    _imageController =
+        AnimationController(
+            duration: SmoothAnimationsDuration.short,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          // Image is disabled by default
+          ..value = 1.0;
     _pictureAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
-      CurvedAnimation(
-        parent: _imageController,
-        curve: Curves.easeInOut,
-      ),
+      CurvedAnimation(parent: _imageController, curve: Curves.easeInOut),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return IconTheme(
-      data: const IconThemeData(
-        color: Colors.black,
-      ),
+      data: const IconThemeData(color: Colors.black),
       child: SizedBox(
         height: 50.0 + (130.0 * _pictureAnimation.value),
         child: Stack(
           children: <Widget>[
             Positioned.fill(
               child: Consumer<RobotoffQuestion>(
-                builder: (
-                  BuildContext context,
-                  RobotoffQuestion question,
-                  _,
-                ) {
+                builder: (BuildContext context, RobotoffQuestion question, _) {
                   if (question.imageUrl?.isEmpty == true) {
                     return EMPTY_WIDGET;
                   }
@@ -85,9 +75,9 @@ class _RobotoffSuggestionListItemState extends State<RobotoffSuggestionListItem>
                             MaterialPageRoute<void>(
                               builder: (BuildContext context) =>
                                   QuestionImageFullPage(
-                                question: question,
-                                heroTag: heroTag,
-                              ),
+                                    question: question,
+                                    heroTag: heroTag,
+                                  ),
                             ),
                           );
                         },
@@ -170,18 +160,16 @@ class _SimpleInputListRobotoffSuggestionHeaderState
   void initState() {
     super.initState();
 
-    _valueController = AnimationController(
-      duration: SmoothAnimationsDuration.short,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..value = 0.0;
+    _valueController =
+        AnimationController(
+            duration: SmoothAnimationsDuration.short,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..value = 0.0;
 
     _valueAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _valueController,
-        curve: Curves.easeInOut,
-      ),
+      CurvedAnimation(parent: _valueController, curve: Curves.easeInOut),
     );
     _colorAnimation = ColorTween(
       begin: null,
@@ -191,20 +179,25 @@ class _SimpleInputListRobotoffSuggestionHeaderState
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final InsightAnnotation? annotation = context.watch<InsightAnnotation?>();
 
     return Listener<InsightAnnotation?>(
-      listener: (
-        BuildContext context,
-        InsightAnnotation? previousValue,
-        InsightAnnotation? currentValue,
-      ) =>
-          _updateAnimations(context, previousValue, currentValue, lightTheme),
+      listener:
+          (
+            BuildContext context,
+            InsightAnnotation? previousValue,
+            InsightAnnotation? currentValue,
+          ) => _updateAnimations(
+            context,
+            previousValue,
+            currentValue,
+            lightTheme,
+          ),
       child: Material(
         color: Color.lerp(
           (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
@@ -219,9 +212,7 @@ class _SimpleInputListRobotoffSuggestionHeaderState
             color: context.lightTheme() ? Colors.black : Colors.white,
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: 10.0,
-            ),
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 10.0),
             child: IntrinsicHeight(
               child: Row(
                 children: <Widget>[
@@ -247,8 +238,7 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                                 builder: (_, RobotoffQuestion question, __) {
                                   return AutoSizeText(
                                     question.value!,
-                                    style: TextTheme.of(context)
-                                        .bodyLarge
+                                    style: TextTheme.of(context).bodyLarge
                                         ?.copyWith(
                                           color: _colorAnimation.value,
                                           fontWeight: FontWeight.w600,
@@ -276,15 +266,13 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                     ),
                   ),
                   RobotoffSuggestionListItemButton(
-                    icon: const Icon(
-                      Icons.delete,
-                      size: 25.0,
-                    ),
+                    icon: const Icon(Icons.delete, size: 25.0),
                     padding: const EdgeInsetsDirectional.all(7.5),
                     tooltip:
                         appLocalizations.edit_product_form_item_deny_suggestion,
                     onTap: () => widget.onValueChanged(false),
-                    visible: annotation == null ||
+                    visible:
+                        annotation == null ||
                         annotation == InsightAnnotation.YES,
                   ),
                   RobotoffSuggestionListItemButton(
@@ -293,7 +281,8 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                     tooltip:
                         appLocalizations.edit_product_form_item_add_suggestion,
                     onTap: () => widget.onValueChanged(true),
-                    visible: annotation == null ||
+                    visible:
+                        annotation == null ||
                         annotation == InsightAnnotation.NO,
                   ),
                 ],
@@ -326,8 +315,8 @@ class _SimpleInputListRobotoffSuggestionHeaderState
   }
 
   Color _getTextColor(InsightAnnotation? value, bool lightTheme) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return switch (value) {
       InsightAnnotation.YES =>
@@ -346,9 +335,7 @@ class _SimpleInputListRobotoffSuggestionHeaderState
 }
 
 class _RobotoffSuggestionSparkles extends StatefulWidget {
-  const _RobotoffSuggestionSparkles({
-    required this.status,
-  });
+  const _RobotoffSuggestionSparkles({required this.status});
 
   final _RobotoffSuggestionStatus status;
 
@@ -383,8 +370,8 @@ class _RobotoffSuggestionSparklesState
     }
     _isInitialized = true;
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     _circleColorAnimation = ColorTween(
@@ -400,8 +387,8 @@ class _RobotoffSuggestionSparklesState
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.status != widget.status) {
-      final SmoothColorsThemeExtension extension =
-          context.extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension = context
+          .extension<SmoothColorsThemeExtension>();
       final bool lightTheme = context.lightTheme();
 
       _circleColorAnimation = ColorTween(
@@ -446,8 +433,11 @@ class _RobotoffSuggestionSparklesState
     );
   }
 
-  Color _backgroundColor(_RobotoffSuggestionStatus status,
-      SmoothColorsThemeExtension ext, bool lightTheme) {
+  Color _backgroundColor(
+    _RobotoffSuggestionStatus status,
+    SmoothColorsThemeExtension ext,
+    bool lightTheme,
+  ) {
     return switch (status) {
       _RobotoffSuggestionStatus.positive => ext.successBackground,
       _RobotoffSuggestionStatus.negative => ext.errorBackground,
@@ -455,8 +445,11 @@ class _RobotoffSuggestionSparklesState
     };
   }
 
-  Color _iconColor(_RobotoffSuggestionStatus status,
-      SmoothColorsThemeExtension ext, bool lightTheme) {
+  Color _iconColor(
+    _RobotoffSuggestionStatus status,
+    SmoothColorsThemeExtension ext,
+    bool lightTheme,
+  ) {
     return switch (status) {
       _RobotoffSuggestionStatus.positive => ext.success,
       _RobotoffSuggestionStatus.negative => ext.error,

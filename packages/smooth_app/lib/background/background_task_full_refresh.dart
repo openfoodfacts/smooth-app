@@ -30,13 +30,8 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
     required final int pageSize,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final String uniqueId = await _operationType.getNewKey(
-      localDatabase,
-    );
-    final BackgroundTask task = _getNewTask(
-      uniqueId,
-      pageSize,
-    );
+    final String uniqueId = await _operationType.getNewKey(localDatabase);
+    final BackgroundTask task = _getNewTask(uniqueId, pageSize);
     if (!context.mounted) {
       return;
     }
@@ -49,22 +44,21 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      (
-        appLocalizations.background_task_title_full_refresh,
-        AlignmentDirectional.bottomCenter,
-      );
+    final AppLocalizations appLocalizations,
+  ) => (
+    appLocalizations.background_task_title_full_refresh,
+    AlignmentDirectional.bottomCenter,
+  );
 
   static BackgroundTaskFullRefresh _getNewTask(
     final String uniqueId,
     final int pageSize,
-  ) =>
-      BackgroundTaskFullRefresh._(
-        processName: _operationType.processName,
-        uniqueId: uniqueId,
-        stamp: ';fullRefresh',
-        pageSize: pageSize,
-      );
+  ) => BackgroundTaskFullRefresh._(
+    processName: _operationType.processName,
+    uniqueId: uniqueId,
+    stamp: ';fullRefresh',
+    pageSize: pageSize,
+  );
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
@@ -72,9 +66,7 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
     final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
 
     for (final ProductType productType in ProductType.values) {
-      await daoWorkBarcode.deleteWork(
-        WorkType.freshKP.getWorkTag(productType),
-      );
+      await daoWorkBarcode.deleteWork(WorkType.freshKP.getWorkTag(productType));
       await daoWorkBarcode.deleteWork(
         WorkType.freshNoKP.getWorkTag(productType),
       );
@@ -82,14 +74,14 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
 
     // We separate the products into lists, products with or without
     // knowledge panels, and split by product types.
-    final Map<String, List<String>> split = await daoProduct.splitAllProducts(
-      (Product product) {
-        final bool noKP = product.knowledgePanels == null;
-        final WorkType workType = noKP ? WorkType.freshNoKP : WorkType.freshKP;
-        final ProductType productType = product.productType ?? ProductType.food;
-        return workType.getWorkTag(productType);
-      },
-    );
+    final Map<String, List<String>> split = await daoProduct.splitAllProducts((
+      Product product,
+    ) {
+      final bool noKP = product.knowledgePanels == null;
+      final WorkType workType = noKP ? WorkType.freshNoKP : WorkType.freshKP;
+      final ProductType productType = product.productType ?? ProductType.food;
+      return workType.getWorkTag(productType);
+    });
     for (int i = 0; i <= 1; i++) {
       final bool noKP = i == 0;
       final WorkType workType = noKP ? WorkType.freshNoKP : WorkType.freshKP;
@@ -103,8 +95,9 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
           barcodes: barcodes,
           work: tag,
           localDatabase: localDatabase,
-          downloadFlag:
-              noKP ? BackgroundTaskDownloadProducts.flagMaskExcludeKP : 0,
+          downloadFlag: noKP
+              ? BackgroundTaskDownloadProducts.flagMaskExcludeKP
+              : 0,
           productType: productType,
         );
       }

@@ -7,24 +7,23 @@ import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 extension ImageFieldSmoothieExtension on ImageField {
   static List<ImageField> getOrderedMainImageFields(
     final ProductType? productType,
-  ) =>
-      switch (productType) {
-        ProductType.product => const <ImageField>[
-            ImageField.FRONT,
-            ImageField.PACKAGING,
-          ],
-        ProductType.beauty => const <ImageField>[
-            ImageField.FRONT,
-            ImageField.INGREDIENTS,
-            ImageField.PACKAGING,
-          ],
-        null || ProductType.food || ProductType.petFood => const <ImageField>[
-            ImageField.FRONT,
-            ImageField.INGREDIENTS,
-            ImageField.NUTRITION,
-            ImageField.PACKAGING,
-          ],
-      };
+  ) => switch (productType) {
+    ProductType.product => const <ImageField>[
+      ImageField.FRONT,
+      ImageField.PACKAGING,
+    ],
+    ProductType.beauty => const <ImageField>[
+      ImageField.FRONT,
+      ImageField.INGREDIENTS,
+      ImageField.PACKAGING,
+    ],
+    null || ProductType.food || ProductType.petFood => const <ImageField>[
+      ImageField.FRONT,
+      ImageField.INGREDIENTS,
+      ImageField.NUTRITION,
+      ImageField.PACKAGING,
+    ],
+  };
 
   void setUrl(final Product product, final String url) {
     switch (this) {
@@ -87,56 +86,49 @@ extension ImageFieldSmoothieExtension on ImageField {
 
   String getPictureAccessibilityLabel(
     final AppLocalizations appLocalizations,
-  ) =>
-      switch (this) {
-        ImageField.FRONT =>
-          appLocalizations.product_image_front_accessibility_label,
-        ImageField.INGREDIENTS =>
-          appLocalizations.product_image_ingredients_accessibility_label,
-        ImageField.NUTRITION =>
-          appLocalizations.product_image_nutrition_accessibility_label,
-        ImageField.PACKAGING =>
-          appLocalizations.product_image_packaging_accessibility_label,
-        ImageField.OTHER =>
-          appLocalizations.product_image_other_accessibility_label,
-      };
+  ) => switch (this) {
+    ImageField.FRONT =>
+      appLocalizations.product_image_front_accessibility_label,
+    ImageField.INGREDIENTS =>
+      appLocalizations.product_image_ingredients_accessibility_label,
+    ImageField.NUTRITION =>
+      appLocalizations.product_image_nutrition_accessibility_label,
+    ImageField.PACKAGING =>
+      appLocalizations.product_image_packaging_accessibility_label,
+    ImageField.OTHER =>
+      appLocalizations.product_image_other_accessibility_label,
+  };
 
   Widget getPhotoButton(
     final BuildContext context,
     final Product product,
     final bool isLoggedInMandatory,
-  ) =>
-      SmoothLargeButtonWithIcon(
-        onPressed: () async => openDetails(
-          context,
-          product,
-          isLoggedInMandatory,
-        ),
-        leadingIcon: const Icon(Icons.camera_alt),
-        text: getProductImageButtonText(AppLocalizations.of(context)),
-      );
+  ) => SmoothLargeButtonWithIcon(
+    onPressed: () async => openDetails(context, product, isLoggedInMandatory),
+    leadingIcon: const Icon(Icons.camera_alt),
+    text: getProductImageButtonText(AppLocalizations.of(context)),
+  );
 
   Future<void> openDetails(
     final BuildContext context,
     final Product product,
     final bool isLoggedInMandatory,
-  ) =>
-      Navigator.push(
-        context,
-        MaterialPageRoute<void>(
-          builder: (_) => ProductImageSwipeableView.imageField(
-            imageField: this,
-            product: product,
-            isLoggedInMandatory: isLoggedInMandatory,
-          ),
-        ),
-      );
+  ) => Navigator.push(
+    context,
+    MaterialPageRoute<void>(
+      builder: (_) => ProductImageSwipeableView.imageField(
+        imageField: this,
+        product: product,
+        isLoggedInMandatory: isLoggedInMandatory,
+      ),
+    ),
+  );
 
   String? getImageUrl(Product product) => switch (this) {
-        ImageField.FRONT => product.imageFrontUrl,
-        ImageField.INGREDIENTS => product.imageIngredientsUrl,
-        ImageField.NUTRITION => product.imageNutritionUrl,
-        ImageField.PACKAGING => product.imagePackagingUrl,
-        ImageField.OTHER => null,
-      };
+    ImageField.FRONT => product.imageFrontUrl,
+    ImageField.INGREDIENTS => product.imageIngredientsUrl,
+    ImageField.NUTRITION => product.imageNutritionUrl,
+    ImageField.PACKAGING => product.imagePackagingUrl,
+    ImageField.OTHER => null,
+  };
 }

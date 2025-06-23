@@ -34,23 +34,22 @@ class ProductImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final DateFormat dateFormat =
-        DateFormat.yMd(ProductQuery.getLanguage().offTag);
+    final DateFormat dateFormat = DateFormat.yMd(
+      ProductQuery.getLanguage().offTag,
+    );
 
     final Widget image = SmoothImage(
-      cacheHeight:
-          (squareSize * MediaQuery.devicePixelRatioOf(context)).toInt(),
+      cacheHeight: (squareSize * MediaQuery.devicePixelRatioOf(context))
+          .toInt(),
       width: squareSize,
       height: squareSize,
       imageProvider: NetworkImage(
         productImage.getUrl(
           barcode,
-          uriHelper: ProductQuery.getUriProductHelper(
-            productType: productType,
-          ),
+          uriHelper: ProductQuery.getUriProductHelper(productType: productType),
           imageSize: imageSize,
         ),
       ),
@@ -79,9 +78,7 @@ class ProductImageWidget extends StatelessWidget {
           borderRadius: ANGULAR_BORDER_RADIUS,
           child: Column(
             children: <Widget>[
-              Expanded(
-                child: image,
-              ),
+              Expanded(child: image),
               SizedBox(
                 width: double.infinity,
                 child: Padding(
@@ -112,7 +109,7 @@ class ProductImageWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

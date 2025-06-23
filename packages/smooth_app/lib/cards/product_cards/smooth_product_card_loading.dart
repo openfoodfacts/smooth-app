@@ -7,10 +7,8 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ScanProductCardLoading extends StatelessWidget {
-  ScanProductCardLoading({
-    required this.barcode,
-    this.onRemoveProduct,
-  }) : assert(barcode.isNotEmpty);
+  ScanProductCardLoading({required this.barcode, this.onRemoveProduct})
+    : assert(barcode.isNotEmpty);
 
   final String barcode;
   final OnRemoveCallback? onRemoveProduct;
@@ -18,8 +16,8 @@ class ScanProductCardLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return ScanProductBaseCard(
       headerLabel: appLocalizations.carousel_loading_header,
@@ -32,16 +30,11 @@ class ScanProductCardLoading extends StatelessWidget {
           ScanProductBaseCardTitle(
             title: appLocalizations.carousel_loading_title,
           ),
-          ScanProductBaseCardBarcode(
-            barcode: barcode,
-            height: 75.0,
-          ),
+          ScanProductBaseCardBarcode(barcode: barcode, height: 75.0),
           ScanProductBaseCardText(
             text: TextWithBoldParts(
               text: appLocalizations.carousel_loading_text,
-              textStyle: const TextStyle(
-                fontSize: 14.5,
-              ),
+              textStyle: const TextStyle(fontSize: 14.5),
             ),
           ),
           const Spacer(flex: 10),

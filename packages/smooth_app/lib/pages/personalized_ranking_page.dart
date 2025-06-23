@@ -22,10 +22,7 @@ import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  const PersonalizedRankingPage({
-    required this.barcodes,
-    required this.title,
-  });
+  const PersonalizedRankingPage({required this.barcodes, required this.title});
 
   final List<String> barcodes;
   final String title;
@@ -59,20 +56,16 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final bool? added = await ProductListUserDialogHelper(daoProductList)
-        .showUserAddProductsDialog(
-      context,
-      widget.barcodes.toSet(),
-    );
+    final bool? added = await ProductListUserDialogHelper(
+      daoProductList,
+    ).showUserAddProductsDialog(context, widget.barcodes.toSet());
     if (!context.mounted) {
       return;
     }
     if (added != null && added) {
       ScaffoldMessenger.of(context).showSnackBar(
         SmoothFloatingSnackbar(
-          content: Text(
-            appLocalizations.added_to_list_msg,
-          ),
+          content: Text(appLocalizations.added_to_list_msg),
           duration: SnackBarDuration.medium,
         ),
       );
@@ -91,8 +84,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 
   @override
   Widget build(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
     context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
@@ -118,8 +111,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         create: (final BuildContext context) => _model,
         builder: (final BuildContext context, final Widget? wtf) {
           context.watch<PersonalizedRankingModel>();
-          final List<String> compactPreferences =
-              productPreferences.getCompactView();
+          final List<String> compactPreferences = productPreferences
+              .getCompactView();
           if (_compactPreferences == null) {
             _compactPreferences = compactPreferences;
             _model.refresh(productPreferences);
@@ -167,11 +160,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
           final bool darkMode = Theme.of(context).brightness == Brightness.dark;
           return ListView.builder(
             itemCount: list.length,
-            itemBuilder: (BuildContext context, int index) => _buildItem(
-              list[index],
-              appLocalizations,
-              darkMode,
-            ),
+            itemBuilder: (BuildContext context, int index) =>
+                _buildItem(list[index], appLocalizations, darkMode),
           );
         },
       ),
@@ -182,26 +172,18 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     final _VirtualItem item,
     final AppLocalizations appLocalizations,
     final bool darkMode,
-  ) =>
-      item.status != null
-          ? _buildHeader(
-              item.status!,
-              appLocalizations,
-              darkMode,
-            )
-          : _buildSmoothProductCard(
-              item.score!,
-              appLocalizations,
-              darkMode,
-            );
+  ) => item.status != null
+      ? _buildHeader(item.status!, appLocalizations, darkMode)
+      : _buildSmoothProductCard(item.score!, appLocalizations, darkMode);
 
   Widget _buildHeader(
     final MatchedProductStatusV2 status,
     final AppLocalizations appLocalizations,
     final bool darkMode,
   ) {
-    final ProductCompatibilityHelper helper =
-        ProductCompatibilityHelper.status(status);
+    final ProductCompatibilityHelper helper = ProductCompatibilityHelper.status(
+      status,
+    );
     return SizedBox(
       width: double.infinity,
       child: ColoredBox(
@@ -212,10 +194,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
             helper.getHeaderText(appLocalizations),
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.0,
-                  color: Colors.white,
-                ),
+              fontWeight: FontWeight.w600,
+              fontSize: 15.0,
+              color: Colors.white,
+            ),
           ),
         ),
       ),
@@ -226,36 +208,31 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     final MatchedScoreV2 matchedProduct,
     final AppLocalizations appLocalizations,
     final bool darkMode,
-  ) =>
-      Dismissible(
-        direction: DismissDirection.endToStart,
-        background: Container(
-          alignment: AlignmentDirectional.centerEnd,
-          color: RED_COLOR,
-          padding: const EdgeInsetsDirectional.only(end: 30.0),
-          child: const Icon(
-            Icons.delete,
-            color: Colors.white,
-          ),
-        ),
-        key: Key(matchedProduct.barcode),
-        onDismissed: (final DismissDirection direction) {
-          _model.dismiss(matchedProduct.barcode);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SmoothFloatingSnackbar(
-              content: Text(appLocalizations.product_removed_comparison),
-              duration: SnackBarDuration.medium,
-            ),
-          );
-        },
-        child: ProductListItemSimple(
-          barcode: matchedProduct.barcode,
-          backgroundColor:
-              ProductCompatibilityHelper.status(matchedProduct.status)
-                  .getColor(context)
-                  .withAlpha(_backgroundAlpha),
+  ) => Dismissible(
+    direction: DismissDirection.endToStart,
+    background: Container(
+      alignment: AlignmentDirectional.centerEnd,
+      color: RED_COLOR,
+      padding: const EdgeInsetsDirectional.only(end: 30.0),
+      child: const Icon(Icons.delete, color: Colors.white),
+    ),
+    key: Key(matchedProduct.barcode),
+    onDismissed: (final DismissDirection direction) {
+      _model.dismiss(matchedProduct.barcode);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SmoothFloatingSnackbar(
+          content: Text(appLocalizations.product_removed_comparison),
+          duration: SnackBarDuration.medium,
         ),
       );
+    },
+    child: ProductListItemSimple(
+      barcode: matchedProduct.barcode,
+      backgroundColor: ProductCompatibilityHelper.status(
+        matchedProduct.status,
+      ).getColor(context).withAlpha(_backgroundAlpha),
+    ),
+  );
 }
 
 /// Virtual item in the list: either a product or a status header

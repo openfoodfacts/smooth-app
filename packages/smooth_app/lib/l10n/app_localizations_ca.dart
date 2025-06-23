@@ -804,8 +804,12 @@ class AppLocalizationsCa extends AppLocalizations {
   String get crop_page_too_small_image_title => 'La imatge és massa petita!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'La mida mínima en píxels per pujar imatges és ${expectedMinWidth}x$expectedMinHeight. La imatge actual és de ${actualWidth}x$actualHeight.';
   }
 
@@ -1380,7 +1384,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
@@ -1598,20 +1604,33 @@ class AppLocalizationsCa extends AppLocalizations {
       'Si canvieu d\'opinió, aquesta opció es pot activar o desactivar en qualsevol moment des de la configuració.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'Sistema operatiu: Android (SDK Int: $sdkInt / Versió: $release)\nModel: $model\nProducte: $product\nDispositiu: $device\nMarca:$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'Sistema operatiu: iOS ($version)\nModel: $model\nModel localitzat: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nVersió de l\'aplicació:$appVersion\nNúmero de compilació de l\'aplicació:$appBuildNumber\nNom del paquet de l\'aplicació:$appPackageName';
   }
 
@@ -2648,7 +2667,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
@@ -2832,7 +2855,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
@@ -2891,7 +2916,10 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Descarrega $count productes més\nJa s\'han descarregat $downloaded de $totalSize.';
   }
 

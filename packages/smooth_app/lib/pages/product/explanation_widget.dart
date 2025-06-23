@@ -27,9 +27,7 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
             crossFadeState: _expanded
                 ? CrossFadeState.showFirst
                 : CrossFadeState.showSecond,
-            firstChild: _ExpandedExplanation(
-              explanations: widget.explanations,
-            ),
+            firstChild: _ExpandedExplanation(explanations: widget.explanations),
             secondChild: _CollapsedExplanation(
               explanations: widget.explanations,
             ),
@@ -41,20 +39,14 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
 }
 
 class _CollapsedExplanation extends StatelessWidget {
-  const _CollapsedExplanation({
-    required this.explanations,
-  });
+  const _CollapsedExplanation({required this.explanations});
 
   final String explanations;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(
-        explanations,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-      ),
+      title: Text(explanations, maxLines: 2, overflow: TextOverflow.ellipsis),
       trailing: const Icon(Icons.info_outline),
       contentPadding: const EdgeInsetsDirectional.only(
         start: SMALL_SPACE * 2,
@@ -65,9 +57,7 @@ class _CollapsedExplanation extends StatelessWidget {
 }
 
 class _ExpandedExplanation extends StatelessWidget {
-  const _ExpandedExplanation({
-    required this.explanations,
-  });
+  const _ExpandedExplanation({required this.explanations});
 
   final String explanations;
 
@@ -99,9 +89,6 @@ class _ExpandedExplanation extends StatelessWidget {
       }
     }
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: result,
-    );
+    return Column(mainAxisSize: MainAxisSize.min, children: result);
   }
 }

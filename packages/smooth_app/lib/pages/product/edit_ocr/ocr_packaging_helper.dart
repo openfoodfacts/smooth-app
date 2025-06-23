@@ -16,24 +16,20 @@ class OcrPackagingHelper extends OcrHelper {
   String? getMonolingualText(final Product product) => product.packaging;
 
   @override
-  void setMonolingualText(
-    final Product product,
-    final String text,
-  ) =>
+  void setMonolingualText(final Product product, final String text) =>
       // ignore: deprecated_member_use
       product.packaging = text;
 
   @override
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-          final Product product) =>
-      product.packagingTextInLanguages;
+    final Product product,
+  ) => product.packagingTextInLanguages;
 
   @override
   void setMultilingualTexts(
     final Product product,
     final Map<OpenFoodFactsLanguage, String> texts,
-  ) =>
-      product.packagingTextInLanguages = texts;
+  ) => product.packagingTextInLanguages = texts;
 
   @override
   String? getImageUrl(final Product product) => product.imagePackagingUrl;

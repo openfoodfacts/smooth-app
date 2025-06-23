@@ -49,16 +49,17 @@ class _NutrientRowState extends State<NutrientRow>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: SmoothAnimationsDuration.medium,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..addStatusListener((final AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          _colorAnimation = null;
-        }
-      });
+    _controller =
+        AnimationController(
+            duration: SmoothAnimationsDuration.medium,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..addStatusListener((final AnimationStatus status) {
+            if (status == AnimationStatus.completed) {
+              _colorAnimation = null;
+            }
+          });
   }
 
   @override
@@ -76,8 +77,8 @@ class _NutrientRowState extends State<NutrientRow>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final String key = widget.orderedNutrient.id;
 
     Color color;
@@ -87,29 +88,33 @@ class _NutrientRowState extends State<NutrientRow>
       color = _getColor(extension);
     }
 
-    final TextEditingControllerWithHistory controller =
-        context.watch<TextEditingControllerWithHistory>();
+    final TextEditingControllerWithHistory controller = context
+        .watch<TextEditingControllerWithHistory>();
 
-    final RobotoffNutrientEntity? robotoffNutrientEntity =
-        widget.nutritionContainer.robotoffNutrientExtraction?.getNutrientEntity(
-      widget.orderedNutrient.nutrient!,
-      PerSize.oneHundredGrams,
-    );
+    final RobotoffNutrientEntity? robotoffNutrientEntity = widget
+        .nutritionContainer
+        .robotoffNutrientExtraction
+        ?.getNutrientEntity(
+          widget.orderedNutrient.nutrient!,
+          PerSize.oneHundredGrams,
+        );
 
     String? extractionValue = robotoffNutrientEntity?.value;
 
     // We need to make sure the value is formatted properly
     if (extractionValue != null) {
       if (extractionValue != 'traces') {
-        final num? extractionValueNum =
-            NumberFormat().tryParse(extractionValue);
+        final num? extractionValueNum = NumberFormat().tryParse(
+          extractionValue,
+        );
         if (extractionValueNum == null) {
           extractionValue = null;
         } else {
           try {
             // get a decent displayable numeric value if possible
-            extractionValue =
-                widget.decimalNumberFormat.format(extractionValueNum);
+            extractionValue = widget.decimalNumberFormat.format(
+              extractionValueNum,
+            );
           } catch (e) {
             // at least we tried
           }
@@ -156,7 +161,7 @@ class _NutrientRowState extends State<NutrientRow>
                               orderedNutrient: widget.orderedNutrient,
                             ),
                           ),
-                          const _NutrientUnitVisibility()
+                          const _NutrientUnitVisibility(),
                         ],
                       ),
                     ),
@@ -166,12 +171,8 @@ class _NutrientRowState extends State<NutrientRow>
             ),
             if (extractionValue != null && extractionValue != controller.text)
               Container(
-                margin: const EdgeInsetsDirectional.only(
-                  bottom: SMALL_SPACE,
-                ),
-                padding: const EdgeInsetsDirectional.only(
-                  start: MEDIUM_SPACE,
-                ),
+                margin: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
+                padding: const EdgeInsetsDirectional.only(start: MEDIUM_SPACE),
                 decoration: BoxDecoration(
                   color: extension.successBackground,
                   borderRadius: BorderRadius.circular(8.0),
@@ -194,8 +195,9 @@ class _NutrientRowState extends State<NutrientRow>
                       ),
                     ),
                     Tooltip(
-                      message: AppLocalizations.of(context)
-                          .edit_product_form_item_add_suggestion,
+                      message: AppLocalizations.of(
+                        context,
+                      ).edit_product_form_item_add_suggestion,
                       child: IconButton(
                         onPressed: () {
                           controller.text = extractionValue!;
@@ -218,10 +220,10 @@ class _NutrientRowState extends State<NutrientRow>
                           color: extension.success,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
           ],
         ),
       ),
@@ -256,14 +258,15 @@ class _NutrientValueCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Map<OrderedNutrient, FocusNode> focusNodes =
-        context.watch<Map<OrderedNutrient, FocusNode>>();
+    final Map<OrderedNutrient, FocusNode> focusNodes = context
+        .watch<Map<OrderedNutrient, FocusNode>>();
 
     final Product product = context.watch<Product>();
     final bool isLast = position == focusNodes.length - 1;
     final Nutrient? nutrient = orderedNutrient.nutrient;
 
-    final bool ownerFieldVisible = nutrient != null &&
+    final bool ownerFieldVisible =
+        nutrient != null &&
         product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) != null;
 
     return Semantics(
@@ -339,8 +342,9 @@ class _NutrientValueCell extends StatelessWidget {
                             return;
                           }
 
-                          final int position =
-                              focusNodes.keys.indexOf(orderedNutrient);
+                          final int position = focusNodes.keys.indexOf(
+                            orderedNutrient,
+                          );
 
                           focusNodes[focusNodes.keys.elementAt(position + 1)]
                               ?.requestFocus();
@@ -432,8 +436,9 @@ class _NutrientUnitCellState extends State<_NutrientUnitCell> {
                       return;
                     }
                     setState(
-                      () => widget.nutritionContainer
-                          .setNextWeightUnit(widget.orderedNutrient),
+                      () => widget.nutritionContainer.setNextWeightUnit(
+                        widget.orderedNutrient,
+                      ),
                     );
                   }
                 : null,
@@ -462,50 +467,48 @@ class _NutrientUnitVisibility extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _NutritionCellTextWatcher(
-      builder: (
-        BuildContext context,
-        TextEditingControllerWithHistory controller,
-      ) {
-        final bool isValueSet = controller.isSet;
+      builder:
+          (BuildContext context, TextEditingControllerWithHistory controller) {
+            final bool isValueSet = controller.isSet;
 
-        return AspectRatio(
-          aspectRatio: 1.0,
-          child: DecoratedBox(
-            decoration: ShapeDecoration(
-              color: isValueSet
-                  ? context
-                      .extension<SmoothColorsThemeExtension>()
-                      .primarySemiDark
-                  : Theme.of(context).disabledColor,
-              shape: const CircleBorder(),
-            ),
-            child: Material(
-              type: MaterialType.transparency,
-              child: InkWell(
-                customBorder: const CircleBorder(),
-                onTap: () {
-                  if (isValueSet) {
-                    controller.text = _missingNutrientValue;
-                  } else {
-                    if (controller.previousValue != _missingNutrientValue) {
-                      controller.text =
-                          controller.previousValue ?? _missingNutrientValue;
-                    } else {
-                      controller.text = '';
-                    }
-                  }
-                },
-                child: Icon(
-                  isValueSet
-                      ? Icons.visibility_rounded
-                      : Icons.visibility_off_rounded,
-                  color: Colors.white,
+            return AspectRatio(
+              aspectRatio: 1.0,
+              child: DecoratedBox(
+                decoration: ShapeDecoration(
+                  color: isValueSet
+                      ? context
+                            .extension<SmoothColorsThemeExtension>()
+                            .primarySemiDark
+                      : Theme.of(context).disabledColor,
+                  shape: const CircleBorder(),
+                ),
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: InkWell(
+                    customBorder: const CircleBorder(),
+                    onTap: () {
+                      if (isValueSet) {
+                        controller.text = _missingNutrientValue;
+                      } else {
+                        if (controller.previousValue != _missingNutrientValue) {
+                          controller.text =
+                              controller.previousValue ?? _missingNutrientValue;
+                        } else {
+                          controller.text = '';
+                        }
+                      }
+                    },
+                    child: Icon(
+                      isValueSet
+                          ? Icons.visibility_rounded
+                          : Icons.visibility_off_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        );
-      },
+            );
+          },
     );
   }
 }
@@ -518,37 +521,40 @@ extension NutritionTextEditionController on TextEditingController {
 
 /// Use this Widget to be notified when the value is set or not
 class _NutritionCellTextWatcher extends StatelessWidget {
-  const _NutritionCellTextWatcher({
-    required this.builder,
-  });
+  const _NutritionCellTextWatcher({required this.builder});
 
   final Widget Function(
     BuildContext context,
     TextEditingControllerWithHistory value,
-  ) builder;
+  )
+  builder;
 
   @override
   Widget build(BuildContext context) {
-    return Selector<TextEditingControllerWithHistory,
-        TextEditingControllerWithHistory>(
+    return Selector<
+      TextEditingControllerWithHistory,
+      TextEditingControllerWithHistory
+    >(
       selector: (_, TextEditingControllerWithHistory controller) {
         return controller;
       },
       shouldRebuild: (_, TextEditingControllerWithHistory controller) {
         return controller.isDifferentFromPreviousValue;
       },
-      builder: (BuildContext context,
-          TextEditingControllerWithHistory controller, _) {
-        return builder(context, controller);
-      },
+      builder:
+          (
+            BuildContext context,
+            TextEditingControllerWithHistory controller,
+            _,
+          ) {
+            return builder(context, controller);
+          },
     );
   }
 }
 
 class NutritionFactsEditorExplanation extends StatelessWidget {
-  const NutritionFactsEditorExplanation({
-    super.key,
-  });
+  const NutritionFactsEditorExplanation({super.key});
 
   @override
   Widget build(BuildContext context) {

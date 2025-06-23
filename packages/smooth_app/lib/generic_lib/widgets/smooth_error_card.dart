@@ -35,9 +35,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
 
   Widget _getTryAgainButton() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: _horizontalPaddingButtons,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: _horizontalPaddingButtons),
       child: SmoothSimpleButton(
         onPressed: widget.tryAgainFunction,
         minWidth: double.infinity,
@@ -52,31 +50,29 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Icon(
-            Icons.error_outline,
-            size: 40,
-            color: Colors.red,
-          ),
+          const Icon(Icons.error_outline, size: 40, color: Colors.red),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: SMALL_SPACE, vertical: VERY_SMALL_SPACE),
+                horizontal: SMALL_SPACE,
+                vertical: VERY_SMALL_SPACE,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     _appLocalizations.error_occurred,
                     style: Theme.of(context).textTheme.bodyMedium?.apply(
-                          fontWeightDelta: 500,
-                          color: Colors.red,
-                        ),
+                      fontWeightDelta: 500,
+                      color: Colors.red,
+                    ),
                   ),
                   const SizedBox(height: VERY_LARGE_SPACE),
                   Text(
                     widget.errorMessage,
-                    style: Theme.of(context).textTheme.bodyMedium?.apply(
-                          fontWeightDelta: 500,
-                        ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.apply(fontWeightDelta: 500),
                   ).selectable(),
                 ],
               ),
@@ -93,9 +89,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
     }
 
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: _horizontalPaddingButtons,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: _horizontalPaddingButtons),
       child: SmoothSimpleButton(
         onPressed: _setShowErrorText,
         minWidth: double.infinity,
@@ -106,9 +100,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
 
   Widget _getBody() {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: VERY_LARGE_SPACE,
-      ),
+      padding: const EdgeInsets.symmetric(vertical: VERY_LARGE_SPACE),
       child: Column(
         children: <Widget>[
           _getTryAgainButton(),
@@ -124,10 +116,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
       padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
       child: Text(
         _appLocalizations.there_was_an_error,
-        style: const TextStyle(
-          fontSize: 24.0,
-          fontWeight: FontWeight.bold,
-        ),
+        style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -148,11 +137,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
       child: SmoothCard(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            _getErrorSvg(),
-            _getTitle(),
-            _getBody(),
-          ],
+          children: <Widget>[_getErrorSvg(), _getTitle(), _getBody()],
         ),
       ),
     );

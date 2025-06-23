@@ -58,13 +58,14 @@ class LanguagesSelector extends StatelessWidget {
       final String currentLanguageCode = ProductQuery.getLanguage().code;
       language = LanguageHelper.fromJson(currentLanguageCode);
     }
-    final DaoStringList daoStringList =
-        DaoStringList(context.read<LocalDatabase>());
+    final DaoStringList daoStringList = DaoStringList(
+      context.read<LocalDatabase>(),
+    );
 
-    final TextStyle textStyle = Theme.of(context)
-            .textTheme
-            .bodyMedium
-            ?.copyWith(color: foregroundColor) ??
+    final TextStyle textStyle =
+        Theme.of(
+          context,
+        ).textTheme.bodyMedium?.copyWith(color: foregroundColor) ??
         TextStyle(color: foregroundColor);
 
     return Material(
@@ -94,10 +95,7 @@ class LanguagesSelector extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Icon(
-                Icons.language,
-                color: foregroundColor,
-              ),
+              Icon(Icons.language, color: foregroundColor),
               Expanded(
                 flex: 1,
                 child: Padding(
@@ -111,9 +109,7 @@ class LanguagesSelector extends StatelessWidget {
                 ),
               ),
               IconTheme(
-                data: IconThemeData(
-                  color: foregroundColor ?? textStyle.color,
-                ),
+                data: IconThemeData(color: foregroundColor ?? textStyle.color),
                 child: icon ?? const Icon(Icons.arrow_drop_down),
               ),
             ],
@@ -137,8 +133,8 @@ class LanguagesSelector extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
-    final List<OpenFoodFactsLanguage> allLanguages =
-        _languages.getSupportedLanguagesNameInEnglish();
+    final List<OpenFoodFactsLanguage> allLanguages = _languages
+        .getSupportedLanguagesNameInEnglish();
 
     final Map<String, int> popularList = userPreferences.languagesUsage;
 
@@ -165,9 +161,10 @@ class LanguagesSelector extends StatelessWidget {
     }
 
     // Only keep the 3 most popular languages
-    popularLanguagesList =
-        _filterLanguagesByPopularity(popularLanguagesList, popularList)
-            .toList(growable: false);
+    popularLanguagesList = _filterLanguagesByPopularity(
+      popularLanguagesList,
+      popularList,
+    ).toList(growable: false);
 
     // Sort the languages alphabetically
     final Languages languagesHelper = Languages();
@@ -180,21 +177,21 @@ class LanguagesSelector extends StatelessWidget {
 
     final OpenFoodFactsLanguage? language =
         await showSmoothModalSheetForTextField<OpenFoodFactsLanguage>(
-      context: context,
-      header: SmoothModalSheetHeader(
-        title: title ?? appLocalizations.language_selector_title,
-        prefix: const SmoothModalSheetHeaderPrefixIndicator(),
-        suffix: const SmoothModalSheetHeaderCloseButton(),
-      ),
-      bodyBuilder: (BuildContext context) {
-        return _LanguagesList(
-          selectedLanguages: selectedLanguagesList,
-          popularLanguages: popularLanguagesList,
-          otherLanguages: otherLanguagesList,
-          checkedIcon: checkedIcon,
+          context: context,
+          header: SmoothModalSheetHeader(
+            title: title ?? appLocalizations.language_selector_title,
+            prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+            suffix: const SmoothModalSheetHeaderCloseButton(),
+          ),
+          bodyBuilder: (BuildContext context) {
+            return _LanguagesList(
+              selectedLanguages: selectedLanguagesList,
+              popularLanguages: popularLanguagesList,
+              otherLanguages: otherLanguagesList,
+              checkedIcon: checkedIcon,
+            );
+          },
         );
-      },
-    );
 
     if (language != null) {
       userPreferences.increaseLanguageUsage(language);
@@ -203,9 +200,7 @@ class LanguagesSelector extends StatelessWidget {
     return language;
   }
 
-  static String _getCompleteName(
-    final OpenFoodFactsLanguage language,
-  ) {
+  static String _getCompleteName(final OpenFoodFactsLanguage language) {
     final String nameInLanguage = _languages.getNameInLanguage(language);
     final String nameInEnglish = _languages.getNameInEnglish(language);
     return '$nameInLanguage ($nameInEnglish)';
@@ -215,8 +210,10 @@ class LanguagesSelector extends StatelessWidget {
     List<OpenFoodFactsLanguage> languages,
     Languages languagesHelper,
   ) {
-    return languages
-        .sort((final OpenFoodFactsLanguage a, final OpenFoodFactsLanguage b) {
+    return languages.sort((
+      final OpenFoodFactsLanguage a,
+      final OpenFoodFactsLanguage b,
+    ) {
       return languagesHelper
           .getNameInEnglish(a)
           .compareTo(languagesHelper.getNameInEnglish(b));
@@ -228,13 +225,11 @@ class LanguagesSelector extends StatelessWidget {
     List<OpenFoodFactsLanguage> languagesList,
     Map<String, int> popularList,
   ) {
-    languagesList.sort(
-      (OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
-        final int aUsage = popularList[a.offTag] ?? 0;
-        final int bUsage = popularList[b.offTag] ?? 0;
-        return bUsage.compareTo(aUsage);
-      },
-    );
+    languagesList.sort((OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
+      final int aUsage = popularList[a.offTag] ?? 0;
+      final int bUsage = popularList[b.offTag] ?? 0;
+      return bUsage.compareTo(aUsage);
+    });
 
     return languagesList.take(3);
   }
@@ -269,15 +264,16 @@ class _LanguagesListState extends State<_LanguagesList> {
     super.initState();
     _otherLanguages = List<OpenFoodFactsLanguage>.of(widget.otherLanguages);
     _popularLanguages = List<OpenFoodFactsLanguage>.of(widget.popularLanguages);
-    _selectedLanguages =
-        List<OpenFoodFactsLanguage>.of(widget.selectedLanguages);
+    _selectedLanguages = List<OpenFoodFactsLanguage>.of(
+      widget.selectedLanguages,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final double keyboardHeight = MediaQuery.viewInsetsOf(context).bottom;
 
@@ -285,7 +281,8 @@ class _LanguagesListState extends State<_LanguagesList> {
       children: <Widget>[
         SizedBox(
           width: double.infinity,
-          height: MediaQuery.sizeOf(context).height *
+          height:
+              MediaQuery.sizeOf(context).height *
               (widget.selectedLanguages.isNotEmpty ? 0.4 : 0.3),
           child: Theme(
             data: Theme.of(context).copyWith(
@@ -341,7 +338,7 @@ class _LanguagesListState extends State<_LanguagesList> {
           height: keyboardHeight > 0.0
               ? keyboardHeight
               : MediaQuery.viewPaddingOf(context).bottom,
-        )
+        ),
       ],
     );
   }
@@ -363,9 +360,9 @@ class _LanguagesListState extends State<_LanguagesList> {
         type == _LanguageType.selectedTitle
             ? appLocalizations.language_selector_section_selected
             : appLocalizations.language_selector_section_frequently_used,
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
+        style: Theme.of(
+          context,
+        ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -410,7 +407,7 @@ class _LanguagesListState extends State<_LanguagesList> {
       if (index < selectedLength + popularLength + diff) {
         return (
           _popularLanguages[index - selectedLength - diff],
-          _LanguageType.popular
+          _LanguageType.popular,
         );
       } else if (index == selectedLength + popularLength + diff) {
         return (null, _LanguageType.popularTitle);
@@ -420,7 +417,7 @@ class _LanguagesListState extends State<_LanguagesList> {
 
     return (
       _otherLanguages[index - selectedLength - popularLength - diff],
-      _LanguageType.other
+      _LanguageType.other,
     );
   }
 
@@ -450,24 +447,20 @@ class _LanguagesListState extends State<_LanguagesList> {
     final String queryForComparison = query.toLowerCase();
 
     return list
-        .where((OpenFoodFactsLanguage item) =>
-            Languages()
-                .getNameInEnglish(item)
-                .getComparisonSafeString()
-                .contains(queryForComparison) ||
-            Languages()
-                .getNameInLanguage(item)
-                .getComparisonSafeString()
-                .contains(queryForComparison) ||
-            item.code.contains(query))
+        .where(
+          (OpenFoodFactsLanguage item) =>
+              Languages()
+                  .getNameInEnglish(item)
+                  .getComparisonSafeString()
+                  .contains(queryForComparison) ||
+              Languages()
+                  .getNameInLanguage(item)
+                  .getComparisonSafeString()
+                  .contains(queryForComparison) ||
+              item.code.contains(query),
+        )
         .toList(growable: false);
   }
 }
 
-enum _LanguageType {
-  selected,
-  selectedTitle,
-  popular,
-  popularTitle,
-  other,
-}
+enum _LanguageType { selected, selectedTitle, popular, popularTitle, other }

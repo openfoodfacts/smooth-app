@@ -36,9 +36,7 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
-        title: Text(
-          appLocalizations.all_search_prices_top_location_title,
-        ),
+        title: Text(appLocalizations.all_search_prices_top_location_title),
         actions: <Widget>[
           IconButton(
             tooltip: appLocalizations.prices_app_button,
@@ -52,9 +50,7 @@ class _PricesLocationsPageState extends State<PricesLocationsPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<Location>(
-        manager: _locationManager,
-      ),
+      body: InfiniteScrollList<Location>(manager: _locationManager),
     );
   }
 }
@@ -65,21 +61,21 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
   Future<void> fetchData(final int pageNumber) async {
     final MaybeError<GetLocationsResult> result =
         await OpenPricesAPIClient.getLocations(
-      GetLocationsParameters()
-        ..orderBy = const <OrderBy<GetLocationsOrderField>>[
-          OrderBy<GetLocationsOrderField>(
-            field: GetLocationsOrderField.priceCount,
-            ascending: false,
-          ),
-          OrderBy<GetLocationsOrderField>(
-            field: GetLocationsOrderField.created,
-            ascending: false,
-          ),
-        ]
-        ..pageNumber = pageNumber
-        ..pageSize = 10,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          GetLocationsParameters()
+            ..orderBy = const <OrderBy<GetLocationsOrderField>>[
+              OrderBy<GetLocationsOrderField>(
+                field: GetLocationsOrderField.priceCount,
+                ascending: false,
+              ),
+              OrderBy<GetLocationsOrderField>(
+                field: GetLocationsOrderField.created,
+                ascending: false,
+              ),
+            ]
+            ..pageNumber = pageNumber
+            ..pageSize = 10,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (result.isError) {
       throw result.detailError;
     }
@@ -93,10 +89,7 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
   }
 
   @override
-  Widget buildItem({
-    required BuildContext context,
-    required Location item,
-  }) {
+  Widget buildItem({required BuildContext context, required Location item}) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final int priceCount = item.priceCount ?? 0;
 
@@ -118,9 +111,7 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
             iconData: PriceButton.userIconData,
             tooltip: item.userCount == null
                 ? null
-                : appLocalizations.prices_button_count_user(
-                    item.userCount!,
-                  ),
+                : appLocalizations.prices_button_count_user(item.userCount!),
           ),
           PriceButton(
             onPressed: () {},
@@ -138,9 +129,7 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
             iconData: PriceButton.proofIconData,
             tooltip: item.proofCount == null
                 ? null
-                : appLocalizations.prices_button_count_proof(
-                    item.proofCount!,
-                  ),
+                : appLocalizations.prices_button_count_proof(item.proofCount!),
           ),
         ],
       ),

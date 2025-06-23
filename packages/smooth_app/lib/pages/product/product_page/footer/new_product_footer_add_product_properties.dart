@@ -18,10 +18,7 @@ class ProductFooterAddPropertyButton extends StatelessWidget {
     return ProductFooterButton(
       label: appLocalizations.add_tag,
       icon: const icons.AddProperty.alt(),
-      onTap: () => _openFolksonomyPage(
-        context,
-        context.read<Product>(),
-      ),
+      onTap: () => _openFolksonomyPage(context, context.read<Product>()),
     );
   }
 
@@ -43,10 +40,8 @@ class ProductFooterAddPropertyButton extends StatelessWidget {
 
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => FolksonomyPage(
-          product: product,
-          provider: provider,
-        ),
+        builder: (BuildContext context) =>
+            FolksonomyPage(product: product, provider: provider),
       ),
     );
 

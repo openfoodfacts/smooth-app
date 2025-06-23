@@ -58,11 +58,11 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      (
-        appLocalizations.background_task_title_top_n,
-        AlignmentDirectional.bottomCenter,
-      );
+    final AppLocalizations appLocalizations,
+  ) => (
+    appLocalizations.background_task_title_top_n,
+    AlignmentDirectional.bottomCenter,
+  );
 
   static BackgroundTaskOffline _getNewTask(
     final String uniqueId,
@@ -70,16 +70,15 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
     final int pageSize,
     final int totalSize,
     final ProductType productType,
-  ) =>
-      BackgroundTaskOffline._(
-        processName: _operationType.processName,
-        uniqueId: uniqueId,
-        stamp: ';offline',
-        work: work,
-        pageSize: pageSize,
-        totalSize: totalSize,
-        productType: productType,
-      );
+  ) => BackgroundTaskOffline._(
+    processName: _operationType.processName,
+    uniqueId: uniqueId,
+    stamp: ';offline',
+    work: work,
+    pageSize: pageSize,
+    totalSize: totalSize,
+    productType: productType,
+  );
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}

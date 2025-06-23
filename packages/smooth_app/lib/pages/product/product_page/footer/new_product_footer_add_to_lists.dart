@@ -53,9 +53,8 @@ class _ProductFooterAddToListButtonState
         title: appLocalizations.user_list_title,
         suffix: const SmoothModalSheetHeaderCloseButton(),
       ),
-      bodyBuilder: (BuildContext context) => AddProductToListContainer(
-        barcode: product.barcode!,
-      ),
+      bodyBuilder: (BuildContext context) =>
+          AddProductToListContainer(barcode: product.barcode!),
     );
 
     if (context.mounted) {
@@ -67,10 +66,7 @@ class _ProductFooterAddToListButtonState
 }
 
 class _ProductUserListsProvider extends ValueNotifier<int> {
-  _ProductUserListsProvider(
-    this.dao,
-    this.barcode,
-  ) : super(0) {
+  _ProductUserListsProvider(this.dao, this.barcode) : super(0) {
     reload();
   }
 

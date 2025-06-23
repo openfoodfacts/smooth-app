@@ -16,19 +16,18 @@ class ScanMainCard extends StatelessWidget {
     return ConsumerFilter<AppNewsProvider>(
       buildWhen:
           (AppNewsProvider? previousValue, AppNewsProvider currentValue) {
-        return previousValue?.hasContent != currentValue.hasContent;
-      },
+            return previousValue?.hasContent != currentValue.hasContent;
+          },
       builder: (BuildContext context, AppNewsProvider newsFeed, _) {
         if (!newsFeed.hasContent) {
-          return const ScanSearchCard(
-            expandedMode: true,
-          );
+          return const ScanSearchCard(expandedMode: true);
         } else {
           return Semantics(
             explicitChildNodes: true,
             child: LayoutBuilder(
               builder: (_, BoxConstraints constraints) {
-                final bool dense = constraints.maxHeight * 0.4 <=
+                final bool dense =
+                    constraints.maxHeight * 0.4 <=
                     _maxHeight(context.textScaler());
 
                 if (dense) {
@@ -42,9 +41,7 @@ class ScanMainCard extends StatelessWidget {
                             constraints.maxHeight * 0.5,
                           ),
                         ),
-                        child: const ScanSearchCard(
-                          expandedMode: false,
-                        ),
+                        child: const ScanSearchCard(expandedMode: false),
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       const ScanBottomCard(dense: true),
@@ -55,15 +52,10 @@ class ScanMainCard extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         flex: 6,
-                        child: ScanSearchCard(
-                          expandedMode: false,
-                        ),
+                        child: ScanSearchCard(expandedMode: false),
                       ),
                       SizedBox(height: SMALL_SPACE),
-                      Expanded(
-                        flex: 4,
-                        child: ScanBottomCard(dense: false),
-                      ),
+                      Expanded(flex: 4, child: ScanBottomCard(dense: false)),
                     ],
                   );
                 }

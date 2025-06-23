@@ -117,9 +117,8 @@ class _EditNewPackagingsComponentState
                   onPressed: widget.deleteCallback,
                 )
               : null,
-          onTap: () => setState(
-            () => widget.helper.expanded = !widget.helper.expanded,
-          ),
+          onTap: () =>
+              setState(() => widget.helper.expanded = !widget.helper.expanded),
         ),
         ...expandedChildren,
       ],
@@ -175,45 +174,45 @@ class _EditTextLineState extends State<_EditTextLine> {
 
   @override
   Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            leading: SvgAsyncAsset(
-              AssetCacheHelper(
-                <String>['assets/packagings/${widget.iconName}.svg'],
-                'no url for packagings/${widget.iconName}',
-                color: widget.iconColor,
-                width: MINIMUM_TOUCH_SIZE,
-              ),
-            ),
-            title: Text(widget.title),
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      ListTile(
+        leading: SvgAsyncAsset(
+          AssetCacheHelper(
+            <String>['assets/packagings/${widget.iconName}.svg'],
+            'no url for packagings/${widget.iconName}',
+            color: widget.iconColor,
+            width: MINIMUM_TOUCH_SIZE,
           ),
-          LayoutBuilder(
-            builder: (_, BoxConstraints constraints) => SizedBox(
-              width: constraints.maxWidth,
-              child: SimpleInputTextField(
-                focusNode: _focusNode,
-                autocompleteKey: _autocompleteKey,
-                constraints: constraints,
-                tagType: widget.tagType,
-                hintText: '',
-                controller: widget.controller,
-                withClearButton: true,
-                minLengthForSuggestions: widget.minLengthForSuggestions,
-                categories: widget.categories,
-                shapeProvider: widget.shapeProvider,
-                productType: widget.productType,
-              ),
-            ),
+        ),
+        title: Text(widget.title),
+      ),
+      LayoutBuilder(
+        builder: (_, BoxConstraints constraints) => SizedBox(
+          width: constraints.maxWidth,
+          child: SimpleInputTextField(
+            focusNode: _focusNode,
+            autocompleteKey: _autocompleteKey,
+            constraints: constraints,
+            tagType: widget.tagType,
+            hintText: '',
+            controller: widget.controller,
+            withClearButton: true,
+            minLengthForSuggestions: widget.minLengthForSuggestions,
+            categories: widget.categories,
+            shapeProvider: widget.shapeProvider,
+            productType: widget.productType,
           ),
-          if (widget.hint != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-              child: ExplanationWidget(widget.hint!),
-            ),
-        ],
-      );
+        ),
+      ),
+      if (widget.hint != null)
+        Padding(
+          padding: const EdgeInsets.only(bottom: LARGE_SPACE),
+          child: ExplanationWidget(widget.hint!),
+        ),
+    ],
+  );
 }
 
 /// Edit display of a _number_ inside a [ProductPackaging], e.g. its weight.
@@ -257,42 +256,42 @@ class _EditNumberLineState extends State<_EditNumberLine> {
 
   @override
   Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            leading: SvgAsyncAsset(
-              AssetCacheHelper(
-                <String>['assets/packagings/${widget.iconName}.svg'],
-                'no url for packagings/${widget.iconName}',
-                color: widget.iconColor,
-                width: MINIMUM_TOUCH_SIZE,
-              ),
-            ),
-            title: Text(widget.title),
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      ListTile(
+        leading: SvgAsyncAsset(
+          AssetCacheHelper(
+            <String>['assets/packagings/${widget.iconName}.svg'],
+            'no url for packagings/${widget.iconName}',
+            color: widget.iconColor,
+            width: MINIMUM_TOUCH_SIZE,
           ),
-          LayoutBuilder(
-            builder: (_, BoxConstraints constraints) => SizedBox(
-              width: constraints.maxWidth,
-              child: SimpleInputNumberField(
-                focusNode: _focusNode,
-                constraints: constraints,
-                hintText: '',
-                controller: widget.controller,
-                decimal: widget.decimal,
-                withClearButton: true,
-                numberFormat: widget.numberFormat,
-                numberRegExp: SimpleInputNumberField.getNumberRegExp(
-                  decimal: widget.decimal,
-                ),
-              ),
+        ),
+        title: Text(widget.title),
+      ),
+      LayoutBuilder(
+        builder: (_, BoxConstraints constraints) => SizedBox(
+          width: constraints.maxWidth,
+          child: SimpleInputNumberField(
+            focusNode: _focusNode,
+            constraints: constraints,
+            hintText: '',
+            controller: widget.controller,
+            decimal: widget.decimal,
+            withClearButton: true,
+            numberFormat: widget.numberFormat,
+            numberRegExp: SimpleInputNumberField.getNumberRegExp(
+              decimal: widget.decimal,
             ),
           ),
-          if (widget.hint != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-              child: ExplanationWidget(widget.hint!),
-            ),
-        ],
-      );
+        ),
+      ),
+      if (widget.hint != null)
+        Padding(
+          padding: const EdgeInsets.only(bottom: LARGE_SPACE),
+          child: ExplanationWidget(widget.hint!),
+        ),
+    ],
+  );
 }

@@ -47,8 +47,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   });
 
   BackgroundTaskDetails.fromJson(super.json)
-      : inputMap = json[_jsonTagInputMap] as String,
-        super.fromJson();
+    : inputMap = json[_jsonTagInputMap] as String,
+      super.fromJson();
 
   static const String _jsonTagInputMap = 'inputMap';
 
@@ -100,8 +100,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      null;
+    final AppLocalizations appLocalizations,
+  ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskDetails _getNewTask(
@@ -109,23 +109,23 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     final String uniqueId,
     final BackgroundTaskDetailsStamp stamp,
     final ProductType productType,
-  ) =>
-      BackgroundTaskDetails._(
-        uniqueId: uniqueId,
-        processName: _operationType.processName,
-        barcode: minimalistProduct.barcode!,
-        productType: productType,
-        inputMap: jsonEncode(minimalistProduct.toJson()),
-        stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
-      );
+  ) => BackgroundTaskDetails._(
+    uniqueId: uniqueId,
+    processName: _operationType.processName,
+    barcode: minimalistProduct.barcode!,
+    productType: productType,
+    inputMap: jsonEncode(minimalistProduct.toJson()),
+    stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
+  );
 
   static String getStamp(final String barcode, final String stamp) =>
       '$barcode;detail;$stamp';
 
   @override
   Product getProductChange() {
-    final Product result =
-        Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
+    final Product result = Product.fromJson(
+      json.decode(inputMap) as Map<String, dynamic>,
+    );
     return result;
   }
 
@@ -140,14 +140,14 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       // and V3 can only save those fields.
       final ProductResultV3 result =
           await OpenFoodAPIClient.temporarySaveProductV3(
-        getUser(),
-        product.barcode!,
-        packagings: product.packagings,
-        packagingsComplete: product.packagingsComplete,
-        language: getLanguage(),
-        country: getCountry(),
-        uriHelper: uriProductHelper,
-      );
+            getUser(),
+            product.barcode!,
+            packagings: product.packagings,
+            packagingsComplete: product.packagingsComplete,
+            language: getLanguage(),
+            country: getCountry(),
+            uriHelper: uriProductHelper,
+          );
       if (result.status != ProductResultV3.statusSuccess &&
           result.status != ProductResultV3.statusWarning) {
         bool isInvalidUser = false;

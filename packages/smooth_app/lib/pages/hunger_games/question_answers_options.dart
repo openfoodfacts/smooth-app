@@ -110,16 +110,10 @@ class QuestionAnswersOptions extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all(backgroundColor),
             shape: WidgetStateProperty.all(
-              const RoundedRectangleBorder(
-                borderRadius: ROUNDED_BORDER_RADIUS,
-              ),
+              const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
             ),
           ),
-          icon: Icon(
-            iconData,
-            color: contentColor,
-            size: 36,
-          ),
+          icon: Icon(iconData, color: contentColor, size: 36),
           label: Text(
             buttonText,
             style: theme.textTheme.displayMedium!.apply(color: contentColor),

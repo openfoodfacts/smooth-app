@@ -800,8 +800,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get crop_page_too_small_image_title => 'Снимката е прекалено малка!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
   }
 
@@ -1374,7 +1378,9 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
@@ -1593,20 +1599,33 @@ class AppLocalizationsBg extends AppLocalizations {
       'Ако промениш решението си, тази опция може да бъде активирана и деактивирана по всяко време от настройките.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'ОС: Android (SDK Int: $sdkInt / Версия: $release)\nМодел: $model\nПродукт: $product\nУстройство: $device\nМарка:$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'ОС: iOS ($version)\nМодел: $model\nЛокализиран модел: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nApp версия:$appVersion\nApp номер на build:$appBuildNumber\nApp име на пакета:$appPackageName';
   }
 
@@ -2644,7 +2663,11 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
@@ -2828,7 +2851,9 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
@@ -2887,7 +2912,10 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Изтегли още $count продукта\nВече изтеглени $downloaded от $totalSize.';
   }
 

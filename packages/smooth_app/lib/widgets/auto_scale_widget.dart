@@ -15,10 +15,7 @@ class AutoScaleWidget extends SingleChildRenderObjectWidget {
 
   @override
   RenderObject createRenderObject(BuildContext context) {
-    return _AutoScaleRenderObject(
-      vsync: vsync,
-      duration: duration,
-    );
+    return _AutoScaleRenderObject(vsync: vsync, duration: duration);
   }
 }
 
@@ -28,10 +25,8 @@ class _AutoScaleRenderObject extends RenderProxyBox {
     required Duration duration,
     RenderBox? child,
   }) : super(child) {
-    _controller = AnimationController(
-      vsync: vsync,
-      duration: duration,
-    )..addListener(markNeedsLayout);
+    _controller = AnimationController(vsync: vsync, duration: duration)
+      ..addListener(markNeedsLayout);
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
   }
 

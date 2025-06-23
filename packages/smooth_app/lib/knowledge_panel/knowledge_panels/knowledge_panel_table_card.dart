@@ -94,12 +94,11 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (
-        BuildContext context,
-        BoxConstraints constraints,
-      ) {
-        final List<List<Widget>> rowsWidgets =
-            _buildRowWidgets(_buildRowCells(), constraints);
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final List<List<Widget>> rowsWidgets = _buildRowWidgets(
+          _buildRowCells(),
+          constraints,
+        );
 
         return Column(
           children: <Widget>[
@@ -162,7 +161,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           TableCell(
             text: cell.text,
             color: getTextColorFromKnowledgePanelElementEvaluation(
-                cell.evaluation ?? Evaluation.UNKNOWN),
+              cell.evaluation ?? Evaluation.UNKNOWN,
+            ),
             isHeader: false,
           ),
         );
@@ -172,13 +172,16 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   }
 
   List<List<Widget>> _buildRowWidgets(
-      List<List<TableCell>> rows, BoxConstraints constraints) {
+    List<List<TableCell>> rows,
+    BoxConstraints constraints,
+  ) {
     // [availableWidth] is parent's width - total padding we want in between columns.
     final double availableWidth = constraints.maxWidth - LARGE_SPACE;
     // We now allocate width to each column as follows:
     // [availableWidth] / [column's largest cell width] * [totalMaxColumnWidth].
-    final int totalMaxColumnWidth =
-        _columnsMaxLength.reduce((int sum, int width) => sum + width);
+    final int totalMaxColumnWidth = _columnsMaxLength.reduce(
+      (int sum, int width) => sum + width,
+    );
 
     final List<List<Widget>> rowsWidgets = <List<Widget>>[];
     final Widget verticalDivider = _verticalDivider;
@@ -211,12 +214,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           );
         }
 
-        rowWidgets.add(
-          Expanded(
-            flex: cellWidth,
-            child: tableCellWidget,
-          ),
-        );
+        rowWidgets.add(Expanded(flex: cellWidth, child: tableCellWidget));
 
         if (index < row.length) {
           rowWidgets.add(verticalDivider);
@@ -228,8 +226,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   }
 
   Widget get _verticalDivider {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return VerticalDivider(
       width: 1.0,
@@ -240,8 +238,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   }
 
   Widget get _horizontalDivider {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Divider(
       height: 1.0,
@@ -269,12 +267,14 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         );
       } else {
         // Try to find the group if it already exists.
-        final bool groupExists =
-            groupIdToColumnGroup.containsKey(column.columnGroupId);
+        final bool groupExists = groupIdToColumnGroup.containsKey(
+          column.columnGroupId,
+        );
         if (!groupExists) {
           // Create a group since one doesn't exist yet.
-          final ColumnGroup newGroup =
-              ColumnGroup(columns: <KnowledgePanelTableColumn>[]);
+          final ColumnGroup newGroup = ColumnGroup(
+            columns: <KnowledgePanelTableColumn>[],
+          );
           _columnGroups.add(newGroup);
           groupIdToColumnGroup[column.columnGroupId!] = newGroup;
         }
@@ -311,10 +311,11 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           // Set value for the header row.
           _columnsMaxLength.add(
             math.max(
-                cell.text.length,
-                type != _TableCellType.TEXT
-                    ? kMinCellLengthInARowValue
-                    : kMinCellLengthInARow),
+              cell.text.length,
+              type != _TableCellType.TEXT
+                  ? kMinCellLengthInARowValue
+                  : kMinCellLengthInARow,
+            ),
           );
 
           _columnsType.add(type);
@@ -373,8 +374,9 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(StringProperty('tableElementId', widget.tableElement.id));
-    properties
-        .add(DiagnosticsProperty<bool>('expanded', widget.isInitiallyExpanded));
+    properties.add(
+      DiagnosticsProperty<bool>('expanded', widget.isInitiallyExpanded),
+    );
   }
 }
 
@@ -410,8 +412,8 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final EdgeInsetsGeometry padding;
 
@@ -481,8 +483,9 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
     required AlignmentDirectional alignment,
     Color? backgroundColor,
   }) {
-    final StringBuffer styleBuilder =
-        StringBuffer('text-align:${alignment.toHTMLTextAlign()}');
+    final StringBuffer styleBuilder = StringBuffer(
+      'text-align:${alignment.toHTMLTextAlign()}',
+    );
 
     if (!_isExpanded) {
       styleBuilder.write('''
@@ -513,10 +516,7 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
     );
 
     if (backgroundColor != null) {
-      return ColoredBox(
-        color: backgroundColor,
-        child: child,
-      );
+      return ColoredBox(color: backgroundColor, child: child);
     } else {
       return child;
     }
@@ -539,18 +539,19 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
               value: widget.cell.columnGroup!.currentColumn,
               items: widget.cell.columnGroup!.columns
                   .map((KnowledgePanelTableColumn column) {
-                return DropdownMenuItem<KnowledgePanelTableColumn>(
-                  value: column,
-                  child: SizedBox(
-                    width: width.toDouble() - 21.0 - padding.horizontal,
-                    child: Text(
-                      column.textForSmallScreens ?? column.text,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
-                  ),
-                );
-              }).toList(growable: false),
+                    return DropdownMenuItem<KnowledgePanelTableColumn>(
+                      value: column,
+                      child: SizedBox(
+                        width: width.toDouble() - 21.0 - padding.horizontal,
+                        child: Text(
+                          column.textForSmallScreens ?? column.text,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ),
+                    );
+                  })
+                  .toList(growable: false),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
                 if (selectedColumn == null) {
                   return;
@@ -592,14 +593,17 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
 
 enum _TableCellType {
   TEXT(
-      headerTextAlignment: AlignmentDirectional.centerStart,
-      contentTextAlignment: AlignmentDirectional.centerStart),
+    headerTextAlignment: AlignmentDirectional.centerStart,
+    contentTextAlignment: AlignmentDirectional.centerStart,
+  ),
   PERCENT(
-      headerTextAlignment: AlignmentDirectional.center,
-      contentTextAlignment: AlignmentDirectional.centerStart),
+    headerTextAlignment: AlignmentDirectional.center,
+    contentTextAlignment: AlignmentDirectional.centerStart,
+  ),
   PER_100G(
-      headerTextAlignment: AlignmentDirectional.center,
-      contentTextAlignment: AlignmentDirectional.center);
+    headerTextAlignment: AlignmentDirectional.center,
+    contentTextAlignment: AlignmentDirectional.center,
+  );
 
   const _TableCellType({
     required this.headerTextAlignment,

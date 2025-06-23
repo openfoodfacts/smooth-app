@@ -7,14 +7,9 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// OCR Helper, to be implemented for ingredients and packaging for instance.
 abstract class OcrHelper {
-  String? getMonolingualText(
-    final Product product,
-  );
+  String? getMonolingualText(final Product product);
 
-  void setMonolingualText(
-    final Product product,
-    final String text,
-  );
+  void setMonolingualText(final Product product, final String text);
 
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
     final Product product,
@@ -47,11 +42,13 @@ abstract class OcrHelper {
 
   /// Returns the title of the dialog to explain the "loading photo" state
   String getActionLoadingPhotoDialogTitle(
-      final AppLocalizations appLocalizations);
+    final AppLocalizations appLocalizations,
+  );
 
   /// Returns the content of the dialog to explain the "loading photo" state
   String getActionLoadingPhotoDialogBody(
-      final AppLocalizations appLocalizations);
+    final AppLocalizations appLocalizations,
+  );
 
   /// Returns the "Extracting data…" button label
   String getActionExtractingData(final AppLocalizations appLocalizations);

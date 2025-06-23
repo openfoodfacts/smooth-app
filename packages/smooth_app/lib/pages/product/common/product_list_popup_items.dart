@@ -57,12 +57,11 @@ abstract class ProductListPopupItem {
   /// Returns the popup menu item.
   SmoothPopupMenuItem<ProductListPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
-  ) =>
-      SmoothPopupMenuItem<ProductListPopupItem>(
-        value: this,
-        icon: getIconData(),
-        label: getTitle(appLocalizations),
-      );
+  ) => SmoothPopupMenuItem<ProductListPopupItem>(
+    value: this,
+    icon: getIconData(),
+    label: getTitle(appLocalizations),
+  );
 
   /// Returns the first possible URL/server that contains at least one product.
   @protected
@@ -71,8 +70,9 @@ abstract class ProductListPopupItem {
     required final LocalDatabase localDatabase,
   }) async {
     final List<String> products = productList.getList();
-    final Map<ProductType, List<String>> productTypes =
-        await DaoProduct(localDatabase).getProductTypes(products);
+    final Map<ProductType, List<String>> productTypes = await DaoProduct(
+      localDatabase,
+    ).getProductTypes(products);
     for (final MapEntry<ProductType, List<String>> entry
         in productTypes.entries) {
       return shareProductList(entry.value, entry.key);
@@ -149,9 +149,9 @@ class ProductListPopupRename extends ProductListPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-  }) async =>
-      ProductListUserDialogHelper(DaoProductList(localDatabase))
-          .showRenameUserListDialog(context, productList);
+  }) async => ProductListUserDialogHelper(
+    DaoProductList(localDatabase),
+  ).showRenameUserListDialog(context, productList);
 }
 
 /// Popup menu item for the product list page: share list.
@@ -177,8 +177,7 @@ class ProductListPopupShare extends ProductListPopupItem {
     final String? url = (await _getFirstUrl(
       productList: productList,
       localDatabase: localDatabase,
-    ))
-        ?.toString();
+    ))?.toString();
     if (url != null) {
       AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
       unawaited(
@@ -273,8 +272,11 @@ class ProductListPopupExport extends ProductListPopupItem {
 
   String _buildFileName(String listName) {
     final String name = listName.replaceAll(' ', '-').toLowerCase();
-    final String timestamp =
-        DateTime.now().toIso8601String().replaceAll(':', '_').split('.').first;
+    final String timestamp = DateTime.now()
+        .toIso8601String()
+        .replaceAll(':', '_')
+        .split('.')
+        .first;
 
     return '$name-$timestamp.csv';
   }
@@ -337,9 +339,9 @@ class ProductListPopupDelete extends ProductListPopupItem {
     required final LocalDatabase localDatabase,
     required final BuildContext context,
   }) async {
-    final bool deleted =
-        await ProductListUserDialogHelper(DaoProductList(localDatabase))
-            .showDeleteUserListDialog(context, productList);
+    final bool deleted = await ProductListUserDialogHelper(
+      DaoProductList(localDatabase),
+    ).showDeleteUserListDialog(context, productList);
     return deleted ? null : productList;
   }
 }

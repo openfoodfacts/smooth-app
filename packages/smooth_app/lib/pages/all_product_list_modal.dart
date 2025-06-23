@@ -16,9 +16,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Page that lists all product lists.
 class AllProductListModal extends StatelessWidget {
-  AllProductListModal({
-    required this.currentList,
-  });
+  AllProductListModal({required this.currentList});
 
   final ProductList currentList;
 
@@ -34,46 +32,47 @@ class AllProductListModal extends StatelessWidget {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
 
     final List<String> userLists = daoProductList.getUserLists();
-    final List<ProductList> productLists =
-        List<ProductList>.from(_hardcodedProductLists);
+    final List<ProductList> productLists = List<ProductList>.from(
+      _hardcodedProductLists,
+    );
     for (final String userList in userLists) {
       productLists.add(ProductList.user(userList));
     }
 
     return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        childCount: productLists.length,
-        (final BuildContext context, final int index) {
-          final ProductList productList = productLists[index];
-          return Column(
-            children: <Widget>[
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  minWidth: double.infinity,
-                  minHeight: MediaQuery.textScalerOf(context).scale(80.0),
-                ),
-                child: FutureBuilder<void>(
-                  future: daoProductList.get(productList),
-                  builder:
-                      (BuildContext context, AsyncSnapshot<void> snapshot) {
-                    if (snapshot.connectionState != ConnectionState.done) {
-                      return const Center(
-                        child: CircularProgressIndicator.adaptive(),
-                      );
-                    }
-                    return _ModalProductListItem(
-                      productList: productList,
-                      selected: productList.listType == currentList.listType &&
-                          productList.parameters == currentList.parameters,
-                    );
-                  },
-                ),
+      delegate: SliverChildBuilderDelegate(childCount: productLists.length, (
+        final BuildContext context,
+        final int index,
+      ) {
+        final ProductList productList = productLists[index];
+        return Column(
+          children: <Widget>[
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                minWidth: double.infinity,
+                minHeight: MediaQuery.textScalerOf(context).scale(80.0),
               ),
-              if (index < productLists.length - 1) const Divider(height: 1.0),
-            ],
-          );
-        },
-      ),
+              child: FutureBuilder<void>(
+                future: daoProductList.get(productList),
+                builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+                  if (snapshot.connectionState != ConnectionState.done) {
+                    return const Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    );
+                  }
+                  return _ModalProductListItem(
+                    productList: productList,
+                    selected:
+                        productList.listType == currentList.listType &&
+                        productList.parameters == currentList.parameters,
+                  );
+                },
+              ),
+            ),
+            if (index < productLists.length - 1) const Divider(height: 1.0),
+          ],
+        );
+      }),
     );
   }
 }
@@ -89,8 +88,8 @@ class _ModalProductListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -102,8 +101,10 @@ class _ModalProductListItem extends StatelessWidget {
     final bool hasProducts = productsLength > 0;
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool showImport = userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagProductListImport) ??
+    final bool showImport =
+        userPreferences.getFlag(
+          UserPreferencesDevMode.userPreferencesFlagProductListImport,
+        ) ??
         false;
 
     return UserPreferencesListTile(
@@ -113,9 +114,7 @@ class _ModalProductListItem extends StatelessWidget {
           appLocalizations,
         ),
       ),
-      subtitle: Text(
-        appLocalizations.user_list_length(productsLength),
-      ),
+      subtitle: Text(appLocalizations.user_list_length(productsLength)),
       trailing: (enableRename || hasProducts || productList.isEditable)
           ? PopupMenuButton<ProductListPopupMenuEntry>(
               itemBuilder: (BuildContext context) {
@@ -157,8 +156,9 @@ class _ModalProductListItem extends StatelessWidget {
             )
           : null,
       selected: selected,
-      selectedColor:
-          lightTheme ? extension.primaryMedium : extension.primarySemiDark,
+      selectedColor: lightTheme
+          ? extension.primaryMedium
+          : extension.primarySemiDark,
       contentPadding: const EdgeInsetsDirectional.only(
         start: VERY_LARGE_SPACE,
         end: LARGE_SPACE,

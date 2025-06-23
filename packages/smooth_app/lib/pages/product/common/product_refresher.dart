@@ -34,29 +34,27 @@ class ProductRefresher {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              SvgPicture.asset(
-                'assets/onboarding/globe.svg',
-                height: MediaQuery.sizeOf(context).height * .5,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SvgPicture.asset(
+              'assets/onboarding/globe.svg',
+              height: MediaQuery.sizeOf(context).height * .5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Text(
+                appLocalizations.account_create_message,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Text(
-                  appLocalizations.account_create_message,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ]),
+            ),
+          ],
+        ),
         actionsAxis: Axis.vertical,
         positiveAction: SmoothActionButton(
           text: appLocalizations.join_us,
           onPressed: () async {
             Navigator.of(context).pop(); // remove dialog
-            await Navigator.of(
-              context,
-              rootNavigator: true,
-            ).push<dynamic>(
+            await Navigator.of(context, rootNavigator: true).push<dynamic>(
               MaterialPageRoute<dynamic>(
                 builder: (BuildContext context) => const LoginPage(),
               ),
@@ -76,31 +74,29 @@ class ProductRefresher {
   ProductQueryConfiguration getBarcodeQueryConfiguration(
     final String barcode,
     final OpenFoodFactsLanguage language,
-  ) =>
-      ProductQueryConfiguration(
-        barcode,
-        fields: ProductQuery.fields,
-        language: language,
-        country: ProductQuery.getCountry(),
-        version: ProductQuery.productQueryVersion,
-        productTypeFilter: ProductTypeFilter.all,
-      );
+  ) => ProductQueryConfiguration(
+    barcode,
+    fields: ProductQuery.fields,
+    language: language,
+    country: ProductQuery.getCountry(),
+    version: ProductQuery.productQueryVersion,
+    productTypeFilter: ProductTypeFilter.all,
+  );
 
   /// Returns the standard configuration for several barcodes product query.
   ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
     final List<String> barcodes,
     final OpenFoodFactsLanguage language,
-  ) =>
-      ProductSearchQueryConfiguration(
-        fields: ProductQuery.fields,
-        language: language,
-        country: ProductQuery.getCountry(),
-        parametersList: <Parameter>[
-          BarcodeParameter.list(barcodes),
-          PageSize(size: barcodes.length),
-        ],
-        version: ProductQuery.productQueryVersion,
-      );
+  ) => ProductSearchQueryConfiguration(
+    fields: ProductQuery.fields,
+    language: language,
+    country: ProductQuery.getCountry(),
+    parametersList: <Parameter>[
+      BarcodeParameter.list(barcodes),
+      PageSize(size: barcodes.length),
+    ],
+    version: ProductQuery.productQueryVersion,
+  );
 
   /// Fetches the products from the server and refreshes the local database.
   ///
@@ -109,8 +105,7 @@ class ProductRefresher {
     required final List<String> barcodes,
     required final LocalDatabase localDatabase,
     required final ProductType productType,
-  }) async =>
-      _fetchAndRefreshList(localDatabase, barcodes, productType);
+  }) async => _fetchAndRefreshList(localDatabase, barcodes, productType);
 
   /// Fetches the product from the server and refreshes the local database.
   ///
@@ -124,13 +119,13 @@ class ProductRefresher {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final FetchedProduct? fetchAndRefreshed =
         await LoadingDialog.run<FetchedProduct>(
-      future: silentFetchAndRefresh(
-        localDatabase: localDatabase,
-        barcode: barcode,
-      ),
-      context: context,
-      title: appLocalizations.refreshing_product,
-    );
+          future: silentFetchAndRefresh(
+            localDatabase: localDatabase,
+            barcode: barcode,
+          ),
+          context: context,
+          title: appLocalizations.refreshing_product,
+        );
     if (fetchAndRefreshed == null) {
       // the user probably cancelled
       return false;
@@ -147,7 +142,9 @@ class ProductRefresher {
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SmoothFloatingSnackbar.positive(
-            context: context, text: appLocalizations.product_refreshed),
+          context: context,
+          text: appLocalizations.product_refreshed,
+        ),
       );
     }
     return true;
@@ -178,27 +175,22 @@ class ProductRefresher {
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-        getBarcodeQueryConfiguration(
-          barcode,
-          language,
-        ),
+        getBarcodeQueryConfiguration(barcode, language),
         uriHelper: uriProductHelper,
         user: ProductQuery.getReadUser(),
       );
       if (result.product != null) {
-        await DaoProduct(localDatabase).put(
-          result.product!,
-          language,
-          productType: productType,
-        );
+        await DaoProduct(
+          localDatabase,
+        ).put(result.product!, language, productType: productType);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
         return FetchedProduct.found(result.product!);
       }
       return const FetchedProduct.internetNotFound();
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
-      final List<ConnectivityResult> connectivityResult =
-          await Connectivity().checkConnectivity();
+      final List<ConnectivityResult> connectivityResult = await Connectivity()
+          .checkConnectivity();
       if (connectivityResult.contains(ConnectivityResult.none)) {
         return FetchedProduct.error(
           exceptionString: e.toString(),
@@ -228,21 +220,22 @@ class ProductRefresher {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult =
           await SearchProductsManager.searchProducts(
-        ProductQuery.getReadUser(),
-        getBarcodeListQueryConfiguration(barcodes, language),
-        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
-        type: SearchProductsType.live,
-      );
+            ProductQuery.getReadUser(),
+            getBarcodeListQueryConfiguration(barcodes, language),
+            uriHelper: ProductQuery.getUriProductHelper(
+              productType: productType,
+            ),
+            type: SearchProductsType.live,
+          );
       if (searchResult.products == null) {
         return null;
       }
-      await DaoProduct(localDatabase).putAll(
+      await DaoProduct(
+        localDatabase,
+      ).putAll(searchResult.products!, language, productType: productType);
+      localDatabase.upToDate.setLatestDownloadedProducts(
         searchResult.products!,
-        language,
-        productType: productType,
       );
-      localDatabase.upToDate
-          .setLatestDownloadedProducts(searchResult.products!);
 
       return searchResult.products!
           .where((Product p) => p.barcode != null && p.barcode!.isNotEmpty)

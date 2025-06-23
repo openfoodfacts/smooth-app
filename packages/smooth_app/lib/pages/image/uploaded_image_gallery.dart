@@ -47,14 +47,13 @@ class UploadedImageGallery extends StatelessWidget {
       brightness: Brightness.light,
       appBar: SmoothAppBar(
         title: Text(appLocalizations.edit_photo_select_existing_all_label),
-        subTitle:
-            Text(appLocalizations.edit_photo_select_existing_all_subtitle),
+        subTitle: Text(
+          appLocalizations.edit_photo_select_existing_all_subtitle,
+        ),
         backgroundColor: Colors.black,
         foregroundColor: WHITE_COLOR,
         elevation: 0,
-        leading: const SmoothBackButton(
-          iconColor: Colors.white,
-        ),
+        leading: const SmoothBackButton(iconColor: Colors.white),
       ),
       body: GridView.builder(
         itemCount: rawImages.length,
@@ -93,16 +92,16 @@ class UploadedImageGallery extends StatelessWidget {
                         borderRadius: ANGULAR_BORDER_RADIUS,
                         onTap: () async =>
                             Navigator.of(context).pop<CropParameters?>(
-                          await useExistingPhotoFor(
-                            context: context,
-                            rawImage: rawImage,
-                            barcode: barcode,
-                            imageField: imageField,
-                            isLoggedInMandatory: isLoggedInMandatory,
-                            productType: productType,
-                            language: language,
-                          ),
-                        ),
+                              await useExistingPhotoFor(
+                                context: context,
+                                rawImage: rawImage,
+                                barcode: barcode,
+                                imageField: imageField,
+                                isLoggedInMandatory: isLoggedInMandatory,
+                                productType: productType,
+                                language: language,
+                              ),
+                            ),
                       ),
                     ),
                   ),
@@ -130,9 +129,7 @@ class UploadedImageGallery extends StatelessWidget {
       rawImage.getUrl(
         barcode,
         imageSize: ImageSize.ORIGINAL,
-        uriHelper: ProductQuery.getUriProductHelper(
-          productType: productType,
-        ),
+        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
       ),
       DaoInt(localDatabase),
     );

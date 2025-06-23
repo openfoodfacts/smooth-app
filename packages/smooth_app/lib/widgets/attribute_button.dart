@@ -46,8 +46,8 @@ class _AttributeButtonState extends State<AttributeButton> {
     final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = widget.attribute.settingNote;
     final List<Widget> children = <Widget>[];
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     if (!editMode) {
       children.add(
         InkWell(
@@ -56,8 +56,9 @@ class _AttributeButtonState extends State<AttributeButton> {
             currentImportanceId,
           ),
           child: ListTile(
-            tileColor:
-                context.lightTheme() ? Colors.white : extension.primaryMedium,
+            tileColor: context.lightTheme()
+                ? Colors.white
+                : extension.primaryMedium,
             shape: widget.isLast
                 ? const RoundedRectangleBorder(
                     borderRadius: BorderRadiusDirectional.vertical(
@@ -80,12 +81,13 @@ class _AttributeButtonState extends State<AttributeButton> {
               ),
             ),
             trailing: GestureDetector(
-                child: Icon(
-                  Icons.edit,
-                  size: DEFAULT_ICON_SIZE,
-                  color: extension.primaryBlack,
-                ),
-                onTap: () => setState(() => editMode = !editMode)),
+              child: Icon(
+                Icons.edit,
+                size: DEFAULT_ICON_SIZE,
+                color: extension.primaryBlack,
+              ),
+              onTap: () => setState(() => editMode = !editMode),
+            ),
           ),
         ),
       );
@@ -162,19 +164,19 @@ class _AttributeButtonState extends State<AttributeButton> {
           onTap: info == null
               ? null
               : () async => showDialog<void>(
-                    context: context,
-                    builder: (BuildContext context) {
-                      final AppLocalizations appLocalizations =
-                          AppLocalizations.of(context);
-                      return SmoothAlertDialog(
-                        body: Text(info),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.close,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                      );
-                    },
-                  ),
+                  context: context,
+                  builder: (BuildContext context) {
+                    final AppLocalizations appLocalizations =
+                        AppLocalizations.of(context);
+                    return SmoothAlertDialog(
+                      body: Text(info),
+                      positiveAction: SmoothActionButton(
+                        text: appLocalizations.close,
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    );
+                  },
+                ),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

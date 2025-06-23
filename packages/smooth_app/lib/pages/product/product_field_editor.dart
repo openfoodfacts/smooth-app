@@ -57,10 +57,7 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
       return;
     }
 
-    AnalyticsHelper.trackProductEdit(
-      helper.getAnalyticsEditEvent(),
-      product,
-    );
+    AnalyticsHelper.trackProductEdit(helper.getAnalyticsEditEvent(), product);
 
     if (!context.mounted) {
       return;
@@ -68,10 +65,8 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => SimpleInputPage(
-          helper: helper,
-          product: product,
-        ),
+        builder: (BuildContext context) =>
+            SimpleInputPage(helper: helper, product: product),
       ),
     );
   }
@@ -105,10 +100,7 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
       return;
     }
 
-    AnalyticsHelper.trackProductEdit(
-      AnalyticsEditEvents.basicDetails,
-      product,
-    );
+    AnalyticsHelper.trackProductEdit(AnalyticsEditEvents.basicDetails, product);
 
     if (!context.mounted) {
       return;
@@ -181,12 +173,11 @@ class ProductFieldNutritionEditor extends ProductFieldEditor {
     required final BuildContext context,
     required final Product product,
     final bool isLoggedInMandatory = true,
-  }) async =>
-      NutritionPageLoader.showNutritionPage(
-        product: product,
-        isLoggedInMandatory: isLoggedInMandatory,
-        context: context,
-      );
+  }) async => NutritionPageLoader.showNutritionPage(
+    product: product,
+    isLoggedInMandatory: isLoggedInMandatory,
+    context: context,
+  );
 }
 
 abstract class ProductFieldOcrEditor extends ProductFieldEditor {

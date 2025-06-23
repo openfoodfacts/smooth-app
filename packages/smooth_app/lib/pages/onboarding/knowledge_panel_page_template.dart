@@ -60,96 +60,91 @@ class _KnowledgePanelPageTemplateState
   }
 
   Future<void> _init() async {
-    _product = await OnboardingDataProduct.forProduct(widget.localDatabase)
-        .getData(rootBundle);
+    _product = await OnboardingDataProduct.forProduct(
+      widget.localDatabase,
+    ).getData(rootBundle);
   }
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(
-        future: _initFuture,
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.hasError) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
-            return Text(
-              appLocalizations
-                  .knowledge_panel_page_loading_error(snapshot.error),
-            );
-          }
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator.adaptive());
-          }
+    future: _initFuture,
+    builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+      if (snapshot.hasError) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return Text(
+          appLocalizations.knowledge_panel_page_loading_error(snapshot.error),
+        );
+      }
+      if (snapshot.connectionState != ConnectionState.done) {
+        return const Center(child: CircularProgressIndicator.adaptive());
+      }
 
-          final List<Widget> children = KnowledgePanelsBuilder.getChildren(
-            context,
-            panelElement: KnowledgePanelsBuilder.getRootPanelElement(
-              _product,
-              widget.panelId,
-            )!,
-            product: _product,
-            onboardingMode: true,
-          );
-          return ColoredBox(
-            color: widget.backgroundColor,
-            child: SafeArea(
-              bottom: Platform.isAndroid,
-              child: Stack(
-                fit: StackFit.expand,
+      final List<Widget> children = KnowledgePanelsBuilder.getChildren(
+        context,
+        panelElement: KnowledgePanelsBuilder.getRootPanelElement(
+          _product,
+          widget.panelId,
+        )!,
+        product: _product,
+        onboardingMode: true,
+      );
+      return ColoredBox(
+        color: widget.backgroundColor,
+        child: SafeArea(
+          bottom: Platform.isAndroid,
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Flexible(
-                        flex: 1,
-                        child: Scrollbar(
-                          child: ListView(
-                            children: <Widget>[
-                              SvgPicture.asset(
-                                widget.svgAsset,
-                                height: MediaQuery.sizeOf(context).height * .25,
-                                package: AppHelper.APP_PACKAGE,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: LARGE_SPACE,
-                                ),
-                                child: Text(
-                                  widget.headerTitle,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displayMedium
-                                      ?.wellSpaced,
-                                ),
-                              ),
-                              if (children.isNotEmpty)
-                                KnowledgePanelProductCards(
-                                  <Widget>[
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: children,
-                                    ),
-                                  ],
-                                ),
-                            ],
+                  Flexible(
+                    flex: 1,
+                    child: Scrollbar(
+                      child: ListView(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            widget.svgAsset,
+                            height: MediaQuery.sizeOf(context).height * .25,
+                            package: AppHelper.APP_PACKAGE,
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: LARGE_SPACE,
+                            ),
+                            child: Text(
+                              widget.headerTitle,
+                              style: Theme.of(
+                                context,
+                              ).textTheme.displayMedium?.wellSpaced,
+                            ),
+                          ),
+                          if (children.isNotEmpty)
+                            KnowledgePanelProductCards(<Widget>[
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: children,
+                              ),
+                            ]),
+                        ],
                       ),
-                      NextButton(
-                        widget.page,
-                        backgroundColor: widget.backgroundColor,
-                        nextKey: widget.nextKey,
-                      ),
-                    ],
+                    ),
                   ),
-                  ..._buildHintPopup(),
+                  NextButton(
+                    widget.page,
+                    backgroundColor: widget.backgroundColor,
+                    nextKey: widget.nextKey,
+                  ),
                 ],
               ),
-            ),
-          );
-        },
+              ..._buildHintPopup(),
+            ],
+          ),
+        ),
       );
+    },
+  );
 
   List<Widget> _buildHintPopup() {
     final Widget hintPopup = InkWell(
@@ -175,10 +170,7 @@ class _KnowledgePanelPageTemplateState
                 ),
               ),
               const SizedBox(width: VERY_LARGE_SPACE),
-              Icon(
-                Icons.close,
-                color: Theme.of(context).cardColor,
-              ),
+              Icon(Icons.close, color: Theme.of(context).cardColor),
             ],
           ),
         ),
@@ -192,9 +184,11 @@ class _KnowledgePanelPageTemplateState
     final List<Widget> hitPopup = <Widget>[];
     if (!_isHintDismissed &&
         !OnboardingFlowNavigator.isOnboardingPagedInHistory(
-            OnboardingPage.HEALTH_CARD_EXAMPLE) &&
+          OnboardingPage.HEALTH_CARD_EXAMPLE,
+        ) &&
         !OnboardingFlowNavigator.isOnboardingPagedInHistory(
-            OnboardingPage.ECO_CARD_EXAMPLE)) {
+          OnboardingPage.ECO_CARD_EXAMPLE,
+        )) {
       hitPopup.add(
         Positioned(
           child: Align(
@@ -202,7 +196,8 @@ class _KnowledgePanelPageTemplateState
             child: Padding(
               padding: const EdgeInsets.only(
                 // slightly lower than bottom bar top
-                bottom: 2 * VERY_LARGE_SPACE +
+                bottom:
+                    2 * VERY_LARGE_SPACE +
                     MINIMUM_TOUCH_SIZE -
                     .5 * VERY_LARGE_SPACE,
               ),

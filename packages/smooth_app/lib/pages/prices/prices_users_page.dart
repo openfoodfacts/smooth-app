@@ -34,9 +34,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
-        title: Text(
-          appLocalizations.all_search_prices_top_user_title,
-        ),
+        title: Text(appLocalizations.all_search_prices_top_user_title),
         actions: <Widget>[
           IconButton(
             tooltip: appLocalizations.prices_app_button,
@@ -50,9 +48,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<PriceUser>(
-        manager: _userManager,
-      ),
+      body: InfiniteScrollList<PriceUser>(manager: _userManager),
     );
   }
 }
@@ -75,9 +71,9 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
 
     final MaybeError<GetUsersResult> result =
         await OpenPricesAPIClient.getUsers(
-      parameters,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          parameters,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
 
     if (result.isError) {
       throw result.detailError;
@@ -93,10 +89,7 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   }
 
   @override
-  Widget buildItem({
-    required BuildContext context,
-    required PriceUser item,
-  }) {
+  Widget buildItem({required BuildContext context, required PriceUser item}) {
     final int priceCount = item.priceCount ?? 0;
     return SmoothCard(
       child: Wrap(

@@ -187,7 +187,7 @@ import 'app_localizations_zu.dart';
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -210,11 +210,11 @@ abstract class AppLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
@@ -344,7 +344,7 @@ abstract class AppLocalizations {
     Locale('yi'),
     Locale('yo'),
     Locale('zh'),
-    Locale('zu')
+    Locale('zu'),
   ];
 
   /// Separator just before a colon (':'). Probably only populated in French and empty in other languages.
@@ -1779,8 +1779,12 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.'**
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight);
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  );
 
   /// Action being performed on the crop page
   ///
@@ -2753,7 +2757,9 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Do you want to change the currency from {previousCurrency} to {possibleCurrency}?'**
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency);
+    String previousCurrency,
+    String possibleCurrency,
+  );
 
   /// The label shown above a selector where the user can select their country (in the onboarding)
   ///
@@ -3053,22 +3059,35 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}'**
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand);
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  );
 
   /// Contact form content for iOS devices
   ///
   /// In en, this message translates to:
   /// **'OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}'**
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel);
+    String? version,
+    String? model,
+    String? localizedModel,
+  );
 
   /// Contact form content
   ///
   /// In en, this message translates to:
   /// **'{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}'**
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName);
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  );
 
   /// No description provided for @authorize_button_label.
   ///
@@ -4749,7 +4768,11 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"'**
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user);
+    String price,
+    String location,
+    String date,
+    String user,
+  );
 
   /// Button to open the proofs of a user
   ///
@@ -4996,7 +5019,9 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?'**
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency);
+    String currency,
+    String newCurrency,
+  );
 
   /// Button to approve the currency change
   ///
@@ -5093,7 +5118,10 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.'**
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize);
+    int count,
+    int downloaded,
+    int totalSize,
+  );
 
   /// This message will be displayed when a search is in progress.
   ///
@@ -8137,133 +8165,133 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) => <String>[
-        'aa',
-        'af',
-        'ak',
-        'am',
-        'ar',
-        'as',
-        'az',
-        'be',
-        'bg',
-        'bm',
-        'bn',
-        'bo',
-        'br',
-        'bs',
-        'ca',
-        'ce',
-        'co',
-        'cs',
-        'cv',
-        'cy',
-        'da',
-        'de',
-        'el',
-        'en',
-        'eo',
-        'es',
-        'et',
-        'eu',
-        'fa',
-        'fi',
-        'fo',
-        'fr',
-        'ga',
-        'gd',
-        'gl',
-        'gu',
-        'ha',
-        'he',
-        'hi',
-        'hr',
-        'ht',
-        'hu',
-        'hy',
-        'id',
-        'ii',
-        'is',
-        'it',
-        'iu',
-        'ja',
-        'jv',
-        'ka',
-        'kk',
-        'km',
-        'kn',
-        'ko',
-        'ku',
-        'kw',
-        'ky',
-        'la',
-        'lb',
-        'lo',
-        'lt',
-        'lv',
-        'mg',
-        'mi',
-        'ml',
-        'mn',
-        'mr',
-        'ms',
-        'mt',
-        'my',
-        'nb',
-        'ne',
-        'nl',
-        'nn',
-        'no',
-        'nr',
-        'oc',
-        'or',
-        'pa',
-        'pl',
-        'pt',
-        'qu',
-        'rm',
-        'ro',
-        'ru',
-        'sa',
-        'sc',
-        'sd',
-        'sg',
-        'si',
-        'sk',
-        'sl',
-        'sn',
-        'so',
-        'sq',
-        'sr',
-        'ss',
-        'st',
-        'sv',
-        'sw',
-        'ta',
-        'te',
-        'tg',
-        'th',
-        'ti',
-        'tl',
-        'tn',
-        'tr',
-        'ts',
-        'tt',
-        'tw',
-        'ty',
-        'ug',
-        'uk',
-        'ur',
-        'uz',
-        've',
-        'vi',
-        'wa',
-        'wo',
-        'xh',
-        'yi',
-        'yo',
-        'zh',
-        'zu'
-      ].contains(locale.languageCode);
+    'aa',
+    'af',
+    'ak',
+    'am',
+    'ar',
+    'as',
+    'az',
+    'be',
+    'bg',
+    'bm',
+    'bn',
+    'bo',
+    'br',
+    'bs',
+    'ca',
+    'ce',
+    'co',
+    'cs',
+    'cv',
+    'cy',
+    'da',
+    'de',
+    'el',
+    'en',
+    'eo',
+    'es',
+    'et',
+    'eu',
+    'fa',
+    'fi',
+    'fo',
+    'fr',
+    'ga',
+    'gd',
+    'gl',
+    'gu',
+    'ha',
+    'he',
+    'hi',
+    'hr',
+    'ht',
+    'hu',
+    'hy',
+    'id',
+    'ii',
+    'is',
+    'it',
+    'iu',
+    'ja',
+    'jv',
+    'ka',
+    'kk',
+    'km',
+    'kn',
+    'ko',
+    'ku',
+    'kw',
+    'ky',
+    'la',
+    'lb',
+    'lo',
+    'lt',
+    'lv',
+    'mg',
+    'mi',
+    'ml',
+    'mn',
+    'mr',
+    'ms',
+    'mt',
+    'my',
+    'nb',
+    'ne',
+    'nl',
+    'nn',
+    'no',
+    'nr',
+    'oc',
+    'or',
+    'pa',
+    'pl',
+    'pt',
+    'qu',
+    'rm',
+    'ro',
+    'ru',
+    'sa',
+    'sc',
+    'sd',
+    'sg',
+    'si',
+    'sk',
+    'sl',
+    'sn',
+    'so',
+    'sq',
+    'sr',
+    'ss',
+    'st',
+    'sv',
+    'sw',
+    'ta',
+    'te',
+    'tg',
+    'th',
+    'ti',
+    'tl',
+    'tn',
+    'tr',
+    'ts',
+    'tt',
+    'tw',
+    'ty',
+    'ug',
+    'uk',
+    'ur',
+    'uz',
+    've',
+    'vi',
+    'wa',
+    'wo',
+    'xh',
+    'yi',
+    'yo',
+    'zh',
+    'zu',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -8539,8 +8567,9 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
 }

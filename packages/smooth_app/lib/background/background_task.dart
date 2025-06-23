@@ -18,11 +18,11 @@ abstract class BackgroundTask {
     required this.uniqueId,
     required this.stamp,
     final OpenFoodFactsLanguage? language,
-  })   // TODO(monsieurtanuki): don't store the password in a clear format...
-// TODO(monsieurtanuki): store the uriProductHelper as well
-  : user = jsonEncode(ProductQuery.getWriteUser().toJson()),
-        country = ProductQuery.getCountry().offTag,
-        languageCode = (language ?? ProductQuery.getLanguage()).offTag;
+  }) // TODO(monsieurtanuki): don't store the password in a clear format...
+    // TODO(monsieurtanuki): store the uriProductHelper as well
+    : user = jsonEncode(ProductQuery.getWriteUser().toJson()),
+       country = ProductQuery.getCountry().offTag,
+       languageCode = (language ?? ProductQuery.getLanguage()).offTag;
 
   BackgroundTask._({
     required this.processName,
@@ -34,14 +34,14 @@ abstract class BackgroundTask {
   });
 
   BackgroundTask.fromJson(Map<String, dynamic> json)
-      : this._(
-          processName: json[_jsonTagProcessName] as String,
-          uniqueId: json[_jsonTagUniqueId] as String,
-          languageCode: json[_jsonTagLanguageCode] as String,
-          user: json[_jsonTagUser] as String,
-          country: json[_jsonTagCountry] as String,
-          stamp: json[_jsonTagStamp] as String,
-        );
+    : this._(
+        processName: json[_jsonTagProcessName] as String,
+        uniqueId: json[_jsonTagUniqueId] as String,
+        languageCode: json[_jsonTagLanguageCode] as String,
+        user: json[_jsonTagUser] as String,
+        country: json[_jsonTagCountry] as String,
+        stamp: json[_jsonTagStamp] as String,
+      );
 
   static const String _jsonTagProcessName = 'processName';
   static const String _jsonTagUniqueId = 'uniqueId';
@@ -70,13 +70,13 @@ abstract class BackgroundTask {
 
   @mustCallSuper
   Map<String, dynamic> toJson() => <String, dynamic>{
-        _jsonTagProcessName: processName,
-        _jsonTagUniqueId: uniqueId,
-        _jsonTagLanguageCode: languageCode,
-        _jsonTagUser: user,
-        _jsonTagCountry: country,
-        _jsonTagStamp: stamp,
-      };
+    _jsonTagProcessName: processName,
+    _jsonTagUniqueId: uniqueId,
+    _jsonTagLanguageCode: languageCode,
+    _jsonTagUser: user,
+    _jsonTagCountry: country,
+    _jsonTagStamp: stamp,
+  };
 
   /// Executes the background task: upload, download, update locally.
   Future<void> execute(final LocalDatabase localDatabase);
@@ -101,8 +101,7 @@ abstract class BackgroundTask {
   Future<void> postExecute(
     final LocalDatabase localDatabase,
     final bool success,
-  ) async =>
-      localDatabase.upToDate.terminate(uniqueId);
+  ) async => localDatabase.upToDate.terminate(uniqueId);
 
   /// Returns true if the task may run now.
   ///
@@ -141,16 +140,13 @@ abstract class BackgroundTask {
     if (!context.mounted) {
       return;
     }
-    if (getFloatingMessage(AppLocalizations.of(context))
-        case (
-          final String message,
-          final AlignmentGeometry alignment,
-        )) {
-      SmoothFloatingMessage.loading(message: message).show(
-        context,
-        duration: SnackBarDuration.medium,
-        alignment: alignment,
-      );
+    if (getFloatingMessage(AppLocalizations.of(context)) case (
+      final String message,
+      final AlignmentGeometry alignment,
+    )) {
+      SmoothFloatingMessage.loading(
+        message: message,
+      ).show(context, duration: SnackBarDuration.medium, alignment: alignment);
     }
   }
 
@@ -163,8 +159,9 @@ abstract class BackgroundTask {
 
   @protected
   User getUser() {
-    final User storedUser =
-        User.fromJson(jsonDecode(user) as Map<String, dynamic>);
+    final User storedUser = User.fromJson(
+      jsonDecode(user) as Map<String, dynamic>,
+    );
     final User currentUser = ProductQuery.getWriteUser();
     if (storedUser.userId == currentUser.userId) {
       // with a latest password.

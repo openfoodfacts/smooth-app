@@ -11,28 +11,17 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
-  const UserPreferencesListItemDivider({
-    this.margin,
-    super.key,
-  });
+  const UserPreferencesListItemDivider({this.margin, super.key});
 
   final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: margin ??
-          const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-          ),
+      padding: margin ?? const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
       child: CustomPaint(
-        size: const Size(
-          double.infinity,
-          1.0,
-        ),
-        painter: DashedLinePainter(
-          color: Theme.of(context).dividerColor,
-        ),
+        size: const Size(double.infinity, 1.0),
+        painter: DashedLinePainter(color: Theme.of(context).dividerColor),
       ),
     );
   }
@@ -53,29 +42,24 @@ class UserPreferencesSwitchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SwitchListTile.adaptive(
-        title: Padding(
-          padding: const EdgeInsetsDirectional.only(
-            top: SMALL_SPACE,
-            bottom: SMALL_SPACE,
+    title: Padding(
+      padding: const EdgeInsetsDirectional.only(
+        top: SMALL_SPACE,
+        bottom: SMALL_SPACE,
+      ),
+      child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
+    ),
+    subtitle: subtitle == null
+        ? null
+        : Padding(
+            padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
+            child: Text(subtitle!, style: const TextStyle(height: 1.5)),
           ),
-          child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
-        ),
-        subtitle: subtitle == null
-            ? null
-            : Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  bottom: SMALL_SPACE,
-                ),
-                child: Text(
-                  subtitle!,
-                  style: const TextStyle(height: 1.5),
-                ),
-              ),
-        activeColor: Theme.of(context).primaryColor,
-        value: value,
-        onChanged: onChanged,
-        isThreeLine: subtitle != null,
-      );
+    activeColor: Theme.of(context).primaryColor,
+    value: value,
+    onChanged: onChanged,
+    isThreeLine: subtitle != null,
+  );
 }
 
 class UserPreferencesItemSwitch implements UserPreferencesItem {
@@ -92,19 +76,16 @@ class UserPreferencesItemSwitch implements UserPreferencesItem {
   final ValueChanged<bool> onChanged;
 
   @override
-  List<String> get labels => <String>[
-        title,
-        if (subtitle != null) subtitle!,
-      ];
+  List<String> get labels => <String>[title, if (subtitle != null) subtitle!];
 
   @override
   WidgetBuilder get builder =>
       (final BuildContext context) => UserPreferencesSwitchWidget(
-            title: title,
-            subtitle: subtitle,
-            value: value,
-            onChanged: onChanged,
-          );
+        title: title,
+        subtitle: subtitle,
+        value: value,
+        onChanged: onChanged,
+      );
 }
 
 class UserPreferencesItemTile implements UserPreferencesItem {
@@ -125,25 +106,22 @@ class UserPreferencesItemTile implements UserPreferencesItem {
   final bool Function(BuildContext context)? visibleWhen;
 
   @override
-  List<String> get labels => <String>[
-        title,
-        if (subtitle != null) subtitle!,
-      ];
+  List<String> get labels => <String>[title, if (subtitle != null) subtitle!];
 
   @override
   WidgetBuilder get builder => (final BuildContext context) {
-        if (visibleWhen?.call(context) == false) {
-          return EMPTY_WIDGET;
-        }
+    if (visibleWhen?.call(context) == false) {
+      return EMPTY_WIDGET;
+    }
 
-        return ListTile(
-          title: Text(title),
-          subtitle: subtitle == null ? null : Text(subtitle!),
-          onTap: onTap,
-          leading: leading,
-          trailing: trailing,
-        );
-      };
+    return ListTile(
+      title: Text(title),
+      subtitle: subtitle == null ? null : Text(subtitle!),
+      onTap: onTap,
+      leading: leading,
+      trailing: trailing,
+    );
+  };
 }
 
 /// Same as [UserPreferencesItemTile] but with [WidgetBuilder].
@@ -166,7 +144,8 @@ class UserPreferencesItemTileBuilder implements UserPreferencesItem {
   List<String> get labels => <String>[title];
 
   @override
-  WidgetBuilder get builder => (final BuildContext context) => ListTile(
+  WidgetBuilder get builder =>
+      (final BuildContext context) => ListTile(
         title: Text(title),
         subtitle: subtitleBuilder.call(context),
         onTap: onTap,
@@ -176,46 +155,45 @@ class UserPreferencesItemTileBuilder implements UserPreferencesItem {
 }
 
 class UserPreferencesItemSection implements UserPreferencesItem {
-  const UserPreferencesItemSection({
-    required this.label,
-    this.icon,
-  }) : assert(label.length > 0);
+  const UserPreferencesItemSection({required this.label, this.icon})
+    : assert(label.length > 0);
 
   final String label;
   final Widget? icon;
 
   @override
   WidgetBuilder get builder => (BuildContext context) {
-        final SmoothColorsThemeExtension colors =
-            Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
-        return Container(
-          color: colors.primaryDark,
-          padding: const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-            vertical: SMALL_SPACE,
-          ),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(
-                  label,
-                  style: TextStyle(
-                    color: colors.primaryLight,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+    return Container(
+      color: colors.primaryDark,
+      padding: const EdgeInsets.symmetric(
+        horizontal: LARGE_SPACE,
+        vertical: SMALL_SPACE,
+      ),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Text(
+              label,
+              style: TextStyle(
+                color: colors.primaryLight,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
-              if (icon != null)
-                IconTheme(
-                  data: IconThemeData(color: colors.primaryLight),
-                  child: icon!,
-                ),
-            ],
+            ),
           ),
-        );
-      };
+          if (icon != null)
+            IconTheme(
+              data: IconThemeData(color: colors.primaryLight),
+              child: icon!,
+            ),
+        ],
+      ),
+    );
+  };
 
   @override
   Iterable<String> get labels => <String>[label];
@@ -241,10 +219,10 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
     this.descriptions,
     this.dialogHeight,
     super.key,
-  })  : assert(labels.length > 0),
-        assert(values.length == labels.length),
-        assert(descriptions == null || descriptions.length == labels.length),
-        assert(dialogHeight == null || dialogHeight > 0.0);
+  }) : assert(labels.length > 0),
+       assert(values.length == labels.length),
+       assert(descriptions == null || descriptions.length == labels.length),
+       assert(dialogHeight == null || dialogHeight > 0.0);
 
   final String title;
   final IconData? leading;
@@ -267,10 +245,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,
         ),
-        child: Text(
-          title,
-          style: theme.textTheme.headlineMedium,
-        ),
+        child: Text(title, style: theme.textTheme.headlineMedium),
       ),
       subtitle: Padding(
         padding: const EdgeInsetsDirectional.only(
@@ -300,18 +275,20 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                 ),
               ),
             ),
-            const Icon(Icons.edit)
+            const Icon(Icons.edit),
           ],
         ),
       ),
       onTap: () async {
-        final double itemHeight = (descriptions != null ? 15.0 : 0.0) +
+        final double itemHeight =
+            (descriptions != null ? 15.0 : 0.0) +
             (5.0 * 2) +
             1.0 +
             (56.0 + Theme.of(context).visualDensity.baseSizeAdjustment.dy);
 
         final MediaQueryData queryData = MediaQueryData.fromView(
-            WidgetsBinding.instance.platformDispatcher.implicitView!);
+          WidgetsBinding.instance.platformDispatcher.implicitView!,
+        );
 
         // If there is not enough space, we use the scrolling sheet
         final T? res;
@@ -323,31 +300,33 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
         if ((itemHeight * labels.length + header.computeHeight(context)) >
             (queryData.size.height * 0.9) - queryData.viewPadding.top) {
           res = await showSmoothDraggableModalSheet<T>(
-              context: context,
-              header: header,
-              bodyBuilder: (BuildContext context) {
-                return SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    childCount: labels.length,
-                    (BuildContext context, int position) {
-                      final bool selected =
-                          currentValue == values.elementAt(position);
+            context: context,
+            header: header,
+            bodyBuilder: (BuildContext context) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: labels.length,
+                  (BuildContext context, int position) {
+                    final bool selected =
+                        currentValue == values.elementAt(position);
 
-                      return _ChoiceItem<T>(
-                        selected: selected,
-                        label: labels.elementAt(position),
-                        value: values.elementAt(position),
-                        description: descriptions?.elementAt(position),
-                        leading: leadingBuilder != null
-                            ? Builder(
-                                builder: leadingBuilder!.elementAt(position))
-                            : null,
-                        hasDivider: position < labels.length - 1,
-                      );
-                    },
-                  ),
-                );
-              });
+                    return _ChoiceItem<T>(
+                      selected: selected,
+                      label: labels.elementAt(position),
+                      value: values.elementAt(position),
+                      description: descriptions?.elementAt(position),
+                      leading: leadingBuilder != null
+                          ? Builder(
+                              builder: leadingBuilder!.elementAt(position),
+                            )
+                          : null,
+                      hasDivider: position < labels.length - 1,
+                    );
+                  },
+                ),
+              );
+            },
+          );
         } else {
           final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
             title: title,
@@ -380,7 +359,8 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
 
           res = await showSmoothModalSheet<T>(
             context: context,
-            minHeight: smoothModalSheet.computeHeaderHeight(context) +
+            minHeight:
+                smoothModalSheet.computeHeaderHeight(context) +
                 itemHeight * labels.length,
             builder: (BuildContext context) {
               return smoothModalSheet;
@@ -426,15 +406,15 @@ class _ChoiceItem<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final SmoothColorsThemeExtension extension =
-        theme.extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension = theme
+        .extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme();
 
     final Color backgroundColor = selected
         ? (lightTheme ? extension.primaryMedium : extension.primaryTone)
         : context.lightTheme()
-            ? Colors.transparent
-            : extension.primaryUltraBlack;
+        ? Colors.transparent
+        : extension.primaryUltraBlack;
 
     return Semantics(
       value: label,
@@ -497,15 +477,9 @@ class UserPreferenceListTile extends StatelessWidget {
             padding: const EdgeInsets.all(VERY_SMALL_SPACE),
             child: leading,
           ),
-          title: Text(
-            title,
-            style: textTheme.headlineMedium,
-          ),
+          title: Text(title, style: textTheme.headlineMedium),
           subtitle: subTitle != null
-              ? Text(
-                  subTitle!,
-                  style: textTheme.bodyMedium,
-                )
+              ? Text(subTitle!, style: textTheme.bodyMedium)
               : null,
           onTap: () => onTap(context),
           contentPadding: const EdgeInsetsDirectional.symmetric(
@@ -528,8 +502,8 @@ class UserPreferencesEditableItemTile extends UserPreferencesItemTile {
     this.validator,
     this.hint,
     this.value,
-  })  : assert(dialogAction.length > 0),
-        super(subtitle: dialogAction);
+  }) : assert(dialogAction.length > 0),
+       super(subtitle: dialogAction);
 
   final String? value;
   final String? hint;
@@ -539,18 +513,19 @@ class UserPreferencesEditableItemTile extends UserPreferencesItemTile {
 
   @override
   WidgetBuilder get builder => (BuildContext context) {
-        return ListTile(
-          title: Text(title),
-          subtitle: Text(value?.isNotEmpty == true
-              ? value!
-              : (subtitleWithEmptyValue ?? '-')),
-          onTap: () async => _showInputTextDialog(context),
-        );
-      };
+    return ListTile(
+      title: Text(title),
+      subtitle: Text(
+        value?.isNotEmpty == true ? value! : (subtitleWithEmptyValue ?? '-'),
+      ),
+      onTap: () async => _showInputTextDialog(context),
+    );
+  };
 
   Future<void> _showInputTextDialog(BuildContext context) async {
-    final TextEditingController controller =
-        TextEditingController(text: value ?? '');
+    final TextEditingController controller = TextEditingController(
+      text: value ?? '',
+    );
 
     final dynamic res = await showDialog(
       context: context,
@@ -563,25 +538,25 @@ class UserPreferencesEditableItemTile extends UserPreferencesItemTile {
           child: Consumer<TextEditingController>(
             builder:
                 (BuildContext context, TextEditingController controller, _) {
-              return SmoothAlertDialog(
-                title: title,
-                close: true,
-                body: _UserPreferencesEditableDialogContent(
-                  title: subtitle!,
-                  hint: hint,
-                ),
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.okay,
-                  onPressed: validator?.call(controller.text) != false
-                      ? () => Navigator.of(context).pop(controller.text)
-                      : null,
-                ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.cancel,
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              );
-            },
+                  return SmoothAlertDialog(
+                    title: title,
+                    close: true,
+                    body: _UserPreferencesEditableDialogContent(
+                      title: subtitle!,
+                      hint: hint,
+                    ),
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.okay,
+                      onPressed: validator?.call(controller.text) != false
+                          ? () => Navigator.of(context).pop(controller.text)
+                          : null,
+                    ),
+                    negativeAction: SmoothActionButton(
+                      text: appLocalizations.cancel,
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  );
+                },
           ),
         );
       },
@@ -594,10 +569,7 @@ class UserPreferencesEditableItemTile extends UserPreferencesItemTile {
 }
 
 class _UserPreferencesEditableDialogContent extends StatefulWidget {
-  const _UserPreferencesEditableDialogContent({
-    required this.title,
-    this.hint,
-  });
+  const _UserPreferencesEditableDialogContent({required this.title, this.hint});
 
   final String title;
   final String? hint;

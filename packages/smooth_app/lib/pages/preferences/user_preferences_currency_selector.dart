@@ -38,9 +38,7 @@ class UserPreferencesCurrencySelector extends StatelessWidget {
         child: CurrencySelector(
           textStyle: themeData.textTheme.bodyMedium,
           icon: const Icon(Icons.edit),
-          padding: const EdgeInsetsDirectional.only(
-            start: SMALL_SPACE,
-          ),
+          padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
         ),
       ),
       minVerticalPadding: MEDIUM_SPACE,

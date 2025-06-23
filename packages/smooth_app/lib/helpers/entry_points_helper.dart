@@ -1,13 +1,3 @@
-enum StoreLabel {
-  GooglePlayStore,
-  AppleAppStore,
-  FDroid,
-  AmazonAppStore,
-  Test,
-}
+enum StoreLabel { GooglePlayStore, AppleAppStore, FDroid, AmazonAppStore, Test }
 
-enum ScannerLabel {
-  ZXing,
-  MLKit,
-  Test,
-}
+enum ScannerLabel { ZXing, MLKit, Test }

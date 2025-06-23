@@ -17,9 +17,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that displays the latest proofs of the current user.
 class PricesProofsPage extends StatefulWidget {
-  const PricesProofsPage({
-    required this.selectProof,
-  });
+  const PricesProofsPage({required this.selectProof});
 
   /// Do we want to select a proof (true), or just to see its details (false)?
   final bool selectProof;
@@ -31,9 +29,7 @@ class PricesProofsPage extends StatefulWidget {
 class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
   late final _InfiniteScrollProofManager _proofManager =
-      _InfiniteScrollProofManager(
-    selectProof: widget.selectProof,
-  );
+      _InfiniteScrollProofManager(selectProof: widget.selectProof);
 
   @override
   void dispose() {
@@ -48,9 +44,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
-        title: Text(
-          appLocalizations.user_search_proofs_title,
-        ),
+        title: Text(appLocalizations.user_search_proofs_title),
         actions: <Widget>[
           IconButton(
             tooltip: appLocalizations.prices_app_button,
@@ -64,18 +58,14 @@ class _PricesProofsPageState extends State<PricesProofsPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<Proof>(
-        manager: _proofManager,
-      ),
+      body: InfiniteScrollList<Proof>(manager: _proofManager),
     );
   }
 }
 
 /// A manager for handling proof data with infinite scrolling
 class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
-  _InfiniteScrollProofManager({
-    required this.selectProof,
-  });
+  _InfiniteScrollProofManager({required this.selectProof});
 
   static const int _pageSize = 10;
   final bool selectProof;
@@ -86,10 +76,10 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<String> token =
         await OpenPricesAPIClient.getAuthenticationToken(
-      username: user.userId,
-      password: user.password,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          username: user.userId,
+          password: user.password,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
 
     if (token.isError) {
       throw Exception(token.error ?? 'Could not authenticate with the server');
@@ -107,19 +97,19 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(
-      GetProofsParameters()
-        ..orderBy = <OrderBy<GetProofsOrderField>>[
-          const OrderBy<GetProofsOrderField>(
-            field: GetProofsOrderField.created,
-            ascending: false,
-          ),
-        ]
-        ..owner = user.userId
-        ..pageSize = _pageSize
-        ..pageNumber = pageNumber,
-      uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: _bearerToken!,
-    );
+          GetProofsParameters()
+            ..orderBy = <OrderBy<GetProofsOrderField>>[
+              const OrderBy<GetProofsOrderField>(
+                field: GetProofsOrderField.created,
+                ascending: false,
+              ),
+            ]
+            ..owner = user.userId
+            ..pageSize = _pageSize
+            ..pageNumber = pageNumber,
+          uriHelper: ProductQuery.uriPricesHelper,
+          bearerToken: _bearerToken!,
+        );
 
     if (result.isError) {
       throw Exception(result.error ?? 'Failed to fetch proofs');
@@ -145,10 +135,7 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   }
 
   @override
-  Widget buildItem({
-    required BuildContext context,
-    required Proof item,
-  }) {
+  Widget buildItem({required BuildContext context, required Proof item}) {
     if (item.filePath == null) {
       return const SizedBox.shrink();
     }
@@ -180,8 +167,9 @@ class _PriceProofListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DateFormat dateFormat =
-        DateFormat.yMd(ProductQuery.getLocaleString());
+    final DateFormat dateFormat = DateFormat.yMd(
+      ProductQuery.getLocaleString(),
+    );
     final String date = dateFormat.format(proof.date ?? proof.created);
 
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -205,15 +193,7 @@ class _PriceProofListItem extends StatelessWidget {
             rounded: false,
           ),
           const SizedBox(width: MEDIUM_SPACE),
-          Expanded(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  date,
-                ),
-              ],
-            ),
-          ),
+          Expanded(child: Column(children: <Widget>[Text(date)])),
         ],
       ),
     );

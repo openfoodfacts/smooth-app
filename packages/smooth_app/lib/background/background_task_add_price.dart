@@ -47,16 +47,17 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   });
 
   BackgroundTaskAddPrice.fromJson(super.json)
-      : fullPath = json[_jsonTagImagePath] as String,
-        rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
-        cropX1 = json[_jsonTagX1] as int? ?? 0,
-        cropY1 = json[_jsonTagY1] as int? ?? 0,
-        cropX2 = json[_jsonTagX2] as int? ?? 0,
-        cropY2 = json[_jsonTagY2] as int? ?? 0,
-        proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
-        eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
-            json[_jsonTagEraserCoordinates]),
-        super.fromJson();
+    : fullPath = json[_jsonTagImagePath] as String,
+      rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
+      cropX1 = json[_jsonTagX1] as int? ?? 0,
+      cropY1 = json[_jsonTagY1] as int? ?? 0,
+      cropX2 = json[_jsonTagX2] as int? ?? 0,
+      cropY2 = json[_jsonTagY2] as int? ?? 0,
+      proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
+      eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+        json[_jsonTagEraserCoordinates],
+      ),
+      super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
   static const String _jsonTagRotation = 'rotation';
@@ -156,36 +157,35 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
-  }) =>
-      BackgroundTaskAddPrice._(
-        uniqueId: uniqueId,
-        processName: _operationType.processName,
-        fullPath: cropObject.fullFile!.path,
-        rotationDegrees: cropObject.rotation,
-        cropX1: cropObject.x1,
-        cropY1: cropObject.y1,
-        cropX2: cropObject.x2,
-        cropY2: cropObject.y2,
-        proofType: proofType,
-        date: date,
-        currency: currency,
-        locationOSMId: locationOSMId,
-        locationOSMType: locationOSMType,
-        eraserCoordinates: cropObject.eraserCoordinates,
-        barcodes: barcodes,
-        categories: categories,
-        origins: origins,
-        labels: labels,
-        pricePers: pricePers,
-        pricesAreDiscounted: pricesAreDiscounted,
-        prices: prices,
-        pricesWithoutDiscount: pricesWithoutDiscount,
-        stamp: BackgroundTaskPrice.getStamp(
-          date: date,
-          locationOSMId: locationOSMId,
-          locationOSMType: locationOSMType,
-        ),
-      );
+  }) => BackgroundTaskAddPrice._(
+    uniqueId: uniqueId,
+    processName: _operationType.processName,
+    fullPath: cropObject.fullFile!.path,
+    rotationDegrees: cropObject.rotation,
+    cropX1: cropObject.x1,
+    cropY1: cropObject.y1,
+    cropX2: cropObject.x2,
+    cropY2: cropObject.y2,
+    proofType: proofType,
+    date: date,
+    currency: currency,
+    locationOSMId: locationOSMId,
+    locationOSMType: locationOSMType,
+    eraserCoordinates: cropObject.eraserCoordinates,
+    barcodes: barcodes,
+    categories: categories,
+    origins: origins,
+    labels: labels,
+    pricePers: pricePers,
+    pricesAreDiscounted: pricesAreDiscounted,
+    prices: prices,
+    pricesWithoutDiscount: pricesWithoutDiscount,
+    stamp: BackgroundTaskPrice.getStamp(
+      date: date,
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
+    ),
+  );
 
   @override
   Future<void> postExecute(
@@ -200,8 +200,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     }
     try {
       (await BackgroundTaskUpload.getFile(
-              BackgroundTaskImage.getCroppedPath(fullPath)))
-          .deleteSync();
+        BackgroundTaskImage.getCroppedPath(fullPath),
+      )).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -229,8 +229,9 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
 
     // proof upload
     final Uri initialImageUri = Uri.parse(path);
-    final MediaType initialMediaType =
-        HttpHelper().imagineMediaType(initialImageUri.path)!;
+    final MediaType initialMediaType = HttpHelper().imagineMediaType(
+      initialImageUri.path,
+    )!;
     final MaybeError<Proof> uploadProof = await OpenPricesAPIClient.uploadProof(
       createProofParameters: CreateProofParameters(proofType)
         ..date = date

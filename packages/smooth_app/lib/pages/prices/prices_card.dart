@@ -103,8 +103,9 @@ class _PricesCardViewButtonState extends State<_PricesCardViewButton> {
     return Badge(
       offset: Offset.zero,
       isLabelVisible: total != null,
-      backgroundColor:
-          context.extension<SmoothColorsThemeExtension>().secondaryNormal,
+      backgroundColor: context
+          .extension<SmoothColorsThemeExtension>()
+          .secondaryNormal,
       label: Padding(
         padding: const EdgeInsetsDirectional.only(
           start: VERY_SMALL_SPACE,

@@ -180,10 +180,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   Widget getIcon();
 
   /// Extra widget to be displayed after the list.
-  Widget? getExtraWidget(
-    final BuildContext context,
-    final Product product,
-  ) =>
+  Widget? getExtraWidget(final BuildContext context, final Product product) =>
       null;
 
   /// Text capitalization for the text field.
@@ -198,34 +195,33 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     final BuildContext context,
     final Product product,
     final String title,
-  ) =>
-      Padding(
-        padding: const EdgeInsetsDirectional.only(
-          top: 0,
-          start: SMALL_SPACE,
-          end: SMALL_SPACE,
-          bottom: SMALL_SPACE,
-        ),
-        child: addPanelButton(
-          title,
-          onPressed: () async => confirmAndUploadNewPicture(
-            context,
-            imageField: ImageField.OTHER,
-            barcode: product.barcode!,
-            productType: product.productType,
-            language: ProductQuery.getLanguage(),
-            // we're already logged in if needed
-            isLoggedInMandatory: false,
-          ),
-          leadingIcon: const Icon(Icons.add_a_photo),
-          elevation: const WidgetStatePropertyAll<double>(0.0),
-          padding: const EdgeInsetsDirectional.only(
-            top: SMALL_SPACE,
-            bottom: SMALL_SPACE,
-            start: VERY_SMALL_SPACE,
-          ),
-        ),
-      );
+  ) => Padding(
+    padding: const EdgeInsetsDirectional.only(
+      top: 0,
+      start: SMALL_SPACE,
+      end: SMALL_SPACE,
+      bottom: SMALL_SPACE,
+    ),
+    child: addPanelButton(
+      title,
+      onPressed: () async => confirmAndUploadNewPicture(
+        context,
+        imageField: ImageField.OTHER,
+        barcode: product.barcode!,
+        productType: product.productType,
+        language: ProductQuery.getLanguage(),
+        // we're already logged in if needed
+        isLoggedInMandatory: false,
+      ),
+      leadingIcon: const Icon(Icons.add_a_photo),
+      elevation: const WidgetStatePropertyAll<double>(0.0),
+      padding: const EdgeInsetsDirectional.only(
+        top: SMALL_SPACE,
+        bottom: SMALL_SPACE,
+        start: VERY_SMALL_SPACE,
+      ),
+    ),
+  );
 
   /// Returns true if changes were made.
   bool getChangedProduct(final Product product) {
@@ -247,9 +243,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     if (input.isEmpty) {
       return <String>[];
     }
-    return input.split(separator.trim()).map((String e) => e.trim()).toList(
-          growable: false,
-        );
+    return input
+        .split(separator.trim())
+        .map((String e) => e.trim())
+        .toList(growable: false);
   }
 
   /// Returns the current language.
@@ -321,9 +318,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   bool isOwnerField(final Product product) => false;
 
   final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
-      robotoffQuestionsNotifier =
+  robotoffQuestionsNotifier =
       ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>(
-          <RobotoffQuestion, InsightAnnotation?>{});
+        <RobotoffQuestion, InsightAnnotation?>{},
+      );
 
   InsightType? get _robotoffInsightType;
 
@@ -337,12 +335,11 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     try {
       final List<RobotoffQuestion> questions =
           (await RobotoffAPIClient.getProductQuestions(
-                product.barcode!,
-                getLanguage(),
-                insightTypes: <InsightType>[type],
-              ))
-                  .questions ??
-              <RobotoffQuestion>[];
+            product.barcode!,
+            getLanguage(),
+            insightTypes: <InsightType>[type],
+          )).questions ??
+          <RobotoffQuestion>[];
 
       robotoffQuestionsNotifier.value = <RobotoffQuestion, InsightAnnotation?>{
         for (final RobotoffQuestion question in questions) question: null,
@@ -359,17 +356,18 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     final InsightAnnotation? annotation,
   ) {
     robotoffQuestionsNotifier.value = robotoffQuestionsNotifier.value
-        .map<RobotoffQuestion, InsightAnnotation?>(
-      (final RobotoffQuestion key, final InsightAnnotation? value) {
-        if (key == question) {
-          return MapEntry<RobotoffQuestion, InsightAnnotation?>(
-            key,
-            annotation,
-          );
-        }
-        return MapEntry<RobotoffQuestion, InsightAnnotation?>(key, value);
-      },
-    );
+        .map<RobotoffQuestion, InsightAnnotation?>((
+          final RobotoffQuestion key,
+          final InsightAnnotation? value,
+        ) {
+          if (key == question) {
+            return MapEntry<RobotoffQuestion, InsightAnnotation?>(
+              key,
+              annotation,
+            );
+          }
+          return MapEntry<RobotoffQuestion, InsightAnnotation?>(key, value);
+        });
 
     _changed = _computeHasChanged();
     notifyListeners();
@@ -400,9 +398,7 @@ class SimpleInputSuggestionsNoSuggestion extends SimpleInputSuggestionsState {
 }
 
 class SimpleInputSuggestionsLoaded extends SimpleInputSuggestionsState {
-  const SimpleInputSuggestionsLoaded({
-    required this.suggestions,
-  });
+  const SimpleInputSuggestionsLoaded({required this.suggestions});
 
   final List<String> suggestions;
 }
@@ -449,53 +445,53 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
 
   @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        return Column(
-          children: <Widget>[
-            ExplanationBodyInfo(
-              text: appLocalizations.add_basic_details_product_brand_help_info1,
-              icon: false,
-            ),
-            ExplanationTextContainer(
-              title: appLocalizations
-                  .add_basic_details_product_brand_help_info2_title,
-              items: <ExplanationTextContainerContent>[
-                ExplanationTextContainerContentText(
-                  text: appLocalizations
-                      .add_basic_details_product_brand_help_info2_content,
-                ),
-              ],
-            ),
-            ExplanationTextContainer(
-              title: appLocalizations
-                  .add_basic_details_product_brand_help_info3_title,
-              items: <ExplanationTextContainerContent>[
-                ExplanationTextContainerContentItem(
-                  text: appLocalizations
-                      .add_basic_details_product_brand_help_info3_item1_text,
-                  example: appLocalizations
-                      .add_basic_details_product_brand_help_info3_item1_explanation,
-                ),
-                ExplanationTextContainerContentItem(
-                  text: appLocalizations
-                      .add_basic_details_product_brand_help_info3_item2_text,
-                  example: appLocalizations
-                      .add_basic_details_product_brand_help_info3_item2_explanation,
-                ),
-              ],
-            ),
-            const SizedBox(height: MEDIUM_SPACE),
-            ExplanationGoodExamplesContainer(
-              items: <String>[
-                appLocalizations
-                    .add_basic_details_product_brand_help_good_examples_1,
-                appLocalizations
-                    .add_basic_details_product_brand_help_good_examples_2,
-              ],
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return Column(
+      children: <Widget>[
+        ExplanationBodyInfo(
+          text: appLocalizations.add_basic_details_product_brand_help_info1,
+          icon: false,
+        ),
+        ExplanationTextContainer(
+          title:
+              appLocalizations.add_basic_details_product_brand_help_info2_title,
+          items: <ExplanationTextContainerContent>[
+            ExplanationTextContainerContentText(
+              text: appLocalizations
+                  .add_basic_details_product_brand_help_info2_content,
             ),
           ],
-        );
-      };
+        ),
+        ExplanationTextContainer(
+          title:
+              appLocalizations.add_basic_details_product_brand_help_info3_title,
+          items: <ExplanationTextContainerContent>[
+            ExplanationTextContainerContentItem(
+              text: appLocalizations
+                  .add_basic_details_product_brand_help_info3_item1_text,
+              example: appLocalizations
+                  .add_basic_details_product_brand_help_info3_item1_explanation,
+            ),
+            ExplanationTextContainerContentItem(
+              text: appLocalizations
+                  .add_basic_details_product_brand_help_info3_item2_text,
+              example: appLocalizations
+                  .add_basic_details_product_brand_help_info3_item2_explanation,
+            ),
+          ],
+        ),
+        const SizedBox(height: MEDIUM_SPACE),
+        ExplanationGoodExamplesContainer(
+          items: <String>[
+            appLocalizations
+                .add_basic_details_product_brand_help_good_examples_1,
+            appLocalizations
+                .add_basic_details_product_brand_help_good_examples_2,
+          ],
+        ),
+      ],
+    );
+  };
 
   @override
   TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
@@ -509,18 +505,18 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AutocompleteManager? getAutocompleteManager() => AutocompleteManager(
-        TaxonomyNameAutocompleter(
-          taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
-          // for brands, language must be English
-          language: OpenFoodFactsLanguage.ENGLISH,
-          user: ProductQuery.getReadUser(),
-          limit: 25,
-          fuzziness: Fuzziness.none,
-          uriHelper: ProductQuery.getUriProductHelper(
-            productType: product.productType,
-          ),
-        ),
-      );
+    TaxonomyNameAutocompleter(
+      taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
+      // for brands, language must be English
+      language: OpenFoodFactsLanguage.ENGLISH,
+      user: ProductQuery.getReadUser(),
+      limit: 25,
+      fuzziness: Fuzziness.none,
+      uriHelper: ProductQuery.getUriProductHelper(
+        productType: product.productType,
+      ),
+    ),
+  );
 
   @override
   Widget getIcon() => const icons.Fruit();
@@ -586,27 +582,27 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   @override
   @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return Column(
-          children: <Widget>[
-            ExplanationBodyInfo(
-              text: appLocalizations
-                  .edit_product_form_item_stores_explanation_info1,
-            ),
-            ExplanationGoodExamplesContainer(
-              items: <String>[
-                appLocalizations
-                    .edit_product_form_item_stores_explanation_good_examples_1,
-                appLocalizations
-                    .edit_product_form_item_stores_explanation_good_examples_2,
-                appLocalizations
-                    .edit_product_form_item_stores_explanation_good_examples_3,
-              ],
-            ),
+    return Column(
+      children: <Widget>[
+        ExplanationBodyInfo(
+          text:
+              appLocalizations.edit_product_form_item_stores_explanation_info1,
+        ),
+        ExplanationGoodExamplesContainer(
+          items: <String>[
+            appLocalizations
+                .edit_product_form_item_stores_explanation_good_examples_1,
+            appLocalizations
+                .edit_product_form_item_stores_explanation_good_examples_2,
+            appLocalizations
+                .edit_product_form_item_stores_explanation_good_examples_3,
           ],
-        );
-      };
+        ),
+      ],
+    );
+  };
 
   @override
   TagType? getTagType() => null;
@@ -662,26 +658,26 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 
   @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return Column(
-          children: <Widget>[
-            ExplanationBodyInfo(
-              text: appLocalizations
-                  .edit_product_form_item_origins_explanation_info1,
-              icon: false,
-            ),
-            ExplanationGoodExamplesContainer(
-              items: <String>[
-                appLocalizations
-                    .edit_product_form_item_origins_explanation_good_examples_1,
-                appLocalizations
-                    .edit_product_form_item_origins_explanation_good_examples_2,
-              ],
-            ),
+    return Column(
+      children: <Widget>[
+        ExplanationBodyInfo(
+          text:
+              appLocalizations.edit_product_form_item_origins_explanation_info1,
+          icon: false,
+        ),
+        ExplanationGoodExamplesContainer(
+          items: <String>[
+            appLocalizations
+                .edit_product_form_item_origins_explanation_good_examples_1,
+            appLocalizations
+                .edit_product_form_item_origins_explanation_good_examples_2,
           ],
-        );
-      };
+        ),
+      ],
+    );
+  };
 
   @override
   TagType? getTagType() => TagType.ORIGINS;
@@ -696,10 +692,7 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.origins;
 
   @override
-  Widget? getExtraWidget(
-    final BuildContext context,
-    final Product product,
-  ) =>
+  Widget? getExtraWidget(final BuildContext context, final Product product) =>
       getExtraPhotoWidget(
         context,
         product,
@@ -746,63 +739,58 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return Column(
-          children: <Widget>[
-            ExplanationBodyInfo(
-              text: appLocalizations.edit_product_form_item_emb_help_info1,
-              icon: false,
-            ),
-            ExplanationTextContainer(
-              title:
-                  appLocalizations.edit_product_form_item_emb_help_info2_title,
-              items: <ExplanationTextContainerContent>[
-                ExplanationTextContainerContentItem(
-                  text: appLocalizations
-                      .edit_product_form_item_emb_help_info2_item1_text,
-                  example: appLocalizations
-                      .edit_product_form_item_emb_help_info2_item1_explanation,
-                  visualExamplePosition:
-                      ExplanationVisualExamplePosition.afterTitle,
-                  visualExample: Container(
-                    width: 104.0,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color:
-                            context.lightTheme() ? Colors.black : Colors.white,
-                        width: 1.0,
-                      ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.elliptical(100, 50),
-                      ),
-                    ),
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      vertical: VERY_SMALL_SPACE,
-                    ),
-                    child: Text(
-                      appLocalizations
-                          .edit_product_form_item_emb_help_info2_item1_example,
-                      textAlign: TextAlign.center,
-                      textScaler: TextScaler.noScaling,
-                      style: const TextStyle(
-                        fontSize: 12.0,
-                        height: 1.2,
-                      ),
-                    ),
+    return Column(
+      children: <Widget>[
+        ExplanationBodyInfo(
+          text: appLocalizations.edit_product_form_item_emb_help_info1,
+          icon: false,
+        ),
+        ExplanationTextContainer(
+          title: appLocalizations.edit_product_form_item_emb_help_info2_title,
+          items: <ExplanationTextContainerContent>[
+            ExplanationTextContainerContentItem(
+              text: appLocalizations
+                  .edit_product_form_item_emb_help_info2_item1_text,
+              example: appLocalizations
+                  .edit_product_form_item_emb_help_info2_item1_explanation,
+              visualExamplePosition:
+                  ExplanationVisualExamplePosition.afterTitle,
+              visualExample: Container(
+                width: 104.0,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: context.lightTheme() ? Colors.black : Colors.white,
+                    width: 1.0,
+                  ),
+                  borderRadius: const BorderRadius.all(
+                    Radius.elliptical(100, 50),
                   ),
                 ),
-                ExplanationTextContainerContentItem(
-                  text: appLocalizations
-                      .edit_product_form_item_emb_help_info2_item2_text,
-                  example: appLocalizations
-                      .edit_product_form_item_emb_help_info2_item2_explanation,
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: VERY_SMALL_SPACE,
                 ),
-              ],
+                child: Text(
+                  appLocalizations
+                      .edit_product_form_item_emb_help_info2_item1_example,
+                  textAlign: TextAlign.center,
+                  textScaler: TextScaler.noScaling,
+                  style: const TextStyle(fontSize: 12.0, height: 1.2),
+                ),
+              ),
+            ),
+            ExplanationTextContainerContentItem(
+              text: appLocalizations
+                  .edit_product_form_item_emb_help_info2_item2_text,
+              example: appLocalizations
+                  .edit_product_form_item_emb_help_info2_item2_explanation,
             ),
           ],
-        );
-      };
+        ),
+      ],
+    );
+  };
 
   @override
   TagType? getTagType() => TagType.EMB_CODES;
@@ -818,10 +806,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       AnalyticsEditEvents.traceabilityCodes;
 
   @override
-  Widget? getExtraWidget(
-    final BuildContext context,
-    final Product product,
-  ) =>
+  Widget? getExtraWidget(final BuildContext context, final Product product) =>
       getExtraPhotoWidget(
         context,
         product,
@@ -884,32 +869,32 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
   @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return Column(
-          children: <Widget>[
-            ExplanationBodyInfo(
-              text: appLocalizations
-                  .edit_product_form_item_labels_explanation_info1,
-              icon: false,
-            ),
-            ExplanationGoodExamplesContainer(
-              items: <String>[
-                appLocalizations
-                    .edit_product_form_item_labels_explanation_good_examples_1,
-                appLocalizations
-                    .edit_product_form_item_labels_explanation_good_examples_2,
-                appLocalizations
-                    .edit_product_form_item_labels_explanation_good_examples_3,
-                appLocalizations
-                    .edit_product_form_item_labels_explanation_good_examples_4,
-                appLocalizations
-                    .edit_product_form_item_labels_explanation_good_examples_5,
-              ],
-            ),
+    return Column(
+      children: <Widget>[
+        ExplanationBodyInfo(
+          text:
+              appLocalizations.edit_product_form_item_labels_explanation_info1,
+          icon: false,
+        ),
+        ExplanationGoodExamplesContainer(
+          items: <String>[
+            appLocalizations
+                .edit_product_form_item_labels_explanation_good_examples_1,
+            appLocalizations
+                .edit_product_form_item_labels_explanation_good_examples_2,
+            appLocalizations
+                .edit_product_form_item_labels_explanation_good_examples_3,
+            appLocalizations
+                .edit_product_form_item_labels_explanation_good_examples_4,
+            appLocalizations
+                .edit_product_form_item_labels_explanation_good_examples_5,
           ],
-        );
-      };
+        ),
+      ],
+    );
+  };
 
   @override
   TagType? getTagType() => TagType.LABELS;
@@ -925,10 +910,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       AnalyticsEditEvents.labelsAndCertifications;
 
   @override
-  Widget? getExtraWidget(
-    final BuildContext context,
-    final Product product,
-  ) =>
+  Widget? getExtraWidget(final BuildContext context, final Product product) =>
       getExtraPhotoWidget(
         context,
         product,
@@ -978,36 +960,36 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return Column(
-          children: <Widget>[
-            ExplanationBodyInfo(
+    return Column(
+      children: <Widget>[
+        ExplanationBodyInfo(
+          text: appLocalizations
+              .edit_product_form_item_categories_explanation_info1,
+          icon: false,
+        ),
+        ExplanationTextContainer(
+          title: appLocalizations
+              .edit_product_form_item_categories_explanation_info2_title,
+          items: <ExplanationTextContainerContent>[
+            ExplanationTextContainerContentText(
               text: appLocalizations
-                  .edit_product_form_item_categories_explanation_info1,
-              icon: false,
-            ),
-            ExplanationTextContainer(
-              title: appLocalizations
-                  .edit_product_form_item_categories_explanation_info2_title,
-              items: <ExplanationTextContainerContent>[
-                ExplanationTextContainerContentText(
-                  text: appLocalizations
-                      .edit_product_form_item_categories_explanation_info2_content,
-                ),
-              ],
-            ),
-            ExplanationGoodExamplesContainer(
-              items: <String>[
-                appLocalizations
-                    .edit_product_form_item_categories_explanation_good_examples_1,
-                appLocalizations
-                    .edit_product_form_item_categories_explanation_good_examples_2,
-              ],
+                  .edit_product_form_item_categories_explanation_info2_content,
             ),
           ],
-        );
-      };
+        ),
+        ExplanationGoodExamplesContainer(
+          items: <String>[
+            appLocalizations
+                .edit_product_form_item_categories_explanation_good_examples_1,
+            appLocalizations
+                .edit_product_form_item_categories_explanation_good_examples_2,
+          ],
+        ),
+      ],
+    );
+  };
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
@@ -1050,14 +1032,14 @@ class SimpleInputPageCategoryNotFoodHelper
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   SimpleInputPageCountryHelper(UserPreferences userPreferences)
-      : _userCountryCode = userPreferences.userCountryCode ?? 'fr';
+    : _userCountryCode = userPreferences.userCountryCode ?? 'fr';
 
   final String _userCountryCode;
 
   ValueNotifier<SimpleInputSuggestionsState> _suggestionsNotifier =
       ValueNotifier<SimpleInputSuggestionsState>(
-    const SimpleInputSuggestionsLoading(),
-  );
+        const SimpleInputSuggestionsLoading(),
+      );
   final List<Country> _countries = OpenFoodFactsCountry.values;
 
   @override
@@ -1151,13 +1133,13 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
   @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        return ExplanationBodyInfo(
-          text: appLocalizations
-              .edit_product_form_item_countries_explanations_info1,
-          safeArea: true,
-        );
-      };
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return ExplanationBodyInfo(
+      text:
+          appLocalizations.edit_product_form_item_countries_explanations_info1,
+      safeArea: true,
+    );
+  };
 
   @override
   TagType? getTagType() => TagType.COUNTRIES;

@@ -47,9 +47,9 @@ class ProductFooter extends StatelessWidget {
         color: Theme.of(context).scaffoldBackgroundColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Theme.of(context)
-                .shadowColor
-                .withValues(alpha: context.lightTheme() ? 0.25 : 0.6),
+            color: Theme.of(
+              context,
+            ).shadowColor.withValues(alpha: context.lightTheme() ? 0.25 : 0.6),
             blurRadius: 10.0,
           ),
         ],
@@ -125,8 +125,8 @@ class _ProductFooterButtonsBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
     // Add an extra padding (for Android)
@@ -143,9 +143,7 @@ class _ProductFooterButtonsBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
             side: BorderSide(color: themeExtension.greyMedium),
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: 19.0,
-            ),
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 19.0),
           ),
         ),
         child: actions != null
@@ -157,22 +155,23 @@ class _ProductFooterButtonsBar extends StatelessWidget {
                 bottomPadding: bottomPadding,
               )
             : ConsumerFilter<UserPreferences>(
-                buildWhen: (UserPreferences? previous,
-                        UserPreferences current) =>
-                    previous?.productPageActions != current.productPageActions,
+                buildWhen:
+                    (UserPreferences? previous, UserPreferences current) =>
+                        previous?.productPageActions !=
+                        current.productPageActions,
                 builder:
                     (BuildContext context, UserPreferences userPreferences, _) {
-                  final List<ProductFooterActionBar> productPageActions =
-                      userPreferences.productPageActions;
+                      final List<ProductFooterActionBar> productPageActions =
+                          userPreferences.productPageActions;
 
-                  return _ProductFooterButtonsBarItems(
-                    actions: productPageActions,
-                    scrollController: scrollController,
-                    showSettings: showSettings,
-                    highlightFirstItem: highlightFirstItem,
-                    bottomPadding: bottomPadding,
-                  );
-                },
+                      return _ProductFooterButtonsBarItems(
+                        actions: productPageActions,
+                        scrollController: scrollController,
+                        showSettings: showSettings,
+                        highlightFirstItem: highlightFirstItem,
+                        bottomPadding: bottomPadding,
+                      );
+                    },
               ),
       ),
     );
@@ -209,8 +208,8 @@ class _ProductFooterButtonsBarItems extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         final ProductFooterActionBar action =
             index == actions.length && showSettings
-                ? ProductFooterActionBar.settings
-                : actions[index];
+            ? ProductFooterActionBar.settings
+            : actions[index];
 
         return Provider<_ProductFooterButtonType>.value(
           value: index == 0 && highlightFirstItem
@@ -267,31 +266,28 @@ class ProductFooterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _ProductFooterButtonType buttonType =
-        context.watch<_ProductFooterButtonType>();
+    final _ProductFooterButtonType buttonType = context
+        .watch<_ProductFooterButtonType>();
 
     final Widget button = switch (buttonType) {
       _ProductFooterButtonType.filled => _ProductFooterFilledButton(
-          label: label,
-          icon: icon,
-          onTap: _onTap,
-          enabled: enabled,
-          semanticsLabel: semanticsLabel,
-        ),
+        label: label,
+        icon: icon,
+        onTap: _onTap,
+        enabled: enabled,
+        semanticsLabel: semanticsLabel,
+      ),
       _ProductFooterButtonType.outlined => _ProductFooterOutlinedButton(
-          label: label,
-          icon: icon,
-          onTap: _onTap,
-          enabled: enabled,
-          semanticsLabel: semanticsLabel,
-        ),
+        label: label,
+        icon: icon,
+        onTap: _onTap,
+        enabled: enabled,
+        semanticsLabel: semanticsLabel,
+      ),
     };
 
     if (tooltip?.isNotEmpty == true) {
-      return Tooltip(
-        message: tooltip,
-        child: button,
-      );
+      return Tooltip(message: tooltip, child: button);
     } else {
       return button;
     }
@@ -305,10 +301,7 @@ class ProductFooterButton extends StatelessWidget {
   }
 }
 
-enum _ProductFooterButtonType {
-  filled,
-  outlined,
-}
+enum _ProductFooterButtonType { filled, outlined }
 
 class _ProductFooterFilledButton extends StatelessWidget {
   const _ProductFooterFilledButton({
@@ -327,8 +320,8 @@ class _ProductFooterFilledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     ProductPageCompatibility? compatibility;
     try {
@@ -339,19 +332,17 @@ class _ProductFooterFilledButton extends StatelessWidget {
     final Color contentColor = compatibility?.color != null
         ? compatibility!.color!
         : lightTheme
-            ? themeExtension.primaryBlack
-            : themeExtension.primarySemiDark;
+        ? themeExtension.primaryBlack
+        : themeExtension.primarySemiDark;
     final Color backgroundColor = enabled
         ? contentColor
         : (lightTheme ? Colors.grey.shade500 : Colors.black12);
-    final Color foregroundColor =
-        Colors.white.withValues(alpha: enabled ? 1.0 : 0.2);
+    final Color foregroundColor = Colors.white.withValues(
+      alpha: enabled ? 1.0 : 0.2,
+    );
 
     final Widget child = IconTheme(
-      data: IconThemeData(
-        color: foregroundColor,
-        size: 18.0,
-      ),
+      data: IconThemeData(color: foregroundColor, size: 18.0),
       child: icon,
     );
 
@@ -375,9 +366,7 @@ class _ProductFooterFilledButton extends StatelessWidget {
                   const SizedBox(width: 8.0),
                   Text(
                     label!,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -403,21 +392,19 @@ class _ProductFooterOutlinedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
-    final Color contentColor =
-        lightTheme ? themeExtension.primaryBlack : Colors.white;
+    final Color contentColor = lightTheme
+        ? themeExtension.primaryBlack
+        : Colors.white;
     final Color foregroundColor = enabled
         ? contentColor
         : contentColor.withValues(alpha: lightTheme ? 0.4 : 0.2);
 
     final Widget child = IconTheme(
-      data: IconThemeData(
-        color: foregroundColor,
-        size: 18.0,
-      ),
+      data: IconThemeData(color: foregroundColor, size: 18.0),
       child: icon,
     );
 
@@ -441,9 +428,7 @@ class _ProductFooterOutlinedButton extends StatelessWidget {
                   const SizedBox(width: 8.0),
                   Text(
                     label!,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

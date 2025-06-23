@@ -90,14 +90,11 @@ class OrderedNutrientsCache {
     return null;
   }
 
-  UriProductHelper get _uriProductHelper => ProductQuery.getUriProductHelper(
-        productType: ProductType.food,
-      );
+  UriProductHelper get _uriProductHelper =>
+      ProductQuery.getUriProductHelper(productType: ProductType.food);
 
   /// Downloads the ordered nutrients and caches them in the database.
-  Future<OrderedNutrients> _download(
-    final LocalDatabase localDatabase,
-  ) async {
+  Future<OrderedNutrients> _download(final LocalDatabase localDatabase) async {
     final String string = await OpenFoodAPIClient.getOrderedNutrientsJsonString(
       country: ProductQuery.getCountry(),
       language: ProductQuery.getLanguage(),

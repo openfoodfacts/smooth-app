@@ -51,19 +51,16 @@ class _PriceScanPageState extends State<PriceScanPage>
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
-      appBar: SmoothAppBar(
-        title: Text(appLocalizations.prices_add_an_item),
-      ),
+      appBar: SmoothAppBar(title: Text(appLocalizations.prices_add_an_item)),
       floatingActionButton: !widget.isMultiProducts
           ? null
           : _barcodes.isEmpty
-              ? null
-              : FloatingActionButton.extended(
-                  onPressed: () => _pop(context),
-                  label:
-                      Text(appLocalizations.user_list_length(_barcodes.length)),
-                  icon: const Icon(Icons.add),
-                ),
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: () => _pop(context),
+              label: Text(appLocalizations.user_list_length(_barcodes.length)),
+              icon: const Icon(Icons.add),
+            ),
       body: GlobalVars.barcodeScanner.getScanner(
         onScan: (final String barcode) async {
           // for some reason, the scanner sometimes returns immediately the

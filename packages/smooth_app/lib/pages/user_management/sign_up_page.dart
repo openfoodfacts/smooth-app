@@ -101,9 +101,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   textInputAction: TextInputAction.next,
                   hintText: appLocalizations.sign_up_page_display_name_hint,
                   prefixIcon: const Icon(Icons.person),
-                  autofillHints: const <String>[
-                    AutofillHints.name,
-                  ],
+                  autofillHints: const <String>[AutofillHints.name],
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return appLocalizations
@@ -121,14 +119,13 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   textInputAction: TextInputAction.next,
                   hintText: appLocalizations.sign_up_page_email_hint,
                   prefixIcon: const Icon(Icons.person),
-                  autofillHints: const <String>[
-                    AutofillHints.email,
-                  ],
+                  autofillHints: const <String>[AutofillHints.email],
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return appLocalizations.sign_up_page_email_error_empty;
                     } else if (!UserManagementHelper.isEmailValid(
-                        _emailController.trimmedText)) {
+                      _emailController.trimmedText,
+                    )) {
                       return appLocalizations.sign_up_page_email_error_invalid;
                     } else {
                       return null;
@@ -143,19 +140,19 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   textInputAction: TextInputAction.next,
                   hintText: appLocalizations.sign_up_page_username_hint,
                   prefixIcon: const Icon(Icons.person),
-                  autofillHints: const <String>[
-                    AutofillHints.newUsername,
-                  ],
+                  autofillHints: const <String>[AutofillHints.newUsername],
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return appLocalizations.sign_up_page_username_error_empty;
                     }
                     if (!UserManagementHelper.isUsernameValid(
-                        _userController.trimmedText)) {
+                      _userController.trimmedText,
+                    )) {
                       return appLocalizations.sign_up_page_username_description;
                     }
                     if (!UserManagementHelper.isUsernameLengthValid(
-                        _userController.trimmedText)) {
+                      _userController.trimmedText,
+                    )) {
                       const int maxLength =
                           OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
                       return appLocalizations
@@ -175,9 +172,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   onFieldSubmitted: (_) =>
                       FocusScope.of(context).requestFocus(_password2FocusNode),
                   prefixIcon: const Icon(Icons.vpn_key),
-                  autofillHints: const <String>[
-                    AutofillHints.newPassword,
-                  ],
+                  autofillHints: const <String>[AutofillHints.newPassword],
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return appLocalizations.sign_up_page_password_error_empty;
@@ -198,9 +193,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   hintText: appLocalizations.sign_up_page_confirm_password_hint,
                   maxLines: 1,
                   prefixIcon: const Icon(Icons.vpn_key),
-                  autofillHints: const <String>[
-                    AutofillHints.newPassword,
-                  ],
+                  autofillHints: const <String>[AutofillHints.newPassword],
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return appLocalizations
@@ -227,11 +220,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   disagree: _disagreed,
                   checkboxColorResolver: getCheckBoxColor,
                   onCheckboxChanged: (bool checked) {
-                    setState(
-                      () {
-                        _agree = checked;
-                      },
-                    );
+                    setState(() {
+                      _agree = checked;
+                    });
                   },
                 ),
                 const SizedBox(height: space),
@@ -244,15 +235,17 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                     ignoring: true,
                     child: Checkbox(
                       value: _foodProducer,
-                      fillColor:
-                          WidgetStateProperty.resolveWith(getCheckBoxColor),
+                      fillColor: WidgetStateProperty.resolveWith(
+                        getCheckBoxColor,
+                      ),
                       onChanged: (_) {},
                     ),
                   ),
                   title: Text(
                     appLocalizations.sign_up_page_producer_checkbox,
-                    style: theme.textTheme.bodyMedium
-                        ?.copyWith(color: theme.colorScheme.onSurface),
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurface,
+                    ),
                   ),
                 ),
                 if (_foodProducer) ...<Widget>[
@@ -270,7 +263,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                       }
                       return null;
                     },
-                  )
+                  ),
                 ],
                 const SizedBox(height: space),
                 ListTile(
@@ -282,15 +275,17 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                     ignoring: true,
                     child: Checkbox(
                       value: _subscribe,
-                      fillColor:
-                          WidgetStateProperty.resolveWith(getCheckBoxColor),
+                      fillColor: WidgetStateProperty.resolveWith(
+                        getCheckBoxColor,
+                      ),
                       onChanged: (_) {},
                     ),
                   ),
                   title: Text(
                     appLocalizations.sign_up_page_subscribe_checkbox,
-                    style: theme.textTheme.bodyMedium
-                        ?.copyWith(color: theme.colorScheme.onSurface),
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurface,
+                    ),
                   ),
                 ),
                 const SizedBox(height: space),
@@ -336,9 +331,10 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       userId: _userController.trimmedText,
       password: _password1Controller.text,
     );
-    final bool prodUrl = context
-            .read<UserPreferences>()
-            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+    final bool prodUrl =
+        context.read<UserPreferences>().getFlag(
+          UserPreferencesDevMode.userPreferencesFlagProd,
+        ) ??
         true;
 
     final SignUpStatus? status = await LoadingDialog.run<SignUpStatus>(
@@ -366,37 +362,43 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
       // Highlight the field with the error
       if (status.statusErrors?.isNotEmpty == true) {
-        if (status.statusErrors!
-            .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
+        if (status.statusErrors!.contains(
+          SignUpStatusError.EMAIL_ALREADY_USED,
+        )) {
           _emailFocusNode.requestFocus();
           errorMessage =
               '${_emailController.trimmedText} ${appLocalisations.sign_up_page_email_already_exists}';
-        } else if (status.statusErrors!
-                .contains(SignUpStatusError.INCORRECT_EMAIL) ||
+        } else if (status.statusErrors!.contains(
+              SignUpStatusError.INCORRECT_EMAIL,
+            ) ||
             status.error!.contains('Invalid e-mail address')) {
           _emailFocusNode.requestFocus();
           errorMessage = appLocalisations.sign_up_page_provide_valid_email;
-        } else if (status.statusErrors!
-            .contains(SignUpStatusError.INVALID_PASSWORD)) {
+        } else if (status.statusErrors!.contains(
+          SignUpStatusError.INVALID_PASSWORD,
+        )) {
           _password1FocusNode.requestFocus();
           errorMessage = appLocalisations.sign_up_page_password_error_invalid;
-        } else if (status.statusErrors!
-            .contains(SignUpStatusError.INVALID_USERNAME)) {
+        } else if (status.statusErrors!.contains(
+          SignUpStatusError.INVALID_USERNAME,
+        )) {
           _userFocusNode.requestFocus();
           errorMessage =
               '${appLocalisations.sign_up_page_username_description}  ${appLocalisations.sign_up_page_username_length_invalid}';
-        } else if (status.statusErrors!
-            .contains(SignUpStatusError.USERNAME_ALREADY_USED)) {
+        } else if (status.statusErrors!.contains(
+          SignUpStatusError.USERNAME_ALREADY_USED,
+        )) {
           _userFocusNode.requestFocus();
           errorMessage = appLocalisations.sign_up_page_user_name_already_used;
-        } else if (status.statusErrors!
-            .contains(SignUpStatusError.SERVER_BUSY)) {
+        } else if (status.statusErrors!.contains(
+          SignUpStatusError.SERVER_BUSY,
+        )) {
           errorMessage = appLocalisations.sign_up_page_server_busy;
         } else {
           // Let's try to find the error in
-          final Iterable<RegExpMatch> allMatches =
-              RegExp('(<li class="error">)(.*?)(</li>)')
-                  .allMatches(status.error!);
+          final Iterable<RegExpMatch> allMatches = RegExp(
+            '(<li class="error">)(.*?)(</li>)',
+          ).allMatches(status.error!);
           if (allMatches.isNotEmpty) {
             final StringBuffer buffer = StringBuffer();
             for (final RegExpMatch match in allMatches) {
@@ -527,9 +529,9 @@ class _TermsOfUseCheckbox extends StatelessWidget {
                     child: Icon(
                       semanticLabel: appLocalizations.termsOfUse,
                       Icons.info,
-                      color: checkboxColorResolver(
-                        <WidgetState>{WidgetState.selected},
-                      ),
+                      color: checkboxColorResolver(<WidgetState>{
+                        WidgetState.selected,
+                      }),
                     ),
                   ),
                 ),
@@ -542,7 +544,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
               appLocalizations.sign_up_page_agree_error_invalid,
               style: TextStyle(color: theme.colorScheme.error),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -552,10 +554,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
     final String url = appLocalizations.sign_up_page_agree_url;
 
     try {
-      await launchUrl(
-        Uri.parse(url),
-        mode: LaunchMode.platformDefault,
-      );
+      await launchUrl(Uri.parse(url), mode: LaunchMode.platformDefault);
     } catch (_) {}
   }
 }

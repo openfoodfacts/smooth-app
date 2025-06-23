@@ -60,8 +60,9 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
     final bool lightTheme = context.lightTheme();
     _initAnimationsIfNecessary(lightTheme);
 
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return Semantics(
       label:
@@ -121,9 +122,7 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
                       ),
                       child: Opacity(
                         opacity: _opacityAnimation.value,
-                        child: const icons.Check(
-                          size: 9.0,
-                        ),
+                        child: const icons.Check(size: 9.0),
                       ),
                     ),
                     const SizedBox(width: MEDIUM_SPACE),
@@ -157,7 +156,7 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -182,14 +181,17 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
 
     final ThemeData themeData = Theme.of(context);
 
-    _colorAnimation = ColorTween(
-      begin: themeData.scaffoldBackgroundColor.withValues(alpha: 0.0),
-      end: lightTheme
-          ? themeData.extension<SmoothColorsThemeExtension>()!.primaryMedium
-          : themeData.extension<SmoothColorsThemeExtension>()!.primarySemiDark,
-    ).animate(
-      CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),
-    );
+    _colorAnimation =
+        ColorTween(
+          begin: themeData.scaffoldBackgroundColor.withValues(alpha: 0.0),
+          end: lightTheme
+              ? themeData.extension<SmoothColorsThemeExtension>()!.primaryMedium
+              : themeData
+                    .extension<SmoothColorsThemeExtension>()!
+                    .primarySemiDark,
+        ).animate(
+          CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),
+        );
 
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),

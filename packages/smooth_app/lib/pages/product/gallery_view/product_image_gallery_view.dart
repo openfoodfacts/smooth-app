@@ -33,9 +33,7 @@ import 'package:smooth_app/widgets/widget_height.dart';
 
 /// Display of the main 4 pictures of a product, with edit options.
 class ProductImageGalleryView extends StatefulWidget {
-  const ProductImageGalleryView({
-    required this.product,
-  });
+  const ProductImageGalleryView({required this.product});
 
   final Product product;
 
@@ -50,11 +48,7 @@ class ProductImageGalleryView extends StatefulWidget {
     required OpenFoodFactsLanguage language,
     UserPictureSource? pictureSource,
   }) async {
-    AnalyticsHelper.trackProductEdit(
-      AnalyticsEditEvents.photos,
-      product,
-      true,
-    );
+    AnalyticsHelper.trackProductEdit(AnalyticsEditEvents.photos, product, true);
 
     final CropParameters? cropParameters = await confirmAndUploadNewPicture(
       context,
@@ -97,9 +91,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     return MultiProvider(
       providers: <Provider<dynamic>>[
         Provider<Product>.value(value: upToDateProduct),
-        Provider<OpenFoodFactsLanguage>.value(
-          value: _language,
-        ),
+        Provider<OpenFoodFactsLanguage>.value(value: _language),
       ],
       child: SmoothScaffold(
         appBar: buildEditProductAppBar(
@@ -108,16 +100,14 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
           product: upToDateProduct,
           bottom: ProductImageGalleryTabBar(
             onTabChanged: (final OpenFoodFactsLanguage language) => onNextFrame(
-              () => setState(
-                () {
-                  _language = language;
-                  _scrollController.animateTo(
-                    0.0,
-                    duration: SmoothAnimationsDuration.short,
-                    curve: Curves.easeInOut,
-                  );
-                },
-              ),
+              () => setState(() {
+                _language = language;
+                _scrollController.animateTo(
+                  0.0,
+                  duration: SmoothAnimationsDuration.short,
+                  curve: Curves.easeInOut,
+                );
+              }),
             ),
           ),
         ),
@@ -142,11 +132,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                             sliver: SliverGrid(
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                                crossAxisCount: 2,
-                                height:
-                                    (MediaQuery.sizeOf(context).width / 2.15) +
+                                    crossAxisCount: 2,
+                                    height:
+                                        (MediaQuery.sizeOf(context).width /
+                                            2.15) +
                                         ImageGalleryPhotoRow.itemHeight,
-                              ),
+                                  ),
                               delegate: SliverChildBuilderDelegate(
                                 (BuildContext context, int index) {
                                   return Padding(
@@ -189,15 +180,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                             ),
                           if (_shouldDisplayRawGallery())
                             ProductImageGalleryOtherView(
-                                onPhotosAvailable: (bool hasPhotos) {
-                              if (_hideOtherPhotos != !hasPhotos) {
-                                onNextFrame(
-                                  () => setState(
-                                    () => _hideOtherPhotos = !hasPhotos,
-                                  ),
-                                );
-                              }
-                            })
+                              onPhotosAvailable: (bool hasPhotos) {
+                                if (_hideOtherPhotos != !hasPhotos) {
+                                  onNextFrame(
+                                    () => setState(
+                                      () => _hideOtherPhotos = !hasPhotos,
+                                    ),
+                                  );
+                                }
+                              },
+                            )
                           else
                             SliverToBoxAdapter(
                               child: Padding(
@@ -215,10 +207,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                             ),
                           SliverToBoxAdapter(
                             child: SizedBox(
-                              height: MediaQuery.viewPaddingOf(context).bottom +
+                              height:
+                                  MediaQuery.viewPaddingOf(context).bottom +
                                   (VERY_LARGE_SPACE * 2.5),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -242,11 +235,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
   Text _moreInterestingPhotoWidget(
     AppLocalizations appLocalizations,
     BuildContext context,
-  ) =>
-      Text(
-        appLocalizations.more_photos,
-        style: Theme.of(context).textTheme.displayMedium,
-      );
+  ) => Text(
+    appLocalizations.more_photos,
+    style: Theme.of(context).textTheme.displayMedium,
+  );
 
   bool _shouldDisplayRawGallery() =>
       _clickedOtherPictureButton ||
@@ -291,8 +283,8 @@ class _ProductImageGalleryFooterButtonState
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     final BorderRadius borderRadius = BorderRadiusHelper.fromDirectional(
       context: context,
@@ -333,22 +325,22 @@ class _ProductImageGalleryFooterButtonState
                   top: LARGE_SPACE,
                   start: LARGE_SPACE,
                   end: LARGE_SPACE,
-                  bottom: MediaQuery.viewPaddingOf(context).bottom +
+                  bottom:
+                      MediaQuery.viewPaddingOf(context).bottom +
                       VERY_SMALL_SPACE,
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    const icons.Add(
-                      color: Colors.black,
-                    ),
+                    const icons.Add(color: Colors.black),
                     Offstage(
                       offstage: _animation?.value == 1.0,
                       child: MeasureSize(
                         onChange: _onTextSizeAvailable,
                         child: Opacity(
-                          opacity: 1.0 -
+                          opacity:
+                              1.0 -
                               _controller.value.progressAndClamp(0.4, 1.0, 1.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.only(
@@ -378,14 +370,8 @@ class _ProductImageGalleryFooterButtonState
   }
 
   void _onTextSizeAvailable(Size size) {
-    _animation ??= Tween<double>(
-      begin: 0.0,
-      end: size.width,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.fastOutSlowIn,
-      ),
+    _animation ??= Tween<double>(begin: 0.0, end: size.width).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn),
     );
   }
 

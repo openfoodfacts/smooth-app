@@ -18,9 +18,7 @@ class ProductFooterCompareButton extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Product product = context.read<Product>();
 
-    const Set<String> blackListedCategories = <String>{
-      'fr:vegan',
-    };
+    const Set<String> blackListedCategories = <String>{'fr:vegan'};
     String? categoryTag;
     String? categoryLabel;
     final List<String>? labels =

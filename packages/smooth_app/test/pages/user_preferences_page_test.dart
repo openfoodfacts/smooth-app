@@ -30,18 +30,18 @@ void main() {
         late ColorProvider colorProvider;
         late TextContrastProvider textContrastProvider;
 
-        SharedPreferences.setMockInitialValues(
-          mockSharedPreferences(),
-        );
+        SharedPreferences.setMockInitialValues(mockSharedPreferences());
 
         userPreferences = await UserPreferences.getUserPreferences();
         userPreferences.setTheme(theme);
 
-        productPreferences = ProductPreferences(ProductPreferencesSelection(
-          setImportance: userPreferences.setImportance,
-          getImportance: userPreferences.getImportance,
-          notify: () => productPreferences.notifyListeners(),
-        ));
+        productPreferences = ProductPreferences(
+          ProductPreferencesSelection(
+            setImportance: userPreferences.setImportance,
+            getImportance: userPreferences.getImportance,
+            notify: () => productPreferences.notifyListeners(),
+          ),
+        );
         await productPreferences.init(PlatformAssetBundle());
         await userPreferences.init(productPreferences);
         themeProvider = ThemeProvider(userPreferences);

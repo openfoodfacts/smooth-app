@@ -56,7 +56,8 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
   @override
   void initState() {
     super.initState();
-    _manager = widget.autocompleteManager ??
+    _manager =
+        widget.autocompleteManager ??
         (widget.tagType == null
             ? null
             : AutocompleteManager(

@@ -41,57 +41,53 @@ class LoadingDialog<T> {
     required final BuildContext context,
     final String? title,
     final bool shouldOpenNewIssue = false,
-  }) async =>
-      showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          return SmoothAlertDialog(
-            body: Column(
-              children: <Widget>[
-                SvgPicture.asset(
-                  'assets/misc/error.svg',
-                  width: MINIMUM_TOUCH_SIZE * 2,
-                  package: AppHelper.APP_PACKAGE,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-                  child: Text(
-                    shouldOpenNewIssue
-                        ? appLocalizations.server_error_open_new_issue
-                        : title ??
-                            appLocalizations
-                                .loading_dialog_default_error_message,
-                    textAlign: TextAlign.center,
+  }) async => showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      return SmoothAlertDialog(
+        body: Column(
+          children: <Widget>[
+            SvgPicture.asset(
+              'assets/misc/error.svg',
+              width: MINIMUM_TOUCH_SIZE * 2,
+              package: AppHelper.APP_PACKAGE,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+              child: Text(
+                shouldOpenNewIssue
+                    ? appLocalizations.server_error_open_new_issue
+                    : title ??
+                          appLocalizations.loading_dialog_default_error_message,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            if (shouldOpenNewIssue)
+              Padding(
+                padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.copyWith(color: Colors.blue),
+                    text: Status.openNewIssueUrl,
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () =>
+                          LaunchUrlHelper.launchURL(Status.openNewIssueUrl),
                   ),
                 ),
-                if (shouldOpenNewIssue)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Colors.blue,
-                            ),
-                        text: Status.openNewIssueUrl,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => LaunchUrlHelper.launchURL(
-                                Status.openNewIssueUrl,
-                              ),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.close,
-              onPressed: () => Navigator.maybePop(context),
-            ),
-          );
-        },
+              ),
+          ],
+        ),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.close,
+          onPressed: () => Navigator.maybePop(context),
+        ),
       );
+    },
+  );
 
   /// Displays "downloading" dialog while actually downloading
   Future<T?> _run({
@@ -99,14 +95,13 @@ class LoadingDialog<T> {
     required final Future<T> future,
     required final String title,
     final bool? dismissible,
-  }) async =>
-      showDialog<T>(
-        barrierDismissible: dismissible ?? true,
-        context: context,
-        builder: (BuildContext context) {
-          return _getDialog(context, title, future);
-        },
-      );
+  }) async => showDialog<T>(
+    barrierDismissible: dismissible ?? true,
+    context: context,
+    builder: (BuildContext context) {
+      return _getDialog(context, title, future);
+    },
+  );
 
   /// Closes the dialog if relevant, pop'ing the [value]
   void _popDialog(final BuildContext context, final T? value) {

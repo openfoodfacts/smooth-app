@@ -15,9 +15,9 @@ class ProductFooterContributorGuideButton extends StatelessWidget {
       label: appLocalizations.product_footer_action_contributor_guide,
       semanticsLabel: appLocalizations.product_footer_action_contributor_guide,
       icon: const icons.Lifebuoy(),
-      onTap: () => AppNavigator.of(context).push(
-        AppRoutes.EXTERNAL('https://wiki.openfoodfacts.org/Data_fields'),
-      ),
+      onTap: () => AppNavigator.of(
+        context,
+      ).push(AppRoutes.EXTERNAL('https://wiki.openfoodfacts.org/Data_fields')),
     );
   }
 }

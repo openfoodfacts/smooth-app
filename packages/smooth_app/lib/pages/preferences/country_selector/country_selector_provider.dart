@@ -48,27 +48,24 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
 
   @override
   Future<List<Country>> onLoadValues() async {
-    final List<Country> countries =
-        OpenFoodFactsCountry.values.toList(growable: false);
+    final List<Country> countries = OpenFoodFactsCountry.values.toList(
+      growable: false,
+    );
     _reorderCountries(countries);
     return countries;
   }
 
   /// Reorder countries alphabetically, bring user's locale country to top.
-  void _reorderCountries(
-    List<Country> countries,
-  ) {
-    countries.sort(
-      (final Country a, final Country b) {
-        if (a.offTag == userCountryCode) {
-          return -1;
-        }
-        if (b.offTag == userCountryCode) {
-          return 1;
-        }
-        return a.name.compareTo(b.name);
-      },
-    );
+  void _reorderCountries(List<Country> countries) {
+    countries.sort((final Country a, final Country b) {
+      if (a.offTag == userCountryCode) {
+        return -1;
+      }
+      if (b.offTag == userCountryCode) {
+        return 1;
+      }
+      return a.name.compareTo(b.name);
+    });
   }
 
   @override

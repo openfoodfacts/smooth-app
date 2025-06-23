@@ -24,10 +24,7 @@ import 'package:url_launcher/url_launcher.dart';
 /// (eg: de.openfoodfacts.org), that's why we try to guess it with the country
 /// and the locale of the user
 class ExternalPage extends StatefulWidget {
-  const ExternalPage({
-    required this.path,
-    super.key,
-  }) : assert(path != '');
+  const ExternalPage({required this.path, super.key}) : assert(path != '');
 
   final String path;
 
@@ -54,10 +51,7 @@ class ExternalPage extends StatefulWidget {
     if (url == null) {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
 
-      url = path_lib.join(
-        'https://world.openfoodfacts.org',
-        pathUrl,
-      );
+      url = path_lib.join('https://world.openfoodfacts.org', pathUrl);
 
       url = '$url?lc=${language.offTag}';
     }
@@ -88,8 +82,9 @@ class _ExternalPageState extends State<ExternalPage> {
           await tabs.launchUrl(
             Uri.parse(url),
             customTabsOptions: const tabs.CustomTabsOptions(
-                showTitle: true,
-                browser: tabs.CustomTabsBrowserConfiguration()),
+              showTitle: true,
+              browser: tabs.CustomTabsBrowserConfiguration(),
+            ),
           );
         } else {
           /// The default browser
@@ -102,8 +97,9 @@ class _ExternalPageState extends State<ExternalPage> {
         Logs.e('Unable to open an external link', ex: e);
         if (mounted) {
           SmoothFloatingMessage(
-            message:
-                AppLocalizations.of(context).url_not_supported(widget.path),
+            message: AppLocalizations.of(
+              context,
+            ).url_not_supported(widget.path),
             type: SmoothFloatingMessageType.error,
           ).show(
             context,
@@ -127,9 +123,7 @@ class _ExternalPageState extends State<ExternalPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator.adaptive(),
-      ),
+      body: Center(child: CircularProgressIndicator.adaptive()),
     );
   }
 }

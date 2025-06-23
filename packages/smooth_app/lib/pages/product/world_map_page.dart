@@ -20,12 +20,10 @@ class WorldMapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SmoothScaffold(
       appBar: AppBar(
-        title: Text(
-          title ?? '',
-          maxLines: 2,
-        ),
-        backgroundColor:
-            AppBarTheme.of(context).backgroundColor?.withValues(alpha: 0.8),
+        title: Text(title ?? '', maxLines: 2),
+        backgroundColor: AppBarTheme.of(
+          context,
+        ).backgroundColor?.withValues(alpha: 0.8),
       ),
       extendBodyBehindAppBar: true,
       body: FlutterMap(
@@ -41,8 +39,9 @@ class WorldMapPage extends StatelessWidget {
               showFlutterMapAttribution: false,
               attributions: <SourceAttribution>[
                 TextSourceAttribution(
-                  AppLocalizations.of(context)
-                      .open_street_map_contributor_attribution,
+                  AppLocalizations.of(
+                    context,
+                  ).open_street_map_contributor_attribution,
                   onTap: () => LaunchUrlHelper.launchURL(
                     'https://www.openstreetmap.org/copyright',
                   ),

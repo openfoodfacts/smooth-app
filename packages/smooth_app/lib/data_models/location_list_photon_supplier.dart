@@ -13,10 +13,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// * the first one optimized on shops, as it's what we want.
 /// * an optional one with no restrictions, in case OSM data is a bit clumsy.
 class LocationListPhotonSupplier extends LocationListSupplier {
-  LocationListPhotonSupplier(
-    this.query,
-    this.optimizedSearch,
-  );
+  LocationListPhotonSupplier(this.query, this.optimizedSearch);
 
   /// Query text.
   final String query;
@@ -52,7 +49,8 @@ class LocationListPhotonSupplier extends LocationListSupplier {
           scheme: 'https',
           host: 'photon.komoot.io',
           path: 'api',
-          query: 'q=${Uri.encodeComponent(query)}'
+          query:
+              'q=${Uri.encodeComponent(query)}'
               '&lang=${getQueryLanguage().offTag}'
               '${_getAdditionalParameters()}',
         ),

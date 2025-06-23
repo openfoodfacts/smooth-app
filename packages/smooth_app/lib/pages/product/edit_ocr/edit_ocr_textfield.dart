@@ -36,18 +36,11 @@ class EditOCRTextField extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Consumer<OcrState>(
-      builder: (
-        BuildContext context,
-        OcrState ocrState,
-        Widget? child,
-      ) {
+      builder: (BuildContext context, OcrState ocrState, Widget? child) {
         if (ocrState == OcrState.EXTRACTING_DATA) {
           return AbsorbPointer(
             absorbing: ocrState == OcrState.EXTRACTING_DATA,
-            child: Opacity(
-              opacity: 0.2,
-              child: child,
-            ),
+            child: Opacity(opacity: 0.2, child: child),
           );
         } else {
           return child!;
@@ -66,72 +59,74 @@ class EditOCRTextField extends StatelessWidget {
             ),
           ],
         ),
-        contentPadding: const EdgeInsetsDirectional.all(
-          MEDIUM_SPACE,
-        ),
+        contentPadding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
         child: Column(
           children: <Widget>[
             ConsumerFilter<UserPreferences>(
-              buildWhen: (
-                UserPreferences? previousValue,
-                UserPreferences currentValue,
-              ) {
-                return previousValue?.getFlag(UserPreferencesDevMode
-                        .userPreferencesFlagSpellCheckerOnOcr) !=
-                    currentValue.getFlag(UserPreferencesDevMode
-                        .userPreferencesFlagSpellCheckerOnOcr);
-              },
-              builder: (
-                BuildContext context,
-                UserPreferences prefs,
-                Widget? child,
-              ) {
-                final ThemeData theme = Theme.of(context);
+              buildWhen:
+                  (
+                    UserPreferences? previousValue,
+                    UserPreferences currentValue,
+                  ) {
+                    return previousValue?.getFlag(
+                          UserPreferencesDevMode
+                              .userPreferencesFlagSpellCheckerOnOcr,
+                        ) !=
+                        currentValue.getFlag(
+                          UserPreferencesDevMode
+                              .userPreferencesFlagSpellCheckerOnOcr,
+                        );
+                  },
+              builder:
+                  (BuildContext context, UserPreferences prefs, Widget? child) {
+                    final ThemeData theme = Theme.of(context);
 
-                return Theme(
-                  data: theme.copyWith(
-                    colorScheme: theme.colorScheme.copyWith(
-                      onSurface:
-                          context.read<ThemeProvider>().isDarkMode(context)
+                    return Theme(
+                      data: theme.copyWith(
+                        colorScheme: theme.colorScheme.copyWith(
+                          onSurface:
+                              context.read<ThemeProvider>().isDarkMode(context)
                               ? Colors.white
                               : Colors.black,
-                    ),
-                  ),
-                  child: TextFormField(
-                    minLines: null,
-                    maxLines: null,
-                    controller: controller,
-                    textInputAction: TextInputAction.newline,
-                    textCapitalization: TextCapitalization.sentences,
-                    spellCheckConfiguration: (prefs.getFlag(
-                                    UserPreferencesDevMode
-                                        .userPreferencesFlagSpellCheckerOnOcr) ??
-                                false) &&
-                            (Platform.isAndroid || Platform.isIOS)
-                        ? const SpellCheckConfiguration()
-                        : const SpellCheckConfiguration.disabled(),
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: LARGE_SPACE,
-                        vertical: SMALL_SPACE,
-                      ),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: ROUNDED_BORDER_RADIUS,
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: ROUNDED_BORDER_RADIUS,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 5.0,
                         ),
                       ),
-                    ),
-                    onTapOutside: (_) =>
-                        FocusManager.instance.primaryFocus?.unfocus(),
-                  ),
-                );
-              },
+                      child: TextFormField(
+                        minLines: null,
+                        maxLines: null,
+                        controller: controller,
+                        textInputAction: TextInputAction.newline,
+                        textCapitalization: TextCapitalization.sentences,
+                        spellCheckConfiguration:
+                            (prefs.getFlag(
+                                      UserPreferencesDevMode
+                                          .userPreferencesFlagSpellCheckerOnOcr,
+                                    ) ??
+                                    false) &&
+                                (Platform.isAndroid || Platform.isIOS)
+                            ? const SpellCheckConfiguration()
+                            : const SpellCheckConfiguration.disabled(),
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: LARGE_SPACE,
+                            vertical: SMALL_SPACE,
+                          ),
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 5.0,
+                            ),
+                          ),
+                        ),
+                        onTapOutside: (_) =>
+                            FocusManager.instance.primaryFocus?.unfocus(),
+                      ),
+                    );
+                  },
             ),
             if (extraButton != null) extraButton!,
           ],

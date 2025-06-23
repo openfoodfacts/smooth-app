@@ -25,8 +25,8 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
   });
 
   BackgroundTaskTopBarcodes.fromJson(super.json)
-      : pageNumber = json[_jsonTagPageNumber] as int? ?? 1,
-        super.fromJson();
+    : pageNumber = json[_jsonTagPageNumber] as int? ?? 1,
+      super.fromJson();
 
   final int pageNumber;
 
@@ -64,16 +64,13 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
       pageNumber,
       productType,
     );
-    await task.addToManager(
-      localDatabase,
-      queue: BackgroundTaskQueue.longHaul,
-    );
+    await task.addToManager(localDatabase, queue: BackgroundTaskQueue.longHaul);
   }
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      null;
+    final AppLocalizations appLocalizations,
+  ) => null;
 
   static BackgroundTask _getNewTask(
     final String uniqueId,
@@ -82,17 +79,16 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     final int totalSize,
     final int pageNumber,
     final ProductType productType,
-  ) =>
-      BackgroundTaskTopBarcodes._(
-        processName: _operationType.processName,
-        uniqueId: uniqueId,
-        stamp: ';offlineBarcodes;$work',
-        work: work,
-        pageSize: pageSize,
-        totalSize: totalSize,
-        pageNumber: pageNumber,
-        productType: productType,
-      );
+  ) => BackgroundTaskTopBarcodes._(
+    processName: _operationType.processName,
+    uniqueId: uniqueId,
+    stamp: ';offlineBarcodes;$work',
+    work: work,
+    pageSize: pageSize,
+    totalSize: totalSize,
+    pageNumber: pageNumber,
+    productType: productType,
+  );
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
@@ -104,21 +100,21 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
   Future<void> execute(final LocalDatabase localDatabase) async {
     final SearchResult searchResult =
         await SearchProductsManager.searchProducts(
-      ProductQuery.getReadUser(),
-      ProductSearchQueryConfiguration(
-        fields: <ProductField>[ProductField.BARCODE],
-        parametersList: <Parameter>[
-          PageSize(size: pageSize),
-          PageNumber(page: pageNumber),
-          const SortBy(option: SortOption.POPULARITY),
-        ],
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-        version: ProductQuery.productQueryVersion,
-      ),
-      uriHelper: uriProductHelper,
-      type: SearchProductsType.background,
-    );
+          ProductQuery.getReadUser(),
+          ProductSearchQueryConfiguration(
+            fields: <ProductField>[ProductField.BARCODE],
+            parametersList: <Parameter>[
+              PageSize(size: pageSize),
+              PageNumber(page: pageNumber),
+              const SortBy(option: SortOption.POPULARITY),
+            ],
+            language: ProductQuery.getLanguage(),
+            country: ProductQuery.getCountry(),
+            version: ProductQuery.productQueryVersion,
+          ),
+          uriHelper: uriProductHelper,
+          type: SearchProductsType.background,
+        );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot download top barcodes');
     }

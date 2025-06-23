@@ -8,10 +8,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_banner.dart';
 
 class ProductPageLoadingIndicator extends StatelessWidget {
-  const ProductPageLoadingIndicator({
-    this.addSafeArea = false,
-    super.key,
-  });
+  const ProductPageLoadingIndicator({this.addSafeArea = false, super.key});
 
   final bool addSafeArea;
 
@@ -20,19 +17,19 @@ class ProductPageLoadingIndicator extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final bool lightTheme = context.lightTheme();
-    final Color color = context.watchSafe<ProductPageCompatibility>()?.color ??
+    final Color color =
+        context.watchSafe<ProductPageCompatibility>()?.color ??
         (lightTheme ? Colors.grey : Colors.grey[600]!);
 
     return SmoothBanner(
-      icon: CloudUploadAnimation(
-        size: MediaQuery.sizeOf(context).width * 0.10,
-      ),
+      icon: CloudUploadAnimation(size: MediaQuery.sizeOf(context).width * 0.10),
       iconAlignment: AlignmentDirectional.center,
       iconBackgroundColor: color,
       title: appLocalizations.product_page_pending_operations_banner_title,
       titleColor: lightTheme ? null : Colors.white,
-      contentBackgroundColor:
-          lightTheme ? color.lighten(0.6) : color.darken(0.3),
+      contentBackgroundColor: lightTheme
+          ? color.lighten(0.6)
+          : color.darken(0.3),
       contentColor: lightTheme ? null : Colors.grey[200],
       topShadow: true,
       content: appLocalizations.product_page_pending_operations_banner_message,

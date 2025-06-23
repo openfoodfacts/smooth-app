@@ -17,10 +17,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class PermissionsPage extends StatefulWidget {
-  const PermissionsPage(
-    this.backgroundColor, {
-    super.key,
-  });
+  const PermissionsPage(this.backgroundColor, {super.key});
 
   final Color backgroundColor;
 
@@ -37,11 +34,7 @@ class _PermissionsPageState extends State<PermissionsPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Listener<PermissionListener>(
-      listener: (
-        BuildContext context,
-        _,
-        PermissionListener newValue,
-      ) {
+      listener: (BuildContext context, _, PermissionListener newValue) {
         if (newValue.value.isGranted && !_eventConsumed) {
           _endOnboarding(context);
           _eventConsumed = true;
@@ -60,25 +53,29 @@ class _PermissionsPageState extends State<PermissionsPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        LayoutBuilder(builder:
-                            (BuildContext context, BoxConstraints constraints) {
-                          return SizedBox.square(
-                            dimension: constraints.maxWidth * 0.5,
-                            child: Transform.rotate(
-                              angle: -0.2,
-                              child: const animations.BarcodeAnimation(),
-                            ),
-                          );
-                        }),
+                        LayoutBuilder(
+                          builder:
+                              (
+                                BuildContext context,
+                                BoxConstraints constraints,
+                              ) {
+                                return SizedBox.square(
+                                  dimension: constraints.maxWidth * 0.5,
+                                  child: Transform.rotate(
+                                    angle: -0.2,
+                                    child: const animations.BarcodeAnimation(),
+                                  ),
+                                );
+                              },
+                        ),
                         const SizedBox(height: LARGE_SPACE),
                         AutoSizeText(
                           appLocalizations.permissions_page_title,
                           maxLines: 2,
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayLarge!
+                          style: Theme.of(context).textTheme.displayLarge!
                               .apply(
-                                  color: const Color.fromARGB(255, 51, 51, 51)),
+                                color: const Color.fromARGB(255, 51, 51, 51),
+                              ),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: SMALL_SPACE),
@@ -113,7 +110,7 @@ class _PermissionsPageState extends State<PermissionsPage> {
                 ),
                 backgroundColor: widget.backgroundColor,
                 semanticsHorizontalOrder: false,
-              )
+              ),
             ],
           ),
         ),
@@ -129,26 +126,21 @@ class _PermissionsPageState extends State<PermissionsPage> {
     if (!context.mounted) {
       return;
     }
-    await OnboardingLoader(context.read<LocalDatabase>()).runAtNextTime(
-      _onboardingPage,
-      context,
-    );
+    await OnboardingLoader(
+      context.read<LocalDatabase>(),
+    ).runAtNextTime(_onboardingPage, context);
 
     if (!context.mounted) {
       return;
     }
-    await OnboardingFlowNavigator(context.read<UserPreferences>())
-        .navigateToPage(
-      context,
-      _onboardingPage.getNextPage(),
-    );
+    await OnboardingFlowNavigator(
+      context.read<UserPreferences>(),
+    ).navigateToPage(context, _onboardingPage.getNextPage());
   }
 }
 
 class _AskPermissionButton extends StatelessWidget {
-  const _AskPermissionButton({
-    required this.onPermissionIgnored,
-  });
+  const _AskPermissionButton({required this.onPermissionIgnored});
 
   final VoidCallback onPermissionIgnored;
 
@@ -159,11 +151,12 @@ class _AskPermissionButton extends StatelessWidget {
     return OnboardingBottomButton(
       onPressed: () async {
         context.read<PermissionListener>().askPermission(
-            onRationaleNotAvailable: () async {
-          // Don't open settings and continue the navigation
-          onPermissionIgnored.call();
-          return false;
-        });
+          onRationaleNotAvailable: () async {
+            // Don't open settings and continue the navigation
+            onPermissionIgnored.call();
+            return false;
+          },
+        );
       },
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
@@ -175,9 +168,7 @@ class _AskPermissionButton extends StatelessWidget {
 }
 
 class _IgnoreButton extends StatelessWidget {
-  const _IgnoreButton({
-    required this.onPermissionIgnored,
-  });
+  const _IgnoreButton({required this.onPermissionIgnored});
 
   final VoidCallback onPermissionIgnored;
 

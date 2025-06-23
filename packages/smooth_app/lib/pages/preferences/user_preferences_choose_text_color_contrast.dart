@@ -27,16 +27,12 @@ class UserPreferencesChooseTextColorContrast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextContrastProvider textContrastProvider =
-        context.watch<TextContrastProvider>();
+    final TextContrastProvider textContrastProvider = context
+        .watch<TextContrastProvider>();
 
     return UserPreferencesMultipleChoicesItem<String>(
       title: appLocalizations.text_contrast_mode,
-      values: const <String>[
-        CONTRAST_HIGH,
-        CONTRAST_MEDIUM,
-        CONTRAST_LOW,
-      ],
+      values: const <String>[CONTRAST_HIGH, CONTRAST_MEDIUM, CONTRAST_LOW],
       labels: <String>[
         appLocalizations.contrast_high,
         appLocalizations.contrast_medium,

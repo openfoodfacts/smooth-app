@@ -41,25 +41,25 @@ Future<File?> showPhotoBanner({
 
   return switch (action) {
     PhotoRowActions.takePicture => _takePicture(
-        context: context,
-        product: product,
-        imageField: imageField,
-        language: language,
-        pictureSource: UserPictureSource.CAMERA,
-      ),
+      context: context,
+      product: product,
+      imageField: imageField,
+      language: language,
+      pictureSource: UserPictureSource.CAMERA,
+    ),
     PhotoRowActions.selectFromGallery => _takePicture(
-        context: context,
-        product: product,
-        imageField: imageField,
-        language: language,
-        pictureSource: UserPictureSource.GALLERY,
-      ),
+      context: context,
+      product: product,
+      imageField: imageField,
+      language: language,
+      pictureSource: UserPictureSource.GALLERY,
+    ),
     PhotoRowActions.selectFromProductPhotos => _selectPictureFromProductGallery(
-        context: context,
-        product: product,
-        imageField: imageField,
-        language: language,
-      ),
+      context: context,
+      product: product,
+      imageField: imageField,
+      language: language,
+    ),
   };
 }
 
@@ -87,12 +87,12 @@ Future<File?> _selectPictureFromProductGallery({
 }) async {
   final CropParameters? parameters =
       await ProductImageServerButton.selectImageFromGallery(
-    context: context,
-    product: product,
-    imageField: imageField,
-    language: language,
-    isLoggedInMandatory: true,
-  );
+        context: context,
+        product: product,
+        imageField: imageField,
+        language: language,
+        isLoggedInMandatory: true,
+      );
 
   return parameters?.smallCroppedFile;
 }
@@ -104,8 +104,8 @@ Future<PhotoRowActions?> _showPhotoBanner({
   required final OpenFoodFactsLanguage language,
   required TransientFile? transientFile,
 }) async {
-  final SmoothColorsThemeExtension extension =
-      context.extension<SmoothColorsThemeExtension>();
+  final SmoothColorsThemeExtension extension = context
+      .extension<SmoothColorsThemeExtension>();
   final bool lightTheme = context.lightTheme(listen: false);
   final bool imageAvailable = transientFile?.isImageAvailable() ?? false;
 
@@ -113,52 +113,51 @@ Future<PhotoRowActions?> _showPhotoBanner({
 
   final PhotoRowActions? action =
       await showSmoothListOfChoicesModalSheet<PhotoRowActions>(
-    context: context,
-    title: imageAvailable
-        ? appLocalizations.product_image_action_replace_photo(
-            imageField.getProductImageTitle(appLocalizations))
-        : appLocalizations.product_image_action_add_photo(
-            imageField.getProductImageTitle(appLocalizations)),
-    values: PhotoRowActions.values,
-    labels: <String>[
-      if (imageAvailable)
-        appLocalizations.product_image_action_take_new_picture
-      else
-        appLocalizations.product_image_action_take_picture,
-      appLocalizations.product_image_action_from_gallery,
-      appLocalizations.product_image_action_choose_existing_photo,
-    ],
-    prefixIconTint:
-        lightTheme ? extension.primaryDark : extension.primaryMedium,
-    prefixIcons: <Widget>[
-      const Icon(Icons.camera),
-      const Icon(Icons.perm_media_rounded),
-      const Icon(Icons.image_search_rounded),
-    ],
-    contentPadding: const EdgeInsetsDirectional.symmetric(
-      horizontal: LARGE_SPACE,
-    ),
-    addEndArrowToItems: true,
-    footerBackgroundColor: lightTheme ? extension.primaryLight : null,
-    footerSpace: VERY_SMALL_SPACE,
-    footer: transientFile?.isImageAvailable() == true
-        ? _PhotoRowBanner(
-            product: product,
-            imageField: imageField,
-            language: language,
-            transientFile: transientFile!,
-          )
-        : null,
-  );
+        context: context,
+        title: imageAvailable
+            ? appLocalizations.product_image_action_replace_photo(
+                imageField.getProductImageTitle(appLocalizations),
+              )
+            : appLocalizations.product_image_action_add_photo(
+                imageField.getProductImageTitle(appLocalizations),
+              ),
+        values: PhotoRowActions.values,
+        labels: <String>[
+          if (imageAvailable)
+            appLocalizations.product_image_action_take_new_picture
+          else
+            appLocalizations.product_image_action_take_picture,
+          appLocalizations.product_image_action_from_gallery,
+          appLocalizations.product_image_action_choose_existing_photo,
+        ],
+        prefixIconTint: lightTheme
+            ? extension.primaryDark
+            : extension.primaryMedium,
+        prefixIcons: <Widget>[
+          const Icon(Icons.camera),
+          const Icon(Icons.perm_media_rounded),
+          const Icon(Icons.image_search_rounded),
+        ],
+        contentPadding: const EdgeInsetsDirectional.symmetric(
+          horizontal: LARGE_SPACE,
+        ),
+        addEndArrowToItems: true,
+        footerBackgroundColor: lightTheme ? extension.primaryLight : null,
+        footerSpace: VERY_SMALL_SPACE,
+        footer: transientFile?.isImageAvailable() == true
+            ? _PhotoRowBanner(
+                product: product,
+                imageField: imageField,
+                language: language,
+                transientFile: transientFile!,
+              )
+            : null,
+      );
 
   return action;
 }
 
-enum PhotoRowActions {
-  takePicture,
-  selectFromGallery,
-  selectFromProductPhotos,
-}
+enum PhotoRowActions { takePicture, selectFromGallery, selectFromProductPhotos }
 
 class _PhotoRowBanner extends StatefulWidget {
   const _PhotoRowBanner({
@@ -197,8 +196,8 @@ class _PhotoRowBannerState extends State<_PhotoRowBanner> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return ListTileTheme.merge(
@@ -240,8 +239,9 @@ class _PhotoRowBannerState extends State<_PhotoRowBanner> {
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                        AppLocalizations.of(context)
-                            .product_image_details_label,
+                        AppLocalizations.of(
+                          context,
+                        ).product_image_details_label,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 17.0,
@@ -251,28 +251,25 @@ class _PhotoRowBannerState extends State<_PhotoRowBanner> {
                     ),
                     if (!_expanded)
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                          end: 9.0,
-                        ),
+                        padding: const EdgeInsetsDirectional.only(end: 9.0),
                         child: Semantics(
-                          value: MaterialLocalizations.of(context)
-                              .expandedIconTapHint,
+                          value: MaterialLocalizations.of(
+                            context,
+                          ).expandedIconTapHint,
                           excludeSemantics: true,
                           child: const icons.Chevron.down(
                             size: 18.0,
                             color: Colors.white,
                           ),
                         ),
-                      )
+                      ),
                   ],
                 ),
               ),
             ),
           ),
           if (_expanded || _dateInitiallyVisible)
-            _PhotoRowDate(
-              transientFile: widget.transientFile,
-            ),
+            _PhotoRowDate(transientFile: widget.transientFile),
           if (_expanded) const Divider(color: Colors.white),
           if (_expanded || _contributorInitiallyVisible)
             _PhotoRowContributor(
@@ -297,15 +294,17 @@ class _PhotoRowContributor extends StatelessWidget {
   final ImageField imageField;
   final OpenFoodFactsLanguage language;
 
-  static bool isVisible(Product product, ImageField imageField,
-          OpenFoodFactsLanguage language) =>
-      product.isImageLocked(imageField, language) == true;
+  static bool isVisible(
+    Product product,
+    ImageField imageField,
+    OpenFoodFactsLanguage language,
+  ) => product.isImageLocked(imageField, language) == true;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool isLocked = isVisible(product, imageField, language);
     final String? contributor = _contributor;
@@ -370,9 +369,7 @@ class _PhotoRowContributor extends StatelessWidget {
 
 /// The date of the photo (used in the modal sheet)
 class _PhotoRowDate extends StatelessWidget {
-  const _PhotoRowDate({
-    required this.transientFile,
-  });
+  const _PhotoRowDate({required this.transientFile});
 
   final TransientFile transientFile;
 
@@ -381,8 +378,8 @@ class _PhotoRowDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool outdated = isVisible(transientFile);
 
@@ -391,10 +388,7 @@ class _PhotoRowDate extends StatelessWidget {
         color: outdated ? extension.warning : extension.primaryDark,
         icon: outdated ? _outdatedIcon : _successIcon,
         padding: outdated
-            ? const EdgeInsetsDirectional.only(
-                top: 0.5,
-                end: 1.0,
-              )
+            ? const EdgeInsetsDirectional.only(top: 0.5, end: 1.0)
             : null,
       ),
       title: Text(appLocalizations.date),
@@ -418,17 +412,14 @@ class _PhotoRowDate extends StatelessWidget {
   }
 
   Widget get _outdatedIcon => const Padding(
-        padding: EdgeInsetsDirectional.only(
-          bottom: 1.5,
-          start: 1.5,
-        ),
-        child: icons.Outdated(size: 19.0),
-      );
+    padding: EdgeInsetsDirectional.only(bottom: 1.5, start: 1.5),
+    child: icons.Outdated(size: 19.0),
+  );
 
   Widget get _successIcon => const Padding(
-        padding: EdgeInsetsDirectional.only(bottom: 0.5),
-        child: icons.Clock(size: 19.0),
-      );
+    padding: EdgeInsetsDirectional.only(bottom: 0.5),
+    child: icons.Clock(size: 19.0),
+  );
 }
 
 class _PhotoRowDetailsIcon extends StatelessWidget {
@@ -445,10 +436,7 @@ class _PhotoRowDetailsIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
       child: SizedBox.square(
         dimension: 35.0,
         child: Padding(

@@ -48,7 +48,7 @@ class PinchToZoomExplainer extends StatelessWidget {
                               artboard: 'pinch-to-zoom',
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -56,9 +56,7 @@ class PinchToZoomExplainer extends StatelessWidget {
               },
             );
           },
-          child: const SmoothIndicatorIcon(
-            icon: icons.PinchToZoom(),
-          ),
+          child: const SmoothIndicatorIcon(icon: icons.PinchToZoom()),
         ),
       ),
     );

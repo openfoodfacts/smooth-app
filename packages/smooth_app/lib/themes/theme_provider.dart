@@ -9,7 +9,7 @@ const String THEME_AMOLED = 'AMOLED';
 
 class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences)
-      : _theme = _userPreferences.currentTheme {
+    : _theme = _userPreferences.currentTheme {
     _userPreferences.addListener(_onPreferencesChanged);
   }
 
@@ -64,7 +64,8 @@ class ThemeProvider with ChangeNotifier {
 
   Future<void> setTheme(String value) async {
     assert(
-        value != THEME_LIGHT || value != THEME_DARK || value != THEME_AMOLED);
+      value != THEME_LIGHT || value != THEME_DARK || value != THEME_AMOLED,
+    );
     await _userPreferences.setTheme(value);
     notifyListeners();
   }

@@ -51,8 +51,10 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
 
       _clearFloatingItems();
 
-      final _DataDiff<T> diff =
-          _DataDiff.computeDiff(oldWidget.data, widget.data);
+      final _DataDiff<T> diff = _DataDiff.computeDiff(
+        oldWidget.data,
+        widget.data,
+      );
       _oldData = oldWidget.data;
 
       for (final _DataMove<T> move in diff.movedItems) {
@@ -78,11 +80,15 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
     final OverlayEntry floatingItem = OverlayEntry(
       builder: (BuildContext context) {
         return _MovingOverlayItem(
-          widgetPosition:
-              widgetPosition.translate(0.0, widget.padding?.top ?? 0.0),
-          startTop: (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
+          widgetPosition: widgetPosition.translate(
+            0.0,
+            widget.padding?.top ?? 0.0,
+          ),
+          startTop:
+              (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
               move.oldIndex,
-          endTop: (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
+          endTop:
+              (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
               move.newIndex,
           start: widget.padding?.start ?? 0.0,
           end: widget.padding?.end ?? 0.0,
@@ -168,11 +174,8 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
   }
 }
 
-typedef SmoothSliverListItemBuilder<T> = Widget Function(
-  BuildContext context,
-  T object,
-  int index,
-);
+typedef SmoothSliverListItemBuilder<T> =
+    Widget Function(BuildContext context, T object, int index);
 
 class _MovingOverlayItem extends StatefulWidget {
   const _MovingOverlayItem({
@@ -208,40 +211,29 @@ class _MovingOverlayItemState extends State<_MovingOverlayItem>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: SmoothAnimationsDuration.medium,
-    )..addListener(() {
-        if (_translateAnimation.value == widget.endTop) {
-          widget.onAnimationEnd();
-        }
+    _controller =
+        AnimationController(
+          vsync: this,
+          duration: SmoothAnimationsDuration.medium,
+        )..addListener(() {
+          if (_translateAnimation.value == widget.endTop) {
+            widget.onAnimationEnd();
+          }
 
-        setState(() {});
-      });
+          setState(() {});
+        });
 
-    _translateAnimation = Tween<double>(
-      begin: widget.startTop,
-      end: widget.endTop,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(
-          0.0,
-          0.9,
-          curve: Curves.easeInOutQuint,
-        ),
-      ),
-    );
+    _translateAnimation =
+        Tween<double>(begin: widget.startTop, end: widget.endTop).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.0, 0.9, curve: Curves.easeInOutQuint),
+          ),
+        );
 
     /// A subtle fade will be applied at the end of the animation
-    _opacityAnimation = Tween<double>(
-      begin: 1.0,
-      end: 0.0,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.88, 1.0),
-      ),
+    _opacityAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
+      CurvedAnimation(parent: _controller, curve: const Interval(0.88, 1.0)),
     );
 
     /// Start the animation immediately
@@ -288,9 +280,7 @@ class _DataDiff<T> {
       if (oldPosition != -1) {
         final int newPosition = newData.indexOf(item);
         if (oldPosition != newPosition) {
-          movedItems.add(
-            _DataMove<T>(item, oldPosition, newPosition),
-          );
+          movedItems.add(_DataMove<T>(item, oldPosition, newPosition));
         }
       }
     }

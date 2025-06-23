@@ -794,8 +794,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get crop_page_too_small_image_title => 'The image is too small!';
 
   @override
-  String crop_page_too_small_image_message(int expectedMinWidth,
-      int expectedMinHeight, int actualWidth, int actualHeight) {
+  String crop_page_too_small_image_message(
+    int expectedMinWidth,
+    int expectedMinHeight,
+    int actualWidth,
+    int actualHeight,
+  ) {
     return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
   }
 
@@ -1365,7 +1369,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String currency_auto_change_message(
-      String previousCurrency, String possibleCurrency) {
+    String previousCurrency,
+    String possibleCurrency,
+  ) {
     return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
@@ -1584,20 +1590,33 @@ class AppLocalizationsVi extends AppLocalizations {
       'Nếu bạn thay đổi ý định, lựa chọn này có thể được bật hoặc tắt bất kì lúc nào trong phần cài đặt.';
 
   @override
-  String contact_form_body_android(int? sdkInt, String? release, String? model,
-      String? product, String? device, String? brand) {
+  String contact_form_body_android(
+    int? sdkInt,
+    String? release,
+    String? model,
+    String? product,
+    String? device,
+    String? brand,
+  ) {
     return 'OS: Android (SDK Int: $sdkInt / Phát hành: $release)\nMẫu: $model\nSản phẩm: $product\nThiết bị: $device\nNhãn hiệu:$brand';
   }
 
   @override
   String contact_form_body_ios(
-      String? version, String? model, String? localizedModel) {
+    String? version,
+    String? model,
+    String? localizedModel,
+  ) {
     return 'OS: iOS ($version)\nMẫu: $model\nMẫu bản địa hóa: $localizedModel';
   }
 
   @override
-  String contact_form_body(String osContent, String appVersion,
-      String appBuildNumber, String appPackageName) {
+  String contact_form_body(
+    String osContent,
+    String appVersion,
+    String appBuildNumber,
+    String appPackageName,
+  ) {
     return '$osContent\nPhiên bản ứng dụng:$appVersion\nBản dựng ứng dụng số:$appBuildNumber\nTên gói ứng dụng:$appPackageName';
   }
 
@@ -2628,7 +2647,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String prices_entry_accessibility_label(
-      String price, String location, String date, String user) {
+    String price,
+    String location,
+    String date,
+    String user,
+  ) {
     return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
@@ -2812,7 +2835,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_message(
-      String currency, String newCurrency) {
+    String currency,
+    String newCurrency,
+  ) {
     return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
@@ -2871,7 +2896,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String product_search_button_download_more(
-      int count, int downloaded, int totalSize) {
+    int count,
+    int downloaded,
+    int totalSize,
+  ) {
     return 'Tải thêm $count sản phẩm\nĐã tải $downloaded trên tổng $totalSize.';
   }
 

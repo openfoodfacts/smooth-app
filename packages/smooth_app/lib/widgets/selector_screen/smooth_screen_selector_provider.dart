@@ -100,11 +100,10 @@ class PreferencesSelectorLoadedState<T> extends PreferencesSelectorState<T> {
   PreferencesSelectorLoadedState<T> copyWith({
     T? selectedItem,
     List<T>? items,
-  }) =>
-      PreferencesSelectorLoadedState<T>(
-        selectedItem: selectedItem ?? this.selectedItem,
-        items: items ?? this.items,
-      );
+  }) => PreferencesSelectorLoadedState<T>(
+    selectedItem: selectedItem ?? this.selectedItem,
+    items: items ?? this.items,
+  );
 
   @override
   String toString() {
@@ -117,10 +116,7 @@ class PreferencesSelectorEditingState<T>
   PreferencesSelectorEditingState.fromLoadedState({
     required this.selectedItemOverride,
     required PreferencesSelectorLoadedState<T> loadedState,
-  }) : super(
-          selectedItem: loadedState.selectedItem,
-          items: loadedState.items,
-        );
+  }) : super(selectedItem: loadedState.selectedItem, items: loadedState.items);
 
   final T? selectedItemOverride;
 

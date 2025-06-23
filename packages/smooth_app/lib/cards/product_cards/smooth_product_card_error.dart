@@ -25,8 +25,8 @@ class ScanProductCardError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
     final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
     return ScanProductBaseCard(
@@ -65,8 +65,8 @@ class ScanProductCardError extends StatelessWidget {
           ScanProductBaseCardButton(
             text: appLocalizations.carousel_error_button,
             onTap: () async {
-              final ContinuousScanModel model =
-                  context.read<ContinuousScanModel>();
+              final ContinuousScanModel model = context
+                  .read<ContinuousScanModel>();
 
               model.retryBarcodeFetch(barcode);
             },

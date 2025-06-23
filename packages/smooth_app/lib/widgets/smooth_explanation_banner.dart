@@ -17,32 +17,25 @@ class ExplanationTitleIcon extends StatelessWidget {
     this.margin = EdgeInsets.zero,
     this.padding = EdgeInsets.zero,
     this.safeArea = true,
-  })  :
-        // ignore: avoid_field_initializers_in_const_classes
-        type = null,
-        _child = child;
+  }) : // ignore: avoid_field_initializers_in_const_classes
+       type = null,
+       _child = child;
 
-  ExplanationTitleIcon.text({
-    required this.title,
-    required String text,
-  })  :
-        // ignore: avoid_field_initializers_in_const_classes
-        type = null,
-        margin = null,
-        padding = null,
-        safeArea = true,
-        _child = Text(text);
+  ExplanationTitleIcon.text({required this.title, required String text})
+    : // ignore: avoid_field_initializers_in_const_classes
+      type = null,
+      margin = null,
+      padding = null,
+      safeArea = true,
+      _child = Text(text);
 
-  ExplanationTitleIcon.type({
-    required this.type,
-    required String text,
-  })  :
-        // ignore: avoid_field_initializers_in_const_classes
-        title = null,
-        margin = null,
-        padding = null,
-        safeArea = true,
-        _child = Text(text);
+  ExplanationTitleIcon.type({required this.type, required String text})
+    : // ignore: avoid_field_initializers_in_const_classes
+      title = null,
+      margin = null,
+      padding = null,
+      safeArea = true,
+      _child = Text(text);
 
   final String? title;
   final String? type;
@@ -53,10 +46,11 @@ class ExplanationTitleIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String title = this.title ??
+    final String title =
+        this.title ??
         AppLocalizations.of(context).edit_product_form_item_help(type!);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return SmoothCardHeaderButton(
       tooltip: title,
@@ -90,17 +84,14 @@ class ExplanationTitleIcon extends StatelessWidget {
 }
 
 class ExplanationBodyTitle extends StatelessWidget {
-  const ExplanationBodyTitle({
-    required this.label,
-    super.key,
-  });
+  const ExplanationBodyTitle({required this.label, super.key});
 
   final String label;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Padding(
@@ -158,12 +149,13 @@ class ExplanationBodyInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return ColoredBox(
-      color: backgroundColor ??
+      color:
+          backgroundColor ??
           (lightTheme ? extension.primaryMedium : Colors.white12),
       child: ClipRect(
         child: SizedBox(
@@ -203,8 +195,8 @@ class ExplanationTextContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Column(
@@ -213,49 +205,50 @@ class ExplanationTextContainer extends StatelessWidget {
         _ExplanationContainerTitle(
           label: title,
           foregroundColor: Colors.white,
-          backgroundColor:
-              lightTheme ? extension.primarySemiDark : extension.primaryDark,
+          backgroundColor: lightTheme
+              ? extension.primarySemiDark
+              : extension.primaryDark,
         ),
-        ...items.mapIndexed(
-          (int position, ExplanationTextContainerContent item) {
-            return switch (item) {
-              ExplanationTextContainerContentText() => Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: LARGE_SPACE,
-                    end: LARGE_SPACE,
-                    top: MEDIUM_SPACE,
-                    bottom: VERY_SMALL_SPACE,
-                  ),
-                  child: TextWithBoldParts(
-                    text: item.text,
-                    textStyle: TextStyle(
-                      color: lightTheme ? extension.primaryDark : Colors.white,
-                    ),
-                  ),
+        ...items.mapIndexed((
+          int position,
+          ExplanationTextContainerContent item,
+        ) {
+          return switch (item) {
+            ExplanationTextContainerContentText() => Padding(
+              padding: const EdgeInsetsDirectional.only(
+                start: LARGE_SPACE,
+                end: LARGE_SPACE,
+                top: MEDIUM_SPACE,
+                bottom: VERY_SMALL_SPACE,
+              ),
+              child: TextWithBoldParts(
+                text: item.text,
+                textStyle: TextStyle(
+                  color: lightTheme ? extension.primaryDark : Colors.white,
                 ),
-              ExplanationTextContainerContentItem() => Padding(
-                  padding: item.padding ??
-                      const EdgeInsetsDirectional.only(
-                        top: SMALL_SPACE,
-                      ),
-                  child: _ExplanationBodyListItem(
-                    icon: icons.Arrow.right(
-                      size: 11.0,
-                      color: lightTheme ? null : extension.primarySemiDark,
-                    ),
-                    iconBackgroundColor: lightTheme
-                        ? extension.primarySemiDark
-                        : extension.primaryLight,
-                    iconPadding: EdgeInsets.zero,
-                    title: item.text,
-                    text: item.example,
-                    visualExample: item.visualExample,
-                    visualExamplePosition: item.visualExamplePosition,
-                  ),
+              ),
+            ),
+            ExplanationTextContainerContentItem() => Padding(
+              padding:
+                  item.padding ??
+                  const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+              child: _ExplanationBodyListItem(
+                icon: icons.Arrow.right(
+                  size: 11.0,
+                  color: lightTheme ? null : extension.primarySemiDark,
                 ),
-            };
-          },
-        ),
+                iconBackgroundColor: lightTheme
+                    ? extension.primarySemiDark
+                    : extension.primaryLight,
+                iconPadding: EdgeInsets.zero,
+                title: item.text,
+                text: item.example,
+                visualExample: item.visualExample,
+                visualExamplePosition: item.visualExamplePosition,
+              ),
+            ),
+          };
+        }),
       ],
     );
   }
@@ -288,17 +281,15 @@ class ExplanationTextContainerContentItem
 }
 
 class ExplanationGoodExamplesContainer extends StatelessWidget {
-  const ExplanationGoodExamplesContainer({
-    required this.items,
-    super.key,
-  }) : assert(items.length > 0);
+  const ExplanationGoodExamplesContainer({required this.items, super.key})
+    : assert(items.length > 0);
 
   final List<String> items;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Column(
       children: <Widget>[
@@ -321,18 +312,20 @@ class ExplanationGoodExamplesContainer extends StatelessWidget {
 }
 
 class ExplanationBadExamplesContainer extends StatelessWidget {
-  const ExplanationBadExamplesContainer(
-      {required this.items, required this.explanations, super.key})
-      : assert(items.length > 0),
-        assert(items.length == explanations.length);
+  const ExplanationBadExamplesContainer({
+    required this.items,
+    required this.explanations,
+    super.key,
+  }) : assert(items.length > 0),
+       assert(items.length == explanations.length);
 
   final List<String> items;
   final List<String> explanations;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Column(
       children: <Widget>[
@@ -387,9 +380,7 @@ class _ExplanationContainerTitle extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              SmoothModalSheetHeaderPrefixIndicator(
-                color: foregroundColor,
-              ),
+              SmoothModalSheetHeaderPrefixIndicator(color: foregroundColor),
               const SizedBox(width: LARGE_SPACE),
               Expanded(
                 child: Text(
@@ -430,8 +421,8 @@ class _ExplanationBodyListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Padding(
@@ -452,10 +443,7 @@ class _ExplanationBodyListItem extends StatelessWidget {
                 shape: const CircleBorder(),
                 color: iconBackgroundColor,
               ),
-              child: Padding(
-                padding: iconPadding,
-                child: icon,
-              ),
+              child: Padding(padding: iconPadding, child: icon),
             ),
           ),
           SizedBox(width: title != null ? 11.0 : 13.0),
@@ -517,11 +505,9 @@ class _ExplanationBodyListItem extends StatelessWidget {
                   ),
                 if (visualExample != null &&
                     visualExamplePosition ==
-                        ExplanationVisualExamplePosition
-                            .afterExample) ...<Widget>[
-                  const SizedBox(height: VERY_SMALL_SPACE),
-                  visualExample!,
-                ],
+                        ExplanationVisualExamplePosition.afterExample) ...<
+                  Widget
+                >[const SizedBox(height: VERY_SMALL_SPACE), visualExample!],
               ],
             ),
           ),
@@ -531,7 +517,4 @@ class _ExplanationBodyListItem extends StatelessWidget {
   }
 }
 
-enum ExplanationVisualExamplePosition {
-  afterTitle,
-  afterExample,
-}
+enum ExplanationVisualExamplePosition { afterTitle, afterExample }
