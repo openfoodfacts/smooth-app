@@ -74,12 +74,14 @@
   final UserPreferences userPreferences, {
   String? languageCode,
 }) {
-  languageCode ??= userPreferences.appLanguageCode ??
+  languageCode ??=
+      userPreferences.appLanguageCode ??
       (context == null ? &#39;en&#39; : Localizations.localeOf(context).languageCode);
   OpenFoodFactsCountryLocalization.setLocale(languageCode);
 
-  final OpenFoodFactsLanguage language =
-      LanguageHelper.fromJson(languageCode);
+  final OpenFoodFactsLanguage language = LanguageHelper.fromJson(
+    languageCode,
+  );
   OpenFoodAPIConfiguration.globalLanguages = &lt;OpenFoodFactsLanguage&gt;[
     language,
   ];

@@ -65,8 +65,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Color getHeaderColor(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   return context.lightTheme(listen: false)
       ? extension.primaryBlack
       : Colors.black;

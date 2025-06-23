@@ -72,8 +72,8 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final SmoothColorsThemeExtension theme =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension theme = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool dense = context.read&lt;ScanCardDensity&gt;() == ScanCardDensity.DENSE;
 
   return ScanProductBaseCard(
@@ -112,8 +112,8 @@ Widget build(BuildContext context) {
         ScanProductBaseCardButton(
           text: appLocalizations.carousel_error_button,
           onTap: () async {
-            final ContinuousScanModel model =
-                context.read&lt;ContinuousScanModel&gt;();
+            final ContinuousScanModel model = context
+                .read&lt;ContinuousScanModel&gt;();
 
             model.retryBarcodeFetch(barcode);
           },

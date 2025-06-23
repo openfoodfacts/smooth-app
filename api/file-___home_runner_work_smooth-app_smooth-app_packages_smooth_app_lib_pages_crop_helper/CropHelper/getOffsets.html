@@ -64,9 +64,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static List&lt;Offset&gt; getOffsets(
-  final List&lt;double&gt;? eraserCoordinates,
-) {
+  <pre class="language-dart"><code class="language-dart">static List&lt;Offset&gt; getOffsets(final List&lt;double&gt;? eraserCoordinates) {
   final List&lt;Offset&gt; offsets = &lt;Offset&gt;[];
   if (eraserCoordinates != null) {
     for (int i = 0; i &lt; eraserCoordinates.length; i += 2) {

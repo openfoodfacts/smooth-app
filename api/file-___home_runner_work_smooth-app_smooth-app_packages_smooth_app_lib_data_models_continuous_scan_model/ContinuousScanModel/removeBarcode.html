@@ -64,14 +64,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; removeBarcode(
-  final String barcode,
-) async {
-  await _daoProductList.set(
-    productList,
-    barcode,
-    false,
-  );
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; removeBarcode(final String barcode) async {
+  await _daoProductList.set(productList, barcode, false);
 
   _barcodes.remove(barcode);
   _states.remove(barcode);

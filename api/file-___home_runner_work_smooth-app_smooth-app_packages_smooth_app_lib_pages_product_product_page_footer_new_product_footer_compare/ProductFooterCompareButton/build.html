@@ -74,9 +74,7 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final Product product = context.read&lt;Product&gt;();
 
-  const Set&lt;String&gt; blackListedCategories = &lt;String&gt;{
-    &#39;fr:vegan&#39;,
-  };
+  const Set&lt;String&gt; blackListedCategories = &lt;String&gt;{&#39;fr:vegan&#39;};
   String? categoryTag;
   String? categoryLabel;
   final List&lt;String&gt;? labels =

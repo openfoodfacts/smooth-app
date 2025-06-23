@@ -65,12 +65,15 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">OnboardingPage get lastVisitedOnboardingPage {
-  final int? pageIndex =
-      _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
+  final int? pageIndex = _sharedPreferences.getInt(
+    _TAG_LAST_VISITED_ONBOARDING_PAGE,
+  );
   return pageIndex == null
       ? OnboardingPage.NOT_STARTED
-      : OnboardingPage
-          .values[math.min(pageIndex, OnboardingPage.values.length - 1)];
+      : OnboardingPage.values[math.min(
+          pageIndex,
+          OnboardingPage.values.length - 1,
+        )];
 }</code></pre>
 </section>
 

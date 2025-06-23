@@ -68,17 +68,15 @@
   &#47;&#47; TODOhow should we handle different product types?
   final List&lt;String&gt; existingBarcodes =
       await ProductRefresher().silentFetchAndRefreshList(
-            barcodes: barcodes,
-            localDatabase: localDatabase,
-            productType: ProductType.food,
-          ) ??
-          &lt;String&gt;[];
+        barcodes: barcodes,
+        localDatabase: localDatabase,
+        productType: ProductType.food,
+      ) ??
+      &lt;String&gt;[];
 
-  await DaoProductList(localDatabase).bulkSet(
-    list,
-    existingBarcodes,
-    include: true,
-  );
+  await DaoProductList(
+    localDatabase,
+  ).bulkSet(list, existingBarcodes, include: true);
   return existingBarcodes;
 }</code></pre>
 </section>

@@ -75,9 +75,7 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
   final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
 
   for (final ProductType productType in ProductType.values) {
-    await daoWorkBarcode.deleteWork(
-      WorkType.freshKP.getWorkTag(productType),
-    );
+    await daoWorkBarcode.deleteWork(WorkType.freshKP.getWorkTag(productType));
     await daoWorkBarcode.deleteWork(
       WorkType.freshNoKP.getWorkTag(productType),
     );
@@ -85,14 +83,14 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
 
   &#47;&#47; We separate the products into lists, products with or without
   &#47;&#47; knowledge panels, and split by product types.
-  final Map&lt;String, List&lt;String&gt;&gt; split = await daoProduct.splitAllProducts(
-    (Product product) {
-      final bool noKP = product.knowledgePanels == null;
-      final WorkType workType = noKP ? WorkType.freshNoKP : WorkType.freshKP;
-      final ProductType productType = product.productType ?? ProductType.food;
-      return workType.getWorkTag(productType);
-    },
-  );
+  final Map&lt;String, List&lt;String&gt;&gt; split = await daoProduct.splitAllProducts((
+    Product product,
+  ) {
+    final bool noKP = product.knowledgePanels == null;
+    final WorkType workType = noKP ? WorkType.freshNoKP : WorkType.freshKP;
+    final ProductType productType = product.productType ?? ProductType.food;
+    return workType.getWorkTag(productType);
+  });
   for (int i = 0; i &lt;= 1; i++) {
     final bool noKP = i == 0;
     final WorkType workType = noKP ? WorkType.freshNoKP : WorkType.freshKP;
@@ -106,8 +104,9 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
         barcodes: barcodes,
         work: tag,
         localDatabase: localDatabase,
-        downloadFlag:
-            noKP ? BackgroundTaskDownloadProducts.flagMaskExcludeKP : 0,
+        downloadFlag: noKP
+            ? BackgroundTaskDownloadProducts.flagMaskExcludeKP
+            : 0,
         productType: productType,
       );
     }

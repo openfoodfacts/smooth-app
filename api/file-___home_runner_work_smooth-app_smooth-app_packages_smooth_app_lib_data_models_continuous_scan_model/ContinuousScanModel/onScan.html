@@ -83,10 +83,7 @@ Will return <code>true</code> if this barcode is successfully added</p>
     return false;
   }
 
-  AnalyticsHelper.trackEvent(
-    AnalyticsEvent.scanAction,
-    barcode: code,
-  );
+  AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: code);
 
   _latestScannedBarcode = code;
   return _addBarcode(code);

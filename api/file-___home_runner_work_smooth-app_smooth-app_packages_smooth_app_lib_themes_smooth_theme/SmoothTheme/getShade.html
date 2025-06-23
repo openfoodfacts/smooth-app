@@ -71,8 +71,11 @@
 
   final HSLColor hsl = HSLColor.fromColor(color);
   final HSLColor hslDark = hsl.withLightness(
-      (darker ? (hsl.lightness - value) : (hsl.lightness + value))
-          .clamp(0.0, 1.0));
+    (darker ? (hsl.lightness - value) : (hsl.lightness + value)).clamp(
+      0.0,
+      1.0,
+    ),
+  );
 
   return hslDark.toColor();
 }</code></pre>

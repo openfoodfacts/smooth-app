@@ -93,9 +93,7 @@
   }
 
   final bool? result = await Navigator.of(context).push&lt;bool&gt;(
-    MaterialPageRoute&lt;bool&gt;(
-      builder: (BuildContext context) =&gt; widget,
-    ),
+    MaterialPageRoute&lt;bool&gt;(builder: (BuildContext context) =&gt; widget),
   );
 
   if (result == true) {

@@ -60,8 +60,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">DecimalSeparatorRewriter(NumberFormat format)
-    : _decimalSeparator = format.symbols.DECIMAL_SEP,
-      _separatorToReplace = _findSeparatorToReplace(format) {
+  : _decimalSeparator = format.symbols.DECIMAL_SEP,
+    _separatorToReplace = _findSeparatorToReplace(format) {
   &#47;&#47; Here we check that there are no group separators.
   &#47;&#47; The formatted string should
   &#47;&#47; * contain the nine digits 1..9

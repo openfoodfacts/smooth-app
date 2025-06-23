@@ -73,9 +73,10 @@ List&lt;String&gt; splitString(String? input) {
   if (input.isEmpty) {
     return &lt;String&gt;[];
   }
-  return input.split(separator.trim()).map((String e) =&gt; e.trim()).toList(
-        growable: false,
-      );
+  return input
+      .split(separator.trim())
+      .map((String e) =&gt; e.trim())
+      .toList(growable: false);
 }</code></pre>
 </section>
 

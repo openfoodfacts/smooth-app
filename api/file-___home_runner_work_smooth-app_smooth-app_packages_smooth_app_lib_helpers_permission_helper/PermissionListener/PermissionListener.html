@@ -59,10 +59,9 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">PermissionListener({
-  required this.permission,
-})  : _status = _DevicePermissionStatus.initial,
-      super(DevicePermission._initial(permission));</code></pre>
+  <pre class="language-dart"><code class="language-dart">PermissionListener({required this.permission})
+  : _status = _DevicePermissionStatus.initial,
+    super(DevicePermission._initial(permission));</code></pre>
 </section>
 
 

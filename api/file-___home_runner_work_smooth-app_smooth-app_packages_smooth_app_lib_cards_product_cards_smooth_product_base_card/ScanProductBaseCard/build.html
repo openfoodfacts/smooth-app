@@ -92,9 +92,9 @@ Widget build(BuildContext context) {
             borderRadius: ROUNDED_BORDER_RADIUS,
             boxShadow: &lt;BoxShadow&gt;[
               BoxShadow(
-                color: Theme.of(context)
-                    .shadowColor
-                    .withValues(alpha: context.lightTheme() ? 0.08 : 0.3),
+                color: Theme.of(context).shadowColor.withValues(
+                  alpha: context.lightTheme() ? 0.08 : 0.3,
+                ),
                 offset: const Offset(0.0, 2.0),
                 blurRadius: 5.0,
                 spreadRadius: 1.0,
@@ -111,12 +111,11 @@ Widget build(BuildContext context) {
                   backgroundColor: headerBackgroundColor,
                   label: headerLabel,
                   indicatorColor: headerIndicatorColor,
-                  onClose:
-                      onRemove != null ? () =&gt; onRemove?.call(context) : null,
+                  onClose: onRemove != null
+                      ? () =&gt; onRemove?.call(context)
+                      : null,
                 ),
-                Expanded(
-                  child: child,
-                ),
+                Expanded(child: child),
               ],
             ),
           ),

@@ -60,12 +60,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">DebugFimberTree({required List&lt;LogLevel&gt; logLevels})
-    : assert(logLevels.isNotEmpty),
-      super(
-        logLevels: logLevels
-            .map((LogLevel level) =&gt; level.fimberLevel)
-            .toList(growable: false),
-      );</code></pre>
+  : assert(logLevels.isNotEmpty),
+    super(
+      logLevels: logLevels
+          .map((LogLevel level) =&gt; level.fimberLevel)
+          .toList(growable: false),
+    );</code></pre>
 </section>
 
 

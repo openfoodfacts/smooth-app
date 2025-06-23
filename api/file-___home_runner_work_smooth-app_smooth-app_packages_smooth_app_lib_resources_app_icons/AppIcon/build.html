@@ -80,9 +80,10 @@ Widget build(BuildContext context) {
   final IconThemeData iconThemeData = IconTheme.of(context);
   final Color? color = switch (this.color) {
     Color _ =&gt; this.color,
-    _ =&gt; iconTheme?.color ??
-        iconThemeData.color ??
-        Theme.of(context).iconTheme.color,
+    _ =&gt;
+      iconTheme?.color ??
+          iconThemeData.color ??
+          Theme.of(context).iconTheme.color,
   };
 
   return Icon(
@@ -93,8 +94,8 @@ Widget build(BuildContext context) {
     shadows: shadow != null
         ? &lt;Shadow&gt;[shadow!]
         : iconTheme?.shadow != null
-            ? &lt;Shadow&gt;[iconTheme!.shadow!]
-            : null,
+        ? &lt;Shadow&gt;[iconTheme!.shadow!]
+        : null,
   );
 }</code></pre>
 </section>

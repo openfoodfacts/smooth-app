@@ -71,20 +71,19 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension colors =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension colors = Theme.of(
+    context,
+  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
   final int imageWidth =
       (desiredWidthPercent != null ? desiredWidthPercent! : 0.25) *
-          100.0 ~&#47;
-          1;
+      100.0 ~&#47;
+      1;
 
   return Semantics(
     label: text,
     excludeSemantics: true,
     child: Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: VERY_LARGE_SPACE,
-      ),
+      padding: const EdgeInsetsDirectional.only(top: VERY_LARGE_SPACE),
       child: ColoredBox(
         color: colors.primaryMedium,
         child: Padding(
@@ -96,9 +95,7 @@ Widget build(BuildContext context) {
             children: &lt;Widget&gt;[
               Expanded(
                 flex: imageWidth,
-                child: _ImageFromAssets(
-                  imagePath: imagePath,
-                ),
+                child: _ImageFromAssets(imagePath: imagePath),
               ),
               const SizedBox(width: 15.0),
               Expanded(

@@ -65,8 +65,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;ProductFooterActionBar&gt; get productPageActions {
-  final List&lt;String&gt;? actions =
-      _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_ACTIONS);
+  final List&lt;String&gt;? actions = _sharedPreferences.getStringList(
+    _TAG_PRODUCT_PAGE_ACTIONS,
+  );
 
   if (actions == null) {
     return ProductFooterActionBar.defaultOrder();

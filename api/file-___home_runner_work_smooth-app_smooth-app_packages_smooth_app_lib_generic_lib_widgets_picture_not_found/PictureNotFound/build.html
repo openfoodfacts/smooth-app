@@ -91,18 +91,19 @@ Widget build(BuildContext context) {
 
   if (_useInk) {
     return Ink(
-      decoration: BoxDecoration(
-        color: backgroundColor ?? defaultBackgroundColor,
-      ).copyWith(
-        color: backgroundDecoration?.color,
-        image: backgroundDecoration?.image,
-        border: backgroundDecoration?.border,
-        borderRadius: backgroundDecoration?.borderRadius,
-        boxShadow: backgroundDecoration?.boxShadow,
-        gradient: backgroundDecoration?.gradient,
-        backgroundBlendMode: backgroundDecoration?.backgroundBlendMode,
-        shape: BoxShape.rectangle,
-      ),
+      decoration:
+          BoxDecoration(
+            color: backgroundColor ?? defaultBackgroundColor,
+          ).copyWith(
+            color: backgroundDecoration?.color,
+            image: backgroundDecoration?.image,
+            border: backgroundDecoration?.border,
+            borderRadius: backgroundDecoration?.borderRadius,
+            boxShadow: backgroundDecoration?.boxShadow,
+            gradient: backgroundDecoration?.gradient,
+            backgroundBlendMode: backgroundDecoration?.backgroundBlendMode,
+            shape: BoxShape.rectangle,
+          ),
       child: child,
     );
   } else {
@@ -117,10 +118,7 @@ Widget build(BuildContext context) {
       );
     }
 
-    return DecoratedBox(
-      decoration: decoration,
-      child: child,
-    );
+    return DecoratedBox(decoration: decoration, child: child);
   }
 }</code></pre>
 </section>

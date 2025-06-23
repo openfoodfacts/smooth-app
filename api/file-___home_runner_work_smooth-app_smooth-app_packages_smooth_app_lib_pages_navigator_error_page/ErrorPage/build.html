@@ -88,10 +88,7 @@ Widget build(BuildContext context) {
               style: Theme.of(context).textTheme.displayMedium,
             ),
             const SizedBox(height: LARGE_SPACE),
-            Text(
-              url,
-              textAlign: TextAlign.center,
-            ),
+            Text(url, textAlign: TextAlign.center),
             const SizedBox(height: VERY_LARGE_SPACE * 2),
             SmoothLargeButtonWithIcon(
               text: localizations.page_not_found_button,
@@ -100,7 +97,7 @@ Widget build(BuildContext context) {
               onPressed: () {
                 AppNavigator.of(context).pop();
               },
-            )
+            ),
           ],
         ),
       ),

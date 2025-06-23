@@ -60,11 +60,9 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">PriceModel.proof({
-  required Proof proof,
-  this.existingPrices,
-})  : multipleProducts = true,
-      _priceAmountModels = &lt;PriceAmountModel&gt;[] {
+  <pre class="language-dart"><code class="language-dart">PriceModel.proof({required Proof proof, this.existingPrices})
+  : multipleProducts = true,
+    _priceAmountModels = &lt;PriceAmountModel&gt;[] {
   setProof(proof, init: true);
 }</code></pre>
 </section>

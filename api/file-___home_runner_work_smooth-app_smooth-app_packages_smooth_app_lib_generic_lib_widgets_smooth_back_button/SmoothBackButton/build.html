@@ -71,8 +71,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final MaterialLocalizations localizations =
-      MaterialLocalizations.of(context);
+  final MaterialLocalizations localizations = MaterialLocalizations.of(
+    context,
+  );
 
   return Material(
     type: MaterialType.transparency,
@@ -89,7 +90,8 @@ Widget build(BuildContext context) {
             padding: _iconPadding,
             child: Icon(
               ConstantIcons.backIcon,
-              color: iconColor ??
+              color:
+                  iconColor ??
                   (Theme.of(context).colorScheme.brightness ==
                           Brightness.light
                       ? Colors.black

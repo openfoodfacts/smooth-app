@@ -69,10 +69,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; add(final BackgroundTask task) async {
   final String taskId = task.uniqueId;
-  await DaoInstantString(localDatabase).put(
-    _taskIdToDaoInstantStringKey(taskId),
-    jsonEncode(task.toJson()),
-  );
+  await DaoInstantString(
+    localDatabase,
+  ).put(_taskIdToDaoInstantStringKey(taskId), jsonEncode(task.toJson()));
   await DaoStringList(localDatabase).add(queue.tagTaskQueue, taskId);
   await task.preExecute(localDatabase);
   _run(forceNowIfPossible: true);

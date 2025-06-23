@@ -70,8 +70,9 @@ Returns false if the task will be removed next time it's possible.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; removeTaskAsap(final String taskId) async {
-  final String? status = DaoInstantString(localDatabase)
-      .get(taskIdToErrorDaoInstantStringKey(taskId));
+  final String? status = DaoInstantString(
+    localDatabase,
+  ).get(taskIdToErrorDaoInstantStringKey(taskId));
   if (status == taskStatusStarted) {
     &#47;&#47; that value will be detected later
     await _setTaskErrorStatus(taskId, taskStatusStopAsap);

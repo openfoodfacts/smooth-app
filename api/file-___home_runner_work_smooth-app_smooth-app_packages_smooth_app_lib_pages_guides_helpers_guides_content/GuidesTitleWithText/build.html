@@ -81,16 +81,11 @@ Widget build(BuildContext context) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: &lt;Widget&gt;[
-        _GuidesTextTitle(
-          title: title,
-          icon: icon,
-        ),
+        _GuidesTextTitle(title: title, icon: icon),
         const SizedBox(height: 15.0),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 2.0),
-          child: _GuidesFormattedText(
-            text: text,
-          ),
+          child: _GuidesFormattedText(text: text),
         ),
       ],
     ),

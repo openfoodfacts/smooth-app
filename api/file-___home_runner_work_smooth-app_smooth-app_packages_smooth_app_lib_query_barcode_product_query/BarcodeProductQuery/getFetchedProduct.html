@@ -65,11 +65,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;FetchedProduct&gt; getFetchedProduct() async {
   ProductQuery.setUserAgentComment(isScanned ? &#39;scan&#39; : &#39;search&#39;);
-  final FetchedProduct fetchedProduct =
-      await ProductRefresher().silentFetchAndRefresh(
-    barcode: barcode,
-    localDatabase: daoProduct.localDatabase,
-  );
+  final FetchedProduct fetchedProduct = await ProductRefresher()
+      .silentFetchAndRefresh(
+        barcode: barcode,
+        localDatabase: daoProduct.localDatabase,
+      );
   ProductQuery.setUserAgentComment(&#39;&#39;);
   if (fetchedProduct.product != null) {
     if (fetchedProduct.product!.obsolete == true) {

@@ -71,19 +71,16 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        shape: const CircleBorder(),
-        padding: const EdgeInsets.all(MEDIUM_SPACE),
-        backgroundColor: backgroundColor,
-        foregroundColor: foregroundColor,
-        iconColor: foregroundColor,
-      ),
-      onPressed: onPressed,
-      child: Padding(
-        padding: iconPadding ?? EdgeInsets.zero,
-        child: icon,
-      ),
-    );</code></pre>
+  style: ElevatedButton.styleFrom(
+    shape: const CircleBorder(),
+    padding: const EdgeInsets.all(MEDIUM_SPACE),
+    backgroundColor: backgroundColor,
+    foregroundColor: foregroundColor,
+    iconColor: foregroundColor,
+  ),
+  onPressed: onPressed,
+  child: Padding(padding: iconPadding ?? EdgeInsets.zero, child: icon),
+);</code></pre>
 </section>
 
 

@@ -75,10 +75,7 @@
 
   languages[language.code] = (languages[language.code] ?? 0) + 1;
   unawaited(
-    _sharedPreferences.setString(
-      _TAG_LANGUAGES_USAGE,
-      jsonEncode(languages),
-    ),
+    _sharedPreferences.setString(_TAG_LANGUAGES_USAGE, jsonEncode(languages)),
   );
 }</code></pre>
 </section>

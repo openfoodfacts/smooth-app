@@ -73,63 +73,58 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 WidgetBuilder? getAddExplanationsContent() =&gt; (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-      return Column(
-        children: &lt;Widget&gt;[
-          ExplanationBodyInfo(
-            text: appLocalizations.edit_product_form_item_emb_help_info1,
-            icon: false,
-          ),
-          ExplanationTextContainer(
-            title:
-                appLocalizations.edit_product_form_item_emb_help_info2_title,
-            items: &lt;ExplanationTextContainerContent&gt;[
-              ExplanationTextContainerContentItem(
-                text: appLocalizations
-                    .edit_product_form_item_emb_help_info2_item1_text,
-                example: appLocalizations
-                    .edit_product_form_item_emb_help_info2_item1_explanation,
-                visualExamplePosition:
-                    ExplanationVisualExamplePosition.afterTitle,
-                visualExample: Container(
-                  width: 104.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color:
-                          context.lightTheme() ? Colors.black : Colors.white,
-                      width: 1.0,
-                    ),
-                    borderRadius: const BorderRadius.all(
-                      Radius.elliptical(100, 50),
-                    ),
-                  ),
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    vertical: VERY_SMALL_SPACE,
-                  ),
-                  child: Text(
-                    appLocalizations
-                        .edit_product_form_item_emb_help_info2_item1_example,
-                    textAlign: TextAlign.center,
-                    textScaler: TextScaler.noScaling,
-                    style: const TextStyle(
-                      fontSize: 12.0,
-                      height: 1.2,
-                    ),
-                  ),
+  return Column(
+    children: &lt;Widget&gt;[
+      ExplanationBodyInfo(
+        text: appLocalizations.edit_product_form_item_emb_help_info1,
+        icon: false,
+      ),
+      ExplanationTextContainer(
+        title: appLocalizations.edit_product_form_item_emb_help_info2_title,
+        items: &lt;ExplanationTextContainerContent&gt;[
+          ExplanationTextContainerContentItem(
+            text: appLocalizations
+                .edit_product_form_item_emb_help_info2_item1_text,
+            example: appLocalizations
+                .edit_product_form_item_emb_help_info2_item1_explanation,
+            visualExamplePosition:
+                ExplanationVisualExamplePosition.afterTitle,
+            visualExample: Container(
+              width: 104.0,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: context.lightTheme() ? Colors.black : Colors.white,
+                  width: 1.0,
+                ),
+                borderRadius: const BorderRadius.all(
+                  Radius.elliptical(100, 50),
                 ),
               ),
-              ExplanationTextContainerContentItem(
-                text: appLocalizations
-                    .edit_product_form_item_emb_help_info2_item2_text,
-                example: appLocalizations
-                    .edit_product_form_item_emb_help_info2_item2_explanation,
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: VERY_SMALL_SPACE,
               ),
-            ],
+              child: Text(
+                appLocalizations
+                    .edit_product_form_item_emb_help_info2_item1_example,
+                textAlign: TextAlign.center,
+                textScaler: TextScaler.noScaling,
+                style: const TextStyle(fontSize: 12.0, height: 1.2),
+              ),
+            ),
+          ),
+          ExplanationTextContainerContentItem(
+            text: appLocalizations
+                .edit_product_form_item_emb_help_info2_item2_text,
+            example: appLocalizations
+                .edit_product_form_item_emb_help_info2_item2_explanation,
           ),
         ],
-      );
-    };</code></pre>
+      ),
+    ],
+  );
+};</code></pre>
 </section>
 
 

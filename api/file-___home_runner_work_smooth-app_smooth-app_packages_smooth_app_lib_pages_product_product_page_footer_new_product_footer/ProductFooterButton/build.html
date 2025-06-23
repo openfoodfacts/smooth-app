@@ -71,31 +71,28 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final _ProductFooterButtonType buttonType =
-      context.watch&lt;_ProductFooterButtonType&gt;();
+  final _ProductFooterButtonType buttonType = context
+      .watch&lt;_ProductFooterButtonType&gt;();
 
   final Widget button = switch (buttonType) {
     _ProductFooterButtonType.filled =&gt; _ProductFooterFilledButton(
-        label: label,
-        icon: icon,
-        onTap: _onTap,
-        enabled: enabled,
-        semanticsLabel: semanticsLabel,
-      ),
+      label: label,
+      icon: icon,
+      onTap: _onTap,
+      enabled: enabled,
+      semanticsLabel: semanticsLabel,
+    ),
     _ProductFooterButtonType.outlined =&gt; _ProductFooterOutlinedButton(
-        label: label,
-        icon: icon,
-        onTap: _onTap,
-        enabled: enabled,
-        semanticsLabel: semanticsLabel,
-      ),
+      label: label,
+      icon: icon,
+      onTap: _onTap,
+      enabled: enabled,
+      semanticsLabel: semanticsLabel,
+    ),
   };
 
   if (tooltip?.isNotEmpty == true) {
-    return Tooltip(
-      message: tooltip,
-      child: button,
-    );
+    return Tooltip(message: tooltip, child: button);
   } else {
     return button;
   }

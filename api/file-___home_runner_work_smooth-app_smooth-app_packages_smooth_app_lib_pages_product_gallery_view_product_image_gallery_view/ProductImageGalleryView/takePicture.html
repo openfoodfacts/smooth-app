@@ -75,11 +75,7 @@
   required OpenFoodFactsLanguage language,
   UserPictureSource? pictureSource,
 }) async {
-  AnalyticsHelper.trackProductEdit(
-    AnalyticsEditEvents.photos,
-    product,
-    true,
-  );
+  AnalyticsHelper.trackProductEdit(AnalyticsEditEvents.photos, product, true);
 
   final CropParameters? cropParameters = await confirmAndUploadNewPicture(
     context,

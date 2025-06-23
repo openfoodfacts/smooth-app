@@ -71,8 +71,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension theme =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension theme = Theme.of(
+    context,
+  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
 
   final Widget widget = AspectRatio(
     aspectRatio: 1.0,
@@ -84,10 +85,7 @@ Widget build(BuildContext context) {
       child: Padding(
         padding: const EdgeInsets.all(BALANCED_SPACE),
         child: IconTheme(
-          data: const IconThemeData(
-            size: 20.0,
-            color: Colors.white,
-          ),
+          data: const IconThemeData(size: 20.0, color: Colors.white),
           child: icon ?? const icons.Search(),
         ),
       ),

@@ -75,15 +75,14 @@
   String query,
   TextEditingController controller,
   FocusNode focusNode,
-) =&gt;
-    search(
-      context,
-      query,
-      searchQueryCallback: (String query) {
-        controller.text = query;
-        focusNode.requestFocus();
-      },
-    );</code></pre>
+) =&gt; search(
+  context,
+  query,
+  searchQueryCallback: (String query) {
+    controller.text = query;
+    focusNode.requestFocus();
+  },
+);</code></pre>
 </section>
 
 

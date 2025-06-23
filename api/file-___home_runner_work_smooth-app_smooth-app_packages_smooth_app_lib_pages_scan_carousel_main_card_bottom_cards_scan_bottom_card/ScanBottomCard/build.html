@@ -83,31 +83,30 @@ Widget build(BuildContext context) {
       ),
     ],
     child: Consumer2&lt;ScanNewsFeedProvider, AppReviewProvider&gt;(
-      builder: (
-        BuildContext context,
-        ScanNewsFeedProvider scanTagLineProvider,
-        AppReviewProvider appReviewProvider,
-        Widget? child,
-      ) {
-        switch (appReviewProvider.value) {
-          case AppReviewState.checking:
-            return const ScanBottomCardLoading();
-          case AppReviewState.askForReview:
-            return const ScanAppReview();
-          default:
-          &#47;&#47; Nothing (-&gt; news)
-        }
+      builder:
+          (
+            BuildContext context,
+            ScanNewsFeedProvider scanTagLineProvider,
+            AppReviewProvider appReviewProvider,
+            Widget? child,
+          ) {
+            switch (appReviewProvider.value) {
+              case AppReviewState.checking:
+                return const ScanBottomCardLoading();
+              case AppReviewState.askForReview:
+                return const ScanAppReview();
+              default:
+              &#47;&#47; Nothing (-&gt; news)
+            }
 
-        final ScanTagLineState state = scanTagLineProvider.value;
+            final ScanTagLineState state = scanTagLineProvider.value;
 
-        return switch (state) {
-          ScanTagLineStateLoading() =&gt; const ScanBottomCardLoading(),
-          ScanTagLineStateNoContent() =&gt; EMPTY_WIDGET,
-          ScanTagLineStateLoaded() =&gt; ScanNewsCard(
-              news: state.tagLine,
-            ),
-        };
-      },
+            return switch (state) {
+              ScanTagLineStateLoading() =&gt; const ScanBottomCardLoading(),
+              ScanTagLineStateNoContent() =&gt; EMPTY_WIDGET,
+              ScanTagLineStateLoaded() =&gt; ScanNewsCard(news: state.tagLine),
+            };
+          },
     ),
   );
 }</code></pre>

@@ -74,17 +74,16 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
-  final OnboardingFlowNavigator navigator =
-      OnboardingFlowNavigator(userPreferences);
+  final OnboardingFlowNavigator navigator = OnboardingFlowNavigator(
+    userPreferences,
+  );
   final OnboardingPage previousPage = currentPage.getPrevPage();
   return OnboardingBottomBar(
     leftButton: previousPage.isOnboardingNotStarted()
         ? null
         : OnboardingBottomIcon(
-            onPressed: () async =&gt; navigator.navigateToPage(
-              context,
-              previousPage,
-            ),
+            onPressed: () async =&gt;
+                navigator.navigateToPage(context, previousPage),
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
             icon: Directionality.of(context) == TextDirection.ltr
@@ -94,13 +93,11 @@ Widget build(BuildContext context) {
           ),
     rightButton: OnboardingBottomButton(
       onPressed: () async {
-        await OnboardingLoader(localDatabase)
-            .runAtNextTime(currentPage, context);
+        await OnboardingLoader(
+          localDatabase,
+        ).runAtNextTime(currentPage, context);
         if (context.mounted) {
-          await navigator.navigateToPage(
-            context,
-            currentPage.getNextPage(),
-          );
+          await navigator.navigateToPage(context, currentPage.getNextPage());
         }
       },
       backgroundColor: Colors.black,

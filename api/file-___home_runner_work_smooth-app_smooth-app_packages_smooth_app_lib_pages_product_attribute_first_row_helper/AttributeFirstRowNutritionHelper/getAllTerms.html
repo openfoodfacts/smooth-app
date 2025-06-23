@@ -71,16 +71,14 @@
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;StringPair&gt; getAllTerms() {
   final List&lt;StringPair&gt; allNutrients = &lt;StringPair&gt;[];
-  product.nutriments?.toData().forEach(
-    (String nutrientName, String quantity) {
-      allNutrients.add(
-        StringPair(
-          first: nutrientName.split(&#39;_100g&#39;)[0],
-          second: quantity,
-        ),
-      );
-    },
-  );
+  product.nutriments?.toData().forEach((
+    String nutrientName,
+    String quantity,
+  ) {
+    allNutrients.add(
+      StringPair(first: nutrientName.split(&#39;_100g&#39;)[0], second: quantity),
+    );
+  });
 
   return allNutrients;
 }</code></pre>

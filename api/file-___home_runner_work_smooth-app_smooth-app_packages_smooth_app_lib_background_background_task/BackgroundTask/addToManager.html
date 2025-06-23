@@ -91,16 +91,13 @@ Future&lt;void&gt; addToManager(
   if (!context.mounted) {
     return;
   }
-  if (getFloatingMessage(AppLocalizations.of(context))
-      case (
-        final String message,
-        final AlignmentGeometry alignment,
-      )) {
-    SmoothFloatingMessage.loading(message: message).show(
-      context,
-      duration: SnackBarDuration.medium,
-      alignment: alignment,
-    );
+  if (getFloatingMessage(AppLocalizations.of(context)) case (
+    final String message,
+    final AlignmentGeometry alignment,
+  )) {
+    SmoothFloatingMessage.loading(
+      message: message,
+    ).show(context, duration: SnackBarDuration.medium, alignment: alignment);
   }
 }</code></pre>
 </section>

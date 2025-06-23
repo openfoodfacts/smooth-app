@@ -66,24 +66,22 @@
   <pre class="language-dart"><code class="language-dart">factory GetPricesModel.product({
   required final PriceMetaProduct product,
   required final BuildContext context,
-}) =&gt;
-    GetPricesModel(
-      parameters: getStandardPricesParameters()
-        ..productCode = product.barcode,
-      displayEachProduct: false,
-      uri: OpenPricesAPIClient.getUri(
-        path: &#39;products&#47;${product.barcode}&#39;,
-        uriHelper: ProductQuery.uriPricesHelper,
-      ),
-      title: product.getName(AppLocalizations.of(context)),
-      subtitle: product.barcode,
-      addButton: () async =&gt; ProductPriceAddPage.showProductPage(
-        context: context,
-        product: product,
-        proofType: ProofType.priceTag,
-      ),
-      enableCountButton: false,
-    );</code></pre>
+}) =&gt; GetPricesModel(
+  parameters: getStandardPricesParameters()..productCode = product.barcode,
+  displayEachProduct: false,
+  uri: OpenPricesAPIClient.getUri(
+    path: &#39;products&#47;${product.barcode}&#39;,
+    uriHelper: ProductQuery.uriPricesHelper,
+  ),
+  title: product.getName(AppLocalizations.of(context)),
+  subtitle: product.barcode,
+  addButton: () async =&gt; ProductPriceAddPage.showProductPage(
+    context: context,
+    product: product,
+    proofType: ProofType.priceTag,
+  ),
+  enableCountButton: false,
+);</code></pre>
 </section>
 
 

@@ -79,7 +79,8 @@ void paint(Canvas canvas, Size size) {
   if (cropRect == null) {
     _paint.strokeWidth = _strokeWidthFactor * sqrt(size.width * size.height);
   } else {
-    _paint.strokeWidth = _strokeWidthFactor *
+    _paint.strokeWidth =
+        _strokeWidthFactor *
         sqrt(size.width * size.height &#47; cropRect!.width &#47; cropRect!.height);
   }
 

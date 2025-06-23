@@ -60,10 +60,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">BackgroundTaskImage.fromJson(super.json)
-    : fullPath = json[_jsonTagImagePath] as String,
-      eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
-          json[_jsonTagEraserCoordinates]),
-      super.fromJson();</code></pre>
+  : fullPath = json[_jsonTagImagePath] as String,
+    eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+      json[_jsonTagEraserCoordinates],
+    ),
+    super.fromJson();</code></pre>
 </section>
 
 

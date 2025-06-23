@@ -60,16 +60,17 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">BackgroundTaskAddPrice.fromJson(super.json)
-    : fullPath = json[_jsonTagImagePath] as String,
-      rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
-      cropX1 = json[_jsonTagX1] as int? ?? 0,
-      cropY1 = json[_jsonTagY1] as int? ?? 0,
-      cropX2 = json[_jsonTagX2] as int? ?? 0,
-      cropY2 = json[_jsonTagY2] as int? ?? 0,
-      proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
-      eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
-          json[_jsonTagEraserCoordinates]),
-      super.fromJson();</code></pre>
+  : fullPath = json[_jsonTagImagePath] as String,
+    rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
+    cropX1 = json[_jsonTagX1] as int? ?? 0,
+    cropY1 = json[_jsonTagY1] as int? ?? 0,
+    cropX2 = json[_jsonTagX2] as int? ?? 0,
+    cropY2 = json[_jsonTagY2] as int? ?? 0,
+    proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
+    eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+      json[_jsonTagEraserCoordinates],
+    ),
+    super.fromJson();</code></pre>
 </section>
 
 

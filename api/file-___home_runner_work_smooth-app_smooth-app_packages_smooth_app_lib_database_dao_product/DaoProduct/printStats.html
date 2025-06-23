@@ -86,19 +86,20 @@
   if (!verbose) {
     return;
   }
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.rawQuery(
-    &#39;select&#39;
-    &#39; $_TABLE_PRODUCT_COLUMN_BARCODE&#39;
-    &#39;, length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON) as mylength&#39;
-    &#39; from $_TABLE_PRODUCT&#39;,
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .rawQuery(
+        &#39;select&#39;
+        &#39; $_TABLE_PRODUCT_COLUMN_BARCODE&#39;
+        &#39;, length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON) as mylength&#39;
+        &#39; from $_TABLE_PRODUCT&#39;,
+      );
   debugPrint(&#39;Product by product&#39;);
   debugPrint(&#39;barcode;gzipped;string;factor&#39;);
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     final String barcode = row[_TABLE_PRODUCT_COLUMN_BARCODE] as String;
-    final int asString =
-        utf8.encode(jsonEncode(map[barcode]!.toJson())).length;
+    final int asString = utf8
+        .encode(jsonEncode(map[barcode]!.toJson()))
+        .length;
     final int asZipped = row[&#39;mylength&#39;] as int;
     final double factor = (asString * 1.0) &#47; asZipped;
     debugPrint(&#39;$barcode;$asZipped;$asString;$factor&#39;);

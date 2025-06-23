@@ -71,51 +71,52 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; Padding(
-      padding: const EdgeInsetsDirectional.only(start: LARGE_SPACE),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: &lt;Widget&gt;[
-          SizedBox(
-            width: constraints.maxWidth -
-                LARGE_SPACE -
-                (withClearButton ? MINIMUM_TOUCH_SIZE : 0),
-            child: TextField(
-              keyboardType: TextInputType.numberWithOptions(
-                signed: false,
-                decimal: decimal,
-              ),
-              controller: controller,
-              decoration: InputDecoration(
-                filled: true,
-                border: const OutlineInputBorder(
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: SMALL_SPACE,
-                  vertical: SMALL_SPACE,
-                ),
-                hintText: hintText,
-              ),
-              &#47;&#47; a lot of confusion if set to `true`
-              autofocus: false,
-              focusNode: focusNode,
-              inputFormatters: &lt;TextInputFormatter&gt;[
-                FilteringTextInputFormatter.allow(numberRegExp),
-                if (decimal) DecimalSeparatorRewriter(numberFormat),
-              ],
-            ),
+  padding: const EdgeInsetsDirectional.only(start: LARGE_SPACE),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisSize: MainAxisSize.max,
+    children: &lt;Widget&gt;[
+      SizedBox(
+        width:
+            constraints.maxWidth -
+            LARGE_SPACE -
+            (withClearButton ? MINIMUM_TOUCH_SIZE : 0),
+        child: TextField(
+          keyboardType: TextInputType.numberWithOptions(
+            signed: false,
+            decimal: decimal,
           ),
-          if (withClearButton)
-            IconButton(
-              icon: const Icon(Icons.clear),
-              onPressed: () =&gt; controller.text = &#39;&#39;,
+          controller: controller,
+          decoration: InputDecoration(
+            filled: true,
+            border: const OutlineInputBorder(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              borderSide: BorderSide.none,
             ),
-        ],
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: SMALL_SPACE,
+              vertical: SMALL_SPACE,
+            ),
+            hintText: hintText,
+          ),
+          &#47;&#47; a lot of confusion if set to `true`
+          autofocus: false,
+          focusNode: focusNode,
+          inputFormatters: &lt;TextInputFormatter&gt;[
+            FilteringTextInputFormatter.allow(numberRegExp),
+            if (decimal) DecimalSeparatorRewriter(numberFormat),
+          ],
+        ),
       ),
-    );</code></pre>
+      if (withClearButton)
+        IconButton(
+          icon: const Icon(Icons.clear),
+          onPressed: () =&gt; controller.text = &#39;&#39;,
+        ),
+    ],
+  ),
+);</code></pre>
 </section>
 
 

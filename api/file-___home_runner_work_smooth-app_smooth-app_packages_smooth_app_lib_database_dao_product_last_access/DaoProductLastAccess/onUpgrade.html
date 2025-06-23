@@ -72,11 +72,13 @@
   final int newVersion,
 ) async {
   if (oldVersion &lt; 5) {
-    await db.execute(&#39;create table $TABLE(&#39;
-        &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
-        &#39;$COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace&#39;
-        &#39;,$COLUMN_LAST_ACCESS INT NOT NULL&#39;
-        &#39;)&#39;);
+    await db.execute(
+      &#39;create table $TABLE(&#39;
+      &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
+      &#39;$COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace&#39;
+      &#39;,$COLUMN_LAST_ACCESS INT NOT NULL&#39;
+      &#39;)&#39;,
+    );
   }
 }</code></pre>
 </section>

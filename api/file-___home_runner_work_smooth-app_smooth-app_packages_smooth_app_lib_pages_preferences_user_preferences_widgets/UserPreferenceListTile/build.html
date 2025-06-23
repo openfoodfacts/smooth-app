@@ -80,15 +80,9 @@ Widget build(BuildContext context) {
           padding: const EdgeInsets.all(VERY_SMALL_SPACE),
           child: leading,
         ),
-        title: Text(
-          title,
-          style: textTheme.headlineMedium,
-        ),
+        title: Text(title, style: textTheme.headlineMedium),
         subtitle: subTitle != null
-            ? Text(
-                subTitle!,
-                style: textTheme.bodyMedium,
-              )
+            ? Text(subTitle!, style: textTheme.bodyMedium)
             : null,
         onTap: () =&gt; onTap(context),
         contentPadding: const EdgeInsetsDirectional.symmetric(

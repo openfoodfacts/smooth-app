@@ -65,8 +65,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;String&gt; getList() {
   final List&lt;String&gt; result = &lt;String&gt;[];
-  final Iterable&lt;String&gt; barcodes =
-      _isReversed() ? _barcodes.reversed : _barcodes;
+  final Iterable&lt;String&gt; barcodes = _isReversed()
+      ? _barcodes.reversed
+      : _barcodes;
   result.addAll(barcodes);
   return result;
 }</code></pre>

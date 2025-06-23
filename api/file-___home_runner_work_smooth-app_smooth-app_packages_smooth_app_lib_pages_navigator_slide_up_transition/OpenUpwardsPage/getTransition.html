@@ -72,18 +72,19 @@
   return CustomTransitionPage&lt;T&gt;(
     key: key,
     child: child,
-    transitionsBuilder: (
-      BuildContext context,
-      Animation&lt;double&gt; animation,
-      Animation&lt;double&gt; secondaryAnimation,
-      Widget child,
-    ) {
-      return _OpenUpwardsPageTransition(
-        animation: animation,
-        secondaryAnimation: secondaryAnimation,
-        child: child,
-      );
-    },
+    transitionsBuilder:
+        (
+          BuildContext context,
+          Animation&lt;double&gt; animation,
+          Animation&lt;double&gt; secondaryAnimation,
+          Widget child,
+        ) {
+          return _OpenUpwardsPageTransition(
+            animation: animation,
+            secondaryAnimation: secondaryAnimation,
+            child: child,
+          );
+        },
   );
 }</code></pre>
 </section>

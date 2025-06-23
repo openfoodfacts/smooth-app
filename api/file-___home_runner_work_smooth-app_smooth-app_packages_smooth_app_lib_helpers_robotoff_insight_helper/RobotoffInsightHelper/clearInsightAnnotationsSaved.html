@@ -64,11 +64,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clearInsightAnnotationsSaved() async {
-  final Map&lt;String, List&lt;String&gt;&gt; records =
-      await DaoStringListMap(_localDatabase).getAll();
+  final Map&lt;String, List&lt;String&gt;&gt; records = await DaoStringListMap(
+    _localDatabase,
+  ).getAll();
   for (final String barcode in records.keys) {
-    final List&lt;RobotoffQuestion&gt; questions =
-        await ProductQuestionsQuery(barcode).getQuestions(_localDatabase, 1);
+    final List&lt;RobotoffQuestion&gt; questions = await ProductQuestionsQuery(
+      barcode,
+    ).getQuestions(_localDatabase, 1);
     if (questions.isEmpty) {
       await DaoStringListMap(_localDatabase).removeKey(barcode);
     }

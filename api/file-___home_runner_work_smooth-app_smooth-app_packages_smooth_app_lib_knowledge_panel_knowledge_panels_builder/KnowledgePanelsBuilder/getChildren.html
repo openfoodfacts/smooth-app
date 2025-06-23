@@ -74,8 +74,9 @@
   required bool onboardingMode,
 }) {
   final String? panelId = panelElement.panelElement?.panelId;
-  final KnowledgePanel? rootPanel =
-      panelId == null ? null : getKnowledgePanel(product, panelId);
+  final KnowledgePanel? rootPanel = panelId == null
+      ? null
+      : getKnowledgePanel(product, panelId);
   final List&lt;Widget&gt; children = &lt;Widget&gt;[];
   if (rootPanel != null) {
     children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
@@ -98,8 +99,10 @@
   }
   if (!onboardingMode) {
     if (panelId == &#39;health_card&#39;) {
-      final bool nutritionAddOrUpdate = product.statesTags?.contains(
-              ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag) ??
+      final bool nutritionAddOrUpdate =
+          product.statesTags?.contains(
+            ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag,
+          ) ??
           false;
       if (nutritionAddOrUpdate) {
         if (AddNutritionButton.acceptsNutritionFacts(product)) {
@@ -107,10 +110,10 @@
         }
       }
 
-      final bool needEditIngredients = context
-              .read&lt;UserPreferences&gt;()
-              .getFlag(UserPreferencesDevMode
-                  .userPreferencesFlagEditIngredients) ??
+      final bool needEditIngredients =
+          context.read&lt;UserPreferences&gt;().getFlag(
+            UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+          ) ??
           false;
       if ((product.ingredientsText == null ||
               product.ingredientsText!.isEmpty) &amp;&amp;
@@ -128,7 +131,8 @@
   }
   if (children.isEmpty) {
     Logs.e(
-        &#39;Unexpected empty panel data for product &quot;${product.barcode}&quot; and panelId &quot;$panelId&quot;&#39;);
+      &#39;Unexpected empty panel data for product &quot;${product.barcode}&quot; and panelId &quot;$panelId&quot;&#39;,
+    );
   }
   return children;
 }</code></pre>

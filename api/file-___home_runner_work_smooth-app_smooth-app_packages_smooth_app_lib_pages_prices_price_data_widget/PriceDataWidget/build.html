@@ -79,8 +79,9 @@ Widget build(BuildContext context) {
     locale: locale,
     name: price.currency.name,
   );
-  final String? locationTitle =
-      PriceLocationWidget.getLocationTitle(price.location);
+  final String? locationTitle = PriceLocationWidget.getLocationTitle(
+    price.location,
+  );
 
   String? getPricePerKg() {
     if (price.product == null) {
@@ -112,7 +113,8 @@ Widget build(BuildContext context) {
   final String? notDiscountedPrice = getNotDiscountedPrice();
   final bool isDiscounted = price.priceIsDiscounted == true;
 
-  final String priceLabel = &#39;${currencyFormat.format(price.price)}&#39;
+  final String priceLabel =
+      &#39;${currencyFormat.format(price.price)}&#39;
       &#39; ${pricePerKg == null ? &#39;&#39; : &#39; ($pricePerKg)&#39;}&#39;;
   return Semantics(
     container: true,
@@ -145,15 +147,16 @@ Widget build(BuildContext context) {
               onPressed: price.locationId == null
                   ? () {}
                   : () async =&gt; PriceLocationWidget.showLocationPrices(
-                        locationId: price.locationId!,
-                        context: context,
-                      ),
+                      locationId: price.locationId!,
+                      context: context,
+                    ),
             ),
           ),
         if (model.displayEachOwner) PriceUserButton(price.owner),
         ExcludeSemantics(
           child: Tooltip(
-            message: &#39;${dateFormat.format(price.created)}&#39;
+            message:
+                &#39;${dateFormat.format(price.created)}&#39;
                 &#39; &#39;
                 &#39;${timeFormat.format(price.created)}&#39;,
             child: PriceButton(
@@ -175,9 +178,8 @@ Widget build(BuildContext context) {
             onPressed: () async =&gt; Navigator.push&lt;void&gt;(
               context,
               MaterialPageRoute&lt;void&gt;(
-                builder: (BuildContext context) =&gt; PriceProofPage(
-                  price.proof!,
-                ),
+                builder: (BuildContext context) =&gt;
+                    PriceProofPage(price.proof!),
               ),
             ), &#47;&#47; PriceProofPage
           ),

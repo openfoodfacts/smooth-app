@@ -85,8 +85,8 @@
   }
 
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   return showSmoothAlertModalSheet&lt;bool&gt;(
     context: context,
@@ -103,10 +103,7 @@
       Icon(Icons.save_rounded, color: extension.success),
       Icon(Icons.cancel_rounded, color: extension.error),
     ],
-    actionValues: &lt;bool&gt;[
-      true,
-      false,
-    ],
+    actionValues: &lt;bool&gt;[true, false],
   );
 }</code></pre>
 </section>

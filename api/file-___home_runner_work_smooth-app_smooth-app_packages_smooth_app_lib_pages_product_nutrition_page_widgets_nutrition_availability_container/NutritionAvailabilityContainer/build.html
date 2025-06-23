@@ -97,36 +97,38 @@ Widget build(BuildContext context) {
                 ),
               ),
               Consumer&lt;NutritionContainerHelper&gt;(
-                builder: (
-                  BuildContext context,
-                  NutritionContainerHelper helper,
-                  _,
-                ) {
-                  return SmoothDropdownButton&lt;bool&gt;(
-                    value: !helper.noNutritionData,
-                    items: &lt;SmoothDropdownItem&lt;bool&gt;&gt;[
-                      SmoothDropdownItem&lt;bool&gt;(
-                        value: true,
-                        label: appLocalizations
-                            .nutrition_page_nutritional_info_value_positive,
-                      ),
-                      SmoothDropdownItem&lt;bool&gt;(
-                        value: false,
-                        label: appLocalizations
-                            .nutrition_page_nutritional_info_value_negative,
-                      ),
-                    ],
-                    onChanged: (bool? value) {
-                      if (value == null) {
-                        return;
-                      }
+                builder:
+                    (
+                      BuildContext context,
+                      NutritionContainerHelper helper,
+                      _,
+                    ) {
+                      return SmoothDropdownButton&lt;bool&gt;(
+                        value: !helper.noNutritionData,
+                        items: &lt;SmoothDropdownItem&lt;bool&gt;&gt;[
+                          SmoothDropdownItem&lt;bool&gt;(
+                            value: true,
+                            label: appLocalizations
+                                .nutrition_page_nutritional_info_value_positive,
+                          ),
+                          SmoothDropdownItem&lt;bool&gt;(
+                            value: false,
+                            label: appLocalizations
+                                .nutrition_page_nutritional_info_value_negative,
+                          ),
+                        ],
+                        onChanged: (bool? value) {
+                          if (value == null) {
+                            return;
+                          }
 
-                      context
-                          .read&lt;NutritionContainerHelper&gt;()
-                          .noNutritionData = !value;
+                          context
+                                  .read&lt;NutritionContainerHelper&gt;()
+                                  .noNutritionData =
+                              !value;
+                        },
+                      );
                     },
-                  );
-                },
               ),
             ],
           ),

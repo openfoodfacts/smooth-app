@@ -74,23 +74,20 @@
   final int pageNumber,
   final OpenFoodFactsLanguage language,
   final List&lt;ProductField&gt; fields,
-) =&gt;
-    ProductSearchQueryConfiguration(
-      parametersList: &lt;Parameter&gt;[
-        TagFilter.fromType(tagFilterType: type, tagName: userId),
-        PageSize(size: pageSize),
-        PageNumber(page: pageNumber),
-        if (toBeCompleted)
-          const StatesTagsParameter(
-            map: &lt;ProductState, bool&gt;{
-              ProductState.COMPLETED: false,
-            },
-          ),
-      ],
-      language: language,
-      fields: fields,
-      version: ProductQuery.productQueryVersion,
-    );</code></pre>
+) =&gt; ProductSearchQueryConfiguration(
+  parametersList: &lt;Parameter&gt;[
+    TagFilter.fromType(tagFilterType: type, tagName: userId),
+    PageSize(size: pageSize),
+    PageNumber(page: pageNumber),
+    if (toBeCompleted)
+      const StatesTagsParameter(
+        map: &lt;ProductState, bool&gt;{ProductState.COMPLETED: false},
+      ),
+  ],
+  language: language,
+  fields: fields,
+  version: ProductQuery.productQueryVersion,
+);</code></pre>
 </section>
 
 

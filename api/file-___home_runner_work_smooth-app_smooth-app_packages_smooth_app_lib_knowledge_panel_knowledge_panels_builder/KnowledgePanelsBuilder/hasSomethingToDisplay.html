@@ -72,8 +72,10 @@
   final Product product,
   final String panelId,
 ) {
-  final KnowledgePanel panel =
-      KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
+  final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
+    product,
+    panelId,
+  )!;
   if (panel.elements == null) {
     return false;
   }

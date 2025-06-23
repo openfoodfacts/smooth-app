@@ -75,11 +75,11 @@
 Future&lt;int?&gt; getServerCount() async {
   final MaybeError&lt;GetPricesResult&gt; result =
       await OpenPricesAPIClient.getPrices(
-    GetPricesParameters()
-      ..owner = owner
-      ..pageSize = 1,
-    uriHelper: ProductQuery.uriPricesHelper,
-  );
+        GetPricesParameters()
+          ..owner = owner
+          ..pageSize = 1,
+        uriHelper: ProductQuery.uriPricesHelper,
+      );
   if (result.isError) {
     return null;
   }

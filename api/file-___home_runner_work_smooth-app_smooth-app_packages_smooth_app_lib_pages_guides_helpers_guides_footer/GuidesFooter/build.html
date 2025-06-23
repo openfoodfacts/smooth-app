@@ -71,8 +71,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension colors =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension colors = Theme.of(
+    context,
+  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
 
   return CustomPaint(
     painter: _FooterPainter(

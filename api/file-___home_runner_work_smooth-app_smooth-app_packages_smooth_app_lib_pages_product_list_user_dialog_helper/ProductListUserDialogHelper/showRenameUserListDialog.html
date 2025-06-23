@@ -122,8 +122,10 @@
   if (newName == null) {
     return null;
   }
-  final ProductList result =
-      await daoProductList.rename(initialProductList, newName);
+  final ProductList result = await daoProductList.rename(
+    initialProductList,
+    newName,
+  );
   daoProductList.localDatabase.notifyListeners();
   return result;
 }</code></pre>

@@ -80,10 +80,7 @@ Widget build(BuildContext context) {
         top: SMALL_SPACE,
         bottom: SMALL_SPACE,
       ),
-      child: Text(
-        title,
-        style: theme.textTheme.headlineMedium,
-      ),
+      child: Text(title, style: theme.textTheme.headlineMedium),
     ),
     subtitle: Padding(
       padding: const EdgeInsetsDirectional.only(
@@ -113,18 +110,20 @@ Widget build(BuildContext context) {
               ),
             ),
           ),
-          const Icon(Icons.edit)
+          const Icon(Icons.edit),
         ],
       ),
     ),
     onTap: () async {
-      final double itemHeight = (descriptions != null ? 15.0 : 0.0) +
+      final double itemHeight =
+          (descriptions != null ? 15.0 : 0.0) +
           (5.0 * 2) +
           1.0 +
           (56.0 + Theme.of(context).visualDensity.baseSizeAdjustment.dy);
 
       final MediaQueryData queryData = MediaQueryData.fromView(
-          WidgetsBinding.instance.platformDispatcher.implicitView!);
+        WidgetsBinding.instance.platformDispatcher.implicitView!,
+      );
 
       &#47;&#47; If there is not enough space, we use the scrolling sheet
       final T? res;
@@ -136,31 +135,33 @@ Widget build(BuildContext context) {
       if ((itemHeight * labels.length + header.computeHeight(context)) &gt;
           (queryData.size.height * 0.9) - queryData.viewPadding.top) {
         res = await showSmoothDraggableModalSheet&lt;T&gt;(
-            context: context,
-            header: header,
-            bodyBuilder: (BuildContext context) {
-              return SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  childCount: labels.length,
-                  (BuildContext context, int position) {
-                    final bool selected =
-                        currentValue == values.elementAt(position);
+          context: context,
+          header: header,
+          bodyBuilder: (BuildContext context) {
+            return SliverList(
+              delegate: SliverChildBuilderDelegate(
+                childCount: labels.length,
+                (BuildContext context, int position) {
+                  final bool selected =
+                      currentValue == values.elementAt(position);
 
-                    return _ChoiceItem&lt;T&gt;(
-                      selected: selected,
-                      label: labels.elementAt(position),
-                      value: values.elementAt(position),
-                      description: descriptions?.elementAt(position),
-                      leading: leadingBuilder != null
-                          ? Builder(
-                              builder: leadingBuilder!.elementAt(position))
-                          : null,
-                      hasDivider: position &lt; labels.length - 1,
-                    );
-                  },
-                ),
-              );
-            });
+                  return _ChoiceItem&lt;T&gt;(
+                    selected: selected,
+                    label: labels.elementAt(position),
+                    value: values.elementAt(position),
+                    description: descriptions?.elementAt(position),
+                    leading: leadingBuilder != null
+                        ? Builder(
+                            builder: leadingBuilder!.elementAt(position),
+                          )
+                        : null,
+                    hasDivider: position &lt; labels.length - 1,
+                  );
+                },
+              ),
+            );
+          },
+        );
       } else {
         final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
           title: title,
@@ -193,7 +194,8 @@ Widget build(BuildContext context) {
 
         res = await showSmoothModalSheet&lt;T&gt;(
           context: context,
-          minHeight: smoothModalSheet.computeHeaderHeight(context) +
+          minHeight:
+              smoothModalSheet.computeHeaderHeight(context) +
               itemHeight * labels.length,
           builder: (BuildContext context) {
             return smoothModalSheet;

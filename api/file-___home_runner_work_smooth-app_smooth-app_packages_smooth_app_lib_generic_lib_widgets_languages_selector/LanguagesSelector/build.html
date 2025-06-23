@@ -78,13 +78,14 @@ Widget build(BuildContext context) {
     final String currentLanguageCode = ProductQuery.getLanguage().code;
     language = LanguageHelper.fromJson(currentLanguageCode);
   }
-  final DaoStringList daoStringList =
-      DaoStringList(context.read&lt;LocalDatabase&gt;());
+  final DaoStringList daoStringList = DaoStringList(
+    context.read&lt;LocalDatabase&gt;(),
+  );
 
-  final TextStyle textStyle = Theme.of(context)
-          .textTheme
-          .bodyMedium
-          ?.copyWith(color: foregroundColor) ??
+  final TextStyle textStyle =
+      Theme.of(
+        context,
+      ).textTheme.bodyMedium?.copyWith(color: foregroundColor) ??
       TextStyle(color: foregroundColor);
 
   return Material(
@@ -114,10 +115,7 @@ Widget build(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: &lt;Widget&gt;[
-            Icon(
-              Icons.language,
-              color: foregroundColor,
-            ),
+            Icon(Icons.language, color: foregroundColor),
             Expanded(
               flex: 1,
               child: Padding(
@@ -131,9 +129,7 @@ Widget build(BuildContext context) {
               ),
             ),
             IconTheme(
-              data: IconThemeData(
-                color: foregroundColor ?? textStyle.color,
-              ),
+              data: IconThemeData(color: foregroundColor ?? textStyle.color),
               child: icon ?? const Icon(Icons.arrow_drop_down),
             ),
           ],

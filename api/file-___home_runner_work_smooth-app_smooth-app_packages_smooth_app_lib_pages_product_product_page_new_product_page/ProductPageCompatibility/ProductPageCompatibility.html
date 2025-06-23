@@ -63,9 +63,10 @@
   <pre class="language-dart"><code class="language-dart">ProductPageCompatibility({
   required Color color,
   required MatchedProductV2 matchedProductV2,
-})  : _color = color,
-      score = ProductCompatibilityHelper.product(matchedProductV2)
-          .getFormattedScore();</code></pre>
+}) : _color = color,
+     score = ProductCompatibilityHelper.product(
+       matchedProductV2,
+     ).getFormattedScore();</code></pre>
 </section>
 
 

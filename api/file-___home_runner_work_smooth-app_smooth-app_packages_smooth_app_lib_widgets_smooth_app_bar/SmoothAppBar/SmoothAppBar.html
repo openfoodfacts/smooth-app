@@ -135,13 +135,15 @@
   this.forceMaterialTransparency = false,
   this.clipBehavior,
   super.key,
-})  : assert(!actionMode || actionModeTitle != null),
-      assert(
-        elevationColor == null || elevation &gt;= 0.0,
-        &#39;elevationColor requires a valid elevation&#39;,
-      ),
-      preferredSize =
-          _PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height);</code></pre>
+}) : assert(!actionMode || actionModeTitle != null),
+     assert(
+       elevationColor == null || elevation &gt;= 0.0,
+       &#39;elevationColor requires a valid elevation&#39;,
+     ),
+     preferredSize = _PreferredAppBarSize(
+       toolbarHeight,
+       bottom?.preferredSize.height,
+     );</code></pre>
 </section>
 
 

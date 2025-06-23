@@ -71,17 +71,11 @@
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;StringPair&gt; getAllTerms() {
   final List&lt;StringPair&gt; allIngredients = &lt;StringPair&gt;[];
-  product.ingredients?.forEach(
-    (Ingredient element) {
-      if (element.text != null) {
-        allIngredients.add(
-          StringPair(
-            first: element.text!,
-          ),
-        );
-      }
-    },
-  );
+  product.ingredients?.forEach((Ingredient element) {
+    if (element.text != null) {
+      allIngredients.add(StringPair(first: element.text!));
+    }
+  });
 
   return allIngredients;
 }</code></pre>

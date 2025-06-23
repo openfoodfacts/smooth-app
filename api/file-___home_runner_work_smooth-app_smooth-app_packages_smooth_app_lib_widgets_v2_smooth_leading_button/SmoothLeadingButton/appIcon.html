@@ -65,19 +65,16 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget appIcon({
-  required double size,
-  required Color color,
-}) {
+  <pre class="language-dart"><code class="language-dart">Widget appIcon({required double size, required Color color}) {
   assert(size &gt;= 0.0);
 
   return switch (action) {
     SmoothLeadingAction.close =&gt; icons.Close(size: size, color: color),
     SmoothLeadingAction.back =&gt; icons.Arrow.left(size: size, color: color),
     SmoothLeadingAction.minimize =&gt; Padding(
-        padding: const EdgeInsetsDirectional.only(top: 1.0),
-        child: icons.Chevron.down(size: size, color: color),
-      ),
+      padding: const EdgeInsetsDirectional.only(top: 1.0),
+      child: icons.Chevron.down(size: size, color: color),
+    ),
   };
 }</code></pre>
 </section>

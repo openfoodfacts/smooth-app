@@ -66,36 +66,37 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 WidgetBuilder get builder =&gt; (BuildContext context) {
-      final SmoothColorsThemeExtension colors =
-          Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension colors = Theme.of(
+    context,
+  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
 
-      return Container(
-        color: colors.primaryDark,
-        padding: const EdgeInsets.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: SMALL_SPACE,
-        ),
-        child: Row(
-          children: &lt;Widget&gt;[
-            Expanded(
-              child: Text(
-                label,
-                style: TextStyle(
-                  color: colors.primaryLight,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+  return Container(
+    color: colors.primaryDark,
+    padding: const EdgeInsets.symmetric(
+      horizontal: LARGE_SPACE,
+      vertical: SMALL_SPACE,
+    ),
+    child: Row(
+      children: &lt;Widget&gt;[
+        Expanded(
+          child: Text(
+            label,
+            style: TextStyle(
+              color: colors.primaryLight,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
-            if (icon != null)
-              IconTheme(
-                data: IconThemeData(color: colors.primaryLight),
-                child: icon!,
-              ),
-          ],
+          ),
         ),
-      );
-    };</code></pre>
+        if (icon != null)
+          IconTheme(
+            data: IconThemeData(color: colors.primaryLight),
+            child: icon!,
+          ),
+      ],
+    ),
+  );
+};</code></pre>
 </section>
 
 </section>

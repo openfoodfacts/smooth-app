@@ -73,14 +73,14 @@
   final int pageSize,
 ) async {
   final List&lt;String&gt; result = &lt;String&gt;[];
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    _table,
-    columns: &lt;String&gt;[_columnBarcode],
-    where: &#39;$_columnWork = ?&#39;,
-    whereArgs: &lt;String&gt;[work],
-    limit: pageSize,
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .query(
+        _table,
+        columns: &lt;String&gt;[_columnBarcode],
+        where: &#39;$_columnWork = ?&#39;,
+        whereArgs: &lt;String&gt;[work],
+        limit: pageSize,
+      );
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     result.add(row[_columnBarcode] as String);
   }

@@ -71,8 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   final bool dense =
       context.read&lt;ScanBottomCardDensity&gt;() == ScanBottomCardDensity.dense;
@@ -81,7 +81,8 @@ Widget build(BuildContext context) {
     children: &lt;Widget&gt;[
       DecoratedBox(
         decoration: BoxDecoration(
-          color: titleBackgroundColor ??
+          color:
+              titleBackgroundColor ??
               (context.lightTheme()
                   ? extension.primarySemiDark
                   : extension.secondaryVibrant),
@@ -106,11 +107,7 @@ Widget build(BuildContext context) {
           ),
         ),
       ),
-      _buildBody(
-        context: context,
-        dense: dense,
-        extension: extension,
-      ),
+      _buildBody(context: context, dense: dense, extension: extension),
     ],
   );
 }</code></pre>

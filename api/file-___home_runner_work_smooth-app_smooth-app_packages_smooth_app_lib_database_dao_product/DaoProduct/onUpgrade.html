@@ -72,16 +72,20 @@
   final int newVersion,
 ) async {
   if (oldVersion &lt; 2) {
-    await db.execute(&#39;create table $_TABLE_PRODUCT(&#39;
-        &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
-        &#39;$_TABLE_PRODUCT_COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace&#39;
-        &#39;,$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON BLOB NOT NULL&#39;
-        &#39;,$_TABLE_PRODUCT_COLUMN_LAST_UPDATE INT NOT NULL&#39;
-        &#39;)&#39;);
+    await db.execute(
+      &#39;create table $_TABLE_PRODUCT(&#39;
+      &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
+      &#39;$_TABLE_PRODUCT_COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace&#39;
+      &#39;,$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON BLOB NOT NULL&#39;
+      &#39;,$_TABLE_PRODUCT_COLUMN_LAST_UPDATE INT NOT NULL&#39;
+      &#39;)&#39;,
+    );
   }
   if (oldVersion &lt; 4) {
-    await db.execute(&#39;alter table $_TABLE_PRODUCT add column &#39;
-        &#39;$_TABLE_PRODUCT_COLUMN_LANGUAGE TEXT&#39;);
+    await db.execute(
+      &#39;alter table $_TABLE_PRODUCT add column &#39;
+      &#39;$_TABLE_PRODUCT_COLUMN_LANGUAGE TEXT&#39;,
+    );
   }
 }</code></pre>
 </section>

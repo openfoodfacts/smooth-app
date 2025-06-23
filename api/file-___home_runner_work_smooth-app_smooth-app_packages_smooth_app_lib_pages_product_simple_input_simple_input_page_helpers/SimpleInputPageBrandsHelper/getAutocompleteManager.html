@@ -73,18 +73,18 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 AutocompleteManager? getAutocompleteManager() =&gt; AutocompleteManager(
-      TaxonomyNameAutocompleter(
-        taxonomyNames: &lt;TaxonomyName&gt;[TaxonomyName.brand],
-        &#47;&#47; for brands, language must be English
-        language: OpenFoodFactsLanguage.ENGLISH,
-        user: ProductQuery.getReadUser(),
-        limit: 25,
-        fuzziness: Fuzziness.none,
-        uriHelper: ProductQuery.getUriProductHelper(
-          productType: product.productType,
-        ),
-      ),
-    );</code></pre>
+  TaxonomyNameAutocompleter(
+    taxonomyNames: &lt;TaxonomyName&gt;[TaxonomyName.brand],
+    &#47;&#47; for brands, language must be English
+    language: OpenFoodFactsLanguage.ENGLISH,
+    user: ProductQuery.getReadUser(),
+    limit: 25,
+    fuzziness: Fuzziness.none,
+    uriHelper: ProductQuery.getUriProductHelper(
+      productType: product.productType,
+    ),
+  ),
+);</code></pre>
 </section>
 
 

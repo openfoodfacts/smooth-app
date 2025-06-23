@@ -69,12 +69,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
 Widget getHeaderHelper(final bool? collapsed) =&gt; UserPreferencesListTile(
-      title: getTitle(),
-      subtitle: getSubtitle(),
-      trailing: collapsed != null ? getForwardIcon() : null,
-      leading: UserPreferencesListTile.getTintedIcon(
-          getLeadingIconData(), context),
-    );</code></pre>
+  title: getTitle(),
+  subtitle: getSubtitle(),
+  trailing: collapsed != null ? getForwardIcon() : null,
+  leading: UserPreferencesListTile.getTintedIcon(
+    getLeadingIconData(),
+    context,
+  ),
+);</code></pre>
 </section>
 
 

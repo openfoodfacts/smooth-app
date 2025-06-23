@@ -71,8 +71,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension colors =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension colors = Theme.of(
+    context,
+  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
 
   return Semantics(
     label: caption,
@@ -86,8 +87,9 @@ Widget build(BuildContext context) {
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
-            color: colors.primaryMedium,
-            borderRadius: BorderRadius.circular(20.0)),
+          color: colors.primaryMedium,
+          borderRadius: BorderRadius.circular(20.0),
+        ),
         child: Padding(
           padding: const EdgeInsetsDirectional.only(
             top: 14.0,

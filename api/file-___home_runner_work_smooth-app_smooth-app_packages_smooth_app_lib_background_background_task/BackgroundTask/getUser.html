@@ -65,8 +65,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
 User getUser() {
-  final User storedUser =
-      User.fromJson(jsonDecode(user) as Map&lt;String, dynamic&gt;);
+  final User storedUser = User.fromJson(
+    jsonDecode(user) as Map&lt;String, dynamic&gt;,
+  );
   final User currentUser = ProductQuery.getWriteUser();
   if (storedUser.userId == currentUser.userId) {
     &#47;&#47; with a latest password.

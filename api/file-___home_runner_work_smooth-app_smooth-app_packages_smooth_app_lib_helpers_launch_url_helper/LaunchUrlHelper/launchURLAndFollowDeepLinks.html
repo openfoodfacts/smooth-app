@@ -71,9 +71,11 @@
 ) async {
   assert(url.isNotEmpty);
 
-  if (url.startsWith(RegExp(
-    r&#39;http(s)?:&#47;&#47;[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)&#39;,
-  ))) {
+  if (url.startsWith(
+    RegExp(
+      r&#39;http(s)?:&#47;&#47;[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)&#39;,
+    ),
+  )) {
     AnalyticsHelper.trackOutlink(url: url);
     GoRouter.of(context).push(url);
   } else {

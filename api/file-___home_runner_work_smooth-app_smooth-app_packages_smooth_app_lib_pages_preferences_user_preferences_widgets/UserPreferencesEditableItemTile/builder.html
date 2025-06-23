@@ -66,14 +66,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 WidgetBuilder get builder =&gt; (BuildContext context) {
-      return ListTile(
-        title: Text(title),
-        subtitle: Text(value?.isNotEmpty == true
-            ? value!
-            : (subtitleWithEmptyValue ?? &#39;-&#39;)),
-        onTap: () async =&gt; _showInputTextDialog(context),
-      );
-    };</code></pre>
+  return ListTile(
+    title: Text(title),
+    subtitle: Text(
+      value?.isNotEmpty == true ? value! : (subtitleWithEmptyValue ?? &#39;-&#39;),
+    ),
+    onTap: () async =&gt; _showInputTextDialog(context),
+  );
+};</code></pre>
 </section>
 
 </section>

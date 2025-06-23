@@ -64,9 +64,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static List&lt;double&gt; getEraserCoordinates(
-  final List&lt;Offset&gt; offsets,
-) {
+  <pre class="language-dart"><code class="language-dart">static List&lt;double&gt; getEraserCoordinates(final List&lt;Offset&gt; offsets) {
   final List&lt;double&gt; eraserCoordinates = &lt;double&gt;[];
   for (final Offset offset in offsets) {
     eraserCoordinates.add(offset.dx);

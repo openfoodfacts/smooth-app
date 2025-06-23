@@ -74,57 +74,53 @@
   required final BuildContext context,
   final String? title,
   final bool shouldOpenNewIssue = false,
-}) async =&gt;
-    showDialog&lt;void&gt;(
-      context: context,
-      builder: (BuildContext context) {
-        final AppLocalizations appLocalizations =
-            AppLocalizations.of(context);
-        return SmoothAlertDialog(
-          body: Column(
-            children: &lt;Widget&gt;[
-              SvgPicture.asset(
-                &#39;assets&#47;misc&#47;error.svg&#39;,
-                width: MINIMUM_TOUCH_SIZE * 2,
-                package: AppHelper.APP_PACKAGE,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-                child: Text(
-                  shouldOpenNewIssue
-                      ? appLocalizations.server_error_open_new_issue
-                      : title ??
-                          appLocalizations
-                              .loading_dialog_default_error_message,
-                  textAlign: TextAlign.center,
+}) async =&gt; showDialog&lt;void&gt;(
+  context: context,
+  builder: (BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return SmoothAlertDialog(
+      body: Column(
+        children: &lt;Widget&gt;[
+          SvgPicture.asset(
+            &#39;assets&#47;misc&#47;error.svg&#39;,
+            width: MINIMUM_TOUCH_SIZE * 2,
+            package: AppHelper.APP_PACKAGE,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+            child: Text(
+              shouldOpenNewIssue
+                  ? appLocalizations.server_error_open_new_issue
+                  : title ??
+                        appLocalizations.loading_dialog_default_error_message,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          if (shouldOpenNewIssue)
+            Padding(
+              padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(color: Colors.blue),
+                  text: Status.openNewIssueUrl,
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () =&gt;
+                        LaunchUrlHelper.launchURL(Status.openNewIssueUrl),
                 ),
               ),
-              if (shouldOpenNewIssue)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Colors.blue,
-                          ),
-                      text: Status.openNewIssueUrl,
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () =&gt; LaunchUrlHelper.launchURL(
-                              Status.openNewIssueUrl,
-                            ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.close,
-            onPressed: () =&gt; Navigator.maybePop(context),
-          ),
-        );
-      },
-    );</code></pre>
+            ),
+        ],
+      ),
+      positiveAction: SmoothActionButton(
+        text: appLocalizations.close,
+        onPressed: () =&gt; Navigator.maybePop(context),
+      ),
+    );
+  },
+);</code></pre>
 </section>
 
 

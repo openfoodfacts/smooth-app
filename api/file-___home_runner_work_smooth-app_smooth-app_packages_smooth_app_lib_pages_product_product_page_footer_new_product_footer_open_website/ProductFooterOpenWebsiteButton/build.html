@@ -79,9 +79,11 @@ Widget build(BuildContext context) {
     semanticsLabel: appLocalizations.product_footer_action_open_website,
     icon: const icons.ExternalLink(),
     onTap: () =&gt; AppNavigator.of(context).push(
-      AppRoutes.EXTERNAL(&#39;https:&#47;&#47;&#39;
-          &#39;${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org&#39;
-          &#39;&#47;product&#47;${product.barcode}&#39;),
+      AppRoutes.EXTERNAL(
+        &#39;https:&#47;&#47;&#39;
+        &#39;${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org&#39;
+        &#39;&#47;product&#47;${product.barcode}&#39;,
+      ),
     ),
   );
 }</code></pre>

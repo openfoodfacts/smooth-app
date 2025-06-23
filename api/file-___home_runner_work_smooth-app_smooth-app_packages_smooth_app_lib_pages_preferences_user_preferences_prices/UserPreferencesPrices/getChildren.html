@@ -75,14 +75,9 @@ List&lt;UserPreferencesItem&gt; getChildren() {
   return &lt;UserPreferencesItem&gt;[
     if (isConnected)
       _getListTile(
-        PriceUserButton.showUserTitle(
-          user: userId,
-          context: context,
-        ),
-        () async =&gt; PriceUserButton.showUserPrices(
-          user: userId,
-          context: context,
-        ),
+        PriceUserButton.showUserTitle(user: userId, context: context),
+        () async =&gt;
+            PriceUserButton.showUserPrices(user: userId, context: context),
         CupertinoIcons.money_dollar_circle,
         lazyCounter: LazyCounterPrices(userId),
       ),
@@ -91,9 +86,8 @@ List&lt;UserPreferencesItem&gt; getChildren() {
         appLocalizations.user_search_proofs_title,
         () async =&gt; Navigator.of(context).push(
           MaterialPageRoute&lt;void&gt;(
-            builder: (BuildContext context) =&gt; const PricesProofsPage(
-              selectProof: false,
-            ),
+            builder: (BuildContext context) =&gt;
+                const PricesProofsPage(selectProof: false),
           ),
         ),
         Icons.receipt,
@@ -171,13 +165,12 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       Icons.bar_chart,
     ),
     if (userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagBulkProofUpload) ??
+          UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
+        ) ??
         false)
       _getListTile(
         appLocalizations.prices_bulk_proof_upload_title,
-        () async =&gt; ProofBulkAddPage.showPage(
-          context: context,
-        ),
+        () async =&gt; ProofBulkAddPage.showPage(context: context),
         Icons.upload_file,
       ),
     _getListTile(
@@ -211,7 +204,8 @@ List&lt;UserPreferencesItem&gt; getChildren() {
     _getListTile(
       appLocalizations.contribute_prices_gdpr,
       () async =&gt; LaunchUrlHelper.launchURL(
-          &#39;https:&#47;&#47;wiki.openfoodfacts.org&#47;GDPR_request&#39;),
+        &#39;https:&#47;&#47;wiki.openfoodfacts.org&#47;GDPR_request&#39;,
+      ),
       Icons.open_in_new,
     ),
   ];

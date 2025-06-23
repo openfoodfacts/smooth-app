@@ -74,21 +74,19 @@ Widget build(BuildContext context) {
   final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
   return FutureBuilder&lt;Product?&gt;(
     future: DaoProduct(localDatabase).get(barcode),
-    builder: (
-      final BuildContext context,
-      final AsyncSnapshot&lt;Product?&gt; snapshot,
-    ) {
-      if (snapshot.data != null) {
-        return ScanProductCardFound(
-          product: snapshot.data!,
-          onRemoveProduct: onRemoveProduct,
-        );
-      }
-      return ScanProductCardLoading(
-        barcode: barcode,
-        onRemoveProduct: onRemoveProduct,
-      );
-    },
+    builder:
+        (final BuildContext context, final AsyncSnapshot&lt;Product?&gt; snapshot) {
+          if (snapshot.data != null) {
+            return ScanProductCardFound(
+              product: snapshot.data!,
+              onRemoveProduct: onRemoveProduct,
+            );
+          }
+          return ScanProductCardLoading(
+            barcode: barcode,
+            onRemoveProduct: onRemoveProduct,
+          );
+        },
   );
 }</code></pre>
 </section>

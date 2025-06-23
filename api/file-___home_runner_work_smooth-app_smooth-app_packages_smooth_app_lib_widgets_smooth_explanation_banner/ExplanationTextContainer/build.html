@@ -71,8 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
 
   return Column(
@@ -81,49 +81,50 @@ Widget build(BuildContext context) {
       _ExplanationContainerTitle(
         label: title,
         foregroundColor: Colors.white,
-        backgroundColor:
-            lightTheme ? extension.primarySemiDark : extension.primaryDark,
+        backgroundColor: lightTheme
+            ? extension.primarySemiDark
+            : extension.primaryDark,
       ),
-      ...items.mapIndexed(
-        (int position, ExplanationTextContainerContent item) {
-          return switch (item) {
-            ExplanationTextContainerContentText() =&gt; Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  start: LARGE_SPACE,
-                  end: LARGE_SPACE,
-                  top: MEDIUM_SPACE,
-                  bottom: VERY_SMALL_SPACE,
-                ),
-                child: TextWithBoldParts(
-                  text: item.text,
-                  textStyle: TextStyle(
-                    color: lightTheme ? extension.primaryDark : Colors.white,
-                  ),
-                ),
+      ...items.mapIndexed((
+        int position,
+        ExplanationTextContainerContent item,
+      ) {
+        return switch (item) {
+          ExplanationTextContainerContentText() =&gt; Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
+              end: LARGE_SPACE,
+              top: MEDIUM_SPACE,
+              bottom: VERY_SMALL_SPACE,
+            ),
+            child: TextWithBoldParts(
+              text: item.text,
+              textStyle: TextStyle(
+                color: lightTheme ? extension.primaryDark : Colors.white,
               ),
-            ExplanationTextContainerContentItem() =&gt; Padding(
-                padding: item.padding ??
-                    const EdgeInsetsDirectional.only(
-                      top: SMALL_SPACE,
-                    ),
-                child: _ExplanationBodyListItem(
-                  icon: icons.Arrow.right(
-                    size: 11.0,
-                    color: lightTheme ? null : extension.primarySemiDark,
-                  ),
-                  iconBackgroundColor: lightTheme
-                      ? extension.primarySemiDark
-                      : extension.primaryLight,
-                  iconPadding: EdgeInsets.zero,
-                  title: item.text,
-                  text: item.example,
-                  visualExample: item.visualExample,
-                  visualExamplePosition: item.visualExamplePosition,
-                ),
+            ),
+          ),
+          ExplanationTextContainerContentItem() =&gt; Padding(
+            padding:
+                item.padding ??
+                const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+            child: _ExplanationBodyListItem(
+              icon: icons.Arrow.right(
+                size: 11.0,
+                color: lightTheme ? null : extension.primarySemiDark,
               ),
-          };
-        },
-      ),
+              iconBackgroundColor: lightTheme
+                  ? extension.primarySemiDark
+                  : extension.primaryLight,
+              iconPadding: EdgeInsets.zero,
+              title: item.text,
+              text: item.example,
+              visualExample: item.visualExample,
+              visualExamplePosition: item.visualExamplePosition,
+            ),
+          ),
+        };
+      }),
     ],
   );
 }</code></pre>

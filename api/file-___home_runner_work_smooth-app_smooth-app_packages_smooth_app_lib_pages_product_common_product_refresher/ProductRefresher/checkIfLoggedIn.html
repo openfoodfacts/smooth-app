@@ -83,29 +83,27 @@
     context: context,
     builder: (BuildContext context) =&gt; SmoothAlertDialog(
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: &lt;Widget&gt;[
-            SvgPicture.asset(
-              &#39;assets&#47;onboarding&#47;globe.svg&#39;,
-              height: MediaQuery.sizeOf(context).height * .5,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: &lt;Widget&gt;[
+          SvgPicture.asset(
+            &#39;assets&#47;onboarding&#47;globe.svg&#39;,
+            height: MediaQuery.sizeOf(context).height * .5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Text(
+              appLocalizations.account_create_message,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Text(
-                appLocalizations.account_create_message,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ]),
+          ),
+        ],
+      ),
       actionsAxis: Axis.vertical,
       positiveAction: SmoothActionButton(
         text: appLocalizations.join_us,
         onPressed: () async {
           Navigator.of(context).pop(); &#47;&#47; remove dialog
-          await Navigator.of(
-            context,
-            rootNavigator: true,
-          ).push&lt;dynamic&gt;(
+          await Navigator.of(context, rootNavigator: true).push&lt;dynamic&gt;(
             MaterialPageRoute&lt;dynamic&gt;(
               builder: (BuildContext context) =&gt; const LoginPage(),
             ),

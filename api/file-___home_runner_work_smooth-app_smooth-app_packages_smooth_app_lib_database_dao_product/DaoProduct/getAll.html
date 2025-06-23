@@ -72,20 +72,23 @@
   if (barcodes.isEmpty) {
     return result;
   }
-  for (int start = 0;
-      start &lt; barcodes.length;
-      start += BulkManager.SQLITE_MAX_VARIABLE_NUMBER) {
+  for (
+    int start = 0;
+    start &lt; barcodes.length;
+    start += BulkManager.SQLITE_MAX_VARIABLE_NUMBER
+  ) {
     final int size = min(
       barcodes.length - start,
       BulkManager.SQLITE_MAX_VARIABLE_NUMBER,
     );
-    final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-        await localDatabase.database.query(
-      _TABLE_PRODUCT,
-      columns: _columns,
-      where: &#39;$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${&#39;,?&#39; * (size - 1)})&#39;,
-      whereArgs: barcodes.sublist(start, start + size),
-    );
+    final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase
+        .database
+        .query(
+          _TABLE_PRODUCT,
+          columns: _columns,
+          where: &#39;$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${&#39;,?&#39; * (size - 1)})&#39;,
+          whereArgs: barcodes.sublist(start, start + size),
+        );
     for (final Map&lt;String, dynamic&gt; row in queryResults) {
       result[row[_TABLE_PRODUCT_COLUMN_BARCODE] as String] =
           _getProductFromQueryResult(row);

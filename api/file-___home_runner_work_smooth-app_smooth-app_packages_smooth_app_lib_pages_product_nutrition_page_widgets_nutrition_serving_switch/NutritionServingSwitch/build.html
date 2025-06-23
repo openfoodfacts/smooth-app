@@ -71,8 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   return DecoratedBox(
@@ -103,32 +103,34 @@ Widget build(BuildContext context) {
             ),
           ),
           Consumer&lt;NutritionContainerHelper&gt;(
-            builder: (
-              BuildContext context,
-              NutritionContainerHelper nutritionContainer,
-              _,
-            ) {
-              return SmoothDropdownButton&lt;PerSize&gt;(
-                  loading: nutritionContainer.loadingRobotoffExtraction,
-                  value: nutritionContainer.perSize,
-                  items: &lt;SmoothDropdownItem&lt;PerSize&gt;&gt;[
-                    SmoothDropdownItem&lt;PerSize&gt;(
-                      value: PerSize.oneHundredGrams,
-                      label: appLocalizations.nutrition_page_per_100g_100ml,
-                    ),
-                    SmoothDropdownItem&lt;PerSize&gt;(
-                      value: PerSize.serving,
-                      label: appLocalizations.nutrition_page_per_serving,
-                    ),
-                  ],
-                  onChanged: (final PerSize? value) {
-                    if (value == null) {
-                      return;
-                    }
+            builder:
+                (
+                  BuildContext context,
+                  NutritionContainerHelper nutritionContainer,
+                  _,
+                ) {
+                  return SmoothDropdownButton&lt;PerSize&gt;(
+                    loading: nutritionContainer.loadingRobotoffExtraction,
+                    value: nutritionContainer.perSize,
+                    items: &lt;SmoothDropdownItem&lt;PerSize&gt;&gt;[
+                      SmoothDropdownItem&lt;PerSize&gt;(
+                        value: PerSize.oneHundredGrams,
+                        label: appLocalizations.nutrition_page_per_100g_100ml,
+                      ),
+                      SmoothDropdownItem&lt;PerSize&gt;(
+                        value: PerSize.serving,
+                        label: appLocalizations.nutrition_page_per_serving,
+                      ),
+                    ],
+                    onChanged: (final PerSize? value) {
+                      if (value == null) {
+                        return;
+                      }
 
-                    nutritionContainer.perSize = value;
-                  });
-            },
+                      nutritionContainer.perSize = value;
+                    },
+                  );
+                },
           ),
         ],
       ),

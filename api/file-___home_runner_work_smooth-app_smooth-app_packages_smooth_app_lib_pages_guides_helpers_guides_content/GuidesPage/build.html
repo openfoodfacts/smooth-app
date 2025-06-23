@@ -75,11 +75,7 @@ Widget build(BuildContext context) {
     brightness: Brightness.light,
     body: _GuidesPageBody(
       pageName: pageName,
-      slivers: &lt;Widget&gt;[
-        header,
-        ...body,
-        if (footer != null) footer!,
-      ],
+      slivers: &lt;Widget&gt;[header, ...body, if (footer != null) footer!],
     ),
   );
 }</code></pre>

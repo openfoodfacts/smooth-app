@@ -70,7 +70,9 @@
   final String importanceId,
 ) async {
   await _sharedPreferences.setString(
-      _getImportanceTag(attributeId), importanceId);
+    _getImportanceTag(attributeId),
+    importanceId,
+  );
   notifyListeners();
 }</code></pre>
 </section>

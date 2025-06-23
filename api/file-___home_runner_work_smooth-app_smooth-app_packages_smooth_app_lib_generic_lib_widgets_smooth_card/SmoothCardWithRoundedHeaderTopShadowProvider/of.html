@@ -65,10 +65,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static SmoothCardWithRoundedHeaderTopShadowProvider? of(
-    BuildContext context) {
-  final SmoothCardWithRoundedHeaderTopShadowProvider? result =
-      context.dependOnInheritedWidgetOfExactType&lt;
-          SmoothCardWithRoundedHeaderTopShadowProvider&gt;();
+  BuildContext context,
+) {
+  final SmoothCardWithRoundedHeaderTopShadowProvider? result = context
+      .dependOnInheritedWidgetOfExactType&lt;
+        SmoothCardWithRoundedHeaderTopShadowProvider
+      &gt;();
   return result;
 }</code></pre>
 </section>

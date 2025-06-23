@@ -71,11 +71,10 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; putAll(
   final String work,
   final Iterable&lt;String&gt; barcodes,
-) async =&gt;
-    localDatabase.database.transaction(
-      (final Transaction transaction) async =&gt;
-          _bulkInsert(transaction, work, barcodes),
-    );</code></pre>
+) async =&gt; localDatabase.database.transaction(
+  (final Transaction transaction) async =&gt;
+      _bulkInsert(transaction, work, barcodes),
+);</code></pre>
 </section>
 
 

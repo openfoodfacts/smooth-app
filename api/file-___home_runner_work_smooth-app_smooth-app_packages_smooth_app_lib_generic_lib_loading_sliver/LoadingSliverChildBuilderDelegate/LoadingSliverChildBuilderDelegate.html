@@ -69,12 +69,12 @@
   Widget? loadingWidget,
   int loadingCount = 4,
   bool loading = false,
-})  : assert(loading == false || loadingWidget != null),
-      super(
-        (BuildContext context, int index) =&gt;
-            loading ? loadingWidget : childBuilder(context, index),
-        childCount: loading ? loadingCount : childCount,
-      );</code></pre>
+}) : assert(loading == false || loadingWidget != null),
+     super(
+       (BuildContext context, int index) =&gt;
+           loading ? loadingWidget : childBuilder(context, index),
+       childCount: loading ? loadingCount : childCount,
+     );</code></pre>
 </section>
 
 

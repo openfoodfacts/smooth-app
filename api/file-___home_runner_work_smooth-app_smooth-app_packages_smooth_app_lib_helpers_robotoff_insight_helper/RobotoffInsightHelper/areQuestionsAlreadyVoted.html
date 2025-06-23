@@ -67,8 +67,9 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; areQuestionsAlreadyVoted(
   List&lt;RobotoffQuestion&gt; questions,
 ) async {
-  final Map&lt;String, List&lt;String&gt;&gt; votedHist =
-      await DaoStringListMap(_localDatabase).getAll();
+  final Map&lt;String, List&lt;String&gt;&gt; votedHist = await DaoStringListMap(
+    _localDatabase,
+  ).getAll();
 
   final Set&lt;String&gt; newIdsSet = questions
       .map((RobotoffQuestion e) =&gt; e.insightId)

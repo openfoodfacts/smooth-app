@@ -71,7 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 double widgetHeight(BuildContext context) {
-  final double size = VERY_SMALL_SPACE * 2 +
+  final double size =
+      VERY_SMALL_SPACE * 2 +
       (Theme.of(context).textTheme.titleLarge?.fontSize ?? 15.0);
 
   return math.max(MIN_HEIGHT, size);

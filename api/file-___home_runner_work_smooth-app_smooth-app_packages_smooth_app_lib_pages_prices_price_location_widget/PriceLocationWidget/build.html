@@ -76,11 +76,7 @@ Widget build(BuildContext context) {
     leading: const Icon(PriceButton.locationIconData),
     title: title == null
         ? null
-        : Text(
-            title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
+        : Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
     subtitle: location.displayName == null
         ? null
         : Text(

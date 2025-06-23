@@ -66,8 +66,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Product getUpToDateProduct(Product product) {
   final String barcode = product.barcode!;
-  final Iterable&lt;TransientOperation&gt; sortedOperations =
-      getSortedOperations(barcode);
+  final Iterable&lt;TransientOperation&gt; sortedOperations = getSortedOperations(
+    barcode,
+  );
   for (final TransientOperation operation in sortedOperations) {
     final Product minimalistProduct = operation.product;
     product = _overwrite(product, minimalistProduct);

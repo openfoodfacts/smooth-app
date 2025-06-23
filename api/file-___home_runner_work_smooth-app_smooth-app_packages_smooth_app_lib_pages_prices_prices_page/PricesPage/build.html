@@ -76,10 +76,7 @@ Widget build(BuildContext context) {
     appBar: SmoothAppBar(
       centerTitle: false,
       leading: const SmoothBackButton(),
-      title: Text(
-        model.title,
-        maxLines: model.subtitle == null ? 2 : 1,
-      ),
+      title: Text(model.title, maxLines: model.subtitle == null ? 2 : 1),
       subTitle: model.subtitle == null ? null : Text(model.subtitle!),
       actions: &lt;Widget&gt;[
         Semantics(
@@ -89,17 +86,13 @@ Widget build(BuildContext context) {
           child: IconButton(
             tooltip: appLocalizations.prices_app_button,
             icon: const ExcludeSemantics(child: Icon(Icons.open_in_new)),
-            onPressed: () async =&gt; LaunchUrlHelper.launchURL(
-              model.uri.toString(),
-            ),
+            onPressed: () async =&gt;
+                LaunchUrlHelper.launchURL(model.uri.toString()),
           ),
         ),
       ],
     ),
-    body: ProductPricesList(
-      model,
-      pricesResult: pricesResult,
-    ),
+    body: ProductPricesList(model, pricesResult: pricesResult),
     floatingActionButton: model.addButton == null
         ? null
         : FloatingActionButton.extended(
@@ -112,17 +105,18 @@ Widget build(BuildContext context) {
           (UserPreferences? previousValue, UserPreferences currentValue) =&gt;
               previousValue?.shouldShowPricesFeedbackForm !=
               currentValue.shouldShowPricesFeedbackForm,
-      builder: (
-        final BuildContext context,
-        final UserPreferences userPreferences,
-        _,
-      ) {
-        if (!userPreferences.shouldShowPricesFeedbackForm) {
-          return EMPTY_WIDGET;
-        }
+      builder:
+          (
+            final BuildContext context,
+            final UserPreferences userPreferences,
+            _,
+          ) {
+            if (!userPreferences.shouldShowPricesFeedbackForm) {
+              return EMPTY_WIDGET;
+            }
 
-        return const _PricesFeedbackForm();
-      },
+            return const _PricesFeedbackForm();
+          },
     ),
   );
 }</code></pre>

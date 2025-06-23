@@ -74,13 +74,13 @@
   required final ProductImage productImage,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   final List&lt;ImageField&gt; imageFields =
       ImageFieldSmoothieExtension.getOrderedMainImageFields(
-    product.productType,
-  );
+        product.productType,
+      );
 
   final Widget existingPictureIcon = icons.Picture.check(
     color: extension.success,
@@ -91,56 +91,60 @@
     semanticLabel: appLocalizations.photo_missing,
   );
 
-  final ImageField? selectedImageField =
-      await showSmoothListOfChoicesModalSheet&lt;ImageField&gt;(
+  final ImageField?
+  selectedImageField = await showSmoothListOfChoicesModalSheet&lt;ImageField&gt;(
     context: context,
     title: appLocalizations.photo_viewer_use_picture_as_title(
       Languages().getNameInLanguage(language),
     ),
-    padding: const EdgeInsetsDirectional.only(
-      start: 15.0,
-      end: 19.0,
-    ),
-    labels: imageFields.map((final ImageField imageField) {
-      return switch (imageField) {
-        ImageField.FRONT =&gt; appLocalizations.photo_field_front,
-        ImageField.INGREDIENTS =&gt; appLocalizations.photo_field_ingredients,
-        ImageField.NUTRITION =&gt; appLocalizations.photo_field_nutrition,
-        ImageField.PACKAGING =&gt; appLocalizations.photo_field_packaging,
-        ImageField.OTHER =&gt; throw UnimplementedError(),
-      };
-    }).toList(growable: false),
+    padding: const EdgeInsetsDirectional.only(start: 15.0, end: 19.0),
+    labels: imageFields
+        .map((final ImageField imageField) {
+          return switch (imageField) {
+            ImageField.FRONT =&gt; appLocalizations.photo_field_front,
+            ImageField.INGREDIENTS =&gt;
+              appLocalizations.photo_field_ingredients,
+            ImageField.NUTRITION =&gt; appLocalizations.photo_field_nutrition,
+            ImageField.PACKAGING =&gt; appLocalizations.photo_field_packaging,
+            ImageField.OTHER =&gt; throw UnimplementedError(),
+          };
+        })
+        .toList(growable: false),
     values: imageFields,
-    prefixIcons: imageFields.map((final ImageField imageField) {
-      return switch (imageField) {
-        ImageField.FRONT =&gt; const icons.Milk.happy(),
-        ImageField.INGREDIENTS =&gt; const icons.Ingredients.alt(),
-        ImageField.NUTRITION =&gt; const icons.NutritionFacts(),
-        ImageField.PACKAGING =&gt; const icons.Recycling(),
-        ImageField.OTHER =&gt; throw UnimplementedError(),
-      };
-    }).toList(growable: false),
-    suffixIcons: imageFields.map((final ImageField imageField) {
-      final bool exists = TransientFile.fromProduct(
-        product,
-        imageField,
-        language,
-      ).isImageAvailable();
-      return exists ? existingPictureIcon : missingPictureIcon;
-    }).toList(growable: false),
+    prefixIcons: imageFields
+        .map((final ImageField imageField) {
+          return switch (imageField) {
+            ImageField.FRONT =&gt; const icons.Milk.happy(),
+            ImageField.INGREDIENTS =&gt; const icons.Ingredients.alt(),
+            ImageField.NUTRITION =&gt; const icons.NutritionFacts(),
+            ImageField.PACKAGING =&gt; const icons.Recycling(),
+            ImageField.OTHER =&gt; throw UnimplementedError(),
+          };
+        })
+        .toList(growable: false),
+    suffixIcons: imageFields
+        .map((final ImageField imageField) {
+          final bool exists = TransientFile.fromProduct(
+            product,
+            imageField,
+            language,
+          ).isImageAvailable();
+          return exists ? existingPictureIcon : missingPictureIcon;
+        })
+        .toList(growable: false),
   );
 
   if (context.mounted &amp;&amp; selectedImageField != null) {
     final CropParameters? cropParameters =
         await UploadedImageGallery.useExistingPhotoFor(
-      context: context,
-      rawImage: productImage,
-      barcode: product.barcode!,
-      imageField: selectedImageField,
-      isLoggedInMandatory: true,
-      productType: product.productType,
-      language: language,
-    );
+          context: context,
+          rawImage: productImage,
+          barcode: product.barcode!,
+          imageField: selectedImageField,
+          isLoggedInMandatory: true,
+          productType: product.productType,
+          language: language,
+        );
 
     if (cropParameters != null) {
       return ProductImagePageResult(

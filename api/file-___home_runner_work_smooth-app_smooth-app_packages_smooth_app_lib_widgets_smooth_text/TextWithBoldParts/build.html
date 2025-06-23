@@ -79,22 +79,24 @@ Widget build(BuildContext context) {
       textScaler: MediaQuery.textScalerOf(context),
       text: TextSpan(
         style: DefaultTextStyle.of(context).style,
-        children: TextHelper.getPartsBetweenSymbol(
-          text: text,
-          symbol: r&#39;\*\*&#39;,
-          symbolLength: 2,
-          defaultStyle: defaultTextStyle,
-          highlightedStyle:
-              boldTextStyle ?? const TextStyle(fontWeight: FontWeight.bold),
-        ).map(
-          ((String, TextStyle?) part) {
-            return TextSpan(
-              text: part.$1,
-              style: defaultTextStyle.merge(part.$2),
-              semanticsLabel: &#39;-&#39;,
-            );
-          },
-        ).toList(growable: false),
+        children:
+            TextHelper.getPartsBetweenSymbol(
+                  text: text,
+                  symbol: r&#39;\*\*&#39;,
+                  symbolLength: 2,
+                  defaultStyle: defaultTextStyle,
+                  highlightedStyle:
+                      boldTextStyle ??
+                      const TextStyle(fontWeight: FontWeight.bold),
+                )
+                .map(((String, TextStyle?) part) {
+                  return TextSpan(
+                    text: part.$1,
+                    style: defaultTextStyle.merge(part.$2),
+                    semanticsLabel: &#39;-&#39;,
+                  );
+                })
+                .toList(growable: false),
       ),
       textAlign: textAlign ?? TextAlign.start,
       overflow: overflow ?? TextOverflow.clip,

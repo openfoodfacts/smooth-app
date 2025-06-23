@@ -71,13 +71,15 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Color backgroundColor = widget.bottomSheetColor ??
+  final Color backgroundColor =
+      widget.bottomSheetColor ??
       Theme.of(context).bottomSheetTheme.backgroundColor ??
       Theme.of(context).scaffoldBackgroundColor;
   final double bottomPaddingHeight = MediaQuery.paddingOf(context).bottom;
 
   &#47;&#47; Fix keyboard glitch
-  final double keyboardFraction = MediaQuery.viewInsetsOf(context).bottom &#47;
+  final double keyboardFraction =
+      MediaQuery.viewInsetsOf(context).bottom &#47;
       MediaQuery.sizeOf(context).height;
 
   return ChangeNotifierProvider&lt;DraggableScrollableController&gt;(

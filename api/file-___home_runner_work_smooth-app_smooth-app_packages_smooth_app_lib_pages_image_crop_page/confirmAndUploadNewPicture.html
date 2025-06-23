@@ -79,18 +79,17 @@
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
   final UserPictureSource? forcedSource,
-}) async =&gt;
-    confirmAndUploadNewImage(
-      context,
-      cropHelper: ProductCropNewHelper(
-        imageField: imageField,
-        language: language,
-        barcode: barcode,
-        productType: productType,
-      ),
-      isLoggedInMandatory: isLoggedInMandatory,
-      forcedSource: forcedSource,
-    );</code></pre>
+}) async =&gt; confirmAndUploadNewImage(
+  context,
+  cropHelper: ProductCropNewHelper(
+    imageField: imageField,
+    language: language,
+    barcode: barcode,
+    productType: productType,
+  ),
+  isLoggedInMandatory: isLoggedInMandatory,
+  forcedSource: forcedSource,
+);</code></pre>
 </section>
 
 

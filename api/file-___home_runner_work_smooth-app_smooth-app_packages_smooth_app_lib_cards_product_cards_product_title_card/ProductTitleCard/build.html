@@ -71,12 +71,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Widget trailing = _ProductTitleCardTrailing(
-    selectable: isSelectable,
-  );
+  final Widget trailing = _ProductTitleCardTrailing(selectable: isSelectable);
 
-  final Size imageSize =
-      Size.square(MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25));
+  final Size imageSize = Size.square(
+    MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25),
+  );
 
   Widget child = Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,16 +85,10 @@ Widget build(BuildContext context) {
         constraints: BoxConstraints(
           minHeight: DefaultTextStyle.of(context).style.fontSize! * 2.0,
         ),
-        child: _ProductTitleCardName(
-          selectable: isSelectable,
-          dense: dense,
-        ),
+        child: _ProductTitleCardName(selectable: isSelectable, dense: dense),
       ),
       const SizedBox(height: SMALL_SPACE),
-      _ProductTitleCardBrand(
-        selectable: isSelectable,
-        dense: dense,
-      ),
+      _ProductTitleCardBrand(selectable: isSelectable, dense: dense),
       const SizedBox(height: 2.0),
       trailing,
     ],
@@ -131,14 +124,12 @@ Widget build(BuildContext context) {
                   noImageBuilder: (_) =&gt; const PictureNotFound(),
                   onTap: !dense
                       ? () async =&gt; Navigator.push&lt;void&gt;(
-                            context,
-                            MaterialPageRoute&lt;bool&gt;(
-                              builder: (BuildContext context) =&gt;
-                                  ProductImageGalleryView(
-                                product: product,
-                              ),
-                            ),
-                          )
+                          context,
+                          MaterialPageRoute&lt;bool&gt;(
+                            builder: (BuildContext context) =&gt;
+                                ProductImageGalleryView(product: product),
+                          ),
+                        )
                       : null,
                 ),
               ),

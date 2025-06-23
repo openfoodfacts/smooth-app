@@ -87,10 +87,7 @@ Future&lt;void&gt; edit({
     return;
   }
 
-  AnalyticsHelper.trackProductEdit(
-    AnalyticsEditEvents.basicDetails,
-    product,
-  );
+  AnalyticsHelper.trackProductEdit(AnalyticsEditEvents.basicDetails, product);
 
   if (!context.mounted) {
     return;

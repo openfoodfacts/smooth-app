@@ -90,16 +90,18 @@ Widget build(BuildContext context) {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: &lt;Widget&gt;[
-          LayoutBuilder(builder: (_, BoxConstraints constraints) {
-            return SvgPicture.asset(
-              lightTheme
-                  ? &#39;assets&#47;app&#47;logo_text_black.svg&#39;
-                  : &#39;assets&#47;app&#47;logo_text_white.svg&#39;,
-              width: math.min(311.0, constraints.maxWidth * 0.85),
-              semanticsLabel:
-                  localizations.homepage_main_card_logo_description,
-            );
-          }),
+          LayoutBuilder(
+            builder: (_, BoxConstraints constraints) {
+              return SvgPicture.asset(
+                lightTheme
+                    ? &#39;assets&#47;app&#47;logo_text_black.svg&#39;
+                    : &#39;assets&#47;app&#47;logo_text_white.svg&#39;,
+                width: math.min(311.0, constraints.maxWidth * 0.85),
+                semanticsLabel:
+                    localizations.homepage_main_card_logo_description,
+              );
+            },
+          ),
           const SizedBox(height: VERY_SMALL_SPACE),
           TextWithBoldParts(
             text: localizations.homepage_main_card_subheading,

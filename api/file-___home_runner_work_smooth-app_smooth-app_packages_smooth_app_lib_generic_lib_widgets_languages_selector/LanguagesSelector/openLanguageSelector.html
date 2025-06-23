@@ -83,8 +83,8 @@ Otherwise, they will be filtered</p>
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final UserPreferences userPreferences = context.read&lt;UserPreferences&gt;();
 
-  final List&lt;OpenFoodFactsLanguage&gt; allLanguages =
-      _languages.getSupportedLanguagesNameInEnglish();
+  final List&lt;OpenFoodFactsLanguage&gt; allLanguages = _languages
+      .getSupportedLanguagesNameInEnglish();
 
   final Map&lt;String, int&gt; popularList = userPreferences.languagesUsage;
 
@@ -111,9 +111,10 @@ Otherwise, they will be filtered</p>
   }
 
   &#47;&#47; Only keep the 3 most popular languages
-  popularLanguagesList =
-      _filterLanguagesByPopularity(popularLanguagesList, popularList)
-          .toList(growable: false);
+  popularLanguagesList = _filterLanguagesByPopularity(
+    popularLanguagesList,
+    popularList,
+  ).toList(growable: false);
 
   &#47;&#47; Sort the languages alphabetically
   final Languages languagesHelper = Languages();
@@ -126,21 +127,21 @@ Otherwise, they will be filtered</p>
 
   final OpenFoodFactsLanguage? language =
       await showSmoothModalSheetForTextField&lt;OpenFoodFactsLanguage&gt;(
-    context: context,
-    header: SmoothModalSheetHeader(
-      title: title ?? appLocalizations.language_selector_title,
-      prefix: const SmoothModalSheetHeaderPrefixIndicator(),
-      suffix: const SmoothModalSheetHeaderCloseButton(),
-    ),
-    bodyBuilder: (BuildContext context) {
-      return _LanguagesList(
-        selectedLanguages: selectedLanguagesList,
-        popularLanguages: popularLanguagesList,
-        otherLanguages: otherLanguagesList,
-        checkedIcon: checkedIcon,
+        context: context,
+        header: SmoothModalSheetHeader(
+          title: title ?? appLocalizations.language_selector_title,
+          prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+          suffix: const SmoothModalSheetHeaderCloseButton(),
+        ),
+        bodyBuilder: (BuildContext context) {
+          return _LanguagesList(
+            selectedLanguages: selectedLanguagesList,
+            popularLanguages: popularLanguagesList,
+            otherLanguages: otherLanguagesList,
+            checkedIcon: checkedIcon,
+          );
+        },
       );
-    },
-  );
 
   if (language != null) {
     userPreferences.increaseLanguageUsage(language);

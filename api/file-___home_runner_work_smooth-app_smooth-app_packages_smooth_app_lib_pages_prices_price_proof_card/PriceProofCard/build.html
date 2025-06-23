@@ -97,12 +97,12 @@ Widget build(BuildContext context) {
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) =&gt;
                 Image(
-              image: FileImage(
-                File(model.cropParameters!.smallCroppedFile!.path),
-              ),
-              width: constraints.maxWidth,
-              height: constraints.maxWidth,
-            ),
+                  image: FileImage(
+                    File(model.cropParameters!.smallCroppedFile!.path),
+                  ),
+                  width: constraints.maxWidth,
+                  height: constraints.maxWidth,
+                ),
           ),
         Padding(
           padding: const EdgeInsetsDirectional.symmetric(
@@ -120,8 +120,8 @@ Widget build(BuildContext context) {
                 : () async {
                     final List&lt;_ProofSource&gt; sources =
                         _ProofSource.getPossibleProofSources(
-                      includeMyProofs: includeMyProofs,
-                    );
+                          includeMyProofs: includeMyProofs,
+                        );
                     &#47;&#47; not very likely
                     if (sources.isEmpty) {
                       return;
@@ -147,26 +147,24 @@ Widget build(BuildContext context) {
         ),
         LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) =&gt; Row(
-            children: (const &lt;ProofType&gt;[
-              ProofType.receipt,
-              ProofType.priceTag,
-            ])
-                .map&lt;Widget&gt;(
-                  (final ProofType item) =&gt; SizedBox(
-                    width: constraints.maxWidth &#47; 2,
-                    child: RadioListTile&lt;ProofType&gt;(
-                      title: Text(item.getTitle(appLocalizations)),
-                      value: item,
-                      groupValue: model.proofType,
-                      onChanged:
-                          model.proof != null || forcedProofType != null
+            children:
+                (const &lt;ProofType&gt;[ProofType.receipt, ProofType.priceTag])
+                    .map&lt;Widget&gt;(
+                      (final ProofType item) =&gt; SizedBox(
+                        width: constraints.maxWidth &#47; 2,
+                        child: RadioListTile&lt;ProofType&gt;(
+                          title: Text(item.getTitle(appLocalizations)),
+                          value: item,
+                          groupValue: model.proofType,
+                          onChanged:
+                              model.proof != null || forcedProofType != null
                               ? null
                               : (final ProofType? proofType) =&gt;
-                                  model.proofType = proofType!,
-                    ),
-                  ),
-                )
-                .toList(),
+                                    model.proofType = proofType!,
+                        ),
+                      ),
+                    )
+                    .toList(),
           ),
         ),
       ],

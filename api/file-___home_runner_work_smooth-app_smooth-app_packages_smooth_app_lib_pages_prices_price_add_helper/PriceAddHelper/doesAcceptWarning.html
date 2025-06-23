@@ -67,8 +67,8 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;bool?&gt; doesAcceptWarning({required final bool justInfo}) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   const Color color = Color(0xFFB81D1D);
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   return showSmoothListOfChoicesModalSheet&lt;bool&gt;(
     safeArea: true,
     context: context,
@@ -83,9 +83,9 @@
         children: &lt;Widget&gt;[
           TextWithBoldParts(
             text: appLocalizations.prices_privacy_warning_main_message,
-            textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+            textStyle: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
           ),
           _buildBulletPoint(
             appLocalizations.prices_privacy_warning_message_bullet_1,
@@ -99,21 +99,15 @@
           const SizedBox(height: MEDIUM_SPACE),
           Text(
             appLocalizations.prices_privacy_warning_sub_message,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
           ),
         ],
       ),
     ),
-    labels: &lt;String&gt;[
-      appLocalizations.i_accept,
-      appLocalizations.i_refuse,
-    ],
-    values: &lt;bool&gt;[
-      true,
-      false,
-    ],
+    labels: &lt;String&gt;[appLocalizations.i_accept, appLocalizations.i_refuse],
+    values: &lt;bool&gt;[true, false],
     prefixIcons: &lt;Widget&gt;[
       Icon(Icons.check_circle_rounded, color: extension.success),
       Icon(Icons.cancel_rounded, color: extension.error),

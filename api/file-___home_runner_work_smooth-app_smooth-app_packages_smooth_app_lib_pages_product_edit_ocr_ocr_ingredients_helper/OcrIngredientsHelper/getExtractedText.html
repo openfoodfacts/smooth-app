@@ -77,13 +77,13 @@ Future&lt;String?&gt; getExtractedText(
 ) async {
   final OcrIngredientsResult result =
       await OpenFoodAPIClient.extractIngredients(
-    getUser(),
-    product.barcode!,
-    language,
-    uriHelper: ProductQuery.getUriProductHelper(
-      productType: product.productType,
-    ),
-  );
+        getUser(),
+        product.barcode!,
+        language,
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: product.productType,
+        ),
+      );
   return result.ingredientsTextFromImage;
 }</code></pre>
 </section>

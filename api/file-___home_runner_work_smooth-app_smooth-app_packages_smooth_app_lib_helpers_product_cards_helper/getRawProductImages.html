@@ -78,7 +78,7 @@
   for (final ProductImage productImage in rawImages) {
     final int? imageId = int.tryParse(productImage.imgid!);
     if (imageId == null) {
-&#47;&#47; highly unlikely
+      &#47;&#47; highly unlikely
       continue;
     }
     final ProductImage? previous = map[imageId];
@@ -88,33 +88,28 @@
     }
     final ImageSize? currentImageSize = productImage.size;
     if (currentImageSize == null) {
-&#47;&#47; highly unlikely
+      &#47;&#47; highly unlikely
       continue;
     }
     final ImageSize? previousImageSize = previous.size;
     if (previousImageSize == imageSize) {
-&#47;&#47; we already have the best
+      &#47;&#47; we already have the best
       continue;
     }
     map[imageId] = productImage;
   }
   final List&lt;ProductImage&gt; result = List&lt;ProductImage&gt;.of(map.values);
-  result.sort(
-    (
-      final ProductImage a,
-      final ProductImage b,
-    ) {
-      final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
-        b.uploaded?.millisecondsSinceEpoch ?? 0,
-      );
-      if (result != 0) {
-        return result;
-      }
-      return (int.tryParse(a.imgid ?? &#39;0&#39;) ?? 0).compareTo(
-        int.tryParse(b.imgid ?? &#39;0&#39;) ?? 0,
-      );
-    },
-  );
+  result.sort((final ProductImage a, final ProductImage b) {
+    final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
+      b.uploaded?.millisecondsSinceEpoch ?? 0,
+    );
+    if (result != 0) {
+      return result;
+    }
+    return (int.tryParse(a.imgid ?? &#39;0&#39;) ?? 0).compareTo(
+      int.tryParse(b.imgid ?? &#39;0&#39;) ?? 0,
+    );
+  });
   return result;
 }</code></pre>
 </section>

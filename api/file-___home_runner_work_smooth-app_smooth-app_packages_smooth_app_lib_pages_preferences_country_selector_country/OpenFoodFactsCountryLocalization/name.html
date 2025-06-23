@@ -67,13 +67,14 @@
   <pre class="language-dart"><code class="language-dart">String get name {
   final String? result =
       _getMapper().map[_latestLanguageCode]?.map[iso3Code] ??
-          _getMapper().map[_englishLanguageCode]?.map[iso3Code];
+      _getMapper().map[_englishLanguageCode]?.map[iso3Code];
   if (result != null) {
     return result;
   }
   &#47;&#47; lousy fallback version in English
-  final String countryName =
-      toString().replaceAll(&#39;OpenFoodFactsCountry.&#39;, &#39;&#39;).replaceAll(&#39;_&#39;, &#39; &#39;);
+  final String countryName = toString()
+      .replaceAll(&#39;OpenFoodFactsCountry.&#39;, &#39;&#39;)
+      .replaceAll(&#39;_&#39;, &#39; &#39;);
   return &#39;${countryName[0].toUpperCase()}&#39;
       &#39;${countryName.substring(1).toLowerCase()}&#39;;
 }</code></pre>

@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void refreshUpToDate() {
-  final List&lt;String&gt; barcodes =
-      _localDatabase.upToDateProductList.getLocalUpToDate(_productList);
+  final List&lt;String&gt; barcodes = _localDatabase.upToDateProductList
+      .getLocalUpToDate(_productList);
   _productList.set(barcodes);
 }</code></pre>
 </section>

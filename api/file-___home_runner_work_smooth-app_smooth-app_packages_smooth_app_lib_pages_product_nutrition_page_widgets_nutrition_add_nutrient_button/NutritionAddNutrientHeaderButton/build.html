@@ -76,10 +76,8 @@ Widget build(BuildContext context) {
   return SmoothCardHeaderButton(
     tooltip: appLocalizations.nutrition_page_add_nutrient,
     child: const icons.Add.circled(),
-    onTap: () async =&gt; _openNutrientSelectorModalSheet(
-      context,
-      onNutrientSelected,
-    ),
+    onTap: () async =&gt;
+        _openNutrientSelectorModalSheet(context, onNutrientSelected),
   );
 }</code></pre>
 </section>

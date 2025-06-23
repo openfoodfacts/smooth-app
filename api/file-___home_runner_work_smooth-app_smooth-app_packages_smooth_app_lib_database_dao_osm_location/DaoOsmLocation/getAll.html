@@ -68,12 +68,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;OsmLocation&gt;&gt; getAll() async {
   final List&lt;OsmLocation&gt; result = &lt;OsmLocation&gt;[];
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    _table,
-    columns: _columns,
-    orderBy: &#39;$_columnLastAccess DESC&#39;,
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .query(_table, columns: _columns, orderBy: &#39;$_columnLastAccess DESC&#39;);
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     final OsmLocation? item = _getItemFromQueryResult(row);
     if (item != null) {

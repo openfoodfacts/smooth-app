@@ -84,10 +84,7 @@
   if (url == null) {
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
 
-    url = path_lib.join(
-      &#39;https:&#47;&#47;world.openfoodfacts.org&#39;,
-      pathUrl,
-    );
+    url = path_lib.join(&#39;https:&#47;&#47;world.openfoodfacts.org&#39;, pathUrl);
 
     url = &#39;$url?lc=${language.offTag}&#39;;
   }

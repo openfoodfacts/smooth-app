@@ -81,7 +81,8 @@
     case FetchedProductStatus.internetError:
       _openErrorMessage(
         appLocalizations.product_internet_error_modal_message(
-            fetchedProduct.exceptionString ?? &#39;-&#39;),
+          fetchedProduct.exceptionString ?? &#39;-&#39;,
+        ),
       );
       return;
     case FetchedProductStatus.internetNotFound:

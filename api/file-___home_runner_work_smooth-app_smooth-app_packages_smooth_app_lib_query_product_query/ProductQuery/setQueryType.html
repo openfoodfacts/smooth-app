@@ -70,8 +70,8 @@
   <pre class="language-dart"><code class="language-dart">static void setQueryType(final UserPreferences userPreferences) {
   UriProductHelper getProductHelper(final String flagProd) =&gt;
       userPreferences.getFlag(flagProd) ?? true
-          ? uriHelperFoodProd
-          : getTestUriProductHelper(userPreferences);
+      ? uriHelperFoodProd
+      : getTestUriProductHelper(userPreferences);
 
   _uriProductHelper = getProductHelper(
     UserPreferencesDevMode.userPreferencesFlagProd,
@@ -80,7 +80,8 @@
     UserPreferencesDevMode.userPreferencesFlagPriceProd,
   );
   uriFolksonomyHelper = UriHelper(
-    host: userPreferences.getDevModeString(
+    host:
+        userPreferences.getDevModeString(
           UserPreferencesDevMode.userPreferencesFolksonomyHost,
         ) ??
         uriHelperFolksonomyProd.host,

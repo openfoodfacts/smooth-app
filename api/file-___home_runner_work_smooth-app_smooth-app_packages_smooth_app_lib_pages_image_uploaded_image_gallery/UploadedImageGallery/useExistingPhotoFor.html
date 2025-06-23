@@ -85,9 +85,7 @@
     rawImage.getUrl(
       barcode,
       imageSize: ImageSize.ORIGINAL,
-      uriHelper: ProductQuery.getUriProductHelper(
-        productType: productType,
-      ),
+      uriHelper: ProductQuery.getUriProductHelper(productType: productType),
     ),
     DaoInt(localDatabase),
   );

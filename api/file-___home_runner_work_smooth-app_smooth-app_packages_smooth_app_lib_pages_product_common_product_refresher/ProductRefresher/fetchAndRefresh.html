@@ -78,13 +78,13 @@ Returns true if successful.</p>
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final FetchedProduct? fetchAndRefreshed =
       await LoadingDialog.run&lt;FetchedProduct&gt;(
-    future: silentFetchAndRefresh(
-      localDatabase: localDatabase,
-      barcode: barcode,
-    ),
-    context: context,
-    title: appLocalizations.refreshing_product,
-  );
+        future: silentFetchAndRefresh(
+          localDatabase: localDatabase,
+          barcode: barcode,
+        ),
+        context: context,
+        title: appLocalizations.refreshing_product,
+      );
   if (fetchAndRefreshed == null) {
     &#47;&#47; the user probably cancelled
     return false;
@@ -101,7 +101,9 @@ Returns true if successful.</p>
   if (context.mounted) {
     ScaffoldMessenger.of(context).showSnackBar(
       SmoothFloatingSnackbar.positive(
-          context: context, text: appLocalizations.product_refreshed),
+        context: context,
+        text: appLocalizations.product_refreshed,
+      ),
     );
   }
   return true;

@@ -66,7 +66,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setUserKnowledgePanelOrder(final List&lt;String&gt; source) async {
   await _sharedPreferences.setStringList(
-      _TAG_USER_KNOWLEDGE_PANEL_ORDER, source);
+    _TAG_USER_KNOWLEDGE_PANEL_ORDER,
+    source,
+  );
   notifyListeners();
 }</code></pre>
 </section>

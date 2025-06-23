@@ -69,11 +69,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setAppLanguageCode(String? languageCode) async {
   if (languageCode == null) {
-    await _sharedPreferences
-        .remove(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+    await _sharedPreferences.remove(
+      UserPreferencesDevMode.userPreferencesAppLanguageCode,
+    );
   } else {
     await setDevModeString(
-        UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+      UserPreferencesDevMode.userPreferencesAppLanguageCode,
+      languageCode,
+    );
   }
   notifyListeners();
 }</code></pre>

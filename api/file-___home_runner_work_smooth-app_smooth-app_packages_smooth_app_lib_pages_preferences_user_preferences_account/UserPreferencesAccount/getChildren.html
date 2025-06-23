@@ -154,8 +154,9 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       iconData: Icons.more_horiz,
       context: context,
       localDatabase: localDatabase,
-      lazyCounter:
-          const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
+      lazyCounter: const LazyCounterUserSearch(
+        UserSearchType.TO_BE_COMPLETED,
+      ),
     ),
     _buildProductQueryTile(
       productQuery: PagedToBeCompletedProductQuery(
@@ -192,21 +193,17 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       ),
       Icons.delete,
     ),
-    _getListTile(
-      appLocalizations.sign_out,
-      () async {
-        if (await _confirmLogout() == true) {
+    _getListTile(appLocalizations.sign_out, () async {
+      if (await _confirmLogout() == true) {
+        if (context.mounted) {
+          await context.read&lt;UserManagementProvider&gt;().logout();
+          AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
           if (context.mounted) {
-            await context.read&lt;UserManagementProvider&gt;().logout();
-            AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
-            if (context.mounted) {
-              Navigator.pop(context);
-            }
+            Navigator.pop(context);
           }
         }
-      },
-      Icons.clear,
-    ),
+      }
+    }, Icons.clear),
   ];
 }</code></pre>
 </section>

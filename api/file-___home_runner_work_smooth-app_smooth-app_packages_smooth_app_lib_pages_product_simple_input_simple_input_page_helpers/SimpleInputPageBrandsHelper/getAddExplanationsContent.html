@@ -73,53 +73,53 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 WidgetBuilder? getAddExplanationsContent() =&gt; (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      return Column(
-        children: &lt;Widget&gt;[
-          ExplanationBodyInfo(
-            text: appLocalizations.add_basic_details_product_brand_help_info1,
-            icon: false,
-          ),
-          ExplanationTextContainer(
-            title: appLocalizations
-                .add_basic_details_product_brand_help_info2_title,
-            items: &lt;ExplanationTextContainerContent&gt;[
-              ExplanationTextContainerContentText(
-                text: appLocalizations
-                    .add_basic_details_product_brand_help_info2_content,
-              ),
-            ],
-          ),
-          ExplanationTextContainer(
-            title: appLocalizations
-                .add_basic_details_product_brand_help_info3_title,
-            items: &lt;ExplanationTextContainerContent&gt;[
-              ExplanationTextContainerContentItem(
-                text: appLocalizations
-                    .add_basic_details_product_brand_help_info3_item1_text,
-                example: appLocalizations
-                    .add_basic_details_product_brand_help_info3_item1_explanation,
-              ),
-              ExplanationTextContainerContentItem(
-                text: appLocalizations
-                    .add_basic_details_product_brand_help_info3_item2_text,
-                example: appLocalizations
-                    .add_basic_details_product_brand_help_info3_item2_explanation,
-              ),
-            ],
-          ),
-          const SizedBox(height: MEDIUM_SPACE),
-          ExplanationGoodExamplesContainer(
-            items: &lt;String&gt;[
-              appLocalizations
-                  .add_basic_details_product_brand_help_good_examples_1,
-              appLocalizations
-                  .add_basic_details_product_brand_help_good_examples_2,
-            ],
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  return Column(
+    children: &lt;Widget&gt;[
+      ExplanationBodyInfo(
+        text: appLocalizations.add_basic_details_product_brand_help_info1,
+        icon: false,
+      ),
+      ExplanationTextContainer(
+        title:
+            appLocalizations.add_basic_details_product_brand_help_info2_title,
+        items: &lt;ExplanationTextContainerContent&gt;[
+          ExplanationTextContainerContentText(
+            text: appLocalizations
+                .add_basic_details_product_brand_help_info2_content,
           ),
         ],
-      );
-    };</code></pre>
+      ),
+      ExplanationTextContainer(
+        title:
+            appLocalizations.add_basic_details_product_brand_help_info3_title,
+        items: &lt;ExplanationTextContainerContent&gt;[
+          ExplanationTextContainerContentItem(
+            text: appLocalizations
+                .add_basic_details_product_brand_help_info3_item1_text,
+            example: appLocalizations
+                .add_basic_details_product_brand_help_info3_item1_explanation,
+          ),
+          ExplanationTextContainerContentItem(
+            text: appLocalizations
+                .add_basic_details_product_brand_help_info3_item2_text,
+            example: appLocalizations
+                .add_basic_details_product_brand_help_info3_item2_explanation,
+          ),
+        ],
+      ),
+      const SizedBox(height: MEDIUM_SPACE),
+      ExplanationGoodExamplesContainer(
+        items: &lt;String&gt;[
+          appLocalizations
+              .add_basic_details_product_brand_help_good_examples_1,
+          appLocalizations
+              .add_basic_details_product_brand_help_good_examples_2,
+        ],
+      ),
+    ],
+  );
+};</code></pre>
 </section>
 
 

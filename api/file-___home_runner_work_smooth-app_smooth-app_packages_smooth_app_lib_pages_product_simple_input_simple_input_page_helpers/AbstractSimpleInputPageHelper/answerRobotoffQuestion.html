@@ -70,17 +70,18 @@
   final InsightAnnotation? annotation,
 ) {
   robotoffQuestionsNotifier.value = robotoffQuestionsNotifier.value
-      .map&lt;RobotoffQuestion, InsightAnnotation?&gt;(
-    (final RobotoffQuestion key, final InsightAnnotation? value) {
-      if (key == question) {
-        return MapEntry&lt;RobotoffQuestion, InsightAnnotation?&gt;(
-          key,
-          annotation,
-        );
-      }
-      return MapEntry&lt;RobotoffQuestion, InsightAnnotation?&gt;(key, value);
-    },
-  );
+      .map&lt;RobotoffQuestion, InsightAnnotation?&gt;((
+        final RobotoffQuestion key,
+        final InsightAnnotation? value,
+      ) {
+        if (key == question) {
+          return MapEntry&lt;RobotoffQuestion, InsightAnnotation?&gt;(
+            key,
+            annotation,
+          );
+        }
+        return MapEntry&lt;RobotoffQuestion, InsightAnnotation?&gt;(key, value);
+      });
 
   _changed = _computeHasChanged();
   notifyListeners();

@@ -87,25 +87,25 @@
 
   return switch (action) {
     PhotoRowActions.takePicture =&gt; _takePicture(
-        context: context,
-        product: product,
-        imageField: imageField,
-        language: language,
-        pictureSource: UserPictureSource.CAMERA,
-      ),
+      context: context,
+      product: product,
+      imageField: imageField,
+      language: language,
+      pictureSource: UserPictureSource.CAMERA,
+    ),
     PhotoRowActions.selectFromGallery =&gt; _takePicture(
-        context: context,
-        product: product,
-        imageField: imageField,
-        language: language,
-        pictureSource: UserPictureSource.GALLERY,
-      ),
+      context: context,
+      product: product,
+      imageField: imageField,
+      language: language,
+      pictureSource: UserPictureSource.GALLERY,
+    ),
     PhotoRowActions.selectFromProductPhotos =&gt; _selectPictureFromProductGallery(
-        context: context,
-        product: product,
-        imageField: imageField,
-        language: language,
-      ),
+      context: context,
+      product: product,
+      imageField: imageField,
+      language: language,
+    ),
   };
 }</code></pre>
 </section>

@@ -80,8 +80,9 @@ Widget build(BuildContext context) {
   }
 
   final double maxHeight = OnboardingBottomHills.height(context);
-  final SmoothColorsThemeExtension colors =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension colors = Theme.of(
+    context,
+  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
 
   return Positioned(
     top: null,
@@ -116,9 +117,7 @@ Widget build(BuildContext context) {
             end: 15.0,
             child: TextButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all&lt;Color&gt;(
-                  Colors.white,
-                ),
+                backgroundColor: WidgetStateProperty.all&lt;Color&gt;(Colors.white),
                 padding: WidgetStateProperty.all&lt;EdgeInsetsGeometry&gt;(
                   const EdgeInsetsDirectional.only(
                     start: LARGE_SPACE + 1.0,

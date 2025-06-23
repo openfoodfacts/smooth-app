@@ -133,7 +133,8 @@
           labels.elementAt(i),
           style: textStyle ?? const TextStyle(fontWeight: FontWeight.w500),
         ),
-        contentPadding: contentPadding ??
+        contentPadding:
+            contentPadding ??
             EdgeInsetsDirectional.only(
               start: LARGE_SPACE,
               end: addEndArrowToItems ? 17.0 : LARGE_SPACE,
@@ -141,10 +142,11 @@
         trailing: (suffixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: suffixIconTint),
-                child: suffixIcons[i])
+                child: suffixIcons[i],
+              )
             : (addEndArrowToItems
-                ? const _SmoothListOfChoicesEndArrow()
-                : null)),
+                  ? const _SmoothListOfChoicesEndArrow()
+                  : null)),
         onTap: () {
           Navigator.of(context).pop(values.elementAt(i));
         },
@@ -202,7 +204,8 @@
       headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
       body: IntrinsicHeight(
-          child: Column(mainAxisSize: MainAxisSize.min, children: items)),
+        child: Column(mainAxisSize: MainAxisSize.min, children: items),
+      ),
     ),
   );
 }</code></pre>

@@ -77,13 +77,19 @@
       product.imageNutritionSmallUrl == oldProduct.imageNutritionSmallUrl &amp;&amp;
       product.imagePackagingUrl == oldProduct.imagePackagingUrl &amp;&amp;
       product.imagePackagingSmallUrl == oldProduct.imagePackagingSmallUrl &amp;&amp;
-      const ListEquality&lt;ProductImage&gt;()
-          .equals(product.selectedImages, oldProduct.selectedImages) &amp;&amp;
-      const ListEquality&lt;ProductImage&gt;()
-          .equals(product.images, oldProduct.images) &amp;&amp;
+      const ListEquality&lt;ProductImage&gt;().equals(
+        product.selectedImages,
+        oldProduct.selectedImages,
+      ) &amp;&amp;
+      const ListEquality&lt;ProductImage&gt;().equals(
+        product.images,
+        oldProduct.images,
+      ) &amp;&amp;
       product.lastImage == oldProduct.lastImage &amp;&amp;
-      const ListEquality&lt;String&gt;()
-          .equals(product.lastImageDates, oldProduct.lastImageDates);
+      const ListEquality&lt;String&gt;().equals(
+        product.lastImageDates,
+        oldProduct.lastImageDates,
+      );
 }</code></pre>
 </section>
 

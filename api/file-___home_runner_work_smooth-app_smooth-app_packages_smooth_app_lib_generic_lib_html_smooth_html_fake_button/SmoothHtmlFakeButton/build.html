@@ -71,8 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   return SizedBox(
     width: double.infinity,
@@ -113,10 +113,7 @@ Widget build(BuildContext context) {
                 ),
               ),
             ),
-            const icons.ExternalLink(
-              color: Colors.black,
-              size: 16.0,
-            )
+            const icons.ExternalLink(color: Colors.black, size: 16.0),
           ],
         ),
       ),

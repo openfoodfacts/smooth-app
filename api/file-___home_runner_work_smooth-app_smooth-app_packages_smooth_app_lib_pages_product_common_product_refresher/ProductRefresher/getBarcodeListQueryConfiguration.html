@@ -71,17 +71,16 @@
   <pre class="language-dart"><code class="language-dart">ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
   final List&lt;String&gt; barcodes,
   final OpenFoodFactsLanguage language,
-) =&gt;
-    ProductSearchQueryConfiguration(
-      fields: ProductQuery.fields,
-      language: language,
-      country: ProductQuery.getCountry(),
-      parametersList: &lt;Parameter&gt;[
-        BarcodeParameter.list(barcodes),
-        PageSize(size: barcodes.length),
-      ],
-      version: ProductQuery.productQueryVersion,
-    );</code></pre>
+) =&gt; ProductSearchQueryConfiguration(
+  fields: ProductQuery.fields,
+  language: language,
+  country: ProductQuery.getCountry(),
+  parametersList: &lt;Parameter&gt;[
+    BarcodeParameter.list(barcodes),
+    PageSize(size: barcodes.length),
+  ],
+  version: ProductQuery.productQueryVersion,
+);</code></pre>
 </section>
 
 

@@ -74,8 +74,8 @@
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final ThemeProvider themeProvider = context.read&lt;ThemeProvider&gt;();
   final ThemeData themeData = Theme.of(context);
-  final ProductPreferences productPreferences =
-      context.read&lt;ProductPreferences&gt;();
+  final ProductPreferences productPreferences = context
+      .read&lt;ProductPreferences&gt;();
   &#47;&#47; TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
   context.read&lt;UserManagementProvider&gt;();
 

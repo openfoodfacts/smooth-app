@@ -99,10 +99,8 @@ Widget build(BuildContext context) {
             text: appLocalizations.app_review_medium,
             backgroundColor: const Color(0xFFFF8C14),
             borderRadius: BorderRadius.zero,
-            onTap: () =&gt; _showUserFeedBackModalSheet(
-              context,
-              AppReviewResult.neutral,
-            ),
+            onTap: () =&gt;
+                _showUserFeedBackModalSheet(context, AppReviewResult.neutral),
           ),
         ),
         Expanded(
@@ -115,8 +113,8 @@ Widget build(BuildContext context) {
               bottomEnd: ScanBottomCardContainer.radius,
             ),
             onTap: () async {
-              final AppReviewProvider appReview =
-                  context.read&lt;AppReviewProvider&gt;();
+              final AppReviewProvider appReview = context
+                  .read&lt;AppReviewProvider&gt;();
               await ApplicationStore.openAppReview();
               appReview.markAsReviewed(AppReviewResult.satisfied);
             },

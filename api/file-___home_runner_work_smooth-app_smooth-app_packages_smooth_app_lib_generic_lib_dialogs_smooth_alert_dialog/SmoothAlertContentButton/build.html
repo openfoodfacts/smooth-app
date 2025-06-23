@@ -77,13 +77,8 @@ Widget build(BuildContext context) {
       widthFactor: 0.8,
       child: Row(
         children: &lt;Widget&gt;[
-          Expanded(
-            child: Text(label),
-          ),
-          if (icon != null)
-            ExcludeSemantics(
-              child: Icon(icon),
-            ),
+          Expanded(child: Text(label)),
+          if (icon != null) ExcludeSemantics(child: Icon(icon)),
         ],
       ),
     ),

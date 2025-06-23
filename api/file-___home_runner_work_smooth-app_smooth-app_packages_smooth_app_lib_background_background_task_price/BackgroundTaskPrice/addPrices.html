@@ -94,10 +94,10 @@ Future&lt;void&gt; addPrices({
     &#47;&#47; create price
     final MaybeError&lt;Price?&gt; addedPrice =
         await OpenPricesAPIClient.createPrice(
-      price: newPrice,
-      bearerToken: bearerToken,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          price: newPrice,
+          bearerToken: bearerToken,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (addedPrice.isError) {
       throw Exception(&#39;Could not add price: ${addedPrice.error}&#39;);
     }

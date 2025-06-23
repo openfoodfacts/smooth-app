@@ -78,10 +78,7 @@ Widget build(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: &lt;Widget&gt;[
-      SizedBox(
-        width: size,
-        child: product.getImageWidget(size),
-      ),
+      SizedBox(width: size, child: product.getImageWidget(size)),
       const SizedBox(width: SMALL_SPACE),
       Expanded(
         child: Column(

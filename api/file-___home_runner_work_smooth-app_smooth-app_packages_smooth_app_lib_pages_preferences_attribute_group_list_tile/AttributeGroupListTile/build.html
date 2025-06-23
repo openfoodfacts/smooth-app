@@ -71,19 +71,19 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: LARGE_SPACE,
-        vertical: LARGE_SPACE,
-      ),
-      child: DefaultTextStyle.merge(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: &lt;Widget&gt;[title, icon],
-        ),
-        style: Theme.of(context).textTheme.headlineMedium,
-      ),
-    );</code></pre>
+  padding: const EdgeInsets.symmetric(
+    horizontal: LARGE_SPACE,
+    vertical: LARGE_SPACE,
+  ),
+  child: DefaultTextStyle.merge(
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: &lt;Widget&gt;[title, icon],
+    ),
+    style: Theme.of(context).textTheme.headlineMedium,
+  ),
+);</code></pre>
 </section>
 
 

@@ -94,55 +94,51 @@
   Duration? duration,
   super.key,
 }) : super(
-        margin: const EdgeInsetsDirectional.all(SMALL_SPACE),
-        duration: duration ??
-            (action != null
-                ? const Duration(seconds: 10)
-                : SnackBarDuration.short),
-        behavior: SnackBarBehavior.floating,
-        backgroundColor:
-            context.extension&lt;SmoothColorsThemeExtension&gt;().error,
-        action: action?.copyWith(
-          backgroundColor: Colors.white38,
-          textColor: Colors.white,
-        ),
-        content: Row(
-          children: &lt;Widget&gt;[
-            ExcludeSemantics(
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: 6.0,
-                    end: SMALL_SPACE,
-                    top: 6.5,
-                    bottom: SMALL_SPACE,
-                  ),
-                  child: Builder(
-                    builder: (BuildContext context) {
-                      return icons.Warning(
-                        color: context
-                            .extension&lt;SmoothColorsThemeExtension&gt;()
-                            .error,
-                        size: 15.0,
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: LARGE_SPACE),
-            Expanded(
-              child: Text(
-                text,
-              ),
-            ),
-          ],
-        ),
-      );</code></pre>
+       margin: const EdgeInsetsDirectional.all(SMALL_SPACE),
+       duration:
+           duration ??
+           (action != null
+               ? const Duration(seconds: 10)
+               : SnackBarDuration.short),
+       behavior: SnackBarBehavior.floating,
+       backgroundColor: context.extension&lt;SmoothColorsThemeExtension&gt;().error,
+       action: action?.copyWith(
+         backgroundColor: Colors.white38,
+         textColor: Colors.white,
+       ),
+       content: Row(
+         children: &lt;Widget&gt;[
+           ExcludeSemantics(
+             child: DecoratedBox(
+               decoration: const BoxDecoration(
+                 color: Colors.white,
+                 shape: BoxShape.circle,
+               ),
+               child: Padding(
+                 padding: const EdgeInsetsDirectional.only(
+                   start: 6.0,
+                   end: SMALL_SPACE,
+                   top: 6.5,
+                   bottom: SMALL_SPACE,
+                 ),
+                 child: Builder(
+                   builder: (BuildContext context) {
+                     return icons.Warning(
+                       color: context
+                           .extension&lt;SmoothColorsThemeExtension&gt;()
+                           .error,
+                       size: 15.0,
+                     );
+                   },
+                 ),
+               ),
+             ),
+           ),
+           const SizedBox(width: LARGE_SPACE),
+           Expanded(child: Text(text)),
+         ],
+       ),
+     );</code></pre>
 </section>
 
 

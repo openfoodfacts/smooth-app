@@ -74,9 +74,11 @@
   String url, {
   LaunchMode? mode,
 }) async {
-  if (url.startsWith(RegExp(
-    r&#39;http(s)?:&#47;&#47;[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)&#39;,
-  ))) {
+  if (url.startsWith(
+    RegExp(
+      r&#39;http(s)?:&#47;&#47;[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)&#39;,
+    ),
+  )) {
     AppNavigator.of(context).push(AppRoutes.EXTERNAL_WEBVIEW(url));
   } else {
     return launchURL(url, mode: mode);

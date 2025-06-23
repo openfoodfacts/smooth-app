@@ -72,8 +72,8 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final UserManagementProvider userManagementProvider =
-      context.watch&lt;UserManagementProvider&gt;();
+  final UserManagementProvider userManagementProvider = context
+      .watch&lt;UserManagementProvider&gt;();
 
   return Center(
     child: SmoothCard(
@@ -92,20 +92,21 @@ Widget build(BuildContext context) {
             ),
             FractionallySizedBox(
               child: FutureBuilder&lt;bool&gt;(
-                  future: userManagementProvider.credentialsInStorage(),
-                  builder:
-                      (BuildContext context, AsyncSnapshot&lt;bool&gt; snapshot) {
-                    if (!snapshot.hasData) {
-                      return EMPTY_WIDGET;
-                    }
-                    final bool isUserLoggedIn = snapshot.data!;
-                    if (isUserLoggedIn) {
-                      &#47;&#47; TODO(jasmeet): Show leaderboard button.
-                      return EMPTY_WIDGET;
-                    } else {
-                      return _buildSignInButton(context, appLocalizations);
-                    }
-                  }),
+                future: userManagementProvider.credentialsInStorage(),
+                builder:
+                    (BuildContext context, AsyncSnapshot&lt;bool&gt; snapshot) {
+                      if (!snapshot.hasData) {
+                        return EMPTY_WIDGET;
+                      }
+                      final bool isUserLoggedIn = snapshot.data!;
+                      if (isUserLoggedIn) {
+                        &#47;&#47; TODO(jasmeet): Show leaderboard button.
+                        return EMPTY_WIDGET;
+                      } else {
+                        return _buildSignInButton(context, appLocalizations);
+                      }
+                    },
+              ),
             ),
             if (continueButtonLabel != null)
               SmoothSimpleButton(

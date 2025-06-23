@@ -70,14 +70,13 @@
   AnalyticsEvent msg, {
   int? eventValue,
   required Product product,
-}) =&gt;
-    trackCustomEvent(
-      msg.name,
-      msg.category.tag,
-      eventValue: eventValue,
-      barcode: product.barcode,
-      productType: product.productType ?? ProductType.food,
-    );</code></pre>
+}) =&gt; trackCustomEvent(
+  msg.name,
+  msg.category.tag,
+  eventValue: eventValue,
+  barcode: product.barcode,
+  productType: product.productType ?? ProductType.food,
+);</code></pre>
 </section>
 
 

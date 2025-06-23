@@ -68,11 +68,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;ProductType, int&gt;&gt; getTotalNoOfProducts() async {
   final Map&lt;ProductType, int&gt; result = &lt;ProductType, int&gt;{};
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    _TABLE_PRODUCT,
-    columns: _columns,
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .query(_TABLE_PRODUCT, columns: _columns);
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     final Product product = _getProductFromQueryResult(row);
     final ProductType productType = product.productType ?? ProductType.food;

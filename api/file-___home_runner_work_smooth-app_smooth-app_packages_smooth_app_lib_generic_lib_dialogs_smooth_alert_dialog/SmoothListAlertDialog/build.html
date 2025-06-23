@@ -77,7 +77,8 @@ Widget build(BuildContext context) {
       vertical: SMALL_SPACE,
     ),
     body: SizedBox(
-      height: MediaQuery.sizeOf(context).height &#47;
+      height:
+          MediaQuery.sizeOf(context).height &#47;
           (context.keyboardVisible ? 1.0 : 1.5),
       width: MediaQuery.sizeOf(context).width,
       child: Column(
@@ -106,11 +107,8 @@ Widget build(BuildContext context) {
               child: header,
             ),
           Expanded(
-            child: Scrollbar(
-              controller: _scrollController,
-              child: list,
-            ),
-          )
+            child: Scrollbar(controller: _scrollController, child: list),
+          ),
         ],
       ),
     ),

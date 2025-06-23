@@ -68,9 +68,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static UriProductHelper getTestUriProductHelper(
-    final UserPreferences userPreferences) {
-  final String testEnvDomain = userPreferences.getDevModeString(
-          UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
+  final UserPreferences userPreferences,
+) {
+  final String testEnvDomain =
+      userPreferences.getDevModeString(
+        UserPreferencesDevMode.userPreferencesTestEnvDomain,
+      ) ??
       &#39;&#39;;
   return testEnvDomain.isEmpty
       ? uriHelperFoodTest

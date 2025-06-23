@@ -71,17 +71,17 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; SvgPicture.asset(
-      assetName,
-      height: DEFAULT_ICON_SIZE,
-      width: DEFAULT_ICON_SIZE,
-      colorFilter: dontAddColor
-          ? null
-          : ui.ColorFilter.mode(
-              _iconColor(Theme.of(context)),
-              ui.BlendMode.srcIn,
-            ),
-      package: AppHelper.APP_PACKAGE,
-    );</code></pre>
+  assetName,
+  height: DEFAULT_ICON_SIZE,
+  width: DEFAULT_ICON_SIZE,
+  colorFilter: dontAddColor
+      ? null
+      : ui.ColorFilter.mode(
+          _iconColor(Theme.of(context)),
+          ui.BlendMode.srcIn,
+        ),
+  package: AppHelper.APP_PACKAGE,
+);</code></pre>
 </section>
 
 

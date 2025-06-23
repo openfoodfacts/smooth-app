@@ -80,19 +80,17 @@ Widget build(BuildContext context) {
       builder: (BuildContext context, _CountrySelectorProvider provider, _) {
         return switch (provider.value) {
           PreferencesSelectorLoadingState&lt;Country&gt; _ =&gt; SizedBox(
-              height: loadingHeight,
-              child: const Center(
-                child: CircularProgressIndicator.adaptive(),
-              ),
-            ),
+            height: loadingHeight,
+            child: const Center(child: CircularProgressIndicator.adaptive()),
+          ),
           PreferencesSelectorLoadedState&lt;Country&gt; _ =&gt; _CountrySelectorButton(
-              icon: icon,
-              innerPadding: padding ?? EdgeInsets.zero,
-              textStyle: textStyle,
-              inkWellBorderRadius: inkWellBorderRadius,
-              forceCurrencyChange: forceCurrencyChange,
-              autoValidate: autoValidate,
-            ),
+            icon: icon,
+            innerPadding: padding ?? EdgeInsets.zero,
+            textStyle: textStyle,
+            inkWellBorderRadius: inkWellBorderRadius,
+            forceCurrencyChange: forceCurrencyChange,
+            autoValidate: autoValidate,
+          ),
         };
       },
     ),

@@ -66,7 +66,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setTheme(String value) async {
   assert(
-      value != THEME_LIGHT || value != THEME_DARK || value != THEME_AMOLED);
+    value != THEME_LIGHT || value != THEME_DARK || value != THEME_AMOLED,
+  );
   await _userPreferences.setTheme(value);
   notifyListeners();
 }</code></pre>

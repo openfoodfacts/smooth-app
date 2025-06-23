@@ -74,10 +74,7 @@ Widget build(BuildContext context) {
   Widget result = child;
 
   if (padding != null) {
-    result = Padding(
-      padding: padding!,
-      child: result,
-    );
+    result = Padding(padding: padding!, child: result);
   }
 
   if (ignoreDefaultSemantics) {
@@ -92,7 +89,8 @@ Widget build(BuildContext context) {
     elevation: elevation,
     shadowColor: const Color.fromARGB(25, 0, 0, 0),
     borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-    color: color ??
+    color:
+        color ??
         (Theme.of(context).brightness == Brightness.light
             ? Colors.white
             : Colors.black),
@@ -100,12 +98,7 @@ Widget build(BuildContext context) {
     child: result,
   );
 
-  return margin == null
-      ? result
-      : Padding(
-          padding: margin!,
-          child: result,
-        );
+  return margin == null ? result : Padding(padding: margin!, child: result);
 }</code></pre>
 </section>
 

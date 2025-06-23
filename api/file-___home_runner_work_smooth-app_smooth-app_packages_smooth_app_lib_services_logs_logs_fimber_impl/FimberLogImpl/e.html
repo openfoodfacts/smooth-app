@@ -74,8 +74,13 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 void e(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) {
-  Fimber.log(&#39;E&#39;, message,
-      tag: tag ?? _defaultTag, ex: ex, stacktrace: stacktrace);
+  Fimber.log(
+    &#39;E&#39;,
+    message,
+    tag: tag ?? _defaultTag,
+    ex: ex,
+    stacktrace: stacktrace,
+  );
 }</code></pre>
 </section>
 

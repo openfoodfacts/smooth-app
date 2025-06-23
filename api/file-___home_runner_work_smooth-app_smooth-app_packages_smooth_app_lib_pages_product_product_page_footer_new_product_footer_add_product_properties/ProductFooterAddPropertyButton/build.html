@@ -76,10 +76,7 @@ Widget build(BuildContext context) {
   return ProductFooterButton(
     label: appLocalizations.add_tag,
     icon: const icons.AddProperty.alt(),
-    onTap: () =&gt; _openFolksonomyPage(
-      context,
-      context.read&lt;Product&gt;(),
-    ),
+    onTap: () =&gt; _openFolksonomyPage(context, context.read&lt;Product&gt;()),
   );
 }</code></pre>
 </section>

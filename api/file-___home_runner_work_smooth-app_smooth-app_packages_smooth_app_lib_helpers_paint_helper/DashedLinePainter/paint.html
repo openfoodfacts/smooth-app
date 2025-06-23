@@ -75,11 +75,7 @@ void paint(Canvas canvas, Size size) {
   double startX = 0.0;
 
   while (startX &lt; size.width) {
-    canvas.drawLine(
-      Offset(startX, 0),
-      Offset(startX + dashGap, 0),
-      _paint,
-    );
+    canvas.drawLine(Offset(startX, 0), Offset(startX + dashGap, 0), _paint);
 
     startX += dashGap + dashSpace;
   }

@@ -71,12 +71,13 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
 
   return ColoredBox(
-    color: backgroundColor ??
+    color:
+        backgroundColor ??
         (lightTheme ? extension.primaryMedium : Colors.white12),
     child: ClipRect(
       child: SizedBox(

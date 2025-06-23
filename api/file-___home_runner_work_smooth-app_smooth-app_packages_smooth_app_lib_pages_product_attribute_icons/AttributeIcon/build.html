@@ -90,10 +90,7 @@ Widget build(BuildContext context) {
             : EdgeInsets.zero,
         child: Transform.translate(
           offset: offsetFactor != null
-              ? Offset(
-                  size * offsetFactor!.dx,
-                  size * offsetFactor!.dy,
-                )
+              ? Offset(size * offsetFactor!.dx, size * offsetFactor!.dy)
               : Offset.zero,
           child: AppIconTheme(
             color: foregroundColor,
@@ -106,22 +103,14 @@ Widget build(BuildContext context) {
   );
 
   if (angle != null) {
-    child = Transform.rotate(
-      angle: angle!,
-      child: child,
-    );
+    child = Transform.rotate(angle: angle!, child: child);
   }
 
   if (clip == true) {
-    child = ClipOval(
-      child: child,
-    );
+    child = ClipOval(child: child);
   }
 
-  return SizedBox.square(
-    dimension: size,
-    child: child,
-  );
+  return SizedBox.square(dimension: size, child: child);
 }</code></pre>
 </section>
 

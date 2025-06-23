@@ -86,8 +86,10 @@ Widget build(BuildContext context) {
   ];
 
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
-  final bool isProd = userPreferences
-          .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+  final bool isProd =
+      userPreferences.getFlag(
+        UserPreferencesDevMode.userPreferencesFlagProd,
+      ) ??
       true;
   final Widget bar = DecoratedBox(
     decoration: BoxDecoration(

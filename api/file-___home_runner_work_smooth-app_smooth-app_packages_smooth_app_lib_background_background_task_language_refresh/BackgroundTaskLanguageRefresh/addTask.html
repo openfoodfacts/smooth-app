@@ -64,9 +64,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask(
-  final LocalDatabase localDatabase,
-) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask(final LocalDatabase localDatabase) async {
   for (final ProductType productType in ProductType.values) {
     await _addTask(
       localDatabase,

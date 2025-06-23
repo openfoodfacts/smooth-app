@@ -74,23 +74,26 @@
   if (location.countryCode == null) {
     return;
   }
-  final Currency? newCurrency =
-      OpenFoodFactsCountry.fromOffTag(location.countryCode)?.currency;
+  final Currency? newCurrency = OpenFoodFactsCountry.fromOffTag(
+    location.countryCode,
+  )?.currency;
 
   if (newCurrency != null &amp;&amp; model.currency != newCurrency) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension&lt;SmoothColorsThemeExtension&gt;();
+    final SmoothColorsThemeExtension extension = context
+        .extension&lt;SmoothColorsThemeExtension&gt;();
 
     final Currency? currency = await showSmoothAlertModalSheet&lt;Currency?&gt;(
       context: context,
       title: appLocalizations.prices_currency_change_proposal_title,
       message: TextWithBoldParts(
         text: appLocalizations.prices_currency_change_proposal_message(
-            model.currency.name, newCurrency.name),
-        textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.w500,
-            ),
+          model.currency.name,
+          newCurrency.name,
+        ),
+        textStyle: Theme.of(
+          context,
+        ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
       ),
       actionLabels: &lt;String&gt;[
         appLocalizations.prices_currency_change_proposal_action_approve(

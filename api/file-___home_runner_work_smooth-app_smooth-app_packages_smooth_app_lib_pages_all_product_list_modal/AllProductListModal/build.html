@@ -75,46 +75,47 @@ Widget build(BuildContext context) {
   final DaoProductList daoProductList = DaoProductList(localDatabase);
 
   final List&lt;String&gt; userLists = daoProductList.getUserLists();
-  final List&lt;ProductList&gt; productLists =
-      List&lt;ProductList&gt;.from(_hardcodedProductLists);
+  final List&lt;ProductList&gt; productLists = List&lt;ProductList&gt;.from(
+    _hardcodedProductLists,
+  );
   for (final String userList in userLists) {
     productLists.add(ProductList.user(userList));
   }
 
   return SliverList(
-    delegate: SliverChildBuilderDelegate(
-      childCount: productLists.length,
-      (final BuildContext context, final int index) {
-        final ProductList productList = productLists[index];
-        return Column(
-          children: &lt;Widget&gt;[
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: double.infinity,
-                minHeight: MediaQuery.textScalerOf(context).scale(80.0),
-              ),
-              child: FutureBuilder&lt;void&gt;(
-                future: daoProductList.get(productList),
-                builder:
-                    (BuildContext context, AsyncSnapshot&lt;void&gt; snapshot) {
-                  if (snapshot.connectionState != ConnectionState.done) {
-                    return const Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    );
-                  }
-                  return _ModalProductListItem(
-                    productList: productList,
-                    selected: productList.listType == currentList.listType &amp;&amp;
-                        productList.parameters == currentList.parameters,
-                  );
-                },
-              ),
+    delegate: SliverChildBuilderDelegate(childCount: productLists.length, (
+      final BuildContext context,
+      final int index,
+    ) {
+      final ProductList productList = productLists[index];
+      return Column(
+        children: &lt;Widget&gt;[
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: double.infinity,
+              minHeight: MediaQuery.textScalerOf(context).scale(80.0),
             ),
-            if (index &lt; productLists.length - 1) const Divider(height: 1.0),
-          ],
-        );
-      },
-    ),
+            child: FutureBuilder&lt;void&gt;(
+              future: daoProductList.get(productList),
+              builder: (BuildContext context, AsyncSnapshot&lt;void&gt; snapshot) {
+                if (snapshot.connectionState != ConnectionState.done) {
+                  return const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
+                }
+                return _ModalProductListItem(
+                  productList: productList,
+                  selected:
+                      productList.listType == currentList.listType &amp;&amp;
+                      productList.parameters == currentList.parameters,
+                );
+              },
+            ),
+          ),
+          if (index &lt; productLists.length - 1) const Divider(height: 1.0),
+        ],
+      );
+    }),
   );
 }</code></pre>
 </section>

@@ -65,15 +65,17 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static BoxDecoration decoration(BuildContext context) {
-  final SmoothColorsThemeExtension theme =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension theme = Theme.of(
+    context,
+  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
   final bool lightTheme = !context.watch&lt;ThemeProvider&gt;().isDarkMode(context);
 
   return BoxDecoration(
     borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
     color: lightTheme ? Colors.white : theme.greyDark,
     border: Border.all(
-        color: lightTheme ? theme.primaryBlack : theme.primarySemiDark),
+      color: lightTheme ? theme.primaryBlack : theme.primarySemiDark,
+    ),
   );
 }</code></pre>
 </section>

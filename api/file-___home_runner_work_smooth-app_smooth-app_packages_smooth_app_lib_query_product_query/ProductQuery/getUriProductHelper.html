@@ -71,8 +71,9 @@
   if (productType == null) {
     return currentUriProductHelper;
   }
-  final ProductType? currentProductType =
-      extractProductType(currentUriProductHelper);
+  final ProductType? currentProductType = extractProductType(
+    currentUriProductHelper,
+  );
   if (currentProductType == null) {
     return currentUriProductHelper;
   }

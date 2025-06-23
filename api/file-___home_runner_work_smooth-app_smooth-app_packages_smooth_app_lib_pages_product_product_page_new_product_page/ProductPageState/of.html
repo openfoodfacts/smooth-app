@@ -65,8 +65,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static ProductPageState of(BuildContext context) {
-  final ProductPageState? result =
-      context.findAncestorStateOfType&lt;ProductPageState&gt;();
+  final ProductPageState? result = context
+      .findAncestorStateOfType&lt;ProductPageState&gt;();
   assert(result != null, &#39;No ProductPageState found in context&#39;);
   return result!;
 }</code></pre>

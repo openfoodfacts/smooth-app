@@ -77,12 +77,14 @@ Widget build(BuildContext context) {
         preferredSize: const Size.fromHeight(SmoothTabBar.TAB_BAR_HEIGHT),
         child: SmoothTabBar&lt;ProductPageTab&gt;(
           tabController: tabController,
-          items: tabs.map((ProductPageTab tab) {
-            return SmoothTabBarItem&lt;ProductPageTab&gt;(
-              label: tab.labelBuilder(context),
-              value: tab,
-            );
-          }).toList(growable: false),
+          items: tabs
+              .map((ProductPageTab tab) {
+                return SmoothTabBarItem&lt;ProductPageTab&gt;(
+                  label: tab.labelBuilder(context),
+                  value: tab,
+                );
+              })
+              .toList(growable: false),
           onTabChanged: (_) {},
         ),
       ),

@@ -71,10 +71,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final String title = this.title ??
+  final String title =
+      this.title ??
       AppLocalizations.of(context).edit_product_form_item_help(type!);
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   return SmoothCardHeaderButton(
     tooltip: title,

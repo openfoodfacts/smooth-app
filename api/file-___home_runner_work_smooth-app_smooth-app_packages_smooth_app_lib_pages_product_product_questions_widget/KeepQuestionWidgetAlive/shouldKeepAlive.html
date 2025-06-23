@@ -65,8 +65,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static bool shouldKeepAlive(BuildContext context) {
-  final KeepQuestionWidgetAlive? result =
-      context.dependOnInheritedWidgetOfExactType&lt;KeepQuestionWidgetAlive&gt;();
+  final KeepQuestionWidgetAlive? result = context
+      .dependOnInheritedWidgetOfExactType&lt;KeepQuestionWidgetAlive&gt;();
 
   return result?.keepWidgetAlive ?? false;
 }</code></pre>

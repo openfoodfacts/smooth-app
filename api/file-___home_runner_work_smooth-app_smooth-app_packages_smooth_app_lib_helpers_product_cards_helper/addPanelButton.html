@@ -79,22 +79,21 @@
   required final Function() onPressed,
   BorderRadiusGeometry? borderRadius,
   WidgetStateProperty&lt;double?&gt;? elevation,
-}) =&gt;
-    Padding(
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: SmoothLargeButtonWithIcon(
-        text: label,
-        leadingIcon: leadingIcon,
-        trailingIcon: trailingIcon,
-        borderRadius: borderRadius,
-        elevation: elevation,
-        onPressed: onPressed,
-        textAlign: leadingIcon == null &amp;&amp; trailingIcon == null
-            ? TextAlign.center
-            : null,
-        padding: padding,
-      ),
-    );</code></pre>
+}) =&gt; Padding(
+  padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+  child: SmoothLargeButtonWithIcon(
+    text: label,
+    leadingIcon: leadingIcon,
+    trailingIcon: trailingIcon,
+    borderRadius: borderRadius,
+    elevation: elevation,
+    onPressed: onPressed,
+    textAlign: leadingIcon == null &amp;&amp; trailingIcon == null
+        ? TextAlign.center
+        : null,
+    padding: padding,
+  ),
+);</code></pre>
 </section>
 
 

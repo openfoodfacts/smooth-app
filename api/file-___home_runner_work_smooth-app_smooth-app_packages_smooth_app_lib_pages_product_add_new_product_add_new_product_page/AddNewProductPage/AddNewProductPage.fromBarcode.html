@@ -60,21 +60,20 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">AddNewProductPage.fromBarcode(final String barcode)
-    : assert(barcode != &#39;&#39;),
-      product = Product(barcode: barcode),
-      events = const &lt;EditProductAction, AnalyticsEvent&gt;{
-        EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
-        EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
-        EditProductAction.ingredients:
-            AnalyticsEvent.ingredientsNewProductPage,
-        EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
-        EditProductAction.nutritionFacts:
-            AnalyticsEvent.nutritionNewProductPage,
-      },
-      displayProductType = true,
-      displayPictures = true,
-      displayMisc = true,
-      isLoggedInMandatory = false;</code></pre>
+  : assert(barcode != &#39;&#39;),
+    product = Product(barcode: barcode),
+    events = const &lt;EditProductAction, AnalyticsEvent&gt;{
+      EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
+      EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
+      EditProductAction.ingredients: AnalyticsEvent.ingredientsNewProductPage,
+      EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
+      EditProductAction.nutritionFacts:
+          AnalyticsEvent.nutritionNewProductPage,
+    },
+    displayProductType = true,
+    displayPictures = true,
+    displayMisc = true,
+    isLoggedInMandatory = false;</code></pre>
 </section>
 
 

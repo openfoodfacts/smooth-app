@@ -76,13 +76,15 @@ Widget build(BuildContext context) {
   final double opacity = themeData.brightness == Brightness.light
       ? 1
       : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
-  final Color backgroundColor =
-      cardEvaluation.backgroundColor.withValues(alpha: opacity);
+  final Color backgroundColor = cardEvaluation.backgroundColor.withValues(
+    alpha: opacity,
+  );
   final Color textColor = themeData.brightness == Brightness.dark
       ? Colors.white
       : cardEvaluation.textColor.withValues(alpha: opacity);
-  final SvgIconChip? iconChip =
-      iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
+  final SvgIconChip? iconChip = iconUrl == null
+      ? null
+      : SvgIconChip(iconUrl!, height: iconHeight);
 
   return Semantics(
     value: _generateSemanticsValue(context),
@@ -113,8 +115,9 @@ Widget build(BuildContext context) {
               child: Center(
                 child: Text(
                   description,
-                  style: themeData.textTheme.headlineMedium!
-                      .apply(color: textColor),
+                  style: themeData.textTheme.headlineMedium!.apply(
+                    color: textColor,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ),

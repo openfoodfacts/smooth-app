@@ -91,7 +91,8 @@ Widget build(BuildContext context) {
         start: (prefix?.requiresPadding == true ? 0 : VERY_LARGE_SPACE),
         top: VERY_SMALL_SPACE,
         bottom: VERY_SMALL_SPACE,
-        end: VERY_LARGE_SPACE -
+        end:
+            VERY_LARGE_SPACE -
             (suffix?.requiresPadding == true ? 0 : LARGE_SPACE),
       ),
       child: IntrinsicHeight(
@@ -100,8 +101,9 @@ Widget build(BuildContext context) {
           children: &lt;Widget&gt;[
             if (prefix != null)
               Padding(
-                padding:
-                    const EdgeInsetsDirectional.only(end: BALANCED_SPACE),
+                padding: const EdgeInsetsDirectional.only(
+                  end: BALANCED_SPACE,
+                ),
                 child: prefix,
               ),
             Expanded(
@@ -112,14 +114,14 @@ Widget build(BuildContext context) {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0,
-                        color: tintColor,
-                      ),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                    color: tintColor,
+                  ),
                 ),
               ),
             ),
-            if (suffix != null) suffix!
+            if (suffix != null) suffix!,
           ],
         ),
       ),

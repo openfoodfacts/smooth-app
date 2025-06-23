@@ -73,14 +73,11 @@
 Widget build(BuildContext context) {
   final ProductCompatibilityHelper helper =
       ProductCompatibilityHelper.product(
-    MatchedProductV2(
-      product,
-      context.watch&lt;ProductPreferences&gt;(),
-    ),
-  );
+        MatchedProductV2(product, context.watch&lt;ProductPreferences&gt;()),
+      );
 
-  final ProductPreferences productPreferences =
-      context.watch&lt;ProductPreferences&gt;();
+  final ProductPreferences productPreferences = context
+      .watch&lt;ProductPreferences&gt;();
   final String? compatibilityScore = helper.getFormattedScore();
 
   return GestureDetector(

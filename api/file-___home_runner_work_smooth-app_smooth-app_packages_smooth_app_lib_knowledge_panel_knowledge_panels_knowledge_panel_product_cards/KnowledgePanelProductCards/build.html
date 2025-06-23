@@ -71,48 +71,45 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final List&lt;Widget&gt; widgetsWrappedInSmoothCards =
-      knowledgePanelWidgets.map((Widget widget) {
-    &#47;&#47;&#47; When we have a panel with a title (e.g. &quot;Health&quot;), we change
-    &#47;&#47;&#47; a bit the layout
-    final bool hasTitle =
-        widget is Column &amp;&amp; widget.children.first is KnowledgePanelTitle;
-    final Widget content;
+  final List&lt;Widget&gt; widgetsWrappedInSmoothCards = knowledgePanelWidgets
+      .map((Widget widget) {
+        &#47;&#47;&#47; When we have a panel with a title (e.g. &quot;Health&quot;), we change
+        &#47;&#47;&#47; a bit the layout
+        final bool hasTitle =
+            widget is Column &amp;&amp; widget.children.first is KnowledgePanelTitle;
+        final Widget content;
 
-    if (hasTitle) {
-      content = buildProductSmoothCard(
-        title: Text((widget.children.first as KnowledgePanelTitle).title),
-        body: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: SMALL_SPACE,
-            vertical: SMALL_SPACE,
-          ),
-          child: Column(
-            children: widget.children.sublist(1),
-          ),
-        ),
-        padding: EdgeInsets.zero,
-        margin: EdgeInsets.zero,
-      );
-    } else {
-      content = buildProductSmoothCard(
-        body: widget,
-        padding: SMOOTH_CARD_PADDING,
-        margin: EdgeInsets.zero,
-      );
-    }
+        if (hasTitle) {
+          content = buildProductSmoothCard(
+            title: Text((widget.children.first as KnowledgePanelTitle).title),
+            body: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: SMALL_SPACE,
+                vertical: SMALL_SPACE,
+              ),
+              child: Column(children: widget.children.sublist(1)),
+            ),
+            padding: EdgeInsets.zero,
+            margin: EdgeInsets.zero,
+          );
+        } else {
+          content = buildProductSmoothCard(
+            body: widget,
+            padding: SMOOTH_CARD_PADDING,
+            margin: EdgeInsets.zero,
+          );
+        }
 
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(top: VERY_LARGE_SPACE),
-      child: content,
-    );
-  }).toList(growable: false);
+        return Padding(
+          padding: const EdgeInsetsDirectional.only(top: VERY_LARGE_SPACE),
+          child: content,
+        );
+      })
+      .toList(growable: false);
 
   return Center(
     child: Padding(
-      padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: SMALL_SPACE,
-      ),
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -75,25 +75,18 @@ Widget build(BuildContext context) {
     pushPinnedChildren: true,
     children: &lt;Widget&gt;[
       SliverPadding(
-        padding: const EdgeInsetsDirectional.only(
-          bottom: 8.0,
-        ),
+        padding: const EdgeInsetsDirectional.only(bottom: 8.0),
         sliver: SliverPinnedHeader(
           child: _GuidesParagraphTitle(title: title),
         ),
       ),
       DefaultTextStyle.merge(
-        style: const TextStyle(
-          fontSize: 15.0,
-          height: 1.75,
-        ),
+        style: const TextStyle(fontSize: 15.0, height: 1.75),
         child: AppIconTheme(
           size: 21.0,
           color: Colors.white,
           child: SliverPadding(
-            padding: const EdgeInsetsDirectional.only(
-              bottom: 15.0,
-            ),
+            padding: const EdgeInsetsDirectional.only(bottom: 15.0),
             sliver: SliverList.builder(
               itemCount: content.length,
               itemBuilder: (BuildContext context, int position) {

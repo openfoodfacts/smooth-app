@@ -94,10 +94,7 @@
     downloadFlag,
     productType,
   );
-  await task.addToManager(
-    localDatabase,
-    queue: BackgroundTaskQueue.longHaul,
-  );
+  await task.addToManager(localDatabase, queue: BackgroundTaskQueue.longHaul);
 }</code></pre>
 </section>
 

@@ -73,16 +73,15 @@
 Widget build(BuildContext context) {
   return SmoothCard(
     margin: EdgeInsets.zero,
-    padding: contentPadding ??
-        const EdgeInsetsDirectional.only(
-          top: MEDIUM_SPACE,
-        ),
+    padding:
+        contentPadding ?? const EdgeInsetsDirectional.only(top: MEDIUM_SPACE),
     borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-    color: contentBackgroundColor ??
+    color:
+        contentBackgroundColor ??
         (context.darkTheme()
             ? context
-                .extension&lt;SmoothColorsThemeExtension&gt;()
-                .primaryUltraBlack
+                  .extension&lt;SmoothColorsThemeExtension&gt;()
+                  .primaryUltraBlack
             : null),
     child: child,
   );

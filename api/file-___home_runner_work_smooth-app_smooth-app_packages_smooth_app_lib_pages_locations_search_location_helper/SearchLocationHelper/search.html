@@ -89,10 +89,8 @@ void search(
   Navigator.push&lt;void&gt;(
     context,
     MaterialPageRoute&lt;void&gt;(
-      builder: (BuildContext context) =&gt; LocationQueryPage(
-        query: query,
-        editableAppBarTitle: true,
-      ),
+      builder: (BuildContext context) =&gt;
+          LocationQueryPage(query: query, editableAppBarTitle: true),
     ),
   );
 }</code></pre>

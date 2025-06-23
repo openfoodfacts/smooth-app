@@ -71,23 +71,21 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; PriceButton(
-      onPressed: onPressed,
-      iconData: PriceButton.priceIconData,
-      title: &#39;$count&#39;,
-      buttonStyle: ElevatedButton.styleFrom(
-        disabledForegroundColor:
-            onPressed != null ? null : _getForegroundColor(count),
-        disabledBackgroundColor:
-            onPressed != null ? null : _getBackgroundColor(count),
-        foregroundColor:
-            onPressed == null ? null : _getForegroundColor(count),
-        backgroundColor:
-            onPressed == null ? null : _getBackgroundColor(count),
-      ),
-      tooltip: AppLocalizations.of(context).prices_button_count_price(
-        count,
-      ),
-    );</code></pre>
+  onPressed: onPressed,
+  iconData: PriceButton.priceIconData,
+  title: &#39;$count&#39;,
+  buttonStyle: ElevatedButton.styleFrom(
+    disabledForegroundColor: onPressed != null
+        ? null
+        : _getForegroundColor(count),
+    disabledBackgroundColor: onPressed != null
+        ? null
+        : _getBackgroundColor(count),
+    foregroundColor: onPressed == null ? null : _getForegroundColor(count),
+    backgroundColor: onPressed == null ? null : _getBackgroundColor(count),
+  ),
+  tooltip: AppLocalizations.of(context).prices_button_count_price(count),
+);</code></pre>
 </section>
 
 

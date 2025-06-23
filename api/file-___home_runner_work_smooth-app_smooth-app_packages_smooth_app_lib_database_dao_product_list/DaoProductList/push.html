@@ -73,10 +73,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; push(
-  final ProductList productList,
-  final String barcode,
-) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; push(final ProductList productList, final String barcode) async {
   final _BarcodeList? list = await _get(productList);
   final List&lt;String&gt; barcodes;
   if (list == null) {

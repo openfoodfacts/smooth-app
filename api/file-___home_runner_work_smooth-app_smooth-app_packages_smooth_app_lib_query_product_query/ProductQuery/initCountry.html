@@ -67,12 +67,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initCountry(
-  final UserPreferences userPreferences,
-) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initCountry(final UserPreferences userPreferences) async {
   &#47;&#47; not ideal, but we have many contributors monitoring France
   const OpenFoodFactsCountry defaultCountry = OpenFoodFactsCountry.FRANCE;
-  final String? isoCode = userPreferences.userCountryCode ??
+  final String? isoCode =
+      userPreferences.userCountryCode ??
       PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
   final OpenFoodFactsCountry country =
       OpenFoodFactsCountry.fromOffTag(isoCode) ?? defaultCountry;

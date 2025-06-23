@@ -83,8 +83,9 @@ Future&lt;bool&gt; doSomething({
   required final BuildContext context,
   required final Set&lt;String&gt; selectedBarcodes,
 }) async {
-  final OrderedNutrientsCache? cache =
-      await OrderedNutrientsCache.getCache(context);
+  final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
+    context,
+  );
   if (context.mounted) {
     if (cache == null) {
       ScaffoldMessenger.of(context).showSnackBar(

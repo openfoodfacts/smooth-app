@@ -86,7 +86,8 @@
   }
   if (parameters.length % numCols != 0) {
     throw Exception(
-        &#39;Parameter list size (${parameters.length}) cannot be divided by $numCols&#39;);
+      &#39;Parameter list size (${parameters.length}) cannot be divided by $numCols&#39;,
+    );
   }
   final String variables = &#39;?${&#39;,?&#39; * (columnNames.length - 1)}&#39;;
   final int maxSlice = (SQLITE_MAX_VARIABLE_NUMBER ~&#47; numCols) * numCols;

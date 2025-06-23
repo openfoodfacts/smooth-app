@@ -65,11 +65,11 @@
   final String barcode,
   final LocalDatabase localDatabase,
   final PriceModel priceModel,
-)   : _product = null,
-      _categoryTag = null,
-      _categoryName = null,
-      _priceProduct = null,
-      _barcode = barcode {
+) : _product = null,
+    _categoryTag = null,
+    _categoryName = null,
+    _priceProduct = null,
+    _barcode = barcode {
   unawaited(_search(localDatabase, priceModel));
 }</code></pre>
 </section>

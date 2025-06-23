@@ -65,10 +65,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setFlag(
-  final String key,
-  final bool? value,
-) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setFlag(final String key, final bool? value) async {
   value == null
       ? await _sharedPreferences.remove(_getFlagTag(key))
       : await _sharedPreferences.setBool(_getFlagTag(key), value);

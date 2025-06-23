@@ -70,17 +70,16 @@
   final BuildContext context,
   final Product product,
   final bool isLoggedInMandatory,
-) =&gt;
-    Navigator.push(
-      context,
-      MaterialPageRoute&lt;void&gt;(
-        builder: (_) =&gt; ProductImageSwipeableView.imageField(
-          imageField: this,
-          product: product,
-          isLoggedInMandatory: isLoggedInMandatory,
-        ),
-      ),
-    );</code></pre>
+) =&gt; Navigator.push(
+  context,
+  MaterialPageRoute&lt;void&gt;(
+    builder: (_) =&gt; ProductImageSwipeableView.imageField(
+      imageField: this,
+      product: product,
+      isLoggedInMandatory: isLoggedInMandatory,
+    ),
+  ),
+);</code></pre>
 </section>
 
 

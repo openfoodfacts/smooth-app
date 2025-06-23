@@ -65,10 +65,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">bool hasOwnerField(Product product) =&gt;
-    product.getOwnerFieldTimestamp(OwnerField.productField(
-      ProductField.SERVING_SIZE,
-      ProductQuery.getLanguage(),
-    )) !=
+    product.getOwnerFieldTimestamp(
+      OwnerField.productField(
+        ProductField.SERVING_SIZE,
+        ProductQuery.getLanguage(),
+      ),
+    ) !=
     null;</code></pre>
 </section>
 

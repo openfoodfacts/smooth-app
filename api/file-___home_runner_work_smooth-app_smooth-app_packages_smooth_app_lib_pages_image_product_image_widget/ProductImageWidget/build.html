@@ -71,23 +71,22 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension colors =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension colors = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final DateFormat dateFormat =
-      DateFormat.yMd(ProductQuery.getLanguage().offTag);
+  final DateFormat dateFormat = DateFormat.yMd(
+    ProductQuery.getLanguage().offTag,
+  );
 
   final Widget image = SmoothImage(
-    cacheHeight:
-        (squareSize * MediaQuery.devicePixelRatioOf(context)).toInt(),
+    cacheHeight: (squareSize * MediaQuery.devicePixelRatioOf(context))
+        .toInt(),
     width: squareSize,
     height: squareSize,
     imageProvider: NetworkImage(
       productImage.getUrl(
         barcode,
-        uriHelper: ProductQuery.getUriProductHelper(
-          productType: productType,
-        ),
+        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
         imageSize: imageSize,
       ),
     ),
@@ -116,9 +115,7 @@ Widget build(BuildContext context) {
         borderRadius: ANGULAR_BORDER_RADIUS,
         child: Column(
           children: &lt;Widget&gt;[
-            Expanded(
-              child: image,
-            ),
+            Expanded(child: image),
             SizedBox(
               width: double.infinity,
               child: Padding(
@@ -149,7 +146,7 @@ Widget build(BuildContext context) {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

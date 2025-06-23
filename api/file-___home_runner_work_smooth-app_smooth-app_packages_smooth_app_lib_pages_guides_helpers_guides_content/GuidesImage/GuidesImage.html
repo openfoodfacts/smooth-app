@@ -69,11 +69,15 @@
   this.desiredWidthPercent,
   this.desiredHeightPercent,
   super.key,
-})  : assert(caption.length &gt; 0),
-      assert(desiredWidthPercent == null ||
-          desiredWidthPercent &gt;= 0.0 &amp;&amp; desiredWidthPercent &lt;= 1.0),
-      assert(desiredHeightPercent == null ||
-          desiredHeightPercent &gt;= 0.0 &amp;&amp; desiredHeightPercent &lt;= 1.0);</code></pre>
+}) : assert(caption.length &gt; 0),
+     assert(
+       desiredWidthPercent == null ||
+           desiredWidthPercent &gt;= 0.0 &amp;&amp; desiredWidthPercent &lt;= 1.0,
+     ),
+     assert(
+       desiredHeightPercent == null ||
+           desiredHeightPercent &gt;= 0.0 &amp;&amp; desiredHeightPercent &lt;= 1.0,
+     );</code></pre>
 </section>
 
 

@@ -77,10 +77,10 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
 ) async {
   final RobotoffQuestionResult result =
       await RobotoffAPIClient.getProductQuestions(
-    barcode,
-    ProductQuery.getLanguage(),
-    count: count,
-  );
+        barcode,
+        ProductQuery.getLanguage(),
+        count: count,
+      );
   if (result.questions?.isNotEmpty != true) {
     return &lt;RobotoffQuestion&gt;[];
   }

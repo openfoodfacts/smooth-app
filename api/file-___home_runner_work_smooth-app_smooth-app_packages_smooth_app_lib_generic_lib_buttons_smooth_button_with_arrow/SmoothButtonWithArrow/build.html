@@ -71,8 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension theme =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension theme = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   return Align(
     alignment: AlignmentDirectional.centerEnd,
@@ -90,9 +90,7 @@ Widget build(BuildContext context) {
               ),
         ),
         shape: const WidgetStatePropertyAll&lt;OutlinedBorder&gt;(
-          RoundedRectangleBorder(
-            borderRadius: CIRCULAR_BORDER_RADIUS,
-          ),
+          RoundedRectangleBorder(borderRadius: CIRCULAR_BORDER_RADIUS),
         ),
       ),
       child: Row(

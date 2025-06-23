@@ -73,11 +73,8 @@
   final String Function(Product) splitFunction,
 ) async {
   final Map&lt;String, List&lt;String&gt;&gt; result = &lt;String, List&lt;String&gt;&gt;{};
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    _TABLE_PRODUCT,
-    columns: _columns,
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .query(_TABLE_PRODUCT, columns: _columns);
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     final Product product = _getProductFromQueryResult(row);
     final String splitValue = splitFunction(product);

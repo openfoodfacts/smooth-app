@@ -62,12 +62,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const SearchBarIcon({
-  this.icon,
-  this.onTap,
-  this.label,
-  super.key,
-}) : assert(label == null || onTap != null);</code></pre>
+  <pre class="language-dart"><code class="language-dart">const SearchBarIcon({this.icon, this.onTap, this.label, super.key})
+  : assert(label == null || onTap != null);</code></pre>
 </section>
 
 

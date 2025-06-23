@@ -68,10 +68,9 @@
   <pre class="language-dart"><code class="language-dart">static String showUserTitle({
   required final String user,
   required final BuildContext context,
-}) =&gt;
-    user == ProductQuery.getWriteUser().userId
-        ? AppLocalizations.of(context).user_search_prices_title
-        : AppLocalizations.of(context).user_any_search_prices_title;</code></pre>
+}) =&gt; user == ProductQuery.getWriteUser().userId
+    ? AppLocalizations.of(context).user_search_prices_title
+    : AppLocalizations.of(context).user_any_search_prices_title;</code></pre>
 </section>
 
 

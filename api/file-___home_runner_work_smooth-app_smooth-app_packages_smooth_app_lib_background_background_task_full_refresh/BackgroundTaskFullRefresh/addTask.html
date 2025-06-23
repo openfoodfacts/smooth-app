@@ -70,13 +70,8 @@
   required final int pageSize,
 }) async {
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
-  final String uniqueId = await _operationType.getNewKey(
-    localDatabase,
-  );
-  final BackgroundTask task = _getNewTask(
-    uniqueId,
-    pageSize,
-  );
+  final String uniqueId = await _operationType.getNewKey(localDatabase);
+  final BackgroundTask task = _getNewTask(uniqueId, pageSize);
   if (!context.mounted) {
     return;
   }

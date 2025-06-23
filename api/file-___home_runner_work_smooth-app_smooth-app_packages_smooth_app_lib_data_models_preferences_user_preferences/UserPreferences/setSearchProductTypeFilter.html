@@ -66,7 +66,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setSearchProductTypeFilter(final bool visible) async {
   await _sharedPreferences.setBool(
-      _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER, visible);
+    _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER,
+    visible,
+  );
   notifyListeners();
 }</code></pre>
 </section>

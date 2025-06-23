@@ -68,24 +68,24 @@
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showLocationPrices({
   required final int locationId,
   required final BuildContext context,
-}) async =&gt;
-    Navigator.of(context).push(
-      MaterialPageRoute&lt;void&gt;(
-        builder: (BuildContext context) =&gt; PricesPage(
-          GetPricesModel(
-            parameters: GetPricesModel.getStandardPricesParameters()
-              ..locationId = locationId,
-            displayEachLocation: false,
-            uri: OpenPricesAPIClient.getUri(
-              path: &#39;locations&#47;$locationId&#39;,
-              uriHelper: ProductQuery.uriPricesHelper,
-            ),
-            title: AppLocalizations.of(context)
-                .all_search_prices_top_location_single_title,
-          ),
+}) async =&gt; Navigator.of(context).push(
+  MaterialPageRoute&lt;void&gt;(
+    builder: (BuildContext context) =&gt; PricesPage(
+      GetPricesModel(
+        parameters: GetPricesModel.getStandardPricesParameters()
+          ..locationId = locationId,
+        displayEachLocation: false,
+        uri: OpenPricesAPIClient.getUri(
+          path: &#39;locations&#47;$locationId&#39;,
+          uriHelper: ProductQuery.uriPricesHelper,
         ),
+        title: AppLocalizations.of(
+          context,
+        ).all_search_prices_top_location_single_title,
       ),
-    );</code></pre>
+    ),
+  ),
+);</code></pre>
 </section>
 
 

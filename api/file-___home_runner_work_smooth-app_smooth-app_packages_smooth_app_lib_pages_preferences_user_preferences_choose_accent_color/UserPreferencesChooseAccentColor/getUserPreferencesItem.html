@@ -70,10 +70,7 @@
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final Map&lt;String, String&gt; labels = _localizedNames(appLocalizations);
   return UserPreferencesItemSimple(
-    labels: &lt;String&gt;[
-      appLocalizations.select_accent_color,
-      ...labels.values,
-    ],
+    labels: &lt;String&gt;[appLocalizations.select_accent_color, ...labels.values],
     builder: (_) =&gt; const UserPreferencesChooseAccentColor(),
   );
 }</code></pre>

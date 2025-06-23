@@ -73,8 +73,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;void&gt; upload() async {
-  final InsightAnnotation? annotation =
-      InsightAnnotation.fromInt(insightAnnotation);
+  final InsightAnnotation? annotation = InsightAnnotation.fromInt(
+    insightAnnotation,
+  );
   if (annotation == null) {
     &#47;&#47; very unlikely
     return;

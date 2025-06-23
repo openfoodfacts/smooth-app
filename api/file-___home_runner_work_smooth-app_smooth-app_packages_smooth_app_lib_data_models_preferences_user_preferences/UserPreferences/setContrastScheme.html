@@ -66,7 +66,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setContrastScheme(final String contrastLevel) async {
   await _sharedPreferences.setString(
-      _TAG_CURRENT_CONTRAST_MODE, contrastLevel);
+    _TAG_CURRENT_CONTRAST_MODE,
+    contrastLevel,
+  );
   notifyListeners();
 }</code></pre>
 </section>

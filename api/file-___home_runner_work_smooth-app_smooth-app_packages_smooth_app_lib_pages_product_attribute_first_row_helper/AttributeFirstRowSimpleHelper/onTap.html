@@ -70,13 +70,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;void&gt; onTap({
-  required BuildContext context,
-}) {
-  return ProductFieldSimpleEditor(helper).edit(
-    context: context,
-    product: helper.product,
-  );
+Future&lt;void&gt; onTap({required BuildContext context}) {
+  return ProductFieldSimpleEditor(
+    helper,
+  ).edit(context: context, product: helper.product);
 }</code></pre>
 </section>
 

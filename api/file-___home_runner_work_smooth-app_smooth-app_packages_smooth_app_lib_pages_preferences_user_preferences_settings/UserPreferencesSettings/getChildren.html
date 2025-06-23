@@ -90,9 +90,7 @@ List&lt;UserPreferencesItem&gt; getChildren() {
     _getDivider(),
     UserPreferencesImageSource.getUserPreferencesItem(context),
     if (CameraHelper.hasACamera)
-      _getTitle(
-        label: appLocalizations.settings_app_camera,
-      ),
+      _getTitle(label: appLocalizations.settings_app_camera),
     if (CameraHelper.hasACamera)
       UserPreferencesItemSwitch(
         title: appLocalizations.camera_play_sound_title,
@@ -101,9 +99,7 @@ List&lt;UserPreferencesItem&gt; getChildren() {
         onChanged: (final bool value) async =&gt;
             userPreferences.setPlayCameraSound(value),
       ),
-    _getTitle(
-      label: appLocalizations.settings_app_products,
-    ),
+    _getTitle(label: appLocalizations.settings_app_products),
     _getExpandPanel(
       title: appLocalizations.expand_nutrition_facts,
       subtitle: appLocalizations.expand_nutrition_facts_body,
@@ -124,9 +120,7 @@ List&lt;UserPreferencesItem&gt; getChildren() {
           userPreferences.setSearchProductTypeFilter(visible),
     ),
     if (CameraHelper.hasACamera)
-      _getTitle(
-        label: appLocalizations.settings_app_miscellaneous,
-      ),
+      _getTitle(label: appLocalizations.settings_app_miscellaneous),
     if (CameraHelper.hasACamera)
       UserPreferencesItemSwitch(
         title: appLocalizations.app_haptic_feedback_title,

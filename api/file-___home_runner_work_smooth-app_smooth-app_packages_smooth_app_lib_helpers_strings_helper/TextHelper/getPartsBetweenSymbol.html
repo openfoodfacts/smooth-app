@@ -77,32 +77,37 @@
 }) {
   text = text.replaceAll(r&#39;\n&#39;, &#39;\n&#39;);
 
-  final Iterable&lt;RegExpMatch&gt; highlightedParts =
-      RegExp(&#39;$symbol[^$symbol]+$symbol&#39;).allMatches(text);
+  final Iterable&lt;RegExpMatch&gt; highlightedParts = RegExp(
+    &#39;$symbol[^$symbol]+$symbol&#39;,
+  ).allMatches(text);
 
   final List&lt;(String, TextStyle?)&gt; parts = &lt;(String, TextStyle?)&gt;[];
 
   if (highlightedParts.isEmpty) {
     parts.add((text, defaultStyle));
   } else {
-    parts
-        .add((text.substring(0, highlightedParts.first.start), defaultStyle));
+    parts.add((
+      text.substring(0, highlightedParts.first.start),
+      defaultStyle,
+    ));
     for (int i = 0; i != highlightedParts.length; i++) {
       final RegExpMatch subPart = highlightedParts.elementAt(i);
 
-      parts.add(
-        (
-          text.substring(
-              subPart.start + symbolLength, subPart.end - symbolLength),
-          highlightedStyle
+      parts.add((
+        text.substring(
+          subPart.start + symbolLength,
+          subPart.end - symbolLength,
         ),
-      );
+        highlightedStyle,
+      ));
 
       if (i &lt; highlightedParts.length - 1) {
         parts.add((
           text.substring(
-              subPart.end, highlightedParts.elementAt(i + 1).start),
-          defaultStyle
+            subPart.end,
+            highlightedParts.elementAt(i + 1).start,
+          ),
+          defaultStyle,
         ));
       } else if (subPart.end &lt; text.length) {
         parts.add((text.substring(subPart.end, text.length), defaultStyle));

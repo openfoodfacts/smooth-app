@@ -73,11 +73,7 @@ List&lt;StringPair&gt; getAllTerms() {
   final List&lt;StringPair&gt; allTerms = &lt;StringPair&gt;[];
 
   for (final String element in helper.terms) {
-    allTerms.add(
-      StringPair(
-        first: element,
-      ),
-    );
+    allTerms.add(StringPair(first: element));
   }
 
   return allTerms;

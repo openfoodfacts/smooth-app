@@ -74,34 +74,33 @@ Widget getExtraPhotoWidget(
   final BuildContext context,
   final Product product,
   final String title,
-) =&gt;
-    Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: 0,
-        start: SMALL_SPACE,
-        end: SMALL_SPACE,
-        bottom: SMALL_SPACE,
-      ),
-      child: addPanelButton(
-        title,
-        onPressed: () async =&gt; confirmAndUploadNewPicture(
-          context,
-          imageField: ImageField.OTHER,
-          barcode: product.barcode!,
-          productType: product.productType,
-          language: ProductQuery.getLanguage(),
-          &#47;&#47; we&#39;re already logged in if needed
-          isLoggedInMandatory: false,
-        ),
-        leadingIcon: const Icon(Icons.add_a_photo),
-        elevation: const WidgetStatePropertyAll&lt;double&gt;(0.0),
-        padding: const EdgeInsetsDirectional.only(
-          top: SMALL_SPACE,
-          bottom: SMALL_SPACE,
-          start: VERY_SMALL_SPACE,
-        ),
-      ),
-    );</code></pre>
+) =&gt; Padding(
+  padding: const EdgeInsetsDirectional.only(
+    top: 0,
+    start: SMALL_SPACE,
+    end: SMALL_SPACE,
+    bottom: SMALL_SPACE,
+  ),
+  child: addPanelButton(
+    title,
+    onPressed: () async =&gt; confirmAndUploadNewPicture(
+      context,
+      imageField: ImageField.OTHER,
+      barcode: product.barcode!,
+      productType: product.productType,
+      language: ProductQuery.getLanguage(),
+      &#47;&#47; we&#39;re already logged in if needed
+      isLoggedInMandatory: false,
+    ),
+    leadingIcon: const Icon(Icons.add_a_photo),
+    elevation: const WidgetStatePropertyAll&lt;double&gt;(0.0),
+    padding: const EdgeInsetsDirectional.only(
+      top: SMALL_SPACE,
+      bottom: SMALL_SPACE,
+      start: VERY_SMALL_SPACE,
+    ),
+  ),
+);</code></pre>
 </section>
 
 

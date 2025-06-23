@@ -79,18 +79,11 @@
 
   &#47;&#47; We can&#39;t provide a null value to a [BoxConstraints] constructor
   if (minHeight != null &amp;&amp; maxHeight != null) {
-    constraints = BoxConstraints(
-      minHeight: minHeight,
-      maxHeight: maxHeight,
-    );
+    constraints = BoxConstraints(minHeight: minHeight, maxHeight: maxHeight);
   } else if (minHeight != null) {
-    constraints = BoxConstraints(
-      minHeight: minHeight,
-    );
+    constraints = BoxConstraints(minHeight: minHeight);
   } else if (maxHeight != null) {
-    constraints = BoxConstraints(
-      maxHeight: maxHeight,
-    );
+    constraints = BoxConstraints(maxHeight: maxHeight);
   }
 
   return showModalBottomSheet&lt;T&gt;(

@@ -68,10 +68,7 @@
     localDatabase.database.rawInsert(
       &#39;insert into $TABLE($COLUMN_BARCODE, $COLUMN_LAST_ACCESS) &#39;
       &#39;values(?, ?)&#39;,
-      &lt;Object&gt;[
-        barcode,
-        LocalDatabase.nowInMillis(),
-      ],
+      &lt;Object&gt;[barcode, LocalDatabase.nowInMillis()],
     );</code></pre>
 </section>
 

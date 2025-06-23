@@ -76,9 +76,7 @@
   if (page.isOnboardingComplete()) {
     AppNavigator.of(context)
       ..clearStack()
-      ..pushReplacement(
-        AppRoutes.HOME(redraw: true),
-      );
+      ..pushReplacement(AppRoutes.HOME(redraw: true));
   } else {
     final MaterialPageRoute&lt;void&gt; route = MaterialPageRoute&lt;void&gt;(
       builder: (BuildContext context) =&gt; page.getPageWidget(context),

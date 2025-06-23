@@ -72,23 +72,18 @@
   required final Product product,
   final PreferredSizeWidget? bottom,
   final List&lt;Widget&gt;? actions,
-}) =&gt;
-    SmoothAppBar(
-      centerTitle: false,
-      title: Text(
-        title,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
-      subTitle: Text(
-        getProductNameAndBrands(product, AppLocalizations.of(context)),
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
-      actions: actions,
-      bottom: bottom,
-      ignoreSemanticsForSubtitle: true,
-    );</code></pre>
+}) =&gt; SmoothAppBar(
+  centerTitle: false,
+  title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
+  subTitle: Text(
+    getProductNameAndBrands(product, AppLocalizations.of(context)),
+    maxLines: 1,
+    overflow: TextOverflow.ellipsis,
+  ),
+  actions: actions,
+  bottom: bottom,
+  ignoreSemanticsForSubtitle: true,
+);</code></pre>
 </section>
 
 

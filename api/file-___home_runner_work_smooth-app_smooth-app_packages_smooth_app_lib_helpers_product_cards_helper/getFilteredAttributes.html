@@ -91,8 +91,9 @@ dealt with somewhere else.</p>
     if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
       attributesToExcludeIfStatusIsUnknown.add(attributeId);
     }
-    final String importanceId =
-        preferences.getImportanceIdForAttributeId(attributeId);
+    final String importanceId = preferences.getImportanceIdForAttributeId(
+      attributeId,
+    );
     if (importance == importanceId) {
       result.add(attribute);
     }

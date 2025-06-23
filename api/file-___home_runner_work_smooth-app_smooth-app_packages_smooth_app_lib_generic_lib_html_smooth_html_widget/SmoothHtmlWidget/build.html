@@ -76,22 +76,19 @@ Widget build(BuildContext context) {
     textStyle: textStyle,
     customStylesBuilder: (dom.Element element) =&gt;
         element.classes.contains(&#39;unknown_ingredient&#39;)
-            ? &lt;String, String&gt;{
-                &#39;font-weight&#39;: &#39;bold&#39;,
-              }
-            : null,
+        ? &lt;String, String&gt;{&#39;font-weight&#39;: &#39;bold&#39;}
+        : null,
     onTapUrl: (String url) async {
       try {
         await LaunchUrlHelper.launchURL(url);
       } catch (_) {
         if (context.mounted) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
+          final AppLocalizations appLocalizations = AppLocalizations.of(
+            context,
+          );
 
           ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-            SnackBar(
-              content: Text(appLocalizations.link_cant_be_opened),
-            ),
+            SnackBar(content: Text(appLocalizations.link_cant_be_opened)),
           );
         }
       }

@@ -65,8 +65,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;UserPreferencesItem&gt; getItems({bool? collapsed}) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   collapsed ??= _isCollapsed;
   final List&lt;UserPreferencesItem&gt; result = &lt;UserPreferencesItem&gt;[];
   result.add(
@@ -101,13 +101,19 @@
               title: Text(
                 group.name ?? appLocalizations.unknown,
                 style: themeData.textTheme.titleLarge!.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.bold),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               trailing: collapsed!
-                  ? const Icon(Icons.keyboard_arrow_right,
-                      color: Colors.white)
-                  : const Icon(Icons.keyboard_arrow_down,
-                      color: Colors.white),
+                  ? const Icon(
+                      Icons.keyboard_arrow_right,
+                      color: Colors.white,
+                    )
+                  : const Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Colors.white,
+                    ),
             ),
           ),
         ),
@@ -130,17 +136,15 @@
             margin: const EdgeInsetsDirectional.all(LARGE_SPACE),
             child: Text(
               group.warning!,
-              style: TextStyle(
-                color: colorScheme.onError,
-              ),
+              style: TextStyle(color: colorScheme.onError),
             ),
           );
         },
       ),
     );
   }
-  final List&lt;String&gt; excludedAttributeIds =
-      userPreferences.getExcludedAttributeIds();
+  final List&lt;String&gt; excludedAttributeIds = userPreferences
+      .getExcludedAttributeIds();
   for (final Attribute attribute in group.attributes!) {
     if (excludedAttributeIds.contains(attribute.id)) {
       continue;
@@ -154,8 +158,9 @@
           if (attribute.name != null) attribute.name!,
         ],
         builder: (_) =&gt; Padding(
-          padding:
-              const EdgeInsetsDirectional.symmetric(horizontal: LARGE_SPACE),
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: LARGE_SPACE,
+          ),
           child: SmoothCard(
             elevation: 8,
             padding: EdgeInsetsDirectional.zero,
@@ -167,7 +172,8 @@
             child: AttributeButton(
               attribute,
               productPreferences,
-              isFirst: attribute == group.attributes!.first &amp;&amp;
+              isFirst:
+                  attribute == group.attributes!.first &amp;&amp;
                   group.warning == null,
               isLast: attribute == group.attributes!.last,
             ),

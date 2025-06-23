@@ -76,12 +76,10 @@ Future&lt;void&gt; postExecute(
   final bool success,
 ) async {
   await super.postExecute(localDatabase, success);
-  final RobotoffInsightHelper robotoffInsightHelper =
-      RobotoffInsightHelper(localDatabase);
-  await robotoffInsightHelper.cacheInsightAnnotationVoted(
-    barcode,
-    insightId,
+  final RobotoffInsightHelper robotoffInsightHelper = RobotoffInsightHelper(
+    localDatabase,
   );
+  await robotoffInsightHelper.cacheInsightAnnotationVoted(barcode, insightId);
 }</code></pre>
 </section>
 

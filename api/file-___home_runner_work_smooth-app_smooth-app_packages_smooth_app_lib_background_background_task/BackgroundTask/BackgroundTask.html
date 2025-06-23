@@ -67,11 +67,11 @@
   required this.uniqueId,
   required this.stamp,
   final OpenFoodFactsLanguage? language,
-})   &#47;&#47; TODO(monsieurtanuki): don&#39;t store the password in a clear format...
-&#47;&#47; TODO(monsieurtanuki): store the uriProductHelper as well
-: user = jsonEncode(ProductQuery.getWriteUser().toJson()),
-      country = ProductQuery.getCountry().offTag,
-      languageCode = (language ?? ProductQuery.getLanguage()).offTag;</code></pre>
+}) &#47;&#47; TODO(monsieurtanuki): don&#39;t store the password in a clear format...
+  &#47;&#47; TODO(monsieurtanuki): store the uriProductHelper as well
+  : user = jsonEncode(ProductQuery.getWriteUser().toJson()),
+     country = ProductQuery.getCountry().offTag,
+     languageCode = (language ?? ProductQuery.getLanguage()).offTag;</code></pre>
 </section>
 
 

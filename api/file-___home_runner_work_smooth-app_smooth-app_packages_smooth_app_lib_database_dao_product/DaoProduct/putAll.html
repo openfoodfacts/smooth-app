@@ -80,11 +80,8 @@
     product.productType ??= productType;
   }
   await localDatabase.database.transaction(
-    (final Transaction transaction) async =&gt; _bulkReplaceLoop(
-      transaction,
-      products,
-      language,
-    ),
+    (final Transaction transaction) async =&gt;
+        _bulkReplaceLoop(transaction, products, language),
   );
 }</code></pre>
 </section>

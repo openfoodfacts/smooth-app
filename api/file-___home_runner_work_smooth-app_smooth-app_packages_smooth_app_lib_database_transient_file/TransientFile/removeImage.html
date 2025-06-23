@@ -67,9 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void removeImage(
-  final LocalDatabase localDatabase,
-) {
+  <pre class="language-dart"><code class="language-dart">void removeImage(final LocalDatabase localDatabase) {
   _transientFiles.remove(_getImageKey());
   localDatabase.notifyListeners();
 }</code></pre>

@@ -77,10 +77,10 @@
   try {
     final MaybeError&lt;String&gt; token =
         await FolksonomyAPIClient.getAuthenticationToken(
-      username: user.userId,
-      password: user.password,
-      uriHelper: ProductQuery.uriFolksonomyHelper,
-    );
+          username: user.userId,
+          password: user.password,
+          uriHelper: ProductQuery.uriFolksonomyHelper,
+        );
 
     if (token.isError) {
       throw Exception(&#39;Could not get token: ${token.error}&#39;);

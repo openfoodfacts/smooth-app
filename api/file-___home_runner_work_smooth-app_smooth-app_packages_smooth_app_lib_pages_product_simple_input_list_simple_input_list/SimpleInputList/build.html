@@ -71,40 +71,40 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final List&lt;String&gt; localTerms =
-      context.watch&lt;ValueNotifier&lt;List&lt;String&gt;&gt;&gt;().value;
+  final List&lt;String&gt; localTerms = context
+      .watch&lt;ValueNotifier&lt;List&lt;String&gt;&gt;&gt;()
+      .value;
 
   if (!helper.reorderable) {
     return Column(
       children: &lt;Widget&gt;[
-        SimpleInputListSuggestions(
-          (String suggestion) {
-            controller.text = suggestion;
-            onAddItem.call();
-          },
-        ),
+        SimpleInputListSuggestions((String suggestion) {
+          controller.text = suggestion;
+          onAddItem.call();
+        }),
         AnimatedList(
           key: listKey,
           initialItemCount: localTerms.length,
           padding: EdgeInsets.zero,
-          itemBuilder: (
-            BuildContext context,
-            int position,
-            Animation&lt;double&gt; animation,
-          ) {
-            return KeyedSubtree(
-              key: ValueKey&lt;String&gt;(localTerms[position]),
-              child: SizeTransition(
-                sizeFactor: animation,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: SMALL_SPACE,
+          itemBuilder:
+              (
+                BuildContext context,
+                int position,
+                Animation&lt;double&gt; animation,
+              ) {
+                return KeyedSubtree(
+                  key: ValueKey&lt;String&gt;(localTerms[position]),
+                  child: SizeTransition(
+                    sizeFactor: animation,
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.symmetric(
+                        horizontal: SMALL_SPACE,
+                      ),
+                      child: _getItem(context, localTerms, position),
+                    ),
                   ),
-                  child: _getItem(context, localTerms, position),
-                ),
-              ),
-            );
-          },
+                );
+              },
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
         ),

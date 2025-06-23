@@ -93,8 +93,10 @@ TextEditingValue formatEditUpdate(
     text: separatorResult.newText,
     selection: newValue.selection.copyWith(
       baseOffset: math.min(separatorResult.newBasePosition, newTextLength),
-      extentOffset:
-          math.min(separatorResult.newExtentPosition, newTextLength),
+      extentOffset: math.min(
+        separatorResult.newExtentPosition,
+        newTextLength,
+      ),
     ),
   );
 }</code></pre>

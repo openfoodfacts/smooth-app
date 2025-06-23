@@ -71,14 +71,15 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   &#47;&#47;&#47; We can&#39;t use top Padding, so we draw on a canvas
   return CustomPaint(
     painter: _HtmlChipPainter(
-      color:
-          context.lightTheme() ? extension.greyMedium : extension.greyNormal,
+      color: context.lightTheme()
+          ? extension.greyMedium
+          : extension.greyNormal,
       textDirection: Directionality.of(context),
     ),
     child: const SizedBox.square(dimension: 10.0),

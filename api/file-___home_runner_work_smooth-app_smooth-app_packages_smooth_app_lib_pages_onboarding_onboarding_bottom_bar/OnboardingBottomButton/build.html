@@ -71,28 +71,29 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; ConstrainedBox(
-      constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
-      child: ElevatedButton(
-        key: nextKey,
-        onPressed: onPressed,
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(backgroundColor),
-          overlayColor: backgroundColor == Colors.white
-              ? WidgetStateProperty.all&lt;Color&gt;(Theme.of(context).splashColor)
-              : null,
-          shape: WidgetStateProperty.all&lt;RoundedRectangleBorder&gt;(
-            const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40))),
-          ),
-        ),
-        child: Text(
-          label,
-          style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                color: foregroundColor,
-              ),
+  constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
+  child: ElevatedButton(
+    key: nextKey,
+    onPressed: onPressed,
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(backgroundColor),
+      overlayColor: backgroundColor == Colors.white
+          ? WidgetStateProperty.all&lt;Color&gt;(Theme.of(context).splashColor)
+          : null,
+      shape: WidgetStateProperty.all&lt;RoundedRectangleBorder&gt;(
+        const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(40)),
         ),
       ),
-    );</code></pre>
+    ),
+    child: Text(
+      label,
+      style: Theme.of(
+        context,
+      ).textTheme.displaySmall?.copyWith(color: foregroundColor),
+    ),
+  ),
+);</code></pre>
 </section>
 
 

@@ -93,20 +93,14 @@
     child = Column(
       mainAxisSize: MainAxisSize.min,
       children: &lt;Widget&gt;[
-        _ProductSmoothCardTitle(
-          title: title,
-          padding: titlePadding,
-        ),
+        _ProductSmoothCardTitle(title: title, padding: titlePadding),
         body,
       ],
     );
   } else if (header != null) {
     child = Column(
       mainAxisSize: MainAxisSize.min,
-      children: &lt;Widget&gt;[
-        header,
-        body,
-      ],
+      children: &lt;Widget&gt;[header, body],
     );
   } else {
     child = body;

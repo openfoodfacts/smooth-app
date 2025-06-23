@@ -69,10 +69,7 @@
     return _categoryName;
   }
   if (_product != null) {
-    return getProductNameAndBrands(
-      _product!,
-      appLocalizations,
-    );
+    return getProductNameAndBrands(_product!, appLocalizations);
   }
   if (_priceProduct != null) {
     return _priceProduct.name ?? _priceProduct.code;

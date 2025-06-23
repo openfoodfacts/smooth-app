@@ -77,18 +77,21 @@ Widget build(BuildContext context) {
       barcode,
     ),
     child: Consumer&lt;_ProductUserListsProvider&gt;(
-      builder: (
-        final BuildContext context,
-        final _ProductUserListsProvider productUserListsProvider,
-        final Widget? child,
-      ) {
-        return switch (productUserListsProvider.value) {
-          _ProductUserListsLoadingState _ =&gt; const _AddToProductListLoading(),
-          _ProductUserListsEmptyState _ =&gt;
-            const _AddToProductListNoListAvailable(),
-          _ProductUserListsWithState _ =&gt; const _AddToProductListWithLists(),
-        };
-      },
+      builder:
+          (
+            final BuildContext context,
+            final _ProductUserListsProvider productUserListsProvider,
+            final Widget? child,
+          ) {
+            return switch (productUserListsProvider.value) {
+              _ProductUserListsLoadingState _ =&gt;
+                const _AddToProductListLoading(),
+              _ProductUserListsEmptyState _ =&gt;
+                const _AddToProductListNoListAvailable(),
+              _ProductUserListsWithState _ =&gt;
+                const _AddToProductListWithLists(),
+            };
+          },
     ),
   );
 }</code></pre>

@@ -69,10 +69,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String replaceSeparator(String newTextValue) {
   if (newTextValue.contains(_separatorToReplace)) {
-    return newTextValue.replaceAll(
-      _separatorToReplace,
-      _decimalSeparator,
-    );
+    return newTextValue.replaceAll(_separatorToReplace, _decimalSeparator);
   } else {
     return newTextValue;
   }

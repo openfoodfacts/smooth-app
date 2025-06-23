@@ -72,18 +72,10 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   return Padding(
-    padding: margin ??
-        const EdgeInsets.symmetric(
-          horizontal: LARGE_SPACE,
-        ),
+    padding: margin ?? const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
     child: CustomPaint(
-      size: const Size(
-        double.infinity,
-        1.0,
-      ),
-      painter: DashedLinePainter(
-        color: Theme.of(context).dividerColor,
-      ),
+      size: const Size(double.infinity, 1.0),
+      painter: DashedLinePainter(color: Theme.of(context).dividerColor),
     ),
   );
 }</code></pre>

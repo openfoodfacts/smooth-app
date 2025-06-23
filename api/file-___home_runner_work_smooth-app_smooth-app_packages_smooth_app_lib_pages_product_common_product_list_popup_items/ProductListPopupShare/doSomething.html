@@ -86,8 +86,7 @@ Future&lt;ProductList?&gt; doSomething({
   final String? url = (await _getFirstUrl(
     productList: productList,
     localDatabase: localDatabase,
-  ))
-      ?.toString();
+  ))?.toString();
   if (url != null) {
     AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
     unawaited(

@@ -75,8 +75,9 @@ Widget build(BuildContext context) {
     enabled: enabled,
     child: Hero(
       tag: tag ?? &#39;&#39;,
-      flightShuttleBuilder:
-          onAnimationEnded == null ? null : _flightShuttleBuilder,
+      flightShuttleBuilder: onAnimationEnded == null
+          ? null
+          : _flightShuttleBuilder,
       child: child,
     ),
   );

@@ -70,10 +70,9 @@
   final String barcodesString = barcodes.join(&#39;,&#39;);
 
   return UriHelper.replaceSubdomain(
-    ProductQuery.getUriProductHelper(productType: productType).getUri(
-      path: &#39;products&#47;$barcodesString&#39;,
-      addUserAgentParameters: false,
-    ),
+    ProductQuery.getUriProductHelper(
+      productType: productType,
+    ).getUri(path: &#39;products&#47;$barcodesString&#39;, addUserAgentParameters: false),
     language: OpenFoodAPIConfiguration.globalLanguages?.first,
   );
 }</code></pre>

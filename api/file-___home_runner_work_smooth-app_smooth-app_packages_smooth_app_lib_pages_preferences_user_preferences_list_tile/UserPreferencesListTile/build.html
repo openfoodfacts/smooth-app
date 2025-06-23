@@ -81,7 +81,8 @@ Widget build(BuildContext context) {
     ),
     selected: selected ?? false,
     selectedTileColor: selectedColor,
-    contentPadding: contentPadding ??
+    contentPadding:
+        contentPadding ??
         EdgeInsets.symmetric(
           horizontal: LARGE_SPACE,
           vertical: subtitle != null ? VERY_SMALL_SPACE : 2.0,
@@ -97,8 +98,9 @@ Widget build(BuildContext context) {
     return Semantics(
       label: titleAsText,
       hint: externalLink == true
-          ? AppLocalizations.of(context)
-              .user_preferences_item_accessibility_hint
+          ? AppLocalizations.of(
+              context,
+            ).user_preferences_item_accessibility_hint
           : null,
       button: true,
       excludeSemantics: true,

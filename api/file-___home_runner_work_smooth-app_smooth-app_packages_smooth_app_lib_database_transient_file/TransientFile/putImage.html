@@ -68,10 +68,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void putImage(
-  final LocalDatabase localDatabase,
-  final File file,
-) {
+  <pre class="language-dart"><code class="language-dart">void putImage(final LocalDatabase localDatabase, final File file) {
   _transientFiles[_getImageKey()] = file.path;
   localDatabase.notifyListeners();
 }</code></pre>

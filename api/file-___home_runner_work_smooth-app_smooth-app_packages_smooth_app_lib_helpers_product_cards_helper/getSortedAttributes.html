@@ -84,7 +84,7 @@
   }
   final Map&lt;String, List&lt;Attribute&gt;&gt; mandatoryAttributesByGroup =
       &lt;String, List&lt;Attribute&gt;&gt;{};
-&#47;&#47; collecting all the mandatory attributes, by group
+  &#47;&#47; collecting all the mandatory attributes, by group
   for (final AttributeGroup attributeGroup in product.attributeGroups!) {
     mandatoryAttributesByGroup[attributeGroup.id!] = getFilteredAttributes(
       attributeGroup,
@@ -95,7 +95,7 @@
     );
   }
 
-&#47;&#47; now ordering by attribute group order
+  &#47;&#47; now ordering by attribute group order
   for (final String attributeGroupId in attributeGroupOrder) {
     final List&lt;Attribute&gt;? attributes =
         mandatoryAttributesByGroup[attributeGroupId];

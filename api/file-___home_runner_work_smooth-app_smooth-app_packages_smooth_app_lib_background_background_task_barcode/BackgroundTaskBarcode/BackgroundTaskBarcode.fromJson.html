@@ -60,12 +60,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">BackgroundTaskBarcode.fromJson(super.json)
-    : barcode = json[_jsonTagBarcode] as String,
-      productType =
-          ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
-              &#47;&#47; for legacy reason (not refreshed products = no product type)
-              ProductType.food,
-      super.fromJson();</code></pre>
+  : barcode = json[_jsonTagBarcode] as String,
+    productType =
+        ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
+        &#47;&#47; for legacy reason (not refreshed products = no product type)
+        ProductType.food,
+    super.fromJson();</code></pre>
 </section>
 
 

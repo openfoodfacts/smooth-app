@@ -108,10 +108,9 @@ Widget build(BuildContext context) {
                 padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
                 child: Text(
                   selected.getFullName(),
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall
-                      ?.merge(textStyle),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.displaySmall?.merge(textStyle),
                 ),
               ),
             ),

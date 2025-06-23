@@ -71,17 +71,17 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; SmoothBrightnessOverride(
-      brightness: Brightness.dark,
-      child: KnowledgePanelPageTemplate(
-        headerTitle: AppLocalizations.of(context).healthCardUtility,
-        page: OnboardingPage.HEALTH_CARD_EXAMPLE,
-        panelId: &#39;health_card&#39;,
-        localDatabase: _localDatabase,
-        backgroundColor: backgroundColor,
-        svgAsset: &#39;assets&#47;onboarding&#47;health.svg&#39;,
-        nextKey: const Key(&#39;nextAfterHealth&#39;),
-      ),
-    );</code></pre>
+  brightness: Brightness.dark,
+  child: KnowledgePanelPageTemplate(
+    headerTitle: AppLocalizations.of(context).healthCardUtility,
+    page: OnboardingPage.HEALTH_CARD_EXAMPLE,
+    panelId: &#39;health_card&#39;,
+    localDatabase: _localDatabase,
+    backgroundColor: backgroundColor,
+    svgAsset: &#39;assets&#47;onboarding&#47;health.svg&#39;,
+    nextKey: const Key(&#39;nextAfterHealth&#39;),
+  ),
+);</code></pre>
 </section>
 
 

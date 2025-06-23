@@ -64,8 +64,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; openAppDetails() {
-  assert(impls.isNotEmpty,
-      &#39;Please attach an [AppStore] before calling this method!&#39;);
+  assert(
+    impls.isNotEmpty,
+    &#39;Please attach an [AppStore] before calling this method!&#39;,
+  );
   return impls.first.openAppDetails();
 }</code></pre>
 </section>

@@ -71,8 +71,10 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 double widgetHeight(BuildContext context) {
-  return math.max(MediaQuery.textScalerOf(context).scale(17.0),
-          suffix is Icon || prefix is Icon ? 20.0 : 0.0) +
+  return math.max(
+        MediaQuery.textScalerOf(context).scale(17.0),
+        suffix is Icon || prefix is Icon ? 20.0 : 0.0,
+      ) +
       _padding.vertical;
 }</code></pre>
 </section>

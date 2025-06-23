@@ -83,10 +83,7 @@
     uniqueId,
     productType,
   );
-  await task.addToManager(
-    localDatabase,
-    queue: BackgroundTaskQueue.fast,
-  );
+  await task.addToManager(localDatabase, queue: BackgroundTaskQueue.fast);
 }</code></pre>
 </section>
 

@@ -64,13 +64,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setProductPageTabs(
-  final List&lt;String&gt; value,
-) async {
-  await _sharedPreferences.setStringList(
-    _TAG_PRODUCT_PAGE_TABS,
-    value,
-  );
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setProductPageTabs(final List&lt;String&gt; value) async {
+  await _sharedPreferences.setStringList(_TAG_PRODUCT_PAGE_TABS, value);
   notifyListeners();
 }</code></pre>
 </section>

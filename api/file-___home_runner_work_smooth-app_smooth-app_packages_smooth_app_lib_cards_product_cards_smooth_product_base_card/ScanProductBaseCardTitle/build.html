@@ -76,14 +76,15 @@ Widget build(BuildContext context) {
   return SizedBox(
     width: double.infinity,
     child: Padding(
-      padding: EdgeInsetsDirectional.only(
-        bottom: dense ? SMALL_SPACE : MEDIUM_SPACE,
-      ).copyWith(
-        top: padding?.top,
-        bottom: padding?.bottom,
-        start: padding?.start,
-        end: padding?.end,
-      ),
+      padding:
+          EdgeInsetsDirectional.only(
+            bottom: dense ? SMALL_SPACE : MEDIUM_SPACE,
+          ).copyWith(
+            top: padding?.top,
+            bottom: padding?.bottom,
+            start: padding?.start,
+            end: padding?.end,
+          ),
       child: TextWithUnderlinedParts(
         text: title,
         textStyle: const TextStyle(

@@ -84,12 +84,14 @@ Widget build(BuildContext context) {
             color: color,
             radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
             shadowElevation:
-                SmoothCardWithRoundedHeaderTopShadowProvider.of(context)
-                        ?.shadow ??
-                    0.0,
+                SmoothCardWithRoundedHeaderTopShadowProvider.of(
+                  context,
+                )?.shadow ??
+                0.0,
           ),
           child: Padding(
-            padding: titlePadding ??
+            padding:
+                titlePadding ??
                 (trailing != null
                     ? const EdgeInsetsDirectional.only(
                         top: 2.0,
@@ -115,7 +117,8 @@ Widget build(BuildContext context) {
                         shape: BoxShape.circle,
                       ),
                       child: Padding(
-                        padding: leadingPadding ??
+                        padding:
+                            leadingPadding ??
                             const EdgeInsetsDirectional.all(6.0),
                         child: leading,
                       ),
@@ -127,11 +130,10 @@ Widget build(BuildContext context) {
                     title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: (titleTextStyle ??
-                            Theme.of(context).textTheme.displaySmall)
-                        ?.copyWith(
-                      color: Colors.white,
-                    ),
+                    style:
+                        (titleTextStyle ??
+                                Theme.of(context).textTheme.displaySmall)
+                            ?.copyWith(color: Colors.white),
                   ),
                 ),
                 if (trailing != null) ...&lt;Widget&gt;[

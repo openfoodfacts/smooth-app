@@ -63,8 +63,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@immutable
-void dismissSelectedItem() {
+  <pre class="language-dart"><code class="language-dart">void dismissSelectedItem() {
   if (value is PreferencesSelectorEditingState) {
     value = (value as PreferencesSelectorEditingState&lt;T&gt;).toLoadedState();
   }

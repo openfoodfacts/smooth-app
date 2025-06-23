@@ -68,13 +68,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; getCount(final String work) async {
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    _table,
-    columns: &lt;String&gt;[&#39;count(1) as my_count&#39;],
-    where: &#39;$_columnWork = ?&#39;,
-    whereArgs: &lt;String&gt;[work],
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .query(
+        _table,
+        columns: &lt;String&gt;[&#39;count(1) as my_count&#39;],
+        where: &#39;$_columnWork = ?&#39;,
+        whereArgs: &lt;String&gt;[work],
+      );
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     return row[&#39;my_count&#39;] as int;
   }

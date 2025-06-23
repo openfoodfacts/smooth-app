@@ -74,7 +74,8 @@ Widget build(BuildContext context) {
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final List&lt;String&gt; order =
       ReorderableKnowledgePanelPage.getOrderedKnowledgePanels(
-          userPreferences);
+        userPreferences,
+      );
   final List&lt;Widget&gt; children = &lt;Widget&gt;[];
   for (final String panelId in order) {
     children.add(

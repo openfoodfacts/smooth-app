@@ -123,18 +123,16 @@
   }
   if (latestProduct != null) {
     &#47;&#47; very likely
-    rawImages = getRawProductImages(
-      latestProduct,
-      ImageSize.DISPLAY,
-    );
+    rawImages = getRawProductImages(latestProduct, ImageSize.DISPLAY);
   }
 
   if (rawImages.isEmpty) {
     await showDialog&lt;void&gt;(
       context: context,
       builder: (BuildContext context) =&gt; SmoothAlertDialog(
-        body:
-            Text(appLocalizations.edit_photo_select_existing_downloaded_none),
+        body: Text(
+          appLocalizations.edit_photo_select_existing_downloaded_none,
+        ),
         actionsAxis: Axis.vertical,
         positiveAction: SmoothActionButton(
           text: appLocalizations.okay,

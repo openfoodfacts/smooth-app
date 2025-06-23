@@ -66,12 +66,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;ProductLanguageWithState&gt; productLanguages(Product product) {
   return getProductImageLanguages(product, imageField)
-      .map((OpenFoodFactsLanguage l) =&gt; ProductLanguageWithState(
-            language: l,
-            state: languagesWithText.contains(l)
-                ? OpenFoodFactsLanguageState.normal
-                : OpenFoodFactsLanguageState.warning,
-          ))
+      .map(
+        (OpenFoodFactsLanguage l) =&gt; ProductLanguageWithState(
+          language: l,
+          state: languagesWithText.contains(l)
+              ? OpenFoodFactsLanguageState.normal
+              : OpenFoodFactsLanguageState.warning,
+        ),
+      )
       .toList(growable: false);
 }</code></pre>
 </section>

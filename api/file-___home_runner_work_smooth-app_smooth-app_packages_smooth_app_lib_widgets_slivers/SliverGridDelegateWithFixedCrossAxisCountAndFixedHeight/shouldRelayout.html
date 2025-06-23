@@ -71,7 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 bool shouldRelayout(
-    SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight oldDelegate) {
+  SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight oldDelegate,
+) {
   return oldDelegate.crossAxisCount != crossAxisCount ||
       oldDelegate.mainAxisSpacing != mainAxisSpacing ||
       oldDelegate.crossAxisSpacing != crossAxisSpacing ||

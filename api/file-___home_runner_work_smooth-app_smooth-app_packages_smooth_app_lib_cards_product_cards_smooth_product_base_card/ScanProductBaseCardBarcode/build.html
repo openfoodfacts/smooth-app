@@ -71,21 +71,22 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension theme =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension theme = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
   final bool dense = context.read&lt;ScanCardDensity&gt;() == ScanCardDensity.DENSE;
 
   return Padding(
-    padding: EdgeInsetsDirectional.only(
-      top: dense ? SMALL_SPACE : MEDIUM_SPACE,
-      bottom: dense ? BALANCED_SPACE : LARGE_SPACE * 2,
-    ).copyWith(
-      top: padding?.top,
-      bottom: padding?.bottom,
-      start: padding?.start,
-      end: padding?.end,
-    ),
+    padding:
+        EdgeInsetsDirectional.only(
+          top: dense ? SMALL_SPACE : MEDIUM_SPACE,
+          bottom: dense ? BALANCED_SPACE : LARGE_SPACE * 2,
+        ).copyWith(
+          top: padding?.top,
+          bottom: padding?.bottom,
+          start: padding?.start,
+          end: padding?.end,
+        ),
     child: DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: ANGULAR_BORDER_RADIUS,
@@ -93,9 +94,7 @@ Widget build(BuildContext context) {
       ),
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: dense ? 75.0 : 100.0,
-          ),
+          constraints: BoxConstraints(minHeight: dense ? 75.0 : 100.0),
           child: SmoothBarcodeWidget(
             height: height ?? 100.0,
             padding: EdgeInsetsDirectional.symmetric(

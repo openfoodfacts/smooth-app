@@ -96,7 +96,7 @@ Widget build(BuildContext context) {
                       constraints: BoxConstraints(
                         minHeight:
                             themeData.textTheme.headlineMedium!.fontSize! *
-                                2.0,
+                            2.0,
                       ),
                       child: Align(
                         alignment: AlignmentDirectional.centerStart,
@@ -120,7 +120,7 @@ Widget build(BuildContext context) {
                       style: themeData.textTheme.bodyMedium,
                     ),
                     const Spacer(),
-                    const _SmoothProductItemScores()
+                    const _SmoothProductItemScores(),
                   ],
                 ),
               ),
@@ -146,20 +146,16 @@ Widget build(BuildContext context) {
 
   return MultiProvider(
     providers: &lt;SingleChildWidget&gt;[
-      Provider&lt;Product&gt;(
-        create: (_) =&gt; product,
-      ),
+      Provider&lt;Product&gt;(create: (_) =&gt; product),
       Provider&lt;String&gt;.value(value: heroTag),
     ],
     child: InkWell(
-      onTap: onTap ??
+      onTap:
+          onTap ??
           () =&gt; AppNavigator.of(context).push(
-                AppRoutes.PRODUCT(
-                  product.barcode!,
-                  heroTag: heroTag,
-                ),
-                extra: product,
-              ),
+            AppRoutes.PRODUCT(product.barcode!, heroTag: heroTag),
+            extra: product,
+          ),
       onLongPress: () =&gt; onLongPress?.call(),
       child: child,
     ),

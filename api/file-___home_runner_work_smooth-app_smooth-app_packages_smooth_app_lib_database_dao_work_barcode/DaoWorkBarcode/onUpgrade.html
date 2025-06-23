@@ -72,12 +72,14 @@
   final int newVersion,
 ) async {
   if (oldVersion &lt; 3) {
-    await db.execute(&#39;create table $_table(&#39;
-        &#39;$_columnWork TEXT NOT NULL&#39;
-        &#39;,$_columnBarcode TEXT NOT NULL&#39;
-        &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
-        &#39;,PRIMARY KEY($_columnWork,$_columnBarcode) on conflict replace&#39;
-        &#39;)&#39;);
+    await db.execute(
+      &#39;create table $_table(&#39;
+      &#39;$_columnWork TEXT NOT NULL&#39;
+      &#39;,$_columnBarcode TEXT NOT NULL&#39;
+      &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
+      &#39;,PRIMARY KEY($_columnWork,$_columnBarcode) on conflict replace&#39;
+      &#39;)&#39;,
+    );
   }
 }</code></pre>
 </section>

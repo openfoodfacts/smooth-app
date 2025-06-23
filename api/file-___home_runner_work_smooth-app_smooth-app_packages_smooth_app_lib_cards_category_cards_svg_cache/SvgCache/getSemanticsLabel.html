@@ -83,8 +83,10 @@
     &#39;nova-group-3.svg&#39; =&gt; localizations.nova_group_3,
     &#39;nova-group-4.svg&#39; =&gt; localizations.nova_group_4,
     &#39;nova-group-unknown.svg&#39; =&gt; localizations.nova_group_unknown,
-    String _ when fileName.startsWith(&#39;nutriscore-&#39;) =&gt;
-      _extractNutriScore(localizations, fileName),
+    String _ when fileName.startsWith(&#39;nutriscore-&#39;) =&gt; _extractNutriScore(
+      localizations,
+      fileName,
+    ),
     _ =&gt; null,
   };
 }</code></pre>

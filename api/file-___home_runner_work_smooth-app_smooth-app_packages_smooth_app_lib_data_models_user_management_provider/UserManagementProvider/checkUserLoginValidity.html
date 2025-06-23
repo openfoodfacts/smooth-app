@@ -74,10 +74,7 @@ If not, the user is logged out</p>
   }
   final User user = ProductQuery.getWriteUser();
   final LoginResult loginResult = await LoginResult.getLoginResult(
-    User(
-      userId: user.userId,
-      password: user.password,
-    ),
+    User(userId: user.userId, password: user.password),
     preferences,
   );
 

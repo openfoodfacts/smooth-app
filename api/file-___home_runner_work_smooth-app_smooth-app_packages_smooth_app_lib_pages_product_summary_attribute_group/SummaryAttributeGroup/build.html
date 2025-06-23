@@ -82,13 +82,8 @@ Widget build(BuildContext context) {
         Align(
           alignment: AlignmentDirectional.topStart,
           child: attributeChips.length == 1
-              ? SizedBox(
-                  width: double.infinity,
-                  child: attributeChips.first,
-                )
-              : Wrap(
-                  children: attributeChips,
-                ),
+              ? SizedBox(width: double.infinity, child: attributeChips.first)
+              : Wrap(children: attributeChips),
         ),
       ],
     ),

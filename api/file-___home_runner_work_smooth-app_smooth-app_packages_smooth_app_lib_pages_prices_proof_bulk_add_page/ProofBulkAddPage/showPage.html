@@ -64,9 +64,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showPage({
-  required final BuildContext context,
-}) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showPage({required final BuildContext context}) async {
   final PriceModel? priceModel = await _getPriceModel(context: context);
   if (priceModel == null) {
     return;

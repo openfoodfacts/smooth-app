@@ -89,23 +89,19 @@ Widget build(BuildContext context) {
           ),
         ),
       ),
-      icon: const Icon(
-        Icons.bolt,
-        color: Colors.amber,
-      ),
+      icon: const Icon(Icons.bolt, color: Colors.amber),
       onPressed: () async =&gt;
           Navigator.of(context, rootNavigator: true).push&lt;void&gt;(
-        MaterialPageRoute&lt;void&gt;(
-          builder: (BuildContext context) =&gt; AddNewProductPage.fromProduct(
-            product,
-            isLoggedInMandatory: isLoggedInMandatory,
+            MaterialPageRoute&lt;void&gt;(
+              builder: (BuildContext context) =&gt;
+                  AddNewProductPage.fromProduct(
+                    product,
+                    isLoggedInMandatory: isLoggedInMandatory,
+                  ),
+            ),
           ),
-        ),
-      ),
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all&lt;Color&gt;(
-          colorScheme.primary,
-        ),
+        backgroundColor: WidgetStateProperty.all&lt;Color&gt;(colorScheme.primary),
         foregroundColor: WidgetStateProperty.all&lt;Color&gt;(
           colorScheme.onPrimary,
         ),

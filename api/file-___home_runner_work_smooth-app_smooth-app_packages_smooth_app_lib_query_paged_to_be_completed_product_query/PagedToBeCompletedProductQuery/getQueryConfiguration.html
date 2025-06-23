@@ -78,9 +78,7 @@ AbstractQueryConfiguration getQueryConfiguration() =&gt;
         PageSize(size: pageSize),
         PageNumber(page: pageNumber),
         const StatesTagsParameter(
-          map: &lt;ProductState, bool&gt;{
-            ProductState.CATEGORIES_COMPLETED: false,
-          },
+          map: &lt;ProductState, bool&gt;{ProductState.CATEGORIES_COMPLETED: false},
         ),
         const SortBy(option: SortOption.EDIT),
       ],

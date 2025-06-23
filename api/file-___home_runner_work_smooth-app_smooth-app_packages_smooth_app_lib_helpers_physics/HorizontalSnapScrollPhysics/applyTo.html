@@ -72,7 +72,9 @@
   <pre class="language-dart"><code class="language-dart">@override
 HorizontalSnapScrollPhysics applyTo(ScrollPhysics? ancestor) {
   return HorizontalSnapScrollPhysics(
-      parent: buildParent(ancestor), snapSize: snapSize);
+    parent: buildParent(ancestor),
+    snapSize: snapSize,
+  );
 }</code></pre>
 </section>
 

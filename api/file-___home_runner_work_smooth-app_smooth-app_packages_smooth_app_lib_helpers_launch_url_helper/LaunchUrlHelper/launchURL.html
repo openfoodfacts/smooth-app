@@ -68,16 +68,14 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; launchURL(
-  String url, {
-  LaunchMode? mode,
-}) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; launchURL(String url, {LaunchMode? mode}) async {
   AnalyticsHelper.trackOutlink(url: url);
 
   try {
     await launchUrl(
       Uri.parse(url),
-      mode: mode ??
+      mode:
+          mode ??
           (Platform.isAndroid
               ? LaunchMode.externalApplication
               : LaunchMode.platformDefault),

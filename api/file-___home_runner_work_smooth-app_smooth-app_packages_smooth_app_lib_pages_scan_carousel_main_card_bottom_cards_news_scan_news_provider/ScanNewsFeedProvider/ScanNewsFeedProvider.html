@@ -60,9 +60,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">ScanNewsFeedProvider(BuildContext context)
-    : _newsFeedProvider = context.read&lt;AppNewsProvider&gt;(),
-      _userPreferences = context.read&lt;UserPreferences&gt;(),
-      super(const ScanTagLineStateLoading()) {
+  : _newsFeedProvider = context.read&lt;AppNewsProvider&gt;(),
+    _userPreferences = context.read&lt;UserPreferences&gt;(),
+    super(const ScanTagLineStateLoading()) {
   _newsFeedProvider.addListener(_onNewsFeedStateChanged);
   &#47;&#47; Refresh with the current state
   _onNewsFeedStateChanged();

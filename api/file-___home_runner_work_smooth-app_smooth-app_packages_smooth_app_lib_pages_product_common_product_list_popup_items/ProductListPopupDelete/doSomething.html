@@ -81,9 +81,9 @@ Future&lt;ProductList?&gt; doSomething({
   required final LocalDatabase localDatabase,
   required final BuildContext context,
 }) async {
-  final bool deleted =
-      await ProductListUserDialogHelper(DaoProductList(localDatabase))
-          .showDeleteUserListDialog(context, productList);
+  final bool deleted = await ProductListUserDialogHelper(
+    DaoProductList(localDatabase),
+  ).showDeleteUserListDialog(context, productList);
   return deleted ? null : productList;
 }</code></pre>
 </section>

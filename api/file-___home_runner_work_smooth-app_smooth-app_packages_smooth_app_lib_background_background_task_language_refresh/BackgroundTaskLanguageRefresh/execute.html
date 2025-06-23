@@ -84,21 +84,21 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
   }
   final SearchResult searchResult =
       await SearchProductsManager.searchProducts(
-    getUser(),
-    ProductSearchQueryConfiguration(
-      fields: ProductQuery.fields,
-      parametersList: &lt;Parameter&gt;[
-        const PageSize(size: _pageSize),
-        const PageNumber(page: 1),
-        BarcodeParameter.list(barcodes),
-      ],
-      language: language,
-      country: ProductQuery.getCountry(),
-      version: ProductQuery.productQueryVersion,
-    ),
-    uriHelper: _uriProductHelper,
-    type: SearchProductsType.background,
-  );
+        getUser(),
+        ProductSearchQueryConfiguration(
+          fields: ProductQuery.fields,
+          parametersList: &lt;Parameter&gt;[
+            const PageSize(size: _pageSize),
+            const PageNumber(page: 1),
+            BarcodeParameter.list(barcodes),
+          ],
+          language: language,
+          country: ProductQuery.getCountry(),
+          version: ProductQuery.productQueryVersion,
+        ),
+        uriHelper: _uriProductHelper,
+        type: SearchProductsType.background,
+      );
   if (searchResult.products == null || searchResult.count == null) {
     throw Exception(&#39;Cannot refresh language&#39;);
   }

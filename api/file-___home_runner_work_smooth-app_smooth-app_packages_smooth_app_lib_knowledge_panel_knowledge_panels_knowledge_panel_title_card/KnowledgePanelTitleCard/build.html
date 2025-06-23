@@ -75,12 +75,14 @@ Widget build(BuildContext context) {
   Color? colorFromEvaluation;
   IconData? iconData;
   if (userPreferences.getFlag(
-          UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji) ??
+        UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
+      ) ??
       false) {
     iconData = _getIconDataFromEvaluation(evaluation);
   }
   if (!(userPreferences.getFlag(
-          UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
+        UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
+      ) ??
       false)) {
     if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
       if (context.darkTheme()) {
@@ -108,9 +110,7 @@ Widget build(BuildContext context) {
           ),
         ),
       ),
-      const Padding(
-        padding: EdgeInsetsDirectional.only(start: SMALL_SPACE),
-      ),
+      const Padding(padding: EdgeInsetsDirectional.only(start: SMALL_SPACE)),
       if (iconData != null)
         Padding(
           padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
@@ -152,8 +152,8 @@ Widget build(BuildContext context) {
                           fontSize: hasSubtitle ? 15.5 : 15.0,
                           fontWeight: hasSubtitle
                               ? isClickable
-                                  ? FontWeight.w600
-                                  : FontWeight.bold
+                                    ? FontWeight.w600
+                                    : FontWeight.bold
                               : FontWeight.normal,
                         ),
                       ),
@@ -169,9 +169,7 @@ Widget build(BuildContext context) {
                             knowledgePanelTitleElement.subtitle!,
                             style: WellSpacedTextHelper
                                 .TEXT_STYLE_WITH_WELL_SPACED
-                                .copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
+                                .copyWith(fontWeight: FontWeight.w500),
                           ).selectable(isSelectable: !isClickable),
                         ),
                       ),

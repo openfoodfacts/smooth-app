@@ -71,24 +71,27 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Color backgroundColor = this.backgroundColor ??
+  final Color backgroundColor =
+      this.backgroundColor ??
       context.extension&lt;SmoothColorsThemeExtension&gt;().secondaryNormal;
 
   return RichText(
     textScaler: MediaQuery.textScalerOf(context),
     text: TextSpan(
-      children: _extractChunks().map(((String text, bool highlighted) el) {
-        if (el.$2) {
-          return _createSpan(
-            el.$1,
-            bubblePadding,
-            bubbleTextStyle ?? textStyle?.merge(bubbleTextStyle),
-            backgroundColor,
-          );
-        } else {
-          return TextSpan(text: el.$1);
-        }
-      }).toList(growable: false),
+      children: _extractChunks()
+          .map(((String text, bool highlighted) el) {
+            if (el.$2) {
+              return _createSpan(
+                el.$1,
+                bubblePadding,
+                bubbleTextStyle ?? textStyle?.merge(bubbleTextStyle),
+                backgroundColor,
+              );
+            } else {
+              return TextSpan(text: el.$1);
+            }
+          })
+          .toList(growable: false),
       style: DefaultTextStyle.of(context).style.merge(textStyle),
     ),
     textAlign: textAlign ?? TextAlign.start,

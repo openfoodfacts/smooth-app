@@ -78,10 +78,7 @@
   bool searchResult = true,
 }) async {
   final ProductListSupplier supplier =
-      await ProductListSupplier.getBestSupplier(
-    productQuery,
-    localDatabase,
-  );
+      await ProductListSupplier.getBestSupplier(productQuery, localDatabase);
 
   return ProductQueryPage(
     productListSupplier: supplier,

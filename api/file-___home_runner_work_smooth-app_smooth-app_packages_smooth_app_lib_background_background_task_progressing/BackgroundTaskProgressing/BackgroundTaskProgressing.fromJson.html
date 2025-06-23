@@ -60,13 +60,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">BackgroundTaskProgressing.fromJson(super.json)
-    : work = json[_jsonTagWork] as String,
-      totalSize = json[_jsonTagTotalSize] as int,
-      productType =
-          ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
-&#47;&#47; for legacy reason (not refreshed products = no product type)
-              ProductType.food,
-      super.fromJson();</code></pre>
+  : work = json[_jsonTagWork] as String,
+    totalSize = json[_jsonTagTotalSize] as int,
+    productType =
+        ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
+        &#47;&#47; for legacy reason (not refreshed products = no product type)
+        ProductType.food,
+    super.fromJson();</code></pre>
 </section>
 
 

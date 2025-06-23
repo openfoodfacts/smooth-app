@@ -78,22 +78,25 @@
 
   addLine(&#39;Barcode&#39;, &#39;Name&#39;, &#39;Brand&#39;);
 
-  final List&lt;String&gt; validBarcodes = list.barcodes.where(
-    (String barcode) {
-      return isBarcodeValid(barcode);
-    },
-  ).toList();
+  final List&lt;String&gt; validBarcodes = list.barcodes.where((String barcode) {
+    return isBarcodeValid(barcode);
+  }).toList();
 
-  final Map&lt;String, Product&gt; products =
-      await DaoProduct(localDatabase).getAll(validBarcodes);
+  final Map&lt;String, Product&gt; products = await DaoProduct(
+    localDatabase,
+  ).getAll(validBarcodes);
 
   for (final MapEntry&lt;String, Product&gt; entry in products.entries) {
     final String barcode = entry.key;
     final Product product = entry.value;
-    final String name =
-        (product.productName ?? &#39;&#39;).replaceAll(EXPORT_SEPARATOR, &#39;&#39;);
-    final String brand =
-        (product.brands ?? &#39;&#39;).replaceAll(EXPORT_SEPARATOR, &#39;&#39;);
+    final String name = (product.productName ?? &#39;&#39;).replaceAll(
+      EXPORT_SEPARATOR,
+      &#39;&#39;,
+    );
+    final String brand = (product.brands ?? &#39;&#39;).replaceAll(
+      EXPORT_SEPARATOR,
+      &#39;&#39;,
+    );
     addLine(barcode, name, brand);
   }
 

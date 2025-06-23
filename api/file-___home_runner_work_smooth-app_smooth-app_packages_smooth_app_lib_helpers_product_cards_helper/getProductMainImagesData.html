@@ -70,7 +70,8 @@
   final List&lt;ProductImageData&gt; result = &lt;ProductImageData&gt;[];
   for (final ImageField imageField
       in ImageFieldSmoothieExtension.getOrderedMainImageFields(
-          product.productType)) {
+        product.productType,
+      )) {
     result.add(getProductImageData(product, imageField, language));
   }
   return result;

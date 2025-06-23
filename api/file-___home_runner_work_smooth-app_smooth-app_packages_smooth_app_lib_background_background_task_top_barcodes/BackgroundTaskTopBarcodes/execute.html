@@ -73,21 +73,21 @@
 Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
   final SearchResult searchResult =
       await SearchProductsManager.searchProducts(
-    ProductQuery.getReadUser(),
-    ProductSearchQueryConfiguration(
-      fields: &lt;ProductField&gt;[ProductField.BARCODE],
-      parametersList: &lt;Parameter&gt;[
-        PageSize(size: pageSize),
-        PageNumber(page: pageNumber),
-        const SortBy(option: SortOption.POPULARITY),
-      ],
-      language: ProductQuery.getLanguage(),
-      country: ProductQuery.getCountry(),
-      version: ProductQuery.productQueryVersion,
-    ),
-    uriHelper: uriProductHelper,
-    type: SearchProductsType.background,
-  );
+        ProductQuery.getReadUser(),
+        ProductSearchQueryConfiguration(
+          fields: &lt;ProductField&gt;[ProductField.BARCODE],
+          parametersList: &lt;Parameter&gt;[
+            PageSize(size: pageSize),
+            PageNumber(page: pageNumber),
+            const SortBy(option: SortOption.POPULARITY),
+          ],
+          language: ProductQuery.getLanguage(),
+          country: ProductQuery.getCountry(),
+          version: ProductQuery.productQueryVersion,
+        ),
+        uriHelper: uriProductHelper,
+        type: SearchProductsType.background,
+      );
   if (searchResult.products == null || searchResult.count == null) {
     throw Exception(&#39;Cannot download top barcodes&#39;);
   }

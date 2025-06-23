@@ -88,7 +88,8 @@ Future&lt;String?&gt; asyncLoad() async {
         scheme: &#39;https&#39;,
         host: &#39;photon.komoot.io&#39;,
         path: &#39;api&#39;,
-        query: &#39;q=${Uri.encodeComponent(query)}&#39;
+        query:
+            &#39;q=${Uri.encodeComponent(query)}&#39;
             &#39;&amp;lang=${getQueryLanguage().offTag}&#39;
             &#39;${_getAdditionalParameters()}&#39;,
       ),

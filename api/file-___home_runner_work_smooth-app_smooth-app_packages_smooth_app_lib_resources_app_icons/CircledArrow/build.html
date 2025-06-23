@@ -78,10 +78,7 @@ Widget build(BuildContext context) {
 
   if (type == CircledArrowType.normal) {
     return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: circleColor,
-      ),
+      decoration: BoxDecoration(shape: BoxShape.circle, color: circleColor),
       padding: padding ?? const EdgeInsets.all(4.0),
       child: child,
     );

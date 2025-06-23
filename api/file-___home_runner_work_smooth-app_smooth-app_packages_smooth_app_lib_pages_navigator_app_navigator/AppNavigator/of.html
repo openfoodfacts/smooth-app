@@ -65,8 +65,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static AppNavigator of(BuildContext context) {
-  final AppNavigator? result =
-      context.dependOnInheritedWidgetOfExactType&lt;AppNavigator&gt;();
+  final AppNavigator? result = context
+      .dependOnInheritedWidgetOfExactType&lt;AppNavigator&gt;();
   assert(result != null, &#39;No AppNavigator found in context&#39;);
   return result!;
 }</code></pre>

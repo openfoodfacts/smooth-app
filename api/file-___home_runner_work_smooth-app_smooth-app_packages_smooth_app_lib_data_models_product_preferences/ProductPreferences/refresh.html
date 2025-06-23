@@ -69,8 +69,9 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; refresh() async {
   final String lc = ProductQuery.getLanguage().code;
   if (daoString != null) {
-    final String? latestLanguage =
-        await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+    final String? latestLanguage = await daoString!.get(
+      _DAO_STRING_KEY_LANGUAGE,
+    );
     if (latestLanguage == null || latestLanguage != lc) {
       &#47;&#47; we restart from scratch
       &#47;&#47; typical use-case: language change

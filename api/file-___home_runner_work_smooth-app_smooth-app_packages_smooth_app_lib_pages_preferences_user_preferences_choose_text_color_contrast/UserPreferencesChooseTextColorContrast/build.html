@@ -72,16 +72,12 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final TextContrastProvider textContrastProvider =
-      context.watch&lt;TextContrastProvider&gt;();
+  final TextContrastProvider textContrastProvider = context
+      .watch&lt;TextContrastProvider&gt;();
 
   return UserPreferencesMultipleChoicesItem&lt;String&gt;(
     title: appLocalizations.text_contrast_mode,
-    values: const &lt;String&gt;[
-      CONTRAST_HIGH,
-      CONTRAST_MEDIUM,
-      CONTRAST_LOW,
-    ],
+    values: const &lt;String&gt;[CONTRAST_HIGH, CONTRAST_MEDIUM, CONTRAST_LOW],
     labels: &lt;String&gt;[
       appLocalizations.contrast_high,
       appLocalizations.contrast_medium,

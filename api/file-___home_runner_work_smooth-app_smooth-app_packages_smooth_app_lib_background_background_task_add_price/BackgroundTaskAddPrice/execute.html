@@ -91,8 +91,9 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
 
   &#47;&#47; proof upload
   final Uri initialImageUri = Uri.parse(path);
-  final MediaType initialMediaType =
-      HttpHelper().imagineMediaType(initialImageUri.path)!;
+  final MediaType initialMediaType = HttpHelper().imagineMediaType(
+    initialImageUri.path,
+  )!;
   final MaybeError&lt;Proof&gt; uploadProof = await OpenPricesAPIClient.uploadProof(
     createProofParameters: CreateProofParameters(proofType)
       ..date = date

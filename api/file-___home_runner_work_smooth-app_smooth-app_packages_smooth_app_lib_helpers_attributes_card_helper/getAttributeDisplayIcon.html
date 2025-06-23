@@ -64,8 +64,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute,
-    {bool? isFoodPreferences = false, BuildContext? context}) {
+  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(
+  final Attribute attribute, {
+  bool? isFoodPreferences = false,
+  BuildContext? context,
+}) {
   return Container(
     child: attribute.getCircledIcon(
       backgroundColor: isFoodPreferences!

@@ -76,11 +76,11 @@
       continue;
     }
     Attribute? attribute = attributes[attributeId];
-&#47;&#47; Some attributes selected in the user preferences might be unavailable for some products
+    &#47;&#47; Some attributes selected in the user preferences might be unavailable for some products
     if (attribute == null) {
       continue;
     } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
-&#47;&#47; TODO(stephanegigandet): remove that cheat when additives are more standard
+      &#47;&#47; TODO(stephanegigandet): remove that cheat when additives are more standard
       final List&lt;String&gt;? additiveNames = product.additives?.names;
       attribute = Attribute(
         id: attribute.id,

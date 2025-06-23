@@ -66,11 +66,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;ProductLanguageWithState&gt; productLanguages(Product product) {
   return &lt;OpenFoodFactsLanguage&gt;{
-    ...getProductImageLanguages(product, ImageField.FRONT),
-    ...getProductImageLanguages(product, ImageField.INGREDIENTS),
-    ...getProductImageLanguages(product, ImageField.NUTRITION),
-    ...getProductImageLanguages(product, ImageField.PACKAGING),
-  }
+        ...getProductImageLanguages(product, ImageField.FRONT),
+        ...getProductImageLanguages(product, ImageField.INGREDIENTS),
+        ...getProductImageLanguages(product, ImageField.NUTRITION),
+        ...getProductImageLanguages(product, ImageField.PACKAGING),
+      }
       .map(
         (OpenFoodFactsLanguage l) =&gt;
             ProductLanguageWithState.normal(language: l),

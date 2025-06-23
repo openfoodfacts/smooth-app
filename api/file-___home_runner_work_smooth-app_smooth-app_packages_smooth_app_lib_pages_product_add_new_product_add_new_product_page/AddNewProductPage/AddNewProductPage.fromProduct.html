@@ -63,21 +63,21 @@
   <pre class="language-dart"><code class="language-dart">const AddNewProductPage.fromProduct(
   this.product, {
   required this.isLoggedInMandatory,
-})  : events = const &lt;EditProductAction, AnalyticsEvent&gt;{
-        EditProductAction.openPage:
-            AnalyticsEvent.openFastTrackProductEditPage,
-        EditProductAction.leaveEmpty:
-            AnalyticsEvent.closeEmptyFastTrackProductPage,
-        EditProductAction.ingredients:
-            AnalyticsEvent.ingredientsFastTrackProductPage,
-        EditProductAction.category:
-            AnalyticsEvent.categoriesFastTrackProductPage,
-        EditProductAction.nutritionFacts:
-            AnalyticsEvent.nutritionFastTrackProductPage,
-      },
-      displayProductType = false,
-      displayPictures = false,
-      displayMisc = false;</code></pre>
+}) : events = const &lt;EditProductAction, AnalyticsEvent&gt;{
+       EditProductAction.openPage:
+           AnalyticsEvent.openFastTrackProductEditPage,
+       EditProductAction.leaveEmpty:
+           AnalyticsEvent.closeEmptyFastTrackProductPage,
+       EditProductAction.ingredients:
+           AnalyticsEvent.ingredientsFastTrackProductPage,
+       EditProductAction.category:
+           AnalyticsEvent.categoriesFastTrackProductPage,
+       EditProductAction.nutritionFacts:
+           AnalyticsEvent.nutritionFastTrackProductPage,
+     },
+     displayProductType = false,
+     displayPictures = false,
+     displayMisc = false;</code></pre>
 </section>
 
 

@@ -71,7 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  EdgeInsetsGeometry padding = this.padding ??
+  EdgeInsetsGeometry padding =
+      this.padding ??
       const EdgeInsetsDirectional.only(
         start: MEDIUM_SPACE,
         end: MEDIUM_SPACE,
@@ -89,10 +90,7 @@ Widget build(BuildContext context) {
   return Padding(
     padding: padding,
     child: DefaultTextStyle.merge(
-      style: const TextStyle(
-        fontSize: 15.0,
-        height: 1.7,
-      ),
+      style: const TextStyle(fontSize: 15.0, height: 1.7),
       child: child,
     ),
   );

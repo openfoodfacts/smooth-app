@@ -71,24 +71,14 @@
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;void&gt; init() async {
   if (kReleaseMode) {
-    Fimber.plantTree(
-      DebugTree(
-        logLevels: &lt;String&gt;[&#39;E&#39;],
-      ),
-    );
+    Fimber.plantTree(DebugTree(logLevels: &lt;String&gt;[&#39;E&#39;]));
     _fileTree = FileFimberTree(
       outputFile: await _fileName,
       logLevels: LogLevels.prodLogLevels,
     );
-    Fimber.plantTree(
-      SentryFimberTree(logLevels: LogLevels.allLogLevels),
-    );
+    Fimber.plantTree(SentryFimberTree(logLevels: LogLevels.allLogLevels));
   } else {
-    Fimber.plantTree(
-      DebugFimberTree(
-        logLevels: LogLevels.allLogLevels,
-      ),
-    );
+    Fimber.plantTree(DebugFimberTree(logLevels: LogLevels.allLogLevels));
 
     _fileTree = FileFimberTree(
       outputFile: await _fileName,

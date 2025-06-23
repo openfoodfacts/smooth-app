@@ -70,16 +70,11 @@
   final BuildContext context,
   final Product product,
   final bool isLoggedInMandatory,
-) =&gt;
-    SmoothLargeButtonWithIcon(
-      onPressed: () async =&gt; openDetails(
-        context,
-        product,
-        isLoggedInMandatory,
-      ),
-      leadingIcon: const Icon(Icons.camera_alt),
-      text: getProductImageButtonText(AppLocalizations.of(context)),
-    );</code></pre>
+) =&gt; SmoothLargeButtonWithIcon(
+  onPressed: () async =&gt; openDetails(context, product, isLoggedInMandatory),
+  leadingIcon: const Icon(Icons.camera_alt),
+  text: getProductImageButtonText(AppLocalizations.of(context)),
+);</code></pre>
 </section>
 
 

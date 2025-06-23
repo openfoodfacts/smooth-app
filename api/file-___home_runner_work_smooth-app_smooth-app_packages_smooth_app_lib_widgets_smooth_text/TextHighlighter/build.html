@@ -78,8 +78,9 @@ Widget build(BuildContext context) {
     parts = _getParts(
       defaultStyle: defaultStyle,
       highlightedStyle: defaultStyle.copyWith(
-        backgroundColor:
-            Theme.of(context).primaryColor.withValues(alpha: 0.2),
+        backgroundColor: Theme.of(
+          context,
+        ).primaryColor.withValues(alpha: 0.2),
       ),
     );
   } catch (e, trace) {
@@ -95,12 +96,14 @@ Widget build(BuildContext context) {
 
   return Text.rich(
     TextSpan(
-      children: parts.map(((String, TextStyle?) part) {
-        return TextSpan(
-          text: part.$1,
-          style: defaultTextStyle.merge(part.$2),
-        );
-      }).toList(growable: false),
+      children: parts
+          .map(((String, TextStyle?) part) {
+            return TextSpan(
+              text: part.$1,
+              style: defaultTextStyle.merge(part.$2),
+            );
+          })
+          .toList(growable: false),
     ),
     softWrap: softWrap,
     textAlign: textAlign,

@@ -98,9 +98,7 @@
   }
 
   final SmoothColorsThemeExtension smoothExtension =
-      SmoothColorsThemeExtension.defaultValues(
-    lightTheme,
-  );
+      SmoothColorsThemeExtension.defaultValues(lightTheme);
 
   final TextTheme textTheme = brightness == Brightness.dark
       ? getTextTheme(themeProvider, textContrastProvider)
@@ -131,8 +129,9 @@
       ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor:
-          lightTheme ? smoothExtension.primaryDark : myColorScheme.primary,
+      backgroundColor: lightTheme
+          ? smoothExtension.primaryDark
+          : myColorScheme.primary,
       foregroundColor: myColorScheme.onPrimary,
     ),
     textTheme: textTheme,
@@ -151,9 +150,7 @@
     inputDecorationTheme: InputDecorationTheme(
       fillColor: myColorScheme.secondary,
     ),
-    iconTheme: IconThemeData(
-      color: myColorScheme.onSurface,
-    ),
+    iconTheme: IconThemeData(color: myColorScheme.onSurface),
     snackBarTheme: SnackBarThemeData(
       contentTextStyle: _TEXT_THEME.bodyMedium?.copyWith(
         color: Colors.white,
@@ -168,8 +165,9 @@
       backgroundColor: myColorScheme.secondary,
     ),
     checkboxTheme: CheckboxThemeData(
-      fillColor:
-          WidgetStateProperty.resolveWith&lt;Color?&gt;((Set&lt;WidgetState&gt; states) {
+      fillColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
         if (states.contains(WidgetState.disabled)) {
           return null;
         }
@@ -186,14 +184,13 @@
             : smoothExtension.primarySemiDark,
         width: 2.0,
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(3.0),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
       checkColor: const WidgetStatePropertyAll&lt;Color&gt;(Colors.white),
     ),
     radioTheme: RadioThemeData(
-      fillColor:
-          WidgetStateProperty.resolveWith&lt;Color?&gt;((Set&lt;WidgetState&gt; states) {
+      fillColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
         if (states.contains(WidgetState.disabled)) {
           return null;
         }
@@ -204,8 +201,9 @@
       }),
     ),
     switchTheme: SwitchThemeData(
-      thumbColor:
-          WidgetStateProperty.resolveWith&lt;Color?&gt;((Set&lt;WidgetState&gt; states) {
+      thumbColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
         if (states.contains(WidgetState.selected)) {
           if (lightTheme) {
             return smoothExtension.primaryDark;
@@ -222,8 +220,9 @@
           return null;
         }
       }),
-      trackColor:
-          WidgetStateProperty.resolveWith&lt;Color?&gt;((Set&lt;WidgetState&gt; states) {
+      trackColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
         if (lightTheme) {
           return smoothExtension.primaryMedium;
         } else {

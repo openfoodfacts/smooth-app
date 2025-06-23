@@ -65,10 +65,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void onNameChanged(
-  OpenFoodFactsLanguage language,
-  String name,
-) {
+  <pre class="language-dart"><code class="language-dart">void onNameChanged(OpenFoodFactsLanguage language, String name) {
   final List&lt;_EditingProductName&gt; productNames = value.productNames;
   final int index = productNames.indexWhere(
     (final _EditingProductName productName) =&gt;

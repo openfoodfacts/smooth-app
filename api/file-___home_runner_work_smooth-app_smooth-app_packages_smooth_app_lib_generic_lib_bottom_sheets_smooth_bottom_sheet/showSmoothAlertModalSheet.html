@@ -86,8 +86,9 @@
   final Color headerBackgroundColor = switch (type) {
     SmoothModalSheetType.error when lightTheme =&gt;
       SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
-    SmoothModalSheetType.error =&gt;
-      SmoothModalSheetHeader.ERROR_COLOR.darken(0.3),
+    SmoothModalSheetType.error =&gt; SmoothModalSheetHeader.ERROR_COLOR.darken(
+      0.3,
+    ),
     SmoothModalSheetType.info when lightTheme =&gt;
       context.extension&lt;SmoothColorsThemeExtension&gt;().primaryLight,
     SmoothModalSheetType.info =&gt;
@@ -106,9 +107,9 @@
           vertical: MEDIUM_SPACE,
         ),
         child: DefaultTextStyle.merge(
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
           child: message,
         ),
       ),

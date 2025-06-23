@@ -70,14 +70,13 @@
   AnalyticsEditEvents editEventName,
   Product product, [
   bool saved = false,
-]) =&gt;
-    trackCustomEvent(
-      saved ? &#39;${editEventName.name}-saved&#39; : editEventName.name,
-      AnalyticsCategory.productEdit.tag,
-      action: editEventName.name,
-      barcode: product.barcode,
-      productType: product.productType ?? ProductType.food,
-    );</code></pre>
+]) =&gt; trackCustomEvent(
+  saved ? &#39;${editEventName.name}-saved&#39; : editEventName.name,
+  AnalyticsCategory.productEdit.tag,
+  action: editEventName.name,
+  barcode: product.barcode,
+  productType: product.productType ?? ProductType.food,
+);</code></pre>
 </section>
 
 

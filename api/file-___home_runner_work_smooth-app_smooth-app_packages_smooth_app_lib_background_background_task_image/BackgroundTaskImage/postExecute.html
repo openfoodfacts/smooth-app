@@ -87,8 +87,9 @@ Future&lt;void&gt; postExecute(
     &#47;&#47; not likely, but let&#39;s not spoil the task for that either.
   }
   try {
-    (await BackgroundTaskUpload.getFile(getCroppedPath(fullPath)))
-        .deleteSync();
+    (await BackgroundTaskUpload.getFile(
+      getCroppedPath(fullPath),
+    )).deleteSync();
   } catch (e) {
     &#47;&#47; possible, but let&#39;s not spoil the task for that either.
   }

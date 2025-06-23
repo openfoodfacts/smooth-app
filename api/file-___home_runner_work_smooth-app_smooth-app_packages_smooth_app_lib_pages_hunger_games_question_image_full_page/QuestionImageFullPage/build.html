@@ -71,30 +71,30 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; Scaffold(
-      appBar: SmoothAppBar(
-        title: AutoSizeText(
-          &#39;${question.question!} (${question.value!})&#39;,
-          maxLines: 2,
-        ),
-      ),
-      body: ConstrainedBox(
-        constraints: const BoxConstraints.expand(),
-        child: InteractiveViewer(
-          minScale: 0.1,
-          maxScale: 5,
-          child: HeroMode(
-            enabled: heroTag?.isNotEmpty == true,
-            child: Hero(
-              tag: heroTag ?? &#39;&#39;,
-              child: Image(
-                fit: BoxFit.contain,
-                image: NetworkImage(question.imageUrl!),
-              ),
-            ),
+  appBar: SmoothAppBar(
+    title: AutoSizeText(
+      &#39;${question.question!} (${question.value!})&#39;,
+      maxLines: 2,
+    ),
+  ),
+  body: ConstrainedBox(
+    constraints: const BoxConstraints.expand(),
+    child: InteractiveViewer(
+      minScale: 0.1,
+      maxScale: 5,
+      child: HeroMode(
+        enabled: heroTag?.isNotEmpty == true,
+        child: Hero(
+          tag: heroTag ?? &#39;&#39;,
+          child: Image(
+            fit: BoxFit.contain,
+            image: NetworkImage(question.imageUrl!),
           ),
         ),
       ),
-    );</code></pre>
+    ),
+  ),
+);</code></pre>
 </section>
 
 

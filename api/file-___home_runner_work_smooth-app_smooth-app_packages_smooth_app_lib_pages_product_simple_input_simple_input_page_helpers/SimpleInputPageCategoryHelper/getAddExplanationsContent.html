@@ -73,36 +73,36 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 WidgetBuilder? getAddExplanationsContent() =&gt; (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-      return Column(
-        children: &lt;Widget&gt;[
-          ExplanationBodyInfo(
+  return Column(
+    children: &lt;Widget&gt;[
+      ExplanationBodyInfo(
+        text: appLocalizations
+            .edit_product_form_item_categories_explanation_info1,
+        icon: false,
+      ),
+      ExplanationTextContainer(
+        title: appLocalizations
+            .edit_product_form_item_categories_explanation_info2_title,
+        items: &lt;ExplanationTextContainerContent&gt;[
+          ExplanationTextContainerContentText(
             text: appLocalizations
-                .edit_product_form_item_categories_explanation_info1,
-            icon: false,
-          ),
-          ExplanationTextContainer(
-            title: appLocalizations
-                .edit_product_form_item_categories_explanation_info2_title,
-            items: &lt;ExplanationTextContainerContent&gt;[
-              ExplanationTextContainerContentText(
-                text: appLocalizations
-                    .edit_product_form_item_categories_explanation_info2_content,
-              ),
-            ],
-          ),
-          ExplanationGoodExamplesContainer(
-            items: &lt;String&gt;[
-              appLocalizations
-                  .edit_product_form_item_categories_explanation_good_examples_1,
-              appLocalizations
-                  .edit_product_form_item_categories_explanation_good_examples_2,
-            ],
+                .edit_product_form_item_categories_explanation_info2_content,
           ),
         ],
-      );
-    };</code></pre>
+      ),
+      ExplanationGoodExamplesContainer(
+        items: &lt;String&gt;[
+          appLocalizations
+              .edit_product_form_item_categories_explanation_good_examples_1,
+          appLocalizations
+              .edit_product_form_item_categories_explanation_good_examples_2,
+        ],
+      ),
+    ],
+  );
+};</code></pre>
 </section>
 
 

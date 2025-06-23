@@ -87,10 +87,7 @@ Future&lt;void&gt; edit({
     return;
   }
 
-  AnalyticsHelper.trackProductEdit(
-    helper.getAnalyticsEditEvent(),
-    product,
-  );
+  AnalyticsHelper.trackProductEdit(helper.getAnalyticsEditEvent(), product);
 
   if (!context.mounted) {
     return;
@@ -98,10 +95,8 @@ Future&lt;void&gt; edit({
   await Navigator.push&lt;void&gt;(
     context,
     MaterialPageRoute&lt;void&gt;(
-      builder: (BuildContext context) =&gt; SimpleInputPage(
-        helper: helper,
-        product: product,
-      ),
+      builder: (BuildContext context) =&gt;
+          SimpleInputPage(helper: helper, product: product),
     ),
   );
 }</code></pre>

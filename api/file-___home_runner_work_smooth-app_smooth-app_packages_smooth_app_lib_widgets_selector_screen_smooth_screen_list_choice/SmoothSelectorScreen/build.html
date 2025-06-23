@@ -80,46 +80,49 @@ Widget build(BuildContext context) {
         create: (_) =&gt; TextEditingController(),
       ),
     ],
-    child: ValueNotifierListener&lt;PreferencesSelectorProvider&lt;T&gt;,
-        PreferencesSelectorState&lt;T&gt;&gt;(
-      listenerWithValueNotifier: _onValueChanged,
-      child: SmoothScaffold2(
-        topBar: SmoothTopBar2(
-          title: title,
-          leadingAction: provider.autoValidate
-              ? SmoothLeadingAction.minimize
-              : SmoothLeadingAction.close,
-          elevationOnScroll: false,
-        ),
-        bottomBar: !provider.autoValidate
-            ? _SmoothSelectorScreenBottomBar&lt;T&gt;(
-                onSave: () {
-                  provider.saveSelectedItem();
-
-                  if (provider.value is PreferencesSelectorEditingState&lt;T&gt;) {
-                    Navigator.of(context).pop(
-                      (provider.value as PreferencesSelectorEditingState&lt;T&gt;)
-                          .selectedItemOverride,
-                    );
-                  }
-                },
-              )
-            : null,
-        injectPaddingInBody: false,
-        children: &lt;Widget&gt;[
-          const _SmoothSelectorScreenSearchBar(),
-          const SliverPadding(
-            padding: EdgeInsetsDirectional.only(
-              top: SMALL_SPACE,
+    child:
+        ValueNotifierListener&lt;
+          PreferencesSelectorProvider&lt;T&gt;,
+          PreferencesSelectorState&lt;T&gt;
+        &gt;(
+          listenerWithValueNotifier: _onValueChanged,
+          child: SmoothScaffold2(
+            topBar: SmoothTopBar2(
+              title: title,
+              leadingAction: provider.autoValidate
+                  ? SmoothLeadingAction.minimize
+                  : SmoothLeadingAction.close,
+              elevationOnScroll: false,
             ),
+            bottomBar: !provider.autoValidate
+                ? _SmoothSelectorScreenBottomBar&lt;T&gt;(
+                    onSave: () {
+                      provider.saveSelectedItem();
+
+                      if (provider.value
+                          is PreferencesSelectorEditingState&lt;T&gt;) {
+                        Navigator.of(context).pop(
+                          (provider.value
+                                  as PreferencesSelectorEditingState&lt;T&gt;)
+                              .selectedItemOverride,
+                        );
+                      }
+                    },
+                  )
+                : null,
+            injectPaddingInBody: false,
+            children: &lt;Widget&gt;[
+              const _SmoothSelectorScreenSearchBar(),
+              const SliverPadding(
+                padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
+              ),
+              _SmoothSelectorScreenList&lt;T&gt;(
+                itemsFilter: itemsFilter,
+                itemBuilder: itemBuilder,
+              ),
+            ],
           ),
-          _SmoothSelectorScreenList&lt;T&gt;(
-            itemsFilter: itemsFilter,
-            itemBuilder: itemBuilder,
-          ),
-        ],
-      ),
-    ),
+        ),
   );
 }</code></pre>
 </section>

@@ -78,7 +78,8 @@ Widget build(BuildContext context) {
   return UserPreferencesMultipleChoicesItem&lt;String&gt;(
     title: appLocalizations.select_accent_color,
     leadingBuilder: labels.keys.map(
-      (String key) =&gt; (_) =&gt; CircleAvatar(
+      (String key) =&gt;
+          (_) =&gt; CircleAvatar(
             backgroundColor: getColorValue(key),
             radius: SMALL_SPACE,
           ),

@@ -68,25 +68,24 @@
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showUserPrices({
   required final String user,
   required final BuildContext context,
-}) async =&gt;
-    Navigator.of(context).push(
-      MaterialPageRoute&lt;void&gt;(
-        builder: (BuildContext context) =&gt; PricesPage(
-          GetPricesModel(
-            parameters: GetPricesModel.getStandardPricesParameters()
-              ..owner = user,
-            displayEachOwner: false,
-            uri: OpenPricesAPIClient.getUri(
-              path: &#39;users&#47;$user&#39;,
-              uriHelper: ProductQuery.uriPricesHelper,
-            ),
-            title: showUserTitle(user: user, context: context),
-            subtitle: user,
-            lazyCounterPrices: LazyCounterPrices(user),
-          ),
+}) async =&gt; Navigator.of(context).push(
+  MaterialPageRoute&lt;void&gt;(
+    builder: (BuildContext context) =&gt; PricesPage(
+      GetPricesModel(
+        parameters: GetPricesModel.getStandardPricesParameters()
+          ..owner = user,
+        displayEachOwner: false,
+        uri: OpenPricesAPIClient.getUri(
+          path: &#39;users&#47;$user&#39;,
+          uriHelper: ProductQuery.uriPricesHelper,
         ),
+        title: showUserTitle(user: user, context: context),
+        subtitle: user,
+        lazyCounterPrices: LazyCounterPrices(user),
       ),
-    );</code></pre>
+    ),
+  ),
+);</code></pre>
 </section>
 
 

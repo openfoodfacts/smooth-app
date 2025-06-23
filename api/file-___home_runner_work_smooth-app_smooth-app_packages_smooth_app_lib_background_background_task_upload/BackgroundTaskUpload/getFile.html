@@ -74,8 +74,9 @@ cf. <a href="https://github.com/openfoodfacts/smooth-app/issues/4725">https://gi
   <pre class="language-dart"><code class="language-dart">static Future&lt;File&gt; getFile(String path) async {
   if (Platform.isIOS) {
     final int lastSeparator = path.lastIndexOf(&#39;&#47;&#39;);
-    final String filename =
-        lastSeparator == -1 ? path : path.substring(lastSeparator + 1);
+    final String filename = lastSeparator == -1
+        ? path
+        : path.substring(lastSeparator + 1);
     final Directory directory = await getDirectory();
     path = &#39;${directory.path}&#47;$filename&#39;;
   }

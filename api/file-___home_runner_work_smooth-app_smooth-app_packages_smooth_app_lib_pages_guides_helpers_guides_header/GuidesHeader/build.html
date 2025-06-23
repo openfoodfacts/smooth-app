@@ -74,9 +74,7 @@ Widget build(BuildContext context) {
   return DefaultTextStyle.merge(
     style: const TextStyle(color: Colors.white),
     child: SliverPadding(
-      padding: const EdgeInsetsDirectional.only(
-        bottom: BALANCED_SPACE,
-      ),
+      padding: const EdgeInsetsDirectional.only(bottom: BALANCED_SPACE),
       &#47;&#47; Pinned = for the header to stay at the top of the screen
       sliver: SliverPersistentHeader(
         floating: false,

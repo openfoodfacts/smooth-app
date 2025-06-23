@@ -66,10 +66,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
 Future&lt;void&gt; putTransientImage(final LocalDatabase localDatabase) async =&gt;
-    _getTransientFile().putImage(
-      localDatabase,
-      await getFile(croppedPath),
-    );</code></pre>
+    _getTransientFile().putImage(localDatabase, await getFile(croppedPath));</code></pre>
 </section>
 
 

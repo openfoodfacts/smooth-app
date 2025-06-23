@@ -70,87 +70,78 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
-      _getListTile(
-        title: appLocalizations.faq,
-        leadingIconData: Icons.question_mark,
-        url: _getFAQUrl(),
+  _getListTile(
+    title: appLocalizations.faq,
+    leadingIconData: Icons.question_mark,
+    url: _getFAQUrl(),
+  ),
+  _getNutriListTile(
+    title: appLocalizations.nutriscore_generic,
+    url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;nutriscore&#39;,
+    svg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, false),
+  ),
+  _getListTile(
+    title: appLocalizations.faq_nutriscore_nutriscore,
+    leadingSvg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
+    onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
+      MaterialPageRoute&lt;void&gt;(
+        builder: (BuildContext context) =&gt; const GuideNutriscoreV2(),
       ),
-      _getNutriListTile(
-        title: appLocalizations.nutriscore_generic,
-        url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;nutriscore&#39;,
-        svg: SvgCache.getAssetsCacheForNutriscore(
-          NutriScoreValue.b,
-          false,
-        ),
-      ),
-      _getListTile(
-        title: appLocalizations.faq_nutriscore_nutriscore,
-        leadingSvg: SvgCache.getAssetsCacheForNutriscore(
-          NutriScoreValue.b,
-          true,
-        ),
-        onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute&lt;void&gt;(
-            builder: (BuildContext context) =&gt; const GuideNutriscoreV2(),
-          ),
-        ),
+    ),
 
-        &#47;&#47;&#47; Hide the icon
-        icon: const Icon(
-          Icons.info,
-          size: 0.0,
-        ),
-      ),
-      _getNutriListTile(
-        title: appLocalizations.environmental_score_generic,
-        url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;ecoscore&#39;,
-        svg: &#39;assets&#47;cache&#47;green-score-b.svg&#39;,
-      ),
-      _getNutriListTile(
-        title: appLocalizations.nova_group_generic,
-        url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;nova&#39;,
-        svg: &#39;assets&#47;cache&#47;nova-group-4.svg&#39;,
-      ),
-      _getNutriListTile(
-        title: appLocalizations.nutrition_facts,
-        url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;traffic-lights&#39;,
-        svg: &#39;assets&#47;cache&#47;low.svg&#39;,
-        leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
-      ),
-      _getListTile(
-        title: appLocalizations.discover,
-        leadingIconData: Icons.travel_explore,
-        url: ProductQuery.replaceSubdomain(
-          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;discover&#39;,
-        ),
-      ),
-      _getListTile(
-        title: appLocalizations.how_to_contribute,
-        leadingIconData: Icons.volunteer_activism,
-        url: ProductQuery.replaceSubdomain(
-          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;contribute&#39;,
-        ),
-      ),
-      _getListTile(
-        title: appLocalizations.feed_back,
-        leadingIconData: Icons.add_comment,
-        url: UserFeedbackHelper.getFeedbackFormLink(),
-      ),
-      _getListTile(
-        title: appLocalizations.faq_title_partners,
-        leadingIconData: Icons.handshake_outlined,
-        url: ProductQuery.replaceSubdomain(
-          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;partners&#39;,
-        ),
-      ),
-      _getListTile(
-        title: appLocalizations.faq_title_vision,
-        leadingIconData: Icons.remove_red_eye_outlined,
-        url: ProductQuery.replaceSubdomain(
-          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;open-food-facts-vision-mission-values-and-programs&#39;,
-        ),
-      ),
-      &#47;*
+    &#47;&#47;&#47; Hide the icon
+    icon: const Icon(Icons.info, size: 0.0),
+  ),
+  _getNutriListTile(
+    title: appLocalizations.environmental_score_generic,
+    url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;ecoscore&#39;,
+    svg: &#39;assets&#47;cache&#47;green-score-b.svg&#39;,
+  ),
+  _getNutriListTile(
+    title: appLocalizations.nova_group_generic,
+    url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;nova&#39;,
+    svg: &#39;assets&#47;cache&#47;nova-group-4.svg&#39;,
+  ),
+  _getNutriListTile(
+    title: appLocalizations.nutrition_facts,
+    url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;traffic-lights&#39;,
+    svg: &#39;assets&#47;cache&#47;low.svg&#39;,
+    leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
+  ),
+  _getListTile(
+    title: appLocalizations.discover,
+    leadingIconData: Icons.travel_explore,
+    url: ProductQuery.replaceSubdomain(
+      &#39;https:&#47;&#47;world.openfoodfacts.org&#47;discover&#39;,
+    ),
+  ),
+  _getListTile(
+    title: appLocalizations.how_to_contribute,
+    leadingIconData: Icons.volunteer_activism,
+    url: ProductQuery.replaceSubdomain(
+      &#39;https:&#47;&#47;world.openfoodfacts.org&#47;contribute&#39;,
+    ),
+  ),
+  _getListTile(
+    title: appLocalizations.feed_back,
+    leadingIconData: Icons.add_comment,
+    url: UserFeedbackHelper.getFeedbackFormLink(),
+  ),
+  _getListTile(
+    title: appLocalizations.faq_title_partners,
+    leadingIconData: Icons.handshake_outlined,
+    url: ProductQuery.replaceSubdomain(
+      &#39;https:&#47;&#47;world.openfoodfacts.org&#47;partners&#39;,
+    ),
+  ),
+  _getListTile(
+    title: appLocalizations.faq_title_vision,
+    leadingIconData: Icons.remove_red_eye_outlined,
+    url: ProductQuery.replaceSubdomain(
+      &#39;https:&#47;&#47;world.openfoodfacts.org&#47;open-food-facts-vision-mission-values-and-programs&#39;,
+    ),
+  ),
+  &#47;*
       &#47;&#47; temporarily (?) hiding &quot;install OxF&quot; links
       &#47;&#47; cf. https:&#47;&#47;github.com&#47;openfoodfacts&#47;smooth-app&#47;issues&#47;6413
       if (Platform.isAndroid || Platform.isIOS)
@@ -186,13 +177,13 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
               &#39;https:&#47;&#47;play.google.com&#47;store&#47;apps&#47;details?id=org.openproductsfacts.scanner&amp;hl=${ProductQuery.getLanguage().offTag}&#39;,
         ),
       *&#47;
-      _getListTile(
-        title: appLocalizations.about_this_app,
-        leadingIconData: Icons.info,
-        onTap: () async =&gt; _about(),
-        icon: getForwardIcon(),
-      ),
-    ];</code></pre>
+  _getListTile(
+    title: appLocalizations.about_this_app,
+    leadingIconData: Icons.info,
+    onTap: () async =&gt; _about(),
+    icon: getForwardIcon(),
+  ),
+];</code></pre>
 </section>
 
 

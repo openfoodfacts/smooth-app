@@ -73,26 +73,26 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 WidgetBuilder? getAddExplanationsContent() =&gt; (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-      return Column(
-        children: &lt;Widget&gt;[
-          ExplanationBodyInfo(
-            text: appLocalizations
-                .edit_product_form_item_origins_explanation_info1,
-            icon: false,
-          ),
-          ExplanationGoodExamplesContainer(
-            items: &lt;String&gt;[
-              appLocalizations
-                  .edit_product_form_item_origins_explanation_good_examples_1,
-              appLocalizations
-                  .edit_product_form_item_origins_explanation_good_examples_2,
-            ],
-          ),
+  return Column(
+    children: &lt;Widget&gt;[
+      ExplanationBodyInfo(
+        text:
+            appLocalizations.edit_product_form_item_origins_explanation_info1,
+        icon: false,
+      ),
+      ExplanationGoodExamplesContainer(
+        items: &lt;String&gt;[
+          appLocalizations
+              .edit_product_form_item_origins_explanation_good_examples_1,
+          appLocalizations
+              .edit_product_form_item_origins_explanation_good_examples_2,
         ],
-      );
-    };</code></pre>
+      ),
+    ],
+  );
+};</code></pre>
 </section>
 
 

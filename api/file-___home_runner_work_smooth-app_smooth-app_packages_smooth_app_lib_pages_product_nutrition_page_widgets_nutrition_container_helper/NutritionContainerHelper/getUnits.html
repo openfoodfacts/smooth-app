@@ -65,11 +65,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Unit&gt; getUnits(final Nutrient nutrient) {
-  final List&lt;Unit&gt; units = &lt;Unit&gt;[
-    Unit.G,
-    Unit.MILLI_G,
-    Unit.MICRO_G,
-  ];
+  final List&lt;Unit&gt; units = &lt;Unit&gt;[Unit.G, Unit.MILLI_G, Unit.MICRO_G];
 
   if (units.contains(getUnit(nutrient))) {
     return units;

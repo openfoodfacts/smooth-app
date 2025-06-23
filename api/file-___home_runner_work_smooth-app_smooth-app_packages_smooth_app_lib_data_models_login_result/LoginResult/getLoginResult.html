@@ -73,8 +73,10 @@
   final UserPreferences userPreferences,
 ) async {
   try {
-    final bool prodUrl = userPreferences
-            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+    final bool prodUrl =
+        userPreferences.getFlag(
+          UserPreferencesDevMode.userPreferencesFlagProd,
+        ) ??
         true;
 
     final LoginStatus? loginStatus = await OpenFoodAPIClient.login2(

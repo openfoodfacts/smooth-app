@@ -66,18 +66,18 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 WidgetBuilder get builder =&gt; (final BuildContext context) {
-      if (visibleWhen?.call(context) == false) {
-        return EMPTY_WIDGET;
-      }
+  if (visibleWhen?.call(context) == false) {
+    return EMPTY_WIDGET;
+  }
 
-      return ListTile(
-        title: Text(title),
-        subtitle: subtitle == null ? null : Text(subtitle!),
-        onTap: onTap,
-        leading: leading,
-        trailing: trailing,
-      );
-    };</code></pre>
+  return ListTile(
+    title: Text(title),
+    subtitle: subtitle == null ? null : Text(subtitle!),
+    onTap: onTap,
+    leading: leading,
+    trailing: trailing,
+  );
+};</code></pre>
 </section>
 
 </section>

@@ -67,9 +67,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Iterable&lt;String&gt; getAvailableBarcodes() =&gt; _states
-    .where((MapEntry&lt;String, ScannedProductState&gt; entry) =&gt;
-        entry.value == ScannedProductState.FOUND ||
-        entry.value == ScannedProductState.CACHED)
+    .where(
+      (MapEntry&lt;String, ScannedProductState&gt; entry) =&gt;
+          entry.value == ScannedProductState.FOUND ||
+          entry.value == ScannedProductState.CACHED,
+    )
     .keys;</code></pre>
 </section>
 

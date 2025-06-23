@@ -84,8 +84,9 @@ Widget build(BuildContext context) {
     _productPreferences,
   );
 
-  final bool hasPendingOperations = UpToDateChanges(localDatabase)
-      .hasNotTerminatedOperations(upToDateProduct.barcode!);
+  final bool hasPendingOperations = UpToDateChanges(
+    localDatabase,
+  ).hasNotTerminatedOperations(upToDateProduct.barcode!);
 
   return MultiProvider(
     providers: &lt;SingleChildWidget&gt;[

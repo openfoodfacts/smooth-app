@@ -70,8 +70,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Product getProductChange() {
-  final Product result =
-      Product.fromJson(json.decode(inputMap) as Map&lt;String, dynamic&gt;);
+  final Product result = Product.fromJson(
+    json.decode(inputMap) as Map&lt;String, dynamic&gt;,
+  );
   return result;
 }</code></pre>
 </section>

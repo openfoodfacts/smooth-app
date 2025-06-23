@@ -71,14 +71,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; PriceButton(
-      tooltip: AppLocalizations.of(context).prices_open_user_proofs(user),
-      title: user,
-      iconData: PriceButton.userIconData,
-      onPressed: () async =&gt; showUserPrices(
-        user: user,
-        context: context,
-      ),
-    );</code></pre>
+  tooltip: AppLocalizations.of(context).prices_open_user_proofs(user),
+  title: user,
+  iconData: PriceButton.userIconData,
+  onPressed: () async =&gt; showUserPrices(user: user, context: context),
+);</code></pre>
 </section>
 
 

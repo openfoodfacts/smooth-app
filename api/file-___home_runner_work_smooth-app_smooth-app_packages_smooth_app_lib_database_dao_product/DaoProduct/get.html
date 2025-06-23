@@ -68,13 +68,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;Product?&gt; get(final String barcode) async {
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    _TABLE_PRODUCT,
-    columns: _columns,
-    where: &#39;$_TABLE_PRODUCT_COLUMN_BARCODE = ?&#39;,
-    whereArgs: &lt;String&gt;[barcode],
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .query(
+        _TABLE_PRODUCT,
+        columns: _columns,
+        where: &#39;$_TABLE_PRODUCT_COLUMN_BARCODE = ?&#39;,
+        whereArgs: &lt;String&gt;[barcode],
+      );
   &#47;&#47; O or 1 row expected
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     return _getProductFromQueryResult(row);

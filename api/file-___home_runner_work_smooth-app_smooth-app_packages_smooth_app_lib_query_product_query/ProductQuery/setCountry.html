@@ -73,8 +73,9 @@
   final UserPreferences userPreferences,
   final String isoCode,
 ) async {
-  final OpenFoodFactsCountry? country =
-      OpenFoodFactsCountry.fromOffTag(isoCode);
+  final OpenFoodFactsCountry? country = OpenFoodFactsCountry.fromOffTag(
+    isoCode,
+  );
   if (country == null) {
     return false;
   }

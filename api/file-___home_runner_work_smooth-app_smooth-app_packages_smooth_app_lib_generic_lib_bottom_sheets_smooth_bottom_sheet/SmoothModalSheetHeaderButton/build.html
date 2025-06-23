@@ -71,8 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
 
   return Semantics(
@@ -89,17 +89,16 @@ Widget build(BuildContext context) {
             borderRadius: ROUNDED_BORDER_RADIUS,
           ),
           foregroundColor: lightTheme ? Colors.black : Colors.white,
-          backgroundColor:
-              lightTheme ? extension.primaryMedium : extension.primaryBlack,
+          backgroundColor: lightTheme
+              ? extension.primaryMedium
+              : extension.primaryBlack,
           iconColor: lightTheme ? Colors.black : Colors.white,
         ),
         child: Row(
           children: &lt;Widget&gt;[
             if (prefix != null) ...&lt;Widget&gt;[
               prefix!,
-              const SizedBox(
-                width: SMALL_SPACE,
-              ),
+              const SizedBox(width: SMALL_SPACE),
             ],
             Text(
               label,
@@ -110,9 +109,7 @@ Widget build(BuildContext context) {
               maxLines: 1,
             ),
             if (suffix != null) ...&lt;Widget&gt;[
-              const SizedBox(
-                width: SMALL_SPACE,
-              ),
+              const SizedBox(width: SMALL_SPACE),
               suffix!,
             ],
           ],

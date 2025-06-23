@@ -70,10 +70,7 @@ Set <code>ignoreCase</code> to true, to disable the case verification.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;int&gt; indexesOf(
-  String charCode, {
-  bool ignoreCase = false,
-}) {
+  <pre class="language-dart"><code class="language-dart">List&lt;int&gt; indexesOf(String charCode, {bool ignoreCase = false}) {
   assert(charCode.length == 1);
   if (ignoreCase) {
     charCode = charCode.toLowerCase();

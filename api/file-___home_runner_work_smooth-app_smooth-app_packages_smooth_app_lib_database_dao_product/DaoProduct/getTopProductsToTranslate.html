@@ -85,7 +85,8 @@ products being probably wiped out.</p>
 
   const String tableJoin =
       &#39;p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE}&#39;;
-  final String languageCondition = &#39; (&#39;
+  final String languageCondition =
+      &#39; (&#39;
       &#39;p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null &#39;
       &quot;or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != &#39;${language.offTag}&#39;&quot;
       &#39;) &#39;;
@@ -121,11 +122,8 @@ products being probably wiped out.</p>
   for (final String query in queries) {
     &#47;&#47; optimization: using a cursor, as we don&#39;t want all the rows,
     &#47;&#47; and we don&#39;t know how many rows we&#39;ll need.
-    final QueryCursor queryCursor =
-        await localDatabase.database.rawQueryCursor(
-      query,
-      null,
-    );
+    final QueryCursor queryCursor = await localDatabase.database
+        .rawQueryCursor(query, null);
     while (await queryCursor.moveNext()) {
       final Product product = _getProductFromQueryResult(queryCursor.current);
       final String barcode = product.barcode!;

@@ -77,9 +77,9 @@ Widget build(BuildContext context) {
     label: appLocalizations.product_footer_action_contributor_guide,
     semanticsLabel: appLocalizations.product_footer_action_contributor_guide,
     icon: const icons.Lifebuoy(),
-    onTap: () =&gt; AppNavigator.of(context).push(
-      AppRoutes.EXTERNAL(&#39;https:&#47;&#47;wiki.openfoodfacts.org&#47;Data_fields&#39;),
-    ),
+    onTap: () =&gt; AppNavigator.of(
+      context,
+    ).push(AppRoutes.EXTERNAL(&#39;https:&#47;&#47;wiki.openfoodfacts.org&#47;Data_fields&#39;)),
   );
 }</code></pre>
 </section>

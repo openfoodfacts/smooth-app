@@ -78,10 +78,7 @@ Widget build(BuildContext context) {
 
   return FutureBuilder&lt;FetchedProduct&gt;(
     future: productFuture,
-    builder: (
-      BuildContext context,
-      AsyncSnapshot&lt;FetchedProduct&gt; snapshot,
-    ) {
+    builder: (BuildContext context, AsyncSnapshot&lt;FetchedProduct&gt; snapshot) {
       Product? product;
       if (snapshot.connectionState == ConnectionState.done) {
         product = snapshot.data?.product;
@@ -120,11 +117,7 @@ Widget build(BuildContext context) {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: &lt;Widget&gt;[
-                      ProductTitleCard(
-                        product,
-                        true,
-                        dense: true,
-                      ),
+                      ProductTitleCard(product, true, dense: true),
                     ],
                   ),
                 ),

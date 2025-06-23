@@ -73,11 +73,7 @@ List&lt;UserPreferencesItem&gt; getChildren() {
   final OpenFoodFactsCountry country = ProductQuery.getCountry();
 
   return &lt;UserPreferencesItem&gt;[
-    _getListTile(
-      &#39;Hunger Games&#39;,
-      () async =&gt; _hungerGames(),
-      Icons.games,
-    ),
+    _getListTile(&#39;Hunger Games&#39;, () async =&gt; _hungerGames(), Icons.games),
     _getListTile(
       appLocalizations.contribute_improve_header,
       () async =&gt; _contribute(),

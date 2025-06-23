@@ -89,10 +89,8 @@ Returns true if products were added</p>
     return false;
   }
 
-  final List&lt;String&gt; selectedLists =
-      await daoProductList.getUserListsWithBarcodes(
-    barcodes.toList(growable: false),
-  );
+  final List&lt;String&gt; selectedLists = await daoProductList
+      .getUserListsWithBarcodes(barcodes.toList(growable: false));
 
   if (!context.mounted) {
     return null;

@@ -68,13 +68,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
 Future&lt;void&gt; runHeaderAction() async =&gt; Navigator.push&lt;Widget&gt;(
-      context,
-      MaterialPageRoute&lt;Widget&gt;(
-        builder: (BuildContext context) =&gt; UserPreferencesPage(
-          type: getPreferencePageType(),
-        ),
-      ),
-    );</code></pre>
+  context,
+  MaterialPageRoute&lt;Widget&gt;(
+    builder: (BuildContext context) =&gt;
+        UserPreferencesPage(type: getPreferencePageType()),
+  ),
+);</code></pre>
 </section>
 
 

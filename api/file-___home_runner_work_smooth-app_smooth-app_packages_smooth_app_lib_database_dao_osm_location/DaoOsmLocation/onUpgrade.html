@@ -72,30 +72,32 @@
   final int newVersion,
 ) async {
   if (oldVersion &lt; 6) {
-    await db.execute(&#39;create table $_table(&#39;
-        &#39; $_columnId INT NOT NULL&#39;
-        &#39;,$_columnType TEXT NOT NULL&#39;
-        &#39;,$_columnLongitude REAL NOT NULL&#39;
-        &#39;,$_columnLatitude REAL NOT NULL&#39;
-        &#39;,$_columnName TEXT&#39;
-        &#39;,$_columnStreet TEXT&#39;
-        &#39;,$_columnCity TEXT&#39;
-        &#39;,$_columnPostCode TEXT&#39;
-        &#39;,$_columnCountry TEXT&#39;
-        &#39;,$_columnCountryCode TEXT&#39;
-        &#39;,$_columnLastAccess INT NOT NULL&#39;
-        &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
-        &#39;,PRIMARY KEY($_columnId,$_columnType) on conflict replace&#39;
-        &#39;)&#39;);
+    await db.execute(
+      &#39;create table $_table(&#39;
+      &#39; $_columnId INT NOT NULL&#39;
+      &#39;,$_columnType TEXT NOT NULL&#39;
+      &#39;,$_columnLongitude REAL NOT NULL&#39;
+      &#39;,$_columnLatitude REAL NOT NULL&#39;
+      &#39;,$_columnName TEXT&#39;
+      &#39;,$_columnStreet TEXT&#39;
+      &#39;,$_columnCity TEXT&#39;
+      &#39;,$_columnPostCode TEXT&#39;
+      &#39;,$_columnCountry TEXT&#39;
+      &#39;,$_columnCountryCode TEXT&#39;
+      &#39;,$_columnLastAccess INT NOT NULL&#39;
+      &#47;&#47; cf. https:&#47;&#47;www.sqlite.org&#47;lang_conflict.html
+      &#39;,PRIMARY KEY($_columnId,$_columnType) on conflict replace&#39;
+      &#39;)&#39;,
+    );
   }
 
   &#47;&#47;&#47; Not brilliant, but for historical reasons we have to catch that here.
   bool isDuplicateColumnException(
     final DatabaseException e,
     final String column,
-  ) =&gt;
-      e.toString().startsWith(
-          &#39;DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR&#39;);
+  ) =&gt; e.toString().startsWith(
+    &#39;DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR&#39;,
+  );
 
   if (oldVersion &lt; 7) {
     try {
@@ -106,8 +108,9 @@
       }
     }
     try {
-      await db
-          .execute(&#39;alter table $_table add column $_columnOsmValue TEXT&#39;);
+      await db.execute(
+        &#39;alter table $_table add column $_columnOsmValue TEXT&#39;,
+      );
     } on DatabaseException catch (e) {
       if (!isDuplicateColumnException(e, _columnOsmValue)) {
         rethrow;

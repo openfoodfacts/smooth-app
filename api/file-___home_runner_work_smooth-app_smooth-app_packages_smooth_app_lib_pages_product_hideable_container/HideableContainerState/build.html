@@ -75,10 +75,7 @@ Widget build(BuildContext context) {
     value: this,
     child: Transform.translate(
       offset: Offset(0.0, (1 - _animation.value) * 100),
-      child: Opacity(
-        opacity: _animation.value,
-        child: widget.child,
-      ),
+      child: Opacity(opacity: _animation.value, child: widget.child),
     ),
   );
 }</code></pre>

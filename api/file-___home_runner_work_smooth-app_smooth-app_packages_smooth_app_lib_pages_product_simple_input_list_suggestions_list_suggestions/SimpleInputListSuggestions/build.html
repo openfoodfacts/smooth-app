@@ -71,15 +71,15 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ValueNotifier&lt;SimpleInputSuggestionsState&gt; state =
-      context.watch&lt;ValueNotifier&lt;SimpleInputSuggestionsState&gt;&gt;();
+  final ValueNotifier&lt;SimpleInputSuggestionsState&gt; state = context
+      .watch&lt;ValueNotifier&lt;SimpleInputSuggestionsState&gt;&gt;();
 
   if (state.value is! SimpleInputSuggestionsLoaded) {
     return EMPTY_WIDGET;
   }
 
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
 
   return Padding(
@@ -92,14 +92,13 @@ Widget build(BuildContext context) {
           end: VERY_SMALL_SPACE,
         ),
         child: Column(
-          children:
-              (state.value as SimpleInputSuggestionsLoaded).suggestions.map(
-            (String suggestion) {
-              return _SimpleInputListSuggestionItem(suggestion, () {
-                onSelected(suggestion);
-              });
-            },
-          ).toList(growable: false),
+          children: (state.value as SimpleInputSuggestionsLoaded).suggestions
+              .map((String suggestion) {
+                return _SimpleInputListSuggestionItem(suggestion, () {
+                  onSelected(suggestion);
+                });
+              })
+              .toList(growable: false),
         ),
       ),
     ),

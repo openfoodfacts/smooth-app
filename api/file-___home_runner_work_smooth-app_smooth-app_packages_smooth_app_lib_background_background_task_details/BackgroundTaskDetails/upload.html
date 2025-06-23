@@ -79,14 +79,14 @@ Future&lt;void&gt; upload() async {
     &#47;&#47; and V3 can only save those fields.
     final ProductResultV3 result =
         await OpenFoodAPIClient.temporarySaveProductV3(
-      getUser(),
-      product.barcode!,
-      packagings: product.packagings,
-      packagingsComplete: product.packagingsComplete,
-      language: getLanguage(),
-      country: getCountry(),
-      uriHelper: uriProductHelper,
-    );
+          getUser(),
+          product.barcode!,
+          packagings: product.packagings,
+          packagingsComplete: product.packagingsComplete,
+          language: getLanguage(),
+          country: getCountry(),
+          uriHelper: uriProductHelper,
+        );
     if (result.status != ProductResultV3.statusSuccess &amp;&amp;
         result.status != ProductResultV3.statusWarning) {
       bool isInvalidUser = false;

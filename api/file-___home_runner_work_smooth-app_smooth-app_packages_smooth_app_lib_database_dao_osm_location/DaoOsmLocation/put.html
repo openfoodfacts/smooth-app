@@ -65,24 +65,21 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; put(final OsmLocation osmLocation) async =&gt;
-    localDatabase.database.insert(
-      _table,
-      &lt;String, Object?&gt;{
-        _columnId: osmLocation.osmId,
-        _columnType: osmLocation.osmType.offTag,
-        _columnLongitude: osmLocation.longitude,
-        _columnLatitude: osmLocation.latitude,
-        _columnName: osmLocation.name,
-        _columnStreet: osmLocation.street,
-        _columnCity: osmLocation.city,
-        _columnPostCode: osmLocation.postcode,
-        _columnCountry: osmLocation.country,
-        _columnCountryCode: osmLocation.countryCode,
-        _columnOsmKey: osmLocation.osmKey,
-        _columnOsmValue: osmLocation.osmValue,
-        _columnLastAccess: LocalDatabase.nowInMillis(),
-      },
-    );</code></pre>
+    localDatabase.database.insert(_table, &lt;String, Object?&gt;{
+      _columnId: osmLocation.osmId,
+      _columnType: osmLocation.osmType.offTag,
+      _columnLongitude: osmLocation.longitude,
+      _columnLatitude: osmLocation.latitude,
+      _columnName: osmLocation.name,
+      _columnStreet: osmLocation.street,
+      _columnCity: osmLocation.city,
+      _columnPostCode: osmLocation.postcode,
+      _columnCountry: osmLocation.country,
+      _columnCountryCode: osmLocation.countryCode,
+      _columnOsmKey: osmLocation.osmKey,
+      _columnOsmValue: osmLocation.osmValue,
+      _columnLastAccess: LocalDatabase.nowInMillis(),
+    });</code></pre>
 </section>
 
 

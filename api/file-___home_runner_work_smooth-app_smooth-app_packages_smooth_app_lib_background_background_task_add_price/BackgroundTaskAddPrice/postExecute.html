@@ -83,8 +83,8 @@ Future&lt;void&gt; postExecute(
   }
   try {
     (await BackgroundTaskUpload.getFile(
-            BackgroundTaskImage.getCroppedPath(fullPath)))
-        .deleteSync();
+      BackgroundTaskImage.getCroppedPath(fullPath),
+    )).deleteSync();
   } catch (e) {
     &#47;&#47; possible, but let&#39;s not spoil the task for that either.
   }

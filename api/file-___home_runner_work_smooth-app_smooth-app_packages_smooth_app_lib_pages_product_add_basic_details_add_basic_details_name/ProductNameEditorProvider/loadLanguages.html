@@ -80,8 +80,9 @@
       product.productNameInLanguages;
   if (multilingualTexts != null) {
     for (final OpenFoodFactsLanguage language in multilingualTexts.keys) {
-      final String name =
-          MultilingualHelper.getCleanText(multilingualTexts[language]);
+      final String name = MultilingualHelper.getCleanText(
+        multilingualTexts[language],
+      );
       if (name.isNotEmpty) {
         localizedNames[language] = name;
       }
@@ -93,8 +94,10 @@
     for (final ProductImage image in product.images!) {
       if (image.field == imageField) {
         if (image.language != null &amp;&amp;
-            !productNames.any((final _EditingProductName productName) =&gt;
-                productName.language == image.language)) {
+            !productNames.any(
+              (final _EditingProductName productName) =&gt;
+                  productName.language == image.language,
+            )) {
           final OpenFoodFactsLanguage language = image.language!;
 
           if (localizedNames.containsKey(language)) {
@@ -121,8 +124,10 @@
 
   &#47;&#47;&#47; Add existing languages without photo
   for (final OpenFoodFactsLanguage language in localizedNames.keys) {
-    if (!productNames.any((final _EditingProductName productName) =&gt;
-        productName.language == language)) {
+    if (!productNames.any(
+      (final _EditingProductName productName) =&gt;
+          productName.language == language,
+    )) {
       productNames.add(
         _EditingProductName.initial(
           language: language,
@@ -135,8 +140,10 @@
 
   &#47;&#47;&#47; Add user language
   if (userLanguage != null) {
-    if (!productNames.any((final _EditingProductName productName) =&gt;
-        productName.language == userLanguage)) {
+    if (!productNames.any(
+      (final _EditingProductName productName) =&gt;
+          productName.language == userLanguage,
+    )) {
       productNames.add(
         _EditingProductName.initial(
           language: userLanguage,
@@ -148,26 +155,26 @@
   }
 
   final OpenFoodFactsLanguage? productLanguage = product.lang;
-  productNames.sort(
-    (final _EditingProductName a, final _EditingProductName b) {
-      &#47;&#47; Product language is always first
-      if (a.language == productLanguage) {
-        return -1;
-      } else if (b.language == productLanguage) {
-        return 1;
-      }
+  productNames.sort((
+    final _EditingProductName a,
+    final _EditingProductName b,
+  ) {
+    &#47;&#47; Product language is always first
+    if (a.language == productLanguage) {
+      return -1;
+    } else if (b.language == productLanguage) {
+      return 1;
+    }
 
-      &#47;&#47; Then user language
-      if (a.language == userLanguage &amp;&amp; b.language != productLanguage) {
-        return -1;
-      } else if (b.language == userLanguage &amp;&amp;
-          a.language != productLanguage) {
-        return 1;
-      }
+    &#47;&#47; Then user language
+    if (a.language == userLanguage &amp;&amp; b.language != productLanguage) {
+      return -1;
+    } else if (b.language == userLanguage &amp;&amp; a.language != productLanguage) {
+      return 1;
+    }
 
-      return a.language.offTag.compareTo(b.language.offTag);
-    },
-  );
+    return a.language.offTag.compareTo(b.language.offTag);
+  });
 
   value = _ProductNameEditorProviderState(
     productNames: productNames,

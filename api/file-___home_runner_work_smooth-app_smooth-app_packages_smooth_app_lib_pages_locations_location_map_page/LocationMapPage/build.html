@@ -80,11 +80,7 @@ Widget build(BuildContext context) {
       title: title == null ? null : Text(title),
       subTitle: subtitle == null
           ? null
-          : Text(
-              subtitle,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
+          : Text(subtitle, maxLines: 1, overflow: TextOverflow.ellipsis),
       actions: &lt;Widget&gt;[
         IconButton(
           icon: const Icon(Icons.info),
@@ -132,10 +128,7 @@ Widget build(BuildContext context) {
       ],
     ),
     body: FlutterMap(
-      options: MapOptions(
-        initialCenter: latLng,
-        initialZoom: 17,
-      ),
+      options: MapOptions(initialCenter: latLng, initialZoom: 17),
       children: &lt;Widget&gt;[
         TileLayer(
           urlTemplate: &#39;https:&#47;&#47;tile.openstreetmap.org&#47;{z}&#47;{x}&#47;{y}.png&#39;,

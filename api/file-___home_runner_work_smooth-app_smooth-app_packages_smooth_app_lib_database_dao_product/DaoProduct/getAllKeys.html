@@ -65,13 +65,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;String&gt;&gt; getAllKeys() async {
   final List&lt;String&gt; result = &lt;String&gt;[];
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    _TABLE_PRODUCT,
-    columns: &lt;String&gt;[
-      _TABLE_PRODUCT_COLUMN_BARCODE,
-    ],
-  );
+  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = await localDatabase.database
+      .query(
+        _TABLE_PRODUCT,
+        columns: &lt;String&gt;[_TABLE_PRODUCT_COLUMN_BARCODE],
+      );
   if (queryResults.isEmpty) {
     return result;
   }
