@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_dropdown.dart';

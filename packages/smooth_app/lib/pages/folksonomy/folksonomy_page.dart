@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -7,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;

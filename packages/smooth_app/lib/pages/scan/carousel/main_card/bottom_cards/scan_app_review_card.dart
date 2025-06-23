@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -8,6 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;

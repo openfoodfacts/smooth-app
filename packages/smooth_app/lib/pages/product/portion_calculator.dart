@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/portion_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';

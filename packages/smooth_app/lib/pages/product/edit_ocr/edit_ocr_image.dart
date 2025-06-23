@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -10,6 +9,7 @@ import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_page.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';

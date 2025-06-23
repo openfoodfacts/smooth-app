@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;

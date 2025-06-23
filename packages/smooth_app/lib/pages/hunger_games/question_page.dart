@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/congrats.dart';
 import 'package:smooth_app/pages/hunger_games/question_answers_options.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';

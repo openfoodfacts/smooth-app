@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/product_image_crop_button.dart';
 import 'package:smooth_app/pages/product/product_image_local_button.dart';

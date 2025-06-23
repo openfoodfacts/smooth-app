@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 

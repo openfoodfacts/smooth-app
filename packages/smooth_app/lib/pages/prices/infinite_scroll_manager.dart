@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// A generic abstract class for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.

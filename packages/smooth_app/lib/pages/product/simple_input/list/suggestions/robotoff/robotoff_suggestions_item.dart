@@ -1,13 +1,13 @@
 import 'package:animated_line_through/animated_line_through.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/question_image_full_page.dart';
 import 'package:smooth_app/pages/product/simple_input/list/suggestions/robotoff/robotoff_suggestion_item_button.dart';
 import 'package:smooth_app/pages/product/simple_input/list/suggestions/robotoff/robotoff_suggestion_item_picture.dart';

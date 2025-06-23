@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class TestCategory extends SmoothCategory<String> {

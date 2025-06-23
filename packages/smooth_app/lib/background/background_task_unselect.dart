@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Background task about unselecting a product image.
 class BackgroundTaskUnselect extends BackgroundTaskBarcode

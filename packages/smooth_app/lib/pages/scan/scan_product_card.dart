@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
@@ -7,6 +6,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';

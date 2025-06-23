@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/location_list_supplier.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/search_app_bar_title.dart';

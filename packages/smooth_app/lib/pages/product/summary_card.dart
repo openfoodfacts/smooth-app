@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
@@ -17,6 +16,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';

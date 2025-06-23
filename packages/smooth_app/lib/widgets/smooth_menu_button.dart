@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// A Button similar to a [PopupMenuButton] for non Apple platforms.
 /// On iOS and macOS, it's still an [IconButton], but that opens a

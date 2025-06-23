@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';

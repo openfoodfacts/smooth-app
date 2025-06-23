@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -21,6 +20,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/all_product_list_modal.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_popup_items.dart';

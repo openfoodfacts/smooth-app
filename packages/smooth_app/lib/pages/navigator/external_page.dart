@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart' as tabs;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -10,6 +9,7 @@ import 'package:path/path.dart' as path_lib;
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';

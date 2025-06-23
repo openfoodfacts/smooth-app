@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -13,6 +12,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';

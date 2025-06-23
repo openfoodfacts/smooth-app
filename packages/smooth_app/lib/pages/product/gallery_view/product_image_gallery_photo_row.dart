@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
@@ -10,6 +9,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/common/product_picture_banner.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -7,6 +6,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input/list/simple_input_list.dart';
 import 'package:smooth_app/pages/product/simple_input/list/suggestions/robotoff/robotoff_suggestions_list.dart';

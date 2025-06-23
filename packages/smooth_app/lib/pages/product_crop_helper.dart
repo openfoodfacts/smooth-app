@@ -4,7 +4,6 @@ import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
@@ -12,6 +11,7 @@ import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 

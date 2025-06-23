@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -10,6 +9,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/resources/app_animations.dart' as animations;

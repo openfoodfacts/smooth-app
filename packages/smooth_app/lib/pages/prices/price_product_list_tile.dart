@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
 /// Displays a meta product with an action button, as a ListTile.

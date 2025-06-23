@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
