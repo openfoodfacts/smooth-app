@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Enter the Barcode",
+  "prices_category_enter": "બારકોડ વગરની વસ્તુ",
+  "prices_per_kilogram": "પ્રતિ કિલોગ્રામ ભાવ",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Price per unit",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / કિગ્રા",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / યુનિટ",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Mandatory",
+  "prices_category_optional": "વૈકલ્પિક",
+  "prices_category_error_mandatory": "શ્રેણી ફરજિયાત છે",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "અગાઉ ઉમેરાયેલ કિંમત",
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
   "prices_amount_price_normal": "Price",

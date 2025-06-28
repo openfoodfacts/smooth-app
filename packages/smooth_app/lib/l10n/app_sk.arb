@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Zadajte čiarový kód",
+  "prices_category_enter": "Položka bez čiarového kódu",
+  "prices_per_kilogram": "Cena za kilogram",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Cena za jednotku",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / jednotka",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Povinné",
+  "prices_category_optional": "Voliteľné",
+  "prices_category_error_mandatory": "Kategória je povinná",
   "prices_barcode_reader_action": "Čítačka čiarových kódov",
   "prices_view_prices": "Pozrite si ceny",
   "prices_product_accessibility_summary": "{count,plural, =1{1 cena} other{{count} ceny}} pre {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Cena bola predtým pridaná",
   "prices_amount_subtitle": "Množstvo",
   "prices_amount_is_discounted": "Je zľavnený?",
   "prices_amount_price_normal": "Cena",

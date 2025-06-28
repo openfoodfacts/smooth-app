@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Syötä viivakoodi",
+  "prices_category_enter": "Tuote ilman viivakoodia",
+  "prices_per_kilogram": "Kilohinta",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Hinta per yksikkö",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / yksikkö",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Pakollinen",
+  "prices_category_optional": "Valinnainen",
+  "prices_category_error_mandatory": "Luokka on pakollinen",
   "prices_barcode_reader_action": "Viivakoodinlukija",
   "prices_view_prices": "Katso hinnat",
   "prices_product_accessibility_summary": "{count,plural, =1{1 hinta} other{{count} hintaa}} tuotteelle {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Hinta lisätty aiemmin",
   "prices_amount_subtitle": "Määrä",
   "prices_amount_is_discounted": "Onko alennettu?",
   "prices_amount_price_normal": "Hinta",
