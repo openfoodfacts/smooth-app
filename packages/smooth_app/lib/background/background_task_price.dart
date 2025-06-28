@@ -32,32 +32,31 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   });
 
   BackgroundTaskPrice.fromJson(super.json)
-      : date = JsonHelper.stringTimestampToDate(json[_jsonTagDate] as String),
-        currency = Currency.fromName(json[_jsonTagCurrency] as String)!,
-        locationOSMId = json[_jsonTagOSMId] as int,
-        locationOSMType = LocationOSMType.fromOffTag(
-          json[_jsonTagOSMType] as String,
-        )!,
-        barcodes = json.containsKey(_jsonTagBarcode)
-            ? <String>[json[_jsonTagBarcode] as String]
-            : _fromJsonListString(json[_jsonTagBarcodes])!,
-        categories =
-            _fromJsonListString(json[_jsonTagCategories]) ?? <String>[],
-        origins =
-            _fromJsonListListString(json[_jsonTagOrigins]) ?? <List<String>>[],
-        labels =
-            _fromJsonListListString(json[_jsonTagLabels]) ?? <List<String>>[],
-        pricePers = _fromJsonListString(json[_jsonTagPricePers]) ?? <String>[],
-        pricesAreDiscounted = json.containsKey(_jsonTagIsDiscounted)
-            ? <bool>[json[_jsonTagIsDiscounted] as bool]
-            : _fromJsonListBool(json[_jsonTagAreDiscounted])!,
-        prices = json.containsKey(_jsonTagPrice)
-            ? <double>[json[_jsonTagPrice] as double]
-            : fromJsonListDouble(json[_jsonTagPrices])!,
-        pricesWithoutDiscount = json.containsKey(_jsonTagPriceWithoutDiscount)
-            ? <double?>[json[_jsonTagPriceWithoutDiscount] as double?]
-            : _fromJsonListNullableDouble(json[_jsonTagPricesWithoutDiscount])!,
-        super.fromJson();
+    : date = JsonHelper.stringTimestampToDate(json[_jsonTagDate] as String),
+      currency = Currency.fromName(json[_jsonTagCurrency] as String)!,
+      locationOSMId = json[_jsonTagOSMId] as int,
+      locationOSMType = LocationOSMType.fromOffTag(
+        json[_jsonTagOSMType] as String,
+      )!,
+      barcodes = json.containsKey(_jsonTagBarcode)
+          ? <String>[json[_jsonTagBarcode] as String]
+          : _fromJsonListString(json[_jsonTagBarcodes])!,
+      categories = _fromJsonListString(json[_jsonTagCategories]) ?? <String>[],
+      origins =
+          _fromJsonListListString(json[_jsonTagOrigins]) ?? <List<String>>[],
+      labels =
+          _fromJsonListListString(json[_jsonTagLabels]) ?? <List<String>>[],
+      pricePers = _fromJsonListString(json[_jsonTagPricePers]) ?? <String>[],
+      pricesAreDiscounted = json.containsKey(_jsonTagIsDiscounted)
+          ? <bool>[json[_jsonTagIsDiscounted] as bool]
+          : _fromJsonListBool(json[_jsonTagAreDiscounted])!,
+      prices = json.containsKey(_jsonTagPrice)
+          ? <double>[json[_jsonTagPrice] as double]
+          : fromJsonListDouble(json[_jsonTagPrices])!,
+      pricesWithoutDiscount = json.containsKey(_jsonTagPriceWithoutDiscount)
+          ? <double?>[json[_jsonTagPriceWithoutDiscount] as double?]
+          : _fromJsonListNullableDouble(json[_jsonTagPricesWithoutDiscount])!,
+      super.fromJson();
 
   static const String _jsonTagDate = 'date';
   static const String _jsonTagCurrency = 'currency';
@@ -179,16 +178,14 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) =>
-      (appLocalizations.add_price_queued, AlignmentDirectional.bottomCenter);
+  ) => (appLocalizations.add_price_queued, AlignmentDirectional.bottomCenter);
 
   @protected
   static String getStamp({
     required final DateTime date,
     required final int locationOSMId,
     required final LocationOSMType locationOSMType,
-  }) =>
-      'no_barcode;price;$date;$locationOSMId;$locationOSMType';
+  }) => 'no_barcode;price;$date;$locationOSMId;$locationOSMType';
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
@@ -198,10 +195,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     final User user = getUser();
     final MaybeError<String> token =
         await OpenPricesAPIClient.getAuthenticationToken(
-      username: user.userId,
-      password: user.password,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          username: user.userId,
+          password: user.password,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (token.isError) {
       throw Exception('Could not get token: ${token.error}');
     }
@@ -245,10 +242,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       // create price
       final MaybeError<Price?> addedPrice =
           await OpenPricesAPIClient.createPrice(
-        price: newPrice,
-        bearerToken: bearerToken,
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
+            price: newPrice,
+            bearerToken: bearerToken,
+            uriHelper: ProductQuery.uriPricesHelper,
+          );
       if (addedPrice.isError) {
         throw Exception('Could not add price: ${addedPrice.error}');
       }
@@ -263,9 +260,9 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   Future<void> closeSession({required final String bearerToken}) async {
     final MaybeError<bool> closedSession =
         await OpenPricesAPIClient.deleteUserSession(
-      uriHelper: ProductQuery.uriPricesHelper,
-      bearerToken: bearerToken,
-    );
+          uriHelper: ProductQuery.uriPricesHelper,
+          bearerToken: bearerToken,
+        );
     if (closedSession.isError) {
       // TODO(monsieurtanuki): do we really care?
       // throw Exception('Could not close session: ${closedSession.error}');
