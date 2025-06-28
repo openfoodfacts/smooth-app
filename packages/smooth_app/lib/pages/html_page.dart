@@ -12,7 +12,7 @@ class HtmlPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SmoothScaffold(
-        appBar: SmoothAppBar(title: Text(pageTitle)),
-        body: SingleChildScrollView(child: SmoothHtmlWidget(htmlString)),
-      );
+    appBar: SmoothAppBar(title: Text(pageTitle)),
+    body: SingleChildScrollView(child: SmoothHtmlWidget(htmlString)),
+  );
 }

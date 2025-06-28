@@ -40,36 +40,38 @@ class NutritionAvailabilityContainer extends StatelessWidget {
                   ),
                 ),
                 Consumer<NutritionContainerHelper>(
-                  builder: (
-                    BuildContext context,
-                    NutritionContainerHelper helper,
-                    _,
-                  ) {
-                    return SmoothDropdownButton<bool>(
-                      value: !helper.noNutritionData,
-                      items: <SmoothDropdownItem<bool>>[
-                        SmoothDropdownItem<bool>(
-                          value: true,
-                          label: appLocalizations
-                              .nutrition_page_nutritional_info_value_positive,
-                        ),
-                        SmoothDropdownItem<bool>(
-                          value: false,
-                          label: appLocalizations
-                              .nutrition_page_nutritional_info_value_negative,
-                        ),
-                      ],
-                      onChanged: (bool? value) {
-                        if (value == null) {
-                          return;
-                        }
+                  builder:
+                      (
+                        BuildContext context,
+                        NutritionContainerHelper helper,
+                        _,
+                      ) {
+                        return SmoothDropdownButton<bool>(
+                          value: !helper.noNutritionData,
+                          items: <SmoothDropdownItem<bool>>[
+                            SmoothDropdownItem<bool>(
+                              value: true,
+                              label: appLocalizations
+                                  .nutrition_page_nutritional_info_value_positive,
+                            ),
+                            SmoothDropdownItem<bool>(
+                              value: false,
+                              label: appLocalizations
+                                  .nutrition_page_nutritional_info_value_negative,
+                            ),
+                          ],
+                          onChanged: (bool? value) {
+                            if (value == null) {
+                              return;
+                            }
 
-                        context
-                            .read<NutritionContainerHelper>()
-                            .noNutritionData = !value;
+                            context
+                                    .read<NutritionContainerHelper>()
+                                    .noNutritionData =
+                                !value;
+                          },
+                        );
                       },
-                    );
-                  },
                 ),
               ],
             ),

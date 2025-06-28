@@ -70,8 +70,8 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
 
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
     final List<List<Attribute>> scoreAttributesArray = <List<Attribute>>[];
     final List<Widget> scoreWidgets = <Widget>[];
     for (final Product product in widget.products) {
@@ -188,8 +188,8 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
   }
 
   Row _getTextRow(final List<String> texts) => _getWidgetRow(<Widget>[
-        for (final String text in texts) Expanded(child: Text(text)),
-      ]);
+    for (final String text in texts) Expanded(child: Text(text)),
+  ]);
 
   Row _getWidgetRow(final List<Widget> widgets) {
     final List<Widget> children = <Widget>[];

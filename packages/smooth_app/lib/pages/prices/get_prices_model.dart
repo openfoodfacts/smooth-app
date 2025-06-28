@@ -25,24 +25,22 @@ class GetPricesModel {
   factory GetPricesModel.product({
     required final PriceMetaProduct product,
     required final BuildContext context,
-  }) =>
-      GetPricesModel(
-        parameters: getStandardPricesParameters()
-          ..productCode = product.barcode,
-        displayEachProduct: false,
-        uri: OpenPricesAPIClient.getUri(
-          path: 'products/${product.barcode}',
-          uriHelper: ProductQuery.uriPricesHelper,
-        ),
-        title: product.getName(AppLocalizations.of(context)),
-        subtitle: product.barcode,
-        addButton: () async => ProductPriceAddPage.showProductPage(
-          context: context,
-          product: product,
-          proofType: ProofType.priceTag,
-        ),
-        enableCountButton: false,
-      );
+  }) => GetPricesModel(
+    parameters: getStandardPricesParameters()..productCode = product.barcode,
+    displayEachProduct: false,
+    uri: OpenPricesAPIClient.getUri(
+      path: 'products/${product.barcode}',
+      uriHelper: ProductQuery.uriPricesHelper,
+    ),
+    title: product.getName(AppLocalizations.of(context)),
+    subtitle: product.barcode,
+    addButton: () async => ProductPriceAddPage.showProductPage(
+      context: context,
+      product: product,
+      proofType: ProofType.priceTag,
+    ),
+    enableCountButton: false,
+  );
 
   static GetPricesParameters getStandardPricesParameters() =>
       GetPricesParameters()

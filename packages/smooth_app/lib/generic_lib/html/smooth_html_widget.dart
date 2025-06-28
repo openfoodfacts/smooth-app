@@ -23,8 +23,8 @@ class SmoothHtmlWidget extends StatelessWidget {
       textStyle: textStyle,
       customStylesBuilder: (dom.Element element) =>
           element.classes.contains('unknown_ingredient')
-              ? <String, String>{'font-weight': 'bold'}
-              : null,
+          ? <String, String>{'font-weight': 'bold'}
+          : null,
       onTapUrl: (String url) async {
         try {
           await LaunchUrlHelper.launchURL(url);

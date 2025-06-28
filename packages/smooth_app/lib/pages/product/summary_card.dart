@@ -132,11 +132,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   }
 
   Widget _buildLimitedSizeSummaryCard() {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Padding(
-      padding: widget.margin ??
+      padding:
+          widget.margin ??
           const EdgeInsets.symmetric(
             horizontal: SMALL_SPACE,
             vertical: VERY_SMALL_SPACE,
@@ -157,7 +158,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             ),
             Container(
               width: double.infinity,
-              padding: widget.buttonPadding ??
+              padding:
+                  widget.buttonPadding ??
                   const EdgeInsets.symmetric(vertical: SMALL_SPACE),
               decoration: BoxDecoration(
                 color: context.lightTheme()
@@ -213,8 +215,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
+    final List<String> excludedAttributeIds = userPreferences
+        .getExcludedAttributeIds();
     final List<Attribute> scoreAttributes = getPopulatedAttributes(
       upToDateProduct,
       SCORE_ATTRIBUTE_IDS,
@@ -330,8 +332,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           isPictureVisible: widget.isPictureVisible,
           onRemove: (BuildContext context) async {
             HideableContainerState.of(context).hide(() async {
-              final ContinuousScanModel model =
-                  context.read<ContinuousScanModel>();
+              final ContinuousScanModel model = context
+                  .read<ContinuousScanModel>();
               await model.removeBarcode(barcode);
 
               // Vibrate twice

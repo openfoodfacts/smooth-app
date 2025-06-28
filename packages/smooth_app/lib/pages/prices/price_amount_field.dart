@@ -28,8 +28,8 @@ class PriceAmountField extends StatelessWidget {
       hintText: !isPaidPrice
           ? appLocalizations.prices_amount_price_not_discounted
           : model.promo
-              ? appLocalizations.prices_amount_price_discounted
-              : appLocalizations.prices_amount_price_normal,
+          ? appLocalizations.prices_amount_price_discounted
+          : appLocalizations.prices_amount_price_normal,
       textInputType: _priceTextInputType,
       onChanged: (final String? value) {
         if (isPaidPrice) {

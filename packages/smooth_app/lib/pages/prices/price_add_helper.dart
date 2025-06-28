@@ -93,8 +93,8 @@ class PriceAddHelper {
 
     if (newCurrency != null && model.currency != newCurrency) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      final SmoothColorsThemeExtension extension =
-          context.extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension = context
+          .extension<SmoothColorsThemeExtension>();
 
       final Currency? currency = await showSmoothAlertModalSheet<Currency?>(
         context: context,
@@ -132,8 +132,8 @@ class PriceAddHelper {
   Future<bool?> doesAcceptWarning({required final bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     const Color color = Color(0xFFB81D1D);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     return showSmoothListOfChoicesModalSheet<bool>(
       safeArea: true,
       context: context,
@@ -184,8 +184,8 @@ class PriceAddHelper {
   Widget _buildBulletPoint(String text, BuildContext context) {
     const double defaultIconSize = 7.0;
     const double radius = 10.0;
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

@@ -92,7 +92,8 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
             },
           );
         },
-        itemCount: _queries.length +
+        itemCount:
+            _queries.length +
             widget.preloadedList.length +
             1, // +1 for the "Copy from clipboard"
       ),

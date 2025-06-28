@@ -74,31 +74,29 @@ class ProductRefresher {
   ProductQueryConfiguration getBarcodeQueryConfiguration(
     final String barcode,
     final OpenFoodFactsLanguage language,
-  ) =>
-      ProductQueryConfiguration(
-        barcode,
-        fields: ProductQuery.fields,
-        language: language,
-        country: ProductQuery.getCountry(),
-        version: ProductQuery.productQueryVersion,
-        productTypeFilter: ProductTypeFilter.all,
-      );
+  ) => ProductQueryConfiguration(
+    barcode,
+    fields: ProductQuery.fields,
+    language: language,
+    country: ProductQuery.getCountry(),
+    version: ProductQuery.productQueryVersion,
+    productTypeFilter: ProductTypeFilter.all,
+  );
 
   /// Returns the standard configuration for several barcodes product query.
   ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
     final List<String> barcodes,
     final OpenFoodFactsLanguage language,
-  ) =>
-      ProductSearchQueryConfiguration(
-        fields: ProductQuery.fields,
-        language: language,
-        country: ProductQuery.getCountry(),
-        parametersList: <Parameter>[
-          BarcodeParameter.list(barcodes),
-          PageSize(size: barcodes.length),
-        ],
-        version: ProductQuery.productQueryVersion,
-      );
+  ) => ProductSearchQueryConfiguration(
+    fields: ProductQuery.fields,
+    language: language,
+    country: ProductQuery.getCountry(),
+    parametersList: <Parameter>[
+      BarcodeParameter.list(barcodes),
+      PageSize(size: barcodes.length),
+    ],
+    version: ProductQuery.productQueryVersion,
+  );
 
   /// Fetches the products from the server and refreshes the local database.
   ///
@@ -107,8 +105,7 @@ class ProductRefresher {
     required final List<String> barcodes,
     required final LocalDatabase localDatabase,
     required final ProductType productType,
-  }) async =>
-      _fetchAndRefreshList(localDatabase, barcodes, productType);
+  }) async => _fetchAndRefreshList(localDatabase, barcodes, productType);
 
   /// Fetches the product from the server and refreshes the local database.
   ///
@@ -122,13 +119,13 @@ class ProductRefresher {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final FetchedProduct? fetchAndRefreshed =
         await LoadingDialog.run<FetchedProduct>(
-      future: silentFetchAndRefresh(
-        localDatabase: localDatabase,
-        barcode: barcode,
-      ),
-      context: context,
-      title: appLocalizations.refreshing_product,
-    );
+          future: silentFetchAndRefresh(
+            localDatabase: localDatabase,
+            barcode: barcode,
+          ),
+          context: context,
+          title: appLocalizations.refreshing_product,
+        );
     if (fetchAndRefreshed == null) {
       // the user probably cancelled
       return false;
@@ -192,8 +189,8 @@ class ProductRefresher {
       return const FetchedProduct.internetNotFound();
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
-      final List<ConnectivityResult> connectivityResult =
-          await Connectivity().checkConnectivity();
+      final List<ConnectivityResult> connectivityResult = await Connectivity()
+          .checkConnectivity();
       if (connectivityResult.contains(ConnectivityResult.none)) {
         return FetchedProduct.error(
           exceptionString: e.toString(),
@@ -223,13 +220,13 @@ class ProductRefresher {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult =
           await SearchProductsManager.searchProducts(
-        ProductQuery.getReadUser(),
-        getBarcodeListQueryConfiguration(barcodes, language),
-        uriHelper: ProductQuery.getUriProductHelper(
-          productType: productType,
-        ),
-        type: SearchProductsType.live,
-      );
+            ProductQuery.getReadUser(),
+            getBarcodeListQueryConfiguration(barcodes, language),
+            uriHelper: ProductQuery.getUriProductHelper(
+              productType: productType,
+            ),
+            type: SearchProductsType.live,
+          );
       if (searchResult.products == null) {
         return null;
       }

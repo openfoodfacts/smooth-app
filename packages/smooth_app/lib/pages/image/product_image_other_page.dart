@@ -45,13 +45,13 @@ class ProductImageOtherPage extends StatefulWidget {
     required final ProductImage productImage,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final List<ImageField> imageFields =
         ImageFieldSmoothieExtension.getOrderedMainImageFields(
-      product.productType,
-    );
+          product.productType,
+        );
 
     final Widget existingPictureIcon = icons.Picture.check(
       color: extension.success,
@@ -62,53 +62,60 @@ class ProductImageOtherPage extends StatefulWidget {
       semanticLabel: appLocalizations.photo_missing,
     );
 
-    final ImageField? selectedImageField =
-        await showSmoothListOfChoicesModalSheet<ImageField>(
+    final ImageField?
+    selectedImageField = await showSmoothListOfChoicesModalSheet<ImageField>(
       context: context,
       title: appLocalizations.photo_viewer_use_picture_as_title(
         Languages().getNameInLanguage(language),
       ),
       padding: const EdgeInsetsDirectional.only(start: 15.0, end: 19.0),
-      labels: imageFields.map((final ImageField imageField) {
-        return switch (imageField) {
-          ImageField.FRONT => appLocalizations.photo_field_front,
-          ImageField.INGREDIENTS => appLocalizations.photo_field_ingredients,
-          ImageField.NUTRITION => appLocalizations.photo_field_nutrition,
-          ImageField.PACKAGING => appLocalizations.photo_field_packaging,
-          ImageField.OTHER => throw UnimplementedError(),
-        };
-      }).toList(growable: false),
+      labels: imageFields
+          .map((final ImageField imageField) {
+            return switch (imageField) {
+              ImageField.FRONT => appLocalizations.photo_field_front,
+              ImageField.INGREDIENTS =>
+                appLocalizations.photo_field_ingredients,
+              ImageField.NUTRITION => appLocalizations.photo_field_nutrition,
+              ImageField.PACKAGING => appLocalizations.photo_field_packaging,
+              ImageField.OTHER => throw UnimplementedError(),
+            };
+          })
+          .toList(growable: false),
       values: imageFields,
-      prefixIcons: imageFields.map((final ImageField imageField) {
-        return switch (imageField) {
-          ImageField.FRONT => const icons.Milk.happy(),
-          ImageField.INGREDIENTS => const icons.Ingredients.alt(),
-          ImageField.NUTRITION => const icons.NutritionFacts(),
-          ImageField.PACKAGING => const icons.Recycling(),
-          ImageField.OTHER => throw UnimplementedError(),
-        };
-      }).toList(growable: false),
-      suffixIcons: imageFields.map((final ImageField imageField) {
-        final bool exists = TransientFile.fromProduct(
-          product,
-          imageField,
-          language,
-        ).isImageAvailable();
-        return exists ? existingPictureIcon : missingPictureIcon;
-      }).toList(growable: false),
+      prefixIcons: imageFields
+          .map((final ImageField imageField) {
+            return switch (imageField) {
+              ImageField.FRONT => const icons.Milk.happy(),
+              ImageField.INGREDIENTS => const icons.Ingredients.alt(),
+              ImageField.NUTRITION => const icons.NutritionFacts(),
+              ImageField.PACKAGING => const icons.Recycling(),
+              ImageField.OTHER => throw UnimplementedError(),
+            };
+          })
+          .toList(growable: false),
+      suffixIcons: imageFields
+          .map((final ImageField imageField) {
+            final bool exists = TransientFile.fromProduct(
+              product,
+              imageField,
+              language,
+            ).isImageAvailable();
+            return exists ? existingPictureIcon : missingPictureIcon;
+          })
+          .toList(growable: false),
     );
 
     if (context.mounted && selectedImageField != null) {
       final CropParameters? cropParameters =
           await UploadedImageGallery.useExistingPhotoFor(
-        context: context,
-        rawImage: productImage,
-        barcode: product.barcode!,
-        imageField: selectedImageField,
-        isLoggedInMandatory: true,
-        productType: product.productType,
-        language: language,
-      );
+            context: context,
+            rawImage: productImage,
+            barcode: product.barcode!,
+            imageField: selectedImageField,
+            isLoggedInMandatory: true,
+            productType: product.productType,
+            language: language,
+          );
 
       if (cropParameters != null) {
         return ProductImagePageResult(
@@ -158,16 +165,19 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
             Positioned.fill(
               child: PageView(
                 controller: _pageController,
-                children: widget.images.map((final ProductImage image) {
-                  return _ProductImageViewer(
-                    image: image,
-                    barcode: widget.product.barcode!,
-                    language: widget.language,
-                    heroTag:
-                        widget.currentImage == image ? widget.heroTag : null,
-                    productType: widget.product.productType,
-                  );
-                }).toList(growable: false),
+                children: widget.images
+                    .map((final ProductImage image) {
+                      return _ProductImageViewer(
+                        image: image,
+                        barcode: widget.product.barcode!,
+                        language: widget.language,
+                        heroTag: widget.currentImage == image
+                            ? widget.heroTag
+                            : null,
+                        productType: widget.product.productType,
+                      );
+                    })
+                    .toList(growable: false),
               ),
             ),
             Positioned(
@@ -232,19 +242,20 @@ class _ProductImageViewer extends StatelessWidget {
                   ),
                 ),
                 fit: BoxFit.contain,
-                loadingBuilder: (
-                  _,
-                  final Widget child,
-                  final ImageChunkEvent? loadingProgress,
-                ) {
-                  if (loadingProgress != null) {
-                    return const Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    );
-                  } else {
-                    return child;
-                  }
-                },
+                loadingBuilder:
+                    (
+                      _,
+                      final Widget child,
+                      final ImageChunkEvent? loadingProgress,
+                    ) {
+                      if (loadingProgress != null) {
+                        return const Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        );
+                      } else {
+                        return child;
+                      }
+                    },
                 errorBuilder: (_, __, ___) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -328,7 +339,8 @@ class _ProductImageDetailsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String url = image.url ??
+    final String url =
+        image.url ??
         image.getUrl(
           barcode,
           uriHelper: ProductQuery.getUriProductHelper(productType: productType),
@@ -378,10 +390,10 @@ class _ProductImageDetailsButton extends StatelessWidget {
                         subtitle: Text(
                           image.width != null && image.height != null
                               ? appLocalizations
-                                  .photo_viewer_details_size_value(
-                                  image.width!,
-                                  image.height!,
-                                )
+                                    .photo_viewer_details_size_value(
+                                      image.width!,
+                                      image.height!,
+                                    )
                               : '-',
                         ),
                       ),
@@ -457,8 +469,8 @@ class _ProductImagePageIndicator extends StatelessWidget {
               return 0;
             }
 
-            final int page =
-                (value.offset / value.position.viewportDimension).round();
+            final int page = (value.offset / value.position.viewportDimension)
+                .round();
             if (page < 0) {
               return 0;
             } else if (page > items - 1) {

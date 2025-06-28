@@ -6,7 +6,7 @@ import 'package:smooth_app/database/local_database.dart';
 /// Sequence of minimalist product changes.
 class UpToDateChanges {
   UpToDateChanges(this.localDatabase)
-      : _daoTransientProduct = DaoTransientOperation(localDatabase);
+    : _daoTransientProduct = DaoTransientOperation(localDatabase);
 
   final LocalDatabase localDatabase;
 

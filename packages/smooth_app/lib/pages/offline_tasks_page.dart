@@ -83,18 +83,18 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                       context: context,
                       builder: (final BuildContext context) =>
                           SmoothAlertDialog(
-                        body: Text(
-                          appLocalizations.background_task_question_stop,
-                        ),
-                        negativeAction: SmoothActionButton(
-                          text: appLocalizations.no,
-                          onPressed: () => Navigator.of(context).pop(false),
-                        ),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.yes,
-                          onPressed: () => Navigator.of(context).pop(true),
-                        ),
-                      ),
+                            body: Text(
+                              appLocalizations.background_task_question_stop,
+                            ),
+                            negativeAction: SmoothActionButton(
+                              text: appLocalizations.no,
+                              onPressed: () => Navigator.of(context).pop(false),
+                            ),
+                            positiveAction: SmoothActionButton(
+                              text: appLocalizations.yes,
+                              onPressed: () => Navigator.of(context).pop(true),
+                            ),
+                          ),
                     );
                     if (stopTask == true) {
                       await BackgroundTaskManager.getInstance(

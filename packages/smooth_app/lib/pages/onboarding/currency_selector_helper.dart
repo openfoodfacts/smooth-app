@@ -38,66 +38,66 @@ class CurrencySelectorHelper {
         return StatefulBuilder(
           builder:
               (BuildContext context, void Function(VoidCallback fn) setState) {
-            const double horizontalPadding = 16.0 + SMALL_SPACE;
+                const double horizontalPadding = 16.0 + SMALL_SPACE;
 
-            return SmoothListAlertDialog(
-              title: appLocalizations.currency_selector_title,
-              header: SmoothTextFormField(
-                type: TextFieldTypes.PLAIN_TEXT,
-                prefixIcon: const Icon(Icons.search),
-                controller: currencyController,
-                onChanged: (String? query) {
-                  query = query!.trim().getComparisonSafeString();
+                return SmoothListAlertDialog(
+                  title: appLocalizations.currency_selector_title,
+                  header: SmoothTextFormField(
+                    type: TextFieldTypes.PLAIN_TEXT,
+                    prefixIcon: const Icon(Icons.search),
+                    controller: currencyController,
+                    onChanged: (String? query) {
+                      query = query!.trim().getComparisonSafeString();
 
-                  setState(() {
-                    filteredList = _currencyList
-                        .where(
-                          (Currency item) => item
-                              .getFullName()
-                              .getComparisonSafeString()
-                              .contains(query!),
-                        )
-                        .toList(growable: false);
-                  });
-                },
-                hintText: appLocalizations.search,
-              ),
-              scrollController: scrollController,
-              list: ListView.separated(
-                controller: scrollController,
-                itemBuilder: (BuildContext context, int index) {
-                  final Currency currency = filteredList[index];
-                  final bool isSelected = currency == selected;
-                  return ListTile(
-                    dense: true,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: horizontalPadding,
-                    ),
-                    trailing: isSelected ? const Icon(Icons.check) : null,
-                    title: TextHighlighter(
-                      text: currency.getFullName(),
-                      filter: currencyController.text,
-                      selected: isSelected,
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pop(currency);
+                      setState(() {
+                        filteredList = _currencyList
+                            .where(
+                              (Currency item) => item
+                                  .getFullName()
+                                  .getComparisonSafeString()
+                                  .contains(query!),
+                            )
+                            .toList(growable: false);
+                      });
+                    },
+                    hintText: appLocalizations.search,
+                  ),
+                  scrollController: scrollController,
+                  list: ListView.separated(
+                    controller: scrollController,
+                    itemBuilder: (BuildContext context, int index) {
+                      final Currency currency = filteredList[index];
+                      final bool isSelected = currency == selected;
+                      return ListTile(
+                        dense: true,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: horizontalPadding,
+                        ),
+                        trailing: isSelected ? const Icon(Icons.check) : null,
+                        title: TextHighlighter(
+                          text: currency.getFullName(),
+                          filter: currencyController.text,
+                          selected: isSelected,
+                        ),
+                        onTap: () {
+                          Navigator.of(context).pop(currency);
+                          currencyController.clear();
+                        },
+                      );
+                    },
+                    separatorBuilder: (_, __) => const Divider(height: 1.0),
+                    itemCount: filteredList.length,
+                    shrinkWrap: true,
+                  ),
+                  positiveAction: SmoothActionButton(
+                    onPressed: () {
+                      Navigator.pop(context);
                       currencyController.clear();
                     },
-                  );
-                },
-                separatorBuilder: (_, __) => const Divider(height: 1.0),
-                itemCount: filteredList.length,
-                shrinkWrap: true,
-              ),
-              positiveAction: SmoothActionButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  currencyController.clear();
-                },
-                text: appLocalizations.cancel,
-              ),
-            );
-          },
+                    text: appLocalizations.cancel,
+                  ),
+                );
+              },
         );
       },
     );

@@ -56,17 +56,16 @@ class _ProductImageViewerState extends State<ProductImageViewer>
   Widget _getImageButton(
     final ProductImageButtonType type,
     final bool imageExists,
-  ) =>
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-        child: type.getButton(
-          product: upToDateProduct,
-          imageField: widget.imageField,
-          imageExists: imageExists,
-          language: widget.language,
-          isLoggedInMandatory: widget.isLoggedInMandatory,
-        ),
-      );
+  ) => Padding(
+    padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+    child: type.getButton(
+      product: upToDateProduct,
+      imageField: widget.imageField,
+      imageExists: imageExists,
+      language: widget.language,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -116,10 +115,9 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                                 selectedLanguages.isEmpty
                                     ? appLocalizations.edit_photo_language_none
                                     : appLocalizations
-                                        .edit_photo_language_not_this_one,
-                                style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium
+                                          .edit_photo_language_not_this_one,
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium
                                         ?.copyWith(color: Colors.black) ??
                                     const TextStyle(color: Colors.black),
                                 textAlign: TextAlign.center,
@@ -165,35 +163,40 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                                           barcode,
                                           widget.imageField,
                                         ),
-                                        flightShuttleBuilder: (
-                                          _,
-                                          Animation<double> animation,
-                                          HeroFlightDirection flightDirection,
-                                          BuildContext fromHeroContext,
-                                          BuildContext toHeroContext,
-                                        ) {
-                                          return AnimatedBuilder(
-                                            animation: animation,
-                                            builder: (_, __) {
-                                              Widget widget;
-                                              if (flightDirection ==
-                                                  HeroFlightDirection.push) {
-                                                widget = fromHeroContext.widget;
-                                              } else {
-                                                widget = toHeroContext.widget;
-                                              }
+                                        flightShuttleBuilder:
+                                            (
+                                              _,
+                                              Animation<double> animation,
+                                              HeroFlightDirection
+                                              flightDirection,
+                                              BuildContext fromHeroContext,
+                                              BuildContext toHeroContext,
+                                            ) {
+                                              return AnimatedBuilder(
+                                                animation: animation,
+                                                builder: (_, __) {
+                                                  Widget widget;
+                                                  if (flightDirection ==
+                                                      HeroFlightDirection
+                                                          .push) {
+                                                    widget =
+                                                        fromHeroContext.widget;
+                                                  } else {
+                                                    widget =
+                                                        toHeroContext.widget;
+                                                  }
 
-                                              return ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(
+                                                  return ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
                                                           1 - animation.value,
                                                         ) *
                                                         ROUNDED_RADIUS.x,
-                                                child: widget,
+                                                    child: widget,
+                                                  );
+                                                },
                                               );
                                             },
-                                          );
-                                        },
                                       )
                                     : null,
                                 backgroundDecoration: const BoxDecoration(
@@ -205,7 +208,8 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                           if (isLoading)
                             Center(
                               child: CloudUploadAnimation.circle(
-                                size: MediaQuery.sizeOf(context).longestSide *
+                                size:
+                                    MediaQuery.sizeOf(context).longestSide *
                                     0.2,
                               ),
                             ),

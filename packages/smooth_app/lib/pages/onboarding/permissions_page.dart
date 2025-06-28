@@ -54,26 +54,25 @@ class _PermissionsPageState extends State<PermissionsPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         LayoutBuilder(
-                          builder: (
-                            BuildContext context,
-                            BoxConstraints constraints,
-                          ) {
-                            return SizedBox.square(
-                              dimension: constraints.maxWidth * 0.5,
-                              child: Transform.rotate(
-                                angle: -0.2,
-                                child: const animations.BarcodeAnimation(),
-                              ),
-                            );
-                          },
+                          builder:
+                              (
+                                BuildContext context,
+                                BoxConstraints constraints,
+                              ) {
+                                return SizedBox.square(
+                                  dimension: constraints.maxWidth * 0.5,
+                                  child: Transform.rotate(
+                                    angle: -0.2,
+                                    child: const animations.BarcodeAnimation(),
+                                  ),
+                                );
+                              },
                         ),
                         const SizedBox(height: LARGE_SPACE),
                         AutoSizeText(
                           appLocalizations.permissions_page_title,
                           maxLines: 2,
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayLarge!
+                          style: Theme.of(context).textTheme.displayLarge!
                               .apply(
                                 color: const Color.fromARGB(255, 51, 51, 51),
                               ),

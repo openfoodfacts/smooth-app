@@ -66,8 +66,8 @@ class ProductDialogHelper {
       context: context,
       builder: (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final SmoothColorsThemeExtension theme =
-            context.extension<SmoothColorsThemeExtension>();
+        final SmoothColorsThemeExtension theme = context
+            .extension<SmoothColorsThemeExtension>();
         final bool lightTheme = context.lightTheme();
 
         return SmoothModalSheet(
@@ -113,8 +113,9 @@ class ProductDialogHelper {
                   DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius: ANGULAR_BORDER_RADIUS,
-                      color:
-                          lightTheme ? theme.primaryMedium : theme.primaryLight,
+                      color: lightTheme
+                          ? theme.primaryMedium
+                          : theme.primaryLight,
                     ),
                     child: SmoothBarcodeWidget(
                       barcode: barcode,
@@ -126,8 +127,9 @@ class ProductDialogHelper {
                         bottom: MEDIUM_SPACE,
                       ),
                       color: Colors.black,
-                      backgroundColor:
-                          lightTheme ? Colors.white : Colors.transparent,
+                      backgroundColor: lightTheme
+                          ? Colors.white
+                          : Colors.transparent,
                     ),
                   ),
                   const SizedBox(height: MEDIUM_SPACE * 2),
@@ -161,28 +163,28 @@ class ProductDialogHelper {
   }
 
   static Widget getErrorMessage(final String message) => Row(
-        children: <Widget>[
-          const Icon(Icons.error_outline, color: Colors.red),
-          const SizedBox(width: SMALL_SPACE),
-          Expanded(child: Text(message)),
-        ],
-      );
+    children: <Widget>[
+      const Icon(Icons.error_outline, color: Colors.red),
+      const SizedBox(width: SMALL_SPACE),
+      Expanded(child: Text(message)),
+    ],
+  );
 
   void _openErrorMessage(final String message) => showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          final AppLocalizations localizations = AppLocalizations.of(context);
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations localizations = AppLocalizations.of(context);
 
-          return SmoothAlertDialog(
-            title: localizations.product_internet_error_modal_title,
-            body: getErrorMessage(message),
-            positiveAction: SmoothActionButton(
-              text: localizations.close,
-              onPressed: () => Navigator.pop(context),
-            ),
-          );
-        },
+      return SmoothAlertDialog(
+        title: localizations.product_internet_error_modal_title,
+        body: getErrorMessage(message),
+        positiveAction: SmoothActionButton(
+          text: localizations.close,
+          onPressed: () => Navigator.pop(context),
+        ),
       );
+    },
+  );
 
   /// Opens an error dialog; to be used only if the status is not ok.
   void openError(final FetchedProduct fetchedProduct) {

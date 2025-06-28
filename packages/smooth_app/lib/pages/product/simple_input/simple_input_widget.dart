@@ -74,8 +74,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
           create: (_) => ValueNotifier<List<String>>(_localTerms),
         ),
         ChangeNotifierProvider<
-                ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>.value(
-            value: widget.helper.robotoffQuestionsNotifier),
+          ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+        >.value(value: widget.helper.robotoffQuestionsNotifier),
       ],
       builder: (BuildContext context, Widget? child) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -98,10 +98,10 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                         focusNode: _focusNode,
                         constraints: constraints,
                         tagType: widget.helper.getTagType(),
-                        autocompleteManager:
-                            widget.helper.getAutocompleteManager(),
-                        textCapitalization:
-                            widget.helper.getTextCapitalization(),
+                        autocompleteManager: widget.helper
+                            .getAutocompleteManager(),
+                        textCapitalization: widget.helper
+                            .getTextCapitalization(),
                         allowEmojis: widget.helper.getAllowEmojis(),
                         hintText: widget.helper.getAddHint(appLocalizations),
                         controller: widget.controller,
@@ -124,10 +124,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                           builder: (BuildContext context, _) => icons.Add(
                             size: 20.0,
                             color: IconTheme.of(context).color?.withValues(
-                                  alpha: widget.controller.text.isEmpty
-                                      ? 0.7
-                                      : 1.0,
-                                ),
+                              alpha: widget.controller.text.isEmpty ? 0.7 : 1.0,
+                            ),
                           ),
                         ),
                       ),
@@ -155,17 +153,19 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
             )
           else if (_localTerms.isEmpty)
             Consumer<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>(
-              builder: (
-                BuildContext context,
-                ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>> notif,
-                _,
-              ) {
-                if (notif.value.isEmpty) {
-                  return const SizedBox(height: VERY_SMALL_SPACE);
-                } else {
-                  return EMPTY_WIDGET;
-                }
-              },
+              builder:
+                  (
+                    BuildContext context,
+                    ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
+                    notif,
+                    _,
+                  ) {
+                    if (notif.value.isEmpty) {
+                      return const SizedBox(height: VERY_SMALL_SPACE);
+                    } else {
+                      return EMPTY_WIDGET;
+                    }
+                  },
             )
           else
             const SizedBox(height: VERY_SMALL_SPACE),

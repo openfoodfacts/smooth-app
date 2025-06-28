@@ -139,7 +139,8 @@ class _SearchFieldState extends State<SearchField> {
         child: _BackIcon(),
       ),
       prefixIconConstraints: BoxConstraints.tightFor(
-        width: SearchFieldUIHelper.SEARCH_BAR_HEIGHT +
+        width:
+            SearchFieldUIHelper.SEARCH_BAR_HEIGHT +
             (SearchFieldUIHelper.SEARCH_BAR_PADDING.horizontal) / 2,
       ),
       suffixIcon: widget.showClearButton
@@ -194,7 +195,7 @@ class _SearchIcon extends StatelessWidget {
 
 class SearchBarIcon extends StatelessWidget {
   const SearchBarIcon({this.icon, this.onTap, this.label, super.key})
-      : assert(label == null || onTap != null);
+    : assert(label == null || onTap != null);
 
   final VoidCallback? onTap;
   final String? label;

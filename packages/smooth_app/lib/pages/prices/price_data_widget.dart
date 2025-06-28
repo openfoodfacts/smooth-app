@@ -62,7 +62,8 @@ class PriceDataWidget extends StatelessWidget {
     final String? notDiscountedPrice = getNotDiscountedPrice();
     final bool isDiscounted = price.priceIsDiscounted == true;
 
-    final String priceLabel = '${currencyFormat.format(price.price)}'
+    final String priceLabel =
+        '${currencyFormat.format(price.price)}'
         ' ${pricePerKg == null ? '' : ' ($pricePerKg)'}';
     return Semantics(
       container: true,
@@ -95,15 +96,16 @@ class PriceDataWidget extends StatelessWidget {
                 onPressed: price.locationId == null
                     ? () {}
                     : () async => PriceLocationWidget.showLocationPrices(
-                          locationId: price.locationId!,
-                          context: context,
-                        ),
+                        locationId: price.locationId!,
+                        context: context,
+                      ),
               ),
             ),
           if (model.displayEachOwner) PriceUserButton(price.owner),
           ExcludeSemantics(
             child: Tooltip(
-              message: '${dateFormat.format(price.created)}'
+              message:
+                  '${dateFormat.format(price.created)}'
                   ' '
                   '${timeFormat.format(price.created)}',
               child: PriceButton(

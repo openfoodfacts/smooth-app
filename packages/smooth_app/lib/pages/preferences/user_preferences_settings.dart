@@ -131,36 +131,34 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   UserPreferencesItem _getTitle({
     required final String label,
     final bool addExtraPadding = true,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[label],
-        builder: (_) => _UserPreferencesTitle(
-            label: label, addExtraPadding: addExtraPadding),
-      );
+  }) => UserPreferencesItemSimple(
+    labels: <String>[label],
+    builder: (_) =>
+        _UserPreferencesTitle(label: label, addExtraPadding: addExtraPadding),
+  );
 
   UserPreferencesItem _getDivider() => UserPreferencesItemSimple(
-        labels: <String>[],
-        builder: (_) => const UserPreferencesListItemDivider(),
-      );
+    labels: <String>[],
+    builder: (_) => const UserPreferencesListItemDivider(),
+  );
 
   UserPreferencesItem _getExpandPanel({
     required String title,
     required String subtitle,
     required String panelId,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title, subtitle],
-        builder: (_) {
-          final String flagTag = KnowledgePanelCard.getExpandFlagTag(panelId);
-          return UserPreferencesSwitchWidget(
-            title: title,
-            subtitle: subtitle,
-            value: userPreferences.getFlag(flagTag) ?? false,
-            onChanged: (final bool value) async =>
-                userPreferences.setFlag(flagTag, value),
-          );
-        },
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title, subtitle],
+    builder: (_) {
+      final String flagTag = KnowledgePanelCard.getExpandFlagTag(panelId);
+      return UserPreferencesSwitchWidget(
+        title: title,
+        subtitle: subtitle,
+        value: userPreferences.getFlag(flagTag) ?? false,
+        onChanged: (final bool value) async =>
+            userPreferences.setFlag(flagTag, value),
       );
+    },
+  );
 }
 
 class _UserPreferencesTitle extends StatelessWidget {
@@ -174,16 +172,16 @@ class _UserPreferencesTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsetsDirectional.only(
-            top: addExtraPadding ? LARGE_SPACE : LARGE_SPACE,
-            bottom: SMALL_SPACE,
-            // Horizontal = same as ListTile
-            start: LARGE_SPACE,
-            end: LARGE_SPACE,
-          ),
-          child: Text(label, style: Theme.of(context).textTheme.displayLarge),
-        ),
-      );
+    width: double.infinity,
+    child: Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: addExtraPadding ? LARGE_SPACE : LARGE_SPACE,
+        bottom: SMALL_SPACE,
+        // Horizontal = same as ListTile
+        start: LARGE_SPACE,
+        end: LARGE_SPACE,
+      ),
+      child: Text(label, style: Theme.of(context).textTheme.displayLarge),
+    ),
+  );
 }

@@ -114,8 +114,8 @@ class _ProofBulkAddPageState extends State<ProofBulkAddPage>
                     onLocationChanged:
                         (OsmLocation? oldLocation, OsmLocation location) =>
                             PriceAddHelper(
-                      context,
-                    ).updateCurrency(oldLocation, location, model),
+                              context,
+                            ).updateCurrency(oldLocation, location, model),
                   ),
                   const SizedBox(height: LARGE_SPACE),
                   const PriceCurrencyCard(),

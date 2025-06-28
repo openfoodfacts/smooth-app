@@ -48,8 +48,8 @@ class _PortionCalculatorState extends State<PortionCalculator> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final bool isQuantityValid = _isInputValid();
 
@@ -102,7 +102,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
         Container(
           height:
               MediaQuery.textScalerOf(context).scale(SMALL_SPACE * 2 + 15.0) *
-                  1.2,
+              1.2,
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: MEDIUM_SPACE,
           ),

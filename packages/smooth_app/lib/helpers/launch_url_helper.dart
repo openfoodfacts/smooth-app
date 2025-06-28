@@ -34,7 +34,8 @@ class LaunchUrlHelper {
     try {
       await launchUrl(
         Uri.parse(url),
-        mode: mode ??
+        mode:
+            mode ??
             (Platform.isAndroid
                 ? LaunchMode.externalApplication
                 : LaunchMode.platformDefault),

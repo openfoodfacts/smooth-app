@@ -34,29 +34,30 @@ class ScanBottomCard extends StatelessWidget {
         ),
       ],
       child: Consumer2<ScanNewsFeedProvider, AppReviewProvider>(
-        builder: (
-          BuildContext context,
-          ScanNewsFeedProvider scanTagLineProvider,
-          AppReviewProvider appReviewProvider,
-          Widget? child,
-        ) {
-          switch (appReviewProvider.value) {
-            case AppReviewState.checking:
-              return const ScanBottomCardLoading();
-            case AppReviewState.askForReview:
-              return const ScanAppReview();
-            default:
-            // Nothing (-> news)
-          }
+        builder:
+            (
+              BuildContext context,
+              ScanNewsFeedProvider scanTagLineProvider,
+              AppReviewProvider appReviewProvider,
+              Widget? child,
+            ) {
+              switch (appReviewProvider.value) {
+                case AppReviewState.checking:
+                  return const ScanBottomCardLoading();
+                case AppReviewState.askForReview:
+                  return const ScanAppReview();
+                default:
+                // Nothing (-> news)
+              }
 
-          final ScanTagLineState state = scanTagLineProvider.value;
+              final ScanTagLineState state = scanTagLineProvider.value;
 
-          return switch (state) {
-            ScanTagLineStateLoading() => const ScanBottomCardLoading(),
-            ScanTagLineStateNoContent() => EMPTY_WIDGET,
-            ScanTagLineStateLoaded() => ScanNewsCard(news: state.tagLine),
-          };
-        },
+              return switch (state) {
+                ScanTagLineStateLoading() => const ScanBottomCardLoading(),
+                ScanTagLineStateNoContent() => EMPTY_WIDGET,
+                ScanTagLineStateLoaded() => ScanNewsCard(news: state.tagLine),
+              };
+            },
       ),
     );
   }
@@ -78,8 +79,9 @@ class ScanBottomCardLoading extends StatelessWidget {
         margin: EdgeInsets.zero,
         child: SizedBox(
           width: double.infinity,
-          height:
-              density == ScanBottomCardDensity.dense ? 200.0 : double.infinity,
+          height: density == ScanBottomCardDensity.dense
+              ? 200.0
+              : double.infinity,
         ),
       ),
     );
@@ -111,8 +113,8 @@ class ScanBottomCardContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool dense =
         context.read<ScanBottomCardDensity>() == ScanBottomCardDensity.dense;
@@ -121,7 +123,8 @@ class ScanBottomCardContainer extends StatelessWidget {
       children: <Widget>[
         DecoratedBox(
           decoration: BoxDecoration(
-            color: titleBackgroundColor ??
+            color:
+                titleBackgroundColor ??
                 (context.lightTheme()
                     ? extension.primarySemiDark
                     : extension.secondaryVibrant),
@@ -158,7 +161,8 @@ class ScanBottomCardContainer extends StatelessWidget {
   }) {
     final Widget child = Material(
       type: MaterialType.card,
-      color: backgroundColor ??
+      color:
+          backgroundColor ??
           (context.lightTheme()
               ? extension.primaryMedium
               : extension.primaryUltraBlack),

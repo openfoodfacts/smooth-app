@@ -42,56 +42,58 @@ class _ProductHeaderState extends State<ProductHeader> {
         listener: (_, __, ScrollController scrollController) =>
             _onScroll(scrollController),
         child: Consumer<ProductPageCompatibility>(
-          builder: (
-            BuildContext context,
-            ProductPageCompatibility productCompatibility,
-            _,
-          ) {
-            final Color tintColor = productCompatibility.color ??
-                Theme.of(
-                  context,
-                ).extension<SmoothColorsThemeExtension>()!.greyNormal;
+          builder:
+              (
+                BuildContext context,
+                ProductPageCompatibility productCompatibility,
+                _,
+              ) {
+                final Color tintColor =
+                    productCompatibility.color ??
+                    Theme.of(
+                      context,
+                    ).extension<SmoothColorsThemeExtension>()!.greyNormal;
 
-            return Material(
-              color: tintColor,
-              shadowColor: tintColor,
-              elevation: _shadow,
-              child: DefaultTextStyle.merge(
-                style: const TextStyle(color: Colors.white),
-                child: IconTheme(
-                  data: const IconThemeData(color: Colors.white),
-                  child: SizedBox(
-                    height: kToolbarHeight + statusBarHeight,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.only(
-                        top: statusBarHeight,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          _ProductHeaderBackButton(
-                            backButtonType: widget.backButtonType,
+                return Material(
+                  color: tintColor,
+                  shadowColor: tintColor,
+                  elevation: _shadow,
+                  child: DefaultTextStyle.merge(
+                    style: const TextStyle(color: Colors.white),
+                    child: IconTheme(
+                      data: const IconThemeData(color: Colors.white),
+                      child: SizedBox(
+                        height: kToolbarHeight + statusBarHeight,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.only(
+                            top: statusBarHeight,
                           ),
-                          Expanded(
-                            child: Offstage(
-                              offstage: _titleOpacity == 0.0,
-                              child: Opacity(
-                                opacity: _titleOpacity,
-                                child: const _ProductHeaderName(),
+                          child: Row(
+                            children: <Widget>[
+                              _ProductHeaderBackButton(
+                                backButtonType: widget.backButtonType,
                               ),
-                            ),
+                              Expanded(
+                                child: Offstage(
+                                  offstage: _titleOpacity == 0.0,
+                                  child: Opacity(
+                                    opacity: _titleOpacity,
+                                    child: const _ProductHeaderName(),
+                                  ),
+                                ),
+                              ),
+                              if (productCompatibility.score != null)
+                                _ProductCompatibilityScore(
+                                  progress: _compatibilityScoreOpacity,
+                                ),
+                            ],
                           ),
-                          if (productCompatibility.score != null)
-                            _ProductCompatibilityScore(
-                              progress: _compatibilityScoreOpacity,
-                            ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            );
-          },
+                );
+              },
         ),
       ),
     );
@@ -104,12 +106,12 @@ class _ProductHeaderState extends State<ProductHeader> {
       LARGE_SPACE * 2 + kToolbarHeight * 1.5,
       1.0,
     );
-    final double compatibilityScoreOpacity =
-        scrollController.offset.progressAndClamp(
-      LARGE_SPACE * 1.5,
-      LARGE_SPACE + kToolbarHeight * 2,
-      1.0,
-    );
+    final double compatibilityScoreOpacity = scrollController.offset
+        .progressAndClamp(
+          LARGE_SPACE * 1.5,
+          LARGE_SPACE + kToolbarHeight * 2,
+          1.0,
+        );
     final double shadow = scrollController.offset.progressAndClamp(
       0.0,
       kToolbarHeight / 2,
@@ -244,8 +246,8 @@ class _ProductCompatibilityScore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductPageCompatibility compatibility =
-        context.watch<ProductPageCompatibility>();
+    final ProductPageCompatibility compatibility = context
+        .watch<ProductPageCompatibility>();
 
     final String tooltipMessage = AppLocalizations.of(
       context,

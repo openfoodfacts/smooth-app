@@ -121,8 +121,8 @@ class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return DecoratedBox(
       decoration: BoxDecoration(

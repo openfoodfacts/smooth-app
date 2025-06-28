@@ -15,7 +15,8 @@ then flutter clean
 // cf. https://dev.to/mjablecnik/take-screenshot-during-flutter-integration-tests-435k
 /// Screenshot driver.
 Future<void> main() async => integrationDriver(
-      onScreenshot: (
+  onScreenshot:
+      (
         String screenshotName,
         List<int> screenshotBytes, [
         Map<String, Object?>? args,
@@ -26,4 +27,4 @@ Future<void> main() async => integrationDriver(
         image.writeAsBytesSync(screenshotBytes);
         return true;
       },
-    );
+);

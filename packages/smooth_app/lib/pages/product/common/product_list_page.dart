@@ -147,33 +147,33 @@ class _ProductListPageState extends State<ProductListPage>
                   ExternalScanCarouselManager.read(context).showSearchCard(),
             )
           : _selectionMode
-              ? null
-              : SmoothExpandableFloatingActionButton(
-                  scrollController: _scrollController,
-                  onPressed: () => setState(() => _selectionMode = true),
-                  label: Text(
-                    appLocalizations.user_lists_action_multi_select,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.0,
-                    ),
-                  ),
-                  icon: const Icon(Icons.checklist),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
+          ? null
+          : SmoothExpandableFloatingActionButton(
+              scrollController: _scrollController,
+              onPressed: () => setState(() => _selectionMode = true),
+              label: Text(
+                appLocalizations.user_lists_action_multi_select,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15.0,
                 ),
+              ),
+              icon: const Icon(Icons.checklist),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+            ),
       appBar: SmoothAppBar(
         centerTitle: false,
         actions: <Widget>[
           SmoothPopupMenuButton<ProductListPopupItem>(
             onSelected: (final ProductListPopupItem action) async {
-              final ProductList? differentProductList =
-                  await action.doSomething(
-                productList: productList,
-                localDatabase: localDatabase,
-                context: context,
-              );
+              final ProductList? differentProductList = await action
+                  .doSomething(
+                    productList: productList,
+                    localDatabase: localDatabase,
+                    context: context,
+                  );
               if (differentProductList != null) {
                 setState(() => productList = differentProductList);
               }
@@ -193,10 +193,12 @@ class _ProductListPageState extends State<ProductListPage>
         ),
         backgroundColor: _selectionMode
             ? context.lightTheme()
-                ? context.extension<SmoothColorsThemeExtension>().primaryMedium
-                : context
-                    .extension<SmoothColorsThemeExtension>()
-                    .primarySemiDark
+                  ? context
+                        .extension<SmoothColorsThemeExtension>()
+                        .primaryMedium
+                  : context
+                        .extension<SmoothColorsThemeExtension>()
+                        .primarySemiDark
             : null,
         titleSpacing: 0.0,
         actionMode: _selectionMode,
@@ -279,8 +281,9 @@ class _ProductListPageState extends State<ProductListPage>
               onWillPop: () async => (await _handleUserBacktap(), null),
               child: RefreshIndicator(
                 //if it is in selectmode then refresh indicator is not shown
-                notificationPredicate:
-                    _selectionMode ? (_) => false : (_) => true,
+                notificationPredicate: _selectionMode
+                    ? (_) => false
+                    : (_) => true,
                 onRefresh: () async => _refreshListProducts(
                   products,
                   localDatabase,
@@ -325,12 +328,12 @@ class _ProductListPageState extends State<ProductListPage>
     final String barcode = barcodes[index];
     final bool selected = _selectedBarcodes.contains(barcode);
     void onTap() => setState(() {
-          if (selected) {
-            _selectedBarcodes.remove(barcode);
-          } else {
-            _selectedBarcodes.add(barcode);
-          }
-        });
+      if (selected) {
+        _selectedBarcodes.remove(barcode);
+      } else {
+        _selectedBarcodes.add(barcode);
+      }
+    });
     final Widget child = InkWell(
       onTap: _selectionMode ? onTap : null,
       child: Container(
@@ -341,8 +344,9 @@ class _ProductListPageState extends State<ProductListPage>
           children: <Widget>[
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              width:
-                  _selectionMode ? (IconTheme.of(context).size ?? 20.0) : 0.0,
+              width: _selectionMode
+                  ? (IconTheme.of(context).size ?? 20.0)
+                  : 0.0,
               child: Offstage(
                 offstage: !_selectionMode,
                 child: Icon(
@@ -356,9 +360,9 @@ class _ProductListPageState extends State<ProductListPage>
                 onTap: _selectionMode ? onTap : null,
                 onLongPress: !_selectionMode
                     ? () => setState(() {
-                          _selectedBarcodes.add(barcode);
-                          _selectionMode = true;
-                        })
+                        _selectedBarcodes.add(barcode);
+                        _selectionMode = true;
+                      })
                     : null,
               ),
             ),
@@ -479,16 +483,16 @@ class _ProductListPageState extends State<ProductListPage>
           in productTypes.entries) {
         final SearchResult searchResult =
             await SearchProductsManager.searchProducts(
-          ProductQuery.getReadUser(),
-          ProductRefresher().getBarcodeListQueryConfiguration(
-            entry.value,
-            language,
-          ),
-          uriHelper: ProductQuery.getUriProductHelper(
-            productType: entry.key,
-          ),
-          type: SearchProductsType.live,
-        );
+              ProductQuery.getReadUser(),
+              ProductRefresher().getBarcodeListQueryConfiguration(
+                entry.value,
+                language,
+              ),
+              uriHelper: ProductQuery.getUriProductHelper(
+                productType: entry.key,
+              ),
+              type: SearchProductsType.live,
+            );
         final List<Product>? freshProducts = searchResult.products;
         if (freshProducts == null) {
           fresh = false;
@@ -516,23 +520,23 @@ class _ProductListPageState extends State<ProductListPage>
   ) async {
     final ProductList? selected =
         await showSmoothDraggableModalSheet<ProductList>(
-      context: context,
-      header: SmoothModalSheetHeader(
-        title: appLocalizations.product_list_select,
-        prefix: const SmoothModalSheetHeaderPrefixIndicator(),
-        suffix: SmoothModalSheetHeaderButton(
-          label: appLocalizations.product_list_create,
-          prefix: const Icon(Icons.add_circle_outline_sharp),
-          tooltip: appLocalizations.product_list_create_tooltip,
-          onTap: () async => ProductListUserDialogHelper(
-            daoProductList,
-          ).showCreateUserListDialog(context),
-        ),
-      ),
-      bodyBuilder: (BuildContext context) =>
-          AllProductListModal(currentList: productList),
-      initHeight: _computeModalInitHeight(context),
-    );
+          context: context,
+          header: SmoothModalSheetHeader(
+            title: appLocalizations.product_list_select,
+            prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+            suffix: SmoothModalSheetHeaderButton(
+              label: appLocalizations.product_list_create,
+              prefix: const Icon(Icons.add_circle_outline_sharp),
+              tooltip: appLocalizations.product_list_create_tooltip,
+              onTap: () async => ProductListUserDialogHelper(
+                daoProductList,
+              ).showCreateUserListDialog(context),
+            ),
+          ),
+          bodyBuilder: (BuildContext context) =>
+              AllProductListModal(currentList: productList),
+          initHeight: _computeModalInitHeight(context),
+        );
 
     if (selected == null) {
       return;
@@ -588,7 +592,8 @@ class _ProductListAppBarTitle extends StatelessWidget {
                   children: <Widget>[
                     ConstrainedBox(
                       constraints: BoxConstraints(
-                        maxWidth: constraints.maxWidth * 0.9 -
+                        maxWidth:
+                            constraints.maxWidth * 0.9 -
                             (enabled ? (MEDIUM_SPACE - 15.0) : 0),
                       ),
                       child: AutoSizeText(title, maxLines: 2),

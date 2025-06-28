@@ -116,9 +116,8 @@ class LocationMapPage extends StatelessWidget {
     final BuildContext context,
     final String value,
     final String label,
-  ) =>
-      CupertinoActionSheetAction(
-        onPressed: () => Navigator.of(context).pop(),
-        child: Text('$label: $value'),
-      );
+  ) => CupertinoActionSheetAction(
+    onPressed: () => Navigator.of(context).pop(),
+    child: Text('$label: $value'),
+  );
 }

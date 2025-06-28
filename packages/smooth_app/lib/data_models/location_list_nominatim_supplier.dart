@@ -24,7 +24,8 @@ class LocationListNominatimSupplier extends LocationListSupplier {
           scheme: 'https',
           host: 'nominatim.openstreetmap.org',
           path: 'lookup',
-          query: 'osm_ids=${queries.join(',')}'
+          query:
+              'osm_ids=${queries.join(',')}'
               '&format=json'
               '&accept-language=${ProductQuery.getLanguage().offTag}',
         ),

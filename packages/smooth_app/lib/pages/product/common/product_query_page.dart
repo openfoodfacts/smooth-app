@@ -170,13 +170,14 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             child: RankingFloatingActionButton(
               onPressed: () =>
                   Navigator.of(context, rootNavigator: true).push<Widget>(
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => PersonalizedRankingPage(
-                    barcodes: _model.displayBarcodes,
-                    title: widget.name,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage(
+                            barcodes: _model.displayBarcodes,
+                            title: widget.name,
+                          ),
+                    ),
                   ),
-                ),
-              ),
             ),
           ),
           Visibility(
@@ -382,9 +383,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     if (lastUpdate != null) {
       final String lastTime =
           ProductQueryPageHelper.getDurationStringFromTimestamp(
-        lastUpdate,
-        context,
-      );
+            lastUpdate,
+            context,
+          );
       messages.add('${appLocalizations.cached_results_from} $lastTime');
     }
     return SizedBox(
@@ -418,27 +419,26 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       );
 
   Widget _getIconButton(final _Action action) => IconButton(
-        tooltip: action.text,
-        icon: Icon(action.iconData),
-        onPressed: action.onPressed,
-      );
+    tooltip: action.text,
+    icon: Icon(action.iconData),
+    onPressed: action.onPressed,
+  );
 
   _Action _getWorldAction(
     final AppLocalizations appLocalizations,
     final PagedProductQuery worldQuery,
     final bool editableAppBarTitle,
-  ) =>
-      _Action(
-        text: appLocalizations.world_results_action,
-        iconData: Icons.public,
-        onPressed: () async => ProductQueryPageHelper.openBestChoice(
-          productQuery: worldQuery,
-          localDatabase: context.read<LocalDatabase>(),
-          name: widget.name,
-          context: context,
-          editableAppBarTitle: editableAppBarTitle,
-        ),
-      );
+  ) => _Action(
+    text: appLocalizations.world_results_action,
+    iconData: Icons.public,
+    onPressed: () async => ProductQueryPageHelper.openBestChoice(
+      productQuery: worldQuery,
+      localDatabase: context.read<LocalDatabase>(),
+      name: widget.name,
+      context: context,
+      editableAppBarTitle: editableAppBarTitle,
+    ),
+  );
 
   void retryConnection() {
     if (mounted) {

@@ -272,34 +272,35 @@ class _CropPageState extends State<CropPage> {
                           ),
                           if (_isErasing)
                             LayoutBuilder(
-                              builder: (
-                                final BuildContext context,
-                                final BoxConstraints constraints,
-                              ) =>
-                                  Center(
-                                child: GestureDetector(
-                                  onPanStart:
-                                      (final DragStartDetails details) =>
-                                          setState(
-                                    () => _eraserModel.panStart(
-                                      details.localPosition,
-                                      constraints,
+                              builder:
+                                  (
+                                    final BuildContext context,
+                                    final BoxConstraints constraints,
+                                  ) => Center(
+                                    child: GestureDetector(
+                                      onPanStart:
+                                          (final DragStartDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panStart(
+                                                  details.localPosition,
+                                                  constraints,
+                                                ),
+                                              ),
+                                      onPanUpdate:
+                                          (final DragUpdateDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panUpdate(
+                                                  details.localPosition,
+                                                  constraints,
+                                                ),
+                                              ),
+                                      onPanEnd:
+                                          (final DragEndDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panEnd(),
+                                              ),
                                     ),
                                   ),
-                                  onPanUpdate:
-                                      (final DragUpdateDetails details) =>
-                                          setState(
-                                    () => _eraserModel.panUpdate(
-                                      details.localPosition,
-                                      constraints,
-                                    ),
-                                  ),
-                                  onPanEnd: (final DragEndDetails details) =>
-                                      setState(
-                                    () => _eraserModel.panEnd(),
-                                  ),
-                                ),
-                              ),
                             ),
                         ],
                       ),
@@ -514,11 +515,11 @@ class _CropPageState extends State<CropPage> {
     }
 
     // the cropped image has changed, but the user went back without saving
-    final bool? pleaseSave =
-        await MayExitPageHelper().openSaveBeforeLeavingDialog(
-      context,
-      title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
-    );
+    final bool? pleaseSave = await MayExitPageHelper()
+        .openSaveBeforeLeavingDialog(
+          context,
+          title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
+        );
     if (pleaseSave == null) {
       return (false, null);
     }

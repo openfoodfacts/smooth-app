@@ -22,8 +22,8 @@ class MayExitPageHelper {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return showSmoothAlertModalSheet<bool>(
       context: context,

@@ -39,21 +39,21 @@ class ScoreCard extends StatelessWidget {
     required Attribute attribute,
     required this.isClickable,
     this.margin,
-  })  : type = ScoreCardType.attribute,
-        iconUrl = attribute.iconUrl,
-        description = attribute.descriptionShort ?? attribute.description ?? '',
-        cardEvaluation = getCardEvaluationFromAttribute(attribute);
+  }) : type = ScoreCardType.attribute,
+       iconUrl = attribute.iconUrl,
+       description = attribute.descriptionShort ?? attribute.description ?? '',
+       cardEvaluation = getCardEvaluationFromAttribute(attribute);
 
   ScoreCard.titleElement({
     required TitleElement titleElement,
     required this.isClickable,
     this.margin,
-  })  : type = ScoreCardType.title,
-        iconUrl = titleElement.iconUrl,
-        description = titleElement.title,
-        cardEvaluation = getCardEvaluationFromKnowledgePanelTitleElement(
-          titleElement,
-        );
+  }) : type = ScoreCardType.title,
+       iconUrl = titleElement.iconUrl,
+       description = titleElement.title,
+       cardEvaluation = getCardEvaluationFromKnowledgePanelTitleElement(
+         titleElement,
+       );
 
   final String? iconUrl;
   final String description;
@@ -75,8 +75,9 @@ class ScoreCard extends StatelessWidget {
     final Color textColor = themeData.brightness == Brightness.dark
         ? Colors.white
         : cardEvaluation.textColor.withValues(alpha: opacity);
-    final SvgIconChip? iconChip =
-        iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
+    final SvgIconChip? iconChip = iconUrl == null
+        ? null
+        : SvgIconChip(iconUrl!, height: iconHeight);
 
     return Semantics(
       value: _generateSemanticsValue(context),

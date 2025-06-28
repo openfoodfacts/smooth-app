@@ -22,11 +22,11 @@ class ProductImageGalleryTabBar extends StatelessWidget
 
   List<ProductLanguageWithState> productLanguages(Product product) {
     return <OpenFoodFactsLanguage>{
-      ...getProductImageLanguages(product, ImageField.FRONT),
-      ...getProductImageLanguages(product, ImageField.INGREDIENTS),
-      ...getProductImageLanguages(product, ImageField.NUTRITION),
-      ...getProductImageLanguages(product, ImageField.PACKAGING),
-    }
+          ...getProductImageLanguages(product, ImageField.FRONT),
+          ...getProductImageLanguages(product, ImageField.INGREDIENTS),
+          ...getProductImageLanguages(product, ImageField.NUTRITION),
+          ...getProductImageLanguages(product, ImageField.PACKAGING),
+        }
         .map(
           (OpenFoodFactsLanguage l) =>
               ProductLanguageWithState.normal(language: l),

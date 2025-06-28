@@ -25,8 +25,8 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   });
 
   BackgroundTaskDownloadProducts.fromJson(super.json)
-      : downloadFlag = json[_jsonTagDownloadFlag] as int,
-        super.fromJson();
+    : downloadFlag = json[_jsonTagDownloadFlag] as int,
+      super.fromJson();
 
   /// Download flag. Normal case: 0, meaning all fields are downloaded.
   final int downloadFlag;
@@ -75,8 +75,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) =>
-      null;
+  ) => null;
 
   static BackgroundTask _getNewTask(
     final String uniqueId,
@@ -85,17 +84,16 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     final int totalSize,
     final int downloadFlag,
     final ProductType productType,
-  ) =>
-      BackgroundTaskDownloadProducts._(
-        processName: _operationType.processName,
-        uniqueId: uniqueId,
-        stamp: ';offlineProducts;$work',
-        work: work,
-        pageSize: pageSize,
-        totalSize: totalSize,
-        downloadFlag: downloadFlag,
-        productType: productType,
-      );
+  ) => BackgroundTaskDownloadProducts._(
+    processName: _operationType.processName,
+    uniqueId: uniqueId,
+    stamp: ';offlineProducts;$work',
+    work: work,
+    pageSize: pageSize,
+    totalSize: totalSize,
+    downloadFlag: downloadFlag,
+    productType: productType,
+  );
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
@@ -124,21 +122,21 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final SearchResult searchResult =
         await SearchProductsManager.searchProducts(
-      ProductQuery.getReadUser(),
-      ProductSearchQueryConfiguration(
-        fields: fields,
-        parametersList: <Parameter>[
-          PageSize(size: pageSize),
-          const PageNumber(page: 1),
-          BarcodeParameter.list(barcodes),
-        ],
-        language: language,
-        country: ProductQuery.getCountry(),
-        version: ProductQuery.productQueryVersion,
-      ),
-      uriHelper: uriProductHelper,
-      type: SearchProductsType.background,
-    );
+          ProductQuery.getReadUser(),
+          ProductSearchQueryConfiguration(
+            fields: fields,
+            parametersList: <Parameter>[
+              PageSize(size: pageSize),
+              const PageNumber(page: 1),
+              BarcodeParameter.list(barcodes),
+            ],
+            language: language,
+            country: ProductQuery.getCountry(),
+            version: ProductQuery.productQueryVersion,
+          ),
+          uriHelper: uriProductHelper,
+          type: SearchProductsType.background,
+        );
     final List<Product>? downloadedProducts = searchResult.products;
     if (downloadedProducts == null) {
       throw Exception('Something bad happened downloading products');

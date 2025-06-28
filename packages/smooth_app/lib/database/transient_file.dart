@@ -22,8 +22,8 @@ class TransientFile {
     this.barcode,
     this.language, [
     this.uploadedDate,
-  ])  : imageField = productImageData.imageField,
-        url = productImageData.imageUrl;
+  ]) : imageField = productImageData.imageField,
+       url = productImageData.imageUrl;
 
   factory TransientFile.fromProduct(
     final Product product,
@@ -88,8 +88,7 @@ class TransientFile {
   static String _getImageKeyPrefix(
     final ImageField imageField,
     final String barcode,
-  ) =>
-      '$barcode;$imageField;';
+  ) => '$barcode;$imageField;';
 
   /// Returns a way to display the image, either locally or from the server.
   ImageProvider? getImageProvider() {

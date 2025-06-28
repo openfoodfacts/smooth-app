@@ -10,17 +10,17 @@ class AttributeGroupListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: LARGE_SPACE,
-        ),
-        child: DefaultTextStyle.merge(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[title, icon],
-          ),
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-      );
+    padding: const EdgeInsets.symmetric(
+      horizontal: LARGE_SPACE,
+      vertical: LARGE_SPACE,
+    ),
+    child: DefaultTextStyle.merge(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[title, icon],
+      ),
+      style: Theme.of(context).textTheme.headlineMedium,
+    ),
+  );
 }

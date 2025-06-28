@@ -7,7 +7,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class TestCategory extends SmoothCategory<String> {
   TestCategory(super.value, [Iterable<TestCategory>? children])
-      : children = children?.toSet() ?? const <TestCategory>{};
+    : children = children?.toSet() ?? const <TestCategory>{};
 
   Set<TestCategory> children;
 

@@ -9,7 +9,7 @@ import 'package:smooth_app/database/local_database.dart';
 /// Provider that reflects all the user changes on [Product]s.
 class UpToDateProductProvider {
   UpToDateProductProvider(this.localDatabase)
-      : _changes = UpToDateChanges(localDatabase);
+    : _changes = UpToDateChanges(localDatabase);
 
   final LocalDatabase localDatabase;
 
@@ -104,8 +104,8 @@ class UpToDateProductProvider {
 
   // TODO(monsieurtanuki): move code to off-dart Product?
   Product copy(final Product source) => Product.fromJson(
-        jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,
-      );
+    jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,
+  );
 
   /// Adds a minimalist local change to pending ones.
   Future<void> addChange(
@@ -121,8 +121,7 @@ class UpToDateProductProvider {
   /// Returns the local pending change ids related to a [barcode].
   Iterable<TransientOperation>? getSortedChangeOperations(
     final String barcode,
-  ) =>
-      _changes.getSortedOperations(barcode);
+  ) => _changes.getSortedOperations(barcode);
 
   /// Closes a single operation, successful or failed.
   void terminate(final String operationKey) {

@@ -34,8 +34,7 @@ class UserPreferencesListTile extends StatelessWidget {
   static Icon getTintedIcon(
     final IconData iconData,
     final BuildContext context,
-  ) =>
-      Icon(iconData, color: Theme.of(context).iconTheme.color);
+  ) => Icon(iconData, color: Theme.of(context).iconTheme.color);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,8 @@ class UserPreferencesListTile extends StatelessWidget {
       ),
       selected: selected ?? false,
       selectedTileColor: selectedColor,
-      contentPadding: contentPadding ??
+      contentPadding:
+          contentPadding ??
           EdgeInsets.symmetric(
             horizontal: LARGE_SPACE,
             vertical: subtitle != null ? VERY_SMALL_SPACE : 2.0,

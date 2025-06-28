@@ -83,8 +83,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
       MaterialPageRoute<int>(
         builder: (BuildContext context) => QuestionsPage(
           product: widget.product,
-          questions: (_state as _ProductQuestionsWithQuestions)
-              .questions
+          questions: (_state as _ProductQuestionsWithQuestions).questions
               .toList(growable: false),
         ),
       ),
@@ -104,8 +103,8 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   }) async {
     final List<RobotoffQuestion>? currentQuestions =
         _state is _ProductQuestionsWithQuestions
-            ? (_state as _ProductQuestionsWithQuestions).questions
-            : null;
+        ? (_state as _ProductQuestionsWithQuestions).questions
+        : null;
 
     setState(() => _state = const _ProductQuestionsLoading());
 
@@ -148,10 +147,10 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   }
 
   void _trackEvent(AnalyticsEvent event) => AnalyticsHelper.trackProductEvent(
-        event,
-        eventValue: 1,
-        product: widget.product,
-      );
+    event,
+    eventValue: 1,
+    product: widget.product,
+  );
 
   Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -226,14 +225,15 @@ class _ProductQuestionBanner extends StatelessWidget {
               child: Ink(
                 width: double.infinity,
                 color: backgroundColor,
-                padding: const EdgeInsetsDirectional.symmetric(
-                  vertical: SMALL_SPACE,
-                  horizontal: MEDIUM_SPACE,
-                ).add(
-                  EdgeInsetsDirectional.only(
-                    bottom: MediaQuery.viewPaddingOf(context).bottom,
-                  ),
-                ),
+                padding:
+                    const EdgeInsetsDirectional.symmetric(
+                      vertical: SMALL_SPACE,
+                      horizontal: MEDIUM_SPACE,
+                    ).add(
+                      EdgeInsetsDirectional.only(
+                        bottom: MediaQuery.viewPaddingOf(context).bottom,
+                      ),
+                    ),
                 child: Row(
                   children: <Widget>[
                     const _ProductQuestionIcon(),
@@ -335,8 +335,8 @@ class KeepQuestionWidgetAlive extends InheritedWidget {
   final bool keepWidgetAlive;
 
   static bool shouldKeepAlive(BuildContext context) {
-    final KeepQuestionWidgetAlive? result =
-        context.dependOnInheritedWidgetOfExactType<KeepQuestionWidgetAlive>();
+    final KeepQuestionWidgetAlive? result = context
+        .dependOnInheritedWidgetOfExactType<KeepQuestionWidgetAlive>();
 
     return result?.keepWidgetAlive ?? false;
   }

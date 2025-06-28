@@ -66,23 +66,22 @@ class PriceLocationWidget extends StatelessWidget {
   static Future<void> showLocationPrices({
     required final int locationId,
     required final BuildContext context,
-  }) async =>
-      Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => PricesPage(
-            GetPricesModel(
-              parameters: GetPricesModel.getStandardPricesParameters()
-                ..locationId = locationId,
-              displayEachLocation: false,
-              uri: OpenPricesAPIClient.getUri(
-                path: 'locations/$locationId',
-                uriHelper: ProductQuery.uriPricesHelper,
-              ),
-              title: AppLocalizations.of(
-                context,
-              ).all_search_prices_top_location_single_title,
-            ),
+  }) async => Navigator.of(context).push(
+    MaterialPageRoute<void>(
+      builder: (BuildContext context) => PricesPage(
+        GetPricesModel(
+          parameters: GetPricesModel.getStandardPricesParameters()
+            ..locationId = locationId,
+          displayEachLocation: false,
+          uri: OpenPricesAPIClient.getUri(
+            path: 'locations/$locationId',
+            uriHelper: ProductQuery.uriPricesHelper,
           ),
+          title: AppLocalizations.of(
+            context,
+          ).all_search_prices_top_location_single_title,
         ),
-      );
+      ),
+    ),
+  );
 }

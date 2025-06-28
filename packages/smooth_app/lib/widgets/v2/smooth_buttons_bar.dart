@@ -50,8 +50,9 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
 
   @override
   Widget build(BuildContext context) {
-    final double viewPadding =
-        widget.addViewPadding ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
+    final double viewPadding = widget.addViewPadding
+        ? MediaQuery.viewPaddingOf(context).bottom
+        : 0.0;
     final SmoothColorsThemeExtension? colors = Theme.of(
       context,
     ).extension<SmoothColorsThemeExtension>();
@@ -88,7 +89,8 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
         ),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: widget.backgroundColor ??
+          color:
+              widget.backgroundColor ??
               (context.lightTheme() ? Colors.white : colors!.primaryUltraBlack),
           boxShadow: const <BoxShadow>[
             BoxShadow(
@@ -131,7 +133,7 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
 
 class SmoothActionButton2 {
   SmoothActionButton2({required this.text, required this.onPressed, this.icon})
-      : assert(text.isNotEmpty);
+    : assert(text.isNotEmpty);
 
   final String text;
   final Widget? icon;
@@ -145,8 +147,8 @@ class _SmoothPositiveButton2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return _SmoothBaseButton2(
@@ -164,8 +166,8 @@ class _SmoothNegativeButton2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 

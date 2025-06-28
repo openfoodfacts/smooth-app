@@ -40,8 +40,8 @@ class UserPreferencesAttributeGroup {
   }
 
   List<UserPreferencesItem> getItems({bool? collapsed}) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     collapsed ??= _isCollapsed;
     final List<UserPreferencesItem> result = <UserPreferencesItem>[];
     result.add(
@@ -118,8 +118,8 @@ class UserPreferencesAttributeGroup {
         ),
       );
     }
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
+    final List<String> excludedAttributeIds = userPreferences
+        .getExcludedAttributeIds();
     for (final Attribute attribute in group.attributes!) {
       if (excludedAttributeIds.contains(attribute.id)) {
         continue;
@@ -147,7 +147,8 @@ class UserPreferencesAttributeGroup {
               child: AttributeButton(
                 attribute,
                 productPreferences,
-                isFirst: attribute == group.attributes!.first &&
+                isFirst:
+                    attribute == group.attributes!.first &&
                     group.warning == null,
                 isLast: attribute == group.attributes!.last,
               ),

@@ -68,31 +68,32 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
               key: _listKey,
               controller: _scrollController,
               initialItemCount: provider.value.tags!.length,
-              itemBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) {
-                final ProductTag entry = provider.value.tags![index];
+              itemBuilder:
+                  (
+                    BuildContext context,
+                    int index,
+                    Animation<double> animation,
+                  ) {
+                    final ProductTag entry = provider.value.tags![index];
 
-                return _buildItem(
-                  context,
-                  entry,
-                  animation,
-                  provider.isAuthorized,
-                );
-              },
+                    return _buildItem(
+                      context,
+                      entry,
+                      animation,
+                      provider.isAuthorized,
+                    );
+                  },
               separatorBuilder: (_, __, Animation<double> animation) =>
                   SizeTransition(sizeFactor: animation, child: const Divider()),
-              removedSeparatorBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) =>
-                  SizeTransition(
-                sizeFactor: animation,
-                child: const Divider(),
-              ),
+              removedSeparatorBuilder:
+                  (
+                    BuildContext context,
+                    int index,
+                    Animation<double> animation,
+                  ) => SizeTransition(
+                    sizeFactor: animation,
+                    child: const Divider(),
+                  ),
             );
           },
         ),

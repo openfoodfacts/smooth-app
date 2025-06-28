@@ -13,16 +13,13 @@ class PriceToOxF {
   PriceToOxF._(this._name, this._helper);
 
   PriceToOxF._store(final Location location)
-      : this._(
-          location.name?.trim(),
-          SimpleInputPageStoreHelper(),
-        );
+    : this._(location.name?.trim(), SimpleInputPageStoreHelper());
 
   PriceToOxF._country(final Location location)
-      : this._(
-          OpenFoodFactsCountry.fromOffTag(location.countryCode?.trim())?.name,
-          SimpleInputPageCountryHelper(null),
-        );
+    : this._(
+        OpenFoodFactsCountry.fromOffTag(location.countryCode?.trim())?.name,
+        SimpleInputPageCountryHelper(null),
+      );
 
   final String? _name;
   final AbstractSimpleInputPageHelper _helper;
@@ -45,10 +42,10 @@ class PriceToOxF {
 
     final MaybeError<Location> maybeLocation =
         await OpenPricesAPIClient.getOSMLocation(
-      locationOSMId: locationOSMId,
-      locationOSMType: locationOSMType,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          locationOSMId: locationOSMId,
+          locationOSMType: locationOSMType,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (maybeLocation.isError) {
       return;
     }
@@ -69,18 +66,19 @@ class PriceToOxF {
       return;
     }
 
-    final List<String>? refreshedBarcodes =
-        await ProductRefresher().silentFetchAndRefreshList(
-      barcodes: actualBarcodes,
-      localDatabase: localDatabase,
-      productType: ProductType.food,
-    );
+    final List<String>? refreshedBarcodes = await ProductRefresher()
+        .silentFetchAndRefreshList(
+          barcodes: actualBarcodes,
+          localDatabase: localDatabase,
+          productType: ProductType.food,
+        );
     if (refreshedBarcodes == null || refreshedBarcodes.isEmpty) {
       return;
     }
 
-    final Map<String, Product> products =
-        await DaoProduct(localDatabase).getAll(refreshedBarcodes);
+    final Map<String, Product> products = await DaoProduct(
+      localDatabase,
+    ).getAll(refreshedBarcodes);
 
     for (final Product product in products.values) {
       for (final PriceToOxF priceToOxF in priceToOxFList) {

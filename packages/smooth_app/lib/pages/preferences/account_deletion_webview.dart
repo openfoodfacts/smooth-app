@@ -21,15 +21,15 @@ class _AccountDeletionWebviewState extends State<AccountDeletionWebview> {
         const PlatformWebViewControllerCreationParams();
 
     if (WebViewPlatform.instance is WebKitWebViewPlatform) {
-      params = WebKitWebViewControllerCreationParams
-          .fromPlatformWebViewControllerCreationParams(
-        params,
-      );
+      params =
+          WebKitWebViewControllerCreationParams.fromPlatformWebViewControllerCreationParams(
+            params,
+          );
     } else if (WebViewPlatform.instance is AndroidWebViewPlatform) {
-      params = AndroidWebViewControllerCreationParams
-          .fromPlatformWebViewControllerCreationParams(
-        params,
-      );
+      params =
+          AndroidWebViewControllerCreationParams.fromPlatformWebViewControllerCreationParams(
+            params,
+          );
     }
 
     _controller = WebViewController.fromPlatformCreationParams(params)
@@ -37,10 +37,10 @@ class _AccountDeletionWebviewState extends State<AccountDeletionWebview> {
   }
 
   Uri _getUri() => Uri(
-        scheme: 'https',
-        host: 'blog.openfoodfacts.org',
-        pathSegments: <String>['en', 'account-deletion'],
-      );
+    scheme: 'https',
+    host: 'blog.openfoodfacts.org',
+    pathSegments: <String>['en', 'account-deletion'],
+  );
 
   @override
   Widget build(BuildContext context) {

@@ -26,8 +26,8 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
   Widget build(BuildContext context) {
     super.build(context);
     final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
-        questionsNotifier = context
-            .watch<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>();
+    questionsNotifier = context
+        .watch<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>();
 
     final Map<RobotoffQuestion, InsightAnnotation?> questions =
         questionsNotifier.value;
@@ -42,8 +42,9 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
         ),
         itemCount: questions.entries.length,
         itemBuilder: (BuildContext context, int position) {
-          final MapEntry<RobotoffQuestion, InsightAnnotation?> entry =
-              questions.entries.elementAt(position);
+          final MapEntry<RobotoffQuestion, InsightAnnotation?> entry = questions
+              .entries
+              .elementAt(position);
 
           return MultiProvider(
             providers: <SingleChildWidget>[
@@ -60,8 +61,8 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
                     value == true
                         ? InsightAnnotation.YES
                         : value == false
-                            ? InsightAnnotation.NO
-                            : null,
+                        ? InsightAnnotation.NO
+                        : null,
                   );
                 },
               ),
@@ -73,8 +74,8 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
             return EMPTY_WIDGET;
           }
 
-          final SmoothColorsThemeExtension extension =
-              context.extension<SmoothColorsThemeExtension>();
+          final SmoothColorsThemeExtension extension = context
+              .extension<SmoothColorsThemeExtension>();
           final bool lightTheme = context.lightTheme();
 
           return Divider(

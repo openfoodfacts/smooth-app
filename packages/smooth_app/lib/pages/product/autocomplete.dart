@@ -17,8 +17,8 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
     required this.maxOptionsHeight,
     required this.maxOptionsWidth,
     this.search,
-  })  : assert(maxOptionsHeight >= 0),
-        assert(maxOptionsWidth >= 0);
+  }) : assert(maxOptionsHeight >= 0),
+       assert(maxOptionsWidth >= 0);
 
   final AutocompleteOptionToString<T> displayStringForOption;
   final AutocompleteOnSelected<T> onSelected;

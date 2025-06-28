@@ -132,11 +132,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                             sliver: SliverGrid(
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                                crossAxisCount: 2,
-                                height:
-                                    (MediaQuery.sizeOf(context).width / 2.15) +
+                                    crossAxisCount: 2,
+                                    height:
+                                        (MediaQuery.sizeOf(context).width /
+                                            2.15) +
                                         ImageGalleryPhotoRow.itemHeight,
-                              ),
+                                  ),
                               delegate: SliverChildBuilderDelegate(
                                 (BuildContext context, int index) {
                                   return Padding(
@@ -206,7 +207,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                             ),
                           SliverToBoxAdapter(
                             child: SizedBox(
-                              height: MediaQuery.viewPaddingOf(context).bottom +
+                              height:
+                                  MediaQuery.viewPaddingOf(context).bottom +
                                   (VERY_LARGE_SPACE * 2.5),
                             ),
                           ),
@@ -233,11 +235,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
   Text _moreInterestingPhotoWidget(
     AppLocalizations appLocalizations,
     BuildContext context,
-  ) =>
-      Text(
-        appLocalizations.more_photos,
-        style: Theme.of(context).textTheme.displayMedium,
-      );
+  ) => Text(
+    appLocalizations.more_photos,
+    style: Theme.of(context).textTheme.displayMedium,
+  );
 
   bool _shouldDisplayRawGallery() =>
       _clickedOtherPictureButton ||
@@ -282,8 +283,8 @@ class _ProductImageGalleryFooterButtonState
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     final BorderRadius borderRadius = BorderRadiusHelper.fromDirectional(
       context: context,
@@ -324,7 +325,8 @@ class _ProductImageGalleryFooterButtonState
                   top: LARGE_SPACE,
                   start: LARGE_SPACE,
                   end: LARGE_SPACE,
-                  bottom: MediaQuery.viewPaddingOf(context).bottom +
+                  bottom:
+                      MediaQuery.viewPaddingOf(context).bottom +
                       VERY_SMALL_SPACE,
                 ),
                 child: Row(
@@ -337,7 +339,8 @@ class _ProductImageGalleryFooterButtonState
                       child: MeasureSize(
                         onChange: _onTextSizeAvailable,
                         child: Opacity(
-                          opacity: 1.0 -
+                          opacity:
+                              1.0 -
                               _controller.value.progressAndClamp(0.4, 1.0, 1.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.only(

@@ -59,9 +59,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
   @override
   List<String> getLabels() => <String>[
-        ...super.getLabels(),
-        if (_getUserId() == null) appLocalizations.sign_in,
-      ];
+    ...super.getLabels(),
+    if (_getUserId() == null) appLocalizations.sign_in,
+  ];
 
   @override
   IconData getLeadingIconData() => Icons.face;
@@ -259,22 +259,22 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) {
-          return SmoothAlertDialog(
-            title: appLocalizations.sign_out,
-            body: Text(appLocalizations.sign_out_confirmation),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.yes,
-              onPressed: () async => Navigator.pop(context, true),
-            ),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.no,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-          );
-        },
+    context: context,
+    builder: (BuildContext context) {
+      return SmoothAlertDialog(
+        title: appLocalizations.sign_out,
+        body: Text(appLocalizations.sign_out_confirmation),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () async => Navigator.pop(context, true),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.no,
+          onPressed: () => Navigator.pop(context, false),
+        ),
       );
+    },
+  );
 
   UserPreferencesItem _buildProductQueryTile({
     required final PagedProductQuery productQuery,
@@ -283,42 +283,37 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     final LazyCounter? lazyCounter,
-  }) =>
-      _getListTile(
-        title,
-        () async => ProductQueryPageHelper.openBestChoice(
-          name: title,
-          localDatabase: localDatabase,
-          productQuery: productQuery,
-          context: context,
-          editableAppBarTitle: true,
-        ),
-        iconData,
-        lazyCounter: lazyCounter,
-      );
+  }) => _getListTile(
+    title,
+    () async => ProductQueryPageHelper.openBestChoice(
+      name: title,
+      localDatabase: localDatabase,
+      productQuery: productQuery,
+      context: context,
+      editableAppBarTitle: true,
+    ),
+    iconData,
+    lazyCounter: lazyCounter,
+  );
 
   UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
     final LazyCounter? lazyCounter,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title],
-        builder: (_) => Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          elevation: 5,
-          color: Theme.of(context).cardColor,
-          child: UserPreferencesListTile(
-            title: Text(title),
-            onTap: onTap,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            leading: UserPreferencesListTile.getTintedIcon(leading, context),
-            trailing:
-                lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
-          ),
-        ),
-      );
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title],
+    builder: (_) => Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      elevation: 5,
+      color: Theme.of(context).cardColor,
+      child: UserPreferencesListTile(
+        title: Text(title),
+        onTap: onTap,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        trailing: lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
+      ),
+    ),
+  );
 }

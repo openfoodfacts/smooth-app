@@ -38,8 +38,8 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       return;
     }
 
-    final UserManagementProvider userManagementProvider =
-        context.read<UserManagementProvider>();
+    final UserManagementProvider userManagementProvider = context
+        .read<UserManagementProvider>();
 
     setState(() {
       _runningQuery = true;
@@ -210,10 +210,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             ),
                             shape:
                                 WidgetStateProperty.all<RoundedRectangleBorder>(
-                              const RoundedRectangleBorder(
-                                borderRadius: CIRCULAR_BORDER_RADIUS,
-                              ),
-                            ),
+                                  const RoundedRectangleBorder(
+                                    borderRadius: CIRCULAR_BORDER_RADIUS,
+                                  ),
+                                ),
                           ),
                           child: Text(
                             appLocalizations.sign_in,
@@ -238,10 +238,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           ),
                           shape:
                               WidgetStateProperty.all<RoundedRectangleBorder>(
-                            const RoundedRectangleBorder(
-                              borderRadius: CIRCULAR_BORDER_RADIUS,
-                            ),
-                          ),
+                                const RoundedRectangleBorder(
+                                  borderRadius: CIRCULAR_BORDER_RADIUS,
+                                ),
+                              ),
                         ),
                         onPressed: () async => Navigator.push(
                           context,
@@ -294,10 +294,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             ),
                             shape:
                                 WidgetStateProperty.all<RoundedRectangleBorder>(
-                              const RoundedRectangleBorder(
-                                borderRadius: CIRCULAR_BORDER_RADIUS,
-                              ),
-                            ),
+                                  const RoundedRectangleBorder(
+                                    borderRadius: CIRCULAR_BORDER_RADIUS,
+                                  ),
+                                ),
                           ),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.only(

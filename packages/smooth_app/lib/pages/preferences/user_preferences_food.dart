@@ -54,17 +54,17 @@ class UserPreferencesFood extends AbstractUserPreferences {
 
   @override
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
-        // we don't want this on the onboarding
-        UserPreferencesItemTile(
-          leading: UserPreferencesListTile.getTintedIcon(
-            Icons.rotate_left,
-            context,
-          ),
-          title: appLocalizations.reset_food_prefs,
-          onTap: () async => _confirmReset(),
-        ),
-        ..._getOnboardingBody(collapsed: false),
-      ];
+    // we don't want this on the onboarding
+    UserPreferencesItemTile(
+      leading: UserPreferencesListTile.getTintedIcon(
+        Icons.rotate_left,
+        context,
+      ),
+      title: appLocalizations.reset_food_prefs,
+      onTap: () async => _confirmReset(),
+    ),
+    ..._getOnboardingBody(collapsed: false),
+  ];
 
   List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
     final List<AttributeGroup> result = <AttributeGroup>[];

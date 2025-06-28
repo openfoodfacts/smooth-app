@@ -26,8 +26,8 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
   });
 
   BackgroundTaskUnselect.fromJson(super.json)
-      : imageField = json[_jsonTagImageField] as String,
-        super.fromJson();
+    : imageField = json[_jsonTagImageField] as String,
+      super.fromJson();
 
   static const String _jsonTagImageField = 'imageField';
 
@@ -75,11 +75,10 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) =>
-      (
-        appLocalizations.product_task_background_schedule,
-        AlignmentDirectional.bottomCenter,
-      );
+  ) => (
+    appLocalizations.product_task_background_schedule,
+    AlignmentDirectional.bottomCenter,
+  );
 
   /// Returns a new background task about unselecting a product image.
   static BackgroundTaskUnselect _getNewTask(
@@ -88,21 +87,20 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     final ImageField imageField,
     final String uniqueId,
     final OpenFoodFactsLanguage language,
-  ) =>
-      BackgroundTaskUnselect._(
-        uniqueId: uniqueId,
-        barcode: barcode,
-        productType: productType,
-        language: language,
-        processName: _operationType.processName,
-        imageField: imageField.offTag,
-        // same stamp as image upload
-        stamp: BackgroundTaskUpload.getStamp(
-          barcode,
-          imageField.offTag,
-          language.code,
-        ),
-      );
+  ) => BackgroundTaskUnselect._(
+    uniqueId: uniqueId,
+    barcode: barcode,
+    productType: productType,
+    language: language,
+    processName: _operationType.processName,
+    imageField: imageField.offTag,
+    // same stamp as image upload
+    stamp: BackgroundTaskUpload.getStamp(
+      barcode,
+      imageField.offTag,
+      language.code,
+    ),
+  );
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {
@@ -132,12 +130,12 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
   /// Unselects the product image.
   @override
   Future<void> upload() async => OpenFoodAPIClient.unselectProductImage(
-        barcode: barcode,
-        imageField: ImageField.fromOffTag(imageField)!,
-        language: getLanguage(),
-        user: getUser(),
-        uriHelper: uriProductHelper,
-      );
+    barcode: barcode,
+    imageField: ImageField.fromOffTag(imageField)!,
+    language: getLanguage(),
+    user: getUser(),
+    uriHelper: uriProductHelper,
+  );
 
   /// Returns a product with "unselected" image.
   ///

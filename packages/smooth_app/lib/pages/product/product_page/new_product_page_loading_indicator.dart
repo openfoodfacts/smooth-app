@@ -17,7 +17,8 @@ class ProductPageLoadingIndicator extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final bool lightTheme = context.lightTheme();
-    final Color color = context.watchSafe<ProductPageCompatibility>()?.color ??
+    final Color color =
+        context.watchSafe<ProductPageCompatibility>()?.color ??
         (lightTheme ? Colors.grey : Colors.grey[600]!);
 
     return SmoothBanner(
@@ -26,8 +27,9 @@ class ProductPageLoadingIndicator extends StatelessWidget {
       iconBackgroundColor: color,
       title: appLocalizations.product_page_pending_operations_banner_title,
       titleColor: lightTheme ? null : Colors.white,
-      contentBackgroundColor:
-          lightTheme ? color.lighten(0.6) : color.darken(0.3),
+      contentBackgroundColor: lightTheme
+          ? color.lighten(0.6)
+          : color.darken(0.3),
       contentColor: lightTheme ? null : Colors.grey[200],
       topShadow: true,
       content: appLocalizations.product_page_pending_operations_banner_message,

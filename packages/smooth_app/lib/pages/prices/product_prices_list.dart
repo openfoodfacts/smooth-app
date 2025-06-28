@@ -61,9 +61,9 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 
     final MaybeError<GetPricesResult> result =
         await OpenPricesAPIClient.getPrices(
-      parameters,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          parameters,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
 
     if (result.isError) {
       throw result.detailError;

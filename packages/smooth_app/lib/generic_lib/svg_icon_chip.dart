@@ -9,7 +9,7 @@ class SvgIconChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-        constraints: BoxConstraints(minWidth: height),
-        child: SvgCache(iconUrl, height: height),
-      );
+    constraints: BoxConstraints(minWidth: height),
+    child: SvgCache(iconUrl, height: height),
+  );
 }

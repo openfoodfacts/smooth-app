@@ -300,24 +300,26 @@ class _UserListsState extends State<_UserLists> {
         },
       ),
       body: Column(
-        children: widget.lists.map((String name) {
-          return ListTile(
-            leading: Icon(
-              selectedLists.contains(name)
-                  ? Icons.check_box
-                  : Icons.check_box_outline_blank,
-            ),
-            title: Text(name),
-            onTap: () {
-              if (selectedLists.contains(name)) {
-                selectedLists.removeWhere((String e) => e == name);
-              } else {
-                selectedLists.add(name);
-              }
-              setState(() {});
-            },
-          );
-        }).toList(growable: false),
+        children: widget.lists
+            .map((String name) {
+              return ListTile(
+                leading: Icon(
+                  selectedLists.contains(name)
+                      ? Icons.check_box
+                      : Icons.check_box_outline_blank,
+                ),
+                title: Text(name),
+                onTap: () {
+                  if (selectedLists.contains(name)) {
+                    selectedLists.removeWhere((String e) => e == name);
+                  } else {
+                    selectedLists.add(name);
+                  }
+                  setState(() {});
+                },
+              );
+            })
+            .toList(growable: false),
       ),
     );
   }
@@ -385,8 +387,7 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
 SmoothActionButton _cancelButton(
   AppLocalizations appLocalizations,
   BuildContext context,
-) =>
-    SmoothActionButton(
-      onPressed: () => Navigator.pop(context, false),
-      text: appLocalizations.cancel,
-    );
+) => SmoothActionButton(
+  onPressed: () => Navigator.pop(context, false),
+  text: appLocalizations.cancel,
+);

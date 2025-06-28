@@ -130,11 +130,11 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(
-        context,
-        title: appLocalizations.prices_category_enter,
-      );
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(
+            context,
+            title: appLocalizations.prices_category_enter,
+          );
       if (pleaseSave == null) {
         return (false, null);
       }
@@ -198,33 +198,33 @@ class _MyAutocompleteState extends State<_MyAutocomplete> {
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-        builder: (_, BoxConstraints constraints) => SmoothAutocompleteTextField(
-          autocompleteKey: _autocompleteKey,
-          focusNode: _focusNode,
-          constraints: constraints,
-          onSelected: widget.onSelected,
-          manager: AutocompleteManager(
-            TagTypeAutocompleter(
-              tagType: widget.helper.getTagType()!,
-              language: ProductQuery.getLanguage(),
-              country: ProductQuery.getCountry(),
-              categories: null,
-              shape: null,
-              user: ProductQuery.getReadUser(),
-              limit: 15,
-              uriHelper: ProductQuery.getUriProductHelper(
-                productType: ProductType.food,
-              ),
-            ),
+    builder: (_, BoxConstraints constraints) => SmoothAutocompleteTextField(
+      autocompleteKey: _autocompleteKey,
+      focusNode: _focusNode,
+      constraints: constraints,
+      onSelected: widget.onSelected,
+      manager: AutocompleteManager(
+        TagTypeAutocompleter(
+          tagType: widget.helper.getTagType()!,
+          language: ProductQuery.getLanguage(),
+          country: ProductQuery.getCountry(),
+          categories: null,
+          shape: null,
+          user: ProductQuery.getReadUser(),
+          limit: 15,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: ProductType.food,
           ),
-          textCapitalization: widget.helper.getTextCapitalization(),
-          allowEmojis: widget.helper.getAllowEmojis(),
-          hintText: widget.helper.getAddHint(AppLocalizations.of(context)),
-          controller: widget.controller,
-          padding: _fieldPadding,
-          borderRadius: _borderRadius,
         ),
-      );
+      ),
+      textCapitalization: widget.helper.getTextCapitalization(),
+      allowEmojis: widget.helper.getAllowEmojis(),
+      hintText: widget.helper.getAddHint(AppLocalizations.of(context)),
+      controller: widget.controller,
+      padding: _fieldPadding,
+      borderRadius: _borderRadius,
+    ),
+  );
 }
 
 class _ReadOnlyTextField extends StatefulWidget {

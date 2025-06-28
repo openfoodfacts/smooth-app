@@ -12,8 +12,8 @@ class SmoothTriStatesButton extends StatefulWidget {
     required this.onChanged,
     required this.positiveTooltip,
     required this.negativeTooltip,
-  })  : assert(positiveTooltip.length > 0),
-        assert(negativeTooltip.length > 0);
+  }) : assert(positiveTooltip.length > 0),
+       assert(negativeTooltip.length > 0);
 
   final bool? value;
   final Function(bool?) onChanged;
@@ -98,8 +98,8 @@ class _SmoothTriStatesButtonState extends State<SmoothTriStatesButton>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return CustomPaint(
       painter: _SmoothTriStateItemBackgroundBorderPainter(
@@ -190,7 +190,8 @@ class _SmoothTriStatesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 12.0 * MediaQuery.textScalerOf(context).scale(1.0) +
+      width:
+          12.0 * MediaQuery.textScalerOf(context).scale(1.0) +
           (LARGE_SPACE * 2) +
           2.0,
       child: Material(
@@ -318,8 +319,7 @@ class _SmoothTriStateItemBackgroundBorderPainter extends CustomPainter {
   @override
   bool shouldRebuildSemantics(
     _SmoothTriStateItemBackgroundBorderPainter oldDelegate,
-  ) =>
-      false;
+  ) => false;
 }
 
 class _SmoothTriStateItemForegroundBorderPainter extends CustomPainter {
@@ -356,6 +356,5 @@ class _SmoothTriStateItemForegroundBorderPainter extends CustomPainter {
   @override
   bool shouldRebuildSemantics(
     _SmoothTriStateItemForegroundBorderPainter oldDelegate,
-  ) =>
-      false;
+  ) => false;
 }

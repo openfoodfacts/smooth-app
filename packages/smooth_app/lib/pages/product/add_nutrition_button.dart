@@ -16,11 +16,11 @@ class AddNutritionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-        AppLocalizations.of(context).score_add_missing_nutrition_facts,
-        onPressed: () async => NutritionPageLoader.showNutritionPage(
-          product: product,
-          isLoggedInMandatory: true,
-          context: context,
-        ),
-      );
+    AppLocalizations.of(context).score_add_missing_nutrition_facts,
+    onPressed: () async => NutritionPageLoader.showNutritionPage(
+      product: product,
+      isLoggedInMandatory: true,
+      context: context,
+    ),
+  );
 }

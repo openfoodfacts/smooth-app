@@ -24,7 +24,8 @@ class SmoothLeadingButton extends StatelessWidget {
     ).extension<SmoothColorsThemeExtension>()!;
 
     final String message = getMessage(localizations);
-    final Color color = foregroundColor ??
+    final Color color =
+        foregroundColor ??
         (context.darkTheme() ? colors.primaryMedium : colors.primaryBlack);
 
     return Semantics(
@@ -62,9 +63,9 @@ class SmoothLeadingButton extends StatelessWidget {
       SmoothLeadingAction.close => icons.Close(size: size, color: color),
       SmoothLeadingAction.back => icons.Arrow.left(size: size, color: color),
       SmoothLeadingAction.minimize => Padding(
-          padding: const EdgeInsetsDirectional.only(top: 1.0),
-          child: icons.Chevron.down(size: size, color: color),
-        ),
+        padding: const EdgeInsetsDirectional.only(top: 1.0),
+        child: icons.Chevron.down(size: size, color: color),
+      ),
     };
   }
 

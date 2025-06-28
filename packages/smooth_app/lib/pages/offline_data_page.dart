@@ -132,26 +132,27 @@ class _StatsWidget extends StatelessWidget {
         title: Text(applocalizations.offline_product_data_title),
         subtitle: FutureBuilder<Map<ProductType, int>>(
           future: daoProduct.getTotalNoOfProducts(),
-          builder: (
-            BuildContext context,
-            AsyncSnapshot<Map<ProductType, int>> snapshot,
-          ) {
-            if (!snapshot.hasData) {
-              return Text(applocalizations.loading);
-            }
-            int count = 0;
-            final List<String> list = <String>[];
-            for (final MapEntry<ProductType, int> item
-                in snapshot.data!.entries) {
-              count += item.value;
-              list.add(
-                '${item.value} (${item.key.getLabel(applocalizations)})',
-              );
-            }
-            return Text(
-              '${applocalizations.available_for_download(count)} ${list.join(', ')}',
-            );
-          },
+          builder:
+              (
+                BuildContext context,
+                AsyncSnapshot<Map<ProductType, int>> snapshot,
+              ) {
+                if (!snapshot.hasData) {
+                  return Text(applocalizations.loading);
+                }
+                int count = 0;
+                final List<String> list = <String>[];
+                for (final MapEntry<ProductType, int> item
+                    in snapshot.data!.entries) {
+                  count += item.value;
+                  list.add(
+                    '${item.value} (${item.key.getLabel(applocalizations)})',
+                  );
+                }
+                return Text(
+                  '${applocalizations.available_for_download(count)} ${list.join(', ')}',
+                );
+              },
         ),
         trailing: FutureBuilder<double>(
           future: daoProduct.getEstimatedTotalSizeInMB(),

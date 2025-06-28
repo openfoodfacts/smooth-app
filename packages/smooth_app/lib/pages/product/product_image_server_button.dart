@@ -137,18 +137,17 @@ class ProductImageServerButton extends ProductImageButton {
     required final ImageField imageField,
     required final OpenFoodFactsLanguage language,
     required final bool isLoggedInMandatory,
-  }) =>
-      Navigator.push<CropParameters?>(
-        context,
-        MaterialPageRoute<CropParameters?>(
-          builder: (BuildContext context) => UploadedImageGallery(
-            barcode: barcode,
-            rawImages: rawImages,
-            imageField: imageField,
-            language: language,
-            isLoggedInMandatory: isLoggedInMandatory,
-            productType: productType,
-          ),
-        ),
-      );
+  }) => Navigator.push<CropParameters?>(
+    context,
+    MaterialPageRoute<CropParameters?>(
+      builder: (BuildContext context) => UploadedImageGallery(
+        barcode: barcode,
+        rawImages: rawImages,
+        imageField: imageField,
+        language: language,
+        isLoggedInMandatory: isLoggedInMandatory,
+        productType: productType,
+      ),
+    ),
+  );
 }

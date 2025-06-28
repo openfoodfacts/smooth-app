@@ -49,16 +49,17 @@ class _NutrientRowState extends State<NutrientRow>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: SmoothAnimationsDuration.medium,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..addStatusListener((final AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          _colorAnimation = null;
-        }
-      });
+    _controller =
+        AnimationController(
+            duration: SmoothAnimationsDuration.medium,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..addStatusListener((final AnimationStatus status) {
+            if (status == AnimationStatus.completed) {
+              _colorAnimation = null;
+            }
+          });
   }
 
   @override
@@ -76,8 +77,8 @@ class _NutrientRowState extends State<NutrientRow>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final String key = widget.orderedNutrient.id;
 
     Color color;
@@ -87,14 +88,16 @@ class _NutrientRowState extends State<NutrientRow>
       color = _getColor(extension);
     }
 
-    final TextEditingControllerWithHistory controller =
-        context.watch<TextEditingControllerWithHistory>();
+    final TextEditingControllerWithHistory controller = context
+        .watch<TextEditingControllerWithHistory>();
 
-    final RobotoffNutrientEntity? robotoffNutrientEntity =
-        widget.nutritionContainer.robotoffNutrientExtraction?.getNutrientEntity(
-      widget.orderedNutrient.nutrient!,
-      PerSize.oneHundredGrams,
-    );
+    final RobotoffNutrientEntity? robotoffNutrientEntity = widget
+        .nutritionContainer
+        .robotoffNutrientExtraction
+        ?.getNutrientEntity(
+          widget.orderedNutrient.nutrient!,
+          PerSize.oneHundredGrams,
+        );
 
     String? extractionValue = robotoffNutrientEntity?.value;
 
@@ -255,14 +258,15 @@ class _NutrientValueCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Map<OrderedNutrient, FocusNode> focusNodes =
-        context.watch<Map<OrderedNutrient, FocusNode>>();
+    final Map<OrderedNutrient, FocusNode> focusNodes = context
+        .watch<Map<OrderedNutrient, FocusNode>>();
 
     final Product product = context.watch<Product>();
     final bool isLast = position == focusNodes.length - 1;
     final Nutrient? nutrient = orderedNutrient.nutrient;
 
-    final bool ownerFieldVisible = nutrient != null &&
+    final bool ownerFieldVisible =
+        nutrient != null &&
         product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) != null;
 
     return Semantics(
@@ -465,46 +469,46 @@ class _NutrientUnitVisibility extends StatelessWidget {
     return _NutritionCellTextWatcher(
       builder:
           (BuildContext context, TextEditingControllerWithHistory controller) {
-        final bool isValueSet = controller.isSet;
+            final bool isValueSet = controller.isSet;
 
-        return AspectRatio(
-          aspectRatio: 1.0,
-          child: DecoratedBox(
-            decoration: ShapeDecoration(
-              color: isValueSet
-                  ? context
-                      .extension<SmoothColorsThemeExtension>()
-                      .primarySemiDark
-                  : Theme.of(context).disabledColor,
-              shape: const CircleBorder(),
-            ),
-            child: Material(
-              type: MaterialType.transparency,
-              child: InkWell(
-                customBorder: const CircleBorder(),
-                onTap: () {
-                  if (isValueSet) {
-                    controller.text = _missingNutrientValue;
-                  } else {
-                    if (controller.previousValue != _missingNutrientValue) {
-                      controller.text =
-                          controller.previousValue ?? _missingNutrientValue;
-                    } else {
-                      controller.text = '';
-                    }
-                  }
-                },
-                child: Icon(
-                  isValueSet
-                      ? Icons.visibility_rounded
-                      : Icons.visibility_off_rounded,
-                  color: Colors.white,
+            return AspectRatio(
+              aspectRatio: 1.0,
+              child: DecoratedBox(
+                decoration: ShapeDecoration(
+                  color: isValueSet
+                      ? context
+                            .extension<SmoothColorsThemeExtension>()
+                            .primarySemiDark
+                      : Theme.of(context).disabledColor,
+                  shape: const CircleBorder(),
+                ),
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: InkWell(
+                    customBorder: const CircleBorder(),
+                    onTap: () {
+                      if (isValueSet) {
+                        controller.text = _missingNutrientValue;
+                      } else {
+                        if (controller.previousValue != _missingNutrientValue) {
+                          controller.text =
+                              controller.previousValue ?? _missingNutrientValue;
+                        } else {
+                          controller.text = '';
+                        }
+                      }
+                    },
+                    child: Icon(
+                      isValueSet
+                          ? Icons.visibility_rounded
+                          : Icons.visibility_off_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        );
-      },
+            );
+          },
     );
   }
 }
@@ -522,25 +526,29 @@ class _NutritionCellTextWatcher extends StatelessWidget {
   final Widget Function(
     BuildContext context,
     TextEditingControllerWithHistory value,
-  ) builder;
+  )
+  builder;
 
   @override
   Widget build(BuildContext context) {
-    return Selector<TextEditingControllerWithHistory,
-        TextEditingControllerWithHistory>(
+    return Selector<
+      TextEditingControllerWithHistory,
+      TextEditingControllerWithHistory
+    >(
       selector: (_, TextEditingControllerWithHistory controller) {
         return controller;
       },
       shouldRebuild: (_, TextEditingControllerWithHistory controller) {
         return controller.isDifferentFromPreviousValue;
       },
-      builder: (
-        BuildContext context,
-        TextEditingControllerWithHistory controller,
-        _,
-      ) {
-        return builder(context, controller);
-      },
+      builder:
+          (
+            BuildContext context,
+            TextEditingControllerWithHistory controller,
+            _,
+          ) {
+            return builder(context, controller);
+          },
     );
   }
 }

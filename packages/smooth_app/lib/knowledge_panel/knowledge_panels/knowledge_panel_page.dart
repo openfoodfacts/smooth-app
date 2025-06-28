@@ -159,7 +159,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     AppLocalizations appLocalizations,
     String title,
   ) {
-    final String productName = upToDateProduct.productName ??
+    final String productName =
+        upToDateProduct.productName ??
         upToDateProduct.abbreviatedName ??
         upToDateProduct.genericName ??
         '';

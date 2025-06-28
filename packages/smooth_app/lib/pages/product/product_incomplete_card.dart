@@ -109,13 +109,14 @@ class ProductIncompleteCard extends StatelessWidget {
         icon: const Icon(Icons.bolt, color: Colors.amber),
         onPressed: () async =>
             Navigator.of(context, rootNavigator: true).push<void>(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => AddNewProductPage.fromProduct(
-              product,
-              isLoggedInMandatory: isLoggedInMandatory,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) =>
+                    AddNewProductPage.fromProduct(
+                      product,
+                      isLoggedInMandatory: isLoggedInMandatory,
+                    ),
+              ),
             ),
-          ),
-        ),
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all<Color>(colorScheme.primary),
           foregroundColor: WidgetStateProperty.all<Color>(

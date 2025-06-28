@@ -141,7 +141,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
           labels.elementAt(i),
           style: textStyle ?? const TextStyle(fontWeight: FontWeight.w500),
         ),
-        contentPadding: contentPadding ??
+        contentPadding:
+            contentPadding ??
             EdgeInsetsDirectional.only(
               start: LARGE_SPACE,
               end: addEndArrowToItems ? 17.0 : LARGE_SPACE,
@@ -152,8 +153,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
                 child: suffixIcons[i],
               )
             : (addEndArrowToItems
-                ? const _SmoothListOfChoicesEndArrow()
-                : null)),
+                  ? const _SmoothListOfChoicesEndArrow()
+                  : null)),
         onTap: () {
           Navigator.of(context).pop(values.elementAt(i));
         },
@@ -233,8 +234,8 @@ Future<T?> showSmoothAlertModalSheet<T>({
     SmoothModalSheetType.error when lightTheme =>
       SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
     SmoothModalSheetType.error => SmoothModalSheetHeader.ERROR_COLOR.darken(
-        0.3,
-      ),
+      0.3,
+    ),
     SmoothModalSheetType.info when lightTheme =>
       context.extension<SmoothColorsThemeExtension>().primaryLight,
     SmoothModalSheetType.info =>
@@ -276,16 +277,17 @@ class _SmoothListOfChoicesEndArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return ExcludeSemantics(
       child: icons.CircledArrow.right(
         color: lightTheme ? extension.primaryLight : extension.primaryDark,
         type: icons.CircledArrowType.normal,
-        circleColor:
-            lightTheme ? extension.primaryDark : extension.primaryMedium,
+        circleColor: lightTheme
+            ? extension.primaryDark
+            : extension.primaryMedium,
         size: 24.0,
         padding: const EdgeInsetsDirectional.only(
           start: 6.0,
@@ -313,21 +315,21 @@ class SmoothModalSheet extends StatelessWidget {
     this.expandBody = false,
     double? closeButtonSemanticsOrder,
   }) : header = SmoothModalSheetHeader(
-          title: title,
-          prefix: prefixIndicator
-              ? SmoothModalSheetHeaderPrefixIndicator(
-                  color: prefixIndicatorColor,
-                )
-              : null,
-          suffix: closeButton
-              ? SmoothModalSheetHeaderCloseButton(
-                  semanticsOrder: closeButtonSemanticsOrder,
-                )
-              : null,
-          backgroundColor: headerBackgroundColor,
-          foregroundColor: headerForegroundColor,
-          type: type,
-        );
+         title: title,
+         prefix: prefixIndicator
+             ? SmoothModalSheetHeaderPrefixIndicator(
+                 color: prefixIndicatorColor,
+               )
+             : null,
+         suffix: closeButton
+             ? SmoothModalSheetHeaderCloseButton(
+                 semanticsOrder: closeButtonSemanticsOrder,
+               )
+             : null,
+         backgroundColor: headerBackgroundColor,
+         foregroundColor: headerForegroundColor,
+         type: type,
+       );
 
   final SmoothModalSheetHeader header;
   final Widget body;
@@ -407,7 +409,8 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
           start: (prefix?.requiresPadding == true ? 0 : VERY_LARGE_SPACE),
           top: VERY_SMALL_SPACE,
           bottom: VERY_SMALL_SPACE,
-          end: VERY_LARGE_SPACE -
+          end:
+              VERY_LARGE_SPACE -
               (suffix?.requiresPadding == true ? 0 : LARGE_SPACE),
         ),
         child: IntrinsicHeight(
@@ -429,10 +432,10 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                          color: tintColor,
-                        ),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: tintColor,
+                    ),
                   ),
                 ),
               ),
@@ -451,9 +454,10 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
 
     return switch (type) {
       SmoothModalSheetType.error => ERROR_COLOR,
-      SmoothModalSheetType.info => context.lightTheme()
-          ? context.extension<SmoothColorsThemeExtension>().primaryBlack
-          : context.extension<SmoothColorsThemeExtension>().primarySemiDark,
+      SmoothModalSheetType.info =>
+        context.lightTheme()
+            ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+            : context.extension<SmoothColorsThemeExtension>().primarySemiDark,
     };
   }
 
@@ -466,7 +470,8 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
 
   @override
   double widgetHeight(BuildContext context) {
-    final double size = VERY_SMALL_SPACE * 2 +
+    final double size =
+        VERY_SMALL_SPACE * 2 +
         (Theme.of(context).textTheme.titleLarge?.fontSize ?? 15.0);
 
     return math.max(MIN_HEIGHT, size);
@@ -501,8 +506,8 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Semantics(
@@ -519,8 +524,9 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
             foregroundColor: lightTheme ? Colors.black : Colors.white,
-            backgroundColor:
-                lightTheme ? extension.primaryMedium : extension.primaryBlack,
+            backgroundColor: lightTheme
+                ? extension.primaryMedium
+                : extension.primaryBlack,
             iconColor: lightTheme ? Colors.black : Colors.white,
           ),
           child: Row(
@@ -683,7 +689,8 @@ class SmoothModalSheetBodyContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsetsGeometry padding = this.padding ??
+    EdgeInsetsGeometry padding =
+        this.padding ??
         const EdgeInsetsDirectional.only(
           start: MEDIUM_SPACE,
           end: MEDIUM_SPACE,

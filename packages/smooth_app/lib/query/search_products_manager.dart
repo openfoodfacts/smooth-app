@@ -14,9 +14,9 @@ enum SearchProductsType {
   /// General threshold: 10 requests per minute.
   static final TooManyRequestsManager _generalRequestManager =
       TooManyRequestsManager(
-    maxCount: 10,
-    duration: const Duration(minutes: 1),
-  );
+        maxCount: 10,
+        duration: const Duration(minutes: 1),
+      );
 
   /// Specific threshold for background tasks.
   static final TooManyRequestsManager _backgroundRequestManager =
@@ -29,11 +29,10 @@ enum SearchProductsType {
       TooManyRequestsManager(maxCount: 4, duration: const Duration(minutes: 1));
 
   Future<void> _specificWaitIfNeeded() async => switch (this) {
-        SearchProductsType.background =>
-          _backgroundRequestManager.waitIfNeeded(),
-        SearchProductsType.count => _countRequestManager.waitIfNeeded(),
-        SearchProductsType.live => null,
-      };
+    SearchProductsType.background => _backgroundRequestManager.waitIfNeeded(),
+    SearchProductsType.count => _countRequestManager.waitIfNeeded(),
+    SearchProductsType.live => null,
+  };
 
   Future<void> waitIfNeeded() async {
     await _specificWaitIfNeeded();

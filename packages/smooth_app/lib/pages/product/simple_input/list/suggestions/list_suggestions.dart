@@ -15,15 +15,15 @@ class SimpleInputListSuggestions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<SimpleInputSuggestionsState> state =
-        context.watch<ValueNotifier<SimpleInputSuggestionsState>>();
+    final ValueNotifier<SimpleInputSuggestionsState> state = context
+        .watch<ValueNotifier<SimpleInputSuggestionsState>>();
 
     if (state.value is! SimpleInputSuggestionsLoaded) {
       return EMPTY_WIDGET;
     }
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Padding(
@@ -36,13 +36,13 @@ class SimpleInputListSuggestions extends StatelessWidget {
             end: VERY_SMALL_SPACE,
           ),
           child: Column(
-            children: (state.value as SimpleInputSuggestionsLoaded)
-                .suggestions
+            children: (state.value as SimpleInputSuggestionsLoaded).suggestions
                 .map((String suggestion) {
-              return _SimpleInputListSuggestionItem(suggestion, () {
-                onSelected(suggestion);
-              });
-            }).toList(growable: false),
+                  return _SimpleInputListSuggestionItem(suggestion, () {
+                    onSelected(suggestion);
+                  });
+                })
+                .toList(growable: false),
           ),
         ),
       ),
@@ -58,8 +58,8 @@ class _SimpleInputListSuggestionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Row(
       children: <Widget>[
@@ -71,9 +71,9 @@ class _SimpleInputListSuggestionItem extends StatelessWidget {
           child: Text(
             label,
             style: TextTheme.of(context).bodyLarge?.copyWith(
-                  color: extension.success,
-                  fontWeight: FontWeight.w500,
-                ),
+              color: extension.success,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         Tooltip(

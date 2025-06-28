@@ -31,10 +31,10 @@ class PageManagerState extends State<PageManager> {
 
   final Map<BottomNavigationTab, GlobalKey<NavigatorState>> _navigatorKeys =
       <BottomNavigationTab, GlobalKey<NavigatorState>>{
-    BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
-    BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
-    BottomNavigationTab.List: GlobalKey<NavigatorState>(),
-  };
+        BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
+        BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
+        BottomNavigationTab.List: GlobalKey<NavigatorState>(),
+      };
 
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
 
@@ -48,8 +48,8 @@ class PageManagerState extends State<PageManager> {
   void _selectTab(BottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
       _navigatorKeys[tabItem]!.currentState!.popUntil(
-            (Route<dynamic> route) => route.isFirst,
-          );
+        (Route<dynamic> route) => route.isFirst,
+      );
     } else {
       setState(() {
         _currentPage = _pageKeys[index];
@@ -74,7 +74,8 @@ class PageManagerState extends State<PageManager> {
     ];
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool isProd = userPreferences.getFlag(
+    final bool isProd =
+        userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagProd,
         ) ??
         true;

@@ -36,13 +36,14 @@ class _RobotoffSuggestionListItemState extends State<RobotoffSuggestionListItem>
   void initState() {
     super.initState();
 
-    _imageController = AnimationController(
-      duration: SmoothAnimationsDuration.short,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      // Image is disabled by default
-      ..value = 1.0;
+    _imageController =
+        AnimationController(
+            duration: SmoothAnimationsDuration.short,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          // Image is disabled by default
+          ..value = 1.0;
     _pictureAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(parent: _imageController, curve: Curves.easeInOut),
     );
@@ -74,9 +75,9 @@ class _RobotoffSuggestionListItemState extends State<RobotoffSuggestionListItem>
                             MaterialPageRoute<void>(
                               builder: (BuildContext context) =>
                                   QuestionImageFullPage(
-                                question: question,
-                                heroTag: heroTag,
-                              ),
+                                    question: question,
+                                    heroTag: heroTag,
+                                  ),
                             ),
                           );
                         },
@@ -159,12 +160,13 @@ class _SimpleInputListRobotoffSuggestionHeaderState
   void initState() {
     super.initState();
 
-    _valueController = AnimationController(
-      duration: SmoothAnimationsDuration.short,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..value = 0.0;
+    _valueController =
+        AnimationController(
+            duration: SmoothAnimationsDuration.short,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..value = 0.0;
 
     _valueAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _valueController, curve: Curves.easeInOut),
@@ -177,25 +179,25 @@ class _SimpleInputListRobotoffSuggestionHeaderState
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final InsightAnnotation? annotation = context.watch<InsightAnnotation?>();
 
     return Listener<InsightAnnotation?>(
-      listener: (
-        BuildContext context,
-        InsightAnnotation? previousValue,
-        InsightAnnotation? currentValue,
-      ) =>
-          _updateAnimations(
-        context,
-        previousValue,
-        currentValue,
-        lightTheme,
-      ),
+      listener:
+          (
+            BuildContext context,
+            InsightAnnotation? previousValue,
+            InsightAnnotation? currentValue,
+          ) => _updateAnimations(
+            context,
+            previousValue,
+            currentValue,
+            lightTheme,
+          ),
       child: Material(
         color: Color.lerp(
           (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
@@ -236,8 +238,7 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                                 builder: (_, RobotoffQuestion question, __) {
                                   return AutoSizeText(
                                     question.value!,
-                                    style: TextTheme.of(context)
-                                        .bodyLarge
+                                    style: TextTheme.of(context).bodyLarge
                                         ?.copyWith(
                                           color: _colorAnimation.value,
                                           fontWeight: FontWeight.w600,
@@ -270,7 +271,8 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                     tooltip:
                         appLocalizations.edit_product_form_item_deny_suggestion,
                     onTap: () => widget.onValueChanged(false),
-                    visible: annotation == null ||
+                    visible:
+                        annotation == null ||
                         annotation == InsightAnnotation.YES,
                   ),
                   RobotoffSuggestionListItemButton(
@@ -279,7 +281,8 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                     tooltip:
                         appLocalizations.edit_product_form_item_add_suggestion,
                     onTap: () => widget.onValueChanged(true),
-                    visible: annotation == null ||
+                    visible:
+                        annotation == null ||
                         annotation == InsightAnnotation.NO,
                   ),
                 ],
@@ -312,8 +315,8 @@ class _SimpleInputListRobotoffSuggestionHeaderState
   }
 
   Color _getTextColor(InsightAnnotation? value, bool lightTheme) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return switch (value) {
       InsightAnnotation.YES =>
@@ -367,8 +370,8 @@ class _RobotoffSuggestionSparklesState
     }
     _isInitialized = true;
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     _circleColorAnimation = ColorTween(
@@ -384,8 +387,8 @@ class _RobotoffSuggestionSparklesState
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.status != widget.status) {
-      final SmoothColorsThemeExtension extension =
-          context.extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension = context
+          .extension<SmoothColorsThemeExtension>();
       final bool lightTheme = context.lightTheme();
 
       _circleColorAnimation = ColorTween(

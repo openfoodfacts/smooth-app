@@ -45,15 +45,15 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.forceMaterialTransparency = false,
     this.clipBehavior,
     super.key,
-  })  : assert(!actionMode || actionModeTitle != null),
-        assert(
-          elevationColor == null || elevation >= 0.0,
-          'elevationColor requires a valid elevation',
-        ),
-        preferredSize = _PreferredAppBarSize(
-          toolbarHeight,
-          bottom?.preferredSize.height,
-        );
+  }) : assert(!actionMode || actionModeTitle != null),
+       assert(
+         elevationColor == null || elevation >= 0.0,
+         'elevationColor requires a valid elevation',
+       ),
+       preferredSize = _PreferredAppBarSize(
+         toolbarHeight,
+         bottom?.preferredSize.height,
+       );
 
   final Widget? leading;
   final bool automaticallyImplyLeading;
@@ -177,54 +177,53 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   Widget _createActionModeAppBar(BuildContext context) => IconTheme(
-        data: IconThemeData(color: PopupMenuTheme.of(context).color),
-        child: AppBar(
-          leading: _ActionModeCloseButton(
-            tooltip: AppLocalizations.of(context).cancel,
-            onPressed: () {
-              onLeaveActionMode?.call();
-            },
-          ),
-          automaticallyImplyLeading: false,
-          title: actionModeTitle != null
-              ? _AppBarTitle(
-                  title: actionModeTitle!,
-                  titleTextStyle: titleTextStyle,
-                  subTitle: actionModeSubTitle,
-                  ignoreSemanticsForSubtitle: ignoreSemanticsForSubtitle,
-                )
-              : null,
-          actions: actionModeActions,
-          flexibleSpace: flexibleSpace,
-          bottom: bottom,
-          scrolledUnderElevation: scrolledUnderElevation,
-          shadowColor: shadowColor,
-          surfaceTintColor:
-              backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          iconTheme: iconTheme,
-          actionsIconTheme: actionsIconTheme,
-          primary: primary,
-          centerTitle: centerTitle,
-          excludeHeaderSemantics: excludeHeaderSemantics,
-          titleSpacing: titleSpacing,
-          shape: shape,
-          toolbarOpacity: toolbarOpacity,
-          bottomOpacity: bottomOpacity,
-          toolbarHeight: toolbarHeight,
-          leadingWidth: leadingWidth,
-          toolbarTextStyle: toolbarTextStyle,
-          titleTextStyle: titleTextStyle,
-          systemOverlayStyle: systemOverlayStyle,
-        ),
-      );
+    data: IconThemeData(color: PopupMenuTheme.of(context).color),
+    child: AppBar(
+      leading: _ActionModeCloseButton(
+        tooltip: AppLocalizations.of(context).cancel,
+        onPressed: () {
+          onLeaveActionMode?.call();
+        },
+      ),
+      automaticallyImplyLeading: false,
+      title: actionModeTitle != null
+          ? _AppBarTitle(
+              title: actionModeTitle!,
+              titleTextStyle: titleTextStyle,
+              subTitle: actionModeSubTitle,
+              ignoreSemanticsForSubtitle: ignoreSemanticsForSubtitle,
+            )
+          : null,
+      actions: actionModeActions,
+      flexibleSpace: flexibleSpace,
+      bottom: bottom,
+      scrolledUnderElevation: scrolledUnderElevation,
+      shadowColor: shadowColor,
+      surfaceTintColor:
+          backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
+      iconTheme: iconTheme,
+      actionsIconTheme: actionsIconTheme,
+      primary: primary,
+      centerTitle: centerTitle,
+      excludeHeaderSemantics: excludeHeaderSemantics,
+      titleSpacing: titleSpacing,
+      shape: shape,
+      toolbarOpacity: toolbarOpacity,
+      bottomOpacity: bottomOpacity,
+      toolbarHeight: toolbarHeight,
+      leadingWidth: leadingWidth,
+      toolbarTextStyle: toolbarTextStyle,
+      titleTextStyle: titleTextStyle,
+      systemOverlayStyle: systemOverlayStyle,
+    ),
+  );
 }
 
 class _PreferredAppBarSize extends Size {
   const _PreferredAppBarSize(this.toolbarHeight, this.bottomHeight)
-      : super.fromHeight(
-            (toolbarHeight ?? kToolbarHeight) + (bottomHeight ?? 0));
+    : super.fromHeight((toolbarHeight ?? kToolbarHeight) + (bottomHeight ?? 0));
 
   final double? toolbarHeight;
   final double? bottomHeight;
@@ -279,19 +278,20 @@ class _AppBarTitle extends StatelessWidget {
         DefaultTextStyle(
           maxLines: subTitle != null ? 1 : 2,
           overflow: TextOverflow.ellipsis,
-          style: (titleTextStyle ??
-                  AppBarTheme.of(context).titleTextStyle ??
-                  theme.appBarTheme.titleTextStyle?.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ) ??
-                  theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ) ??
-                  const TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w500,
-                  ))
-              .copyWith(color: color),
+          style:
+              (titleTextStyle ??
+                      AppBarTheme.of(context).titleTextStyle ??
+                      theme.appBarTheme.titleTextStyle?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ) ??
+                      theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ) ??
+                      const TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500,
+                      ))
+                  .copyWith(color: color),
           child: title,
         ),
         if (subTitle != null)

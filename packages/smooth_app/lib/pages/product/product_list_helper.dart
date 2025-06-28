@@ -33,18 +33,21 @@ class AddProductToListContainer extends StatelessWidget {
         barcode,
       ),
       child: Consumer<_ProductUserListsProvider>(
-        builder: (
-          final BuildContext context,
-          final _ProductUserListsProvider productUserListsProvider,
-          final Widget? child,
-        ) {
-          return switch (productUserListsProvider.value) {
-            _ProductUserListsLoadingState _ => const _AddToProductListLoading(),
-            _ProductUserListsEmptyState _ =>
-              const _AddToProductListNoListAvailable(),
-            _ProductUserListsWithState _ => const _AddToProductListWithLists(),
-          };
-        },
+        builder:
+            (
+              final BuildContext context,
+              final _ProductUserListsProvider productUserListsProvider,
+              final Widget? child,
+            ) {
+              return switch (productUserListsProvider.value) {
+                _ProductUserListsLoadingState _ =>
+                  const _AddToProductListLoading(),
+                _ProductUserListsEmptyState _ =>
+                  const _AddToProductListNoListAvailable(),
+                _ProductUserListsWithState _ =>
+                  const _AddToProductListWithLists(),
+              };
+            },
       ),
     );
   }
@@ -108,8 +111,8 @@ class _AddToProductListNoListAvailable extends StatelessWidget {
                   ).showCreateUserListDialog(context);
 
                   if (list != null && context.mounted) {
-                    final _ProductUserListsProvider provider =
-                        context.read<_ProductUserListsProvider>();
+                    final _ProductUserListsProvider provider = context
+                        .read<_ProductUserListsProvider>();
                     await provider.addAProductToAList(list.parameters);
                     await provider.reloadLists();
                   }
@@ -138,9 +141,9 @@ class _AddToProductListWithLists extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _ProductUserListsWithState state = context
-        .watch<_ProductUserListsProvider>()
-        .value as _ProductUserListsWithState;
+    final _ProductUserListsWithState state =
+        context.watch<_ProductUserListsProvider>().value
+            as _ProductUserListsWithState;
     final List<MapEntry<String, bool>> userLists = state.userLists;
     final bool? scrollBarVisible = userLists.length > 5 ? true : null;
 
@@ -167,7 +170,8 @@ class _AddToProductListWithLists extends StatelessWidget {
                         listId: entry.key,
                         selected: entry.value,
                         // Force the divider when there is just one item
-                        includeDivider: userLists.length == 1 ||
+                        includeDivider:
+                            userLists.length == 1 ||
                             index < userLists.length - 1,
                       ),
                     );
@@ -220,8 +224,9 @@ class _AddToProductListItem extends StatelessWidget {
                 horizontal: LARGE_SPACE,
                 // The CupertinoCheckbox has huge paddings
                 // (that we can't override)
-                vertical:
-                    (Platform.isIOS || Platform.isMacOS) ? 2.0 : MEDIUM_SPACE,
+                vertical: (Platform.isIOS || Platform.isMacOS)
+                    ? 2.0
+                    : MEDIUM_SPACE,
               ),
               child: Row(
                 children: <Widget>[
@@ -288,22 +293,26 @@ class _AddToProductListAddNewListState
     ).extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme(listen: false);
 
-    _colorAnimation = ColorTween(
-      begin: lightTheme ? extension.primaryLight : extension.primarySemiDark,
-      end: extension.error,
-    ).animate(_animationController)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((AnimationStatus status) {
-        // Run back and forth the animation twice
-        if (status == AnimationStatus.completed && animationRepeat < 2) {
-          _animationController.reverse();
-        } else if (status == AnimationStatus.dismissed && animationRepeat < 1) {
-          animationRepeat++;
-          _animationController.forward();
-        }
-      });
+    _colorAnimation =
+        ColorTween(
+            begin: lightTheme
+                ? extension.primaryLight
+                : extension.primarySemiDark,
+            end: extension.error,
+          ).animate(_animationController)
+          ..addListener(() {
+            setState(() {});
+          })
+          ..addStatusListener((AnimationStatus status) {
+            // Run back and forth the animation twice
+            if (status == AnimationStatus.completed && animationRepeat < 2) {
+              _animationController.reverse();
+            } else if (status == AnimationStatus.dismissed &&
+                animationRepeat < 1) {
+              animationRepeat++;
+              _animationController.forward();
+            }
+          });
 
     setState(() {});
   }
@@ -496,13 +505,13 @@ class _AddToProductListDividerPainter extends CustomPainter {
     required Color color,
     required this.dashWidth,
     required this.dashSpace,
-  })  : assert(color != Colors.transparent),
-        assert(dashWidth >= 0),
-        assert(dashSpace >= 0),
-        _paint = Paint()
-          ..color = color
-          ..strokeWidth = 1.0
-          ..style = PaintingStyle.stroke;
+  }) : assert(color != Colors.transparent),
+       assert(dashWidth >= 0),
+       assert(dashSpace >= 0),
+       _paint = Paint()
+         ..color = color
+         ..strokeWidth = 1.0
+         ..style = PaintingStyle.stroke;
 
   final Paint _paint;
   final double dashWidth;
@@ -528,7 +537,7 @@ class _AddToProductListDividerPainter extends CustomPainter {
 /// Logic for the user lists
 class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
   _ProductUserListsProvider(this.dao, this.barcode)
-      : super(const _ProductUserListsLoadingState()) {
+    : super(const _ProductUserListsLoadingState()) {
     reloadLists();
   }
 
@@ -570,8 +579,7 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
     }
 
     /// Fake the UI first (otherwise there is a slight delay)
-    final bool selected = !(value as _ProductUserListsWithState)
-        .userLists
+    final bool selected = !(value as _ProductUserListsWithState).userLists
         .firstWhere((MapEntry<String, bool> item) => item.key == listId)
         .value;
 

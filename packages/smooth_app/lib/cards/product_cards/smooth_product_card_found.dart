@@ -62,7 +62,7 @@ class SmoothProductCardItemFound extends StatelessWidget {
                         constraints: BoxConstraints(
                           minHeight:
                               themeData.textTheme.headlineMedium!.fontSize! *
-                                  2.0,
+                              2.0,
                         ),
                         child: Align(
                           alignment: AlignmentDirectional.centerStart,
@@ -116,11 +116,12 @@ class SmoothProductCardItemFound extends StatelessWidget {
         Provider<String>.value(value: heroTag),
       ],
       child: InkWell(
-        onTap: onTap ??
+        onTap:
+            onTap ??
             () => AppNavigator.of(context).push(
-                  AppRoutes.PRODUCT(product.barcode!, heroTag: heroTag),
-                  extra: product,
-                ),
+              AppRoutes.PRODUCT(product.barcode!, heroTag: heroTag),
+              extra: product,
+            ),
         onLongPress: () => onLongPress?.call(),
         child: child,
       ),
@@ -140,8 +141,8 @@ class _SmoothProductItemPicture extends StatelessWidget {
     final Widget? scoreWidget;
 
     if (hasScore) {
-      final ProductPreferences productPreferences =
-          context.watch<ProductPreferences>();
+      final ProductPreferences productPreferences = context
+          .watch<ProductPreferences>();
 
       final MatchedProductV2 matchedProduct = MatchedProductV2(
         product,
@@ -238,8 +239,8 @@ class _SmoothProductItemScores extends StatelessWidget {
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
+    final List<String> excludedAttributeIds = userPreferences
+        .getExcludedAttributeIds();
 
     final List<Attribute> attributes = getPopulatedAttributes(
       product,
@@ -250,9 +251,10 @@ class _SmoothProductItemScores extends StatelessWidget {
     final List<Widget> scores = List<Widget>.generate(attributes.length, (
       int index,
     ) {
-      final bool nutriScoreLogo = attributes[index].iconUrl?.contains(
-                RegExp(r'.*/nutriscore-[a-z]-.*\.svg'),
-              ) ==
+      final bool nutriScoreLogo =
+          attributes[index].iconUrl?.contains(
+            RegExp(r'.*/nutriscore-[a-z]-.*\.svg'),
+          ) ==
           true;
 
       Widget child = SvgIconChip(

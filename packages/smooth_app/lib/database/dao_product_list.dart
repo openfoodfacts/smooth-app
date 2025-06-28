@@ -16,14 +16,14 @@ class _BarcodeList {
   const _BarcodeList(this.timestamp, this.barcodes, this.totalSize);
 
   _BarcodeList.now(final List<String> barcodes)
-      : this(LocalDatabase.nowInMillis(), barcodes, _uselessTotalSizeValue);
+    : this(LocalDatabase.nowInMillis(), barcodes, _uselessTotalSizeValue);
 
   _BarcodeList.fromProductList(final ProductList productList)
-      : this(
-          LocalDatabase.nowInMillis(),
-          productList.barcodes,
-          productList.totalSize,
-        );
+    : this(
+        LocalDatabase.nowInMillis(),
+        productList.barcodes,
+        productList.totalSize,
+      );
 
   /// Freshness indicator: last time the list was updated.
   ///

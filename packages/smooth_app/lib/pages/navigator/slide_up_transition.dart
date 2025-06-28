@@ -11,18 +11,19 @@ class OpenUpwardsPage {
     return CustomTransitionPage<T>(
       key: key,
       child: child,
-      transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-      ) {
-        return _OpenUpwardsPageTransition(
-          animation: animation,
-          secondaryAnimation: secondaryAnimation,
-          child: child,
-        );
-      },
+      transitionsBuilder:
+          (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) {
+            return _OpenUpwardsPageTransition(
+              animation: animation,
+              secondaryAnimation: secondaryAnimation,
+              child: child,
+            );
+          },
     );
   }
 }
@@ -128,13 +129,13 @@ class _OpenUpwardsPageTransitionState
             .animate(_primaryAnimation);
         final Animation<Offset> primaryTranslationAnimation =
             _OpenUpwardsPageTransition._primaryTranslationTween.animate(
-          _primaryAnimation,
-        );
+              _primaryAnimation,
+            );
 
         final Animation<Offset> secondaryTranslationAnimation =
             _OpenUpwardsPageTransition._secondaryTranslationTween.animate(
-          _secondaryTranslationCurvedAnimation,
-        );
+              _secondaryTranslationCurvedAnimation,
+            );
 
         return AnimatedBuilder(
           animation: widget.animation,

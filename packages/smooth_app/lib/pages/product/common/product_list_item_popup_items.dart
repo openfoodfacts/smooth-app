@@ -41,13 +41,12 @@ abstract class ProductListItemPopupItem {
   SmoothPopupMenuItem<ProductListItemPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
     final bool enabled,
-  ) =>
-      SmoothPopupMenuItem<ProductListItemPopupItem>(
-        value: this,
-        icon: getIconData(),
-        label: getTitle(appLocalizations),
-        enabled: enabled,
-      );
+  ) => SmoothPopupMenuItem<ProductListItemPopupItem>(
+    value: this,
+    icon: getIconData(),
+    label: getTitle(appLocalizations),
+    enabled: enabled,
+  );
 }
 
 /// Popup menu item for the product list page: compare side by side selected items.

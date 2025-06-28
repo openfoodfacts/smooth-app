@@ -117,26 +117,27 @@ class _ProductActionBarModalEditorState
 
   @override
   Widget build(BuildContext context) {
-    final List<_ProductActionBarEntry> entries = (context
-            .watch<_ProductActionBarProvider>()
-            .value as _ProductActionBarChangedState)
-        .entries;
+    final List<_ProductActionBarEntry> entries =
+        (context.watch<_ProductActionBarProvider>().value
+                as _ProductActionBarChangedState)
+            .entries;
 
     return SmoothAnimatedList<_ProductActionBarEntry>(
       data: entries,
       itemBuilder:
           (BuildContext context, _ProductActionBarEntry entry, int index) {
-        return KeyedSubtree(
-          key: ValueKey<ProductFooterActionBar>(entry.action),
-          child: _ProductActionBarModalItemEditor(
-            entry: entry,
-            position: index,
-            canMoveUp: entry.visible && index > 0,
-            canMoveDown: entry.visible &&
-                (index < entries.length - 1 && entries[index + 1].visible),
-          ),
-        );
-      },
+            return KeyedSubtree(
+              key: ValueKey<ProductFooterActionBar>(entry.action),
+              child: _ProductActionBarModalItemEditor(
+                entry: entry,
+                position: index,
+                canMoveUp: entry.visible && index > 0,
+                canMoveDown:
+                    entry.visible &&
+                    (index < entries.length - 1 && entries[index + 1].visible),
+              ),
+            );
+          },
       separatorSize: SEPARATOR_SIZE,
       padding: PADDING,
     );
@@ -188,13 +189,13 @@ class _ProductActionBarModalItemEditorState
       final SmoothColorsThemeExtension extension = Theme.of(
         context,
       ).extension<SmoothColorsThemeExtension>()!;
-      _colorAnimation = ColorTween(
-        begin: _invisibleColor(extension),
-        end: _visibleColor(extension),
-      ).animate(_controller)
-        ..addListener(() {
-          setState(() {});
-        });
+      _colorAnimation =
+          ColorTween(
+            begin: _invisibleColor(extension),
+            end: _visibleColor(extension),
+          ).animate(_controller)..addListener(() {
+            setState(() {});
+          });
 
       if (widget.entry.visible) {
         _controller.forward();
@@ -228,7 +229,8 @@ class _ProductActionBarModalItemEditorState
         constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: _colorAnimation?.value ??
+            color:
+                _colorAnimation?.value ??
                 (widget.entry.visible
                     ? _visibleColor(extension)
                     : _invisibleColor(extension)),
@@ -245,8 +247,8 @@ class _ProductActionBarModalItemEditorState
                   visible: widget.entry.visible,
                   onTap: () {
                     context.read<_ProductActionBarProvider>().changeVisibility(
-                          widget.entry,
-                        );
+                      widget.entry,
+                    );
 
                     SmoothHapticFeedback.lightNotification();
                   },
@@ -268,8 +270,9 @@ class _ProductActionBarModalItemEditorState
                       style: TextStyle(
                         fontSize: 15.0,
                         fontWeight: FontWeight.bold,
-                        color:
-                            context.darkTheme() ? extension.primaryBlack : null,
+                        color: context.darkTheme()
+                            ? extension.primaryBlack
+                            : null,
                       ),
                     ),
                   ),
@@ -280,9 +283,9 @@ class _ProductActionBarModalItemEditorState
                   enabled: widget.canMoveUp,
                   onTap: () {
                     context.read<_ProductActionBarProvider>().reorderPosition(
-                          widget.position,
-                          widget.position - 1,
-                        );
+                      widget.position,
+                      widget.position - 1,
+                    );
 
                     SmoothHapticFeedback.lightNotification();
                   },
@@ -293,9 +296,9 @@ class _ProductActionBarModalItemEditorState
                   enabled: widget.canMoveDown,
                   onTap: () {
                     context.read<_ProductActionBarProvider>().reorderPosition(
-                          widget.position,
-                          widget.position + 1,
-                        );
+                      widget.position,
+                      widget.position + 1,
+                    );
 
                     SmoothHapticFeedback.lightNotification();
                   },
@@ -322,8 +325,8 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.dataQuality => const icons.CheckList(),
       ProductFooterActionBar.addProperty => const icons.AddProperty.alt(),
       ProductFooterActionBar.settings => throw Exception(
-          'This item should not be displayed',
-        ),
+        'This item should not be displayed',
+      ),
     };
   }
 
@@ -348,8 +351,8 @@ class _ProductActionBarModalItemEditorState
         appLocalizations.product_footer_action_data_quality_tags,
       ProductFooterActionBar.addProperty => appLocalizations.add_tag,
       ProductFooterActionBar.settings => throw Exception(
-          'This item should not be displayed',
-        ),
+        'This item should not be displayed',
+      ),
     };
   }
 
@@ -561,7 +564,8 @@ class _ProductActionBarModalItemActionState
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: _colorAnimation?.value ??
+                  color:
+                      _colorAnimation?.value ??
                       (widget.enabled
                           ? widget.enabledColor ?? _enabledColor(extension)
                           : widget.disabledColor ?? _disabledColor(extension)),
@@ -595,7 +599,7 @@ class _ProductActionBarModalItemActionState
 
 class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
   _ProductActionBarProvider(this.preferences)
-      : super(const _ProductActionBarLoadingState()) {
+    : super(const _ProductActionBarLoadingState()) {
     _loadEntries();
   }
 
@@ -607,8 +611,8 @@ class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
         preferences.productPageActions;
     final Iterable<ProductFooterActionBar> disabledActions =
         ProductFooterActionBar.defaultOrder().where(
-      (ProductFooterActionBar action) => !enabledActions.contains(action),
-    );
+          (ProductFooterActionBar action) => !enabledActions.contains(action),
+        );
 
     emit(
       _ProductActionBarChangedState(<_ProductActionBarEntry>[
@@ -648,8 +652,7 @@ class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
     }
 
     preferences.setProductPageActions(
-      (value as _ProductActionBarChangedState)
-          .entries
+      (value as _ProductActionBarChangedState).entries
           .where((_ProductActionBarEntry e) => e.visible)
           .map((_ProductActionBarEntry e) => e.action),
     );
@@ -677,8 +680,7 @@ class _ProductActionBarProvider extends ValueNotifier<_ProductActionBarState> {
     emit(_ProductActionBarChangedState(newEntries));
 
     preferences.setProductPageActions(
-      (value as _ProductActionBarChangedState)
-          .entries
+      (value as _ProductActionBarChangedState).entries
           .where((_ProductActionBarEntry e) => e.visible)
           .map((_ProductActionBarEntry e) => e.action),
     );

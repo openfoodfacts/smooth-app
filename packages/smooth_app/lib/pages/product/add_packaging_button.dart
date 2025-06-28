@@ -14,11 +14,11 @@ class AddPackagingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-        _editor.getLabel(AppLocalizations.of(context)),
-        onPressed: () async => _editor.edit(
-          context: context,
-          product: product,
-          isLoggedInMandatory: true,
-        ),
-      );
+    _editor.getLabel(AppLocalizations.of(context)),
+    onPressed: () async => _editor.edit(
+      context: context,
+      product: product,
+      isLoggedInMandatory: true,
+    ),
+  );
 }

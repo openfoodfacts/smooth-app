@@ -131,14 +131,13 @@ class QuestionCard extends StatelessWidget {
   }
 
   Widget _buildQuestionShimmer() => Shimmer.fromColors(
-        baseColor: robotoffBackground,
-        highlightColor: Colors.white,
-        child: Card(
-          elevation: 4,
-          clipBehavior: Clip.antiAlias,
-          shape:
-              const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-          child: Container(height: LARGE_SPACE * 10),
-        ),
-      );
+    baseColor: robotoffBackground,
+    highlightColor: Colors.white,
+    child: Card(
+      elevation: 4,
+      clipBehavior: Clip.antiAlias,
+      shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+      child: Container(height: LARGE_SPACE * 10),
+    ),
+  );
 }

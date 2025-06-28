@@ -45,22 +45,20 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) =>
-      (
-        appLocalizations.background_task_title_full_refresh,
-        AlignmentDirectional.bottomCenter,
-      );
+  ) => (
+    appLocalizations.background_task_title_full_refresh,
+    AlignmentDirectional.bottomCenter,
+  );
 
   static BackgroundTaskFullRefresh _getNewTask(
     final String uniqueId,
     final int pageSize,
-  ) =>
-      BackgroundTaskFullRefresh._(
-        processName: _operationType.processName,
-        uniqueId: uniqueId,
-        stamp: ';fullRefresh',
-        pageSize: pageSize,
-      );
+  ) => BackgroundTaskFullRefresh._(
+    processName: _operationType.processName,
+    uniqueId: uniqueId,
+    stamp: ';fullRefresh',
+    pageSize: pageSize,
+  );
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
@@ -97,8 +95,9 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
           barcodes: barcodes,
           work: tag,
           localDatabase: localDatabase,
-          downloadFlag:
-              noKP ? BackgroundTaskDownloadProducts.flagMaskExcludeKP : 0,
+          downloadFlag: noKP
+              ? BackgroundTaskDownloadProducts.flagMaskExcludeKP
+              : 0,
           productType: productType,
         );
       }

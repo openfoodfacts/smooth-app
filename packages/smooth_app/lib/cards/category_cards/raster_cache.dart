@@ -19,22 +19,23 @@ class RasterCache extends AbstractCache {
       width: width,
       height: height,
       fit: BoxFit.contain,
-      loadingBuilder: (
-        final BuildContext context,
-        final Widget child,
-        final ImageChunkEvent? loadingProgress,
-      ) {
-        if (loadingProgress == null) {
-          return child;
-        }
-        return _localAssetWidget(fullFilenames);
-      },
-      errorBuilder: (
-        final BuildContext context,
-        final Object error,
-        final StackTrace? stackTrace,
-      ) =>
-          _localAssetWidget(fullFilenames),
+      loadingBuilder:
+          (
+            final BuildContext context,
+            final Widget child,
+            final ImageChunkEvent? loadingProgress,
+          ) {
+            if (loadingProgress == null) {
+              return child;
+            }
+            return _localAssetWidget(fullFilenames);
+          },
+      errorBuilder:
+          (
+            final BuildContext context,
+            final Object error,
+            final StackTrace? stackTrace,
+          ) => _localAssetWidget(fullFilenames),
     );
   }
 

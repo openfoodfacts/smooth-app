@@ -41,13 +41,13 @@ class EditLanguageTabBar extends StatefulWidget {
     required this.onTabChanged,
     required this.forceUserLanguage,
     this.padding = const EdgeInsetsDirectional.only(start: 55.0),
-  })  : defaultLanguageMissingState = OpenFoodFactsLanguageState.normal,
-        mainLanguageMissingState = OpenFoodFactsLanguageState.normal,
-        userLanguageMissingState = OpenFoodFactsLanguageState.normal,
-        languageIndicatorNormal = null,
-        languageIndicatorWarning = null,
-        languageIndicatorError = null,
-        showLanguageIndicator = false;
+  }) : defaultLanguageMissingState = OpenFoodFactsLanguageState.normal,
+       mainLanguageMissingState = OpenFoodFactsLanguageState.normal,
+       userLanguageMissingState = OpenFoodFactsLanguageState.normal,
+       languageIndicatorNormal = null,
+       languageIndicatorWarning = null,
+       languageIndicatorError = null,
+       showLanguageIndicator = false;
 
   /// Compare two products to know if they are the same
   final DidProductChanged productEquality;
@@ -121,69 +121,71 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
           child: ChangeNotifierProvider<_EditLanguageProvider>(
             create: (_) => _provider,
             child: Consumer<_EditLanguageProvider>(
-              builder: (
-                final BuildContext context,
-                final _EditLanguageProvider provider,
-                _,
-              ) {
-                if (provider.value.languages == null) {
-                  return const Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  );
-                }
+              builder:
+                  (
+                    final BuildContext context,
+                    final _EditLanguageProvider provider,
+                    _,
+                  ) {
+                    if (provider.value.languages == null) {
+                      return const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      );
+                    }
 
-                /// We need a Stack to have to tab bar shadow below the button
-                return Stack(
-                  children: <Widget>[
-                    PositionedDirectional(
-                      top: 0.0,
-                      start: 0.0,
-                      bottom: 0.0,
-                      end: 40.0,
-                      child: SmoothTabBar<OpenFoodFactsLanguage>(
-                        tabController: _tabController!,
-                        items: provider.value.languages!.map(
-                          (final OpenFoodFactsLanguage language) =>
-                              SmoothTabBarItem<OpenFoodFactsLanguage>(
-                            label: Languages().getNameInLanguage(
-                              language,
+                    /// We need a Stack to have to tab bar shadow below the button
+                    return Stack(
+                      children: <Widget>[
+                        PositionedDirectional(
+                          top: 0.0,
+                          start: 0.0,
+                          bottom: 0.0,
+                          end: 40.0,
+                          child: SmoothTabBar<OpenFoodFactsLanguage>(
+                            tabController: _tabController!,
+                            items: provider.value.languages!.map(
+                              (final OpenFoodFactsLanguage language) =>
+                                  SmoothTabBarItem<OpenFoodFactsLanguage>(
+                                    label: Languages().getNameInLanguage(
+                                      language,
+                                    ),
+                                    value: language,
+                                  ),
                             ),
-                            value: language,
+                            leadingItems: widget.showLanguageIndicator
+                                ? provider.value.languagesStates!.map((
+                                    final OpenFoodFactsLanguageState state,
+                                  ) {
+                                    switch (state) {
+                                      case OpenFoodFactsLanguageState.normal:
+                                        return widget.languageIndicatorNormal;
+                                      case OpenFoodFactsLanguageState.warning:
+                                        return widget
+                                                .languageIndicatorWarning ??
+                                            const icons.Warning();
+                                      case OpenFoodFactsLanguageState.error:
+                                        return widget.languageIndicatorError ??
+                                            const icons.Warning();
+                                    }
+                                  })
+                                : null,
+                            onTabChanged: (final OpenFoodFactsLanguage value) {
+                              widget.onTabChanged.call(value);
+                            },
+                            padding: widget.padding.add(
+                              const EdgeInsetsDirectional.only(end: 20.0),
+                            ),
                           ),
                         ),
-                        leadingItems: widget.showLanguageIndicator
-                            ? provider.value.languagesStates!.map((
-                                final OpenFoodFactsLanguageState state,
-                              ) {
-                                switch (state) {
-                                  case OpenFoodFactsLanguageState.normal:
-                                    return widget.languageIndicatorNormal;
-                                  case OpenFoodFactsLanguageState.warning:
-                                    return widget.languageIndicatorWarning ??
-                                        const icons.Warning();
-                                  case OpenFoodFactsLanguageState.error:
-                                    return widget.languageIndicatorError ??
-                                        const icons.Warning();
-                                }
-                              })
-                            : null,
-                        onTabChanged: (final OpenFoodFactsLanguage value) {
-                          widget.onTabChanged.call(value);
-                        },
-                        padding: widget.padding.add(
-                          const EdgeInsetsDirectional.only(end: 20.0),
+                        const PositionedDirectional(
+                          top: 0.0,
+                          end: 0.0,
+                          bottom: 0.0,
+                          child: _EditLanguageTabBarAddLanguageButton(),
                         ),
-                      ),
-                    ),
-                    const PositionedDirectional(
-                      top: 0.0,
-                      end: 0.0,
-                      bottom: 0.0,
-                      child: _EditLanguageTabBarAddLanguageButton(),
-                    ),
-                  ],
-                );
-              },
+                      ],
+                    );
+                  },
             ),
           ),
         ),
@@ -225,8 +227,8 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final BorderRadius borderRadius = BorderRadiusHelper.fromDirectional(
@@ -273,14 +275,16 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
   }
 
   Future<void> _addLanguage(BuildContext context) async {
-    final List<OpenFoodFactsLanguage>? selectedLanguages =
-        context.read<_EditLanguageProvider>().value.languages;
+    final List<OpenFoodFactsLanguage>? selectedLanguages = context
+        .read<_EditLanguageProvider>()
+        .value
+        .languages;
 
     final OpenFoodFactsLanguage? language =
         await LanguagesSelector.openLanguageSelector(
-      context,
-      selectedLanguages: selectedLanguages,
-    );
+          context,
+          selectedLanguages: selectedLanguages,
+        );
 
     if (language != null && context.mounted) {
       context.read<_EditLanguageProvider>().addLanguage(language);
@@ -383,15 +387,14 @@ class _EditLanguageProvider
   }
 
   (List<OpenFoodFactsLanguage>, List<OpenFoodFactsLanguageState>)
-      _extractLanguages() {
+  _extractLanguages() {
     final List<ProductLanguageWithState> imageLanguagesWithState =
-        languagesProvider(product!)
-          ..sort((
-            final ProductLanguageWithState a,
-            final ProductLanguageWithState b,
-          ) {
-            return a.code.compareTo(b.code);
-          });
+        languagesProvider(product!)..sort((
+          final ProductLanguageWithState a,
+          final ProductLanguageWithState b,
+        ) {
+          return a.code.compareTo(b.code);
+        });
 
     final List<OpenFoodFactsLanguage> imageLanguages =
         <OpenFoodFactsLanguage>[];
@@ -456,22 +459,22 @@ class _EditLanguageTabBarProviderState {
     required this.selectedLanguage,
     this.hasNewLanguage = false,
     this.initialValue = false,
-  })  : assert(
-          selectedLanguage == null || languages!.contains(selectedLanguage),
-        ),
-        assert(
-          languagesStates == null && languages == null ||
-              languagesStates != null &&
-                  languages != null &&
-                  languagesStates.length == languages.length,
-        );
+  }) : assert(
+         selectedLanguage == null || languages!.contains(selectedLanguage),
+       ),
+       assert(
+         languagesStates == null && languages == null ||
+             languagesStates != null &&
+                 languages != null &&
+                 languagesStates.length == languages.length,
+       );
 
   const _EditLanguageTabBarProviderState.empty()
-      : languages = null,
-        languagesStates = null,
-        selectedLanguage = null,
-        hasNewLanguage = false,
-        initialValue = false;
+    : languages = null,
+      languagesStates = null,
+      selectedLanguage = null,
+      hasNewLanguage = false,
+      initialValue = false;
 
   final List<OpenFoodFactsLanguage>? languages;
   final List<OpenFoodFactsLanguageState>? languagesStates;
@@ -480,17 +483,17 @@ class _EditLanguageTabBarProviderState {
   final bool hasNewLanguage;
 }
 
-typedef DidProductChanged = bool Function(
-    Product oldProduct, Product newProduct);
-typedef ProductLanguagesProvider = List<ProductLanguageWithState> Function(
-    Product product);
+typedef DidProductChanged =
+    bool Function(Product oldProduct, Product newProduct);
+typedef ProductLanguagesProvider =
+    List<ProductLanguageWithState> Function(Product product);
 
 @immutable
 class ProductLanguageWithState {
   const ProductLanguageWithState({required this.language, required this.state});
 
   const ProductLanguageWithState.normal({required this.language})
-      : state = OpenFoodFactsLanguageState.normal;
+    : state = OpenFoodFactsLanguageState.normal;
 
   final OpenFoodFactsLanguage language;
   final OpenFoodFactsLanguageState state;

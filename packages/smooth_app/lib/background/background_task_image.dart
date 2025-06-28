@@ -42,11 +42,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   });
 
   BackgroundTaskImage.fromJson(super.json)
-      : fullPath = json[_jsonTagImagePath] as String,
-        eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
-          json[_jsonTagEraserCoordinates],
-        ),
-        super.fromJson();
+    : fullPath = json[_jsonTagImagePath] as String,
+      eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+        json[_jsonTagEraserCoordinates],
+      ),
+      super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
   static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
@@ -117,8 +117,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) =>
-      null;
+  ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskImage _getNewTask(
@@ -135,28 +134,27 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final int cropX2,
     final int cropY2,
     final List<double>? eraserCoordinates,
-  ) =>
-      BackgroundTaskImage._(
-        uniqueId: uniqueId,
-        barcode: barcode,
-        productType: productType,
-        processName: _operationType.processName,
-        imageField: imageField.offTag,
-        fullPath: fullFile.path,
-        croppedPath: croppedFile.path,
-        rotationDegrees: rotationDegrees,
-        cropX1: cropX1,
-        cropY1: cropY1,
-        cropX2: cropX2,
-        cropY2: cropY2,
-        eraserCoordinates: eraserCoordinates,
-        language: language,
-        stamp: BackgroundTaskUpload.getStamp(
-          barcode,
-          imageField.offTag,
-          language.code,
-        ),
-      );
+  ) => BackgroundTaskImage._(
+    uniqueId: uniqueId,
+    barcode: barcode,
+    productType: productType,
+    processName: _operationType.processName,
+    imageField: imageField.offTag,
+    fullPath: fullFile.path,
+    croppedPath: croppedFile.path,
+    rotationDegrees: rotationDegrees,
+    cropX1: cropX1,
+    cropY1: cropY1,
+    cropX2: cropX2,
+    cropY2: cropY2,
+    eraserCoordinates: eraserCoordinates,
+    language: language,
+    stamp: BackgroundTaskUpload.getStamp(
+      barcode,
+      imageField.offTag,
+      language.code,
+    ),
+  );
 
   /// Returns a fake value that means: "remove the previous value when merging".
   ///
@@ -166,10 +164,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// cf. [UpToDateChanges._overwrite] regarding `images` field.
   @override
   ProductImage getProductImageChange() => ProductImage(
-        field: ImageField.fromOffTag(imageField)!,
-        language: getLanguage(),
-        size: ImageSize.ORIGINAL,
-      );
+    field: ImageField.fromOffTag(imageField)!,
+    language: getLanguage(),
+    size: ImageSize.ORIGINAL,
+  );
 
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
@@ -191,8 +189,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     try {
       (await BackgroundTaskUpload.getFile(
         getCroppedPath(fullPath),
-      ))
-          .deleteSync();
+      )).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -230,16 +227,15 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final int cropY1,
     final int cropX2,
     final int cropY2,
-  ) =>
-      getResizedRect(
-        Rect.fromLTRB(
-          cropX1.toDouble(),
-          cropY1.toDouble(),
-          cropX2.toDouble(),
-          cropY2.toDouble(),
-        ),
-        1 / _cropConversionFactor,
-      );
+  ) => getResizedRect(
+    Rect.fromLTRB(
+      cropX1.toDouble(),
+      cropY1.toDouble(),
+      cropX2.toDouble(),
+      cropY2.toDouble(),
+    ),
+    1 / _cropConversionFactor,
+  );
 
   /// Conversion factor to `int` from / to UI / background task.
   static const int _cropConversionFactor = 1000000;
@@ -263,19 +259,19 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final String croppedPath = getCroppedPath(fullPath);
     final CustomPainter? overlayPainter =
         eraserCoordinates == null || eraserCoordinates.isEmpty
-            ? null
-            : EraserPainter(
-                eraserModel: EraserModel(
-                  rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
-                  offsets: CropHelper.getOffsets(eraserCoordinates),
-                ),
-                cropRect: BackgroundTaskImage.getDownsizedRect(
-                  cropX1,
-                  cropY1,
-                  cropX2,
-                  cropY2,
-                ),
-              );
+        ? null
+        : EraserPainter(
+            eraserModel: EraserModel(
+              rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+              offsets: CropHelper.getOffsets(eraserCoordinates),
+            ),
+            cropRect: BackgroundTaskImage.getDownsizedRect(
+              cropX1,
+              cropY1,
+              cropX2,
+              cropY2,
+            ),
+          );
     final ui.Image full = await loadUiImage(
       await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes(),
     );

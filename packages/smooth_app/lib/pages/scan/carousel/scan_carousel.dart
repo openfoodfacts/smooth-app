@@ -93,17 +93,17 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
           itemCount: barcodes.length + 1,
           itemBuilder:
               (BuildContext context, int itemIndex, int itemRealIndex) {
-            return SizedBox.expand(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: HORIZONTAL_SPACE_BETWEEN_CARDS,
-                ),
-                child: itemIndex == 0
-                    ? const ScanMainCard()
-                    : _getWidget(itemIndex - 1),
-              ),
-            );
-          },
+                return SizedBox.expand(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: HORIZONTAL_SPACE_BETWEEN_CARDS,
+                    ),
+                    child: itemIndex == 0
+                        ? const ScanMainCard()
+                        : _getWidget(itemIndex - 1),
+                  ),
+                );
+              },
           carouselController: ExternalScanCarouselManager.watch(
             context,
           ).controller,
@@ -146,7 +146,8 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final bool dense = constraints.maxHeight <= 400.0 ||
+        final bool dense =
+            constraints.maxHeight <= 400.0 ||
             MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
 
         return Provider<ScanCardDensity>(

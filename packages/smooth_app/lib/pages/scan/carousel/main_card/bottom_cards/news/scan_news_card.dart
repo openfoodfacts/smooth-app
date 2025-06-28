@@ -144,7 +144,8 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       maxLines: widget.dense ? 500 : null,
       overflow: widget.dense ? TextOverflow.ellipsis : null,
       textStyle: TextStyle(
-        color: widget.textColor ??
+        color:
+            widget.textColor ??
             (context.lightTheme(listen: true)
                 ? theme.primaryBlack
                 : theme.primaryLight),

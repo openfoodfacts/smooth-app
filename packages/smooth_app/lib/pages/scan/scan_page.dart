@@ -61,8 +61,9 @@ class _ScanPageState extends State<ScanPage> {
 
     return SmoothScaffold(
       brightness: Brightness.light,
-      backgroundColor:
-          context.lightTheme() ? themeExtension.primaryLight : null,
+      backgroundColor: context.lightTheme()
+          ? themeExtension.primaryLight
+          : null,
       body: Column(
         children: <Widget>[
           if (hasACamera)
@@ -71,16 +72,16 @@ class _ScanPageState extends State<ScanPage> {
               child: Consumer<PermissionListener>(
                 builder:
                     (BuildContext context, PermissionListener listener, _) {
-                  switch (listener.value.status) {
-                    case DevicePermissionStatus.checking:
-                      return EMPTY_WIDGET;
-                    case DevicePermissionStatus.granted:
-                      // TODO(m123): change
-                      return const CameraScannerPage();
-                    default:
-                      return const _PermissionDeniedCard();
-                  }
-                },
+                      switch (listener.value.status) {
+                        case DevicePermissionStatus.checking:
+                          return EMPTY_WIDGET;
+                        case DevicePermissionStatus.granted:
+                          // TODO(m123): change
+                          return const CameraScannerPage();
+                        default:
+                          return const _PermissionDeniedCard();
+                      }
+                    },
               ),
             ),
           Expanded(

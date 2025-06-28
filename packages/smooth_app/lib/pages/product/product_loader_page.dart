@@ -44,11 +44,11 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
       _state = _ProductLoaderState.loading;
     });
 
-    final FetchedProduct fetchedProduct =
-        await ProductRefresher().silentFetchAndRefresh(
-      barcode: widget.barcode,
-      localDatabase: context.read<LocalDatabase>(),
-    );
+    final FetchedProduct fetchedProduct = await ProductRefresher()
+        .silentFetchAndRefresh(
+          barcode: widget.barcode,
+          localDatabase: context.read<LocalDatabase>(),
+        );
 
     if (mounted) {
       if (fetchedProduct.product != null) {

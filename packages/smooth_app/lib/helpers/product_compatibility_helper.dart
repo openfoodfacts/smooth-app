@@ -7,8 +7,8 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class ProductCompatibilityHelper {
   ProductCompatibilityHelper.product(final MatchedProductV2 product)
-      : status = product.status,
-        _score = product.score;
+    : status = product.status,
+      _score = product.score;
 
   const ProductCompatibilityHelper.status(this.status) : _score = null;
 
@@ -16,8 +16,8 @@ class ProductCompatibilityHelper {
   final MatchedProductStatusV2 status;
 
   Color getColor(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return switch (status) {
       MatchedProductStatusV2.VERY_GOOD_MATCH => theme.success,

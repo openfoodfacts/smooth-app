@@ -49,7 +49,8 @@ class LocationListPhotonSupplier extends LocationListSupplier {
           scheme: 'https',
           host: 'photon.komoot.io',
           path: 'api',
-          query: 'q=${Uri.encodeComponent(query)}'
+          query:
+              'q=${Uri.encodeComponent(query)}'
               '&lang=${getQueryLanguage().offTag}'
               '${_getAdditionalParameters()}',
         ),

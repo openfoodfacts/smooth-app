@@ -36,13 +36,13 @@ class DaoWorkBarcode extends AbstractSqlDao {
 
   /// Returns the number of barcodes for that work.
   Future<int> getCount(final String work) async {
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      _table,
-      columns: <String>['count(1) as my_count'],
-      where: '$_columnWork = ?',
-      whereArgs: <String>[work],
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .query(
+          _table,
+          columns: <String>['count(1) as my_count'],
+          where: '$_columnWork = ?',
+          whereArgs: <String>[work],
+        );
     for (final Map<String, dynamic> row in queryResults) {
       return row['my_count'] as int;
     }
@@ -55,14 +55,14 @@ class DaoWorkBarcode extends AbstractSqlDao {
     final int pageSize,
   ) async {
     final List<String> result = <String>[];
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      _table,
-      columns: <String>[_columnBarcode],
-      where: '$_columnWork = ?',
-      whereArgs: <String>[work],
-      limit: pageSize,
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .query(
+          _table,
+          columns: <String>[_columnBarcode],
+          where: '$_columnWork = ?',
+          whereArgs: <String>[work],
+          limit: pageSize,
+        );
     for (final Map<String, dynamic> row in queryResults) {
       result.add(row[_columnBarcode] as String);
     }
@@ -73,11 +73,10 @@ class DaoWorkBarcode extends AbstractSqlDao {
   Future<int> putAll(
     final String work,
     final Iterable<String> barcodes,
-  ) async =>
-      localDatabase.database.transaction(
-        (final Transaction transaction) async =>
-            _bulkInsert(transaction, work, barcodes),
-      );
+  ) async => localDatabase.database.transaction(
+    (final Transaction transaction) async =>
+        _bulkInsert(transaction, work, barcodes),
+  );
 
   /// Returns the number of inserted rows by optimized bulk insert.
   Future<int> _bulkInsert(
@@ -128,11 +127,10 @@ class DaoWorkBarcode extends AbstractSqlDao {
   Future<int> deleteBarcodes(
     final String work,
     final Iterable<String> barcodes,
-  ) async =>
-      localDatabase.database.transaction(
-        (final Transaction transaction) async =>
-            _bulkDelete(transaction, work, barcodes),
-      );
+  ) async => localDatabase.database.transaction(
+    (final Transaction transaction) async =>
+        _bulkDelete(transaction, work, barcodes),
+  );
 
   /// Returns the number of deleted rows by optimized bulk delete.
   Future<int> _bulkDelete(
@@ -152,7 +150,8 @@ class DaoWorkBarcode extends AbstractSqlDao {
       }
       final int deleted = await databaseExecutor.delete(
         _table,
-        where: '$_columnWork = ? '
+        where:
+            '$_columnWork = ? '
             'and $_columnBarcode in(?${',?' * (parameters.length - 2)})',
         whereArgs: parameters,
       );

@@ -17,13 +17,14 @@ extension OpenFoodFactsCountryLocalization on OpenFoodFactsCountry {
   String get name {
     final String? result =
         _getMapper().map[_latestLanguageCode]?.map[iso3Code] ??
-            _getMapper().map[_englishLanguageCode]?.map[iso3Code];
+        _getMapper().map[_englishLanguageCode]?.map[iso3Code];
     if (result != null) {
       return result;
     }
     // lousy fallback version in English
-    final String countryName =
-        toString().replaceAll('OpenFoodFactsCountry.', '').replaceAll('_', ' ');
+    final String countryName = toString()
+        .replaceAll('OpenFoodFactsCountry.', '')
+        .replaceAll('_', ' ');
     return '${countryName[0].toUpperCase()}'
         '${countryName.substring(1).toLowerCase()}';
   }

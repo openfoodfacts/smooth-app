@@ -49,17 +49,16 @@ class WellSpacedTextHelper {
     int? maxLines,
     TextWidthBasis? textWidthBasis,
     required Widget child,
-  }) =>
-      DefaultTextStyle.merge(
-        child: child,
-        key: key,
-        style: style ?? const TextStyle(height: _WELL_SPACED_TEXT_HEIGHT),
-        textAlign: textAlign,
-        softWrap: softWrap,
-        overflow: overflow,
-        maxLines: maxLines,
-        textWidthBasis: textWidthBasis,
-      );
+  }) => DefaultTextStyle.merge(
+    child: child,
+    key: key,
+    style: style ?? const TextStyle(height: _WELL_SPACED_TEXT_HEIGHT),
+    textAlign: textAlign,
+    softWrap: softWrap,
+    overflow: overflow,
+    maxLines: maxLines,
+    textWidthBasis: textWidthBasis,
+  );
 }
 
 class TextHighlighter extends StatelessWidget {
@@ -106,12 +105,14 @@ class TextHighlighter extends StatelessWidget {
 
     return Text.rich(
       TextSpan(
-        children: parts.map(((String, TextStyle?) part) {
-          return TextSpan(
-            text: part.$1,
-            style: defaultTextStyle.merge(part.$2),
-          );
-        }).toList(growable: false),
+        children: parts
+            .map(((String, TextStyle?) part) {
+              return TextSpan(
+                text: part.$1,
+                style: defaultTextStyle.merge(part.$2),
+              );
+            })
+            .toList(growable: false),
       ),
       softWrap: softWrap,
       textAlign: textAlign,
@@ -211,19 +212,19 @@ class HighlightedTextSpan extends WidgetSpan {
     required Color backgroundColor,
     required double radius,
     EdgeInsetsGeometry? margin,
-  })  : assert(radius > 0.0),
-        super(
-          alignment: PlaceholderAlignment.middle,
-          child: Container(
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.all(Radius.circular(radius)),
-            ),
-            margin: margin,
-            padding: padding,
-            child: Text(text, style: textStyle),
-          ),
-        );
+  }) : assert(radius > 0.0),
+       super(
+         alignment: PlaceholderAlignment.middle,
+         child: Container(
+           decoration: BoxDecoration(
+             color: backgroundColor,
+             borderRadius: BorderRadius.all(Radius.circular(radius)),
+           ),
+           margin: margin,
+           padding: padding,
+           child: Text(text, style: textStyle),
+         ),
+       );
 }
 
 /// A Text where parts between "**" are in bold
@@ -254,20 +255,24 @@ class TextWithBoldParts extends StatelessWidget {
         textScaler: MediaQuery.textScalerOf(context),
         text: TextSpan(
           style: DefaultTextStyle.of(context).style,
-          children: TextHelper.getPartsBetweenSymbol(
-            text: text,
-            symbol: r'\*\*',
-            symbolLength: 2,
-            defaultStyle: defaultTextStyle,
-            highlightedStyle:
-                boldTextStyle ?? const TextStyle(fontWeight: FontWeight.bold),
-          ).map(((String, TextStyle?) part) {
-            return TextSpan(
-              text: part.$1,
-              style: defaultTextStyle.merge(part.$2),
-              semanticsLabel: '-',
-            );
-          }).toList(growable: false),
+          children:
+              TextHelper.getPartsBetweenSymbol(
+                    text: text,
+                    symbol: r'\*\*',
+                    symbolLength: 2,
+                    defaultStyle: defaultTextStyle,
+                    highlightedStyle:
+                        boldTextStyle ??
+                        const TextStyle(fontWeight: FontWeight.bold),
+                  )
+                  .map(((String, TextStyle?) part) {
+                    return TextSpan(
+                      text: part.$1,
+                      style: defaultTextStyle.merge(part.$2),
+                      semanticsLabel: '-',
+                    );
+                  })
+                  .toList(growable: false),
         ),
         textAlign: textAlign ?? TextAlign.start,
         overflow: overflow ?? TextOverflow.clip,
@@ -306,20 +311,24 @@ class TextWithUnderlinedParts extends StatelessWidget {
         textScaler: MediaQuery.textScalerOf(context),
         text: TextSpan(
           style: DefaultTextStyle.of(context).style,
-          children: TextHelper.getPartsBetweenSymbol(
-            text: text,
-            symbol: r'\_\_',
-            symbolLength: 2,
-            defaultStyle: defaultTextStyle,
-            highlightedStyle: underlineTextStyle ??
-                const TextStyle(decoration: TextDecoration.underline),
-          ).map(((String, TextStyle?) part) {
-            return TextSpan(
-              text: part.$1,
-              style: defaultTextStyle.merge(part.$2),
-              semanticsLabel: '-',
-            );
-          }).toList(growable: false),
+          children:
+              TextHelper.getPartsBetweenSymbol(
+                    text: text,
+                    symbol: r'\_\_',
+                    symbolLength: 2,
+                    defaultStyle: defaultTextStyle,
+                    highlightedStyle:
+                        underlineTextStyle ??
+                        const TextStyle(decoration: TextDecoration.underline),
+                  )
+                  .map(((String, TextStyle?) part) {
+                    return TextSpan(
+                      text: part.$1,
+                      style: defaultTextStyle.merge(part.$2),
+                      semanticsLabel: '-',
+                    );
+                  })
+                  .toList(growable: false),
         ),
         textAlign: textAlign ?? TextAlign.start,
         overflow: overflow ?? TextOverflow.clip,
@@ -354,24 +363,27 @@ class TextWithBubbleParts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color backgroundColor = this.backgroundColor ??
+    final Color backgroundColor =
+        this.backgroundColor ??
         context.extension<SmoothColorsThemeExtension>().secondaryNormal;
 
     return RichText(
       textScaler: MediaQuery.textScalerOf(context),
       text: TextSpan(
-        children: _extractChunks().map(((String text, bool highlighted) el) {
-          if (el.$2) {
-            return _createSpan(
-              el.$1,
-              bubblePadding,
-              bubbleTextStyle ?? textStyle?.merge(bubbleTextStyle),
-              backgroundColor,
-            );
-          } else {
-            return TextSpan(text: el.$1);
-          }
-        }).toList(growable: false),
+        children: _extractChunks()
+            .map(((String text, bool highlighted) el) {
+              if (el.$2) {
+                return _createSpan(
+                  el.$1,
+                  bubblePadding,
+                  bubbleTextStyle ?? textStyle?.merge(bubbleTextStyle),
+                  backgroundColor,
+                );
+              } else {
+                return TextSpan(text: el.$1);
+              }
+            })
+            .toList(growable: false),
         style: DefaultTextStyle.of(context).style.merge(textStyle),
       ),
       textAlign: textAlign ?? TextAlign.start,
@@ -412,22 +424,23 @@ class TextWithBubbleParts extends StatelessWidget {
     EdgeInsetsGeometry? padding,
     TextStyle? textStyle,
     Color backgroundColor,
-  ) =>
-      HighlightedTextSpan(
-        text: text,
-        textStyle: textStyle ??
-            const TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-        padding: padding ??
-            const EdgeInsetsDirectional.only(
-              top: 2.0,
-              bottom: 2.0,
-              start: 15.0,
-              end: 15.0,
-            ),
-        margin: margin ?? const EdgeInsetsDirectional.symmetric(vertical: 2.5),
-        backgroundColor: backgroundColor,
-        radius: 30.0,
-      );
+  ) => HighlightedTextSpan(
+    text: text,
+    textStyle:
+        textStyle ??
+        const TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+    padding:
+        padding ??
+        const EdgeInsetsDirectional.only(
+          top: 2.0,
+          bottom: 2.0,
+          start: 15.0,
+          end: 15.0,
+        ),
+    margin: margin ?? const EdgeInsetsDirectional.symmetric(vertical: 2.5),
+    backgroundColor: backgroundColor,
+    radius: 30.0,
+  );
 }
 
 typedef TextStyleProvider = TextStyle Function(double multiplier);

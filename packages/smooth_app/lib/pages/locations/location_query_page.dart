@@ -93,60 +93,60 @@ class _LocationQueryPageState extends State<LocationQueryPage>
     final Size screenSize,
     final ThemeData themeData,
     final AppLocalizations appLocalizations,
-  ) =>
-      SmoothScaffold(
-        appBar: SmoothAppBar(
-          backgroundColor: themeData.scaffoldBackgroundColor,
-          elevation: 2,
-          automaticallyImplyLeading: false,
-          leading: const SmoothBackButton(),
-          title: SearchAppBarTitle(
-            title: widget.query,
-            editableAppBarTitle: widget.editableAppBarTitle,
-          ),
-        ),
-        body: ListTileTheme(
-          data: ListTileThemeData(
-            titleTextStyle: const TextStyle(fontSize: 20.0),
-            minLeadingWidth: 18.0,
-            iconColor: Theme.of(context).colorScheme.onSurface,
-            textColor: Theme.of(context).colorScheme.onSurface,
-          ),
-          child: ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              if (index >= _model.displayedResults.length) {
-                final LocationListSupplier? supplier = _model.alternateSupplier;
-                if (supplier != null) {
-                  return SmoothCard(
-                    child: SmoothLargeButtonWithIcon(
-                      text: appLocalizations.prices_location_search_broader,
-                      leadingIcon: const Icon(Icons.search),
-                      onPressed: () => unawaited(_model.loadMore(supplier)),
-                    ),
-                  );
-                }
-                return const Padding(
-                  padding: EdgeInsets.only(top: SMALL_SPACE),
-                  child: Center(child: CircularProgressIndicator.adaptive()),
-                );
-              }
-              return KeyedSubtree(
-                key: ValueKey<int>(_model.displayedResults[index].osmId),
-                child: SearchLocationPreloadedItem(
-                  _model.displayedResults[index],
-                  popFirst: true,
-                ).getWidget(context),
+  ) => SmoothScaffold(
+    appBar: SmoothAppBar(
+      backgroundColor: themeData.scaffoldBackgroundColor,
+      elevation: 2,
+      automaticallyImplyLeading: false,
+      leading: const SmoothBackButton(),
+      title: SearchAppBarTitle(
+        title: widget.query,
+        editableAppBarTitle: widget.editableAppBarTitle,
+      ),
+    ),
+    body: ListTileTheme(
+      data: ListTileThemeData(
+        titleTextStyle: const TextStyle(fontSize: 20.0),
+        minLeadingWidth: 18.0,
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        textColor: Theme.of(context).colorScheme.onSurface,
+      ),
+      child: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          if (index >= _model.displayedResults.length) {
+            final LocationListSupplier? supplier = _model.alternateSupplier;
+            if (supplier != null) {
+              return SmoothCard(
+                child: SmoothLargeButtonWithIcon(
+                  text: appLocalizations.prices_location_search_broader,
+                  leadingIcon: const Icon(Icons.search),
+                  onPressed: () => unawaited(_model.loadMore(supplier)),
+                ),
               );
-            },
-            itemCount: _model.displayedResults.length +
-                (_model.alternateSupplier != null
-                    ? 1
-                    : _model.loadingStatus == LoadingStatus.LOADING
-                        ? 1
-                        : 0),
-          ),
-        ),
-      );
+            }
+            return const Padding(
+              padding: EdgeInsets.only(top: SMALL_SPACE),
+              child: Center(child: CircularProgressIndicator.adaptive()),
+            );
+          }
+          return KeyedSubtree(
+            key: ValueKey<int>(_model.displayedResults[index].osmId),
+            child: SearchLocationPreloadedItem(
+              _model.displayedResults[index],
+              popFirst: true,
+            ).getWidget(context),
+          );
+        },
+        itemCount:
+            _model.displayedResults.length +
+            (_model.alternateSupplier != null
+                ? 1
+                : _model.loadingStatus == LoadingStatus.LOADING
+                ? 1
+                : 0),
+      ),
+    ),
+  );
 
   Widget _getErrorWidget(
     final Size screenSize,

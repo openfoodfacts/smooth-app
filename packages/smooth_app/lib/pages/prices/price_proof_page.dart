@@ -80,22 +80,23 @@ class _PriceProofPageState extends State<PriceProofPage> {
         child: Image.network(
           _getUrl(false),
           fit: BoxFit.cover,
-          loadingBuilder: (
-            BuildContext context,
-            Widget child,
-            ImageChunkEvent? loadingProgress,
-          ) {
-            if (loadingProgress == null) {
-              return child;
-            }
-            return Center(
-              child: SizedBox(
-                width: double.maxFinite,
-                height: double.maxFinite,
-                child: Image.network(_getUrl(true), fit: BoxFit.contain),
-              ),
-            );
-          },
+          loadingBuilder:
+              (
+                BuildContext context,
+                Widget child,
+                ImageChunkEvent? loadingProgress,
+              ) {
+                if (loadingProgress == null) {
+                  return child;
+                }
+                return Center(
+                  child: SizedBox(
+                    width: double.maxFinite,
+                    height: double.maxFinite,
+                    child: Image.network(_getUrl(true), fit: BoxFit.contain),
+                  ),
+                );
+              },
         ),
       ),
     );
@@ -114,9 +115,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
     }
     final MaybeError<GetPricesResult> prices =
         await OpenPricesAPIClient.getPrices(
-      GetPricesParameters()..proofId = widget.proof.id,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          GetPricesParameters()..proofId = widget.proof.id,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (prices.isError) {
       return;
     }
