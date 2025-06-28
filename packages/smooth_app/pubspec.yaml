@@ -37,7 +37,7 @@ dependencies:
   uuid: 4.5.1
   provider: 6.1.4
   sentry_flutter: 8.14.1
-  sqflite: 2.4.1
+  sqflite: 2.4.2
   sqflite_common_ffi: 2.3.4+4
   url_launcher: 6.3.1
   visibility_detector: 0.4.0+2
@@ -50,7 +50,7 @@ dependencies:
   flutter_native_splash: 2.4.4
   image: 4.5.2
   auto_size_text: 3.0.0
-  crop_image: 1.0.15
+  crop_image: 1.0.16
   shared_preferences: 2.5.2
   intl: 0.20.2
   collection: 1.19.1

@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "נא למלא את הברקוד",
+  "prices_category_enter": "פריט ללא ברקוד",
+  "prices_per_kilogram": "מחיר לקילוגרם",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "מחיר ליחידה",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / ק\"ג",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " יחידה",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "חובה",
+  "prices_category_optional": "אופציונלי",
+  "prices_category_error_mandatory": "הקטגוריה היא חובה",
   "prices_barcode_reader_action": "קורא ברקודים",
   "prices_view_prices": "הצגת המחירים",
   "prices_product_accessibility_summary": "{count,plural, two {{count} מחירים} many {{count} מחירים}=1{מחיר {count}} other{{count} מחירים}} ל{product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "מחיר נוסף בעבר",
   "prices_amount_subtitle": "סכום",
   "prices_amount_is_discounted": "בהנחה?",
   "prices_amount_price_normal": "מחיר",

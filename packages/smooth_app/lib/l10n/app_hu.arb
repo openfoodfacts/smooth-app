@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Vonalkód beírása",
+  "prices_category_enter": "Vonalkód nélküli tétel",
+  "prices_per_kilogram": "Kilogrammonkénti ár",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Price per unit",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / egység",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Kötelező",
+  "prices_category_optional": "Választható",
+  "prices_category_error_mandatory": "A kategória kitöltése kötelező",
   "prices_barcode_reader_action": "Vonalkódolvasó",
   "prices_view_prices": "Árak megtekintése",
   "prices_product_accessibility_summary": "{count,plural,=1{1 ár} other{{count} ár}} ehhez: {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Korábban hozzáadott ár",
   "prices_amount_subtitle": "Mennyiség",
   "prices_amount_is_discounted": "Akciós?",
   "prices_amount_price_normal": "Ár",
