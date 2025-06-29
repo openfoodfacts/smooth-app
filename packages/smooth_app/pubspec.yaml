@@ -45,7 +45,7 @@ dependencies:
   diacritic: 0.1.6
   app_store_shared:
     path: ../app_store/shared
-  audioplayers: 6.1.1
+  audioplayers: 6.5.0
   flutter_email_sender: 6.0.3
   flutter_native_splash: 2.4.4
   image: 4.5.2
@@ -61,7 +61,7 @@ dependencies:
   shimmer: ^3.0.0
   rive: 0.13.20
   webview_flutter: 4.10.0
-  webview_flutter_android: 4.3.2
+  webview_flutter_android: 4.7.0
   webview_flutter_wkwebview: 3.16.3
   flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.4.0
