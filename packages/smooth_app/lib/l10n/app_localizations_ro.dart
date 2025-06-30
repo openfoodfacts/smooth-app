@@ -2614,10 +2614,10 @@ class AppLocalizationsRo extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Articol fără coduri de bare';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Preț pe kilogram';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2626,16 +2626,16 @@ class AppLocalizationsRo extends AppLocalizations {
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / unitate';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Obligatoriu';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Opțional';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Categoria este obligatorie';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2765,7 +2765,7 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Preț adăugat anterior';
 
   @override
   String get prices_amount_subtitle => 'Amount';

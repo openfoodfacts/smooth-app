@@ -2568,28 +2568,28 @@ class AppLocalizationsTh extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'สินค้าไม่มีบาร์โค้ด';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'ราคาต่อกิโลกรัม';
 
   @override
   String get prices_per_unit => 'Price per unit';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' / กก.';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / หน่วย';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'ไม่จำเป็น';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'หมวดหมู่นี้จำเป็นต้องกรอก';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2719,7 +2719,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'ราคาที่เพิ่มไว้ก่อนหน้านี้';
 
   @override
   String get prices_amount_subtitle => 'Amount';

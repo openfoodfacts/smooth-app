@@ -2572,10 +2572,10 @@ class AppLocalizationsGd extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Nì gun chòd-barra';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Prìs gach cileagram';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2584,16 +2584,17 @@ class AppLocalizationsGd extends AppLocalizations {
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / aonad';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Roghainneil';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory =>
+      'Tha an roinn-seòrsa èigneachail';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2723,7 +2724,7 @@ class AppLocalizationsGd extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Prìs air a chur ris roimhe';
 
   @override
   String get prices_amount_subtitle => 'Amount';

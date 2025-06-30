@@ -2584,28 +2584,28 @@ class AppLocalizationsDa extends AppLocalizations {
   String get prices_barcode_enter => 'Indtast stregkoden';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Vare uden stregkode';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Pris pr. kilogram';
 
   @override
-  String get prices_per_unit => 'Price per unit';
+  String get prices_per_unit => 'Pris pr. enhed';
 
   @override
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / enhed';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Obligatorisk';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Valgfri';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Kategorien er obligatorisk';
 
   @override
   String get prices_barcode_reader_action => 'Stregkodelæser';
@@ -2735,7 +2735,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Prisen er tidligere tilføjet';
 
   @override
   String get prices_amount_subtitle => 'Beløb';
