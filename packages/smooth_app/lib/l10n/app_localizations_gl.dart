@@ -4635,6 +4635,30 @@ class AppLocalizationsGl extends AppLocalizations {
   String get product_page_tab_raw_data => 'Raw data';
 
   @override
+  String get raw_data_category_labels => 'Labels & Certification';
+
+  @override
+  String get raw_data_category_categories => 'Categories';
+
+  @override
+  String get raw_data_category_ingredients => 'Ingrédients';
+
+  @override
+  String get raw_data_category_nutrition => 'Nutrition facts';
+
+  @override
+  String get raw_data_category_packages => 'Packaging';
+
+  @override
+  String get raw_data_category_stores => 'Stores';
+
+  @override
+  String get raw_data_category_countries => 'Countries';
+
+  @override
+  String get raw_data_edit_tooltip => 'Edit';
+
+  @override
   String page_indicator_with_total(int current, int total) {
     return 'Páxina $current / $total';
   }

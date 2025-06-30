@@ -8111,6 +8111,54 @@ abstract class AppLocalizations {
   /// **'Raw data'**
   String get product_page_tab_raw_data;
 
+  /// Labels & Certification Category
+  ///
+  /// In en, this message translates to:
+  /// **'Labels & Certification'**
+  String get raw_data_category_labels;
+
+  /// Categories Category
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get raw_data_category_categories;
+
+  /// Ingrédients Category
+  ///
+  /// In en, this message translates to:
+  /// **'Ingrédients'**
+  String get raw_data_category_ingredients;
+
+  /// Nutrition facts Category
+  ///
+  /// In en, this message translates to:
+  /// **'Nutrition facts'**
+  String get raw_data_category_nutrition;
+
+  /// Packaging Category
+  ///
+  /// In en, this message translates to:
+  /// **'Packaging'**
+  String get raw_data_category_packages;
+
+  /// Stores Category
+  ///
+  /// In en, this message translates to:
+  /// **'Stores'**
+  String get raw_data_category_stores;
+
+  /// Countries Category
+  ///
+  /// In en, this message translates to:
+  /// **'Countries'**
+  String get raw_data_category_countries;
+
+  /// Countries Category
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get raw_data_edit_tooltip;
+
   /// Page indicator showing current page and total pages
   ///
   /// In en, this message translates to:
