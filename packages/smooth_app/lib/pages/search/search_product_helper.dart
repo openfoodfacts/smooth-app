@@ -122,8 +122,8 @@ class SearchProductHelper extends SearchHelper {
             productType:
                 UserPreferences.getUserPreferencesSync()
                     .searchProductTypeFilterVisible
-                ? ProductType.food
-                : _productType,
+                ? _productType
+                : ProductType.food,
           ),
           context: context,
           editableAppBarTitle: false,
