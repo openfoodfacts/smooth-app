@@ -53,9 +53,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
       buttonColor: _getBackgroundColor(themeData),
       child: IconTheme(
-        data: IconThemeData(
-          color: _getForegroundColor(themeData),
-        ),
+        data: IconThemeData(color: _getForegroundColor(themeData)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[

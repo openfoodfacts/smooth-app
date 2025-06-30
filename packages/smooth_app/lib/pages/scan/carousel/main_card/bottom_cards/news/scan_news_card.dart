@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -16,9 +16,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ScanNewsCard extends StatefulWidget {
-  const ScanNewsCard({
-    required this.news,
-  });
+  const ScanNewsCard({required this.news});
 
   final Iterable<AppNewsItem> news;
 
@@ -79,6 +77,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
                 message: currentNews.message,
                 textColor: currentNews.style?.messageTextColor,
                 image: currentNews.image,
+                darkImage: currentNews.darkImage,
                 dense: dense,
               ),
               SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
@@ -111,12 +110,14 @@ class _TagLineContentBody extends StatefulWidget {
     required this.dense,
     this.textColor,
     this.image,
+    this.darkImage,
   });
 
   final String message;
   final bool dense;
   final Color? textColor;
   final AppNewsImage? image;
+  final AppNewsImage? darkImage;
 
   @override
   State<_TagLineContentBody> createState() => _TagLineContentBodyState();
@@ -132,9 +133,9 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     final Widget text = TextWithBoldParts(
       text: widget.message,
@@ -143,19 +144,18 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       maxLines: widget.dense ? 500 : null,
       overflow: widget.dense ? TextOverflow.ellipsis : null,
       textStyle: TextStyle(
-        color: widget.textColor ??
-            (!themeProvider.isDarkMode(context)
-                ? theme.primarySemiDark
+        color:
+            widget.textColor ??
+            (context.lightTheme(listen: true)
+                ? theme.primaryBlack
                 : theme.primaryLight),
         fontSize: 15.0,
       ),
     );
 
+    // There's no check for the dark image, as it's optional.
     if (widget.image == null || _imageError) {
-      return Padding(
-        padding: _contentPadding,
-        child: text,
-      );
+      return Padding(padding: _contentPadding, child: text);
     }
 
     final int imageFlex = ((widget.image!.width ?? 0.2) * 10).toInt();
@@ -170,39 +170,33 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
                 constraints: BoxConstraints(
                   maxHeight: MediaQuery.sizeOf(context).height * 0.06,
                 ),
-                child: AspectRatio(
-                  aspectRatio: 1.0,
-                  child: _image(),
-                ),
+                child: AspectRatio(aspectRatio: 1.0, child: _image()),
               ),
             ),
             SizedBox(width: widget.dense ? SMALL_SPACE : MEDIUM_SPACE),
           ],
-          Expanded(
-            flex: 10 - imageFlex,
-            child: text,
-          ),
+          Expanded(flex: 10 - imageFlex, child: text),
         ],
       ),
     );
   }
 
   Widget _image() {
-    if (widget.image!.src?.endsWith('svg') == true) {
+    final AppNewsImage image = widget.darkImage == null
+        ? widget.image!
+        : (context.darkTheme() ? widget.darkImage! : widget.image!);
+
+    if (image.src?.endsWith('svg') == true) {
       return SvgCache(
-        widget.image!.src,
-        semanticsLabel: widget.image!.alt,
+        image.src,
+        semanticsLabel: image.alt,
         loadingBuilder: (_) => _onLoading(),
         errorBuilder: (_, __) => _onError(),
       );
     } else {
       return Image.network(
-        semanticLabel: widget.image!.alt,
-        loadingBuilder: (
-          _,
-          Widget child,
-          ImageChunkEvent? loadingProgress,
-        ) {
+        semanticLabel: image.alt,
+        loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
           if (loadingProgress == null) {
             return _onLoading();
           }
@@ -210,7 +204,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
           return child;
         },
         errorBuilder: (_, __, ___) => _onError(),
-        widget.image!.src ?? '-',
+        image.src ?? '-',
       );
     }
   }
@@ -246,8 +240,9 @@ class _TagLineContentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
@@ -258,7 +253,7 @@ class _TagLineContentButton extends StatelessWidget {
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
-            color: backgroundColor ?? theme.primaryBlack,
+            color: backgroundColor ?? theme.primarySemiDark,
           ),
           child: Padding(
             padding: const EdgeInsetsDirectional.symmetric(

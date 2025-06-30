@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_connect.dart';
@@ -53,8 +53,8 @@ enum PreferencePageType {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeProvider themeProvider = context.read<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
-    final ProductPreferences productPreferences =
-        context.read<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .read<ProductPreferences>();
     // TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
     context.read<UserManagementProvider>();
 
@@ -129,18 +129,17 @@ enum PreferencePageType {
 
   static List<PreferencePageType> getPreferencePageTypes(
     final UserPreferences userPreferences,
-  ) =>
-      <PreferencePageType>[
-        PreferencePageType.ACCOUNT,
-        PreferencePageType.FOOD,
-        PreferencePageType.PRICES,
-        PreferencePageType.DONATION,
-        PreferencePageType.SETTINGS,
-        PreferencePageType.CONTRIBUTE,
-        PreferencePageType.FAQ,
-        PreferencePageType.CONNECT,
-        if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
-      ];
+  ) => <PreferencePageType>[
+    PreferencePageType.ACCOUNT,
+    PreferencePageType.FOOD,
+    PreferencePageType.PRICES,
+    PreferencePageType.DONATION,
+    PreferencePageType.SETTINGS,
+    PreferencePageType.CONTRIBUTE,
+    PreferencePageType.FAQ,
+    PreferencePageType.CONNECT,
+    if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
+  ];
 }
 
 /// Preferences page: main or detailed.
@@ -172,18 +171,19 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
     final String? headerAsset;
     final Color? headerColor;
+
     if (widget.type == null) {
       final List<PreferencePageType> items =
           PreferencePageType.getPreferencePageTypes(userPreferences);
       for (final PreferencePageType type in items) {
-        final AbstractUserPreferences abstractUserPreferences =
-            type.getUserPreferences(
-          userPreferences: userPreferences,
-          context: context,
-        );
+        final AbstractUserPreferences abstractUserPreferences = type
+            .getUserPreferences(
+              userPreferences: userPreferences,
+              context: context,
+            );
         children.add(abstractUserPreferences.getOnlyHeader());
-        final Widget? additionalSubtitle =
-            abstractUserPreferences.getAdditionalSubtitle();
+        final Widget? additionalSubtitle = abstractUserPreferences
+            .getAdditionalSubtitle();
         if (additionalSubtitle != null) {
           children.add(additionalSubtitle);
         }
@@ -195,11 +195,11 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       appBarTitle = appLocalizations.myPreferences;
       addDividers = true;
     } else {
-      final AbstractUserPreferences abstractUserPreferences =
-          widget.type!.getUserPreferences(
-        userPreferences: userPreferences,
-        context: context,
-      );
+      final AbstractUserPreferences abstractUserPreferences = widget.type!
+          .getUserPreferences(
+            userPreferences: userPreferences,
+            context: context,
+          );
 
       for (final UserPreferencesItem item
           in abstractUserPreferences.getChildren()) {
@@ -212,8 +212,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       headerColor = abstractUserPreferences.getHeaderColor();
     }
 
-    const EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
+    final EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
       top: MEDIUM_SPACE,
+      bottom: MediaQuery.viewPaddingOf(context).bottom,
     );
     final ListView list;
     if (addDividers) {
@@ -237,16 +238,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     if (headerAsset == null) {
       return SmoothScaffold(
         appBar: SmoothAppBar(
-          title: Text(
-            appBarTitle,
-            maxLines: 2,
-          ),
+          title: Text(appBarTitle, maxLines: 2),
           leading: const SmoothBackButton(),
         ),
-        body: Scrollbar(
-          controller: _controller,
-          child: list,
-        ),
+        body: Scrollbar(controller: _controller, child: list),
       );
     }
     final bool dark = Theme.of(context).brightness == Brightness.dark;
@@ -270,16 +265,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           : Brightness.light,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
-      appBar: SmoothAppBar(
-        title: Text(
-          appBarTitle,
-          maxLines: 2,
-        ),
-      ),
-      body: ListView(
-        controller: _controller,
-        children: children,
-      ),
+      appBar: SmoothAppBar(title: Text(appBarTitle, maxLines: 2)),
+      body: ListView(controller: _controller, children: children),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -9,11 +9,7 @@ import 'package:smooth_app/widgets/smooth_navigation_bar.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
-enum BottomNavigationTab {
-  Profile,
-  Scan,
-  List,
-}
+enum BottomNavigationTab { Profile, Scan, List }
 
 /// Here the different tabs in the bottom navigation bar are taken care of,
 /// so that they are stateful, that is not only things like the scroll position
@@ -35,10 +31,10 @@ class PageManagerState extends State<PageManager> {
 
   final Map<BottomNavigationTab, GlobalKey<NavigatorState>> _navigatorKeys =
       <BottomNavigationTab, GlobalKey<NavigatorState>>{
-    BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
-    BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
-    BottomNavigationTab.List: GlobalKey<NavigatorState>(),
-  };
+        BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
+        BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
+        BottomNavigationTab.List: GlobalKey<NavigatorState>(),
+      };
 
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
 
@@ -51,9 +47,9 @@ class PageManagerState extends State<PageManager> {
 
   void _selectTab(BottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
-      _navigatorKeys[tabItem]!
-          .currentState!
-          .popUntil((Route<dynamic> route) => route.isFirst);
+      _navigatorKeys[tabItem]!.currentState!.popUntil(
+        (Route<dynamic> route) => route.isFirst,
+      );
     } else {
       setState(() {
         _currentPage = _pageKeys[index];
@@ -78,8 +74,10 @@ class PageManagerState extends State<PageManager> {
     ];
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool isProd = userPreferences
-            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+    final bool isProd =
+        userPreferences.getFlag(
+          UserPreferencesDevMode.userPreferencesFlagProd,
+        ) ??
         true;
     final Widget bar = DecoratedBox(
       decoration: BoxDecoration(

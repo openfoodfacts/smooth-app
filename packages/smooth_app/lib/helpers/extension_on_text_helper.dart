@@ -15,10 +15,7 @@ extension Selectable on Text {
             maxLines: maxLines,
             // TODO(m123): Fix or remove alltogether
             // ignore: deprecated_member_use
-            toolbarOptions: const ToolbarOptions(
-              copy: true,
-              selectAll: true,
-            ),
+            toolbarOptions: const ToolbarOptions(copy: true, selectAll: true),
           )
         : Text(
             data!,
@@ -68,17 +65,16 @@ extension TextSpanExtension on TextSpan {
     String? semanticsLabel,
     Locale? locale,
     bool? spellOut,
-  }) =>
-      TextSpan(
-        style: style ?? this.style,
-        children: children ?? this.children,
-        text: text ?? this.text,
-        recognizer: recognizer ?? this.recognizer,
-        mouseCursor: mouseCursor ?? this.mouseCursor,
-        onEnter: onEnter ?? this.onEnter,
-        onExit: onExit ?? this.onExit,
-        semanticsLabel: semanticsLabel ?? this.semanticsLabel,
-        locale: locale ?? this.locale,
-        spellOut: spellOut ?? this.spellOut,
-      );
+  }) => TextSpan(
+    style: style ?? this.style,
+    children: children ?? this.children,
+    text: text ?? this.text,
+    recognizer: recognizer ?? this.recognizer,
+    mouseCursor: mouseCursor ?? this.mouseCursor,
+    onEnter: onEnter ?? this.onEnter,
+    onExit: onExit ?? this.onExit,
+    semanticsLabel: semanticsLabel ?? this.semanticsLabel,
+    locale: locale ?? this.locale,
+    spellOut: spellOut ?? this.spellOut,
+  );
 }

@@ -60,7 +60,7 @@ extension StatelessWidgetExtension on StatelessWidget {
   }
 }
 
-extension StateExtension on State {
+extension StateExtension<T extends StatefulWidget> on State<T> {
   void onNextFrame(VoidCallback callback, {bool forceRedraw = false}) {
     final WidgetsBinding binding = WidgetsBinding.instance;
     binding.addPostFrameCallback((_) {
@@ -86,10 +86,5 @@ extension ScrollControllerExtension on ScrollController {
     double offset, {
     required Duration duration,
     required Curve curve,
-  }) =>
-      animateTo(
-        position.pixels + offset,
-        duration: duration,
-        curve: curve,
-      );
+  }) => animateTo(position.pixels + offset, duration: duration, curve: curve);
 }

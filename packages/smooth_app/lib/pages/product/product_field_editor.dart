@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings.dart';
@@ -10,8 +10,8 @@ import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_packaging_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
-import 'package:smooth_app/pages/product/simple_input_page.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 
 // TODO(monsieurtanuki): refactor - move all product field edit files to a new "field" folder
 /// Helper class about product fields.
@@ -57,10 +57,7 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
       return;
     }
 
-    AnalyticsHelper.trackProductEdit(
-      helper.getAnalyticsEditEvent(),
-      product,
-    );
+    AnalyticsHelper.trackProductEdit(helper.getAnalyticsEditEvent(), product);
 
     if (!context.mounted) {
       return;
@@ -68,10 +65,8 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => SimpleInputPage(
-          helper: helper,
-          product: product,
-        ),
+        builder: (BuildContext context) =>
+            SimpleInputPage(helper: helper, product: product),
       ),
     );
   }
@@ -105,10 +100,7 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
       return;
     }
 
-    AnalyticsHelper.trackProductEdit(
-      AnalyticsEditEvents.basicDetails,
-      product,
-    );
+    AnalyticsHelper.trackProductEdit(AnalyticsEditEvents.basicDetails, product);
 
     if (!context.mounted) {
       return;
@@ -181,12 +173,11 @@ class ProductFieldNutritionEditor extends ProductFieldEditor {
     required final BuildContext context,
     required final Product product,
     final bool isLoggedInMandatory = true,
-  }) async =>
-      NutritionPageLoader.showNutritionPage(
-        product: product,
-        isLoggedInMandatory: isLoggedInMandatory,
-        context: context,
-      );
+  }) async => NutritionPageLoader.showNutritionPage(
+    product: product,
+    isLoggedInMandatory: isLoggedInMandatory,
+    context: context,
+  );
 }
 
 abstract class ProductFieldOcrEditor extends ProductFieldEditor {

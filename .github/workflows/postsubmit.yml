@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.7.0
+        uses: actions/setup-java@v4.7.1
         with:
           distribution: 'zulu'
           java-version: 21
@@ -42,7 +42,7 @@ jobs:
       # Check for formatting issues
       - name: Check for formatting issues (run "dart format . ")
         run: dart format --set-exit-if-changed .
-      
+
       # analyze Dart for errors
       - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .

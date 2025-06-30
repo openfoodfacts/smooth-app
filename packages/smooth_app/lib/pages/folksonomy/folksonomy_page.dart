@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -7,18 +6,18 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 class FolksonomyPage extends StatelessWidget {
-  const FolksonomyPage({
-    required this.product,
-    required this.provider,
-  });
+  const FolksonomyPage({required this.product, required this.provider});
 
   final Product product;
   final FolksonomyProvider provider;
@@ -53,7 +52,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     return SmoothScaffold(
       appBar: SmoothTopBar2(
         title: appLocalizations.product_tags_title,
-        leadingAction: SmoothTopBarLeadingAction.back,
+        leadingAction: SmoothLeadingAction.back,
       ),
       body: Listener<FolksonomyProvider>(
         listener: _onProviderChanged,
@@ -69,34 +68,32 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
               key: _listKey,
               controller: _scrollController,
               initialItemCount: provider.value.tags!.length,
-              itemBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) {
-                final ProductTag entry = provider.value.tags![index];
+              itemBuilder:
+                  (
+                    BuildContext context,
+                    int index,
+                    Animation<double> animation,
+                  ) {
+                    final ProductTag entry = provider.value.tags![index];
 
-                return _buildItem(
-                  context,
-                  entry,
-                  animation,
-                  provider.isAuthorized,
-                );
-              },
+                    return _buildItem(
+                      context,
+                      entry,
+                      animation,
+                      provider.isAuthorized,
+                    );
+                  },
               separatorBuilder: (_, __, Animation<double> animation) =>
-                  SizeTransition(
-                sizeFactor: animation,
-                child: const Divider(),
-              ),
-              removedSeparatorBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) =>
-                  SizeTransition(
-                sizeFactor: animation,
-                child: const Divider(),
-              ),
+                  SizeTransition(sizeFactor: animation, child: const Divider()),
+              removedSeparatorBuilder:
+                  (
+                    BuildContext context,
+                    int index,
+                    Animation<double> animation,
+                  ) => SizeTransition(
+                    sizeFactor: animation,
+                    child: const Divider(),
+                  ),
             );
           },
         ),
@@ -109,7 +106,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                 existingKeys: _getExistingKeys(provider),
               ),
               label: Text(appLocalizations.add_tag),
-              icon: const Icon(Icons.add),
+              icon: const icons.AddProperty.alt(),
             )
           : EMPTY_WIDGET,
     );
@@ -143,9 +140,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                       text: appLocalizations.tag_key_item,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(
-                      text: ' ${entry.key}',
-                    ),
+                    TextSpan(text: ' ${entry.key}'),
                   ],
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -157,9 +152,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                       text: appLocalizations.tag_value_item,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(
-                      text: ' ${entry.value}',
-                    ),
+                    TextSpan(text: ' ${entry.value}'),
                   ],
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -236,16 +229,10 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        context.read<FolksonomyProvider>().editTag(
-              res.key,
-              res.value,
-            );
+        context.read<FolksonomyProvider>().editTag(res.key, res.value);
       } else if (action == FolksonomyAction.add) {
         try {
-          context.read<FolksonomyProvider>().addTag(
-                res.key,
-                res.value,
-              );
+          context.read<FolksonomyProvider>().addTag(res.key, res.value);
         } catch (e) {
           ScaffoldMessenger.of(context).showSnackBar(
             SmoothFloatingSnackbar.error(
@@ -272,20 +259,20 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     } else if (provider.value is FolksonomyStateRemovedItem) {
       final FolksonomyStateRemovedItem state =
           provider.value as FolksonomyStateRemovedItem;
-      _listKey.currentState!.removeItem(
-        state.removedPosition,
-        (BuildContext context, Animation<double> animation) {
-          return FadeTransition(
-            opacity: animation,
-            child: _buildItem(
-              context,
-              state.item,
-              animation,
-              provider.isAuthorized,
-            ),
-          );
-        },
-      );
+      _listKey.currentState!.removeItem(state.removedPosition, (
+        BuildContext context,
+        Animation<double> animation,
+      ) {
+        return FadeTransition(
+          opacity: animation,
+          child: _buildItem(
+            context,
+            state.item,
+            animation,
+            provider.isAuthorized,
+          ),
+        );
+      });
 
       onNextFrame(() => provider.markAsConsumed());
     }

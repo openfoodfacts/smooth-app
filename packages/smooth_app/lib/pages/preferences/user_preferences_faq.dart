@@ -42,87 +42,78 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   @override
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
-        _getListTile(
-          title: appLocalizations.faq,
-          leadingIconData: Icons.question_mark,
-          url: _getFAQUrl(),
+    _getListTile(
+      title: appLocalizations.faq,
+      leadingIconData: Icons.question_mark,
+      url: _getFAQUrl(),
+    ),
+    _getNutriListTile(
+      title: appLocalizations.nutriscore_generic,
+      url: 'https://world.openfoodfacts.org/nutriscore',
+      svg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, false),
+    ),
+    _getListTile(
+      title: appLocalizations.faq_nutriscore_nutriscore,
+      leadingSvg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const GuideNutriscoreV2(),
         ),
-        _getNutriListTile(
-          title: appLocalizations.nutriscore_generic,
-          url: 'https://world.openfoodfacts.org/nutriscore',
-          svg: SvgCache.getAssetsCacheForNutriscore(
-            NutriScoreValue.b,
-            false,
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.faq_nutriscore_nutriscore,
-          leadingSvg: SvgCache.getAssetsCacheForNutriscore(
-            NutriScoreValue.b,
-            true,
-          ),
-          onTap: () => Navigator.of(context, rootNavigator: true).push(
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const GuideNutriscoreV2(),
-            ),
-          ),
+      ),
 
-          /// Hide the icon
-          icon: const Icon(
-            Icons.info,
-            size: 0.0,
-          ),
-        ),
-        _getNutriListTile(
-          title: appLocalizations.environmental_score_generic,
-          url: 'https://world.openfoodfacts.org/ecoscore',
-          svg: 'assets/cache/green-score-b.svg',
-        ),
-        _getNutriListTile(
-          title: appLocalizations.nova_group_generic,
-          url: 'https://world.openfoodfacts.org/nova',
-          svg: 'assets/cache/nova-group-4.svg',
-        ),
-        _getNutriListTile(
-          title: appLocalizations.nutrition_facts,
-          url: 'https://world.openfoodfacts.org/traffic-lights',
-          svg: 'assets/cache/low.svg',
-          leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
-        ),
-        _getListTile(
-          title: appLocalizations.discover,
-          leadingIconData: Icons.travel_explore,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/discover',
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.how_to_contribute,
-          leadingIconData: Icons.volunteer_activism,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/contribute',
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.feed_back,
-          leadingIconData: Icons.add_comment,
-          url: UserFeedbackHelper.getFeedbackFormLink(),
-        ),
-        _getListTile(
-          title: appLocalizations.faq_title_partners,
-          leadingIconData: Icons.handshake_outlined,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/partners',
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.faq_title_vision,
-          leadingIconData: Icons.remove_red_eye_outlined,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs',
-          ),
-        ),
-        /*
+      /// Hide the icon
+      icon: const Icon(Icons.info, size: 0.0),
+    ),
+    _getNutriListTile(
+      title: appLocalizations.environmental_score_generic,
+      url: 'https://world.openfoodfacts.org/ecoscore',
+      svg: 'assets/cache/green-score-b.svg',
+    ),
+    _getNutriListTile(
+      title: appLocalizations.nova_group_generic,
+      url: 'https://world.openfoodfacts.org/nova',
+      svg: 'assets/cache/nova-group-4.svg',
+    ),
+    _getNutriListTile(
+      title: appLocalizations.nutrition_facts,
+      url: 'https://world.openfoodfacts.org/traffic-lights',
+      svg: 'assets/cache/low.svg',
+      leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
+    ),
+    _getListTile(
+      title: appLocalizations.discover,
+      leadingIconData: Icons.travel_explore,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/discover',
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.how_to_contribute,
+      leadingIconData: Icons.volunteer_activism,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/contribute',
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.feed_back,
+      leadingIconData: Icons.add_comment,
+      url: UserFeedbackHelper.getFeedbackFormLink(),
+    ),
+    _getListTile(
+      title: appLocalizations.faq_title_partners,
+      leadingIconData: Icons.handshake_outlined,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/partners',
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.faq_title_vision,
+      leadingIconData: Icons.remove_red_eye_outlined,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs',
+      ),
+    ),
+    /*
         // temporarily (?) hiding "install OxF" links
         // cf. https://github.com/openfoodfacts/smooth-app/issues/6413
         if (Platform.isAndroid || Platform.isIOS)
@@ -158,13 +149,13 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                 'https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
           ),
         */
-        _getListTile(
-          title: appLocalizations.about_this_app,
-          leadingIconData: Icons.info,
-          onTap: () async => _about(),
-          icon: getForwardIcon(),
-        ),
-      ];
+    _getListTile(
+      title: appLocalizations.about_this_app,
+      leadingIconData: Icons.info,
+      onTap: () async => _about(),
+      icon: getForwardIcon(),
+    ),
+  ];
 
   UserPreferencesItem _getListTile({
     required final String title,
@@ -174,50 +165,47 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title],
-        builder: (_) => UserPreferencesListTile(
-          title: Text(title),
-          onTap: onTap ??
-              () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                    context,
-                    url!,
-                  ),
-          trailing: icon ??
-              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-          leading: SizedBox(
-            width: 2 * DEFAULT_ICON_SIZE,
-            height: 2 * DEFAULT_ICON_SIZE,
-            child: Center(
-              child: leadingIconData != null
-                  ? UserPreferencesListTile.getTintedIcon(
-                      leadingIconData, context)
-                  : leadingSvg == null
-                      ? null
-                      : SvgPicture.asset(
-                          leadingSvg,
-                          width: leadingSvgWidth ?? 2 * DEFAULT_ICON_SIZE,
-                          package: AppHelper.APP_PACKAGE,
-                        ),
-            ),
-          ),
-          externalLink: url != null,
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title],
+    builder: (_) => UserPreferencesListTile(
+      title: Text(title),
+      onTap:
+          onTap ??
+          () async =>
+              LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url!),
+      trailing:
+          icon ??
+          UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+      leading: SizedBox(
+        width: 2 * DEFAULT_ICON_SIZE,
+        height: 2 * DEFAULT_ICON_SIZE,
+        child: Center(
+          child: leadingIconData != null
+              ? UserPreferencesListTile.getTintedIcon(leadingIconData, context)
+              : leadingSvg == null
+              ? null
+              : SvgPicture.asset(
+                  leadingSvg,
+                  width: leadingSvgWidth ?? 2 * DEFAULT_ICON_SIZE,
+                  package: AppHelper.APP_PACKAGE,
+                ),
         ),
-      );
+      ),
+      externalLink: url != null,
+    ),
+  );
 
   UserPreferencesItem _getNutriListTile({
     required final String title,
     required final String url,
     required final String svg,
     final double? leadingSvgWidth,
-  }) =>
-      _getListTile(
-        title: title,
-        leadingSvg: svg,
-        leadingSvgWidth: leadingSvgWidth,
-        url: ProductQuery.replaceSubdomain(url),
-      );
+  }) => _getListTile(
+    title: title,
+    leadingSvg: svg,
+    leadingSvgWidth: leadingSvgWidth,
+    url: ProductQuery.replaceSubdomain(url),
+  );
 
   static const String _iconLightAssetPath =
       'assets/app/release_icon_light_transparent_no_border.svg';
@@ -260,7 +248,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                         Text(
                           '${packageInfo.version}+${packageInfo.buildNumber}-${GlobalVars.scannerLabel.name}-${GlobalVars.storeLabel.name}',
                           style: themeData.textTheme.titleSmall,
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -280,11 +268,11 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       SmoothAlertContentButton(
                         onPressed: () async =>
                             LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                          context,
-                          ProductQuery.replaceSubdomain(
-                            'https://world.openfoodfacts.org/who-we-are',
-                          ),
-                        ),
+                              context,
+                              ProductQuery.replaceSubdomain(
+                                'https://world.openfoodfacts.org/who-we-are',
+                              ),
+                            ),
                         label: appLocalizations.learnMore,
                         icon: Icons.open_in_new,
                       ),
@@ -292,11 +280,11 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       SmoothAlertContentButton(
                         onPressed: () async =>
                             LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                          context,
-                          ProductQuery.replaceSubdomain(
-                            'https://world.openfoodfacts.org/terms-of-use',
-                          ),
-                        ),
+                              context,
+                              ProductQuery.replaceSubdomain(
+                                'https://world.openfoodfacts.org/terms-of-use',
+                              ),
+                            ),
                         label: appLocalizations.termsOfUse,
                         icon: Icons.open_in_new,
                       ),
@@ -304,11 +292,11 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       SmoothAlertContentButton(
                         onPressed: () async =>
                             LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                          context,
-                          ProductQuery.replaceSubdomain(
-                            'https://world.openfoodfacts.org/legal',
-                          ),
-                        ),
+                              context,
+                              ProductQuery.replaceSubdomain(
+                                'https://world.openfoodfacts.org/legal',
+                              ),
+                            ),
                         label: appLocalizations.legalNotices,
                         icon: Icons.open_in_new,
                       ),
@@ -316,11 +304,11 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       SmoothAlertContentButton(
                         onPressed: () =>
                             LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                          context,
-                          ProductQuery.replaceSubdomain(
-                            'https://world.openfoodfacts.org/privacy',
-                          ),
-                        ),
+                              context,
+                              ProductQuery.replaceSubdomain(
+                                'https://world.openfoodfacts.org/privacy',
+                              ),
+                            ),
                         label: appLocalizations.privacy_policy,
                         icon: Icons.open_in_new,
                       ),

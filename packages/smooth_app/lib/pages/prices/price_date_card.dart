@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -41,12 +41,9 @@ class PriceDateCard extends StatelessWidget {
                     // cf. https://stackoverflow.com/questions/50321182/how-to-customize-a-date-picker
                     final ThemeData themeData =
                         Theme.of(context).brightness == Brightness.light
-                            ? ThemeData.light()
-                            : ThemeData.dark();
-                    return Theme(
-                      data: themeData.copyWith(),
-                      child: child!,
-                    );
+                        ? ThemeData.light()
+                        : ThemeData.dark();
+                    return Theme(data: themeData.copyWith(), child: child!);
                   },
                 );
                 if (newDate == null) {

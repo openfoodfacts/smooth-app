@@ -90,10 +90,8 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
           ];
         } else {
           return <Widget>[
-            _KnowledgePanelSummaryCardTitle(
-              child: summary,
-            ),
-            const SizedBox(height: SMALL_SPACE)
+            _KnowledgePanelSummaryCardTitle(child: summary),
+            const SizedBox(height: SMALL_SPACE),
           ];
         }
       } else {
@@ -109,10 +107,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     super.debugFillProperties(properties);
     properties.add(StringProperty('panelId', panelId));
     properties.add(
-      DiagnosticsProperty<bool>(
-        'initiallyExpanded',
-        isInitiallyExpanded,
-      ),
+      DiagnosticsProperty<bool>('initiallyExpanded', isInitiallyExpanded),
     );
     properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
   }
@@ -120,25 +115,21 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
 
 /// Force a background around a summary Widget
 class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
-  const _KnowledgePanelSummaryCardTitle({
-    required this.child,
-  });
+  const _KnowledgePanelSummaryCardTitle({required this.child});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return DecoratedBox(
       decoration: BoxDecoration(
         color: context.lightTheme()
             ? extension.primaryMedium
             : extension.primaryUltraBlack,
-        borderRadius: const BorderRadius.vertical(
-          top: ROUNDED_RADIUS,
-        ),
+        borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
       ),
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(
@@ -147,9 +138,7 @@ class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
         ),
         child: DefaultTextStyle.merge(
           child: child,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     );

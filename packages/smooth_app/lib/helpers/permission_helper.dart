@@ -6,10 +6,9 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 class PermissionListener extends ValueNotifier<DevicePermission> {
-  PermissionListener({
-    required this.permission,
-  })  : _status = _DevicePermissionStatus.initial,
-        super(DevicePermission._initial(permission));
+  PermissionListener({required this.permission})
+    : _status = _DevicePermissionStatus.initial,
+      super(DevicePermission._initial(permission));
 
   final Permission permission;
   _DevicePermissionStatus _status = _DevicePermissionStatus.initial;
@@ -83,20 +82,14 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
   Future<void> _requestPermission() async {
     final PermissionStatus status = await permission.request();
 
-    value = DevicePermission._fromPermissionStatus(
-      permission,
-      status,
-    );
+    value = DevicePermission._fromPermissionStatus(permission, status);
   }
 
   @override
   set value(DevicePermission newValue) {
     super.value = newValue;
 
-    Logs.d(
-      'New permission value: $newValue',
-      tag: 'PermissionListener',
-    );
+    Logs.d('New permission value: $newValue', tag: 'PermissionListener');
   }
 }
 
@@ -104,11 +97,12 @@ class DevicePermission {
   const DevicePermission._(this.permission, this.status);
 
   const DevicePermission._initial(this.permission)
-      : status = DevicePermissionStatus.checking;
+    : status = DevicePermissionStatus.checking;
 
   DevicePermission._fromPermissionStatus(
-      this.permission, PermissionStatus status)
-      : status = _extractFromPermissionStatus(status);
+    this.permission,
+    PermissionStatus status,
+  ) : status = _extractFromPermissionStatus(status);
 
   final Permission permission;
   final DevicePermissionStatus status;

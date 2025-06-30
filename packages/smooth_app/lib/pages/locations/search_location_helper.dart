@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/location_query_page.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 
@@ -35,10 +35,8 @@ class SearchLocationHelper extends SearchHelper {
     Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => LocationQueryPage(
-          query: query,
-          editableAppBarTitle: true,
-        ),
+        builder: (BuildContext context) =>
+            LocationQueryPage(query: query, editableAppBarTitle: true),
       ),
     );
   }

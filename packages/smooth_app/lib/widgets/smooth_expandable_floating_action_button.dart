@@ -58,10 +58,10 @@ class _SmoothExpandableFloatingActionButtonState
         7.5) {
       final bool maxScrollReached =
           widget.scrollController.position.maxScrollExtent ==
-              widget.scrollController.position.pixels;
+          widget.scrollController.position.pixels;
       final bool scrollUp =
           widget.scrollController.position.userScrollDirection ==
-              ScrollDirection.forward;
+          ScrollDirection.forward;
 
       setState(() => _extended = maxScrollReached || scrollUp);
     }

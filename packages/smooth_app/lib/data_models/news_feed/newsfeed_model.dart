@@ -1,10 +1,7 @@
 import 'dart:ui';
 
 class AppNews {
-  const AppNews({
-    required this.news,
-    required this.feed,
-  });
+  const AppNews({required this.news, required this.feed});
 
   final AppNewsList news;
   final AppNewsFeed feed;
@@ -43,6 +40,7 @@ class AppNewsItem {
     this.minAppVersion,
     this.maxAppVersion,
     this.image,
+    this.darkImage,
     this.style,
   });
 
@@ -57,11 +55,12 @@ class AppNewsItem {
   final String? minAppVersion;
   final String? maxAppVersion;
   final AppNewsImage? image;
+  final AppNewsImage? darkImage;
   final AppNewsStyle? style;
 
   @override
   String toString() {
-    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, style: $style}';
+    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, darkImage: $darkImage, style: $style}';
   }
 }
 
@@ -86,14 +85,14 @@ class AppNewsStyle {
     String? buttonBackground,
     String? buttonTextColor,
     String? contentBackgroundColor,
-  })  : titleBackground = _parseColor(titleBackground),
-        titleTextColor = _parseColor(titleTextColor),
-        titleIndicatorColor = _parseColor(titleIndicatorColor),
-        messageBackground = _parseColor(messageBackground),
-        messageTextColor = _parseColor(messageTextColor),
-        buttonBackground = _parseColor(buttonBackground),
-        buttonTextColor = _parseColor(buttonTextColor),
-        contentBackgroundColor = _parseColor(contentBackgroundColor);
+  }) : titleBackground = _parseColor(titleBackground),
+       titleTextColor = _parseColor(titleTextColor),
+       titleIndicatorColor = _parseColor(titleIndicatorColor),
+       messageBackground = _parseColor(messageBackground),
+       messageTextColor = _parseColor(messageTextColor),
+       buttonBackground = _parseColor(buttonBackground),
+       buttonTextColor = _parseColor(buttonTextColor),
+       contentBackgroundColor = _parseColor(contentBackgroundColor);
 
   final Color? titleBackground;
   final Color? titleTextColor;
@@ -118,11 +117,7 @@ class AppNewsStyle {
 }
 
 class AppNewsImage {
-  const AppNewsImage({
-    required this.src,
-    this.width,
-    this.alt,
-  });
+  const AppNewsImage({required this.src, this.width, this.alt});
 
   final String? src;
   final double? width;
@@ -152,8 +147,8 @@ class AppNewsFeedItem {
     required this.news,
     DateTime? startDate,
     DateTime? endDate,
-  })  : _startDate = startDate,
-        _endDate = endDate;
+  }) : _startDate = startDate,
+       _endDate = endDate;
 
   final AppNewsItem news;
   final DateTime? _startDate;

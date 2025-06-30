@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,14 +10,17 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
+import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -43,8 +45,28 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   late final NumberFormat _unitNumberFormat;
 
   late bool? _packagingsComplete;
+  bool _imageVisible = false;
 
   final List<EditNewPackagingsHelper> _helpers = <EditNewPackagingsHelper>[];
+
+  void _openPackagingImage(BuildContext context) {
+    final Iterable<OpenFoodFactsLanguage> languages = getProductImageLanguages(
+      upToDateProduct,
+      ImageField.PACKAGING,
+    );
+
+    if (languages.isNotEmpty) {
+      setState(() {
+        _imageVisible = !_imageVisible;
+      });
+    } else {
+      ImageField.PACKAGING.openDetails(
+        context,
+        upToDateProduct,
+        widget.isLoggedInMandatory,
+      );
+    }
+  }
 
   void _addPackagingToControllers(
     final ProductPackaging packaging, {
@@ -72,9 +94,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: true,
     );
-    _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
-      decimal: false,
-    );
+    _unitNumberFormat = SimpleInputNumberField.getNumberFormat(decimal: false);
     if (upToDateProduct.packagings != null) {
       upToDateProduct.packagings!.forEach(_addPackagingToControllers);
     }
@@ -95,6 +115,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     context.watch<LocalDatabase>();
     refreshUpToDate();
     final List<Widget> children = <Widget>[];
+    final bool hasPackagingImages = getProductImageLanguages(
+      upToDateProduct,
+      ImageField.PACKAGING,
+    ).isNotEmpty;
     children.add(
       Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
@@ -132,15 +156,13 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
                 ? Icons.check_box
                 : Icons.check_box_outline_blank,
           ),
-          onTap: () => setState(
-            () {
-              if (_packagingsComplete == null) {
-                _packagingsComplete = true;
-              } else {
-                _packagingsComplete = !_packagingsComplete!;
-              }
-            },
-          ),
+          onTap: () => setState(() {
+            if (_packagingsComplete == null) {
+              _packagingsComplete = true;
+            } else {
+              _packagingsComplete = !_packagingsComplete!;
+            }
+          }),
         ),
       ),
     );
@@ -187,24 +209,48 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
-      child: UnfocusFieldWhenTapOutside(
-        child: SmoothScaffold(
-          fixKeyboard: true,
-          appBar: buildEditProductAppBar(
-            context: context,
-            title: appLocalizations.edit_packagings_title,
-            product: upToDateProduct,
-          ),
-          body: ListView(
-            padding: const EdgeInsets.only(top: LARGE_SPACE),
-            children: children,
-          ),
-          bottomNavigationBar: ProductBottomButtonsBar(
-            onSave: () async => _exitPage(
-              await _mayExitPage(saving: true),
+      child: Provider<Product>.value(
+        value: upToDateProduct,
+        child: UnfocusFieldWhenTapOutside(
+          child: SmoothScaffold(
+            fixKeyboard: true,
+            appBar: buildEditProductAppBar(
+              context: context,
+              title: appLocalizations.edit_packagings_title,
+              product: upToDateProduct,
+              actions: <Widget>[
+                if (!_imageVisible)
+                  IconButton(
+                    icon: hasPackagingImages
+                        ? const Picture.open()
+                        : const Icon(Icons.add_a_photo),
+                    tooltip: ImageField.PACKAGING.getProductImageButtonText(
+                      appLocalizations,
+                    ),
+                    onPressed: () => _openPackagingImage(context),
+                  ),
+              ],
             ),
-            onCancel: () async => _exitPage(
-              await _mayExitPage(saving: false),
+            body: Column(
+              children: <Widget>[
+                EditProductImageViewer(
+                  imageField: ImageField.PACKAGING,
+                  language: upToDateProduct.lang,
+                  visible: _imageVisible,
+                  onClose: () => setState(() => _imageVisible = false),
+                ),
+                Expanded(
+                  child: ListView(
+                    padding: const EdgeInsets.only(top: LARGE_SPACE),
+                    children: children,
+                  ),
+                ),
+              ],
+            ),
+            bottomNavigationBar: ProductBottomButtonsBar(
+              onSave: () async => _exitPage(await _mayExitPage(saving: true)),
+              onCancel: () async =>
+                  _exitPage(await _mayExitPage(saving: false)),
             ),
           ),
         ),
@@ -280,8 +326,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }
@@ -311,8 +357,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
 Color _getSmoothCardColor(final BuildContext context) =>
     Theme.of(context).brightness == Brightness.light
-        ? GREY_COLOR
-        : PRIMARY_GREY_COLOR;
+    ? GREY_COLOR
+    : PRIMARY_GREY_COLOR;
 
 Color _getSmoothCardColorAlternate(final BuildContext context, int index) {
   final bool lightTheme = Theme.of(context).brightness == Brightness.light;

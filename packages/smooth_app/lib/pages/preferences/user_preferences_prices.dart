@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_products_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
+import 'package:smooth_app/pages/prices/prices_stats_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/proof_bulk_add_page.dart';
@@ -47,14 +48,9 @@ class UserPreferencesPrices extends AbstractUserPreferences {
     return <UserPreferencesItem>[
       if (isConnected)
         _getListTile(
-          PriceUserButton.showUserTitle(
-            user: userId,
-            context: context,
-          ),
-          () async => PriceUserButton.showUserPrices(
-            user: userId,
-            context: context,
-          ),
+          PriceUserButton.showUserTitle(user: userId, context: context),
+          () async =>
+              PriceUserButton.showUserPrices(user: userId, context: context),
           CupertinoIcons.money_dollar_circle,
           lazyCounter: LazyCounterPrices(userId),
         ),
@@ -63,9 +59,8 @@ class UserPreferencesPrices extends AbstractUserPreferences {
           appLocalizations.user_search_proofs_title,
           () async => Navigator.of(context).push(
             MaterialPageRoute<void>(
-              builder: (BuildContext context) => const PricesProofsPage(
-                selectProof: false,
-              ),
+              builder: (BuildContext context) =>
+                  const PricesProofsPage(selectProof: false),
             ),
           ),
           Icons.receipt,
@@ -133,14 +128,22 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         PriceButton.productIconData,
       ),
+      _getListTile(
+        appLocalizations.prices_stats_statistics,
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesStatsPage(),
+          ),
+        ),
+        Icons.bar_chart,
+      ),
       if (userPreferences.getFlag(
-              UserPreferencesDevMode.userPreferencesFlagBulkProofUpload) ??
+            UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
+          ) ??
           false)
         _getListTile(
           appLocalizations.prices_bulk_proof_upload_title,
-          () async => ProofBulkAddPage.showPage(
-            context: context,
-          ),
+          () async => ProofBulkAddPage.showPage(context: context),
           Icons.upload_file,
         ),
       _getListTile(
@@ -171,39 +174,40 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         Icons.open_in_new,
       ),
+      _getListTile(
+        appLocalizations.contribute_prices_gdpr,
+        () async => LaunchUrlHelper.launchURL(
+          'https://wiki.openfoodfacts.org/GDPR_request',
+        ),
+        Icons.open_in_new,
+      ),
     ];
   }
 
   // we need the [AppNavigator] for a better back-gesture management.
   @override
-  Future<void> runHeaderAction() async => AppNavigator.of(context).push(
-        AppRoutes.PREFERENCES(PreferencePageType.PRICES),
-      );
+  Future<void> runHeaderAction() async => AppNavigator.of(
+    context,
+  ).push(AppRoutes.PREFERENCES(PreferencePageType.PRICES));
 
   UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
     final LazyCounter? lazyCounter,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title],
-        builder: (_) => Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 5,
-          color: Theme.of(context).cardColor,
-          child: UserPreferencesListTile(
-            title: Text(title),
-            onTap: onTap,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            leading: UserPreferencesListTile.getTintedIcon(leading, context),
-            trailing:
-                lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
-          ),
-        ),
-      );
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title],
+    builder: (_) => Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      elevation: 5,
+      color: Theme.of(context).cardColor,
+      child: UserPreferencesListTile(
+        title: Text(title),
+        onTap: onTap,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        trailing: lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
+      ),
+    ),
+  );
 }

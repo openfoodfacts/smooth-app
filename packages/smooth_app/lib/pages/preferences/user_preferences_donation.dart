@@ -27,15 +27,12 @@ class UserPreferencesDonation extends AbstractUserPreferences {
   IconData getLeadingIconData() => Icons.volunteer_activism;
 
   @override
-  Icon? getForwardIcon() => UserPreferencesListTile.getTintedIcon(
-        Icons.open_in_new,
-        context,
-      );
+  Icon? getForwardIcon() =>
+      UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context);
 
   @override
-  Future<void> runHeaderAction() async => LaunchUrlHelper.launchURL(
-        appLocalizations.donate_url,
-      );
+  Future<void> runHeaderAction() async =>
+      LaunchUrlHelper.launchURL(appLocalizations.donate_url);
 
   @override
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[];

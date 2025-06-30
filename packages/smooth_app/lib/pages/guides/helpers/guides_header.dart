@@ -32,9 +32,7 @@ class GuidesHeader extends StatelessWidget {
     return DefaultTextStyle.merge(
       style: const TextStyle(color: Colors.white),
       child: SliverPadding(
-        padding: const EdgeInsetsDirectional.only(
-          bottom: BALANCED_SPACE,
-        ),
+        padding: const EdgeInsetsDirectional.only(bottom: BALANCED_SPACE),
         // Pinned = for the header to stay at the top of the screen
         sliver: SliverPersistentHeader(
           floating: false,
@@ -55,8 +53,8 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
     required this.title,
     required this.illustration,
     required this.topPadding,
-  })  : assert(title.length > 0),
-        assert(topPadding >= 0.0);
+  }) : assert(title.length > 0),
+       assert(topPadding >= 0.0);
 
   final String title;
   final Widget illustration;
@@ -68,10 +66,14 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-    final double progress =
-        shrinkOffset.progressAndClamp(0.0, maxExtent - minExtent, 1.0);
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
+    final double progress = shrinkOffset.progressAndClamp(
+      0.0,
+      maxExtent - minExtent,
+      1.0,
+    );
 
     return Provider<double>.value(
       value: progress,
@@ -85,8 +87,9 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
           color: colors.primaryDark,
           shadows: <BoxShadow>[
             BoxShadow(
-              color: Colors.black
-                  .withValues(alpha: progress.progressAndClamp(0.5, 1, 0.2)),
+              color: Colors.black.withValues(
+                alpha: progress.progressAndClamp(0.5, 1, 0.2),
+              ),
               offset: const Offset(0.5, 0.5),
               blurRadius: 2.0,
             ),
@@ -97,9 +100,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
         ),
         child: ClipRRect(
           child: CustomMultiChildLayout(
-            delegate: _GuidesHeaderLayout(
-              topPadding: topPadding,
-            ),
+            delegate: _GuidesHeaderLayout(topPadding: topPadding),
             children: <Widget>[
               LayoutId(
                 id: _GuidesHeaderLayoutId.expandedTitle,
@@ -107,7 +108,8 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
                   opacity: 1 - progress,
                   child: OverflowBox(
                     fit: OverflowBoxFit.deferToChild,
-                    maxHeight: GuidesHeader.HEADER_HEIGHT -
+                    maxHeight:
+                        GuidesHeader.HEADER_HEIGHT -
                         10 -
                         _CloseButtonLayout._CLOSE_BUTTON_SIZE,
                     child: Align(
@@ -136,10 +138,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
                   fit: OverflowBoxFit.deferToChild,
                   child: Offstage(
                     offstage: progress == 1.0,
-                    child: Opacity(
-                      opacity: 1 - progress,
-                      child: illustration,
-                    ),
+                    child: Opacity(opacity: 1 - progress, child: illustration),
                   ),
                 ),
               ),
@@ -185,9 +184,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
 }
 
 class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
-  _GuidesHeaderLayout({
-    required this.topPadding,
-  });
+  _GuidesHeaderLayout({required this.topPadding});
 
   final double topPadding;
 
@@ -199,31 +196,20 @@ class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
     final Size closeButtonSize = layoutChild(
       _GuidesHeaderLayoutId.closeButton,
       BoxConstraints.loose(
-        Size(
-          size.width * 0.6,
-          _CloseButtonLayout._CLOSE_BUTTON_SIZE,
-        ),
+        Size(size.width * 0.6, _CloseButtonLayout._CLOSE_BUTTON_SIZE),
       ),
     );
 
     layoutChild(
       _GuidesHeaderLayoutId.expandedTitle,
       BoxConstraints.loose(
-        Size(
-          size.width * 0.6,
-          maxHeight - closeButtonSize.height,
-        ),
+        Size(size.width * 0.6, maxHeight - closeButtonSize.height),
       ),
     );
 
     final Size illustrationSize = layoutChild(
       _GuidesHeaderLayoutId.illustration,
-      BoxConstraints.loose(
-        Size(
-          size.width * 0.4,
-          maxHeight,
-        ),
-      ),
+      BoxConstraints.loose(Size(size.width * 0.4, maxHeight)),
     );
 
     layoutChild(
@@ -243,8 +229,10 @@ class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
     );
     positionChild(
       _GuidesHeaderLayoutId.illustration,
-      Offset(size.width * 0.6,
-          topPadding + (maxHeight - illustrationSize.height) + 5.0),
+      Offset(
+        size.width * 0.6,
+        topPadding + (maxHeight - illustrationSize.height) + 5.0,
+      ),
     );
 
     positionChild(
@@ -274,8 +262,9 @@ class _BackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return SizedBox(
       height: _CloseButtonLayout._CLOSE_BUTTON_SIZE,
@@ -284,9 +273,7 @@ class _BackButton extends StatelessWidget {
         child: Consumer<double>(
           builder: (_, double progress, __) {
             return CustomMultiChildLayout(
-              delegate: _CloseButtonLayout(
-                progress: 1 - progress,
-              ),
+              delegate: _CloseButtonLayout(progress: 1 - progress),
               children: <Widget>[
                 LayoutId(
                   id: _CloseButtonLayoutId.text,
@@ -322,18 +309,16 @@ class _BackButton extends StatelessWidget {
                     ),
                     child: SizedBox.square(
                       dimension: 36.0,
-                      child: Close(
-                        size: 16.0,
-                        color: colors.primaryBlack,
-                      ),
+                      child: Close(size: 16.0, color: colors.primaryBlack),
                     ),
                   ),
                 ),
                 LayoutId(
                   id: _CloseButtonLayoutId.background,
                   child: Tooltip(
-                    message:
-                        MaterialLocalizations.of(context).closeButtonTooltip,
+                    message: MaterialLocalizations.of(
+                      context,
+                    ).closeButtonTooltip,
                     child: InkWell(
                       onTap: () => Navigator.of(context).maybePop(true),
                       borderRadius: ROUNDED_BORDER_RADIUS,
@@ -342,10 +327,7 @@ class _BackButton extends StatelessWidget {
                         child: Container(
                           decoration: const ShapeDecoration(
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                color: Colors.white,
-                                width: 1.0,
-                              ),
+                              side: BorderSide(color: Colors.white, width: 1.0),
                               borderRadius: ROUNDED_BORDER_RADIUS,
                             ),
                           ),
@@ -365,7 +347,7 @@ class _BackButton extends StatelessWidget {
 
 class _CloseButtonLayout extends MultiChildLayoutDelegate {
   _CloseButtonLayout({required this.progress})
-      : assert(progress >= 0.0 && progress <= 1.0);
+    : assert(progress >= 0.0 && progress <= 1.0);
 
   static const double _CLOSE_BUTTON_SIZE = 36.0;
 
@@ -382,10 +364,7 @@ class _CloseButtonLayout extends MultiChildLayoutDelegate {
     );
 
     if (progress == 0.0) {
-      layoutChild(
-        _CloseButtonLayoutId.text,
-        BoxConstraints.loose(Size.zero),
-      );
+      layoutChild(_CloseButtonLayoutId.text, BoxConstraints.loose(Size.zero));
 
       layoutChild(
         _CloseButtonLayoutId.background,
@@ -437,8 +416,4 @@ class _CloseButtonLayout extends MultiChildLayoutDelegate {
   }
 }
 
-enum _CloseButtonLayoutId {
-  closeButton,
-  text,
-  background,
-}
+enum _CloseButtonLayoutId { closeButton, text, background }

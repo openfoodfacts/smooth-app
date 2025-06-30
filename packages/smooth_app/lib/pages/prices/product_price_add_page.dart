@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
 import 'package:smooth_app/pages/prices/price_add_product_card.dart';
@@ -28,9 +29,7 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
-  const ProductPriceAddPage(
-    this.model,
-  );
+  const ProductPriceAddPage(this.model);
 
   final PriceModel model;
 
@@ -57,6 +56,8 @@ class ProductPriceAddPage extends StatefulWidget {
 
     final Currency currency = priceAddHelper.getCurrency();
 
+    final bool multipleProducts = product == null;
+
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
@@ -65,6 +66,7 @@ class ProductPriceAddPage extends StatefulWidget {
             locations: osmLocations,
             initialProduct: product,
             currency: currency,
+            multipleProducts: multipleProducts,
           ),
         ),
       ),
@@ -80,100 +82,94 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final ScrollController _scrollController = ScrollController();
 
+  late final WillPopScope2Controller _willPopScope2Controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PriceModel>.value(
       value: widget.model,
-      builder: (
-        final BuildContext context,
-        final Widget? child,
-      ) {
+      builder: (final BuildContext context, final Widget? child) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
-        return WillPopScope2(
-          onWillPop: () async => (
-            await _mayExitPage(
-              saving: false,
-              model: model,
-            ),
-            null
-          ),
-          child: Form(
-            key: _formKey,
-            child: SmoothScaffold(
-              appBar: SmoothAppBar(
-                centerTitle: false,
-                leading: const SmoothBackButton(),
-                title: Text(
-                  appLocalizations.prices_add_n_prices(
-                    model.length,
+        return ChangeNotifierListener<PriceModel>(
+          listener: (BuildContext context, PriceModel model) {
+            _willPopScope2Controller.canPop(!model.hasChanged);
+          },
+          child: WillPopScope2(
+            controller: _willPopScope2Controller,
+            onWillPop: () async =>
+                (await _mayExitPage(saving: false, model: model), null),
+            child: Form(
+              key: _formKey,
+              child: SmoothScaffold(
+                appBar: SmoothAppBar(
+                  centerTitle: false,
+                  leading: const SmoothBackButton(),
+                  title: Text(
+                    appLocalizations.prices_add_n_prices(model.length),
                   ),
-                ),
-                actions: <Widget>[
-                  IconButton(
-                    icon: const Icon(Icons.info),
-                    onPressed: () async => PriceAddHelper(context)
-                        .doesAcceptWarning(justInfo: true),
-                  ),
-                ],
-              ),
-              backgroundColor: context.lightTheme()
-                  ? context.extension<SmoothColorsThemeExtension>().primaryLight
-                  : null,
-              body: SingleChildScrollView(
-                controller: _scrollController,
-                padding: const EdgeInsets.all(LARGE_SPACE),
-                child: Column(
-                  children: <Widget>[
-                    const PriceProofCard(),
-                    const SizedBox(height: LARGE_SPACE),
-                    const PriceDateCard(),
-                    const SizedBox(height: LARGE_SPACE),
-                    PriceLocationCard(
-                      onLocationChanged: (
-                        OsmLocation? oldLocation,
-                        OsmLocation location,
-                      ) =>
-                          PriceAddHelper(context).updateCurrency(
-                        oldLocation,
-                        location,
-                        model,
-                      ),
+                  actions: <Widget>[
+                    IconButton(
+                      icon: const Icon(Icons.info),
+                      onPressed: () async => PriceAddHelper(
+                        context,
+                      ).doesAcceptWarning(justInfo: true),
                     ),
-                    const SizedBox(height: LARGE_SPACE),
-                    const PriceCurrencyCard(),
-                    const SizedBox(height: LARGE_SPACE),
-                    if (model.existingPrices != null)
-                      for (final Price price in model.existingPrices!)
-                        PriceExistingAmountCard(price),
-                    for (int i = 0; i < model.length; i++)
-                      PriceAmountCard(
-                        key: Key(model.elementAt(i).product.barcode),
-                        index: i,
-                      ),
-                    const SizedBox(height: LARGE_SPACE),
-                    const PriceAddProductCard(),
-                    // so that the last items don't get hidden by the FAB
-                    const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
                   ],
                 ),
-              ),
-              floatingActionButton: SmoothExpandableFloatingActionButton(
-                scrollController: _scrollController,
-                onPressed: () async => _exitPage(
-                  await _mayExitPage(
-                    saving: true,
-                    model: model,
+                backgroundColor: context.lightTheme()
+                    ? context
+                          .extension<SmoothColorsThemeExtension>()
+                          .primaryLight
+                    : null,
+                body: SingleChildScrollView(
+                  controller: _scrollController,
+                  padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+                  child: Column(
+                    children: <Widget>[
+                      const PriceProofCard(),
+                      const SizedBox(height: LARGE_SPACE),
+                      const PriceDateCard(),
+                      const SizedBox(height: LARGE_SPACE),
+                      PriceLocationCard(
+                        onLocationChanged:
+                            (OsmLocation? oldLocation, OsmLocation location) =>
+                                PriceAddHelper(
+                                  context,
+                                ).updateCurrency(oldLocation, location, model),
+                      ),
+                      const SizedBox(height: LARGE_SPACE),
+                      const PriceCurrencyCard(),
+                      const SizedBox(height: LARGE_SPACE),
+                      if (model.existingPrices != null)
+                        for (final Price price in model.existingPrices!)
+                          PriceExistingAmountCard(price),
+                      for (int i = 0; i < model.length; i++)
+                        PriceAmountCard(key: UniqueKey(), index: i),
+                      const SizedBox(height: LARGE_SPACE),
+                      if (model.multipleProducts) const PriceAddProductCard(),
+                      // so that the last items don't get hidden by the FAB
+                      const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
+                    ],
                   ),
                 ),
-                icon: const Icon(Icons.send),
-                label: Text(
-                  appLocalizations.prices_send_n_prices(
-                    model.length,
-                  ),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 15.0,
+                floatingActionButton: SmoothExpandableFloatingActionButton(
+                  scrollController: _scrollController,
+                  onPressed: () async =>
+                      _exitPage(await _mayExitPage(saving: true, model: model)),
+                  icon: const Icon(Icons.send),
+                  label: Text(
+                    appLocalizations.prices_send_n_prices(model.length),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15.0,
+                    ),
                   ),
                 ),
               ),
@@ -208,13 +204,13 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(
-        context,
-        title: AppLocalizations.of(context).prices_add_n_prices(
-          model.length,
-        ),
-      );
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(
+            context,
+            title: AppLocalizations.of(
+              context,
+            ).prices_add_n_prices(model.length),
+          );
       if (pleaseSave == null) {
         return false;
       }
@@ -244,5 +240,11 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     await model.addTask(context);
 
     return true;
+  }
+
+  @override
+  void dispose() {
+    _willPopScope2Controller.dispose();
+    super.dispose();
   }
 }

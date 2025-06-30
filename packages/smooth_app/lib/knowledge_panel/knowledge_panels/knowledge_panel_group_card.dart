@@ -27,8 +27,8 @@ class KnowledgePanelGroupCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final Widget child = Provider<KnowledgePanelPanelGroupElement>(
@@ -94,15 +94,13 @@ class KnowledgePanelGroupCard extends StatelessWidget {
                 product: product,
                 isClickable: isClickable,
               ),
-            )
+            ),
         ],
       ),
     );
 
     if (isTextSelectable) {
-      return SelectionArea(
-        child: child,
-      );
+      return SelectionArea(child: child);
     } else {
       return child;
     }

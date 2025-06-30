@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/country_selector/country_selector.dart';
@@ -60,7 +60,8 @@ class WelcomePage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.only(
-                              top: SMALL_SPACE),
+                            top: SMALL_SPACE,
+                          ),
                           child: SizedBox(
                             height: screenSize.height * .15,
                             child: AutoSizeText(
@@ -83,7 +84,8 @@ class WelcomePage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: MEDIUM_SPACE),
+                            vertical: MEDIUM_SPACE,
+                          ),
                           child: Container(
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
@@ -124,8 +126,9 @@ class WelcomePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  textStyle:
-                                      TextStyle(color: theme.primaryColor),
+                                  textStyle: TextStyle(
+                                    color: theme.primaryColor,
+                                  ),
                                 ),
                               ),
                             ),

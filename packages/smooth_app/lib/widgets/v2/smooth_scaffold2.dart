@@ -75,7 +75,7 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
                       padding: EdgeInsetsDirectional.only(
                         bottom: viewPadding.bottom,
                       ),
-                    )
+                    ),
                 ],
               ),
             ),
@@ -101,12 +101,7 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
   }
 }
 
-enum _SmoothScaffold2Widget {
-  topBar,
-  body,
-  bottomBar,
-  floattingBottomBar,
-}
+enum _SmoothScaffold2Widget { topBar, body, bottomBar, floattingBottomBar }
 
 class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
   _SmoothScaffold2Layout({
@@ -137,9 +132,7 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
     if (hasChild(_SmoothScaffold2Widget.bottomBar)) {
       bottomBarHeight = layoutChild(
         _SmoothScaffold2Widget.bottomBar,
-        BoxConstraints.loose(
-          size,
-        ),
+        BoxConstraints.loose(size),
       ).height;
     } else {
       bottomBarHeight = 0.0;
@@ -151,9 +144,7 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
     if (hasChild(_SmoothScaffold2Widget.floattingBottomBar)) {
       floatingBottomBarHeight = layoutChild(
         _SmoothScaffold2Widget.floattingBottomBar,
-        BoxConstraints.loose(
-          size,
-        ),
+        BoxConstraints.loose(size),
       ).height;
     } else {
       floatingBottomBarHeight = 0.0;

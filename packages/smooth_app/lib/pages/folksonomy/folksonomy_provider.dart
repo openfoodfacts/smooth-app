@@ -28,10 +28,10 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     try {
       final MaybeError<String> token =
           await FolksonomyAPIClient.getAuthenticationToken(
-        username: user.userId,
-        password: user.password,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
-      );
+            username: user.userId,
+            password: user.password,
+            uriHelper: ProductQuery.uriFolksonomyHelper,
+          );
 
       if (token.isError) {
         throw Exception('Could not get token: ${token.error}');
@@ -54,9 +54,9 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
       final Map<String, ProductTag> tags =
           await FolksonomyAPIClient.getProductTags(
-        barcode: barcode,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
-      );
+            barcode: barcode,
+            uriHelper: ProductQuery.uriFolksonomyHelper,
+          );
 
       _tags.clear();
       _tags.addAll(tags.values);
@@ -208,9 +208,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 }
 
 sealed class FolksonomyState {
-  const FolksonomyState({
-    required this.tags,
-  });
+  const FolksonomyState({required this.tags});
 
   final List<ProductTag>? tags;
 }
@@ -220,9 +218,7 @@ class FolksonomyStateLoading extends FolksonomyState {
 }
 
 class FolksonomyStateLoaded extends FolksonomyState {
-  FolksonomyStateLoaded({
-    required List<ProductTag> tags,
-  }) : super(tags: tags);
+  FolksonomyStateLoaded({required List<ProductTag> tags}) : super(tags: tags);
 
   @override
   List<ProductTag>? get tags => super.tags!;
@@ -271,11 +267,7 @@ class FolksonomyStateEditedItem extends FolksonomyState {
 }
 
 class FolksonomyStateError extends FolksonomyState {
-  FolksonomyStateError({
-    required this.error,
-    this.action,
-    super.tags,
-  });
+  FolksonomyStateError({required this.error, this.action, super.tags});
 
   final dynamic error;
   final FolksonomyAction? action;

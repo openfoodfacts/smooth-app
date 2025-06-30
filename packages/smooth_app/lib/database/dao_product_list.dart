@@ -13,25 +13,17 @@ const int _uselessTotalSizeValue = 0;
 
 /// An immutable barcode list; e.g. my search yesterday about "Nutella"
 class _BarcodeList {
-  const _BarcodeList(
-    this.timestamp,
-    this.barcodes,
-    this.totalSize,
-  );
+  const _BarcodeList(this.timestamp, this.barcodes, this.totalSize);
 
   _BarcodeList.now(final List<String> barcodes)
-      : this(
-          LocalDatabase.nowInMillis(),
-          barcodes,
-          _uselessTotalSizeValue,
-        );
+    : this(LocalDatabase.nowInMillis(), barcodes, _uselessTotalSizeValue);
 
   _BarcodeList.fromProductList(final ProductList productList)
-      : this(
-          LocalDatabase.nowInMillis(),
-          productList.barcodes,
-          productList.totalSize,
-        );
+    : this(
+        LocalDatabase.nowInMillis(),
+        productList.barcodes,
+        productList.totalSize,
+      );
 
   /// Freshness indicator: last time the list was updated.
   ///
@@ -186,10 +178,7 @@ class DaoProductList extends AbstractDao {
   /// One barcode duplicate is potentially removed:
   /// * If the barcode was already there, it's moved to the end of the list.
   /// * If the barcode wasn't there, it's added to the end of the list.
-  Future<void> push(
-    final ProductList productList,
-    final String barcode,
-  ) async {
+  Future<void> push(final ProductList productList, final String barcode) async {
     final _BarcodeList? list = await _get(productList);
     final List<String> barcodes;
     if (list == null) {

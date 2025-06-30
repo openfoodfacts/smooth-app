@@ -5,10 +5,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 
 class TabNavigator extends StatelessWidget {
-  const TabNavigator({
-    required this.navigatorKey,
-    required this.tabItem,
-  });
+  const TabNavigator({required this.navigatorKey, required this.tabItem});
 
   final GlobalKey<NavigatorState> navigatorKey;
   final BottomNavigationTab tabItem;

@@ -10,10 +10,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that displays a map centered on a location.
 class LocationMapPage extends StatelessWidget {
-  const LocationMapPage(
-    this.osmLocation, {
-    required this.popFirst,
-  });
+  const LocationMapPage(this.osmLocation, {required this.popFirst});
 
   final OsmLocation osmLocation;
   final bool popFirst;
@@ -29,11 +26,7 @@ class LocationMapPage extends StatelessWidget {
         title: title == null ? null : Text(title),
         subTitle: subtitle == null
             ? null
-            : Text(
-                subtitle,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
+            : Text(subtitle, maxLines: 1, overflow: TextOverflow.ellipsis),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.info),
@@ -81,10 +74,7 @@ class LocationMapPage extends StatelessWidget {
         ],
       ),
       body: FlutterMap(
-        options: MapOptions(
-          initialCenter: latLng,
-          initialZoom: 17,
-        ),
+        options: MapOptions(initialCenter: latLng, initialZoom: 17),
         children: <Widget>[
           TileLayer(
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -126,9 +116,8 @@ class LocationMapPage extends StatelessWidget {
     final BuildContext context,
     final String value,
     final String label,
-  ) =>
-      CupertinoActionSheetAction(
-        onPressed: () => Navigator.of(context).pop(),
-        child: Text('$label: $value'),
-      );
+  ) => CupertinoActionSheetAction(
+    onPressed: () => Navigator.of(context).pop(),
+    child: Text('$label: $value'),
+  );
 }

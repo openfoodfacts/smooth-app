@@ -6,9 +6,7 @@ import 'package:smooth_app/pages/product/edit_language_tabbar.dart';
 
 class ProductImageGalleryTabBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const ProductImageGalleryTabBar({
-    required this.onTabChanged,
-  });
+  const ProductImageGalleryTabBar({required this.onTabChanged});
 
   final void Function(OpenFoodFactsLanguage) onTabChanged;
 
@@ -24,11 +22,11 @@ class ProductImageGalleryTabBar extends StatelessWidget
 
   List<ProductLanguageWithState> productLanguages(Product product) {
     return <OpenFoodFactsLanguage>{
-      ...getProductImageLanguages(product, ImageField.FRONT),
-      ...getProductImageLanguages(product, ImageField.INGREDIENTS),
-      ...getProductImageLanguages(product, ImageField.NUTRITION),
-      ...getProductImageLanguages(product, ImageField.PACKAGING),
-    }
+          ...getProductImageLanguages(product, ImageField.FRONT),
+          ...getProductImageLanguages(product, ImageField.INGREDIENTS),
+          ...getProductImageLanguages(product, ImageField.NUTRITION),
+          ...getProductImageLanguages(product, ImageField.PACKAGING),
+        }
         .map(
           (OpenFoodFactsLanguage l) =>
               ProductLanguageWithState.normal(language: l),
@@ -48,13 +46,19 @@ class ProductImageGalleryTabBar extends StatelessWidget
         product.imageNutritionSmallUrl == oldProduct.imageNutritionSmallUrl &&
         product.imagePackagingUrl == oldProduct.imagePackagingUrl &&
         product.imagePackagingSmallUrl == oldProduct.imagePackagingSmallUrl &&
-        const ListEquality<ProductImage>()
-            .equals(product.selectedImages, oldProduct.selectedImages) &&
-        const ListEquality<ProductImage>()
-            .equals(product.images, oldProduct.images) &&
+        const ListEquality<ProductImage>().equals(
+          product.selectedImages,
+          oldProduct.selectedImages,
+        ) &&
+        const ListEquality<ProductImage>().equals(
+          product.images,
+          oldProduct.images,
+        ) &&
         product.lastImage == oldProduct.lastImage &&
-        const ListEquality<String>()
-            .equals(product.lastImageDates, oldProduct.lastImageDates);
+        const ListEquality<String>().equals(
+          product.lastImageDates,
+          oldProduct.lastImageDates,
+        );
   }
 
   @override

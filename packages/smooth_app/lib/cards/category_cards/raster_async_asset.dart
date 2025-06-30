@@ -30,21 +30,21 @@ class _RasterAsyncAssetState extends State<RasterAsyncAsset> {
 
   @override
   Widget build(BuildContext context) => FutureBuilder<ByteData>(
-        future: _loading,
-        builder: (BuildContext context, AsyncSnapshot<ByteData> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data != null) {
-              return Image.memory(
-                snapshot.data!.buffer.asUint8List(),
-                width: widget.assetCacheHelper.width,
-                height: widget.assetCacheHelper.height,
-                fit: BoxFit.contain,
-              );
-            } else {
-              widget.assetCacheHelper.notFound();
-            }
-          }
-          return widget.assetCacheHelper.getEmptySpace();
-        },
-      );
+    future: _loading,
+    builder: (BuildContext context, AsyncSnapshot<ByteData> snapshot) {
+      if (snapshot.connectionState == ConnectionState.done) {
+        if (snapshot.data != null) {
+          return Image.memory(
+            snapshot.data!.buffer.asUint8List(),
+            width: widget.assetCacheHelper.width,
+            height: widget.assetCacheHelper.height,
+            fit: BoxFit.contain,
+          );
+        } else {
+          widget.assetCacheHelper.notFound();
+        }
+      }
+      return widget.assetCacheHelper.getEmptySpace();
+    },
+  );
 }

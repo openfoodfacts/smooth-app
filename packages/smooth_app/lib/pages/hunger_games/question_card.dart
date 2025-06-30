@@ -12,11 +12,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Display of a Robotoff question text.
 class QuestionCard extends StatelessWidget {
-  const QuestionCard(
-    this.question, {
-    this.initialProduct,
-    super.key,
-  });
+  const QuestionCard(this.question, {this.initialProduct, super.key});
 
   final RobotoffQuestion question;
   final Product? initialProduct;
@@ -30,14 +26,9 @@ class QuestionCard extends StatelessWidget {
       context.read<LocalDatabase>(),
     );
 
-    final Size screenSize = MediaQuery.sizeOf(context);
-
     return FutureBuilder<FetchedProduct>(
       future: productFuture,
-      builder: (
-        BuildContext context,
-        AsyncSnapshot<FetchedProduct> snapshot,
-      ) {
+      builder: (BuildContext context, AsyncSnapshot<FetchedProduct> snapshot) {
         Product? product;
         if (snapshot.connectionState == ConnectionState.done) {
           product = snapshot.data?.product;
@@ -59,10 +50,9 @@ class QuestionCard extends StatelessWidget {
                 borderRadius: ROUNDED_BORDER_RADIUS,
               ),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
-                  SizedBox(
-                    height: screenSize.height / 6,
+                  Expanded(
                     child: question.imageUrl == null
                         ? EMPTY_WIDGET
                         : QuestionImageThumbnail(question),
@@ -77,11 +67,7 @@ class QuestionCard extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        ProductTitleCard(
-                          product,
-                          true,
-                          dense: true,
-                        ),
+                        ProductTitleCard(product, true, dense: true),
                       ],
                     ),
                   ),
@@ -107,10 +93,9 @@ class QuestionCard extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
             child: Text(
               question.question!,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium!
-                  .apply(color: Colors.black),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineMedium!.apply(color: Colors.black),
             ),
           ),
           Container(
@@ -121,10 +106,9 @@ class QuestionCard extends StatelessWidget {
             padding: const EdgeInsets.all(SMALL_SPACE),
             child: Text(
               question.value!,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium!
-                  .apply(color: Colors.white),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineMedium!.apply(color: Colors.white),
             ),
           ),
         ],
@@ -147,17 +131,13 @@ class QuestionCard extends StatelessWidget {
   }
 
   Widget _buildQuestionShimmer() => Shimmer.fromColors(
-        baseColor: robotoffBackground,
-        highlightColor: Colors.white,
-        child: Card(
-          elevation: 4,
-          clipBehavior: Clip.antiAlias,
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-          ),
-          child: Container(
-            height: LARGE_SPACE * 10,
-          ),
-        ),
-      );
+    baseColor: robotoffBackground,
+    highlightColor: Colors.white,
+    child: Card(
+      elevation: 4,
+      clipBehavior: Clip.antiAlias,
+      shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+      child: Container(height: LARGE_SPACE * 10),
+    ),
+  );
 }

@@ -16,23 +16,24 @@ class CategoryProductQuery extends PagedSearchProductQuery {
 
   @override
   Parameter getParameter() => TagFilter.fromType(
-        tagFilterType: TagFilterType.CATEGORIES,
-        contains: true,
-        tagName: categoryTag,
-      );
+    tagFilterType: TagFilterType.CATEGORIES,
+    contains: true,
+    tagName: categoryTag,
+  );
 
   @override
   ProductList getProductList() => ProductList.categorySearch(
-        categoryTag,
-        pageSize: pageSize,
-        pageNumber: pageNumber,
-        language: language,
-        country: country,
-        productType: productType,
-      );
+    categoryTag,
+    pageSize: pageSize,
+    pageNumber: pageNumber,
+    language: language,
+    country: country,
+    productType: productType,
+  );
 
   @override
-  String toString() => 'CategoryProductQuery('
+  String toString() =>
+      'CategoryProductQuery('
       '"$categoryTag"'
       ', $pageSize'
       ', $pageNumber'

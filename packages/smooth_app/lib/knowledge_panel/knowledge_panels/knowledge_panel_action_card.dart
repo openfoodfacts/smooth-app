@@ -10,7 +10,7 @@ import 'package:smooth_app/pages/product/add_ocr_button.dart';
 import 'package:smooth_app/pages/product/add_packaging_button.dart';
 import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// "Contribute Actions" for the knowledge panels.
@@ -40,12 +40,10 @@ class KnowledgePanelActionCard extends StatelessWidget {
     );
   }
 
-  Widget? _getButton(
-    final BuildContext context,
-    final String action,
-  ) {
-    final KnowledgePanelAction? kpAction =
-        KnowledgePanelAction.fromOffTag(action);
+  Widget? _getButton(final BuildContext context, final String action) {
+    final KnowledgePanelAction? kpAction = KnowledgePanelAction.fromOffTag(
+      action,
+    );
     if (kpAction == null) {
       Logs.e('unknown knowledge panel action: $action');
       return null;
@@ -59,9 +57,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
       );
     }
     if (_isPackaging(kpAction)) {
-      return AddPackagingButton(
-        product: product,
-      );
+      return AddPackagingButton(product: product);
     }
     if (_isIngredient(kpAction)) {
       return AddOcrButton(
@@ -92,9 +88,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
       case KnowledgePanelAction.addLabels:
         return SimpleInputPageLabelHelper();
       case KnowledgePanelAction.addCountries:
-        return SimpleInputPageCountryHelper(
-          context.read<UserPreferences>(),
-        );
+        return SimpleInputPageCountryHelper(context.read<UserPreferences>());
       default:
         return null;
     }

@@ -21,10 +21,12 @@ const double _kGoldenDiffTolerance = 0.10;
 /// golden files are stored in a goldens directory.
 Future<void> expectGoldenMatches(dynamic actual, String goldenFileKey) async {
   final String goldenPath = path.join('goldens', goldenFileKey);
-  goldenFileComparator = SmoothieFileComparator(path.join(
-    (goldenFileComparator as LocalFileComparator).basedir.toString(),
-    goldenFileKey,
-  ));
+  goldenFileComparator = SmoothieFileComparator(
+    path.join(
+      (goldenFileComparator as LocalFileComparator).basedir.toString(),
+      goldenFileKey,
+    ),
+  );
   return expectLater(actual, matchesGoldenFile(goldenPath));
 }
 
@@ -43,8 +45,10 @@ class SmoothieFileComparator extends LocalFileComparator {
       throw FlutterError(error);
     }
     if (!result.passed) {
-      log('A tolerable difference of ${result.diffPercent * 100}% was found when '
-          'comparing $golden.');
+      log(
+        'A tolerable difference of ${result.diffPercent * 100}% was found when '
+        'comparing $golden.',
+      );
     }
     return result.passed || result.diffPercent <= _kGoldenDiffTolerance;
   }

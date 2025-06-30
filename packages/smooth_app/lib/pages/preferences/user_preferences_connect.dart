@@ -45,156 +45,156 @@ class UserPreferencesConnect extends AbstractUserPreferences {
 
   @override
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
-        _getListTile(
-          title: appLocalizations.contact_title_newsletter,
-          url: 'https://link.openfoodfacts.org/newsletter-en',
-          leadingIconData: CupertinoIcons.news_solid,
-        ),
-        _getListTile(
-          title: appLocalizations.contact_title_calendar,
-          url: 'https://wiki.openfoodfacts.org/Events',
-          leadingIconData: Icons.calendar_month,
-        ),
-        _getListTile(
-          title: appLocalizations.support_via_email,
-          leadingIconData: Icons.drafts,
-          onTap: () async {
-            final bool? includeLogs = await showDialog<bool>(
-                context: context,
-                builder: (BuildContext context) {
-                  return SmoothAlertDialog(
-                    title: appLocalizations
-                        .support_via_email_include_logs_dialog_title,
-                    body: Text(
-                      appLocalizations
-                          .support_via_email_include_logs_dialog_body,
-                    ),
-                    close: true,
-                    positiveAction: SmoothActionButton(
-                        text: appLocalizations.yes,
-                        onPressed: () => Navigator.of(context).pop(true)),
-                    negativeAction: SmoothActionButton(
-                        text: appLocalizations.no,
-                        onPressed: () => Navigator.of(context).pop(false)),
-                  );
-                });
-
-            if (includeLogs == null) {
-              return;
-            }
-
-            await _sendEmail(
-              body: await _emailBody,
-              subject:
-                  '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
-              recipient: 'mobile@openfoodfacts.org',
-              attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
+    _getListTile(
+      title: appLocalizations.contact_title_newsletter,
+      url: 'https://link.openfoodfacts.org/newsletter-en',
+      leadingIconData: CupertinoIcons.news_solid,
+    ),
+    _getListTile(
+      title: appLocalizations.contact_title_calendar,
+      url: 'https://wiki.openfoodfacts.org/Events',
+      leadingIconData: Icons.calendar_month,
+    ),
+    _getListTile(
+      title: appLocalizations.support_via_email,
+      leadingIconData: Icons.drafts,
+      onTap: () async {
+        final bool? includeLogs = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            return SmoothAlertDialog(
+              title:
+                  appLocalizations.support_via_email_include_logs_dialog_title,
+              body: Text(
+                appLocalizations.support_via_email_include_logs_dialog_body,
+              ),
+              close: true,
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.yes,
+                onPressed: () => Navigator.of(context).pop(true),
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.no,
+                onPressed: () => Navigator.of(context).pop(false),
+              ),
             );
           },
+        );
+
+        if (includeLogs == null) {
+          return;
+        }
+
+        await _sendEmail(
+          body: await _emailBody,
+          subject:
+              '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
+          recipient: 'mobile@openfoodfacts.org',
+          attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
+        );
+      },
+    ),
+    _getDivider(),
+    _getListTile(
+      title: appLocalizations.tiktok,
+      url: appLocalizations.tiktok_link,
+      leadingWidget: SvgPicture.asset(
+        'assets/preferences/tiktok-logo.svg',
+        width: DEFAULT_ICON_SIZE,
+        package: AppHelper.APP_PACKAGE,
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.instagram,
+      url: appLocalizations.instagram_link,
+      leadingWidget: SvgPicture.asset(
+        'assets/preferences/instagram-camera.svg',
+        width: DEFAULT_ICON_SIZE,
+        package: AppHelper.APP_PACKAGE,
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.twitter,
+      url: appLocalizations.twitter_link,
+      leadingWidget: SvgPicture.asset(
+        'assets/preferences/x-logo.svg',
+        width: DEFAULT_ICON_SIZE,
+        colorFilter: ui.ColorFilter.mode(
+          Theme.of(context).colorScheme.onSurface,
+          ui.BlendMode.srcIn,
         ),
-        _getDivider(),
-        _getListTile(
-          title: appLocalizations.tiktok,
-          url: appLocalizations.tiktok_link,
-          leadingWidget: SvgPicture.asset(
-            'assets/preferences/tiktok-logo.svg',
-            width: DEFAULT_ICON_SIZE,
-            package: AppHelper.APP_PACKAGE,
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.instagram,
-          url: appLocalizations.instagram_link,
-          leadingWidget: SvgPicture.asset(
-            'assets/preferences/instagram-camera.svg',
-            width: DEFAULT_ICON_SIZE,
-            package: AppHelper.APP_PACKAGE,
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.twitter,
-          url: appLocalizations.twitter_link,
-          leadingWidget: SvgPicture.asset(
-            'assets/preferences/x-logo.svg',
-            width: DEFAULT_ICON_SIZE,
-            colorFilter: ui.ColorFilter.mode(
-              Theme.of(context).colorScheme.onSurface,
-              ui.BlendMode.srcIn,
-            ),
-            package: AppHelper.APP_PACKAGE,
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.mastodon,
-          url: appLocalizations.mastodon_link,
-          leadingWidget: SvgPicture.asset(
-            'assets/preferences/mastodon-logo.svg',
-            width: DEFAULT_ICON_SIZE,
-            package: AppHelper.APP_PACKAGE,
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.bsky,
-          url: appLocalizations.bsky_link,
-          leadingWidget: SvgPicture.asset(
-            'assets/preferences/bluesky-logo.svg',
-            width: DEFAULT_ICON_SIZE,
-            package: AppHelper.APP_PACKAGE,
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.blog,
-          url: 'https://blog.openfoodfacts.org',
-          leadingIconData: Icons.newspaper,
-        ),
-        _getDivider(),
-        _getListTile(
-          title: appLocalizations.support_via_forum,
-          url: 'https://forum.openfoodfacts.org/',
-          leadingIconData: Icons.forum,
-        ),
-        _getListTile(
-          title: appLocalizations.support_join_slack,
-          url: 'https://slack.openfoodfacts.org/',
-          leadingIconData: Icons.chat,
-        ),
-        _getDivider(),
-        _getListTile(
-          title: appLocalizations.contact_title_pro_page,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.pro.openfoodfacts.org/',
-          ),
-          leadingIconData: Icons.factory_outlined,
-        ),
-        _getListTile(
-          title: appLocalizations.contact_title_pro_email,
-          leadingIconData: Icons.drafts,
-          onTap: () async => _sendEmail(
-            recipient:
-                ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
-                    ? 'producteurs@openfoodfacts.org'
-                    : 'producers@openfoodfacts.org',
-          ),
-        ),
-        _getDivider(),
-        _getListTile(
-          title: appLocalizations.contact_title_press_page,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/press',
-          ),
-          leadingIconData: CupertinoIcons.news_solid,
-        ),
-        _getListTile(
-          title: appLocalizations.contact_title_press_email,
-          leadingIconData: Icons.drafts,
-          onTap: () async => _sendEmail(
-            recipient:
-                ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
-                    ? 'presse@openfoodfacts.org'
-                    : 'press@openfoodfacts.org',
-          ),
-        ),
-      ];
+        package: AppHelper.APP_PACKAGE,
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.mastodon,
+      url: appLocalizations.mastodon_link,
+      leadingWidget: SvgPicture.asset(
+        'assets/preferences/mastodon-logo.svg',
+        width: DEFAULT_ICON_SIZE,
+        package: AppHelper.APP_PACKAGE,
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.bsky,
+      url: appLocalizations.bsky_link,
+      leadingWidget: SvgPicture.asset(
+        'assets/preferences/bluesky-logo.svg',
+        width: DEFAULT_ICON_SIZE,
+        package: AppHelper.APP_PACKAGE,
+      ),
+    ),
+    _getListTile(
+      title: appLocalizations.blog,
+      url: 'https://blog.openfoodfacts.org',
+      leadingIconData: Icons.newspaper,
+    ),
+    _getDivider(),
+    _getListTile(
+      title: appLocalizations.support_via_forum,
+      url: 'https://forum.openfoodfacts.org/',
+      leadingIconData: Icons.forum,
+    ),
+    _getListTile(
+      title: appLocalizations.support_join_slack,
+      url: 'https://slack.openfoodfacts.org/',
+      leadingIconData: Icons.chat,
+    ),
+    _getDivider(),
+    _getListTile(
+      title: appLocalizations.contact_title_pro_page,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.pro.openfoodfacts.org/',
+      ),
+      leadingIconData: Icons.factory_outlined,
+    ),
+    _getListTile(
+      title: appLocalizations.contact_title_pro_email,
+      leadingIconData: Icons.drafts,
+      onTap: () async => _sendEmail(
+        recipient: ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
+            ? 'producteurs@openfoodfacts.org'
+            : 'producers@openfoodfacts.org',
+      ),
+    ),
+    _getDivider(),
+    _getListTile(
+      title: appLocalizations.contact_title_press_page,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/press',
+      ),
+      leadingIconData: CupertinoIcons.news_solid,
+    ),
+    _getListTile(
+      title: appLocalizations.contact_title_press_email,
+      leadingIconData: Icons.drafts,
+      onTap: () async => _sendEmail(
+        recipient: ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
+            ? 'presse@openfoodfacts.org'
+            : 'press@openfoodfacts.org',
+      ),
+    ),
+  ];
 
   Future<String> get _emailBody async {
     final StringBuffer buffer = StringBuffer('\n\n----\n');
@@ -223,8 +223,12 @@ class UserPreferencesConnect extends AbstractUserPreferences {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     buffer.writeln(
-      appLocalizations.contact_form_body(deviceText, packageInfo.version,
-          packageInfo.buildNumber, packageInfo.packageName),
+      appLocalizations.contact_form_body(
+        deviceText,
+        packageInfo.version,
+        packageInfo.buildNumber,
+        packageInfo.packageName,
+      ),
     );
 
     return buffer.toString();
@@ -236,20 +240,21 @@ class UserPreferencesConnect extends AbstractUserPreferences {
     final Widget? leadingWidget,
     final String? url,
     final VoidCallback? onTap,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title],
-        builder: (_) => UserPreferencesListTile(
-          title: Text(title),
-          onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!),
-          trailing:
-              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-          leading: leadingIconData != null
-              ? UserPreferencesListTile.getTintedIcon(leadingIconData, context)
-              : leadingWidget,
-          externalLink: true,
-        ),
-      );
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title],
+    builder: (_) => UserPreferencesListTile(
+      title: Text(title),
+      onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!),
+      trailing: UserPreferencesListTile.getTintedIcon(
+        Icons.open_in_new,
+        context,
+      ),
+      leading: leadingIconData != null
+          ? UserPreferencesListTile.getTintedIcon(leadingIconData, context)
+          : leadingWidget,
+      externalLink: true,
+    ),
+  );
 
   Future<void> _sendEmail({
     final String body = '',
@@ -313,9 +318,9 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                               );
                             }
                           },
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
                 positiveAction: SmoothActionButton(
@@ -332,7 +337,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   }
 
   UserPreferencesItem _getDivider() => UserPreferencesItemSimple(
-        labels: <String>[],
-        builder: (_) => const Divider(),
-      );
+    labels: <String>[],
+    builder: (_) => const Divider(),
+  );
 }

@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -8,6 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -50,10 +50,8 @@ class ScanAppReview extends StatelessWidget {
               text: appLocalizations.app_review_medium,
               backgroundColor: const Color(0xFFFF8C14),
               borderRadius: BorderRadius.zero,
-              onTap: () => _showUserFeedBackModalSheet(
-                context,
-                AppReviewResult.neutral,
-              ),
+              onTap: () =>
+                  _showUserFeedBackModalSheet(context, AppReviewResult.neutral),
             ),
           ),
           Expanded(
@@ -66,8 +64,8 @@ class ScanAppReview extends StatelessWidget {
                 bottomEnd: ScanBottomCardContainer.radius,
               ),
               onTap: () async {
-                final AppReviewProvider appReview =
-                    context.read<AppReviewProvider>();
+                final AppReviewProvider appReview = context
+                    .read<AppReviewProvider>();
                 await ApplicationStore.openAppReview();
                 appReview.markAsReviewed(AppReviewResult.satisfied);
               },
@@ -82,8 +80,8 @@ class ScanAppReview extends StatelessWidget {
     BuildContext context,
     AppReviewResult result,
   ) async {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme(listen: false);
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -108,14 +106,16 @@ class ScanAppReview extends StatelessWidget {
                   child: _AppReviewButton(
                     onPressed: () => Navigator.of(context).pop(true),
                     text: appLocalizations.app_review_feedback_modal_open_form,
-                    backgroundColor:
-                        lightTheme ? colors.primaryBlack : colors.primaryLight,
-                    foregroundColor:
-                        lightTheme ? Colors.white : colors.primaryDark,
+                    backgroundColor: lightTheme
+                        ? colors.primaryBlack
+                        : colors.primaryLight,
+                    foregroundColor: lightTheme
+                        ? Colors.white
+                        : colors.primaryDark,
                     icon: DecoratedBox(
-                      decoration: const ShapeDecoration(
-                        shape: CircleBorder(),
-                        color: Colors.white,
+                      decoration: ShapeDecoration(
+                        shape: const CircleBorder(),
+                        color: lightTheme ? Colors.white : colors.primaryDark,
                       ),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.all(
@@ -137,10 +137,12 @@ class ScanAppReview extends StatelessWidget {
                   child: _AppReviewButton(
                     onPressed: () => Navigator.of(context).pop(false),
                     text: appLocalizations.app_review_feedback_modal_later,
-                    backgroundColor:
-                        lightTheme ? colors.primaryLight : colors.primaryDark,
-                    foregroundColor:
-                        lightTheme ? colors.primaryDark : colors.primaryLight,
+                    backgroundColor: lightTheme
+                        ? colors.primaryLight
+                        : colors.primaryDark,
+                    foregroundColor: lightTheme
+                        ? colors.primaryDark
+                        : colors.primaryLight,
                   ),
                 ),
               ],
@@ -201,17 +203,12 @@ class _AppReviewButton extends StatelessWidget {
         children: <Widget>[
           AutoSizeText(
             text,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15.0,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
             maxLines: 1,
           ),
           if (icon != null) ...<Widget>[
             const SizedBox(width: SMALL_SPACE),
-            FittedBox(
-              child: icon,
-            )
+            FittedBox(child: icon),
           ],
         ],
       ),

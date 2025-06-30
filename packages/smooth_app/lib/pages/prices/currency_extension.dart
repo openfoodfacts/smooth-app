@@ -14,7 +14,7 @@ extension CurrencyExtension on Currency {
     return '$name ($symbol)';
   }
 
-// source: https://www.xe.com/symbols/
+  // source: https://www.xe.com/symbols/
   static final Map<Currency, String> _symbols = <Currency, String>{
     Currency.ALL: 'Lek',
     Currency.AFN: String.fromCharCode(1547),

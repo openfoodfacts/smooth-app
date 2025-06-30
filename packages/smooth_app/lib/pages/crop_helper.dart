@@ -4,8 +4,8 @@ import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 
 /// Crop Helper for images in crop page: process to run when cropping an image.
@@ -37,10 +37,13 @@ abstract class CropHelper {
   /// Should we display the eraser with the crop grid?
   bool get enableEraser;
 
+  static Rect getLocalCropRectFromRect(final Rect crop) =>
+      BackgroundTaskImage.getUpsizedRect(crop);
+
   /// Returns the crop rect according to local cropping method * factor.
   @protected
   Rect getLocalCropRect(final CropController controller) =>
-      BackgroundTaskImage.getUpsizedRect(controller.crop);
+      getLocalCropRectFromRect(controller.crop);
 
   @protected
   CropParameters getCropParameters({
@@ -55,17 +58,15 @@ abstract class CropHelper {
       fullFile: fullFile,
       smallCroppedFile: smallCroppedFile,
       rotation: controller.rotation.degrees,
-      x1: cropRect.left.ceil(),
-      y1: cropRect.top.ceil(),
-      x2: cropRect.right.floor(),
-      y2: cropRect.bottom.floor(),
+      cropRect: cropRect,
       eraserCoordinates: eraserCoordinates,
     );
   }
 
-  static List<double> getEraserCoordinates(
-    final List<Offset> offsets,
-  ) {
+  /// Full-size crop, aka no crop.
+  static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
+
+  static List<double> getEraserCoordinates(final List<Offset> offsets) {
     final List<double> eraserCoordinates = <double>[];
     for (final Offset offset in offsets) {
       eraserCoordinates.add(offset.dx);
@@ -74,9 +75,7 @@ abstract class CropHelper {
     return eraserCoordinates;
   }
 
-  static List<Offset> getOffsets(
-    final List<double>? eraserCoordinates,
-  ) {
+  static List<Offset> getOffsets(final List<double>? eraserCoordinates) {
     final List<Offset> offsets = <Offset>[];
     if (eraserCoordinates != null) {
       for (int i = 0; i < eraserCoordinates.length; i += 2) {

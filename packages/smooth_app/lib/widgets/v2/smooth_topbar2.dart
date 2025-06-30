@@ -4,10 +4,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 
 class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   const SmoothTopBar2({
@@ -24,8 +24,8 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.productType,
     super.key,
-  })  : assert(title.length > 0),
-        assert(forceMultiLines == false || subTitle == null);
+  }) : assert(title.length > 0),
+       assert(forceMultiLines == false || subTitle == null);
 
   /// Height without the top view padding
   static double kTopBar2Height = 100;
@@ -42,14 +42,16 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   final ProductType? productType;
 
   final PreferredSizeWidget? topWidget;
-  final SmoothTopBarLeadingAction? leadingAction;
+  final SmoothLeadingAction? leadingAction;
 
   @override
   State<SmoothTopBar2> createState() => _SmoothTopBar2State();
 
   @override
-  Size get preferredSize => Size(double.infinity,
-      kTopBar2Height + (topWidget?.preferredSize.height ?? 0.0));
+  Size get preferredSize => Size(
+    double.infinity,
+    kTopBar2Height + (topWidget?.preferredSize.height ?? 0.0),
+  );
 }
 
 class _SmoothTopBar2State extends State<SmoothTopBar2> {
@@ -62,9 +64,9 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
 
     if (widget.elevationOnScroll || widget.reducedHeightOnScroll) {
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) => PrimaryScrollController.maybeOf(context)?.addListener(
-          () => _onScroll(),
-        ),
+        (_) => PrimaryScrollController.maybeOf(
+          context,
+        )?.addListener(() => _onScroll()),
       );
     }
 
@@ -95,24 +97,28 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final TextDirection textDirection = Directionality.of(context);
     final bool darkTheme = context.darkTheme();
 
     final double imageWidth = MediaQuery.sizeOf(context).width * 0.22;
     final double imageHeight = imageWidth * 114 / 92;
     final BorderRadius borderRadius = BorderRadius.vertical(
-        bottom:
-            Radius.circular(HEADER_BORDER_RADIUS.topRight.x * (1 - _progress)));
+      bottom: Radius.circular(
+        HEADER_BORDER_RADIUS.topRight.x * (1 - _progress),
+      ),
+    );
 
-    final Color backgroundColor = widget.backgroundColor ??
+    final Color backgroundColor =
+        widget.backgroundColor ??
         (darkTheme ? colors.primaryDark : colors.primaryMedium);
 
     return PhysicalModel(
       color: Colors.transparent,
       elevation: _elevation,
-      shadowColor: widget.elevationColor ??
+      shadowColor:
+          widget.elevationColor ??
           (darkTheme ? Colors.white10 : Colors.black12),
       borderRadius: borderRadius,
       child: ClipRRect(
@@ -149,7 +155,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                         start: widget.leadingAction != null
                             ? BALANCED_SPACE
                             : VERY_LARGE_SPACE,
-                        end: (imageWidth * 0.7) *
+                        end:
+                            (imageWidth * 0.7) *
                             (1 - _progress.progressAndClamp(0.5, 0.9, 1.0)),
                         child: Align(
                           alignment: AlignmentDirectional.topStart,
@@ -163,12 +170,12 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                                   padding: const EdgeInsetsDirectional.only(
                                     top: 9.0,
                                   ),
-                                  child: _SmoothTopBarLeadingButton(
+                                  child: SmoothLeadingButton(
                                     action: widget.leadingAction!,
                                     foregroundColor: widget.foregroundColor,
                                   ),
                                 ),
-                                const SizedBox(width: BALANCED_SPACE)
+                                const SizedBox(width: BALANCED_SPACE),
                               ],
                               Expanded(
                                 child: Padding(
@@ -182,7 +189,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -260,7 +267,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
       maxLines: widget.subTitle != null ? 1 : 2,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
-        color: widget.foregroundColor ??
+        color:
+            widget.foregroundColor ??
             (darkTheme ? colors.primaryMedium : colors.primaryBlack),
         fontSize: 20.0,
         height: widget.reducedHeightOnScroll ? 1.3 : 1.5,
@@ -271,10 +279,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     if (widget.forceMultiLines) {
       return SizedBox(
         height: (MediaQuery.textScalerOf(context).scale(20.0) * 2.0) * 1.5,
-        child: Align(
-          alignment: AlignmentDirectional.centerStart,
-          child: text,
-        ),
+        child: Align(alignment: AlignmentDirectional.centerStart, child: text),
       );
     } else if (widget.subTitle == null) {
       return text;
@@ -290,7 +295,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            color: widget.foregroundColor ??
+            color:
+                widget.foregroundColor ??
                 (darkTheme ? colors.primaryMedium : colors.primaryBlack),
             fontSize: 16.0,
             height: 1.5,
@@ -311,91 +317,5 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     }
 
     return topPadding;
-  }
-}
-
-enum SmoothTopBarLeadingAction {
-  close,
-  back,
-  minimize,
-}
-
-class _SmoothTopBarLeadingButton extends StatelessWidget {
-  const _SmoothTopBarLeadingButton({
-    required this.action,
-    required this.foregroundColor,
-  });
-
-  final SmoothTopBarLeadingAction action;
-  final Color? foregroundColor;
-
-  @override
-  Widget build(BuildContext context) {
-    final MaterialLocalizations localizations =
-        MaterialLocalizations.of(context);
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-
-    final String message = getMessage(localizations);
-    final Color color = foregroundColor ??
-        (context.darkTheme() ? colors.primaryMedium : colors.primaryBlack);
-
-    return Semantics(
-      button: true,
-      value: message,
-      excludeSemantics: true,
-      child: Tooltip(
-        message: message,
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            onTap: () => Navigator.of(context).maybePop(),
-            customBorder: const CircleBorder(),
-            splashColor: Colors.white70,
-            child: Ink(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: color,
-                  width: 1.0,
-                ),
-                shape: BoxShape.circle,
-              ),
-              child: SizedBox.square(
-                dimension: 36.0,
-                child: appIcon(
-                  size: 16.0,
-                  color: color,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget appIcon({
-    required double size,
-    required Color color,
-  }) {
-    assert(size >= 0.0);
-
-    return switch (action) {
-      SmoothTopBarLeadingAction.close => icons.Close(size: size, color: color),
-      SmoothTopBarLeadingAction.back =>
-        icons.Arrow.left(size: size, color: color),
-      SmoothTopBarLeadingAction.minimize => Padding(
-          padding: const EdgeInsetsDirectional.only(top: 1.0),
-          child: icons.Chevron.down(size: size, color: color),
-        ),
-    };
-  }
-
-  String getMessage(MaterialLocalizations localizations) {
-    return switch (action) {
-      SmoothTopBarLeadingAction.close => localizations.closeButtonTooltip,
-      SmoothTopBarLeadingAction.back => localizations.backButtonTooltip,
-      SmoothTopBarLeadingAction.minimize => localizations.closeButtonTooltip,
-    };
   }
 }

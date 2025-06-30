@@ -6,19 +6,16 @@ import 'package:smooth_app/themes/constant_icons.dart';
 /// Displays an [IconButton] containing the platform-specific default
 /// back button icon.
 class SmoothBackButton extends StatelessWidget {
-  const SmoothBackButton({
-    this.onPressed,
-    this.iconColor,
-    super.key,
-  });
+  const SmoothBackButton({this.onPressed, this.iconColor, super.key});
 
   final VoidCallback? onPressed;
   final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
-    final MaterialLocalizations localizations =
-        MaterialLocalizations.of(context);
+    final MaterialLocalizations localizations = MaterialLocalizations.of(
+      context,
+    );
 
     return Material(
       type: MaterialType.transparency,
@@ -35,7 +32,8 @@ class SmoothBackButton extends StatelessWidget {
               padding: _iconPadding,
               child: Icon(
                 ConstantIcons.backIcon,
-                color: iconColor ??
+                color:
+                    iconColor ??
                     (Theme.of(context).colorScheme.brightness ==
                             Brightness.light
                         ? Colors.black

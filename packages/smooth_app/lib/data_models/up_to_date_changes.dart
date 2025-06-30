@@ -6,7 +6,7 @@ import 'package:smooth_app/database/local_database.dart';
 /// Sequence of minimalist product changes.
 class UpToDateChanges {
   UpToDateChanges(this.localDatabase)
-      : _daoTransientProduct = DaoTransientOperation(localDatabase);
+    : _daoTransientProduct = DaoTransientOperation(localDatabase);
 
   final LocalDatabase localDatabase;
 
@@ -23,8 +23,9 @@ class UpToDateChanges {
 
   Product getUpToDateProduct(Product product) {
     final String barcode = product.barcode!;
-    final Iterable<TransientOperation> sortedOperations =
-        getSortedOperations(barcode);
+    final Iterable<TransientOperation> sortedOperations = getSortedOperations(
+      barcode,
+    );
     for (final TransientOperation operation in sortedOperations) {
       final Product minimalistProduct = operation.product;
       product = _overwrite(product, minimalistProduct);
@@ -113,6 +114,12 @@ class UpToDateChanges {
     if (change.categoriesTagsInLanguages != null) {
       initial.categoriesTagsInLanguages = change.categoriesTagsInLanguages;
     }
+    if (change.traces != null) {
+      initial.traces = change.traces;
+    }
+    if (change.tracesTagsInLanguages != null) {
+      initial.tracesTagsInLanguages = change.tracesTagsInLanguages;
+    }
     if (change.countries != null) {
       initial.countries = change.countries;
     }
@@ -124,24 +131,16 @@ class UpToDateChanges {
     String? emptyMeansNull(final String value) => value.isEmpty ? null : value;
 
     if (change.imageFrontUrl != null) {
-      initial.imageFrontUrl = emptyMeansNull(
-        change.imageFrontUrl!,
-      );
+      initial.imageFrontUrl = emptyMeansNull(change.imageFrontUrl!);
     }
     if (change.imageIngredientsUrl != null) {
-      initial.imageIngredientsUrl = emptyMeansNull(
-        change.imageIngredientsUrl!,
-      );
+      initial.imageIngredientsUrl = emptyMeansNull(change.imageIngredientsUrl!);
     }
     if (change.imageNutritionUrl != null) {
-      initial.imageNutritionUrl = emptyMeansNull(
-        change.imageNutritionUrl!,
-      );
+      initial.imageNutritionUrl = emptyMeansNull(change.imageNutritionUrl!);
     }
     if (change.imagePackagingUrl != null) {
-      initial.imagePackagingUrl = emptyMeansNull(
-        change.imagePackagingUrl!,
-      );
+      initial.imagePackagingUrl = emptyMeansNull(change.imagePackagingUrl!);
     }
     if (change.images != null && change.images!.isNotEmpty) {
       initial.images ??= <ProductImage>[];

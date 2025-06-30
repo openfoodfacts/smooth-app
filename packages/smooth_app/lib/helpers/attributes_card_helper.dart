@@ -14,7 +14,7 @@ enum AttributeEvaluation {
   GOOD,
   VERY_GOOD;
 
-// TODO(monsieurtanuki): not sure to see the added value of keeping both CardEvaluation and AttributeEvaluation
+  // TODO(monsieurtanuki): not sure to see the added value of keeping both CardEvaluation and AttributeEvaluation
   CardEvaluation getCardEvaluation() {
     switch (this) {
       case AttributeEvaluation.UNKNOWN:
@@ -33,11 +33,16 @@ enum AttributeEvaluation {
   }
 }
 
-Widget getAttributeDisplayIcon(final Attribute attribute) {
-  return Padding(
-    padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+Widget getAttributeDisplayIcon(
+  final Attribute attribute, {
+  bool? isFoodPreferences = false,
+  BuildContext? context,
+}) {
+  return Container(
     child: attribute.getCircledIcon(
-      backgroundColor: getAttributeDisplayBackgroundColor(attribute),
+      backgroundColor: isFoodPreferences!
+          ? Theme.of(context!).primaryColor
+          : getAttributeDisplayBackgroundColor(attribute),
       size: 32.0,
     ),
   );
@@ -112,13 +117,14 @@ String? _getNovaDisplayTitle(final Attribute attribute) =>
 
 /// Compares the match score from [attribute] with various thresholds and returns appropriate result.
 T _attributeMatchComparison<T>(
-    final Attribute attribute,
-    T invalidAttributeResult,
-    T lowestMatchResult,
-    T lowMatchResult,
-    T midMatchResult,
-    T highMatchResult,
-    T highestMatchResult) {
+  final Attribute attribute,
+  T invalidAttributeResult,
+  T lowestMatchResult,
+  T lowMatchResult,
+  T midMatchResult,
+  T highMatchResult,
+  T highestMatchResult,
+) {
   final AttributeEvaluation evaluation = getAttributeEvaluation(attribute);
   switch (evaluation) {
     case AttributeEvaluation.UNKNOWN:

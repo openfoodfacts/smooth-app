@@ -25,16 +25,14 @@ class AssetCacheHelper {
   final String? semanticsLabel;
 
   Widget getEmptySpace() => Semantics(
-        label: semanticsLabel,
-        image: true,
-        child: SizedBox(
-          width: width ?? height,
-          height: height ?? width,
-        ),
-      );
+    label: semanticsLabel,
+    image: true,
+    child: SizedBox(width: width ?? height, height: height ?? width),
+  );
 
   void notFound() => Logs.d(
-      'please download $url and put it in asset somewhere like $cachedFilenames');
+    'please download $url and put it in asset somewhere like $cachedFilenames',
+  );
 
   Exception loadException() =>
       Exception('could not load any cached file ($cachedFilenames)');

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
@@ -8,6 +7,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/helpers/pinch_to_zoom_indicator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -48,9 +48,10 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
       reverseDuration: SmoothAnimationsDuration.short,
       vsync: this,
     )..addListener(() => setState(() {}));
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutSine),
-    );
+    _animation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutSine));
   }
 
   @override
@@ -107,9 +108,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
                         child: Tooltip(
                           message: AppLocalizations.of(context).close,
                           child: const SmoothIndicatorIcon(
-                            icon: icons.Close(
-                              size: 14.0,
-                            ),
+                            icon: icons.Close(size: 14.0),
                           ),
                         ),
                       ),
@@ -123,7 +122,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
                     offstage: _animation.value != 1.0,
                     child: const PinchToZoomExplainer(),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -167,9 +166,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
     if (frame == null) {
       return _loadingWidget();
     } else if (_isLoading) {
-      onNextFrame(
-        () => setState(() => _isLoading = false),
-      );
+      onNextFrame(() => setState(() => _isLoading = false));
     }
     return child;
   }
@@ -190,9 +187,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
     Object error,
     StackTrace? stackTrace,
   ) {
-    onNextFrame(
-      () => setState(() => _isLoading = false),
-    );
+    onNextFrame(() => setState(() => _isLoading = false));
 
     return FractionallySizedBox(
       widthFactor: 0.6,
@@ -200,10 +195,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
         child: Text(
           AppLocalizations.of(context).nutrition_page_photo_error,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 15.0,
-          ),
+          style: const TextStyle(color: Colors.white, fontSize: 15.0),
         ),
       ),
     );

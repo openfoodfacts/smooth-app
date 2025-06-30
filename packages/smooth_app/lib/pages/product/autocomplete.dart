@@ -17,8 +17,8 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
     required this.maxOptionsHeight,
     required this.maxOptionsWidth,
     this.search,
-  })  : assert(maxOptionsHeight >= 0),
-        assert(maxOptionsWidth >= 0);
+  }) : assert(maxOptionsHeight >= 0),
+       assert(maxOptionsWidth >= 0);
 
   final AutocompleteOptionToString<T> displayStringForOption;
   final AutocompleteOnSelected<T> onSelected;
@@ -59,9 +59,7 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
                   displayStringForOption: displayStringForOption,
                 );
               },
-              separatorBuilder: (_, __) => const Divider(
-                height: 1.0,
-              ),
+              separatorBuilder: (_, __) => const Divider(height: 1.0),
             ),
           ),
         ),
