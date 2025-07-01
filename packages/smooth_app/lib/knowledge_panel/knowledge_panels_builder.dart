@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_action_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_image_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_score_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
@@ -99,15 +100,14 @@ class KnowledgePanelsBuilder {
       final List<KnowledgePanel> result = <KnowledgePanel>[];
 
       for (final String panelId in panelIds ?? <String>[]) {
-        final KnowledgePanel? panelElement =
-            getKnowledgePanel(product, panelId);
+        final KnowledgePanel? panel = getKnowledgePanel(product, panelId);
 
-        if (panelElement == null) {
+        if (panel == null) {
           continue;
         }
 
         result.addAll(getSquarePanels(
-          panel: panelElement,
+          panel: panel,
           product: product,
         ));
       }
@@ -115,15 +115,15 @@ class KnowledgePanelsBuilder {
       return result;
     }
 
-    final KnowledgePanel? panelElement =
+    final KnowledgePanel? panel =
         getKnowledgePanel(product, element.panelElement?.panelId ?? '');
 
-    if (panelElement == null) {
+    if (panel == null) {
       return <KnowledgePanel>[];
     }
 
     return getSquarePanels(
-      panel: panelElement,
+      panel: panel,
       product: product,
     );
   }
@@ -361,7 +361,8 @@ class KnowledgePanelsBuilder {
 
   /// Title card of a knowledge panel, like a one-line score widget, or title.
   static Widget? getPanelSummaryWidget(
-    final KnowledgePanel knowledgePanel, {
+    final KnowledgePanel knowledgePanel,
+    final Product product, {
     required final bool isClickable,
     final EdgeInsetsGeometry? margin,
     final EdgeInsetsGeometry? padding,
@@ -372,14 +373,30 @@ class KnowledgePanelsBuilder {
 
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
-        return ScoreCard.titleElement(
-          titleElement: knowledgePanel.titleElement!,
+        return KnowledgePanelScoreCard(
+          element: knowledgePanel.titleElement!,
           isClickable: isClickable,
-          margin: margin,
         );
       case TitleElementType.PERCENTAGE:
       case null:
       case TitleElementType.UNKNOWN:
+        for (final KnowledgePanelElement element
+            in knowledgePanel.elements ?? <KnowledgePanelElement>[]) {
+          if (element.elementType == KnowledgePanelElementType.PANEL_GROUP) {
+            final List<KnowledgePanel> squarePanels = lookForSquarePanels(
+              element: element,
+              product: product,
+            );
+            if (squarePanels.isNotEmpty) {
+              return KnowledgePanelSquareCard(
+                panels: squarePanels,
+                product: product,
+                square: false,
+              );
+            }
+          }
+        }
+
         return Padding(
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: SMALL_SPACE,

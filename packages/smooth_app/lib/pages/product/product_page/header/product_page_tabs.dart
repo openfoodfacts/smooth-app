@@ -3,7 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/knowledge_panel/preview_knowledge_panels/environment_knowledge_panel.dart';
+import 'package:smooth_app/knowledge_panel/preview_knowledge_panels/health_knowledge_panel.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
@@ -25,11 +28,13 @@ enum ProductPageHarcodedTabs {
 class ProductPageTab {
   const ProductPageTab({
     required this.id,
+    this.indicatorColor,
     required this.labelBuilder,
     required this.builder,
   });
 
   final String id;
+  final Color? indicatorColor;
   final String Function(BuildContext) labelBuilder;
   final Widget Function(BuildContext, Product) builder;
 }
@@ -57,6 +62,24 @@ class ProductPageTabBar extends StatelessWidget {
                 value: tab,
               );
             }).toList(growable: false),
+            leadingItems: tabs.map(
+              (ProductPageTab tab) {
+                if (tab.indicatorColor == null) {
+                  return null;
+                }
+
+                return Container(
+                  width: 20.0,
+                  height: 20.0,
+                  margin:
+                      const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+                  decoration: BoxDecoration(
+                    color: tab.indicatorColor,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                );
+              },
+            ),
             onTabChanged: (_) {},
           ),
         ),
@@ -95,15 +118,35 @@ class ProductPageTabBar extends StatelessWidget {
 
       children = children.sublist(1);
 
+      Color? indicatorColor;
+      late Widget child;
+
+      if (id == 'health_card') {
+        indicatorColor = _getIndicatorColor(product.nutriscore);
+        child = HealthKnowledgePanel(
+          product: product,
+          panels: children,
+        );
+      } else if (id == 'environment_card') {
+        indicatorColor = _getIndicatorColor(product.ecoscoreGrade);
+        child = EnvironmentKnowledgePanel(
+          product: product,
+          panels: children,
+        );
+      } else {
+        child = ListView.builder(
+          padding: EdgeInsetsDirectional.zero,
+          itemCount: children.length,
+          itemBuilder: (BuildContext context, int index) => children[index],
+        );
+      }
+
       tabs.add(
         ProductPageTab(
           id: id,
+          indicatorColor: indicatorColor,
           labelBuilder: (_) => knowledgePanelTitle.title,
-          builder: (_, __) => ListView.builder(
-            padding: EdgeInsetsDirectional.zero,
-            itemCount: children.length - 1,
-            itemBuilder: (BuildContext context, int index) => children[index],
-          ),
+          builder: (_, __) => child,
         ),
       );
     }
@@ -127,6 +170,23 @@ class ProductPageTabBar extends StatelessWidget {
     }
 
     return tabs;
+  }
+
+  static Color? _getIndicatorColor(String? grade) {
+    switch (grade) {
+      case 'a':
+        return Colors.green;
+      case 'b':
+        return Colors.lightGreen;
+      case 'c':
+        return Colors.yellow;
+      case 'd':
+        return Colors.orange;
+      case 'e':
+        return Colors.red;
+      default:
+        return null;
+    }
   }
 
   static List<ProductPageTab> _addHardCodedTabs(

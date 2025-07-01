@@ -4479,5 +4479,9 @@
   "prices_proof_error": "Authentication failed, unable to fetch proofs",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "product_summary_ultra_processed_product": "Ultra-processed product",
+  "@product_summary_ultra_processed_product": {
+    "description": "Label indicating that the product is ultra-processed"
   }
 }

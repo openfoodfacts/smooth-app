@@ -213,6 +213,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   }
 
   Widget _buildSummaryCardContent(BuildContext context) {
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
@@ -290,10 +292,24 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       }
     }
     final Widget attributesContainer = displayedGroups.isNotEmpty
-        ? Container(
-            alignment: AlignmentDirectional.topStart,
-            margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
-            child: Column(children: displayedGroups),
+        ? Padding(
+            padding: const EdgeInsets.symmetric(vertical: VERY_LARGE_SPACE),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  width: 20.0,
+                  height: 20.0,
+                  decoration: BoxDecoration(
+                    color: themeExtension.error,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: SMALL_SPACE),
+                Text(
+                  localizations.product_summary_ultra_processed_product,
+                ),
+              ],
+            ),
           )
         : const SizedBox(height: SMALL_SPACE);
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
@@ -339,10 +355,11 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
               SmoothHapticFeedback.confirm();
             });
           },
+          showAttributes: true,
         ),
         if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
           ProductIncompleteCard(product: upToDateProduct),
-        ..._getAttributes(scoreAttributes),
+        // ..._getAttributes(scoreAttributes),
         attributesContainer,
         ...summaryCardButtons,
       ],

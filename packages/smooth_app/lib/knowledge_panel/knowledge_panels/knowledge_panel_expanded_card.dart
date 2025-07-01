@@ -75,6 +75,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   List<Widget>? _getSummary(KnowledgePanel panel) {
     final Widget? summary = KnowledgePanelsBuilder.getPanelSummaryWidget(
       panel,
+      product,
       isClickable: false,
     );
 
