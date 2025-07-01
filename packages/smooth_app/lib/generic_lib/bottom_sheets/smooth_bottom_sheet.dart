@@ -345,6 +345,8 @@ class SmoothModalSheet extends StatelessWidget {
 
     if (expandBody) {
       bodyChild = Expanded(child: bodyChild);
+    } else {
+      bodyChild = Flexible(child: SingleChildScrollView(child: bodyChild));
     }
 
     return ClipRRect(
@@ -353,11 +355,9 @@ class SmoothModalSheet extends StatelessWidget {
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[header, bodyChild],
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[header, bodyChild],
         ),
       ),
     );
