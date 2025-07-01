@@ -4679,4 +4679,8 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Preverjanje pristnosti ni uspelo, dokazov ni mogoče pridobiti';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

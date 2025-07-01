@@ -4660,4 +4660,8 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'تصديق ناڪام ٿي، ثبوت حاصل ڪرڻ ۾ ناڪام';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

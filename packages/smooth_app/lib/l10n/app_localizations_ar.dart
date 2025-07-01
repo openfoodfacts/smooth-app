@@ -4655,4 +4655,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'فشل المصادقة، غير قادر على جلب الأدلة';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

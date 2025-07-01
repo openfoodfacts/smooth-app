@@ -4720,4 +4720,8 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentificarea a eșuat, imposibil de preluat dovezile';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

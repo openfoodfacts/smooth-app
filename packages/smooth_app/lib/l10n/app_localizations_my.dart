@@ -4666,4 +4666,8 @@ class AppLocalizationsMy extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'အထောက်အထားစိစစ်ခြင်း မအောင်မြင်ပါ၊ အထောက်အထားများကို ထုတ်ယူ၍မရပါ။';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

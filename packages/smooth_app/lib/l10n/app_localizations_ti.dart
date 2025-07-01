@@ -4660,4 +4660,8 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'ምርግጋጽ ምርግጋጽ ፈሺሉ፣ መርትዖታት ከምጽእ ኣይከኣለን';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

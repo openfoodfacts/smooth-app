@@ -4677,4 +4677,8 @@ class AppLocalizationsNb extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentisering mislyktes, ugyldig å hente bekreftelser';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

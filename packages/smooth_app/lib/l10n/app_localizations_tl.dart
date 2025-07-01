@@ -4663,4 +4663,8 @@ class AppLocalizationsTl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Nabigo ang pagpapatotoo, hindi nakakuha ng mga patunay';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4662,4 +4662,8 @@ class AppLocalizationsXh extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Ungqinisiso akuphumelelanga, akukwazanga ukufumana ubungqina';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

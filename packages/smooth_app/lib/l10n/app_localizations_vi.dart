@@ -4686,4 +4686,8 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Xác thực không thành công, không thể lấy bằng chứng';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

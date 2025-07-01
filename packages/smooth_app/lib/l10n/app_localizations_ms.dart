@@ -4665,4 +4665,8 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Pengesahan gagal, tidak dapat mengambil bukti';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

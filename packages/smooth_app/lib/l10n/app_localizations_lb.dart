@@ -4664,4 +4664,8 @@ class AppLocalizationsLb extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Authentifikatioun feelgeschloen, Beweiser konnten net ofgeruff ginn';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

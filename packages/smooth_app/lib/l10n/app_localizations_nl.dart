@@ -4720,4 +4720,8 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Authenticatie mislukt, kan geen bewijzen ophalen';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

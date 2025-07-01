@@ -4663,4 +4663,8 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ആധികാരികത ഉറപ്പാക്കൽ പരാജയപ്പെട്ടു, തെളിവുകൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

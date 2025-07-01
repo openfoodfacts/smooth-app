@@ -4667,4 +4667,8 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'প্রমাণীকরণ ব্যর্থ হয়েছে, প্রমাণ সংগ্রহ করা যায়নি।';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

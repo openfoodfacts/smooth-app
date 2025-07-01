@@ -4667,4 +4667,8 @@ class AppLocalizationsOr extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ପ୍ରାମାଣିକତା ବିଫଳ ହେଲା, ପ୍ରମାଣ ଆଣିବାକୁ ଅସମର୍ଥ';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4673,4 +4673,8 @@ class AppLocalizationsEu extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentifikazioak huts egin du, ezin dira frogak lortu';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

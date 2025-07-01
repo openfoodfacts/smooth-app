@@ -4662,4 +4662,8 @@ class AppLocalizationsTs extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Ku tiyisisiwa ku tsandzekile, ku tsandzeka ku teka vumbhoni';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

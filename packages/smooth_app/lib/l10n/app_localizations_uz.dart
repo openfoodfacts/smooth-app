@@ -4662,4 +4662,8 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentifikatsiya amalga oshmadi, dalillarni olib bo‘lmadi';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

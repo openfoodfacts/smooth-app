@@ -1,40 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-
-class EnvironmentKnowledgePanel extends StatelessWidget {
-  const EnvironmentKnowledgePanel({
-    super.key,
-    required this.product,
-  });
-
-  final Product product;
-
-  @override
-  Widget build(BuildContext context) {
-    final KnowledgePanel nutriscorePanel =
-        KnowledgePanelsBuilder.getKnowledgePanel(
-      product,
-      'environmental_score',
-    )!;
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        NewKnowledgePanelTitleCard(
-          title: nutriscorePanel.titleElement?.title ?? '',
-          subtitle: nutriscorePanel.titleElement?.subtitle ?? '',
-          iconUrl: nutriscorePanel.titleElement?.iconUrl,
-        ),
-      ],
-    );
-  }
-}
 
 class NewKnowledgePanelTitleCard extends StatelessWidget {
   const NewKnowledgePanelTitleCard({
@@ -50,7 +19,6 @@ class NewKnowledgePanelTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();

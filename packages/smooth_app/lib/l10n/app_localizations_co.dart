@@ -4662,4 +4662,8 @@ class AppLocalizationsCo extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'L\'autentificazione hà fiascatu, ùn hè micca pussibule di ottene prove';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

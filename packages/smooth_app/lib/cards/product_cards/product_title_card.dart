@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -17,6 +18,7 @@ class ProductTitleCard extends StatelessWidget {
     this.isPictureVisible = true,
     this.dense = false,
     this.onRemove,
+    this.showAttributes = false,
   });
 
   final Product product;
@@ -25,6 +27,7 @@ class ProductTitleCard extends StatelessWidget {
   final String? heroTag;
   final OnRemoveCallback? onRemove;
   final bool isPictureVisible;
+  final bool showAttributes;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class ProductTitleCard extends StatelessWidget {
 
     Widget child = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         ConstrainedBox(
           constraints: BoxConstraints(
@@ -93,7 +96,7 @@ class ProductTitleCard extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsetsDirectional.only(
-                    start: SMALL_SPACE,
+                    start: MEDIUM_SPACE,
                     top: VERY_SMALL_SPACE,
                     bottom: VERY_SMALL_SPACE,
                   ),

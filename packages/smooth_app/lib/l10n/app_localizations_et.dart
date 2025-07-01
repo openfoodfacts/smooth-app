@@ -4662,4 +4662,8 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentimine ebaõnnestus, tõendite hankimine ebaõnnestus.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

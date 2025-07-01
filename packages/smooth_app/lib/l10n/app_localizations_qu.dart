@@ -4663,4 +4663,8 @@ class AppLocalizationsQu extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Chiqaqchayqa manam atirqanchu, pruebakunata mana apamuyta atispa';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

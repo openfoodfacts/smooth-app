@@ -4663,4 +4663,8 @@ class AppLocalizationsMi extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'I rahua te motuhēhēnga, kāore i taea te tiki tohu';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

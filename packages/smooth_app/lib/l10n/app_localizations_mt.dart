@@ -4663,4 +4663,8 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'L-awtentikazzjoni falliet, ma setgħux jinġabru provi';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

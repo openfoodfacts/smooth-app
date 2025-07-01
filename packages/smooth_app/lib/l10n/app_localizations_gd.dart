@@ -4663,4 +4663,8 @@ class AppLocalizationsGd extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Dh’fhàillig dearbhadh, cha ghabh dearbhaidhean fhaighinn';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

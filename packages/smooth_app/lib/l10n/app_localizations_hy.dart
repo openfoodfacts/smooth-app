@@ -4663,4 +4663,8 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Նույնականացումը ձախողվեց, ապացույցները հնարավոր չէ ստանալ';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

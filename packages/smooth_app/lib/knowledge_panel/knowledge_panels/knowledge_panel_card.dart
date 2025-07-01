@@ -74,6 +74,7 @@ class KnowledgePanelCard extends StatelessWidget {
         child:
             KnowledgePanelsBuilder.getPanelSummaryWidget(
               panel,
+              product,
               isClickable: improvedIsClickable,
               margin: EdgeInsets.zero,
             ) ??

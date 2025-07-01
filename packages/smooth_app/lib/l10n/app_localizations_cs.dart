@@ -4690,4 +4690,8 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'Ověření selhalo, nelze načíst důkazy';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

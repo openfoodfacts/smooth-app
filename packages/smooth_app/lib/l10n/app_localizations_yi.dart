@@ -4661,4 +4661,8 @@ class AppLocalizationsYi extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'אויטענטיפֿיקאַציע דורכגעפֿאַלן, נישט געקענט ברענגען באַווײַזן';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

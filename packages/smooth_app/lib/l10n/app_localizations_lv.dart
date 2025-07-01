@@ -4663,4 +4663,8 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentifikācija neizdevās, nevar izgūt pierādījumus';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

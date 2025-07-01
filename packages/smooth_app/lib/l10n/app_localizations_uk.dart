@@ -4719,4 +4719,8 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Не вдалося пройти автентифікацію, неможливо отримати докази';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

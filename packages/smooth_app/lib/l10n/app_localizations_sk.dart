@@ -4705,4 +4705,8 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Overenie zlyhalo, nepodarilo sa načítať dôkazy';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

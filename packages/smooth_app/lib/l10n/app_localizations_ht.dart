@@ -4661,4 +4661,8 @@ class AppLocalizationsHt extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Otantifikasyon an echwe, pa posib pou jwenn prèv yo.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

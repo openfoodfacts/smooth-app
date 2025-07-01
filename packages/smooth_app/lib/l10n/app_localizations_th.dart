@@ -4659,4 +4659,8 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'การตรวจสอบสิทธิ์ล้มเหลว ไม่สามารถดึงหลักฐานได้';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

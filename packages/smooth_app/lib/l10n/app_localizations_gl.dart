@@ -4664,4 +4664,8 @@ class AppLocalizationsGl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Fallou a autenticación, non se puideron obter as probas';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

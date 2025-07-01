@@ -4660,4 +4660,8 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'প্ৰমাণীকৰণ বিফল, প্ৰমাণ আনিব পৰা নাই';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

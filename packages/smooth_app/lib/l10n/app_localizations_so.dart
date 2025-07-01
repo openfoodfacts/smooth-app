@@ -4662,4 +4662,8 @@ class AppLocalizationsSo extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Xaqiijinta waa fashilantay, waa la keeni waayay cadeymo';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

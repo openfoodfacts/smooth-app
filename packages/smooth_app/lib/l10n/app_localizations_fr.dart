@@ -4759,4 +4759,8 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'L\'authentification a échoué, impossible de récupérer les preuves';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

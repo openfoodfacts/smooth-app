@@ -4715,4 +4715,8 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Uwierzytelnianie nie powiodło się, nie można pobrać dowodów';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

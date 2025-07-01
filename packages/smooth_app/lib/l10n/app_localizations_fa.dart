@@ -4661,4 +4661,8 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'احراز هویت ناموفق بود، نتوانست مدارک را دریافت کند';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

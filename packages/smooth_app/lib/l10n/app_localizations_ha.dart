@@ -4661,4 +4661,8 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'Tabbatarwa ya gaza, ya kasa debo hujjoji';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4662,4 +4662,8 @@ class AppLocalizationsSt extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Netefatso e hlolehile, ha e khone ho fumana bopaki';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

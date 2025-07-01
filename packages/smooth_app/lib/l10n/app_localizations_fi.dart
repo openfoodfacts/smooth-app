@@ -4658,4 +4658,8 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Todennus epäonnistui, todisteiden nouto epäonnistui';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4726,4 +4726,8 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentifikavimas nepavyko, negalima gauti įrodymų';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

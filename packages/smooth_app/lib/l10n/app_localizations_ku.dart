@@ -4662,4 +4662,8 @@ class AppLocalizationsKu extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Rastkirin bi ser neket, delîl nehatin wergirtin';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

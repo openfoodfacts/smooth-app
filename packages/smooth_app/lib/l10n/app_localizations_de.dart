@@ -4753,4 +4753,8 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Authentifizierung fehlgeschlagen, Nachweise konnten nicht abgerufen werden';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

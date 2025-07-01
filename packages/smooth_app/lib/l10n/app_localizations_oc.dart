@@ -4662,4 +4662,8 @@ class AppLocalizationsOc extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'L\'autentificacion a fracassat, impossible de recuperar las pròvas';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

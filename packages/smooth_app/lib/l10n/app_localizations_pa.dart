@@ -4662,4 +4662,8 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ਪ੍ਰਮਾਣੀਕਰਨ ਅਸਫਲ ਰਿਹਾ, ਸਬੂਤ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

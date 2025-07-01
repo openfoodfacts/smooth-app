@@ -4717,4 +4717,8 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'L\'autenticació ha fallat, no s\'han pogut obtenir proves';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4663,4 +4663,8 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ప్రామాణీకరణ విఫలమైంది, రుజువులను పొందలేకపోయింది.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

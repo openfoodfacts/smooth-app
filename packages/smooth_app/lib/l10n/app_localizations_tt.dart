@@ -4662,4 +4662,8 @@ class AppLocalizationsTt extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Аутентификация уңышсыз, дәлилләр ала алмады';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

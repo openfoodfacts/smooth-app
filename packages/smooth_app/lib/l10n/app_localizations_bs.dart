@@ -4664,4 +4664,8 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentifikacija nije uspjela, nije moguće preuzeti dokaze';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4663,4 +4663,8 @@ class AppLocalizationsKa extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ავთენტიფიკაცია ვერ მოხერხდა, მტკიცებულებების მოძიება ვერ მოხერხდა';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4664,4 +4664,8 @@ class AppLocalizationsMg extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Tsy nahomby ny fanamarinana, tsy afaka naka porofo';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4679,4 +4679,8 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Godkendelse mislykkedes, kunne ikke hente beviser';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4663,4 +4663,8 @@ class AppLocalizationsKy extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Аныктыгын текшерүү ишке ашкан жок, далилдерди алуу мүмкүн эмес';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

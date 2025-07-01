@@ -4660,4 +4660,8 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'ማረጋገጥ አልተሳካም፣ ማስረጃዎችን ማምጣት አልተቻለም';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

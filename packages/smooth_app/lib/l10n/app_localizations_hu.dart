@@ -4704,4 +4704,8 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'A hitelesítés sikertelen, a bizonyítékok nem kérhetők le.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4670,4 +4670,8 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentisering misslyckades, det gick inte att hämta bevis';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

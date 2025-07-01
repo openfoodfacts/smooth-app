@@ -4664,4 +4664,8 @@ class AppLocalizationsSi extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'සත්‍යාපනය අසාර්ථක විය, සාක්ෂි ලබා ගැනීමට නොහැකි විය.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4662,4 +4662,8 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Auðkenning mistókst, ekki tókst að sækja sönnunargögn';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

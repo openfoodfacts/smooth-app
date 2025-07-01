@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -40,38 +41,43 @@ class KnowledgePanelGroupCard extends StatelessWidget {
           if (groupElement.title != null && groupElement.title!.isNotEmpty)
             Padding(
               padding: EdgeInsetsDirectional.only(
-                top: position == 0 ? VERY_SMALL_SPACE : VERY_LARGE_SPACE,
+                top: position == 0 ? 0.0 : VERY_LARGE_SPACE,
               ),
               child: Semantics(
                 explicitChildNodes: true,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: lightTheme
-                        ? themeExtension.primaryLight
+                        ? themeExtension.primaryMedium
                         : themeExtension.primarySemiDark,
-                    borderRadius: ANGULAR_BORDER_RADIUS,
                   ),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: MEDIUM_SPACE,
+                      horizontal: VERY_LARGE_SPACE,
                       vertical: SMALL_SPACE,
                     ),
                     child: SizedBox(
                       width: double.infinity,
                       child: Row(
                         children: <Widget>[
-                          SmoothModalSheetHeaderPrefixIndicator(
-                            color: lightTheme
-                                ? themeExtension.primaryUltraBlack
-                                : themeExtension.primaryLight,
+                          SvgPicture.asset(
+                            'assets/icons/orange_mono.svg',
+                            width: 16.0,
+                            height: 16.0,
+                            colorFilter: ColorFilter.mode(
+                              lightTheme
+                                  ? themeExtension.primaryUltraBlack
+                                  : themeExtension.primaryLight,
+                              BlendMode.srcIn,
+                            ),
                           ),
-                          const SizedBox(width: SMALL_SPACE),
+                          const SizedBox(width: MEDIUM_SPACE),
                           Text(
                             groupElement.title!,
                             textAlign: TextAlign.start,
                             style: themeData.textTheme.titleSmall!.copyWith(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w700,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w600,
                               color: lightTheme
                                   ? themeExtension.primaryUltraBlack
                                   : themeExtension.primaryLight,

@@ -4662,4 +4662,8 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Autentisering mislyktes, kan ikke hente bevis';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

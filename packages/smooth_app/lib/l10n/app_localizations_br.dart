@@ -4663,4 +4663,8 @@ class AppLocalizationsBr extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'C\'hwitet en deus an gwiriekaat, n\'haller ket adtapout ar brouennoù';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

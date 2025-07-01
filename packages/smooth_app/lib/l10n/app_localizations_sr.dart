@@ -4662,4 +4662,8 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Authentication failed, unable to fetch proofs';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4761,4 +4761,8 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Η πιστοποίηση απέτυχε, δεν είναι δυνατή η ανάκτηση αποδείξεων';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

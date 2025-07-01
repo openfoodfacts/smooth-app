@@ -4662,4 +4662,8 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'Methodd y dilysu, ni ellid nôl profion';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

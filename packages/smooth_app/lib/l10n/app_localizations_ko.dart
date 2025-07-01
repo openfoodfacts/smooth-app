@@ -4611,4 +4611,8 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get prices_proof_error => '인증에 실패하여 증명을 가져올 수 없습니다.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

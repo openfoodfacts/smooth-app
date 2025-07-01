@@ -4662,4 +4662,8 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'Tiɲɛni ma ɲɛ, a ma se ka daliluw sɔrɔ';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -133,7 +133,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                 },
               ),
             ),
-            if (isClickable) Icon(ConstantIcons.forwardIcon),
+            if (isClickable)
+              Icon(
+                ConstantIcons.forwardIcon,
+                size: 16.0,
+              ),
           ],
         ),
       ),

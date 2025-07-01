@@ -4663,4 +4663,8 @@ class AppLocalizationsNe extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'प्रमाणीकरण असफल भयो, प्रमाणहरू प्राप्त गर्न असमर्थ';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

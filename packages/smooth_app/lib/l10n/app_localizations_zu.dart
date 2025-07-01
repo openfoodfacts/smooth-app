@@ -4661,4 +4661,8 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Ukuqinisekisa kuhlulekile, ayikwazanga ukulanda ubufakazi';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4745,6 +4745,10 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Falha na autenticação, não foi possível obter provas';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).

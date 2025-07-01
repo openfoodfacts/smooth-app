@@ -4663,4 +4663,8 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ದೃಢೀಕರಣ ವಿಫಲವಾಗಿದೆ, ಪುರಾವೆಗಳನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

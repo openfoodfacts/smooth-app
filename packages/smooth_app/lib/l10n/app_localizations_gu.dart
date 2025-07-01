@@ -4661,4 +4661,8 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'પ્રમાણીકરણ નિષ્ફળ ગયું, પુરાવા મેળવી શક્યા નહીં.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

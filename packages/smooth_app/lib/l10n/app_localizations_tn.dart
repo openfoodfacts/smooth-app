@@ -4664,4 +4664,8 @@ class AppLocalizationsTn extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Netefatso e paletswe, ga e kgone go tsaya bosupi';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -8152,6 +8152,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Authentication failed, unable to fetch proofs'**
   String get prices_proof_error;
+
+  /// Label indicating that the product is ultra-processed
+  ///
+  /// In en, this message translates to:
+  /// **'Ultra-processed product'**
+  String get product_summary_ultra_processed_product;
 }
 
 class _AppLocalizationsDelegate

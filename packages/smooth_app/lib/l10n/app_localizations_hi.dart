@@ -4661,4 +4661,8 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'प्रमाणीकरण विफल, प्रमाण प्राप्त करने में असमर्थ';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

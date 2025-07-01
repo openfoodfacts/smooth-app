@@ -4703,4 +4703,8 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Аутентификация не удалась, невозможно получить доказательства';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

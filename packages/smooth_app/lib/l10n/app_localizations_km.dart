@@ -4662,4 +4662,8 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ការផ្ទៀងផ្ទាត់បានបរាជ័យ មិនអាចទៅយកភស្តុតាងបានទេ។';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4661,4 +4661,8 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'Otentikasi gagal, ora bisa njupuk bukti';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

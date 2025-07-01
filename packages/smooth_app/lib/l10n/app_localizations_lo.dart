@@ -4662,4 +4662,8 @@ class AppLocalizationsLo extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ການພິສູດຢືນຢັນລົ້ມເຫລວ, ບໍ່ສາມາດດຶງຂໍ້ມູນຫຼັກຖານໄດ້';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

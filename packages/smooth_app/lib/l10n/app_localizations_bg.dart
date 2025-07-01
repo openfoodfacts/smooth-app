@@ -4706,4 +4706,8 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Удостоверяването не бе успешно, не можаха да се получат доказателства';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

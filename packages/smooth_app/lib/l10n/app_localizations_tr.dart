@@ -4682,4 +4682,8 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Kimlik doğrulama başarısız oldu, kanıtlar alınamadı';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

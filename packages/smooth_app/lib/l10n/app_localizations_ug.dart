@@ -4661,4 +4661,8 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get prices_proof_error => 'دەلىللەش مەغلۇپ بولدى ، ئىسپات ئالالمىدى';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

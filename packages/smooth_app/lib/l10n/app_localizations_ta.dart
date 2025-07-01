@@ -4676,4 +4676,8 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'அங்கீகாரம் தோல்வியடைந்தது, சான்றுகளைப் பெற முடியவில்லை.';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }

@@ -4662,4 +4662,8 @@ class AppLocalizationsCv extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Аутентификаци ӑнӑҫсӑр пулчӗ, ҫирӗплетӳсем илме май килмерӗ';
+
+  @override
+  String get product_summary_ultra_processed_product =>
+      'Ultra-processed product';
 }
