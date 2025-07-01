@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
@@ -7,6 +8,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 
@@ -31,11 +33,37 @@ class ProductTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget trailing = _ProductTitleCardTrailing(selectable: isSelectable);
+    Widget trailing = _ProductTitleCardTrailing(selectable: isSelectable);
 
     final Size imageSize = Size.square(
       MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25),
     );
+
+    if (showAttributes) {
+      final UserPreferences userPreferences = context.read<UserPreferences>();
+      final List<String> excludedAttributeIds = userPreferences
+          .getExcludedAttributeIds();
+      final List<Attribute> scoreAttributes = getPopulatedAttributes(
+        product,
+        SCORE_ATTRIBUTE_IDS,
+        excludedAttributeIds,
+      );
+
+      trailing = SizedBox(
+        height: 36.0,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: scoreAttributes.length,
+          itemBuilder: (BuildContext context, int index) => SvgPicture.network(
+            scoreAttributes[index].iconUrl!,
+            height: 36.0,
+            fit: BoxFit.contain,
+          ),
+          separatorBuilder: (BuildContext context, int index) =>
+              const SizedBox(width: MEDIUM_SPACE),
+        ),
+      );
+    }
 
     Widget child = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,9 +75,8 @@ class ProductTitleCard extends StatelessWidget {
           ),
           child: _ProductTitleCardName(selectable: isSelectable, dense: dense),
         ),
-        const SizedBox(height: SMALL_SPACE),
         _ProductTitleCardBrand(selectable: isSelectable, dense: dense),
-        const SizedBox(height: 2.0),
+        const Spacer(),
         trailing,
       ],
     );

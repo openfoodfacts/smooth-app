@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/knowledge_panel/preview_knowledge_panels/environment_knowledge_panel.dart';
 import 'package:smooth_app/knowledge_panel/preview_knowledge_panels/health_knowledge_panel.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
