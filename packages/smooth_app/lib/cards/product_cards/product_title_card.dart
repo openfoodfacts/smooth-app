@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 
 class ProductTitleCard extends StatelessWidget {
@@ -22,7 +21,6 @@ class ProductTitleCard extends StatelessWidget {
     this.dense = false,
     this.onRemove,
     this.showAttributes = false,
-    this.showAttributes = false,
   });
 
   final Product product;
@@ -31,7 +29,6 @@ class ProductTitleCard extends StatelessWidget {
   final String? heroTag;
   final OnRemoveCallback? onRemove;
   final bool isPictureVisible;
-  final bool showAttributes;
   final bool showAttributes;
 
   @override
@@ -70,7 +67,6 @@ class ProductTitleCard extends StatelessWidget {
 
     Widget child = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         ConstrainedBox(
@@ -127,7 +123,6 @@ class ProductTitleCard extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsetsDirectional.only(
-                    start: MEDIUM_SPACE,
                     start: MEDIUM_SPACE,
                     top: VERY_SMALL_SPACE,
                     bottom: VERY_SMALL_SPACE,
