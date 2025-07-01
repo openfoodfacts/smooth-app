@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_model.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -40,50 +40,45 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider<ProductModel>(
-        create: (final BuildContext context) => _model,
-        builder: (final BuildContext context, _) {
-          context.watch<ProductModel>();
-          context.watch<LocalDatabase>();
-          _model.setLocalUpToDate();
+    create: (final BuildContext context) => _model,
+    builder: (final BuildContext context, _) {
+      context.watch<ProductModel>();
+      context.watch<LocalDatabase>();
+      _model.setLocalUpToDate();
 
-          switch (_model.loadingStatus) {
-            case ProductLoadingStatus.LOADING:
-              return SmoothProductCardTemplate(
-                barcode: widget.barcode,
-              );
-            case ProductLoadingStatus.DOWNLOADING:
-              return SmoothProductCardTemplate(
-                barcode: widget.barcode,
-                message:
-                    AppLocalizations.of(context).loading_dialog_default_title,
-              );
-            case ProductLoadingStatus.LOADED:
-              if (_model.product != null) {
-                return SmoothProductCardItemFound(
-                  heroTag: '${_model.product!.barcode!}_${_model.hashCode}',
-                  product: _model.product!,
-                  onTap: widget.onTap,
-                  onLongPress: widget.onLongPress,
-                  backgroundColor: widget.backgroundColor,
-                );
-              }
-              break;
-            case ProductLoadingStatus.ERROR:
-          }
-          Logs.w(
-            'product list item simple / could not load ${widget.barcode}',
-          );
+      switch (_model.loadingStatus) {
+        case ProductLoadingStatus.LOADING:
+          return SmoothProductCardTemplate(barcode: widget.barcode);
+        case ProductLoadingStatus.DOWNLOADING:
           return SmoothProductCardTemplate(
-            message: _getErrorMessage(AppLocalizations.of(context)),
             barcode: widget.barcode,
-            actionButton: IconButton(
-              iconSize: MINIMUM_TOUCH_SIZE,
-              icon: const Icon(Icons.refresh),
-              onPressed: () async => _model.download(),
-            ),
+            message: AppLocalizations.of(context).loading_dialog_default_title,
           );
-        },
+        case ProductLoadingStatus.LOADED:
+          if (_model.product != null) {
+            return SmoothProductCardItemFound(
+              heroTag: '${_model.product!.barcode!}_${_model.hashCode}',
+              product: _model.product!,
+              onTap: widget.onTap,
+              onLongPress: widget.onLongPress,
+              backgroundColor: widget.backgroundColor,
+            );
+          }
+          break;
+        case ProductLoadingStatus.ERROR:
+      }
+      Logs.w('product list item simple / could not load ${widget.barcode}');
+      return SmoothProductCardTemplate(
+        message: _getErrorMessage(AppLocalizations.of(context)),
+        barcode: widget.barcode,
+        actionButton: IconButton(
+          iconSize: MINIMUM_TOUCH_SIZE,
+          icon: const Icon(Icons.refresh),
+          onPressed: () async => _model.download(),
+        ),
       );
+    },
+  );
 
   String _getErrorMessage(final AppLocalizations appLocalizations) =>
       _model.loadingError?.getErrorTitle(appLocalizations) ??

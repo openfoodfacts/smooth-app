@@ -16,14 +16,8 @@ class SmoothCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
-      child: Padding(
-        padding: padding,
-        child: child,
-      ),
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+      child: Padding(padding: padding, child: child),
     );
   }
 }

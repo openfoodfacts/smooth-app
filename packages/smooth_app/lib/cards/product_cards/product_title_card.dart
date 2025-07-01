@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -21,6 +22,7 @@ class ProductTitleCard extends StatelessWidget {
     this.dense = false,
     this.onRemove,
     this.showAttributes = false,
+    this.showAttributes = false,
   });
 
   final Product product;
@@ -30,20 +32,20 @@ class ProductTitleCard extends StatelessWidget {
   final OnRemoveCallback? onRemove;
   final bool isPictureVisible;
   final bool showAttributes;
+  final bool showAttributes;
 
   @override
   Widget build(BuildContext context) {
-    Widget trailing = _ProductTitleCardTrailing(
-      selectable: isSelectable,
-    );
+    Widget trailing = _ProductTitleCardTrailing(selectable: isSelectable);
 
-    final Size imageSize =
-        Size.square(MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25));
+    final Size imageSize = Size.square(
+      MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25),
+    );
 
     if (showAttributes) {
       final UserPreferences userPreferences = context.read<UserPreferences>();
-      final List<String> excludedAttributeIds =
-          userPreferences.getExcludedAttributeIds();
+      final List<String> excludedAttributeIds = userPreferences
+          .getExcludedAttributeIds();
       final List<Attribute> scoreAttributes = getPopulatedAttributes(
         product,
         SCORE_ATTRIBUTE_IDS,
@@ -60,9 +62,8 @@ class ProductTitleCard extends StatelessWidget {
             height: 36.0,
             fit: BoxFit.contain,
           ),
-          separatorBuilder: (BuildContext context, int index) => const SizedBox(
-            width: MEDIUM_SPACE,
-          ),
+          separatorBuilder: (BuildContext context, int index) =>
+              const SizedBox(width: MEDIUM_SPACE),
         ),
       );
     }
@@ -70,20 +71,15 @@ class ProductTitleCard extends StatelessWidget {
     Widget child = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         ConstrainedBox(
           constraints: BoxConstraints(
             minHeight: DefaultTextStyle.of(context).style.fontSize! * 2.0,
           ),
-          child: _ProductTitleCardName(
-            selectable: isSelectable,
-            dense: dense,
-          ),
+          child: _ProductTitleCardName(selectable: isSelectable, dense: dense),
         ),
-        _ProductTitleCardBrand(
-          selectable: isSelectable,
-          dense: dense,
-        ),
+        _ProductTitleCardBrand(selectable: isSelectable, dense: dense),
         const Spacer(),
         trailing,
       ],
@@ -119,20 +115,19 @@ class ProductTitleCard extends StatelessWidget {
                     noImageBuilder: (_) => const PictureNotFound(),
                     onTap: !dense
                         ? () async => Navigator.push<void>(
-                              context,
-                              MaterialPageRoute<bool>(
-                                builder: (BuildContext context) =>
-                                    ProductImageGalleryView(
-                                  product: product,
-                                ),
-                              ),
-                            )
+                            context,
+                            MaterialPageRoute<bool>(
+                              builder: (BuildContext context) =>
+                                  ProductImageGalleryView(product: product),
+                            ),
+                          )
                         : null,
                   ),
                 ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsetsDirectional.only(
+                    start: MEDIUM_SPACE,
                     start: MEDIUM_SPACE,
                     top: VERY_SMALL_SPACE,
                     bottom: VERY_SMALL_SPACE,
@@ -160,10 +155,7 @@ class ProductTitleCard extends StatelessWidget {
 }
 
 class _ProductTitleCardName extends StatelessWidget {
-  const _ProductTitleCardName({
-    required this.selectable,
-    this.dense = false,
-  });
+  const _ProductTitleCardName({required this.selectable, this.dense = false});
 
   final bool dense;
   final bool selectable;
@@ -186,10 +178,7 @@ class _ProductTitleCardName extends StatelessWidget {
 }
 
 class _ProductTitleCardBrand extends StatelessWidget {
-  const _ProductTitleCardBrand({
-    required this.selectable,
-    this.dense = false,
-  });
+  const _ProductTitleCardBrand({required this.selectable, this.dense = false});
 
   final bool selectable;
   final bool dense;
@@ -212,9 +201,7 @@ class _ProductTitleCardBrand extends StatelessWidget {
 }
 
 class _ProductTitleCardTrailing extends StatelessWidget {
-  const _ProductTitleCardTrailing({
-    required this.selectable,
-  });
+  const _ProductTitleCardTrailing({required this.selectable});
 
   final bool selectable;
 

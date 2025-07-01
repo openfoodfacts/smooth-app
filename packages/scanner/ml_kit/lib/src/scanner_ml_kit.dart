@@ -19,9 +19,13 @@ class ScannerMLKit extends Scanner {
     required Future<bool> Function(String) onScan,
     required Future<void> Function() hapticFeedback,
     required Function(BuildContext)? onCameraFlashError,
-    required Function(String msg, String category,
-            {int? eventValue, String? barcode})
-        trackCustomEvent,
+    required Function(
+      String msg,
+      String category, {
+      int? eventValue,
+      String? barcode,
+    })
+    trackCustomEvent,
     required bool hasMoreThanOneCamera,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
@@ -56,8 +60,13 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
   final Future<bool> Function(String) onScan;
   final Future<void> Function() hapticFeedback;
 
-  final Function(String msg, String category,
-      {int? eventValue, String? barcode}) trackCustomEvent;
+  final Function(
+    String msg,
+    String category, {
+    int? eventValue,
+    String? barcode,
+  })
+  trackCustomEvent;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
 
@@ -83,8 +92,9 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     BarcodeFormat.upcE,
   ];
 
-  static const ValueKey<String> _visibilityKey =
-      ValueKey<String>('VisibilityDetector');
+  static const ValueKey<String> _visibilityKey = ValueKey<String>(
+    'VisibilityDetector',
+  );
 
   late CustomScannerController _cameraController;
   late final AppLifecycleListener _lifecycleListener;
@@ -135,12 +145,12 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             MobileScanner(
               controller: _cameraController.controller,
               fit: BoxFit.cover,
-              errorBuilder: (
-                BuildContext context,
-                MobileScannerException error,
-                Widget? child,
-              ) =>
-                  EMPTY_WIDGET,
+              errorBuilder:
+                  (
+                    BuildContext context,
+                    MobileScannerException error,
+                    Widget? child,
+                  ) => EMPTY_WIDGET,
               onDetect: (final BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
@@ -225,12 +235,13 @@ class _TorchIconState extends State<_TorchIcon> {
           return EMPTY_WIDGET;
         }
 
-        final CustomScannerController controller =
-            context.watch<CustomScannerController>();
+        final CustomScannerController controller = context
+            .watch<CustomScannerController>();
         final bool isTorchOn = controller.isTorchOn;
 
         return VisorButton(
-          tooltip: widget.toggleFlashModeTooltip ??
+          tooltip:
+              widget.toggleFlashModeTooltip ??
               'Turn ON or OFF the flash of the camera',
           onTap: () async {
             widget.hapticFeedback.call();
@@ -244,14 +255,8 @@ class _TorchIconState extends State<_TorchIcon> {
             }
           },
           child: switch (isTorchOn) {
-            true => const Icon(
-                Icons.flash_off,
-                color: Colors.white,
-              ),
-            false => const Icon(
-                Icons.flash_on,
-                color: Colors.white,
-              ),
+            true => const Icon(Icons.flash_off, color: Colors.white),
+            false => const Icon(Icons.flash_on, color: Colors.white),
           },
         );
       },
@@ -270,39 +275,36 @@ class _ToggleCameraIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CustomScannerController controller =
-        context.watch<CustomScannerController>();
+    final CustomScannerController controller = context
+        .watch<CustomScannerController>();
 
     return ValueListenableBuilder<int>(
-        valueListenable: controller.availableCameras,
-        builder: (BuildContext context, int cameras, _) {
-          if (cameras <= 1) {
-            return EMPTY_WIDGET;
-          }
+      valueListenable: controller.availableCameras,
+      builder: (BuildContext context, int cameras, _) {
+        if (cameras <= 1) {
+          return EMPTY_WIDGET;
+        }
 
-          return VisorButton(
-            onTap: () async {
-              hapticFeedback.call();
-              controller.toggleCamera();
+        return VisorButton(
+          onTap: () async {
+            hapticFeedback.call();
+            controller.toggleCamera();
+          },
+          tooltip:
+              toggleCameraModeTooltip ?? 'Switch between back and front camera',
+          child: ValueListenableBuilder<CameraFacing>(
+            valueListenable: controller.cameraFacing,
+            builder: (BuildContext context, CameraFacing state, Widget? child) {
+              switch (state) {
+                case CameraFacing.front:
+                  return const Icon(Icons.camera_front);
+                case CameraFacing.back:
+                  return const Icon(Icons.camera_rear);
+              }
             },
-            tooltip: toggleCameraModeTooltip ??
-                'Switch between back and front camera',
-            child: ValueListenableBuilder<CameraFacing>(
-              valueListenable: controller.cameraFacing,
-              builder: (
-                BuildContext context,
-                CameraFacing state,
-                Widget? child,
-              ) {
-                switch (state) {
-                  case CameraFacing.front:
-                    return const Icon(Icons.camera_front);
-                  case CameraFacing.back:
-                    return const Icon(Icons.camera_rear);
-                }
-              },
-            ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

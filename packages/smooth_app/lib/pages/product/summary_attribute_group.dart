@@ -29,13 +29,8 @@ class SummaryAttributeGroup extends StatelessWidget {
           Align(
             alignment: AlignmentDirectional.topStart,
             child: attributeChips.length == 1
-                ? SizedBox(
-                    width: double.infinity,
-                    child: attributeChips.first,
-                  )
-                : Wrap(
-                    children: attributeChips,
-                  ),
+                ? SizedBox(width: double.infinity, child: attributeChips.first)
+                : Wrap(children: attributeChips),
           ),
         ],
       ),
@@ -62,15 +57,12 @@ class _SummaryAttributeGroupHeader extends StatelessWidget {
           ),
           child: Text(
             groupName!,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium!
-                .apply(color: Colors.grey),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium!.apply(color: Colors.grey),
           ),
         )
       : isFirstGroup
-          ? const SizedBox(height: SMALL_SPACE)
-          : Divider(
-              color: context.lightTheme() ? Colors.black12 : Colors.white24,
-            );
+      ? const SizedBox(height: SMALL_SPACE)
+      : Divider(color: context.lightTheme() ? Colors.black12 : Colors.white24);
 }

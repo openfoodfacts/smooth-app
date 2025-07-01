@@ -50,49 +50,52 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar> {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: widget.destinations.mapIndexed((
-                int position,
-                SmoothNavigationDestination destination,
-              ) {
-                final int index = widget.destinations.indexOf(destination);
-                return Expanded(
-                  child: Material(
-                    type: MaterialType.transparency,
-                    child: Listener(
-                      onPointerDown: (PointerDownEvent event) =>
-                          _lastEvent = event,
-                      child: InkWell(
-                        onTap: () => widget.onDestinationSelected(index),
-                        customBorder: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              MediaQuery.sizeOf(context).width / 2,
+              children: widget.destinations
+                  .mapIndexed((
+                    int position,
+                    SmoothNavigationDestination destination,
+                  ) {
+                    final int index = widget.destinations.indexOf(destination);
+                    return Expanded(
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: Listener(
+                          onPointerDown: (PointerDownEvent event) =>
+                              _lastEvent = event,
+                          child: InkWell(
+                            onTap: () => widget.onDestinationSelected(index),
+                            customBorder: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(
+                                  MediaQuery.sizeOf(context).width / 2,
+                                ),
+                              ),
+                            ),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: _SmoothNavigationBarItem(
+                                destination: destination,
+                                selected: index == widget.selectedIndex,
+                                lastPointerEvent: _lastEvent,
+                                coordinates: _size != null
+                                    ? Rect.fromLTWH(
+                                        position *
+                                            _size!.width /
+                                            widget.destinations.length,
+                                        0.0,
+                                        _size!.width /
+                                            widget.destinations.length,
+                                        _size!.height,
+                                      )
+                                    : null,
+                              ),
                             ),
                           ),
                         ),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: _SmoothNavigationBarItem(
-                            destination: destination,
-                            selected: index == widget.selectedIndex,
-                            lastPointerEvent: _lastEvent,
-                            coordinates: _size != null
-                                ? Rect.fromLTWH(
-                                    position *
-                                        _size!.width /
-                                        widget.destinations.length,
-                                    0.0,
-                                    _size!.width / widget.destinations.length,
-                                    _size!.height,
-                                  )
-                                : null,
-                          ),
-                        ),
                       ),
-                    ),
-                  ),
-                );
-              }).toList(growable: false),
+                    );
+                  })
+                  .toList(growable: false),
             ),
           ),
         ),
@@ -139,8 +142,8 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     _iconColorAnimation = ColorTween(
@@ -172,8 +175,8 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Padding(
@@ -187,10 +190,7 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           IconTheme(
-            data: IconThemeData(
-              color: _iconColorAnimation.value,
-              size: 24.0,
-            ),
+            data: IconThemeData(color: _iconColorAnimation.value, size: 24.0),
             child: SizedBox(
               width: 64.0,
               height: 32.0,
@@ -340,10 +340,7 @@ class _SmoothNavigationBarIconPainter extends CustomPainter {
 }
 
 class SmoothNavigationDestination {
-  const SmoothNavigationDestination({
-    required this.icon,
-    required this.label,
-  });
+  const SmoothNavigationDestination({required this.icon, required this.label});
 
   final Widget icon;
   final String label;

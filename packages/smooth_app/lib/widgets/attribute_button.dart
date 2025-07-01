@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -46,8 +46,8 @@ class _AttributeButtonState extends State<AttributeButton> {
     final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = widget.attribute.settingNote;
     final List<Widget> children = <Widget>[];
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     if (!editMode) {
       children.add(
         InkWell(
@@ -56,8 +56,9 @@ class _AttributeButtonState extends State<AttributeButton> {
             currentImportanceId,
           ),
           child: ListTile(
-            tileColor:
-                context.lightTheme() ? Colors.white : extension.primaryMedium,
+            tileColor: context.lightTheme()
+                ? Colors.white
+                : extension.primaryMedium,
             shape: widget.isLast
                 ? const RoundedRectangleBorder(
                     borderRadius: BorderRadiusDirectional.vertical(
@@ -80,12 +81,13 @@ class _AttributeButtonState extends State<AttributeButton> {
               ),
             ),
             trailing: GestureDetector(
-                child: Icon(
-                  Icons.edit,
-                  size: DEFAULT_ICON_SIZE,
-                  color: extension.primaryBlack,
-                ),
-                onTap: () => setState(() => editMode = !editMode)),
+              child: Icon(
+                Icons.edit,
+                size: DEFAULT_ICON_SIZE,
+                color: extension.primaryBlack,
+              ),
+              onTap: () => setState(() => editMode = !editMode),
+            ),
           ),
         ),
       );
@@ -162,19 +164,19 @@ class _AttributeButtonState extends State<AttributeButton> {
           onTap: info == null
               ? null
               : () async => showDialog<void>(
-                    context: context,
-                    builder: (BuildContext context) {
-                      final AppLocalizations appLocalizations =
-                          AppLocalizations.of(context);
-                      return SmoothAlertDialog(
-                        body: Text(info),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.close,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                      );
-                    },
-                  ),
+                  context: context,
+                  builder: (BuildContext context) {
+                    final AppLocalizations appLocalizations =
+                        AppLocalizations.of(context);
+                    return SmoothAlertDialog(
+                      body: Text(info),
+                      positiveAction: SmoothActionButton(
+                        text: appLocalizations.close,
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    );
+                  },
+                ),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +11,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
@@ -39,26 +39,26 @@ class _PreferencesPageState extends State<PreferencesPage> {
   }
 
   Future<void> _init() async =>
-      _product = await OnboardingDataProduct.forProduct(widget._localDatabase)
-          .getData(rootBundle);
+      _product = await OnboardingDataProduct.forProduct(
+        widget._localDatabase,
+      ).getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(
-        future: _initFuture,
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.hasError) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
-            return Text(
-              appLocalizations.preferences_page_loading_error(snapshot.error),
-            );
-          }
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator.adaptive());
-          }
-          return _Helper(_product, widget.backgroundColor);
-        },
-      );
+    future: _initFuture,
+    builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+      if (snapshot.hasError) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return Text(
+          appLocalizations.preferences_page_loading_error(snapshot.error),
+        );
+      }
+      if (snapshot.connectionState != ConnectionState.done) {
+        return const Center(child: CircularProgressIndicator.adaptive());
+      }
+      return _Helper(_product, widget.backgroundColor);
+    },
+  );
 }
 
 // In order to avoid to reload the product when refreshing the preferences.
@@ -75,8 +75,8 @@ class _Helper extends StatefulWidget {
 class _HelperState extends State<_Helper> {
   @override
   Widget build(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[

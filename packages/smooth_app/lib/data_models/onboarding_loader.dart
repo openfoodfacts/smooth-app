@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 /// Helper around data we download, store and reuse at onboarding.
@@ -23,8 +23,9 @@ class OnboardingLoader {
         await LoadingDialog.run<bool>(
           context: context,
           future: _downloadData().timeout(const Duration(seconds: 4)),
-          title: AppLocalizations.of(context)
-              .onboarding_welcome_loading_dialog_title,
+          title: AppLocalizations.of(
+            context,
+          ).onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
       case OnboardingPage.NOT_STARTED:

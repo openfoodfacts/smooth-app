@@ -18,16 +18,17 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
 
   @override
   ProductList getProductList() => ProductList.keywordSearch(
-        keywords,
-        pageSize: pageSize,
-        pageNumber: pageNumber,
-        language: language,
-        country: country,
-        productType: productType,
-      );
+    keywords,
+    pageSize: pageSize,
+    pageNumber: pageNumber,
+    language: language,
+    country: country,
+    productType: productType,
+  );
 
   @override
-  String toString() => 'KeywordsProductQuery('
+  String toString() =>
+      'KeywordsProductQuery('
       '"$keywords"'
       ', $pageSize'
       ', $pageNumber'
@@ -39,11 +40,7 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
   @override
   PagedProductQuery? getWorldQuery() => world
       ? null
-      : KeywordsProductQuery(
-          keywords,
-          productType: productType,
-          world: true,
-        );
+      : KeywordsProductQuery(keywords, productType: productType, world: true);
 
   @override
   bool hasDifferentCountryWorldData() => true;

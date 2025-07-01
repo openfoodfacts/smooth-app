@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -70,8 +70,8 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
 
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
     final List<List<Attribute>> scoreAttributesArray = <List<Attribute>>[];
     final List<Widget> scoreWidgets = <Widget>[];
     for (final Product product in widget.products) {
@@ -108,15 +108,17 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       names.add(getProductName(product, appLocalizations));
       brands.add(getProductBrands(product, appLocalizations));
       quantities.add(product.quantity ?? '');
-      pictures.add(Expanded(
-        child: Center(
-          child: SmoothMainProductImage(
-            product: product,
-            width: screenSize.width * 0.20,
-            height: screenSize.width * 0.20,
+      pictures.add(
+        Expanded(
+          child: Center(
+            child: SmoothMainProductImage(
+              product: product,
+              width: screenSize.width * 0.20,
+              height: screenSize.width * 0.20,
+            ),
           ),
         ),
-      ));
+      );
     }
     for (final Product product in widget.products) {
       final List<Attribute> tmp = <Attribute>[];
@@ -149,12 +151,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
         }
       }
       if (notNull) {
-        nutrientValues.add(
-          _getNutrientRow(
-            values: values,
-            nutrient: nutrient,
-          ),
-        );
+        nutrientValues.add(_getNutrientRow(values: values, nutrient: nutrient));
       }
     }
     return SmoothScaffold(
@@ -190,11 +187,9 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     );
   }
 
-  Row _getTextRow(final List<String> texts) => _getWidgetRow(
-        <Widget>[
-          for (final String text in texts) Expanded(child: Text(text)),
-        ],
-      );
+  Row _getTextRow(final List<String> texts) => _getWidgetRow(<Widget>[
+    for (final String text in texts) Expanded(child: Text(text)),
+  ]);
 
   Row _getWidgetRow(final List<Widget> widgets) {
     final List<Widget> children = <Widget>[];
@@ -227,25 +222,22 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     return null;
   }
 
-  Widget? _getChild(
-    final Attribute attribute,
-    final Product product,
-  ) {
+  Widget? _getChild(final Attribute attribute, final Product product) {
     final Nutrient? nutrient = _getAttributeNutrient(attribute.id!);
     if (nutrient != null) {
       if (product.nutriments == null) {
         return null;
       }
-      final double? value =
-          product.nutriments!.getValue(nutrient, PerSize.oneHundredGrams);
+      final double? value = product.nutriments!.getValue(
+        nutrient,
+        PerSize.oneHundredGrams,
+      );
       if (value == null) {
         return null;
       }
       return Text(
         '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
-        style: const TextStyle(
-          fontWeight: FontWeight.w500,
-        ),
+        style: const TextStyle(fontWeight: FontWeight.w500),
       );
     }
     switch (attribute.id) {
@@ -287,10 +279,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
         const Divider(),
         Padding(
           padding: const EdgeInsets.only(top: SMALL_SPACE),
-          child: AutoSizeText(
-            '$title (?)',
-            maxLines: 2,
-          ),
+          child: AutoSizeText('$title (?)', maxLines: 2),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -311,17 +300,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
           : Center(
               child: Text(
                 '${value.toStringAsFixed(2)} ${UnitHelper.unitToString(nutrient.typicalUnit)}',
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             );
-      child = Expanded(
-        child: SizedBox(
-          height: 36,
-          child: child,
-        ),
-      );
+      child = Expanded(child: SizedBox(height: 36, child: child));
       children.add(child);
     }
     return Column(

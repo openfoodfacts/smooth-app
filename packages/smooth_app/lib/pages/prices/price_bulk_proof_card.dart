@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
@@ -12,6 +11,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
@@ -45,9 +45,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         children: <Widget>[
           ListTile(
             trailing: const Icon(Icons.warning),
-            title: Text(
-              appLocalizations.prices_bulk_proof_upload_warning,
-            ),
+            title: Text(appLocalizations.prices_bulk_proof_upload_warning),
           ),
           SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_bulk_proof_upload_select,
@@ -62,9 +60,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     );
   }
 
-  Future<void> _selectAndUpload({
-    required PriceModel model,
-  }) async {
+  Future<void> _selectAndUpload({required PriceModel model}) async {
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     const int imageQuality = 80;
@@ -106,9 +102,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         final File toBeUploadedFile = File(
           '${directory.path}/bulk_proof_${sequenceNumber}_$filename',
         );
-        setState(
-          () => _text = 'Locally copying file #$index/$count',
-        );
+        setState(() => _text = 'Locally copying file #$index/$count');
         await temporaryFile.copy(toBeUploadedFile.path);
         await temporaryFile.delete();
 

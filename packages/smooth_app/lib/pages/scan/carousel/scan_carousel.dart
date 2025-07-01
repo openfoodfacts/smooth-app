@@ -12,9 +12,7 @@ import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 
 class ScanPageCarousel extends StatefulWidget {
-  const ScanPageCarousel({
-    this.onPageChangedTo,
-  });
+  const ScanPageCarousel({this.onPageChangedTo});
 
   final Function(int page, String? productBarcode)? onPageChangedTo;
 
@@ -77,10 +75,7 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
 
   Future<void> _moveControllerTo(int page) async {
     if (_carrouselMovingTo == null && _lastIndex != page) {
-      widget.onPageChangedTo?.call(
-        page,
-        page >= 1 ? barcodes[page - 1] : null,
-      );
+      widget.onPageChangedTo?.call(page, page >= 1 ? barcodes[page - 1] : null);
 
       _carrouselMovingTo = page;
       ExternalScanCarouselManager.read(context).animatePageTo(page);
@@ -98,19 +93,20 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
           itemCount: barcodes.length + 1,
           itemBuilder:
               (BuildContext context, int itemIndex, int itemRealIndex) {
-            return SizedBox.expand(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: HORIZONTAL_SPACE_BETWEEN_CARDS,
-                ),
-                child: itemIndex == 0
-                    ? const ScanMainCard()
-                    : _getWidget(itemIndex - 1),
-              ),
-            );
-          },
-          carouselController:
-              ExternalScanCarouselManager.watch(context).controller,
+                return SizedBox.expand(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: HORIZONTAL_SPACE_BETWEEN_CARDS,
+                    ),
+                    child: itemIndex == 0
+                        ? const ScanMainCard()
+                        : _getWidget(itemIndex - 1),
+                  ),
+                );
+              },
+          carouselController: ExternalScanCarouselManager.watch(
+            context,
+          ).controller,
           options: CarouselOptions(
             enlargeCenterPage: false,
             viewportFraction: _computeViewPortFraction(),
@@ -148,18 +144,18 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
 
     final String barcode = barcodes[index];
 
-    return LayoutBuilder(builder: (
-      BuildContext context,
-      BoxConstraints constraints,
-    ) {
-      final bool dense = constraints.maxHeight <= 400.0 ||
-          MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final bool dense =
+            constraints.maxHeight <= 400.0 ||
+            MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
 
-      return Provider<ScanCardDensity>(
-        create: (_) => dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL,
-        child: _cardWidget(barcode),
-      );
-    });
+        return Provider<ScanCardDensity>(
+          create: (_) => dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL,
+          child: _cardWidget(barcode),
+        );
+      },
+    );
   }
 
   Widget _cardWidget(final String barcode) {

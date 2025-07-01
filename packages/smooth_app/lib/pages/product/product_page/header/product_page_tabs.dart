@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -7,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/knowledge_panel/preview_knowledge_panels/environment_knowledge_panel.dart';
 import 'package:smooth_app/knowledge_panel/preview_knowledge_panels/health_knowledge_panel.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
@@ -40,10 +40,7 @@ class ProductPageTab {
 }
 
 class ProductPageTabBar extends StatelessWidget {
-  const ProductPageTabBar({
-    required this.tabController,
-    required this.tabs,
-  });
+  const ProductPageTabBar({required this.tabController, required this.tabs});
 
   final TabController tabController;
   final List<ProductPageTab> tabs;
@@ -56,30 +53,29 @@ class ProductPageTabBar extends StatelessWidget {
           preferredSize: const Size.fromHeight(SmoothTabBar.TAB_BAR_HEIGHT),
           child: SmoothTabBar<ProductPageTab>(
             tabController: tabController,
-            items: tabs.map((ProductPageTab tab) {
-              return SmoothTabBarItem<ProductPageTab>(
-                label: tab.labelBuilder(context),
-                value: tab,
-              );
-            }).toList(growable: false),
-            leadingItems: tabs.map(
-              (ProductPageTab tab) {
-                if (tab.indicatorColor == null) {
-                  return null;
-                }
+            items: tabs
+                .map((ProductPageTab tab) {
+                  return SmoothTabBarItem<ProductPageTab>(
+                    label: tab.labelBuilder(context),
+                    value: tab,
+                  );
+                })
+                .toList(growable: false),
+            leadingItems: tabs.map((ProductPageTab tab) {
+              if (tab.indicatorColor == null) {
+                return null;
+              }
 
-                return Container(
-                  width: 20.0,
-                  height: 20.0,
-                  margin:
-                      const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
-                  decoration: BoxDecoration(
-                    color: tab.indicatorColor,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                );
-              },
-            ),
+              return Container(
+                width: 20.0,
+                height: 20.0,
+                margin: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+                decoration: BoxDecoration(
+                  color: tab.indicatorColor,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              );
+            }),
             onTabChanged: (_) {},
           ),
         ),
@@ -123,16 +119,10 @@ class ProductPageTabBar extends StatelessWidget {
 
       if (id == 'health_card') {
         indicatorColor = _getIndicatorColor(product.nutriscore);
-        child = HealthKnowledgePanel(
-          product: product,
-          panels: children,
-        );
+        child = HealthKnowledgePanel(product: product, panels: children);
       } else if (id == 'environment_card') {
         indicatorColor = _getIndicatorColor(product.ecoscoreGrade);
-        child = EnvironmentKnowledgePanel(
-          product: product,
-          panels: children,
-        );
+        child = EnvironmentKnowledgePanel(product: product, panels: children);
       } else {
         child = ListView.builder(
           padding: EdgeInsetsDirectional.zero,
@@ -214,9 +204,7 @@ class ProductPageTabBar extends StatelessWidget {
               AppLocalizations.of(context).product_page_tab_website,
           builder: (_, Product product) => ListView(
             padding: EdgeInsetsDirectional.zero,
-            children: <Widget>[
-              WebsiteCard(product.website!),
-            ],
+            children: <Widget>[WebsiteCard(product.website!)],
           ),
         ),
       );
@@ -228,15 +216,14 @@ class ProductPageTabBar extends StatelessWidget {
             AppLocalizations.of(context).product_page_tab_prices,
         builder: (_, Product product) => ListView(
           padding: EdgeInsetsDirectional.zero,
-          children: <Widget>[
-            PricesCard(product),
-          ],
+          children: <Widget>[PricesCard(product)],
         ),
       ),
     );
 
     if (context.read<UserPreferences>().getFlag(
-            UserPreferencesDevMode.userPreferencesFlagHideFolksonomy) ==
+          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
+        ) ==
         false) {
       tabs.add(
         ProductPageTab(

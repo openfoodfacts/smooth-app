@@ -4,10 +4,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Back-end paged queries around search.
 abstract class PagedSearchProductQuery extends PagedProductQuery {
-  PagedSearchProductQuery({
-    required super.productType,
-    super.world,
-  });
+  PagedSearchProductQuery({required super.productType, super.world});
 
   Parameter getParameter();
 

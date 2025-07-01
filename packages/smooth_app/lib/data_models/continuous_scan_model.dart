@@ -48,9 +48,11 @@ class ContinuousScanModel with ChangeNotifier {
 
   /// List only barcodes where the product exists
   Iterable<String> getAvailableBarcodes() => _states
-      .where((MapEntry<String, ScannedProductState> entry) =>
-          entry.value == ScannedProductState.FOUND ||
-          entry.value == ScannedProductState.CACHED)
+      .where(
+        (MapEntry<String, ScannedProductState> entry) =>
+            entry.value == ScannedProductState.FOUND ||
+            entry.value == ScannedProductState.CACHED,
+      )
       .keys;
 
   String? get latestConsultedBarcode => _latestConsultedBarcode;
@@ -100,10 +102,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<void> refreshProductList() async => _daoProductList.get(_productList);
 
-  void _setBarcodeState(
-    final String barcode,
-    final ScannedProductState state,
-  ) {
+  void _setBarcodeState(final String barcode, final ScannedProductState state) {
     _states[barcode] = state;
     notifyListeners();
   }
@@ -128,10 +127,7 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
-    AnalyticsHelper.trackEvent(
-      AnalyticsEvent.scanAction,
-      barcode: code,
-    );
+    AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: code);
 
     _latestScannedBarcode = code;
     return _addBarcode(code);
@@ -189,8 +185,9 @@ class ContinuousScanModel with ChangeNotifier {
     if (product != null) {
       try {
         // We try to load the fresh copy of product from the server
-        final FetchedProduct fetchedProduct =
-            await _queryBarcode(barcode).timeout(SnackBarDuration.long);
+        final FetchedProduct fetchedProduct = await _queryBarcode(
+          barcode,
+        ).timeout(SnackBarDuration.long);
         if (fetchedProduct.product != null) {
           if (fetchedProduct.isValid) {
             _addProduct(barcode, ScannedProductState.CACHED);
@@ -216,18 +213,14 @@ class ContinuousScanModel with ChangeNotifier {
     return false;
   }
 
-  Future<FetchedProduct> _queryBarcode(
-    final String barcode,
-  ) async =>
+  Future<FetchedProduct> _queryBarcode(final String barcode) async =>
       BarcodeProductQuery(
         barcode: barcode,
         daoProduct: _daoProduct,
         isScanned: true,
       ).getFetchedProduct();
 
-  Future<void> _loadBarcode(
-    final String barcode,
-  ) async {
+  Future<void> _loadBarcode(final String barcode) async {
     final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
@@ -252,9 +245,7 @@ class ContinuousScanModel with ChangeNotifier {
     }
   }
 
-  Future<void> _updateBarcode(
-    final String barcode,
-  ) async {
+  Future<void> _updateBarcode(final String barcode) async {
     final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
@@ -298,14 +289,8 @@ class ContinuousScanModel with ChangeNotifier {
     await refresh();
   }
 
-  Future<void> removeBarcode(
-    final String barcode,
-  ) async {
-    await _daoProductList.set(
-      productList,
-      barcode,
-      false,
-    );
+  Future<void> removeBarcode(final String barcode) async {
+    await _daoProductList.set(productList, barcode, false);
 
     _barcodes.remove(barcode);
     _states.remove(barcode);

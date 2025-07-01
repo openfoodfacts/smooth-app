@@ -16,28 +16,28 @@ class QuestionImageFullPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: SmoothAppBar(
-          title: AutoSizeText(
-            '${question.question!} (${question.value!})',
-            maxLines: 2,
-          ),
-        ),
-        body: ConstrainedBox(
-          constraints: const BoxConstraints.expand(),
-          child: InteractiveViewer(
-            minScale: 0.1,
-            maxScale: 5,
-            child: HeroMode(
-              enabled: heroTag?.isNotEmpty == true,
-              child: Hero(
-                tag: heroTag ?? '',
-                child: Image(
-                  fit: BoxFit.contain,
-                  image: NetworkImage(question.imageUrl!),
-                ),
-              ),
+    appBar: SmoothAppBar(
+      title: AutoSizeText(
+        '${question.question!} (${question.value!})',
+        maxLines: 2,
+      ),
+    ),
+    body: ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child: InteractiveViewer(
+        minScale: 0.1,
+        maxScale: 5,
+        child: HeroMode(
+          enabled: heroTag?.isNotEmpty == true,
+          child: Hero(
+            tag: heroTag ?? '',
+            child: Image(
+              fit: BoxFit.contain,
+              image: NetworkImage(question.imageUrl!),
             ),
           ),
         ),
-      );
+      ),
+    ),
+  );
 }

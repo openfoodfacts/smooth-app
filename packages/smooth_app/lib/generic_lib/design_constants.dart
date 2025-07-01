@@ -25,8 +25,9 @@ const BorderRadius ROUNDED_BORDER_RADIUS = BorderRadius.all(ROUNDED_RADIUS);
 /// Topbar…
 const Radius HEADER_ROUNDED_RADIUS = Radius.circular(30.0);
 //ignore: non_constant_identifier_names
-const BorderRadius HEADER_BORDER_RADIUS =
-    BorderRadius.all(HEADER_ROUNDED_RADIUS);
+const BorderRadius HEADER_BORDER_RADIUS = BorderRadius.all(
+  HEADER_ROUNDED_RADIUS,
+);
 
 /// Full screen button, e.g. KnowledgePanel
 const Radius ANGULAR_RADIUS = Radius.circular(8.0);

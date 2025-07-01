@@ -10,9 +10,7 @@ import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class UserPreferencesDebugInfo extends StatefulWidget {
-  const UserPreferencesDebugInfo({
-    super.key,
-  });
+  const UserPreferencesDebugInfo({super.key});
 
   @override
   State<UserPreferencesDebugInfo> createState() =>
@@ -27,12 +25,15 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
     'IsLoggedIn': ProductQuery.isLoggedIn().toString(),
     'UUID': OpenFoodAPIConfiguration.uuid.toString(),
     'Matomo Visitor ID': AnalyticsHelper.matomoVisitorId,
-    'QueryType': ProductQuery.getUriProductHelper(productType: ProductType.food)
-            .isTestMode
+    'QueryType':
+        ProductQuery.getUriProductHelper(
+          productType: ProductType.food,
+        ).isTestMode
         ? 'QueryType.TEST'
         : 'QueryType.PROD',
-    'Domain':
-        ProductQuery.getUriProductHelper(productType: ProductType.food).domain,
+    'Domain': ProductQuery.getUriProductHelper(
+      productType: ProductType.food,
+    ).domain,
     'UserAgent-name': '${OpenFoodAPIConfiguration.userAgent?.name}',
     'UserAgent-system': '${OpenFoodAPIConfiguration.userAgent?.system}',
   };
@@ -69,40 +70,38 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
         title: const Text('Debugging information'),
         actions: <Widget>[
           IconButton(
-              onPressed: () async {
-                final StringBuffer buffer = StringBuffer();
+            onPressed: () async {
+              final StringBuffer buffer = StringBuffer();
 
-                for (final MapEntry<String, dynamic> e in infos.entries) {
-                  buffer.writeln('${e.key}: ${e.value}');
-                }
+              for (final MapEntry<String, dynamic> e in infos.entries) {
+                buffer.writeln('${e.key}: ${e.value}');
+              }
 
-                await Clipboard.setData(
-                  ClipboardData(text: buffer.toString()),
-                );
-              },
-              icon: const Icon(Icons.copy))
+              await Clipboard.setData(ClipboardData(text: buffer.toString()));
+            },
+            icon: const Icon(Icons.copy),
+          ),
         ],
       ),
       body: FutureBuilder<void>(
-          future: loadAsyncData(),
-          builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-            if (snapshot.connectionState != ConnectionState.done) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
+        future: loadAsyncData(),
+        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+          if (snapshot.connectionState != ConnectionState.done) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-            return ListView.builder(
-              itemCount: infos.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(
-                    '${infos.keys.elementAt(index)}: ${infos.values.elementAt(index)}',
-                  ),
-                );
-              },
-            );
-          }),
+          return ListView.builder(
+            itemCount: infos.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                title: Text(
+                  '${infos.keys.elementAt(index)}: ${infos.values.elementAt(index)}',
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

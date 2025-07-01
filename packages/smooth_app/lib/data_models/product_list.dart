@@ -58,14 +58,14 @@ class ProductList {
     required OpenFoodFactsCountry? country,
     required ProductType productType,
   }) : this._(
-          listType: ProductListType.HTTP_SEARCH_KEYWORDS,
-          parameters: keywords,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          language: language,
-          country: country,
-          productType: productType,
-        );
+         listType: ProductListType.HTTP_SEARCH_KEYWORDS,
+         parameters: keywords,
+         pageSize: pageSize,
+         pageNumber: pageNumber,
+         language: language,
+         country: country,
+         productType: productType,
+       );
 
   ProductList.categorySearch(
     final String category, {
@@ -75,14 +75,14 @@ class ProductList {
     required OpenFoodFactsCountry? country,
     required ProductType productType,
   }) : this._(
-          listType: ProductListType.HTTP_SEARCH_CATEGORY,
-          parameters: category,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          language: language,
-          country: country,
-          productType: productType,
-        );
+         listType: ProductListType.HTTP_SEARCH_CATEGORY,
+         parameters: category,
+         pageSize: pageSize,
+         pageNumber: pageNumber,
+         language: language,
+         country: country,
+         productType: productType,
+       );
 
   ProductList.contributor(
     final String userId, {
@@ -91,13 +91,13 @@ class ProductList {
     required OpenFoodFactsLanguage language,
     required ProductType productType,
   }) : this._(
-          listType: ProductListType.HTTP_USER_CONTRIBUTOR,
-          parameters: userId,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          language: language,
-          productType: productType,
-        );
+         listType: ProductListType.HTTP_USER_CONTRIBUTOR,
+         parameters: userId,
+         pageSize: pageSize,
+         pageNumber: pageNumber,
+         language: language,
+         productType: productType,
+       );
 
   ProductList.informer(
     final String userId, {
@@ -106,13 +106,13 @@ class ProductList {
     required OpenFoodFactsLanguage language,
     required ProductType productType,
   }) : this._(
-          listType: ProductListType.HTTP_USER_INFORMER,
-          parameters: userId,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          language: language,
-          productType: productType,
-        );
+         listType: ProductListType.HTTP_USER_INFORMER,
+         parameters: userId,
+         pageSize: pageSize,
+         pageNumber: pageNumber,
+         language: language,
+         productType: productType,
+       );
 
   ProductList.photographer(
     final String userId, {
@@ -121,13 +121,13 @@ class ProductList {
     required OpenFoodFactsLanguage language,
     required ProductType productType,
   }) : this._(
-          listType: ProductListType.HTTP_USER_PHOTOGRAPHER,
-          parameters: userId,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          language: language,
-          productType: productType,
-        );
+         listType: ProductListType.HTTP_USER_PHOTOGRAPHER,
+         parameters: userId,
+         pageSize: pageSize,
+         pageNumber: pageNumber,
+         language: language,
+         productType: productType,
+       );
 
   ProductList.toBeCompleted(
     final String userId, {
@@ -136,13 +136,13 @@ class ProductList {
     required OpenFoodFactsLanguage language,
     required ProductType productType,
   }) : this._(
-          listType: ProductListType.HTTP_USER_TO_BE_COMPLETED,
-          parameters: userId,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          language: language,
-          productType: productType,
-        );
+         listType: ProductListType.HTTP_USER_TO_BE_COMPLETED,
+         parameters: userId,
+         pageSize: pageSize,
+         pageNumber: pageNumber,
+         language: language,
+         productType: productType,
+       );
 
   ProductList.allToBeCompleted({
     required int pageSize,
@@ -151,13 +151,13 @@ class ProductList {
     required OpenFoodFactsCountry? country,
     required ProductType productType,
   }) : this._(
-          listType: ProductListType.HTTP_ALL_TO_BE_COMPLETED,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          language: language,
-          country: country,
-          productType: productType,
-        );
+         listType: ProductListType.HTTP_ALL_TO_BE_COMPLETED,
+         pageSize: pageSize,
+         pageNumber: pageNumber,
+         language: language,
+         country: country,
+         productType: productType,
+       );
 
   ProductList.history() : this._(listType: ProductListType.HISTORY);
 
@@ -166,10 +166,7 @@ class ProductList {
   ProductList.scanHistory() : this._(listType: ProductListType.SCAN_HISTORY);
 
   ProductList.user(final String name)
-      : this._(
-          listType: ProductListType.USER,
-          parameters: name,
-        );
+    : this._(listType: ProductListType.USER, parameters: name);
 
   final ProductListType listType;
   final String parameters;
@@ -227,8 +224,9 @@ class ProductList {
 
   List<String> getList() {
     final List<String> result = <String>[];
-    final Iterable<String> barcodes =
-        _isReversed() ? _barcodes.reversed : _barcodes;
+    final Iterable<String> barcodes = _isReversed()
+        ? _barcodes.reversed
+        : _barcodes;
     result.addAll(barcodes);
     return result;
   }

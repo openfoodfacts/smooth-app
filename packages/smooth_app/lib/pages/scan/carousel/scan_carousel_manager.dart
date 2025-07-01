@@ -4,10 +4,7 @@ import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
 /// Allow to control the [ScanPageCarousel] from outside
 class ExternalScanCarouselManager extends StatefulWidget {
-  const ExternalScanCarouselManager({
-    super.key,
-    required this.child,
-  });
+  const ExternalScanCarouselManager({super.key, required this.child});
 
   final Widget child;
 
@@ -44,15 +41,10 @@ class ExternalScanCarouselManagerState
 
   @override
   Widget build(BuildContext context) {
-    return _InheritedCarouselManager(
-      state: this,
-      child: widget.child,
-    );
+    return _InheritedCarouselManager(state: this, child: widget.child);
   }
 
-  void showSearchCard({
-    bool notify = false,
-  }) {
+  void showSearchCard({bool notify = false}) {
     animatePageTo(0);
 
     if (notify) {
@@ -83,10 +75,7 @@ class ExternalScanCarouselManagerState
 }
 
 class _InheritedCarouselManager extends InheritedWidget {
-  const _InheritedCarouselManager({
-    required super.child,
-    required this.state,
-  });
+  const _InheritedCarouselManager({required super.child, required this.state});
 
   final ExternalScanCarouselManagerState state;
 

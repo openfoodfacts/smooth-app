@@ -42,9 +42,7 @@ class LocationQueryModel with ChangeNotifier {
 
   final Set<String> _locationKeys = <String>{};
 
-  Future<void> _process(
-    final List<OsmLocation> locations,
-  ) async {
+  Future<void> _process(final List<OsmLocation> locations) async {
     for (final OsmLocation location in locations) {
       final String primaryKey = location.primaryKey;
       if (_locationKeys.contains(primaryKey)) {

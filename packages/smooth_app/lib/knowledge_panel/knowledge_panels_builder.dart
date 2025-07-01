@@ -31,8 +31,9 @@ class KnowledgePanelsBuilder {
     bool squaresOnly = true,
   }) {
     final String? panelId = panelElement.panelElement?.panelId;
-    final KnowledgePanel? rootPanel =
-        panelId == null ? null : getKnowledgePanel(product, panelId);
+    final KnowledgePanel? rootPanel = panelId == null
+        ? null
+        : getKnowledgePanel(product, panelId);
     final List<Widget> children = <Widget>[];
     if (rootPanel != null) {
       children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
@@ -56,8 +57,10 @@ class KnowledgePanelsBuilder {
     }
     if (!onboardingMode) {
       if (panelId == 'health_card') {
-        final bool nutritionAddOrUpdate = product.statesTags?.contains(
-                ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag) ??
+        final bool nutritionAddOrUpdate =
+            product.statesTags?.contains(
+              ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag,
+            ) ??
             false;
         if (nutritionAddOrUpdate) {
           if (AddNutritionButton.acceptsNutritionFacts(product)) {
@@ -65,10 +68,10 @@ class KnowledgePanelsBuilder {
           }
         }
 
-        final bool needEditIngredients = context
-                .read<UserPreferences>()
-                .getFlag(UserPreferencesDevMode
-                    .userPreferencesFlagEditIngredients) ??
+        final bool needEditIngredients =
+            context.read<UserPreferences>().getFlag(
+              UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+            ) ??
             false;
         if ((product.ingredientsText == null ||
                 product.ingredientsText!.isEmpty) &&
@@ -86,7 +89,8 @@ class KnowledgePanelsBuilder {
     }
     if (children.isEmpty) {
       Logs.e(
-          'Unexpected empty panel data for product "${product.barcode}" and panelId "$panelId"');
+        'Unexpected empty panel data for product "${product.barcode}" and panelId "$panelId"',
+      );
     }
     return children;
   }
@@ -185,8 +189,7 @@ class KnowledgePanelsBuilder {
   static KnowledgePanel? getKnowledgePanel(
     final Product product,
     final String panelId,
-  ) =>
-      product.knowledgePanels?.panelIdToPanelMap[panelId];
+  ) => product.knowledgePanels?.panelIdToPanelMap[panelId];
 
   /// Returns the unique "root" panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getRootPanelElement(
@@ -208,8 +211,10 @@ class KnowledgePanelsBuilder {
     final Product product,
     final String panelId,
   ) {
-    final KnowledgePanel panel =
-        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
+    final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
+      product,
+      panelId,
+    )!;
     if (panel.elements == null) {
       return false;
     }
@@ -271,14 +276,10 @@ class KnowledgePanelsBuilder {
   }) {
     switch (element.elementType) {
       case KnowledgePanelElementType.TEXT:
-        return KnowledgePanelTextCard(
-          textElement: element.textElement!,
-        );
+        return KnowledgePanelTextCard(textElement: element.textElement!);
 
       case KnowledgePanelElementType.IMAGE:
-        return KnowledgePanelImageCard(
-          imageElement: element.imageElement!,
-        );
+        return KnowledgePanelImageCard(imageElement: element.imageElement!);
 
       case KnowledgePanelElementType.PANEL:
         final String panelId = element.panelElement!.panelId;
@@ -290,9 +291,7 @@ class KnowledgePanelsBuilder {
               (product.productType ?? ProductType.food) != ProductType.food) {
             // just ignore
           } else {
-            Logs.w(
-              'unknown panel "$panelId" for barcode "${product.barcode}"',
-            );
+            Logs.w('unknown panel "$panelId" for barcode "${product.barcode}"');
           }
           return null;
         }
@@ -325,10 +324,7 @@ class KnowledgePanelsBuilder {
         return null;
 
       case KnowledgePanelElementType.ACTION:
-        return KnowledgePanelActionCard(
-          element.actionElement!,
-          product,
-        );
+        return KnowledgePanelActionCard(element.actionElement!, product);
     }
   }
 
@@ -412,10 +408,7 @@ class KnowledgePanelsBuilder {
 }
 
 class KnowledgePanelTitle extends StatelessWidget {
-  const KnowledgePanelTitle({
-    required this.title,
-    super.key,
-  });
+  const KnowledgePanelTitle({required this.title, super.key});
 
   final String title;
 
@@ -425,10 +418,7 @@ class KnowledgePanelTitle extends StatelessWidget {
       padding: const EdgeInsetsDirectional.symmetric(
         vertical: VERY_SMALL_SPACE,
       ),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.displaySmall,
-      ),
+      child: Text(title, style: Theme.of(context).textTheme.displaySmall),
     );
   }
 }

@@ -5,10 +5,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Back-end paged query for all "to-be-completed" products.
 class PagedToBeCompletedProductQuery extends PagedProductQuery {
-  PagedToBeCompletedProductQuery({
-    required super.productType,
-    super.world,
-  });
+  PagedToBeCompletedProductQuery({required super.productType, super.world});
 
   @override
   AbstractQueryConfiguration getQueryConfiguration() =>
@@ -20,9 +17,7 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
           PageSize(size: pageSize),
           PageNumber(page: pageNumber),
           const StatesTagsParameter(
-            map: <ProductState, bool>{
-              ProductState.CATEGORIES_COMPLETED: false,
-            },
+            map: <ProductState, bool>{ProductState.CATEGORIES_COMPLETED: false},
           ),
           const SortBy(option: SortOption.EDIT),
         ],
@@ -31,15 +26,16 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
 
   @override
   ProductList getProductList() => ProductList.allToBeCompleted(
-        pageSize: pageSize,
-        pageNumber: pageNumber,
-        language: language,
-        country: country,
-        productType: productType,
-      );
+    pageSize: pageSize,
+    pageNumber: pageNumber,
+    language: language,
+    country: country,
+    productType: productType,
+  );
 
   @override
-  String toString() => 'PagedToBeCompletedProductQuery('
+  String toString() =>
+      'PagedToBeCompletedProductQuery('
       '$pageSize'
       ', $pageNumber'
       ', $language'
@@ -50,10 +46,7 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
   @override
   PagedProductQuery? getWorldQuery() => world
       ? null
-      : PagedToBeCompletedProductQuery(
-          productType: productType,
-          world: true,
-        );
+      : PagedToBeCompletedProductQuery(productType: productType, world: true);
 
   @override
   bool hasDifferentCountryWorldData() => true;

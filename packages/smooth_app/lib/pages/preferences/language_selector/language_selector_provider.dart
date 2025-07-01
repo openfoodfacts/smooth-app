@@ -55,10 +55,8 @@ class _LanguageSelectorProvider
   }
 
   static Future<List<OpenFoodFactsLanguage>> _reformatLanguages(
-      (
-        List<OpenFoodFactsLanguage> languages,
-        String userAppLanguageCode,
-      ) val) async {
+    (List<OpenFoodFactsLanguage> languages, String userAppLanguageCode) val,
+  ) async {
     _reorderLanguages(val.$1, val.$2);
     return val.$1;
   }
@@ -69,22 +67,24 @@ class _LanguageSelectorProvider
   ) {
     final Languages languages = Languages();
     final String userLanguageName = languages.getNameInEnglish(
-        OpenFoodFactsLanguage.fromOffTag(userAppLanguageCode)!);
-
-    languagesList.sort(
-      (final OpenFoodFactsLanguage a, final OpenFoodFactsLanguage b) {
-        final String aName = languages.getNameInEnglish(a);
-        final String bName = languages.getNameInEnglish(b);
-
-        if (aName == userLanguageName) {
-          return -1;
-        }
-        if (bName == userLanguageName) {
-          return 1;
-        }
-        return aName.compareTo(bName);
-      },
+      OpenFoodFactsLanguage.fromOffTag(userAppLanguageCode)!,
     );
+
+    languagesList.sort((
+      final OpenFoodFactsLanguage a,
+      final OpenFoodFactsLanguage b,
+    ) {
+      final String aName = languages.getNameInEnglish(a);
+      final String bName = languages.getNameInEnglish(b);
+
+      if (aName == userLanguageName) {
+        return -1;
+      }
+      if (bName == userLanguageName) {
+        return 1;
+      }
+      return aName.compareTo(bName);
+    });
   }
 
   @override

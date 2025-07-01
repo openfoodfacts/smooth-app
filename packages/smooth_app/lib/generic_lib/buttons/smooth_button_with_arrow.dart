@@ -26,8 +26,8 @@ class SmoothButtonWithArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Align(
       alignment: AlignmentDirectional.centerEnd,
@@ -45,9 +45,7 @@ class SmoothButtonWithArrow extends StatelessWidget {
                 ),
           ),
           shape: const WidgetStatePropertyAll<OutlinedBorder>(
-            RoundedRectangleBorder(
-              borderRadius: CIRCULAR_BORDER_RADIUS,
-            ),
+            RoundedRectangleBorder(borderRadius: CIRCULAR_BORDER_RADIUS),
           ),
         ),
         child: Row(

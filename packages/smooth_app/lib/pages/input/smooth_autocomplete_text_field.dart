@@ -88,96 +88,103 @@ class _SmoothAutocompleteTextFieldState
       optionsBuilder: (final TextEditingValue value) {
         return _getSuggestions(value.text);
       },
-      fieldViewBuilder: (BuildContext context,
-              TextEditingController textEditingController,
-              FocusNode focusNode,
-              VoidCallback onFieldSubmitted) =>
-          TextField(
-        maxLines: 1,
-        controller: widget.controller,
-        onChanged: (_) {
-          if (mounted) {
-            setState(() => _selectedSearch = null);
-          }
-        },
-        inputFormatters: <TextInputFormatter>[
-          if (!widget.allowEmojis)
-            FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
-        ],
-        textCapitalization:
-            widget.textCapitalization ?? TextCapitalization.none,
-        style: widget.textStyle ??
-            DefaultTextStyle.of(context).style.copyWith(fontSize: 15.0),
-        decoration: InputDecoration(
-          contentPadding: widget.padding ??
-              const EdgeInsets.symmetric(
-                horizontal: SMALL_SPACE,
-                vertical: SMALL_SPACE,
+      fieldViewBuilder:
+          (
+            BuildContext context,
+            TextEditingController textEditingController,
+            FocusNode focusNode,
+            VoidCallback onFieldSubmitted,
+          ) => TextField(
+            maxLines: 1,
+            controller: widget.controller,
+            onChanged: (_) {
+              if (mounted) {
+                setState(() => _selectedSearch = null);
+              }
+            },
+            inputFormatters: <TextInputFormatter>[
+              if (!widget.allowEmojis)
+                FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
+            ],
+            textCapitalization:
+                widget.textCapitalization ?? TextCapitalization.none,
+            style:
+                widget.textStyle ??
+                DefaultTextStyle.of(context).style.copyWith(fontSize: 15.0),
+            decoration: InputDecoration(
+              contentPadding:
+                  widget.padding ??
+                  const EdgeInsets.symmetric(
+                    horizontal: SMALL_SPACE,
+                    vertical: SMALL_SPACE,
+                  ),
+              isDense: widget.padding != null,
+              suffixIcon: widget.suffixIcon,
+              filled: true,
+              hintStyle: SmoothTextFormField.defaultHintTextStyle(context),
+              hintText: widget.hintText,
+              border: OutlineInputBorder(
+                borderRadius: widget.borderRadius ?? ANGULAR_BORDER_RADIUS,
               ),
-          isDense: widget.padding != null,
-          suffixIcon: widget.suffixIcon,
-          filled: true,
-          hintStyle: SmoothTextFormField.defaultHintTextStyle(context),
-          hintText: widget.hintText,
-          border: OutlineInputBorder(
-            borderRadius: widget.borderRadius ?? ANGULAR_BORDER_RADIUS,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-            borderSide: const BorderSide(
-              color: Colors.transparent,
-              width: 5.0,
-            ),
-          ),
-          suffix: Offstage(
-            offstage: !_loading,
-            child: SizedBox(
-              width: Theme.of(context).textTheme.titleMedium?.fontSize ?? 15,
-              height: Theme.of(context).textTheme.titleMedium?.fontSize ?? 15,
-              child: const CircularProgressIndicator.adaptive(
-                strokeWidth: 1.0,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+                borderSide: const BorderSide(
+                  color: Colors.transparent,
+                  width: 5.0,
+                ),
+              ),
+              suffix: Offstage(
+                offstage: !_loading,
+                child: SizedBox(
+                  width:
+                      Theme.of(context).textTheme.titleMedium?.fontSize ?? 15,
+                  height:
+                      Theme.of(context).textTheme.titleMedium?.fontSize ?? 15,
+                  child: const CircularProgressIndicator.adaptive(
+                    strokeWidth: 1.0,
+                  ),
+                ),
               ),
             ),
+            // a lot of confusion if set to `true`
+            autofocus: false,
+            focusNode: focusNode,
           ),
-        ),
-        // a lot of confusion if set to `true`
-        autofocus: false,
-        focusNode: focusNode,
-      ),
       onSelected: (String search) {
         _selectedSearch = search;
         _setLoading(false);
         widget.onSelected?.call(search);
       },
-      optionsViewBuilder: (
-        BuildContext lContext,
-        AutocompleteOnSelected<String> onSelected,
-        Iterable<String> options,
-      ) {
-        final double screenHeight = MediaQuery.sizeOf(context).height;
-        String input = '';
+      optionsViewBuilder:
+          (
+            BuildContext lContext,
+            AutocompleteOnSelected<String> onSelected,
+            Iterable<String> options,
+          ) {
+            final double screenHeight = MediaQuery.sizeOf(context).height;
+            String input = '';
 
-        for (final String key in _suggestions.keys) {
-          if (_suggestions[key].hashCode == options.hashCode) {
-            input = key;
-            break;
-          }
-        }
+            for (final String key in _suggestions.keys) {
+              if (_suggestions[key].hashCode == options.hashCode) {
+                input = key;
+                break;
+              }
+            }
 
-        if (input == _searchInput) {
-          _setLoading(false);
-        }
+            if (input == _searchInput) {
+              _setLoading(false);
+            }
 
-        return AutocompleteOptions<String>(
-          displayStringForOption: RawAutocomplete.defaultStringForOption,
-          onSelected: onSelected,
-          options: options,
-          // Width = Row width - horizontal padding
-          maxOptionsWidth: widget.constraints.maxWidth - (LARGE_SPACE * 2),
-          maxOptionsHeight: screenHeight / 3,
-          search: input,
-        );
-      },
+            return AutocompleteOptions<String>(
+              displayStringForOption: RawAutocomplete.defaultStringForOption,
+              onSelected: onSelected,
+              options: options,
+              // Width = Row width - horizontal padding
+              maxOptionsWidth: widget.constraints.maxWidth - (LARGE_SPACE * 2),
+              maxOptionsHeight: screenHeight / 3,
+              search: input,
+            );
+          },
     );
   }
 
@@ -185,13 +192,11 @@ class _SmoothAutocompleteTextFieldState
 
   void _setLoading(bool loading) {
     if (_loading != loading) {
-      WidgetsBinding.instance.addPostFrameCallback(
-        (_) {
-          if (mounted) {
-            setState(() => _loading = loading);
-          }
-        },
-      );
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          setState(() => _loading = loading);
+        }
+      });
     }
   }
 
@@ -213,8 +218,9 @@ class _SmoothAutocompleteTextFieldState
     _setLoading(true);
 
     try {
-      _suggestions[search] =
-          _SearchResults(await widget.manager!.getSuggestions(search));
+      _suggestions[search] = _SearchResults(
+        await widget.manager!.getSuggestions(search),
+      );
     } catch (_) {}
 
     if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {

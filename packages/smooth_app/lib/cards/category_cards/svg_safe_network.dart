@@ -38,7 +38,7 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
 
   String get _url => widget.helper.url;
 
-// TODO(monsieurtanuki): Change /dist/ url to be the first try when the majority of products have been updated
+  // TODO(monsieurtanuki): Change /dist/ url to be the first try when the majority of products have been updated
   /// Loads the SVG file from url or from alternate url.
   ///
   /// In Autumn 2023, the web image folders were moved to a /dist/ subfolder.
@@ -110,67 +110,59 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
 
   @override
   Widget build(BuildContext context) => FutureBuilder<String>(
-        future: _loading,
-        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data != null) {
-              return SvgPicture.string(
-                snapshot.data!,
-                width: widget.helper.width,
-                height: widget.helper.height,
-                colorFilter: widget.helper.color == null
-                    ? null
-                    : ui.ColorFilter.mode(
-                        widget.helper.color!,
-                        ui.BlendMode.srcIn,
-                      ),
-                fit: BoxFit.contain,
-                semanticsLabel: widget.helper.semanticsLabel ??
-                    SvgCache.getSemanticsLabel(context, _url),
-                placeholderBuilder: (BuildContext context) => SvgAsyncAsset(
-                  widget.helper,
-                  loadingBuilder: widget.loadingBuilder,
-                  errorBuilder: widget.errorBuilder,
-                ),
-              );
+    future: _loading,
+    builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+      if (snapshot.connectionState == ConnectionState.done) {
+        if (snapshot.data != null) {
+          return SvgPicture.string(
+            snapshot.data!,
+            width: widget.helper.width,
+            height: widget.helper.height,
+            colorFilter: widget.helper.color == null
+                ? null
+                : ui.ColorFilter.mode(widget.helper.color!, ui.BlendMode.srcIn),
+            fit: BoxFit.contain,
+            semanticsLabel:
+                widget.helper.semanticsLabel ??
+                SvgCache.getSemanticsLabel(context, _url),
+            placeholderBuilder: (BuildContext context) => SvgAsyncAsset(
+              widget.helper,
+              loadingBuilder: widget.loadingBuilder,
+              errorBuilder: widget.errorBuilder,
+            ),
+          );
+        }
+      }
+      if (snapshot.error != null) {
+        String? findWarningLabel() {
+          const List<String> warningLabels = <String>[
+            'Failed host lookup',
+            'Connection timed out',
+            'Connection reset by peer',
+          ];
+          final String error = snapshot.error.toString();
+          for (final String warningLabel in warningLabels) {
+            if (error.contains(warningLabel)) {
+              return warningLabel;
             }
           }
-          if (snapshot.error != null) {
-            String? findWarningLabel() {
-              const List<String> warningLabels = <String>[
-                'Failed host lookup',
-                'Connection timed out',
-                'Connection reset by peer',
-              ];
-              final String error = snapshot.error.toString();
-              for (final String warningLabel in warningLabels) {
-                if (error.contains(warningLabel)) {
-                  return warningLabel;
-                }
-              }
-              return null;
-            }
+          return null;
+        }
 
-            final String? warningLabel = findWarningLabel();
-            if (warningLabel != null) {
-              Logs.w(
-                '$warningLabel for "$_url"',
-                ex: snapshot.error,
-              );
-            } else {
-              Logs.e(
-                'Could really not download "$_url"',
-                ex: snapshot.error,
-              );
-            }
-          }
-          return SvgAsyncAsset(widget.helper);
-        },
-      );
+        final String? warningLabel = findWarningLabel();
+        if (warningLabel != null) {
+          Logs.w('$warningLabel for "$_url"', ex: snapshot.error);
+        } else {
+          Logs.e('Could really not download "$_url"', ex: snapshot.error);
+        }
+      }
+      return SvgAsyncAsset(widget.helper);
+    },
+  );
 }
 
 /// Network cache, with url as key and SVG data as value.
 Map<String, String> _networkCache = <String, String>{};
 
-typedef WidgetErrorBuilder = Widget Function(
-    BuildContext context, dynamic exception);
+typedef WidgetErrorBuilder =
+    Widget Function(BuildContext context, dynamic exception);

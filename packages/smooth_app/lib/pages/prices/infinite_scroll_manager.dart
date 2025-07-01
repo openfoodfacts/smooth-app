@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// A generic abstract class for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.
 abstract class InfiniteScrollManager<T> {
   /// Creates an instance of [InfiniteScrollManager] with optional initial items.
-  InfiniteScrollManager({
-    List<T>? initialItems,
-  })  : _items = initialItems ?? <T>[],
-        _currentPage =
-            initialItems != null && initialItems.isNotEmpty ? _initialPage : 0;
+  InfiniteScrollManager({List<T>? initialItems})
+    : _items = initialItems ?? <T>[],
+      _currentPage = initialItems != null && initialItems.isNotEmpty
+          ? _initialPage
+          : 0;
 
   static const int _initialPage = 1;
 
@@ -50,10 +50,7 @@ abstract class InfiniteScrollManager<T> {
 
   /// Displays an item.
   @protected
-  Widget buildItem({
-    required BuildContext context,
-    required T item,
-  });
+  Widget buildItem({required BuildContext context, required T item});
 
   Widget getItemWidget({required BuildContext context, required T item}) {
     return buildItem(context: context, item: item);

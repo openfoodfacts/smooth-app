@@ -33,21 +33,15 @@ class GuidesPage extends StatelessWidget {
       brightness: Brightness.light,
       body: _GuidesPageBody(
         pageName: pageName,
-        slivers: <Widget>[
-          header,
-          ...body,
-          if (footer != null) footer!,
-        ],
+        slivers: <Widget>[header, ...body, if (footer != null) footer!],
       ),
     );
   }
 }
 
 class _GuidesPageBody extends StatefulWidget {
-  const _GuidesPageBody({
-    required this.slivers,
-    required this.pageName,
-  }) : assert(pageName.length > 0);
+  const _GuidesPageBody({required this.slivers, required this.pageName})
+    : assert(pageName.length > 0);
 
   final List<Widget> slivers;
   final String pageName;
@@ -74,16 +68,20 @@ class _GuidesPageBodyState extends State<_GuidesPageBody>
 
             if (notification.metrics.pixels < 125) {
               Future<void>.delayed(Duration.zero, () {
-                _controller.animateTo(0,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.ease);
+                _controller.animateTo(
+                  0,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease,
+                );
               });
               return true;
             } else if (notification.metrics.pixels < 250) {
               Future<void>.delayed(Duration.zero, () {
-                _controller.animateTo(250 - kToolbarHeight,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.ease);
+                _controller.animateTo(
+                  250 - kToolbarHeight,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease,
+                );
               });
             }
             return true;
@@ -127,25 +125,18 @@ class GuidesParagraph extends StatelessWidget {
       pushPinnedChildren: true,
       children: <Widget>[
         SliverPadding(
-          padding: const EdgeInsetsDirectional.only(
-            bottom: 8.0,
-          ),
+          padding: const EdgeInsetsDirectional.only(bottom: 8.0),
           sliver: SliverPinnedHeader(
             child: _GuidesParagraphTitle(title: title),
           ),
         ),
         DefaultTextStyle.merge(
-          style: const TextStyle(
-            fontSize: 15.0,
-            height: 1.75,
-          ),
+          style: const TextStyle(fontSize: 15.0, height: 1.75),
           child: AppIconTheme(
             size: 21.0,
             color: Colors.white,
             child: SliverPadding(
-              padding: const EdgeInsetsDirectional.only(
-                bottom: 15.0,
-              ),
+              padding: const EdgeInsetsDirectional.only(bottom: 15.0),
               sliver: SliverList.builder(
                 itemCount: content.length,
                 itemBuilder: (BuildContext context, int position) {
@@ -161,16 +152,15 @@ class GuidesParagraph extends StatelessWidget {
 }
 
 class _GuidesParagraphTitle extends StatelessWidget {
-  const _GuidesParagraphTitle({
-    required this.title,
-  }) : assert(title.length > 0);
+  const _GuidesParagraphTitle({required this.title}) : assert(title.length > 0);
 
   final String title;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return Semantics(
       label: title,
@@ -215,8 +205,9 @@ class _GuidesParagraphArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return SizedBox.square(
       dimension: 20.0,
@@ -225,20 +216,14 @@ class _GuidesParagraphArrow extends StatelessWidget {
           color: colors.secondaryVibrant,
           shape: BoxShape.circle,
         ),
-        child: const Arrow.right(
-          color: Colors.white,
-          size: 12.0,
-        ),
+        child: const Arrow.right(color: Colors.white, size: 12.0),
       ),
     );
   }
 }
 
 class GuidesText extends StatelessWidget {
-  const GuidesText({
-    required this.text,
-    super.key,
-  });
+  const GuidesText({required this.text, super.key});
 
   final String text;
 
@@ -250,17 +235,13 @@ class GuidesText extends StatelessWidget {
         start: GuidesParagraph._HORIZONTAL_PADDING,
         end: GuidesParagraph._HORIZONTAL_PADDING,
       ),
-      child: _GuidesFormattedText(
-        text: text,
-      ),
+      child: _GuidesFormattedText(text: text),
     );
   }
 }
 
 class _GuidesFormattedText extends StatelessWidget {
-  const _GuidesFormattedText({
-    required this.text,
-  });
+  const _GuidesFormattedText({required this.text});
 
   final String text;
 
@@ -276,8 +257,8 @@ class GuidesIllustratedText extends StatelessWidget {
     required this.imagePath,
     required this.desiredWidthPercent,
     super.key,
-  })  : assert(text.length > 0),
-        assert(imagePath.length > 0);
+  }) : assert(text.length > 0),
+       assert(imagePath.length > 0);
 
   final String text;
   final String imagePath;
@@ -285,20 +266,19 @@ class GuidesIllustratedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
     final int imageWidth =
         (desiredWidthPercent != null ? desiredWidthPercent! : 0.25) *
-            100.0 ~/
-            1;
+        100.0 ~/
+        1;
 
     return Semantics(
       label: text,
       excludeSemantics: true,
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          top: VERY_LARGE_SPACE,
-        ),
+        padding: const EdgeInsetsDirectional.only(top: VERY_LARGE_SPACE),
         child: ColoredBox(
           color: colors.primaryMedium,
           child: Padding(
@@ -310,9 +290,7 @@ class GuidesIllustratedText extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   flex: imageWidth,
-                  child: _ImageFromAssets(
-                    imagePath: imagePath,
-                  ),
+                  child: _ImageFromAssets(imagePath: imagePath),
                 ),
                 const SizedBox(width: 15.0),
                 Expanded(
@@ -355,16 +333,11 @@ class GuidesTitleWithText extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _GuidesTextTitle(
-            title: title,
-            icon: icon,
-          ),
+          _GuidesTextTitle(title: title, icon: icon),
           const SizedBox(height: 15.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2.0),
-            child: _GuidesFormattedText(
-              text: text,
-            ),
+            child: _GuidesFormattedText(text: text),
           ),
         ],
       ),
@@ -373,18 +346,17 @@ class GuidesTitleWithText extends StatelessWidget {
 }
 
 class _GuidesTextTitle extends StatelessWidget {
-  const _GuidesTextTitle({
-    required this.title,
-    required this.icon,
-  }) : assert(title.length > 0);
+  const _GuidesTextTitle({required this.title, required this.icon})
+    : assert(title.length > 0);
 
   final String title;
   final AppIcon icon;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -433,11 +405,15 @@ class GuidesImage extends StatelessWidget {
     this.desiredWidthPercent,
     this.desiredHeightPercent,
     super.key,
-  })  : assert(caption.length > 0),
-        assert(desiredWidthPercent == null ||
-            desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0),
-        assert(desiredHeightPercent == null ||
-            desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0);
+  }) : assert(caption.length > 0),
+       assert(
+         desiredWidthPercent == null ||
+             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
+       ),
+       assert(
+         desiredHeightPercent == null ||
+             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
+       );
 
   final String imagePath;
   final double? desiredWidthPercent;
@@ -446,8 +422,9 @@ class GuidesImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return Semantics(
       label: caption,
@@ -461,8 +438,9 @@ class GuidesImage extends StatelessWidget {
         ),
         child: DecoratedBox(
           decoration: BoxDecoration(
-              color: colors.primaryMedium,
-              borderRadius: BorderRadius.circular(20.0)),
+            color: colors.primaryMedium,
+            borderRadius: BorderRadius.circular(20.0),
+          ),
           child: Padding(
             padding: const EdgeInsetsDirectional.only(
               top: 14.0,
@@ -500,10 +478,14 @@ class _ImageFromAssets extends StatelessWidget {
     required this.imagePath,
     this.desiredWidthPercent,
     this.desiredHeightPercent,
-  })  : assert(desiredWidthPercent == null ||
-            desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0),
-        assert(desiredHeightPercent == null ||
-            desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0);
+  }) : assert(
+         desiredWidthPercent == null ||
+             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
+       ),
+       assert(
+         desiredHeightPercent == null ||
+             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
+       );
 
   final String imagePath;
   final double? desiredWidthPercent;

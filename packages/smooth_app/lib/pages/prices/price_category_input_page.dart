@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -63,9 +63,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
         fixKeyboard: true,
-        appBar: AppBar(
-          title: Text(appLocalizations.prices_category_enter),
-        ),
+        appBar: AppBar(title: Text(appLocalizations.prices_category_enter)),
         body: Padding(
           padding: const EdgeInsets.all(SMALL_SPACE),
           child: Column(
@@ -77,9 +75,8 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
                 _MyAutocomplete(
                   helper: SimpleInputPageCategoryHelper(),
                   controller: _categoryController,
-                  onSelected: (final String selected) => setState(
-                    () => _categoryName = selected,
-                  ),
+                  onSelected: (final String selected) =>
+                      setState(() => _categoryName = selected),
                 )
               else
                 _ReadOnlyTextField(_categoryName!),
@@ -89,12 +86,10 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
               _MyAutocomplete(
                 helper: SimpleInputPageOriginHelper(),
                 controller: _originController,
-                onSelected: (final String selected) => setState(
-                  () {
-                    _originController.text = '';
-                    _originNames.add(selected);
-                  },
-                ),
+                onSelected: (final String selected) => setState(() {
+                  _originController.text = '';
+                  _originNames.add(selected);
+                }),
               ),
             ],
           ),
@@ -105,8 +100,9 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
           onPressed: _categoryName == null
               ? null
               : () async {
-                  final (bool, PriceMetaProduct?) result =
-                      await _mayExitPage(saving: true);
+                  final (bool, PriceMetaProduct?) result = await _mayExitPage(
+                    saving: true,
+                  );
                   if (result.$1) {
                     if (context.mounted) {
                       Navigator.of(context).pop(result.$2);
@@ -134,11 +130,11 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(
-        context,
-        title: appLocalizations.prices_category_enter,
-      );
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(
+            context,
+            title: appLocalizations.prices_category_enter,
+          );
       if (pleaseSave == null) {
         return (false, null);
       }
@@ -202,37 +198,33 @@ class _MyAutocompleteState extends State<_MyAutocomplete> {
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-        builder: (
-          _,
-          BoxConstraints constraints,
-        ) =>
-            SmoothAutocompleteTextField(
-          autocompleteKey: _autocompleteKey,
-          focusNode: _focusNode,
-          constraints: constraints,
-          onSelected: widget.onSelected,
-          manager: AutocompleteManager(
-            TagTypeAutocompleter(
-              tagType: widget.helper.getTagType()!,
-              language: ProductQuery.getLanguage(),
-              country: ProductQuery.getCountry(),
-              categories: null,
-              shape: null,
-              user: ProductQuery.getReadUser(),
-              limit: 15,
-              uriHelper: ProductQuery.getUriProductHelper(
-                productType: ProductType.food,
-              ),
-            ),
+    builder: (_, BoxConstraints constraints) => SmoothAutocompleteTextField(
+      autocompleteKey: _autocompleteKey,
+      focusNode: _focusNode,
+      constraints: constraints,
+      onSelected: widget.onSelected,
+      manager: AutocompleteManager(
+        TagTypeAutocompleter(
+          tagType: widget.helper.getTagType()!,
+          language: ProductQuery.getLanguage(),
+          country: ProductQuery.getCountry(),
+          categories: null,
+          shape: null,
+          user: ProductQuery.getReadUser(),
+          limit: 15,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: ProductType.food,
           ),
-          textCapitalization: widget.helper.getTextCapitalization(),
-          allowEmojis: widget.helper.getAllowEmojis(),
-          hintText: widget.helper.getAddHint(AppLocalizations.of(context)),
-          controller: widget.controller,
-          padding: _fieldPadding,
-          borderRadius: _borderRadius,
         ),
-      );
+      ),
+      textCapitalization: widget.helper.getTextCapitalization(),
+      allowEmojis: widget.helper.getAllowEmojis(),
+      hintText: widget.helper.getAddHint(AppLocalizations.of(context)),
+      controller: widget.controller,
+      padding: _fieldPadding,
+      borderRadius: _borderRadius,
+    ),
+  );
 }
 
 class _ReadOnlyTextField extends StatefulWidget {
@@ -269,15 +261,10 @@ class _ReadOnlyTextFieldState extends State<_ReadOnlyTextField> {
         contentPadding: _fieldPadding,
         isDense: true,
         filled: true,
-        border: OutlineInputBorder(
-          borderRadius: _borderRadius,
-        ),
+        border: OutlineInputBorder(borderRadius: _borderRadius),
         enabledBorder: OutlineInputBorder(
           borderRadius: _borderRadius,
-          borderSide: BorderSide(
-            color: Colors.transparent,
-            width: 5.0,
-          ),
+          borderSide: BorderSide(color: Colors.transparent, width: 5.0),
         ),
       ),
     );

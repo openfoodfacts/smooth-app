@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 
@@ -38,9 +38,7 @@ class UserPreferencesCurrencySelector extends StatelessWidget {
         child: CurrencySelector(
           textStyle: themeData.textTheme.bodyMedium,
           icon: const Icon(Icons.edit),
-          padding: const EdgeInsetsDirectional.only(
-            start: SMALL_SPACE,
-          ),
+          padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
         ),
       ),
       minVerticalPadding: MEDIUM_SPACE,

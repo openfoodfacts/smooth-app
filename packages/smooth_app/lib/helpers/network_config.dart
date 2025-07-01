@@ -38,11 +38,12 @@ Future<void> _initUserAgent() async {
     id: id,
   );
   OpenFoodAPIConfiguration.userAgent = UserAgent(
-      name: name,
-      version: version,
-      system: system,
-      url: 'https://world.openfoodfacts.org/',
-      comment: comment);
+    name: name,
+    version: version,
+    system: system,
+    url: 'https://world.openfoodfacts.org/',
+    comment: comment,
+  );
 }
 
 String _getAppInfoComment({
