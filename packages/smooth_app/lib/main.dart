@@ -244,7 +244,7 @@ class _SmoothAppState extends State<SmoothApp> {
             child: AppNavigator(
               observers: <NavigatorObserver>[
                 SentryNavigatorObserver(),
-                matomoObserver,
+                matomoLocalObserver,
               ],
               child: Builder(builder: _buildApp),
             ),
