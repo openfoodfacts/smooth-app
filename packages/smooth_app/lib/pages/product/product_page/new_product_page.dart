@@ -12,6 +12,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/pages/prices/price_add_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
