@@ -52,6 +52,7 @@ class LocationListPhotonSupplier extends LocationListSupplier {
           query:
               'q=${Uri.encodeComponent(query)}'
               '&lang=${getQueryLanguage().offTag}'
+              '&limit=100'
               '${_getAdditionalParameters()}',
         ),
       );
