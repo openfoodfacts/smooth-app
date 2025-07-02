@@ -91,6 +91,7 @@ Future&lt;String?&gt; asyncLoad() async {
         query:
             &#39;q=${Uri.encodeComponent(query)}&#39;
             &#39;&amp;lang=${getQueryLanguage().offTag}&#39;
+            &#39;&amp;limit=100&#39;
             &#39;${_getAdditionalParameters()}&#39;,
       ),
     );
