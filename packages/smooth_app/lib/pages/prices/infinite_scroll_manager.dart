@@ -4,12 +4,17 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 /// A generic abstract class for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.
 abstract class InfiniteScrollManager<T> {
-  /// Creates an instance of [InfiniteScrollManager] with optional initial items.
-  InfiniteScrollManager({List<T>? initialItems})
-    : _items = initialItems ?? <T>[],
-      _currentPage = initialItems != null && initialItems.isNotEmpty
-          ? _initialPage
-          : 0;
+  /// Creates an [InfiniteScrollManager] with optional initial state.
+  InfiniteScrollManager({
+    final List<T>? initialItems,
+    final int? totalItems,
+    final int? totalPages,
+  }) : _items = List<T>.from(initialItems ?? <T>[]),
+       _currentPage = initialItems != null && initialItems.isNotEmpty
+           ? _initialPage
+           : 0,
+       _totalPages = totalPages,
+       _totalItems = totalItems;
 
   static const int _initialPage = 1;
 

@@ -49,7 +49,11 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   _InfiniteScrollPriceManager({
     GetPricesResult? pricesResult,
     required this.model,
-  }) : super(initialItems: pricesResult?.items);
+  }) : super(
+         initialItems: pricesResult?.items,
+         totalItems: pricesResult?.total,
+         totalPages: pricesResult?.numberOfPages,
+       );
 
   /// The model containing price query parameters
   final GetPricesModel model;
