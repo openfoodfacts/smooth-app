@@ -19,7 +19,7 @@ dependencies:
   cupertino_icons: 1.0.8
   flutter_svg: 2.1.0
   flutter_map: 8.1.1
-  html: 0.15.5
+  html: 0.15.6
   flutter_widget_from_html_core: 0.15.2
   flutter_secure_storage: 9.2.4
   hive: 2.2.3
