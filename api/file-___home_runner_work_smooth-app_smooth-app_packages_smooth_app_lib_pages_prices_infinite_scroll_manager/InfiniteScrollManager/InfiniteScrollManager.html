@@ -49,24 +49,31 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">InfiniteScrollManager&lt;<wbr><span class="type-parameter">T</span>&gt;</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-initialItems">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">initialItems</span>}</span></li>
+      <span class="name ">InfiniteScrollManager&lt;<wbr><span class="type-parameter">T</span>&gt;</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-initialItems">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">initialItems</span>, </span></li>
+<li><span class="parameter" id="-param-totalItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">totalItems</span>, </span></li>
+<li><span class="parameter" id="-param-totalPages"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">totalPages</span>}</span></li>
 </ol>)
     </section>
 
     
 <section class="desc markdown">
-  <p>Creates an instance of <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_infinite_scroll_manager/InfiniteScrollManager-class.html">InfiniteScrollManager</a> with optional initial items.</p>
+  <p>Creates an <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_infinite_scroll_manager/InfiniteScrollManager-class.html">InfiniteScrollManager</a> with optional initial state.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">InfiniteScrollManager({List&lt;T&gt;? initialItems})
-  : _items = initialItems ?? &lt;T&gt;[],
-    _currentPage = initialItems != null &amp;&amp; initialItems.isNotEmpty
-        ? _initialPage
-        : 0;</code></pre>
+  <pre class="language-dart"><code class="language-dart">InfiniteScrollManager({
+  final List&lt;T&gt;? initialItems,
+  final int? totalItems,
+  final int? totalPages,
+}) : _items = List&lt;T&gt;.from(initialItems ?? &lt;T&gt;[]),
+     _currentPage = initialItems != null &amp;&amp; initialItems.isNotEmpty
+         ? _initialPage
+         : 0,
+     _totalPages = totalPages,
+     _totalItems = totalItems;</code></pre>
 </section>
 
 
