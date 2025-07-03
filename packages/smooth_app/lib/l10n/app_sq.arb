@@ -159,7 +159,7 @@
   "incorrect_credentials": "Emri i perdoruesit ose fjalekalimi i pasakte",
   "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
   "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-  "login": "Login",
+  "login": "Identifikohu",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Enter the Barcode",
+  "prices_category_enter": "Artikull pa barkod. ...",
+  "prices_per_kilogram": "Çmimi për kilogram",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Price per unit",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / njësi",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Mandatory",
+  "prices_category_optional": "Opsionale",
+  "prices_category_error_mandatory": "Kategoria është e detyrueshme",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Çmimi i shtuar më parë",
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
   "prices_amount_price_normal": "Price",

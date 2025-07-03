@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothBarcodeScannerVisor extends StatelessWidget {
-  const SmoothBarcodeScannerVisor({
-    this.contentPadding,
-    super.key,
-  });
+  const SmoothBarcodeScannerVisor({this.contentPadding, super.key});
 
   static const double CORNER_PADDING = 26.0;
   static const double STROKE_WIDTH = 3.0;
@@ -105,10 +102,7 @@ class _ScanVisorPainter extends CustomPainter {
 
     path
       ..lineTo(rect.right - _halfCornerSize, rect.top)
-      ..arcToPoint(
-        Offset(rect.right, _halfCornerSize),
-        radius: _borderRadius,
-      )
+      ..arcToPoint(Offset(rect.right, _halfCornerSize), radius: _borderRadius)
       ..lineTo(rect.right, rect.top + _fullCornerSize);
 
     // Bottom right
@@ -170,9 +164,7 @@ class VisorButton extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           borderRadius: const BorderRadius.all(
-            Radius.circular(
-              SmoothBarcodeScannerVisor.CORNER_PADDING,
-            ),
+            Radius.circular(SmoothBarcodeScannerVisor.CORNER_PADDING),
           ),
           child: Tooltip(
             message: tooltip,

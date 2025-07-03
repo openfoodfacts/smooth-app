@@ -2318,6 +2318,26 @@
     }
   },
   "prices_barcode_enter": "Εισαγάγετε τον Γραμμωτό κώδικα",
+  "prices_category_enter": "Προϊόν χωρίς γραμμωτό κώδικα (barcode)",
+  "prices_per_kilogram": "Τιμή ανά κιλό",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Price per unit",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / κιλό",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / μονάδα",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Υποχρεωτικό",
+  "prices_category_optional": "Προαιρετικός",
+  "prices_category_error_mandatory": "Η κατηγορία είναι υποχρεωτική",
   "prices_barcode_reader_action": "Αναγνώστης γραμμωτού κώδικα",
   "prices_view_prices": "Δείτε τις τιμές",
   "prices_product_accessibility_summary": "{count,plural, =1{1 τιμή} other{{count} τιμές}} για {product}",
@@ -2465,6 +2485,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Τιμή που προστέθηκε προηγουμένως",
   "prices_amount_subtitle": "Ποσότητα",
   "prices_amount_is_discounted": "Σε έκπτωση;",
   "prices_amount_price_normal": "Τιμή",

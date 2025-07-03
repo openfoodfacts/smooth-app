@@ -95,8 +95,9 @@ class ProductPageState extends State<ProductPage>
       _productPreferences,
     );
 
-    final bool hasPendingOperations = UpToDateChanges(localDatabase)
-        .hasNotTerminatedOperations(upToDateProduct.barcode!);
+    final bool hasPendingOperations = UpToDateChanges(
+      localDatabase,
+    ).hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return MultiProvider(
       providers: <SingleChildWidget>[
@@ -132,13 +133,12 @@ class ProductPageState extends State<ProductPage>
               leading: EMPTY_WIDGET,
               leadingWidth: 0.0,
               titleSpacing: 0.0,
-              title: ProductHeader(
-                backButtonType: widget.backButton,
-              ),
+              title: ProductHeader(backButtonType: widget.backButton),
             ),
             SliverToBoxAdapter(
               child: HeroMode(
-                enabled: widget.withHeroAnimation &&
+                enabled:
+                    widget.withHeroAnimation &&
                     widget.heroTag?.isNotEmpty == true,
                 child: SummaryCard(
                   upToDateProduct,
@@ -148,20 +148,14 @@ class ProductPageState extends State<ProductPage>
                 ),
               ),
             ),
-            ProductPageTabBar(
-              tabController: _tabController,
-              tabs: _tabs,
-            ),
+            ProductPageTabBar(tabController: _tabController, tabs: _tabs),
           ];
         },
         body: TabBarView(
           controller: _tabController,
           children: _tabs
               .map(
-                (ProductPageTab tab) => tab.builder(
-                  context,
-                  upToDateProduct,
-                ),
+                (ProductPageTab tab) => tab.builder(context, upToDateProduct),
               )
               .toList(growable: false),
         ),
@@ -192,10 +186,7 @@ class ProductPageState extends State<ProductPage>
     final BuildContext context,
   ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductList(localDatabase).push(
-      ProductList.history(),
-      barcode,
-    );
+    await DaoProductList(localDatabase).push(ProductList.history(), barcode);
     localDatabase.notifyListeners();
   }
 
@@ -208,8 +199,8 @@ class ProductPageState extends State<ProductPage>
   }
 
   static ProductPageState of(BuildContext context) {
-    final ProductPageState? result =
-        context.findAncestorStateOfType<ProductPageState>();
+    final ProductPageState? result = context
+        .findAncestorStateOfType<ProductPageState>();
     assert(result != null, 'No ProductPageState found in context');
     return result!;
   }
@@ -219,9 +210,10 @@ class ProductPageCompatibility {
   ProductPageCompatibility({
     required Color color,
     required MatchedProductV2 matchedProductV2,
-  })  : _color = color,
-        score = ProductCompatibilityHelper.product(matchedProductV2)
-            .getFormattedScore();
+  }) : _color = color,
+       score = ProductCompatibilityHelper.product(
+         matchedProductV2,
+       ).getFormattedScore();
 
   final Color _color;
   final String? score;

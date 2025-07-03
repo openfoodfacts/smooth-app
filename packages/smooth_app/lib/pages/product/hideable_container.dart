@@ -3,10 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 
 class HideableContainer extends StatefulWidget {
-  const HideableContainer({
-    required this.child,
-    super.key,
-  });
+  const HideableContainer({required this.child, super.key});
 
   final Widget child;
 
@@ -42,10 +39,7 @@ class HideableContainerState extends State<HideableContainer>
       value: this,
       child: Transform.translate(
         offset: Offset(0.0, (1 - _animation.value) * 100),
-        child: Opacity(
-          opacity: _animation.value,
-          child: widget.child,
-        ),
+        child: Opacity(opacity: _animation.value, child: widget.child),
       ),
     );
   }

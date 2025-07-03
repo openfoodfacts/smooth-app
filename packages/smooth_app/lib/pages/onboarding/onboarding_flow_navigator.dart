@@ -103,17 +103,14 @@ enum OnboardingPage {
   Widget _wrapWidgetInCustomBackNavigator(
     BuildContext context,
     Widget widget,
-  ) =>
-      WillPopScope2(
-        onWillPop: () async => (false, null),
-        // wrap the widget in [Builder] to allow navigation on the [context].
-        child: Builder(
-          builder: (BuildContext context) => SmoothScaffold(
-            body: widget,
-            brightness: Brightness.dark,
-          ),
-        ),
-      );
+  ) => WillPopScope2(
+    onWillPop: () async => (false, null),
+    // wrap the widget in [Builder] to allow navigation on the [context].
+    child: Builder(
+      builder: (BuildContext context) =>
+          SmoothScaffold(body: widget, brightness: Brightness.dark),
+    ),
+  );
 }
 
 /// Decide which page to take the user to.
@@ -140,9 +137,7 @@ class OnboardingFlowNavigator {
     if (page.isOnboardingComplete()) {
       AppNavigator.of(context)
         ..clearStack()
-        ..pushReplacement(
-          AppRoutes.HOME(redraw: true),
-        );
+        ..pushReplacement(AppRoutes.HOME(redraw: true));
     } else {
       final MaterialPageRoute<void> route = MaterialPageRoute<void>(
         builder: (BuildContext context) => page.getPageWidget(context),

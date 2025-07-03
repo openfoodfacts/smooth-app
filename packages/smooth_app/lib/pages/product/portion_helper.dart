@@ -45,8 +45,9 @@ class PortionHelper {
     final List<OrderedNutrient> orderedNutrients,
   ) {
     for (final OrderedNutrient orderedNutrient in orderedNutrients) {
-      final Nutrient? nutrient =
-          NutritionContainerHelper.getNutrient(orderedNutrient);
+      final Nutrient? nutrient = NutritionContainerHelper.getNutrient(
+        orderedNutrient,
+      );
       if (nutrient != null) {
         if (orderedNutrient.name != null) {
           try {
@@ -67,8 +68,10 @@ class PortionHelper {
     final Nutrient nutrient,
     final String nutrientName,
   ) {
-    double? value =
-        productNutriments.getValue(nutrient, PerSize.oneHundredGrams);
+    double? value = productNutriments.getValue(
+      nutrient,
+      PerSize.oneHundredGrams,
+    );
     if (value == null) {
       return;
     }
@@ -85,12 +88,10 @@ class PortionHelper {
       }
       _alreadyEnergyKJ = true;
     }
-    _table.add(
-      <String>[
-        nutrientName,
-        '${_numberFormat.format(value)} ${_unitStandardSpellings[unit] ?? ''}'
-      ],
-    );
+    _table.add(<String>[
+      nutrientName,
+      '${_numberFormat.format(value)} ${_unitStandardSpellings[unit] ?? ''}',
+    ]);
   }
 
   /// [Unit] standard spellings.

@@ -22,8 +22,8 @@ class Tag extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: context.darkTheme() ? Colors.white : Colors.black,
-              ),
+            color: context.darkTheme() ? Colors.white : Colors.black,
+          ),
         ),
       ),
     );

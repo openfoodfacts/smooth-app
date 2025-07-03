@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
@@ -61,12 +61,7 @@ class _NutriScoreHeaderIllustration extends StatelessWidget {
             SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.a, false),
           ),
         ),
-        const Expanded(
-          flex: 28,
-          child: Arrow.down(
-            color: Colors.white,
-          ),
-        ),
+        const Expanded(flex: 28, child: Arrow.down(color: Colors.white)),
         Expanded(
           flex: 40,
           child: SvgPicture.asset(
@@ -119,9 +114,7 @@ class _NutriScoreSection2 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_nutriscore_v2_why_v2_title,
       content: <Widget>[
-        GuidesText(
-          text: appLocalizations.guide_nutriscore_v2_why_v2_intro,
-        ),
+        GuidesText(text: appLocalizations.guide_nutriscore_v2_why_v2_intro),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg1_title,
           icon: const Milk(),
@@ -162,9 +155,7 @@ class _NutriScoreSection3 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_nutriscore_v2_new_logo_title,
       content: <Widget>[
-        GuidesText(
-          text: appLocalizations.guide_nutriscore_v2_new_logo_text,
-        ),
+        GuidesText(text: appLocalizations.guide_nutriscore_v2_new_logo_text),
         GuidesImage(
           imagePath: SvgCache.getAssetsCacheForNutriscore(
             NutriScoreValue.a,
@@ -194,7 +185,7 @@ class _NutriScoreSection4 extends StatelessWidget {
           text: appLocalizations.guide_nutriscore_v2_where_paragraph3,
           imagePath: 'assets/app/release_icon_light_transparent_no_border.svg',
           desiredWidthPercent: 0.15,
-        )
+        ),
       ],
     );
   }

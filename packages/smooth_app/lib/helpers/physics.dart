@@ -35,9 +35,7 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
   Widget build(BuildContext context) {
     return ScrollConfiguration(
       behavior: _CustomScrollBehavior(
-        VerticalSnapScrollPhysics.get(
-          steps: widget.steps,
-        ),
+        VerticalSnapScrollPhysics.get(steps: widget.steps),
       ),
       child: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notif) {
@@ -88,10 +86,10 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
           if (context.mounted) {
             // ignore: use_build_context_synchronously
             context.read<ScrollController>().animateTo(
-                  scrollTo!,
-                  curve: Curves.easeOutCubic,
-                  duration: const Duration(milliseconds: 500),
-                );
+              scrollTo!,
+              curve: Curves.easeOutCubic,
+              duration: const Duration(milliseconds: 500),
+            );
           }
         });
       }
@@ -110,7 +108,10 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
 
     for (int i = 0; i != _reversedSteps.length; i++) {
       if (_blockScrollIfNecessary(
-          notif, _reversedSteps.elementAt(i), i == _reversedSteps.length - 1)) {
+        notif,
+        _reversedSteps.elementAt(i),
+        i == _reversedSteps.length - 1,
+      )) {
         break;
       }
     }
@@ -168,10 +169,7 @@ class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
     required List<double> steps,
     bool lastStepBlocking = true,
   }) {
-    _init(
-      steps: steps,
-      lastStepBlocking: lastStepBlocking,
-    );
+    _init(steps: steps, lastStepBlocking: lastStepBlocking);
   }
 
   @override
@@ -198,10 +196,7 @@ class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
     required List<double> steps,
     bool lastStepBlocking = true,
   }) {
-    _init(
-      steps: steps,
-      lastStepBlocking: lastStepBlocking,
-    );
+    _init(steps: steps, lastStepBlocking: lastStepBlocking);
   }
 
   @override
@@ -224,10 +219,7 @@ class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
 /// A custom [ScrollPhysics] that snaps to specific [steps].
 /// ignore: must_be_immutable
 mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
-  void _init({
-    required List<double> steps,
-    bool lastStepBlocking = true,
-  }) {
+  void _init({required List<double> steps, bool lastStepBlocking = true}) {
     _steps = steps.toList()..sort();
     _lastStepBlocking = lastStepBlocking;
     _ignoreNextScroll = false;
@@ -259,8 +251,10 @@ mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
       return null;
     }
 
-    final Simulation? simulation =
-        super.createBallisticSimulation(position, velocity);
+    final Simulation? simulation = super.createBallisticSimulation(
+      position,
+      velocity,
+    );
     double? proposedPixels = simulation?.x(double.infinity);
 
     if (simulation == null || proposedPixels == null) {
@@ -385,7 +379,9 @@ class HorizontalSnapScrollPhysics extends ScrollPhysics {
   @override
   HorizontalSnapScrollPhysics applyTo(ScrollPhysics? ancestor) {
     return HorizontalSnapScrollPhysics(
-        parent: buildParent(ancestor), snapSize: snapSize);
+      parent: buildParent(ancestor),
+      snapSize: snapSize,
+    );
   }
 
   double _getPage(ScrollMetrics position) {
@@ -397,7 +393,10 @@ class HorizontalSnapScrollPhysics extends ScrollPhysics {
   }
 
   double _getTargetPixels(
-      ScrollMetrics position, Tolerance tolerance, double velocity) {
+    ScrollMetrics position,
+    Tolerance tolerance,
+    double velocity,
+  ) {
     double page = _getPage(position);
     if (velocity < -tolerance.velocity) {
       page -= 0.5;
@@ -421,8 +420,13 @@ class HorizontalSnapScrollPhysics extends ScrollPhysics {
     final Tolerance tolerance = toleranceFor(position);
     final double target = _getTargetPixels(position, tolerance, velocity);
     if (target != position.pixels) {
-      return ScrollSpringSimulation(spring, position.pixels, target, velocity,
-          tolerance: tolerance);
+      return ScrollSpringSimulation(
+        spring,
+        position.pixels,
+        target,
+        velocity,
+        tolerance: tolerance,
+      );
     }
     return null;
   }

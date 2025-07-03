@@ -6,8 +6,8 @@ class DashedLinePainter extends CustomPainter {
     this.dashGap = 3.0,
     this.dashSpace = 3.0,
   }) : _paint = Paint()
-          ..color = color
-          ..strokeWidth = 1.0;
+         ..color = color
+         ..strokeWidth = 1.0;
 
   final double dashGap;
   final double dashSpace;
@@ -19,11 +19,7 @@ class DashedLinePainter extends CustomPainter {
     double startX = 0.0;
 
     while (startX < size.width) {
-      canvas.drawLine(
-        Offset(startX, 0),
-        Offset(startX + dashGap, 0),
-        _paint,
-      );
+      canvas.drawLine(Offset(startX, 0), Offset(startX + dashGap, 0), _paint);
 
       startX += dashGap + dashSpace;
     }

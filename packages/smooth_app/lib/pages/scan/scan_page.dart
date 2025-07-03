@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -13,6 +12,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -53,44 +53,41 @@ class _ScanPageState extends State<ScanPage> {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension themeExtension = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
     final TextDirection direction = Directionality.of(context);
     final bool hasACamera = CameraHelper.hasACamera;
 
     return SmoothScaffold(
       brightness: Brightness.light,
-      backgroundColor:
-          context.lightTheme() ? themeExtension.primaryLight : null,
+      backgroundColor: context.lightTheme()
+          ? themeExtension.primaryLight
+          : null,
       body: Column(
         children: <Widget>[
           if (hasACamera)
             Expanded(
               flex: 100 - _carouselHeightPct,
               child: Consumer<PermissionListener>(
-                builder: (
-                  BuildContext context,
-                  PermissionListener listener,
-                  _,
-                ) {
-                  switch (listener.value.status) {
-                    case DevicePermissionStatus.checking:
-                      return EMPTY_WIDGET;
-                    case DevicePermissionStatus.granted:
-                      // TODO(m123): change
-                      return const CameraScannerPage();
-                    default:
-                      return const _PermissionDeniedCard();
-                  }
-                },
+                builder:
+                    (BuildContext context, PermissionListener listener, _) {
+                      switch (listener.value.status) {
+                        case DevicePermissionStatus.checking:
+                          return EMPTY_WIDGET;
+                        case DevicePermissionStatus.granted:
+                          // TODO(m123): change
+                          return const CameraScannerPage();
+                        default:
+                          return const _PermissionDeniedCard();
+                      }
+                    },
               ),
             ),
           Expanded(
             flex: _carouselHeightPct,
             child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                bottom: BALANCED_SPACE,
-              ),
+              padding: const EdgeInsetsDirectional.only(bottom: BALANCED_SPACE),
               child: ScanPageCarousel(
                 onPageChangedTo: (int page, String? barcode) async {
                   if (barcode == null) {
@@ -218,10 +215,7 @@ class _PermissionDeniedCard extends StatelessWidget {
                               APP_NAME,
                             ),
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              height: 1.4,
-                              fontSize: 15.5,
-                            ),
+                            style: const TextStyle(height: 1.4, fontSize: 15.5),
                           ),
                         ),
                       ),
@@ -240,8 +234,9 @@ class _PermissionDeniedCard extends StatelessWidget {
     return Provider.of<PermissionListener>(
       context,
       listen: false,
-    ).askPermission(onRationaleNotAvailable: () async {
-      return showDialog(
+    ).askPermission(
+      onRationaleNotAvailable: () async {
+        return showDialog(
           context: context,
           builder: (BuildContext context) {
             final AppLocalizations localizations = AppLocalizations.of(context);
@@ -251,9 +246,7 @@ class _PermissionDeniedCard extends StatelessWidget {
                   localizations.permission_photo_denied_dialog_settings_title,
               body: Text(
                 localizations.permission_photo_denied_dialog_settings_message,
-                style: const TextStyle(
-                  height: 1.6,
-                ),
+                style: const TextStyle(height: 1.6),
               ),
               negativeAction: SmoothActionButton(
                 text: localizations
@@ -269,7 +262,9 @@ class _PermissionDeniedCard extends StatelessWidget {
               ),
               actionsAxis: Axis.vertical,
             );
-          });
-    });
+          },
+        );
+      },
+    );
   }
 }

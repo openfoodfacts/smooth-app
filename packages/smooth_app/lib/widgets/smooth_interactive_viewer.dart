@@ -75,12 +75,13 @@ class _SmoothInteractiveViewerState extends State<SmoothInteractiveViewer>
       _animationController.duration = SmoothAnimationsDuration.short;
     }
 
-    _animation = Matrix4Tween(
-      begin: _transformationController.value,
-      end: matrix,
-    ).animate(
-      CurveTween(curve: Curves.easeInCubic).animate(_animationController),
-    );
+    _animation =
+        Matrix4Tween(
+          begin: _transformationController.value,
+          end: matrix,
+        ).animate(
+          CurveTween(curve: Curves.easeInCubic).animate(_animationController),
+        );
     _animationController.forward(from: 0);
   }
 

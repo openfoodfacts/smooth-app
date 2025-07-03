@@ -61,10 +61,7 @@ class PriceButton extends StatelessWidget {
         value: tooltip,
         button: true,
         excludeSemantics: true,
-        child: Tooltip(
-          message: tooltip,
-          child: widget,
-        ),
+        child: Tooltip(message: tooltip, child: widget),
       );
     }
     return widget;

@@ -29,8 +29,10 @@ class KnowledgePanelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final KnowledgePanel? panel =
-        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+    final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
+      product,
+      panelId,
+    );
 
     if (panel == null) {
       return EMPTY_WIDGET;
@@ -46,33 +48,31 @@ class KnowledgePanelCard extends StatelessWidget {
 
     // in some cases there's nothing to click about.
     // cf. https://github.com/openfoodfacts/smooth-app/issues/5700
-    final bool improvedIsClickable = isClickable &&
-        KnowledgePanelsBuilder.hasSomethingToDisplay(
-          product,
-          panelId,
-        );
+    final bool improvedIsClickable =
+        isClickable &&
+        KnowledgePanelsBuilder.hasSomethingToDisplay(product, panelId);
     return Padding(
-      padding: const EdgeInsetsDirectional.symmetric(
-        vertical: SMALL_SPACE,
-      ),
+      padding: const EdgeInsetsDirectional.symmetric(vertical: SMALL_SPACE),
       child: InkWell(
         borderRadius: ANGULAR_BORDER_RADIUS,
         onTap: !improvedIsClickable
             ? null
             : () async => Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => SmoothBrightnessOverride(
-                      brightness:
-                          SmoothBrightnessOverride.of(context)?.brightness,
-                      child: KnowledgePanelPage(
-                        panelId: panelId,
-                        product: product,
-                      ),
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => SmoothBrightnessOverride(
+                    brightness: SmoothBrightnessOverride.of(
+                      context,
+                    )?.brightness,
+                    child: KnowledgePanelPage(
+                      panelId: panelId,
+                      product: product,
                     ),
                   ),
                 ),
-        child: KnowledgePanelsBuilder.getPanelSummaryWidget(
+              ),
+        child:
+            KnowledgePanelsBuilder.getPanelSummaryWidget(
               panel,
               isClickable: improvedIsClickable,
               margin: EdgeInsets.zero,
@@ -93,9 +93,10 @@ class KnowledgePanelCard extends StatelessWidget {
     for (final String panelId in expandedPanelIds) {
       if (panel.titleElement != null &&
           panel.titleElement!.title ==
-              KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)
-                  ?.titleElement
-                  ?.title) {
+              KnowledgePanelsBuilder.getKnowledgePanel(
+                product,
+                panelId,
+              )?.titleElement?.title) {
         if (userPreferences.getFlag(getExpandFlagTag(panelId)) ?? false) {
           return true;
         }

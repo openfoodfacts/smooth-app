@@ -8,11 +8,7 @@ import 'package:smooth_app/query/paged_product_query.dart';
 
 /// Asynchronously loads a [ProductList] with products
 abstract class ProductListSupplier {
-  ProductListSupplier(
-    this.productQuery,
-    this.localDatabase, {
-    this.timestamp,
-  });
+  ProductListSupplier(this.productQuery, this.localDatabase, {this.timestamp});
 
   final PagedProductQuery productQuery;
   final LocalDatabase localDatabase;
@@ -48,9 +44,9 @@ abstract class ProductListSupplier {
     final PagedProductQuery productQuery,
     final LocalDatabase localDatabase,
   ) async {
-    final int? timestamp = await DaoProductList(localDatabase).getTimestamp(
-      productQuery.getProductList(),
-    );
+    final int? timestamp = await DaoProductList(
+      localDatabase,
+    ).getTimestamp(productQuery.getProductList());
     return timestamp == null
         ? QueryProductListSupplier(productQuery, localDatabase)
         : DatabaseProductListSupplier(productQuery, localDatabase, timestamp);

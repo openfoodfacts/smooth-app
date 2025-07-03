@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
@@ -35,10 +35,7 @@ class ProductPageTab {
 }
 
 class ProductPageTabBar extends StatelessWidget {
-  const ProductPageTabBar({
-    required this.tabController,
-    required this.tabs,
-  });
+  const ProductPageTabBar({required this.tabController, required this.tabs});
 
   final TabController tabController;
   final List<ProductPageTab> tabs;
@@ -51,12 +48,14 @@ class ProductPageTabBar extends StatelessWidget {
           preferredSize: const Size.fromHeight(SmoothTabBar.TAB_BAR_HEIGHT),
           child: SmoothTabBar<ProductPageTab>(
             tabController: tabController,
-            items: tabs.map((ProductPageTab tab) {
-              return SmoothTabBarItem<ProductPageTab>(
-                label: tab.labelBuilder(context),
-                value: tab,
-              );
-            }).toList(growable: false),
+            items: tabs
+                .map((ProductPageTab tab) {
+                  return SmoothTabBarItem<ProductPageTab>(
+                    label: tab.labelBuilder(context),
+                    value: tab,
+                  );
+                })
+                .toList(growable: false),
             onTabChanged: (_) {},
           ),
         ),
@@ -154,9 +153,7 @@ class ProductPageTabBar extends StatelessWidget {
               AppLocalizations.of(context).product_page_tab_website,
           builder: (_, Product product) => ListView(
             padding: EdgeInsetsDirectional.zero,
-            children: <Widget>[
-              WebsiteCard(product.website!),
-            ],
+            children: <Widget>[WebsiteCard(product.website!)],
           ),
         ),
       );
@@ -168,15 +165,14 @@ class ProductPageTabBar extends StatelessWidget {
             AppLocalizations.of(context).product_page_tab_prices,
         builder: (_, Product product) => ListView(
           padding: EdgeInsetsDirectional.zero,
-          children: <Widget>[
-            PricesCard(product),
-          ],
+          children: <Widget>[PricesCard(product)],
         ),
       ),
     );
 
     if (context.read<UserPreferences>().getFlag(
-            UserPreferencesDevMode.userPreferencesFlagHideFolksonomy) ==
+          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
+        ) ==
         false) {
       tabs.add(
         ProductPageTab(

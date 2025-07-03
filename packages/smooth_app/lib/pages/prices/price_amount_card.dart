@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
@@ -13,10 +13,7 @@ import 'package:smooth_app/widgets/smooth_dropdown.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
 class PriceAmountCard extends StatefulWidget {
-  const PriceAmountCard({
-    required this.index,
-    required super.key,
-  });
+  const PriceAmountCard({required this.index, required super.key});
 
   final int index;
 
@@ -36,8 +33,9 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
       listen: false,
     ).elementAt(widget.index);
     _controllerPaid = TextEditingController(text: model.paidPrice);
-    _controllerWithoutDiscount =
-        TextEditingController(text: model.priceWithoutDiscount);
+    _controllerWithoutDiscount = TextEditingController(
+      text: model.priceWithoutDiscount,
+    );
   }
 
   @override
@@ -55,7 +53,8 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
     final int total = priceModel.length;
 
     return SmoothCardWithRoundedHeader(
-      title: '${appLocalizations.prices_amount_subtitle}'
+      title:
+          '${appLocalizations.prices_amount_subtitle}'
           '${total == 1 ? '' : ' (${widget.index + 1}/$total)'}',
       leading: const Icon(Icons.calculate_rounded),
       contentPadding: const EdgeInsetsDirectional.symmetric(
@@ -66,9 +65,12 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
         children: <Widget>[
           PriceProductListTile(
             product: model.product,
-            trailingIconData: total == 1 ? null : Icons.clear,
-            onPressed:
-                total == 1 ? null : () => priceModel.removeAt(widget.index),
+            trailing: total == 1
+                ? null
+                : InkWell(
+                    onTap: () => priceModel.removeAt(widget.index),
+                    child: const Icon(Icons.clear),
+                  ),
           ),
           if (model.product.categoryTag.isNotEmpty)
             const SizedBox(height: SMALL_SPACE),
@@ -93,9 +95,8 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
             ),
           SwitchListTile(
             value: model.promo,
-            onChanged: (final bool value) => setState(
-              () => model.promo = !model.promo,
-            ),
+            onChanged: (final bool value) =>
+                setState(() => model.promo = !model.promo),
             title: Text(appLocalizations.prices_amount_is_discounted),
             controlAffinity: ListTileControlAffinity.leading,
           ),

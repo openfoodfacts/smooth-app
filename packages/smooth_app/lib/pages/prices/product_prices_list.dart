@@ -15,10 +15,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
-  const ProductPricesList(
-    this.model, {
-    this.pricesResult,
-  });
+  const ProductPricesList(this.model, {this.pricesResult});
 
   final GetPricesModel model;
   final GetPricesResult? pricesResult;
@@ -43,9 +40,7 @@ class _ProductPricesListState extends State<ProductPricesList>
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    return InfiniteScrollList<Price>(
-      manager: _priceManager,
-    );
+    return InfiniteScrollList<Price>(manager: _priceManager);
   }
 }
 
@@ -54,7 +49,11 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   _InfiniteScrollPriceManager({
     GetPricesResult? pricesResult,
     required this.model,
-  }) : super(initialItems: pricesResult?.items);
+  }) : super(
+         initialItems: pricesResult?.items,
+         totalItems: pricesResult?.total,
+         totalPages: pricesResult?.numberOfPages,
+       );
 
   /// The model containing price query parameters
   final GetPricesModel model;
@@ -65,8 +64,10 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
     parameters.pageNumber = pageNumber;
 
     final MaybeError<GetPricesResult> result =
-        await OpenPricesAPIClient.getPrices(parameters,
-            uriHelper: ProductQuery.uriPricesHelper);
+        await OpenPricesAPIClient.getPrices(
+          parameters,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
 
     if (result.isError) {
       throw result.detailError;
@@ -82,10 +83,7 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   }
 
   @override
-  Widget buildItem({
-    required BuildContext context,
-    required Price item,
-  }) {
+  Widget buildItem({required BuildContext context, required Price item}) {
     final PriceProduct? priceProduct = item.product;
     return SmoothCard(
       child: Column(
@@ -97,10 +95,7 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
               priceProduct,
               enableCountButton: model.enableCountButton,
             ),
-          PriceDataWidget(
-            item,
-            model: model,
-          ),
+          PriceDataWidget(item, model: model),
         ],
       ),
     );

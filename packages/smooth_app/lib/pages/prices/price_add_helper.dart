@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -8,6 +7,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
@@ -87,23 +87,26 @@ class PriceAddHelper {
     if (location.countryCode == null) {
       return;
     }
-    final Currency? newCurrency =
-        OpenFoodFactsCountry.fromOffTag(location.countryCode)?.currency;
+    final Currency? newCurrency = OpenFoodFactsCountry.fromOffTag(
+      location.countryCode,
+    )?.currency;
 
     if (newCurrency != null && model.currency != newCurrency) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      final SmoothColorsThemeExtension extension =
-          context.extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension = context
+          .extension<SmoothColorsThemeExtension>();
 
       final Currency? currency = await showSmoothAlertModalSheet<Currency?>(
         context: context,
         title: appLocalizations.prices_currency_change_proposal_title,
         message: TextWithBoldParts(
           text: appLocalizations.prices_currency_change_proposal_message(
-              model.currency.name, newCurrency.name),
-          textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
+            model.currency.name,
+            newCurrency.name,
+          ),
+          textStyle: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
         ),
         actionLabels: <String>[
           appLocalizations.prices_currency_change_proposal_action_approve(
@@ -129,8 +132,8 @@ class PriceAddHelper {
   Future<bool?> doesAcceptWarning({required final bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     const Color color = Color(0xFFB81D1D);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     return showSmoothListOfChoicesModalSheet<bool>(
       safeArea: true,
       context: context,
@@ -145,9 +148,9 @@ class PriceAddHelper {
           children: <Widget>[
             TextWithBoldParts(
               text: appLocalizations.prices_privacy_warning_main_message,
-              textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+              textStyle: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
             ),
             _buildBulletPoint(
               appLocalizations.prices_privacy_warning_message_bullet_1,
@@ -161,21 +164,15 @@ class PriceAddHelper {
             const SizedBox(height: MEDIUM_SPACE),
             Text(
               appLocalizations.prices_privacy_warning_sub_message,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
             ),
           ],
         ),
       ),
-      labels: <String>[
-        appLocalizations.i_accept,
-        appLocalizations.i_refuse,
-      ],
-      values: <bool>[
-        true,
-        false,
-      ],
+      labels: <String>[appLocalizations.i_accept, appLocalizations.i_refuse],
+      values: <bool>[true, false],
       prefixIcons: <Widget>[
         Icon(Icons.check_circle_rounded, color: extension.success),
         Icon(Icons.cancel_rounded, color: extension.error),
@@ -187,8 +184,8 @@ class PriceAddHelper {
   Widget _buildBulletPoint(String text, BuildContext context) {
     const double defaultIconSize = 7.0;
     const double radius = 10.0;
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -205,9 +202,9 @@ class PriceAddHelper {
         Expanded(
           child: Text(
             text,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
           ),
         ),
       ],

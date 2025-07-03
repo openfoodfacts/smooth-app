@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -97,9 +97,7 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
           title: Text(widget.pageName ?? AppLocalizations.of(context).loading),
           leading: const CloseButton(),
         ),
-        body: const Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
+        body: const Center(child: CircularProgressIndicator.adaptive()),
       );
     } else {
       return SmoothScaffold(
@@ -113,18 +111,14 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
           bottom: _progress < 100
               ? PreferredSize(
                   preferredSize: const Size(double.infinity, 5.0),
-                  child: LinearProgressIndicator(
-                    value: _progress / 100,
-                  ),
+                  child: LinearProgressIndicator(value: _progress / 100),
                 )
               : null,
         ),
         bottomNavigationBar: _WebViewBottomBar(controller: _controller),
         body: RefreshIndicator(
           onRefresh: () => _controller.reload(),
-          child: WebViewWidget(
-            controller: _controller,
-          ),
+          child: WebViewWidget(controller: _controller),
         ),
       );
     }
@@ -138,9 +132,7 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
 }
 
 class _WebViewBottomBar extends StatelessWidget {
-  const _WebViewBottomBar({
-    required this.controller,
-  });
+  const _WebViewBottomBar({required this.controller});
 
   final WebViewController controller;
 

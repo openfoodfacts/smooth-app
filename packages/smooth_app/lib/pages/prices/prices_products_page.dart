@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
@@ -33,9 +33,7 @@ class _PricesProductsPageState extends State<PricesProductsPage>
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
-        title: Text(
-          appLocalizations.all_search_prices_top_product_title,
-        ),
+        title: Text(appLocalizations.all_search_prices_top_product_title),
         actions: <Widget>[
           IconButton(
             tooltip: appLocalizations.prices_app_button,
@@ -49,9 +47,7 @@ class _PricesProductsPageState extends State<PricesProductsPage>
           ),
         ],
       ),
-      body: InfiniteScrollList<PriceProduct>(
-        manager: _productManager,
-      ),
+      body: InfiniteScrollList<PriceProduct>(manager: _productManager),
     );
   }
 }
@@ -63,22 +59,22 @@ class _InfiniteScrollProductManager
 
   static const List<OrderBy<GetPriceProductsOrderField>> _orderBy =
       <OrderBy<GetPriceProductsOrderField>>[
-    OrderBy<GetPriceProductsOrderField>(
-      field: GetPriceProductsOrderField.priceCount,
-      ascending: false,
-    ),
-  ];
+        OrderBy<GetPriceProductsOrderField>(
+          field: GetPriceProductsOrderField.priceCount,
+          ascending: false,
+        ),
+      ];
 
   @override
   Future<void> fetchData(final int pageNumber) async {
     final MaybeError<GetPriceProductsResult> result =
         await OpenPricesAPIClient.getPriceProducts(
-      GetPriceProductsParameters()
-        ..pageNumber = pageNumber
-        ..pageSize = _pageSize
-        ..orderBy = _orderBy,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          GetPriceProductsParameters()
+            ..pageNumber = pageNumber
+            ..pageSize = _pageSize
+            ..orderBy = _orderBy,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
 
     if (result.isError) {
       throw result.detailError;
@@ -98,11 +94,6 @@ class _InfiniteScrollProductManager
     required BuildContext context,
     required PriceProduct item,
   }) {
-    return SmoothCard(
-      child: PriceProductWidget(
-        item,
-        enableCountButton: true,
-      ),
-    );
+    return SmoothCard(child: PriceProductWidget(item, enableCountButton: true));
   }
 }

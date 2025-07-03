@@ -35,28 +35,32 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final int newVersion,
   ) async {
     if (oldVersion < 2) {
-      await db.execute('create table $_TABLE_PRODUCT('
-          // cf. https://www.sqlite.org/lang_conflict.html
-          '$_TABLE_PRODUCT_COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace'
-          ',$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON BLOB NOT NULL'
-          ',$_TABLE_PRODUCT_COLUMN_LAST_UPDATE INT NOT NULL'
-          ')');
+      await db.execute(
+        'create table $_TABLE_PRODUCT('
+        // cf. https://www.sqlite.org/lang_conflict.html
+        '$_TABLE_PRODUCT_COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace'
+        ',$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON BLOB NOT NULL'
+        ',$_TABLE_PRODUCT_COLUMN_LAST_UPDATE INT NOT NULL'
+        ')',
+      );
     }
     if (oldVersion < 4) {
-      await db.execute('alter table $_TABLE_PRODUCT add column '
-          '$_TABLE_PRODUCT_COLUMN_LANGUAGE TEXT');
+      await db.execute(
+        'alter table $_TABLE_PRODUCT add column '
+        '$_TABLE_PRODUCT_COLUMN_LANGUAGE TEXT',
+      );
     }
   }
 
   /// Returns the [Product] that matches the [barcode], or null.
   Future<Product?> get(final String barcode) async {
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      _TABLE_PRODUCT,
-      columns: _columns,
-      where: '$_TABLE_PRODUCT_COLUMN_BARCODE = ?',
-      whereArgs: <String>[barcode],
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .query(
+          _TABLE_PRODUCT,
+          columns: _columns,
+          where: '$_TABLE_PRODUCT_COLUMN_BARCODE = ?',
+          whereArgs: <String>[barcode],
+        );
     // O or 1 row expected
     for (final Map<String, dynamic> row in queryResults) {
       return _getProductFromQueryResult(row);
@@ -70,20 +74,23 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     if (barcodes.isEmpty) {
       return result;
     }
-    for (int start = 0;
-        start < barcodes.length;
-        start += BulkManager.SQLITE_MAX_VARIABLE_NUMBER) {
+    for (
+      int start = 0;
+      start < barcodes.length;
+      start += BulkManager.SQLITE_MAX_VARIABLE_NUMBER
+    ) {
       final int size = min(
         barcodes.length - start,
         BulkManager.SQLITE_MAX_VARIABLE_NUMBER,
       );
-      final List<Map<String, dynamic>> queryResults =
-          await localDatabase.database.query(
-        _TABLE_PRODUCT,
-        columns: _columns,
-        where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
-        whereArgs: barcodes.sublist(start, start + size),
-      );
+      final List<Map<String, dynamic>> queryResults = await localDatabase
+          .database
+          .query(
+            _TABLE_PRODUCT,
+            columns: _columns,
+            where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
+            whereArgs: barcodes.sublist(start, start + size),
+          );
       for (final Map<String, dynamic> row in queryResults) {
         result[row[_TABLE_PRODUCT_COLUMN_BARCODE] as String] =
             _getProductFromQueryResult(row);
@@ -100,20 +107,23 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     if (barcodes.isEmpty) {
       return result;
     }
-    for (int start = 0;
-        start < barcodes.length;
-        start += BulkManager.SQLITE_MAX_VARIABLE_NUMBER) {
+    for (
+      int start = 0;
+      start < barcodes.length;
+      start += BulkManager.SQLITE_MAX_VARIABLE_NUMBER
+    ) {
       final int size = min(
         barcodes.length - start,
         BulkManager.SQLITE_MAX_VARIABLE_NUMBER,
       );
-      final List<Map<String, dynamic>> queryResults =
-          await localDatabase.database.query(
-        _TABLE_PRODUCT,
-        columns: _columns,
-        where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
-        whereArgs: barcodes.sublist(start, start + size),
-      );
+      final List<Map<String, dynamic>> queryResults = await localDatabase
+          .database
+          .query(
+            _TABLE_PRODUCT,
+            columns: _columns,
+            where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
+            whereArgs: barcodes.sublist(start, start + size),
+          );
       for (final Map<String, dynamic> row in queryResults) {
         final Product product = _getProductFromQueryResult(row);
         final ProductType productType = product.productType ?? ProductType.food;
@@ -133,11 +143,8 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final String Function(Product) splitFunction,
   ) async {
     final Map<String, List<String>> result = <String, List<String>>{};
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      _TABLE_PRODUCT,
-      columns: _columns,
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .query(_TABLE_PRODUCT, columns: _columns);
     for (final Map<String, dynamic> row in queryResults) {
       final Product product = _getProductFromQueryResult(row);
       final String splitValue = splitFunction(product);
@@ -155,12 +162,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final Product product,
     final OpenFoodFactsLanguage language, {
     required final ProductType productType,
-  }) async =>
-      putAll(
-        <Product>[product],
-        language,
-        productType: productType,
-      );
+  }) async => putAll(<Product>[product], language, productType: productType);
 
   /// Replaces products in database
   Future<void> putAll(
@@ -174,23 +176,18 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       product.productType ??= productType;
     }
     await localDatabase.database.transaction(
-      (final Transaction transaction) async => _bulkReplaceLoop(
-        transaction,
-        products,
-        language,
-      ),
+      (final Transaction transaction) async =>
+          _bulkReplaceLoop(transaction, products, language),
     );
   }
 
   Future<List<String>> getAllKeys() async {
     final List<String> result = <String>[];
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      _TABLE_PRODUCT,
-      columns: <String>[
-        _TABLE_PRODUCT_COLUMN_BARCODE,
-      ],
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .query(
+          _TABLE_PRODUCT,
+          columns: <String>[_TABLE_PRODUCT_COLUMN_BARCODE],
+        );
     if (queryResults.isEmpty) {
       return result;
     }
@@ -271,19 +268,20 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     if (!verbose) {
       return;
     }
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.rawQuery(
-      'select'
-      ' $_TABLE_PRODUCT_COLUMN_BARCODE'
-      ', length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON) as mylength'
-      ' from $_TABLE_PRODUCT',
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .rawQuery(
+          'select'
+          ' $_TABLE_PRODUCT_COLUMN_BARCODE'
+          ', length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON) as mylength'
+          ' from $_TABLE_PRODUCT',
+        );
     debugPrint('Product by product');
     debugPrint('barcode;gzipped;string;factor');
     for (final Map<String, dynamic> row in queryResults) {
       final String barcode = row[_TABLE_PRODUCT_COLUMN_BARCODE] as String;
-      final int asString =
-          utf8.encode(jsonEncode(map[barcode]!.toJson())).length;
+      final int asString = utf8
+          .encode(jsonEncode(map[barcode]!.toJson()))
+          .length;
       final int asZipped = row['mylength'] as int;
       final double factor = (asString * 1.0) / asZipped;
       debugPrint('$barcode;$asZipped;$asString;$factor');
@@ -293,11 +291,8 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   /// Get the total number of products in the database
   Future<Map<ProductType, int>> getTotalNoOfProducts() async {
     final Map<ProductType, int> result = <ProductType, int>{};
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      _TABLE_PRODUCT,
-      columns: _columns,
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .query(_TABLE_PRODUCT, columns: _columns);
     for (final Map<String, dynamic> row in queryResults) {
       final Product product = _getProductFromQueryResult(row);
       final ProductType productType = product.productType ?? ProductType.food;
@@ -349,7 +344,8 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
     const String tableJoin =
         'p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE}';
-    final String languageCondition = ' ('
+    final String languageCondition =
+        ' ('
         'p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null '
         "or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != '${language.offTag}'"
         ') ';
@@ -385,11 +381,8 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     for (final String query in queries) {
       // optimization: using a cursor, as we don't want all the rows,
       // and we don't know how many rows we'll need.
-      final QueryCursor queryCursor =
-          await localDatabase.database.rawQueryCursor(
-        query,
-        null,
-      );
+      final QueryCursor queryCursor = await localDatabase.database
+          .rawQueryCursor(query, null);
       while (await queryCursor.moveNext()) {
         final Product product = _getProductFromQueryResult(queryCursor.current);
         final String barcode = product.barcode!;
@@ -416,7 +409,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   /// with a language null or different from the current app language", and use
   /// the same mechanism as "switch language and refresh products accordingly".
   Future<int> clearAllLanguages() async => localDatabase.database.update(
-        _TABLE_PRODUCT,
-        <String, Object?>{_TABLE_PRODUCT_COLUMN_LANGUAGE: null},
-      );
+    _TABLE_PRODUCT,
+    <String, Object?>{_TABLE_PRODUCT_COLUMN_LANGUAGE: null},
+  );
 }

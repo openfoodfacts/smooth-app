@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
 
 /// Text field that displays a single amount for price adding.
@@ -17,10 +17,7 @@ class PriceAmountField extends StatelessWidget {
 
   // TODO(monsieurtanuki): TextInputAction + focus
   static const TextInputType _priceTextInputType =
-      TextInputType.numberWithOptions(
-    signed: false,
-    decimal: true,
-  );
+      TextInputType.numberWithOptions(signed: false, decimal: true);
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +28,8 @@ class PriceAmountField extends StatelessWidget {
       hintText: !isPaidPrice
           ? appLocalizations.prices_amount_price_not_discounted
           : model.promo
-              ? appLocalizations.prices_amount_price_discounted
-              : appLocalizations.prices_amount_price_normal,
+          ? appLocalizations.prices_amount_price_discounted
+          : appLocalizations.prices_amount_price_normal,
       textInputType: _priceTextInputType,
       onChanged: (final String? value) {
         if (isPaidPrice) {

@@ -24,10 +24,7 @@ class SearchEmptyScreen extends StatelessWidget {
           ? AppBar(
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               leading: const SmoothBackButton(),
-              title: SearchAppBarTitle(
-                title: name,
-                editableAppBarTitle: false,
-              ),
+              title: SearchAppBarTitle(title: name, editableAppBarTitle: false),
               actions: actions,
             )
           : null,

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
@@ -12,6 +11,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
 
 /// A page showing the camera feed and decoding barcodes.
@@ -87,9 +87,7 @@ class _CameraScannerPageState extends State<CameraScannerPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     if (!CameraHelper.hasACamera) {
-      return Center(
-        child: Text(appLocalizations.permission_photo_none_found),
-      );
+      return Center(child: Text(appLocalizations.permission_photo_none_found));
     }
 
     final double statusBarHeight = MediaQuery.viewPaddingOf(context).top;
@@ -127,9 +125,7 @@ class _CameraScannerPageState extends State<CameraScannerPage>
             top: statusBarHeight,
             left: 0.0,
             right: 0.0,
-            child: ScanHeader(
-              key: _headerKey,
-            ),
+            child: ScanHeader(key: _headerKey),
           ),
         ],
       ),

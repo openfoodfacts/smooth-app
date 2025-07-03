@@ -59,9 +59,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
   @override
   List<String> getLabels() => <String>[
-        ...super.getLabels(),
-        if (_getUserId() == null) appLocalizations.sign_in,
-      ];
+    ...super.getLabels(),
+    if (_getUserId() == null) appLocalizations.sign_in,
+  ];
 
   @override
   IconData getLeadingIconData() => Icons.face;
@@ -112,10 +112,8 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     );
   }
 
-  Future<void> _goToLoginPage() async => Navigator.of(
-        context,
-        rootNavigator: true,
-      ).push<dynamic>(
+  Future<void> _goToLoginPage() async =>
+      Navigator.of(context, rootNavigator: true).push<dynamic>(
         MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const LoginPage(),
         ),
@@ -207,8 +205,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         iconData: Icons.more_horiz,
         context: context,
         localDatabase: localDatabase,
-        lazyCounter:
-            const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
+        lazyCounter: const LazyCounterUserSearch(
+          UserSearchType.TO_BE_COMPLETED,
+        ),
       ),
       _buildProductQueryTile(
         productQuery: PagedToBeCompletedProductQuery(
@@ -245,43 +244,37 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         ),
         Icons.delete,
       ),
-      _getListTile(
-        appLocalizations.sign_out,
-        () async {
-          if (await _confirmLogout() == true) {
+      _getListTile(appLocalizations.sign_out, () async {
+        if (await _confirmLogout() == true) {
+          if (context.mounted) {
+            await context.read<UserManagementProvider>().logout();
+            AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
             if (context.mounted) {
-              await context.read<UserManagementProvider>().logout();
-              AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
-              if (context.mounted) {
-                Navigator.pop(context);
-              }
+              Navigator.pop(context);
             }
           }
-        },
-        Icons.clear,
-      ),
+        }
+      }, Icons.clear),
     ];
   }
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) {
-          return SmoothAlertDialog(
-            title: appLocalizations.sign_out,
-            body: Text(
-              appLocalizations.sign_out_confirmation,
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.yes,
-              onPressed: () async => Navigator.pop(context, true),
-            ),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.no,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-          );
-        },
+    context: context,
+    builder: (BuildContext context) {
+      return SmoothAlertDialog(
+        title: appLocalizations.sign_out,
+        body: Text(appLocalizations.sign_out_confirmation),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () async => Navigator.pop(context, true),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.no,
+          onPressed: () => Navigator.pop(context, false),
+        ),
       );
+    },
+  );
 
   UserPreferencesItem _buildProductQueryTile({
     required final PagedProductQuery productQuery,
@@ -290,44 +283,37 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     final LazyCounter? lazyCounter,
-  }) =>
-      _getListTile(
-        title,
-        () async => ProductQueryPageHelper.openBestChoice(
-          name: title,
-          localDatabase: localDatabase,
-          productQuery: productQuery,
-          context: context,
-          editableAppBarTitle: true,
-        ),
-        iconData,
-        lazyCounter: lazyCounter,
-      );
+  }) => _getListTile(
+    title,
+    () async => ProductQueryPageHelper.openBestChoice(
+      name: title,
+      localDatabase: localDatabase,
+      productQuery: productQuery,
+      context: context,
+      editableAppBarTitle: true,
+    ),
+    iconData,
+    lazyCounter: lazyCounter,
+  );
 
   UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
     final LazyCounter? lazyCounter,
-  }) =>
-      UserPreferencesItemSimple(
-        labels: <String>[title],
-        builder: (_) => Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 5,
-          color: Theme.of(context).cardColor,
-          child: UserPreferencesListTile(
-            title: Text(title),
-            onTap: onTap,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            leading: UserPreferencesListTile.getTintedIcon(leading, context),
-            trailing:
-                lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
-          ),
-        ),
-      );
+  }) => UserPreferencesItemSimple(
+    labels: <String>[title],
+    builder: (_) => Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      elevation: 5,
+      color: Theme.of(context).cardColor,
+      child: UserPreferencesListTile(
+        title: Text(title),
+        onTap: onTap,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        trailing: lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
+      ),
+    ),
+  );
 }

@@ -24,8 +24,8 @@ class SmoothProductCardTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
     final ThemeData themeData = Theme.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
     final Color itemColor = isDarkMode ? PRIMARY_GREY_COLOR : LIGHT_GREY_COLOR;
 
@@ -48,10 +48,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
               child: PictureNotFound.decoration(
                 backgroundDecoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  border: Border.all(
-                    color: extension.greyNormal,
-                    width: 1.0,
-                  ),
+                  border: Border.all(color: extension.greyNormal, width: 1.0),
                 ),
               ),
             ),
@@ -86,10 +83,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
                     if (message == null)
                       textWidget
                     else
-                      Text(
-                        message!,
-                        maxLines: 3,
-                      ),
+                      Text(message!, maxLines: 3),
                     const Spacer(),
                     if (actionButton == null)
                       Shimmer.fromColors(
@@ -126,10 +120,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(5.0)),
         color: itemColor,
       ),
-      child: const SizedBox(
-        height: 39.0,
-        width: 240 * 39.0 / 130,
-      ),
+      child: const SizedBox(height: 39.0, width: 240 * 39.0 / 130),
     );
   }
 }

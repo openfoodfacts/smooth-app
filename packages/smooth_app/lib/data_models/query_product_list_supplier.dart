@@ -6,10 +6,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 
 /// [ProductListSupplier] with a server query flavor
 class QueryProductListSupplier extends ProductListSupplier {
-  QueryProductListSupplier(
-    super.productQuery,
-    super.localDatabase,
-  );
+  QueryProductListSupplier(super.productQuery, super.localDatabase);
 
   @override
   Future<String?> asyncLoad() async {

@@ -1,11 +1,12 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -49,13 +50,13 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       body: _statsData == null
           ? const Center(child: CircularProgressIndicator())
           : _statsData!.isError
-              ? Center(
-                  child: ListTile(
-                    title: Text(appLocalizations.prices_stats_error),
-                    subtitle: Text(_statsData!.detailError),
-                  ),
-                )
-              : _buildStatsContent(_statsData!.value, appLocalizations),
+          ? Center(
+              child: ListTile(
+                title: Text(appLocalizations.prices_stats_error),
+                subtitle: Text(_statsData!.detailError),
+              ),
+            )
+          : _buildStatsContent(_statsData!.value, appLocalizations),
     );
   }
 
@@ -244,20 +245,19 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
     final IconData iconData,
     final String description, {
     final String? path,
-  }) =>
-      ListTile(
-        leading: Icon(iconData),
-        title: Text(description),
-        trailing: path == null ? null : const Icon(Icons.open_in_new),
-        onTap: path == null
-            ? null
-            : () async => LaunchUrlHelper.launchURL(
-                  OpenPricesAPIClient.getUri(
-                    path: path,
-                    uriHelper: ProductQuery.uriPricesHelper,
-                  ).toString(),
-                ),
-      );
+  }) => ListTile(
+    leading: Icon(iconData),
+    title: Text(description),
+    trailing: path == null ? null : const Icon(Icons.open_in_new),
+    onTap: path == null
+        ? null
+        : () async => LaunchUrlHelper.launchURL(
+            OpenPricesAPIClient.getUri(
+              path: path,
+              uriHelper: ProductQuery.uriPricesHelper,
+            ).toString(),
+          ),
+  );
 
   Widget _getDataTile({
     required int? value,
@@ -268,18 +268,16 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
       return EMPTY_WIDGET;
     }
 
-    final String displayValue =
-        denominator == null ? value.toString() : '$value / $denominator';
+    final String displayValue = denominator == null
+        ? value.toString()
+        : '$value / $denominator';
 
-    return ListTile(
-      title: Text(displayValue),
-      subtitle: Text(description),
-    );
+    return ListTile(title: Text(displayValue), subtitle: Text(description));
   }
 
   static String? _formatDateTime(final DateTime? dateTime) => dateTime == null
       ? null
-      : DateFormat.yMd(ProductQuery.getLanguage().offTag)
-          .add_jms()
-          .format(dateTime);
+      : DateFormat.yMd(
+          ProductQuery.getLanguage().offTag,
+        ).add_jms().format(dateTime);
 }

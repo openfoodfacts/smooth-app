@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Card that displays a website link.
@@ -47,20 +47,14 @@ class WebsiteCard extends StatelessWidget {
                     child: Text(
                       website,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: Colors.blue),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(color: Colors.blue),
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(
-                      start: 5.0,
-                      end: 3.0,
-                    ),
-                    child: icons.ExternalLink(
-                      size: 20.0,
-                    ),
+                    padding: EdgeInsetsDirectional.only(start: 5.0, end: 3.0),
+                    child: icons.ExternalLink(size: 20.0),
                   ),
                 ],
               ),

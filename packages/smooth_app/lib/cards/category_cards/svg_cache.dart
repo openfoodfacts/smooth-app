@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/svg_safe_network.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Widget that displays a svg from network (and cache while waiting).
@@ -92,8 +92,10 @@ class SvgCache extends AbstractCache {
       'nova-group-3.svg' => localizations.nova_group_3,
       'nova-group-4.svg' => localizations.nova_group_4,
       'nova-group-unknown.svg' => localizations.nova_group_unknown,
-      String _ when fileName.startsWith('nutriscore-') =>
-        _extractNutriScore(localizations, fileName),
+      String _ when fileName.startsWith('nutriscore-') => _extractNutriScore(
+        localizations,
+        fileName,
+      ),
       _ => null,
     };
   }
@@ -178,12 +180,4 @@ class SvgCache extends AbstractCache {
   }
 }
 
-enum NutriScoreValue {
-  a,
-  b,
-  c,
-  d,
-  e,
-  unknown,
-  notApplicable,
-}
+enum NutriScoreValue { a, b, c, d, e, unknown, notApplicable }

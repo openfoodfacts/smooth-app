@@ -31,12 +31,13 @@ class _RobotoffSuggestionListItemButtonState
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: SmoothAnimationsDuration.short,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..value = widget.visible ? 1.0 : 0.0;
+    _controller =
+        AnimationController(
+            duration: SmoothAnimationsDuration.short,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..value = widget.visible ? 1.0 : 0.0;
 
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
   }
@@ -70,10 +71,7 @@ class _RobotoffSuggestionListItemButtonState
             onTap: widget.onTap,
             child: Opacity(
               opacity: _animation.value,
-              child: Padding(
-                padding: widget.padding,
-                child: widget.icon,
-              ),
+              child: Padding(padding: widget.padding, child: widget.icon),
             ),
           ),
         ),

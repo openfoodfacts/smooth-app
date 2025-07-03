@@ -27,9 +27,8 @@ class AverageList<T extends num> with ListMixin<T> {
   int get length => _elements.length;
 
   @override
-  T operator [](int index) => throw UnsupportedError(
-        'Please only use the "add" method',
-      );
+  T operator [](int index) =>
+      throw UnsupportedError('Please only use the "add" method');
 
   @override
   void operator []=(int index, T value) {
