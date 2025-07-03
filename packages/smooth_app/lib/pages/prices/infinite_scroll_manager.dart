@@ -54,12 +54,7 @@ abstract class InfiniteScrollManager<T> {
   Future<void> fetchData(int pageNumber);
 
   /// Displays an item.
-  @protected
   Widget buildItem({required BuildContext context, required T item});
-
-  Widget getItemWidget({required BuildContext context, required T item}) {
-    return buildItem(context: context, item: item);
-  }
 
   /// Update the list with new items and pagination info
   @protected
