@@ -78,6 +78,8 @@ Widget build(BuildContext context) {
 
   if (expandBody) {
     bodyChild = Expanded(child: bodyChild);
+  } else {
+    bodyChild = Flexible(child: SingleChildScrollView(child: bodyChild));
   }
 
   return ClipRRect(
@@ -86,11 +88,9 @@ Widget build(BuildContext context) {
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: &lt;Widget&gt;[header, bodyChild],
-        ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: &lt;Widget&gt;[header, bodyChild],
       ),
     ),
   );
