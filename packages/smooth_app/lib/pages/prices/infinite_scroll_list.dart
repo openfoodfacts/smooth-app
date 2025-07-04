@@ -87,62 +87,43 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     );
   }
 
-  Widget _buildLoadingState(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
-  }
-
-  Widget _buildErrorState(BuildContext context, dynamic error) {
-    return Text(error.toString());
-  }
-
-  Widget _buildEmptyState(BuildContext context) {
-    return Text(AppLocalizations.of(context).prices_no_result);
-  }
-
-  Widget _buildLoadingMoreIndicator(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Center(child: CircularProgressIndicator()),
-    );
-  }
-
   String _getItemCount(BuildContext context) =>
       widget.manager.formattedItemCount(context);
-
-  Widget _buildFooter(BuildContext context) {
-    return const SizedBox(height: MINIMUM_TOUCH_SIZE * 2);
-  }
-
-  Widget _buildHeader(BuildContext context) =>
-      SmoothCard(child: ListTile(title: Text(_getItemCount(context))));
 
   @override
   Widget build(BuildContext context) {
     if (_isInitialLoading) {
-      return _buildLoadingState(context);
+      return const Center(child: CircularProgressIndicator.adaptive());
     }
 
     if (_error != null) {
-      return _buildErrorState(context, _error);
+      return Center(child: Text(_error.toString()));
     }
 
     if (widget.manager.items.isEmpty) {
-      return _buildEmptyState(context);
+      return Center(child: Text(AppLocalizations.of(context).prices_no_result));
     }
 
     final List<Widget> children = <Widget>[];
 
-    children.add(_buildHeader(context));
+    children.add(
+      SmoothCard(child: ListTile(title: Text(_getItemCount(context)))),
+    );
 
     for (final T item in widget.manager.items) {
-      children.add(widget.manager.getItemWidget(context: context, item: item));
+      children.add(widget.manager.buildItem(context: context, item: item));
     }
 
     if (widget.manager.isLoading) {
-      children.add(_buildLoadingMoreIndicator(context));
+      children.add(
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 16.0),
+          child: Center(child: CircularProgressIndicator.adaptive()),
+        ),
+      );
     }
 
-    children.add(_buildFooter(context));
+    children.add(const SizedBox(height: MINIMUM_TOUCH_SIZE * 2));
 
     return ListView(controller: _scrollController, children: children);
   }
