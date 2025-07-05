@@ -34,7 +34,12 @@ class KnowledgePanelsBuilder {
         : getKnowledgePanel(product, panelId);
     final List<Widget> children = <Widget>[];
     if (rootPanel != null) {
-      children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
+      children.add(
+        KnowledgePanelTitle(
+          title: rootPanel.titleElement!.title,
+          topics: rootPanel.topics,
+        ),
+      );
       if (rootPanel.elements != null) {
         for (int i = 0; i < rootPanel.elements!.length; i++) {
           final KnowledgePanelElement element = rootPanel.elements![i];
@@ -331,9 +336,10 @@ class KnowledgePanelsBuilder {
 }
 
 class KnowledgePanelTitle extends StatelessWidget {
-  const KnowledgePanelTitle({required this.title, super.key});
+  const KnowledgePanelTitle({required this.title, this.topics, super.key});
 
   final String title;
+  final List<String>? topics;
 
   @override
   Widget build(BuildContext context) {
