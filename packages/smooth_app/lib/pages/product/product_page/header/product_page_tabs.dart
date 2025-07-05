@@ -98,7 +98,7 @@ class ProductPageTabBar extends StatelessWidget {
         ProductPageTab(
           id: id,
           labelBuilder: (_) => knowledgePanelTitle.title,
-          builder: (_, __) => ListView.builder(
+          builder: (_, _) => ListView.builder(
             padding: EdgeInsetsDirectional.zero,
             itemCount: children.length - 1,
             itemBuilder: (BuildContext context, int index) => children[index],
@@ -139,7 +139,7 @@ class ProductPageTabBar extends StatelessWidget {
         id: ProductPageHarcodedTabs.FOR_ME.key,
         labelBuilder: (BuildContext context) =>
             AppLocalizations.of(context).product_page_tab_for_me,
-        builder: (BuildContext context, __) => const Row(
+        builder: (BuildContext context, _) => const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[],
         ),

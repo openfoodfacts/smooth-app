@@ -39,7 +39,7 @@ class _ProductHeaderState extends State<ProductHeader> {
       key: const Key('product_header'),
       onVisibilityChanged: _onVisibilityChanged,
       child: Listener<ScrollController>(
-        listener: (_, __, ScrollController scrollController) =>
+        listener: (_, _, ScrollController scrollController) =>
             _onScroll(scrollController),
         child: Consumer<ProductPageCompatibility>(
           builder:

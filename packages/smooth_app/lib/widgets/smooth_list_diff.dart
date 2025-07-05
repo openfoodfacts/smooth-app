@@ -145,7 +145,7 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
           ),
         );
       },
-      separatorBuilder: (_, __) => SizedBox(height: widget.separatorSize),
+      separatorBuilder: (_, _) => SizedBox(height: widget.separatorSize),
       findChildIndexCallback: widget.findChildIndexCallback,
       addAutomaticKeepAlives: widget.addAutomaticKeepAlives,
       addRepaintBoundaries: widget.addRepaintBoundaries,

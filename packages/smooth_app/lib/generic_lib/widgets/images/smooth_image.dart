@@ -47,7 +47,7 @@ class SmoothImage extends StatelessWidget {
         fit: fit,
         loadingBuilder: _loadingBuilder,
         errorBuilder: _errorBuilder,
-        frameBuilder: (_, Widget child, int? frame, ____) {
+        frameBuilder: (_, Widget child, int? frame, _) {
           if (frame == null) {
             return const Center(child: CircularProgressIndicator());
           }
@@ -124,7 +124,7 @@ class SmoothImage extends StatelessWidget {
     );
   }
 
-  Widget _errorBuilder(BuildContext context, Object _, StackTrace? __) {
+  Widget _errorBuilder(BuildContext context, _, _) {
     return Container(
       color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
       padding: const EdgeInsets.all(SMALL_SPACE),

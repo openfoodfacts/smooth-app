@@ -256,7 +256,7 @@ class _ProductImageViewer extends StatelessWidget {
                         return child;
                       }
                     },
-                errorBuilder: (_, __, ___) => Column(
+                errorBuilder: (_, _, _) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const icons.Warning(size: 48.0, color: Colors.red),

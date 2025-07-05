@@ -115,7 +115,7 @@ dev_dependencies:
   mockito: 5.4.5
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
-  flutter_lints: 4.0.0
+  flutter_lints: 6.0.0
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 

@@ -1,3 +1,3 @@
-library app_store_apple_store;
+library;
 
 export 'src/apple_app_store.dart';

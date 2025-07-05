@@ -130,7 +130,7 @@ class _LanguageSelectorButton extends StatelessWidget {
                   (
                     _,
                     PreferencesSelectorState<OpenFoodFactsLanguage> value,
-                    __,
+                    _,
                   ) {
                     final OpenFoodFactsLanguage? language =
                         (value
@@ -167,7 +167,7 @@ class _LanguageSelectorButton extends StatelessWidget {
     final dynamic newLanguage = await Navigator.of(context, rootNavigator: true)
         .push(
           PageRouteBuilder<dynamic>(
-            pageBuilder: (_, __, ___) => _LanguageSelectorScreen(
+            pageBuilder: (_, _, _) => _LanguageSelectorScreen(
               provider: context.read<_LanguageSelectorProvider>(),
             ),
             transitionsBuilder:

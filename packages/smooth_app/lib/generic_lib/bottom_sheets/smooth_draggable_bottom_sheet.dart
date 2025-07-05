@@ -216,7 +216,7 @@ class _SliverHeader extends SliverPersistentHeaderDelegate {
   final double height;
 
   @override
-  Widget build(BuildContext context, _, __) {
+  Widget build(BuildContext context, _, _) {
     // Align is mandatory here (a known-bug in the framework)
     return Align(child: child);
   }

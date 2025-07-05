@@ -271,7 +271,7 @@ class _BackButton extends StatelessWidget {
       child: Material(
         type: MaterialType.transparency,
         child: Consumer<double>(
-          builder: (_, double progress, __) {
+          builder: (_, double progress, _) {
             return CustomMultiChildLayout(
               delegate: _CloseButtonLayout(progress: 1 - progress),
               children: <Widget>[

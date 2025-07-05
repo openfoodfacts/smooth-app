@@ -174,7 +174,7 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                                             ) {
                                               return AnimatedBuilder(
                                                 animation: animation,
-                                                builder: (_, __) {
+                                                builder: (_, _) {
                                                   Widget widget;
                                                   if (flightDirection ==
                                                       HeroFlightDirection
