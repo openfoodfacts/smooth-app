@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
+import 'package:smooth_app/widgets/smooth_circle.dart';
 import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
 enum ProductPageHarcodedTabs {
@@ -27,11 +31,13 @@ class ProductPageTab {
     required this.id,
     required this.labelBuilder,
     required this.builder,
+    this.prefix,
   });
 
   final String id;
   final String Function(BuildContext) labelBuilder;
   final Widget Function(BuildContext, Product) builder;
+  final Widget? prefix;
 }
 
 class ProductPageTabBar extends StatelessWidget {
@@ -55,6 +61,9 @@ class ProductPageTabBar extends StatelessWidget {
                     value: tab,
                   );
                 })
+                .toList(growable: false),
+            leadingItems: tabs
+                .map((ProductPageTab tab) => tab.prefix)
                 .toList(growable: false),
             onTabChanged: (_) {},
           ),
@@ -98,6 +107,7 @@ class ProductPageTabBar extends StatelessWidget {
         ProductPageTab(
           id: id,
           labelBuilder: (_) => knowledgePanelTitle.title,
+          prefix: _extractPrefix(product, knowledgePanelTitle),
           builder: (_, _) => ListView.builder(
             padding: EdgeInsetsDirectional.zero,
             itemCount: children.length - 1,
@@ -188,6 +198,32 @@ class ProductPageTabBar extends StatelessWidget {
     }
 
     return tabs;
+  }
+
+  static Widget? _extractPrefix(Product product, KnowledgePanelTitle title) {
+    final String? attribute = switch (title.topics?.firstOrNull) {
+      'health' => Attribute.ATTRIBUTE_NUTRISCORE,
+      'environment' => Attribute.ATTRIBUTE_ECOSCORE,
+      _ => null,
+    };
+
+    if (attribute == null) {
+      return null;
+    }
+
+    final List<Attribute> attributes = getPopulatedAttributes(product, <String>[
+      attribute,
+    ], <String>[]);
+
+    if (attributes.isEmpty) {
+      return null;
+    }
+
+    final CardEvaluation eval = getCardEvaluationFromAttribute(
+      attributes.first,
+    );
+
+    return SmoothCircle.indicator(color: eval.textColor, size: 15.0);
   }
 }
 
