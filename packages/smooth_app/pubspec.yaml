@@ -38,7 +38,7 @@ dependencies:
   provider: 6.1.4
   sentry_flutter: 8.14.1
   sqflite: 2.4.2
-  sqflite_common_ffi: 2.3.4+4
+  sqflite_common_ffi: 2.3.6
   url_launcher: 6.3.1
   visibility_detector: 0.4.0+2
   app_settings: 5.2.0
