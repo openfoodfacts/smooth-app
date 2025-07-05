@@ -10,8 +10,8 @@ import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
@@ -75,7 +75,7 @@ class ProductPageState extends State<ProductPage>
       initialIndex: 1,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    onNextFrame(() {
       _updateLocalDatabaseWithProductHistory(context);
     });
   }
@@ -123,17 +123,17 @@ class ProductPageState extends State<ProductPage>
     return SmoothScaffold(
       contentBehindStatusBar: true,
       spaceBehindStatusBar: false,
+      changeStatusBarBrightness: false,
+      statusBarBackgroundColor: Colors.transparent,
       body: NestedScrollView(
         controller: _scrollController,
         headerSliverBuilder: (BuildContext context, bool value) {
           return <Widget>[
-            SliverAppBar(
-              floating: false,
+            SliverPersistentHeader(
+              delegate: ProductHeaderDelegate(
+                statusBarHeight: MediaQuery.viewPaddingOf(context).top,
+              ),
               pinned: true,
-              leading: EMPTY_WIDGET,
-              leadingWidth: 0.0,
-              titleSpacing: 0.0,
-              title: ProductHeader(backButtonType: widget.backButton),
             ),
             SliverToBoxAdapter(
               child: HeroMode(

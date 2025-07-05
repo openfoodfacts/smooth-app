@@ -17,16 +17,42 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class ProductHeader extends StatefulWidget {
-  const ProductHeader({this.backButtonType, super.key});
+class ProductHeaderDelegate extends SliverPersistentHeaderDelegate {
+  ProductHeaderDelegate({required this.statusBarHeight, this.backButtonType})
+    : assert(statusBarHeight >= 0.0);
+
+  final double statusBarHeight;
+  final ProductPageBackButton? backButtonType;
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return _ProductHeader(backButtonType: backButtonType);
+  }
+
+  @override
+  double get minExtent => kToolbarHeight + statusBarHeight;
+
+  @override
+  double get maxExtent => minExtent;
+
+  @override
+  bool shouldRebuild(ProductHeaderDelegate oldDelegate) => false;
+}
+
+class _ProductHeader extends StatefulWidget {
+  const _ProductHeader({this.backButtonType});
 
   final ProductPageBackButton? backButtonType;
 
   @override
-  State<ProductHeader> createState() => _ProductHeaderState();
+  State<_ProductHeader> createState() => _ProductHeaderState();
 }
 
-class _ProductHeaderState extends State<ProductHeader> {
+class _ProductHeaderState extends State<_ProductHeader> {
   double _titleOpacity = 0.0;
   double _compatibilityScoreOpacity = 0.0;
   double _shadow = 0.0;
