@@ -577,6 +577,14 @@ class Clock extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.clock);
+
+  const Clock.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clock_alt);
 }
 
 class Close extends AppIcon {
@@ -904,6 +912,16 @@ class Info extends AppIcon {
   }) : super._(_IconsFont.info);
 }
 
+class Graph extends AppIcon {
+  const Graph({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.graph);
+}
+
 class HappyToast extends AppIcon {
   const HappyToast({
     super.color,
@@ -1046,6 +1064,16 @@ class Lists extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.lists);
+}
+
+class Location extends AppIcon {
+  const Location({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.location);
 }
 
 class Logout extends AppIcon {
@@ -1462,6 +1490,16 @@ class Settings extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.settings);
+}
+
+class Shop extends AppIcon {
+  const Shop({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.shop);
 }
 
 class Soda extends AppIcon {

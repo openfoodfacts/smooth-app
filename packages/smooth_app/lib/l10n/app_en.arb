@@ -2340,6 +2340,29 @@
   "prices_category_error_mandatory": "The category is mandatory",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
+  "prices_list_title": "Price list",
+  "prices_list_count": "Number of\nprices",
+    "@prices_list_count": {
+        "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+    },
+  "prices_list_add_new_price": "Add a\nnew price",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_entry_shop_not_found": "Unknown store",
+  "prices_entry_menu_title": "Price entry from \"{user}\"",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_proof": "View proof",
+  "prices_entry_menu_my_prices": "View my other prices",
+  "prices_entry_menu_author_prices": "View other prices by the author",
+  "prices_entry_menu_shop_prices": "View other prices from the shop",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2637,9 +2660,14 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Contributor prices",
+  "user_any_search_prices_title": "Contributor prices: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Latest Prices added",
   "@all_search_prices_latest_title": {

@@ -156,7 +156,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                             ? BALANCED_SPACE
                             : VERY_LARGE_SPACE,
                         end:
-                            (imageWidth * 0.7) *
+                            (imageWidth * 0.75) *
                             (1 - _progress.progressAndClamp(0.5, 0.9, 1.0)),
                         child: Align(
                           alignment: AlignmentDirectional.topStart,

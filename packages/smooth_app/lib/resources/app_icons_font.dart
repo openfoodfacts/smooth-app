@@ -579,6 +579,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData shop = IconData(
+    0xe872,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData image_error = IconData(
     0xe876,
     fontFamily: _kFontFam,
@@ -706,6 +711,21 @@ class _IconsFont {
   );
   static const IconData image_open = IconData(
     0xe891,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData location = IconData(
+    0xe892,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clock_alt = IconData(
+    0xe893,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData graph = IconData(
+    0xe894,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );

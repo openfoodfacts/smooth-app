@@ -4745,6 +4745,60 @@ abstract class AppLocalizations {
   /// **'View the prices'**
   String get prices_view_prices;
 
+  /// No description provided for @prices_list_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Price list'**
+  String get prices_list_title;
+
+  /// Label for the number of prices in the list (please inject the line break at the middle)
+  ///
+  /// In en, this message translates to:
+  /// **'Number of\nprices'**
+  String get prices_list_count;
+
+  /// Button to add a new price in the list (please inject the line break at the middle)
+  ///
+  /// In en, this message translates to:
+  /// **'Add a\nnew price'**
+  String get prices_list_add_new_price;
+
+  /// No description provided for @prices_entry_shop_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown store'**
+  String get prices_entry_shop_not_found;
+
+  /// Title of the menu for a price entry
+  ///
+  /// In en, this message translates to:
+  /// **'Price entry from \"{user}\"'**
+  String prices_entry_menu_title(String user);
+
+  /// No description provided for @prices_entry_menu_open_proof.
+  ///
+  /// In en, this message translates to:
+  /// **'View proof'**
+  String get prices_entry_menu_open_proof;
+
+  /// No description provided for @prices_entry_menu_my_prices.
+  ///
+  /// In en, this message translates to:
+  /// **'View my other prices'**
+  String get prices_entry_menu_my_prices;
+
+  /// No description provided for @prices_entry_menu_author_prices.
+  ///
+  /// In en, this message translates to:
+  /// **'View other prices by the author'**
+  String get prices_entry_menu_author_prices;
+
+  /// No description provided for @prices_entry_menu_shop_prices.
+  ///
+  /// In en, this message translates to:
+  /// **'View other prices from the shop'**
+  String get prices_entry_menu_shop_prices;
+
   /// A card summarizing the number of prices for a product
   ///
   /// In en, this message translates to:
@@ -5174,8 +5228,8 @@ abstract class AppLocalizations {
   /// User prices (everybody except me): list tile title
   ///
   /// In en, this message translates to:
-  /// **'Contributor prices'**
-  String get user_any_search_prices_title;
+  /// **'Contributor prices: {user}'**
+  String user_any_search_prices_title(String user);
 
   /// Latest prices: list tile title
   ///

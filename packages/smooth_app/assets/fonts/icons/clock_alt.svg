@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Shape</title>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Clock" fill="#000000" fill-rule="nonzero">
+            <path d="M9.5,0 C4.25315,0 0,4.25315 0,9.5 C0,14.74685 4.25315,19 9.5,19 C14.74685,19 19,14.74685 19,9.5 C19,4.25315 14.74685,0 9.5,0 Z M11.9567,13.3 L8.82835,10.17165 C8.64975,9.99305 8.55,9.75175 8.55,9.5 L8.55,4.75 C8.55,4.2256 8.9756,3.8 9.5,3.8 L9.5,3.8 C10.0244,3.8 10.45,4.2256 10.45,4.75 L10.45,9.1067 L13.3,11.9567 C13.6705,12.3272 13.6705,12.9295 13.3,13.3 L13.3,13.3 C12.9295,13.6705 12.3272,13.6705 11.9567,13.3 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
