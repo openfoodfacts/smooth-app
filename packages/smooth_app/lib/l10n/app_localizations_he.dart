@@ -2558,28 +2558,28 @@ class AppLocalizationsHe extends AppLocalizations {
   String get prices_barcode_enter => 'נא למלא את הברקוד';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'פריט ללא ברקוד';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'מחיר לקילוגרם';
 
   @override
-  String get prices_per_unit => 'Price per unit';
+  String get prices_per_unit => 'מחיר ליחידה';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' / ק\"ג';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' יחידה';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'חובה';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'אופציונלי';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'הקטגוריה היא חובה';
 
   @override
   String get prices_barcode_reader_action => 'קורא ברקודים';
@@ -2723,7 +2723,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'מחיר נוסף בעבר';
 
   @override
   String get prices_amount_subtitle => 'סכום';
@@ -4613,6 +4613,30 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get product_page_tab_raw_data => 'Raw data';
+
+  @override
+  String get raw_data_category_labels => 'Labels & Certification';
+
+  @override
+  String get raw_data_category_categories => 'Categories';
+
+  @override
+  String get raw_data_category_ingredients => 'Ingrédients';
+
+  @override
+  String get raw_data_category_nutrition => 'Nutrition facts';
+
+  @override
+  String get raw_data_category_packages => 'Packaging';
+
+  @override
+  String get raw_data_category_stores => 'Stores';
+
+  @override
+  String get raw_data_category_countries => 'Countries';
+
+  @override
+  String get raw_data_edit_tooltip => 'Edit';
 
   @override
   String page_indicator_with_total(int current, int total) {

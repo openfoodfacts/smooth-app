@@ -2575,10 +2575,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Item tanpa kod bar';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Harga sekilogram';
 
   @override
   String get prices_per_unit => 'Price per unit';
@@ -2593,10 +2593,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Pilihan';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Kategori adalah wajib';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2726,7 +2726,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Harga ditambah sebelum ini';
 
   @override
   String get prices_amount_subtitle => 'Amount';
@@ -4634,6 +4634,30 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get product_page_tab_raw_data => 'Raw data';
+
+  @override
+  String get raw_data_category_labels => 'Labels & Certification';
+
+  @override
+  String get raw_data_category_categories => 'Categories';
+
+  @override
+  String get raw_data_category_ingredients => 'Ingrédients';
+
+  @override
+  String get raw_data_category_nutrition => 'Nutrition facts';
+
+  @override
+  String get raw_data_category_packages => 'Packaging';
+
+  @override
+  String get raw_data_category_stores => 'Stores';
+
+  @override
+  String get raw_data_category_countries => 'Countries';
+
+  @override
+  String get raw_data_edit_tooltip => 'Edit';
 
   @override
   String page_indicator_with_total(int current, int total) {
