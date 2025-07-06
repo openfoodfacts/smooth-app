@@ -78,7 +78,7 @@ Widget build(BuildContext context) {
     sliver: SliverToBoxAdapter(
       child: ListenableProvider&lt;TextEditingController&gt;(
         create: (_) =&gt; controller,
-        dispose: (_, __) {},
+        dispose: (_, _) {},
         child: SmoothCardWithRoundedHeader(
           title: appLocalizations.nutrition_page_serving_size,
           leading: Consumer&lt;TextEditingController&gt;(

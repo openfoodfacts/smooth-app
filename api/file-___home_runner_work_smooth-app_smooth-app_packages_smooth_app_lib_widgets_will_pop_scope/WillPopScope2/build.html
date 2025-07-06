@@ -74,7 +74,7 @@ Widget build(BuildContext context) {
   return ChangeNotifierProvider&lt;WillPopScope2Controller?&gt;.value(
     value: controller,
     child: Consumer&lt;WillPopScope2Controller?&gt;(
-      builder: (_, WillPopScope2Controller? controller, __) {
+      builder: (_, WillPopScope2Controller? controller, _) {
         return PopScope(
           canPop: controller?.value ?? false,
           onPopInvokedWithResult: (bool didPop, dynamic result) async {

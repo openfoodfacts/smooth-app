@@ -85,7 +85,7 @@ Widget build(BuildContext context) =&gt; Container(
       image: NetworkImage(question.imageUrl!),
       fit: BoxFit.cover,
       height: double.infinity,
-      errorBuilder: (_, __, ___) =&gt; EMPTY_WIDGET,
+      errorBuilder: (_, _, _) =&gt; EMPTY_WIDGET,
       loadingBuilder: (_, Widget child, ImageChunkEvent? progress) =&gt;
           progress == null
           ? child
