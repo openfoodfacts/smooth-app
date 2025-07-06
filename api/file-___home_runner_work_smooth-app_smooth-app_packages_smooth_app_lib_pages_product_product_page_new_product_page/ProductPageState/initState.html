@@ -86,7 +86,7 @@ void initState() {
     initialIndex: 1,
   );
 
-  WidgetsBinding.instance.addPostFrameCallback((_) {
+  onNextFrame(() {
     _updateLocalDatabaseWithProductHistory(context);
   });
 }</code></pre>
