@@ -27,6 +27,12 @@ class _InfiniteScrollSliverListState<T>
   bool _isInitialLoading = false;
 
   @override
+  void initState() {
+    super.initState();
+    unawaited(_initialLoad());
+  }
+
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
