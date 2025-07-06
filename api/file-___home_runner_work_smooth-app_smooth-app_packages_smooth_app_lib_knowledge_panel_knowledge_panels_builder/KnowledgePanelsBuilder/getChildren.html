@@ -79,7 +79,12 @@
       : getKnowledgePanel(product, panelId);
   final List&lt;Widget&gt; children = &lt;Widget&gt;[];
   if (rootPanel != null) {
-    children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
+    children.add(
+      KnowledgePanelTitle(
+        title: rootPanel.titleElement!.title,
+        topics: rootPanel.topics,
+      ),
+    );
     if (rootPanel.elements != null) {
       for (int i = 0; i &lt; rootPanel.elements!.length; i++) {
         final KnowledgePanelElement element = rootPanel.elements![i];

@@ -85,6 +85,9 @@ Widget build(BuildContext context) {
                 );
               })
               .toList(growable: false),
+          leadingItems: tabs
+              .map((ProductPageTab tab) =&gt; tab.prefix)
+              .toList(growable: false),
           onTabChanged: (_) {},
         ),
       ),

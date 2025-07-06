@@ -99,6 +99,7 @@
       ProductPageTab(
         id: id,
         labelBuilder: (_) =&gt; knowledgePanelTitle.title,
+        prefix: _extractPrefix(product, knowledgePanelTitle),
         builder: (_, _) =&gt; ListView.builder(
           padding: EdgeInsetsDirectional.zero,
           itemCount: children.length - 1,
