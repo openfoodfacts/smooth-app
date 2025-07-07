@@ -225,15 +225,10 @@ class _ProductQuestionBanner extends StatelessWidget {
               child: Ink(
                 width: double.infinity,
                 color: backgroundColor,
-                padding:
-                    const EdgeInsetsDirectional.symmetric(
-                      vertical: SMALL_SPACE,
-                      horizontal: MEDIUM_SPACE,
-                    ).add(
-                      EdgeInsetsDirectional.only(
-                        bottom: MediaQuery.viewPaddingOf(context).bottom,
-                      ),
-                    ),
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: SMALL_SPACE,
+                  horizontal: MEDIUM_SPACE,
+                ),
                 child: Row(
                   children: <Widget>[
                     const _ProductQuestionIcon(),

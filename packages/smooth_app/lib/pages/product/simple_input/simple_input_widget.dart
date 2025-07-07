@@ -161,7 +161,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
                     _,
                   ) {
                     if (notif.value.isEmpty) {
-                      return const SizedBox(height: VERY_SMALL_SPACE);
+                      return const SizedBox(height: BALANCED_SPACE);
                     } else {
                       return EMPTY_WIDGET;
                     }
