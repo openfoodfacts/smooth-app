@@ -2798,7 +2798,7 @@
   },
   "basic_details": "Détails de base",
   "product_name": "Nom du produit",
-  "product_names": "Noms de produits",
+  "product_names": "Noms de produit",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
@@ -2821,6 +2821,19 @@
   "add_basic_details_product_name_hint": "Saisir le nom du product (ex : Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "Changer la langue par défaut ?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Voulez-vous que la langue par défaut du produit soit définie sur \"**{language}**\" ?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Bon exemple",
   "@explanation_section_good_examples": {

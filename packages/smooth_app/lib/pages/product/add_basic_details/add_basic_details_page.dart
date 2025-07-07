@@ -264,6 +264,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     if (_productNameEditorProvider.hasChanged()) {
       hasChanged = true;
+      result.lang =
+          _productNameEditorProvider.value.defaultLanguageOverride ??
+          _product.lang;
       result.productNameInLanguages = _productNameEditorProvider
           .getChangedProductNames();
     }

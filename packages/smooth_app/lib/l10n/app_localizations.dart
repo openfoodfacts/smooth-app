@@ -5459,6 +5459,20 @@ abstract class AppLocalizations {
   /// **'Input the name of the product (eg: Nutella)'**
   String get add_basic_details_product_name_hint;
 
+  /// Title of the dialog to change the main language of the product name
+  ///
+  /// In en, this message translates to:
+  /// **'Change the default language?'**
+  String get add_basic_details_product_name_change_main_language_title;
+
+  /// Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and "
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want the product\'s default language to be set to ‘{language}’?'**
+  String add_basic_details_product_name_change_main_language_text(
+    String language,
+  );
+
   /// Title for the section with good examples
   ///
   /// In en, this message translates to:

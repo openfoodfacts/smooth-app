@@ -2822,6 +2822,19 @@
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
+  "add_basic_details_product_name_change_main_language_title": "Change the default language?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Do you want the product's default language to be set to ‘{language}’?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
   "explanation_section_good_examples": "Good examples",
   "@explanation_section_good_examples": {
     "description": "Title for the section with good examples"
