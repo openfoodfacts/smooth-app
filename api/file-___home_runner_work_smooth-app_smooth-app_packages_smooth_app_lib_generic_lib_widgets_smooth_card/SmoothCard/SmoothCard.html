@@ -51,9 +51,10 @@
     <section class="multi-line-signature">const
       <span class="name ">SmoothCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-child">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span></li>
 <li><span class="parameter" id="-param-color"><span class="type-annotation">dynamic</span> <span class="parameter-name">color</span>, </span></li>
-<li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">const EdgeInsets.symmetric(horizontal: SMALL_SPACE, vertical: VERY_SMALL_SPACE)</span>, </span></li>
-<li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span> = <span class="default-value">const EdgeInsets.all(5.0)</span>, </span></li>
+<li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE, vertical: VERY_SMALL_SPACE)</span>, </span></li>
+<li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span> = <span class="default-value">const EdgeInsetsDirectional.all(5.0)</span>, </span></li>
 <li><span class="parameter" id="-param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">elevation</span> = <span class="default-value">8.0</span>, </span></li>
+<li><span class="parameter" id="-param-elevationColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">elevationColor</span>, </span></li>
 <li><span class="parameter" id="-param-borderRadius"><span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>, </span></li>
 <li><span class="parameter" id="-param-ignoreDefaultSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignoreDefaultSemantics</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="-param-clipBehavior"><span class="type-annotation">dynamic</span> <span class="parameter-name">clipBehavior</span>}</span></li>
@@ -69,12 +70,13 @@
   <pre class="language-dart"><code class="language-dart">const SmoothCard({
   required this.child,
   this.color,
-  this.margin = const EdgeInsets.symmetric(
+  this.margin = const EdgeInsetsDirectional.symmetric(
     horizontal: SMALL_SPACE,
     vertical: VERY_SMALL_SPACE,
   ),
-  this.padding = const EdgeInsets.all(5.0),
+  this.padding = const EdgeInsetsDirectional.all(5.0),
   this.elevation = 8.0,
+  this.elevationColor,
   this.borderRadius,
   this.ignoreDefaultSemantics = false,
   this.clipBehavior,
@@ -116,6 +118,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/clipBehavior.html">clipBehavior</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/color.html">color</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/elevation.html">elevation</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/elevationColor.html">elevationColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/ignoreDefaultSemantics.html">ignoreDefaultSemantics</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/margin.html">margin</a></li>

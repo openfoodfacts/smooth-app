@@ -72,35 +72,28 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  return SmoothScaffold(
-    appBar: SmoothAppBar(
-      centerTitle: false,
-      leading: const SmoothBackButton(),
-      title: Text(model.title, maxLines: model.subtitle == null ? 2 : 1),
-      subTitle: model.subtitle == null ? null : Text(model.subtitle!),
-      actions: &lt;Widget&gt;[
-        Semantics(
-          link: true,
-          label: appLocalizations.prices_app_button,
-          excludeSemantics: true,
-          child: IconButton(
-            tooltip: appLocalizations.prices_app_button,
-            icon: const ExcludeSemantics(child: Icon(Icons.open_in_new)),
-            onPressed: () async =&gt;
-                LaunchUrlHelper.launchURL(model.uri.toString()),
-          ),
-        ),
-      ],
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
+  final bool lightTheme = context.lightTheme();
+
+  return SmoothScaffold2(
+    backgroundColor: lightTheme ? extension.primaryLight : null,
+    brightness: Brightness.light,
+    topBar: SmoothTopBar2(
+      leadingAction: SmoothLeadingAction.back,
+      backgroundColor: lightTheme
+          ? extension.primaryBlack
+          : extension.primaryUltraBlack,
+      foregroundColor: lightTheme ? Colors.white : null,
+      elevationColor: lightTheme ? Colors.black54 : Colors.white12,
+      title: appLocalizations.prices_list_title,
+      subTitle: model.title,
+      elevationOnScroll: true,
     ),
-    body: ProductPricesList(model, pricesResult: pricesResult),
-    floatingActionButton: model.addButton == null
-        ? null
-        : FloatingActionButton.extended(
-            onPressed: model.addButton,
-            label: Text(appLocalizations.prices_add_a_price),
-            icon: const Icon(Icons.add),
-          ),
-    bottomNavigationBar: ConsumerFilter&lt;UserPreferences&gt;(
+    injectPaddingInBody: model.displayEachProduct,
+    belowTopBar: !model.displayEachProduct,
+    padding: EdgeInsets.zero,
+    floatingBottomBar: ConsumerFilter&lt;UserPreferences&gt;(
       buildWhen:
           (UserPreferences? previousValue, UserPreferences currentValue) =&gt;
               previousValue?.shouldShowPricesFeedbackForm !=
@@ -118,6 +111,16 @@ Widget build(BuildContext context) {
             return const _PricesFeedbackForm();
           },
     ),
+    children: &lt;Widget&gt;[
+      if (!model.displayEachProduct)
+        PricesHeader(model, pricesResult: pricesResult),
+      ProductPricesList(model, pricesResult: pricesResult),
+      const SliverPadding(
+        padding: EdgeInsetsDirectional.only(
+          bottom: MEDIUM_SPACE + kBottomNavigationBarHeight,
+        ),
+      ),
+    ],
   );
 }</code></pre>
 </section>
