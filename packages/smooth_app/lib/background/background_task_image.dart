@@ -332,20 +332,22 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   static Future<String> getCroppedPath(final String fullPath) async {
-    String croppedPath = '$fullPath.cropped.jpg';
+    final String croppedPath = '$fullPath.cropped.jpg';
 
-    if (!_isFileWritable(File(croppedPath))) {
-      // The directory may have changed
-
-      // This issue is mainly on iOS devices, when the support directory has
-      // changed and is not writable anymore, but is still readable.
-      croppedPath = join(
-        (await BackgroundTaskUpload.getDirectory()).path,
-        Uri.file(fullPath).pathSegments.last,
-      );
+    if (_isFileWritable(File(croppedPath))) {
+      return croppedPath;
     }
 
-    return croppedPath;
+    // In some cases, the location of the directory from
+    // [BackgroundTaskUpload.getDirectory()] (= "application support" dir)
+    // may have changed
+    //
+    // This issue is mainly on iOS devices, when a support directory can become
+    // not writable anymore, but is still readable.
+    return join(
+      (await BackgroundTaskUpload.getDirectory()).path,
+      Uri.file(croppedPath).pathSegments.last,
+    );
   }
 
   /// Uploads the product image.
