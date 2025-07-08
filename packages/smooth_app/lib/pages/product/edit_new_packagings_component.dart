@@ -103,22 +103,28 @@ class _EditNewPackagingsComponentState
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        ListTile(
-          leading: Icon(
-            widget.helper.expanded
-                ? Icons.keyboard_arrow_up
-                : Icons.keyboard_arrow_down,
-          ),
-          title: Text(title ?? widget.title),
-          subtitle: title == null ? null : Text(widget.title),
-          trailing: widget.helper.expanded
-              ? IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: widget.deleteCallback,
-                )
-              : null,
+        InkWell(
+          borderRadius: ROUNDED_BORDER_RADIUS,
           onTap: () =>
               setState(() => widget.helper.expanded = !widget.helper.expanded),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.all(5.0),
+            child: ListTile(
+              leading: Icon(
+                widget.helper.expanded
+                    ? Icons.keyboard_arrow_up
+                    : Icons.keyboard_arrow_down,
+              ),
+              title: Text(title ?? widget.title),
+              subtitle: title == null ? null : Text(widget.title),
+              trailing: widget.helper.expanded
+                  ? IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: widget.deleteCallback,
+                    )
+                  : null,
+            ),
+          ),
         ),
         ...expandedChildren,
       ],
