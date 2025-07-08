@@ -288,7 +288,7 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
             AppNewsStateLoading() =&gt; &#39;Loading…&#39;,
             AppNewsStateLoaded(lastUpdate: final DateTime date) =&gt;
               appLocalizations.dev_preferences_news_provider_status_subtitle(
-                DateFormat.yMd().format(date),
+                MaterialLocalizations.of(context).formatCompactDate(date),
               ),
             AppNewsStateError(exception: final dynamic e) =&gt; &#39;Error $e&#39;,
           });
