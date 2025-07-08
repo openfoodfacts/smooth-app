@@ -64,7 +64,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">bool hasChanged() {
-  if (value.addedLanguages.isNotEmpty) {
+  if (value.addedLanguages.isNotEmpty ||
+      value.defaultLanguageOverride != null) {
     return true;
   }
 
@@ -111,6 +112,7 @@
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/addLanguage.html">addLanguage</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/changeDefaultLanguage.html">changeDefaultLanguage</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/getChangedProductNames.html">getChangedProductNames</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/hasChanged.html">hasChanged</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/loadLanguages.html">loadLanguages</a></li>

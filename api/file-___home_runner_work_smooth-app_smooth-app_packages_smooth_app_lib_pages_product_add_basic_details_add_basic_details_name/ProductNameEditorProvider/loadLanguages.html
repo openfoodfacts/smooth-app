@@ -106,6 +106,7 @@
                 language: language,
                 initialName: localizedNames[language]!,
                 hasPhoto: true,
+                mainLanguage: language == product.lang,
               ),
             );
           } else {
@@ -114,6 +115,7 @@
                 language: language,
                 initialName: &#39;&#39;,
                 hasPhoto: true,
+                mainLanguage: language == product.lang,
               ),
             );
           }
@@ -133,6 +135,7 @@
           language: language,
           initialName: localizedNames[language]!,
           hasPhoto: false,
+          mainLanguage: language == product.lang,
         ),
       );
     }
@@ -149,36 +152,20 @@
           language: userLanguage,
           initialName: &#39;&#39;,
           hasPhoto: false,
+          mainLanguage: userLanguage == product.lang,
         ),
       );
     }
   }
 
-  final OpenFoodFactsLanguage? productLanguage = product.lang;
-  productNames.sort((
-    final _EditingProductName a,
-    final _EditingProductName b,
-  ) {
-    &#47;&#47; Product language is always first
-    if (a.language == productLanguage) {
-      return -1;
-    } else if (b.language == productLanguage) {
-      return 1;
-    }
-
-    &#47;&#47; Then user language
-    if (a.language == userLanguage &amp;&amp; b.language != productLanguage) {
-      return -1;
-    } else if (b.language == userLanguage &amp;&amp; a.language != productLanguage) {
-      return 1;
-    }
-
-    return a.language.offTag.compareTo(b.language.offTag);
-  });
+  final OpenFoodFactsLanguage? productLanguage =
+      value.defaultLanguageOverride ?? product.lang;
+  _sortLanguages(productNames, productLanguage, userLanguage);
 
   value = _ProductNameEditorProviderState(
     productNames: productNames,
     addedLanguages: const &lt;OpenFoodFactsLanguage&gt;[],
+    defaultLanguageOverride: value.defaultLanguageOverride,
   );
 }</code></pre>
 </section>
@@ -216,6 +203,7 @@
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/addLanguage.html">addLanguage</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/changeDefaultLanguage.html">changeDefaultLanguage</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/getChangedProductNames.html">getChangedProductNames</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/hasChanged.html">hasChanged</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_add_basic_details_add_basic_details_name/ProductNameEditorProvider/loadLanguages.html">loadLanguages</a></li>
