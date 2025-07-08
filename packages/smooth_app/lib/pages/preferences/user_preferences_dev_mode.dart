@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_badge.dart';
@@ -307,7 +306,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               AppNewsStateLoading() => 'Loading…',
               AppNewsStateLoaded(lastUpdate: final DateTime date) =>
                 appLocalizations.dev_preferences_news_provider_status_subtitle(
-                  DateFormat.yMd().format(date),
+                  MaterialLocalizations.of(context).formatCompactDate(date),
                 ),
               AppNewsStateError(exception: final dynamic e) => 'Error $e',
             });

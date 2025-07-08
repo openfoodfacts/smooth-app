@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -378,7 +378,9 @@ class _ProductImageDetailsButton extends StatelessWidget {
                         ),
                         subtitle: Text(
                           image.uploaded != null
-                              ? DateFormat.yMMMMEEEEd().format(image.uploaded!)
+                              ? MaterialLocalizations.of(context)
+                                    .formatFullDate(image.uploaded!)
+                                    .firstLetterInUppercase()
                               : '-',
                         ),
                       ),

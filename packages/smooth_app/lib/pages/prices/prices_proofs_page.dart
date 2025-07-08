@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -167,10 +166,9 @@ class _PriceProofListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DateFormat dateFormat = DateFormat.yMd(
-      ProductQuery.getLocaleString(),
-    );
-    final String date = dateFormat.format(proof.date ?? proof.created);
+    final String date = MaterialLocalizations.of(
+      context,
+    ).formatCompactDate(proof.date ?? proof.created);
 
     final double screenWidth = MediaQuery.of(context).size.width;
     final double imageSize = screenWidth * 0.3;

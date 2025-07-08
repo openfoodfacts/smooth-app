@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -16,8 +15,7 @@ class PriceDateCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final PriceModel model = context.watch<PriceModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String locale = ProductQuery.getLocaleString();
-    final DateFormat dateFormat = DateFormat.yMd(locale);
+
     return SmoothCardWithRoundedHeader(
       title: appLocalizations.prices_date_subtitle,
       leading: const Icon(Icons.calendar_month),
@@ -26,7 +24,7 @@ class PriceDateCard extends StatelessWidget {
         vertical: MEDIUM_SPACE,
       ),
       child: SmoothLargeButtonWithIcon(
-        text: dateFormat.format(model.date),
+        text: MaterialLocalizations.of(context).formatCompactDate(model.date),
         leadingIcon: const Icon(Icons.calendar_month),
         onPressed: model.proof != null
             ? null
