@@ -23,7 +23,7 @@ class WillPopScope2 extends StatelessWidget {
     return ChangeNotifierProvider<WillPopScope2Controller?>.value(
       value: controller,
       child: Consumer<WillPopScope2Controller?>(
-        builder: (_, WillPopScope2Controller? controller, __) {
+        builder: (_, WillPopScope2Controller? controller, _) {
           return PopScope(
             canPop: controller?.value ?? false,
             onPopInvokedWithResult: (bool didPop, dynamic result) async {

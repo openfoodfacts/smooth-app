@@ -83,7 +83,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                       provider.isAuthorized,
                     );
                   },
-              separatorBuilder: (_, __, Animation<double> animation) =>
+              separatorBuilder: (_, _, Animation<double> animation) =>
                   SizeTransition(sizeFactor: animation, child: const Divider()),
               removedSeparatorBuilder:
                   (

@@ -191,7 +191,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
         image.src,
         semanticsLabel: image.alt,
         loadingBuilder: (_) => _onLoading(),
-        errorBuilder: (_, __) => _onError(),
+        errorBuilder: (_, _) => _onError(),
       );
     } else {
       return Image.network(
@@ -203,7 +203,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
           return child;
         },
-        errorBuilder: (_, __, ___) => _onError(),
+        errorBuilder: (_, _, _) => _onError(),
         image.src ?? '-',
       );
     }

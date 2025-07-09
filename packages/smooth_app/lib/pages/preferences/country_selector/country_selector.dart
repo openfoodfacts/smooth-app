@@ -113,7 +113,7 @@ class _CountrySelectorButton extends StatelessWidget {
                             (previousValue
                                     as PreferencesSelectorLoadedState<Country>)
                                 .selectedItem,
-                builder: (_, PreferencesSelectorState<Country> value, __) {
+                builder: (_, PreferencesSelectorState<Country> value, _) {
                   final Country? country =
                       (value as PreferencesSelectorLoadedState<Country>)
                           .selectedItem;
@@ -160,7 +160,7 @@ class _CountrySelectorButton extends StatelessWidget {
     final dynamic newCountry = await Navigator.of(context, rootNavigator: true)
         .push(
           PageRouteBuilder<dynamic>(
-            pageBuilder: (_, __, ___) => _CountrySelectorScreen(
+            pageBuilder: (_, _, _) => _CountrySelectorScreen(
               provider: context.read<_CountrySelectorProvider>(),
             ),
             transitionsBuilder:

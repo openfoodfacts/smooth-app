@@ -13,15 +13,20 @@ class SmoothScaffold2 extends StatefulWidget {
     this.padding,
     this.brightness,
     this.injectPaddingInBody = true,
+    this.belowTopBar = false,
     this.floatingBottomBar,
     this.bottomSafeArea = true,
     super.key,
-  });
+  }) : assert(
+         (bottomBar == null || floatingBottomBar == null),
+         'You can provide either a fixed bottomBar or a floatingBottomBar, not both.',
+       );
 
   final SmoothTopBar2? topBar;
   final List<Widget> children;
   final Widget? bottomBar;
   final Widget? floatingBottomBar;
+  final bool belowTopBar;
   final bool injectPaddingInBody;
   final bool bottomSafeArea;
   final Color? backgroundColor;
@@ -48,6 +53,7 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
           delegate: _SmoothScaffold2Layout(
             viewPadding: viewPadding,
             injectPaddingInBody: widget.injectPaddingInBody,
+            contentBelowTopBar: widget.belowTopBar,
           ),
           children: <Widget>[
             LayoutId(
@@ -91,7 +97,7 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
               ),
             if (widget.floatingBottomBar != null)
               LayoutId(
-                id: _SmoothScaffold2Widget.floattingBottomBar,
+                id: _SmoothScaffold2Widget.floatingBottomBar,
                 child: widget.floatingBottomBar!,
               ),
           ],
@@ -101,16 +107,18 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
   }
 }
 
-enum _SmoothScaffold2Widget { topBar, body, bottomBar, floattingBottomBar }
+enum _SmoothScaffold2Widget { topBar, body, bottomBar, floatingBottomBar }
 
 class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
   _SmoothScaffold2Layout({
     required this.viewPadding,
     required this.injectPaddingInBody,
+    required this.contentBelowTopBar,
   });
 
   final EdgeInsets viewPadding;
   final bool injectPaddingInBody;
+  final bool contentBelowTopBar;
 
   @override
   void performLayout(Size size) {
@@ -141,9 +149,9 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
     double floatingBottomBarHeight;
 
     // Floating Bottom bar
-    if (hasChild(_SmoothScaffold2Widget.floattingBottomBar)) {
+    if (hasChild(_SmoothScaffold2Widget.floatingBottomBar)) {
       floatingBottomBarHeight = layoutChild(
-        _SmoothScaffold2Widget.floattingBottomBar,
+        _SmoothScaffold2Widget.floatingBottomBar,
         BoxConstraints.loose(size),
       ).height;
     } else {
@@ -152,7 +160,10 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
 
     // Body
     final double bodyTopPosition = topBarHeight > 0.0
-        ? topBarHeight - (injectPaddingInBody ? HEADER_ROUNDED_RADIUS.x : 0.0)
+        ? topBarHeight -
+              (injectPaddingInBody || contentBelowTopBar
+                  ? HEADER_ROUNDED_RADIUS.x
+                  : 0.0)
         : 0.0;
     layoutChild(
       _SmoothScaffold2Widget.body,
@@ -177,7 +188,7 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
     }
     if (floatingBottomBarHeight > 0.0) {
       positionChild(
-        _SmoothScaffold2Widget.floattingBottomBar,
+        _SmoothScaffold2Widget.floatingBottomBar,
         Offset(0.0, size.height - bottomBarHeight - floatingBottomBarHeight),
       );
     }

@@ -5,13 +5,23 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
+import 'package:smooth_app/pages/prices/infinite_scroll_sliver_list.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
+import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
+import 'package:smooth_app/pages/prices/price_proof_page.dart';
+import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
@@ -40,7 +50,7 @@ class _ProductPricesListState extends State<ProductPricesList>
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    return InfiniteScrollList<Price>(manager: _priceManager);
+    return InfiniteScrollSliverList<Price>(manager: _priceManager);
   }
 }
 
@@ -85,19 +95,95 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   @override
   Widget buildItem({required BuildContext context, required Price item}) {
     final PriceProduct? priceProduct = item.product;
+
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     return SmoothCard(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (model.displayEachProduct && priceProduct != null)
-            PriceProductWidget(
-              priceProduct,
-              enableCountButton: model.enableCountButton,
-            ),
-          PriceDataWidget(item, model: model),
-        ],
+      elevation: 5.0,
+      elevationColor: Colors.black26,
+      margin: EdgeInsetsDirectional.only(
+        top: MEDIUM_SPACE,
+        start: model.displayEachProduct ? 16.0 : 8.0,
+        end: model.displayEachProduct ? 16.0 : 8.0,
+      ),
+      padding: EdgeInsets.zero,
+      color: lightTheme ? null : extension.primaryUltraBlack,
+      child: InkWell(
+        onTap: () => _showOptionsMenu(context, item),
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        child: Padding(
+          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              if (model.displayEachProduct && priceProduct != null)
+                PriceProductWidget(
+                  priceProduct,
+                  enableCountButton: model.enableCountButton,
+                ),
+              PriceDataWidget(
+                item,
+                model: model,
+                showOptionsMenu: () => _showOptionsMenu(context, item),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
+
+  Future<void> _showOptionsMenu(BuildContext context, Price price) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool hasProof = price.proof?.filePath != null;
+
+    final ProductPriceAction? res = await showSmoothListOfChoicesModalSheet(
+      context: context,
+      title: appLocalizations.prices_entry_menu_title(price.owner),
+      labels: <String>[
+        if (hasProof) appLocalizations.prices_entry_menu_open_proof,
+        if (ProductQuery.getWriteUser().userId == price.owner)
+          appLocalizations.prices_entry_menu_my_prices
+        else
+          appLocalizations.prices_entry_menu_author_prices,
+        appLocalizations.prices_entry_menu_shop_prices,
+      ],
+      prefixIcons: <Widget>[
+        if (hasProof) const Icon(Icons.document_scanner_rounded),
+        const Icon(Icons.account_circle_rounded),
+        const icons.Shop(),
+      ],
+      values: <ProductPriceAction>[
+        if (hasProof) ProductPriceAction.VIEW_PROOF,
+        ProductPriceAction.VIEW_AUTHOR_PRICES,
+        ProductPriceAction.VIEW_LOCATION_PRICES,
+      ],
+      addEndArrowToItems: true,
+    );
+
+    if (context.mounted == false || res == null) {
+      return;
+    }
+
+    switch (res) {
+      case ProductPriceAction.VIEW_PROOF:
+        Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PriceProofPage(price.proof!),
+          ),
+        );
+      case ProductPriceAction.VIEW_AUTHOR_PRICES:
+        PriceUserButton.showUserPrices(context: context, user: price.owner);
+      case ProductPriceAction.VIEW_LOCATION_PRICES:
+        PriceLocationWidget.showLocationPrices(
+          locationId: price.locationId!,
+          context: context,
+        );
+    }
+  }
 }
+
+enum ProductPriceAction { VIEW_PROOF, VIEW_AUTHOR_PRICES, VIEW_LOCATION_PRICES }

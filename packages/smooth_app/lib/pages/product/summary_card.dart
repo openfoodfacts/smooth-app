@@ -420,6 +420,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
+                spacing: SMALL_SPACE,
                 children: <Widget>[
                   attributeIcon,
                   Expanded(child: Text(attributeDisplayTitle)),

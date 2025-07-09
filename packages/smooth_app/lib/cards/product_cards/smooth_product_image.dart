@@ -485,7 +485,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
 
             return _loadingPlaceholder(context);
           },
-      errorBuilder: (_, __, ___) {
+      errorBuilder: (_, _, _) {
         onError.call();
         return EMPTY_WIDGET;
       },

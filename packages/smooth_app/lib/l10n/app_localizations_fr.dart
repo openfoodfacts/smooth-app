@@ -2644,7 +2644,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_per_kilogram => 'Prix au kilo';
 
   @override
-  String get prices_per_unit => 'Prix à l\'unité';
+  String get prices_per_unit => 'Prix a l\'unité';
 
   @override
   String get prices_per_kilogram_short => ' / kg';
@@ -2666,6 +2666,36 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get prices_view_prices => 'Voir les prix';
+
+  @override
+  String get prices_list_title => 'Liste des prix';
+
+  @override
+  String get prices_list_count => 'Nombre de\nprix relevés';
+
+  @override
+  String get prices_list_add_new_price => 'Ajouter un\nnouveau prix';
+
+  @override
+  String get prices_entry_shop_not_found => 'Magasin non renseigné';
+
+  @override
+  String prices_entry_menu_title(String user) {
+    return 'Relevé de prix de \"$user\"';
+  }
+
+  @override
+  String get prices_entry_menu_open_proof => 'Voir la preuve';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Voir mes autres prix';
+
+  @override
+  String get prices_entry_menu_author_prices =>
+      'Voir les autres prix de l\'auteur';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'Voir les autres prix du magasin';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2985,7 +3015,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get user_search_proof_title => 'Ma preuve';
 
   @override
-  String get user_any_search_prices_title => 'Prix d\'un contributeur';
+  String user_any_search_prices_title(String user) {
+    return 'Prix du contributeur : $user';
+  }
 
   @override
   String get all_search_prices_latest_title => 'Derniers prix ajoutés';

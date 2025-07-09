@@ -24,7 +24,7 @@ class NutritionServingSize extends StatelessWidget {
       sliver: SliverToBoxAdapter(
         child: ListenableProvider<TextEditingController>(
           create: (_) => controller,
-          dispose: (_, __) {},
+          dispose: (_, _) {},
           child: SmoothCardWithRoundedHeader(
             title: appLocalizations.nutrition_page_serving_size,
             leading: Consumer<TextEditingController>(

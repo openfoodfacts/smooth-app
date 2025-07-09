@@ -229,7 +229,7 @@ class _SmoothGoRouter {
               routes: <GoRoute>[
                 GoRoute(
                   path: _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE,
-                  builder: (_, __) => const GuideNutriscoreV2(),
+                  builder: (_, _) => const GuideNutriscoreV2(),
                 ),
               ],
               redirect: (_, GoRouterState state) {
@@ -243,7 +243,7 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: _InternalAppRoutes.SIGNUP_PAGE,
-              builder: (_, __) => const SignUpPage(),
+              builder: (_, _) => const SignUpPage(),
             ),
           ],
         ),

@@ -2635,34 +2635,64 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_barcode_enter => 'Εισαγάγετε τον Γραμμωτό κώδικα';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Προϊόν χωρίς γραμμωτό κώδικα (barcode)';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Τιμή ανά κιλό';
 
   @override
   String get prices_per_unit => 'Price per unit';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' / κιλό';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / μονάδα';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Υποχρεωτικό';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Προαιρετικός';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Η κατηγορία είναι υποχρεωτική';
 
   @override
   String get prices_barcode_reader_action => 'Αναγνώστης γραμμωτού κώδικα';
 
   @override
   String get prices_view_prices => 'Δείτε τις τιμές';
+
+  @override
+  String get prices_list_title => 'Price list';
+
+  @override
+  String get prices_list_count => 'Number of\nprices';
+
+  @override
+  String get prices_list_add_new_price => 'Add a\nnew price';
+
+  @override
+  String get prices_entry_shop_not_found => 'Unknown store';
+
+  @override
+  String prices_entry_menu_title(String user) {
+    return 'Price entry from \"$user\"';
+  }
+
+  @override
+  String get prices_entry_menu_open_proof => 'View proof';
+
+  @override
+  String get prices_entry_menu_my_prices => 'View my other prices';
+
+  @override
+  String get prices_entry_menu_author_prices =>
+      'View other prices by the author';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2786,7 +2816,8 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle =>
+      'Τιμή που προστέθηκε προηγουμένως';
 
   @override
   String get prices_amount_subtitle => 'Ποσότητα';
@@ -2980,7 +3011,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get user_search_proof_title => 'Η απόδειξή μου';
 
   @override
-  String get user_any_search_prices_title => 'Τιμές συνεισφερόντων';
+  String user_any_search_prices_title(String user) {
+    return 'Τιμές συνεισφερόντων';
+  }
 
   @override
   String get all_search_prices_latest_title =>

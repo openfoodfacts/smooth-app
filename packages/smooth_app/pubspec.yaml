@@ -19,7 +19,7 @@ dependencies:
   cupertino_icons: 1.0.8
   flutter_svg: 2.1.0
   flutter_map: 8.1.1
-  html: 0.15.5
+  html: 0.15.6
   flutter_widget_from_html_core: 0.15.2
   flutter_secure_storage: 9.2.4
   hive: 2.2.3
@@ -38,7 +38,7 @@ dependencies:
   provider: 6.1.4
   sentry_flutter: 8.14.1
   sqflite: 2.4.2
-  sqflite_common_ffi: 2.3.4+4
+  sqflite_common_ffi: 2.3.6
   url_launcher: 6.3.1
   visibility_detector: 0.4.0+2
   app_settings: 5.2.0
@@ -46,7 +46,7 @@ dependencies:
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 6.5.0
-  flutter_email_sender: 6.0.3
+  flutter_email_sender: 7.0.0
   flutter_native_splash: 2.4.4
   image: 4.5.2
   auto_size_text: 3.0.0
@@ -74,6 +74,7 @@ dependencies:
   cached_network_image: 3.4.1
   file_picker: 8.1.7
   animated_line_through: 1.0.5
+  mobkit_dashed_border: 0.0.8
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -115,7 +116,7 @@ dev_dependencies:
   mockito: 5.4.5
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
-  flutter_lints: 4.0.0
+  flutter_lints: 6.0.0
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 

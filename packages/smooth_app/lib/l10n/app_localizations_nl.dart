@@ -2610,34 +2610,64 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_barcode_enter => 'Voer de streepjescode in';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Artikel zonder streepjescode';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Prijs per kilogram';
 
   @override
-  String get prices_per_unit => 'Price per unit';
+  String get prices_per_unit => 'Prijs per eenheid';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' /kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' /eenheid';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Verplicht';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Optioneel';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'De categorie is verplicht';
 
   @override
   String get prices_barcode_reader_action => 'Streepjescodelezer';
 
   @override
   String get prices_view_prices => 'Bekijk de prijzen';
+
+  @override
+  String get prices_list_title => 'Price list';
+
+  @override
+  String get prices_list_count => 'Number of\nprices';
+
+  @override
+  String get prices_list_add_new_price => 'Add a\nnew price';
+
+  @override
+  String get prices_entry_shop_not_found => 'Unknown store';
+
+  @override
+  String prices_entry_menu_title(String user) {
+    return 'Price entry from \"$user\"';
+  }
+
+  @override
+  String get prices_entry_menu_open_proof => 'View proof';
+
+  @override
+  String get prices_entry_menu_my_prices => 'View my other prices';
+
+  @override
+  String get prices_entry_menu_author_prices =>
+      'View other prices by the author';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2761,7 +2791,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Prijs eerder toegevoegd';
 
   @override
   String get prices_amount_subtitle => 'Hoeveelheid';
@@ -2955,7 +2985,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get user_search_proof_title => 'Mijn bewijs';
 
   @override
-  String get user_any_search_prices_title => 'Prijzen van bijdragers';
+  String user_any_search_prices_title(String user) {
+    return 'Prijzen van bijdragers';
+  }
 
   @override
   String get all_search_prices_latest_title => 'Laatst toegevoegde prijzen';
@@ -3832,6 +3864,7 @@ class AppLocalizationsNl extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count producten',
+      one: '',
     );
     return 'Top $_temp0 downloaden in uw land voor direct scannen';
   }

@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
@@ -37,9 +36,6 @@ class ProductImageWidget extends StatelessWidget {
     final SmoothColorsThemeExtension colors = context
         .extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final DateFormat dateFormat = DateFormat.yMd(
-      ProductQuery.getLanguage().offTag,
-    );
 
     final Widget image = SmoothImage(
       cacheHeight: (squareSize * MediaQuery.devicePixelRatioOf(context))
@@ -61,7 +57,9 @@ class ProductImageWidget extends StatelessWidget {
       return image;
     }
     final bool expired = productImage.expired;
-    final String date = dateFormat.format(uploaded);
+    final String date = MaterialLocalizations.of(
+      context,
+    ).formatCompactDate(uploaded);
 
     return Semantics(
       label: expired

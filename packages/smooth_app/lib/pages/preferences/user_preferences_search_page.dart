@@ -5,6 +5,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Search page for preferences, with TextField filter.
@@ -23,7 +24,7 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final List<Widget> items = _getItems(_controller.text, userPreferences);
-    return Scaffold(
+    return SmoothScaffold(
       appBar: AppBar(title: const Text('Preferences Search')),
       body: SafeArea(
         child: Column(
