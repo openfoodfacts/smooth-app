@@ -20,6 +20,5 @@ class DefaultPreferencesRoot extends PreferencesRoot {
   @override
   List<ExternalSearchPreferenceTile> getExternalSearchTiles(
     BuildContext context,
-  ) =>
-      externalSearchTiles;
+  ) => externalSearchTiles;
 }

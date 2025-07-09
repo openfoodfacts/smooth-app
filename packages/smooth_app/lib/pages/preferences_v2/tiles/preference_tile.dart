@@ -16,11 +16,11 @@ class PreferenceTile extends StatelessWidget {
     this.trailing,
     this.onTap,
   }) : assert(
-          (subtitleText != null && subtitle == null) ||
-              (subtitleText == null && subtitle != null) ||
-              (subtitleText == null && subtitle == null),
-          'Either subtitleText or subtitle must be provided, not both.',
-        );
+         (subtitleText != null && subtitle == null) ||
+             (subtitleText == null && subtitle != null) ||
+             (subtitleText == null && subtitle == null),
+         'Either subtitleText or subtitle must be provided, not both.',
+       );
 
   final IconData? icon;
   final String title;

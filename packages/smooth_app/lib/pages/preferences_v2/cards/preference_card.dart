@@ -7,18 +7,12 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 /// It is used to group related preferences together.
 /// Cards are then displayed as a list in a preferences root.
 class PreferenceCard extends StatelessWidget {
-  PreferenceCard({
-    required this.title,
-    required this.tiles,
-    super.key,
-  })  : assert(
-          title.isNotEmpty,
-          'PreferenceCard title must not be empty.',
-        ),
-        assert(
-          tiles.isNotEmpty,
-          'PreferenceCard must contain at least one tile.',
-        );
+  PreferenceCard({required this.title, required this.tiles, super.key})
+    : assert(title.isNotEmpty, 'PreferenceCard title must not be empty.'),
+      assert(
+        tiles.isNotEmpty,
+        'PreferenceCard must contain at least one tile.',
+      );
 
   final String title;
   final List<PreferenceTile> tiles;
@@ -30,9 +24,9 @@ class PreferenceCard extends StatelessWidget {
       title: title,
       titleTextStyle: Theme.of(context).textTheme.bodyLarge,
       child: Column(
-        children: tiles.map((PreferenceTile tile) => tile).toList(
-              growable: false,
-            ),
+        children: tiles
+            .map((PreferenceTile tile) => tile)
+            .toList(growable: false),
       ),
     );
   }

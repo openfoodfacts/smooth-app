@@ -12,16 +12,14 @@ abstract class ExternalSearchPreferenceTile extends PreferenceTile {
 
   @override
   Widget build(BuildContext context) {
-    final String? keyword =
-        context.watch<PreferencesRootSearchController>().query;
+    final String? keyword = context
+        .watch<PreferencesRootSearchController>()
+        .query;
 
     return keyword != null
         ? PreferenceTile(
             icon: icon,
-            title: buildTitle(
-              context,
-              keyword,
-            ),
+            title: buildTitle(context, keyword),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () {
               LaunchUrlHelper.launchURLInWebViewOrBrowser(

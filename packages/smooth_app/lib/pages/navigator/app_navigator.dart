@@ -212,7 +212,8 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
-              builder: (BuildContext context, GoRouterState state) => PreferencesPage(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  PreferencesPage(),
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,

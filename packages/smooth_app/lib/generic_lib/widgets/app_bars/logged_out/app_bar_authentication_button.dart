@@ -9,18 +9,15 @@ class AppBarAuthenticationButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
-  }) : assert(
-          title.isNotEmpty,
-          'title must not be empty.',
-        );
+  }) : assert(title.isNotEmpty, 'title must not be empty.');
 
   final String title;
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 
@@ -63,9 +60,9 @@ class AppBarAuthenticationButton extends StatelessWidget {
                               ? themeExtension.primaryBlack
                               : Colors.white,
                           size: 28.0,
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

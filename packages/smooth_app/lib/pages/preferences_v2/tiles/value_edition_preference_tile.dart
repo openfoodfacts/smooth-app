@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
 class ValueEditionPreferenceTile extends PreferenceTile {
@@ -15,8 +15,8 @@ class ValueEditionPreferenceTile extends PreferenceTile {
     this.subtitleWithEmptyValue,
     this.validator,
     required this.onNewValue,
-  })  : assert(dialogAction.length > 0),
-        super(subtitleText: dialogAction);
+  }) : assert(dialogAction.length > 0),
+       super(subtitleText: dialogAction);
 
   final String? value;
   final String? hint;
@@ -38,8 +38,9 @@ class ValueEditionPreferenceTile extends PreferenceTile {
   }
 
   Future<void> _showInputTextDialog(BuildContext context) async {
-    final TextEditingController controller =
-        TextEditingController(text: value ?? '');
+    final TextEditingController controller = TextEditingController(
+      text: value ?? '',
+    );
 
     final dynamic res = await showDialog(
       context: context,
@@ -52,54 +53,60 @@ class ValueEditionPreferenceTile extends PreferenceTile {
           child: Consumer<TextEditingController>(
             builder:
                 (BuildContext context, TextEditingController controller, _) {
-              return SmoothAlertDialog(
-                title: title,
-                close: true,
-                body: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(title),
-                    const SizedBox(height: BALANCED_SPACE),
-                    TextField(
-                      controller: Provider.of<TextEditingController>(context),
-                      autocorrect: false,
-                      autofocus: true,
-                      textInputAction: TextInputAction.send,
-                      decoration: InputDecoration(
-                        hintText: hint,
-                        suffix: Semantics(
-                          button: true,
-                          label: MaterialLocalizations.of(context)
-                              .deleteButtonTooltip,
-                          excludeSemantics: true,
-                          child: InkWell(
-                            onTap: () =>
-                                context.read<TextEditingController>().clear(),
-                            customBorder: const CircleBorder(),
-                            child: const Padding(
-                              padding: EdgeInsetsDirectional.all(SMALL_SPACE),
-                              child: Icon(Icons.clear),
+                  return SmoothAlertDialog(
+                    title: title,
+                    close: true,
+                    body: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(title),
+                        const SizedBox(height: BALANCED_SPACE),
+                        TextField(
+                          controller: Provider.of<TextEditingController>(
+                            context,
+                          ),
+                          autocorrect: false,
+                          autofocus: true,
+                          textInputAction: TextInputAction.send,
+                          decoration: InputDecoration(
+                            hintText: hint,
+                            suffix: Semantics(
+                              button: true,
+                              label: MaterialLocalizations.of(
+                                context,
+                              ).deleteButtonTooltip,
+                              excludeSemantics: true,
+                              child: InkWell(
+                                onTap: () => context
+                                    .read<TextEditingController>()
+                                    .clear(),
+                                customBorder: const CircleBorder(),
+                                child: const Padding(
+                                  padding: EdgeInsetsDirectional.all(
+                                    SMALL_SPACE,
+                                  ),
+                                  child: Icon(Icons.clear),
+                                ),
+                              ),
                             ),
                           ),
+                          onSubmitted: (String value) =>
+                              Navigator.of(context).pop(value),
                         ),
-                      ),
-                      onSubmitted: (String value) =>
-                          Navigator.of(context).pop(value),
+                      ],
                     ),
-                  ],
-                ),
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.okay,
-                  onPressed: validator?.call(controller.text) != false
-                      ? () => Navigator.of(context).pop(controller.text)
-                      : null,
-                ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.cancel,
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              );
-            },
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.okay,
+                      onPressed: validator?.call(controller.text) != false
+                          ? () => Navigator.of(context).pop(controller.text)
+                          : null,
+                    ),
+                    negativeAction: SmoothActionButton(
+                      text: appLocalizations.cancel,
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  );
+                },
           ),
         );
       },

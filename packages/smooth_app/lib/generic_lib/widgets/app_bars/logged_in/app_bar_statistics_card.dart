@@ -14,14 +14,8 @@ class AppBarStatisticsCard extends StatefulWidget {
     required this.description,
     required this.lazyCounter,
     super.key,
-  })  : assert(
-          imagePath.isNotEmpty,
-          'imagePath must not be empty.',
-        ),
-        assert(
-          description.isNotEmpty,
-          'description must not be empty.',
-        );
+  }) : assert(imagePath.isNotEmpty, 'imagePath must not be empty.'),
+       assert(description.isNotEmpty, 'description must not be empty.');
 
   final String imagePath;
   final String description;
@@ -36,101 +30,99 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Consumer<UserPreferences>(
-      builder: (
-        BuildContext context,
-        UserPreferences userPreferences,
-        Widget? child,
-      ) {
-        final int? count = widget.lazyCounter.getLocalCount(userPreferences);
-        return InkWell(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          onTap: () => _asyncLoad(),
-          child: Container(
-            height: STATISTICS_CARD_HEIGHT,
-            decoration: BoxDecoration(
+      builder:
+          (
+            BuildContext context,
+            UserPreferences userPreferences,
+            Widget? child,
+          ) {
+            final int? count = widget.lazyCounter.getLocalCount(
+              userPreferences,
+            );
+            return InkWell(
               borderRadius: ROUNDED_BORDER_RADIUS,
-              color: themeExtension.secondaryVibrant.withValues(
-                alpha: 0.8,
+              onTap: () => _asyncLoad(),
+              child: Container(
+                height: STATISTICS_CARD_HEIGHT,
+                decoration: BoxDecoration(
+                  borderRadius: ROUNDED_BORDER_RADIUS,
+                  color: themeExtension.secondaryVibrant.withValues(alpha: 0.8),
+                ),
+                child: Stack(
+                  children: <Widget>[
+                    Positioned.fill(
+                      child: Row(
+                        children: <Widget>[
+                          const SizedBox(width: MEDIUM_SPACE),
+                          SvgPicture.asset(widget.imagePath, height: 32.0),
+                          const SizedBox(width: MEDIUM_SPACE),
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                const Spacer(),
+                                Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: Text(
+                                        count.toString(),
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Flexible(
+                                      child: Text(
+                                        widget.description,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.fade,
+                                        softWrap: false,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Spacer(),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    PositionedDirectional(
+                      end: MEDIUM_SPACE,
+                      top: MEDIUM_SPACE,
+                      child: _loading
+                          ? const SizedBox(
+                              width: 16.0,
+                              height: 16.0,
+                              child: CircularProgressIndicator.adaptive(),
+                            )
+                          : const Icon(
+                              Icons.refresh,
+                              color: Colors.white,
+                              size: 16.0,
+                            ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Row(
-                    children: <Widget>[
-                      const SizedBox(width: MEDIUM_SPACE),
-                      SvgPicture.asset(
-                        widget.imagePath,
-                        height: 32.0,
-                      ),
-                      const SizedBox(width: MEDIUM_SPACE),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            const Spacer(),
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child: Text(
-                                    count.toString(),
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    widget.description,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.fade,
-                                    softWrap: false,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                PositionedDirectional(
-                  end: MEDIUM_SPACE,
-                  top: MEDIUM_SPACE,
-                  child: _loading
-                      ? const SizedBox(
-                          width: 16.0,
-                          height: 16.0,
-                          child: CircularProgressIndicator.adaptive(),
-                        )
-                      : const Icon(
-                          Icons.refresh,
-                          color: Colors.white,
-                          size: 16.0,
-                        ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
+            );
+          },
     );
   }
 

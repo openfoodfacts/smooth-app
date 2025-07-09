@@ -22,17 +22,11 @@ class AppBarBackgroundPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 10.0;
 
-    final Offset bottomLeftCenter = Offset(
-      20.0,
-      size.height / 3 * 2,
-    );
+    final Offset bottomLeftCenter = Offset(20.0, size.height / 3 * 2);
     const double bottomLeftRadius = 240.0 / 2;
     canvas.drawCircle(bottomLeftCenter, bottomLeftRadius, circlePaint);
 
-    final Offset topRightCenter = Offset(
-      size.width - 20.0,
-      size.height / 3,
-    );
+    final Offset topRightCenter = Offset(size.width - 20.0, size.height / 3);
     const double topRightRadius = 220.0 / 2;
     canvas.drawCircle(topRightCenter, topRightRadius, circlePaint);
   }

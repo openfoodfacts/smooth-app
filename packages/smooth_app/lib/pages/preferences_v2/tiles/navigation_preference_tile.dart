@@ -12,9 +12,9 @@ class NavigationPreferenceTile extends PreferenceTile {
     this.root,
     this.target,
   }) : assert(
-          (root != null && target == null) || (root == null && target != null),
-          'Either root or target must be provided, not both.',
-        );
+         (root != null && target == null) || (root == null && target != null),
+         'Either root or target must be provided, not both.',
+       );
 
   final PreferencesRoot? root;
   final Widget? target;
@@ -33,7 +33,8 @@ class NavigationPreferenceTile extends PreferenceTile {
             builder: (BuildContext context) => root != null
                 ? ChangeNotifierProvider<PreferencesRootSearchController>(
                     create: (_) => PreferencesRootSearchController(),
-                    child: root)
+                    child: root,
+                  )
                 : target!,
           ),
         );

@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_background.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/app_bar_statistics_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class LoggedInAppBarBody extends StatelessWidget {
-  const LoggedInAppBarBody({
-    required this.userId,
-    super.key,
-  });
+  const LoggedInAppBarBody({required this.userId, super.key});
 
   final String userId;
 
@@ -27,17 +24,14 @@ class LoggedInAppBarBody extends StatelessWidget {
     return FlexibleSpaceBar(
       collapseMode: CollapseMode.none,
       background: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          bottom: SEARCH_BOTTOM_HEIGHT,
-        ),
+        padding: const EdgeInsetsDirectional.only(bottom: SEARCH_BOTTOM_HEIGHT),
         child: Stack(
           children: <Widget>[
-            const AppBarBackground(
-              height: LOGGED_IN_APP_BAR_EXPANDED_HEIGHT,
-            ),
+            const AppBarBackground(height: LOGGED_IN_APP_BAR_EXPANDED_HEIGHT),
             Container(
               margin: EdgeInsetsDirectional.only(
-                top: MediaQuery.of(context).padding.top +
+                top:
+                    MediaQuery.of(context).padding.top +
                     TOOLBAR_HEIGHT +
                     MEDIUM_SPACE,
               ),
@@ -85,8 +79,8 @@ class LoggedInAppBarBody extends StatelessWidget {
                             MaterialPageRoute<dynamic>(
                               builder: (BuildContext context) =>
                                   const UserPreferencesPage(
-                                type: PreferencePageType.ACCOUNT,
-                              ),
+                                    type: PreferencePageType.ACCOUNT,
+                                  ),
                             ),
                           );
                         },

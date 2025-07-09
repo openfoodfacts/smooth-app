@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class LoggedInAppBarHeader extends StatelessWidget {
-  const LoggedInAppBarHeader({
-    required this.userId,
-    super.key,
-  });
+  const LoggedInAppBarHeader({required this.userId, super.key});
 
   final String userId;
 
@@ -19,8 +16,8 @@ class LoggedInAppBarHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 

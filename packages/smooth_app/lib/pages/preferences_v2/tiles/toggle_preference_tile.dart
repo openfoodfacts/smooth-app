@@ -20,10 +20,7 @@ class TogglePreferenceTile extends PreferenceTile {
       icon: icon,
       title: title,
       subtitleText: subtitleText,
-      trailing: SmoothSwitch(
-        value: state,
-        onChanged: onToggle,
-      ),
+      trailing: SmoothSwitch(value: state, onChanged: onToggle),
     );
   }
 }

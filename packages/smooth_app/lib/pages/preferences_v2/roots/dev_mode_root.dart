@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +14,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/locations/search_location_helper.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
@@ -71,29 +71,32 @@ class DevModeRoot extends PreferencesRoot {
             subtitleText: appLocalizations.clipboard_barcode_copy,
             onTap: () async {
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final Map<String, dynamic> export =
-                  await DaoProductList(localDatabase).export(
-                ProductList.history(),
-              );
+              final Map<String, dynamic> export = await DaoProductList(
+                localDatabase,
+              ).export(ProductList.history());
               final List<Widget> children = <Widget>[];
               for (final String barcode in export.keys) {
                 final bool? exists = export[barcode] as bool?;
                 children.add(
                   ListTile(
-                    leading: Icon(exists == null
-                        ? Icons.error
-                        : exists
-                            ? Icons.check
-                            : Icons.help_outline),
+                    leading: Icon(
+                      exists == null
+                          ? Icons.error
+                          : exists
+                          ? Icons.check
+                          : Icons.help_outline,
+                    ),
                     title: Text(barcode),
-                    subtitle: Text(exists == null
-                        ? appLocalizations
-                            .dev_preferences_export_history_progress_error
-                        : exists
-                            ? appLocalizations
+                    subtitle: Text(
+                      exists == null
+                          ? appLocalizations
+                                .dev_preferences_export_history_progress_error
+                          : exists
+                          ? appLocalizations
                                 .dev_preferences_export_history_progress_found
-                            : appLocalizations
-                                .dev_preferences_export_history_progress_not_found),
+                          : appLocalizations
+                                .dev_preferences_export_history_progress_not_found,
+                    ),
                   ),
                 );
               }
@@ -160,8 +163,8 @@ class DevModeRoot extends PreferencesRoot {
             title: 'Add cards to scanner',
             subtitleText: 'Adds 3 sample products to the scanner',
             onTap: () async {
-              final ContinuousScanModel model =
-                  context.read<ContinuousScanModel>();
+              final ContinuousScanModel model = context
+                  .read<ContinuousScanModel>();
 
               const List<String> barcodes = <String>[
                 '5449000000996',
@@ -181,7 +184,8 @@ class DevModeRoot extends PreferencesRoot {
           PreferenceTile(
             title: appLocalizations.dev_preferences_environment_switch_title,
             trailing: DropdownButton<bool>(
-              value: userPreferences.getFlag(
+              value:
+                  userPreferences.getFlag(
                     UserPreferencesDevMode.userPreferencesFlagProd,
                   ) ??
                   true,
@@ -194,14 +198,8 @@ class DevModeRoot extends PreferencesRoot {
                 ProductQuery.setQueryType(userPreferences);
               },
               items: const <DropdownMenuItem<bool>>[
-                DropdownMenuItem<bool>(
-                  value: true,
-                  child: Text('PROD'),
-                ),
-                DropdownMenuItem<bool>(
-                  value: false,
-                  child: Text('TEST'),
-                ),
+                DropdownMenuItem<bool>(value: true, child: Text('PROD')),
+                DropdownMenuItem<bool>(value: false, child: Text('TEST')),
               ],
             ),
           ),
@@ -212,12 +210,12 @@ class DevModeRoot extends PreferencesRoot {
             PreferenceTile(
               icon: Icons.temple_buddhist,
               title: appLocalizations.dev_preferences_test_environment_title,
-              subtitleText:
-                  appLocalizations.dev_preferences_test_environment_subtitle(
-                ProductQuery.getTestUriProductHelper(userPreferences)
-                    .getPostUri(path: '')
-                    .toString(),
-              ),
+              subtitleText: appLocalizations
+                  .dev_preferences_test_environment_subtitle(
+                    ProductQuery.getTestUriProductHelper(
+                      userPreferences,
+                    ).getPostUri(path: '').toString(),
+                  ),
               onTap: () async => _changeTestEnvDomain(
                 context,
                 userPreferences,
@@ -233,7 +231,8 @@ class DevModeRoot extends PreferencesRoot {
             title:
                 'Switch between prices.openfoodfacts.org (PROD) and test env',
             trailing: DropdownButton<bool>(
-              value: userPreferences.getFlag(
+              value:
+                  userPreferences.getFlag(
                     UserPreferencesDevMode.userPreferencesFlagPriceProd,
                   ) ??
                   true,
@@ -246,14 +245,8 @@ class DevModeRoot extends PreferencesRoot {
                 ProductQuery.setQueryType(userPreferences);
               },
               items: const <DropdownMenuItem<bool>>[
-                DropdownMenuItem<bool>(
-                  value: true,
-                  child: Text('PROD'),
-                ),
-                DropdownMenuItem<bool>(
-                  value: false,
-                  child: Text('TEST'),
-                ),
+                DropdownMenuItem<bool>(value: true, child: Text('PROD')),
+                DropdownMenuItem<bool>(value: false, child: Text('TEST')),
               ],
             ),
           ),
@@ -265,7 +258,7 @@ class DevModeRoot extends PreferencesRoot {
             onToggle: (bool value) {
               userPreferences.setUserTracking(value);
             },
-          )
+          ),
         ],
       ),
       PreferenceCard(
@@ -292,7 +285,8 @@ class DevModeRoot extends PreferencesRoot {
             dialogAction:
                 appLocalizations.dev_preferences_news_custom_url_subtitle,
             value: userPreferences.getDevModeString(
-                UserPreferencesDevMode.userPreferencesCustomNewsJSONURI),
+              UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
+            ),
             onNewValue: (String newUrl) => userPreferences.setDevModeString(
               UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
               newUrl,
@@ -309,17 +303,17 @@ class DevModeRoot extends PreferencesRoot {
                   AppNewsStateLoaded(lastUpdate: final DateTime date) =>
                     appLocalizations
                         .dev_preferences_news_provider_status_subtitle(
-                      DateFormat.yMd().format(date),
-                    ),
+                          DateFormat.yMd().format(date),
+                        ),
                   AppNewsStateError(exception: final dynamic e) => 'Error $e',
                 });
               },
             ),
             trailing: IconButton(
               icon: const Icon(Icons.refresh),
-              onPressed: () => context
-                  .read<AppNewsProvider>()
-                  .loadLatestNews(forceUpdate: true),
+              onPressed: () => context.read<AppNewsProvider>().loadLatestNews(
+                forceUpdate: true,
+              ),
             ),
           ),
         ],
@@ -329,14 +323,16 @@ class DevModeRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
             title: appLocalizations.dev_preferences_edit_ingredients_title,
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagEditIngredients,
                 ) ??
                 false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  UserPreferencesDevMode.userPreferencesFlagEditIngredients,
-                  value);
+                UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+                value,
+              );
 
               if (!context.mounted) {
                 return;
@@ -348,12 +344,12 @@ class DevModeRoot extends PreferencesRoot {
           TogglePreferenceTile(
             title: appLocalizations.dev_mode_hide_environmental_score_title,
             state: userPreferences.getExcludedAttributeIds().contains(
-                  Attribute.ATTRIBUTE_ECOSCORE,
-                ),
+              Attribute.ATTRIBUTE_ECOSCORE,
+            ),
             onToggle: (bool value) async {
               const String tag = Attribute.ATTRIBUTE_ECOSCORE;
-              final List<String> list =
-                  userPreferences.getExcludedAttributeIds();
+              final List<String> list = userPreferences
+                  .getExcludedAttributeIds();
               list.removeWhere((final String element) => element == tag);
               if (value) {
                 list.add(tag);
@@ -363,7 +359,8 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: appLocalizations.dev_preferences_show_folksonomy_title,
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
                 ) ??
                 true,
@@ -401,7 +398,8 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: appLocalizations.preferences_accessibility_remove_colors,
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode
                       .userPreferencesFlagAccessibilityNoColor,
                 ) ??
@@ -421,14 +419,16 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: appLocalizations.preferences_accessibility_show_emoji,
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
                 ) ??
                 false,
             onToggle: (bool value) async {
               await userPreferences.setFlag(
-                  UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
-                  value);
+                UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
+                value,
+              );
 
               if (!context.mounted) {
                 return;
@@ -441,7 +441,8 @@ class DevModeRoot extends PreferencesRoot {
             title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
             subtitleText:
                 appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
                 ) ??
                 false,
@@ -457,7 +458,8 @@ class DevModeRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
             title: appLocalizations.prices_bulk_proof_upload_title,
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
                 ) ??
                 false,
@@ -468,7 +470,8 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: 'Multi-products selection for prices',
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode
                       .userPreferencesFlagPricesReceiptMultiSelection,
                 ) ??
@@ -489,7 +492,8 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: 'User ordered knowledge panels',
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
                 ) ??
                 false,
@@ -510,10 +514,11 @@ class DevModeRoot extends PreferencesRoot {
             title: 'Temporary access to location search',
             onTap: () async {
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final DaoOsmLocation daoOsmLocation =
-                  DaoOsmLocation(localDatabase);
-              final List<OsmLocation> osmLocations =
-                  await daoOsmLocation.getAll();
+              final DaoOsmLocation daoOsmLocation = DaoOsmLocation(
+                localDatabase,
+              );
+              final List<OsmLocation> osmLocations = await daoOsmLocation
+                  .getAll();
               if (!context.mounted) {
                 return;
               }
@@ -521,23 +526,20 @@ class DevModeRoot extends PreferencesRoot {
                   <SearchLocationPreloadedItem>[];
               for (final OsmLocation osmLocation in osmLocations) {
                 preloadedList.add(
-                  SearchLocationPreloadedItem(
-                    osmLocation,
-                    popFirst: false,
-                  ),
+                  SearchLocationPreloadedItem(osmLocation, popFirst: false),
                 );
               }
               final OsmLocation? osmLocation =
                   await Navigator.push<OsmLocation>(
-                context,
-                MaterialPageRoute<OsmLocation>(
-                  builder: (BuildContext context) => SearchPage(
-                    SearchLocationHelper(),
-                    preloadedList: preloadedList,
-                    autofocus: false,
-                  ),
-                ),
-              );
+                    context,
+                    MaterialPageRoute<OsmLocation>(
+                      builder: (BuildContext context) => SearchPage(
+                        SearchLocationHelper(),
+                        preloadedList: preloadedList,
+                        autofocus: false,
+                      ),
+                    ),
+                  );
               if (osmLocation == null) {
                 return;
               }
@@ -567,7 +569,8 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: 'Side by side comparison for 2 or 3 products',
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
                 ) ??
                 false,
@@ -586,7 +589,8 @@ class DevModeRoot extends PreferencesRoot {
           ),
           TogglePreferenceTile(
             title: 'Product list import',
-            state: userPreferences.getFlag(
+            state:
+                userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagProductListImport,
                 ) ??
                 false,
@@ -609,19 +613,19 @@ class DevModeRoot extends PreferencesRoot {
   }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> _showSuccessMessage(
-          BuildContext context, AppLocalizations appLocalizations) =>
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.dev_preferences_button_positive),
-        ),
-      );
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) => ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text(appLocalizations.dev_preferences_button_positive)),
+  );
 
   Future<void> _changeTestEnvDomain(
     BuildContext context,
     UserPreferences userPreferences,
     AppLocalizations appLocalizations,
   ) async {
-    _textFieldController.text = userPreferences.getDevModeString(
+    _textFieldController.text =
+        userPreferences.getDevModeString(
           UserPreferencesDevMode.userPreferencesTestEnvDomain,
         ) ??
         uriHelperFoodTest.domain;

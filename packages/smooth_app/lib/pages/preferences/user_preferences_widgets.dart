@@ -252,10 +252,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                 top: SMALL_SPACE,
                 bottom: SMALL_SPACE,
               ),
-              child: Text(
-                title,
-                style: theme.textTheme.headlineMedium,
-              ),
+              child: Text(title, style: theme.textTheme.headlineMedium),
             )
           : null,
       subtitle: Padding(

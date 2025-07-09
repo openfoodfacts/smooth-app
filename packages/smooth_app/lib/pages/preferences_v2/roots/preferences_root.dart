@@ -36,14 +36,11 @@ class PreferencesRootSearchController extends ChangeNotifier {
 /// query.
 /// The search query is performed deep in the widget tree.
 abstract class PreferencesRoot extends StatelessWidget {
-  const PreferencesRoot({
-    super.key,
-    this.title,
-    this.customAppBar,
-  }) : assert(
-          title != null || customAppBar != null,
-          'Either title or customAppBar must be provided',
-        );
+  const PreferencesRoot({super.key, this.title, this.customAppBar})
+    : assert(
+        title != null || customAppBar != null,
+        'Either title or customAppBar must be provided',
+      );
 
   final String? title;
   final Widget? customAppBar;
@@ -51,8 +48,8 @@ abstract class PreferencesRoot extends StatelessWidget {
   List<PreferenceCard> getCards(BuildContext context);
 
   List<ExternalSearchPreferenceTile> getExternalSearchTiles(
-          BuildContext context) =>
-      <ExternalSearchPreferenceTile>[];
+    BuildContext context,
+  ) => <ExternalSearchPreferenceTile>[];
 
   Widget buildAppBar(BuildContext context) =>
       customAppBar ??
@@ -103,12 +100,13 @@ abstract class PreferencesRoot extends StatelessWidget {
   void prepareForBuild(BuildContext context) {}
 
   Widget buildScaffold(BuildContext context, Widget content) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Scaffold(
-      backgroundColor:
-          !context.darkTheme() ? themeExtension.primaryLight : null,
+      backgroundColor: !context.darkTheme()
+          ? themeExtension.primaryLight
+          : null,
       body: content,
     );
   }
@@ -117,8 +115,8 @@ abstract class PreferencesRoot extends StatelessWidget {
   Widget build(BuildContext context) {
     prepareForBuild(context);
 
-    final PreferencesRootSearchController searchController =
-        context.watch<PreferencesRootSearchController>();
+    final PreferencesRootSearchController searchController = context
+        .watch<PreferencesRootSearchController>();
 
     final bool displayTiles =
         searchController.query != null && searchController.query!.isNotEmpty;

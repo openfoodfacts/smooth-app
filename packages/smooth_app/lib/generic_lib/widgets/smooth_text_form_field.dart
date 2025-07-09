@@ -88,8 +88,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
     ).style.copyWith(fontSize: 15.0);
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -170,13 +170,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       OutlineInputBorder(
         borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
         borderSide: widget.outlined
-            ? BorderSide(
-                color: themeExtension.primaryBlack,
-                width: 1.0,
-              )
-            : const BorderSide(
-                color: Colors.transparent,
-                width: 5.0,
-              ),
+            ? BorderSide(color: themeExtension.primaryBlack, width: 1.0)
+            : const BorderSide(color: Colors.transparent, width: 5.0),
       );
 }
