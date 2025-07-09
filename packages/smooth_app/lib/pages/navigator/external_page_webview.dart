@@ -188,7 +188,7 @@ class _WebViewBottomBar extends StatelessWidget {
                   return;
                 }
 
-                Share.shareUri(Uri.parse(url));
+                SharePlus.instance.share(ShareParams(uri: Uri.parse(url)));
               },
             ),
           ],

@@ -145,12 +145,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             MobileScanner(
               controller: _cameraController.controller,
               fit: BoxFit.cover,
-              errorBuilder:
-                  (
-                    BuildContext context,
-                    MobileScannerException error,
-                    Widget? child,
-                  ) => EMPTY_WIDGET,
+              errorBuilder: (_, _) => EMPTY_WIDGET,
               onDetect: (final BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
@@ -295,12 +290,11 @@ class _ToggleCameraIcon extends StatelessWidget {
           child: ValueListenableBuilder<CameraFacing>(
             valueListenable: controller.cameraFacing,
             builder: (BuildContext context, CameraFacing state, Widget? child) {
-              switch (state) {
-                case CameraFacing.front:
-                  return const Icon(Icons.camera_front);
-                case CameraFacing.back:
-                  return const Icon(Icons.camera_rear);
-              }
+              return switch (state) {
+                CameraFacing.front => const Icon(Icons.camera_front),
+                CameraFacing.back => const Icon(Icons.camera_rear),
+                _ => throw UnimplementedError(),
+              };
             },
           ),
         );
