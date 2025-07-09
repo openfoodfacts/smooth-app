@@ -297,7 +297,7 @@ class DevModeRoot extends PreferencesRoot {
           PreferenceTile(
             title: appLocalizations.dev_preferences_news_provider_status_title,
             subtitle: Consumer<AppNewsProvider>(
-              builder: (_, AppNewsProvider provider, __) {
+              builder: (_, AppNewsProvider provider, _) {
                 return Text(switch (provider.state) {
                   AppNewsStateLoading() => 'Loading…',
                   AppNewsStateLoaded(lastUpdate: final DateTime date) =>

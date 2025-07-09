@@ -27,7 +27,6 @@ abstract class PreferencesSelectorProvider<T>
 
   bool _attached = true;
 
-  @immutable
   void changeSelectedItem(T item) {
     final PreferencesSelectorLoadedState<T> state =
         value as PreferencesSelectorLoadedState<T>;
