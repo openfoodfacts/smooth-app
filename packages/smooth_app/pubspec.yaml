@@ -30,7 +30,7 @@ dependencies:
   l10n_countries: 1.0.0
   latlong2: 0.9.1
   matomo_tracker: 6.0.0-dev.1
-  package_info_plus: 8.2.1
+  package_info_plus: 8.3.0
   device_info_plus: 11.5.0
   permission_handler: 11.3.1
   photo_view: 0.15.0
