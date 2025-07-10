@@ -12,6 +12,9 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'openfoodfacts'
+    permissions:
+      contents: read
+      pull-requests: write
     outputs:
       release_created: ${{ steps.release_please.outputs.release_created }}
       major: ${{ steps.release_please.outputs.major }}
@@ -42,6 +45,9 @@ jobs:
       group: release
       cancel-in-progress: false
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     outputs:
@@ -112,6 +118,9 @@ jobs:
       group: android-release
       cancel-in-progress: false
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
+    permissions:
+      contents: read
+      packages: write
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
