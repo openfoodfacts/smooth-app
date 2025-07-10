@@ -25,7 +25,7 @@ class QuestionImageThumbnail extends StatelessWidget {
         image: NetworkImage(question.imageUrl!),
         fit: BoxFit.cover,
         height: double.infinity,
-        errorBuilder: (_, __, ___) => EMPTY_WIDGET,
+        errorBuilder: (_, _, _) => EMPTY_WIDGET,
         loadingBuilder: (_, Widget child, ImageChunkEvent? progress) =>
             progress == null
             ? child

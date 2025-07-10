@@ -121,7 +121,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     ).isNotEmpty;
     children.add(
       Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
         child: ImageField.PACKAGING.getPhotoButton(
           context,
           upToDateProduct,
@@ -135,6 +135,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
       children.add(
         SmoothCard(
           color: _getSmoothCardColorAlternate(context, index),
+          padding: EdgeInsetsDirectional.zero,
           child: EditNewPackagingsComponent(
             title: _helpers[index].getSubTitle(),
             deleteCallback: () =>
@@ -149,13 +150,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     children.add(
       SmoothCard(
         color: _getSmoothCardColor(context),
-        child: ListTile(
-          title: Text(appLocalizations.edit_packagings_completed),
-          trailing: Icon(
-            _packagingsComplete == true
-                ? Icons.check_box
-                : Icons.check_box_outline_blank,
-          ),
+        padding: EdgeInsetsDirectional.zero,
+        child: InkWell(
+          borderRadius: ROUNDED_BORDER_RADIUS,
           onTap: () => setState(() {
             if (_packagingsComplete == null) {
               _packagingsComplete = true;
@@ -163,6 +160,18 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
               _packagingsComplete = !_packagingsComplete!;
             }
           }),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.all(5.0),
+            child: ListTile(
+              title: Text(appLocalizations.edit_packagings_completed),
+              trailing: IgnorePointer(
+                child: Checkbox(
+                  value: _packagingsComplete == true,
+                  onChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

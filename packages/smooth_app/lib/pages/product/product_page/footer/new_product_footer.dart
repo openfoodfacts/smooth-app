@@ -240,7 +240,7 @@ class _ProductFooterButtonsBarItems extends StatelessWidget {
           },
         );
       },
-      separatorBuilder: (_, __) => const SizedBox(width: BALANCED_SPACE),
+      separatorBuilder: (_, _) => const SizedBox(width: BALANCED_SPACE),
     );
   }
 }

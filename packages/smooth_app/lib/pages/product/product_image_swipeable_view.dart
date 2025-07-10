@@ -87,7 +87,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         centerTitle: false,
         title: ValueListenableBuilder<int>(
           valueListenable: _currentImageDataIndex,
-          builder: (_, int index, __) => Text(
+          builder: (_, int index, _) => Text(
             _imageFields[index].getImagePageTitle(appLocalizations),
             maxLines: 2,
           ),
@@ -99,7 +99,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         actions: <Widget>[
           ValueListenableBuilder<int>(
             valueListenable: _currentImageDataIndex,
-            builder: (_, int index, __) {
+            builder: (_, int index, _) {
               return _lockedIcon(_imageFields[index]);
             },
           ),

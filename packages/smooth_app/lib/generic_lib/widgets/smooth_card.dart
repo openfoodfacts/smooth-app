@@ -15,12 +15,13 @@ class SmoothCard extends StatelessWidget {
   const SmoothCard({
     required this.child,
     this.color,
-    this.margin = const EdgeInsets.symmetric(
+    this.margin = const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
       vertical: VERY_SMALL_SPACE,
     ),
-    this.padding = const EdgeInsets.all(5.0),
+    this.padding = const EdgeInsetsDirectional.all(5.0),
     this.elevation = 8.0,
+    this.elevationColor,
     this.borderRadius,
     this.ignoreDefaultSemantics = false,
     this.clipBehavior,
@@ -29,12 +30,13 @@ class SmoothCard extends StatelessWidget {
   const SmoothCard.angular({
     required this.child,
     this.color,
-    this.margin = const EdgeInsets.symmetric(
+    this.margin = const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
       vertical: VERY_SMALL_SPACE,
     ),
-    this.padding = const EdgeInsets.all(5.0),
+    this.padding = const EdgeInsetsDirectional.all(5.0),
     this.elevation = 8.0,
+    this.elevationColor,
     this.ignoreDefaultSemantics = false,
     this.clipBehavior,
   }) : borderRadius = ANGULAR_BORDER_RADIUS;
@@ -48,12 +50,12 @@ class SmoothCard extends StatelessWidget {
       top: VERY_SMALL_SPACE,
       bottom: VERY_SMALL_SPACE,
     ),
-    this.padding = const EdgeInsets.all(5.0),
+    this.padding = const EdgeInsetsDirectional.all(5.0),
     this.elevation = 0.0,
     this.borderRadius,
     this.ignoreDefaultSemantics = false,
     this.clipBehavior,
-  });
+  }) : elevationColor = null;
 
   final Widget child;
   final Color? color;
@@ -61,6 +63,7 @@ class SmoothCard extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final BorderRadiusGeometry? borderRadius;
   final double elevation;
+  final Color? elevationColor;
   final bool ignoreDefaultSemantics;
   final Clip? clipBehavior;
 
@@ -82,7 +85,7 @@ class SmoothCard extends StatelessWidget {
 
     result = Material(
       elevation: elevation,
-      shadowColor: const Color.fromARGB(25, 0, 0, 0),
+      shadowColor: elevationColor ?? const Color.fromARGB(25, 0, 0, 0),
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
       color:
           color ??
@@ -358,7 +361,7 @@ class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothCard(
-      margin: EdgeInsets.zero,
+      margin: EdgeInsetsDirectional.zero,
       padding:
           contentPadding ?? const EdgeInsetsDirectional.only(top: MEDIUM_SPACE),
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,

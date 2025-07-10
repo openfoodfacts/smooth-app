@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Similar to a 404 page
 class ErrorPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return Scaffold(
+    return SmoothScaffold(
       body: Center(
         child: FractionallySizedBox(
           widthFactor: 0.8,

@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class OfflineTaskPage extends StatefulWidget {
   const OfflineTaskPage();
@@ -35,7 +36,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         queues[taskId] = queue;
       }
     }
-    return Scaffold(
+    return SmoothScaffold(
       appBar: SmoothAppBar(
         title: Text(appLocalizations.background_task_title, maxLines: 2),
         actions: <Widget>[

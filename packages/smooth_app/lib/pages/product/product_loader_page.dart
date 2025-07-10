@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// A page to show when a [Product] is not in the database
 /// This page shouldn't be opened directly, it's only for deep links
@@ -97,7 +98,7 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
         break;
     }
 
-    return Scaffold(body: Center(child: child));
+    return SmoothScaffold(body: Center(child: child));
   }
 }
 

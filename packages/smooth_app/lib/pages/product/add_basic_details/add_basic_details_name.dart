@@ -6,6 +6,7 @@ import 'package:flutter/material.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
@@ -19,6 +20,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dar
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -300,22 +302,24 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 1.0,
-                  child: Tooltip(
-                    message: Languages().getNameInEnglish(
-                      widget.productName.language,
-                    ),
-                    child: CircleAvatar(
-                      backgroundColor: lightTheme
-                          ? extension.primaryMedium
-                          : extension.primarySemiDark,
-                      child: AutoSizeText(
-                        widget.productName.language.offTag.toUpperCase(),
-                        style: TextStyle(
-                          color: lightTheme
-                              ? extension.primaryDark
-                              : extension.primaryLight,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 17.0,
+                  child: Material(
+                    shape: const CircleBorder(),
+                    color: _getCircleBackgroundColor(lightTheme, extension),
+                    child: InkWell(
+                      customBorder: const CircleBorder(),
+                      onLongPress: _changeDefaultLanguage,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        child: AutoSizeText(
+                          widget.productName.language.offTag.toUpperCase(),
+                          style: TextStyle(
+                            color: _getCircleForegroundColor(
+                              lightTheme,
+                              extension,
+                            ),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 17.0,
+                          ),
                         ),
                       ),
                     ),
@@ -366,6 +370,70 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
         ),
       ),
     );
+  }
+
+  Color _getCircleBackgroundColor(
+    bool lightTheme,
+    SmoothColorsThemeExtension extension,
+  ) {
+    if (widget.productName.mainLanguage) {
+      return lightTheme ? extension.primaryDark : extension.primaryNormal;
+    }
+    return lightTheme ? extension.primaryMedium : extension.primarySemiDark;
+  }
+
+  Color _getCircleForegroundColor(
+    bool lightTheme,
+    SmoothColorsThemeExtension extension,
+  ) {
+    if (widget.productName.mainLanguage) {
+      return lightTheme ? extension.primaryLight : extension.primaryDark;
+    }
+    return lightTheme ? extension.primaryDark : extension.primaryLight;
+  }
+
+  Future<void> _changeDefaultLanguage() async {
+    if (widget.productName.mainLanguage) {
+      return;
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+
+    final bool? res = await showSmoothListOfChoicesModalSheet<bool>(
+      context: context,
+      title: appLocalizations
+          .add_basic_details_product_name_change_main_language_title,
+      header: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
+        ),
+        child: TextWithBoldParts(
+          text: appLocalizations
+              .add_basic_details_product_name_change_main_language_text(
+                Languages().getNameInEnglish(widget.productName.language),
+              ),
+          textStyle: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+        ),
+      ),
+      prefixIcons: <Widget>[
+        Icon(Icons.check_circle_rounded, color: extension.success),
+        Icon(Icons.cancel_rounded, color: extension.error),
+      ],
+      labels: <String>[appLocalizations.yes, appLocalizations.cancel],
+      values: <bool>[true, false],
+      safeArea: true,
+    );
+
+    if (mounted && res == true) {
+      context.read<ProductNameEditorProvider>().changeDefaultLanguage(
+        widget.productName.language,
+      );
+    }
   }
 
   Future<void> _takePicture(BuildContext context) async {
@@ -721,6 +789,7 @@ class ProductNameEditorProvider
                   language: language,
                   initialName: localizedNames[language]!,
                   hasPhoto: true,
+                  mainLanguage: language == product.lang,
                 ),
               );
             } else {
@@ -729,6 +798,7 @@ class ProductNameEditorProvider
                   language: language,
                   initialName: '',
                   hasPhoto: true,
+                  mainLanguage: language == product.lang,
                 ),
               );
             }
@@ -748,6 +818,7 @@ class ProductNameEditorProvider
             language: language,
             initialName: localizedNames[language]!,
             hasPhoto: false,
+            mainLanguage: language == product.lang,
           ),
         );
       }
@@ -764,12 +835,28 @@ class ProductNameEditorProvider
             language: userLanguage,
             initialName: '',
             hasPhoto: false,
+            mainLanguage: userLanguage == product.lang,
           ),
         );
       }
     }
 
-    final OpenFoodFactsLanguage? productLanguage = product.lang;
+    final OpenFoodFactsLanguage? productLanguage =
+        value.defaultLanguageOverride ?? product.lang;
+    _sortLanguages(productNames, productLanguage, userLanguage);
+
+    value = _ProductNameEditorProviderState(
+      productNames: productNames,
+      addedLanguages: const <OpenFoodFactsLanguage>[],
+      defaultLanguageOverride: value.defaultLanguageOverride,
+    );
+  }
+
+  void _sortLanguages(
+    List<_EditingProductName> productNames,
+    OpenFoodFactsLanguage? productLanguage,
+    OpenFoodFactsLanguage? userLanguage,
+  ) {
     productNames.sort((
       final _EditingProductName a,
       final _EditingProductName b,
@@ -790,11 +877,6 @@ class ProductNameEditorProvider
 
       return a.language.offTag.compareTo(b.language.offTag);
     });
-
-    value = _ProductNameEditorProviderState(
-      productNames: productNames,
-      addedLanguages: const <OpenFoodFactsLanguage>[],
-    );
   }
 
   void addLanguage(OpenFoodFactsLanguage language) {
@@ -805,6 +887,7 @@ class ProductNameEditorProvider
         language: language,
         initialName: '',
         hasPhoto: false,
+        mainLanguage: false,
       ),
     );
 
@@ -812,6 +895,7 @@ class ProductNameEditorProvider
       productNames: productNames,
       addedLanguages: List<OpenFoodFactsLanguage>.from(value.addedLanguages)
         ..add(language),
+      defaultLanguageOverride: value.defaultLanguageOverride,
     );
   }
 
@@ -830,8 +914,27 @@ class ProductNameEditorProvider
       value = _ProductNameEditorProviderState(
         productNames: editedProductNames,
         addedLanguages: value.addedLanguages,
+        defaultLanguageOverride: value.defaultLanguageOverride,
       );
     }
+  }
+
+  void changeDefaultLanguage(OpenFoodFactsLanguage language) {
+    final List<_EditingProductName> languages = <_EditingProductName>[];
+
+    for (final _EditingProductName productName in value.productNames) {
+      languages.add(
+        productName.copyWith(mainLanguage: productName.language == language),
+      );
+    }
+
+    _sortLanguages(languages, language, ProductQuery.getLanguage());
+
+    value = _ProductNameEditorProviderState(
+      productNames: languages,
+      addedLanguages: value.addedLanguages,
+      defaultLanguageOverride: language,
+    );
   }
 
   Map<OpenFoodFactsLanguage, String> getChangedProductNames() {
@@ -848,7 +951,8 @@ class ProductNameEditorProvider
   }
 
   bool hasChanged() {
-    if (value.addedLanguages.isNotEmpty) {
+    if (value.addedLanguages.isNotEmpty ||
+        value.defaultLanguageOverride != null) {
       return true;
     }
 
@@ -867,14 +971,17 @@ class _ProductNameEditorProviderState {
   const _ProductNameEditorProviderState({
     required this.productNames,
     required this.addedLanguages,
+    required this.defaultLanguageOverride,
   });
 
   _ProductNameEditorProviderState.init()
     : productNames = <_EditingProductName>[],
-      addedLanguages = <OpenFoodFactsLanguage>[];
+      addedLanguages = <OpenFoodFactsLanguage>[],
+      defaultLanguageOverride = null;
 
   final List<_EditingProductName> productNames;
   final List<OpenFoodFactsLanguage> addedLanguages;
+  final OpenFoodFactsLanguage? defaultLanguageOverride;
 }
 
 class _EditingProductName {
@@ -883,35 +990,41 @@ class _EditingProductName {
     required this.initialName,
     required this.name,
     required this.hasPhoto,
+    required this.mainLanguage,
   });
 
   _EditingProductName.initial({
     required OpenFoodFactsLanguage language,
     required String initialName,
     required bool hasPhoto,
+    required bool mainLanguage,
   }) : this(
          language: language,
          initialName: initialName,
          name: initialName,
          hasPhoto: hasPhoto,
+         mainLanguage: mainLanguage,
        );
 
   final OpenFoodFactsLanguage language;
   final String initialName;
   final String name;
   final bool hasPhoto;
+  final bool mainLanguage;
 
   _EditingProductName copyWith({
     OpenFoodFactsLanguage? language,
     String? initialName,
     String? name,
     bool? hasPhoto,
+    bool? mainLanguage,
   }) {
     return _EditingProductName(
       language: language ?? this.language,
       initialName: initialName ?? this.initialName,
       name: name ?? this.name,
       hasPhoto: hasPhoto ?? this.hasPhoto,
+      mainLanguage: mainLanguage ?? this.mainLanguage,
     );
   }
 

@@ -352,7 +352,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                     hasDivider: false,
                   );
                 },
-                separatorBuilder: (_, __) => const Divider(height: 1.0),
+                separatorBuilder: (_, _) => const Divider(height: 1.0),
               ),
             ),
           );

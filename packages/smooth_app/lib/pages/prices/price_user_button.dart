@@ -18,7 +18,7 @@ class PriceUserButton extends StatelessWidget {
     required final BuildContext context,
   }) => user == ProductQuery.getWriteUser().userId
       ? AppLocalizations.of(context).user_search_prices_title
-      : AppLocalizations.of(context).user_any_search_prices_title;
+      : AppLocalizations.of(context).user_any_search_prices_title(user);
 
   static Future<void> showUserPrices({
     required final String user,

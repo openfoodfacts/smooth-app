@@ -9,6 +9,7 @@ class SmoothColorsThemeExtension
     required this.primarySemiDark,
     required this.primaryTone,
     required this.primaryNormal,
+    required this.primaryAccent,
     required this.primaryMedium,
     required this.primaryLight,
     required this.secondaryNormal,
@@ -34,6 +35,7 @@ class SmoothColorsThemeExtension
       primaryDark = const Color(0xFF483527),
       primarySemiDark = const Color(0xFF52443D),
       primaryTone = const Color(0xFF81756C),
+      primaryAccent = const Color(0xFF875737),
       primaryNormal = const Color(0xFFA08D84),
       primaryMedium = const Color(0xFFEDE0DB),
       primaryLight = const Color(0xFFF6F3F0),
@@ -70,6 +72,7 @@ class SmoothColorsThemeExtension
 
   // Macchiato
   final Color primaryNormal;
+  final Color primaryAccent;
 
   // Cappuccino
   final Color primaryMedium;
@@ -103,6 +106,7 @@ class SmoothColorsThemeExtension
     Color? primarySemiDark,
     Color? primaryTone,
     Color? primaryNormal,
+    Color? primaryAccent,
     Color? primaryMedium,
     Color? primaryLight,
     Color? secondaryNormal,
@@ -128,6 +132,7 @@ class SmoothColorsThemeExtension
       primarySemiDark: primarySemiDark ?? this.primarySemiDark,
       primaryTone: primaryTone ?? this.primaryTone,
       primaryNormal: primaryNormal ?? this.primaryNormal,
+      primaryAccent: primaryAccent ?? this.primaryAccent,
       primaryMedium: primaryMedium ?? this.primaryMedium,
       primaryLight: primaryLight ?? this.primaryLight,
       secondaryNormal: secondaryNormal ?? this.secondaryNormal,
@@ -168,6 +173,7 @@ class SmoothColorsThemeExtension
       primarySemiDark: Color.lerp(primarySemiDark, other.primarySemiDark, t)!,
       primaryTone: Color.lerp(primaryTone, other.primaryTone, t)!,
       primaryNormal: Color.lerp(primaryNormal, other.primaryNormal, t)!,
+      primaryAccent: Color.lerp(primaryAccent, other.primaryAccent, t)!,
       primaryMedium: Color.lerp(primaryMedium, other.primaryMedium, t)!,
       primaryLight: Color.lerp(primaryLight, other.primaryLight, t)!,
       secondaryNormal: Color.lerp(secondaryNormal, other.secondaryNormal, t)!,

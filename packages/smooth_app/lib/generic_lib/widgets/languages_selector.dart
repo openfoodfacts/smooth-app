@@ -306,7 +306,7 @@ class _LanguagesListState extends State<_LanguagesList> {
                 },
                 itemCount: _countItems(),
                 shrinkWrap: true,
-                separatorBuilder: (_, __) => const Divider(height: 1.0),
+                separatorBuilder: (_, _) => const Divider(height: 1.0),
                 reverse: true,
               ),
             ),

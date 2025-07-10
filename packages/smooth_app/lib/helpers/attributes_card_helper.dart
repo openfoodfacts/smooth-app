@@ -38,14 +38,13 @@ Widget getAttributeDisplayIcon(
   bool? isFoodPreferences = false,
   BuildContext? context,
 }) {
-  return Container(
-    child: attribute.getCircledIcon(
-      backgroundColor: isFoodPreferences!
-          ? Theme.of(context!).primaryColor
-          : getAttributeDisplayBackgroundColor(attribute),
-      size: 32.0,
-    ),
-  );
+  return attribute.getCircledIcon(
+        backgroundColor: isFoodPreferences!
+            ? Theme.of(context!).primaryColor
+            : getAttributeDisplayBackgroundColor(attribute),
+        size: 32.0,
+      ) ??
+      EMPTY_WIDGET;
 }
 
 Color getAttributeDisplayBackgroundColor(final Attribute attribute) =>

@@ -2602,6 +2602,36 @@ class AppLocalizationsRm extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
+  String get prices_list_title => 'Price list';
+
+  @override
+  String get prices_list_count => 'Number of\nprices';
+
+  @override
+  String get prices_list_add_new_price => 'Add a\nnew price';
+
+  @override
+  String get prices_entry_shop_not_found => 'Unknown store';
+
+  @override
+  String prices_entry_menu_title(String user) {
+    return 'Price entry from \"$user\"';
+  }
+
+  @override
+  String get prices_entry_menu_open_proof => 'View proof';
+
+  @override
+  String get prices_entry_menu_my_prices => 'View my other prices';
+
+  @override
+  String get prices_entry_menu_author_prices =>
+      'View other prices by the author';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+
+  @override
   String prices_product_accessibility_summary(int count, String product) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -2914,7 +2944,9 @@ class AppLocalizationsRm extends AppLocalizations {
   String get user_search_proof_title => 'My proof';
 
   @override
-  String get user_any_search_prices_title => 'Contributor prices';
+  String user_any_search_prices_title(String user) {
+    return 'Contributor prices';
+  }
 
   @override
   String get all_search_prices_latest_title => 'Latest Prices added';

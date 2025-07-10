@@ -85,7 +85,7 @@ class CurrencySelectorHelper {
                         },
                       );
                     },
-                    separatorBuilder: (_, __) => const Divider(height: 1.0),
+                    separatorBuilder: (_, _) => const Divider(height: 1.0),
                     itemCount: filteredList.length,
                     shrinkWrap: true,
                   ),

@@ -235,7 +235,7 @@ class _SimpleInputListRobotoffSuggestionHeaderState
                               duration: SmoothAnimationsDuration.short,
                               color: lightTheme ? Colors.black : Colors.white,
                               child: Consumer<RobotoffQuestion>(
-                                builder: (_, RobotoffQuestion question, __) {
+                                builder: (_, RobotoffQuestion question, _) {
                                   return AutoSizeText(
                                     question.value!,
                                     style: TextTheme.of(context).bodyLarge

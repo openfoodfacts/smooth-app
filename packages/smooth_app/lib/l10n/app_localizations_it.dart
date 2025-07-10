@@ -2614,34 +2614,64 @@ class AppLocalizationsIt extends AppLocalizations {
   String get prices_barcode_enter => 'Inserisci il codice a barre';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Articolo senza codice a barre';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Prezzo al chilogrammo';
 
   @override
-  String get prices_per_unit => 'Price per unit';
+  String get prices_per_unit => 'Prezzo unitario';
 
   @override
   String get prices_per_kilogram_short => ' / kg';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / unità';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Obbligatorio';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Opzionale';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'La categoria è obbligatoria';
 
   @override
   String get prices_barcode_reader_action => 'Lettore del codice a barre';
 
   @override
   String get prices_view_prices => 'Guarda i prezzi';
+
+  @override
+  String get prices_list_title => 'Price list';
+
+  @override
+  String get prices_list_count => 'Number of\nprices';
+
+  @override
+  String get prices_list_add_new_price => 'Add a\nnew price';
+
+  @override
+  String get prices_entry_shop_not_found => 'Unknown store';
+
+  @override
+  String prices_entry_menu_title(String user) {
+    return 'Price entry from \"$user\"';
+  }
+
+  @override
+  String get prices_entry_menu_open_proof => 'View proof';
+
+  @override
+  String get prices_entry_menu_my_prices => 'View my other prices';
+
+  @override
+  String get prices_entry_menu_author_prices =>
+      'View other prices by the author';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2765,7 +2795,7 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Prezzo aggiunto in precedenza';
 
   @override
   String get prices_amount_subtitle => 'Quantità';
@@ -2960,7 +2990,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get user_search_proof_title => 'La mia prova';
 
   @override
-  String get user_any_search_prices_title => 'Prezzi dei contributori';
+  String user_any_search_prices_title(String user) {
+    return 'Prezzi dei contributori';
+  }
 
   @override
   String get all_search_prices_latest_title => 'Ultimi prezzi aggiunti';
