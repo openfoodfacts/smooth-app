@@ -55,7 +55,7 @@ class LocationListPhotonSupplier extends LocationListSupplier {
               '&limit=100'
               '${_getAdditionalParameters()}',
         ),
-      );
+      ).timeout(const Duration(seconds: 10));
       if (response.statusCode != 200) {
         return 'Could not retrieve locations';
       }

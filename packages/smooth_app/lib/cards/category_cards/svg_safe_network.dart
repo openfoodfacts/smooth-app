@@ -68,7 +68,8 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
     }
 
     // try with the url
-    final http.Response response1 = await http.get(Uri.parse(_url));
+    final http.Response response1 = await http.get(Uri.parse(_url))
+        .timeout(const Duration(seconds: 5));
     if (response1.statusCode == statusOk) {
       _networkCache[_url] = cached = response1.body;
       return cached;
@@ -76,7 +77,8 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
     if (response1.statusCode == statusNotFound) {
       if (alternateUrl != null) {
         // try with the alternate url
-        final http.Response response2 = await http.get(Uri.parse(alternateUrl));
+        final http.Response response2 = await http.get(Uri.parse(alternateUrl))
+            .timeout(const Duration(seconds: 5));
         if (response2.statusCode == statusOk) {
           _networkCache[alternateUrl] = cached = response2.body;
           return cached;
@@ -162,7 +164,46 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
 }
 
 /// Network cache, with url as key and SVG data as value.
-Map<String, String> _networkCache = <String, String>{};
+/// Limited to 100 entries to prevent memory leaks.
+final _SvgNetworkCache _networkCache = _SvgNetworkCache();
 
 typedef WidgetErrorBuilder =
     Widget Function(BuildContext context, dynamic exception);
+
+/// LRU cache for SVG network content to prevent memory leaks.
+class _SvgNetworkCache {
+  static const int _maxSize = 100;
+  
+  final Map<String, String> _cache = <String, String>{};
+  final List<String> _accessOrder = <String>[];
+  
+  String? operator [](String key) {
+    if (_cache.containsKey(key)) {
+      // Move to end (most recently used)
+      _accessOrder.remove(key);
+      _accessOrder.add(key);
+      return _cache[key];
+    }
+    return null;
+  }
+  
+  void operator []=(String key, String value) {
+    if (_cache.containsKey(key)) {
+      // Update existing value and move to end
+      _cache[key] = value;
+      _accessOrder.remove(key);
+      _accessOrder.add(key);
+    } else {
+      // Add new value
+      if (_cache.length >= _maxSize) {
+        // Remove least recently used
+        final String lru = _accessOrder.removeAt(0);
+        _cache.remove(lru);
+      }
+      _cache[key] = value;
+      _accessOrder.add(key);
+    }
+  }
+  
+  bool containsKey(String key) => _cache.containsKey(key);
+}

@@ -20,7 +20,9 @@ class SmoothMainProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Watch for database changes that might affect product images
     context.watch<LocalDatabase>();
+    
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     ImageProvider? imageProvider = TransientFile.fromProduct(
       product,

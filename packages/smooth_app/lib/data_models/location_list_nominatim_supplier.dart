@@ -29,7 +29,7 @@ class LocationListNominatimSupplier extends LocationListSupplier {
               '&format=json'
               '&accept-language=${ProductQuery.getLanguage().offTag}',
         ),
-      );
+      ).timeout(const Duration(seconds: 10));
       if (response.statusCode != 200) {
         return 'Could not retrieve locations';
       }

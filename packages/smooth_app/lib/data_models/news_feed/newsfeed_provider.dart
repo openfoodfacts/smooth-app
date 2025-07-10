@@ -126,7 +126,8 @@ class AppNewsProvider extends ChangeNotifier {
         uri = Uri.parse(_newsUrl);
       }
 
-      final http.Response response = await http.get(uri);
+      final http.Response response = await http.get(uri)
+          .timeout(const Duration(seconds: 10));
 
       if (response.statusCode == 404) {
         Logs.e("Remote file $uri doesn't exist!");

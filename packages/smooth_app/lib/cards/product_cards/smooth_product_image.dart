@@ -162,14 +162,24 @@ class ProductPicture extends StatefulWidget {
 
 class _ProductPictureState extends State<ProductPicture> {
   bool _imageError = false;
+  (ImageProvider?, bool)? _cachedImageProvider;
+  Product? _lastProduct;
+  TransientFile? _lastTransientFile;
 
   @override
   Widget build(BuildContext context) {
-    final (ImageProvider?, bool)? imageProvider = _getImageProvider(
-      widget.product,
-      widget.transientFile,
-      widget.allowAlternativeLanguage,
-    );
+    // Only recompute image provider if product or transient file changed
+    if (_lastProduct != widget.product || _lastTransientFile != widget.transientFile) {
+      _cachedImageProvider = _getImageProvider(
+        widget.product,
+        widget.transientFile,
+        widget.allowAlternativeLanguage,
+      );
+      _lastProduct = widget.product;
+      _lastTransientFile = widget.transientFile;
+    }
+    
+    final (ImageProvider?, bool)? imageProvider = _cachedImageProvider;
 
     final Widget? inkWell = widget.onTap != null
         ? InkWell(onTap: widget.onTap, splashColor: _getSplashColor(context))
