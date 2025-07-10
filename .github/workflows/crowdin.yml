@@ -1,5 +1,9 @@
 name: Crowdin Action
 
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   push:
     branches: [ crowdin-trigger ]
