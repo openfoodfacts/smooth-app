@@ -55,8 +55,8 @@ class AppNewsProvider extends ChangeNotifier {
     final File cacheFile = await _newsCacheFile;
     String? jsonString;
     // Try from the cache first
-    if (!forceUpdate && _isNewsCacheValid(cacheFile)) {
-      jsonString = cacheFile.readAsStringSync();
+    if (!forceUpdate && await _isNewsCacheValid(cacheFile)) {
+      jsonString = await cacheFile.readAsString();
     }
 
     if (jsonString == null || jsonString.isEmpty == true) {
@@ -83,7 +83,7 @@ class AppNewsProvider extends ChangeNotifier {
       _emit(const AppNewsStateError('Unable to parse the JSON news file'));
       Logs.e('Unable to parse the JSON news file');
     } else {
-      _emit(AppNewsStateLoaded(appNews, cacheFile.lastModifiedSync()));
+      _emit(AppNewsStateLoaded(appNews, await cacheFile.lastModified()));
       Logs.i('News ${forceUpdate ? 're' : ''}loaded');
     }
   }
@@ -166,10 +166,10 @@ class AppNewsProvider extends ChangeNotifier {
     return file.writeAsString(json);
   }
 
-  bool _isNewsCacheValid(File file) =>
-      file.existsSync() &&
-      file.lengthSync() > 0 &&
-      file.lastModifiedSync().isAfter(
+  Future<bool> _isNewsCacheValid(File file) async =>
+      await file.exists() &&
+      await file.length() > 0 &&
+      (await file.lastModified()).isAfter(
         DateTime.now().add(const Duration(days: -1)),
       );
 

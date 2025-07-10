@@ -104,27 +104,41 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
       return Center(child: Text(AppLocalizations.of(context).prices_no_result));
     }
 
-    final List<Widget> children = <Widget>[];
+    // Calculate total item count: header + items + optional loading indicator + footer spacer
+    final int itemCount = 1 + // header
+        widget.manager.items.length + // items
+        (widget.manager.isLoading ? 1 : 0) + // loading indicator
+        1; // footer spacer
 
-    children.add(
-      SmoothCard(child: ListTile(title: Text(_getItemCount(context)))),
+    return ListView.builder(
+      controller: _scrollController,
+      itemCount: itemCount,
+      itemBuilder: (BuildContext context, int index) {
+        // Header with item count
+        if (index == 0) {
+          return SmoothCard(child: ListTile(title: Text(_getItemCount(context))));
+        }
+        
+        // Items
+        final int itemIndex = index - 1;
+        if (itemIndex < widget.manager.items.length) {
+          return widget.manager.buildItem(
+            context: context,
+            item: widget.manager.items[itemIndex],
+          );
+        }
+        
+        // Loading indicator
+        if (widget.manager.isLoading && itemIndex == widget.manager.items.length) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 16.0),
+            child: Center(child: CircularProgressIndicator.adaptive()),
+          );
+        }
+        
+        // Footer spacer
+        return const SizedBox(height: MINIMUM_TOUCH_SIZE * 2);
+      },
     );
-
-    for (final T item in widget.manager.items) {
-      children.add(widget.manager.buildItem(context: context, item: item));
-    }
-
-    if (widget.manager.isLoading) {
-      children.add(
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.0),
-          child: Center(child: CircularProgressIndicator.adaptive()),
-        ),
-      );
-    }
-
-    children.add(const SizedBox(height: MINIMUM_TOUCH_SIZE * 2));
-
-    return ListView(controller: _scrollController, children: children);
   }
 }
