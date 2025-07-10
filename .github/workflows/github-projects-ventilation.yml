@@ -1,4 +1,7 @@
 name: Add issues to the relevant GitHub projects
+permissions:
+  issues: write
+  repository-projects: write
 
 on:
   issues:
