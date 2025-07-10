@@ -1,4 +1,6 @@
 name: 🤳🥫 Open Food Facts mobile app Pre-Submit Tests
+permissions:
+  contents: read
 
 on:
   pull_request:
