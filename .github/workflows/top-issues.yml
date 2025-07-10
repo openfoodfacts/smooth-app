@@ -10,6 +10,9 @@ jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
     - name: Run top issues action
       uses: rickstaa/top-issues-action@v1
