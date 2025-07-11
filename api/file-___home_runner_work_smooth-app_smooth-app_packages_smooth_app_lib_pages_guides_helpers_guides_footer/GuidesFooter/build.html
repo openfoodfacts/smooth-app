@@ -109,7 +109,7 @@ Widget build(BuildContext context) {
             ),
           ),
           onPressed: () {
-            Share.share(_shareText);
+            SharePlus.instance.share(ShareParams(text: _shareText));
             AnalyticsHelper.trackOutlink(url: shareUrl);
           },
         ),

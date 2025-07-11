@@ -93,15 +93,17 @@ Future&lt;ProductList?&gt; doSomething({
   ).exportBarcodesToString();
 
   unawaited(
-    Share.shareXFiles(
-      &lt;XFile&gt;[
-        XFile.fromData(
-          utf8.encode(csv),
-          name: &#39;$fileName.csv&#39;,
-          mimeType: &#39;text&#47;csv&#39;,
-        ),
-      ],
-      fileNameOverrides: &lt;String&gt;[&#39;$fileName.csv&#39;],
+    SharePlus.instance.share(
+      ShareParams(
+        files: &lt;XFile&gt;[
+          XFile.fromData(
+            utf8.encode(csv),
+            name: &#39;$fileName.csv&#39;,
+            mimeType: &#39;text&#47;csv&#39;,
+          ),
+        ],
+        fileNameOverrides: &lt;String&gt;[&#39;$fileName.csv&#39;],
+      ),
     ),
   );
 

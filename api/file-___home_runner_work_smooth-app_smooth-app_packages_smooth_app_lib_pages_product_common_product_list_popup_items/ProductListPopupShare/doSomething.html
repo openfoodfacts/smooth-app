@@ -90,9 +90,11 @@ Future&lt;ProductList?&gt; doSomething({
   if (url != null) {
     AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
     unawaited(
-      Share.share(
-        appLocalizations.share_product_list_text(url),
-        sharePositionOrigin: box!.localToGlobal(Offset.zero) &amp; box.size,
+      SharePlus.instance.share(
+        ShareParams(
+          text: appLocalizations.share_product_list_text(url),
+          sharePositionOrigin: box!.localToGlobal(Offset.zero) &amp; box.size,
+        ),
       ),
     );
   }
