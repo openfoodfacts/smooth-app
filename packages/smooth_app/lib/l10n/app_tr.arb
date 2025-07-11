@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Ülkenizde Open Food Facts'in iyileştirilmesine yardımcı olun",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -407,7 +407,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Sadakat kartı verilerinizin GDPR kapsamında dışa aktarılmasını talep ederek fiyatlara katkıda bulunun",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -452,7 +452,7 @@
   "myPreferences_profile_title": "Profiliniz",
   "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
   "myPreferences_settings_title": "Uygulama Ayarları",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "Karanlık mod, Diller…",
   "myPreferences_food_title": "Yiyecek tercihleri",
   "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
   "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts hesabınızla ilişkilendirilmez.",
@@ -518,7 +518,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_store": "Search for a store",
+  "search_store": "Bir mağaza arayın",
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
@@ -534,7 +534,7 @@
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
-  "label_reload": "Reload",
+  "label_reload": "Yeniden yükle",
   "@label_reload": {
     "description": "Reload a page"
   },
@@ -543,20 +543,20 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+  "outdated_image_accessibility_label": "{imageType} (bu görsel güncelliğini yitirmiş olabilir)",
   "@outdated_image_accessibility_label": {
     "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
     "placeholders": {
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "may be outdated",
+  "outdated_image_short_label": "güncelliğini yitirmiş olabilir",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
   "ingredients": "Malzemeler",
   "@ingredients": {},
-  "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+  "ingredients_editing_instructions": "Orijinal sıralamayı koruyun. Belirtildiğinde yüzdeyi belirtin. Virgül veya tire ile ayırın ve bir bileşenin içeriklerini parantez içinde belirtin.",
   "ingredients_editing_error": "Malzemeler kaydedilemedi.",
   "ingredients_editing_image_error": "Yeni malzeme görüntüsü alınamadı.",
   "ingredients_editing_title": "Malzemeleri Düzenle",
@@ -574,7 +574,7 @@
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
-  "nutrition_facts_editing_title": "Edit Nutrition Facts",
+  "nutrition_facts_editing_title": "Besin Değerlerini Düzenle",
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
@@ -594,11 +594,11 @@
   "@add_product_information_button_label": {},
   "new_product": "Yeni ürün",
   "@new_product": {},
-  "new_product_found_title": "New product found!",
+  "new_product_found_title": "Yeni ürün bulundu!",
   "@new_product_found_title": {
     "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
   },
-  "new_product_found_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+  "new_product_found_text": "Ortak veritabanımız **3 milyondan fazla** ürünü içeriyor, ancak bu barkod mevcut değil: ",
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -611,11 +611,11 @@
   "@new_product_leave_message": {
     "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+  "new_product_dialog_description": "Bu ürünü ortak veritabanımıza eklemek için lütfen ambalajın fotoğraflarını çekin",
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+  "new_product_dialog_illustration_description": "Bilinmeyen Nutri-Score ve Green Score'a sahip bir çizim",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -647,7 +647,7 @@
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_retake": "Retake a photo",
+  "crop_page_action_retake": "Fotoğrafı yeniden çek",
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
@@ -697,9 +697,9 @@
   "categories_added": "Kategoriler eklendi",
   "new_product_title_nutriscore": "Nutri Puanını hesaplayın",
   "new_product_subtitle_nutriscore": "Gıda kategorisini ve besin değerlerini doldurarak alın",
-  "new_product_title_environmental_score": "Compute the Green Score",
-  "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+  "new_product_title_environmental_score": "Green-Score'u hesapla",
+  "new_product_subtitle_environmental_score": "En azından bir kategoriyi doldurarak bunu elde edin",
+  "new_product_additional_environmental_score": "Green-Score hesaplamasını köken, paketleme ve daha fazlasını girerek tutarlılaştırın",
   "new_product_title_nova": "Gıda işleme seviyesini (NOVA) hesaplayın",
   "new_product_subtitle_nova": "Gıda kategorisini ve malzemeleri doldurarak alın",
   "new_product_desc_nova_unknown": "Gıda işleme seviyesi bilinmemektedir",
@@ -721,10 +721,10 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
-  "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-  "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-  "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+  "hey_incomplete_product_message": "Nutri-Score, Green Score ve Ultra-processing (NOVA)'ı hesaplamak için ŞİMDİ 3 soruyu yanıtlamak için tıklayın!",
+  "hey_incomplete_product_message_beauty": "Bu kozmetiği analiz etmemize yardımcı olacak 2 soruyu yanıtlamak için hemen tıklayın!",
+  "hey_incomplete_product_message_pet_food": "Bu evcil hayvan maması ürününü analiz etmemize yardımcı olacak 3 soruyu yanıtlamak için hemen tıklayın!",
+  "hey_incomplete_product_message_product": "Bu ürünü tamamlamaya yardımcı olmak için hemen tıklayın!",
   "nutritional_facts_photo_uploaded": "\"Besin değerleri\" fotoğrafı yüklendi",
   "@nutritional_facts_photo_uploaded": {},
   "recycling_photo_button_label": "Geri dönüşüm bilgisi fotoğrafı",
@@ -774,60 +774,60 @@
   "score_add_missing_ingredients": "Eksik içindekiler bilgileri ekle",
   "score_add_missing_packaging_image": "Eksik paketleme resmini ekleyin",
   "score_add_missing_nutrition_facts": "Eksik besin değerlerini ekle",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Eksik ürün izlerini ekleyin",
   "score_add_missing_product_category": "Eksik ürün kategori bilgisini ekle",
   "score_add_missing_product_countries": "Eksik ürün ülkelerini ekleyin",
   "score_add_missing_product_emb": "Eksik ürün izlenebilirlik kodlarını ekleyin",
   "score_add_missing_product_labels": "Eksik ürün etiketlerini ekleyin",
   "score_add_missing_product_origins": "Eksik ürün menşelerini ekleyin",
   "score_add_missing_product_stores": "Eksik ürün mağazalarını ekleyin",
-  "score_add_missing_product_brands": "Add missing product brands",
+  "score_add_missing_product_brands": "Eksik ürün markalarını ekleyin",
   "score_update_nutrition_facts": "Besin değerleri bilgilerini güncelle",
   "nutrition_page_title": "Besin Değerleri",
-  "nutrition_page_nutritional_info_title": "Nutritional information",
-  "nutrition_page_nutritional_info_label": "Values specified on the product:",
+  "nutrition_page_nutritional_info_title": "Besin değeri bilgileri",
+  "nutrition_page_nutritional_info_label": "Ürün üzerinde belirtilen değerler:",
   "nutrition_page_nutritional_info_value_positive": "Evet",
   "nutrition_page_nutritional_info_value_negative": "Hayır",
-  "nutrition_page_nutritional_info_open_photo": "Open photo",
-  "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+  "nutrition_page_nutritional_info_open_photo": "Fotoğrafı aç",
+  "nutrition_page_nutritional_info_explanation_title": "İyi uygulamalar: Besin değeri bilgileri",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+  "nutrition_page_nutritional_info_explanation_info1": "Bazen besin değerleri **ambalajda** veya ürünle birlikte verilen bir belgede belirtilmez. Bu durumda ve yalnızca bu durumda, değeri **HAYIR** olarak ayarlayabilirsiniz.",
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
-  "nutrition_page_serving_type_label": "Nutritional values:",
+  "nutrition_page_serving_type_label": "Besin değerleri:",
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
   "nutrition_page_per_100g": "100g başına",
-  "nutrition_page_per_100g_100ml": "per 100g/ml",
+  "nutrition_page_per_100g_100ml": "100g/ml başına",
   "nutrition_page_per_serving": "porsiyon başına",
   "nutrition_page_add_nutrient": "Besin ögesi ekle",
   "nutrition_page_serving_size": "Porsiyon ölçüsü",
-  "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_hint": "Bir porsiyon boyutu girin (örneğin: 100g)",
+  "nutrition_page_serving_size_explanation_title": "İyi uygulamalar: Porsiyon boyutu",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+  "nutrition_page_serving_size_explanation_info1": "Bu değer, **her bir besin öğesinin porsiyon başına orantılı olarak hesaplanmasına** yardımcı olur.",
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**İzin verilen birimler** şunlardır: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** veya **60 G** (ilkini tercih edin)",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** veya **1L**",
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Geçersiz birim",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -835,15 +835,15 @@
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Geçersiz birimler",
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **şeker** ve 2 **bisküvi**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Eksik ünite",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -854,11 +854,11 @@
   "nutrition_page_invalid_number": "Geçersiz numara",
   "nutrition_page_update_running": "Ürün sunucuda güncelleniyor…",
   "nutrition_page_update_done": "Ürün güncellendi!",
-  "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+  "nutrition_page_take_serving_size_from_product_quantity": "Ürün miktarını porsiyon boyutu olarak kullanın",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
   },
-  "nutrition_page_photo_error": "Unable to load the photo",
+  "nutrition_page_photo_error": "Fotoğraf yüklenemiyor",
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
@@ -878,7 +878,7 @@
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
-  "product_image_accessibility_label": "Image taken on {date}",
+  "product_image_accessibility_label": "Görüntü {date}tarihinde çekildi",
   "@product_image_accessibility_label": {
     "placeholders": {
       "date": {
@@ -887,7 +887,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+  "product_image_outdated_accessibility_label": "Görüntü {date}tarihinde çekildi. Bu görüntü güncelliğini yitirmiş olabilir.",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -896,9 +896,9 @@
       }
     }
   },
-  "product_image_outdated": "This image may be outdated",
-  "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated": "Bu görüntü güncelliğini yitirmiş olabilir",
+  "product_image_outdated_explanations_title": "Bu görüntü güncelliğini yitirmiş olabilir",
+  "product_image_outdated_explanations_content": "Bu görüntü bir yıldan uzun süre önce çekildi.\n**Lütfen güncel olduğundan emin olun**.\n\nBu **sadece bir uyarı**. İçerik hala aynıysa, bu mesajı görmezden gelebilirsiniz.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -938,11 +938,11 @@
   "@product_image_action_choose_existing_photo": {
     "description": "Replace the existing picture with one from the product's photos"
   },
-  "product_image_details_label": "Information about the photo",
+  "product_image_details_label": "Fotoğraf hakkında bilgi",
   "@product_image_details_label": {
     "description": "Label for the photo details"
   },
-  "product_image_details_from_producer": "From the producer",
+  "product_image_details_from_producer": "Yapımcıdan",
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
@@ -950,7 +950,7 @@
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
-  "product_image_details_contributor_producer": "Contributor (producer)",
+  "product_image_details_contributor_producer": "Katkıda bulunan (yapımcı)",
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
@@ -966,7 +966,7 @@
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
-  "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+  "homepage_main_card_subheading": "Bir barkodu **tarayın** veya bir ürün için\n**arama** yapın",
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
@@ -1007,7 +1007,7 @@
       }
     }
   },
-  "product_tags_title": "Product properties",
+  "product_tags_title": "Ürün özellikleri",
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
@@ -1016,19 +1016,19 @@
     "description": "Message to show if there are no product properties found"
   },
   "add_tag": "Add property",
-  "add_tags": "Add properties",
-  "add_edit_tags": "Add or edit properties",
-  "edit_tag": "Edit property",
-  "remove_tag": "Remove property",
-  "tag_key": "Property",
-  "tag_key_uneditable": "Property (uneditable)",
-  "tag_key_input_hint": "Input a property",
+  "add_tags": "Özellikler ekle",
+  "add_edit_tags": "Özellikleri ekleyin veya düzenleyin",
+  "edit_tag": "Özelliği düzenle",
+  "remove_tag": "Özelliği Kaldır",
+  "tag_key": "Özellik",
+  "tag_key_uneditable": "Özellik (düzenlenemez)",
+  "tag_key_input_hint": "Bir özellik girin",
   "tag_value": "Değer",
-  "tag_value_input_hint": "Input a value",
-  "tag_key_item": "Property:",
-  "tag_value_item": "Value:",
-  "tag_key_explanations": "A key must be lowercase and without any spaces.",
-  "tag_key_already_exists": "A tag with a property {property} already exists!",
+  "tag_value_input_hint": "Bir değer girin",
+  "tag_key_item": "Özellik:",
+  "tag_value_item": "Değer:",
+  "tag_key_explanations": "Şifre küçük harfli olmalı ve boşluk içermemelidir.",
+  "tag_key_already_exists": "{property} özelliğine sahip bir etiket zaten mevcut!",
   "@tag_key_already_exists": {
     "placeholders": {
       "property": {
@@ -1051,7 +1051,7 @@
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+  "product_search_same_category_error": "Bu özellik yalnızca kategorisi olan ürünler için kullanılabilir.\n\nKategori eklemek için lütfen ürünü düzenleyin.",
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1075,7 +1075,7 @@
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+  "product_improvement_origins_to_be_completed": "Green Score, içeriklerin kökenlerini hesaba katar. Lütfen içerik listesinin ve/veya herhangi bir köken belirtisinin fotoğrafını çekin veya ürünü düzenleyin, böylece dikkate alınabilirler.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
@@ -1204,26 +1204,26 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+  "multiselect_title": "{count,plural, one {}=0{Seçili ürün yok} =1{Bir seçili ürün} other{{count} seçili ürünler}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
       "count": {}
     }
   },
-  "compare_products_mode": "Compare selected products",
+  "compare_products_mode": "Seçili ürünleri karşılaştırın",
   "@compare_products_mode": {
     "description": "Button to switch to 'compare products mode'"
   },
-  "delete_products_mode": "Delete selected products",
+  "delete_products_mode": "Seçili ürünleri sil",
   "@delete_products_mode": {
     "description": "Button to switch to 'delete products'"
   },
-  "select_all_products_mode": "Select all products",
+  "select_all_products_mode": "Tüm ürünleri seçin",
   "@select_all_products_mode": {
     "description": "Button to switch to 'select all products'"
   },
-  "select_none_products_mode": "Select none",
+  "select_none_products_mode": "Hiçbirini seçme",
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
@@ -1237,15 +1237,15 @@
   },
   "retry_button_label": "Tekrar dene",
   "connect_with_us": "Bizimle iletişime geçin",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Bizi TikTok'ta takip et",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Bizi Instagram'da takip edin",
   "instagram_link": "https://instagram.com/open.food.facts",
   "twitter": "Bizi X'te takip edin (eski adıyla Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Bizi Mastodon'da takip edin",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Bizi BlueSky'da takip edin",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
   "faq": "SSS",
@@ -1536,7 +1536,7 @@
   "@permission_photo_denied": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "show_product_pictures": "Show product pictures",
+  "show_product_pictures": "Ürün resimlerini göster",
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
@@ -1544,15 +1544,15 @@
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Düzenlemeleriniz yükleniyor…",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
-  "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+  "edit_product_pending_operations_banner_message": "Düzenlemeleriniz **arka planda** (veya hata durumunda daha sonra) gönderiliyor.\nDiğer ürün alanlarını düzenlemeye devam edebilirsiniz.",
   "@edit_product_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+  "edit_product_pending_operations_banner_short_message": "Düzenlemeleriniz **arka planda** (veya hata durumunda daha sonra) gönderiliyor.",
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
@@ -1560,7 +1560,7 @@
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
-  "edit_product_form_item_help": "How to enter \"{value}\"?",
+  "edit_product_form_item_help": "\"{value}\" nasıl girilir?",
   "@edit_product_form_item_help": {
     "description": "Help text for the input field. Eg 'How to enter stores?'",
     "placeholders": {
@@ -1569,47 +1569,47 @@
       }
     }
   },
-  "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+  "edit_product_form_item_error_empty": "Lütfen boş olmayan bir değer girin!",
   "@edit_product_form_item_error_empty": {
     "description": "Error message when the user tries to submit an empty value"
   },
-  "edit_product_form_item_error_existing": "This value is already there!",
+  "edit_product_form_item_error_existing": "Bu değer zaten var!",
   "@edit_product_form_item_error_existing": {
     "description": "Error message when the user tries to re-submit an existing value"
   },
-  "edit_product_form_item_add_action_brand": "Add a new brand",
+  "edit_product_form_item_add_action_brand": "Yeni bir marka ekle",
   "@edit_product_form_item_add_action_brand": {
     "description": "Tooltip to show when the user long presses the (+) button on a brand"
   },
-  "edit_product_form_item_add_action_label": "Add a new label",
+  "edit_product_form_item_add_action_label": "Yeni bir etiket ekle",
   "@edit_product_form_item_add_action_label": {
     "description": "Tooltip to show when the user long presses the (+) button on a label"
   },
-  "edit_product_form_item_add_action_store": "Add a new store",
+  "edit_product_form_item_add_action_store": "Yeni bir mağaza ekle",
   "@edit_product_form_item_add_action_store": {
     "description": "Tooltip to show when the user long presses the (+) button on a store"
   },
-  "edit_product_form_item_add_action_origin": "Add a new origin",
+  "edit_product_form_item_add_action_origin": "Yeni bir köken ekle",
   "@edit_product_form_item_add_action_origin": {
     "description": "Tooltip to show when the user long presses the (+) button on an origin"
   },
-  "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+  "edit_product_form_item_add_action_emb_code": "Yeni bir izlenebilirlik kodu ekleyin",
   "@edit_product_form_item_add_action_emb_code": {
     "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
   },
-  "edit_product_form_item_add_action_country": "Add a new country",
+  "edit_product_form_item_add_action_country": "Yeni bir ülke ekle",
   "@edit_product_form_item_add_action_country": {
     "description": "Tooltip to show when the user long presses the (+) button on a country"
   },
-  "edit_product_form_item_add_action_category": "Add a new category",
+  "edit_product_form_item_add_action_category": "Yeni bir kategori ekle",
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Yeni bir iz ekle",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
-  "edit_product_form_item_add_suggestion": "Add suggestion",
+  "edit_product_form_item_add_suggestion": "Öneri ekle",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
@@ -1649,7 +1649,7 @@
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
-  "edit_product_form_item_labels_hint": "Input a label (eg: NutriScore)",
+  "edit_product_form_item_labels_hint": "Bir etiket girin (örneğin: NutriScore)",
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
@@ -1657,11 +1657,11 @@
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
-  "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+  "edit_product_form_item_labels_explanation_title": "İyi uygulamalar: Etiketler",
   "@edit_product_form_item_labels_explanation_title": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+  "edit_product_form_item_labels_explanation_info1": "Ürünün **gerçek** ve diğer alanlardan farklı olan herhangi bir özelliği.",
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1669,7 +1669,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Belçika'da üretildi, Britanya'da üretildi…",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1677,11 +1677,11 @@
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Lif açısından zengin, demir kaynağı…",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Adil ticaret, Max Havelaar…",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1689,7 +1689,7 @@
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
-  "edit_product_form_item_stores_hint": "Input a store",
+  "edit_product_form_item_stores_hint": "Bir mağaza girin",
   "@edit_product_form_item_stores_hint": {
     "description": "Product edition - Stores - input textfield hint"
   },
@@ -1697,11 +1697,11 @@
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
-  "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+  "edit_product_form_item_stores_explanation_title": "İyi uygulamalar: Mağazalar",
   "@edit_product_form_item_stores_explanation_title": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+  "edit_product_form_item_stores_explanation_info1": "Ürünü satın aldığınız mağazayı girin.",
   "@edit_product_form_item_stores_explanation_info1": {
     "description": "Product edition - Stores - Explanation"
   },
@@ -1721,7 +1721,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+  "edit_product_form_item_origins_hint": "Bir köken girin (örneğin: Almanya)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -1729,19 +1729,19 @@
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
-  "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+  "edit_product_form_item_origins_explanation_title": "İyi uygulamalar: Kökenler",
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+  "edit_product_form_item_origins_explanation_info1": "**Ambalaj üzerinde bulabildiğiniz menşei bilgilerini** ekleyin.\nİçerik listesinde doğrudan belirtilen menşeler konusunda endişelenmenize gerek yok.",
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+  "edit_product_form_item_origins_explanation_good_examples_1": "Arjantin'den sığır eti",
   "@edit_product_form_item_origins_explanation_good_examples_1": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+  "edit_product_form_item_origins_explanation_good_examples_2": "Soya Avrupa Birliği'nden gelmiyor",
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
@@ -1749,7 +1749,7 @@
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
-  "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+  "edit_product_form_item_countries_hint": "Bir ülke girin (örneğin: Almanya)",
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
@@ -1757,11 +1757,11 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+  "edit_product_form_item_countries_explanations_title": "İyi uygulamalar: Ülkeler",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+  "edit_product_form_item_countries_explanations_info1": "**Ürünün yaygın olarak bulunduğu ülkeler** (yabancı ürünlere odaklanan mağazalar hariç).",
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
@@ -1769,7 +1769,7 @@
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "Bir kod girin (örn.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
@@ -1777,19 +1777,19 @@
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
-  "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+  "edit_product_form_item_emb_help_title": "İyi uygulamalar: İzlenebilirlik kodları",
   "@edit_product_form_item_emb_help_title": {
     "description": "Title for the help section about traceability codes"
   },
-  "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+  "edit_product_form_item_emb_help_info1": "Bu bölümde **ambalaj işaretleri**, **tanımlama işaretleri** veya **sağlık işaretleri** ile ilgili kodları girebilirsiniz.",
   "@edit_product_form_item_emb_help_info1": {
     "description": "Text explaining how to write a traceability code"
   },
-  "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+  "edit_product_form_item_emb_help_info2_title": "İzlenebilirlik kodlarına örnekler",
   "@edit_product_form_item_emb_help_info2_title": {
     "description": "Explanation about EMB/EC… codes"
   },
-  "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+  "edit_product_form_item_emb_help_info2_item1_text": "**EC kodları** Avrupa Topluluğu'nda gıda üreticilerini veya paketleyicilerini tanımlamak için kullanılır:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
     "description": "Explanation about EC codes"
   },
@@ -1797,11 +1797,11 @@
   "@edit_product_form_item_emb_help_info2_item1_example": {
     "description": "Example of an EC code (you can change with a valid code in another european country)"
   },
-  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: **Fransa**'nın ülke kodu\n**72.264.002**: coğrafi veriler\n**CE**: Avrupa Topluluğu",
   "@edit_product_form_item_emb_help_info2_item1_explanation": {
     "description": "Example of an EC code (shouldn't be translated)"
   },
-  "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+  "edit_product_form_item_emb_help_info2_item2_text": "Fransa'da kullanılan **EMB kodları**:",
   "@edit_product_form_item_emb_help_info2_item2_text": {
     "description": "Explanation about EMB codes"
   },
@@ -1817,7 +1817,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Bir iz girin (örneğin: Soya fasulyesi)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -1829,35 +1829,35 @@
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
-  "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+  "edit_product_form_item_categories_type": "Bir kategori girin (örneğin: Portakal suyu)",
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "İyi uygulamalar: Kategoriler",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "**Yalnızca en spesifik kategoriyi** belirtin.\nÜst kategoriler otomatik olarak eklenecektir.",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
-  "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+  "edit_product_form_item_categories_explanation_info2_title": "Kategori eksik mi?",
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "Bir kategori **otomatik tamamlamada mevcut değilse**, yine de eklemekten çekinmeyin.\nBu, ülkenizde Open Food Facts'i geliştirmemize yardımcı olacaktır.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Zeytinyağında sardalya bulunuyor",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Konsantre portakal suyu",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_exit_title": "Quit without saving?",
+  "edit_product_form_item_exit_title": "Kaydetmeden çıkmak mı istiyorsunuz?",
   "edit_product_form_item_exit_confirmation": "Sayfadan ayrılmadan önce değişiklikleri kaydetmek istiyor musunuz?",
   "edit_product_form_item_exit_confirmation_positive_button": "Değişiklikleri kaydet",
   "edit_product_form_item_exit_confirmation_negative_button": "Değişiklileri yoksay",
@@ -1865,26 +1865,26 @@
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Ekranı sıkıştırarak yakınlaştırın ve uzaklaştırın",
   "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
     "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+  "edit_product_form_item_ingredients_pinch_to_zoom_title": "Fotoğrafı yakınlaştırın ve uzaklaştırın",
   "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation title"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+  "edit_product_form_item_ingredients_pinch_to_zoom_message": "**Yakınlaştırma hareketini** kullanarak fotoğrafı yakınlaştırabilir veya uzaklaştırabilirsiniz:",
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
   "edit_product_form_item_add_valid_item_tooltip": "Ekle",
   "edit_product_form_item_add_invalid_item_tooltip": "Lütfen önce bir metin girin",
   "edit_product_form_item_remove_item_tooltip": "Kaldır",
-  "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+  "edit_product_form_item_save_edit_item_tooltip": "Düzenlemenizi kaydedin",
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
   },
-  "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+  "edit_product_form_item_cancel_edit_item_tooltip": "Düzenlemenizi iptal edin",
   "@edit_product_form_item_cancel_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
   },
@@ -1900,15 +1900,15 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "İyi uygulamalar: Besin değerleri",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Besin değerleri",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+  "edit_product_form_item_nutrition_facts_explanation_info1_content": "Öncelikle **değerlerin sağlanıp sağlanmadığını** seçin:",
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1916,15 +1916,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Ardından, ambalaj üzerinde belirtilen besin değerlerini girin. Eğer değer yoksa, \"Göz\" simgesine tıklayabilirsiniz.",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Eksik alan mı?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "Eğer bir girdi eksikse, eklemek için **\"Artı\" simgesine** tıklayabilirsiniz (örn: D vitamini, magnezyum…).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -1940,11 +1940,11 @@
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_packaging_photo_title": "Packaging photo",
+  "edit_product_packaging_photo_title": "Ambalaj fotoğrafı",
   "@edit_product_packaging_photo_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_packaging_list_title": "Packaging list",
+  "edit_product_packaging_list_title": "Paketleme listesi",
   "@edit_product_packaging_list_title": {
     "description": "Product edition - Packaging - Title"
   },
@@ -1956,7 +1956,7 @@
   "@product_field_website_title": {
     "description": "Title of a product field: website"
   },
-  "origins_editing_title": "Edit Origins",
+  "origins_editing_title": "Kökenleri Düzenle",
   "@origins_editing_title": {
     "description": "Title of the button where users can edit the origins of a product"
   },
@@ -1983,7 +1983,7 @@
   "@edit_ingredients_loading_photo_help_dialog_title": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_ingredients_loading_photo_help_dialog_body": "To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+  "edit_ingredients_loading_photo_help_dialog_body": "\"Malzemeleri çıkar\" özelliğini kullanabilmek için öncelikle fotoğrafın yüklenmesi gerekmektedir.\n\nLütfen birkaç saniye bekleyin veya manuel olarak girin.",
   "@edit_ingredients_loading_photo_help_dialog_body": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
   },
@@ -1995,11 +1995,11 @@
   "@edit_packaging_extract_btn_text": {
     "description": "Packaging edition - OCR-Extract packaging"
   },
-  "edit_packaging_extract_btn_text_short": "Extract packaging",
+  "edit_packaging_extract_btn_text_short": "Ambalajı çıkar",
   "@edit_packaging_extract_btn_text_short": {
     "description": "Packaging edition - OCR-Extract packaging (short label)"
   },
-  "edit_packaging_extracting_btn_text": "Extracting packaging from the photo",
+  "edit_packaging_extracting_btn_text": "Fotoğraftan ambalajı çıkar",
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
@@ -2011,7 +2011,7 @@
   "@edit_packaging_loading_photo_help_dialog_title": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_packaging_loading_photo_help_dialog_body": "To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+  "edit_packaging_loading_photo_help_dialog_body": "\"Ambalajı çıkar\" özelliğini kullanabilmek için öncelikle fotoğrafın yüklenmesi gerekmektedir.\n\nLütfen birkaç saniye bekleyin veya manuel olarak girin.",
   "@edit_packaging_loading_photo_help_dialog_body": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
   },
@@ -2023,11 +2023,11 @@
   "@edit_ocr_extract_failed": {
     "description": "OCR extraction - message for failed"
   },
-  "edit_ocr_extract_disabled_title": "No picture!",
+  "edit_ocr_extract_disabled_title": "Fotoğraf yok!",
   "@edit_ocr_extract_disabled_title": {
     "description": "OCR extraction - title for disabled"
   },
-  "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+  "edit_ocr_extract_disabled_message": "Metin çıkarma özelliğini kullanabilmeniz için öncelikle bir fotoğraf çekmeniz gerekiyor.",
   "@edit_ocr_extract_disabled_message": {
     "description": "OCR extraction - message for disabled"
   },
@@ -2091,7 +2091,7 @@
   "@user_list_name_error_same": {
     "description": "Validation error about the renamed name that is the same as the initial list name"
   },
-  "user_list_name_input_hint": "Name of the list",
+  "user_list_name_input_hint": "Listenin adı",
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
@@ -2240,11 +2240,11 @@
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
-  "dev_preferences_news_custom_url_title": "Custom URL for news",
+  "dev_preferences_news_custom_url_title": "Haberler için özel URL",
   "@dev_preferences_news_custom_url_title": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+  "dev_preferences_news_custom_url_subtitle": "JSON dosyasının URL'si:",
   "@dev_preferences_news_custom_url_subtitle": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
@@ -2266,16 +2266,16 @@
     }
   },
   "product_type_label_food": "Gıda",
-  "product_type_label_beauty": "Personal care",
+  "product_type_label_beauty": "Kişisel bakım",
   "product_type_label_pet_food": "Evcil hayvan maması",
   "product_type_label_product": "Diğer",
-  "product_type_selection_title": "Product type",
-  "product_type_selection_subtitle": "Select the type of this product",
-  "product_type_selection_empty": "You need to select a product type first!",
+  "product_type_selection_title": "Ürün tipi",
+  "product_type_selection_subtitle": "Bu ürünün türünü seçin",
+  "product_type_selection_empty": "Öncelikle bir ürün türü seçmeniz gerekiyor!",
   "@product_type_selection_empty": {
     "description": "Error message about product type that needs to be set"
   },
-  "product_type_selection_already": "You cannot change the product type ({productType})!",
+  "product_type_selection_already": "Ürün türünü değiştiremezsiniz ({productType})!",
   "@product_type_selection_already": {
     "description": "Error message about product type that cannot be set again",
     "placeholders": {
@@ -2286,18 +2286,18 @@
   },
   "prices_app_dev_mode_flag": "Ürün sayfasındaki Fiyatlar uygulamasının kısayolu",
   "prices_app_button": "Fiyatlar uygulamasına gidin",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_select": "Fiyat etiketlerini doğrudan galeriden ekleyin",
+  "prices_bulk_proof_upload_warning": "Resimlerinizi seçtikten sonra onları düzenleyemezsiniz!",
+  "prices_bulk_proof_upload_subtitle": "Birden Fazla Fiyat Etiketi",
+  "prices_bulk_proof_upload_title": "Toplu Kanıt Yüklemesi",
   "prices_generic_title": "Fiyatlar",
-  "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
-  "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+  "prices_add_n_prices": "{count,plural, one {}=1{Bir fiyat ekleyin} other{{count} fiyat ekleyin}}",
+  "prices_send_n_prices": "{count,plural, one {}=1{Fiyatı gönder} other{{count} fiyatlarını gönder}}",
   "prices_add_an_item": "Bir öge ekle",
   "prices_add_a_price": "Fiyat ekleyin",
   "prices_add_a_receipt": "Bir makbuz ekle",
   "prices_add_price_tags": "Fiyat etiketleri ekle",
-  "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+  "prices_barcode_already": "Bu barkod ({barcode}) zaten listede!",
   "@prices_barcode_already": {
     "description": "Error message about barcode being already there",
     "placeholders": {
@@ -2317,7 +2317,7 @@
       }
     }
   },
-  "prices_barcode_enter": "Enter the Barcode",
+  "prices_barcode_enter": "Barkodu girin",
   "prices_category_enter": "Barkodsuz ürün",
   "prices_per_kilogram": "Kilogram başına fiyat",
   "@prices_per_kilogram": {
@@ -2340,7 +2340,7 @@
   "prices_category_error_mandatory": "Kategori zorunludur",
   "prices_barcode_reader_action": "Barkod okuyucu",
   "prices_view_prices": "Fiyatları görüntüle",
-  "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+  "prices_product_accessibility_summary": "{count,plural, one {}=1{1 fiyat} other{{count} fiyatlar}} için {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2352,7 +2352,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+  "prices_list_length_one_page": "{count,plural, one {}=0{Henüz fiyat yok} =1{Sadece bir fiyat} other{Tüm {count} fiyatları}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2361,7 +2361,7 @@
       }
     }
   },
-  "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+  "prices_list_length_many_pages": "Son {pageSize} fiyatları (toplam: {total})",
   "@prices_list_length_many_pages": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2373,7 +2373,7 @@
       }
     }
   },
-  "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+  "prices_entry_accessibility_label": "Fiyat: {price} / Mağaza: \"{location}\" / {date} tarihinde \"{user}\" tarafından yayınlandı",
   "@prices_entry_accessibility_label": {
     "description": "Accessibility label for a price entry",
     "placeholders": {
@@ -2391,7 +2391,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Open proofs of \"{user}\"",
+  "prices_open_user_proofs": "\"{user}\" ın açık kanıtları",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -2400,11 +2400,11 @@
       }
     }
   },
-  "prices_open_proof": "Open price proof",
+  "prices_open_proof": "Açık fiyat kanıtı",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+  "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Henüz kanıt yok} =1{Sadece bir kanıt} other{Tüm {count} kanıtlar}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2413,7 +2413,7 @@
       }
     }
   },
-  "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+  "prices_proofs_list_length_many_pages": "Son {pageSize} kanıt (toplam: {total})",
   "@prices_proofs_list_length_many_pages": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2437,7 +2437,7 @@
       }
     }
   },
-  "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+  "prices_locations_list_length_many_pages": "En iyi {pageSize} konum (toplam: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
     "placeholders": {
@@ -2449,7 +2449,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+  "prices_button_count_proof": "{count,plural, one {}=0{Kanıt yok} =1{Bir kanıt} other{{count} kanıt}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2458,7 +2458,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+  "prices_button_count_product": "{count,plural, one {}=0{Ürün yok} =1{Bir ürün} other{{count} ürün}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2467,7 +2467,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+  "prices_button_count_user": "{count,plural, one {}=0{Kullanıcı yok} =1{Bir kullanıcı} other{{count} kullanıcı}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2476,7 +2476,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+  "prices_button_count_price": "{count,plural, one {}=0{Fiyat yok} =1{Tek fiyat} other{{count} fiyatlar}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -2499,7 +2499,7 @@
   "prices_location_subtitle": "Mağaza",
   "prices_location_find": "Bir mağaza bul",
   "prices_location_mandatory": "Bir mağaza seçmeniz gerekiyor!",
-  "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_search_broader": "Aradığınızı bulamadınız mı? Daha kapsamlı bir arama yapalım!",
   "prices_proof_subtitle": "Kanıt",
   "prices_proof_find": "Bedeli sil",
   "prices_proof_receipt": "Makbuz",
@@ -2508,14 +2508,14 @@
   "prices_add_validation_error": "Doğrulama hatası",
   "prices_privacy_warning_title": "Gizlilik uyarısı",
   "prices_unknown_product": "Bilinmeyen ürün",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-  "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-  "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-  "i_refuse": "I refuse",
-  "i_accept": "I accept",
-  "prices_currency_change_proposal_title": "Change the currency?",
-  "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+  "prices_privacy_warning_main_message": "Fiyatlar **kamuya açık olacak** ve bahsedilen mağaza da belirtilecek.\n\nBu, Open Food Facts takma adınızı bilen kişilerin şunları yapmasına olanak tanıyabilir:\n",
+  "prices_privacy_warning_message_bullet_1": "Hangi bölgede yaşadığınızı tahmin etmek",
+  "prices_privacy_warning_message_bullet_2": "Ne satın aldığınızı bilmek",
+  "prices_privacy_warning_sub_message": "Eğer bu durumdan rahatsızsanız lütfen takma adınızı değiştirin veya yeni bir Open Food Facts hesabı oluşturup uygulamaya bu hesapla giriş yapın.",
+  "i_refuse": "Reddediyorum",
+  "i_accept": "Kabul ediyorum",
+  "prices_currency_change_proposal_title": "Para birimini değiştir?",
+  "prices_currency_change_proposal_message": "Mevcut para biriminiz **{currency}**. Bunu **{newCurrency}** olarak değiştirmek ister misiniz?",
   "@prices_currency_change_proposal_message": {
     "description": "Message to ask the user if they want to change the currency",
     "placeholders": {
@@ -2527,7 +2527,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+  "prices_currency_change_proposal_action_approve": "Evet, {newCurrency}kullanın",
   "@prices_currency_change_proposal_action_approve": {
     "description": "Button to approve the currency change",
     "placeholders": {
@@ -2536,7 +2536,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+  "prices_currency_change_proposal_action_cancel": "Hayır, {currency}'ı tut",
   "@prices_currency_change_proposal_action_cancel": {
     "description": "Button to cancel the currency change",
     "placeholders": {
@@ -2558,19 +2558,19 @@
   "dev_mode_section_ui": "Kullanıcı Arayüzü",
   "dev_mode_section_data": "Veri",
   "dev_mode_section_experimental_features": "Deneysel özellikler",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+  "dev_preferences_show_folksonomy_title": "Folksonomiyi hariç tut",
   "@dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
-  "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+  "dev_mode_hide_environmental_score_title": "Green-Score'u hariç tut",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
   },
-  "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+  "dev_mode_spellchecker_for_ocr_title": "OCR ekranları için bir yazım denetleyicisi kullanın",
   "@dev_mode_spellchecker_for_ocr_title": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
   },
-  "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+  "dev_mode_spellchecker_for_ocr_subtitle": "(İçindekiler ve ambalaj)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
@@ -2633,7 +2633,7 @@
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
-  "user_search_proof_title": "My proof",
+  "user_search_proof_title": "Kanıtım",
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
@@ -2653,24 +2653,24 @@
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_contribution_assistant": "Fiyat Katkı Asistanı",
+  "prices_validation_assistant": "Fiyat Doğrulama Asistanı",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Meydan Okumalar",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Birden Fazla Kanıt Ekle",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
-  "all_search_prices_top_location_single_title": "Prices in a store",
+  "all_search_prices_top_location_single_title": "Mağazadaki fiyatlar",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
   },
-  "all_search_prices_top_product_title": "Products with the most prices",
+  "all_search_prices_top_product_title": "En çok fiyatı olan ürünler",
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
@@ -2744,7 +2744,7 @@
   "@edit_photo_select_existing_all_label": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+  "edit_photo_select_existing_all_subtitle": "Üzerine tıklayarak bir resim seçin",
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
@@ -2770,47 +2770,47 @@
   },
   "basic_details": "Temel bilgiler",
   "product_name": "Ürün adı",
-  "product_names": "Product Names",
+  "product_names": "Ürün Adları",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
-  "add_basic_details_product_name_add_translation": "Add a new translation",
+  "add_basic_details_product_name_add_translation": "Yeni bir çeviri ekle",
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Doğrulamadan önce lütfen yalnızca **ambalaj üzerinde dil mevcutsa** bir çeviri eklediğinizden emin olun",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
-  "add_basic_details_product_name_open_photo": "View front photo",
+  "add_basic_details_product_name_open_photo": "Ön fotoğrafı görüntüle",
   "@add_basic_details_product_name_open_photo": {
     "description": "Button to view the front photo of the product (on top of the screen)"
   },
-  "add_basic_details_product_name_take_photo": "Take front photo",
+  "add_basic_details_product_name_take_photo": "Önden fotoğraf çekin",
   "@add_basic_details_product_name_take_photo": {
     "description": "Button to take a photo of the front of the product (when there is no photo yet)"
   },
-  "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+  "add_basic_details_product_name_hint": "Ürünün adını girin (örneğin: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
-  "explanation_section_good_examples": "Good examples",
+  "explanation_section_good_examples": "İyi örnekler",
   "@explanation_section_good_examples": {
     "description": "Title for the section with good examples"
   },
-  "explanation_section_bad_examples": "Bad examples",
+  "explanation_section_bad_examples": "Kötü örnekler",
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "İyi uygulamalar: Ürün adı",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
-  "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+  "add_basic_details_product_name_help_info1": "Ürün adı, **ambalaj üzerinde basılı olan ana isimdir**. Tescilli bir marka olabilir.",
   "@add_basic_details_product_name_help_info1": {
     "description": "Text explaining how to write the product name"
   },
-  "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+  "add_basic_details_product_name_help_info2": "**Not:** Ambalaj üzerinde dil mevcut değilse lütfen çeviri eklemeyin.",
   "@add_basic_details_product_name_help_info2": {
     "description": "Text explaining how to write the product name"
   },
@@ -2818,19 +2818,19 @@
   "@add_basic_details_product_name_help_good_examples_1": {
     "description": "A 1st good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+  "add_basic_details_product_name_help_good_examples_2": "Ketçap",
   "@add_basic_details_product_name_help_good_examples_2": {
     "description": "A 2nd good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+  "add_basic_details_product_name_help_bad_examples_1_explanation": "Markayı isme dahil etmeyin",
   "@add_basic_details_product_name_help_bad_examples_1_explanation": {
     "description": "Explanation for the first bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+  "add_basic_details_product_name_help_bad_examples_1_example": "Ketçap **Heinz'den**",
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "®, ™, © veya benzeri sembolleri kullanmayın",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
@@ -2838,7 +2838,7 @@
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
-  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} diğer çeviriler} other{{count} diğer çeviriler}}",
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
@@ -2848,42 +2848,42 @@
     }
   },
   "brand_name": "Marka adı",
-  "brand_names": "Brand names",
+  "brand_names": "Marka isimleri",
   "add_basic_details_brand_name_error": "Lütfen marka adını girin",
-  "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
-  "add_basic_details_product_brand_help_title": "Good practices: Brands",
+  "add_basic_details_brand_names_hint": "Marka girin (örneğin: Ferrero)",
+  "add_basic_details_product_brand_help_title": "İyi uygulamalar: Markalar",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "**Ürünün tüm markalarını** girin.",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "Ana marka",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "Genellikle ön pakette açıkça gösterilen **ana marka**, **önce girilmelidir**.",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "Diğer markalar",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "**Büyük bir şirket tarafından** satıldığında:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel**, **Danone** tarafından satılmaktadır",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "Markası **birden fazla dile çevrilmiş** olarak satıldığında:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** bazen **Val Nature** olarak yazılır",
   "@add_basic_details_product_brand_help_info3_item2_explanation": {
     "description": "Text explaining how to write brands"
   },
@@ -2896,24 +2896,24 @@
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
   "quantity": "Miktar ve ağırlık",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
-  "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+  "add_basic_details_quantity_hint": "Ağırlığı ve gerekiyorsa miktarı girin (örneğin: 4x100g)",
+  "add_basic_details_product_quantity_help_title": "İyi uygulamalar: Miktar",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
   },
-  "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+  "add_basic_details_product_quantity_help_info1": "Ürün üzerinde belirtilen değeri kopyalayın ve **birimleri unutmayın**.",
   "@add_basic_details_product_quantity_help_info1": {
     "description": "Text explaining how to write quantity"
   },
-  "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+  "add_basic_details_product_quantity_help_good_examples_1": "**230g** veya **230 g**",
   "@add_basic_details_product_quantity_help_good_examples_1": {
     "description": "A 1st good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+  "add_basic_details_product_quantity_help_good_examples_2": "**6** (6 yumurta için)",
   "@add_basic_details_product_quantity_help_good_examples_2": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(her biri 150g olan 3 kutulu bir ürün için)",
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
@@ -3066,7 +3066,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Open Beauty Facts'te bu ürüne bir göz atın: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3075,7 +3075,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Bu ürüne Open PetFood'da bir göz atın. Bilgiler: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3084,7 +3084,7 @@
       }
     }
   },
-  "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+  "share_product_text_product": "Bu ürüne Open Products Facts'te bir göz atın. Bilgiler: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3118,7 +3118,7 @@
   "@image_upload_queued": {
     "description": "Message when a photo is queued for upload"
   },
-  "add_price_queued": "The price will be sent to the server as soon as possible.",
+  "add_price_queued": "Fiyat en kısa sürede sunucuya gönderilecektir.",
   "@add_price_queued": {
     "description": "Message when an added price is queued for the server"
   },
@@ -3140,8 +3140,8 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Malzemeler panelini genişletilmiş tutun",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
+  "search_product_filter_visibility_title": "Aramada bir filtre göster",
+  "search_product_filter_visibility_subtitle": "Arama sitesini seçin: Open Food Facts, Open Beauty Facts, Açık Open Pet Food Facts veya Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
@@ -3174,7 +3174,7 @@
     "description": "Snackbar label after clipboard copy"
   },
   "clipboard_barcode_copied": "Barkod {barcode} panoya kopyalandı!",
-  "open_product_website": "Open this product on the website",
+  "open_product_website": "Bu ürünü web sitesinde açın",
   "language_picker_label": "Diliniz",
   "@language_picker_label": {
     "description": "Choose Application Language"
@@ -3183,7 +3183,7 @@
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
-  "currency_picker_label": "Your currency",
+  "currency_picker_label": "Para biriminiz",
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3275,7 +3275,7 @@
       }
     }
   },
-  "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+  "portion_calculator_computation_error": "Veriler eksik. Hesaplama gerçekleştirilemedi.",
   "@portion_calculator_computation_error": {
     "description": "Error message to explain that the computation of the portion calculator failed."
   },
@@ -3320,7 +3320,7 @@
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
-  "user_picture_source_ask": "Ask each time",
+  "user_picture_source_ask": "Her zaman sor",
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
@@ -3339,19 +3339,19 @@
   "@show_password": {
     "description": "Show hidden password in password field"
   },
-  "owner_field_info_title": "Producer provided values",
+  "owner_field_info_title": "Üretici tarafından sağlanan değerler",
   "@owner_field_info_title": {
     "description": "Title of the 'producer provided' info list-tile"
   },
-  "owner_field_info_message": "With that logo we highlight data provided by the producer, and that may not be editable.",
+  "owner_field_info_message": "Bu logo ile üreticinin sağladığı ve düzenlenemeyen veriler olduğunu belirtiyoruz.",
   "@owner_field_info_message": {
     "description": "Title of the 'producer provided' info list-tile"
   },
-  "owner_field_info_close_button": "Close this info",
+  "owner_field_info_close_button": "Bu bilgiyi kapat",
   "@owner_field_info_close_button": {
     "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
   },
-  "owner_field_image": "This image is provided by the producer. It may not be editable.",
+  "owner_field_image": "Bu görsel yapımcı tarafından sağlanmıştır. Düzenlenemez.",
   "@owner_field_image": {
     "description": "An image is directly provided by the producer. It may be locked and not be editable."
   },
@@ -3664,11 +3664,11 @@
   "@language_selector_title": {
     "description": "Label written as the title of the dialog to select the user language"
   },
-  "language_selector_section_selected": "Selected languages",
+  "language_selector_section_selected": "Seçilen diller",
   "@language_selector_section_selected": {
     "description": "Label to highlight the selected languages"
   },
-  "language_selector_section_frequently_used": "Frequently used",
+  "language_selector_section_frequently_used": "Sıklıkla kullanılan",
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
@@ -3714,8 +3714,8 @@
   "environmental_score_c": "Green Score C",
   "environmental_score_d": "Green Score D",
   "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
+  "environmental_score_unknown": "Bilinmeyen Green-Score",
+  "environmental_score_not_applicable": "Green-Score uyarlanabilir değil",
   "nova_group_generic": "Ultra işleme - NOVA grupları",
   "nova_group_1": "NOVA Grup 1",
   "nova_group_2": "NOVA Grup 2",
@@ -3728,13 +3728,13 @@
   "faq_title_install_beauty": "Bir kozmetik veritabanı oluşturmak için Open Beauty Facts'i yükleyin",
   "faq_title_install_pet": "Bir evcil hayvan maması veri tabanı oluşturmak için Open Pet Food Facts'i kurun",
   "faq_title_install_product": "Nesnelerin ömrünü uzatmak amacıyla bir ürün veritabanı oluşturmak için Open Products Facts'i kurun",
-  "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+  "faq_nutriscore_nutriscore": "Nutri-Score'un yeni hesaplaması: Neler yeni?",
   "contact_title_pro_page": "Profesyonel mi? Open Food Facts'te ürünlerinizi içe aktarın",
   "contact_title_pro_email": "Üretici İletişim",
   "contact_title_press_page": "Basın Sayfası",
   "contact_title_press_email": "Basın İletişim",
   "contact_title_newsletter": "Haber bültenimize abone olun",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Topluluk takvimimize abone olun",
   "hunger_games_loading_line1": "Lütfen bize birkaç saniye izin verin…",
   "hunger_games_loading_line2": "Soruları indiriyoruz!",
   "hunger_games_error_label": "Ah! Bir şeyler ters gitti… ve soruları yükleyemedik.",
@@ -3756,7 +3756,7 @@
       }
     }
   },
-  "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+  "knowledge_panel_page_title": "{pageName} ile {productName}için ayrıntılar",
   "@knowledge_panel_page_title": {
     "description": "The title of the page when we click on an item in the product page",
     "placeholders": {
@@ -3768,7 +3768,7 @@
       }
     }
   },
-  "guide_title": "Guide",
+  "guide_title": "Rehber",
   "@guide_title": {
     "description": "A title for a guide"
   },
@@ -3777,42 +3777,42 @@
   "@guide_nutriscore_v2_enabled": {
     "description": "Please NEVER touch this value and let the OFF team change it!"
   },
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score gelişiyor: açıklamalar!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score nedir?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score, **gıdaların besin kalitesi** hakkında sizi bilgilendirmeyi amaçlayan bir logodur.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Renk kodu, **en sağlıklı** ürünler için koyu yeşilden (**A**) **daha az sağlıklı** ürünler için koyu kırmızıya (**E**) kadar değişmektedir.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-  "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A logosu",
+  "guide_nutriscore_v2_why_v2_title": "Nutri-Score neden gelişiyor?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score formülü daha iyi öneriler sunmak için **gelişiyor**:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Tüm içecekleri daha iyi değerlendir",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Yeni algoritmada **süt**, **şeker ilaveli sütlü içecekler** ve **bitkisel** içeceklerin karşılaştırmalı notaları daha iyi ayırt edildi.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "İçeceklerin daha iyi sıralanması",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**Şeker içeriği** daha iyi hesaba katılır ve **az şekerli** içecekler tercih edilir.\\n**Tatlandırıcılar da cezalandırılacak**: Diyet sodaların derecesi B'den C ile E arasına düşürülecek. Su, önerilen içecek olmaya devam ediyor.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Tuz ve şeker cezalandırıldı",
+  "guide_nutriscore_v2_why_v2_arg3_text": "**Çok tatlı** veya **çok tuzlu** olan ürünlerin **puanı daha da düşürülecektir**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Yağlar ve balıklar arasında hiyerarşi",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Bazı **yağlı balıkların** ve **iyi yağlardan zengin yağların** derecelendirmesi artacaktır.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Kırmızı eti sınırlayın",
+  "guide_nutriscore_v2_why_v2_arg5_text": "**Kırmızı et tüketimi sınırlandırılmalıdır**. Bu nedenle **kümes hayvanları** nispeten daha iyi bir sıralamaya sahip olacaktır.",
+  "guide_nutriscore_v2_new_logo_title": "Eski Nutri-Score ile yeni hesaplama nasıl ayırt edilir?",
+  "guide_nutriscore_v2_new_logo_text": "Artık logoda, bunun gerçekten yeni bir hesaplama olduğunu belirtmek için \"**Yeni hesaplama**\" ifadesi yer alabilir.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Yeni Nutri-Score'un logosu",
+  "guide_nutriscore_v2_where_title": "Yeni Nutri-Score hesaplamasını nerede bulabilirim?",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score 7 ülkede uygulanıyor: Fransa, Almanya, Belçika, İspanya, Lüksemburg, Hollanda ve İsviçre.",
+  "guide_nutriscore_v2_where_paragraph2": "Üreticilerin, kararnamenin imzalanmasından itibaren en geç **2 yıl** içinde eski hesaplamayı yenisiyle **değiştirmeleri** için süreleri bulunuyor.",
+  "guide_nutriscore_v2_where_paragraph3": "Üreticiler puanı güncellememiş olsa bile, beklemeden **OpenFoodFacts uygulamasında** yeni hesaplamayı bulabilirsiniz.",
+  "guide_nutriscore_v2_unchanged_title": "Değişmeyen şey nedir?",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score, **besin kalitesini ölçmek** için tasarlanmış bir puandır. **NOVA grubunun** **ultra işlenmiş gıdalar** (uygulamada da mevcuttur) konusundaki çalışmalarını **tamamlayıcı** niteliktedir.",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Üreticiler için Nutri-Score'un görüntülenmesi **isteğe bağlı** kalmaktadır.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_nutriscore_v2_share_message": "",
   "@guide_nutriscore_v2_share_message": {
@@ -3822,27 +3822,27 @@
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
   },
-  "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+  "prices_feedback_form": "Bu yeni özellik hakkında bize geri bildiriminizi göndermek için buraya tıklayın!",
   "@prices_feedback_form": {
     "description": "A button to send feedback about the prices feature"
   },
-  "menu_button_list_actions": "Select an action",
+  "menu_button_list_actions": "Bir eylem seçin",
   "@menu_button_list_actions": {
     "description": "Button to select an action in a list (eg: Share, Delete, …)"
   },
-  "error_loading_photo": "Error loading photo",
+  "error_loading_photo": "Fotoğraf yüklenirken hata oluştu",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "…olarak kullanın",
   "@photo_viewer_action_use_picture_as": {
     "description": "An action to use the current picture to be used as front/ingredients…"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Bu resmi…olarak kullan",
   "@photo_viewer_use_picture_as_tooltip": {
     "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+  "photo_viewer_use_picture_as_title": "Bu resmi… ({language}) olarak kullanın",
   "@photo_viewer_use_picture_as_title": {
     "description": "The title of a dialog to use the current picture as front/ingredients…",
     "placeholders": {
@@ -3855,11 +3855,11 @@
   "@photo_viewer_details_button": {
     "description": "Button to show details of the photo"
   },
-  "photo_viewer_details_button_accessibility_label": "Details of this photo",
+  "photo_viewer_details_button_accessibility_label": "Bu fotoğrafın detayları",
   "@photo_viewer_details_button_accessibility_label": {
     "description": "Accessibility label for the Details button on a photo"
   },
-  "photo_viewer_details_title": "Details of the photo",
+  "photo_viewer_details_title": "Fotoğrafın detayları",
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
@@ -3867,11 +3867,11 @@
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
-  "photo_viewer_details_size_title": "Size",
+  "photo_viewer_details_size_title": "Boyut",
   "@photo_viewer_details_size_title": {
     "description": "Label for the size of a photo"
   },
-  "photo_viewer_details_size_value": "{width} x {height} pixels",
+  "photo_viewer_details_size_value": "{width} x {height} piksel",
   "@photo_viewer_details_size_value": {
     "description": "Value for the size of a photo",
     "placeholders": {
@@ -3891,15 +3891,15 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "product_page_compatibility_score": "Compatible",
+  "product_page_compatibility_score": "Uyumlu",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
   },
-  "user_lists_action_multi_select": "Multi-select",
+  "user_lists_action_multi_select": "Çoklu seçim",
   "@user_lists_action_multi_select": {
     "description": "The button label for multi-selecting products in a user list"
   },
-  "product_page_compatibility_score_tooltip": "Your compatibility score: {score}%",
+  "product_page_compatibility_score_tooltip": "Uyumluluk puanınız: {score}%",
   "@product_page_compatibility_score_tooltip": {
     "description": "Message explaining that the score is the compatibility score",
     "placeholders": {
@@ -3916,23 +3916,23 @@
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
-  "product_image_nutrition_accessibility_label": "Nutrition picture",
+  "product_image_nutrition_accessibility_label": "Besin değerleri fotoğrafı",
   "@product_image_nutrition_accessibility_label": {
     "description": "Accessibility label for the image of the nutrition"
   },
-  "product_image_packaging_accessibility_label": "Packaging picture",
+  "product_image_packaging_accessibility_label": "Ambalaj fotoğrafı",
   "@product_image_packaging_accessibility_label": {
     "description": "Accessibility label for the image of the packaging"
   },
-  "product_image_other_accessibility_label": "Other picture",
+  "product_image_other_accessibility_label": "Diğer resim",
   "@product_image_other_accessibility_label": {
     "description": "Accessibility label for an image"
   },
-  "product_image_outdated_message": "This picture may be outdated",
+  "product_image_outdated_message": "Bu resim güncelliğini yitirmiş olabilir",
   "@product_image_outdated_message": {
     "description": "Small message to indicate that the image may be outdated"
   },
-  "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+  "product_image_outdated_message_accessibility_label": "{type} (bu görsel güncelliğini yitirmiş olabilir)",
   "@product_image_outdated_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be outdated",
     "placeholders": {
@@ -3941,7 +3941,7 @@
       }
     }
   },
-  "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+  "product_image_locked_message_accessibility_label": "{type} (bu görüntü yapımcı tarafından eklenip değişime kapatılmış olabilir)",
   "@product_image_locked_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
     "placeholders": {
@@ -3950,11 +3950,11 @@
       }
     }
   },
-  "product_image_error": "Unable to load the image!",
+  "product_image_error": "Resim yüklenemedi!",
   "@product_image_error": {
     "description": "Small message that will be displayed above the picture (please keep it short)"
   },
-  "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+  "product_image_error_accessibility_label": "{type} yüklenemedi (ağ hatası?)",
   "@product_image_error_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it fails to load",
     "placeholders": {
@@ -3963,51 +3963,51 @@
       }
     }
   },
-  "product_page_image_no_image_available": "No\nimage!",
+  "product_page_image_no_image_available": "Görüntü\nyok!",
   "@product_page_image_no_image_available": {
     "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
   },
-  "product_page_image_no_image_available_accessibility_label": "No picture available for this product",
+  "product_page_image_no_image_available_accessibility_label": "Bu ürün için resim mevcut değil",
   "@product_page_image_no_image_available_accessibility_label": {
     "description": "Accessibility label for the image on the product page when there is no image available on the database"
   },
-  "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+  "product_page_action_bar_settings_accessibility_label": "Eylemleri yeniden sırala veya gizle",
   "@product_page_action_bar_settings_accessibility_label": {
     "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
   },
-  "product_page_action_bar_setting_modal_title": "Edit actions",
+  "product_page_action_bar_setting_modal_title": "Eylemleri düzenle",
   "@product_page_action_bar_setting_modal_title": {
     "description": "Title for the modal allowing to show and reorder actions"
   },
-  "product_page_action_bar_item_move_up": "Move up",
+  "product_page_action_bar_item_move_up": "Yukarı git",
   "@product_page_action_bar_item_move_up": {
     "description": "Accessibility label to move up an action"
   },
-  "product_page_action_bar_item_move_down": "Move down",
+  "product_page_action_bar_item_move_down": "Aşağı in",
   "@product_page_action_bar_item_move_down": {
     "description": "Accessibility label to move down an action"
   },
-  "product_page_action_bar_item_enable": "Enable action",
+  "product_page_action_bar_item_enable": "Eylemi etkinleştir",
   "@product_page_action_bar_item_enable": {
     "description": "Accessibility label to enable action (= make it visible)"
   },
-  "product_page_action_bar_item_disable": "Disable action",
+  "product_page_action_bar_item_disable": "Eylemi devre dışı bırak",
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Düzenlemeleriniz yükleniyor…",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "Bu sayfada görüntülenen veriler **henüz değişikliklerinizi yansıtmıyor**.\nLütfen birkaç saniye bekleyin…",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
-  "product_add_a_language": "Add a language",
+  "product_add_a_language": "Dil ekleyin",
   "@product_add_a_language": {
     "description": "Button to add a language (eg: for photos) to a product"
   },
-  "barcode_accessibility_label": "Barcode {barcode}",
+  "barcode_accessibility_label": "Barkod {barcode}",
   "@barcode_accessibility_label": {
     "description": "Accessibility label for a barcode image",
     "placeholders": {
@@ -4016,23 +4016,23 @@
       }
     }
   },
-  "carousel_close_tooltip": "Remove this product from the carousel",
+  "carousel_close_tooltip": "Bu ürünü döngüden kaldır",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
   },
-  "carousel_unsupported_header": "Unsupported barcode!",
+  "carousel_unsupported_header": "Desteklenmeyen barkod!",
   "@carousel_unsupported_header": {
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
-  "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
-  "carousel_error_header": "Error!",
+  "carousel_unsupported_title": "Hay aksi!",
+  "carousel_unsupported_text": "Taranan barkod Open Food Facts tarafından desteklenmiyor!",
+  "carousel_error_header": "Hata!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
   },
-  "carousel_error_title": "It's a bummer!",
-  "carousel_error_text_1": "We couldn't download information on this barcode:",
-  "carousel_error_text_2": "Please check your Internet connection or click this button:",
+  "carousel_error_title": "Çok yazık!",
+  "carousel_error_text_1": "Bu barkodla ilgili bilgileri indiremedik:",
+  "carousel_error_text_2": "Lütfen internet bağlantınızı kontrol edin veya şu butona tıklayın:",
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -4041,46 +4041,46 @@
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
-  "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
+  "carousel_unknown_product_title": "Tebrikler!\n__Nadir mücevheri buldunuz!__",
   "@carousel_unknown_product_title": {
     "description": "Please keep the __ syntax to underline the text"
   },
-  "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+  "carousel_unknown_product_text": "Ortak veritabanımız **3 milyondan fazla** ürünü içeriyor, ancak bu barkod mevcut değil: ",
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_unknown_product_button": "Bu ürünü ekle",
-  "carousel_loading_header": "Loading information...",
+  "carousel_loading_header": "Bilgiler yükleniyor...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
   },
-  "carousel_loading_title": "You've just scanned a product with the following barcode:",
-  "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+  "carousel_loading_title": "Aşağıdaki barkoda sahip bir ürünü taradınız:",
+  "carousel_loading_text": "**3 milyondan fazla üründen oluşan veritabanımızda bunu arıyoruz!**",
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "Sebzeler, meyveler, dondurulmuş gıdalar…",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "Makyaj malzemeleri, sabunlar, diş macunları…",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Köpekler ve kediler için mama…",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "Akıllı telefonlar, mobilyalar…",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
-  "photo_field_front": "Product photo",
+  "photo_field_front": "Ürün fotoğrafı",
   "photo_field_ingredients": "İçindekiler fotoğarafı",
-  "photo_field_nutrition": "Nutrition photo",
+  "photo_field_nutrition": "Beslenme fotoğrafı",
   "photo_field_packaging": "Paketleme bilgileri fotoğrafı",
-  "photo_already_exists": "This photo already exists",
-  "photo_missing": "This photo is missing",
+  "photo_already_exists": "Bu fotoğraf zaten mevcut",
+  "photo_missing": "Bu fotoğraf eksik",
   "date": "Tarih",
   "photo_rotate_left": "Sola döndür",
   "@photo_rotate_left": {
@@ -4090,11 +4090,11 @@
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
-  "photo_undo_action": "Undo the previous action",
+  "photo_undo_action": "Önceki eylemi geri al",
   "@photo_undo_action": {
     "description": "Button to undo the previous action on a photo"
   },
-  "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+  "knowledge_panel_world_map_accessibility_label": "{location}'nın dünya haritası",
   "@knowledge_panel_world_map_accessibility_label": {
     "description": "Accessibility label for the world map in the knowledge panel",
     "placeholders": {
@@ -4103,11 +4103,11 @@
       }
     }
   },
-  "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+  "open_street_map_contributor_attribution": "OpenStreetMap'e katkıda bulunanlar",
   "@open_street_map_contributor_attribution": {
     "description": "Attribution for OpenStreetMap contributors"
   },
-  "not_applicable_short": "N/A",
+  "not_applicable_short": "Mevcut değil",
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
@@ -4115,11 +4115,11 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-  "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-  "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
-  "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Bu Nutri-Score neden paket üzerindekinden farklı?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "İki olası açıklama var:\nİçerik listesi ve/veya besin değerleri güncel değil.\n\nNutri-Score (veya V2) için \"Yeni hesaplama\" özelliğini sunuyoruz. Lütfen paket üzerinde \"Yeni hesaplama\" etiketinin bulunduğundan emin olun.",
+  "knowledge_panel_nutriscore_banner_incorrect_score_button1": "İçerikleri kontrol edin",
+  "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Besin değerlerini kontrol edin",
+  "url_not_supported": "Maalesef şu URL'yi açamıyoruz:\n{url}",
   "@url_not_supported": {
     "description": "Error message when the app can't open a URL",
     "placeholders": {
@@ -4128,15 +4128,15 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Dışa Aktar",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "İçe aktar",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
-  "product_footer_action_barcode": "View barcode",
+  "product_footer_action_barcode": "Barkodu görüntüle",
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
@@ -4144,11 +4144,11 @@
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
-  "product_footer_action_open_website": "Open website",
+  "product_footer_action_open_website": "Web sitesini aç",
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "Bildir",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
@@ -4156,11 +4156,11 @@
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
-  "product_footer_action_data_quality_tags": "Data quality",
+  "product_footer_action_data_quality_tags": "Veri kalitesi",
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
-  "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+  "prices_products_list_length_many_pages": "En iyi {pageSize} ürün (toplam: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
     "placeholders": {
@@ -4172,31 +4172,31 @@
       }
     }
   },
-  "app_review_title": "Are you enjoying this app?",
+  "app_review_title": "Bu uygulamayı beğeniyor musunuz?",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "Daha iyisi yapılabilir",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "Kötü değil",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "Bayıldım!",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "Uygulamamızı geliştirmemize yardımcı olun",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "Birkaç dakikanız varsa, **gelecekteki güncellemelerde iyileştirme yapabilmemiz** için bu formu yanıtlayabilir misiniz?",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "Formu cevaplayın",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4204,19 +4204,19 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "YENİ: Resimdeki besin değerlerini otomatik olarak aktarabilirsiniz!",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "Şimdi aktar",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
+  "nutrition_facts_extract_succesful": "Aktarma başarılı",
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_failed": "Resimden besin maddeleri aktarılamadı",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
@@ -4224,11 +4224,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "İstatistikler",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Fiyat İstatistikleri",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4244,7 +4244,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Kanıtlar",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4252,7 +4252,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Deneyler",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4264,19 +4264,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "Barkod ile",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "Bir kategori ile",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "İndirimli",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Topluluk",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4308,7 +4308,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "Çevrimiçi",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4328,27 +4328,27 @@
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Mağaza aktarımı",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Meydan Okumalar",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Fiyat etiketine bağlı fiyatlar",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Para birimleri",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Yıllar",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Kaynak başına fiyatlar ve kanıtlar",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4356,7 +4356,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Mobil uygulama",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4368,15 +4368,15 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Son güncelleme tarihi",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "İstatistikler yüklenirken bir hata oluştu.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Soru cevaplandı!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
