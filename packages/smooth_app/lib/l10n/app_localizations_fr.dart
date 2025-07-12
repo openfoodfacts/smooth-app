@@ -515,7 +515,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Contribuez des prix en demandant un export RGPD des données de vos cartes de fidélité';
 
   @override
   String get tap_to_answer => 'Appuyez ici pour répondre aux questions';
@@ -2579,7 +2579,8 @@ class AppLocalizationsFr extends AppLocalizations {
       'Étiquettes de prix multiples';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title =>
+      'Téléversement de preuves en masse';
 
   @override
   String get prices_generic_title => 'Prix';
@@ -2668,34 +2669,34 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_view_prices => 'Voir les prix';
 
   @override
-  String get prices_list_title => 'Liste des prix';
+  String get prices_list_title => 'Price list';
 
   @override
-  String get prices_list_count => 'Nombre de\nprix relevés';
+  String get prices_list_count => 'Number of\nprices';
 
   @override
-  String get prices_list_add_new_price => 'Ajouter un\nnouveau prix';
+  String get prices_list_add_new_price => 'Add a\nnew price';
 
   @override
-  String get prices_entry_shop_not_found => 'Magasin non renseigné';
+  String get prices_entry_shop_not_found => 'Unknown store';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Relevé de prix de \"$user\"';
+    return 'Price entry from \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'Voir la preuve';
+  String get prices_entry_menu_open_proof => 'View proof';
 
   @override
-  String get prices_entry_menu_my_prices => 'Voir mes autres prix';
+  String get prices_entry_menu_my_prices => 'View my other prices';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'Voir les autres prix de l\'auteur';
+      'View other prices by the author';
 
   @override
-  String get prices_entry_menu_shop_prices => 'Voir les autres prix du magasin';
+  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -3016,7 +3017,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Prix du contributeur : $user';
+    return 'Prix d\'un contributeur';
   }
 
   @override
@@ -3140,7 +3141,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Avant de valider, veuillez vous assurer d\'ajouter une traduction uniquement **si la langue est présente sur l\'emballage**';
 
   @override
   String get add_basic_details_product_name_open_photo =>
@@ -3153,6 +3154,17 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get add_basic_details_product_name_hint =>
       'Saisir le nom du product (ex : Nutella)';
+
+  @override
+  String get add_basic_details_product_name_change_main_language_title =>
+      'Change the default language?';
+
+  @override
+  String add_basic_details_product_name_change_main_language_text(
+    String language,
+  ) {
+    return 'Do you want the product\'s default language to be set to ‘$language’?';
+  }
 
   @override
   String get explanation_section_good_examples => 'Bon exemple';
@@ -4237,7 +4249,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Les fabricants disposent au plus tard de **2 ans** après la signature du décret **pour remplacer** l\'ancien calcul par le nouveau.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4626,10 +4638,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_discount => 'Promo';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Statistiques';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Statistiques des prix';
 
   @override
   String get prices_stats_prices_section => 'Prix';
@@ -4710,7 +4722,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_stats_challenges => 'Défis';
 
   @override
-  String get prices_stats_linked_to_price_tag => 'Prices linked to a price tag';
+  String get prices_stats_linked_to_price_tag =>
+      'Prix liés à une étiquette de prix';
 
   @override
   String get prices_stats_currencies => 'Monnaies';
@@ -4719,7 +4732,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_stats_years => 'Années';
 
   @override
-  String get prices_stats_by_source_title => 'Prices and proofs per source';
+  String get prices_stats_by_source_title => 'Prix et preuves par source';
 
   @override
   String get prices_stats_website => 'Site Web';
@@ -4734,14 +4747,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_stats_other => 'Autre';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Dernière mise à jour le';
 
   @override
   String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+      'Une erreur s\'est produite lors du chargement des statistiques.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Question répondue !';
 
   @override
   String get product_edit_robotoff_proof => 'Preuve';
