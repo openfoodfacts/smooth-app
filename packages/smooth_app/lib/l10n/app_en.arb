@@ -2660,7 +2660,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Contributor prices",
+  "user_any_search_prices_title": "Contributor prices: {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
     "placeholders": {
@@ -4456,6 +4456,10 @@
   "product_edit_robotoff_expand_proof": "Expand proof",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "Raw data",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Page {current} / {total}",
   "@page_indicator_with_total": {
