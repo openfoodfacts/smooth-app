@@ -2662,7 +2662,12 @@
   },
   "user_any_search_prices_title": "Contributor prices",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Latest Prices added",
   "@all_search_prices_latest_title": {
