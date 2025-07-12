@@ -27,7 +27,9 @@ class UserPreferencesShareWithFriends extends StatelessWidget {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       final ThemeData themeData = Theme.of(context);
       try {
-        await Share.share(appLocalizations.contribute_share_content);
+        await SharePlus.instance.share(
+          ShareParams(text: appLocalizations.contribute_share_content),
+        );
       } on PlatformException {
         if (!context.mounted) {
           return;

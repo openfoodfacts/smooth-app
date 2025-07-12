@@ -53,7 +53,7 @@ class GuidesFooter extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Share.share(_shareText);
+              SharePlus.instance.share(ShareParams(text: _shareText));
               AnalyticsHelper.trackOutlink(url: shareUrl);
             },
           ),
