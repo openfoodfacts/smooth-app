@@ -11,6 +11,7 @@ import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -30,6 +31,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required this.cropY2,
     required this.proofType,
     required this.eraserCoordinates,
+    required this.displaySnackbar,
     // single
     required super.date,
     required super.currency,
@@ -57,6 +59,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
         json[_jsonTagEraserCoordinates],
       ),
+      displaySnackbar = json[_jsonTagDisplaySnackbar] as bool? ?? true,
       super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
@@ -67,6 +70,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   static const String _jsonTagY2 = 'y2';
   static const String _jsonTagProofType = 'proofType';
   static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
+  static const String _jsonTagDisplaySnackbar = 'displaySnackbar';
 
   static const OperationType _operationType = OperationType.addPrice;
 
@@ -78,6 +82,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   final int cropY2;
   final ProofType proofType;
   final List<double>? eraserCoordinates;
+  final bool displaySnackbar;
 
   @override
   Map<String, dynamic> toJson() {
@@ -90,6 +95,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     result[_jsonTagY2] = cropY2;
     result[_jsonTagProofType] = proofType.offTag;
     result[_jsonTagEraserCoordinates] = eraserCoordinates;
+    result[_jsonTagDisplaySnackbar] = displaySnackbar;
     return result;
   }
 
@@ -110,6 +116,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
+    required final bool displaySnackbar,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -129,6 +136,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      displaySnackbar: displaySnackbar,
     );
     if (!context.mounted) {
       return;
@@ -157,6 +165,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
+    required final bool displaySnackbar,
   }) => BackgroundTaskAddPrice._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -185,7 +194,13 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       locationOSMId: locationOSMId,
       locationOSMType: locationOSMType,
     ),
+    displaySnackbar: displaySnackbar,
   );
+
+  @override
+  (String, AlignmentGeometry)? getFloatingMessage(
+    final AppLocalizations appLocalizations,
+  ) => displaySnackbar ? super.getFloatingMessage(appLocalizations) : null;
 
   @override
   Future<void> postExecute(
