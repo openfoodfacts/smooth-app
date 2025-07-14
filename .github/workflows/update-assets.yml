@@ -1,5 +1,9 @@
 name: Update assets
 
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   # Allow to be run manually
   workflow_dispatch:

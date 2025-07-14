@@ -146,7 +146,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get looking_for => 'Ψάχνουμε για';
 
   @override
-  String get welcomeToOpenFoodFacts => 'Καλώς ήρθατε στο Open Food Facts';
+  String get welcomeToOpenFoodFacts => 'Καλώς ήρθατε στο Open Food Facts';
 
   @override
   String get whatIsOff =>
@@ -387,7 +387,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get thanks_for_contributing => 'Ευχαριστούμε για τη συνεισφορά!';
 
   @override
-  String get contributors_label => 'Χτίζουν την εφαρμογή';
+  String get contributors_label => 'Ποιοι χτίζουν την εφαρμογή';
 
   @override
   String get contributors_dialog_title => 'Χρηστες';
@@ -510,7 +510,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Συνεισφέρετε τιμές ζητώντας εξαγωγή των δεδομένων των καρτών αφοσίωσης μέσω GDPR';
 
   @override
   String get tap_to_answer => 'Πατήστε εδώ για να απαντήσετε σε ερωτήσεις';
@@ -712,7 +712,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get packaging_editing_title => 'Επεξεργασία Συσκευασίας';
 
   @override
-  String get nutrition => 'Θρεπτική Αξία';
+  String get nutrition => 'Διατροφική Αξία';
 
   @override
   String get nutrition_facts_photo => 'Φωτογραφία διατροφικών στοιχείων';
@@ -861,7 +861,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get nutritional_facts_input_button_label =>
-      'Προσθήκη διατροφικών στοιχείων';
+      'Συμπλήρωση διατροφικών στοιχείων';
 
   @override
   String get nutritional_facts_added => 'Προστέθηκαν διατροφικά στοιχεία';
@@ -1101,7 +1101,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60 g** ή **60 g** (προτιμήστε το πρώτο)';
+      '**60 g**, **60g** ή **60 G** (προτιμήστε το πρώτο)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
@@ -1420,7 +1420,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Το προϊόν αφαιρέθηκε από τη σύγκριση';
 
   @override
-  String get native_app_settings => 'Εγγενείς Ρυθμίσεις Εφαρμογής';
+  String get native_app_settings => 'Ρυθμίσεις Εγγενούς Εφαρμογής';
 
   @override
   String get native_app_description =>
@@ -1488,7 +1488,7 @@ class AppLocalizationsEl extends AppLocalizations {
       locale: localeName,
       other: '$count λεπτά πριν',
       one: 'ένα λεπτό πριν',
-      zero: 'λιγότερο από πριν ένα λεπτό',
+      zero: 'λιγότερο από ένα λεπτό πριν',
     );
     return '$_temp0';
   }
@@ -1603,7 +1603,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get discover => 'Ανακαλύψτε';
 
   @override
-  String get how_to_contribute => 'Πως να Συνεισφέρετε';
+  String get how_to_contribute => 'Πώς να Συνεισφέρετε';
 
   @override
   String get hint_knowledge_panel_message =>
@@ -3154,6 +3154,17 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εισαγάγετε το όνομα του προϊόντος (πχ Nutella)';
 
   @override
+  String get add_basic_details_product_name_change_main_language_title =>
+      'Change the default language?';
+
+  @override
+  String add_basic_details_product_name_change_main_language_text(
+    String language,
+  ) {
+    return 'Do you want the product\'s default language to be set to ‘$language’?';
+  }
+
+  @override
   String get explanation_section_good_examples => 'Καλά παραδείγματα';
 
   @override
@@ -4443,7 +4454,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get carousel_unknown_product_title =>
-      'Συγχαρητήρια!\nΒρήκες __το σπάνιο στολίδι!__';
+      'Συγχαρητήρια!\nΒρήκες __ένα σπάνιο στολίδι!__';
 
   @override
   String get carousel_unknown_product_text =>
@@ -4628,10 +4639,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Στατιστικά';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Στατιστικά Τιμών';
 
   @override
   String get prices_stats_prices_section => 'Τιμές';
@@ -4736,14 +4747,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_stats_other => 'Άλλο';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Τελευταία ενημέρωση στις';
 
   @override
   String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+      'Παρουσιάστηκε σφάλμα κατά τη φόρτωση των στατιστικών.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Η ερώτηση απαντήθηκε!';
 
   @override
   String get product_edit_robotoff_proof => 'Επαλήθευση';

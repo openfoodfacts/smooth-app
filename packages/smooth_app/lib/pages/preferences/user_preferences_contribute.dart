@@ -277,7 +277,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     },
   );
 
-  Future<void> _share(String content) async => Share.share(content);
+  Future<void> _share(String content) async =>
+      SharePlus.instance.share(ShareParams(text: content));
 
   Future<void> _contributors() => showDialog<void>(
     context: context,

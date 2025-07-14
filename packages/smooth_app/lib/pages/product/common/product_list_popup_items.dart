@@ -181,9 +181,11 @@ class ProductListPopupShare extends ProductListPopupItem {
     if (url != null) {
       AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
       unawaited(
-        Share.share(
-          appLocalizations.share_product_list_text(url),
-          sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+        SharePlus.instance.share(
+          ShareParams(
+            text: appLocalizations.share_product_list_text(url),
+            sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+          ),
         ),
       );
     }
@@ -255,15 +257,17 @@ class ProductListPopupExport extends ProductListPopupItem {
     ).exportBarcodesToString();
 
     unawaited(
-      Share.shareXFiles(
-        <XFile>[
-          XFile.fromData(
-            utf8.encode(csv),
-            name: '$fileName.csv',
-            mimeType: 'text/csv',
-          ),
-        ],
-        fileNameOverrides: <String>['$fileName.csv'],
+      SharePlus.instance.share(
+        ShareParams(
+          files: <XFile>[
+            XFile.fromData(
+              utf8.encode(csv),
+              name: '$fileName.csv',
+              mimeType: 'text/csv',
+            ),
+          ],
+          fileNameOverrides: <String>['$fileName.csv'],
+        ),
       ),
     );
 

@@ -1337,7 +1337,7 @@
       }
     }
   },
-  "authorize_button_label": "Autoriseren",
+  "authorize_button_label": "Goedkeuren",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -4396,7 +4396,7 @@
   "@product_edit_robotoff_show_proof": {
     "description": "Button to show the proof related to a suggestion"
   },
-  "product_edit_robotoff_expand_proof": "Uitbreiden bewijs",
+  "product_edit_robotoff_expand_proof": "Bewijs uitklappen",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   },
@@ -4438,7 +4438,7 @@
       }
     }
   },
-  "item_count": "{count} artikelen",
+  "item_count": "{count} items",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {

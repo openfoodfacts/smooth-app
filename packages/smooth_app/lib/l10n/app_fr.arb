@@ -407,7 +407,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Contribuez des prix en demandant un export RGPD des données de vos cartes de fidélité",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -2289,7 +2289,7 @@
   "prices_bulk_proof_upload_select": "Ajouter des étiquettes de prix directement depuis la galerie",
   "prices_bulk_proof_upload_warning": "Une fois que vous aurez sélectionné des images, vous ne pourrez pas les modifier !",
   "prices_bulk_proof_upload_subtitle": "Étiquettes de prix multiples",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_title": "Téléversement de preuves en masse",
   "prices_generic_title": "Prix",
   "prices_add_n_prices": "{count,plural, =1{Ajouter un prix} other{Ajouter {count} prix}}",
   "prices_send_n_prices": "{count,plural, =1{Envoyer le prix} other{Envoyer {count} prix}}",
@@ -2340,29 +2340,6 @@
   "prices_category_error_mandatory": "La catégorie est obligatoire",
   "prices_barcode_reader_action": "Lecteur de code-barres",
   "prices_view_prices": "Voir les prix",
-  "prices_list_title": "Liste des prix",
-  "prices_list_count": "Nombre de\nprix relevés",
-  "@prices_list_count": {
-    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
-  },
-  "prices_list_add_new_price": "Ajouter un\nnouveau prix",
-  "@prices_list_add_new_price": {
-    "description": "Button to add a new price in the list (please inject the line break at the middle)"
-  },
-  "prices_entry_shop_not_found": "Magasin non renseigné",
-  "prices_entry_menu_title": "Relevé de prix de \"{user}\"",
-  "@prices_entry_menu_title": {
-    "description": "Title of the menu for a price entry",
-    "placeholders": {
-      "user": {
-        "type": "String"
-      }
-    }
-  },
-  "prices_entry_menu_open_proof": "Voir la preuve",
-  "prices_entry_menu_my_prices": "Voir mes autres prix",
-  "prices_entry_menu_author_prices": "Voir les autres prix de l'auteur",
-  "prices_entry_menu_shop_prices": "Voir les autres prix du magasin",
   "prices_product_accessibility_summary": "{count,plural, =1{1 prix} other{{count} prix}} pour {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2660,14 +2637,9 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Prix du contributeur : {user}",
+  "user_any_search_prices_title": "Prix d'un contributeur",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title",
-    "placeholders": {
-      "user": {
-        "type": "String"
-      }
-    }
+    "description": "User prices (everybody except me): list tile title"
   },
   "all_search_prices_latest_title": "Derniers prix ajoutés",
   "@all_search_prices_latest_title": {
@@ -2798,7 +2770,7 @@
   },
   "basic_details": "Détails de base",
   "product_name": "Nom du produit",
-  "product_names": "Noms de produit",
+  "product_names": "Noms de produits",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
@@ -2806,7 +2778,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Avant de valider, veuillez vous assurer d'ajouter une traduction uniquement **si la langue est présente sur l'emballage**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -2821,19 +2793,6 @@
   "add_basic_details_product_name_hint": "Saisir le nom du product (ex : Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
-  },
-  "add_basic_details_product_name_change_main_language_title": "Changer la langue par défaut ?",
-  "@add_basic_details_product_name_change_main_language_title": {
-    "description": "Title of the dialog to change the main language of the product name"
-  },
-  "add_basic_details_product_name_change_main_language_text": "Voulez-vous que la langue par défaut du produit soit définie sur \"**{language}**\" ?",
-  "@add_basic_details_product_name_change_main_language_text": {
-    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
-    "placeholders": {
-      "language": {
-        "type": "String"
-      }
-    }
   },
   "explanation_section_good_examples": "Bon exemple",
   "@explanation_section_good_examples": {
@@ -3849,7 +3808,7 @@
   "guide_nutriscore_v2_new_logo_image_caption": "Le logo du nouveau Nutri-Score",
   "guide_nutriscore_v2_where_title": "Où trouver le nouveau calcul du Nutri-Score ?",
   "guide_nutriscore_v2_where_paragraph1": "Le Nutri-Score est appliqué dans 7 pays : France, Allemagne, Belgique, Espagne, Luxembourg, Pays-Bas et Suisse.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph2": "Les fabricants disposent au plus tard de **2 ans** après la signature du décret **pour remplacer** l'ancien calcul par le nouveau.",
   "guide_nutriscore_v2_where_paragraph3": "Sans attendre, vous **retrouvez déjà dans l'application Open Food Facts**, le nouveau calcul, y compris si les fabriquants n’ont pas mis à jour le score.",
   "guide_nutriscore_v2_unchanged_title": "Ce qui ne change pas",
   "guide_nutriscore_v2_unchanged_paragraph1": "Le Nutri-Score est un score conçu pour **mesurer la qualité nutritionnelle**. Il est **complémentaire au groupe NOVA** sur les **aliments ultra-transformés** (également présent dans l'application).",
@@ -4265,11 +4224,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Statistiques",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Statistiques des prix",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4377,7 +4336,7 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Prix liés à une étiquette de prix",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
@@ -4389,7 +4348,7 @@
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Prix et preuves par source",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4409,15 +4368,15 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Dernière mise à jour le",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Une erreur s'est produite lors du chargement des statistiques.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Question répondue !",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },

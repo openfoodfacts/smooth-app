@@ -135,7 +135,7 @@
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "Καλώς ήρθατε στο Open Food Facts",
+  "welcomeToOpenFoodFacts": "Καλώς ήρθατε στο Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
   "whatIsOff": "Το Open Food Facts είναι ένας παγκόσμιος μη κερδοσκοπικός οργανισμός που υποστηρίζεται από τις τοπικές κοινότητες.",
   "@whatIsOff": {
@@ -309,7 +309,7 @@
     "description": "Indicator inside the darkmode switch (system default)"
   },
   "thanks_for_contributing": "Ευχαριστούμε για τη συνεισφορά!",
-  "contributors_label": "Χτίζουν την εφαρμογή",
+  "contributors_label": "Ποιοι χτίζουν την εφαρμογή",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
@@ -407,7 +407,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Συνεισφέρετε τιμές ζητώντας εξαγωγή των δεδομένων των καρτών αφοσίωσης μέσω GDPR",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -568,7 +568,7 @@
   "packaging_editing_error": "Αποτυχία αποθήκευσης συσκευασίας.",
   "packaging_editing_image_error": "Αποτυχία λήψης νέας εικόνας συσκευασίας.",
   "packaging_editing_title": "Επεξεργασία Συσκευασίας",
-  "nutrition": "Θρεπτική Αξία",
+  "nutrition": "Διατροφική Αξία",
   "@nutrition": {},
   "nutrition_facts_photo": "Φωτογραφία διατροφικών στοιχείων",
   "@nutrition_facts_photo": {
@@ -692,7 +692,7 @@
   "nutrition_cache_loading_error": "Δεν είναι δυνατή η φόρτωση θρεπτικών συστατικών από την προσωρινή μνήμη",
   "nutritional_facts_photo_button_label": "Φωτογραφία διατροφικών στοιχείων",
   "@nutritional_facts_photo_button_label": {},
-  "nutritional_facts_input_button_label": "Προσθήκη διατροφικών στοιχείων",
+  "nutritional_facts_input_button_label": "Συμπλήρωση διατροφικών στοιχείων",
   "nutritional_facts_added": "Προστέθηκαν διατροφικά στοιχεία",
   "categories_added": "Προστέθηκαν κατηγορίες",
   "new_product_title_nutriscore": "Υπολογίστε το Nutri-Score",
@@ -819,7 +819,7 @@
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60 g** ή **60 g** (προτιμήστε το πρώτο)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** ή **60 G** (προτιμήστε το πρώτο)",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
@@ -1121,7 +1121,7 @@
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
-  "native_app_settings": "Εγγενείς Ρυθμίσεις Εφαρμογής",
+  "native_app_settings": "Ρυθμίσεις Εγγενούς Εφαρμογής",
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
@@ -1176,7 +1176,7 @@
       "count": {}
     }
   },
-  "plural_ago_minutes": "{count,plural, =0{λιγότερο από πριν ένα λεπτό} =1{ένα λεπτό πριν} other{{count} λεπτά πριν}}",
+  "plural_ago_minutes": "{count,plural, =0{λιγότερο από ένα λεπτό πριν} =1{ένα λεπτό πριν} other{{count} λεπτά πριν}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
@@ -1250,7 +1250,7 @@
   "blog": "Ιστολόγιο",
   "faq": "Συχνές ερωτήσεις",
   "discover": "Ανακαλύψτε",
-  "how_to_contribute": "Πως να Συνεισφέρετε",
+  "how_to_contribute": "Πώς να Συνεισφέρετε",
   "hint_knowledge_panel_message": "Μπορείτε να πατήσετε σε οποιοδήποτε μέρος της κάρτας για περισσότερες λεπτομέρειες σχετικά με το τι βλέπετε. Δοκιμάστε το τώρα!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
@@ -4041,7 +4041,7 @@
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
-  "carousel_unknown_product_title": "Συγχαρητήρια!\nΒρήκες __το σπάνιο στολίδι!__",
+  "carousel_unknown_product_title": "Συγχαρητήρια!\nΒρήκες __ένα σπάνιο στολίδι!__",
   "@carousel_unknown_product_title": {
     "description": "Please keep the __ syntax to underline the text"
   },
@@ -4224,11 +4224,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Στατιστικά",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Στατιστικά Τιμών",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4368,15 +4368,15 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Τελευταία ενημέρωση στις",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Παρουσιάστηκε σφάλμα κατά τη φόρτωση των στατιστικών.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Η ερώτηση απαντήθηκε!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
