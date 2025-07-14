@@ -1627,7 +1627,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get authorize_button_label => 'Autoriseren';
+  String get authorize_button_label => 'Goedkeuren';
 
   @override
   String get refuse_button_label => 'Weigeren';
@@ -3125,6 +3125,17 @@ class AppLocalizationsNl extends AppLocalizations {
       'Voer de naam van het product in (bijv. Nutella)';
 
   @override
+  String get add_basic_details_product_name_change_main_language_title =>
+      'Change the default language?';
+
+  @override
+  String add_basic_details_product_name_change_main_language_text(
+    String language,
+  ) {
+    return 'Do you want the product\'s default language to be set to ‘$language’?';
+  }
+
+  @override
   String get explanation_section_good_examples => 'Goede voorbeelden';
 
   @override
@@ -3864,7 +3875,6 @@ class AppLocalizationsNl extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count producten',
-      one: '',
     );
     return 'Top $_temp0 downloaden in uw land voor direct scannen';
   }
@@ -4717,7 +4727,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_edit_robotoff_show_proof => 'Toon bewijs';
 
   @override
-  String get product_edit_robotoff_expand_proof => 'Uitbreiden bewijs';
+  String get product_edit_robotoff_expand_proof => 'Bewijs uitklappen';
 
   @override
   String get product_page_tab_raw_data => 'Raw data';
@@ -4739,7 +4749,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String item_count(int count) {
-    return '$count artikelen';
+    return '$count items';
   }
 
   @override

@@ -209,7 +209,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Help improve Open Food Facts in your country';
+      'Ülkenizde Open Food Facts\'in iyileştirilmesine yardımcı olun';
 
   @override
   String get sign_out => 'Çıkış yap';
@@ -504,7 +504,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Sadakat kartı verilerinizin GDPR kapsamında dışa aktarılmasını talep ederek fiyatlara katkıda bulunun';
 
   @override
   String get tap_to_answer => 'Soruları yanıtlamak için buraya dokunun';
@@ -560,7 +560,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get myPreferences_settings_title => 'Uygulama Ayarları';
 
   @override
-  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
+  String get myPreferences_settings_subtitle => 'Karanlık mod, Diller…';
 
   @override
   String get myPreferences_food_title => 'Yiyecek tercihleri';
@@ -633,7 +633,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get search => 'Ara';
 
   @override
-  String get search_store => 'Search for a store';
+  String get search_store => 'Bir mağaza arayın';
 
   @override
   String get tap_for_more => 'Daha fazla bilgi görmek için dokunun…';
@@ -651,7 +651,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get label_refresh => 'Yenile';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'Yeniden yükle';
 
   @override
   String get image => 'Resim';
@@ -661,18 +661,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (this image may be outdated)';
+    return '$imageType (bu görsel güncelliğini yitirmiş olabilir)';
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'güncelliğini yitirmiş olabilir';
 
   @override
   String get ingredients => 'Malzemeler';
 
   @override
   String get ingredients_editing_instructions =>
-      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
+      'Orijinal sıralamayı koruyun. Belirtildiğinde yüzdeyi belirtin. Virgül veya tire ile ayırın ve bir bileşenin içeriklerini parantez içinde belirtin.';
 
   @override
   String get ingredients_editing_error => 'Malzemeler kaydedilemedi.';
@@ -708,7 +708,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get nutrition_facts_photo => 'Besin değerleri fotoğrafı';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'Besin Değerlerini Düzenle';
 
   @override
   String get packaging_information => 'Paketleme bilgileri';
@@ -734,11 +734,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get new_product => 'Yeni ürün';
 
   @override
-  String get new_product_found_title => 'New product found!';
+  String get new_product_found_title => 'Yeni ürün bulundu!';
 
   @override
   String get new_product_found_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Ortak veritabanımız **3 milyondan fazla** ürünü içeriyor, ancak bu barkod mevcut değil: ';
 
   @override
   String get new_product_found_button => 'Bu ürünü ekle';
@@ -752,11 +752,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get new_product_dialog_description =>
-      'Please take photos of the packaging to add this product to our common database';
+      'Bu ürünü ortak veritabanımıza eklemek için lütfen ambalajın fotoğraflarını çekin';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'An illustration with unknown Nutri-Score and Green Score';
+      'Bilinmeyen Nutri-Score ve Green Score\'a sahip bir çizim';
 
   @override
   String get front_packaging_photo_button_label => 'Ürünün önden bir fotoğrafı';
@@ -789,7 +789,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Görüntüyü sunucumuza göndermeden önce yerel olarak işleyemiyoruz. Lütfen daha sonra tekrar deneyin veya sorun devam ederse bizimle iletişime geçin.';
 
   @override
-  String get crop_page_action_retake => 'Retake a photo';
+  String get crop_page_action_retake => 'Fotoğrafı yeniden çek';
 
   @override
   String get crop_page_too_small_image_title => 'Resim çok küçük!';
@@ -859,15 +859,15 @@ class AppLocalizationsTr extends AppLocalizations {
       'Gıda kategorisini ve besin değerlerini doldurarak alın';
 
   @override
-  String get new_product_title_environmental_score => 'Compute the Green Score';
+  String get new_product_title_environmental_score => 'Green-Score\'u hesapla';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Get it by filling at least a category';
+      'En azından bir kategoriyi doldurarak bunu elde edin';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Make Green Score computation more precise with origins, packaging & more';
+      'Green-Score hesaplamasını köken, paketleme ve daha fazlasını girerek tutarlılaştırın';
 
   @override
   String get new_product_title_nova =>
@@ -904,19 +904,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get hey_incomplete_product_message =>
-      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'Nutri-Score, Green Score ve Ultra-processing (NOVA)\'ı hesaplamak için ŞİMDİ 3 soruyu yanıtlamak için tıklayın!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tap now to answer 2 questions to help analyze this cosmetic!';
+      'Bu kozmetiği analiz etmemize yardımcı olacak 2 soruyu yanıtlamak için hemen tıklayın!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tap now to answer 3 questions to help analyze this pet food product!';
+      'Bu evcil hayvan maması ürününü analiz etmemize yardımcı olacak 3 soruyu yanıtlamak için hemen tıklayın!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tap now to help complete this product!';
+      'Bu ürünü tamamlamaya yardımcı olmak için hemen tıklayın!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
@@ -980,7 +980,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Eksik besin değerlerini ekle';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces => 'Eksik ürün izlerini ekleyin';
 
   @override
   String get score_add_missing_product_category =>
@@ -1007,7 +1007,8 @@ class AppLocalizationsTr extends AppLocalizations {
       'Eksik ürün mağazalarını ekleyin';
 
   @override
-  String get score_add_missing_product_brands => 'Add missing product brands';
+  String get score_add_missing_product_brands =>
+      'Eksik ürün markalarını ekleyin';
 
   @override
   String get score_update_nutrition_facts =>
@@ -1017,11 +1018,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get nutrition_page_title => 'Besin Değerleri';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'Besin değeri bilgileri';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+      'Ürün üzerinde belirtilen değerler:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Evet';
@@ -1030,24 +1031,24 @@ class AppLocalizationsTr extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Hayır';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'Fotoğrafı aç';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Good practices: Nutritional information';
+      'İyi uygulamalar: Besin değeri bilgileri';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'Bazen besin değerleri **ambalajda** veya ürünle birlikte verilen bir belgede belirtilmez. Bu durumda ve yalnızca bu durumda, değeri **HAYIR** olarak ayarlayabilirsiniz.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'Besin değerleri:';
 
   @override
   String get nutrition_page_per_100g => '100g başına';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
+  String get nutrition_page_per_100g_100ml => '100g/ml başına';
 
   @override
   String get nutrition_page_per_serving => 'porsiyon başına';
@@ -1060,31 +1061,31 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'Bir porsiyon boyutu girin (örneğin: 100g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'İyi uygulamalar: Porsiyon boyutu';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Bu değer, **her bir besin öğesinin porsiyon başına orantılı olarak hesaplanmasına** yardımcı olur.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**İzin verilen birimler** şunlardır: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 g**, **60g** veya **60 G** (ilkini tercih edin)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 ml** veya **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Invalid unit';
+      'Geçersiz birim';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1092,15 +1093,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'Geçersiz birimler';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **şeker** ve 2 **bisküvi**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'Eksik ünite';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
@@ -1117,10 +1118,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Use the product quantity as serving size';
+      'Ürün miktarını porsiyon boyutu olarak kullanın';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'Fotoğraf yüklenemiyor';
 
   @override
   String get more_photos => 'Daha ilginç fotoğraflar';
@@ -1146,24 +1147,25 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Image taken on $date';
+    return 'Görüntü ${date}tarihinde çekildi';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Image taken on $date. This image may be outdated';
+    return 'Görüntü ${date}tarihinde çekildi. Bu görüntü güncelliğini yitirmiş olabilir.';
   }
 
   @override
-  String get product_image_outdated => 'This image may be outdated';
+  String get product_image_outdated =>
+      'Bu görüntü güncelliğini yitirmiş olabilir';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'This image may be outdated';
+      'Bu görüntü güncelliğini yitirmiş olabilir';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
+      'Bu görüntü bir yıldan uzun süre önce çekildi.\n**Lütfen güncel olduğundan emin olun**.\n\nBu **sadece bir uyarı**. İçerik hala aynıysa, bu mesajı görmezden gelebilirsiniz.';
 
   @override
   String product_image_action_replace_photo(String type) {
@@ -1190,17 +1192,17 @@ class AppLocalizationsTr extends AppLocalizations {
       'Ürün fotoğraflarından seçin';
 
   @override
-  String get product_image_details_label => 'Information about the photo';
+  String get product_image_details_label => 'Fotoğraf hakkında bilgi';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'Yapımcıdan';
 
   @override
   String get product_image_details_contributor => 'Katkı sağlayan';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Contributor (producer)';
+      'Katkıda bulunan (yapımcı)';
 
   @override
   String get product_image_details_date => 'Tarih';
@@ -1214,7 +1216,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homepage_main_card_subheading =>
-      '**Scan** a barcode or\n**search** for a product';
+      'Bir barkodu **tarayın** veya bir ürün için\n**arama** yapın';
 
   @override
   String get homepage_main_card_search_field_hint => 'Bir ürün arayın';
@@ -1267,7 +1269,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get product_tags_title => 'Product properties';
+  String get product_tags_title => 'Ürün özellikleri';
 
   @override
   String get no_product_tags_found_message =>
@@ -1277,45 +1279,45 @@ class AppLocalizationsTr extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'Özellikler ekle';
 
   @override
-  String get add_edit_tags => 'Add or edit properties';
+  String get add_edit_tags => 'Özellikleri ekleyin veya düzenleyin';
 
   @override
-  String get edit_tag => 'Edit property';
+  String get edit_tag => 'Özelliği düzenle';
 
   @override
-  String get remove_tag => 'Remove property';
+  String get remove_tag => 'Özelliği Kaldır';
 
   @override
-  String get tag_key => 'Property';
+  String get tag_key => 'Özellik';
 
   @override
-  String get tag_key_uneditable => 'Property (uneditable)';
+  String get tag_key_uneditable => 'Özellik (düzenlenemez)';
 
   @override
-  String get tag_key_input_hint => 'Input a property';
+  String get tag_key_input_hint => 'Bir özellik girin';
 
   @override
   String get tag_value => 'Değer';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_value_input_hint => 'Bir değer girin';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_key_item => 'Özellik:';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_value_item => 'Değer:';
 
   @override
   String get tag_key_explanations =>
-      'A key must be lowercase and without any spaces.';
+      'Şifre küçük harfli olmalı ve boşluk içermemelidir.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'A tag with a property $property already exists!';
+    return '$property özelliğine sahip bir etiket zaten mevcut!';
   }
 
   @override
@@ -1333,7 +1335,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
+      'Bu özellik yalnızca kategorisi olan ürünler için kullanılabilir.\n\nKategori eklemek için lütfen ürünü düzenleyin.';
 
   @override
   String get product_improvement_add_category =>
@@ -1357,7 +1359,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
+      'Green Score, içeriklerin kökenlerini hesaba katar. Lütfen içerik listesinin ve/veya herhangi bir köken belirtisinin fotoğrafını çekin veya ürünü düzenleyin, böylece dikkate alınabilirler.';
 
   @override
   String get country_chooser_label => 'Lütfen bir ülke seçin';
@@ -1500,24 +1502,24 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count selected products',
-      one: 'One selected product',
-      zero: 'No selected product',
+      other: '$count seçili ürünler',
+      one: 'Bir seçili ürün',
+      zero: 'Seçili ürün yok',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Compare selected products';
+  String get compare_products_mode => 'Seçili ürünleri karşılaştırın';
 
   @override
-  String get delete_products_mode => 'Delete selected products';
+  String get delete_products_mode => 'Seçili ürünleri sil';
 
   @override
-  String get select_all_products_mode => 'Select all products';
+  String get select_all_products_mode => 'Tüm ürünleri seçin';
 
   @override
-  String get select_none_products_mode => 'Select none';
+  String get select_none_products_mode => 'Hiçbirini seçme';
 
   @override
   String get compare_products_appbar_title => 'Ürünleri karşılaştırın';
@@ -1533,7 +1535,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get connect_with_us => 'Bizimle iletişime geçin';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'Bizi TikTok\'ta takip et';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
@@ -1551,13 +1553,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'Bizi Mastodon\'da takip edin';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'Bizi BlueSky\'da takip edin';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
@@ -1814,66 +1816,66 @@ class AppLocalizationsTr extends AppLocalizations {
   String get permission_photo_denied => 'Kamera erişimi verilmedi';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'Ürün resimlerini göster';
 
   @override
   String get edit_product_label => 'Ürünü Düzenle';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Düzenlemeleriniz yükleniyor…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
+      'Düzenlemeleriniz **arka planda** (veya hata durumunda daha sonra) gönderiliyor.\nDiğer ürün alanlarını düzenlemeye devam edebilirsiniz.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Your edits are being **sent in the background** (or later in case of error).';
+      'Düzenlemeleriniz **arka planda** (veya hata durumunda daha sonra) gönderiliyor.';
 
   @override
   String get edit_product_label_short => 'Düzenle';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'How to enter \"$value\"?';
+    return '\"$value\" nasıl girilir?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Please enter a non-empty value!';
+      'Lütfen boş olmayan bir değer girin!';
 
   @override
-  String get edit_product_form_item_error_existing =>
-      'This value is already there!';
+  String get edit_product_form_item_error_existing => 'Bu değer zaten var!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand => 'Yeni bir marka ekle';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label => 'Yeni bir etiket ekle';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store => 'Yeni bir mağaza ekle';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin => 'Yeni bir köken ekle';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Add a new traceability code';
+      'Yeni bir izlenebilirlik kodu ekleyin';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country => 'Yeni bir ülke ekle';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category =>
+      'Yeni bir kategori ekle';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'Yeni bir iz ekle';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'Öneri ekle';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Öneriyi reddet';
@@ -1907,18 +1909,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Input a label (eg: NutriScore)';
+      'Bir etiket girin (örneğin: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'etiket';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'İyi uygulamalar: Etiketler';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Ürünün **gerçek** ve diğer alanlardan farklı olan herhangi bir özelliği.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1926,7 +1928,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Belçika\'da üretildi, Britanya\'da üretildi…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -1934,28 +1936,28 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'Lif açısından zengin, demir kaynağı…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'Adil ticaret, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Mağazalar';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'Bir mağaza girin';
 
   @override
   String get edit_product_form_item_stores_type => 'mağaza';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'İyi uygulamalar: Mağazalar';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'Ürünü satın aldığınız mağazayı girin.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -1974,70 +1976,70 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Input an origin (eg: Germany)';
+      'Bir köken girin (örneğin: Almanya)';
 
   @override
   String get edit_product_form_item_origins_type => 'ülke';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'İyi uygulamalar: Kökenler';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      '**Ambalaj üzerinde bulabildiğiniz menşei bilgilerini** ekleyin.\nİçerik listesinde doğrudan belirtilen menşeler konusunda endişelenmenize gerek yok.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'Arjantin\'den sığır eti';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'Soya Avrupa Birliği\'nden gelmiyor';
 
   @override
   String get edit_product_form_item_countries_title => 'Ülke';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+      'Bir ülke girin (örneğin: Almanya)';
 
   @override
   String get edit_product_form_item_countries_type => 'ülke';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'İyi uygulamalar: Ülkeler';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**Ürünün yaygın olarak bulunduğu ülkeler** (yabancı ürünlere odaklanan mağazalar hariç).';
 
   @override
   String get edit_product_form_item_emb_codes_title => 'İzlenebilirlik kodları';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Bir kod girin (örn.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
   String get edit_product_form_item_emb_codes_type => 'izlenebilirlik Kodu';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'İyi uygulamalar: İzlenebilirlik kodları';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'Bu bölümde **ambalaj işaretleri**, **tanımlama işaretleri** veya **sağlık işaretleri** ile ilgili kodları girebilirsiniz.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'İzlenebilirlik kodlarına örnekler';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**EC kodları** Avrupa Topluluğu\'nda gıda üreticilerini veya paketleyicilerini tanımlamak için kullanılır:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2045,11 +2047,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: **Fransa**\'nın ülke kodu\n**72.264.002**: coğrafi veriler\n**CE**: Avrupa Topluluğu';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      'Fransa\'da kullanılan **EMB kodları**:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2063,7 +2065,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Bir iz girin (örneğin: Soya fasulyesi)';
 
   @override
   String get edit_product_form_item_categories_title => 'Kategoriler';
@@ -2073,34 +2075,35 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Input a category (eg: Orange juice)';
+      'Bir kategori girin (örneğin: Portakal suyu)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'İyi uygulamalar: Kategoriler';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      '**Yalnızca en spesifik kategoriyi** belirtin.\nÜst kategoriler otomatik olarak eklenecektir.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Kategori eksik mi?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'Bir kategori **otomatik tamamlamada mevcut değilse**, yine de eklemekten çekinmeyin.\nBu, ülkenizde Open Food Facts\'i geliştirmemize yardımcı olacaktır.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Zeytinyağında sardalya bulunuyor';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'Konsantre portakal suyu';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title =>
+      'Kaydetmeden çıkmak mı istiyorsunuz?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
@@ -2119,15 +2122,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'Ekranı sıkıştırarak yakınlaştırın ve uzaklaştırın';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'Fotoğrafı yakınlaştırın ve uzaklaştırın';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      '**Yakınlaştırma hareketini** kullanarak fotoğrafı yakınlaştırabilir veya uzaklaştırabilirsiniz:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Ekle';
@@ -2140,11 +2143,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get edit_product_form_item_remove_item_tooltip => 'Kaldır';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip =>
+      'Düzenlemenizi kaydedin';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+      'Düzenlemenizi iptal edin';
 
   @override
   String get edit_product_form_item_packaging_title =>
@@ -2160,15 +2164,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'İyi uygulamalar: Besin değerleri';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Besin değerleri';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'Öncelikle **değerlerin sağlanıp sağlanmadığını** seçin:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
@@ -2176,15 +2180,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'Ardından, ambalaj üzerinde belirtilen besin değerlerini girin. Eğer değer yoksa, \"Göz\" simgesine tıklayabilirsiniz.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Eksik alan mı?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'Eğer bir girdi eksikse, eklemek için **\"Artı\" simgesine** tıklayabilirsiniz (örn: D vitamini, magnezyum…).';
 
   @override
   String get edit_product_form_save => 'Düzenle';
@@ -2196,10 +2200,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get edit_product_ingredients_list_title => 'Malzemelerin listesi';
 
   @override
-  String get edit_product_packaging_photo_title => 'Packaging photo';
+  String get edit_product_packaging_photo_title => 'Ambalaj fotoğrafı';
 
   @override
-  String get edit_product_packaging_list_title => 'Packaging list';
+  String get edit_product_packaging_list_title => 'Paketleme listesi';
 
   @override
   String get no_data_available => 'Hiç veri yok';
@@ -2208,7 +2212,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get product_field_website_title => 'Web sitesi';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'Kökenleri Düzenle';
 
   @override
   String get completed_basic_details_btn_text => 'Temel bilgileri tamamlayın';
@@ -2240,7 +2244,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      '\"Malzemeleri çıkar\" özelliğini kullanabilmek için öncelikle fotoğrafın yüklenmesi gerekmektedir.\n\nLütfen birkaç saniye bekleyin veya manuel olarak girin.';
 
   @override
   String get edit_ingredients_refresh_photo_btn_text => 'Fotoğrafı yenileyin';
@@ -2249,11 +2253,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get edit_packaging_extract_btn_text => 'Fotoğraftan ambalajı\nçıkarın';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
+  String get edit_packaging_extract_btn_text_short => 'Ambalajı çıkar';
 
   @override
-  String get edit_packaging_extracting_btn_text =>
-      'Extracting packaging from the photo';
+  String get edit_packaging_extracting_btn_text => 'Fotoğraftan ambalajı çıkar';
 
   @override
   String get edit_packaging_loading_photo_btn_text => 'Fotoğraf yükleniyor…';
@@ -2264,7 +2267,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      '\"Ambalajı çıkar\" özelliğini kullanabilmek için öncelikle fotoğrafın yüklenmesi gerekmektedir.\n\nLütfen birkaç saniye bekleyin veya manuel olarak girin.';
 
   @override
   String get edit_packaging_refresh_photo_btn_text => 'Fotoğrafı yenileyin';
@@ -2273,11 +2276,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get edit_ocr_extract_failed => 'Resimdeki metin algılanamadı.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'Fotoğraf yok!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'In order to use the text extraction feature, you must first take a photo.';
+      'Metin çıkarma özelliğini kullanabilmeniz için öncelikle bir fotoğraf çekmeniz gerekiyor.';
 
   @override
   String get user_list_dialog_new_title => 'Ürünlerin yeni listesi';
@@ -2326,7 +2329,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get user_list_name_error_same => 'Bu aynı isim';
 
   @override
-  String get user_list_name_input_hint => 'Name of the list';
+  String get user_list_name_input_hint => 'Listenin adı';
 
   @override
   String get try_again => 'Tekrar Dene';
@@ -2464,11 +2467,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Geçmişi temizleyecek ve oraya 3 ürün koyacak';
 
   @override
-  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
+  String get dev_preferences_news_custom_url_title => 'Haberler için özel URL';
 
   @override
   String get dev_preferences_news_custom_url_subtitle =>
-      'URL of the JSON file:';
+      'JSON dosyasının URL\'si:';
 
   @override
   String get dev_preferences_news_custom_url_empty_value => 'Ayarlanmadı';
@@ -2485,7 +2488,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get product_type_label_food => 'Gıda';
 
   @override
-  String get product_type_label_beauty => 'Personal care';
+  String get product_type_label_beauty => 'Kişisel bakım';
 
   @override
   String get product_type_label_pet_food => 'Evcil hayvan maması';
@@ -2494,19 +2497,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get product_type_label_product => 'Diğer';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Ürün tipi';
 
   @override
-  String get product_type_selection_subtitle =>
-      'Select the type of this product';
+  String get product_type_selection_subtitle => 'Bu ürünün türünü seçin';
 
   @override
   String get product_type_selection_empty =>
-      'You need to select a product type first!';
+      'Öncelikle bir ürün türü seçmeniz gerekiyor!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'You cannot change the product type ($productType)!';
+    return 'Ürün türünü değiştiremezsiniz ($productType)!';
   }
 
   @override
@@ -2518,17 +2520,17 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Fiyat etiketlerini doğrudan galeriden ekleyin';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Resimlerinizi seçtikten sonra onları düzenleyemezsiniz!';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Birden Fazla Fiyat Etiketi';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'Toplu Kanıt Yüklemesi';
 
   @override
   String get prices_generic_title => 'Fiyatlar';
@@ -2538,8 +2540,8 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Add $count prices',
-      one: 'Add a price',
+      other: '$count fiyat ekleyin',
+      one: 'Bir fiyat ekleyin',
     );
     return '$_temp0';
   }
@@ -2549,8 +2551,8 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Send $count prices',
-      one: 'Send the price',
+      other: '$count fiyatlarını gönder',
+      one: 'Fiyatı gönder',
     );
     return '$_temp0';
   }
@@ -2569,7 +2571,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'This barcode ($barcode) is already in the list!';
+    return 'Bu barkod ($barcode) zaten listede!';
   }
 
   @override
@@ -2584,7 +2586,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_enter => 'Enter the Barcode';
+  String get prices_barcode_enter => 'Barkodu girin';
 
   @override
   String get prices_category_enter => 'Barkodsuz ürün';
@@ -2651,10 +2653,10 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: '1 price',
+      other: '$count fiyatlar',
+      one: '1 fiyat',
     );
-    return '$_temp0 for $product';
+    return '$_temp0 için $product';
   }
 
   @override
@@ -2662,16 +2664,16 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count prices',
-      one: 'Only one price',
-      zero: 'No price yet',
+      other: 'Tüm $count fiyatları',
+      one: 'Sadece bir fiyat',
+      zero: 'Henüz fiyat yok',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize prices (total: $total)';
+    return 'Son $pageSize fiyatları (toplam: $total)';
   }
 
   @override
@@ -2681,32 +2683,32 @@ class AppLocalizationsTr extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
+    return 'Fiyat: $price / Mağaza: \"$location\" / $date tarihinde \"$user\" tarafından yayınlandı';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Open proofs of \"$user\"';
+    return '\"$user\" ın açık kanıtları';
   }
 
   @override
-  String get prices_open_proof => 'Open price proof';
+  String get prices_open_proof => 'Açık fiyat kanıtı';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count proofs',
-      one: 'Only one proof',
-      zero: 'No proof yet',
+      other: 'Tüm $count kanıtlar',
+      one: 'Sadece bir kanıt',
+      zero: 'Henüz kanıt yok',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize proofs (total: $total)';
+    return 'Son $pageSize kanıt (toplam: $total)';
   }
 
   @override
@@ -2716,7 +2718,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize locations (total: $total)';
+    return 'En iyi $pageSize konum (toplam: $total)';
   }
 
   @override
@@ -2724,9 +2726,9 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count proofs',
-      one: 'One proof',
-      zero: 'No proof',
+      other: '$count kanıt',
+      one: 'Bir kanıt',
+      zero: 'Kanıt yok',
     );
     return '$_temp0';
   }
@@ -2736,9 +2738,9 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'No product',
+      other: '$count ürün',
+      one: 'Bir ürün',
+      zero: 'Ürün yok',
     );
     return '$_temp0';
   }
@@ -2748,9 +2750,9 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count users',
-      one: 'One user',
-      zero: 'No user',
+      other: '$count kullanıcı',
+      one: 'Bir kullanıcı',
+      zero: 'Kullanıcı yok',
     );
     return '$_temp0';
   }
@@ -2760,9 +2762,9 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: 'One price',
-      zero: 'No price',
+      other: '$count fiyatlar',
+      one: 'Tek fiyat',
+      zero: 'Fiyat yok',
     );
     return '$_temp0';
   }
@@ -2811,7 +2813,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get prices_location_search_broader =>
-      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
+      'Aradığınızı bulamadınız mı? Daha kapsamlı bir arama yapalım!';
 
   @override
   String get prices_proof_subtitle => 'Kanıt';
@@ -2839,45 +2841,45 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'Fiyatlar **kamuya açık olacak** ve bahsedilen mağaza da belirtilecek.\n\nBu, Open Food Facts takma adınızı bilen kişilerin şunları yapmasına olanak tanıyabilir:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+      'Hangi bölgede yaşadığınızı tahmin etmek';
 
   @override
   String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+      'Ne satın aldığınızı bilmek';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'Eğer bu durumdan rahatsızsanız lütfen takma adınızı değiştirin veya yeni bir Open Food Facts hesabı oluşturup uygulamaya bu hesapla giriş yapın.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'Reddediyorum';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'Kabul ediyorum';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'Para birimini değiştir?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'Mevcut para biriminiz **$currency**. Bunu **$newCurrency** olarak değiştirmek ister misiniz?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'Evet, ${newCurrency}kullanın';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'Hayır, $currency\'ı tut';
   }
 
   @override
@@ -2902,18 +2904,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get dev_mode_section_experimental_features => 'Deneysel özellikler';
 
   @override
-  String get dev_preferences_show_folksonomy_title => 'Exclude Folksonomy';
+  String get dev_preferences_show_folksonomy_title => 'Folksonomiyi hariç tut';
 
   @override
-  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
+  String get dev_mode_hide_environmental_score_title =>
+      'Green-Score\'u hariç tut';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Use a spellchecker for OCR screens';
+      'OCR ekranları için bir yazım denetleyicisi kullanın';
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Ingredients and packaging)';
+      '(İçindekiler ve ambalaj)';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -2957,7 +2960,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get user_search_proofs_title => 'Bedellerim';
 
   @override
-  String get user_search_proof_title => 'My proof';
+  String get user_search_proof_title => 'Kanıtım';
 
   @override
   String user_any_search_prices_title(String user) {
@@ -2976,23 +2979,24 @@ class AppLocalizationsTr extends AppLocalizations {
       'En çok fiyatı olan mağazalar';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant => 'Fiyat Katkı Asistanı';
 
   @override
-  String get prices_validation_assistant => 'Price Validation Assistant';
+  String get prices_validation_assistant => 'Fiyat Doğrulama Asistanı';
 
   @override
-  String get prices_challenges_page => 'Challenges';
+  String get prices_challenges_page => 'Meydan Okumalar';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'Birden Fazla Kanıt Ekle';
 
   @override
-  String get all_search_prices_top_location_single_title => 'Prices in a store';
+  String get all_search_prices_top_location_single_title =>
+      'Mağazadaki fiyatlar';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Products with the most prices';
+      'En çok fiyatı olan ürünler';
 
   @override
   String get all_search_to_be_completed_title => 'Tamamlanacak tüm ürünler';
@@ -3050,7 +3054,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Select an image by clicking on it';
+      'Üzerine tıklayarak bir resim seçin';
 
   @override
   String get edit_photo_select_existing_download_label =>
@@ -3076,62 +3080,74 @@ class AppLocalizationsTr extends AppLocalizations {
   String get product_name => 'Ürün adı';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'Ürün Adları';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+      'Yeni bir çeviri ekle';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Doğrulamadan önce lütfen yalnızca **ambalaj üzerinde dil mevcutsa** bir çeviri eklediğinizden emin olun';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'View front photo';
+  String get add_basic_details_product_name_open_photo =>
+      'Ön fotoğrafı görüntüle';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Take front photo';
+  String get add_basic_details_product_name_take_photo =>
+      'Önden fotoğraf çekin';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Input the name of the product (eg: Nutella)';
+      'Ürünün adını girin (örneğin: Nutella)';
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get add_basic_details_product_name_change_main_language_title =>
+      'Change the default language?';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String add_basic_details_product_name_change_main_language_text(
+    String language,
+  ) {
+    return 'Do you want the product\'s default language to be set to ‘$language’?';
+  }
+
+  @override
+  String get explanation_section_good_examples => 'İyi örnekler';
+
+  @override
+  String get explanation_section_bad_examples => 'Kötü örnekler';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'İyi uygulamalar: Ürün adı';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
+      'Ürün adı, **ambalaj üzerinde basılı olan ana isimdir**. Tescilli bir marka olabilir.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
+      '**Not:** Ambalaj üzerinde dil mevcut değilse lütfen çeviri eklemeyin.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
-  String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+  String get add_basic_details_product_name_help_good_examples_2 => 'Ketçap';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Don\'t include the brand in the name';
+      'Markayı isme dahil etmeyin';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Tomato Ketchup **by Heinz**';
+      'Ketçap **Heinz\'den**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Don\'t use symbols ®, ™, © or similar';
+      '®, ™, © veya benzeri sembolleri kullanmayın';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3142,8 +3158,8 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count other translations',
-      one: '$count other translation',
+      other: '$count diğer çeviriler',
+      one: '$count diğer çeviriler',
     );
     return '$_temp0';
   }
@@ -3152,47 +3168,49 @@ class AppLocalizationsTr extends AppLocalizations {
   String get brand_name => 'Marka adı';
 
   @override
-  String get brand_names => 'Brand names';
+  String get brand_names => 'Marka isimleri';
 
   @override
   String get add_basic_details_brand_name_error => 'Lütfen marka adını girin';
 
   @override
-  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
+  String get add_basic_details_brand_names_hint =>
+      'Marka girin (örneğin: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'İyi uygulamalar: Markalar';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      '**Ürünün tüm markalarını** girin.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title => 'Ana marka';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      'Genellikle ön pakette açıkça gösterilen **ana marka**, **önce girilmelidir**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title =>
+      'Diğer markalar';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      '**Büyük bir şirket tarafından** satıldığında:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Actimel**, **Danone** tarafından satılmaktadır';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Markası **birden fazla dile çevrilmiş** olarak satıldığında:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Nature Valley** bazen **Val Nature** olarak yazılır';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3206,27 +3224,27 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Input the weight and if needed the quantity (eg : 4x100g)';
+      'Ağırlığı ve gerekiyorsa miktarı girin (örneğin: 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'İyi uygulamalar: Miktar';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Ürün üzerinde belirtilen değeri kopyalayın ve **birimleri unutmayın**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230g** veya **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (6 yumurta için)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150g**\n(her biri 150g olan 3 kutulu bir ürün için)';
 
   @override
   String get barcode => 'Barkod';
@@ -3360,17 +3378,17 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Have a look at this product on Open Beauty Facts: $url';
+    return 'Open Beauty Facts\'te bu ürüne bir göz atın: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Have a look at this product on Open PetFood Facts: $url';
+    return 'Bu ürüne Open PetFood\'da bir göz atın. Bilgiler: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Have a look at this product on Open Products Facts: $url';
+    return 'Bu ürüne Open Products Facts\'te bir göz atın. Bilgiler: $url';
   }
 
   @override
@@ -3393,7 +3411,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get add_price_queued =>
-      'The price will be sent to the server as soon as possible.';
+      'Fiyat en kısa sürede sunucuya gönderilecektir.';
 
   @override
   String get background_task_title_full_refresh =>
@@ -3420,11 +3438,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
+      'Aramada bir filtre göster';
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
+      'Arama sitesini seçin: Open Food Facts, Open Beauty Facts, Açık Open Pet Food Facts veya Open Products Facts';
 
   @override
   String get no_internet_connection => 'İnternet bağlantısı yok';
@@ -3453,7 +3471,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get open_product_website => 'Open this product on the website';
+  String get open_product_website => 'Bu ürünü web sitesinde açın';
 
   @override
   String get language_picker_label => 'Diliniz';
@@ -3462,7 +3480,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get country_picker_label => 'Ülkeniz';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'Para biriminiz';
 
   @override
   String get help_with_openfoodfacts => 'OpenFoodFacts ile Yardım';
@@ -3541,7 +3559,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get portion_calculator_computation_error =>
-      'Missing data. Calculation could not be performed.';
+      'Veriler eksik. Hesaplama gerçekleştirilemedi.';
 
   @override
   String portion_calculator_result_title(int grams) {
@@ -3575,7 +3593,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get user_picture_source_remember => 'Seçimimi hatırla';
 
   @override
-  String get user_picture_source_ask => 'Ask each time';
+  String get user_picture_source_ask => 'Her zaman sor';
 
   @override
   String get robotoff_continue => 'Devam et';
@@ -3595,18 +3613,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get show_password => 'Şifreyi Göster';
 
   @override
-  String get owner_field_info_title => 'Producer provided values';
+  String get owner_field_info_title => 'Üretici tarafından sağlanan değerler';
 
   @override
   String get owner_field_info_message =>
-      'With that logo we highlight data provided by the producer, and that may not be editable.';
+      'Bu logo ile üreticinin sağladığı ve düzenlenemeyen veriler olduğunu belirtiyoruz.';
 
   @override
-  String get owner_field_info_close_button => 'Close this info';
+  String get owner_field_info_close_button => 'Bu bilgiyi kapat';
 
   @override
   String get owner_field_image =>
-      'This image is provided by the producer. It may not be editable.';
+      'Bu görsel yapımcı tarafından sağlanmıştır. Düzenlenemez.';
 
   @override
   String get edit_packagings_title => 'Ambalaj bileşenleri';
@@ -3893,10 +3911,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get language_selector_title => 'Dilinizi seçiniz:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'Seçilen diller';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used => 'Sıklıkla kullanılan';
 
   @override
   String get action_delete_list => 'Sil';
@@ -3969,11 +3987,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get environmental_score_e => 'Green Score E';
 
   @override
-  String get environmental_score_unknown => 'Unknown Green Score';
+  String get environmental_score_unknown => 'Bilinmeyen Green-Score';
 
   @override
   String get environmental_score_not_applicable =>
-      'Green Score is not applicable';
+      'Green-Score uyarlanabilir değil';
 
   @override
   String get nova_group_generic => 'Ultra işleme - NOVA grupları';
@@ -4017,7 +4035,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'Nutri-Score\'un yeni hesaplaması: Neler yeni?';
 
   @override
   String get contact_title_pro_page =>
@@ -4036,7 +4054,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get contact_title_newsletter => 'Haber bültenimize abone olun';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar => 'Topluluk takvimimize abone olun';
 
   @override
   String get hunger_games_loading_line1 =>
@@ -4066,11 +4084,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Details for $pageName with $productName';
+    return '$pageName ile ${productName}için ayrıntılar';
   }
 
   @override
-  String get guide_title => 'Guide';
+  String get guide_title => 'Rehber';
 
   @override
   String get guide_share_label => 'Paylaş';
@@ -4079,8 +4097,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get guide_nutriscore_v2_enabled => 'true';
 
   @override
-  String get guide_nutriscore_v2_title =>
-      'The Nutri-Score is evolving: explanations!';
+  String get guide_nutriscore_v2_title => 'Nutri-Score gelişiyor: açıklamalar!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
@@ -4088,100 +4105,99 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
+      'Nutri-Score, **gıdaların besin kalitesi** hakkında sizi bilgilendirmeyi amaçlayan bir logodur.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
+      'Renk kodu, **en sağlıklı** ürünler için koyu yeşilden (**A**) **daha az sağlıklı** ürünler için koyu kırmızıya (**E**) kadar değişmektedir.';
 
   @override
-  String get guide_nutriscore_v2_nutriscore_a_caption =>
-      'The Nutri-Score A logo';
+  String get guide_nutriscore_v2_nutriscore_a_caption => 'Nutri-Score A logosu';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
+  String get guide_nutriscore_v2_why_v2_title => 'Nutri-Score neden gelişiyor?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
-      'The Nutri-Score formula **is evolving** to provide better recommendations:';
+      'Nutri-Score formülü daha iyi öneriler sunmak için **gelişiyor**:';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_title =>
-      'Better evaluate all drinks';
+      'Tüm içecekleri daha iyi değerlendir';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
+      'Yeni algoritmada **süt**, **şeker ilaveli sütlü içecekler** ve **bitkisel** içeceklerin karşılaştırmalı notaları daha iyi ayırt edildi.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_title =>
-      'Better ranking of drinks';
+      'İçeceklerin daha iyi sıralanması';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
+      '**Şeker içeriği** daha iyi hesaba katılır ve **az şekerli** içecekler tercih edilir.\\n**Tatlandırıcılar da cezalandırılacak**: Diyet sodaların derecesi B\'den C ile E arasına düşürülecek. Su, önerilen içecek olmaya devam ediyor.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_title =>
-      'Salt and sugar penalized';
+      'Tuz ve şeker cezalandırıldı';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
+      '**Çok tatlı** veya **çok tuzlu** olan ürünlerin **puanı daha da düşürülecektir**.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_title =>
-      'Hierarchy within oils and fishes';
+      'Yağlar ve balıklar arasında hiyerarşi';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
+      'Bazı **yağlı balıkların** ve **iyi yağlardan zengin yağların** derecelendirmesi artacaktır.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Kırmızı eti sınırlayın';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
+      '**Kırmızı et tüketimi sınırlandırılmalıdır**. Bu nedenle **kümes hayvanları** nispeten daha iyi bir sıralamaya sahip olacaktır.';
 
   @override
   String get guide_nutriscore_v2_new_logo_title =>
-      'How to differentiate old Nutri-Score and new calculation?';
+      'Eski Nutri-Score ile yeni hesaplama nasıl ayırt edilir?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
-      'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
+      'Artık logoda, bunun gerçekten yeni bir hesaplama olduğunu belirtmek için \"**Yeni hesaplama**\" ifadesi yer alabilir.';
 
   @override
   String get guide_nutriscore_v2_new_logo_image_caption =>
-      'The logo of the new Nutri-Score';
+      'Yeni Nutri-Score\'un logosu';
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'Yeni Nutri-Score hesaplamasını nerede bulabilirim?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'Nutri-Score 7 ülkede uygulanıyor: Fransa, Almanya, Belçika, İspanya, Lüksemburg, Hollanda ve İsviçre.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Üreticilerin, kararnamenin imzalanmasından itibaren en geç **2 yıl** içinde eski hesaplamayı yenisiyle **değiştirmeleri** için süreleri bulunuyor.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
+      'Üreticiler puanı güncellememiş olsa bile, beklemeden **OpenFoodFacts uygulamasında** yeni hesaplamayı bulabilirsiniz.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
+  String get guide_nutriscore_v2_unchanged_title => 'Değişmeyen şey nedir?';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
+      'Nutri-Score, **besin kalitesini ölçmek** için tasarlanmış bir puandır. **NOVA grubunun** **ultra işlenmiş gıdalar** (uygulamada da mevcuttur) konusundaki çalışmalarını **tamamlayıcı** niteliktedir.';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'For manufacturers, the display of the Nutri-Score **remains optional**.';
+      'Üreticiler için Nutri-Score\'un görüntülenmesi **isteğe bağlı** kalmaktadır.';
 
   @override
   String get guide_nutriscore_v2_share_link =>
@@ -4195,23 +4211,23 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get prices_feedback_form =>
-      'Click here to send us your feedback about this new feature!';
+      'Bu yeni özellik hakkında bize geri bildiriminizi göndermek için buraya tıklayın!';
 
   @override
-  String get menu_button_list_actions => 'Select an action';
+  String get menu_button_list_actions => 'Bir eylem seçin';
 
   @override
-  String get error_loading_photo => 'Error loading photo';
+  String get error_loading_photo => 'Fotoğraf yüklenirken hata oluştu';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => '…olarak kullanın';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip => 'Bu resmi…olarak kullan';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Use this picture as… ($language)';
+    return 'Bu resmi… ($language) olarak kullanın';
   }
 
   @override
@@ -4219,20 +4235,20 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Details of this photo';
+      'Bu fotoğrafın detayları';
 
   @override
-  String get photo_viewer_details_title => 'Details of the photo';
+  String get photo_viewer_details_title => 'Fotoğrafın detayları';
 
   @override
   String get photo_viewer_details_contributor_title => 'Katkı sağlayan';
 
   @override
-  String get photo_viewer_details_size_title => 'Size';
+  String get photo_viewer_details_size_title => 'Boyut';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height pixels';
+    return '$width x $height piksel';
   }
 
   @override
@@ -4242,14 +4258,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'Compatible';
+  String get product_page_compatibility_score => 'Uyumlu';
 
   @override
-  String get user_lists_action_multi_select => 'Multi-select';
+  String get user_lists_action_multi_select => 'Çoklu seçim';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Your compatibility score: $score%';
+    return 'Uyumluluk puanınız: $score%';
   }
 
   @override
@@ -4260,103 +4276,105 @@ class AppLocalizationsTr extends AppLocalizations {
       'Malzemelerin resmi';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
+  String get product_image_nutrition_accessibility_label =>
+      'Besin değerleri fotoğrafı';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Packaging picture';
+  String get product_image_packaging_accessibility_label => 'Ambalaj fotoğrafı';
 
   @override
-  String get product_image_other_accessibility_label => 'Other picture';
+  String get product_image_other_accessibility_label => 'Diğer resim';
 
   @override
-  String get product_image_outdated_message => 'This picture may be outdated';
+  String get product_image_outdated_message =>
+      'Bu resim güncelliğini yitirmiş olabilir';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (this image may be outdated)';
+    return '$type (bu görsel güncelliğini yitirmiş olabilir)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (this image may be locked by the producer)';
+    return '$type (bu görüntü yapımcı tarafından eklenip değişime kapatılmış olabilir)';
   }
 
   @override
-  String get product_image_error => 'Unable to load the image!';
+  String get product_image_error => 'Resim yüklenemedi!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Unable to load the $type (network error?)';
+    return '$type yüklenemedi (ağ hatası?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'No\nimage!';
+  String get product_page_image_no_image_available => 'Görüntü\nyok!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'No picture available for this product';
+      'Bu ürün için resim mevcut değil';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Reorder or hide actions';
+      'Eylemleri yeniden sırala veya gizle';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Edit actions';
+  String get product_page_action_bar_setting_modal_title => 'Eylemleri düzenle';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Move up';
+  String get product_page_action_bar_item_move_up => 'Yukarı git';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Move down';
+  String get product_page_action_bar_item_move_down => 'Aşağı in';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'Eylemi etkinleştir';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'Eylemi devre dışı bırak';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Düzenlemeleriniz yükleniyor…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
+      'Bu sayfada görüntülenen veriler **henüz değişikliklerinizi yansıtmıyor**.\nLütfen birkaç saniye bekleyin…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'Dil ekleyin';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'Barkod $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Remove this product from the carousel';
+  String get carousel_close_tooltip => 'Bu ürünü döngüden kaldır';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'Desteklenmeyen barkod!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'Hay aksi!';
 
   @override
   String get carousel_unsupported_text =>
-      'The barcode scanned is not supported by Open Food Facts!';
+      'Taranan barkod Open Food Facts tarafından desteklenmiyor!';
 
   @override
-  String get carousel_error_header => 'Error!';
+  String get carousel_error_header => 'Hata!';
 
   @override
-  String get carousel_error_title => 'It\'s a bummer!';
+  String get carousel_error_title => 'Çok yazık!';
 
   @override
   String get carousel_error_text_1 =>
-      'We couldn\'t download information on this barcode:';
+      'Bu barkodla ilgili bilgileri indiremedik:';
 
   @override
   String get carousel_error_text_2 =>
-      'Please check your Internet connection or click this button:';
+      'Lütfen internet bağlantınızı kontrol edin veya şu butona tıklayın:';
 
   @override
   String get carousel_error_button => 'Tekrar dene';
@@ -4366,55 +4384,57 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get carousel_unknown_product_title =>
-      'Congratulations!\nYou\'ve found __the rare gem!__';
+      'Tebrikler!\n__Nadir mücevheri buldunuz!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Ortak veritabanımız **3 milyondan fazla** ürünü içeriyor, ancak bu barkod mevcut değil: ';
 
   @override
   String get carousel_unknown_product_button => 'Bu ürünü ekle';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'Bilgiler yükleniyor...';
 
   @override
   String get carousel_loading_title =>
-      'You\'ve just scanned a product with the following barcode:';
+      'Aşağıdaki barkoda sahip bir ürünü taradınız:';
 
   @override
   String get carousel_loading_text =>
-      'We are searching for it in our database of more than **3 million products!**';
+      '**3 milyondan fazla üründen oluşan veritabanımızda bunu arıyoruz!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food =>
+      'Sebzeler, meyveler, dondurulmuş gıdalar…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty =>
+      'Makyaj malzemeleri, sabunlar, diş macunları…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'Köpekler ve kediler için mama…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'Akıllı telefonlar, mobilyalar…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'Ürün fotoğrafı';
 
   @override
   String get photo_field_ingredients => 'İçindekiler fotoğarafı';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'Beslenme fotoğrafı';
 
   @override
   String get photo_field_packaging => 'Paketleme bilgileri fotoğrafı';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'Bu fotoğraf zaten mevcut';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'Bu fotoğraf eksik';
 
   @override
   String get date => 'Tarih';
@@ -4426,67 +4446,67 @@ class AppLocalizationsTr extends AppLocalizations {
   String get photo_rotate_right => 'Sağa döndür';
 
   @override
-  String get photo_undo_action => 'Undo the previous action';
+  String get photo_undo_action => 'Önceki eylemi geri al';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return '$location\'nın dünya haritası';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap contributors';
+      'OpenStreetMap\'e katkıda bulunanlar';
 
   @override
-  String get not_applicable_short => 'N/A';
+  String get not_applicable_short => 'Mevcut değil';
 
   @override
   String get knowledge_panel_warning_text => 'Uyarı';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'Bu Nutri-Score neden paket üzerindekinden farklı?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'İki olası açıklama var:\nİçerik listesi ve/veya besin değerleri güncel değil.\n\nNutri-Score (veya V2) için \"Yeni hesaplama\" özelliğini sunuyoruz. Lütfen paket üzerinde \"Yeni hesaplama\" etiketinin bulunduğundan emin olun.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'İçerikleri kontrol edin';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'Besin değerlerini kontrol edin';
 
   @override
   String url_not_supported(String url) {
-    return 'Unfortunately, we can\'t open the URL:\n$url';
+    return 'Maalesef şu URL\'yi açamıyoruz:\n$url';
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'Dışa Aktar';
 
   @override
-  String get product_list_import => 'Import';
+  String get product_list_import => 'İçe aktar';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'Barkodu görüntüle';
 
   @override
   String get product_footer_action_barcode_short => 'Barkod';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'Web sitesini aç';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'Bildir';
 
   @override
   String get product_footer_action_contributor_guide => 'Yardım';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'Veri kalitesi';
 
   @override
   String get product_page_tab_for_me => 'For me';
@@ -4502,57 +4522,57 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'En iyi $pageSize ürün (toplam: $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'Bu uygulamayı beğeniyor musunuz?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'Daha iyisi yapılabilir';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'Kötü değil';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'Bayıldım!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+      'Uygulamamızı geliştirmemize yardımcı olun';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'Birkaç dakikanız varsa, **gelecekteki güncellemelerde iyileştirme yapabilmemiz** için bu formu yanıtlayabilir misiniz?';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'Formu cevaplayın';
 
   @override
   String get app_review_feedback_modal_later => 'Daha sonra sor';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'YENİ: Resimdeki besin değerlerini otomatik olarak aktarabilirsiniz!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'Şimdi aktar';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_succesful => 'Aktarma başarılı';
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+      'Resimden besin maddeleri aktarılamadı';
 
   @override
   String get prices_discount => 'İndirim';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'İstatistikler';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Fiyat İstatistikleri';
 
   @override
   String get prices_stats_prices_section => 'Fiyatlar';
@@ -4564,13 +4584,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_stats_locations_section => 'Konumlar';
 
   @override
-  String get prices_stats_proofs_section => 'Proofs';
+  String get prices_stats_proofs_section => 'Kanıtlar';
 
   @override
   String get prices_stats_contributors_section => 'Katkıda bulunanlar';
 
   @override
-  String get prices_stats_experiments_section => 'Experiments';
+  String get prices_stats_experiments_section => 'Deneyler';
 
   @override
   String get prices_stats_misc_section => 'Çeşitli';
@@ -4579,16 +4599,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_stats_total => 'Toplam';
 
   @override
-  String get prices_stats_with_barcode => 'With a barcode';
+  String get prices_stats_with_barcode => 'Barkod ile';
 
   @override
-  String get prices_stats_with_category => 'With a category';
+  String get prices_stats_with_category => 'Bir kategori ile';
 
   @override
-  String get prices_stats_with_discount => 'With a discount';
+  String get prices_stats_with_discount => 'İndirimli';
 
   @override
-  String get prices_stats_community => 'Community';
+  String get prices_stats_community => 'Topluluk';
 
   @override
   String get prices_stats_consumption => 'Tüketim';
@@ -4612,7 +4632,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_stats_osm => 'OpenStreetMap';
 
   @override
-  String get prices_stats_online => 'Online';
+  String get prices_stats_online => 'Çevrimiçi';
 
   @override
   String get prices_stats_countries => 'Ülkeler';
@@ -4627,28 +4647,30 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_stats_gdpr_request => 'GDPR talebi';
 
   @override
-  String get prices_stats_shop_import => 'Shop import';
+  String get prices_stats_shop_import => 'Mağaza aktarımı';
 
   @override
-  String get prices_stats_challenges => 'Challenges';
+  String get prices_stats_challenges => 'Meydan Okumalar';
 
   @override
-  String get prices_stats_linked_to_price_tag => 'Prices linked to a price tag';
+  String get prices_stats_linked_to_price_tag =>
+      'Fiyat etiketine bağlı fiyatlar';
 
   @override
-  String get prices_stats_currencies => 'Currencies';
+  String get prices_stats_currencies => 'Para birimleri';
 
   @override
-  String get prices_stats_years => 'Years';
+  String get prices_stats_years => 'Yıllar';
 
   @override
-  String get prices_stats_by_source_title => 'Prices and proofs per source';
+  String get prices_stats_by_source_title =>
+      'Kaynak başına fiyatlar ve kanıtlar';
 
   @override
   String get prices_stats_website => 'Web sitesi';
 
   @override
-  String get prices_stats_mobile_app => 'Mobile app';
+  String get prices_stats_mobile_app => 'Mobil uygulama';
 
   @override
   String get prices_stats_api => 'API';
@@ -4657,14 +4679,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_stats_other => 'Diğer';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Son güncelleme tarihi';
 
   @override
-  String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+  String get prices_stats_error => 'İstatistikler yüklenirken bir hata oluştu.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Soru cevaplandı!';
 
   @override
   String get product_edit_robotoff_proof => 'Kanıt';

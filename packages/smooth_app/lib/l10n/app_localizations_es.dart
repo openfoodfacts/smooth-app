@@ -3134,6 +3134,17 @@ class AppLocalizationsEs extends AppLocalizations {
       'Ingrese el nombre del producto (por ejemplo: Nutella)';
 
   @override
+  String get add_basic_details_product_name_change_main_language_title =>
+      'Change the default language?';
+
+  @override
+  String add_basic_details_product_name_change_main_language_text(
+    String language,
+  ) {
+    return 'Do you want the product\'s default language to be set to ‘$language’?';
+  }
+
+  @override
   String get explanation_section_good_examples => 'Good examples';
 
   @override
