@@ -57,7 +57,8 @@
 </div>
 
 <span class="returntype">void</span>
-<span class="name ">reInit</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="reInit-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span></span></li>
+<span class="name ">reInit</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="reInit-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="reInit-param-backgroundTask">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">backgroundTask</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
       <div class="features">override</div>
@@ -73,8 +74,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-void reInit(Product product) {
+void reInit(final Product product, {final bool backgroundTask = false}) {
   super.reInit(product);
+
+  if (backgroundTask) {
+    return;
+  }
 
   try {
     _suggestionsNotifier.notifyListeners();

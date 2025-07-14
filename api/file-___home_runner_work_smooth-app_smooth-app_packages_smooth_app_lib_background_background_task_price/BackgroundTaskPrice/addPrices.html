@@ -72,6 +72,12 @@ Future&lt;void&gt; addPrices({
   required final int proofId,
   required final LocalDatabase localDatabase,
 }) async {
+  await PriceToOxF.updateOxF(
+    localDatabase: localDatabase,
+    initialBarcodes: barcodes,
+    locationOSMId: locationOSMId,
+    locationOSMType: locationOSMType,
+  );
   for (int i = 0; i &lt; barcodes.length; i++) {
     final String barcode = barcodes[i];
     final bool isProduct = barcode.isNotEmpty;

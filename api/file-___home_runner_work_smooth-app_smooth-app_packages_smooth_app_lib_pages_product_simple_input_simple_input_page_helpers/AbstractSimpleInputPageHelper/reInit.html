@@ -52,7 +52,8 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">reInit</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="reInit-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span></span></li>
+<span class="name ">reInit</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="reInit-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="reInit-param-backgroundTask">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">backgroundTask</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
       
@@ -67,15 +68,19 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void reInit(final Product product) {
+  <pre class="language-dart"><code class="language-dart">void reInit(final Product product, {final bool backgroundTask = false}) {
   this.product = product;
   _terms = List&lt;String&gt;.from(initTerms(this.product));
   _initTerms = List&lt;String&gt;.from(_terms);
   _changed = false;
 
+  if (backgroundTask) {
+    return;
+  }
+
   try {
     robotoffQuestionsNotifier.value.clear();
-    _loadRobotoffQuestions();
+    unawaited(_loadRobotoffQuestions());
   } catch (_) {}
 
   notifyListeners();
