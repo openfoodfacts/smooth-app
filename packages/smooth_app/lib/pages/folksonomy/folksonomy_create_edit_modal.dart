@@ -1,9 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_autocompleter.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
@@ -129,38 +134,46 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             explanation: appLocalizations.tag_key_explanations,
             hasErrors: !isKeyValid,
           ),
-          TextField(
+          SimpleInputTextField(
+            focusNode: FocusNode(),
+            autocompleteKey: UniqueKey(),
+            constraints: const BoxConstraints(maxWidth: double.infinity),
+            tagType: null,
+            hintText: appLocalizations.tag_key_input_hint,
             controller: keyController,
-            autofocus: isKeyEditable,
-            autocorrect: false,
-            readOnly: !isKeyEditable,
-            textInputAction: TextInputAction.next,
-            textCapitalization: TextCapitalization.none,
-            keyboardType: TextInputType.text,
-            inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9_\-\:]')),
-              LowerCaseTextFormatter(),
-            ],
-            decoration: InputDecoration(
-              hintText: appLocalizations.tag_key_input_hint,
-              hintStyle: const TextStyle(fontStyle: FontStyle.italic),
+            productType: null,
+            withClearButton: true,
+            autocompleteManager: AutocompleteManager(
+              const FolksonomyKeysAutocompleter(limit: 15),
             ),
+            suffixIcon: const Icon(Icons.search),
           ),
           const SizedBox(height: LARGE_SPACE),
           _FolksonomyEditTagContentTitle(
             appLocalizations.tag_value,
             hasErrors: isValueValid,
           ),
-          TextField(
-            controller: valueController,
-            autofocus: !isKeyEditable,
-            keyboardType: TextInputType.text,
-            textInputAction: TextInputAction.send,
-            decoration: InputDecoration(
-              hintText: appLocalizations.tag_value_input_hint,
-              hintStyle: const TextStyle(fontStyle: FontStyle.italic),
-            ),
-            onSubmitted: (_) => onSave(),
+          ValueListenableBuilder<TextEditingValue>(
+            valueListenable: keyController,
+            builder: (BuildContext context, _, _) {
+              return SimpleInputTextField(
+                focusNode: FocusNode(),
+                autocompleteKey: UniqueKey(),
+                constraints: const BoxConstraints(maxWidth: double.infinity),
+                tagType: null,
+                hintText: appLocalizations.tag_value_input_hint,
+                controller: valueController,
+                productType: null,
+                withClearButton: true,
+                autocompleteManager: AutocompleteManager(
+                  FolksonomyValuesAutocompleter(
+                    keyProvider: () => keyController.text,
+                    limit: 15,
+                  ),
+                ),
+                suffixIcon: const Icon(Icons.search),
+              );
+            },
           ),
         ],
       ),

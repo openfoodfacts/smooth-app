@@ -210,7 +210,8 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     String? value,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
+    final FolksonomyProvider folksonomyProvider = context
+        .read<FolksonomyProvider>();
     final FolksonomyTag? res = await showSmoothModalSheetForTextField(
       context: context,
       header: SmoothModalSheetHeader(
@@ -218,11 +219,14 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
       ),
       bodyBuilder: (BuildContext context) {
-        return FolksonomyEditTagContent(
-          action: action,
-          existingKeys: existingKeys,
-          oldKey: key,
-          oldValue: value,
+        return ChangeNotifierProvider<FolksonomyProvider>.value(
+          value: folksonomyProvider,
+          child: FolksonomyEditTagContent(
+            action: action,
+            existingKeys: existingKeys,
+            oldKey: key,
+            oldValue: value,
+          ),
         );
       },
     );
