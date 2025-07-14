@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">addTask</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addTask-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+<span class="name ">addTask</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addTask-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="addTask-param-displaySnackbar">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displaySnackbar</span>}</span></li>
 </ol>)
 
       
@@ -67,7 +68,10 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; addTask(final BuildContext context) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; addTask(
+  final BuildContext context, {
+  required final bool displaySnackbar,
+}) async {
   final List&lt;String&gt; barcodes = &lt;String&gt;[];
   final List&lt;String&gt; categories = &lt;String&gt;[];
   final List&lt;List&lt;String&gt;&gt; origins = &lt;List&lt;String&gt;&gt;[];
@@ -126,6 +130,7 @@
     pricesAreDiscounted: pricesAreDiscounted,
     prices: prices,
     pricesWithoutDiscount: pricesWithoutDiscount,
+    displaySnackbar: displaySnackbar,
   );
 }</code></pre>
 </section>

@@ -66,7 +66,8 @@
 <li><span class="parameter" id="addTask-param-pricePers"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">pricePers</span>, </span></li>
 <li><span class="parameter" id="addTask-param-pricesAreDiscounted"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">pricesAreDiscounted</span>, </span></li>
 <li><span class="parameter" id="addTask-param-prices"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">prices</span>, </span></li>
-<li><span class="parameter" id="addTask-param-pricesWithoutDiscount"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>&gt;</span></span> <span class="parameter-name">pricesWithoutDiscount</span>}</span></li>
+<li><span class="parameter" id="addTask-param-pricesWithoutDiscount"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>&gt;</span></span> <span class="parameter-name">pricesWithoutDiscount</span>, </span></li>
+<li><span class="parameter" id="addTask-param-displaySnackbar"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displaySnackbar</span>}</span></li>
 </ol>)
 
       
@@ -97,6 +98,7 @@
   required final List&lt;bool&gt; pricesAreDiscounted,
   required final List&lt;double&gt; prices,
   required final List&lt;double?&gt; pricesWithoutDiscount,
+  required final bool displaySnackbar,
 }) async {
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -116,6 +118,7 @@
     pricesAreDiscounted: pricesAreDiscounted,
     prices: prices,
     pricesWithoutDiscount: pricesWithoutDiscount,
+    displaySnackbar: displaySnackbar,
   );
   if (!context.mounted) {
     return;
@@ -160,6 +163,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/cropX2.html">cropX2</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/cropY1.html">cropY1</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/cropY2.html">cropY2</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/displaySnackbar.html">displaySnackbar</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/eraserCoordinates.html">eraserCoordinates</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/fullPath.html">fullPath</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
@@ -169,13 +173,15 @@
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/execute.html">execute</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/getFloatingMessage.html">getFloatingMessage</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/postExecute.html">postExecute</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/toJson.html">toJson</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice-class.html#operators">Operators</a></li>
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_add_price/BackgroundTaskAddPrice/?.html">operator ?</a></li>
 
 
 
