@@ -9,11 +9,29 @@ files:
     translation: /packages/smooth_app/lib/l10n/app_%two_letters_code%.arb
     languages_mapping:
       two_letters_code:
-        pt-BR: pt_BR
         pt-PT: pt
+        pt-BR: pt_BR
+        zh-CN: zh
+        zh-HK: zh_HK
+        zh-TW: zh_TW
+        en-US: en
+        en-GB: en_GB
+        en-AU: en_AU
+        nl: nl
+        nl-BE: nl_BE
+        sr-CS: sr_CS
   - source: /packages/smooth_app/ios/Runner/en.lproj/InfoPlist.strings
     translation: /packages/smooth_app/ios/Runner/%two_letters_code%.lproj/InfoPlist.strings
     languages_mapping:
       two_letters_code:
-        pt-BR: pt_BR
         pt-PT: pt
+        pt-BR: pt_BR
+        zh-CN: zh
+        zh-HK: zh_HK
+        zh-TW: zh_TW
+        en-US: en
+        en-GB: en_GB
+        en-AU: en_AU
+        nl: nl
+        nl-BE: nl_BE
+        sr-CS: sr_CS
