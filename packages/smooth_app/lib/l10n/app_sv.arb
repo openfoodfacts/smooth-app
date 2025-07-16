@@ -28,7 +28,7 @@
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
-  "continue_label": "Continue",
+  "continue_label": "Fortsätt",
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
@@ -534,7 +534,7 @@
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
-  "label_reload": "Reload",
+  "label_reload": "Ladda om",
   "@label_reload": {
     "description": "Reload a page"
   },
@@ -626,7 +626,7 @@
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
   "confirm_button_label": "Bekräfta",
-  "send_image_button_label": "Send image",
+  "send_image_button_label": "Skicka bild",
   "crop_page_action_saving": "Saving the image…",
   "@crop_page_action_saving": {
     "description": "Action being performed on the crop page"
@@ -703,7 +703,7 @@
   "new_product_title_nova": "Compute the food processing level (NOVA)",
   "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
   "new_product_desc_nova_unknown": "Food processing level unknown",
-  "new_product_title_pictures": "New product",
+  "new_product_title_pictures": "Ny produkt",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "And some basic data…",
   "new_product_done_msg": "Thanks for your contribution “{username}”!",
@@ -788,7 +788,7 @@
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
   "nutrition_page_nutritional_info_value_positive": "Ja",
   "nutrition_page_nutritional_info_value_negative": "Nej",
-  "nutrition_page_nutritional_info_open_photo": "Open photo",
+  "nutrition_page_nutritional_info_open_photo": "Öppna foto",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
@@ -1026,7 +1026,7 @@
   "tag_value": "Värde",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
-  "tag_value_item": "Value:",
+  "tag_value_item": "Värde:",
   "tag_key_explanations": "A key must be lowercase and without any spaces.",
   "tag_key_already_exists": "A tag with a property {property} already exists!",
   "@tag_key_already_exists": {
@@ -1362,12 +1362,12 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "Welcome !",
+  "onboarding_home_welcome_text1": "Välkommen !",
   "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
-  "onboarding_continue_button": "Continue",
+  "onboarding_continue_button": "Fortsätt",
   "onboarding_welcome_loading_dialog_title": "Laddar din första exempelprodukt",
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
@@ -1460,7 +1460,7 @@
   },
   "settings_app_app": "Application",
   "settings_app_data": "Privacy & monitoring",
-  "settings_app_camera": "Camera",
+  "settings_app_camera": "Kamera",
   "settings_app_products": "Produkter",
   "settings_app_miscellaneous": "Miscellaneous",
   "@camera_settings_title": {
@@ -1629,7 +1629,7 @@
   "@edit_product_form_item_other_details_title": {
     "description": "Product edition - Other Details - Title"
   },
-  "edit_product_form_item_other_details_subtitle": "Website…",
+  "edit_product_form_item_other_details_subtitle": "Webbplats…",
   "@edit_product_form_item_other_details_subtitle": {
     "description": "Product edition - Other Details - Subtitle"
   },
@@ -1879,7 +1879,7 @@
   },
   "edit_product_form_item_add_valid_item_tooltip": "Lägg till",
   "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-  "edit_product_form_item_remove_item_tooltip": "Remove",
+  "edit_product_form_item_remove_item_tooltip": "Ta bort",
   "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
@@ -2023,7 +2023,7 @@
   "@edit_ocr_extract_failed": {
     "description": "OCR extraction - message for failed"
   },
-  "edit_ocr_extract_disabled_title": "No picture!",
+  "edit_ocr_extract_disabled_title": "Ingen bild!",
   "@edit_ocr_extract_disabled_title": {
     "description": "OCR extraction - title for disabled"
   },
@@ -2095,7 +2095,7 @@
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
-  "try_again": "Try Again",
+  "try_again": "Försök igen",
   "@try_again": {
     "description": "Label for buttons that try to repeat a failed action"
   },
@@ -2144,7 +2144,7 @@
   "@user_preferences_item_accessibility_hint": {
     "description": "A hint for screen readers to explain how external links work"
   },
-  "dev_preferences_screen_title": "DEV Mode",
+  "dev_preferences_screen_title": "DEV-läge",
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
@@ -2197,7 +2197,7 @@
   "@dev_preferences_export_history_title": {
     "description": "User dev preferences - Export history - Title"
   },
-  "dev_preferences_export_history_progress_error": "exception",
+  "dev_preferences_export_history_progress_error": "undantag",
   "@dev_preferences_export_history_progress_error": {
     "description": "User dev preferences - Export history - Item - Error"
   },
@@ -2267,7 +2267,7 @@
   },
   "product_type_label_food": "Mat",
   "product_type_label_beauty": "Personal care",
-  "product_type_label_pet_food": "Pet food",
+  "product_type_label_pet_food": "Djurmat",
   "product_type_label_product": "Other",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
@@ -2290,11 +2290,11 @@
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_generic_title": "Prices",
+  "prices_generic_title": "Priser",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
   "prices_add_an_item": "Add an item",
-  "prices_add_a_price": "Add a price",
+  "prices_add_a_price": "Lägg till ett pris",
   "prices_add_a_receipt": "Add a receipt",
   "prices_add_price_tags": "Add price tags",
   "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
@@ -2494,10 +2494,10 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
-  "prices_currency_subtitle": "Currency",
+  "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
-  "prices_location_find": "Find a shop",
+  "prices_location_find": "Hitta en butik",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
@@ -2512,8 +2512,8 @@
   "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
   "prices_privacy_warning_message_bullet_2": "Know what you are buying",
   "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-  "i_refuse": "I refuse",
-  "i_accept": "I accept",
+  "i_refuse": "Jag vägrar",
+  "i_accept": "Jag accepterar",
   "prices_currency_change_proposal_title": "Change the currency?",
   "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
   "@prices_currency_change_proposal_message": {
@@ -2625,7 +2625,7 @@
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
-  "user_search_prices_title": "My prices",
+  "user_search_prices_title": "Mina priser",
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
@@ -3001,7 +3001,7 @@
       "count": {}
     }
   },
-  "add_list_label": "Add list",
+  "add_list_label": "Lägg till lista",
   "@add_list_label": {
     "description": "Label for the add list button"
   },
@@ -3009,7 +3009,7 @@
   "@open_food_preferences_tooltip": {
     "description": "Tooltip (message displayed on long press) to open the user food preferences"
   },
-  "add_photo_button_label": "Add photo",
+  "add_photo_button_label": "Lägg till foto",
   "@add_photo_button_label": {
     "description": "Label for the add photo button"
   },
@@ -3037,7 +3037,7 @@
   "@choose_image_source_body": {
     "description": "Body for the image source chooser"
   },
-  "gallery_source_label": "Gallery",
+  "gallery_source_label": "Galleri",
   "@gallery_source_label": {
     "description": "Label for the gallery image source"
   },
@@ -3324,7 +3324,7 @@
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
-  "robotoff_continue": "Continue",
+  "robotoff_continue": "Fortsätt",
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
@@ -3834,7 +3834,7 @@
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "Använd som…",
   "@photo_viewer_action_use_picture_as": {
     "description": "An action to use the current picture to be used as front/ingredients…"
   },
@@ -3851,7 +3851,7 @@
       }
     }
   },
-  "photo_viewer_details_button": "Details",
+  "photo_viewer_details_button": "Detaljer",
   "@photo_viewer_details_button": {
     "description": "Button to show details of the photo"
   },
@@ -4024,9 +4024,9 @@
   "@carousel_unsupported_header": {
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
-  "carousel_unsupported_title": "Ooops!",
+  "carousel_unsupported_title": "Hoppsan!",
   "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
-  "carousel_error_header": "Error!",
+  "carousel_error_header": "Fel!",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
   },
@@ -4232,7 +4232,7 @@
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
-  "prices_stats_prices_section": "Prices",
+  "prices_stats_prices_section": "Priser",
   "@prices_stats_prices_section": {
     "description": "Title for the prices section"
   },
@@ -4240,7 +4240,7 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "Locations",
+  "prices_stats_locations_section": "Platser",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
@@ -4280,7 +4280,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "Konsumtion",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4300,7 +4300,7 @@
   "@prices_stats_products": {
     "description": "Label for products count"
   },
-  "prices_stats_pet_food": "Pet food",
+  "prices_stats_pet_food": "Djurmat",
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
@@ -4344,7 +4344,7 @@
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "År",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
