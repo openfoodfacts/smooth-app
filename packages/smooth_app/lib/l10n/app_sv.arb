@@ -2265,7 +2265,7 @@
       }
     }
   },
-  "product_type_label_food": "Food",
+  "product_type_label_food": "Mat",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Other",
@@ -3514,7 +3514,7 @@
   "@contrast_medium": {
     "description": "Medium Contrast Text Color"
   },
-  "contrast_low": "Low",
+  "contrast_low": "Låg",
   "@contrast_low": {
     "description": "Low Contrast Text Color"
   },
@@ -4288,7 +4288,7 @@
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
-  "prices_stats_food": "Food",
+  "prices_stats_food": "Mat",
   "@prices_stats_food": {
     "description": "Label for food count"
   },
