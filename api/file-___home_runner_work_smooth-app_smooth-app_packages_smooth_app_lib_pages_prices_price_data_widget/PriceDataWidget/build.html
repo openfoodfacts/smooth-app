@@ -75,11 +75,11 @@ Widget build(BuildContext context) {
 
   final DateFormat timeFormat = DateFormat(&#39;HH:mm&#39;);
 
+  final DateTime created = price.created.toLocal();
   final String date = MaterialLocalizations.of(
     context,
-  ).formatCompactDate(price.created);
-  final String time = timeFormat.format(price.created);
-
+  ).formatCompactDate(created);
+  final String time = timeFormat.format(created);
   final SmoothColorsThemeExtension extension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
