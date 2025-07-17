@@ -5,6 +5,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_price.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
@@ -263,10 +264,22 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       throw Exception('Could not upload proof: ${uploadProof.error}');
     }
 
-    await addPrices(
-      bearerToken: bearerToken,
-      proofId: uploadProof.value.id,
+    await BackgroundTaskAddOtherPrice.addTask(
+      context: null,
       localDatabase: localDatabase,
+      proofId: uploadProof.value.id,
+      date: date,
+      currency: currency,
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
+      barcodes: barcodes,
+      categories: categories,
+      origins: origins,
+      labels: labels,
+      pricePers: pricePers,
+      pricesAreDiscounted: pricesAreDiscounted,
+      prices: prices,
+      pricesWithoutDiscount: pricesWithoutDiscount,
     );
 
     await closeSession(bearerToken: bearerToken);

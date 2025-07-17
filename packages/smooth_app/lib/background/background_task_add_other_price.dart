@@ -49,9 +49,10 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
     return result;
   }
 
-  /// Adds the background task about uploading a product image.
+  /// Adds the background task about adding prices.
   static Future<void> addTask({
-    required final BuildContext context,
+    required BuildContext? context,
+    LocalDatabase? localDatabase,
     required final int proofId,
     required final DateTime date,
     required final Currency currency,
@@ -66,8 +67,17 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
   }) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final String uniqueId = await _operationType.getNewKey(localDatabase);
+    assert(context != null || localDatabase != null);
+    localDatabase ??= context!.read<LocalDatabase>();
+    final String uniqueId;
+    if (barcodes.length == 1) {
+      uniqueId = await _operationType.getNewKey(
+        localDatabase,
+        barcode: barcodes.first,
+      );
+    } else {
+      uniqueId = await _operationType.getNewKey(localDatabase);
+    }
     final BackgroundTask task = _getNewTask(
       uniqueId: uniqueId,
       proofId: proofId,
@@ -84,12 +94,18 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
     );
-    if (!context.mounted) {
-      return;
+    if (context != null && context.mounted) {
+      return task.addToManager(
+        localDatabase,
+        context: context,
+        showSnackBar: true,
+        queue: BackgroundTaskQueue.fast,
+      );
     }
     await task.addToManager(
       localDatabase,
-      context: context,
+      context: null,
+      showSnackBar: false,
       queue: BackgroundTaskQueue.fast,
     );
   }

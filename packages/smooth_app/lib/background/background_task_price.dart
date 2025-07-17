@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_to_oxf.dart';
@@ -214,12 +215,38 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     required final int proofId,
     required final LocalDatabase localDatabase,
   }) async {
-    await PriceToOxF.updateOxF(
-      localDatabase: localDatabase,
-      initialBarcodes: barcodes,
-      locationOSMId: locationOSMId,
-      locationOSMType: locationOSMType,
-    );
+    // Now we split: one item, one task
+    final bool split = barcodes.length > 1;
+    if (split) {
+      for (int i = 0; i < barcodes.length; i++) {
+        final String barcode = barcodes[i];
+        await PriceToOxF.updateOxF(
+          localDatabase: localDatabase,
+          initialBarcodes: <String>[barcode],
+          locationOSMId: locationOSMId,
+          locationOSMType: locationOSMType,
+        );
+        await BackgroundTaskAddOtherPrice.addTask(
+          context: null,
+          localDatabase: localDatabase,
+          proofId: proofId,
+          date: date,
+          currency: currency,
+          locationOSMId: locationOSMId,
+          locationOSMType: locationOSMType,
+          barcodes: <String>[barcode],
+          categories: <String>[categories[i]],
+          origins: <List<String>>[origins[i]],
+          labels: <List<String>>[labels[i]],
+          pricePers: <String>[pricePers[i]],
+          pricesAreDiscounted: <bool>[pricesAreDiscounted[i]],
+          prices: <double>[prices[i]],
+          pricesWithoutDiscount: <double?>[pricesWithoutDiscount[i]],
+        );
+      }
+      return;
+    }
+    // For the record, we have only one item here anyway.
     for (int i = 0; i < barcodes.length; i++) {
       final String barcode = barcodes[i];
       final bool isProduct = barcode.isNotEmpty;

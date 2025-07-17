@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -66,14 +67,28 @@ class PriceToOxF {
       return;
     }
 
-    final List<String>? refreshedBarcodes = await ProductRefresher()
-        .silentFetchAndRefreshList(
-          barcodes: actualBarcodes,
-          localDatabase: localDatabase,
-          productType: ProductType.food,
-        );
-    if (refreshedBarcodes == null || refreshedBarcodes.isEmpty) {
-      return;
+    final List<String>? refreshedBarcodes;
+    if (actualBarcodes.length == 1) {
+      // better data from single product search
+      final String barcode = actualBarcodes.first;
+      final FetchedProduct fetchedProduct = await ProductRefresher()
+          .silentFetchAndRefresh(
+            localDatabase: localDatabase,
+            barcode: barcode,
+          );
+      if (fetchedProduct.status != FetchedProductStatus.ok) {
+        return;
+      }
+      refreshedBarcodes = <String>[barcode];
+    } else {
+      refreshedBarcodes = await ProductRefresher().silentFetchAndRefreshList(
+        barcodes: actualBarcodes,
+        localDatabase: localDatabase,
+        productType: ProductType.food,
+      );
+      if (refreshedBarcodes == null || refreshedBarcodes.isEmpty) {
+        return;
+      }
     }
 
     final Map<String, Product> products = await DaoProduct(
