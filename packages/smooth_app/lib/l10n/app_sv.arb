@@ -2918,7 +2918,7 @@
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
   "barcode": "Streckkod",
-  "barcode_barcode": "Barcode: {barcode}",
+  "barcode_barcode": "Streckkod: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
     "placeholders": {
@@ -4007,7 +4007,7 @@
   "@product_add_a_language": {
     "description": "Button to add a language (eg: for photos) to a product"
   },
-  "barcode_accessibility_label": "Barcode {barcode}",
+  "barcode_accessibility_label": "Streckkod {barcode}",
   "@barcode_accessibility_label": {
     "description": "Accessibility label for a barcode image",
     "placeholders": {
