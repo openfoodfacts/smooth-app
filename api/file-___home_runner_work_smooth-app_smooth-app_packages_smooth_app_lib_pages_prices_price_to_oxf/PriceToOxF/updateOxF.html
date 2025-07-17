@@ -109,14 +109,28 @@
     return;
   }
 
-  final List&lt;String&gt;? refreshedBarcodes = await ProductRefresher()
-      .silentFetchAndRefreshList(
-        barcodes: actualBarcodes,
-        localDatabase: localDatabase,
-        productType: ProductType.food,
-      );
-  if (refreshedBarcodes == null || refreshedBarcodes.isEmpty) {
-    return;
+  final List&lt;String&gt;? refreshedBarcodes;
+  if (actualBarcodes.length == 1) {
+    &#47;&#47; better data from single product search
+    final String barcode = actualBarcodes.first;
+    final FetchedProduct fetchedProduct = await ProductRefresher()
+        .silentFetchAndRefresh(
+          localDatabase: localDatabase,
+          barcode: barcode,
+        );
+    if (fetchedProduct.status != FetchedProductStatus.ok) {
+      return;
+    }
+    refreshedBarcodes = &lt;String&gt;[barcode];
+  } else {
+    refreshedBarcodes = await ProductRefresher().silentFetchAndRefreshList(
+      barcodes: actualBarcodes,
+      localDatabase: localDatabase,
+      productType: ProductType.food,
+    );
+    if (refreshedBarcodes == null || refreshedBarcodes.isEmpty) {
+      return;
+    }
   }
 
   final Map&lt;String, Product&gt; products = await DaoProduct(

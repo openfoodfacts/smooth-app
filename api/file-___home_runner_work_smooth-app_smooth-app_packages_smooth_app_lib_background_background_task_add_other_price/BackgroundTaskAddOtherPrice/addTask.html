@@ -53,6 +53,7 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">addTask</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addTask-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="addTask-param-localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">localDatabase</span>, </span></li>
 <li><span class="parameter" id="addTask-param-proofId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">proofId</span>, </span></li>
 <li><span class="parameter" id="addTask-param-date"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">date</span>, </span></li>
 <li><span class="parameter" id="addTask-param-currency"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">currency</span>, </span></li>
@@ -73,7 +74,7 @@
     </section>
     
 <section class="desc markdown">
-  <p>Adds the background task about uploading a product image.</p>
+  <p>Adds the background task about adding prices.</p>
 </section>
 
 
@@ -81,7 +82,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask({
-  required final BuildContext context,
+  required BuildContext? context,
+  LocalDatabase? localDatabase,
   required final int proofId,
   required final DateTime date,
   required final Currency currency,
@@ -96,8 +98,17 @@
   required final List&lt;double&gt; prices,
   required final List&lt;double?&gt; pricesWithoutDiscount,
 }) async {
-  final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
-  final String uniqueId = await _operationType.getNewKey(localDatabase);
+  assert(context != null || localDatabase != null);
+  localDatabase ??= context!.read&lt;LocalDatabase&gt;();
+  final String uniqueId;
+  if (barcodes.length == 1) {
+    uniqueId = await _operationType.getNewKey(
+      localDatabase,
+      barcode: barcodes.first,
+    );
+  } else {
+    uniqueId = await _operationType.getNewKey(localDatabase);
+  }
   final BackgroundTask task = _getNewTask(
     uniqueId: uniqueId,
     proofId: proofId,
@@ -114,12 +125,18 @@
     prices: prices,
     pricesWithoutDiscount: pricesWithoutDiscount,
   );
-  if (!context.mounted) {
-    return;
+  if (context != null &amp;&amp; context.mounted) {
+    return task.addToManager(
+      localDatabase,
+      context: context,
+      showSnackBar: true,
+      queue: BackgroundTaskQueue.fast,
+    );
   }
   await task.addToManager(
     localDatabase,
-    context: context,
+    context: null,
+    showSnackBar: false,
     queue: BackgroundTaskQueue.fast,
   );
 }</code></pre>
