@@ -76,7 +76,7 @@ Widget build(BuildContext context) {
   }
 
   return _PriceDataContainer(
-    value: NumberFormat(&#39;00%&#39;).format(
+    value: NumberFormat(&#39;#0%&#39;).format(
       (price.price - price.priceWithoutDiscount!) &#47;
           price.priceWithoutDiscount!,
     ),
