@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
@@ -26,12 +27,13 @@ class PriceCategoryInputPage extends StatefulWidget {
 }
 
 class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
-  late final TextEditingController _categoryController;
+  late TextEditingController _categoryController;
   late final TextEditingController _originController;
 
   String? _categoryName;
   final List<String> _originNames = <String>[];
   bool _hasChanged = false;
+  bool _refreshCategoryController = true;
 
   late final VoidCallback _changes;
 
@@ -41,8 +43,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
     _changes = () {
       _hasChanged = true;
     };
-    _categoryController = TextEditingController();
-    _categoryController.addListener(_changes);
+    _refreshControllers();
     _originController = TextEditingController();
     _originController.addListener(_changes);
   }
@@ -56,9 +57,19 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
     super.dispose();
   }
 
+  // Needed because when we select a category, the controller is disposed.
+  void _refreshControllers() {
+    if (_refreshCategoryController) {
+      _refreshCategoryController = false;
+      _categoryController = TextEditingController();
+      _categoryController.addListener(_changes);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    _refreshControllers();
     return WillPopScope2(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
@@ -70,26 +81,47 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: SMALL_SPACE,
             children: <Widget>[
-              Text(appLocalizations.prices_category_mandatory),
-              if (_categoryName == null)
-                _MyAutocomplete(
-                  helper: SimpleInputPageCategoryHelper(),
-                  controller: _categoryController,
-                  onSelected: (final String selected) =>
-                      setState(() => _categoryName = selected),
-                )
-              else
-                _ReadOnlyTextField(_categoryName!),
-              const Divider(),
-              Text(appLocalizations.prices_category_optional),
-              for (final String name in _originNames) _ReadOnlyTextField(name),
-              _MyAutocomplete(
-                helper: SimpleInputPageOriginHelper(),
-                controller: _originController,
-                onSelected: (final String selected) => setState(() {
-                  _originController.text = '';
-                  _originNames.add(selected);
-                }),
+              SmoothCardWithRoundedHeader(
+                title: appLocalizations.prices_category_mandatory,
+                contentPadding: const EdgeInsets.all(SMALL_SPACE),
+                child: _categoryName == null
+                    ? _MyAutocomplete(
+                        helper: SimpleInputPageCategoryHelper(),
+                        controller: _categoryController,
+                        onSelected: (final String selected) => setState(() {
+                          _categoryName = selected;
+                          _refreshCategoryController = true;
+                        }),
+                      )
+                    : _ReadOnlyTextField(
+                        _categoryName!,
+                        () => setState(() {
+                          _categoryController.text = '';
+                          _categoryName = null;
+                        }),
+                      ),
+              ),
+              SmoothCardWithRoundedHeader(
+                title: appLocalizations.prices_category_optional,
+                contentPadding: const EdgeInsets.all(SMALL_SPACE),
+                child: Column(
+                  spacing: SMALL_SPACE,
+                  children: <Widget>[
+                    for (final String name in _originNames)
+                      _ReadOnlyTextField(
+                        name,
+                        () => setState(() => _originNames.remove(name)),
+                      ),
+                    _MyAutocomplete(
+                      helper: SimpleInputPageOriginHelper(),
+                      controller: _originController,
+                      onSelected: (final String selected) => setState(() {
+                        _originController.text = '';
+                        _originNames.add(selected);
+                      }),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -228,9 +260,10 @@ class _MyAutocompleteState extends State<_MyAutocomplete> {
 }
 
 class _ReadOnlyTextField extends StatefulWidget {
-  const _ReadOnlyTextField(this.name);
+  const _ReadOnlyTextField(this.name, this.onDeleted);
 
   final String name;
+  final VoidCallback onDeleted;
 
   @override
   State<_ReadOnlyTextField> createState() => _ReadOnlyTextFieldState();
@@ -257,14 +290,18 @@ class _ReadOnlyTextFieldState extends State<_ReadOnlyTextField> {
       controller: _controller,
       readOnly: true,
       enabled: true,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         contentPadding: _fieldPadding,
         isDense: true,
         filled: true,
-        border: OutlineInputBorder(borderRadius: _borderRadius),
-        enabledBorder: OutlineInputBorder(
+        border: const OutlineInputBorder(borderRadius: _borderRadius),
+        enabledBorder: const OutlineInputBorder(
           borderRadius: _borderRadius,
           borderSide: BorderSide(color: Colors.transparent, width: 5.0),
+        ),
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.delete),
+          onPressed: widget.onDeleted,
         ),
       ),
     );
