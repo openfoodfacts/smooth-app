@@ -237,7 +237,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
       return true;
     }
 
-    await model.addTask(context);
+    await model.addTask(context, displaySnackbar: true);
 
     return true;
   }

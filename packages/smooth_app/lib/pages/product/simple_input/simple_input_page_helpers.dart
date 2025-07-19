@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -35,15 +37,19 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   bool _changed = false;
 
   /// Starts from scratch with a new (or refreshed) [Product].
-  void reInit(final Product product) {
+  void reInit(final Product product, {final bool backgroundTask = false}) {
     this.product = product;
     _terms = List<String>.from(initTerms(this.product));
     _initTerms = List<String>.from(_terms);
     _changed = false;
 
+    if (backgroundTask) {
+      return;
+    }
+
     try {
       robotoffQuestionsNotifier.value.clear();
-      _loadRobotoffQuestions();
+      unawaited(_loadRobotoffQuestions());
     } catch (_) {}
 
     notifyListeners();
@@ -161,7 +167,6 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   BackgroundTaskDetailsStamp getStamp();
 
   /// Impacts a product in order to take the changes into account.
-  @protected
   void changeProduct(final Product changedProduct);
 
   /// Allows to provide some suggestions to the user.
@@ -1031,8 +1036,8 @@ class SimpleInputPageCategoryNotFoodHelper
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
-  SimpleInputPageCountryHelper(UserPreferences userPreferences)
-    : _userCountryCode = userPreferences.userCountryCode ?? 'fr';
+  SimpleInputPageCountryHelper(UserPreferences? userPreferences)
+    : _userCountryCode = userPreferences?.userCountryCode ?? 'fr';
 
   final String _userCountryCode;
 
@@ -1047,8 +1052,12 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
-  void reInit(Product product) {
+  void reInit(final Product product, {final bool backgroundTask = false}) {
     super.reInit(product);
+
+    if (backgroundTask) {
+      return;
+    }
 
     try {
       _suggestionsNotifier.notifyListeners();

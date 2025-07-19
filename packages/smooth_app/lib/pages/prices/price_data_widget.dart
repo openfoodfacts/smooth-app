@@ -29,11 +29,11 @@ class PriceDataWidget extends StatelessWidget {
 
     final DateFormat timeFormat = DateFormat('HH:mm');
 
+    final DateTime created = price.created.toLocal();
     final String date = MaterialLocalizations.of(
       context,
-    ).formatCompactDate(price.created);
-    final String time = timeFormat.format(price.created);
-
+    ).formatCompactDate(created);
+    final String time = timeFormat.format(created);
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();

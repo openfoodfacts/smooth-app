@@ -69,7 +69,7 @@ class PriceDataDiscountedValue extends StatelessWidget {
     }
 
     return _PriceDataContainer(
-      value: NumberFormat('00%').format(
+      value: NumberFormat('#0%').format(
         (price.price - price.priceWithoutDiscount!) /
             price.priceWithoutDiscount!,
       ),

@@ -204,7 +204,10 @@ class PriceModel with ChangeNotifier {
   }
 
   /// Adds the related background task.
-  Future<void> addTask(final BuildContext context) async {
+  Future<void> addTask(
+    final BuildContext context, {
+    required final bool displaySnackbar,
+  }) async {
     final List<String> barcodes = <String>[];
     final List<String> categories = <String>[];
     final List<List<String>> origins = <List<String>>[];
@@ -263,6 +266,7 @@ class PriceModel with ChangeNotifier {
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      displaySnackbar: displaySnackbar,
     );
   }
 }

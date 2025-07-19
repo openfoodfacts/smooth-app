@@ -41,26 +41,44 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         horizontal: SMALL_SPACE,
         vertical: MEDIUM_SPACE,
       ),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            trailing: const Icon(Icons.warning),
-            title: Text(appLocalizations.prices_bulk_proof_upload_warning),
-          ),
-          SmoothLargeButtonWithIcon(
-            text: appLocalizations.prices_bulk_proof_upload_select,
-            leadingIcon: const Icon(Icons.add),
-            onPressed: model.location == null
-                ? null
-                : () async => _selectAndUpload(model: model),
-          ),
-          if (_text.isNotEmpty) Text(_text),
-        ],
-      ),
+      child: _text.isNotEmpty
+          ? ListTile(
+              leading: const CircularProgressIndicator.adaptive(),
+              title: Text(_text),
+            )
+          : Column(
+              children: <Widget>[
+                ListTile(
+                  trailing: const Icon(Icons.warning),
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_warning,
+                  ),
+                ),
+                SmoothLargeButtonWithIcon(
+                  text: appLocalizations.prices_bulk_proof_upload_select,
+                  leadingIcon: const Icon(Icons.add),
+                  onPressed: model.location == null
+                      ? null
+                      : () async => _selectAndUpload(model: model),
+                ),
+              ],
+            ),
     );
   }
 
+  void _setText(final String message) {
+    if (mounted) {
+      setState(() => _text = message);
+    }
+  }
+
   Future<void> _selectAndUpload({required PriceModel model}) async {
+    final String? error = await _selectAndUploadWithError(model: model);
+    _setText(error ?? '');
+  }
+
+  // Returns the error message, or null if OK.
+  Future<String?> _selectAndUploadWithError({required PriceModel model}) async {
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     const int imageQuality = 80;
@@ -70,29 +88,31 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
       CropHelper.fullImageCropRect,
     );
 
-    setState(() => _text = '');
+    _setText('Selecting files');
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(
       imageQuality: imageQuality,
       requestFullMetadata: false,
     );
     if (xFiles.isEmpty) {
-      return;
+      return null;
     }
 
     if (!await priceAddHelper.acceptsWarning()) {
-      return;
+      return null;
     }
     if (!mounted) {
-      return;
+      return null;
     }
+    _setText('Starting the upload');
     late int index;
     final int count = xFiles.length;
+    final DaoInt daoInt = DaoInt(localDatabase);
     try {
       index = 0;
       for (final XFile xFile in xFiles) {
         index++;
         final int sequenceNumber = await getNextSequenceNumber(
-          DaoInt(localDatabase),
+          daoInt,
           BULK_PROOF_IMAGE_SEQUENCE_KEY,
         );
         final String path = xFile.path;
@@ -102,11 +122,11 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         final File toBeUploadedFile = File(
           '${directory.path}/bulk_proof_${sequenceNumber}_$filename',
         );
-        setState(() => _text = 'Locally copying file #$index/$count');
+        _setText('Locally copying file #$index/$count');
         await temporaryFile.copy(toBeUploadedFile.path);
         await temporaryFile.delete();
 
-        setState(() => _text = 'Preparing upload #$index/$count');
+        _setText('Preparing upload #$index/$count');
         model.cropParameters = CropParameters(
           fullFile: toBeUploadedFile,
           smallCroppedFile: null,
@@ -115,21 +135,20 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
           eraserCoordinates: null,
         );
         if (!mounted) {
-          return;
+          return null;
         }
         if (!await priceAddHelper.check(model, widget.formKey)) {
-          return;
+          return null;
         }
         if (!mounted) {
-          return;
+          return null;
         }
-        await model.addTask(context);
+        await model.addTask(context, displaySnackbar: false);
         model.clearProof();
       }
     } catch (e) {
-      setState(() => _text = 'Failed at image #$index/$count');
-      return;
+      return 'Failed at image #$index/$count';
     }
-    setState(() => _text = '');
+    return null;
   }
 }
