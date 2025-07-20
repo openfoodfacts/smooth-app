@@ -156,7 +156,17 @@ class ProductPageState extends State<ProductPage>
                   ),
                 ),
               ),
-              ProductPageTabBar(tabController: tabController, tabs: tabs),
+              Theme(
+                data: theme.copyWith(
+                  appBarTheme: AppBarTheme(
+                    backgroundColor: theme.scaffoldBackgroundColor,
+                  ),
+                ),
+                child: ProductPageTabBar(
+                  tabController: tabController,
+                  tabs: tabs,
+                ),
+              ),
             ];
           },
           body: TabBarView(
