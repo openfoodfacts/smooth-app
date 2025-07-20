@@ -3,19 +3,27 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
+import 'package:smooth_app/pages/prices/product_price_refresher.dart';
+import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_circle.dart';
 import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
 enum ProductPageHarcodedTabs {
   FOR_ME(key: 'for_me'),
+  PICTURES(key: 'pictures'),
   WEBSITE(key: 'website'),
   PRICES(key: 'prices'),
   FOLKSONOMY(key: 'folksonomy'),
@@ -72,11 +80,12 @@ class ProductPageTabBar extends StatelessWidget {
       pinned: true,
     );
   }
+}
 
-  static List<ProductPageTab> extractTabsFromProduct({
-    required BuildContext context,
-    required Product product,
-  }) {
+class ProductPageTabsGenerator {
+  const ProductPageTabsGenerator();
+
+  List<ProductPageTab> getTabs(BuildContext context, Product product) {
     final List<ProductPageTab> tabs = <ProductPageTab>[];
 
     final List<KnowledgePanelElement> roots =
@@ -110,7 +119,7 @@ class ProductPageTabBar extends StatelessWidget {
           prefix: _extractPrefix(product, knowledgePanelTitle),
           builder: (_, _) => ListView.builder(
             padding: EdgeInsetsDirectional.zero,
-            itemCount: children.length - 1,
+            itemCount: children.length,
             itemBuilder: (BuildContext context, int index) => children[index],
           ),
         ),
@@ -138,7 +147,7 @@ class ProductPageTabBar extends StatelessWidget {
     return tabs;
   }
 
-  static List<ProductPageTab> _addHardCodedTabs(
+  List<ProductPageTab> _addHardCodedTabs(
     BuildContext context,
     Product product,
     List<ProductPageTab> tabs,
@@ -153,6 +162,14 @@ class ProductPageTabBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[],
         ),
+      ),
+    );
+    tabs.add(
+      ProductPageTab(
+        id: ProductPageHarcodedTabs.PICTURES.key,
+        labelBuilder: (BuildContext context) => 'Pictures',
+        builder: (_, Product product) =>
+            ProductImageGalleryView(product: product),
       ),
     );
     if (product.website?.trim().isNotEmpty == true) {
@@ -177,6 +194,24 @@ class ProductPageTabBar extends StatelessWidget {
           padding: EdgeInsetsDirectional.zero,
           children: <Widget>[PricesCard(product)],
         ),
+        prefix: FutureBuilder<int?>(
+          future: _getPricesTotal(product, context),
+          builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+            if (!snapshot.hasData || snapshot.data == null) {
+              return const SizedBox.shrink();
+            }
+            return SmoothCircle(
+              color: context
+                  .extension<SmoothColorsThemeExtension>()
+                  .secondaryNormal,
+              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+              child: Text(
+                snapshot.data!.toString(),
+                style: const TextStyle(color: Colors.white, fontSize: 12.0),
+              ),
+            );
+          },
+        ),
       ),
     );
 
@@ -200,7 +235,24 @@ class ProductPageTabBar extends StatelessWidget {
     return tabs;
   }
 
-  static Widget? _extractPrefix(Product product, KnowledgePanelTitle title) {
+  Future<int?> _getPricesTotal(Product product, BuildContext context) async {
+    final GetPricesModel model = GetPricesModel.product(
+      product: PriceMetaProduct.product(product),
+      context: context,
+    );
+    final ProductPriceRefresher refresher = ProductPriceRefresher(
+      model: model,
+      userPreferences: context.read<UserPreferences>(),
+      pricesResult: null,
+      refreshDisplay: () {},
+    );
+
+    await refresher.runIfNeeded();
+
+    return refresher.pricesResult?.total;
+  }
+
+  Widget? _extractPrefix(Product product, KnowledgePanelTitle title) {
     final String? attribute = switch (title.topics?.firstOrNull) {
       'health' => Attribute.ATTRIBUTE_NUTRISCORE,
       'environment' => Attribute.ATTRIBUTE_ECOSCORE,
