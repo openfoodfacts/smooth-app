@@ -320,6 +320,7 @@ class KnowledgePanelsBuilder {
         );
 
       case null:
+      case TitleElementType.PERCENTAGE:
       case TitleElementType.UNKNOWN:
         return Padding(
           padding: const EdgeInsetsDirectional.symmetric(
