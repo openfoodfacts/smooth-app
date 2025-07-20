@@ -51,6 +51,7 @@ class SummaryCard extends StatefulWidget {
     this.contentPadding,
     this.buttonPadding,
     this.heroTag,
+    this.roundedCorners = true,
   });
 
   final Product _product;
@@ -94,6 +95,8 @@ class SummaryCard extends StatefulWidget {
 
   final bool scrollableContent;
 
+  final bool roundedCorners;
+
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
@@ -125,6 +128,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
+        borderRadius: widget.roundedCorners ? null : BorderRadius.zero,
       );
     } else {
       return _buildLimitedSizeSummaryCard();
@@ -143,7 +147,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             vertical: VERY_SMALL_SPACE,
           ),
       child: ClipRRect(
-        borderRadius: ROUNDED_BORDER_RADIUS,
+        borderRadius: widget.roundedCorners
+            ? ROUNDED_BORDER_RADIUS
+            : BorderRadius.zero,
         child: Column(
           children: <Widget>[
             Expanded(
@@ -152,7 +158,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                   padding: widget.contentPadding ?? SMOOTH_CARD_PADDING,
                   child: _buildSummaryCardContent(context),
                 ),
-                borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+                borderRadius: widget.roundedCorners
+                    ? const BorderRadius.vertical(top: ROUNDED_RADIUS)
+                    : BorderRadius.zero,
                 margin: EdgeInsets.zero,
               ),
             ),
@@ -165,9 +173,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 color: context.lightTheme()
                     ? themeExtension.primaryDark
                     : themeExtension.primarySemiDark,
-                borderRadius: const BorderRadius.vertical(
-                  bottom: ROUNDED_RADIUS,
-                ),
+                borderRadius: widget.roundedCorners
+                    ? const BorderRadius.vertical(bottom: ROUNDED_RADIUS)
+                    : BorderRadius.zero,
               ),
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(
