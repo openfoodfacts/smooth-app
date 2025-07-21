@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_circle.dart';
 import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
@@ -66,6 +67,9 @@ class ProductPageTabBar extends StatelessWidget {
                 .map((ProductPageTab tab) => tab.prefix)
                 .toList(growable: false),
             onTabChanged: (_) {},
+            overflowMainColor: context.lightTheme()
+                ? Theme.of(context).tabBarTheme.unselectedLabelColor
+                : Theme.of(context).scaffoldBackgroundColor,
           ),
         ),
       ),
