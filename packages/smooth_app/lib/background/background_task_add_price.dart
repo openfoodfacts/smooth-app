@@ -241,7 +241,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       return;
     }
 
-    final String bearerToken = await getBearerToken();
+    final String bearerToken = await getBearerToken(localDatabase);
 
     // proof upload
     final Uri initialImageUri = Uri.parse(path);
@@ -281,7 +281,5 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
     );
-
-    await closeSession(bearerToken: bearerToken);
   }
 }

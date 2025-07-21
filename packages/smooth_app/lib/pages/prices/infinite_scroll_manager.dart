@@ -47,7 +47,7 @@ abstract class InfiniteScrollManager<T> {
   int? get totalPages => _totalPages;
 
   @protected
-  Future<void> fetchInit() async {}
+  Future<void> fetchInit(final BuildContext context) async {}
 
   /// Fetches data for a specific page
   @protected
@@ -79,7 +79,7 @@ abstract class InfiniteScrollManager<T> {
 
   /// Load initial data only if the list is empty
   Future<void> loadInitiallyIfNeeded(BuildContext context) async {
-    await fetchInit();
+    await fetchInit(context);
     if (_items.isNotEmpty) {
       return;
     }
@@ -112,6 +112,7 @@ abstract class InfiniteScrollManager<T> {
     _isLoading = true;
 
     try {
+      await fetchInit(context);
       await fetchData(pageNumber);
     } catch (e) {
       if (context.mounted) {
