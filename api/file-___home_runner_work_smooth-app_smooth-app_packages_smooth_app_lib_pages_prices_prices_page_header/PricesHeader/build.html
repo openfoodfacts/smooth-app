@@ -100,7 +100,10 @@ Widget build(BuildContext context) {
           child: Row(
             spacing: SMALL_SPACE,
             children: &lt;Widget&gt;[
-              Expanded(child: _PricesPageCounter(count: pricesResult?.total)),
+              if (pricesResult?.total != null)
+                Expanded(
+                  child: _PricesPageCounter(count: pricesResult!.total!),
+                ),
               Expanded(
                 child: _PricesHeaderAddPriceButton(onTap: model.addButton),
               ),
