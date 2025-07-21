@@ -51,6 +51,7 @@ class ProofBulkAddPage extends StatefulWidget {
       locations: osmLocations,
       currency: currency,
       multipleProducts: true,
+      bulkProofUpload: true,
     );
   }
 

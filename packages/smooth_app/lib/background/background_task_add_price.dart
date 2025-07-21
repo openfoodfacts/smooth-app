@@ -33,6 +33,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required this.proofType,
     required this.eraserCoordinates,
     required this.displaySnackbar,
+    required this.bulkProofUpload,
     // single
     required super.date,
     required super.currency,
@@ -61,6 +62,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
         json[_jsonTagEraserCoordinates],
       ),
       displaySnackbar = json[_jsonTagDisplaySnackbar] as bool? ?? true,
+      bulkProofUpload = json[_jsonTagBulkProofUpload] as bool? ?? false,
       super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
@@ -72,6 +74,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   static const String _jsonTagProofType = 'proofType';
   static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
   static const String _jsonTagDisplaySnackbar = 'displaySnackbar';
+  static const String _jsonTagBulkProofUpload = 'bulkProofUpload';
 
   static const OperationType _operationType = OperationType.addPrice;
 
@@ -84,6 +87,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   final ProofType proofType;
   final List<double>? eraserCoordinates;
   final bool displaySnackbar;
+  final bool bulkProofUpload;
 
   @override
   Map<String, dynamic> toJson() {
@@ -97,6 +101,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     result[_jsonTagProofType] = proofType.offTag;
     result[_jsonTagEraserCoordinates] = eraserCoordinates;
     result[_jsonTagDisplaySnackbar] = displaySnackbar;
+    result[_jsonTagBulkProofUpload] = bulkProofUpload;
     return result;
   }
 
@@ -118,6 +123,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
+    required final bool bulkProofUpload,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -138,6 +144,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
       displaySnackbar: displaySnackbar,
+      bulkProofUpload: bulkProofUpload,
     );
     if (!context.mounted) {
       return;
@@ -167,6 +174,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
+    required final bool bulkProofUpload,
   }) => BackgroundTaskAddPrice._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -196,6 +204,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       locationOSMType: locationOSMType,
     ),
     displaySnackbar: displaySnackbar,
+    bulkProofUpload: bulkProofUpload,
   );
 
   @override
@@ -254,7 +263,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
         ..currency = currency
         ..locationOSMId = locationOSMId
         ..locationOSMType = locationOSMType
-        ..readyForPriceTagValidation = proofType == ProofType.priceTag,
+        ..readyForPriceTagValidation =
+            proofType == ProofType.priceTag && bulkProofUpload,
       imageUri: initialImageUri,
       mediaType: initialMediaType,
       bearerToken: bearerToken,

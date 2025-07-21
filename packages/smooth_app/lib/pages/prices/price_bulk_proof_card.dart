@@ -54,6 +54,12 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
                     appLocalizations.prices_bulk_proof_upload_warning,
                   ),
                 ),
+                const ListTile(
+                  trailing: Icon(Icons.warning),
+                  title: Text(
+                    'Images will be analyzed by an AI and validated by other people.',
+                  ),
+                ),
                 SmoothLargeButtonWithIcon(
                   text: appLocalizations.prices_bulk_proof_upload_select,
                   leadingIcon: const Icon(Icons.add),
