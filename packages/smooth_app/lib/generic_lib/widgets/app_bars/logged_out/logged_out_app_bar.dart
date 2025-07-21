@@ -69,65 +69,61 @@ class LoggedOutAppBar extends StatelessWidget {
           padding: const EdgeInsetsDirectional.only(
             bottom: SEARCH_BOTTOM_HEIGHT,
           ),
-          child: Stack(
-            children: <Widget>[
-              const AppBarBackground(
-                height: LOGGED_OUT_APP_BAR_EXPANDED_HEIGHT,
+          child: AppBarBackground(
+            height: LOGGED_OUT_APP_BAR_EXPANDED_HEIGHT,
+            child: Container(
+              margin: EdgeInsets.only(
+                top:
+                    MediaQuery.of(context).padding.top +
+                    TOOLBAR_HEIGHT +
+                    MEDIUM_SPACE,
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  top:
-                      MediaQuery.of(context).padding.top +
-                      TOOLBAR_HEIGHT +
-                      MEDIUM_SPACE,
-                ),
-                padding: const EdgeInsetsDirectional.symmetric(
-                  horizontal: MEDIUM_SPACE,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: AppBarAuthenticationButton(
-                            title: appLocalizations.create_account,
-                            onPressed: () {
-                              Navigator.of(
-                                context,
-                                rootNavigator: true,
-                              ).push<dynamic>(
-                                MaterialPageRoute<dynamic>(
-                                  builder: (BuildContext context) =>
-                                      const SignUpPage(),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        const SizedBox(width: MEDIUM_SPACE),
-                        Expanded(
-                          child: AppBarAuthenticationButton(
-                            title: appLocalizations.sign_in,
-                            onPressed: () {
-                              Navigator.of(
-                                context,
-                                rootNavigator: true,
-                              ).push<dynamic>(
-                                MaterialPageRoute<dynamic>(
-                                  builder: (BuildContext context) =>
-                                      const LoginPage(),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: MEDIUM_SPACE,
               ),
-            ],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: AppBarAuthenticationButton(
+                          title: appLocalizations.create_account,
+                          onPressed: () {
+                            Navigator.of(
+                              context,
+                              rootNavigator: true,
+                            ).push<dynamic>(
+                              MaterialPageRoute<dynamic>(
+                                builder: (BuildContext context) =>
+                                    const SignUpPage(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: MEDIUM_SPACE),
+                      Expanded(
+                        child: AppBarAuthenticationButton(
+                          title: appLocalizations.sign_in,
+                          onPressed: () {
+                            Navigator.of(
+                              context,
+                              rootNavigator: true,
+                            ).push<dynamic>(
+                              MaterialPageRoute<dynamic>(
+                                builder: (BuildContext context) =>
+                                    const LoginPage(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
