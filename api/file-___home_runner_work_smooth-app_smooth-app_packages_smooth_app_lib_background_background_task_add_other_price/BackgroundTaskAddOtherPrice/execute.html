@@ -71,15 +71,13 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
-  final String bearerToken = await getBearerToken();
+  final String bearerToken = await getBearerToken(localDatabase);
 
   await addPrices(
     bearerToken: bearerToken,
     proofId: proofId,
     localDatabase: localDatabase,
   );
-
-  await closeSession(bearerToken: bearerToken);
 }</code></pre>
 </section>
 

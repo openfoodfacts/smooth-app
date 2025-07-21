@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the isLoggedIn method from the ProductQuery class, for the Dart programming language.">
-  <title>isLoggedIn method - ProductQuery class - product_query library - Dart API</title>
+  <meta name="description" content="API docs for the getPriceToken method from the ProductQuery class, for the Dart programming language.">
+  <title>getPriceToken method - ProductQuery class - product_query library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query-library.html">product_query</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/ProductQuery-class.html">ProductQuery</a></li>
-    <li class="self-crumb">isLoggedIn method</li>
+    <li class="self-crumb">getPriceToken method</li>
   </ol>
-  <div class="self-name">isLoggedIn</div>
+  <div class="self-name">getPriceToken</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,26 +44,66 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">isLoggedIn</span> method 
+<h1><span class="kind-method">getPriceToken</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-<span class="name ">isLoggedIn</span>(<wbr>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
+<span class="name ">getPriceToken</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getPriceToken-param-user"><span class="type-annotation">dynamic</span> <span class="parameter-name">user</span>, </span></li>
+<li><span class="parameter" id="getPriceToken-param-localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">localDatabase</span></span></li>
+</ol>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Returns the token for Prices, as cached or just downloaded.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static bool isLoggedIn() =&gt; OpenFoodAPIConfiguration.globalUser != null;</code></pre>
+  <pre class="language-dart"><code class="language-dart">static Future&lt;MaybeError&lt;String&gt;&gt; getPriceToken(
+  final User user,
+  final LocalDatabase localDatabase,
+) async {
+  final UriProductHelper uriHelper = ProductQuery.uriPricesHelper;
+  final String key =
+      &#39;priceBearerToken:${user.userId}|${user.password}|${uriHelper.domain}&#39;;
+  final String? cached = await DaoSecuredString.get(key);
+  if (cached != null) {
+    &#47;&#47; token still valid?
+    final MaybeError&lt;Session&gt; session =
+        await OpenPricesAPIClient.getUserSession(
+          bearerToken: cached,
+          uriHelper: uriHelper,
+        );
+    if (session.isError) {
+      await DaoSecuredString.remove(key: key);
+    }
+    return MaybeError&lt;String&gt;.value(cached);
+  }
+  final MaybeError&lt;String&gt; token =
+      await OpenPricesAPIClient.getAuthenticationToken(
+        username: user.userId,
+        password: user.password,
+        uriHelper: uriHelper,
+      );
+  if (token.isError) {
+    throw Exception(&#39;Could not get token: ${token.error}&#39;);
+  }
+  if (token.value.isEmpty) {
+    throw Exception(&#39;Unexpected empty token&#39;);
+  }
+  final String bearerToken = token.value;
+  await DaoSecuredString.put(key: key, value: bearerToken);
+  return token;
+}</code></pre>
 </section>
 
 
@@ -80,7 +120,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query-library.html">product_query</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/ProductQuery-class.html">ProductQuery</a></li>
-  <li class="self-crumb">isLoggedIn method</li>
+  <li class="self-crumb">getPriceToken method</li>
 </ol>
 
 

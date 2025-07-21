@@ -87,7 +87,7 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
     return;
   }
 
-  final String bearerToken = await getBearerToken();
+  final String bearerToken = await getBearerToken(localDatabase);
 
   &#47;&#47; proof upload
   final Uri initialImageUri = Uri.parse(path);
@@ -127,8 +127,6 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
     prices: prices,
     pricesWithoutDiscount: pricesWithoutDiscount,
   );
-
-  await closeSession(bearerToken: bearerToken);
 }</code></pre>
 </section>
 
