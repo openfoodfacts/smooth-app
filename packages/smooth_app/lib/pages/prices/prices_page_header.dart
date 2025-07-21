@@ -46,7 +46,10 @@ class PricesHeader extends StatelessWidget {
             child: Row(
               spacing: SMALL_SPACE,
               children: <Widget>[
-                Expanded(child: _PricesPageCounter(count: pricesResult?.total)),
+                if (pricesResult?.total != null)
+                  Expanded(
+                    child: _PricesPageCounter(count: pricesResult!.total!),
+                  ),
                 Expanded(
                   child: _PricesHeaderAddPriceButton(onTap: model.addButton),
                 ),
@@ -62,7 +65,7 @@ class PricesHeader extends StatelessWidget {
 class _PricesPageCounter extends StatelessWidget {
   const _PricesPageCounter({required this.count});
 
-  final int? count;
+  final int count;
 
   @override
   Widget build(BuildContext context) {
@@ -101,18 +104,14 @@ class _PricesPageCounter extends StatelessWidget {
                   horizontal: LARGE_SPACE,
                   vertical: 2.0,
                 ),
-                child: count != null
-                    ? Text(
-                        count?.toString() ?? '-',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 25.0,
-                          color: lightTheme
-                              ? Colors.white
-                              : extension.primaryBlack,
-                        ),
-                      )
-                    : const CircularProgressIndicator.adaptive(),
+                child: Text(
+                  count.toString(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 25.0,
+                    color: lightTheme ? Colors.white : extension.primaryBlack,
+                  ),
+                ),
               ),
             ),
             Text(
