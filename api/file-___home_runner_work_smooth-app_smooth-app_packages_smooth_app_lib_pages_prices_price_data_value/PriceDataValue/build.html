@@ -75,6 +75,7 @@ Widget build(BuildContext context) {
     locale: ProductQuery.getLocaleString(),
     name: price.currency.name,
   );
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   final SmoothColorsThemeExtension extension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
@@ -87,7 +88,11 @@ Widget build(BuildContext context) {
         children: &lt;Widget&gt;[
           if (_hasDiscount(price)) ...&lt;Widget&gt;[
             _PriceDataContainer(
-              value: currencyFormat.format(price.priceWithoutDiscount),
+              value: _formatPrice(
+                currencyFormat,
+                price.priceWithoutDiscount!,
+                appLocalizations,
+              ),
               backgroundColor: extension.primaryLight,
               textColor: extension.primaryBlack,
               strikeThroughColor: const Color(0x80341100),
@@ -95,7 +100,11 @@ Widget build(BuildContext context) {
             const icons.Arrow.right(size: 15.0),
           ],
           _PriceDataContainer(
-            value: currencyFormat.format(price.price),
+            value: _formatPrice(
+              currencyFormat,
+              price.price,
+              appLocalizations,
+            ),
             backgroundColor: extension.primarySemiDark,
             textColor: Colors.white,
           ),
