@@ -5,6 +5,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/strike_through_text_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_per_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/price_per_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -22,6 +24,7 @@ class PriceDataValue extends StatelessWidget {
       locale: ProductQuery.getLocaleString(),
       name: price.currency.name,
     );
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final SmoothColorsThemeExtension extension = context
