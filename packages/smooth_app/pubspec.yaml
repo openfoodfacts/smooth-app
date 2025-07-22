@@ -102,7 +102,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.23.0
+  openfoodfacts: 3.24.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

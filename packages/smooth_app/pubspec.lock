@@ -1132,10 +1132,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "707f22894f3094450c080b3c8de502e4ca6e7423fbd9bb997a21c666ee6509fa"
+      sha256: "91ad7ff90ead54d16874a04c9a43a131d3c72669807dddc08513b5f2c24466a4"
       url: "https://pub.dev"
     source: hosted
-    version: "3.23.0"
+    version: "3.24.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
