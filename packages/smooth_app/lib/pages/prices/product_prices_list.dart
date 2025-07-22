@@ -12,6 +12,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_sliver_list.dart';
+import 'package:smooth_app/pages/prices/price_category_widget.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
@@ -123,7 +124,9 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
                 PriceProductWidget(
                   priceProduct,
                   enableCountButton: model.enableCountButton,
-                ),
+                )
+              else if (model.displayEachProduct)
+                PriceCategoryWidget(item),
               PriceDataWidget(
                 item,
                 model: model,

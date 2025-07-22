@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -29,12 +31,6 @@ class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
   late final _InfiniteScrollProofManager _proofManager =
       _InfiniteScrollProofManager(selectProof: widget.selectProof);
-
-  @override
-  void dispose() {
-    _proofManager.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +67,16 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   String? _bearerToken;
 
   @override
-  Future<void> fetchInit() async {
+  Future<void> fetchInit(final BuildContext context) async {
+    if (_bearerToken != null) {
+      return;
+    }
+
     final User user = ProductQuery.getWriteUser();
-    final MaybeError<String> token =
-        await OpenPricesAPIClient.getAuthenticationToken(
-          username: user.userId,
-          password: user.password,
-          uriHelper: ProductQuery.uriPricesHelper,
-        );
+    final MaybeError<String> token = await ProductQuery.getPriceToken(
+      user,
+      context.read<LocalDatabase>(),
+    );
 
     if (token.isError) {
       throw Exception(token.error ?? 'Could not authenticate with the server');
@@ -89,10 +87,6 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
 
   @override
   Future<void> fetchData(final int pageNumber) async {
-    if (_bearerToken == null) {
-      await fetchInit();
-    }
-
     final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(
@@ -121,16 +115,6 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
       totalItems: value.total,
       totalPages: value.numberOfPages,
     );
-  }
-
-  /// Properly dispose of the session when the manager is no longer needed
-  void dispose() {
-    if (_bearerToken != null) {
-      OpenPricesAPIClient.deleteUserSession(
-        uriHelper: ProductQuery.uriPricesHelper,
-        bearerToken: _bearerToken!,
-      );
-    }
   }
 
   @override

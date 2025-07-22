@@ -151,14 +151,12 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
-    final String bearerToken = await getBearerToken();
+    final String bearerToken = await getBearerToken(localDatabase);
 
     await addPrices(
       bearerToken: bearerToken,
       proofId: proofId,
       localDatabase: localDatabase,
     );
-
-    await closeSession(bearerToken: bearerToken);
   }
 }
