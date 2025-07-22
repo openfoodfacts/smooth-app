@@ -102,7 +102,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.23.0
+  openfoodfacts: 3.24.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
@@ -113,7 +113,7 @@ dev_dependencies:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  mockito: 5.4.6
+  mockito: 5.5.0
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
   flutter_lints: 6.0.0
