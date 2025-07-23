@@ -33,7 +33,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required this.proofType,
     required this.eraserCoordinates,
     required this.displaySnackbar,
-    required this.bulkProofUpload,
+    required this.readyForPriceTagValidation,
     // single
     required super.date,
     required super.currency,
@@ -62,7 +62,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
         json[_jsonTagEraserCoordinates],
       ),
       displaySnackbar = json[_jsonTagDisplaySnackbar] as bool? ?? true,
-      bulkProofUpload = json[_jsonTagBulkProofUpload] as bool? ?? false,
+      readyForPriceTagValidation =
+          json[_jsonTagReadyForPriceTagValidation] as bool? ?? false,
       super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
@@ -74,7 +75,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   static const String _jsonTagProofType = 'proofType';
   static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
   static const String _jsonTagDisplaySnackbar = 'displaySnackbar';
-  static const String _jsonTagBulkProofUpload = 'bulkProofUpload';
+  static const String _jsonTagReadyForPriceTagValidation =
+      'readyForPriceTagValidation';
 
   static const OperationType _operationType = OperationType.addPrice;
 
@@ -87,7 +89,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   final ProofType proofType;
   final List<double>? eraserCoordinates;
   final bool displaySnackbar;
-  final bool bulkProofUpload;
+  final bool readyForPriceTagValidation;
 
   @override
   Map<String, dynamic> toJson() {
@@ -101,7 +103,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     result[_jsonTagProofType] = proofType.offTag;
     result[_jsonTagEraserCoordinates] = eraserCoordinates;
     result[_jsonTagDisplaySnackbar] = displaySnackbar;
-    result[_jsonTagBulkProofUpload] = bulkProofUpload;
+    result[_jsonTagReadyForPriceTagValidation] = readyForPriceTagValidation;
     return result;
   }
 
@@ -123,7 +125,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
-    required final bool bulkProofUpload,
+    required final bool readyForPriceTagValidation,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -144,7 +146,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
       displaySnackbar: displaySnackbar,
-      bulkProofUpload: bulkProofUpload,
+      readyForPriceTagValidation: readyForPriceTagValidation,
     );
     if (!context.mounted) {
       return;
@@ -174,7 +176,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
-    required final bool bulkProofUpload,
+    required final bool readyForPriceTagValidation,
   }) => BackgroundTaskAddPrice._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -204,7 +206,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       locationOSMType: locationOSMType,
     ),
     displaySnackbar: displaySnackbar,
-    bulkProofUpload: bulkProofUpload,
+    readyForPriceTagValidation: readyForPriceTagValidation,
   );
 
   @override
@@ -257,14 +259,14 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     final MediaType initialMediaType = HttpHelper().imagineMediaType(
       initialImageUri.path,
     )!;
+    print('BACK readyForPriceTagValidation: $readyForPriceTagValidation');
     final MaybeError<Proof> uploadProof = await OpenPricesAPIClient.uploadProof(
       createProofParameters: CreateProofParameters(proofType)
         ..date = date
         ..currency = currency
         ..locationOSMId = locationOSMId
         ..locationOSMType = locationOSMType
-        ..readyForPriceTagValidation =
-            proofType == ProofType.priceTag && bulkProofUpload,
+        ..readyForPriceTagValidation = readyForPriceTagValidation,
       imageUri: initialImageUri,
       mediaType: initialMediaType,
       bearerToken: bearerToken,

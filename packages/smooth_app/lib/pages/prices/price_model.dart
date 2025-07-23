@@ -20,25 +20,34 @@ class PriceModel with ChangeNotifier {
     required final Currency currency,
     final PriceMetaProduct? initialProduct,
     required this.multipleProducts,
-    this.bulkProofUpload = false,
+    final bool readyForPriceTagValidation = false,
   }) : _proof = null,
        existingPrices = null,
        _proofType = proofType,
        _date = DateTime.now(),
        _currency = currency,
        _locations = locations,
+       _readyForPriceTagValidation = readyForPriceTagValidation,
        _priceAmountModels = <PriceAmountModel>[
          if (initialProduct != null) PriceAmountModel(product: initialProduct),
        ];
 
   PriceModel.proof({required Proof proof, this.existingPrices})
     : multipleProducts = true,
-      bulkProofUpload = false,
+      _readyForPriceTagValidation = false,
       _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
   }
 
-  final bool bulkProofUpload;
+  bool _readyForPriceTagValidation;
+
+  bool get readyForPriceTagValidation => _readyForPriceTagValidation;
+
+  set readyForPriceTagValidation(final bool value) {
+    _hasChanged = true;
+    _readyForPriceTagValidation = value;
+    notifyListeners();
+  }
 
   bool _hasChanged = false;
 
@@ -271,7 +280,7 @@ class PriceModel with ChangeNotifier {
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
       displaySnackbar: displaySnackbar,
-      bulkProofUpload: bulkProofUpload,
+      readyForPriceTagValidation: readyForPriceTagValidation,
     );
   }
 }

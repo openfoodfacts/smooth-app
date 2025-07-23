@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -55,10 +57,21 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
                   ),
                 ),
                 const ListTile(
-                  trailing: Icon(Icons.warning),
-                  title: Text(
-                    'Images will be analyzed by an AI and validated by other people.',
+                  trailing: Icon(Icons.info),
+                  title: Text('AI will run on your proofs to extract prices.'),
+                ),
+                SwitchListTile(
+                  title: const Text(
+                    'Allow the community to validate prices extracted by AI.',
                   ),
+                  value: model.readyForPriceTagValidation,
+                  onChanged: (bool value) {
+                    model.readyForPriceTagValidation = value;
+                    unawaited(
+                      UserPreferences.getUserPreferencesSync()
+                          .setReadyForPriceTagValidation(value),
+                    );
+                  },
                 ),
                 SmoothLargeButtonWithIcon(
                   text: appLocalizations.prices_bulk_proof_upload_select,
