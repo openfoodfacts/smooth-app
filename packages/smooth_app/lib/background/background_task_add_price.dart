@@ -259,7 +259,6 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     final MediaType initialMediaType = HttpHelper().imagineMediaType(
       initialImageUri.path,
     )!;
-    print('BACK readyForPriceTagValidation: $readyForPriceTagValidation');
     final MaybeError<Proof> uploadProof = await OpenPricesAPIClient.uploadProof(
       createProofParameters: CreateProofParameters(proofType)
         ..date = date

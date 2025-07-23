@@ -39,7 +39,7 @@ class PriceModel with ChangeNotifier {
     setProof(proof, init: true);
   }
 
-  bool _readyForPriceTagValidation;
+  late bool _readyForPriceTagValidation;
 
   bool get readyForPriceTagValidation => _readyForPriceTagValidation;
 
