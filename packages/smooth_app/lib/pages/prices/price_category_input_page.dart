@@ -83,7 +83,10 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
             children: <Widget>[
               SmoothCardWithRoundedHeader(
                 title: appLocalizations.prices_category_mandatory,
-                contentPadding: const EdgeInsets.all(SMALL_SPACE),
+                contentPadding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: SMALL_SPACE,
+                  vertical: MEDIUM_SPACE,
+                ),
                 child: _categoryName == null
                     ? _MyAutocomplete(
                         helper: SimpleInputPageCategoryHelper(),
@@ -103,15 +106,13 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
               ),
               SmoothCardWithRoundedHeader(
                 title: appLocalizations.prices_category_optional,
-                contentPadding: const EdgeInsets.all(SMALL_SPACE),
+                contentPadding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: SMALL_SPACE,
+                  vertical: MEDIUM_SPACE,
+                ),
                 child: Column(
                   spacing: SMALL_SPACE,
                   children: <Widget>[
-                    for (final String name in _originNames)
-                      _ReadOnlyTextField(
-                        name,
-                        () => setState(() => _originNames.remove(name)),
-                      ),
                     _MyAutocomplete(
                       helper: SimpleInputPageOriginHelper(),
                       controller: _originController,
@@ -120,6 +121,11 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
                         _originNames.add(selected);
                       }),
                     ),
+                    for (final String name in _originNames)
+                      _ReadOnlyTextField(
+                        name,
+                        () => setState(() => _originNames.remove(name)),
+                      ),
                   ],
                 ),
               ),
