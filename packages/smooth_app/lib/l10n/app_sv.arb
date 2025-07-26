@@ -1024,7 +1024,7 @@
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Värde",
-  "tag_value_input_hint": "Input a value",
+  "tag_value_input_hint": "Ange ett värde",
   "tag_key_item": "Egenskap:",
   "tag_value_item": "Värde:",
   "tag_key_explanations": "A key must be lowercase and without any spaces.",
@@ -1884,7 +1884,7 @@
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
   },
-  "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+  "edit_product_form_item_cancel_edit_item_tooltip": "Avbryt din redigering",
   "@edit_product_form_item_cancel_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
   },
@@ -2609,7 +2609,7 @@
       "type": "String"
     }
   },
-  "user_search_contributor_title": "Products I added",
+  "user_search_contributor_title": "Produkter jag har lagt till",
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
