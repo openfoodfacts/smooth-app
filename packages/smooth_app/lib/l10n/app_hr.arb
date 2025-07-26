@@ -43,7 +43,7 @@
   "go_back_to_top": "Go back to top",
   "save": "Spremi",
   "save_confirmation": "Jeste li sigurni da želite spremiti?",
-  "skip": "Skip",
+  "skip": "Preskočiti",
   "cancel": "Otkaži",
   "@cancel": {},
   "ignore": "Ignore",
@@ -946,7 +946,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "Contributor",
+  "product_image_details_contributor": "Suradnik",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -1556,7 +1556,7 @@
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_label_short": "Edit",
+  "edit_product_label_short": "Urediti",
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
@@ -1653,7 +1653,7 @@
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
-  "edit_product_form_item_labels_type": "label",
+  "edit_product_form_item_labels_type": "oznaka",
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
@@ -1725,7 +1725,7 @@
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
-  "edit_product_form_item_origins_type": "country",
+  "edit_product_form_item_origins_type": "zemlja",
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
@@ -1753,7 +1753,7 @@
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
-  "edit_product_form_item_countries_type": "country",
+  "edit_product_form_item_countries_type": "zemlja",
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
@@ -1928,7 +1928,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_save": "Edit",
+  "edit_product_form_save": "Urediti",
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
@@ -2728,7 +2728,7 @@
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
-  "edit_photo_button_label": "Edit",
+  "edit_photo_button_label": "Urediti",
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
@@ -3863,7 +3863,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "Contributor",
+  "photo_viewer_details_contributor_title": "Suradnik",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
@@ -4312,7 +4312,7 @@
   "@prices_stats_online": {
     "description": "Label for online count"
   },
-  "prices_stats_countries": "Countries",
+  "prices_stats_countries": "Zemlje",
   "@prices_stats_countries": {
     "description": "Label for countries count"
   },
