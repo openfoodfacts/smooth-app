@@ -954,7 +954,7 @@
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Date",
+  "product_image_details_date": "Datum",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -1345,7 +1345,7 @@
   "@refuse": {
     "description": "Button to decline the request of sending the anonymous analytics"
   },
-  "ask_me_later_button_label": "Later",
+  "ask_me_later_button_label": "Senare",
   "@ask_me_later": {
     "description": "Button to ignore the camera permission request"
   },
@@ -1418,7 +1418,7 @@
   "@account_deletion_subject": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
-  "user_profile": "Account",
+  "user_profile": "Konto",
   "@user_profile": {
     "description": "User account (if connected)"
   },
@@ -2232,10 +2232,10 @@
   },
   "dev_preferences_migration_status_already_done": "success or fresh install",
   "dev_preferences_migration_status_success": "success",
-  "dev_preferences_migration_status_error": "error",
+  "dev_preferences_migration_status_error": "fel",
   "dev_preferences_migration_status_in_progress": "in progress",
   "dev_preferences_migration_status_required": "required (click to start)",
-  "dev_preferences_migration_status_not_started": "unknown",
+  "dev_preferences_migration_status_not_started": "okänd",
   "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
@@ -2268,7 +2268,7 @@
   "product_type_label_food": "Mat",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Djurmat",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "Övrigt",
   "product_type_selection_title": "Produkttyp",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2488,21 +2488,21 @@
   "prices_amount_existing_subtitle": "Pris tidigare tillagt",
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
-  "prices_amount_price_normal": "Price",
+  "prices_amount_price_normal": "Pris",
   "prices_amount_price_discounted": "Discounted price",
   "prices_amount_price_not_discounted": "Original price",
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
   "prices_currency_subtitle": "Valuta",
-  "prices_date_subtitle": "Date",
+  "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Hitta en butik",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
   "prices_proof_find": "Select a proof",
-  "prices_proof_receipt": "Receipt",
+  "prices_proof_receipt": "Kvitto",
   "prices_proof_price_tag": "Price tag",
   "prices_proof_mandatory": "You need to select a proof!",
   "prices_add_validation_error": "Validation error",
@@ -2686,7 +2686,7 @@
   "@edit_product_action_retake_picture": {
     "description": "Product edition - FAB actions - retake a picture"
   },
-  "edit_product_action_take_picture": "Take photo",
+  "edit_product_action_take_picture": "Ta foto",
   "@edit_product_action_take_picture": {
     "description": "Product edition - FAB actions - take a picture"
   },
@@ -3203,7 +3203,7 @@
   "@no_email_client_available_dialog_content": {
     "description": "Content for the dialog when no email client is installed on the device"
   },
-  "all_images": "All Images",
+  "all_images": "Alla bilder",
   "selected_images": "Selected Images",
   "product_card_remove_product_tooltip": "Remove product",
   "@product_card_remove_product_tooltip": {
@@ -3466,7 +3466,7 @@
   "@color_blue": {
     "description": "Color Blue"
   },
-  "color_cyan": "Cyan",
+  "color_cyan": "Turkos",
   "@color_cyan": {
     "description": "Color Cyan"
   },
@@ -3883,7 +3883,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Date",
+  "photo_viewer_details_date_title": "Datum",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -3891,7 +3891,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "product_page_compatibility_score": "Compatible",
+  "product_page_compatibility_score": "Kompatibel",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
   },
@@ -3899,7 +3899,7 @@
   "@user_lists_action_multi_select": {
     "description": "The button label for multi-selecting products in a user list"
   },
-  "product_page_compatibility_score_tooltip": "Your compatibility score: {score}%",
+  "product_page_compatibility_score_tooltip": "Din kompatibilitetspoäng: {score}%",
   "@product_page_compatibility_score_tooltip": {
     "description": "Message explaining that the score is the compatibility score",
     "placeholders": {
@@ -3963,7 +3963,7 @@
       }
     }
   },
-  "product_page_image_no_image_available": "No\nimage!",
+  "product_page_image_no_image_available": "Ingen\nbild!",
   "@product_page_image_no_image_available": {
     "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
   },
@@ -4081,7 +4081,7 @@
   "photo_field_packaging": "Foto på förpackningsinformation",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
-  "date": "Date",
+  "date": "Datum",
   "photo_rotate_left": "Rotera vänster",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
@@ -4180,11 +4180,11 @@
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "Inte dåligt",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "Jag älskar det!",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
@@ -4220,11 +4220,11 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "Discount",
+  "prices_discount": "Rabatt",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Statistik",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
@@ -4292,7 +4292,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Skönhet",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4320,7 +4320,7 @@
   "@prices_stats_price_tag": {
     "description": "Label for price tag count"
   },
-  "prices_stats_receipt": "Receipt",
+  "prices_stats_receipt": "Kvitto",
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
@@ -4340,7 +4340,7 @@
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Valutor",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
@@ -4364,7 +4364,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "Övrigt",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
