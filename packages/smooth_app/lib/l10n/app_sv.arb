@@ -550,7 +550,7 @@
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "may be outdated",
+  "outdated_image_short_label": "kan vara föråldrad",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
@@ -574,7 +574,7 @@
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
-  "nutrition_facts_editing_title": "Edit Nutrition Facts",
+  "nutrition_facts_editing_title": "Redigera näringsfakta",
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
@@ -651,7 +651,7 @@
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
-  "crop_page_too_small_image_title": "The image is too small!",
+  "crop_page_too_small_image_title": "Bilden är för liten!",
   "@crop_page_too_small_image_title": {
     "description": "Title of a dialog warning the user that the image is too small for upload"
   },
@@ -784,7 +784,7 @@
   "score_add_missing_product_brands": "Add missing product brands",
   "score_update_nutrition_facts": "Uppdatera näringsfakta",
   "nutrition_page_title": "Näringsfakta",
-  "nutrition_page_nutritional_info_title": "Nutritional information",
+  "nutrition_page_nutritional_info_title": "Näringsinformation",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
   "nutrition_page_nutritional_info_value_positive": "Ja",
   "nutrition_page_nutritional_info_value_negative": "Nej",
@@ -1577,7 +1577,7 @@
   "@edit_product_form_item_error_existing": {
     "description": "Error message when the user tries to re-submit an existing value"
   },
-  "edit_product_form_item_add_action_brand": "Add a new brand",
+  "edit_product_form_item_add_action_brand": "Lägg till ett nytt märke",
   "@edit_product_form_item_add_action_brand": {
     "description": "Tooltip to show when the user long presses the (+) button on a brand"
   },
@@ -1860,7 +1860,7 @@
   "edit_product_form_item_exit_title": "Avsluta utan att spara?",
   "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
   "edit_product_form_item_exit_confirmation_positive_button": "Spara ändringar",
-  "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
+  "edit_product_form_item_exit_confirmation_negative_button": "Överge ändringar",
   "edit_product_form_item_ingredients_title": "Ingredienser",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
@@ -2063,7 +2063,7 @@
   "@user_list_button_add_product": {
     "description": "Short label of an 'add to list' button from a product context"
   },
-  "added_to_list_msg": "Added to list",
+  "added_to_list_msg": "Tillagd i listan",
   "@added_to_list_msg": {
     "description": "Message when products have been successfully added to a list"
   },
@@ -2285,7 +2285,7 @@
     }
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
-  "prices_app_button": "Go to Prices app",
+  "prices_app_button": "Gå till Priser-appen",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
@@ -2491,7 +2491,7 @@
   "prices_amount_price_normal": "Pris",
   "prices_amount_price_discounted": "Rabatterat pris",
   "prices_amount_price_not_discounted": "Ursprungspris",
-  "prices_amount_no_product": "One product is missing!",
+  "prices_amount_no_product": "En produkt saknas!",
   "prices_amount_price_incorrect": "Felaktigt värde",
   "prices_amount_price_mandatory": "Obligatoriskt värde",
   "prices_currency_subtitle": "Valuta",
@@ -2506,7 +2506,7 @@
   "prices_proof_price_tag": "Prislapp",
   "prices_proof_mandatory": "You need to select a proof!",
   "prices_add_validation_error": "Valideringsfel",
-  "prices_privacy_warning_title": "Privacy warning",
+  "prices_privacy_warning_title": "Sekretessvarning",
   "prices_unknown_product": "Okänd produkt",
   "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
   "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
@@ -2613,11 +2613,11 @@
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
-  "user_search_informer_title": "Products I edited",
+  "user_search_informer_title": "Produkter jag redigerade",
   "@user_search_informer_title": {
     "description": "User search (informer): list tile title"
   },
-  "user_search_photographer_title": "Products I photographed",
+  "user_search_photographer_title": "Produkter jag fotograferade",
   "@user_search_photographer_title": {
     "description": "User search (photographer): list tile title"
   },
@@ -2641,7 +2641,7 @@
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title"
   },
-  "all_search_prices_latest_title": "Latest Prices added",
+  "all_search_prices_latest_title": "Senast tillagda priser",
   "@all_search_prices_latest_title": {
     "description": "Latest prices: list tile title"
   },
@@ -2658,7 +2658,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Utmaningar",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -2682,7 +2682,7 @@
   "@categorize_products_country_title": {
     "description": "Help categorize products in your country: list tile title"
   },
-  "edit_product_action_retake_picture": "Retake photo",
+  "edit_product_action_retake_picture": "Ta om foto",
   "@edit_product_action_retake_picture": {
     "description": "Product edition - FAB actions - retake a picture"
   },
@@ -3195,7 +3195,7 @@
   "@product_task_background_schedule": {
     "description": "Message when a product is scheduled for background update"
   },
-  "no_email_client_available_dialog_title": "No email apps!",
+  "no_email_client_available_dialog_title": "Inga e-postappar!",
   "@no_email_client_available_dialog_title": {
     "description": "Title for the dialog when no email client is installed on the device"
   },
@@ -3443,12 +3443,12 @@
   "background_task_operation_image": "fotouppladdning",
   "background_task_operation_refresh": "refresh delayed after photo upload",
   "background_task_run_started": "started",
-  "background_task_run_not_started": "not started yet",
+  "background_task_run_not_started": "inte påbörjad än",
   "background_task_run_to_be_deleted": "kommer att tas bort",
   "background_task_question_stop": "Do you want to stop that task ASAP?",
   "feed_back": "Feedback",
   "undo": "Ångra",
-  "copy_email_to_clip_board": "Copy email to clipboard",
+  "copy_email_to_clip_board": "Kopiera e-post till urklipp",
   "@copy_email_to_clip_board": {
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
@@ -3518,7 +3518,7 @@
   "@contrast_low": {
     "description": "Low Contrast Text Color"
   },
-  "product_refresher_internet_not_found": "Product not found!",
+  "product_refresher_internet_not_found": "Produkten kunde inte hittas!",
   "@product_refresher_internet_not_found": {
     "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
   },
@@ -3544,7 +3544,7 @@
       }
     }
   },
-  "product_loader_not_found_title": "Product not found!",
+  "product_loader_not_found_title": "Produkten kunde inte hittas!",
   "@product_loader_not_found_title": {
     "description": "When fetching a product opened via a link and it doesn't exist"
   },
@@ -3557,7 +3557,7 @@
       }
     }
   },
-  "product_loader_network_error_title": "No internet connection!",
+  "product_loader_network_error_title": "Ingen internetanslutning!",
   "@product_loader_network_error_title": {
     "description": "When fetching a product opened via a link and there is no connection"
   },
@@ -3565,7 +3565,7 @@
   "@product_loader_network_error_message": {
     "description": "When fetching a product opened via a link and there is no connection"
   },
-  "page_not_found_title": "Page not found!",
+  "page_not_found_title": "Sidan hittades inte!",
   "@page_not_found_title": {
     "description": "Title for a page not found (when an URL is not recognized)"
   },
@@ -3668,7 +3668,7 @@
   "@language_selector_section_selected": {
     "description": "Label to highlight the selected languages"
   },
-  "language_selector_section_frequently_used": "Frequently used",
+  "language_selector_section_frequently_used": "Ofta använda",
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
@@ -3676,7 +3676,7 @@
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
-  "action_change_list": "Change the current list",
+  "action_change_list": "Ändra den aktuella listan",
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
@@ -3722,7 +3722,7 @@
   "nova_group_3": "NOVA Grupp 3",
   "nova_group_4": "NOVA Grupp 4",
   "nova_group_unknown": "Unknown NOVA Group",
-  "nutrition_facts": "Nutrient Levels",
+  "nutrition_facts": "Näringsnivåer",
   "faq_title_partners": "Partners & Patrons of the NGO",
   "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
   "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
@@ -3730,7 +3730,7 @@
   "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
   "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
   "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-  "contact_title_pro_email": "Producer Contact",
+  "contact_title_pro_email": "Producentkontakt",
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Presskontakt",
   "contact_title_newsletter": "Prenumerera på vårt nyhetsbrev",
@@ -3830,7 +3830,7 @@
   "@menu_button_list_actions": {
     "description": "Button to select an action in a list (eg: Share, Delete, …)"
   },
-  "error_loading_photo": "Error loading photo",
+  "error_loading_photo": "Fel vid laddning av foto",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
@@ -4020,7 +4020,7 @@
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
   },
-  "carousel_unsupported_header": "Unsupported barcode!",
+  "carousel_unsupported_header": "Streckkod stöds ej!",
   "@carousel_unsupported_header": {
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
@@ -4067,7 +4067,7 @@
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "Mat för hundar, katter…",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
@@ -4176,7 +4176,7 @@
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "Kunde göra bättre",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
@@ -4332,7 +4332,7 @@
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Utmaningar",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
