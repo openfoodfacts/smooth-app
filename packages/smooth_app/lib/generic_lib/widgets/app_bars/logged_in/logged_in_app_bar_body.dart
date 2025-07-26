@@ -41,9 +41,7 @@ class LoggedInAppBarBody extends StatelessWidget {
                 ),
                 const Expanded(
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      top: MEDIUM_SPACE,
-                    ),
+                    padding: EdgeInsetsDirectional.only(top: MEDIUM_SPACE),
                     child: AllStatisticsButton(),
                   ),
                 ),
