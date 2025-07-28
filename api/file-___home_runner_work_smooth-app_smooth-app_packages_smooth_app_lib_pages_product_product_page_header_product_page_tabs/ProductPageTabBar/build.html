@@ -89,6 +89,9 @@ Widget build(BuildContext context) {
               .map((ProductPageTab tab) =&gt; tab.prefix)
               .toList(growable: false),
           onTabChanged: (_) {},
+          overflowMainColor: context.lightTheme()
+              ? Theme.of(context).tabBarTheme.unselectedLabelColor
+              : Theme.of(context).scaffoldBackgroundColor,
         ),
       ),
     ),
