@@ -27,7 +27,7 @@ dependencies:
   http: 1.4.0
   http_parser: 4.1.2
   image_picker: 1.1.2
-  l10n_countries: 1.1.1
+  l10n_countries: 1.2.0
   latlong2: 0.9.1
   matomo_tracker: 6.0.0
   package_info_plus: 8.3.0
