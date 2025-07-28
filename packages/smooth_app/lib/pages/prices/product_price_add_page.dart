@@ -114,6 +114,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                   title: Text(
                     appLocalizations.prices_add_n_prices(model.length),
                   ),
+                  subTitle: _generateSubtitle(appLocalizations),
                   actions: <Widget>[
                     IconButton(
                       icon: const Icon(Icons.info),
@@ -246,5 +247,20 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   void dispose() {
     _willPopScope2Controller.dispose();
     super.dispose();
+  }
+
+  Text? _generateSubtitle(AppLocalizations appLocalizations) {
+    if (widget.model.length == 0) {
+      return null;
+    }
+
+    final String text;
+    if (!widget.model.multipleProducts && widget.model.length > 0) {
+      text = widget.model.elementAt(0).product.getName(appLocalizations);
+    } else {
+      text = appLocalizations.prices_button_count_product(widget.model.length);
+    }
+
+    return Text(text);
   }
 }
