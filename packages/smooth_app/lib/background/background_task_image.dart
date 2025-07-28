@@ -6,6 +6,7 @@ import 'dart:ui' as ui;
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/background_task_price.dart';
@@ -188,7 +189,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     }
     try {
       (await BackgroundTaskUpload.getFile(
-        getCroppedPath(fullPath),
+        await getCroppedPath(fullPath),
       )).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
@@ -256,7 +257,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final bool forceCompression,
     required final List<double>? eraserCoordinates,
   }) async {
-    final String croppedPath = getCroppedPath(fullPath);
+    final String croppedPath = await getCroppedPath(fullPath);
+
     final CustomPainter? overlayPainter =
         eraserCoordinates == null || eraserCoordinates.isEmpty
         ? null
@@ -329,8 +331,24 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     return croppedPath;
   }
 
-  static String getCroppedPath(final String fullPath) =>
-      '$fullPath.cropped.jpg';
+  static Future<String> getCroppedPath(final String fullPath) async {
+    final String croppedPath = '$fullPath.cropped.jpg';
+
+    if (_isFileWritable(File(croppedPath))) {
+      return croppedPath;
+    }
+
+    // In some cases, the location of the directory from
+    // [BackgroundTaskUpload.getDirectory()] (= "application support" dir)
+    // may have changed
+    //
+    // This issue is mainly on iOS devices, when a support directory can become
+    // not writable anymore, but is still readable.
+    return join(
+      (await BackgroundTaskUpload.getDirectory()).path,
+      Uri.file(croppedPath).pathSegments.last,
+    );
+  }
 
   /// Uploads the product image.
   @override
@@ -390,5 +408,19 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     throw Exception(
       'Could not upload picture: ${status.status} / ${status.error}',
     );
+  }
+
+  static bool _isFileWritable(File file) {
+    try {
+      final FileStat stat = file.statSync();
+
+      final bool isOwnerWritable = (stat.mode & 0x0080) != 0;
+      final bool isGroupWritable = (stat.mode & 0x0010) != 0;
+      final bool isOtherWritable = (stat.mode & 0x0002) != 0;
+
+      return isOwnerWritable || isGroupWritable || isOtherWritable;
+    } catch (_) {
+      return false;
+    }
   }
 }

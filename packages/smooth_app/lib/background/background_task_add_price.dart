@@ -216,7 +216,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     }
     try {
       (await BackgroundTaskUpload.getFile(
-        BackgroundTaskImage.getCroppedPath(fullPath),
+        await BackgroundTaskImage.getCroppedPath(fullPath),
       )).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.

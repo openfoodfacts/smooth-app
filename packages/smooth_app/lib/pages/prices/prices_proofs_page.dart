@@ -161,18 +161,24 @@ class _PriceProofListItem extends StatelessWidget {
       padding: const EdgeInsets.all(SMALL_SPACE),
       child: Row(
         children: <Widget>[
-          SmoothImage(
-            width: imageSize,
-            height: imageSize,
-            imageProvider: NetworkImage(
-              proof
-                  .getFileUrl(
-                    uriProductHelper: ProductQuery.uriPricesHelper,
-                    isThumbnail: true,
-                  )
-                  .toString(),
+          Badge.count(
+            count: proof.priceCount,
+            alignment: Alignment.topRight,
+            offset: const Offset(-MEDIUM_SPACE, MEDIUM_SPACE),
+            padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+            child: SmoothImage(
+              width: imageSize,
+              height: imageSize,
+              imageProvider: NetworkImage(
+                proof
+                    .getFileUrl(
+                      uriProductHelper: ProductQuery.uriPricesHelper,
+                      isThumbnail: true,
+                    )
+                    .toString(),
+              ),
+              rounded: false,
             ),
-            rounded: false,
           ),
           const SizedBox(width: MEDIUM_SPACE),
           Expanded(child: Column(children: <Widget>[Text(date)])),
