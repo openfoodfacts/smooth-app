@@ -89,7 +89,8 @@ Returns null if the image (cropped or not) is too small.</p>
   required final bool forceCompression,
   required final List&lt;double&gt;? eraserCoordinates,
 }) async {
-  final String croppedPath = getCroppedPath(fullPath);
+  final String croppedPath = await getCroppedPath(fullPath);
+
   final CustomPainter? overlayPainter =
       eraserCoordinates == null || eraserCoordinates.isEmpty
       ? null
