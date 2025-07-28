@@ -145,7 +145,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             MobileScanner(
               controller: _cameraController.controller,
               fit: BoxFit.cover,
-              errorBuilder: (_, _) => EMPTY_WIDGET,
+              errorBuilder: (_, _, _) => EMPTY_WIDGET,
               onDetect: (final BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
@@ -293,7 +293,6 @@ class _ToggleCameraIcon extends StatelessWidget {
               return switch (state) {
                 CameraFacing.front => const Icon(Icons.camera_front),
                 CameraFacing.back => const Icon(Icons.camera_rear),
-                _ => throw UnimplementedError(),
               };
             },
           ),
