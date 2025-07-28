@@ -14,7 +14,7 @@ dependencies:
   async: 2.13.0
   provider: 6.1.5
 
-  mobile_scanner: 7.0.1
+  mobile_scanner: 6.0.10
   torch_light: 1.1.0
 
   scanner_shared:

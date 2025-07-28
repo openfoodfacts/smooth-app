@@ -17,6 +17,7 @@ class SmoothTabBar<T> extends StatefulWidget {
     this.padding,
     this.leadingItems,
     this.trailingItems,
+    this.overflowMainColor,
     super.key,
   }) : assert(items.length > 0);
 
@@ -28,6 +29,7 @@ class SmoothTabBar<T> extends StatefulWidget {
   final Iterable<Widget?>? trailingItems;
   final Function(T) onTabChanged;
   final EdgeInsetsGeometry? padding;
+  final Color? overflowMainColor;
 
   @override
   State<SmoothTabBar<T>> createState() => _SmoothTabBarState<T>();
@@ -43,15 +45,14 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
     final bool lightTheme = context.lightTheme();
 
     return CustomPaint(
-      painter: _ProductHeaderTabBarPainter(
+      foregroundPainter: _ProductHeaderTabBarPainter(
         progress: _horizontalProgress,
-        primaryColor: lightTheme ? theme.primaryLight : theme.primaryDark,
+        primaryColor:
+            widget.overflowMainColor ??
+            (lightTheme ? theme.primaryLight : theme.primaryDark),
         bottomSeparatorColor: lightTheme
             ? theme.primaryBlack
             : theme.primaryNormal,
-        backgroundColor:
-            AppBarTheme.of(context).backgroundColor ??
-            Theme.of(context).scaffoldBackgroundColor,
       ),
       child: SizedBox(
         height: SmoothTabBar.TAB_BAR_HEIGHT,
@@ -180,18 +181,17 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
     required this.progress,
     required this.primaryColor,
     required this.bottomSeparatorColor,
-    required this.backgroundColor,
   });
 
   final double progress;
   final Color primaryColor;
   final Color bottomSeparatorColor;
-  final Color backgroundColor;
   final Paint _paint = Paint();
 
   @override
   void paint(Canvas canvas, Size size) {
     final double gradientSize = size.width * 0.1;
+    final Color backgroundColor = primaryColor.withValues(alpha: 0.0);
 
     if (progress > 0.0) {
       _paint.shader =
