@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_circle.dart';
 import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
@@ -74,6 +75,9 @@ class ProductPageTabBar extends StatelessWidget {
                 .map((ProductPageTab tab) => tab.prefix)
                 .toList(growable: false),
             onTabChanged: (_) {},
+            overflowMainColor: context.lightTheme()
+                ? Theme.of(context).tabBarTheme.unselectedLabelColor
+                : Theme.of(context).scaffoldBackgroundColor,
           ),
         ),
       ),
