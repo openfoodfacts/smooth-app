@@ -41,7 +41,7 @@
 ### 7. **File Path Issues (iOS Bug)**
 - **Current Bug: iOS Filepath**
   - There is a known issue affecting file paths on iOS (e.g., uploads may fail if the app cannot access the selected file).
-  - Check current open issues and PRs for updates or workarounds.
+  - A fix has been merged for this, and will be in the next release
   - Try with a different image or file to see if the problem persists.
 
 ### 8. **App Permissions**
