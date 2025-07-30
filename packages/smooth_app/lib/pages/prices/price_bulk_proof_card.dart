@@ -56,13 +56,15 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
                     appLocalizations.prices_bulk_proof_upload_warning,
                   ),
                 ),
-                const ListTile(
-                  trailing: Icon(Icons.info),
-                  title: Text('AI will run on your proofs to extract prices.'),
+                ListTile(
+                  trailing: const Icon(Icons.info),
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_warning_ai,
+                  ),
                 ),
                 SwitchListTile(
-                  title: const Text(
-                    'Allow the community to validate prices extracted by AI.',
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_community_switch,
                   ),
                   value: model.readyForPriceTagValidation,
                   onChanged: (bool value) {
@@ -99,6 +101,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
   // Returns the error message, or null if OK.
   Future<String?> _selectAndUploadWithError({required PriceModel model}) async {
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     const int imageQuality = 80;
     final Directory directory = await BackgroundTaskUpload.getDirectory();
@@ -107,7 +110,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
       CropHelper.fullImageCropRect,
     );
 
-    _setText('Selecting files');
+    _setText(appLocalizations.prices_bulk_proof_upload_step_selecting);
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(
       imageQuality: imageQuality,
       requestFullMetadata: false,
@@ -122,7 +125,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     if (!mounted) {
       return null;
     }
-    _setText('Starting the upload');
+    _setText(appLocalizations.prices_bulk_proof_upload_step_starting);
     late int index;
     final int count = xFiles.length;
     final DaoInt daoInt = DaoInt(localDatabase);
@@ -141,11 +144,18 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         final File toBeUploadedFile = File(
           '${directory.path}/bulk_proof_${sequenceNumber}_$filename',
         );
-        _setText('Locally copying file #$index/$count');
+        _setText(
+          appLocalizations.prices_bulk_proof_upload_step_copying(index, count),
+        );
         await temporaryFile.copy(toBeUploadedFile.path);
         await temporaryFile.delete();
 
-        _setText('Preparing upload #$index/$count');
+        _setText(
+          appLocalizations.prices_bulk_proof_upload_step_preparing(
+            index,
+            count,
+          ),
+        );
         model.cropParameters = CropParameters(
           fullFile: toBeUploadedFile,
           smallCroppedFile: null,
@@ -166,7 +176,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         model.clearProof();
       }
     } catch (e) {
-      return 'Failed at image #$index/$count';
+      return appLocalizations.prices_bulk_proof_upload_step_error(index, count);
     }
     return null;
   }
