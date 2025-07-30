@@ -2520,7 +2520,11 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
       'ЯИ тарафыннан алынган бәяләрне расларга җәмгыятькә рөхсәт итегез.';
+=======
+      'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2529,10 +2533,17 @@ class AppLocalizationsTt extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'Файлларны сайлау';
 
   @override
   String get prices_bulk_proof_upload_step_starting => 'Йөкләү';
+=======
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {

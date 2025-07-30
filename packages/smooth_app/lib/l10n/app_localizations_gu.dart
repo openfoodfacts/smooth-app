@@ -2519,7 +2519,11 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
       'સમુદાયને AI દ્વારા કાઢવામાં આવેલા ભાવોને માન્ય કરવાની મંજૂરી આપો.';
+=======
+      'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2528,6 +2532,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting =>
       'ફાઇલો પસંદ કરી રહ્યા છીએ';
 
@@ -2538,16 +2543,34 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'સ્થાનિક રીતે ફાઇલની નકલ કરી રહ્યા છીએ #$index/$count';
+=======
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
     return 'અપલોડની તૈયારી કરી રહ્યા છીએ #$index/$count';
+=======
+    return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
     return 'છબીમાં નિષ્ફળતા #$index/$count';
+=======
+    return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override

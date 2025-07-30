@@ -2555,7 +2555,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
       'Permetre que la comunitat validi els preus extrets per la IA.';
+=======
+      'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2564,6 +2568,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'Seleccionant fitxers';
 
   @override
@@ -2572,16 +2577,34 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Copiant localment el fitxer #$index/$count';
+=======
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
     return 'Preparant la càrrega #$index/${count}S\'està preparant la càrrega #$index / $count';
+=======
+    return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
     return 'Error a la imatge #$index/$count';
+=======
+    return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override

@@ -2520,7 +2520,11 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
       'AI මගින් උපුටා ගන්නා ලද මිල ගණන් වලංගු කිරීමට ප්‍රජාවට ඉඩ දෙන්න.';
+=======
+      'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2529,6 +2533,7 @@ class AppLocalizationsSi extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'ගොනු තෝරා ගැනීම';
 
   @override
@@ -2538,16 +2543,34 @@ class AppLocalizationsSi extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return '#$index/$countගොනුව දේශීයව පිටපත් කරමින්';
+=======
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
     return '#$index/$countඋඩුගත කිරීම සූදානම් කරමින්';
+=======
+    return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
     return 'රූපය #$index/$countහිදී අසාර්ථක විය.';
+=======
+    return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override

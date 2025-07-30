@@ -19,7 +19,10 @@ class PriceModel with ChangeNotifier {
     required final List<OsmLocation>? locations,
     required final Currency currency,
     required this.multipleProducts,
+<<<<<<< HEAD
     final PriceMetaProduct? initialProduct,
+=======
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
     final bool readyForPriceTagValidation = false,
   }) : _proof = null,
        existingPrices = null,

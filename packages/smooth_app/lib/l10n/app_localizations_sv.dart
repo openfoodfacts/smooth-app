@@ -2534,7 +2534,11 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
       'Tillåt communityn att validera priser som extraherats av AI.';
+=======
+      'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2543,6 +2547,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'Välja filer';
 
   @override
@@ -2551,20 +2556,42 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Lokal kopiering av fil #$index/$count';
+=======
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
     return 'Förbereder uppladdning #$index/$count';
+=======
+    return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
     return 'Misslyckades vid bild #$index/$count';
   }
 
   @override
   String get prices_generic_title => 'Priser';
+=======
+    return 'Failed at image #$index/$count';
+  }
+
+  @override
+  String get prices_generic_title => 'Prices';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String prices_add_n_prices(num count) {

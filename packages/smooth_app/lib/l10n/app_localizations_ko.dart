@@ -2479,7 +2479,11 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
       '커뮤니티가 AI가 추출한 가격을 검증할 수 있도록 허용합니다.';
+=======
+      'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2488,6 +2492,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => '파일 선택';
 
   @override
@@ -2496,16 +2501,34 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return '로컬로 파일 #$index/$count복사 중';
+=======
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
     return '업로드 준비 중 #$index/$count';
+=======
+    return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
     return '이미지 #$index/$count에서 실패했습니다.';
+=======
+    return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override

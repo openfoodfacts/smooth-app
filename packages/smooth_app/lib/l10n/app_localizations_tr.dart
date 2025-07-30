@@ -2532,11 +2532,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
+<<<<<<< HEAD
       'Yapay zeka kanıtlarınız üzerinde çalışarak fiyatları çıkaracak.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Yapay zeka tarafından çıkarılan fiyatların topluluk tarafından doğrulanmasına izin verin.';
+=======
+      'AI will run on your proofs to extract prices.';
+
+  @override
+  String get prices_bulk_proof_upload_community_switch =>
+      'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Birden Fazla Fiyat Etiketi';
@@ -2545,6 +2553,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Toplu Kanıt Yüklemesi';
 
   @override
+<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'Dosyaları seçme';
 
   @override
@@ -2553,16 +2562,34 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return '#$index/${count}dosyası yerel olarak kopyalanıyor';
+=======
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
     return 'Yükleme hazırlanıyor #$index/$count';
+=======
+    return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
     return '#$index/${count}görüntüsünde başarısız oldu';
+=======
+    return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
