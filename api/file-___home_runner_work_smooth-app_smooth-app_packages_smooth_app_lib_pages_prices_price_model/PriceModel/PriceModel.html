@@ -53,7 +53,8 @@
 <li><span class="parameter" id="-param-locations"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">locations</span>, </span></li>
 <li><span class="parameter" id="-param-currency"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">currency</span>, </span></li>
 <li><span class="parameter" id="-param-initialProduct"><span class="type-annotation">dynamic</span> <span class="parameter-name">initialProduct</span>, </span></li>
-<li><span class="parameter" id="-param-multipleProducts"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multipleProducts</span>}</span></li>
+<li><span class="parameter" id="-param-multipleProducts"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multipleProducts</span>, </span></li>
+<li><span class="parameter" id="-param-readyForPriceTagValidation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">readyForPriceTagValidation</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
     </section>
 
@@ -69,12 +70,14 @@
   required final Currency currency,
   final PriceMetaProduct? initialProduct,
   required this.multipleProducts,
+  final bool readyForPriceTagValidation = false,
 }) : _proof = null,
      existingPrices = null,
      _proofType = proofType,
      _date = DateTime.now(),
      _currency = currency,
      _locations = locations,
+     _readyForPriceTagValidation = readyForPriceTagValidation,
      _priceAmountModels = &lt;PriceAmountModel&gt;[
        if (initialProduct != null) PriceAmountModel(product: initialProduct),
      ];</code></pre>
@@ -123,6 +126,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/multipleProducts.html">multipleProducts</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/proof.html">proof</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/proofType.html">proofType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/readyForPriceTagValidation.html">readyForPriceTagValidation</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/today.html">today</a></li>
 
