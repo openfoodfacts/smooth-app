@@ -2288,8 +2288,48 @@
   "prices_app_button": "Accéder à l'application Prix",
   "prices_bulk_proof_upload_select": "Ajouter des étiquettes de prix directement depuis la galerie",
   "prices_bulk_proof_upload_warning": "Une fois que vous aurez sélectionné des images, vous ne pourrez pas les modifier !",
+  "prices_bulk_proof_upload_warning_ai": "L'IA sera exécutée sur vos preuves pour en extraire les prix.",
+  "prices_bulk_proof_upload_community_switch": "Permettre à la communauté de valider les prix extraits par l'IA.",
   "prices_bulk_proof_upload_subtitle": "Étiquettes de prix multiples",
   "prices_bulk_proof_upload_title": "Téléversement de preuves en masse",
+  "prices_bulk_proof_upload_step_selecting": "Sélection des fichiers",
+  "prices_bulk_proof_upload_step_starting": "Démarrer le téléchargement",
+  "prices_bulk_proof_upload_step_copying": "Copie locale du fichier #{index}/{count}",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "Préparation du téléchargement #{index}/{count}",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "Échec à l'image #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Prix",
   "prices_add_n_prices": "{count,plural, =1{Ajouter un prix} other{Ajouter {count} prix}}",
   "prices_send_n_prices": "{count,plural, =1{Envoyer le prix} other{Envoyer {count} prix}}",
@@ -2340,6 +2380,29 @@
   "prices_category_error_mandatory": "La catégorie est obligatoire",
   "prices_barcode_reader_action": "Lecteur de code-barres",
   "prices_view_prices": "Voir les prix",
+  "prices_list_title": "Liste de prix",
+  "prices_list_count": "Nombre de\nprix",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "Ajouter un nouveau prix\n",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_entry_shop_not_found": "Magasin inconnu",
+  "prices_entry_menu_title": "Entrée de prix à partir de \"{user}\"",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_proof": "Voir la preuve",
+  "prices_entry_menu_my_prices": "Voir mes autres tarifs",
+  "prices_entry_menu_author_prices": "Voir d'autres prix de l'auteur",
+  "prices_entry_menu_shop_prices": "Voir les autres prix de la boutique",
   "prices_product_accessibility_summary": "{count,plural, =1{1 prix} other{{count} prix}} pour {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2637,9 +2700,14 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Prix d'un contributeur",
+  "user_any_search_prices_title": "Prix contributeurs : {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Derniers prix ajoutés",
   "@all_search_prices_latest_title": {
@@ -2793,6 +2861,19 @@
   "add_basic_details_product_name_hint": "Saisir le nom du product (ex : Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "Changer la langue par défaut ?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Voulez-vous que la langue par défaut du produit soit définie sur «{language}» ?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Bon exemple",
   "@explanation_section_good_examples": {
@@ -4160,6 +4241,22 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
+  "product_page_tab_for_me": "Pour moi",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Site Web",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Prix",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "product_page_tab_folksonomy": "Folksonomie",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
   "prices_products_list_length_many_pages": "Meilleurs {pageSize} produits  (total : {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4399,6 +4496,10 @@
   "product_edit_robotoff_expand_proof": "Développer la preuve",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "Données brutes",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Page {current} / {total}",
   "@page_indicator_with_total": {
