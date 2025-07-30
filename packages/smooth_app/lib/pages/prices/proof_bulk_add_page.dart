@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -51,6 +52,8 @@ class ProofBulkAddPage extends StatefulWidget {
       locations: osmLocations,
       currency: currency,
       multipleProducts: true,
+      readyForPriceTagValidation:
+          UserPreferences.getUserPreferencesSync().readyForPriceTagValidation,
     );
   }
 

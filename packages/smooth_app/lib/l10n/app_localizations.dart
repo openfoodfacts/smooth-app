@@ -4601,6 +4601,18 @@ abstract class AppLocalizations {
   /// **'Once you\'ve selected images, you won\'t be able to edit them!'**
   String get prices_bulk_proof_upload_warning;
 
+  /// No description provided for @prices_bulk_proof_upload_warning_ai.
+  ///
+  /// In en, this message translates to:
+  /// **'AI will run on your proofs to extract prices.'**
+  String get prices_bulk_proof_upload_warning_ai;
+
+  /// No description provided for @prices_bulk_proof_upload_community_switch.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow the community to validate prices extracted by AI.'**
+  String get prices_bulk_proof_upload_community_switch;
+
   /// No description provided for @prices_bulk_proof_upload_subtitle.
   ///
   /// In en, this message translates to:
@@ -4612,6 +4624,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bulk Proof Upload'**
   String get prices_bulk_proof_upload_title;
+
+  /// No description provided for @prices_bulk_proof_upload_step_selecting.
+  ///
+  /// In en, this message translates to:
+  /// **'Selecting files'**
+  String get prices_bulk_proof_upload_step_selecting;
+
+  /// No description provided for @prices_bulk_proof_upload_step_starting.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting the upload'**
+  String get prices_bulk_proof_upload_step_starting;
+
+  /// A message stating the current copy step
+  ///
+  /// In en, this message translates to:
+  /// **'Locally copying file #{index}/{count}'**
+  String prices_bulk_proof_upload_step_copying(int index, int count);
+
+  /// A message stating the current upload step
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing upload #{index}/{count}'**
+  String prices_bulk_proof_upload_step_preparing(int index, int count);
+
+  /// A message stating the current error step
+  ///
+  /// In en, this message translates to:
+  /// **'Failed at image #{index}/{count}'**
+  String prices_bulk_proof_upload_step_error(int index, int count);
 
   /// No description provided for @prices_generic_title.
   ///

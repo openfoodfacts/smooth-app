@@ -2510,10 +2510,39 @@ class AppLocalizationsVe extends AppLocalizations {
       'Once you\'ve selected images, you won\'t be able to edit them!';
 
   @override
+  String get prices_bulk_proof_upload_warning_ai =>
+      'AI will run on your proofs to extract prices.';
+
+  @override
+  String get prices_bulk_proof_upload_community_switch =>
+      'Allow the community to validate prices extracted by AI.';
+
+  @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
 
   @override
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+
+  @override
+  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Locally copying file #$index/$count';
+  }
+
+  @override
+  String prices_bulk_proof_upload_step_preparing(int index, int count) {
+    return 'Preparing upload #$index/$count';
+  }
+
+  @override
+  String prices_bulk_proof_upload_step_error(int index, int count) {
+    return 'Failed at image #$index/$count';
+  }
 
   @override
   String get prices_generic_title => 'Prices';
