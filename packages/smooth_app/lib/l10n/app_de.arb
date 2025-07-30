@@ -2288,8 +2288,48 @@
   "prices_app_button": "Zur Preise-App wechseln",
   "prices_bulk_proof_upload_select": "Preisschilder direkt aus der Galerie hinzufügen",
   "prices_bulk_proof_upload_warning": "Sobald Sie Fotos ausgewählt haben, können diese nicht mehr bearbeitet werden!",
+  "prices_bulk_proof_upload_warning_ai": "KI prüft Ihre Nachweise, um Preise zu ermitteln.",
+  "prices_bulk_proof_upload_community_switch": "Ermöglichen Sie der Community, von der KI extrahierte Preise zu validieren.",
   "prices_bulk_proof_upload_subtitle": "Mehrere Preisschilder",
   "prices_bulk_proof_upload_title": "Massen-Upload von Nachweisen",
+  "prices_bulk_proof_upload_step_selecting": "Dateien auswählen",
+  "prices_bulk_proof_upload_step_starting": "Starten des Uploads",
+  "prices_bulk_proof_upload_step_copying": "Datei #{index}/{count}wird lokal kopiert",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "Upload vorbereiten #{index}/{count}",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "Fehler beim Bild #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Preise",
   "prices_add_n_prices": "{count,plural, =1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
   "prices_send_n_prices": "{count,plural, =1{Preis senden} other{{count} Preise senden}}",
@@ -2340,6 +2380,29 @@
   "prices_category_error_mandatory": "Die Kategorie ist verpflichtend",
   "prices_barcode_reader_action": "Barcodelesegerät",
   "prices_view_prices": "Preise anzeigen",
+  "prices_list_title": "Preisliste",
+  "prices_list_count": "Anzahl der\nPreise",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "Fügen Sie einen\nneuen Preis hinzu",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_entry_shop_not_found": "Unbekannter Laden",
+  "prices_entry_menu_title": "Preiseingabe ab \"{user}\"",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_proof": "Proof ansehen",
+  "prices_entry_menu_my_prices": "Meine anderen Preise ansehen",
+  "prices_entry_menu_author_prices": "Weitere Preise des Autors anzeigen",
+  "prices_entry_menu_shop_prices": "Weitere Preise aus dem Shop ansehen",
   "prices_product_accessibility_summary": "{count,plural, =1{1 Preis} other{{count} Preise}} für {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2637,9 +2700,14 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Preise der Mitwirkenden",
+  "user_any_search_prices_title": "Beitragspreise: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Neueste Preise hinzugefügt",
   "@all_search_prices_latest_title": {
@@ -2793,6 +2861,19 @@
   "add_basic_details_product_name_hint": "Namen des Produkts eingeben (z.B.: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "Die Standardsprache ändern?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Möchten Sie, dass die Standardsprache des Produkts auf „{language}“ eingestellt wird?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Gute Beispiele",
   "@explanation_section_good_examples": {
@@ -4160,6 +4241,22 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
+  "product_page_tab_for_me": "Für mich",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Website",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Preise",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "product_page_tab_folksonomy": "Folksonomy",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
   "prices_products_list_length_many_pages": "Die besten {pageSize} Produkte (Insgesamt: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4399,6 +4496,10 @@
   "product_edit_robotoff_expand_proof": "Beweis erweitern",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "Rohdaten",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Seite {current} / {total}",
   "@page_indicator_with_total": {
