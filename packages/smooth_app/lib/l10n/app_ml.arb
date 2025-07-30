@@ -2288,8 +2288,48 @@
   "prices_app_button": "Go to Prices app",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
+  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_community_switch": "AI വേർതിരിച്ചെടുത്ത വിലകൾ സാധൂകരിക്കാൻ സമൂഹത്തെ അനുവദിക്കുക.",
   "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_step_selecting": "ഫയലുകൾ തിരഞ്ഞെടുക്കുന്നു",
+  "prices_bulk_proof_upload_step_starting": "അപ്‌ലോഡ് ആരംഭിക്കുന്നു",
+  "prices_bulk_proof_upload_step_copying": "#{index}/{count}ഫയൽ ലോക്കലായി പകർത്തുന്നു",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "#{index}/{count}അപ്‌ലോഡ് തയ്യാറാക്കുന്നു",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "ഇമേജിൽ പരാജയപ്പെട്ടു #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Prices",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
@@ -2340,6 +2380,29 @@
   "prices_category_error_mandatory": "വിഭാഗം നിർബന്ധമാണ്",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
+  "prices_list_title": "വിലവിവരപ്പട്ടിക",
+  "prices_list_count": "\nവിലകളുടെ എണ്ണം",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "\nപുതിയ വില ചേർക്കുക",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_entry_shop_not_found": "അജ്ഞാത സ്റ്റോർ",
+  "prices_entry_menu_title": "\"{user}\" എന്നതിൽ നിന്നാണ് വില രേഖപ്പെടുത്തിയിരിക്കുന്നത്.",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_proof": "തെളിവ് കാണുക",
+  "prices_entry_menu_my_prices": "എന്റെ മറ്റ് വിലകൾ കാണുക",
+  "prices_entry_menu_author_prices": "രചയിതാവിന്റെ മറ്റ് വിലകൾ കാണുക.",
+  "prices_entry_menu_shop_prices": "കടയിലെ മറ്റ് വിലകൾ കാണുക.",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2637,9 +2700,14 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Contributor prices",
+  "user_any_search_prices_title": "സംഭാവകരുടെ വിലകൾ: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Latest Prices added",
   "@all_search_prices_latest_title": {
@@ -2793,6 +2861,19 @@
   "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "ഡിഫോൾട്ട് ഭാഷ മാറ്റണോ?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "ഉൽപ്പന്നത്തിന്റെ ഡിഫോൾട്ട് ഭാഷ '{language}' ആയി സജ്ജീകരിക്കണോ?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Good examples",
   "@explanation_section_good_examples": {
@@ -4160,6 +4241,22 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
+  "product_page_tab_for_me": "എനിക്കായി",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Website",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Prices",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "product_page_tab_folksonomy": "Folksonomy",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4399,6 +4496,10 @@
   "product_edit_robotoff_expand_proof": "പ്രൂഫ് വികസിപ്പിക്കുക",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "റോ ഡാറ്റ",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "പേജ് {current} / {total}",
   "@page_indicator_with_total": {
