@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
@@ -77,26 +78,32 @@ class _PriceProofPageState extends State<PriceProofPage> {
         ],
       ),
       body: Center(
-        child: Image.network(
-          _getUrl(false),
-          fit: BoxFit.cover,
-          loadingBuilder:
-              (
-                BuildContext context,
-                Widget child,
-                ImageChunkEvent? loadingProgress,
-              ) {
-                if (loadingProgress == null) {
-                  return child;
-                }
-                return Center(
-                  child: SizedBox(
-                    width: double.maxFinite,
-                    height: double.maxFinite,
-                    child: Image.network(_getUrl(true), fit: BoxFit.contain),
-                  ),
-                );
-              },
+        child: Badge.count(
+          count: widget.proof.priceCount,
+          alignment: Alignment.topRight,
+          offset: const Offset(-MEDIUM_SPACE, MEDIUM_SPACE),
+          padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+          child: Image.network(
+            _getUrl(false),
+            fit: BoxFit.cover,
+            loadingBuilder:
+                (
+                  BuildContext context,
+                  Widget child,
+                  ImageChunkEvent? loadingProgress,
+                ) {
+                  if (loadingProgress == null) {
+                    return child;
+                  }
+                  return Center(
+                    child: SizedBox(
+                      width: double.maxFinite,
+                      height: double.maxFinite,
+                      child: Image.network(_getUrl(true), fit: BoxFit.contain),
+                    ),
+                  );
+                },
+          ),
         ),
       ),
     );

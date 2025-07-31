@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/strike_through_text_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/price_per_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -20,6 +22,7 @@ class PriceDataValue extends StatelessWidget {
       locale: ProductQuery.getLocaleString(),
       name: price.currency.name,
     );
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
@@ -32,7 +35,11 @@ class PriceDataValue extends StatelessWidget {
           children: <Widget>[
             if (_hasDiscount(price)) ...<Widget>[
               _PriceDataContainer(
-                value: currencyFormat.format(price.priceWithoutDiscount),
+                value: _formatPrice(
+                  currencyFormat,
+                  price.priceWithoutDiscount!,
+                  appLocalizations,
+                ),
                 backgroundColor: extension.primaryLight,
                 textColor: extension.primaryBlack,
                 strikeThroughColor: const Color(0x80341100),
@@ -40,7 +47,11 @@ class PriceDataValue extends StatelessWidget {
               const icons.Arrow.right(size: 15.0),
             ],
             _PriceDataContainer(
-              value: currencyFormat.format(price.price),
+              value: _formatPrice(
+                currencyFormat,
+                price.price,
+                appLocalizations,
+              ),
               backgroundColor: extension.primarySemiDark,
               textColor: Colors.white,
             ),
@@ -48,6 +59,18 @@ class PriceDataValue extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String _formatPrice(
+    final NumberFormat currencyFormat,
+    final num value,
+    final AppLocalizations appLocalizations,
+  ) {
+    final String formatted = currencyFormat.format(value);
+    if (price.pricePer == null) {
+      return formatted;
+    }
+    return '$formatted${price.pricePer!.getShortTitle(appLocalizations)}';
   }
 }
 

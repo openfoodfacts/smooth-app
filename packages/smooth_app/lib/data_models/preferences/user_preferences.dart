@@ -95,6 +95,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
   static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
   static const String _TAG_PRODUCT_PAGE_TABS = '_product_page_tabs';
+  static const String _TAG_READY_FOR_PRICE_TAG_VALIDATION =
+      'ready_for_price_tag_validation';
 
   /// Camera preferences
 
@@ -259,6 +261,12 @@ class UserPreferences extends ChangeNotifier {
 
   bool get shouldShowPricesFeedbackForm =>
       _sharedPreferences.getBool(_TAG_PRICES_FEEDBACK_FORM) ?? true;
+
+  Future<void> setReadyForPriceTagValidation(final bool state) async =>
+      _sharedPreferences.setBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION, state);
+
+  bool get readyForPriceTagValidation =>
+      _sharedPreferences.getBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION) ?? false;
 
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??

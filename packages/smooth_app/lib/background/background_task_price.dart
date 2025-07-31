@@ -192,14 +192,11 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
 
   @protected
-  Future<String> getBearerToken() async {
-    final User user = getUser();
-    final MaybeError<String> token =
-        await OpenPricesAPIClient.getAuthenticationToken(
-          username: user.userId,
-          password: user.password,
-          uriHelper: ProductQuery.uriPricesHelper,
-        );
+  Future<String> getBearerToken(final LocalDatabase localDatabase) async {
+    final MaybeError<String> token = await ProductQuery.getPriceToken(
+      getUser(),
+      localDatabase,
+    );
     if (token.isError) {
       throw Exception('Could not get token: ${token.error}');
     }
@@ -281,25 +278,6 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       }
     }
     localDatabase.notifyListeners();
-  }
-
-  @protected
-  Future<void> closeSession({required final String bearerToken}) async {
-    final MaybeError<bool> closedSession =
-        await OpenPricesAPIClient.deleteUserSession(
-          uriHelper: ProductQuery.uriPricesHelper,
-          bearerToken: bearerToken,
-        );
-    if (closedSession.isError) {
-      // TODO(monsieurtanuki): do we really care?
-      // throw Exception('Could not close session: ${closedSession.error}');
-      return;
-    }
-    if (!closedSession.value) {
-      // TODO(monsieurtanuki): do we really care?
-      // throw Exception('Could not really close session');
-      return;
-    }
   }
 
   @override

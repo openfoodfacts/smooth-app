@@ -14,6 +14,8 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 
 /// Price Product display (no price data here).
+///
+/// See also [PriceCategoryWidget], that deals with "no barcode" products.
 class PriceProductWidget extends StatelessWidget {
   const PriceProductWidget(
     this.priceProduct, {

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -54,6 +56,25 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
                     appLocalizations.prices_bulk_proof_upload_warning,
                   ),
                 ),
+                ListTile(
+                  trailing: const Icon(Icons.info),
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_warning_ai,
+                  ),
+                ),
+                SwitchListTile(
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_community_switch,
+                  ),
+                  value: model.readyForPriceTagValidation,
+                  onChanged: (bool value) {
+                    model.readyForPriceTagValidation = value;
+                    unawaited(
+                      UserPreferences.getUserPreferencesSync()
+                          .setReadyForPriceTagValidation(value),
+                    );
+                  },
+                ),
                 SmoothLargeButtonWithIcon(
                   text: appLocalizations.prices_bulk_proof_upload_select,
                   leadingIcon: const Icon(Icons.add),
@@ -80,6 +101,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
   // Returns the error message, or null if OK.
   Future<String?> _selectAndUploadWithError({required PriceModel model}) async {
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     const int imageQuality = 80;
     final Directory directory = await BackgroundTaskUpload.getDirectory();
@@ -88,7 +110,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
       CropHelper.fullImageCropRect,
     );
 
-    _setText('Selecting files');
+    _setText(appLocalizations.prices_bulk_proof_upload_step_selecting);
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(
       imageQuality: imageQuality,
       requestFullMetadata: false,
@@ -103,7 +125,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     if (!mounted) {
       return null;
     }
-    _setText('Starting the upload');
+    _setText(appLocalizations.prices_bulk_proof_upload_step_starting);
     late int index;
     final int count = xFiles.length;
     final DaoInt daoInt = DaoInt(localDatabase);
@@ -122,11 +144,18 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         final File toBeUploadedFile = File(
           '${directory.path}/bulk_proof_${sequenceNumber}_$filename',
         );
-        _setText('Locally copying file #$index/$count');
+        _setText(
+          appLocalizations.prices_bulk_proof_upload_step_copying(index, count),
+        );
         await temporaryFile.copy(toBeUploadedFile.path);
         await temporaryFile.delete();
 
-        _setText('Preparing upload #$index/$count');
+        _setText(
+          appLocalizations.prices_bulk_proof_upload_step_preparing(
+            index,
+            count,
+          ),
+        );
         model.cropParameters = CropParameters(
           fullFile: toBeUploadedFile,
           smallCroppedFile: null,
@@ -147,7 +176,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         model.clearProof();
       }
     } catch (e) {
-      return 'Failed at image #$index/$count';
+      return appLocalizations.prices_bulk_proof_upload_step_error(index, count);
     }
     return null;
   }
