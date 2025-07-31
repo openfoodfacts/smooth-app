@@ -2293,7 +2293,7 @@
   "prices_bulk_proof_upload_subtitle": "כמה תגי מחיר",
   "prices_bulk_proof_upload_title": "העלאת הוכחות במרוכז",
   "prices_bulk_proof_upload_step_selecting": "בחירת קבצים",
-  "prices_bulk_proof_upload_step_starting": "התחלת ההעלאה",
+  "prices_bulk_proof_upload_step_starting": "ההעלאה מתחילה",
   "prices_bulk_proof_upload_step_copying": "העתקת קובץ מקומית #{index}/{count}",
   "@prices_bulk_proof_upload_step_copying": {
     "description": "A message stating the current copy step",
@@ -2306,7 +2306,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_preparing": "מכין את ההעלאה #{index}/{count}",
+  "prices_bulk_proof_upload_step_preparing": "הכנה להעלאה מס׳ {index}/{count}",
   "@prices_bulk_proof_upload_step_preparing": {
     "description": "A message stating the current upload step",
     "placeholders": {
@@ -2318,7 +2318,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_error": "נכשל בתמונה #{index}/{count}",
+  "prices_bulk_proof_upload_step_error": "כשל בתמונה מס׳ {index}/{count}",
   "@prices_bulk_proof_upload_step_error": {
     "description": "A message stating the current error step",
     "placeholders": {
@@ -2380,17 +2380,17 @@
   "prices_category_error_mandatory": "הקטגוריה היא חובה",
   "prices_barcode_reader_action": "קורא ברקודים",
   "prices_view_prices": "הצגת המחירים",
-  "prices_list_title": "מְחִירוֹן",
-  "prices_list_count": "מספר מחירים של\n",
+  "prices_list_title": "מחירון",
+  "prices_list_count": "מספר\nמחירים",
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
-  "prices_list_add_new_price": "הוסף מחיר חדש\n",
+  "prices_list_add_new_price": "הוספת\nמחיר חדש",
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
   "prices_entry_shop_not_found": "חנות לא ידועה",
-  "prices_entry_menu_title": "הזנת מחיר מ-\"{user}\"",
+  "prices_entry_menu_title": "הזנת מחיר מאת „{user}”",
   "@prices_entry_menu_title": {
     "description": "Title of the menu for a price entry",
     "placeholders": {
@@ -2399,10 +2399,10 @@
       }
     }
   },
-  "prices_entry_menu_open_proof": "הצג הוכחה",
-  "prices_entry_menu_my_prices": "צפו במחירים האחרים שלי",
-  "prices_entry_menu_author_prices": "צפה במחירים אחרים של המחבר",
-  "prices_entry_menu_shop_prices": "צפה במחירים אחרים מהחנות",
+  "prices_entry_menu_open_proof": "הצגת הוכחה",
+  "prices_entry_menu_my_prices": "הצגת המחירים האחרים שלי",
+  "prices_entry_menu_author_prices": "הצגת מחירים אחרים של המחבר",
+  "prices_entry_menu_shop_prices": "הצגת מחירים אחרים מהחנות",
   "prices_product_accessibility_summary": "{count,plural, two {{count} מחירים} many {{count} מחירים}=1{מחיר {count}} other{{count} מחירים}} ל{product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2866,7 +2866,7 @@
   "@add_basic_details_product_name_change_main_language_title": {
     "description": "Title of the dialog to change the main language of the product name"
   },
-  "add_basic_details_product_name_change_main_language_text": "האם ברצונך ששפת ברירת המחדל של המוצר תוגדר ל-'{language}'?",
+  "add_basic_details_product_name_change_main_language_text": "להגדיר את שפת ברירת המחדל של המוצר ל„{language}”?",
   "@add_basic_details_product_name_change_main_language_text": {
     "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
     "placeholders": {
@@ -4241,7 +4241,7 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
-  "product_page_tab_for_me": "לְמַעֲנִי",
+  "product_page_tab_for_me": "בשבילי",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
