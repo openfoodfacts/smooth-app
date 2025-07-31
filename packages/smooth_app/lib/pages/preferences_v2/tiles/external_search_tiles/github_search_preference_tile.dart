@@ -7,14 +7,12 @@ class GithubSearchPreferenceTile extends ExternalSearchPreferenceTile {
   GithubSearchPreferenceTile() : super(icon: const GitHub().icon);
 
   @override
-  String buildTitle(BuildContext context, String keyword) {
-    return AppLocalizations.of(
-      context,
-    ).external_search_tile_title('GitHub', keyword);
-  }
+  String buildTitle(BuildContext context, String keyword) =>
+      AppLocalizations.of(
+        context,
+      ).external_search_tile_title('GitHub', keyword);
 
   @override
-  String getSearchUrl(BuildContext context, String keyword) {
-    return 'https://github.com/search?q=org%3Aopenfoodfacts+${Uri.encodeComponent(keyword)}&type=repositories';
-  }
+  String getSearchUrl(BuildContext context, String keyword) =>
+      'https://github.com/search?q=org%3Aopenfoodfacts+${Uri.encodeComponent(keyword)}&type=repositories';
 }

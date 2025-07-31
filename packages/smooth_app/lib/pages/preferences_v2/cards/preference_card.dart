@@ -23,11 +23,7 @@ class PreferenceCard extends StatelessWidget {
       leading: EMPTY_WIDGET,
       title: title,
       titleTextStyle: Theme.of(context).textTheme.bodyLarge,
-      child: Column(
-        children: tiles
-            .map((PreferenceTile tile) => tile)
-            .toList(growable: false),
-      ),
+      child: Column(children: tiles),
     );
   }
 }

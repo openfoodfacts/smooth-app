@@ -8,9 +8,9 @@ import 'package:smooth_app/themes/theme_provider.dart';
 /// outside of a card when the user is searching for a tile.
 class PreferenceTile extends StatelessWidget {
   const PreferenceTile({
+    required this.title,
     super.key,
     this.icon,
-    required this.title,
     this.subtitleText,
     this.subtitle,
     this.trailing,

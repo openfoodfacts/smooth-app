@@ -6,8 +6,8 @@ class UrlPreferenceTile extends PreferenceTile {
   const UrlPreferenceTile({
     required super.icon,
     required super.title,
-    super.subtitleText,
     required this.url,
+    super.subtitleText,
   });
 
   final String url;

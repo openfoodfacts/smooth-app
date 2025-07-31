@@ -82,7 +82,7 @@ abstract class PreferencesRoot extends StatelessWidget {
   Widget buildSearchResults(BuildContext context, List<PreferenceTile> tiles) {
     return SliverList.separated(
       itemBuilder: (BuildContext context, int index) => tiles[index],
-      separatorBuilder: (BuildContext context, int index) =>
+      separatorBuilder: (BuildContext context, _) =>
           const SizedBox(height: SMALL_SPACE),
       itemCount: tiles.length,
     );
@@ -91,7 +91,7 @@ abstract class PreferencesRoot extends StatelessWidget {
   Widget buildCardsList(BuildContext context, List<PreferenceCard> cards) {
     return SliverList.separated(
       itemBuilder: (BuildContext context, int index) => cards[index],
-      separatorBuilder: (BuildContext context, int index) =>
+      separatorBuilder: (BuildContext context, _) =>
           const SizedBox(height: LARGE_SPACE),
       itemCount: cards.length,
     );

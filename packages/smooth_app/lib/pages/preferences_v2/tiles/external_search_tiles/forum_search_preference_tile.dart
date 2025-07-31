@@ -6,14 +6,10 @@ class ForumSearchPreferenceTile extends ExternalSearchPreferenceTile {
   const ForumSearchPreferenceTile() : super(icon: Icons.forum);
 
   @override
-  String buildTitle(BuildContext context, String keyword) {
-    return AppLocalizations.of(
-      context,
-    ).external_search_tile_title('Forum', keyword);
-  }
+  String buildTitle(BuildContext context, String keyword) =>
+      AppLocalizations.of(context).external_search_tile_title('Forum', keyword);
 
   @override
-  String getSearchUrl(BuildContext context, String keyword) {
-    return 'https://forum.openfoodfacts.org/search?q=${Uri.encodeComponent(keyword)}';
-  }
+  String getSearchUrl(BuildContext context, String keyword) =>
+      'https://forum.openfoodfacts.org/search?q=${Uri.encodeComponent(keyword)}';
 }

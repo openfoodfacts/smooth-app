@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -7,14 +6,14 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
 class ValueEditionPreferenceTile extends PreferenceTile {
   const ValueEditionPreferenceTile({
-    super.icon,
     required super.title,
     required String dialogAction,
+    required this.onNewValue,
+    super.icon,
     this.value,
     this.hint,
     this.subtitleWithEmptyValue,
     this.validator,
-    required this.onNewValue,
   }) : assert(dialogAction.length > 0),
        super(subtitleText: dialogAction);
 
@@ -48,66 +47,57 @@ class ValueEditionPreferenceTile extends PreferenceTile {
       builder: (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return ChangeNotifierProvider<TextEditingController>.value(
-          value: controller,
-          child: Consumer<TextEditingController>(
-            builder:
-                (BuildContext context, TextEditingController controller, _) {
-                  return SmoothAlertDialog(
-                    title: title,
-                    close: true,
-                    body: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(title),
-                        const SizedBox(height: BALANCED_SPACE),
-                        TextField(
-                          controller: Provider.of<TextEditingController>(
-                            context,
+        return AnimatedBuilder(
+          animation: controller,
+          builder: (BuildContext context, Widget? child) {
+            return SmoothAlertDialog(
+              title: title,
+              close: true,
+              body: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(title),
+                  const SizedBox(height: BALANCED_SPACE),
+                  TextField(
+                    controller: controller,
+                    autocorrect: false,
+                    autofocus: true,
+                    textInputAction: TextInputAction.send,
+                    decoration: InputDecoration(
+                      hintText: hint,
+                      suffix: Semantics(
+                        button: true,
+                        label: MaterialLocalizations.of(
+                          context,
+                        ).deleteButtonTooltip,
+                        excludeSemantics: true,
+                        child: InkWell(
+                          onTap: () => controller.clear(),
+                          customBorder: const CircleBorder(),
+                          child: const Padding(
+                            padding: EdgeInsetsDirectional.all(SMALL_SPACE),
+                            child: Icon(Icons.clear),
                           ),
-                          autocorrect: false,
-                          autofocus: true,
-                          textInputAction: TextInputAction.send,
-                          decoration: InputDecoration(
-                            hintText: hint,
-                            suffix: Semantics(
-                              button: true,
-                              label: MaterialLocalizations.of(
-                                context,
-                              ).deleteButtonTooltip,
-                              excludeSemantics: true,
-                              child: InkWell(
-                                onTap: () => context
-                                    .read<TextEditingController>()
-                                    .clear(),
-                                customBorder: const CircleBorder(),
-                                child: const Padding(
-                                  padding: EdgeInsetsDirectional.all(
-                                    SMALL_SPACE,
-                                  ),
-                                  child: Icon(Icons.clear),
-                                ),
-                              ),
-                            ),
-                          ),
-                          onSubmitted: (String value) =>
-                              Navigator.of(context).pop(value),
                         ),
-                      ],
+                      ),
                     ),
-                    positiveAction: SmoothActionButton(
-                      text: appLocalizations.okay,
-                      onPressed: validator?.call(controller.text) != false
-                          ? () => Navigator.of(context).pop(controller.text)
-                          : null,
-                    ),
-                    negativeAction: SmoothActionButton(
-                      text: appLocalizations.cancel,
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  );
-                },
-          ),
+                    onSubmitted: (String value) =>
+                        Navigator.of(context).pop(value),
+                  ),
+                ],
+              ),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.okay,
+                onPressed: validator?.call(controller.text) != false
+                    ? () => Navigator.of(context).pop(controller.text)
+                    : null,
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.cancel,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            );
+          },
         );
       },
     );

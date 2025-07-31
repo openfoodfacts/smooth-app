@@ -60,14 +60,12 @@ class AppSettingsRoot extends PreferencesRoot {
                   ),
                 ) ??
                 false,
-            onToggle: (bool value) {
-              userPreferences.setFlag(
-                KnowledgePanelCard.getExpandFlagTag(
-                  KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
-                ),
-                value,
-              );
-            },
+            onToggle: (final bool value) => userPreferences.setFlag(
+              KnowledgePanelCard.getExpandFlagTag(
+                KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
+              ),
+              value,
+            ),
           ),
           TogglePreferenceTile(
             title: appLocalizations.expand_ingredients,
@@ -79,14 +77,12 @@ class AppSettingsRoot extends PreferencesRoot {
                   ),
                 ) ??
                 false,
-            onToggle: (bool value) {
-              userPreferences.setFlag(
-                KnowledgePanelCard.getExpandFlagTag(
-                  KnowledgePanelCard.PANEL_INGREDIENTS_ID,
-                ),
-                value,
-              );
-            },
+            onToggle: (final bool value) => userPreferences.setFlag(
+              KnowledgePanelCard.getExpandFlagTag(
+                KnowledgePanelCard.PANEL_INGREDIENTS_ID,
+              ),
+              value,
+            ),
           ),
           TogglePreferenceTile(
             title: appLocalizations.search_product_filter_visibility_title,
@@ -105,17 +101,15 @@ class AppSettingsRoot extends PreferencesRoot {
             title: appLocalizations.crash_reporting_toggle_title,
             subtitleText: appLocalizations.crash_reporting_toggle_subtitle,
             state: userPreferences.crashReports,
-            onToggle: (bool value) {
-              userPreferences.setCrashReports(value);
-            },
+            onToggle: (final bool value) =>
+                userPreferences.setCrashReports(value),
           ),
           TogglePreferenceTile(
             title: appLocalizations.send_anonymous_data_toggle_title,
             subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
             state: userPreferences.userTracking,
-            onToggle: (bool value) {
-              userPreferences.setUserTracking(value);
-            },
+            onToggle: (final bool value) =>
+                userPreferences.setUserTracking(value),
           ),
         ],
       ),

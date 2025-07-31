@@ -7,14 +7,10 @@ class WikiSearchPreferenceTile extends ExternalSearchPreferenceTile {
   WikiSearchPreferenceTile() : super(icon: const Countries().icon);
 
   @override
-  String buildTitle(BuildContext context, String keyword) {
-    return AppLocalizations.of(
-      context,
-    ).external_search_tile_title('Wiki', keyword);
-  }
+  String buildTitle(BuildContext context, String keyword) =>
+      AppLocalizations.of(context).external_search_tile_title('Wiki', keyword);
 
   @override
-  String getSearchUrl(BuildContext context, String keyword) {
-    return 'https://wiki.openfoodfacts.org/index.php?search=${Uri.encodeComponent(keyword)}&title=Special%3ASearch&go=Lire';
-  }
+  String getSearchUrl(BuildContext context, String keyword) =>
+      'https://wiki.openfoodfacts.org/index.php?search=${Uri.encodeComponent(keyword)}&title=Special%3ASearch&go=Lire';
 }
