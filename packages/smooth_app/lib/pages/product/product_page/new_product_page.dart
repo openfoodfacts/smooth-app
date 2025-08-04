@@ -117,8 +117,6 @@ class ProductPageState extends State<ProductPage>
     List<ProductPageTab> tabs,
     TabController tabController,
   ) {
-    final ThemeData theme = Theme.of(context);
-
     return SmoothScaffold(
       contentBehindStatusBar: true,
       spaceBehindStatusBar: false,

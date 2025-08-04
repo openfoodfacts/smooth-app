@@ -4245,6 +4245,10 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_tab_photos": "Photos",
+  "@product_page_tab_photos": {
+    "description": "Label of the photos tab on the product page"
+  },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"

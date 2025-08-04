@@ -171,7 +171,8 @@ class ProductPageTabsGenerator {
     tabs.add(
       ProductPageTab(
         id: ProductPageHarcodedTabs.PICTURES.key,
-        labelBuilder: (BuildContext context) => 'Pictures',
+        labelBuilder: (BuildContext context) =>
+            AppLocalizations.of(context).product_page_tab_photos,
         builder: (_, Product product) =>
             ProductImageGalleryView(product: product),
       ),
@@ -182,10 +183,7 @@ class ProductPageTabsGenerator {
           id: ProductPageHarcodedTabs.WEBSITE.key,
           labelBuilder: (BuildContext context) =>
               AppLocalizations.of(context).product_page_tab_website,
-          builder: (_, Product product) => ListView(
-            padding: EdgeInsetsDirectional.zero,
-            children: <Widget>[WebsiteCard(product.website!)],
-          ),
+          builder: (_, Product product) => WebsiteCard(product.website!),
         ),
       );
     }
