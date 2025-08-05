@@ -4,7 +4,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 
 class PricesStatisticsCard extends StatelessWidget {
-  const PricesStatisticsCard({super.key, required this.userId});
+  const PricesStatisticsCard({required this.userId, super.key});
 
   final String userId;
 

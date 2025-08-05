@@ -33,9 +33,9 @@ class LoggedInAppBarBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Row(
+                  spacing: MEDIUM_SPACE,
                   children: <Widget>[
                     const Expanded(child: ContributionStatisticsCard()),
-                    const SizedBox(width: MEDIUM_SPACE),
                     Expanded(child: PricesStatisticsCard(userId: userId)),
                   ],
                 ),

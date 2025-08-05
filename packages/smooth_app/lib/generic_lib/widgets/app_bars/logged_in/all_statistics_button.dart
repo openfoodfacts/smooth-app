@@ -24,11 +24,9 @@ class AllStatisticsButton extends StatelessWidget {
           ),
         );
       },
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          color: theme.cardColor,
-        ),
+      child: Material(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        color: theme.cardColor,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,

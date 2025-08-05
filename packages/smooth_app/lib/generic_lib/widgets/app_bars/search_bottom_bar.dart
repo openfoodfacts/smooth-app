@@ -29,47 +29,43 @@ class _SearchBottomBarState extends State<SearchBottomBar> {
 
     final bool lightTheme = context.lightTheme();
 
-    return SizedBox(
-      height: SEARCH_BOTTOM_HEIGHT,
-      child: CustomPaint(
-        painter: _SearchBottomBarBackgroundPainter(
-          color: lightTheme
-              ? themeExtension.primaryMedium
-              : themeExtension.primaryDark,
-          radius: ROUNDED_RADIUS,
+    return CustomPaint(
+      size: const Size.fromHeight(SEARCH_BOTTOM_HEIGHT),
+      painter: _SearchBottomBarBackgroundPainter(
+        color: lightTheme
+            ? themeExtension.primaryMedium
+            : themeExtension.primaryDark,
+        radius: ROUNDED_RADIUS,
+      ),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          top: LARGE_SPACE + MEDIUM_SPACE,
+          start: MEDIUM_SPACE,
+          end: MEDIUM_SPACE,
+          bottom: BALANCED_SPACE,
         ),
-        child: Padding(
-          padding: const EdgeInsetsDirectional.only(
-            top: LARGE_SPACE * 2,
-            start: MEDIUM_SPACE,
-            end: MEDIUM_SPACE,
-            bottom: MEDIUM_SPACE,
-          ),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: SmoothTextFormField(
-                  type: TextFieldTypes.PLAIN_TEXT,
-                  controller: _controller,
-                  hintText: appLocalizations.preferences_app_bar_search_hint,
-                  maxLines: 1,
-                  outlined: true,
-                  suffixIcon: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: ROUNDED_BORDER_RADIUS,
-                      color: theme.primaryColor,
-                    ),
-                    child: const Icon(Icons.search, color: Colors.white),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: SmoothTextFormField(
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: _controller,
+                hintText: appLocalizations.preferences_app_bar_search_hint,
+                maxLines: 1,
+                outlined: true,
+                suffixIcon: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                    color: theme.primaryColor,
                   ),
-                  onChanged: (String? value) {
-                    context.read<PreferencesRootSearchController>().search(
-                      value,
-                    );
-                  },
+                  child: const Icon(Icons.search, color: Colors.white),
                 ),
+                onChanged: (String? value) {
+                  context.read<PreferencesRootSearchController>().search(value);
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

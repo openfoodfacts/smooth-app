@@ -41,16 +41,14 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
     return InkWell(
       borderRadius: ROUNDED_BORDER_RADIUS,
       onTap: () => _asyncLoad(),
-      child: Container(
+      child: SizedBox(
         height: STATISTICS_CARD_HEIGHT,
-        decoration: BoxDecoration(
+        child: Material(
           borderRadius: ROUNDED_BORDER_RADIUS,
           color: themeExtension.secondaryVibrant.withValues(alpha: 0.8),
-        ),
-        child: Stack(
-          children: <Widget>[
-            PositionedDirectional(
-              child: Row(
+          child: Stack(
+            children: <Widget>[
+              Row(
                 children: <Widget>[
                   const SizedBox(width: MEDIUM_SPACE),
                   SvgPicture.asset(widget.imagePath, height: 32.0),
@@ -65,7 +63,7 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                           children: <Widget>[
                             Expanded(
                               child: Text(
-                                count.toString(),
+                                count != null ? count.toString() : '0',
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.0,
@@ -97,19 +95,23 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                   ),
                 ],
               ),
-            ),
-            PositionedDirectional(
-              end: MEDIUM_SPACE,
-              top: MEDIUM_SPACE,
-              child: _loading
-                  ? const SizedBox(
-                      width: 16.0,
-                      height: 16.0,
-                      child: CircularProgressIndicator.adaptive(),
-                    )
-                  : const Icon(Icons.refresh, color: Colors.white, size: 16.0),
-            ),
-          ],
+              PositionedDirectional(
+                end: MEDIUM_SPACE,
+                top: MEDIUM_SPACE,
+                child: _loading
+                    ? const SizedBox(
+                        width: 16.0,
+                        height: 16.0,
+                        child: CircularProgressIndicator.adaptive(),
+                      )
+                    : const Icon(
+                        Icons.refresh,
+                        color: Colors.white,
+                        size: 16.0,
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );

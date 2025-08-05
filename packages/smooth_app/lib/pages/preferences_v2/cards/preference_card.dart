@@ -3,9 +3,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
-/// A card that contains a list of preference tiles.
+/// A card that contains a list of [PreferenceTile].
 /// It is used to group related preferences together.
-/// Cards are then displayed as a list in a preferences root.
+/// Cards are then displayed as a list in a [PreferencesRoot].
 class PreferenceCard extends StatelessWidget {
   PreferenceCard({required this.title, required this.tiles, super.key})
     : assert(title.isNotEmpty, 'PreferenceCard title must not be empty.'),
