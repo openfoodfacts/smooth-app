@@ -30,12 +30,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     Color? colorFromEvaluation;
     IconData? iconData;
     if (userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji) ??
+          UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
+        ) ??
         false) {
       iconData = _getIconDataFromEvaluation(evaluation);
     }
     if (!(userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
+          UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
+        ) ??
         false)) {
       if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
         if (context.darkTheme()) {
@@ -63,9 +65,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
             ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsetsDirectional.only(start: SMALL_SPACE),
-        ),
+        const Padding(padding: EdgeInsetsDirectional.only(start: SMALL_SPACE)),
         if (iconData != null)
           Padding(
             padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
@@ -107,8 +107,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                             fontSize: hasSubtitle ? 15.5 : 15.0,
                             fontWeight: hasSubtitle
                                 ? isClickable
-                                    ? FontWeight.w600
-                                    : FontWeight.bold
+                                      ? FontWeight.w600
+                                      : FontWeight.bold
                                 : FontWeight.normal,
                           ),
                         ),
@@ -124,9 +124,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                               knowledgePanelTitleElement.subtitle!,
                               style: WellSpacedTextHelper
                                   .TEXT_STYLE_WITH_WELL_SPACED
-                                  .copyWith(
-                                fontWeight: FontWeight.w500,
-                              ),
+                                  .copyWith(fontWeight: FontWeight.w500),
                             ).selectable(isSelectable: !isClickable),
                           ),
                         ),
@@ -233,9 +231,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     properties.add(
       EnumProperty<Grade>('grade', knowledgePanelTitleElement.grade),
     );
-    properties.add(
-      DiagnosticsProperty<bool>('clickable', isClickable),
-    );
+    properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
     properties.add(EnumProperty<Evaluation>('evaluation', evaluation));
   }
 }

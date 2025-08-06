@@ -4,9 +4,7 @@ import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class _SwitchablePage extends StatefulWidget {
-  const _SwitchablePage({
-    this.delay = 0,
-  });
+  const _SwitchablePage({this.delay = 0});
 
   final int delay;
 
@@ -17,8 +15,10 @@ class _SwitchablePage extends StatefulWidget {
 class _SwitchablePageState extends State<_SwitchablePage> {
   int _selectedIndex = 0;
 
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+  );
 
   late final List<Widget> _widgetOptions;
 
@@ -49,18 +49,11 @@ class _SwitchablePageState extends State<_SwitchablePage> {
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      appBar: AppBar(
-        title: const Text('Test App'),
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      appBar: AppBar(title: const Text('Test App')),
+      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
             label: 'Business',
@@ -77,28 +70,29 @@ class _SwitchablePageState extends State<_SwitchablePage> {
 void main() {
   // Regression test for https://github.com/openfoodfacts/smooth-app/issues/483
   testWidgets(
-      "SmoothRevealAnimation doesn't use AnimationController after dispose",
-      (WidgetTester tester) async {
-    await tester.pumpWidget(
-      const MaterialApp(
-        home: _SwitchablePage(
-          // Set a large delay so that the AnimationController has time to be
-          // disposed.
-          delay: 1000,
+    "SmoothRevealAnimation doesn't use AnimationController after dispose",
+    (WidgetTester tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: _SwitchablePage(
+            // Set a large delay so that the AnimationController has time to be
+            // disposed.
+            delay: 1000,
+          ),
         ),
-      ),
-    );
+      );
 
-    expect(find.byType(SmoothRevealAnimation), findsOneWidget);
+      expect(find.byType(SmoothRevealAnimation), findsOneWidget);
 
-    // Move to the page that doesn't have SmoothRevealAnimation.
-    await tester.tap(find.text('Business'));
-    await tester.pumpAndSettle();
-    expect(find.byType(SmoothRevealAnimation), findsNothing);
+      // Move to the page that doesn't have SmoothRevealAnimation.
+      await tester.tap(find.text('Business'));
+      await tester.pumpAndSettle();
+      expect(find.byType(SmoothRevealAnimation), findsNothing);
 
-    // Wait 1 second so the SmoothRevealAnimation delay expires on the previous
-    // page.
-    await tester.pump(const Duration(seconds: 1));
-    expect(tester.takeException(), isNull);
-  });
+      // Wait 1 second so the SmoothRevealAnimation delay expires on the previous
+      // page.
+      await tester.pump(const Duration(seconds: 1));
+      expect(tester.takeException(), isNull);
+    },
+  );
 }

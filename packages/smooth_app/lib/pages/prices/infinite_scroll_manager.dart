@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// A generic abstract class for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.
 abstract class InfiniteScrollManager<T> {
-  /// Creates an instance of [InfiniteScrollManager] with optional initial items.
+  /// Creates an [InfiniteScrollManager] with optional initial state.
   InfiniteScrollManager({
-    List<T>? initialItems,
-  })  : _items = initialItems ?? <T>[],
-        _currentPage =
-            initialItems != null && initialItems.isNotEmpty ? _initialPage : 0;
+    final List<T>? initialItems,
+    final int? totalItems,
+    final int? totalPages,
+  }) : _items = List<T>.from(initialItems ?? <T>[]),
+       _currentPage = initialItems != null && initialItems.isNotEmpty
+           ? _initialPage
+           : 0,
+       _totalPages = totalPages,
+       _totalItems = totalItems;
 
   static const int _initialPage = 1;
 
@@ -42,22 +47,14 @@ abstract class InfiniteScrollManager<T> {
   int? get totalPages => _totalPages;
 
   @protected
-  Future<void> fetchInit() async {}
+  Future<void> fetchInit(final BuildContext context) async {}
 
   /// Fetches data for a specific page
   @protected
   Future<void> fetchData(int pageNumber);
 
   /// Displays an item.
-  @protected
-  Widget buildItem({
-    required BuildContext context,
-    required T item,
-  });
-
-  Widget getItemWidget({required BuildContext context, required T item}) {
-    return buildItem(context: context, item: item);
-  }
+  Widget buildItem({required BuildContext context, required T item});
 
   /// Update the list with new items and pagination info
   @protected
@@ -82,7 +79,7 @@ abstract class InfiniteScrollManager<T> {
 
   /// Load initial data only if the list is empty
   Future<void> loadInitiallyIfNeeded(BuildContext context) async {
-    await fetchInit();
+    await fetchInit(context);
     if (_items.isNotEmpty) {
       return;
     }
@@ -115,6 +112,7 @@ abstract class InfiniteScrollManager<T> {
     _isLoading = true;
 
     try {
+      await fetchInit(context);
       await fetchData(pageNumber);
     } catch (e) {
       if (context.mounted) {

@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
@@ -14,6 +14,8 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 
 /// Price Product display (no price data here).
+///
+/// See also [PriceCategoryWidget], that deals with "no barcode" products.
 class PriceProductWidget extends StatelessWidget {
   const PriceProductWidget(
     this.priceProduct, {
@@ -32,8 +34,9 @@ class PriceProductWidget extends StatelessWidget {
     final bool unknown = priceProduct.name == null;
     final String? imageURL = priceProduct.imageURL;
     final int priceCount = priceProduct.priceCount ?? 0;
-    final List<String>? brands =
-        priceProduct.brands == '' ? null : priceProduct.brands?.split(',');
+    final List<String>? brands = priceProduct.brands == ''
+        ? null
+        : priceProduct.brands?.split(',');
     final String? quantity = priceProduct.quantity == null
         ? null
         : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';
@@ -80,11 +83,11 @@ class PriceProductWidget extends StatelessWidget {
                       onPressed: !enableCountButton
                           ? null
                           : () async {
-                              final LocalDatabase localDatabase =
-                                  context.read<LocalDatabase>();
-                              final Product? newProduct =
-                                  await DaoProduct(localDatabase)
-                                      .get(priceProduct.code);
+                              final LocalDatabase localDatabase = context
+                                  .read<LocalDatabase>();
+                              final Product? newProduct = await DaoProduct(
+                                localDatabase,
+                              ).get(priceProduct.code);
                               if (!context.mounted) {
                                 return;
                               }
@@ -95,7 +98,8 @@ class PriceProductWidget extends StatelessWidget {
                                       product: newProduct != null
                                           ? PriceMetaProduct.product(newProduct)
                                           : PriceMetaProduct.priceProduct(
-                                              priceProduct),
+                                              priceProduct,
+                                            ),
                                       context: context,
                                     ),
                                   ),
@@ -105,10 +109,7 @@ class PriceProductWidget extends StatelessWidget {
                     ),
                     if (brands != null)
                       for (final String brand in brands)
-                        PriceButton(
-                          title: brand,
-                          onPressed: () {},
-                        ),
+                        PriceButton(title: brand, onPressed: () {}),
                     if (quantity != null) Text(quantity),
                     if (unknown)
                       PriceButton(

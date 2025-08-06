@@ -1,11 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -34,23 +33,19 @@ class ProductImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final DateFormat dateFormat =
-        DateFormat.yMd(ProductQuery.getLanguage().offTag);
 
     final Widget image = SmoothImage(
-      cacheHeight:
-          (squareSize * MediaQuery.devicePixelRatioOf(context)).toInt(),
+      cacheHeight: (squareSize * MediaQuery.devicePixelRatioOf(context))
+          .toInt(),
       width: squareSize,
       height: squareSize,
       imageProvider: NetworkImage(
         productImage.getUrl(
           barcode,
-          uriHelper: ProductQuery.getUriProductHelper(
-            productType: productType,
-          ),
+          uriHelper: ProductQuery.getUriProductHelper(productType: productType),
           imageSize: imageSize,
         ),
       ),
@@ -62,7 +57,9 @@ class ProductImageWidget extends StatelessWidget {
       return image;
     }
     final bool expired = productImage.expired;
-    final String date = dateFormat.format(uploaded);
+    final String date = MaterialLocalizations.of(
+      context,
+    ).formatCompactDate(uploaded);
 
     return Semantics(
       label: expired
@@ -79,9 +76,7 @@ class ProductImageWidget extends StatelessWidget {
           borderRadius: ANGULAR_BORDER_RADIUS,
           child: Column(
             children: <Widget>[
-              Expanded(
-                child: image,
-              ),
+              Expanded(child: image),
               SizedBox(
                 width: double.infinity,
                 child: Padding(
@@ -112,7 +107,7 @@ class ProductImageWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

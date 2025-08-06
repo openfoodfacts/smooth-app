@@ -5,12 +5,14 @@ import 'package:http_parser/http_parser.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_price.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -30,6 +32,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required this.cropY2,
     required this.proofType,
     required this.eraserCoordinates,
+    required this.displaySnackbar,
+    required this.readyForPriceTagValidation,
     // single
     required super.date,
     required super.currency,
@@ -37,22 +41,30 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required super.locationOSMType,
     // multi
     required super.barcodes,
+    required super.categories,
+    required super.origins,
+    required super.labels,
+    required super.pricePers,
     required super.pricesAreDiscounted,
     required super.prices,
     required super.pricesWithoutDiscount,
   });
 
   BackgroundTaskAddPrice.fromJson(super.json)
-      : fullPath = json[_jsonTagImagePath] as String,
-        rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
-        cropX1 = json[_jsonTagX1] as int? ?? 0,
-        cropY1 = json[_jsonTagY1] as int? ?? 0,
-        cropX2 = json[_jsonTagX2] as int? ?? 0,
-        cropY2 = json[_jsonTagY2] as int? ?? 0,
-        proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
-        eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
-            json[_jsonTagEraserCoordinates]),
-        super.fromJson();
+    : fullPath = json[_jsonTagImagePath] as String,
+      rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
+      cropX1 = json[_jsonTagX1] as int? ?? 0,
+      cropY1 = json[_jsonTagY1] as int? ?? 0,
+      cropX2 = json[_jsonTagX2] as int? ?? 0,
+      cropY2 = json[_jsonTagY2] as int? ?? 0,
+      proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
+      eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+        json[_jsonTagEraserCoordinates],
+      ),
+      displaySnackbar = json[_jsonTagDisplaySnackbar] as bool? ?? true,
+      readyForPriceTagValidation =
+          json[_jsonTagReadyForPriceTagValidation] as bool? ?? false,
+      super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
   static const String _jsonTagRotation = 'rotation';
@@ -62,6 +74,9 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   static const String _jsonTagY2 = 'y2';
   static const String _jsonTagProofType = 'proofType';
   static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
+  static const String _jsonTagDisplaySnackbar = 'displaySnackbar';
+  static const String _jsonTagReadyForPriceTagValidation =
+      'readyForPriceTagValidation';
 
   static const OperationType _operationType = OperationType.addPrice;
 
@@ -73,6 +88,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
   final int cropY2;
   final ProofType proofType;
   final List<double>? eraserCoordinates;
+  final bool displaySnackbar;
+  final bool readyForPriceTagValidation;
 
   @override
   Map<String, dynamic> toJson() {
@@ -85,6 +102,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     result[_jsonTagY2] = cropY2;
     result[_jsonTagProofType] = proofType.offTag;
     result[_jsonTagEraserCoordinates] = eraserCoordinates;
+    result[_jsonTagDisplaySnackbar] = displaySnackbar;
+    result[_jsonTagReadyForPriceTagValidation] = readyForPriceTagValidation;
     return result;
   }
 
@@ -98,9 +117,15 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final int locationOSMId,
     required final LocationOSMType locationOSMType,
     required final List<String> barcodes,
+    required final List<String> categories,
+    required final List<List<String>> origins,
+    required final List<List<String>> labels,
+    required final List<String> pricePers,
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
+    required final bool displaySnackbar,
+    required final bool readyForPriceTagValidation,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -113,9 +138,15 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       locationOSMId: locationOSMId,
       locationOSMType: locationOSMType,
       barcodes: barcodes,
+      categories: categories,
+      origins: origins,
+      labels: labels,
+      pricePers: pricePers,
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      displaySnackbar: displaySnackbar,
+      readyForPriceTagValidation: readyForPriceTagValidation,
     );
     if (!context.mounted) {
       return;
@@ -137,35 +168,51 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final int locationOSMId,
     required final LocationOSMType locationOSMType,
     required final List<String> barcodes,
+    required final List<String> categories,
+    required final List<List<String>> origins,
+    required final List<List<String>> labels,
+    required final List<String> pricePers,
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
-  }) =>
-      BackgroundTaskAddPrice._(
-        uniqueId: uniqueId,
-        processName: _operationType.processName,
-        fullPath: cropObject.fullFile!.path,
-        rotationDegrees: cropObject.rotation,
-        cropX1: cropObject.x1,
-        cropY1: cropObject.y1,
-        cropX2: cropObject.x2,
-        cropY2: cropObject.y2,
-        proofType: proofType,
-        date: date,
-        currency: currency,
-        locationOSMId: locationOSMId,
-        locationOSMType: locationOSMType,
-        eraserCoordinates: cropObject.eraserCoordinates,
-        barcodes: barcodes,
-        pricesAreDiscounted: pricesAreDiscounted,
-        prices: prices,
-        pricesWithoutDiscount: pricesWithoutDiscount,
-        stamp: BackgroundTaskPrice.getStamp(
-          date: date,
-          locationOSMId: locationOSMId,
-          locationOSMType: locationOSMType,
-        ),
-      );
+    required final bool displaySnackbar,
+    required final bool readyForPriceTagValidation,
+  }) => BackgroundTaskAddPrice._(
+    uniqueId: uniqueId,
+    processName: _operationType.processName,
+    fullPath: cropObject.fullFile!.path,
+    rotationDegrees: cropObject.rotation,
+    cropX1: cropObject.x1,
+    cropY1: cropObject.y1,
+    cropX2: cropObject.x2,
+    cropY2: cropObject.y2,
+    proofType: proofType,
+    date: date,
+    currency: currency,
+    locationOSMId: locationOSMId,
+    locationOSMType: locationOSMType,
+    eraserCoordinates: cropObject.eraserCoordinates,
+    barcodes: barcodes,
+    categories: categories,
+    origins: origins,
+    labels: labels,
+    pricePers: pricePers,
+    pricesAreDiscounted: pricesAreDiscounted,
+    prices: prices,
+    pricesWithoutDiscount: pricesWithoutDiscount,
+    stamp: BackgroundTaskPrice.getStamp(
+      date: date,
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
+    ),
+    displaySnackbar: displaySnackbar,
+    readyForPriceTagValidation: readyForPriceTagValidation,
+  );
+
+  @override
+  (String, AlignmentGeometry)? getFloatingMessage(
+    final AppLocalizations appLocalizations,
+  ) => displaySnackbar ? super.getFloatingMessage(appLocalizations) : null;
 
   @override
   Future<void> postExecute(
@@ -180,8 +227,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     }
     try {
       (await BackgroundTaskUpload.getFile(
-              BackgroundTaskImage.getCroppedPath(fullPath)))
-          .deleteSync();
+        await BackgroundTaskImage.getCroppedPath(fullPath),
+      )).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -205,19 +252,20 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       return;
     }
 
-    final String bearerToken = await getBearerToken();
+    final String bearerToken = await getBearerToken(localDatabase);
 
     // proof upload
     final Uri initialImageUri = Uri.parse(path);
-    final MediaType initialMediaType =
-        HttpHelper().imagineMediaType(initialImageUri.path)!;
+    final MediaType initialMediaType = HttpHelper().imagineMediaType(
+      initialImageUri.path,
+    )!;
     final MaybeError<Proof> uploadProof = await OpenPricesAPIClient.uploadProof(
       createProofParameters: CreateProofParameters(proofType)
         ..date = date
         ..currency = currency
         ..locationOSMId = locationOSMId
         ..locationOSMType = locationOSMType
-        ..readyForPriceTagValidation = proofType == ProofType.priceTag,
+        ..readyForPriceTagValidation = readyForPriceTagValidation,
       imageUri: initialImageUri,
       mediaType: initialMediaType,
       bearerToken: bearerToken,
@@ -227,12 +275,22 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       throw Exception('Could not upload proof: ${uploadProof.error}');
     }
 
-    await addPrices(
-      bearerToken: bearerToken,
-      proofId: uploadProof.value.id,
+    await BackgroundTaskAddOtherPrice.addTask(
+      context: null,
       localDatabase: localDatabase,
+      proofId: uploadProof.value.id,
+      date: date,
+      currency: currency,
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
+      barcodes: barcodes,
+      categories: categories,
+      origins: origins,
+      labels: labels,
+      pricePers: pricePers,
+      pricesAreDiscounted: pricesAreDiscounted,
+      prices: prices,
+      pricesWithoutDiscount: pricesWithoutDiscount,
     );
-
-    await closeSession(bearerToken: bearerToken);
   }
 }

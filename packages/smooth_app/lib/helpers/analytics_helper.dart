@@ -43,7 +43,9 @@ enum AnalyticsEvent {
   logoutAction(tag: 'logged out', category: AnalyticsCategory.userManagement),
   accountDeletion(tag: 'user attempted account deletion', category: AnalyticsCategory.userManagement),
   producerSignup(
-      tag: 'signed up as producer', category: AnalyticsCategory.userManagement),
+    tag: 'signed up as producer',
+    category: AnalyticsCategory.userManagement,
+  ),
   couldNotScanProduct(
     tag: 'could not scan product',
     category: AnalyticsCategory.couldNotFindProduct,
@@ -124,14 +126,8 @@ enum AnalyticsEvent {
     tag: 'closed new product page without any input',
     category: AnalyticsCategory.newProduct,
   ),
-  shareList(
-    tag: 'shared a list',
-    category: AnalyticsCategory.list,
-  ),
-  openListWeb(
-    tag: 'open a list in wbe',
-    category: AnalyticsCategory.list,
-  ),
+  shareList(tag: 'shared a list', category: AnalyticsCategory.list),
+  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list),
   productDeepLink(
     tag: 'open a product from an URL',
     category: AnalyticsCategory.deepLink,
@@ -152,14 +148,8 @@ enum AnalyticsEvent {
     tag: 'hunger game opened',
     category: AnalyticsCategory.hungerGame,
   ),
-  appRatingSatisfied(
-    tag: 'satisfied',
-    category: AnalyticsCategory.appRating,
-  ),
-  appRatingNeutral(
-    tag: 'neutral',
-    category: AnalyticsCategory.appRating,
-  ),
+  appRatingSatisfied(tag: 'satisfied', category: AnalyticsCategory.appRating),
+  appRatingNeutral(tag: 'neutral', category: AnalyticsCategory.appRating),
   appRatingNotSatisfied(
     tag: 'not satisfied',
     category: AnalyticsCategory.appRating,
@@ -172,15 +162,9 @@ enum AnalyticsEvent {
 }
 
 enum AnalyticsRobotoffEvents {
-  robotoffNutritionExtracted(
-    name: 'robotoff nutrition extracted',
-  ),
-  robotoffNutritionInsightAccepted(
-    name: 'robotoff nutrition insight accepted',
-  ),
-  robotoffNutritionInsightRejected(
-    name: 'robotoff nutrition insight rejected',
-  );
+  robotoffNutritionExtracted(name: 'robotoff nutrition extracted'),
+  robotoffNutritionInsightAccepted(name: 'robotoff nutrition insight accepted'),
+  robotoffNutritionInsightRejected(name: 'robotoff nutrition insight rejected');
 
   const AnalyticsRobotoffEvents({required this.name});
 
@@ -247,35 +231,26 @@ class AnalyticsHelper {
     _uniqueRandom = await userPreferences.getUniqueRandom();
   }
 
-  static Future<void> initSentry({
-    required Function()? appRunner,
-  }) async {
-    await SentryFlutter.init(
-      (SentryOptions options) {
-        options
-          ..dsn =
-              'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
-          ..beforeSend = (
-            SentryEvent event,
-            Hint hint,
-          ) async {
-            return event.copyWith(
-              tags: <String, String>{
-                'store': GlobalVars.storeLabel.name,
-                'scanner': GlobalVars.scannerLabel.name,
-              },
-            );
-          };
-        // To set a uniform sample rate
-        options
-          ..tracesSampleRate = 1.0
-          ..beforeSend = _beforeSend
-          ..captureFailedRequests = false
-          ..environment =
-              '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
-      },
-      appRunner: appRunner,
-    );
+  static Future<void> initSentry({required Function()? appRunner}) async {
+    await SentryFlutter.init((SentryOptions options) {
+      options
+        ..dsn =
+            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
+        ..beforeSend = (SentryEvent event, Hint hint) async {
+          return event
+            ..tags = <String, String>{
+              'store': GlobalVars.storeLabel.name,
+              'scanner': GlobalVars.scannerLabel.name,
+            };
+        };
+      // To set a uniform sample rate
+      options
+        ..tracesSampleRate = 1.0
+        ..beforeSend = _beforeSend
+        ..captureFailedRequests = false
+        ..environment =
+            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
+    }, appRunner: appRunner);
   }
 
   /// Don't call this method directly, it is automatically updated via the
@@ -313,9 +288,7 @@ class AnalyticsHelper {
 
   static late PackageInfo _packageInfo;
 
-  static Future<void> initMatomo(
-    final bool screenshotMode,
-  ) async {
+  static Future<void> initMatomo(final bool screenshotMode) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
       _setCrashReports(false);
@@ -361,13 +334,12 @@ class AnalyticsHelper {
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
-  }) =>
-      trackCustomEvent(
-        msg.name,
-        msg.category.tag,
-        eventValue: eventValue,
-        barcode: barcode,
-      );
+  }) => trackCustomEvent(
+    msg.name,
+    msg.category.tag,
+    eventValue: eventValue,
+    barcode: barcode,
+  );
 
   // Used by code which is outside of the core:smooth_app code
   // e.g. the scanner implementation
@@ -401,40 +373,37 @@ class AnalyticsHelper {
     AnalyticsRobotoffEvents event,
     Nutrient nutrient,
     Product product,
-  ) =>
-      trackCustomEvent(
-        event.name,
-        AnalyticsCategory.robotoff.tag,
-        action: nutrient.name,
-        barcode: product.barcode,
-        productType: product.productType ?? ProductType.food,
-      );
+  ) => trackCustomEvent(
+    event.name,
+    AnalyticsCategory.robotoff.tag,
+    action: nutrient.name,
+    barcode: product.barcode,
+    productType: product.productType ?? ProductType.food,
+  );
 
   static void trackProductEdit(
     AnalyticsEditEvents editEventName,
     Product product, [
     bool saved = false,
-  ]) =>
-      trackCustomEvent(
-        saved ? '${editEventName.name}-saved' : editEventName.name,
-        AnalyticsCategory.productEdit.tag,
-        action: editEventName.name,
-        barcode: product.barcode,
-        productType: product.productType ?? ProductType.food,
-      );
+  ]) => trackCustomEvent(
+    saved ? '${editEventName.name}-saved' : editEventName.name,
+    AnalyticsCategory.productEdit.tag,
+    action: editEventName.name,
+    barcode: product.barcode,
+    productType: product.productType ?? ProductType.food,
+  );
 
   static void trackProductEvent(
     AnalyticsEvent msg, {
     int? eventValue,
     required Product product,
-  }) =>
-      trackCustomEvent(
-        msg.name,
-        msg.category.tag,
-        eventValue: eventValue,
-        barcode: product.barcode,
-        productType: product.productType ?? ProductType.food,
-      );
+  }) => trackCustomEvent(
+    msg.name,
+    msg.category.tag,
+    eventValue: eventValue,
+    barcode: product.barcode,
+    productType: product.productType ?? ProductType.food,
+  );
 
   static void trackSearch({
     required String search,

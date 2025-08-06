@@ -1,17 +1,19 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
@@ -41,31 +43,65 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         horizontal: SMALL_SPACE,
         vertical: MEDIUM_SPACE,
       ),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            trailing: const Icon(Icons.warning),
-            title: Text(
-              appLocalizations.prices_bulk_proof_upload_warning,
+      child: _text.isNotEmpty
+          ? ListTile(
+              leading: const CircularProgressIndicator.adaptive(),
+              title: Text(_text),
+            )
+          : Column(
+              children: <Widget>[
+                ListTile(
+                  trailing: const Icon(Icons.warning),
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_warning,
+                  ),
+                ),
+                ListTile(
+                  trailing: const Icon(Icons.info),
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_warning_ai,
+                  ),
+                ),
+                SwitchListTile(
+                  title: Text(
+                    appLocalizations.prices_bulk_proof_upload_community_switch,
+                  ),
+                  value: model.readyForPriceTagValidation,
+                  onChanged: (bool value) {
+                    model.readyForPriceTagValidation = value;
+                    unawaited(
+                      UserPreferences.getUserPreferencesSync()
+                          .setReadyForPriceTagValidation(value),
+                    );
+                  },
+                ),
+                SmoothLargeButtonWithIcon(
+                  text: appLocalizations.prices_bulk_proof_upload_select,
+                  leadingIcon: const Icon(Icons.add),
+                  onPressed: model.location == null
+                      ? null
+                      : () async => _selectAndUpload(model: model),
+                ),
+              ],
             ),
-          ),
-          SmoothLargeButtonWithIcon(
-            text: appLocalizations.prices_bulk_proof_upload_select,
-            leadingIcon: const Icon(Icons.add),
-            onPressed: model.location == null
-                ? null
-                : () async => _selectAndUpload(model: model),
-          ),
-          if (_text.isNotEmpty) Text(_text),
-        ],
-      ),
     );
   }
 
-  Future<void> _selectAndUpload({
-    required PriceModel model,
-  }) async {
+  void _setText(final String message) {
+    if (mounted) {
+      setState(() => _text = message);
+    }
+  }
+
+  Future<void> _selectAndUpload({required PriceModel model}) async {
+    final String? error = await _selectAndUploadWithError(model: model);
+    _setText(error ?? '');
+  }
+
+  // Returns the error message, or null if OK.
+  Future<String?> _selectAndUploadWithError({required PriceModel model}) async {
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     const int imageQuality = 80;
     final Directory directory = await BackgroundTaskUpload.getDirectory();
@@ -74,29 +110,31 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
       CropHelper.fullImageCropRect,
     );
 
-    setState(() => _text = '');
+    _setText(appLocalizations.prices_bulk_proof_upload_step_selecting);
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(
       imageQuality: imageQuality,
       requestFullMetadata: false,
     );
     if (xFiles.isEmpty) {
-      return;
+      return null;
     }
 
     if (!await priceAddHelper.acceptsWarning()) {
-      return;
+      return null;
     }
     if (!mounted) {
-      return;
+      return null;
     }
+    _setText(appLocalizations.prices_bulk_proof_upload_step_starting);
     late int index;
     final int count = xFiles.length;
+    final DaoInt daoInt = DaoInt(localDatabase);
     try {
       index = 0;
       for (final XFile xFile in xFiles) {
         index++;
         final int sequenceNumber = await getNextSequenceNumber(
-          DaoInt(localDatabase),
+          daoInt,
           BULK_PROOF_IMAGE_SEQUENCE_KEY,
         );
         final String path = xFile.path;
@@ -106,13 +144,18 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
         final File toBeUploadedFile = File(
           '${directory.path}/bulk_proof_${sequenceNumber}_$filename',
         );
-        setState(
-          () => _text = 'Locally copying file #$index/$count',
+        _setText(
+          appLocalizations.prices_bulk_proof_upload_step_copying(index, count),
         );
         await temporaryFile.copy(toBeUploadedFile.path);
         await temporaryFile.delete();
 
-        setState(() => _text = 'Preparing upload #$index/$count');
+        _setText(
+          appLocalizations.prices_bulk_proof_upload_step_preparing(
+            index,
+            count,
+          ),
+        );
         model.cropParameters = CropParameters(
           fullFile: toBeUploadedFile,
           smallCroppedFile: null,
@@ -121,21 +164,20 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
           eraserCoordinates: null,
         );
         if (!mounted) {
-          return;
+          return null;
         }
         if (!await priceAddHelper.check(model, widget.formKey)) {
-          return;
+          return null;
         }
         if (!mounted) {
-          return;
+          return null;
         }
-        await model.addTask(context);
+        await model.addTask(context, displaySnackbar: false);
         model.clearProof();
       }
     } catch (e) {
-      setState(() => _text = 'Failed at image #$index/$count');
-      return;
+      return appLocalizations.prices_bulk_proof_upload_step_error(index, count);
     }
-    setState(() => _text = '');
+    return null;
   }
 }

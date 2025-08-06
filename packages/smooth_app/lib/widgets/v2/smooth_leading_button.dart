@@ -16,13 +16,16 @@ class SmoothLeadingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MaterialLocalizations localizations =
-        MaterialLocalizations.of(context);
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final MaterialLocalizations localizations = MaterialLocalizations.of(
+      context,
+    );
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     final String message = getMessage(localizations);
-    final Color color = foregroundColor ??
+    final Color color =
+        foregroundColor ??
         (context.darkTheme() ? colors.primaryMedium : colors.primaryBlack);
 
     return Semantics(
@@ -39,18 +42,12 @@ class SmoothLeadingButton extends StatelessWidget {
             splashColor: Colors.white70,
             child: Ink(
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: color,
-                  width: 1.0,
-                ),
+                border: Border.all(color: color, width: 1.0),
                 shape: BoxShape.circle,
               ),
               child: SizedBox.square(
                 dimension: size ?? 36.0,
-                child: appIcon(
-                  size: 16.0,
-                  color: color,
-                ),
+                child: appIcon(size: 16.0, color: color),
               ),
             ),
           ),
@@ -59,19 +56,16 @@ class SmoothLeadingButton extends StatelessWidget {
     );
   }
 
-  Widget appIcon({
-    required double size,
-    required Color color,
-  }) {
+  Widget appIcon({required double size, required Color color}) {
     assert(size >= 0.0);
 
     return switch (action) {
       SmoothLeadingAction.close => icons.Close(size: size, color: color),
       SmoothLeadingAction.back => icons.Arrow.left(size: size, color: color),
       SmoothLeadingAction.minimize => Padding(
-          padding: const EdgeInsetsDirectional.only(top: 1.0),
-          child: icons.Chevron.down(size: size, color: color),
-        ),
+        padding: const EdgeInsetsDirectional.only(top: 1.0),
+        child: icons.Chevron.down(size: size, color: color),
+      ),
     };
   }
 
@@ -84,8 +78,4 @@ class SmoothLeadingButton extends StatelessWidget {
   }
 }
 
-enum SmoothLeadingAction {
-  close,
-  back,
-  minimize,
-}
+enum SmoothLeadingAction { close, back, minimize }

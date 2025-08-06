@@ -17,6 +17,7 @@ class SmoothTabBar<T> extends StatefulWidget {
     this.padding,
     this.leadingItems,
     this.trailingItems,
+    this.overflowMainColor,
     super.key,
   }) : assert(items.length > 0);
 
@@ -28,6 +29,7 @@ class SmoothTabBar<T> extends StatefulWidget {
   final Iterable<Widget?>? trailingItems;
   final Function(T) onTabChanged;
   final EdgeInsetsGeometry? padding;
+  final Color? overflowMainColor;
 
   @override
   State<SmoothTabBar<T>> createState() => _SmoothTabBarState<T>();
@@ -38,18 +40,19 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return CustomPaint(
-      painter: _ProductHeaderTabBarPainter(
+      foregroundPainter: _ProductHeaderTabBarPainter(
         progress: _horizontalProgress,
-        primaryColor: lightTheme ? theme.primaryLight : theme.primaryDark,
-        bottomSeparatorColor:
-            lightTheme ? theme.primaryBlack : theme.primaryNormal,
-        backgroundColor: AppBarTheme.of(context).backgroundColor ??
-            Theme.of(context).scaffoldBackgroundColor,
+        primaryColor:
+            widget.overflowMainColor ??
+            (lightTheme ? theme.primaryLight : theme.primaryDark),
+        bottomSeparatorColor: lightTheme
+            ? theme.primaryBlack
+            : theme.primaryNormal,
       ),
       child: SizedBox(
         height: SmoothTabBar.TAB_BAR_HEIGHT,
@@ -101,10 +104,7 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
             dividerColor: theme.primaryDark,
             indicator: BoxDecoration(
               border: Border(
-                bottom: BorderSide(
-                  color: theme.primaryDark,
-                  width: 3.0,
-                ),
+                bottom: BorderSide(color: theme.primaryDark, width: 3.0),
               ),
               borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(5.0),
@@ -122,10 +122,8 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
 }
 
 class SmoothTabBarItem<T> {
-  const SmoothTabBarItem({
-    required this.label,
-    required this.value,
-  }) : assert(label.length > 0);
+  const SmoothTabBarItem({required this.label, required this.value})
+    : assert(label.length > 0);
 
   final String label;
   final T value;
@@ -183,40 +181,28 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
     required this.progress,
     required this.primaryColor,
     required this.bottomSeparatorColor,
-    required this.backgroundColor,
   });
 
   final double progress;
   final Color primaryColor;
   final Color bottomSeparatorColor;
-  final Color backgroundColor;
   final Paint _paint = Paint();
 
   @override
   void paint(Canvas canvas, Size size) {
     final double gradientSize = size.width * 0.1;
+    final Color backgroundColor = primaryColor.withValues(alpha: 0.0);
 
     if (progress > 0.0) {
-      _paint.shader = ui.Gradient.linear(
-        Offset.zero,
-        Offset(gradientSize, 0.0),
-        <Color>[
-          primaryColor.withValues(
-            alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
-          ),
-          backgroundColor,
-        ],
-      );
+      _paint.shader =
+          ui.Gradient.linear(Offset.zero, Offset(gradientSize, 0.0), <Color>[
+            primaryColor.withValues(
+              alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
+            ),
+            backgroundColor,
+          ]);
 
-      canvas.drawRect(
-        Rect.fromLTWH(
-          0,
-          0,
-          gradientSize,
-          size.height,
-        ),
-        _paint,
-      );
+      canvas.drawRect(Rect.fromLTWH(0, 0, gradientSize, size.height), _paint);
     }
 
     if (progress < 1.0) {
@@ -232,12 +218,7 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
       );
 
       canvas.drawRect(
-        Rect.fromLTWH(
-          size.width - gradientSize,
-          0,
-          size.width,
-          size.height,
-        ),
+        Rect.fromLTWH(size.width - gradientSize, 0, size.width, size.height),
         _paint,
       );
     }

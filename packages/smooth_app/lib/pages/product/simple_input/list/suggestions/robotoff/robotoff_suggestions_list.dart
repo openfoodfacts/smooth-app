@@ -12,10 +12,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/auto_scale_widget.dart';
 
 class RobotoffSuggestionList extends StatefulWidget {
-  const RobotoffSuggestionList({
-    required this.helper,
-    super.key,
-  });
+  const RobotoffSuggestionList({required this.helper, super.key});
 
   final AbstractSimpleInputPageHelper helper;
 
@@ -29,8 +26,8 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
   Widget build(BuildContext context) {
     super.build(context);
     final ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>
-        questionsNotifier = context
-            .watch<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>();
+    questionsNotifier = context
+        .watch<ValueNotifier<Map<RobotoffQuestion, InsightAnnotation?>>>();
 
     final Map<RobotoffQuestion, InsightAnnotation?> questions =
         questionsNotifier.value;
@@ -45,17 +42,14 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
         ),
         itemCount: questions.entries.length,
         itemBuilder: (BuildContext context, int position) {
-          final MapEntry<RobotoffQuestion, InsightAnnotation?> entry =
-              questions.entries.elementAt(position);
+          final MapEntry<RobotoffQuestion, InsightAnnotation?> entry = questions
+              .entries
+              .elementAt(position);
 
           return MultiProvider(
             providers: <SingleChildWidget>[
-              Provider<InsightAnnotation?>.value(
-                value: entry.value,
-              ),
-              Provider<RobotoffQuestion>.value(
-                value: entry.key,
-              ),
+              Provider<InsightAnnotation?>.value(value: entry.value),
+              Provider<RobotoffQuestion>.value(value: entry.key),
             ],
             child: AutoScaleWidget(
               vsync: this,
@@ -67,8 +61,8 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
                     value == true
                         ? InsightAnnotation.YES
                         : value == false
-                            ? InsightAnnotation.NO
-                            : null,
+                        ? InsightAnnotation.NO
+                        : null,
                   );
                 },
               ),
@@ -80,8 +74,8 @@ class _RobotoffSuggestionListState extends State<RobotoffSuggestionList>
             return EMPTY_WIDGET;
           }
 
-          final SmoothColorsThemeExtension extension =
-              context.extension<SmoothColorsThemeExtension>();
+          final SmoothColorsThemeExtension extension = context
+              .extension<SmoothColorsThemeExtension>();
           final bool lightTheme = context.lightTheme();
 
           return Divider(

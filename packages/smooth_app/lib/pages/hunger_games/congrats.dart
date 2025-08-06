@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -10,6 +9,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 
@@ -33,8 +33,8 @@ class CongratsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserManagementProvider userManagementProvider =
-        context.watch<UserManagementProvider>();
+    final UserManagementProvider userManagementProvider = context
+        .watch<UserManagementProvider>();
 
     return Center(
       child: SmoothCard(
@@ -53,20 +53,21 @@ class CongratsWidget extends StatelessWidget {
               ),
               FractionallySizedBox(
                 child: FutureBuilder<bool>(
-                    future: userManagementProvider.credentialsInStorage(),
-                    builder:
-                        (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                      if (!snapshot.hasData) {
-                        return EMPTY_WIDGET;
-                      }
-                      final bool isUserLoggedIn = snapshot.data!;
-                      if (isUserLoggedIn) {
-                        // TODO(jasmeet): Show leaderboard button.
-                        return EMPTY_WIDGET;
-                      } else {
-                        return _buildSignInButton(context, appLocalizations);
-                      }
-                    }),
+                  future: userManagementProvider.credentialsInStorage(),
+                  builder:
+                      (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                        if (!snapshot.hasData) {
+                          return EMPTY_WIDGET;
+                        }
+                        final bool isUserLoggedIn = snapshot.data!;
+                        if (isUserLoggedIn) {
+                          // TODO(jasmeet): Show leaderboard button.
+                          return EMPTY_WIDGET;
+                        } else {
+                          return _buildSignInButton(context, appLocalizations);
+                        }
+                      },
+                ),
               ),
               if (continueButtonLabel != null)
                 SmoothSimpleButton(
@@ -110,9 +111,7 @@ class CongratsWidget extends StatelessWidget {
                 onPressed: () async {
                   await Navigator.push<void>(
                     context,
-                    MaterialPageRoute<void>(
-                      builder: (_) => const LoginPage(),
-                    ),
+                    MaterialPageRoute<void>(builder: (_) => const LoginPage()),
                   );
                   if (OpenFoodAPIConfiguration.globalUser != null) {
                     if (!context.mounted) {
@@ -121,9 +120,7 @@ class CongratsWidget extends StatelessWidget {
                     LoadingDialog.run<void>(
                       context: context,
                       title: appLocalizations.saving_answer,
-                      future: _postInsightAnnotations(
-                        anonymousAnnotationList,
-                      ),
+                      future: _postInsightAnnotations(anonymousAnnotationList),
                     );
                   }
                 },

@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_floating_message.dart';
@@ -51,19 +51,16 @@ class _PriceScanPageState extends State<PriceScanPage>
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
-      appBar: SmoothAppBar(
-        title: Text(appLocalizations.prices_add_an_item),
-      ),
+      appBar: SmoothAppBar(title: Text(appLocalizations.prices_add_an_item)),
       floatingActionButton: !widget.isMultiProducts
           ? null
           : _barcodes.isEmpty
-              ? null
-              : FloatingActionButton.extended(
-                  onPressed: () => _pop(context),
-                  label:
-                      Text(appLocalizations.user_list_length(_barcodes.length)),
-                  icon: const Icon(Icons.add),
-                ),
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: () => _pop(context),
+              label: Text(appLocalizations.user_list_length(_barcodes.length)),
+              icon: const Icon(Icons.add),
+            ),
       body: GlobalVars.barcodeScanner.getScanner(
         onScan: (final String barcode) async {
           // for some reason, the scanner sometimes returns immediately the

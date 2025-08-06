@@ -1,4 +1,4 @@
-library app_store_shared;
+library;
 
 export 'src/scanner.dart';
 export 'src/scanner_mocked.dart';

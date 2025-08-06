@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -49,8 +49,8 @@ class _SimpleInputListItemState extends State<SimpleInputListItem> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     Widget child;
     if (widget.editable) {
@@ -73,23 +73,17 @@ class _SimpleInputListItemState extends State<SimpleInputListItem> {
             _SimpleInputListItemAction(
               tooltip: appLocalizations
                   .edit_product_form_item_save_edit_item_tooltip,
-              icon: Icon(
-                Icons.check_circle_rounded,
-                color: extension.success,
-              ),
+              icon: Icon(Icons.check_circle_rounded, color: extension.success),
               visible: _isEditing,
               onTap: _saveEdit,
             ),
             _SimpleInputListItemAction(
               tooltip: appLocalizations
                   .edit_product_form_item_cancel_edit_item_tooltip,
-              icon: Icon(
-                Icons.cancel,
-                color: extension.error,
-              ),
+              icon: Icon(Icons.cancel, color: extension.error),
               visible: _isEditing,
               onTap: _cancelEdit,
-            )
+            ),
           ],
           _SimpleInputListItemAction(
             tooltip:
@@ -119,7 +113,8 @@ class _SimpleInputListItemState extends State<SimpleInputListItem> {
     return Text(
       widget.term,
       style: TextStyle(
-          fontWeight: widget.isNew ? FontWeight.bold : FontWeight.normal),
+        fontWeight: widget.isNew ? FontWeight.bold : FontWeight.normal,
+      ),
     );
   }
 
@@ -210,12 +205,10 @@ class _SimpleInputListItemActionState extends State<_SimpleInputListItemAction>
       _controller.forward(from: 1.0);
     }
 
-    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeInOut,
-      ),
-    );
+    _opacityAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
     _sizeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(

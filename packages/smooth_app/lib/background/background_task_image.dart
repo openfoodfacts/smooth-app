@@ -5,8 +5,8 @@ import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/background_task_price.dart';
@@ -17,6 +17,7 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
@@ -42,10 +43,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   });
 
   BackgroundTaskImage.fromJson(super.json)
-      : fullPath = json[_jsonTagImagePath] as String,
-        eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
-            json[_jsonTagEraserCoordinates]),
-        super.fromJson();
+    : fullPath = json[_jsonTagImagePath] as String,
+      eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+        json[_jsonTagEraserCoordinates],
+      ),
+      super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
   static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
@@ -115,8 +117,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      null;
+    final AppLocalizations appLocalizations,
+  ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskImage _getNewTask(
@@ -133,28 +135,27 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final int cropX2,
     final int cropY2,
     final List<double>? eraserCoordinates,
-  ) =>
-      BackgroundTaskImage._(
-        uniqueId: uniqueId,
-        barcode: barcode,
-        productType: productType,
-        processName: _operationType.processName,
-        imageField: imageField.offTag,
-        fullPath: fullFile.path,
-        croppedPath: croppedFile.path,
-        rotationDegrees: rotationDegrees,
-        cropX1: cropX1,
-        cropY1: cropY1,
-        cropX2: cropX2,
-        cropY2: cropY2,
-        eraserCoordinates: eraserCoordinates,
-        language: language,
-        stamp: BackgroundTaskUpload.getStamp(
-          barcode,
-          imageField.offTag,
-          language.code,
-        ),
-      );
+  ) => BackgroundTaskImage._(
+    uniqueId: uniqueId,
+    barcode: barcode,
+    productType: productType,
+    processName: _operationType.processName,
+    imageField: imageField.offTag,
+    fullPath: fullFile.path,
+    croppedPath: croppedFile.path,
+    rotationDegrees: rotationDegrees,
+    cropX1: cropX1,
+    cropY1: cropY1,
+    cropX2: cropX2,
+    cropY2: cropY2,
+    eraserCoordinates: eraserCoordinates,
+    language: language,
+    stamp: BackgroundTaskUpload.getStamp(
+      barcode,
+      imageField.offTag,
+      language.code,
+    ),
+  );
 
   /// Returns a fake value that means: "remove the previous value when merging".
   ///
@@ -164,10 +165,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// cf. [UpToDateChanges._overwrite] regarding `images` field.
   @override
   ProductImage getProductImageChange() => ProductImage(
-        field: ImageField.fromOffTag(imageField)!,
-        language: getLanguage(),
-        size: ImageSize.ORIGINAL,
-      );
+    field: ImageField.fromOffTag(imageField)!,
+    language: getLanguage(),
+    size: ImageSize.ORIGINAL,
+  );
 
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
@@ -187,8 +188,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      (await BackgroundTaskUpload.getFile(getCroppedPath(fullPath)))
-          .deleteSync();
+      (await BackgroundTaskUpload.getFile(
+        await getCroppedPath(fullPath),
+      )).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -210,10 +212,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   /// Returns [source] with all corners multiplied by a [factor].
-  static Rect getResizedRect(
-    final Rect source,
-    final num factor,
-  ) =>
+  static Rect getResizedRect(final Rect source, final num factor) =>
       Rect.fromLTRB(
         source.left * factor,
         source.top * factor,
@@ -229,16 +228,15 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final int cropY1,
     final int cropX2,
     final int cropY2,
-  ) =>
-      getResizedRect(
-        Rect.fromLTRB(
-          cropX1.toDouble(),
-          cropY1.toDouble(),
-          cropX2.toDouble(),
-          cropY2.toDouble(),
-        ),
-        1 / _cropConversionFactor,
-      );
+  ) => getResizedRect(
+    Rect.fromLTRB(
+      cropX1.toDouble(),
+      cropY1.toDouble(),
+      cropX2.toDouble(),
+      cropY2.toDouble(),
+    ),
+    1 / _cropConversionFactor,
+  );
 
   /// Conversion factor to `int` from / to UI / background task.
   static const int _cropConversionFactor = 1000000;
@@ -259,24 +257,26 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final bool forceCompression,
     required final List<double>? eraserCoordinates,
   }) async {
-    final String croppedPath = getCroppedPath(fullPath);
+    final String croppedPath = await getCroppedPath(fullPath);
+
     final CustomPainter? overlayPainter =
         eraserCoordinates == null || eraserCoordinates.isEmpty
-            ? null
-            : EraserPainter(
-                eraserModel: EraserModel(
-                  rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
-                  offsets: CropHelper.getOffsets(eraserCoordinates),
-                ),
-                cropRect: BackgroundTaskImage.getDownsizedRect(
-                  cropX1,
-                  cropY1,
-                  cropX2,
-                  cropY2,
-                ),
-              );
+        ? null
+        : EraserPainter(
+            eraserModel: EraserModel(
+              rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+              offsets: CropHelper.getOffsets(eraserCoordinates),
+            ),
+            cropRect: BackgroundTaskImage.getDownsizedRect(
+              cropX1,
+              cropY1,
+              cropX2,
+              cropY2,
+            ),
+          );
     final ui.Image full = await loadUiImage(
-        await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes());
+      await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes(),
+    );
     if (!forceCompression) {
       if (cropX1 == 0 &&
           cropY1 == 0 &&
@@ -331,8 +331,24 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     return croppedPath;
   }
 
-  static String getCroppedPath(final String fullPath) =>
-      '$fullPath.cropped.jpg';
+  static Future<String> getCroppedPath(final String fullPath) async {
+    final String croppedPath = '$fullPath.cropped.jpg';
+
+    if (_isFileWritable(File(croppedPath))) {
+      return croppedPath;
+    }
+
+    // In some cases, the location of the directory from
+    // [BackgroundTaskUpload.getDirectory()] (= "application support" dir)
+    // may have changed
+    //
+    // This issue is mainly on iOS devices, when a support directory can become
+    // not writable anymore, but is still readable.
+    return join(
+      (await BackgroundTaskUpload.getDirectory()).path,
+      Uri.file(croppedPath).pathSegments.last,
+    );
+  }
 
   /// Uploads the product image.
   @override
@@ -390,6 +406,21 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       return;
     }
     throw Exception(
-        'Could not upload picture: ${status.status} / ${status.error}');
+      'Could not upload picture: ${status.status} / ${status.error}',
+    );
+  }
+
+  static bool _isFileWritable(File file) {
+    try {
+      final FileStat stat = file.statSync();
+
+      final bool isOwnerWritable = (stat.mode & 0x0080) != 0;
+      final bool isGroupWritable = (stat.mode & 0x0010) != 0;
+      final bool isOtherWritable = (stat.mode & 0x0002) != 0;
+
+      return isOwnerWritable || isGroupWritable || isOtherWritable;
+    } catch (_) {
+      return false;
+    }
   }
 }

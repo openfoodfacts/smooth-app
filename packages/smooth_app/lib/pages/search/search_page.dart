@@ -22,12 +22,12 @@ class SearchPage extends StatefulWidget {
   });
 
   SearchPage.fromExtra(SearchPageExtra extra)
-      : this(
-          extra.searchHelper,
-          preloadedList: extra.preloadedList,
-          autofocus: extra.autofocus ?? true,
-          heroTag: extra.heroTag,
-        );
+    : this(
+        extra.searchHelper,
+        preloadedList: extra.preloadedList,
+        autofocus: extra.autofocus ?? true,
+        heroTag: extra.heroTag,
+      );
 
   final SearchHelper searchHelper;
   final List<SearchPreloadedItem>? preloadedList;
@@ -104,22 +104,18 @@ class _SearchPageState extends State<SearchPage> {
               ),
               Expanded(
                 child: Consumer<SearchHelper>(
-                  builder: (
-                    BuildContext context,
-                    SearchHelper searchHelper,
-                    _,
-                  ) {
+                  builder: (BuildContext context, SearchHelper searchHelper, _) {
                     /// Show the history when there is no search
                     if (searchHelper.value == null) {
                       return SearchHistoryView(
                         focusNode: _searchFocusNode,
                         onTap: (String query) =>
                             widget.searchHelper.searchWithController(
-                          context,
-                          query,
-                          _searchTextController,
-                          _searchFocusNode,
-                        ),
+                              context,
+                              query,
+                              _searchTextController,
+                              _searchFocusNode,
+                            ),
                         searchHelper: widget.searchHelper,
                         preloadedList:
                             widget.preloadedList ?? <SearchPreloadedItem>[],
@@ -131,9 +127,7 @@ class _SearchPageState extends State<SearchPage> {
                       return Navigator(
                         key: _navigatorKey,
                         pages: <MaterialPage<dynamic>>[
-                          MaterialPage<void>(
-                            child: searchHelper.value!.widget,
-                          ),
+                          MaterialPage<void>(child: searchHelper.value!.widget),
                         ],
                         onDidRemovePage: (_) {
                           /// Mandatory to provide this method

@@ -31,14 +31,14 @@ enum UserPictureSource {
 
   static UserPictureSource get defaultValue => UserPictureSource.SELECT;
 
-  static UserPictureSource fromString(final String tag) =>
-      UserPictureSource.values
-          .firstWhere((final UserPictureSource source) => source.tag == tag);
+  static UserPictureSource fromString(final String tag) => UserPictureSource
+      .values
+      .firstWhere((final UserPictureSource source) => source.tag == tag);
 }
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
-      : _sharedPreferences = sharedPreferences {
+    : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
     _incrementAppLaunches();
@@ -94,6 +94,9 @@ class UserPreferences extends ChangeNotifier {
       '_search_show_product_type_filter';
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
   static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
+  static const String _TAG_PRODUCT_PAGE_TABS = '_product_page_tabs';
+  static const String _TAG_READY_FOR_PRICE_TAG_VALIDATION =
+      'ready_for_price_tag_validation';
 
   /// Camera preferences
 
@@ -173,7 +176,9 @@ class UserPreferences extends ChangeNotifier {
     final String importanceId,
   ) async {
     await _sharedPreferences.setString(
-        _getImportanceTag(attributeId), importanceId);
+      _getImportanceTag(attributeId),
+      importanceId,
+    );
     notifyListeners();
   }
 
@@ -193,7 +198,9 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setContrastScheme(final String contrastLevel) async {
     await _sharedPreferences.setString(
-        _TAG_CURRENT_CONTRAST_MODE, contrastLevel);
+      _TAG_CURRENT_CONTRAST_MODE,
+      contrastLevel,
+    );
     notifyListeners();
   }
 
@@ -255,6 +262,12 @@ class UserPreferences extends ChangeNotifier {
   bool get shouldShowPricesFeedbackForm =>
       _sharedPreferences.getBool(_TAG_PRICES_FEEDBACK_FORM) ?? true;
 
+  Future<void> setReadyForPriceTagValidation(final bool state) async =>
+      _sharedPreferences.setBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION, state);
+
+  bool get readyForPriceTagValidation =>
+      _sharedPreferences.getBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION) ?? false;
+
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??
       THEME_SYSTEM_DEFAULT;
@@ -290,7 +303,9 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
     await _sharedPreferences.setInt(
-        _TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
+      _TAG_LAST_VISITED_ONBOARDING_PAGE,
+      page.index,
+    );
     notifyListeners();
   }
 
@@ -303,12 +318,15 @@ class UserPreferences extends ChangeNotifier {
   }
 
   OnboardingPage get lastVisitedOnboardingPage {
-    final int? pageIndex =
-        _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
+    final int? pageIndex = _sharedPreferences.getInt(
+      _TAG_LAST_VISITED_ONBOARDING_PAGE,
+    );
     return pageIndex == null
         ? OnboardingPage.NOT_STARTED
-        : OnboardingPage
-            .values[math.min(pageIndex, OnboardingPage.values.length - 1)];
+        : OnboardingPage.values[math.min(
+            pageIndex,
+            OnboardingPage.values.length - 1,
+          )];
   }
 
   Future<void> incrementScanCount() async {
@@ -332,11 +350,14 @@ class UserPreferences extends ChangeNotifier {
   /// Please use [ProductQuery.setLanguage] as interface
   Future<void> setAppLanguageCode(String? languageCode) async {
     if (languageCode == null) {
-      await _sharedPreferences
-          .remove(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+      await _sharedPreferences.remove(
+        UserPreferencesDevMode.userPreferencesAppLanguageCode,
+      );
     } else {
       await setDevModeString(
-          UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+        UserPreferencesDevMode.userPreferencesAppLanguageCode,
+        languageCode,
+      );
     }
     notifyListeners();
   }
@@ -347,10 +368,7 @@ class UserPreferences extends ChangeNotifier {
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 
-  Future<void> setFlag(
-    final String key,
-    final bool? value,
-  ) async {
+  Future<void> setFlag(final String key, final bool? value) async {
     value == null
         ? await _sharedPreferences.remove(_getFlagTag(key))
         : await _sharedPreferences.setBool(_getFlagTag(key), value);
@@ -418,9 +436,9 @@ class UserPreferences extends ChangeNotifier {
       AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY;
 
   UserPictureSource get userPictureSource => UserPictureSource.fromString(
-        _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
-            UserPictureSource.defaultValue.tag,
-      );
+    _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
+        UserPictureSource.defaultValue.tag,
+  );
 
   Future<void> setUserPictureSource(final UserPictureSource source) async {
     await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
@@ -433,7 +451,9 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setUserKnowledgePanelOrder(final List<String> source) async {
     await _sharedPreferences.setStringList(
-        _TAG_USER_KNOWLEDGE_PANEL_ORDER, source);
+      _TAG_USER_KNOWLEDGE_PANEL_ORDER,
+      source,
+    );
     notifyListeners();
   }
 
@@ -502,19 +522,19 @@ class UserPreferences extends ChangeNotifier {
 
   ProductType get latestProductType =>
       ProductType.fromOffTag(
-          _sharedPreferences.getString(_TAG_LATEST_PRODUCT_TYPE)) ??
+        _sharedPreferences.getString(_TAG_LATEST_PRODUCT_TYPE),
+      ) ??
       ProductType.food;
 
   set latestProductType(final ProductType value) => unawaited(
-        _sharedPreferences.setString(
-          _TAG_LATEST_PRODUCT_TYPE,
-          value.offTag,
-        ),
-      );
+    _sharedPreferences.setString(_TAG_LATEST_PRODUCT_TYPE, value.offTag),
+  );
 
   Future<void> setSearchProductTypeFilter(final bool visible) async {
     await _sharedPreferences.setBool(
-        _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER, visible);
+      _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER,
+      visible,
+    );
     notifyListeners();
   }
 
@@ -522,8 +542,9 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getBool(_TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER) ?? false;
 
   List<ProductFooterActionBar> get productPageActions {
-    final List<String>? actions =
-        _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_ACTIONS);
+    final List<String>? actions = _sharedPreferences.getStringList(
+      _TAG_PRODUCT_PAGE_ACTIONS,
+    );
 
     if (actions == null) {
       return ProductFooterActionBar.defaultOrder();
@@ -558,10 +579,7 @@ class UserPreferences extends ChangeNotifier {
 
     languages[language.code] = (languages[language.code] ?? 0) + 1;
     unawaited(
-      _sharedPreferences.setString(
-        _TAG_LANGUAGES_USAGE,
-        jsonEncode(languages),
-      ),
+      _sharedPreferences.setString(_TAG_LANGUAGES_USAGE, jsonEncode(languages)),
     );
   }
 
@@ -571,5 +589,12 @@ class UserPreferences extends ChangeNotifier {
       return <String, int>{};
     }
     return Map<String, int>.from(jsonDecode(usage));
+  }
+
+  List<String> get productPageTabs =>
+      _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_TABS) ?? <String>[];
+  Future<void> setProductPageTabs(final List<String> value) async {
+    await _sharedPreferences.setStringList(_TAG_PRODUCT_PAGE_TABS, value);
+    notifyListeners();
   }
 }

@@ -8,11 +8,7 @@ import 'package:smooth_app/pages/prices/currency_extension.dart';
 
 /// A selector for selecting user's currency.
 class CurrencySelector extends StatelessWidget {
-  CurrencySelector({
-    this.textStyle,
-    this.padding,
-    this.icon,
-  });
+  CurrencySelector({this.textStyle, this.padding, this.icon});
 
   final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
@@ -59,10 +55,9 @@ class CurrencySelector extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
                   child: Text(
                     selected.getFullName(),
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall
-                        ?.merge(textStyle),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.displaySmall?.merge(textStyle),
                   ),
                 ),
               ),

@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
@@ -20,22 +20,33 @@ class PriceModel with ChangeNotifier {
     required final Currency currency,
     final PriceMetaProduct? initialProduct,
     required this.multipleProducts,
-  })  : _proof = null,
-        existingPrices = null,
-        _proofType = proofType,
-        _date = DateTime.now(),
-        _currency = currency,
-        _locations = locations,
-        _priceAmountModels = <PriceAmountModel>[
-          if (initialProduct != null) PriceAmountModel(product: initialProduct),
-        ];
+    final bool readyForPriceTagValidation = false,
+  }) : _proof = null,
+       existingPrices = null,
+       _proofType = proofType,
+       _date = DateTime.now(),
+       _currency = currency,
+       _locations = locations,
+       _readyForPriceTagValidation = readyForPriceTagValidation,
+       _priceAmountModels = <PriceAmountModel>[
+         if (initialProduct != null) PriceAmountModel(product: initialProduct),
+       ];
 
-  PriceModel.proof({
-    required Proof proof,
-    this.existingPrices,
-  })  : multipleProducts = true,
-        _priceAmountModels = <PriceAmountModel>[] {
+  PriceModel.proof({required Proof proof, this.existingPrices})
+    : multipleProducts = true,
+      _readyForPriceTagValidation = false,
+      _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
+  }
+
+  late bool _readyForPriceTagValidation;
+
+  bool get readyForPriceTagValidation => _readyForPriceTagValidation;
+
+  set readyForPriceTagValidation(final bool value) {
+    _hasChanged = true;
+    _readyForPriceTagValidation = value;
+    notifyListeners();
   }
 
   bool _hasChanged = false;
@@ -206,13 +217,25 @@ class PriceModel with ChangeNotifier {
   }
 
   /// Adds the related background task.
-  Future<void> addTask(final BuildContext context) async {
+  Future<void> addTask(
+    final BuildContext context, {
+    required final bool displaySnackbar,
+  }) async {
     final List<String> barcodes = <String>[];
+    final List<String> categories = <String>[];
+    final List<List<String>> origins = <List<String>>[];
+    final List<List<String>> labels = <List<String>>[];
+    final List<String> pricePers = <String>[];
     final List<bool> pricesAreDiscounted = <bool>[];
     final List<double> prices = <double>[];
     final List<double?> pricesWithoutDiscount = <double?>[];
     for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       barcodes.add(priceAmountModel.product.barcode);
+      categories.add(priceAmountModel.product.categoryTag);
+      origins.add(priceAmountModel.product.originTags);
+      // TODO(monsieurtanuki): to be implemented when supported by "prices"
+      labels.add(<String>[]);
+      pricePers.add(priceAmountModel.product.pricePer.offTag);
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);
       pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
@@ -228,6 +251,10 @@ class PriceModel with ChangeNotifier {
         proofId: proof!.id,
         // per item
         barcodes: barcodes,
+        categories: categories,
+        origins: origins,
+        labels: labels,
+        pricePers: pricePers,
         pricesAreDiscounted: pricesAreDiscounted,
         prices: prices,
         pricesWithoutDiscount: pricesWithoutDiscount,
@@ -245,9 +272,15 @@ class PriceModel with ChangeNotifier {
       currency: currency,
       // per item
       barcodes: barcodes,
+      categories: categories,
+      origins: origins,
+      labels: labels,
+      pricePers: pricePers,
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      displaySnackbar: displaySnackbar,
+      readyForPriceTagValidation: readyForPriceTagValidation,
     );
   }
 }

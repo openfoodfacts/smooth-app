@@ -35,8 +35,10 @@ class ProductImageData {
 
     final String baseUrl = imageUrl.substring(0, sizeIndex + 1);
     final String number = size.number;
-    final String extension =
-        imageUrl.substring(extensionIndex, imageUrl.length);
+    final String extension = imageUrl.substring(
+      extensionIndex,
+      imageUrl.length,
+    );
     return baseUrl + number + extension;
   }
 }

@@ -1,10 +1,4 @@
-enum LogLevel {
-  debug,
-  error,
-  info,
-  verbose,
-  warning,
-}
+enum LogLevel { debug, error, info, verbose, warning }
 
 class LogLevels {
   static const List<LogLevel> allLogLevels = <LogLevel>[
@@ -12,7 +6,7 @@ class LogLevels {
     LogLevel.info,
     LogLevel.debug,
     LogLevel.verbose,
-    LogLevel.warning
+    LogLevel.warning,
   ];
 
   static const List<LogLevel> prodLogLevels = <LogLevel>[

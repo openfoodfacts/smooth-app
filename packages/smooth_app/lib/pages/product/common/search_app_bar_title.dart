@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Common search app bar title.
 class SearchAppBarTitle extends StatelessWidget {
@@ -29,10 +29,7 @@ class SearchAppBarTitle extends StatelessWidget {
         onTap: () => Navigator.of(context).pop(true),
         child: Tooltip(
           message: appLocalizations.tap_to_edit_search,
-          child: SizedBox(
-            width: double.infinity,
-            child: child,
-          ),
+          child: SizedBox(width: double.infinity, child: child),
         ),
       );
     }

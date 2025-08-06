@@ -1,20 +1,16 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_existing_amount_field.dart';
+import 'package:smooth_app/pages/prices/price_l10n_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Card that displays an existing amount.
 class PriceExistingAmountCard extends StatefulWidget {
-  const PriceExistingAmountCard(
-    this.price,
-  );
+  const PriceExistingAmountCard(this.price);
 
   final Price price;
 
@@ -24,57 +20,34 @@ class PriceExistingAmountCard extends StatefulWidget {
 }
 
 class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
-  String? _categoryTag;
-  String? _categoryName;
+  final PriceL10nHelper _helper = PriceL10nHelper();
 
   @override
   void initState() {
     super.initState();
-    _categoryTag = widget.price.categoryTag;
-    unawaited(_loadCategoryName());
-  }
-
-  Future<void> _loadCategoryName() async {
-    if (_categoryTag == null) {
-      return;
-    }
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-    final Map<String, TaxonomyCategory>? map =
-        await OpenFoodAPIClient.getTaxonomyCategories(
-      TaxonomyCategoryQueryConfiguration(
-        tags: <String>[_categoryTag!],
-        country: ProductQuery.getCountry(),
-        languages: <OpenFoodFactsLanguage>[language],
-        fields: <TaxonomyCategoryField>[TaxonomyCategoryField.NAME],
-        includeChildren: false,
-      ),
-    );
-    if (map == null) {
-      return;
-    }
-    final TaxonomyCategory? category = map[_categoryTag];
-    if (category == null) {
-      return;
-    }
-    final Map<OpenFoodFactsLanguage, String>? categoryNames = category.name;
-    if (categoryNames == null || categoryNames.isEmpty) {
-      return;
-    }
-    _categoryName = categoryNames[language];
-    if (_categoryName != null) {
+    _helper.localizeTags(widget.price, () {
       if (mounted) {
         setState(() {});
       }
-    }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDiscounted = widget.price.priceIsDiscounted ?? false;
+    final String? category = _helper.getCategory();
+    final List<String>? origins = _helper.getOrigins();
+    final List<String>? labels = _helper.getLabels();
+    final List<String> subtitle = <String>[];
+    if (origins != null) {
+      subtitle.addAll(origins);
+    }
+    if (labels != null) {
+      subtitle.addAll(labels);
+    }
     return SmoothCardWithRoundedHeader(
-      // TODO(monsieurtanuki): localize
-      title: 'Price previously added',
+      title: appLocalizations.prices_amount_existing_subtitle,
       leading: const Icon(Icons.history),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         vertical: MEDIUM_SPACE,
@@ -86,9 +59,10 @@ class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
             PriceProductListTile(
               product: PriceMetaProduct.priceProduct(widget.price.product!),
             ),
-          if (_categoryName != null || _categoryTag != null)
+          if (category != null || subtitle.isNotEmpty)
             ListTile(
-              title: Text((_categoryName ?? _categoryTag)!),
+              title: category == null ? null : Text(category),
+              subtitle: subtitle.isEmpty ? null : Text(subtitle.join(', ')),
             ),
           SwitchListTile(
             value: isDiscounted,

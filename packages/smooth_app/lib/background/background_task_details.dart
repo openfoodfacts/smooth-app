@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/background/background_task_product_change.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Stamps we can put on [BackgroundTaskDetails].
 ///
@@ -47,8 +47,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   });
 
   BackgroundTaskDetails.fromJson(super.json)
-      : inputMap = json[_jsonTagInputMap] as String,
-        super.fromJson();
+    : inputMap = json[_jsonTagInputMap] as String,
+      super.fromJson();
 
   static const String _jsonTagInputMap = 'inputMap';
 
@@ -69,14 +69,22 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       localDatabase.upToDate.addChange(uniqueId, getProductChange());
 
   /// Adds the background task about changing a product.
+  ///
+  /// The typical use-case is that the user changes a product live. That's where
+  /// [context] is not null.
+  /// Another rarer case is when we change a product in stealth mode. That's
+  /// where [localDatabase] is not null.
+  /// At least one of [context] and [localDatabase] must be not null.
   static Future<void> addTask(
     final Product minimalistProduct, {
-    required final BuildContext context,
+    required BuildContext? context,
+    LocalDatabase? localDatabase,
     required final BackgroundTaskDetailsStamp stamp,
     final bool showSnackBar = true,
     required final ProductType? productType,
   }) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    assert(context != null || localDatabase != null);
+    localDatabase ??= context!.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: minimalistProduct.barcode,
@@ -87,21 +95,26 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       stamp,
       productType ?? ProductType.food,
     );
-    if (!context.mounted) {
-      return;
+    if (context != null && context.mounted) {
+      return task.addToManager(
+        localDatabase,
+        context: context,
+        showSnackBar: showSnackBar,
+        queue: BackgroundTaskQueue.fast,
+      );
     }
-    await task.addToManager(
+    return task.addToManager(
       localDatabase,
-      context: context,
-      showSnackBar: showSnackBar,
+      context: null,
+      showSnackBar: false,
       queue: BackgroundTaskQueue.fast,
     );
   }
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      null;
+    final AppLocalizations appLocalizations,
+  ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskDetails _getNewTask(
@@ -109,23 +122,23 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     final String uniqueId,
     final BackgroundTaskDetailsStamp stamp,
     final ProductType productType,
-  ) =>
-      BackgroundTaskDetails._(
-        uniqueId: uniqueId,
-        processName: _operationType.processName,
-        barcode: minimalistProduct.barcode!,
-        productType: productType,
-        inputMap: jsonEncode(minimalistProduct.toJson()),
-        stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
-      );
+  ) => BackgroundTaskDetails._(
+    uniqueId: uniqueId,
+    processName: _operationType.processName,
+    barcode: minimalistProduct.barcode!,
+    productType: productType,
+    inputMap: jsonEncode(minimalistProduct.toJson()),
+    stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
+  );
 
   static String getStamp(final String barcode, final String stamp) =>
       '$barcode;detail;$stamp';
 
   @override
   Product getProductChange() {
-    final Product result =
-        Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
+    final Product result = Product.fromJson(
+      json.decode(inputMap) as Map<String, dynamic>,
+    );
     return result;
   }
 
@@ -140,14 +153,14 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       // and V3 can only save those fields.
       final ProductResultV3 result =
           await OpenFoodAPIClient.temporarySaveProductV3(
-        getUser(),
-        product.barcode!,
-        packagings: product.packagings,
-        packagingsComplete: product.packagingsComplete,
-        language: getLanguage(),
-        country: getCountry(),
-        uriHelper: uriProductHelper,
-      );
+            getUser(),
+            product.barcode!,
+            packagings: product.packagings,
+            packagingsComplete: product.packagingsComplete,
+            language: getLanguage(),
+            country: getCountry(),
+            uriHelper: uriProductHelper,
+          );
       if (result.status != ProductResultV3.statusSuccess &&
           result.status != ProductResultV3.statusWarning) {
         bool isInvalidUser = false;

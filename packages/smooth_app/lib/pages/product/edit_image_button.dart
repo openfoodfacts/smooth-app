@@ -47,9 +47,7 @@ class EditImageButton extends StatelessWidget {
                 ),
           padding: _centerContent
               ? WidgetStateProperty.all(
-                  const EdgeInsets.symmetric(
-                    vertical: LARGE_SPACE,
-                  ),
+                  const EdgeInsets.symmetric(vertical: LARGE_SPACE),
                 )
               : null,
           alignment: _centerContent ? AlignmentDirectional.center : null,

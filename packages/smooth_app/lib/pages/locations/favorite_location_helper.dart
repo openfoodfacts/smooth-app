@@ -39,10 +39,7 @@ class FavoriteLocationHelper {
   }
 
   /// Returns true if a store was flagged as favorite, from stored keys.
-  bool _isFavorite(
-    final List<String> favorites,
-    final OsmLocation location,
-  ) {
+  bool _isFavorite(final List<String> favorites, final OsmLocation location) {
     for (final String favorite in favorites) {
       if (favorite == _locationToString(location)) {
         return true;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -8,17 +7,14 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/compare_products3_page.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 /// Popup menu item entries for the product list page, for selected items.
-enum ProductListItemPopupMenuEntry {
-  compareSideBySide,
-  rank,
-  delete,
-}
+enum ProductListItemPopupMenuEntry { compareSideBySide, rank, delete }
 
 /// Popup menu items for the product list page, for selected items.
 abstract class ProductListItemPopupItem {
@@ -45,13 +41,12 @@ abstract class ProductListItemPopupItem {
   SmoothPopupMenuItem<ProductListItemPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
     final bool enabled,
-  ) =>
-      SmoothPopupMenuItem<ProductListItemPopupItem>(
-        value: this,
-        icon: getIconData(),
-        label: getTitle(appLocalizations),
-        enabled: enabled,
-      );
+  ) => SmoothPopupMenuItem<ProductListItemPopupItem>(
+    value: this,
+    icon: getIconData(),
+    label: getTitle(appLocalizations),
+    enabled: enabled,
+  );
 }
 
 /// Popup menu item for the product list page: compare side by side selected items.
@@ -70,8 +65,9 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
     required final BuildContext context,
     required final Set<String> selectedBarcodes,
   }) async {
-    final OrderedNutrientsCache? cache =
-        await OrderedNutrientsCache.getCache(context);
+    final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
+      context,
+    );
     if (context.mounted) {
       if (cache == null) {
         ScaffoldMessenger.of(context).showSnackBar(

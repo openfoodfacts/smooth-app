@@ -27,17 +27,17 @@ class SmoothListTileCard extends StatelessWidget {
     EdgeInsetsGeometry? margin,
     Key? key,
   }) : this(
-          title: title,
-          subtitle: subtitle,
-          key: key,
-          onTap: onTap,
-          // we use a Column to have the icon centered vertically
-          leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[icon ?? const Icon(Icons.edit)],
-          ),
-          margin: margin,
-        );
+         title: title,
+         subtitle: subtitle,
+         key: key,
+         onTap: onTap,
+         // we use a Column to have the icon centered vertically
+         leading: Column(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: <Widget>[icon ?? const Icon(Icons.edit)],
+         ),
+         margin: margin,
+       );
 
   final Widget? title;
   final Widget? subtitle;
@@ -47,8 +47,8 @@ class SmoothListTileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return SmoothCard(

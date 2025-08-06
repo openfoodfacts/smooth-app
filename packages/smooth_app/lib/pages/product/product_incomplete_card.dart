@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
@@ -106,23 +106,19 @@ class ProductIncompleteCard extends StatelessWidget {
             ),
           ),
         ),
-        icon: const Icon(
-          Icons.bolt,
-          color: Colors.amber,
-        ),
+        icon: const Icon(Icons.bolt, color: Colors.amber),
         onPressed: () async =>
             Navigator.of(context, rootNavigator: true).push<void>(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => AddNewProductPage.fromProduct(
-              product,
-              isLoggedInMandatory: isLoggedInMandatory,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) =>
+                    AddNewProductPage.fromProduct(
+                      product,
+                      isLoggedInMandatory: isLoggedInMandatory,
+                    ),
+              ),
             ),
-          ),
-        ),
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all<Color>(
-            colorScheme.primary,
-          ),
+          backgroundColor: WidgetStateProperty.all<Color>(colorScheme.primary),
           foregroundColor: WidgetStateProperty.all<Color>(
             colorScheme.onPrimary,
           ),

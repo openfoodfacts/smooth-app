@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -14,9 +15,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a proof.
 class PriceProofPage extends StatefulWidget {
-  const PriceProofPage(
-    this.proof,
-  );
+  const PriceProofPage(this.proof);
 
   final Proof proof;
 
@@ -36,8 +35,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final DateFormat dateFormat =
-        DateFormat.yMd(ProductQuery.getLocaleString()).add_Hms();
+    final DateFormat dateFormat = DateFormat.yMd(
+      ProductQuery.getLocaleString(),
+    ).add_Hms();
     return SmoothScaffold(
       floatingActionButton: _existingPrices == null
           ? null
@@ -58,7 +58,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => ProductPriceAddPage(
                       PriceModel.proof(
-                          proof: widget.proof, existingPrices: _existingPrices),
+                        proof: widget.proof,
+                        existingPrices: _existingPrices,
+                      ),
                     ),
                   ),
                 );
@@ -76,25 +78,32 @@ class _PriceProofPageState extends State<PriceProofPage> {
         ],
       ),
       body: Center(
-        child: Image.network(
-          _getUrl(false),
-          fit: BoxFit.cover,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) {
-              return child;
-            }
-            return Center(
-              child: SizedBox(
-                width: double.maxFinite,
-                height: double.maxFinite,
-                child: Image.network(
-                  _getUrl(true),
-                  fit: BoxFit.contain,
-                ),
-              ),
-            );
-          },
+        child: Badge.count(
+          count: widget.proof.priceCount,
+          alignment: Alignment.topRight,
+          offset: const Offset(-MEDIUM_SPACE, MEDIUM_SPACE),
+          padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+          child: Image.network(
+            _getUrl(false),
+            fit: BoxFit.cover,
+            loadingBuilder:
+                (
+                  BuildContext context,
+                  Widget child,
+                  ImageChunkEvent? loadingProgress,
+                ) {
+                  if (loadingProgress == null) {
+                    return child;
+                  }
+                  return Center(
+                    child: SizedBox(
+                      width: double.maxFinite,
+                      height: double.maxFinite,
+                      child: Image.network(_getUrl(true), fit: BoxFit.contain),
+                    ),
+                  );
+                },
+          ),
         ),
       ),
     );
@@ -113,9 +122,9 @@ class _PriceProofPageState extends State<PriceProofPage> {
     }
     final MaybeError<GetPricesResult> prices =
         await OpenPricesAPIClient.getPrices(
-      GetPricesParameters()..proofId = widget.proof.id,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          GetPricesParameters()..proofId = widget.proof.id,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (prices.isError) {
       return;
     }

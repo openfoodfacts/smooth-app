@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:uuid/uuid.dart';
@@ -39,15 +41,18 @@ abstract class ProductQuery {
 
   /// Sets the global language for API queries.
   static void setLanguage(
-    final BuildContext context,
+    final BuildContext? context,
     final UserPreferences userPreferences, {
     String? languageCode,
   }) {
-    languageCode ??= userPreferences.appLanguageCode ??
-        Localizations.localeOf(context).languageCode;
+    languageCode ??=
+        userPreferences.appLanguageCode ??
+        (context == null ? 'en' : Localizations.localeOf(context).languageCode);
+    OpenFoodFactsCountryLocalization.setLocale(languageCode);
 
-    final OpenFoodFactsLanguage language =
-        LanguageHelper.fromJson(languageCode);
+    final OpenFoodFactsLanguage language = LanguageHelper.fromJson(
+      languageCode,
+    );
     OpenFoodAPIConfiguration.globalLanguages = <OpenFoodFactsLanguage>[
       language,
     ];
@@ -60,12 +65,11 @@ abstract class ProductQuery {
   static OpenFoodFactsCountry getCountry() => _country;
 
   /// Sets the global country for API queries: implicit choice at init time.
-  static Future<void> initCountry(
-    final UserPreferences userPreferences,
-  ) async {
+  static Future<void> initCountry(final UserPreferences userPreferences) async {
     // not ideal, but we have many contributors monitoring France
     const OpenFoodFactsCountry defaultCountry = OpenFoodFactsCountry.FRANCE;
-    final String? isoCode = userPreferences.userCountryCode ??
+    final String? isoCode =
+        userPreferences.userCountryCode ??
         PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
     final OpenFoodFactsCountry country =
         OpenFoodFactsCountry.fromOffTag(isoCode) ?? defaultCountry;
@@ -86,8 +90,9 @@ abstract class ProductQuery {
     final UserPreferences userPreferences,
     final String isoCode,
   ) async {
-    final OpenFoodFactsCountry? country =
-        OpenFoodFactsCountry.fromOffTag(isoCode);
+    final OpenFoodFactsCountry? country = OpenFoodFactsCountry.fromOffTag(
+      isoCode,
+    );
     if (country == null) {
       return false;
     }
@@ -111,7 +116,8 @@ abstract class ProductQuery {
   }
 
   /// Returns the global locale string (e.g. 'pt_BR')
-  static String getLocaleString() => '${getLanguage().code}'
+  static String getLocaleString() =>
+      '${getLanguage().code}'
       '_'
       '${getCountry().offTag.toUpperCase()}';
 
@@ -162,10 +168,10 @@ abstract class ProductQuery {
       OpenFoodAPIConfiguration.globalUser ?? _testUser;
 
   static User get _testUser => const User(
-        userId: 'smoothie-app',
-        password: 'strawberrybanana',
-        comment: 'Test user for project smoothie',
-      );
+    userId: 'smoothie-app',
+    password: 'strawberrybanana',
+    comment: 'Test user for project smoothie',
+  );
 
   static late UriProductHelper _uriProductHelper;
 
@@ -181,8 +187,8 @@ abstract class ProductQuery {
   static void setQueryType(final UserPreferences userPreferences) {
     UriProductHelper getProductHelper(final String flagProd) =>
         userPreferences.getFlag(flagProd) ?? true
-            ? uriHelperFoodProd
-            : getTestUriProductHelper(userPreferences);
+        ? uriHelperFoodProd
+        : getTestUriProductHelper(userPreferences);
 
     _uriProductHelper = getProductHelper(
       UserPreferencesDevMode.userPreferencesFlagProd,
@@ -191,7 +197,8 @@ abstract class ProductQuery {
       UserPreferencesDevMode.userPreferencesFlagPriceProd,
     );
     uriFolksonomyHelper = UriHelper(
-      host: userPreferences.getDevModeString(
+      host:
+          userPreferences.getDevModeString(
             UserPreferencesDevMode.userPreferencesFolksonomyHost,
           ) ??
           uriHelperFolksonomyProd.host,
@@ -200,9 +207,12 @@ abstract class ProductQuery {
 
   /// Returns the standard test env, or the custom test env if relevant.
   static UriProductHelper getTestUriProductHelper(
-      final UserPreferences userPreferences) {
-    final String testEnvDomain = userPreferences.getDevModeString(
-            UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
+    final UserPreferences userPreferences,
+  ) {
+    final String testEnvDomain =
+        userPreferences.getDevModeString(
+          UserPreferencesDevMode.userPreferencesTestEnvDomain,
+        ) ??
         '';
     return testEnvDomain.isEmpty
         ? uriHelperFoodTest
@@ -233,8 +243,9 @@ abstract class ProductQuery {
     if (productType == null) {
       return currentUriProductHelper;
     }
-    final ProductType? currentProductType =
-        extractProductType(currentUriProductHelper);
+    final ProductType? currentProductType = extractProductType(
+      currentUriProductHelper,
+    );
     if (currentProductType == null) {
       return currentUriProductHelper;
     }
@@ -254,61 +265,99 @@ abstract class ProductQuery {
   }
 
   static List<ProductField> get fields => const <ProductField>[
-        ProductField.NAME,
-        ProductField.NAME_ALL_LANGUAGES,
-        ProductField.BRANDS,
-        ProductField.BARCODE,
-        ProductField.PRODUCT_TYPE,
-        ProductField.NUTRISCORE,
-        ProductField.FRONT_IMAGE,
-        ProductField.IMAGE_FRONT_URL,
-        ProductField.IMAGE_INGREDIENTS_URL,
-        ProductField.IMAGE_NUTRITION_URL,
-        ProductField.IMAGE_PACKAGING_URL,
-        ProductField.IMAGES,
-        ProductField.SELECTED_IMAGE,
-        ProductField.QUANTITY,
-        ProductField.SERVING_SIZE,
-        ProductField.STORES,
-        ProductField.PACKAGING_QUANTITY,
-        ProductField.PACKAGING,
-        ProductField.PACKAGINGS,
-        ProductField.PACKAGINGS_COMPLETE,
-        ProductField.PACKAGING_TAGS,
-        ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
-        ProductField.NO_NUTRITION_DATA,
-        ProductField.NUTRIMENT_DATA_PER,
-        ProductField.NUTRITION_DATA,
-        ProductField.NUTRIMENTS,
-        ProductField.NUTRIENT_LEVELS,
-        ProductField.NUTRIMENT_ENERGY_UNIT,
-        ProductField.ADDITIVES,
-        ProductField.INGREDIENTS_ANALYSIS_TAGS,
-        ProductField.INGREDIENTS_TEXT,
-        ProductField.INGREDIENTS_TEXT_ALL_LANGUAGES,
-        ProductField.LABELS_TAGS,
-        ProductField.LABELS_TAGS_IN_LANGUAGES,
-        ProductField.COMPARED_TO_CATEGORY,
-        ProductField.CATEGORIES_TAGS,
-        ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
-        ProductField.LANGUAGE,
-        ProductField.ATTRIBUTE_GROUPS,
-        ProductField.STATES_TAGS,
-        ProductField.ECOSCORE_DATA,
-        ProductField.ECOSCORE_GRADE,
-        ProductField.ECOSCORE_SCORE,
-        ProductField.KNOWLEDGE_PANELS,
-        ProductField.COUNTRIES,
-        ProductField.COUNTRIES_TAGS,
-        ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
-        ProductField.EMB_CODES,
-        ProductField.ORIGINS,
-        ProductField.WEBSITE,
-        ProductField.OBSOLETE,
-        ProductField.OWNER_FIELDS,
-        ProductField.OWNER,
-        ProductField.TRACES,
-        ProductField.TRACES_TAGS,
-        ProductField.TRACES_TAGS_IN_LANGUAGES,
-      ];
+    ProductField.NAME,
+    ProductField.NAME_ALL_LANGUAGES,
+    ProductField.BRANDS,
+    ProductField.BARCODE,
+    ProductField.PRODUCT_TYPE,
+    ProductField.NUTRISCORE,
+    ProductField.FRONT_IMAGE,
+    ProductField.IMAGE_FRONT_URL,
+    ProductField.IMAGE_INGREDIENTS_URL,
+    ProductField.IMAGE_NUTRITION_URL,
+    ProductField.IMAGE_PACKAGING_URL,
+    ProductField.IMAGES,
+    ProductField.SELECTED_IMAGE,
+    ProductField.QUANTITY,
+    ProductField.SERVING_SIZE,
+    ProductField.STORES,
+    ProductField.PACKAGING_QUANTITY,
+    ProductField.PACKAGING,
+    ProductField.PACKAGINGS,
+    ProductField.PACKAGINGS_COMPLETE,
+    ProductField.PACKAGING_TAGS,
+    ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
+    ProductField.NO_NUTRITION_DATA,
+    ProductField.NUTRIMENT_DATA_PER,
+    ProductField.NUTRITION_DATA,
+    ProductField.NUTRIMENTS,
+    ProductField.NUTRIENT_LEVELS,
+    ProductField.NUTRIMENT_ENERGY_UNIT,
+    ProductField.ADDITIVES,
+    ProductField.INGREDIENTS_ANALYSIS_TAGS,
+    ProductField.INGREDIENTS_TEXT,
+    ProductField.INGREDIENTS_TEXT_ALL_LANGUAGES,
+    ProductField.LABELS_TAGS,
+    ProductField.LABELS_TAGS_IN_LANGUAGES,
+    ProductField.COMPARED_TO_CATEGORY,
+    ProductField.CATEGORIES_TAGS,
+    ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
+    ProductField.LANGUAGE,
+    ProductField.ATTRIBUTE_GROUPS,
+    ProductField.STATES_TAGS,
+    ProductField.ECOSCORE_DATA,
+    ProductField.ECOSCORE_GRADE,
+    ProductField.ECOSCORE_SCORE,
+    ProductField.KNOWLEDGE_PANELS,
+    ProductField.COUNTRIES,
+    ProductField.COUNTRIES_TAGS,
+    ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
+    ProductField.EMB_CODES,
+    ProductField.ORIGINS,
+    ProductField.WEBSITE,
+    ProductField.OBSOLETE,
+    ProductField.OWNER_FIELDS,
+    ProductField.OWNER,
+    ProductField.TRACES,
+    ProductField.TRACES_TAGS,
+    ProductField.TRACES_TAGS_IN_LANGUAGES,
+  ];
+
+  /// Returns the token for Prices, as cached or just downloaded.
+  static Future<MaybeError<String>> getPriceToken(
+    final User user,
+    final LocalDatabase localDatabase,
+  ) async {
+    final UriProductHelper uriHelper = ProductQuery.uriPricesHelper;
+    final String key =
+        'priceBearerToken:${user.userId}|${user.password}|${uriHelper.domain}';
+    final String? cached = await DaoSecuredString.get(key);
+    if (cached != null) {
+      // token still valid?
+      final MaybeError<Session> session =
+          await OpenPricesAPIClient.getUserSession(
+            bearerToken: cached,
+            uriHelper: uriHelper,
+          );
+      if (session.isError) {
+        await DaoSecuredString.remove(key: key);
+      }
+      return MaybeError<String>.value(cached);
+    }
+    final MaybeError<String> token =
+        await OpenPricesAPIClient.getAuthenticationToken(
+          username: user.userId,
+          password: user.password,
+          uriHelper: uriHelper,
+        );
+    if (token.isError) {
+      throw Exception('Could not get token: ${token.error}');
+    }
+    if (token.value.isEmpty) {
+      throw Exception('Unexpected empty token');
+    }
+    final String bearerToken = token.value;
+    await DaoSecuredString.put(key: key, value: bearerToken);
+    return token;
+  }
 }

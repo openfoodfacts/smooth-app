@@ -25,7 +25,6 @@ abstract class PreferencesSelectorProvider<T>
   Future<List<T>> onLoadValues();
   T getSelectedValue(List<T> values);
 
-  @immutable
   void changeSelectedItem(T item) {
     final PreferencesSelectorLoadedState<T> state =
         value as PreferencesSelectorLoadedState<T>;
@@ -40,7 +39,6 @@ abstract class PreferencesSelectorProvider<T>
     }
   }
 
-  @immutable
   Future<void> saveSelectedItem() async {
     if (value is! PreferencesSelectorEditingState) {
       return;
@@ -52,7 +50,6 @@ abstract class PreferencesSelectorProvider<T>
     );
   }
 
-  @immutable
   void dismissSelectedItem() {
     if (value is PreferencesSelectorEditingState) {
       value = (value as PreferencesSelectorEditingState<T>).toLoadedState();
@@ -103,11 +100,10 @@ class PreferencesSelectorLoadedState<T> extends PreferencesSelectorState<T> {
   PreferencesSelectorLoadedState<T> copyWith({
     T? selectedItem,
     List<T>? items,
-  }) =>
-      PreferencesSelectorLoadedState<T>(
-        selectedItem: selectedItem ?? this.selectedItem,
-        items: items ?? this.items,
-      );
+  }) => PreferencesSelectorLoadedState<T>(
+    selectedItem: selectedItem ?? this.selectedItem,
+    items: items ?? this.items,
+  );
 
   @override
   String toString() {
@@ -120,10 +116,7 @@ class PreferencesSelectorEditingState<T>
   PreferencesSelectorEditingState.fromLoadedState({
     required this.selectedItemOverride,
     required PreferencesSelectorLoadedState<T> loadedState,
-  }) : super(
-          selectedItem: loadedState.selectedItem,
-          items: loadedState.items,
-        );
+  }) : super(selectedItem: loadedState.selectedItem, items: loadedState.items);
 
   final T? selectedItemOverride;
 

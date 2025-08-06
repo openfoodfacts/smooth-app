@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -34,8 +34,8 @@ class SearchProductHelper extends SearchHelper {
   @override
   Widget? getAdditionalFilter() =>
       UserPreferences.getUserPreferencesSync().searchProductTypeFilterVisible
-          ? _ProductTypeFilter(this)
-          : null;
+      ? _ProductTypeFilter(this)
+      : null;
 
   @override
   void search(
@@ -62,15 +62,11 @@ class SearchProductHelper extends SearchHelper {
         // TODO(monsieurtanuki): we should use searchQueryCallback here too, shouldn't we?
       );
     } else {
-      _onSubmittedText(
-        query,
-        context,
-        localDatabase,
-      );
+      _onSubmittedText(query, context, localDatabase);
     }
   }
 
-// used to be in now defunct `ChoosePage`
+  // used to be in now defunct `ChoosePage`
   Future<void> _onSubmittedBarcode(
     final String value,
     final BuildContext context,
@@ -81,8 +77,8 @@ class SearchProductHelper extends SearchHelper {
       context: context,
       localDatabase: localDatabase,
     );
-    final FetchedProduct fetchedProduct =
-        await productDialogHelper.openBestChoice();
+    final FetchedProduct fetchedProduct = await productDialogHelper
+        .openBestChoice();
     if (fetchedProduct.status == FetchedProductStatus.ok &&
         fetchedProduct.isValid) {
       // TODO(monsieurtanuki): add OxF to Matomo data?
@@ -123,10 +119,11 @@ class SearchProductHelper extends SearchHelper {
           localDatabase: localDatabase,
           productQuery: KeywordsProductQuery(
             value,
-            productType: UserPreferences.getUserPreferencesSync()
+            productType:
+                UserPreferences.getUserPreferencesSync()
                     .searchProductTypeFilterVisible
-                ? ProductType.food
-                : _productType,
+                ? _productType
+                : ProductType.food,
           ),
           context: context,
           editableAppBarTitle: false,

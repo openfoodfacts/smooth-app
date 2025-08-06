@@ -5,6 +5,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Search page for preferences, with TextField filter.
@@ -23,10 +24,8 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final List<Widget> items = _getItems(_controller.text, userPreferences);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Preferences Search'),
-      ),
+    return SmoothScaffold(
+      appBar: AppBar(title: const Text('Preferences Search')),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -75,11 +74,11 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
     final List<PreferencePageType> types =
         PreferencePageType.getPreferencePageTypes(userPreferences);
     for (final PreferencePageType type in types) {
-      final AbstractUserPreferences abstractUserPreferences =
-          type.getUserPreferences(
-        userPreferences: userPreferences,
-        context: context,
-      );
+      final AbstractUserPreferences abstractUserPreferences = type
+          .getUserPreferences(
+            userPreferences: userPreferences,
+            context: context,
+          );
       // we find the label in the page description: we add all the page items.
       if (_findLabels(needle, abstractUserPreferences.getLabels())) {
         for (final UserPreferencesItem item

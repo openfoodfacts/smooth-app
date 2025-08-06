@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +17,9 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -119,9 +119,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             );
           case LoadingStatus.LOADING:
             if (_model.isEmpty()) {
-              return SearchLoadingScreen(
-                title: widget.name,
-              );
+              return SearchLoadingScreen(title: widget.name);
             }
             break;
           case LoadingStatus.LOADED:
@@ -145,11 +143,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         // Now used in two cases.
         // 1. we have data downloaded and we display it (normal mode)
         // 2. we are downloading extra data, and display what we already knew
-        return _getNotEmptyScreen(
-          screenSize,
-          themeData,
-          appLocalizations,
-        );
+        return _getNotEmptyScreen(screenSize, themeData, appLocalizations);
       },
     );
   }
@@ -176,13 +170,14 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             child: RankingFloatingActionButton(
               onPressed: () =>
                   Navigator.of(context, rootNavigator: true).push<Widget>(
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => PersonalizedRankingPage(
-                    barcodes: _model.displayBarcodes,
-                    title: widget.name,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage(
+                            barcodes: _model.displayBarcodes,
+                            title: widget.name,
+                          ),
+                    ),
                   ),
-                ),
-              ),
             ),
           ),
           Visibility(
@@ -194,9 +189,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 animationCurve: Curves.easeInOutBack,
                 startOffset: const Offset(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: SMALL_SPACE,
-                  ),
+                  padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
                   child: SizedBox(
                     height: MINIMUM_TOUCH_SIZE,
                     child: ElevatedButton(
@@ -335,10 +328,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  Widget _getEmptyText(
-    final ThemeData themeData,
-    final String message,
-  ) {
+  Widget _getEmptyText(final ThemeData themeData, final String message) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
@@ -373,72 +363,52 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
 
-    return FutureBuilder<String?>(
-      future: _getTranslatedCountry(),
-      builder: (
-        final BuildContext context,
-        final AsyncSnapshot<String?> snapshot,
-      ) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final List<String> messages = <String>[];
-        String counting = appLocalizations.user_list_length(
-          _model.supplier.partialProductList.totalSize,
-        );
-        if (pagedProductQuery.hasDifferentCountryWorldData()) {
-          if (pagedProductQuery.world) {
-            counting += ' (${appLocalizations.world_results_label})';
-          } else {
-            if (snapshot.data != null) {
-              counting += ' (${snapshot.data})';
-            }
-          }
-        }
-        messages.add(counting);
-        final int? lastUpdate = _model.supplier.timestamp;
-        if (lastUpdate != null) {
-          final String lastTime =
-              ProductQueryPageHelper.getDurationStringFromTimestamp(
-                  lastUpdate, context);
-          messages.add('${appLocalizations.cached_results_from} $lastTime');
-        }
-        return SizedBox(
-          width: double.infinity,
-          child: SmoothCard(
-            child: Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Row(
-                children: <Widget>[
-                  Expanded(child: Text(messages.join('\n'))),
-                  if (pagedProductQuery.getWorldQuery() != null)
-                    _getIconButton(
-                      _getWorldAction(
-                        appLocalizations,
-                        worldQuery!,
-                        widget.includeAppBar,
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> messages = <String>[];
+    String counting = appLocalizations.user_list_length(
+      _model.supplier.partialProductList.totalSize,
     );
-  }
-
-  Future<String?> _getTranslatedCountry() async {
-    if (_country == null) {
-      return null;
-    }
-    final String locale = Localizations.localeOf(context).languageCode;
-    final List<Country> localizedCountries =
-        await IsoCountries.isoCountriesForLocale(locale);
-    for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() == _country?.offTag.toLowerCase()) {
-        return country.name;
+    if (pagedProductQuery.hasDifferentCountryWorldData()) {
+      if (pagedProductQuery.world) {
+        counting += ' (${appLocalizations.world_results_label})';
+      } else {
+        final String? countryName = _country?.name;
+        if (countryName != null) {
+          counting += ' ($countryName)';
+        }
       }
     }
-    return null;
+    messages.add(counting);
+    final int? lastUpdate = _model.supplier.timestamp;
+    if (lastUpdate != null) {
+      final String lastTime =
+          ProductQueryPageHelper.getDurationStringFromTimestamp(
+            lastUpdate,
+            context,
+          );
+      messages.add('${appLocalizations.cached_results_from} $lastTime');
+    }
+    return SizedBox(
+      width: double.infinity,
+      child: SmoothCard(
+        child: Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: Row(
+            children: <Widget>[
+              Expanded(child: Text(messages.join('\n'))),
+              if (pagedProductQuery.getWorldQuery() != null)
+                _getIconButton(
+                  _getWorldAction(
+                    appLocalizations,
+                    worldQuery!,
+                    widget.includeAppBar,
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _getLargeButtonWithIcon(final _Action action) =>
@@ -449,27 +419,26 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       );
 
   Widget _getIconButton(final _Action action) => IconButton(
-        tooltip: action.text,
-        icon: Icon(action.iconData),
-        onPressed: action.onPressed,
-      );
+    tooltip: action.text,
+    icon: Icon(action.iconData),
+    onPressed: action.onPressed,
+  );
 
   _Action _getWorldAction(
     final AppLocalizations appLocalizations,
     final PagedProductQuery worldQuery,
     final bool editableAppBarTitle,
-  ) =>
-      _Action(
-        text: appLocalizations.world_results_action,
-        iconData: Icons.public,
-        onPressed: () async => ProductQueryPageHelper.openBestChoice(
-          productQuery: worldQuery,
-          localDatabase: context.read<LocalDatabase>(),
-          name: widget.name,
-          context: context,
-          editableAppBarTitle: editableAppBarTitle,
-        ),
-      );
+  ) => _Action(
+    text: appLocalizations.world_results_action,
+    iconData: Icons.public,
+    onPressed: () async => ProductQueryPageHelper.openBestChoice(
+      productQuery: worldQuery,
+      localDatabase: context.read<LocalDatabase>(),
+      name: widget.name,
+      context: context,
+      editableAppBarTitle: editableAppBarTitle,
+    ),
+  );
 
   void retryConnection() {
     if (mounted) {
@@ -486,10 +455,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       successfullyLoaded = await _model.loadFromTop();
     } catch (e) {
       if (mounted) {
-        await LoadingDialog.error(
-          context: context,
-          title: _model.loadingError,
-        );
+        await LoadingDialog.error(context: context, title: _model.loadingError);
       }
     } finally {
       if (successfullyLoaded) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/product_image_crop_button.dart';
 import 'package:smooth_app/pages/product/product_image_local_button.dart';
@@ -66,37 +66,36 @@ enum ProductImageButtonType {
     required final bool isLoggedInMandatory,
     final double? borderWidth,
     required bool imageExists,
-  }) =>
-      switch (this) {
-        ProductImageButtonType.local => ProductImageLocalButton(
-            product: product,
-            imageField: imageField,
-            language: language,
-            isLoggedInMandatory: isLoggedInMandatory,
-            borderWidth: borderWidth,
-            imageExists: imageExists,
-          ),
-        ProductImageButtonType.server => ProductImageServerButton(
-            product: product,
-            imageField: imageField,
-            language: language,
-            isLoggedInMandatory: isLoggedInMandatory,
-            borderWidth: borderWidth,
-          ),
-        ProductImageButtonType.unselect => ProductImageUnselectButton(
-            product: product,
-            productType: product.productType,
-            imageField: imageField,
-            language: language,
-            isLoggedInMandatory: isLoggedInMandatory,
-            borderWidth: borderWidth,
-          ),
-        ProductImageButtonType.edit => ProductImageCropButton(
-            product: product,
-            imageField: imageField,
-            language: language,
-            isLoggedInMandatory: isLoggedInMandatory,
-            borderWidth: borderWidth,
-          ),
-      };
+  }) => switch (this) {
+    ProductImageButtonType.local => ProductImageLocalButton(
+      product: product,
+      imageField: imageField,
+      language: language,
+      isLoggedInMandatory: isLoggedInMandatory,
+      borderWidth: borderWidth,
+      imageExists: imageExists,
+    ),
+    ProductImageButtonType.server => ProductImageServerButton(
+      product: product,
+      imageField: imageField,
+      language: language,
+      isLoggedInMandatory: isLoggedInMandatory,
+      borderWidth: borderWidth,
+    ),
+    ProductImageButtonType.unselect => ProductImageUnselectButton(
+      product: product,
+      productType: product.productType,
+      imageField: imageField,
+      language: language,
+      isLoggedInMandatory: isLoggedInMandatory,
+      borderWidth: borderWidth,
+    ),
+    ProductImageButtonType.edit => ProductImageCropButton(
+      product: product,
+      imageField: imageField,
+      language: language,
+      isLoggedInMandatory: isLoggedInMandatory,
+      borderWidth: borderWidth,
+    ),
+  };
 }

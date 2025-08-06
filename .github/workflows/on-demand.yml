@@ -1,5 +1,8 @@
 # This file contains actions that can be performed on PRs by issuing a comment
 name: 🕹️ On demand PR action
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   issue_comment:
