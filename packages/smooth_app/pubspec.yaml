@@ -24,7 +24,7 @@ dependencies:
   flutter_secure_storage: 9.2.4
   hive: 2.2.3
   hive_flutter: 1.1.0
-  http: 1.4.0
+  http: 1.5.0
   http_parser: 4.1.2
   image_picker: 1.1.2
   l10n_countries: 1.2.0
