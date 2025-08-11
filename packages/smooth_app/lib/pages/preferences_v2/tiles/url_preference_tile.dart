@@ -4,7 +4,8 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
 class UrlPreferenceTile extends PreferenceTile {
   const UrlPreferenceTile({
-    required super.icon,
+    super.leading,
+    super.icon,
     required super.title,
     required this.url,
     super.subtitleText,
@@ -15,6 +16,7 @@ class UrlPreferenceTile extends PreferenceTile {
   @override
   Widget build(BuildContext context) {
     return PreferenceTile(
+      leading: leading,
       icon: icon,
       title: title,
       subtitleText: subtitleText,

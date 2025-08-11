@@ -10,6 +10,7 @@ class PreferenceTile extends StatelessWidget {
   const PreferenceTile({
     required this.title,
     super.key,
+    this.leading,
     this.icon,
     this.subtitleText,
     this.subtitle,
@@ -20,8 +21,13 @@ class PreferenceTile extends StatelessWidget {
              (subtitleText == null && subtitle != null) ||
              (subtitleText == null && subtitle == null),
          'Either subtitleText or subtitle must be provided, not both.',
+       ),
+       assert(
+         leading == null || icon == null,
+         'Either leading or icon must be provided.',
        );
 
+  final Widget? leading;
   final IconData? icon;
   final String title;
   final String? subtitleText;
@@ -37,12 +43,16 @@ class PreferenceTile extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return ListTile(
-      leading: icon != null
-          ? Icon(
-              icon,
-              color: context.lightTheme() ? theme.primaryColor : Colors.white,
-            )
-          : null,
+      leading:
+          leading ??
+          (icon != null
+              ? Icon(
+                  icon,
+                  color: context.lightTheme()
+                      ? theme.primaryColor
+                      : Colors.white,
+                )
+              : null),
       title: Text(title),
       subtitle: subtitle ?? (subtitleText != null ? Text(subtitleText!) : null),
       trailing: trailing,

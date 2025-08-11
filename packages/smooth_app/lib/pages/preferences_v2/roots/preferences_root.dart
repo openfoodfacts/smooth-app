@@ -65,6 +65,10 @@ abstract class PreferencesRoot extends StatelessWidget {
     final List<PreferenceCard> cards = getCards(context);
 
     for (final PreferenceCard card in cards) {
+      if (card.gridView) {
+        continue;
+      }
+
       for (final PreferenceTile tile in card.tiles) {
         if (tile.keywords.toLowerCase().contains(query.toLowerCase())) {
           matchingTiles.add(tile);

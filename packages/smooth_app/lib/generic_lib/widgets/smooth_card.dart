@@ -110,6 +110,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     this.trailing,
     this.titleTextStyle,
     this.titlePadding,
+    this.titleSpacing,
     this.contentPadding,
     this.titleBackgroundColor,
     this.contentBackgroundColor,
@@ -126,6 +127,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   final Widget child;
   final TextStyle? titleTextStyle;
   final EdgeInsetsGeometry? titlePadding;
+  final double? titleSpacing;
   final EdgeInsetsGeometry? contentPadding;
   final Color? titleBackgroundColor;
   final Color? contentBackgroundColor;
@@ -153,6 +155,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
           SmoothCardWithRoundedHeaderTop(
             title: title,
             titleBackgroundColor: titleBackgroundColor,
+            titleSpacing: titleSpacing,
             leading: leading,
             leadingIconSize: leadingIconSize,
             leadingPadding: leadingPadding,
@@ -200,6 +203,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   const SmoothCardWithRoundedHeaderTop({
     required this.title,
     this.titleBackgroundColor,
+    this.titleSpacing,
     this.leading,
     this.leadingIconSize,
     this.leadingPadding,
@@ -212,6 +216,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
 
   final String title;
   final Color? titleBackgroundColor;
+  final double? titleSpacing;
   final Widget? leading;
   final double? leadingIconSize;
   final EdgeInsetsGeometry? leadingPadding;
@@ -278,7 +283,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
                         ),
                       ),
                     ),
-                  const SizedBox(width: MEDIUM_SPACE),
+                  SizedBox(width: titleSpacing ?? MEDIUM_SPACE),
                   Expanded(
                     child: Text(
                       title,
