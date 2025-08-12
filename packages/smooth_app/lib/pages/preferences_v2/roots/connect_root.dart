@@ -71,11 +71,17 @@ class ConnectRoot extends PreferencesRoot {
                 return;
               }
 
+              final String emailBody = await _emailBody(appLocalizations);
+
+              if (!context.mounted) {
+                return;
+              }
+
               await _sendEmail(
                 context: context,
                 recipient: 'mobile@openfoodfacts.org',
                 appLocalizations: appLocalizations,
-                body: await _emailBody(appLocalizations),
+                body: emailBody,
                 subject:
                     '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
                 attachmentPaths: includeLogs == true

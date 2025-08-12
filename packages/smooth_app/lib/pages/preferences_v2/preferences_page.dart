@@ -138,13 +138,17 @@ class PreferencesPage extends StatelessWidget {
                 icon: Icons.input,
                 title: appLocalizations.preferences_contribute_title,
                 subtitleText: appLocalizations.preferences_contribute_subtitle,
-                root: ContributeRoot(title: 'Contribute'),
+                root: ContributeRoot(
+                  title: appLocalizations.preferences_contribute_title,
+                ),
               ),
               NavigationPreferenceTile(
                 icon: Icons.contact_mail,
                 title: appLocalizations.preferences_connect_title,
                 subtitleText: appLocalizations.preferences_connect_subtitle,
-                root: ConnectRoot(title: 'Connect with us'),
+                root: ConnectRoot(
+                  title: appLocalizations.preferences_connect_title,
+                ),
               ),
               UrlPreferenceTile(
                 icon: Icons.volunteer_activism,
