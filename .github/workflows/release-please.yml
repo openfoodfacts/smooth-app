@@ -55,7 +55,7 @@ jobs:
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}" >> $GITHUB_ENV
