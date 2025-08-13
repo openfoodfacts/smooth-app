@@ -13,6 +13,7 @@ class PreferenceCard extends StatelessWidget {
     required this.tiles,
     this.gridView = false,
     this.header,
+    this.titleBackgroundColor,
     super.key,
   }) : assert(title.isNotEmpty, 'PreferenceCard title must not be empty.'),
        assert(
@@ -36,6 +37,7 @@ class PreferenceCard extends StatelessWidget {
   final List<PreferenceTile> tiles;
   final bool gridView;
   final Widget? header;
+  final Color? titleBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class PreferenceCard extends StatelessWidget {
       titleSpacing: MEDIUM_SPACE * 2,
       titleTextStyle: Theme.of(context).textTheme.bodyLarge,
       contentPadding: header != null ? EdgeInsets.zero : null,
+      titleBackgroundColor: titleBackgroundColor,
       child: gridView
           ? GridView.count(
               crossAxisCount: 3,

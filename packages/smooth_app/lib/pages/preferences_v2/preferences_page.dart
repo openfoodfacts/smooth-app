@@ -16,11 +16,13 @@ import 'package:smooth_app/pages/preferences_v2/roots/about_app_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/connect_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/contribute_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/contributions_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/default_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/dev_mode_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/faq_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/legal_information_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/prices_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/forum_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/github_search_preference_tile.dart';
@@ -51,12 +53,23 @@ class PreferencesPage extends StatelessWidget {
             gridView: true,
             tiles: <PreferenceTile>[
               SquarePreferenceTile(
-                title: 'Add prices',
+                title: appLocalizations.preferences_add_prices,
                 illustration: SvgPicture.asset(
                   'assets/preferences/prices_contribution.svg',
                 ),
                 onTap: () {
-                  // Handle tap
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          ChangeNotifierProvider<
+                            PreferencesRootSearchController
+                          >(
+                            create: (_) => PreferencesRootSearchController(),
+                            child: const PricesRoot(title: 'Prices'),
+                          ),
+                    ),
+                  );
                 },
               ),
               SquarePreferenceTile(
@@ -76,12 +89,26 @@ class PreferencesPage extends StatelessWidget {
                 },
               ),
               SquarePreferenceTile(
-                title: 'Complete products',
+                title: appLocalizations.preferences_complete_products,
                 illustration: SvgPicture.asset(
                   'assets/preferences/products_contribution.svg',
                 ),
                 onTap: () {
-                  // Handle tap
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          ChangeNotifierProvider<
+                            PreferencesRootSearchController
+                          >(
+                            create: (_) => PreferencesRootSearchController(),
+                            child: ContributionsRoot(
+                              title: appLocalizations
+                                  .preferences_contributions_title,
+                            ),
+                          ),
+                    ),
+                  );
                 },
               ),
             ],
