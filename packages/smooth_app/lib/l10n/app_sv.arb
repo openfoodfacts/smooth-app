@@ -647,7 +647,7 @@
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_retake": "Retake a photo",
+  "crop_page_action_retake": "Ta om ett foto",
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
@@ -797,12 +797,12 @@
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
-  "nutrition_page_serving_type_label": "Nutritional values:",
+  "nutrition_page_serving_type_label": "Näringsvärden:",
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
   "nutrition_page_per_100g": "per 100g",
-  "nutrition_page_per_100g_100ml": "per 100g/ml",
+  "nutrition_page_per_100g_100ml": "per 100 g/ml",
   "nutrition_page_per_serving": "per portion",
   "nutrition_page_add_nutrient": "Lägg till ett näringsämne",
   "nutrition_page_serving_size": "Portionsstorlek",
@@ -997,7 +997,7 @@
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
-  "product_internet_error_modal_title": "An error has occurred!",
+  "product_internet_error_modal_title": "Ett fel har uppstått!",
   "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
   "@product_internet_error_modal_message": {
     "placeholders": {
@@ -1017,7 +1017,7 @@
   },
   "add_tag": "Add property",
   "add_tags": "Lägg till egenskaper",
-  "add_edit_tags": "Add or edit properties",
+  "add_edit_tags": "Lägg till eller redigera egenskaper",
   "edit_tag": "Redigera egenskap",
   "remove_tag": "Ta bort egenskap",
   "tag_key": "Egenskap",
@@ -1544,7 +1544,7 @@
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "Laddar upp dina redigeringar…",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
@@ -1737,7 +1737,7 @@
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+  "edit_product_form_item_origins_explanation_good_examples_1": "Nötkött från Argentina",
   "@edit_product_form_item_origins_explanation_good_examples_1": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
@@ -1940,7 +1940,7 @@
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_packaging_photo_title": "Packaging photo",
+  "edit_product_packaging_photo_title": "Förpackningsfoto",
   "@edit_product_packaging_photo_title": {
     "description": "Product edition - Packaging - Title"
   },
@@ -2221,7 +2221,7 @@
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
-  "dev_preferences_migration_title": "Data migration from V1",
+  "dev_preferences_migration_title": "Datamigrering från V1",
   "dev_preferences_migration_subtitle": "Status: {status}",
   "@dev_preferences_migration_subtitle": {
     "placeholders": {
@@ -2240,11 +2240,11 @@
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
-  "dev_preferences_news_custom_url_title": "Custom URL for news",
+  "dev_preferences_news_custom_url_title": "Anpassad URL för nyheter",
   "@dev_preferences_news_custom_url_title": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+  "dev_preferences_news_custom_url_subtitle": "URL till JSON-filen:",
   "@dev_preferences_news_custom_url_subtitle": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
@@ -2266,7 +2266,7 @@
     }
   },
   "product_type_label_food": "Mat",
-  "product_type_label_beauty": "Personal care",
+  "product_type_label_beauty": "Personlig vård",
   "product_type_label_pet_food": "Djurmat",
   "product_type_label_product": "Övrigt",
   "product_type_selection_title": "Produkttyp",
@@ -2363,7 +2363,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Price per unit",
+  "prices_per_unit": "Pris per enhet",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -2564,7 +2564,7 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
-  "prices_proof_find": "Select a proof",
+  "prices_proof_find": "Välj ett bevis",
   "prices_proof_receipt": "Kvitto",
   "prices_proof_price_tag": "Prislapp",
   "prices_proof_mandatory": "You need to select a proof!",
@@ -2730,7 +2730,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Lägg till flera bevis",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2770,7 +2770,7 @@
   "@signup_page_terms_of_use_line2": {
     "description": "User consent for terms of use (line 2)"
   },
-  "analytics_consent_image_semantic_label": "Analytics icon",
+  "analytics_consent_image_semantic_label": "Analytics-ikon",
   "@analytics_consent_image_semantic_label": {
     "description": "Consent Analytics icon semantics label"
   },
@@ -2990,7 +2990,7 @@
   "@add_basic_details_product_quantity_help_good_examples_1": {
     "description": "A 1st good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+  "add_basic_details_product_quantity_help_good_examples_2": "**6** (för 6 ägg)",
   "@add_basic_details_product_quantity_help_good_examples_2": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
@@ -3216,7 +3216,7 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-  "expand_ingredients": "Expand ingredients",
+  "expand_ingredients": "Expandera ingredienser",
   "@expand_ingredients": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
@@ -3454,7 +3454,7 @@
       }
     }
   },
-  "edit_packagings_element_field_units": "Number of units",
+  "edit_packagings_element_field_units": "Antal enheter",
   "@edit_packagings_element_field_units": {
     "description": "Field label"
   },
@@ -3486,7 +3486,7 @@
   "@edit_packagings_element_example_material": {
     "description": "Text field hint"
   },
-  "edit_packagings_element_field_recycling": "Recycling instruction",
+  "edit_packagings_element_field_recycling": "Återvinningsinstruktion",
   "@edit_packagings_element_field_recycling": {
     "description": "Field label"
   },
@@ -3802,7 +3802,7 @@
   "nova_group_2": "NOVA Grupp 2",
   "nova_group_3": "NOVA Grupp 3",
   "nova_group_4": "NOVA Grupp 4",
-  "nova_group_unknown": "Unknown NOVA Group",
+  "nova_group_unknown": "Okänd NOVA-grupp",
   "nutrition_facts": "Näringsnivåer",
   "faq_title_partners": "Partners & Patrons of the NGO",
   "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
@@ -4076,7 +4076,7 @@
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "Laddar upp dina redigeringar…",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
@@ -4158,7 +4158,7 @@
   },
   "photo_field_front": "Produktfoto",
   "photo_field_ingredients": "Foto på ingredienser",
-  "photo_field_nutrition": "Nutrition photo",
+  "photo_field_nutrition": "Näringsfoto",
   "photo_field_packaging": "Foto på förpackningsinformation",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "Det här fotot saknas",
