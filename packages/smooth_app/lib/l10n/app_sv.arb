@@ -2071,7 +2071,7 @@
   "@user_list_popup_clear": {
     "description": "Short label of a 'clear your history list' popup"
   },
-  "user_list_popup_rename": "Rename",
+  "user_list_popup_rename": "Byt namn",
   "@user_list_popup_rename": {
     "description": "Short label of a 'rename list' popup"
   },
@@ -3712,7 +3712,7 @@
   "@loading": {
     "description": "Loading…"
   },
-  "know_more": "Know More",
+  "know_more": "Lär dig mer",
   "@know_more": {
     "description": "Know More"
   },
@@ -4209,11 +4209,11 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Exportera",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Importera",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
@@ -4229,7 +4229,7 @@
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "Rapportera",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
@@ -4341,7 +4341,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Bevis",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
