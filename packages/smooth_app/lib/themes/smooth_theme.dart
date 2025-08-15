@@ -81,7 +81,7 @@ class SmoothTheme {
       textTheme: textTheme,
       appBarTheme: AppBarTheme(
         centerTitle: false,
-        color: myColorScheme.surface,
+        backgroundColor: myColorScheme.surface,
         foregroundColor: myColorScheme.onSurface,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         titleTextStyle: textTheme.titleLarge,

@@ -55,7 +55,7 @@ class UserPreferencesSwitchWidget extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
             child: Text(subtitle!, style: const TextStyle(height: 1.5)),
           ),
-    activeColor: Theme.of(context).primaryColor,
+    activeThumbColor: Theme.of(context).primaryColor,
     value: value,
     onChanged: onChanged,
     isThreeLine: subtitle != null,

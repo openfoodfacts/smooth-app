@@ -105,26 +105,29 @@ class PriceProofCard extends StatelessWidget {
                     },
             ),
           ),
-          LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) => Row(
-              children:
-                  (const <ProofType>[ProofType.receipt, ProofType.priceTag])
-                      .map<Widget>(
-                        (final ProofType item) => SizedBox(
-                          width: constraints.maxWidth / 2,
-                          child: RadioListTile<ProofType>(
-                            title: Text(item.getTitle(appLocalizations)),
-                            value: item,
-                            groupValue: model.proofType,
-                            onChanged:
-                                model.proof != null || forcedProofType != null
-                                ? null
-                                : (final ProofType? proofType) =>
-                                      model.proofType = proofType!,
-                          ),
-                        ),
-                      )
-                      .toList(),
+          RadioGroup<ProofType>(
+            groupValue: model.proofType,
+            onChanged: (final ProofType? proofType) =>
+                model.proofType = proofType!,
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  Row(
+                    children:
+                        (const <ProofType>[
+                              ProofType.receipt,
+                              ProofType.priceTag,
+                            ])
+                            .map<Widget>(
+                              (final ProofType item) => SizedBox(
+                                width: constraints.maxWidth / 2,
+                                child: RadioListTile<ProofType>(
+                                  title: Text(item.getTitle(appLocalizations)),
+                                  value: item,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                  ),
             ),
           ),
         ],
