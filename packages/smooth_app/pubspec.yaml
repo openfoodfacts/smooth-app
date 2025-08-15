@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.9.0
 
 dependencies:
   flutter:
@@ -39,7 +39,7 @@ dependencies:
   sentry_flutter: 9.6.0
   sqflite: 2.4.2
   sqflite_common_ffi: 2.3.6
-  url_launcher: 6.3.1
+  url_launcher: 6.3.2
   visibility_detector: 0.4.0+2
   app_settings: 6.1.1
   diacritic: 0.1.6

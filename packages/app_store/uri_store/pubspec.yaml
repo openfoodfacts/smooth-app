@@ -4,7 +4,7 @@ version: 0.0.1
 publish_to: "none"
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.9.0
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
   app_store_shared:
     path: ../shared
 
-  url_launcher: 6.3.1
+  url_launcher: 6.3.2
 
 dev_dependencies:
   flutter_test:
