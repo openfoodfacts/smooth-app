@@ -1313,7 +1313,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Thola ezinye izindlela';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2514,7 +2514,7 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Vumela umphakathi ukuthi uqinisekise izintengo ezikhishwe yi-AI.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2523,24 +2523,24 @@ class AppLocalizationsZu extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Ukukhetha amafayela';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Iqala ukulayisha';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Ikopisha ifayela endaweni #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Ilungiselela ukulayisha #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Yehlulekile esithombeni #$index/$count';
   }
 
   @override
@@ -2630,34 +2630,38 @@ class AppLocalizationsZu extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Uhlu lwamanani';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Inombolo yezintengo ezingu-\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Engeza intengo engu-\nentsha';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Isitolo esingaziwa';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Ukufakwa kwentengo kusuka ku-\"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Buka ubufakazi';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Buka ezinye izintengo zami';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Buka ezinye izintengo ngombhali';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices => 'Buka ezinye izintengo esitolo';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2973,7 +2977,7 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Izintengo zomnikeli: $user';
   }
 
   @override
@@ -3109,13 +3113,13 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Shintsha ulimi oluzenzakalelayo?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Ingabe ufuna ulimi olumisiwe lomkhiqizo lusethwe ukuze lube \'$language\'?';
   }
 
   @override
@@ -4508,7 +4512,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Kwami';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4701,7 +4705,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Nweba ubufakazi';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Idatha eluhlaza';
 
   @override
   String page_indicator_with_total(int current, int total) {

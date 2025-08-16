@@ -1292,7 +1292,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get cached_results_from => '결과 보기:';
 
   @override
-  String get product_search_same_category => '카테고리 비교';
+  String get product_search_same_category => '대안을 찾으세요';
 
   @override
   String get product_search_same_category_short => '비교';
@@ -2475,7 +2475,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      '커뮤니티가 AI가 추출한 가격을 검증할 수 있도록 허용합니다.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2484,24 +2484,24 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => '파일 선택';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => '업로드 시작';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return '로컬로 파일 #$index/$count복사 중';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return '업로드 준비 중 #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return '이미지 #$index/$count에서 실패했습니다.';
   }
 
   @override
@@ -2591,34 +2591,37 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => '가격표';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\n가격의 개수';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '\n새로운 가격을 추가합니다';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => '알 수 없는 매장';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '\"$user\"에서 가격 입력';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => '증거 보기';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => '다른 가격 보기';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => '저자의 다른 가격 보기';
+
+  @override
+  String get prices_entry_menu_shop_prices => '상점의 다른 가격 보기';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2934,7 +2937,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return '기여자 가격: $user';
   }
 
   @override
@@ -3070,13 +3073,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      '기본 언어를 변경하시겠습니까?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return '제품의 기본 언어를 \'$language\'로 설정하시겠습니까?';
   }
 
   @override
@@ -4460,10 +4463,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => '나를 위한';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => '웹사이트';
 
   @override
   String get product_page_tab_prices => 'Prices';
@@ -4653,7 +4656,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => '증명을 확장하다';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => '원시 데이터';
 
   @override
   String page_indicator_with_total(int current, int total) {

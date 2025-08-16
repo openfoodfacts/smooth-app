@@ -1314,7 +1314,7 @@ class AppLocalizationsFo extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Find alternatives';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2648,6 +2648,10 @@ class AppLocalizationsFo extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
+
+  @override
   String get prices_entry_menu_open_proof => 'View proof';
 
   @override
@@ -2974,7 +2978,7 @@ class AppLocalizationsFo extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Contributor prices: $user';
   }
 
   @override

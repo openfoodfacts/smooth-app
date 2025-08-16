@@ -1310,7 +1310,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get cached_results_from => 'แสดงผลลัพธ์จาก:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'ค้นหาทางเลือกอื่น';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2511,7 +2511,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'อนุญาตให้ชุมชนตรวจสอบราคาที่สกัดออกมาโดย AI';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2520,24 +2520,24 @@ class AppLocalizationsTh extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'การเลือกไฟล์';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'เริ่มต้นการอัพโหลด';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'การคัดลอกไฟล์ภายในเครื่อง #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'กำลังเตรียมอัพโหลด #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'ล้มเหลวที่ภาพ #$index/$count';
   }
 
   @override
@@ -2627,34 +2627,37 @@ class AppLocalizationsTh extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'รายการราคา';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'จำนวนราคา\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'เพิ่มราคาใหม่\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'ร้านค้าที่ไม่ทราบชื่อ';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'ราคาเริ่มต้น \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'ดูหลักฐาน';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => 'ดูราคาอื่นๆ ของฉัน';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => 'ดูราคาอื่นๆ ของผู้แต่ง';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'ดูราคาอื่นๆจากร้านค้า';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2970,7 +2973,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'ราคาผู้สนับสนุน: $user';
   }
 
   @override
@@ -3106,13 +3109,13 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'เปลี่ยนภาษาเริ่มต้น?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'คุณต้องการให้ตั้งค่าภาษาเริ่มต้นของผลิตภัณฑ์เป็น \'$language\' หรือไม่';
   }
 
   @override
@@ -4506,7 +4509,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'สำหรับฉัน';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4699,7 +4702,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'ขยายหลักฐาน';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'ข้อมูลดิบ';
 
   @override
   String page_indicator_with_total(int current, int total) {

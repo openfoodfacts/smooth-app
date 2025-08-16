@@ -6,7 +6,7 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 /// Search page for preferences, with TextField filter.
 class UserPreferencesSearchPage extends StatefulWidget {

@@ -1316,7 +1316,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'மாற்று வழிகளைக் கண்டறியவும்';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2521,7 +2521,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'AI ஆல் பிரித்தெடுக்கப்பட்ட விலைகளை சமூகம் சரிபார்க்க அனுமதிக்கவும்.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2530,24 +2530,26 @@ class AppLocalizationsTa extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting =>
+      'கோப்புகளைத் தேர்ந்தெடுக்கிறது';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting =>
+      'பதிவேற்றத்தைத் தொடங்குகிறது';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return '#$index/$countகோப்பை உள்ளூரில் நகலெடுக்கிறது.';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'பதிவேற்றத்தைத் தயார் செய்கிறது #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'படத்தில் தோல்வி #$index/$count';
   }
 
   @override
@@ -2637,34 +2639,39 @@ class AppLocalizationsTa extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'விலைப்பட்டியல்';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nவிலைகளின் எண்ணிக்கை';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '\nபுதிய விலையைச் சேர்க்கவும்';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'தெரியாத கடை';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '\"$user\" இலிருந்து விலை உள்ளீடு';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'ஆதாரத்தைக் காண்க';
+
+  @override
+  String get prices_entry_menu_my_prices => 'எனது பிற விலைகளைப் பார்க்கவும்';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'ஆசிரியரின் பிற விலைகளைக் காண்க.';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'கடையில் உள்ள பிற விலைகளைப் பார்க்கவும்.';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2980,7 +2987,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'பங்களிப்பாளர் விலைகள்';
+    return 'பங்களிப்பாளர் விலைகள்: $user';
   }
 
   @override
@@ -3118,13 +3125,13 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'இயல்புநிலை மொழியை மாற்றவா?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'தயாரிப்பின் இயல்புநிலை மொழியை \'$language\' என அமைக்க விரும்புகிறீர்களா?';
   }
 
   @override
@@ -4521,7 +4528,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'தரவுகளின் தரம்';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'எனக்காக';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4716,7 +4723,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'ஆதாரத்தை விரிவாக்கு';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'மூல தரவு';
 
   @override
   String page_indicator_with_total(int current, int total) {

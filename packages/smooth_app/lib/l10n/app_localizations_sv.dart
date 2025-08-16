@@ -40,7 +40,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get next_label => 'Nästa';
 
   @override
-  String get continue_label => 'Continue';
+  String get continue_label => 'Fortsätt';
 
   @override
   String get exit_label => 'Avsluta';
@@ -472,7 +472,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get contribute_translate_header => 'Översätt';
 
   @override
-  String get contribute_data_quality => 'Data Quality';
+  String get contribute_data_quality => 'Datakvalitet';
 
   @override
   String get contribute_translate_link_text => 'Börja översätta';
@@ -629,10 +629,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get search => 'Sök';
 
   @override
-  String get search_store => 'Search for a store';
+  String get search_store => 'Sök efter en butik';
 
   @override
-  String get tap_for_more => 'Tap to see more info…';
+  String get tap_for_more => 'Tryck för att se mer information…';
 
   @override
   String get product => 'Produkt';
@@ -647,7 +647,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get label_refresh => 'Uppdatera';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'Ladda om';
 
   @override
   String get image => 'Bild';
@@ -661,7 +661,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'kan vara föråldrad';
 
   @override
   String get ingredients => 'Ingredienser';
@@ -696,7 +696,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Failed to get a new packaging image.';
 
   @override
-  String get packaging_editing_title => 'Edit Packaging';
+  String get packaging_editing_title => 'Redigera förpackning';
 
   @override
   String get nutrition => 'Näring';
@@ -705,7 +705,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get nutrition_facts_photo => 'Foto på näringsfakta';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'Redigera näringsfakta';
 
   @override
   String get packaging_information => 'Förpackningsinformation';
@@ -732,7 +732,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get new_product => 'Ny produkt';
 
   @override
-  String get new_product_found_title => 'New product found!';
+  String get new_product_found_title => 'Ny produkt hittad!';
 
   @override
   String get new_product_found_text =>
@@ -742,7 +742,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get new_product_found_button => 'Lägg till den här produkten';
 
   @override
-  String get new_product_leave_title => 'Leave this page?';
+  String get new_product_leave_title => 'Lämna denna sida?';
 
   @override
   String get new_product_leave_message =>
@@ -767,16 +767,16 @@ class AppLocalizationsSv extends AppLocalizations {
   String get confirm_button_label => 'Bekräfta';
 
   @override
-  String get send_image_button_label => 'Send image';
+  String get send_image_button_label => 'Skicka bild';
 
   @override
-  String get crop_page_action_saving => 'Saving the image…';
+  String get crop_page_action_saving => 'Sparar bilden…';
 
   @override
-  String get crop_page_action_cropping => 'Cropping the image…';
+  String get crop_page_action_cropping => 'Beskär bilden…';
 
   @override
-  String get crop_page_action_local => 'Saving a local version…';
+  String get crop_page_action_local => 'Sparar en lokal version…';
 
   @override
   String get crop_page_action_local_failed_title =>
@@ -790,7 +790,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get crop_page_action_retake => 'Retake a photo';
 
   @override
-  String get crop_page_too_small_image_title => 'The image is too small!';
+  String get crop_page_too_small_image_title => 'Bilden är för liten!';
 
   @override
   String crop_page_too_small_image_message(
@@ -846,7 +846,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get nutritional_facts_added => 'Nutrition facts added';
 
   @override
-  String get categories_added => 'Categories added';
+  String get categories_added => 'Kategorier tillagda';
 
   @override
   String get new_product_title_nutriscore => 'Compute the Nutri-Score';
@@ -878,14 +878,14 @@ class AppLocalizationsSv extends AppLocalizations {
   String get new_product_desc_nova_unknown => 'Food processing level unknown';
 
   @override
-  String get new_product_title_pictures => 'New product';
+  String get new_product_title_pictures => 'Ny produkt';
 
   @override
   String get new_product_title_pictures_details =>
       'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'And some basic data…';
+  String get new_product_title_misc => 'Och lite grundläggande data…';
 
   @override
   String new_product_done_msg(String username) {
@@ -1007,7 +1007,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get nutrition_page_title => 'Näringsfakta';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'Näringsinformation';
 
   @override
   String get nutrition_page_nutritional_info_label =>
@@ -1020,7 +1020,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Nej';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'Öppna foto';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
@@ -1070,7 +1070,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 ml** eller **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
@@ -1124,7 +1124,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get no_product_found => 'Ingen produkt hittades';
 
   @override
-  String get no_location_found => 'No location found';
+  String get no_location_found => 'Ingen plats hittades';
 
   @override
   String get not_found => 'hittades inte:';
@@ -1158,12 +1158,12 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Replace photo ($type)';
+    return 'Ersätt foto ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Add a photo ($type)';
+    return 'Lägg till ett foto ($type)';
   }
 
   @override
@@ -1184,7 +1184,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_image_details_label => 'Information about the photo';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'Från producenten';
 
   @override
   String get product_image_details_contributor => 'Medverkande';
@@ -1194,7 +1194,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Contributor (producer)';
 
   @override
-  String get product_image_details_date => 'Date';
+  String get product_image_details_date => 'Datum';
 
   @override
   String get product_image_details_date_unknown => 'Okänd';
@@ -1208,21 +1208,21 @@ class AppLocalizationsSv extends AppLocalizations {
       '**Scan** a barcode or\n**search** for a product';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Search for a product';
+  String get homepage_main_card_search_field_hint => 'Sök efter en produkt';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Start search';
+  String get homepage_main_card_search_field_tooltip => 'Starta sökning';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Latest news: $news_title';
+    return 'Senaste nytt: $news_title';
   }
 
   @override
   String get tagline_app_review => 'Gillar du appen?';
 
   @override
-  String get tagline_app_review_button_positive => 'I love it! 😍';
+  String get tagline_app_review_button_positive => 'Jag älskar det! 😍';
 
   @override
   String get tagline_app_review_button_negative => 'Inte riktigt…';
@@ -1231,7 +1231,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get tagline_app_review_button_later => 'Fråga mig senare';
 
   @override
-  String get tagline_feed_news_button => 'Know more';
+  String get tagline_feed_news_button => 'Läs mer';
 
   @override
   String get app_review_negative_modal_title => 'Gillar du inte vår app?';
@@ -1258,7 +1258,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get product_tags_title => 'Product properties';
+  String get product_tags_title => 'Produktegenskaper';
 
   @override
   String get no_product_tags_found_message =>
@@ -1268,19 +1268,19 @@ class AppLocalizationsSv extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'Lägg till egenskaper';
 
   @override
   String get add_edit_tags => 'Add or edit properties';
 
   @override
-  String get edit_tag => 'Edit property';
+  String get edit_tag => 'Redigera egenskap';
 
   @override
-  String get remove_tag => 'Remove property';
+  String get remove_tag => 'Ta bort egenskap';
 
   @override
-  String get tag_key => 'Property';
+  String get tag_key => 'Egenskap';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1292,13 +1292,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get tag_value => 'Värde';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_value_input_hint => 'Ange ett värde';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_key_item => 'Egenskap:';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_value_item => 'Värde:';
 
   @override
   String get tag_key_explanations =>
@@ -1317,7 +1317,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get cached_results_from => 'Visa resultat från:';
 
   @override
-  String get product_search_same_category => 'Jämför med kategori';
+  String get product_search_same_category => 'Hitta alternativ';
 
   @override
   String get product_search_same_category_short => 'Jämföra';
@@ -1371,7 +1371,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get onboarding_country_chooser_label => 'Please choose a country:';
 
   @override
-  String get country_chooser_label_from_settings => 'Your country';
+  String get country_chooser_label_from_settings => 'Ditt land';
 
   @override
   String get country_selection_explanation =>
@@ -1505,10 +1505,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get delete_products_mode => 'Delete selected products';
 
   @override
-  String get select_all_products_mode => 'Select all products';
+  String get select_all_products_mode => 'Välj alla produkter';
 
   @override
-  String get select_none_products_mode => 'Select none';
+  String get select_none_products_mode => 'Välj ingen';
 
   @override
   String get compare_products_appbar_title => 'Jämför produkter';
@@ -1524,7 +1524,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get connect_with_us => 'Kontakta oss';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'Följ oss på TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
@@ -1542,13 +1542,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'Följ oss på Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'Följ oss på BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
@@ -1570,7 +1570,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Du kan trycka på valfri del av kortet för att få mer information om vad du ser. Prova det nu!';
 
   @override
-  String get permissions_page_title => 'Camera access';
+  String get permissions_page_title => 'Kameraåtkomst';
 
   @override
   String get permissions_page_body1 =>
@@ -1618,10 +1618,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get refuse_button_label => 'Neka';
 
   @override
-  String get ask_me_later_button_label => 'Later';
+  String get ask_me_later_button_label => 'Senare';
 
   @override
-  String get are_you_sure => 'Are you sure?';
+  String get are_you_sure => 'Är du säker?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
@@ -1629,14 +1629,14 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Welcome !';
+  String get onboarding_home_welcome_text1 => 'Välkommen !';
 
   @override
   String get onboarding_home_welcome_text2 =>
       'The app that helps you choose food that is good for **you** and the **planet**!';
 
   @override
-  String get onboarding_continue_button => 'Continue';
+  String get onboarding_continue_button => 'Fortsätt';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
@@ -1649,7 +1649,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_list_empty_icon_desc => 'Historik inte tillgänglig';
 
   @override
-  String get product_list_empty_title => 'Start scanning';
+  String get product_list_empty_title => 'Börja skanna';
 
   @override
   String get product_list_empty_message =>
@@ -1693,7 +1693,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get account_deletion_subject => 'Radera mitt konto';
 
   @override
-  String get user_profile => 'Account';
+  String get user_profile => 'Konto';
 
   @override
   String get user_profile_title_guest => 'Välkommen!';
@@ -1709,7 +1709,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Welcome $id!';
+    return 'Välkommen $id!';
   }
 
   @override
@@ -1727,13 +1727,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Camera';
+  String get settings_app_camera => 'Kamera';
 
   @override
   String get settings_app_products => 'Produkter';
 
   @override
-  String get settings_app_miscellaneous => 'Miscellaneous';
+  String get settings_app_miscellaneous => 'Diverse';
 
   @override
   String get camera_play_sound_title => 'Play a sound on scan';
@@ -1800,13 +1800,13 @@ class AppLocalizationsSv extends AppLocalizations {
       'Annulera';
 
   @override
-  String get permission_photo_none_found => 'No camera detected';
+  String get permission_photo_none_found => 'Ingen kamera upptäckt';
 
   @override
   String get permission_photo_denied => 'Ingen kameraåtkomst beviljad';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'Visa produktbilder';
 
   @override
   String get edit_product_label => 'Redigera produkt';
@@ -1840,32 +1840,37 @@ class AppLocalizationsSv extends AppLocalizations {
       'This value is already there!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand =>
+      'Lägg till ett nytt märke';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label =>
+      'Lägg till en ny etikett';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store => 'Lägg till en ny butik';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin =>
+      'Lägg till ett nytt ursprung';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
       'Add a new traceability code';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country =>
+      'Lägg till ett nytt land';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category =>
+      'Lägg till en ny kategori';
 
   @override
   String get edit_product_form_item_add_action_trace => 'Add a new trace';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'Lägg till förslag';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Avvisa förslag';
@@ -1878,10 +1883,11 @@ class AppLocalizationsSv extends AppLocalizations {
       'Produktnamn, varumärke, kvantitet';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Additional details';
+  String get edit_product_form_item_other_details_title =>
+      'Ytterligare detaljer';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Website…';
+  String get edit_product_form_item_other_details_subtitle => 'Webbplats…';
 
   @override
   String get edit_product_form_item_photos_title => 'Foton';
@@ -1937,7 +1943,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get edit_product_form_item_stores_title => 'Butiker';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'Ange en butik';
 
   @override
   String get edit_product_form_item_stores_type => 'butik';
@@ -2078,7 +2084,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Saknad kategori?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
@@ -2086,14 +2092,14 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Sardiner i olivolja';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
       'Orange juice from concentrate';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title => 'Avsluta utan att spara?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
@@ -2105,7 +2111,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Discard changes';
+      'Överge ändringar';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Ingredienser';
@@ -2130,14 +2136,15 @@ class AppLocalizationsSv extends AppLocalizations {
       'Please enter a text first';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Remove';
+  String get edit_product_form_item_remove_item_tooltip => 'Ta bort';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip =>
+      'Spara din redigering';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+      'Avbryt din redigering';
 
   @override
   String get edit_product_form_item_packaging_title =>
@@ -2156,7 +2163,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Näringsvärden';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
@@ -2172,7 +2179,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Saknat fält?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
@@ -2194,13 +2201,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get edit_product_packaging_list_title => 'Packaging list';
 
   @override
-  String get no_data_available => 'No data available';
+  String get no_data_available => 'Inga data tillgängliga';
 
   @override
-  String get product_field_website_title => 'Website';
+  String get product_field_website_title => 'Webbplats';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'Redigera ursprung';
 
   @override
   String get completed_basic_details_btn_text =>
@@ -2225,7 +2232,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Extracting ingredients\nfrom the photo';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
+  String get edit_ingredients_loading_photo_btn_text => 'Laddar foto…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
@@ -2236,7 +2243,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_ingredients_refresh_photo_btn_text => 'Uppdatera foto';
 
   @override
   String get edit_packaging_extract_btn_text =>
@@ -2250,7 +2257,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Extracting packaging from the photo';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
+  String get edit_packaging_loading_photo_btn_text => 'Laddar foto…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
@@ -2261,23 +2268,23 @@ class AppLocalizationsSv extends AppLocalizations {
       'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_packaging_refresh_photo_btn_text => 'Uppdatera foto';
 
   @override
   String get edit_ocr_extract_failed => 'Failed to detect text in image.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'Ingen bild!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
       'In order to use the text extraction feature, you must first take a photo.';
 
   @override
-  String get user_list_dialog_new_title => 'New list of products';
+  String get user_list_dialog_new_title => 'Ny lista över produkter';
 
   @override
-  String get user_list_dialog_rename_title => 'Rename list';
+  String get user_list_dialog_rename_title => 'Byt namn på lista';
 
   @override
   String get user_list_subtitle_product => 'Listor';
@@ -2289,7 +2296,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get user_list_add_product => 'Add the product to your lists';
 
   @override
-  String get user_list_button_new => 'Create a new list';
+  String get user_list_button_new => 'Skapa en ny lista';
 
   @override
   String get user_list_empty_label =>
@@ -2299,10 +2306,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get user_list_button_add_product => 'Lägg till i lista';
 
   @override
-  String get added_to_list_msg => 'Added to list';
+  String get added_to_list_msg => 'Tillagd i listan';
 
   @override
-  String get user_list_popup_clear => 'Clear your history';
+  String get user_list_popup_clear => 'Rensa din historik';
 
   @override
   String get user_list_popup_rename => 'Rename';
@@ -2311,22 +2318,22 @@ class AppLocalizationsSv extends AppLocalizations {
   String get user_list_name_hint => 'Min lista';
 
   @override
-  String get user_list_name_error_empty => 'Name is mandatory';
+  String get user_list_name_error_empty => 'Namn är obligatoriskt';
 
   @override
   String get user_list_name_error_already => 'That name is already used';
 
   @override
-  String get user_list_name_error_same => 'That is the same name';
+  String get user_list_name_error_same => 'Det är samma namn';
 
   @override
-  String get user_list_name_input_hint => 'Name of the list';
+  String get user_list_name_input_hint => 'Namn på listan';
 
   @override
-  String get try_again => 'Try Again';
+  String get try_again => 'Försök igen';
 
   @override
-  String get there_was_an_error => 'There was an error';
+  String get there_was_an_error => 'Ett fel inträffade';
 
   @override
   String category_picker_no_category_found_message(String items) {
@@ -2340,10 +2347,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
 
   @override
-  String get camera_enable_flash => 'Enable flash';
+  String get camera_enable_flash => 'Aktivera blixt';
 
   @override
-  String get camera_disable_flash => 'Disable flash';
+  String get camera_disable_flash => 'Inaktivera blixt';
 
   @override
   String get camera_flash_error_dialog_title => 'Ett fel uppstod!';
@@ -2360,7 +2367,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Click to open in your browser or in the application (if installed)';
 
   @override
-  String get dev_preferences_screen_title => 'DEV Mode';
+  String get dev_preferences_screen_title => 'DEV-läge';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -2402,20 +2409,21 @@ class AppLocalizationsSv extends AppLocalizations {
       'Edit ingredients via a knowledge panel button';
 
   @override
-  String get dev_preferences_export_history_title => 'Export History';
+  String get dev_preferences_export_history_title => 'Exportera historik';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'exception';
+  String get dev_preferences_export_history_progress_error => 'undantag';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'product found';
+  String get dev_preferences_export_history_progress_found => 'produkt hittad';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'product NOT found';
+      'produkt hittades INTE';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'Export history';
+  String get dev_preferences_export_history_dialog_title =>
+      'Exportera historik';
 
   @override
   String get dev_preferences_button_positive => 'OK';
@@ -2439,17 +2447,17 @@ class AppLocalizationsSv extends AppLocalizations {
   String get dev_preferences_migration_status_success => 'success';
 
   @override
-  String get dev_preferences_migration_status_error => 'error';
+  String get dev_preferences_migration_status_error => 'fel';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'in progress';
+  String get dev_preferences_migration_status_in_progress => 'pågående';
 
   @override
   String get dev_preferences_migration_status_required =>
       'required (click to start)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'unknown';
+  String get dev_preferences_migration_status_not_started => 'okänd';
 
   @override
   String get dev_preferences_import_history_subtitle =>
@@ -2474,19 +2482,19 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get product_type_label_food => 'Food';
+  String get product_type_label_food => 'Mat';
 
   @override
   String get product_type_label_beauty => 'Personal care';
 
   @override
-  String get product_type_label_pet_food => 'Pet food';
+  String get product_type_label_pet_food => 'Djurmat';
 
   @override
-  String get product_type_label_product => 'Other';
+  String get product_type_label_product => 'Övrigt';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Produkttyp';
 
   @override
   String get product_type_selection_subtitle =>
@@ -2506,7 +2514,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Shortcut to Prices app on product page';
 
   @override
-  String get prices_app_button => 'Go to Prices app';
+  String get prices_app_button => 'Gå till Priser-appen';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -2522,7 +2530,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Tillåt communityn att validera priser som extraherats av AI.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2531,28 +2539,28 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Välja filer';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Startar uppladdningen';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Lokal kopiering av fil #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Förbereder uppladdning #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Misslyckades vid bild #$index/$count';
   }
 
   @override
-  String get prices_generic_title => 'Prices';
+  String get prices_generic_title => 'Priser';
 
   @override
   String prices_add_n_prices(num count) {
@@ -2580,13 +2588,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_add_an_item => 'Add an item';
 
   @override
-  String get prices_add_a_price => 'Add a price';
+  String get prices_add_a_price => 'Lägg till ett pris';
 
   @override
-  String get prices_add_a_receipt => 'Add a receipt';
+  String get prices_add_a_receipt => 'Lägg till ett kvitto';
 
   @override
-  String get prices_add_price_tags => 'Add price tags';
+  String get prices_add_price_tags => 'Lägg till prislappar';
 
   @override
   String prices_barcode_already(String barcode) {
@@ -2597,15 +2605,15 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_barcode_search_not_found => 'Finner ej produkt';
 
   @override
-  String get prices_barcode_search_none_yet => 'No product yet';
+  String get prices_barcode_search_none_yet => 'Ingen produkt ännu';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Looking for $barcode';
+    return 'Letar efter $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Enter the Barcode';
+  String get prices_barcode_enter => 'Ange streckkoden';
 
   @override
   String get prices_category_enter => 'Artikel utan streckkod';
@@ -2632,40 +2640,44 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_category_error_mandatory => 'Kategorin är obligatorisk';
 
   @override
-  String get prices_barcode_reader_action => 'Barcode reader';
+  String get prices_barcode_reader_action => 'Streckkodsläsare';
 
   @override
-  String get prices_view_prices => 'View the prices';
+  String get prices_view_prices => 'Visa priserna';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Prislista';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Antal\npriser';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Lägg till ett nytt pris\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Okänd butik';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Prisinmatning från \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Se bevis';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Se mina andra priser';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Se andra priser av författaren';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices => 'Se andra priser från butiken';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2795,37 +2807,37 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_amount_subtitle => 'Amount';
 
   @override
-  String get prices_amount_is_discounted => 'Is discounted?';
+  String get prices_amount_is_discounted => 'Är rabatterad?';
 
   @override
-  String get prices_amount_price_normal => 'Price';
+  String get prices_amount_price_normal => 'Pris';
 
   @override
-  String get prices_amount_price_discounted => 'Discounted price';
+  String get prices_amount_price_discounted => 'Rabatterat pris';
 
   @override
-  String get prices_amount_price_not_discounted => 'Original price';
+  String get prices_amount_price_not_discounted => 'Ursprungspris';
 
   @override
-  String get prices_amount_no_product => 'One product is missing!';
+  String get prices_amount_no_product => 'En produkt saknas!';
 
   @override
-  String get prices_amount_price_incorrect => 'Incorrect value';
+  String get prices_amount_price_incorrect => 'Felaktigt värde';
 
   @override
-  String get prices_amount_price_mandatory => 'Mandatory value';
+  String get prices_amount_price_mandatory => 'Obligatoriskt värde';
 
   @override
-  String get prices_currency_subtitle => 'Currency';
+  String get prices_currency_subtitle => 'Valuta';
 
   @override
-  String get prices_date_subtitle => 'Date';
+  String get prices_date_subtitle => 'Datum';
 
   @override
   String get prices_location_subtitle => 'Shop';
 
   @override
-  String get prices_location_find => 'Find a shop';
+  String get prices_location_find => 'Hitta en butik';
 
   @override
   String get prices_location_mandatory => 'You need to select a shop!';
@@ -2841,22 +2853,22 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_proof_find => 'Select a proof';
 
   @override
-  String get prices_proof_receipt => 'Receipt';
+  String get prices_proof_receipt => 'Kvitto';
 
   @override
-  String get prices_proof_price_tag => 'Price tag';
+  String get prices_proof_price_tag => 'Prislapp';
 
   @override
   String get prices_proof_mandatory => 'You need to select a proof!';
 
   @override
-  String get prices_add_validation_error => 'Validation error';
+  String get prices_add_validation_error => 'Valideringsfel';
 
   @override
-  String get prices_privacy_warning_title => 'Privacy warning';
+  String get prices_privacy_warning_title => 'Sekretessvarning';
 
   @override
-  String get prices_unknown_product => 'Unknown product';
+  String get prices_unknown_product => 'Okänd produkt';
 
   @override
   String get prices_privacy_warning_main_message =>
@@ -2875,13 +2887,13 @@ class AppLocalizationsSv extends AppLocalizations {
       'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'Jag vägrar';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'Jag accepterar';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'Ändra valutan?';
 
   @override
   String prices_currency_change_proposal_message(
@@ -2893,34 +2905,35 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'Ja, använd $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'Nej, behåll $currency';
   }
 
   @override
   String get dev_preferences_import_history_result_success => 'Klar';
 
   @override
-  String get dev_mode_section_server => 'Server configuration';
+  String get dev_mode_section_server => 'Serverkonfiguration';
 
   @override
   String get dev_mode_section_news => 'News provider configuration';
 
   @override
-  String get dev_mode_section_product_page => 'Product page';
+  String get dev_mode_section_product_page => 'Produktsida';
 
   @override
-  String get dev_mode_section_ui => 'User Interface';
+  String get dev_mode_section_ui => 'Användargränssnitt';
 
   @override
   String get dev_mode_section_data => 'Data';
 
   @override
-  String get dev_mode_section_experimental_features => 'Experimental features';
+  String get dev_mode_section_experimental_features =>
+      'Experimentella funktioner';
 
   @override
   String get dev_preferences_show_folksonomy_title => 'Exclude Folksonomy';
@@ -2959,19 +2972,19 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get user_search_contributor_title => 'Products I added';
+  String get user_search_contributor_title => 'Produkter jag har lagt till';
 
   @override
-  String get user_search_informer_title => 'Products I edited';
+  String get user_search_informer_title => 'Produkter jag redigerade';
 
   @override
-  String get user_search_photographer_title => 'Products I photographed';
+  String get user_search_photographer_title => 'Produkter jag fotograferade';
 
   @override
   String get user_search_to_be_completed_title => 'My to-be-completed products';
 
   @override
-  String get user_search_prices_title => 'My prices';
+  String get user_search_prices_title => 'Mina priser';
 
   @override
   String get user_search_proofs_title => 'My proofs';
@@ -2981,11 +2994,11 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Bidragsgivarpriser: $user';
   }
 
   @override
-  String get all_search_prices_latest_title => 'Latest Prices added';
+  String get all_search_prices_latest_title => 'Senast tillagda priser';
 
   @override
   String get all_search_prices_top_user_title => 'Top price contributors';
@@ -3001,13 +3014,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_validation_assistant => 'Price Validation Assistant';
 
   @override
-  String get prices_challenges_page => 'Challenges';
+  String get prices_challenges_page => 'Utmaningar';
 
   @override
   String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
 
   @override
-  String get all_search_prices_top_location_single_title => 'Prices in a store';
+  String get all_search_prices_top_location_single_title => 'Priser i en butik';
 
   @override
   String get all_search_prices_top_product_title =>
@@ -3021,10 +3034,10 @@ class AppLocalizationsSv extends AppLocalizations {
       'Help categorize products in your country';
 
   @override
-  String get edit_product_action_retake_picture => 'Retake photo';
+  String get edit_product_action_retake_picture => 'Ta om foto';
 
   @override
-  String get edit_product_action_take_picture => 'Take photo';
+  String get edit_product_action_take_picture => 'Ta foto';
 
   @override
   String get edit_product_action_confirm => 'Bekräfta';
@@ -3041,12 +3054,12 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'Allvarligt fel: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'Allvarligt fel: $error';
   }
 
   @override
@@ -3084,23 +3097,23 @@ class AppLocalizationsSv extends AppLocalizations {
       'No image in that language yet';
 
   @override
-  String get edit_photo_language_none => 'No image yet';
+  String get edit_photo_language_none => 'Ingen bild ännu';
 
   @override
   String get category_picker_screen_title => 'Kategorier';
 
   @override
-  String get basic_details => 'Basic Details';
+  String get basic_details => 'Grundläggande detaljer';
 
   @override
-  String get product_name => 'Product Name';
+  String get product_name => 'Produktnamn';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'Produktnamn';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+      'Lägg till en ny översättning';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
@@ -3118,20 +3131,20 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Ändra standardspråk?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Vill du att produktens standardspråk ska vara inställt på \'$language\'?';
   }
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get explanation_section_good_examples => 'Bra exempel';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String get explanation_section_bad_examples => 'Dåliga exempel';
 
   @override
   String get add_basic_details_product_name_help_title =>
@@ -3150,7 +3163,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+      'Tomatketchup';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
@@ -3180,7 +3193,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get brand_name => 'Brand name';
+  String get brand_name => 'Märke';
 
   @override
   String get brand_names => 'Brand names';
@@ -3201,14 +3214,14 @@ class AppLocalizationsSv extends AppLocalizations {
       'Input **all the brands of the product**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title => 'Huvudmärke';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
       'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title => 'Andra märken';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
@@ -3234,7 +3247,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Oreo, Mondelez';
 
   @override
-  String get quantity => 'Quantity and weight';
+  String get quantity => 'Kvantitet och vikt';
 
   @override
   String get add_basic_details_quantity_hint =>
@@ -3250,7 +3263,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230g** eller **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
@@ -3265,7 +3278,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Barcode: $barcode';
+    return 'Streckkod: $barcode';
   }
 
   @override
@@ -3279,7 +3292,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Unable to add basic details. Please try again after some time';
 
   @override
-  String get clear_search => 'Clear your search';
+  String get clear_search => 'Rensa din sökning';
 
   @override
   String get confirm_clear =>
@@ -3303,7 +3316,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Delete the list?';
+  String get confirm_delete_user_list_title => 'Ta bort listan?';
 
   @override
   String confirm_delete_user_list_message(String name) {
@@ -3311,7 +3324,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Yes, I confirm';
+  String get confirm_delete_user_list_button => 'Ja, jag bekräftar';
 
   @override
   String importance_label(String name, String id) {
@@ -3322,7 +3335,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get user_list_all_title => 'Listor';
 
   @override
-  String get user_list_all_empty => 'Create your first list';
+  String get user_list_all_empty => 'Skapa din första lista';
 
   @override
   String get product_list_select => 'Välj en lista';
@@ -3340,13 +3353,13 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get add_list_label => 'Add list';
+  String get add_list_label => 'Lägg till lista';
 
   @override
   String get open_food_preferences_tooltip => 'Redigera dina matpreferenser';
 
   @override
-  String get add_photo_button_label => 'Add photo';
+  String get add_photo_button_label => 'Lägg till foto';
 
   @override
   String get add_packaging_photo_button_label =>
@@ -3365,23 +3378,24 @@ class AppLocalizationsSv extends AppLocalizations {
       'Take photos of any labels & certifications information';
 
   @override
-  String get choose_image_source_title => 'Choose image source';
+  String get choose_image_source_title => 'Välj bildkälla';
 
   @override
   String get choose_image_source_body => 'Please choose a image source';
 
   @override
-  String get gallery_source_label => 'Gallery';
+  String get gallery_source_label => 'Galleri';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Access denied';
+  String get gallery_source_access_denied_dialog_title => 'Åtkomst nekad';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
       'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
 
   @override
-  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
+  String get gallery_source_access_denied_dialog_button =>
+      'Öppna inställningarna';
 
   @override
   String get share => 'Dela';
@@ -3418,7 +3432,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get capture_new_picture => 'Ta en bild';
 
   @override
-  String get choose_from_gallery => 'Choose from gallery';
+  String get choose_from_gallery => 'Välj från galleri';
 
   @override
   String get image_upload_queued =>
@@ -3458,10 +3472,10 @@ class AppLocalizationsSv extends AppLocalizations {
       'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
-  String get no_internet_connection => 'No internet connection';
+  String get no_internet_connection => 'Ingen internetanslutning';
 
   @override
-  String get world_results_label => 'Entire world';
+  String get world_results_label => 'Hela världen';
 
   @override
   String get world_results_action => 'Extend your search to the world';
@@ -3470,7 +3484,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get copy_to_clipboard => 'Kopiera';
 
   @override
-  String get paste_from_clipboard => 'Paste from clipboard';
+  String get paste_from_clipboard => 'Klistra in från urklipp';
 
   @override
   String get no_data_available_in_clipboard =>
@@ -3491,10 +3505,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get language_picker_label => 'Ditt språk';
 
   @override
-  String get country_picker_label => 'Your country';
+  String get country_picker_label => 'Ditt land';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'Din valuta';
 
   @override
   String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
@@ -3504,20 +3518,20 @@ class AppLocalizationsSv extends AppLocalizations {
       'The product will be updated in the background as soon as possible.';
 
   @override
-  String get no_email_client_available_dialog_title => 'No email apps!';
+  String get no_email_client_available_dialog_title => 'Inga e-postappar!';
 
   @override
   String get no_email_client_available_dialog_content =>
       'Please send us manually an email to mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'All Images';
+  String get all_images => 'Alla bilder';
 
   @override
-  String get selected_images => 'Selected Images';
+  String get selected_images => 'Valda bilder';
 
   @override
-  String get product_card_remove_product_tooltip => 'Remove product';
+  String get product_card_remove_product_tooltip => 'Ta bort produkt';
 
   @override
   String scan_announce_new_barcode(String barcode) {
@@ -3552,14 +3566,14 @@ class AppLocalizationsSv extends AppLocalizations {
       'We\'re still looking for this product.\nWould you like to restart the search?';
 
   @override
-  String get scan_product_loading_restart_button => 'Restart search';
+  String get scan_product_loading_restart_button => 'Starta om sökning';
 
   @override
   String get portion_calculator_description =>
       'Calculate nutrition facts for a specific quantity';
 
   @override
-  String get portion_calculator_hint => 'Quantity in';
+  String get portion_calculator_hint => 'Kvantitet i';
 
   @override
   String get portion_calculator_accessibility =>
@@ -3580,14 +3594,14 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get offline_data => 'Offline Data';
+  String get offline_data => 'Offlinedata';
 
   @override
   String get ocr_image_upload_instruction =>
       'Upload an image to automatically extract the information it contains.';
 
   @override
-  String get upload_image => 'Upload Photo';
+  String get upload_image => 'Ladda upp foto';
 
   @override
   String get word_separator_char => ',';
@@ -3603,13 +3617,13 @@ class AppLocalizationsSv extends AppLocalizations {
       'Failed to edit image because the image URL was not set.';
 
   @override
-  String get user_picture_source_remember => 'Remember my choice';
+  String get user_picture_source_remember => 'Kom ihåg mitt val';
 
   @override
   String get user_picture_source_ask => 'Fråga varje gång';
 
   @override
-  String get robotoff_continue => 'Continue';
+  String get robotoff_continue => 'Fortsätt';
 
   @override
   String robotoff_next_n_questions(num count) {
@@ -3623,7 +3637,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get show_password => 'Show Password';
+  String get show_password => 'Visa lösenord';
 
   @override
   String get owner_field_info_title => 'Producer provided values';
@@ -3633,14 +3647,14 @@ class AppLocalizationsSv extends AppLocalizations {
       'With that logo we highlight data provided by the producer, and that may not be editable.';
 
   @override
-  String get owner_field_info_close_button => 'Close this info';
+  String get owner_field_info_close_button => 'Stäng denna information';
 
   @override
   String get owner_field_image =>
       'This image is provided by the producer. It may not be editable.';
 
   @override
-  String get edit_packagings_title => 'Packaging components';
+  String get edit_packagings_title => 'Förpackningskomponenter';
 
   @override
   String get edit_packagings_element_add => 'Add a packaging component';
@@ -3717,7 +3731,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get background_task_list_empty => 'No Pending Background Tasks';
 
   @override
-  String get background_task_error_server_time_out => 'Server timeout';
+  String get background_task_error_server_time_out => 'Server-timeout';
 
   @override
   String get background_task_error_no_internet =>
@@ -3727,10 +3741,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get background_task_operation_unknown => 'unknown operation type';
 
   @override
-  String get background_task_operation_details => 'detailed changes';
+  String get background_task_operation_details => 'detaljerade ändringar';
 
   @override
-  String get background_task_operation_image => 'photo upload';
+  String get background_task_operation_image => 'fotouppladdning';
 
   @override
   String get background_task_operation_refresh =>
@@ -3740,10 +3754,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get background_task_run_started => 'started';
 
   @override
-  String get background_task_run_not_started => 'not started yet';
+  String get background_task_run_not_started => 'inte påbörjad än';
 
   @override
-  String get background_task_run_to_be_deleted => 'to be deleted';
+  String get background_task_run_to_be_deleted => 'kommer att tas bort';
 
   @override
   String get background_task_question_stop =>
@@ -3756,7 +3770,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get undo => 'Ångra';
 
   @override
-  String get copy_email_to_clip_board => 'Copy email to clipboard';
+  String get copy_email_to_clip_board => 'Kopiera e-post till urklipp';
 
   @override
   String get please_send_us_an_email_to =>
@@ -3766,7 +3780,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get email_copied_to_clip_board => 'Email copied to clipboard!';
 
   @override
-  String get select_accent_color => 'Select Accent Color';
+  String get select_accent_color => 'Välj accentfärg';
 
   @override
   String get theme_amoled => 'AMOLED';
@@ -3775,7 +3789,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get color_blue => 'Blå';
 
   @override
-  String get color_cyan => 'Cyan';
+  String get color_cyan => 'Turkos';
 
   @override
   String get color_green => 'Grön';
@@ -3802,7 +3816,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get color_teal => 'Teal';
 
   @override
-  String get text_contrast_mode => 'Text Contrast';
+  String get text_contrast_mode => 'Textkontrast';
 
   @override
   String get contrast_high => 'High';
@@ -3811,10 +3825,11 @@ class AppLocalizationsSv extends AppLocalizations {
   String get contrast_medium => 'Medium';
 
   @override
-  String get contrast_low => 'Low';
+  String get contrast_low => 'Låg';
 
   @override
-  String get product_refresher_internet_not_found => 'Product not found!';
+  String get product_refresher_internet_not_found =>
+      'Produkten kunde inte hittas!';
 
   @override
   String get product_refresher_internet_not_connected =>
@@ -3831,7 +3846,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get product_loader_not_found_title => 'Product not found!';
+  String get product_loader_not_found_title => 'Produkten kunde inte hittas!';
 
   @override
   String product_loader_not_found_message(String barcode) {
@@ -3839,20 +3854,20 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get product_loader_network_error_title => 'No internet connection!';
+  String get product_loader_network_error_title => 'Ingen internetanslutning!';
 
   @override
   String get product_loader_network_error_message =>
       'Please check that your smartphone is on a WiFi network or has mobile data enabled';
 
   @override
-  String get page_not_found_title => 'Page not found!';
+  String get page_not_found_title => 'Sidan hittades inte!';
 
   @override
   String get page_not_found_button => 'Go back to the homepage';
 
   @override
-  String get download_data => 'Download data';
+  String get download_data => 'Ladda ned data';
 
   @override
   String get download_top_products =>
@@ -3873,7 +3888,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String downloaded_products(int num) {
-    return '$num products added';
+    return '$num produkter tillagda';
   }
 
   @override
@@ -3892,7 +3907,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String deleted_products(int num) {
-    return '$num products deleted';
+    return '$num produkter raderade';
   }
 
   @override
@@ -3916,28 +3931,28 @@ class AppLocalizationsSv extends AppLocalizations {
   String get country_selector_title => 'Välj ditt land:';
 
   @override
-  String get currency_selector_title => 'Select your currency:';
+  String get currency_selector_title => 'Välj din valuta:';
 
   @override
   String get language_selector_title => 'Välj ditt språk:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'Valda språk';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used => 'Ofta använda';
 
   @override
   String get action_delete_list => 'Radera';
 
   @override
-  String get action_change_list => 'Change the current list';
+  String get action_change_list => 'Ändra den aktuella listan';
 
   @override
   String get product_list_create => 'Skapa';
 
   @override
-  String get product_list_create_tooltip => 'Create a new list';
+  String get product_list_create_tooltip => 'Skapa en ny lista';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4008,22 +4023,22 @@ class AppLocalizationsSv extends AppLocalizations {
   String get nova_group_generic => 'Ultra-processing - NOVA groups';
 
   @override
-  String get nova_group_1 => 'NOVA Group 1';
+  String get nova_group_1 => 'NOVA Grupp 1';
 
   @override
-  String get nova_group_2 => 'NOVA Group 2';
+  String get nova_group_2 => 'NOVA Grupp 2';
 
   @override
-  String get nova_group_3 => 'NOVA Group 3';
+  String get nova_group_3 => 'NOVA Grupp 3';
 
   @override
-  String get nova_group_4 => 'NOVA Group 4';
+  String get nova_group_4 => 'NOVA Grupp 4';
 
   @override
   String get nova_group_unknown => 'Unknown NOVA Group';
 
   @override
-  String get nutrition_facts => 'Nutrient Levels';
+  String get nutrition_facts => 'Näringsnivåer';
 
   @override
   String get faq_title_partners => 'Partners & Patrons of the NGO';
@@ -4053,7 +4068,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Pro? Import your products in Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Producer Contact';
+  String get contact_title_pro_email => 'Producentkontakt';
 
   @override
   String get contact_title_press_page => 'Press Page';
@@ -4089,7 +4104,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Details for $productName';
+    return 'Detaljer för $productName';
   }
 
   @override
@@ -4227,16 +4242,17 @@ class AppLocalizationsSv extends AppLocalizations {
       'Click here to send us your feedback about this new feature!';
 
   @override
-  String get menu_button_list_actions => 'Select an action';
+  String get menu_button_list_actions => 'Välj en åtgärd';
 
   @override
-  String get error_loading_photo => 'Error loading photo';
+  String get error_loading_photo => 'Fel vid laddning av foto';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => 'Använd som…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip =>
+      'Använd den här bilden som…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
@@ -4244,14 +4260,14 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get photo_viewer_details_button => 'Details';
+  String get photo_viewer_details_button => 'Detaljer';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Details of this photo';
+      'Detaljer om detta foto';
 
   @override
-  String get photo_viewer_details_title => 'Details of the photo';
+  String get photo_viewer_details_title => 'Detaljer om fotot';
 
   @override
   String get photo_viewer_details_contributor_title => 'Medverkande';
@@ -4261,24 +4277,24 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height pixels';
+    return '$width x $height pixlar';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Date';
+  String get photo_viewer_details_date_title => 'Datum';
 
   @override
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'Compatible';
+  String get product_page_compatibility_score => 'Kompatibel';
 
   @override
   String get user_lists_action_multi_select => 'Multi-select';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Your compatibility score: $score%';
+    return 'Din kompatibilitetspoäng: $score%';
   }
 
   @override
@@ -4294,7 +4310,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_image_packaging_accessibility_label => 'Packaging picture';
 
   @override
-  String get product_image_other_accessibility_label => 'Other picture';
+  String get product_image_other_accessibility_label => 'Annan bild';
 
   @override
   String get product_image_outdated_message => 'This picture may be outdated';
@@ -4318,7 +4334,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get product_page_image_no_image_available => 'No\nimage!';
+  String get product_page_image_no_image_available => 'Ingen\nbild!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
@@ -4338,10 +4354,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_page_action_bar_item_move_down => 'Flytta ner';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'Aktivera åtgärd';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'Inaktivera åtgärd';
 
   @override
   String get product_page_pending_operations_banner_title =>
@@ -4352,28 +4368,28 @@ class AppLocalizationsSv extends AppLocalizations {
       'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'Lägg till ett språk';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'Streckkod $barcode';
   }
 
   @override
   String get carousel_close_tooltip => 'Remove this product from the carousel';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'Streckkod stöds ej!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'Hoppsan!';
 
   @override
   String get carousel_unsupported_text =>
       'The barcode scanned is not supported by Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'Error!';
+  String get carousel_error_header => 'Fel!';
 
   @override
   String get carousel_error_title => 'It\'s a bummer!';
@@ -4390,7 +4406,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get carousel_error_button => 'Försök igen';
 
   @override
-  String get carousel_unknown_product_header => 'Unknown product';
+  String get carousel_unknown_product_header => 'Okänd produkt';
 
   @override
   String get carousel_unknown_product_title =>
@@ -4404,7 +4420,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get carousel_unknown_product_button => 'Lägg till den här produkten';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'Laddar information...';
 
   @override
   String get carousel_loading_title =>
@@ -4421,13 +4437,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'Mat för hundar, katter…';
 
   @override
   String get product_type_subtitle_product => 'Smartphones, furniture…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'Produktfoto';
 
   @override
   String get photo_field_ingredients => 'Foto på ingredienser';
@@ -4442,10 +4458,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get photo_already_exists => 'This photo already exists';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'Det här fotot saknas';
 
   @override
-  String get date => 'Date';
+  String get date => 'Datum';
 
   @override
   String get photo_rotate_left => 'Rotera vänster';
@@ -4458,7 +4474,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return 'En världskarta över $location';
   }
 
   @override
@@ -4481,7 +4497,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'Kontrollera ingredienser';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
@@ -4499,13 +4515,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'Visa streckkod';
 
   @override
   String get product_footer_action_barcode_short => 'Streckkod';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'Öppna webbplats';
 
   @override
   String get product_footer_action_report => 'Report';
@@ -4514,19 +4530,19 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_footer_action_contributor_guide => 'Hjälp';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'Datakvalitet';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'För mig';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Webbplats';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Priser';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomi';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -4537,13 +4553,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get app_review_title => 'Are you enjoying this app?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'Kunde göra bättre';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'Inte dåligt';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'Jag älskar det!';
 
   @override
   String get app_review_feedback_modal_title =>
@@ -4574,22 +4590,22 @@ class AppLocalizationsSv extends AppLocalizations {
       'Failed to extract nutrients from picture';
 
   @override
-  String get prices_discount => 'Discount';
+  String get prices_discount => 'Rabatt';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Statistik';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Prisstatistik';
 
   @override
-  String get prices_stats_prices_section => 'Prices';
+  String get prices_stats_prices_section => 'Priser';
 
   @override
   String get prices_stats_products_section => 'Produkter';
 
   @override
-  String get prices_stats_locations_section => 'Locations';
+  String get prices_stats_locations_section => 'Platser';
 
   @override
   String get prices_stats_proofs_section => 'Proofs';
@@ -4598,10 +4614,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_stats_contributors_section => 'Bidragsgivare';
 
   @override
-  String get prices_stats_experiments_section => 'Experiments';
+  String get prices_stats_experiments_section => 'Experiment';
 
   @override
-  String get prices_stats_misc_section => 'Miscellaneous';
+  String get prices_stats_misc_section => 'Diverse';
 
   @override
   String get prices_stats_total => 'Total';
@@ -4613,28 +4629,28 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_stats_with_category => 'Med en kategori';
 
   @override
-  String get prices_stats_with_discount => 'With a discount';
+  String get prices_stats_with_discount => 'Med rabatt';
 
   @override
   String get prices_stats_community => 'Community';
 
   @override
-  String get prices_stats_consumption => 'Consumption';
+  String get prices_stats_consumption => 'Konsumtion';
 
   @override
-  String get prices_stats_with_price => 'With a price';
+  String get prices_stats_with_price => 'Med ett pris';
 
   @override
-  String get prices_stats_food => 'Food';
+  String get prices_stats_food => 'Mat';
 
   @override
-  String get prices_stats_beauty => 'Beauty';
+  String get prices_stats_beauty => 'Skönhet';
 
   @override
   String get prices_stats_products => 'Produkter';
 
   @override
-  String get prices_stats_pet_food => 'Pet food';
+  String get prices_stats_pet_food => 'Djurmat';
 
   @override
   String get prices_stats_osm => 'OpenStreetMap';
@@ -4646,10 +4662,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_stats_countries => 'Länder';
 
   @override
-  String get prices_stats_price_tag => 'Price tag';
+  String get prices_stats_price_tag => 'Prislapp';
 
   @override
-  String get prices_stats_receipt => 'Receipt';
+  String get prices_stats_receipt => 'Kvitto';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -4658,41 +4674,41 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_stats_shop_import => 'Shop import';
 
   @override
-  String get prices_stats_challenges => 'Challenges';
+  String get prices_stats_challenges => 'Utmaningar';
 
   @override
   String get prices_stats_linked_to_price_tag => 'Prices linked to a price tag';
 
   @override
-  String get prices_stats_currencies => 'Currencies';
+  String get prices_stats_currencies => 'Valutor';
 
   @override
-  String get prices_stats_years => 'Years';
+  String get prices_stats_years => 'År';
 
   @override
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Website';
+  String get prices_stats_website => 'Webbplats';
 
   @override
-  String get prices_stats_mobile_app => 'Mobile app';
+  String get prices_stats_mobile_app => 'Mobilapp';
 
   @override
   String get prices_stats_api => 'API';
 
   @override
-  String get prices_stats_other => 'Other';
+  String get prices_stats_other => 'Övrigt';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Senast uppdaterad den';
 
   @override
   String get prices_stats_error =>
       'An error occurred while loading statistics.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Fråga besvarad!';
 
   @override
   String get product_edit_robotoff_proof => 'Proof';
@@ -4710,7 +4726,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Utöka beviset';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Rådata';
 
   @override
   String page_indicator_with_total(int current, int total) {

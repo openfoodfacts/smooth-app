@@ -2649,6 +2649,10 @@ class AppLocalizationsAf extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
+
+  @override
   String get prices_entry_menu_open_proof => 'View proof';
 
   @override

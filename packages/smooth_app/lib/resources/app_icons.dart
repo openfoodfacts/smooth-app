@@ -1298,6 +1298,16 @@ class PinchToZoom extends AppIcon {
   }) : super._(_IconsFont.pinch_to_zoom);
 }
 
+class PriceTag extends AppIcon {
+  const PriceTag({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.price_tag_dollar);
+}
+
 class Profile extends AppIcon {
   const Profile({
     super.color,

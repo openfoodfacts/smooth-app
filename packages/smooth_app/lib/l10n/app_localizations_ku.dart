@@ -1314,7 +1314,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Alternatîfan bibîne';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2515,7 +2515,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Destûrê bide civakê ku nirxên ku ji hêla AI ve hatine derxistin piştrast bike.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,24 +2524,24 @@ class AppLocalizationsKu extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Hilbijartina pelan';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Barkirinê dest pê dike';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Pelê #$index/${count}bi awayekî herêmî tê kopîkirin';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Barkirinê amade dike #$index/${count}Tê barkirin';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Li wêneyê #$index/${count}têk çû';
   }
 
   @override
@@ -2631,34 +2631,39 @@ class AppLocalizationsKu extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Lîsteya bihayan';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Hejmara\nbihayan';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Bihayekî nû yê\nlê zêde bike';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Dikana nenas';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Têketina bihayê ji \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Delîlê bibîne';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Bihayên min ên din bibînin';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Bihayên din ên nivîskar bibînin';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Bihayên din ên ji firotgehê bibînin';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2974,7 +2979,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Bihayên beşdaran: $user';
   }
 
   @override
@@ -3110,13 +3115,13 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Zimanê xwerû biguherînim?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Ma hûn dixwazin zimanê xwerû yê hilberê li ser \'$language\' were danîn?';
   }
 
   @override
@@ -4509,7 +4514,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Bo min';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4702,7 +4707,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Delîlê berfireh bike';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Daneyên xav';
 
   @override
   String page_indicator_with_total(int current, int total) {

@@ -58,7 +58,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get save_confirmation => 'Jeste li sigurni da želite spremiti?';
 
   @override
-  String get skip => 'Skip';
+  String get skip => 'Preskočiti';
 
   @override
   String get cancel => 'Otkaži';
@@ -183,7 +183,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
-  String get login => 'Login';
+  String get login => 'Registracija';
 
   @override
   String get login_result_type_server_unreachable => 'Network is unreachable';
@@ -1185,7 +1185,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get product_image_details_from_producer => 'From the producer';
 
   @override
-  String get product_image_details_contributor => 'Contributor';
+  String get product_image_details_contributor => 'Suradnik';
 
   @override
   String get product_image_details_contributor_producer =>
@@ -1315,7 +1315,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Pronađite alternative';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -1821,7 +1821,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
-  String get edit_product_label_short => 'Edit';
+  String get edit_product_label_short => 'Urediti';
 
   @override
   String edit_product_form_item_help(String value) {
@@ -1898,7 +1898,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'Input a label (eg: NutriScore)';
 
   @override
-  String get edit_product_form_item_labels_type => 'label';
+  String get edit_product_form_item_labels_type => 'oznaka';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
@@ -1965,7 +1965,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'Input an origin (eg: Germany)';
 
   @override
-  String get edit_product_form_item_origins_type => 'country';
+  String get edit_product_form_item_origins_type => 'zemlja';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
@@ -1991,7 +1991,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'Input a country (eg: Germany)';
 
   @override
-  String get edit_product_form_item_countries_type => 'country';
+  String get edit_product_form_item_countries_type => 'zemlja';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
@@ -2175,7 +2175,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
-  String get edit_product_form_save => 'Edit';
+  String get edit_product_form_save => 'Urediti';
 
   @override
   String get edit_product_ingredients_photo_title => 'Ingredients photo';
@@ -2517,7 +2517,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Omogućite zajednici da provjeri cijene dobivene umjetnom inteligencijom.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2526,24 +2526,24 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Odabir datoteka';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Početak prijenosa';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Lokalno kopiranje datoteke #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Priprema prijenosa #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Neuspješno na slici #$index/$count';
   }
 
   @override
@@ -2633,34 +2633,39 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Cjenik';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Broj cijena od\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Dodajte novu cijenu od\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Nepoznata trgovina';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Unos cijene od \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Pogledajte dokaz';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Pogledajte moje ostale cijene';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Pogledajte ostale cijene autora';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Pogledajte ostale cijene iz trgovine';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2976,7 +2981,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Cijene suradnika: $user';
   }
 
   @override
@@ -3048,7 +3053,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
-  String get edit_photo_button_label => 'Edit';
+  String get edit_photo_button_label => 'Urediti';
 
   @override
   String get edit_photo_unselect_button_label => 'Unselect photo';
@@ -3112,13 +3117,13 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Promijeniti zadani jezik?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Želite li da zadani jezik proizvoda bude postavljen na \'$language\'?';
   }
 
   @override
@@ -4247,7 +4252,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get photo_viewer_details_title => 'Details of the photo';
 
   @override
-  String get photo_viewer_details_contributor_title => 'Contributor';
+  String get photo_viewer_details_contributor_title => 'Suradnik';
 
   @override
   String get photo_viewer_details_size_title => 'Size';
@@ -4510,7 +4515,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Za mene';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4636,7 +4641,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_stats_online => 'Online';
 
   @override
-  String get prices_stats_countries => 'Countries';
+  String get prices_stats_countries => 'Zemlje';
 
   @override
   String get prices_stats_price_tag => 'Price tag';
@@ -4703,7 +4708,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Proširi dokaz';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Neobrađeni podaci';
 
   @override
   String page_indicator_with_total(int current, int total) {

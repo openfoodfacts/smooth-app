@@ -1285,7 +1285,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get cached_results_from => '結果の最終更新：';
 
   @override
-  String get product_search_same_category => 'カテゴリと比較';
+  String get product_search_same_category => '代替案を探す';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2462,7 +2462,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'AI によって抽出された価格をコミュニティが検証できるようにします。';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2471,24 +2471,24 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'ファイルの選択';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'アップロードを開始';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'ファイル #$index/$countをローカルにコピーしています';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'アップロードを準備中 #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return '画像 #$index/$countで失敗しました';
   }
 
   @override
@@ -2578,34 +2578,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => '価格表';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\n価格の数';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '新しい価格を\n追加する';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => '不明な店舗';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '価格入力は「$user」から';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => '証拠を見る';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => '他の価格を見る';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => '著者による他の価格を見る';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'ショップの他の価格を見る';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2921,7 +2924,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return '貢献者価格: $user';
   }
 
   @override
@@ -3053,13 +3056,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'デフォルトの言語を変更しますか?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return '製品のデフォルト言語を「$language」に設定しますか?';
   }
 
   @override
@@ -4420,10 +4423,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => '私にとって';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'ウェブサイト';
 
   @override
   String get product_page_tab_prices => 'Prices';
@@ -4613,7 +4616,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => '証拠を拡大する';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => '生データ';
 
   @override
   String page_indicator_with_total(int current, int total) {

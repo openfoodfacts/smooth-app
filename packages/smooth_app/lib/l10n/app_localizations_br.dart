@@ -34,7 +34,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get create => 'Krouiñ';
 
   @override
-  String get applyButtonText => 'Apply';
+  String get applyButtonText => 'Aplikañ';
 
   @override
   String get next_label => 'War-raok';
@@ -1315,7 +1315,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Kavout doareoù all';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2516,7 +2516,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Aotren ar gumuniezh da wiriañ ar prizioù tennet gant an IA.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2525,24 +2525,25 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Dibab restroù';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting =>
+      'Kregiñ gant an enporzhiañ';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Eilañ lec\'hel ar restr #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'O prientiñ an enporzhiañ #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'C\'hwitet war ar skeudenn #$index/$count';
   }
 
   @override
@@ -2632,34 +2633,38 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Roll ar prizioù';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Niver a\nprizioù';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Ouzhpennañ ur priz nevez\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Stal dianav';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Mont e-barzh ar priz adalek \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Gwelet ar brouenn';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Gwelet ma prizioù all';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Gwelet prizioù all gant an aozer';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices => 'Gwelet ar prizioù all er stal';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2975,7 +2980,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Prizioù ar c\'hontribuerien : $user';
   }
 
   @override
@@ -3111,13 +3116,13 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Cheñch ar yezh dre ziouer ?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Ha fellout a ra deoc\'h e vefe lakaet yezh dre ziouer ar produ da \'$language\' ?';
   }
 
   @override
@@ -4510,7 +4515,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Eviton';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4703,7 +4708,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Astenn ar brouenn';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Roadennoù kriz';
 
   @override
   String page_indicator_with_total(int current, int total) {

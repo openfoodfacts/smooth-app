@@ -759,6 +759,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData price_tag_dollar = IconData(
+    0xe92b,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
 }
 
 class _FoodIconsFont {

@@ -9,7 +9,6 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
@@ -27,6 +26,7 @@ import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 /// A replacement for the [Navigator], where we internally use [GoRouter].
 /// By itself the [GoRouter] attribute is not accessible, to allow us to easily

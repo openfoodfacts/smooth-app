@@ -1,35 +1,22 @@
+import 'package:diacritic/diacritic.dart' as lib;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-extension Selectable on Text {
-  Widget selectable({bool isSelectable = true}) {
-    return isSelectable
-        ? SelectableText(
-            data!,
-            style: style,
-            strutStyle: strutStyle,
-            textDirection: textDirection,
-            textScaler: textScaler,
-            textAlign: textAlign,
-            maxLines: maxLines,
-            // TODO(m123): Fix or remove alltogether
-            // ignore: deprecated_member_use
-            toolbarOptions: const ToolbarOptions(copy: true, selectAll: true),
-          )
-        : Text(
-            data!,
-            style: style,
-            strutStyle: strutStyle,
-            textDirection: textDirection,
-            textScaler: textScaler,
-            textAlign: textAlign,
-            maxLines: maxLines,
-          );
+/// An extension on [String]
+extension StringExtension on String {
+  /// Please use this method instead of directly calling the library.
+  /// It will ease the migration if we decide to remove/change it.
+  String removeDiacritics() {
+    return lib.removeDiacritics(this);
   }
-}
 
-extension StringExtensions on String {
+  /// Same as [removeDiacritics] but also lowercases the string.
+  /// Prefer this method when you want to compare two strings.
+  String getComparisonSafeString() {
+    return toLowerCase().removeDiacritics();
+  }
+
   int count(String character) {
     assert(character.length == 1);
 
@@ -77,4 +64,31 @@ extension TextSpanExtension on TextSpan {
     locale: locale ?? this.locale,
     spellOut: spellOut ?? this.spellOut,
   );
+}
+
+extension Selectable on Text {
+  Widget selectable({bool isSelectable = true}) {
+    return isSelectable
+        ? SelectableText(
+            data!,
+            style: style,
+            strutStyle: strutStyle,
+            textDirection: textDirection,
+            textScaler: textScaler,
+            textAlign: textAlign,
+            maxLines: maxLines,
+            // TODO(m123): Fix or remove alltogether
+            // ignore: deprecated_member_use
+            toolbarOptions: const ToolbarOptions(copy: true, selectAll: true),
+          )
+        : Text(
+            data!,
+            style: style,
+            strutStyle: strutStyle,
+            textDirection: textDirection,
+            textScaler: textScaler,
+            textAlign: textAlign,
+            maxLines: maxLines,
+          );
+  }
 }

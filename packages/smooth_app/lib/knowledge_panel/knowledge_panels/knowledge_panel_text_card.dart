@@ -4,13 +4,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
+import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 /// Card that displays a Knowledge Panel _Text_ element.
 class KnowledgePanelTextCard extends StatelessWidget {

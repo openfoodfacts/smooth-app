@@ -12,7 +12,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
 import 'package:smooth_app/widgets/smooth_close_button.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// A common Widget for carrousel item cards.
 /// It allows to have the correct width/height and also a scale down feature,

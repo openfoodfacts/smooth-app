@@ -1314,7 +1314,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'বিকল্প বিচাৰি উলিয়াওক';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2515,7 +2515,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'এআইৰ দ্বাৰা উলিওৱা মূল্যসমূহ সম্প্ৰদায়ক বৈধ কৰিবলৈ অনুমতি দিয়ক।';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,24 +2524,25 @@ class AppLocalizationsAs extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting =>
+      'ফাইলসমূহ নিৰ্ব্বাচন কৰা';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'আপলোড আৰম্ভ কৰা হৈছে';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'স্থানীয়ভাৱে নথিপত্ৰ কপি কৰা #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'আপলোড #$index/$countপ্ৰস্তুত কৰা';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'ছবি #$index/$countত ব্যৰ্থ';
   }
 
   @override
@@ -2631,34 +2632,38 @@ class AppLocalizationsAs extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'মূল্য তালিকা';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nমূল্যৰ সংখ্যা';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'এটা\nনতুন দাম যোগ কৰক';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'অজ্ঞাত দোকান';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '\"$user\" ৰ পৰা মূল্য প্ৰৱেশ।';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'প্ৰমাণ চাওক';
+
+  @override
+  String get prices_entry_menu_my_prices => 'মোৰ আন দামবোৰ চাওক';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'লেখকৰ দ্বাৰা অন্যান্য মূল্য চাওক';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices => 'দোকানৰ পৰা আন দাম চাওক';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2974,7 +2979,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'অৱদানকাৰীৰ মূল্য: $user';
   }
 
   @override
@@ -3110,13 +3115,13 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'অবিকল্পিত ভাষা সলনি কৰক?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'আপুনি উৎপাদনৰ অবিকল্পিত ভাষা \'$language\' লে সংহতি কৰা বিচাৰেনে?';
   }
 
   @override
@@ -4509,7 +4514,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'মোৰ বাবে';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4702,7 +4707,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'প্ৰমাণ বিস্তাৰ কৰক';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'কেঁচা তথ্য';
 
   @override
   String page_indicator_with_total(int current, int total) {

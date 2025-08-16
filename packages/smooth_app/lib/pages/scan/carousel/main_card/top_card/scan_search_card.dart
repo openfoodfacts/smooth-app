@@ -5,14 +5,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class ScanSearchCard extends StatelessWidget {
   const ScanSearchCard({required this.expandedMode});

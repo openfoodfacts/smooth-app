@@ -90,6 +90,7 @@ class _PricesPageCounter extends StatelessWidget {
           horizontal: MEDIUM_SPACE,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           spacing: VERY_SMALL_SPACE,
           children: <Widget>[
             DecoratedBox(
@@ -160,7 +161,9 @@ class _PricesHeaderAddPriceButton extends StatelessWidget {
               horizontal: MEDIUM_SPACE,
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               spacing: VERY_SMALL_SPACE,
               children: <Widget>[
                 icons.Add(

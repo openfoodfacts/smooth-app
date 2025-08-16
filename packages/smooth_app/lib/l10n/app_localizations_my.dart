@@ -1314,7 +1314,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'အခြားရွေးချယ်စရာများကို ရှာပါ။';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2518,7 +2518,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'AI မှထုတ်နုတ်ထားသောစျေးနှုန်းများကိုအတည်ပြုရန်အသိုင်းအဝိုင်းအားခွင့်ပြုပါ။';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2527,24 +2527,25 @@ class AppLocalizationsMy extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting =>
+      'ဖိုင်များကို ရွေးချယ်ခြင်း။';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'အပ်လုဒ်စတင်ခြင်း။';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'ဒေသအလိုက် ဖိုင် #$index/$countကူးယူခြင်း။';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'အပ်လုဒ်ပြင်ဆင်နေသည် #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'ပုံ #$index/$countတွင် မအောင်မြင်ပါ။';
   }
 
   @override
@@ -2634,34 +2635,40 @@ class AppLocalizationsMy extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'စျေးနှုန်းစာရင်း';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nစျေးနှုန်းများ အရေအတွက်';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '\nစျေးနှုန်းအသစ်တစ်ခု ထည့်ပါ။';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'အမည်မသိ စတိုးဆိုင်';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '\"$user\" မှ စျေးနှုန်းဝင်ရောက်မှု';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'သက်သေကိုကြည့်ပါ။';
+
+  @override
+  String get prices_entry_menu_my_prices =>
+      'ကျွန်ုပ်၏အခြားစျေးနှုန်းများကိုကြည့်ပါ။';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'စာရေးသူ၏အခြားစျေးနှုန်းများကိုကြည့်ပါ။';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'အခြားဆိုင်မှစျေးနှုန်းများကိုကြည့်ပါ။';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2977,7 +2984,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'ပံ့ပိုးကူညီသူစျေးနှုန်း- $user';
   }
 
   @override
@@ -3113,13 +3120,13 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'မူရင်းဘာသာစကားကို ပြောင်းမလား။';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'ထုတ်ကုန်၏ မူရင်းဘာသာစကားကို \'$language\' ဟု သတ်မှတ်လိုပါသလား။';
   }
 
   @override
@@ -4512,7 +4519,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'ကျွန်တော့်အတွက်';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4706,7 +4713,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'သက်သေပြပါ။';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'ကုန်ကြမ်းဒေတာ';
 
   @override
   String page_indicator_with_total(int current, int total) {

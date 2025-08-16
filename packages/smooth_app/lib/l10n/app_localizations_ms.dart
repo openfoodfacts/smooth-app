@@ -1316,7 +1316,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Bandingkan dengan Kategori';
+  String get product_search_same_category => 'Cari alternatif';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2518,7 +2518,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Benarkan komuniti mengesahkan harga yang diekstrak oleh AI.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2527,24 +2527,24 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Memilih fail';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Memulakan muat naik';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Menyalin fail secara tempatan #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Menyediakan muat naik #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Gagal pada imej #$index/$count';
   }
 
   @override
@@ -2634,34 +2634,37 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'senarai harga';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Bilangan harga\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Tambah\nharga baharu';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Kedai tidak diketahui';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Kemasukan harga daripada \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Lihat bukti';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => 'Lihat harga saya yang lain';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => 'Lihat harga lain oleh penulis';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'Lihat harga lain dari kedai';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2977,7 +2980,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Harga penyumbang: $user';
   }
 
   @override
@@ -3114,13 +3117,13 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Tukar bahasa lalai?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Adakah anda mahu bahasa lalai produk ditetapkan kepada \'$language\'?';
   }
 
   @override
@@ -4512,7 +4515,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Bagi saya';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4705,7 +4708,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Kembangkan bukti';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Data mentah';
 
   @override
   String page_indicator_with_total(int current, int total) {

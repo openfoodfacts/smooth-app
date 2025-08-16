@@ -1342,7 +1342,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get cached_results_from => 'Rodyti rezultatus iš:';
 
   @override
-  String get product_search_same_category => 'Palyginti su kategorija';
+  String get product_search_same_category => 'Rasti alternatyvų';
 
   @override
   String get product_search_same_category_short => 'Palyginti';
@@ -2554,7 +2554,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Leisti bendruomenei patvirtinti dirbtinio intelekto gautas kainas.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2563,24 +2563,24 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Failų pasirinkimas';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Pradedamas įkėlimas';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Vietinis failo kopijavimas #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Ruošiamas įkėlimas #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Nepavyko pasiekti paveikslėlio #$index/$count';
   }
 
   @override
@@ -2670,34 +2670,39 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Kainoraštis';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nkainų skaičius';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Pridėti\nnaują kainą';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Nežinoma parduotuvė';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Kainos įvedimas iš „$user“';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Peržiūrėti įrodymą';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Peržiūrėti kitas mano kainas';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Peržiūrėti kitas autoriaus kainas';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Peržiūrėti kitas kainas iš parduotuvės';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -3018,7 +3023,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Bendradarbių kainos: $user';
   }
 
   @override
@@ -3156,13 +3161,13 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Pakeisti numatytąją kalbą?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Ar norite, kad numatytoji produkto kalba būtų nustatyta į „$language“?';
   }
 
   @override
@@ -4571,13 +4576,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Duomenų kokybė';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Man';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Interneto svetainė';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Kainos';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
@@ -4766,7 +4771,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Išplėsti įrodymą';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Neapdoroti duomenys';
 
   @override
   String page_indicator_with_total(int current, int total) {

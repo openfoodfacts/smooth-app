@@ -1292,7 +1292,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get cached_results_from => 'להציג תוצאות מ־:';
 
   @override
-  String get product_search_same_category => 'השוואה לקטגוריה';
+  String get product_search_same_category => 'מצא חלופות';
 
   @override
   String get product_search_same_category_short => 'השוואה';
@@ -2493,11 +2493,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
-      'AI will run on your proofs to extract prices.';
+      'בינה מלאכותית תרוץ על ההוכחות שלך כדי לחלץ מחירים.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'לאפשר לקהילה לאמת מחירים שחולצו על ידי בינה מלאכותית.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'כמה תגי מחיר';
@@ -2506,24 +2506,24 @@ class AppLocalizationsHe extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'העלאת הוכחות במרוכז';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'בחירת קבצים';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'ההעלאה מתחילה';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'העתקת קובץ מקומית #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'הכנה להעלאה מס׳ $index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'כשל בתמונה מס׳ $index/$count';
   }
 
   @override
@@ -2617,34 +2617,37 @@ class AppLocalizationsHe extends AppLocalizations {
   String get prices_view_prices => 'הצגת המחירים';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'מחירון';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'מספר\nמחירים';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'הוספת\nמחיר חדש';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'חנות לא ידועה';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'הזנת מחיר מאת „$user”';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'הצגת הוכחה';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => 'הצגת המחירים האחרים שלי';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => 'הצגת מחירים אחרים של המחבר';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'הצגת מחירים אחרים מהחנות';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2972,7 +2975,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'מחירי מתנדבים';
+    return 'מחירי תורמים: $user';
   }
 
   @override
@@ -3105,13 +3108,13 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'לשנות את שפת ברירת המחדל?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'להגדיר את שפת ברירת המחדל של המוצר ל„$language”?';
   }
 
   @override
@@ -4494,13 +4497,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'איכות נתונים';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'בשבילי';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'אתר';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'מחירים';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
@@ -4684,7 +4687,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'הרחבת ההוכחה';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'נתונים גולמיים';
 
   @override
   String page_indicator_with_total(int current, int total) {

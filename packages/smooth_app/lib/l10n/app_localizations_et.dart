@@ -1314,7 +1314,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Leia alternatiive';
 
   @override
   String get product_search_same_category_short => 'Võrdle';
@@ -2515,7 +2515,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Luba kogukonnal tehisintellekti abil saadud hindu valideerida.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,24 +2524,25 @@ class AppLocalizationsEt extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Failide valimine';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting =>
+      'Üleslaadimise alustamine';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Faili lokaalne kopeerimine #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Üleslaadimise ettevalmistamine #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Ebaõnnestus pildil #$index/$count';
   }
 
   @override
@@ -2631,34 +2632,37 @@ class AppLocalizationsEt extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Hinnakiri';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nhindade arv';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Lisa\nuus hind';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Tundmatu pood';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Hinna sisestamine alates \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Vaata tõendit';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => 'Vaata minu teisi hindu';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => 'Vaata autori teisi hindu';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'Vaata teisi hindu poest';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2974,7 +2978,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Kaastööliste hinnad: $user';
   }
 
   @override
@@ -3110,13 +3114,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Kas muuta vaikekeelt?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Kas soovite, et toote vaikekeeleks määrataks \'$language\'?';
   }
 
   @override
@@ -4509,7 +4513,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Minu jaoks';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4702,7 +4706,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Laienda tõestust';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Toorandmed';
 
   @override
   String page_indicator_with_total(int current, int total) {

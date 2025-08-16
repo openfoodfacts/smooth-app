@@ -14,7 +14,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({

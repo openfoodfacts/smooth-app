@@ -1281,7 +1281,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cached_results_from => '顯示結果自：';
 
   @override
-  String get product_search_same_category => '同類別中的其它產品';
+  String get product_search_same_category => 'Find alternatives';
 
   @override
   String get product_search_same_category_short => '比較';
@@ -2583,6 +2583,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
+
+  @override
   String get prices_entry_menu_open_proof => 'View proof';
 
   @override
@@ -2909,7 +2913,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Contributor prices: $user';
   }
 
   @override
@@ -4413,10 +4417,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get product_page_tab_for_me => 'For me';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => '网站';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => '價格';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';

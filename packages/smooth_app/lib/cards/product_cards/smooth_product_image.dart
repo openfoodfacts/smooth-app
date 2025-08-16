@@ -55,6 +55,7 @@ class ProductPicture extends StatefulWidget {
          showOwnerIcon: showOwnerIcon,
          noImageBuilder: noImageBuilder,
          blurFilter: blurFilter,
+         imageProvider: null,
        );
 
   ProductPicture.fromTransientFile({
@@ -93,6 +94,42 @@ class ProductPicture extends StatefulWidget {
          showOwnerIcon: showOwnerIcon,
          noImageBuilder: noImageBuilder,
          blurFilter: blurFilter,
+         imageProvider: null,
+       );
+
+  ProductPicture.fromImageProvider({
+    required ImageProvider imageProvider,
+    required Size size,
+    String? fallbackUrl,
+    VoidCallback? onTap,
+    String? heroTag,
+    bool showObsoleteIcon = false,
+    bool showOwnerIcon = false,
+    BorderRadius? borderRadius,
+    double imageFoundBorder = 0.0,
+    double imageNotFoundBorder = 0.0,
+    TextStyle? errorTextStyle,
+    WidgetBuilder? noImageBuilder,
+    bool blurFilter = true,
+  }) : this._(
+         imageProvider: imageProvider,
+         transientFile: null,
+         product: null,
+         imageField: null,
+         language: null,
+         allowAlternativeLanguage: false,
+         size: size,
+         fallbackUrl: fallbackUrl,
+         heroTag: heroTag,
+         onTap: onTap,
+         borderRadius: borderRadius,
+         imageFoundBorder: imageFoundBorder,
+         imageNotFoundBorder: imageNotFoundBorder,
+         errorTextStyle: errorTextStyle,
+         showObsoleteIcon: showObsoleteIcon,
+         showOwnerIcon: showOwnerIcon,
+         noImageBuilder: noImageBuilder,
+         blurFilter: blurFilter,
        );
 
   ProductPicture._({
@@ -101,6 +138,7 @@ class ProductPicture extends StatefulWidget {
     required this.language,
     required this.allowAlternativeLanguage,
     required this.transientFile,
+    required this.imageProvider,
     required this.size,
     required this.blurFilter,
     this.fallbackUrl,
@@ -124,6 +162,9 @@ class ProductPicture extends StatefulWidget {
   final OpenFoodFactsLanguage? language;
 
   final TransientFile? transientFile;
+
+  final ImageProvider? imageProvider;
+
   final Size size;
   final String? fallbackUrl;
   final VoidCallback? onTap;
@@ -168,6 +209,7 @@ class _ProductPictureState extends State<ProductPicture> {
     final (ImageProvider?, bool)? imageProvider = _getImageProvider(
       widget.product,
       widget.transientFile,
+      widget.imageProvider,
       widget.allowAlternativeLanguage,
     );
 
@@ -268,9 +310,12 @@ class _ProductPictureState extends State<ProductPicture> {
   (ImageProvider?, bool)? _getImageProvider(
     Product? product,
     TransientFile? transientFile,
+    ImageProvider? imageProvider,
     bool allowAlternativeLanguage,
   ) {
-    if (transientFile != null) {
+    if (imageProvider != null) {
+      return (imageProvider, false);
+    } else if (transientFile != null) {
       return (transientFile.getImageProvider(), transientFile.expired);
     }
 
@@ -279,11 +324,10 @@ class _ProductPictureState extends State<ProductPicture> {
       widget.imageField!,
       widget.language ?? ProductQuery.getLanguage(),
     );
-    final ImageProvider? imageProvider = productTransientFile
-        .getImageProvider();
+    final ImageProvider? provider = productTransientFile.getImageProvider();
 
-    if (imageProvider != null) {
-      return (imageProvider, productTransientFile.expired);
+    if (provider != null) {
+      return (provider, productTransientFile.expired);
     }
 
     if (widget.fallbackUrl?.isNotEmpty == true) {

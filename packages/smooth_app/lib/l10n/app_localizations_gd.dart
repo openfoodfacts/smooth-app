@@ -1314,7 +1314,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Lorg roghainnean eile';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2515,7 +2515,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Leig leis a’ choimhearsnachd prìsean a chaidh a tharraing a-mach le AI a dhearbhadh.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,24 +2524,26 @@ class AppLocalizationsGd extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting =>
+      'A’ taghadh fhaidhlichean';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting =>
+      'A’ tòiseachadh air an luchdachadh suas';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'A’ dèanamh lethbhreac ionadail den fhaidhle #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'A’ cur deiseil airson luchdachadh suas #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Dh’fhàillig aig an ìomhaigh #$index/$count';
   }
 
   @override
@@ -2632,34 +2634,38 @@ class AppLocalizationsGd extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Liosta prìsean';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Àireamh de phrìsean\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Cuir prìs ùr\nris';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Bùth neo-aithnichte';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Cuir a-steach prìsean bho \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Seall dearbhadh';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Seall na prìsean eile agam';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Seall prìsean eile leis an ùghdar';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices => 'Seall prìsean eile bhon bhùth';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2975,7 +2981,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Prìsean luchd-tabhartais: $user';
   }
 
   @override
@@ -3111,13 +3117,13 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Atharraich a’ chànan bunaiteach?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'A bheil thu airson gum bi cànan bunaiteach an toraidh air a shuidheachadh gu \'$language\'?';
   }
 
   @override
@@ -4510,7 +4516,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Dhòmh-sa';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4703,7 +4709,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Leudaich dearbhadh';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Dàta amh';
 
   @override
   String page_indicator_with_total(int current, int total) {

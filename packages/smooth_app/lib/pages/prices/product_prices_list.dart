@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -15,9 +16,11 @@ import 'package:smooth_app/pages/prices/infinite_scroll_sliver_list.dart';
 import 'package:smooth_app/pages/prices/price_category_widget.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
+import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -121,16 +124,21 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               if (model.displayEachProduct && priceProduct != null)
-                PriceProductWidget(
-                  priceProduct,
-                  enableCountButton: model.enableCountButton,
-                )
+                PriceProductWidget(priceProduct)
               else if (model.displayEachProduct)
                 PriceCategoryWidget(item),
               PriceDataWidget(
                 item,
                 model: model,
                 showOptionsMenu: () => _showOptionsMenu(context, item),
+                padding: model.displayEachProduct
+                    ? const EdgeInsetsDirectional.only(
+                        start: SMALL_SPACE,
+                        end: SMALL_SPACE,
+                        top: SMALL_SPACE,
+                        bottom: VERY_SMALL_SPACE,
+                      )
+                    : null,
               ),
             ],
           ),
@@ -142,11 +150,14 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   Future<void> _showOptionsMenu(BuildContext context, Price price) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool hasProof = price.proof?.filePath != null;
+    final bool hasCountButton = model.enableCountButton;
 
     final ProductPriceAction? res = await showSmoothListOfChoicesModalSheet(
       context: context,
       title: appLocalizations.prices_entry_menu_title(price.owner),
       labels: <String>[
+        if (hasCountButton)
+          appLocalizations.prices_entry_menu_open_product_prices,
         if (hasProof) appLocalizations.prices_entry_menu_open_proof,
         if (ProductQuery.getWriteUser().userId == price.owner)
           appLocalizations.prices_entry_menu_my_prices
@@ -155,11 +166,13 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
         appLocalizations.prices_entry_menu_shop_prices,
       ],
       prefixIcons: <Widget>[
+        if (hasCountButton) const icons.PriceTag(),
         if (hasProof) const Icon(Icons.document_scanner_rounded),
         const Icon(Icons.account_circle_rounded),
         const icons.Shop(),
       ],
       values: <ProductPriceAction>[
+        if (hasCountButton) ProductPriceAction.VIEW_PRODUCT_PRICES,
         if (hasProof) ProductPriceAction.VIEW_PROOF,
         ProductPriceAction.VIEW_AUTHOR_PRICES,
         ProductPriceAction.VIEW_LOCATION_PRICES,
@@ -185,8 +198,33 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
           locationId: price.locationId!,
           context: context,
         );
+      case ProductPriceAction.VIEW_PRODUCT_PRICES:
+        final LocalDatabase localDatabase = context.read<LocalDatabase>();
+        final Product? newProduct = await DaoProduct(
+          localDatabase,
+        ).get(price.product!.code);
+        if (!context.mounted) {
+          return;
+        }
+        return Navigator.of(context).push<void>(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PricesPage(
+              GetPricesModel.product(
+                product: newProduct != null
+                    ? PriceMetaProduct.product(newProduct)
+                    : PriceMetaProduct.priceProduct(price.product!),
+                context: context,
+              ),
+            ),
+          ),
+        );
     }
   }
 }
 
-enum ProductPriceAction { VIEW_PROOF, VIEW_AUTHOR_PRICES, VIEW_LOCATION_PRICES }
+enum ProductPriceAction {
+  VIEW_PRODUCT_PRICES,
+  VIEW_PROOF,
+  VIEW_AUTHOR_PRICES,
+  VIEW_LOCATION_PRICES,
+}

@@ -6,7 +6,8 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/currency_extension.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// Helper for currency selection.
 class CurrencySelectorHelper {

@@ -26,6 +26,7 @@ class PriceDataValue extends StatelessWidget {
 
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
+    final bool hasDiscount = _hasDiscount(price);
 
     return Column(
       children: <Widget>[
@@ -33,12 +34,13 @@ class PriceDataValue extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           spacing: 6.0,
           children: <Widget>[
-            if (_hasDiscount(price)) ...<Widget>[
+            if (hasDiscount) ...<Widget>[
               _PriceDataContainer(
                 value: _formatPrice(
                   currencyFormat,
                   price.priceWithoutDiscount!,
                   appLocalizations,
+                  hideUnit: true,
                 ),
                 backgroundColor: extension.primaryLight,
                 textColor: extension.primaryBlack,
@@ -64,10 +66,11 @@ class PriceDataValue extends StatelessWidget {
   String _formatPrice(
     final NumberFormat currencyFormat,
     final num value,
-    final AppLocalizations appLocalizations,
-  ) {
+    final AppLocalizations appLocalizations, {
+    bool hideUnit = false,
+  }) {
     final String formatted = currencyFormat.format(value);
-    if (price.pricePer == null) {
+    if (price.pricePer == null || hideUnit) {
       return formatted;
     }
     return '$formatted${price.pricePer!.getShortTitle(appLocalizations)}';

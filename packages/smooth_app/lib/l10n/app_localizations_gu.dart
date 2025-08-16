@@ -1314,7 +1314,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'વિકલ્પો શોધો';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2515,7 +2515,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'સમુદાયને AI દ્વારા કાઢવામાં આવેલા ભાવોને માન્ય કરવાની મંજૂરી આપો.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,24 +2524,26 @@ class AppLocalizationsGu extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting =>
+      'ફાઇલો પસંદ કરી રહ્યા છીએ';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting =>
+      'અપલોડ શરૂ કરી રહ્યા છીએ';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'સ્થાનિક રીતે ફાઇલની નકલ કરી રહ્યા છીએ #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'અપલોડની તૈયારી કરી રહ્યા છીએ #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'છબીમાં નિષ્ફળતા #$index/$count';
   }
 
   @override
@@ -2631,34 +2633,38 @@ class AppLocalizationsGu extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'ભાવ યાદી';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nકિંમતોની સંખ્યા';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '\nનવી કિંમત ઉમેરો';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'અજાણ્યો સ્ટોર';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '\"$user\" થી કિંમતની એન્ટ્રી';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'સાબિતી જુઓ';
+
+  @override
+  String get prices_entry_menu_my_prices => 'મારા અન્ય ભાવ જુઓ';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'લેખક દ્વારા લખાયેલા અન્ય ભાવો જુઓ';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices => 'દુકાનમાંથી અન્ય કિંમતો જુઓ';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2974,7 +2980,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'ફાળો આપનાર કિંમતો: $user';
   }
 
   @override
@@ -3110,13 +3116,13 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'ડિફોલ્ટ ભાષા બદલવી છે?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'શું તમે ઇચ્છો છો કે ઉત્પાદનની ડિફોલ્ટ ભાષા \'$language\' પર સેટ કરવામાં આવે?';
   }
 
   @override
@@ -4509,7 +4515,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'મારા માટે';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4702,7 +4708,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'સાબિતી વિસ્તૃત કરો';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'કાચો ડેટા';
 
   @override
   String page_indicator_with_total(int current, int total) {

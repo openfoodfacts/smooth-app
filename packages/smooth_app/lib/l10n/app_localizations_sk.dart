@@ -1335,7 +1335,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get cached_results_from => 'Zobraziť výsledky z:';
 
   @override
-  String get product_search_same_category => 'Porovnajte s kategóriou';
+  String get product_search_same_category => 'Nájsť alternatívy';
 
   @override
   String get product_search_same_category_short => 'Porovnať';
@@ -2542,7 +2542,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Umožniť komunite overovať ceny získané umelou inteligenciou.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Viaceré cenovky';
@@ -2551,24 +2551,24 @@ class AppLocalizationsSk extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Hromadné nahrávanie potvrdení';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Výber súborov';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Spustenie nahrávania';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Lokálne kopírovanie súboru #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Pripravuje sa nahrávanie #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Zlyhalo na obrázku #$index/$count';
   }
 
   @override
@@ -2658,34 +2658,39 @@ class AppLocalizationsSk extends AppLocalizations {
   String get prices_view_prices => 'Pozrite si ceny';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Cenník';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Počet cien\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Pridať novú cenu\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Neznámy obchod';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Zadaná cena od „$user“';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'View all prices for this product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Zobraziť dôkaz';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Pozrite si moje ďalšie ceny';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Zobraziť ďalšie ceny od autora';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Pozrite si ďalšie ceny z obchodu';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -3003,7 +3008,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Ceny prispievateľov';
+    return 'Ceny prispievateľov: $user';
   }
 
   @override
@@ -3142,13 +3147,13 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Zmeniť predvolený jazyk?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Chcete, aby bol predvolený jazyk produktu nastavený na „$language“?';
   }
 
   @override
@@ -4552,13 +4557,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Kvalita údajov';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Pre mňa';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Webová stránka';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Ceny';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
@@ -4745,7 +4750,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Rozbaliť dôkaz';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Nespracované údaje';
 
   @override
   String page_indicator_with_total(int current, int total) {
