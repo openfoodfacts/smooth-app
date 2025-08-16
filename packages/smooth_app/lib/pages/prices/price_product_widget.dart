@@ -28,7 +28,7 @@ class PriceProductWidget extends StatelessWidget {
     return PriceHeaderContainer(
       imageProvider: imageURL != null ? NetworkImage(imageURL) : null,
       line1: name,
-      line2: brands?.join(appLocalizations.sep),
+      line2: brands?.join(',${appLocalizations.sep}'),
       line3: quantity,
       count: priceCount,
       warningIndicator: unknown,

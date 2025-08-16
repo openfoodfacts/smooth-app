@@ -1,10 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_header_container.dart';
 import 'package:smooth_app/pages/prices/price_l10n_helper.dart';
 
@@ -41,8 +37,8 @@ class _PriceCategoryWidgetState extends State<PriceCategoryWidget> {
       semanticsLabel: _generateSemanticsLabel(),
       imageProvider: null,
       line1: _helper.getCategory()!,
-      line2: _helper.getOrigins()?.join(appLocalizations.sep),
-      line3: _helper.getLabels()?.join(appLocalizations.sep),
+      line2: _helper.getOrigins()?.join(',${appLocalizations.sep}'),
+      line3: _helper.getLabels()?.join(',${appLocalizations.sep}'),
     );
   }
 
