@@ -145,26 +145,29 @@ Widget build(BuildContext context) {
                   },
           ),
         ),
-        LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) =&gt; Row(
-            children:
-                (const &lt;ProofType&gt;[ProofType.receipt, ProofType.priceTag])
-                    .map&lt;Widget&gt;(
-                      (final ProofType item) =&gt; SizedBox(
-                        width: constraints.maxWidth &#47; 2,
-                        child: RadioListTile&lt;ProofType&gt;(
-                          title: Text(item.getTitle(appLocalizations)),
-                          value: item,
-                          groupValue: model.proofType,
-                          onChanged:
-                              model.proof != null || forcedProofType != null
-                              ? null
-                              : (final ProofType? proofType) =&gt;
-                                    model.proofType = proofType!,
-                        ),
-                      ),
-                    )
-                    .toList(),
+        RadioGroup&lt;ProofType&gt;(
+          groupValue: model.proofType,
+          onChanged: (final ProofType? proofType) =&gt;
+              model.proofType = proofType!,
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) =&gt;
+                Row(
+                  children:
+                      (const &lt;ProofType&gt;[
+                            ProofType.receipt,
+                            ProofType.priceTag,
+                          ])
+                          .map&lt;Widget&gt;(
+                            (final ProofType item) =&gt; SizedBox(
+                              width: constraints.maxWidth &#47; 2,
+                              child: RadioListTile&lt;ProofType&gt;(
+                                title: Text(item.getTitle(appLocalizations)),
+                                value: item,
+                              ),
+                            ),
+                          )
+                          .toList(),
+                ),
           ),
         ),
       ],
