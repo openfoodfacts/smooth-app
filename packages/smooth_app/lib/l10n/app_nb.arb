@@ -2399,6 +2399,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product_prices": "Vis alle priser for dette produktet",
   "prices_entry_menu_open_proof": "Vis bevis",
   "prices_entry_menu_my_prices": "Vis mine andre priser",
   "prices_entry_menu_author_prices": "Se andre priser av forfatteren",
