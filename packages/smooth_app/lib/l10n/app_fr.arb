@@ -2385,12 +2385,12 @@
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
-  "prices_list_add_new_price": "Ajouter un nouveau prix\n",
+  "prices_list_add_new_price": "Ajouter un nouveau prix",
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
   "prices_entry_shop_not_found": "Magasin inconnu",
-  "prices_entry_menu_title": "Entrée de prix à partir de \"{user}\"",
+  "prices_entry_menu_title": "Entrée de prix de \"{user}\"",
   "@prices_entry_menu_title": {
     "description": "Title of the menu for a price entry",
     "placeholders": {
@@ -2399,6 +2399,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product_prices": "Voir tous les prix du produit",
   "prices_entry_menu_open_proof": "Voir la preuve",
   "prices_entry_menu_my_prices": "Voir mes autres tarifs",
   "prices_entry_menu_author_prices": "Voir d'autres prix de l'auteur",
@@ -2700,7 +2701,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Prix contributeurs : {user}",
+  "user_any_search_prices_title": "Prix contributeur : {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
     "placeholders": {
