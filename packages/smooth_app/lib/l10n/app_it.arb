@@ -946,7 +946,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "Contributore",
+  "product_image_details_contributor": "Collaboratori",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -3944,7 +3944,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "Contributore",
+  "photo_viewer_details_contributor_title": "Collaboratori",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
