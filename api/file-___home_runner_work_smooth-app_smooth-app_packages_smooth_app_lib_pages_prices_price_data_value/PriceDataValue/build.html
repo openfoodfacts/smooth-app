@@ -79,6 +79,7 @@ Widget build(BuildContext context) {
 
   final SmoothColorsThemeExtension extension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
+  final bool hasDiscount = _hasDiscount(price);
 
   return Column(
     children: &lt;Widget&gt;[
@@ -86,12 +87,13 @@ Widget build(BuildContext context) {
         mainAxisSize: MainAxisSize.min,
         spacing: 6.0,
         children: &lt;Widget&gt;[
-          if (_hasDiscount(price)) ...&lt;Widget&gt;[
+          if (hasDiscount) ...&lt;Widget&gt;[
             _PriceDataContainer(
               value: _formatPrice(
                 currencyFormat,
                 price.priceWithoutDiscount!,
                 appLocalizations,
+                hideUnit: true,
               ),
               backgroundColor: extension.primaryLight,
               textColor: extension.primaryBlack,

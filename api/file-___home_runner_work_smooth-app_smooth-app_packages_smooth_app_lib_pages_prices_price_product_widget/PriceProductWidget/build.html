@@ -71,106 +71,31 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Size screenSize = MediaQuery.sizeOf(context);
-  final double size = screenSize.width * 0.20;
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final String name = priceProduct.name ?? priceProduct.code;
   final bool unknown = priceProduct.name == null;
   final String? imageURL = priceProduct.imageURL;
-  final int priceCount = priceProduct.priceCount ?? 0;
+  final int? priceCount = priceProduct.priceCount;
   final List&lt;String&gt;? brands = priceProduct.brands == &#39;&#39;
       ? null
       : priceProduct.brands?.split(&#39;,&#39;);
   final String? quantity = priceProduct.quantity == null
       ? null
       : &#39;${priceProduct.quantity} ${priceProduct.quantityUnit ?? &#39;g&#39;}&#39;;
-  return Semantics(
-    label: _generateSemanticsLabel(
+
+  return PriceHeaderContainer(
+    imageProvider: imageURL != null ? NetworkImage(imageURL) : null,
+    line1: name,
+    line2: brands?.join(&#39;,${appLocalizations.sep}&#39;),
+    line3: quantity,
+    count: priceCount,
+    warningIndicator: unknown,
+    semanticsLabel: _generateSemanticsLabel(
       appLocalizations,
       name,
       brands,
       quantity,
       priceCount,
-    ),
-    container: true,
-    excludeSemantics: true,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: &lt;Widget&gt;[
-        SizedBox(
-          width: size,
-          child: SmoothImage(
-            width: size,
-            height: size,
-            imageProvider: imageURL == null ? null : NetworkImage(imageURL),
-          ),
-        ),
-        const SizedBox(width: SMALL_SPACE),
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: &lt;Widget&gt;[
-              AutoSizeText(
-                name,
-                maxLines: 2,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Wrap(
-                spacing: VERY_SMALL_SPACE,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                runSpacing: 0,
-                children: &lt;Widget&gt;[
-                  PriceCountWidget(
-                    count: priceCount,
-                    onPressed: !enableCountButton
-                        ? null
-                        : () async {
-                            final LocalDatabase localDatabase = context
-                                .read&lt;LocalDatabase&gt;();
-                            final Product? newProduct = await DaoProduct(
-                              localDatabase,
-                            ).get(priceProduct.code);
-                            if (!context.mounted) {
-                              return;
-                            }
-                            return Navigator.of(context).push&lt;void&gt;(
-                              MaterialPageRoute&lt;void&gt;(
-                                builder: (BuildContext context) =&gt; PricesPage(
-                                  GetPricesModel.product(
-                                    product: newProduct != null
-                                        ? PriceMetaProduct.product(newProduct)
-                                        : PriceMetaProduct.priceProduct(
-                                            priceProduct,
-                                          ),
-                                    context: context,
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                  ),
-                  if (brands != null)
-                    for (final String brand in brands)
-                      PriceButton(title: brand, onPressed: () {}),
-                  if (quantity != null) Text(quantity),
-                  if (unknown)
-                    PriceButton(
-                      title: appLocalizations.prices_unknown_product,
-                      iconData: PriceButton.warningIconData,
-                      onPressed: null,
-                      buttonStyle: ElevatedButton.styleFrom(
-                        disabledForegroundColor: Colors.red,
-                        disabledBackgroundColor: Colors.red[100],
-                      ),
-                    ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ],
     ),
   );
 }</code></pre>
@@ -204,7 +129,6 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_product_widget/PriceProductWidget-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_product_widget/PriceProductWidget/enableCountButton.html">enableCountButton</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_product_widget/PriceProductWidget/priceProduct.html">priceProduct</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>

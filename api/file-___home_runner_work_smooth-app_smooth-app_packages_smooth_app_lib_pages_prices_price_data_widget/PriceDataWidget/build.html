@@ -72,25 +72,22 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-  final DateFormat timeFormat = DateFormat(&#39;HH:mm&#39;);
-
-  final DateTime created = price.created.toLocal();
-  final String date = MaterialLocalizations.of(
-    context,
-  ).formatCompactDate(created);
-  final String time = timeFormat.format(created);
   final SmoothColorsThemeExtension extension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
+  final String locale = Localizations.localeOf(context).toLanguageTag();
+
+  final DateTime created = price.created.toLocal();
 
   return DefaultTextStyle.merge(
     style: TextStyle(color: extension.primaryBlack, fontSize: 15.0),
     child: Padding(
-      padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: MEDIUM_SPACE,
-        vertical: BALANCED_SPACE,
-      ),
+      padding:
+          padding ??
+          const EdgeInsetsDirectional.symmetric(
+            horizontal: MEDIUM_SPACE,
+            vertical: BALANCED_SPACE,
+          ),
       child: IconTheme.merge(
         data: IconThemeData(
           color: lightTheme
@@ -101,11 +98,15 @@ Widget build(BuildContext context) {
           spacing: SMALL_SPACE,
           children: &lt;Widget&gt;[
             Row(
+              spacing: VERY_SMALL_SPACE,
               children: &lt;Widget&gt;[
                 Expanded(
                   child: _PriceDataEntry(
                     icon: const icons.Clock.alt(size: 19.0),
-                    label: &#39;$date $time&#39;,
+                    label: DateFormat.yMd(locale).add_Hm().format(created),
+                    shortLabel: DateFormat.Md(
+                      locale,
+                    ).add_Hm().format(created),
                     labelStyle: const TextStyle(fontWeight: FontWeight.w600),
                     labelPadding: const EdgeInsetsDirectional.only(
                       bottom: 2.5,
@@ -184,6 +185,7 @@ Widget build(BuildContext context) {
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_data_widget/PriceDataWidget/model.html">model</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_data_widget/PriceDataWidget/padding.html">padding</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_data_widget/PriceDataWidget/price.html">price</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_data_widget/PriceDataWidget/showOptionsMenu.html">showOptionsMenu</a></li>
