@@ -26,7 +26,7 @@ dependencies:
   hive_flutter: 1.1.0
   http: 1.5.0
   http_parser: 4.1.2
-  image_picker: 1.1.2
+  image_picker: 1.2.0
   l10n_countries: 1.2.0
   latlong2: 0.9.1
   matomo_tracker: 6.0.0
