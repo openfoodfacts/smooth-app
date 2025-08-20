@@ -80,7 +80,7 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
     user: ProductQuery.getReadUser(),
     countries: &lt;OpenFoodFactsCountry&gt;[ProductQuery.getCountry()],
     count: count,
-    questionOrder: RobotoffQuestionOrder.random,
+    questionOrder: RobotoffQuestionOrder.popularity,
   );
 
   if (result.questions?.isNotEmpty != true) {
