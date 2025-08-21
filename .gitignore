@@ -1,6 +1,10 @@
 
 ### This gitignore file covers Dart, Flutter, AndroidStudio, VSCode and XCode ###
 
+# Temporary Flutter SDK download (for testing)
+flutter.tar.xz
+flutter/
+
 ### Code ###
 .vscode/*
 !.vscode/settings.json

@@ -4,13 +4,13 @@ import 'package:scanner_shared/scanner_shared.dart';
 /// Web-compatible scanner implementation
 /// This is a placeholder implementation for experimental web deployment
 ///
-/// TODO: Integrate with ZXingJS for camera-based scanning:
-/// - Add js interop for ZXingJS library
-/// - Implement camera access using html.window.navigator.mediaDevices
-/// - Add proper error handling for camera permissions
-/// - Support multiple camera selection
-/// - Add flash/torch control where available
-/// - Maintain API compatibility with mobile scanners
+// TODO(copilot): Integrate with ZXingJS for camera-based scanning:
+// - Add js interop for ZXingJS library
+// - Implement camera access using html.window.navigator.mediaDevices
+// - Add proper error handling for camera permissions
+// - Support multiple camera selection
+// - Add flash/torch control where available
+// - Maintain API compatibility with mobile scanners
 class ScannerWeb extends Scanner {
   const ScannerWeb();
 
@@ -39,7 +39,7 @@ class ScannerWeb extends Scanner {
 }
 
 /// Placeholder scanner widget for web
-/// TODO: Integrate with ZXingJS or a web-compatible barcode scanner
+// TODO(copilot): Integrate with ZXingJS or a web-compatible barcode scanner
 class _WebScannerPlaceholder extends StatefulWidget {
   const _WebScannerPlaceholder({required this.onScan});
 
@@ -58,7 +58,7 @@ class _WebScannerPlaceholderState extends State<_WebScannerPlaceholder> {
       padding: const EdgeInsets.all(20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           Icon(Icons.camera_alt_outlined, size: 80, color: Colors.grey[400]),
           const SizedBox(height: 20),
           Text(
@@ -78,8 +78,8 @@ class _WebScannerPlaceholderState extends State<_WebScannerPlaceholder> {
               hintText: 'Enter barcode (e.g., 3017620422003)',
               border: OutlineInputBorder(),
             ),
-            onSubmitted: (value) async {
-              final barcode = value.trim();
+            onSubmitted: (String value) async {
+              final String barcode = value.trim();
               if (barcode.isNotEmpty) {
                 await widget.onScan(barcode);
                 _controller.clear();
@@ -89,7 +89,7 @@ class _WebScannerPlaceholderState extends State<_WebScannerPlaceholder> {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () async {
-              final barcode = _controller.text.trim();
+              final String barcode = _controller.text.trim();
               if (barcode.isNotEmpty) {
                 await widget.onScan(barcode);
                 _controller.clear();
