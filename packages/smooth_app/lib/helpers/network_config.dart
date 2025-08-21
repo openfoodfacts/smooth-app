@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:device_info_plus/device_info_plus.dart' deferred as dip;
+import 'package:device_info_plus/device_info_plus.dart' as dip;
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -81,7 +81,6 @@ String _getAppInfoComment({
 /// or accepts all certificates
 Future<void> _importSSLCertificate() async {
   if (Platform.isAndroid) {
-    await dip.loadLibrary();
     final int sdkInt =
         (await dip.DeviceInfoPlugin().androidInfo).version.sdkInt;
 

@@ -1503,6 +1503,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  scanner_web:
+    dependency: "direct main"
+    description:
+      path: "../scanner/web_scanner"
+      relative: true
+    source: path
+    version: "1.0.0"
   scanner_zxing:
     dependency: "direct main"
     description:

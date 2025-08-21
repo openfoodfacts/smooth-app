@@ -14,7 +14,7 @@ void main() {
         'https://openfoodfacts.github.io/smooth-app/',
       ),
     ),
-    scannerLabel: ScannerLabel.Other,
-    storeLabel: StoreLabel.Other,
+    scannerLabel: ScannerLabel.Test,
+    storeLabel: StoreLabel.Test,
   );
 }
