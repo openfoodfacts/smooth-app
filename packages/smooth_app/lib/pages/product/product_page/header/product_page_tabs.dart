@@ -32,13 +32,15 @@ class ProductPageTab {
     required this.id,
     required this.labelBuilder,
     required this.builder,
-    this.prefix,
+    this.prefixBuilder,
+    this.suffixBuilder,
   });
 
   final String id;
   final String Function(BuildContext) labelBuilder;
   final Widget Function(BuildContext, Product) builder;
-  final Widget? prefix;
+  final WidgetBuilder? prefixBuilder;
+  final WidgetBuilder? suffixBuilder;
 }
 
 class ProductPageTabBar extends StatelessWidget {
@@ -64,7 +66,10 @@ class ProductPageTabBar extends StatelessWidget {
                 })
                 .toList(growable: false),
             leadingItems: tabs
-                .map((ProductPageTab tab) => tab.prefix)
+                .map((ProductPageTab tab) => tab.prefixBuilder?.call(context))
+                .toList(growable: false),
+            trailingItems: tabs
+                .map((ProductPageTab tab) => tab.suffixBuilder?.call(context))
                 .toList(growable: false),
             onTabChanged: (_) {},
             overflowMainColor: context.lightTheme()
@@ -111,7 +116,7 @@ class ProductPageTabBar extends StatelessWidget {
         ProductPageTab(
           id: id,
           labelBuilder: (_) => knowledgePanelTitle.title,
-          prefix: _extractPrefix(product, knowledgePanelTitle),
+          prefixBuilder: _extractPrefix(product, knowledgePanelTitle),
           builder: (_, _) => ListView.builder(
             padding: EdgeInsetsDirectional.zero,
             itemCount: children.length - 1,
@@ -181,6 +186,7 @@ class ProductPageTabBar extends StatelessWidget {
           padding: EdgeInsetsDirectional.zero,
           children: <Widget>[PricesCard(product)],
         ),
+        suffixBuilder: (_) => PricesCounter(product: product),
       ),
     );
 
@@ -204,7 +210,10 @@ class ProductPageTabBar extends StatelessWidget {
     return tabs;
   }
 
-  static Widget? _extractPrefix(Product product, KnowledgePanelTitle title) {
+  static WidgetBuilder? _extractPrefix(
+    Product product,
+    KnowledgePanelTitle title,
+  ) {
     final String? attribute = switch (title.topics?.firstOrNull) {
       'health' => Attribute.ATTRIBUTE_NUTRISCORE,
       'environment' => Attribute.ATTRIBUTE_ECOSCORE,
@@ -227,7 +236,8 @@ class ProductPageTabBar extends StatelessWidget {
       attributes.first,
     );
 
-    return SmoothCircle.indicator(color: eval.textColor, size: 15.0);
+    return (BuildContext _) =>
+        SmoothCircle.indicator(color: eval.textColor, size: 15.0);
   }
 }
 
