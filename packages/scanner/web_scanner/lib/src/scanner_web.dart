@@ -66,8 +66,9 @@ class _WebScannerPlaceholderState extends State<_WebScannerPlaceholder> {
           ),
           const SizedBox(height: 10),
           Text(
-            'Enter a barcode manually for testing:',
+            'Enter a barcode manually for testing:\n(Try: 3017620422003 for Nutella)',
             style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
           TextField(
@@ -76,6 +77,13 @@ class _WebScannerPlaceholderState extends State<_WebScannerPlaceholder> {
               hintText: 'Enter barcode (e.g., 3017620422003)',
               border: OutlineInputBorder(),
             ),
+            onSubmitted: (value) async {
+              final barcode = value.trim();
+              if (barcode.isNotEmpty) {
+                await widget.onScan(barcode);
+                _controller.clear();
+              }
+            },
           ),
           const SizedBox(height: 20),
           ElevatedButton(

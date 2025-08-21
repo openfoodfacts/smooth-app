@@ -19,6 +19,9 @@
 ### Testing version
 - Note that an internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or **iPhone/iPad** ([App Store](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of your PRs quicker.
 
+### Experimental web version
+- An experimental web deployment is available at [https://openfoodfacts.github.io/smooth-app/](https://openfoodfacts.github.io/smooth-app/) for testing landscape formats and web compatibility. This version uses manual barcode input instead of camera scanning.
+
 <img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
 
 - Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API and [openfoodfacts_flutter_lints](https://github.com/openfoodfacts/openfoodfacts_flutter_lints) which provides specific linting
