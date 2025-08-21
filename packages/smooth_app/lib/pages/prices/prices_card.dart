@@ -64,23 +64,26 @@ class PricesCard extends StatelessWidget {
   }
 }
 
-class _PricesCardViewButton extends StatefulWidget {
-  const _PricesCardViewButton(this.product);
+class PricesCounter extends StatefulWidget {
+  const PricesCounter({required this.product, super.key, this.child});
 
   final Product product;
+  final Widget Function(
+    GetPricesModel model,
+    ProductPriceRefresher productPriceRefresher,
+  )?
+  child;
 
   @override
-  State<_PricesCardViewButton> createState() => _PricesCardViewButtonState();
+  State<PricesCounter> createState() => _PricesCounterState();
 }
 
-class _PricesCardViewButtonState extends State<_PricesCardViewButton> {
+class _PricesCounterState extends State<PricesCounter> {
   GetPricesModel? _model;
   ProductPriceRefresher? _productPriceRefresher;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     _model ??= GetPricesModel.product(
       product: PriceMetaProduct.product(widget.product),
       context: context,
@@ -121,18 +124,36 @@ class _PricesCardViewButtonState extends State<_PricesCardViewButton> {
           ),
         ),
       ),
-      child: SmoothLargeButtonWithIcon(
-        text: appLocalizations.prices_view_prices,
-        leadingIcon: const Icon(CupertinoIcons.tag_fill),
-        onPressed: () async => Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => PricesPage(
-              _model!,
-              pricesResult: _productPriceRefresher!.pricesResult,
-            ),
-          ),
-        ),
-      ),
+      child: widget.child?.call(_model!, _productPriceRefresher!),
+    );
+  }
+}
+
+class _PricesCardViewButton extends StatelessWidget {
+  const _PricesCardViewButton(this.product);
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return PricesCounter(
+      product: product,
+      child:
+          (GetPricesModel model, ProductPriceRefresher productPriceRefresher) =>
+              SmoothLargeButtonWithIcon(
+                text: appLocalizations.prices_view_prices,
+                leadingIcon: const Icon(CupertinoIcons.tag_fill),
+                onPressed: () async => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => PricesPage(
+                      model,
+                      pricesResult: productPriceRefresher.pricesResult,
+                    ),
+                  ),
+                ),
+              ),
     );
   }
 }

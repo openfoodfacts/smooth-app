@@ -33,12 +33,14 @@ class ProductPageTab {
     required this.labelBuilder,
     required this.builder,
     this.prefix,
+    this.suffix,
   });
 
   final String id;
   final String Function(BuildContext) labelBuilder;
   final Widget Function(BuildContext, Product) builder;
   final Widget? prefix;
+  final Widget? suffix;
 }
 
 class ProductPageTabBar extends StatelessWidget {
@@ -65,6 +67,9 @@ class ProductPageTabBar extends StatelessWidget {
                 .toList(growable: false),
             leadingItems: tabs
                 .map((ProductPageTab tab) => tab.prefix)
+                .toList(growable: false),
+            trailingItems: tabs
+                .map((ProductPageTab tab) => tab.suffix)
                 .toList(growable: false),
             onTabChanged: (_) {},
             overflowMainColor: context.lightTheme()
@@ -181,6 +186,7 @@ class ProductPageTabBar extends StatelessWidget {
           padding: EdgeInsetsDirectional.zero,
           children: <Widget>[PricesCard(product)],
         ),
+        suffix: PricesCounter(product: product),
       ),
     );
 
