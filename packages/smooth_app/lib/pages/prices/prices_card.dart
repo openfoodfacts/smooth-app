@@ -69,8 +69,8 @@ class PricesCounter extends StatefulWidget {
 
   final Product product;
   final Widget Function(
-    GetPricesModel _model,
-    ProductPriceRefresher _productPriceRefresher,
+    GetPricesModel model,
+    ProductPriceRefresher productPriceRefresher,
   )?
   child;
 
