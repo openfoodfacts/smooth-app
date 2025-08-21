@@ -2,7 +2,7 @@ name: Deploy Flutter Web App to GitHub Pages
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "develop", "copilot/fix-6302" ]
   pull_request:
     branches: [ "develop" ]
   workflow_dispatch:
