@@ -1,0 +1,21 @@
+name: scanner_web
+description: Web-compatible scanner implementation
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  scanner_shared:
+    path: ../shared
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 6.0.0
+  openfoodfacts_flutter_lints:
+    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git

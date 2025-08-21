@@ -101,6 +101,9 @@ dependencies:
   scanner_zxing:
     path: ../scanner/zxing
 
+  scanner_web:
+    path: ../scanner/web_scanner
+
 
   openfoodfacts: 3.24.0
   # openfoodfacts:

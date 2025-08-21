@@ -1,0 +1,68 @@
+name: Deploy Flutter Web App to GitHub Pages
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/smooth_app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      # Get the Flutter version from ./flutter-version.txt
+      - run: echo "FLUTTER_VERSION=$(cat ../../flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          cache: true
+          cache-key: flutter-${{ hashFiles('../../flutter-version.txt')}}-${{ hashFiles('pubspec.lock')}}
+
+      - name: Install dependencies
+        run: |
+          cd ../..
+          ci/pub_upgrade.sh
+
+      - name: Build Flutter web
+        run: |
+          flutter build web --target=lib/entrypoints/web/main_web.dart --base-href="/smooth-app/" --release
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./packages/smooth_app/build/web
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
