@@ -3,6 +3,14 @@ import 'package:scanner_shared/scanner_shared.dart';
 
 /// Web-compatible scanner implementation
 /// This is a placeholder implementation for experimental web deployment
+/// 
+/// TODO: Integrate with ZXingJS for camera-based scanning:
+/// - Add js interop for ZXingJS library
+/// - Implement camera access using html.window.navigator.mediaDevices
+/// - Add proper error handling for camera permissions
+/// - Support multiple camera selection
+/// - Add flash/torch control where available
+/// - Maintain API compatibility with mobile scanners
 class ScannerWeb extends Scanner {
   const ScannerWeb();
 
