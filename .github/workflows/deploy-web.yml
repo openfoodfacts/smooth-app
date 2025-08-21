@@ -36,7 +36,7 @@ jobs:
         with:
           flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
           cache: true
-          cache-key: flutter-${{ hashFiles('../../flutter-version.txt')}}-${{ hashFiles('pubspec.lock')}}
+          cache-key: flutter-web-${{ hashFiles('../../flutter-version.txt')}}-${{ hashFiles('pubspec.lock')}}
 
       - name: Install dependencies
         run: |
@@ -45,7 +45,7 @@ jobs:
 
       - name: Build Flutter web
         run: |
-          flutter build web --target=lib/entrypoints/web/main_web.dart --base-href="/smooth-app/" --release
+          flutter build web --target=lib/entrypoints/web/main_web.dart --base-href="/smooth-app/" --release --verbose
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
