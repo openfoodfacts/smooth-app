@@ -10,9 +10,7 @@ void main() {
   launchSmoothApp(
     barcodeScanner: const ScannerWeb(),
     appStore: URIAppStore(
-      Uri.parse(
-        'https://openfoodfacts.github.io/smooth-app/',
-      ),
+      Uri.parse('https://openfoodfacts.github.io/smooth-app/'),
     ),
     scannerLabel: ScannerLabel.Test,
     storeLabel: StoreLabel.Test,

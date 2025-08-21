@@ -3,7 +3,7 @@ import 'package:scanner_shared/scanner_shared.dart';
 
 /// Web-compatible scanner implementation
 /// This is a placeholder implementation for experimental web deployment
-/// 
+///
 /// TODO: Integrate with ZXingJS for camera-based scanning:
 /// - Add js interop for ZXingJS library
 /// - Implement camera access using html.window.navigator.mediaDevices
@@ -27,24 +27,21 @@ class ScannerWeb extends Scanner {
       String category, {
       int? eventValue,
       String? barcode,
-    }) trackCustomEvent,
+    })
+    trackCustomEvent,
     required bool hasMoreThanOneCamera,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
   }) {
-    return _WebScannerPlaceholder(
-      onScan: onScan,
-    );
+    return _WebScannerPlaceholder(onScan: onScan);
   }
 }
 
 /// Placeholder scanner widget for web
 /// TODO: Integrate with ZXingJS or a web-compatible barcode scanner
 class _WebScannerPlaceholder extends StatefulWidget {
-  const _WebScannerPlaceholder({
-    required this.onScan,
-  });
+  const _WebScannerPlaceholder({required this.onScan});
 
   final Future<bool> Function(String) onScan;
 
@@ -62,11 +59,7 @@ class _WebScannerPlaceholderState extends State<_WebScannerPlaceholder> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.camera_alt_outlined,
-            size: 80,
-            color: Colors.grey[400],
-          ),
+          Icon(Icons.camera_alt_outlined, size: 80, color: Colors.grey[400]),
           const SizedBox(height: 20),
           Text(
             'Web Scanner (Experimental)',
@@ -107,9 +100,9 @@ class _WebScannerPlaceholderState extends State<_WebScannerPlaceholder> {
           const SizedBox(height: 20),
           Text(
             'Camera scanning will be available in future updates\nwith ZXingJS integration.',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Colors.grey[600],
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: Colors.grey[600]),
             textAlign: TextAlign.center,
           ),
         ],

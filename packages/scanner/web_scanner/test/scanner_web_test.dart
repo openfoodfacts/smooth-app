@@ -14,7 +14,13 @@ void main() {
         onScan: (String barcode) async => true,
         hapticFeedback: () async {},
         onCameraFlashError: null,
-        trackCustomEvent: (String msg, String category, {int? eventValue, String? barcode}) {},
+        trackCustomEvent:
+            (
+              String msg,
+              String category, {
+              int? eventValue,
+              String? barcode,
+            }) {},
         hasMoreThanOneCamera: false,
       );
       expect(widget, isNotNull);
