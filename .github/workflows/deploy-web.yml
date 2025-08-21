@@ -36,7 +36,7 @@ jobs:
         with:
           flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
           cache: true
-          cache-key: flutter-web-${{ hashFiles('../../flutter-version.txt')}}-${{ hashFiles('pubspec.lock')}}
+          cache-key: flutter-web-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages/smooth_app/pubspec.lock')}}
 
       - name: Install dependencies
         run: |
