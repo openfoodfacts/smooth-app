@@ -328,10 +328,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
         <RobotoffQuestion, InsightAnnotation?>{},
       );
 
-  InsightType? get _robotoffInsightType;
+  InsightType? get robotoffInsightType;
 
   Future<bool> _loadRobotoffQuestions() async {
-    final InsightType? type = _robotoffInsightType;
+    final InsightType? type = robotoffInsightType;
 
     if (type == null) {
       return false;
@@ -545,7 +545,7 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
       AnalyticsEditEvents.basicDetails;
 
   @override
-  InsightType get _robotoffInsightType => InsightType.BRAND;
+  InsightType get robotoffInsightType => InsightType.BRAND;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -622,7 +622,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.stores;
 
   @override
-  InsightType get _robotoffInsightType => InsightType.STORE;
+  InsightType get robotoffInsightType => InsightType.STORE;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -705,7 +705,7 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       );
 
   @override
-  InsightType? get _robotoffInsightType => null;
+  InsightType? get robotoffInsightType => null;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -822,7 +822,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   TextCapitalization getTextCapitalization() => TextCapitalization.characters;
 
   @override
-  InsightType? get _robotoffInsightType => null;
+  InsightType? get robotoffInsightType => null;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
@@ -923,7 +923,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       );
 
   @override
-  InsightType get _robotoffInsightType => InsightType.LABEL;
+  InsightType get robotoffInsightType => InsightType.LABEL;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -1025,7 +1025,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
 
   @override
-  InsightType get _robotoffInsightType => InsightType.CATEGORY;
+  InsightType get robotoffInsightType => InsightType.CATEGORY;
 }
 
 class SimpleInputPageCategoryNotFoodHelper
@@ -1163,7 +1163,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
 
   @override
-  InsightType? get _robotoffInsightType => null;
+  InsightType? get robotoffInsightType => null;
 
   @override
   void dispose() {

@@ -71,4 +71,7 @@ class SimpleInputPageTraceHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.traces;
+
+  @override
+  InsightType? get robotoffInsightType => null;
 }
