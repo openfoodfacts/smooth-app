@@ -1005,6 +1005,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Fehlende Produktkategorie hinzufügen';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Fehlende Produktländer hinzufügen';
 
@@ -2702,7 +2706,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Alle Preise für dieses Produkt anzeigen';
 
   @override
   String get prices_entry_menu_open_proof => 'Proof ansehen';

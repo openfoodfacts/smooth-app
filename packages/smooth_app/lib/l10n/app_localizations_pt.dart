@@ -1001,6 +1001,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get score_add_missing_product_category => 'Selecionar uma categoria';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Adicionar países que faltam de produtos';
 
@@ -2702,7 +2706,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Ver todos os preços deste produto';
 
   @override
   String get prices_entry_menu_open_proof => 'Ver prova';
@@ -7517,6 +7521,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String prices_entry_menu_title(String user) {
     return 'Entrada de preço a partir de \"$user\"';
   }
+
+  @override
+  String get prices_entry_menu_open_product_prices =>
+      'Ver todos os preços deste produto';
 
   @override
   String get prices_entry_menu_open_proof => 'Ver prova';

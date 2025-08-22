@@ -296,7 +296,7 @@ Widget addPanelButton(
   final String label, {
   final Widget? leadingIcon,
   final Widget? trailingIcon,
-  final String? textAlign,
+  final TextAlign? textAlign,
   final EdgeInsetsGeometry? padding,
   required final Function() onPressed,
   BorderRadiusGeometry? borderRadius,
@@ -310,9 +310,9 @@ Widget addPanelButton(
     borderRadius: borderRadius,
     elevation: elevation,
     onPressed: onPressed,
-    textAlign: leadingIcon == null && trailingIcon == null
-        ? TextAlign.center
-        : null,
+    textAlign:
+        textAlign ??
+        (leadingIcon == null && trailingIcon == null ? TextAlign.center : null),
     padding: padding,
   ),
 );

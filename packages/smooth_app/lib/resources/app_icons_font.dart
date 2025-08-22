@@ -139,11 +139,6 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData packaging = IconData(
-    0xe81a,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
   static const IconData toggle_camera = IconData(
     0xe81b,
     fontFamily: _kFontFam,
@@ -729,6 +724,41 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData factory_icon = IconData(
+    0xe896,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData certification = IconData(
+    0xe897,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData ingredients_alt = IconData(
+    0xe898,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData milk_certification = IconData(
+    0xe899,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData packaging = IconData(
+    0xe89a,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData traces = IconData(
+    0xe89c,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData shopping_cart = IconData(
+    0xe89d,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData share_cupertino = IconData(
     0xe8a4,
     fontFamily: _kFontFam,
@@ -736,11 +766,6 @@ class _IconsFont {
   );
   static const IconData share_material = IconData(
     0xe8a5,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
-  static const IconData ingredients_alt = IconData(
-    0xe8e0,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );

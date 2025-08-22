@@ -997,6 +997,10 @@ class AppLocalizationsRo extends AppLocalizations {
   String get score_add_missing_product_category => 'Selectați o categorie';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Adăugați țările care lipsesc';
 
@@ -2691,7 +2695,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Vezi toate prețurile pentru acest produs';
 
   @override
   String get prices_entry_menu_open_proof => 'Vizualizați dovada';

@@ -1012,6 +1012,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ajouter une catégorie de produit manquante';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Ajouter les pays de vente manquants';
 

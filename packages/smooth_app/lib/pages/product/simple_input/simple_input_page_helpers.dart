@@ -613,7 +613,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => null;
 
   @override
-  Widget getIcon() => const Icon(Icons.shopping_cart);
+  Widget getIcon() => const icons.ShoppingCart();
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.stores;
@@ -801,7 +801,10 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.EMB_CODES;
 
   @override
-  Widget getIcon() => const Icon(Icons.factory);
+  Widget getIcon() => const Padding(
+    padding: EdgeInsetsDirectional.only(bottom: 2.0),
+    child: icons.Factory(),
+  );
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.embCodes;
@@ -905,7 +908,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.LABELS;
 
   @override
-  Widget getIcon() => const Icon(Icons.local_offer);
+  Widget getIcon() => const icons.Certification();
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.labels;
@@ -956,8 +959,12 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_categories_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
-      appLocalizations.score_add_missing_product_category;
+  String getAddButtonLabel(final AppLocalizations appLocalizations) {
+    if (terms.isNotEmpty) {
+      return appLocalizations.score_add_missing_precise_product_category;
+    }
+    return appLocalizations.score_add_missing_product_category;
+  }
 
   @override
   String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>

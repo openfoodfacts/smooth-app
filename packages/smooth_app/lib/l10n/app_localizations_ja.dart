@@ -956,6 +956,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get score_add_missing_product_category => '不足している製品カテゴリを追加';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries => '不足している製品の国を追加';
 
   @override
@@ -2595,8 +2599,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+  String get prices_entry_menu_open_product_prices => 'この商品のすべての価格を見る';
 
   @override
   String get prices_entry_menu_open_proof => '証拠を見る';

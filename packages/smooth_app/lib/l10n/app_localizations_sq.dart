@@ -990,6 +990,10 @@ class AppLocalizationsSq extends AppLocalizations {
       'Shto kategorine e munguar te produktit.';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -2661,7 +2665,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Shikoni të gjitha çmimet për këtë produkt';
 
   @override
   String get prices_entry_menu_open_proof => 'Shiko provën';

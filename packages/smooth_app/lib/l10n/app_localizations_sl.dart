@@ -987,6 +987,10 @@ class AppLocalizationsSl extends AppLocalizations {
       'Dodaj manjkajočo kategorijo izdelka';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -2666,7 +2670,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Oglejte si vse cene za ta izdelek';
 
   @override
   String get prices_entry_menu_open_proof => 'Ogled dokazila';

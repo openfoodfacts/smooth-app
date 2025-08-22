@@ -995,6 +995,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get score_add_missing_product_category => 'Kategória kiválasztása';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Termék országainak pótlása';
 
@@ -2679,7 +2683,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Tekintse meg a termék összes árát';
 
   @override
   String get prices_entry_menu_open_proof => 'Nézetbizonyítás';

@@ -976,6 +976,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get score_add_missing_product_category => 'إضافة فئة المنتج مفقودة';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -2644,7 +2648,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'عرض جميع الأسعار لهذا المنتج';
 
   @override
   String get prices_entry_menu_open_proof => 'عرض الدليل';
