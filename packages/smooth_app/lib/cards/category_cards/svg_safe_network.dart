@@ -20,9 +20,9 @@ import 'package:smooth_app/services/smooth_services.dart';
 class SvgSafeNetwork extends StatefulWidget {
   const SvgSafeNetwork(
     this.helper, {
+    required super.key,
     this.loadingBuilder,
     this.errorBuilder,
-    required super.key,
   });
 
   final AssetCacheHelper helper;

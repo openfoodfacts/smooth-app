@@ -61,8 +61,8 @@ class _ProductPricesListState extends State<ProductPricesList>
 /// A manager for handling price data with infinite scrolling
 class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   _InfiniteScrollPriceManager({
-    GetPricesResult? pricesResult,
     required this.model,
+    GetPricesResult? pricesResult,
   }) : super(
          initialItems: pricesResult?.items,
          totalItems: pricesResult?.total,

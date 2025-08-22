@@ -5,8 +5,8 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 class SearchAppBarTitle extends StatelessWidget {
   const SearchAppBarTitle({
     required this.title,
-    this.multiLines = true,
     required this.editableAppBarTitle,
+    this.multiLines = true,
     super.key,
   });
 

@@ -7,8 +7,8 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 class ProductQuestionAnswersOptions extends StatelessWidget {
   const ProductQuestionAnswersOptions(
     this.question, {
-    super.key,
     required this.onAnswer,
+    super.key,
   });
 
   final RobotoffQuestion question;

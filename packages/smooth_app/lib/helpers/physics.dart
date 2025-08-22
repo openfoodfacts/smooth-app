@@ -372,7 +372,7 @@ class _CustomScrollBehavior extends ScrollBehavior {
 }
 
 class HorizontalSnapScrollPhysics extends ScrollPhysics {
-  const HorizontalSnapScrollPhysics({super.parent, required this.snapSize});
+  const HorizontalSnapScrollPhysics({required this.snapSize, super.parent});
 
   final double snapSize;
 

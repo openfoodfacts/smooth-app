@@ -9,9 +9,9 @@ import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 class SmoothErrorCard extends StatefulWidget {
   const SmoothErrorCard({
-    super.key,
     required this.errorMessage,
     required this.tryAgainFunction,
+    super.key,
   });
 
   final String errorMessage;

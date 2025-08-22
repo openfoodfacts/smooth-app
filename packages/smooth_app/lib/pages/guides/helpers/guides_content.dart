@@ -109,9 +109,9 @@ class _GuidesPageBodyState extends State<_GuidesPageBody>
 
 class GuidesParagraph extends StatelessWidget {
   const GuidesParagraph({
-    super.key,
     required this.title,
     required this.content,
+    super.key,
   });
 
   static const double _HORIZONTAL_PADDING = 20.0;

@@ -10,12 +10,12 @@ import 'package:smooth_app/widgets/text/text_highlighter.dart';
 /// Inspiration was found in https://stackoverflow.com/questions/66935362
 class AutocompleteOptions<T extends Object> extends StatelessWidget {
   const AutocompleteOptions({
-    super.key,
     required this.displayStringForOption,
     required this.onSelected,
     required this.options,
     required this.maxOptionsHeight,
     required this.maxOptionsWidth,
+    super.key,
     this.search,
   }) : assert(maxOptionsHeight >= 0),
        assert(maxOptionsWidth >= 0);

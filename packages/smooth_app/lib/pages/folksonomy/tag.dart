@@ -3,7 +3,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class Tag extends StatelessWidget {
-  const Tag({super.key, required this.text});
+  const Tag({required this.text, super.key});
   final String text;
 
   @override

@@ -19,19 +19,19 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class ProductImageSwipeableView extends StatefulWidget {
   /// Version with the 4 main [ImageField].
   const ProductImageSwipeableView({
-    super.key,
     required this.product,
     required this.initialImageIndex,
     required this.isLoggedInMandatory,
+    super.key,
     this.initialLanguage,
   }) : imageField = null;
 
   /// Version with only one main [ImageField].
   const ProductImageSwipeableView.imageField({
-    super.key,
     required this.product,
     required this.imageField,
     required this.isLoggedInMandatory,
+    super.key,
     this.initialLanguage,
   }) : initialImageIndex = 0;
 

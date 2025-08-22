@@ -25,9 +25,9 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 ///   be "smart" by guessing the order based on the axis
 class SmoothAlertDialog extends StatelessWidget {
   const SmoothAlertDialog({
+    required this.body,
     this.title,
     this.leadingTitle,
-    required this.body,
     this.positiveAction,
     this.negativeAction,
     this.neutralAction,

@@ -93,10 +93,10 @@ const EdgeInsetsGeometry SMOOTH_CARD_PADDING = EdgeInsetsDirectional.symmetric(
 
 /// A SmoothCard on Product cards using default margin and padding.
 Widget buildProductSmoothCard({
+  required Widget body,
   Widget? header,
   Widget? title,
   EdgeInsetsGeometry? titlePadding,
-  required Widget body,
   EdgeInsetsGeometry? padding = EdgeInsets.zero,
   EdgeInsetsGeometry? margin = const EdgeInsets.symmetric(
     horizontal: SMALL_SPACE,
@@ -294,11 +294,11 @@ List<Attribute> getFilteredAttributes(
 
 Widget addPanelButton(
   final String label, {
+  required final Function() onPressed,
   final Widget? leadingIcon,
   final Widget? trailingIcon,
   final String? textAlign,
   final EdgeInsetsGeometry? padding,
-  required final Function() onPressed,
   BorderRadiusGeometry? borderRadius,
   WidgetStateProperty<double?>? elevation,
 }) => Padding(
