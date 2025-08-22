@@ -18,7 +18,7 @@ class AddSimpleInputButton extends StatelessWidget {
     helper.reInit(product);
     return addPanelButton(
       helper.getAddButtonLabel(AppLocalizations.of(context)),
-      leadingIcon: icons.Edit(),
+      leadingIcon: const icons.Edit(),
       textAlign: TextAlign.center,
       onPressed: () async => ProductFieldSimpleEditor(
         helper,
