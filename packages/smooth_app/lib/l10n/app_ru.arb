@@ -1007,7 +1007,7 @@
       }
     }
   },
-  "product_tags_title": "Свойства товара",
+  "product_tags_title": "Свойства продукта",
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
@@ -1015,8 +1015,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "add_tag": "Add property",
-  "add_tags": "Добавить свойство",
+  "add_tag": "Добавить свойство",
+  "add_tags": "Добавить свойства",
   "add_edit_tags": "Добавить или изменить свойства",
   "edit_tag": "Изменить свойство",
   "remove_tag": "Удалить свойство",
@@ -1024,7 +1024,7 @@
   "tag_key_uneditable": "Свойство (нередактируемое)",
   "tag_key_input_hint": "Введите свойство",
   "tag_value": "Значение",
-  "tag_value_input_hint": "Введите цену",
+  "tag_value_input_hint": "Введите значение",
   "tag_key_item": "Свойство:",
   "tag_value_item": "Цена:",
   "tag_key_explanations": "Ключ должен быть написан строчными буквами и не содержать пробелов.",
