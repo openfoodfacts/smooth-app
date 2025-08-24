@@ -3410,7 +3410,7 @@
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "Следующий {count,plural,  one {}  few {{count} вопросы}  many {{count} вопросы}=1{вопрос} other{{count} вопросы}}",
+  "robotoff_next_n_questions": "{count,plural,  one{Следующий {count} вопрос}  few{Следующие {count} вопроса}  many{Следующие {count} вопросов} =1{Следующий вопрос} other{}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
