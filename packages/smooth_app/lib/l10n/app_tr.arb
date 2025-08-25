@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Eksik besin değerlerini ekle",
   "score_add_missing_product_traces": "Eksik ürün izlerini ekleyin",
   "score_add_missing_product_category": "Eksik ürün kategori bilgisini ekle",
+  "score_add_missing_precise_product_category": "Daha kesin bir kategori seçin",
   "score_add_missing_product_countries": "Eksik ürün ülkelerini ekleyin",
   "score_add_missing_product_emb": "Eksik ürün izlenebilirlik kodlarını ekleyin",
   "score_add_missing_product_labels": "Eksik ürün etiketlerini ekleyin",
