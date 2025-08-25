@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Προσθήκη διατροφικών στοιχείων που λείπουν",
   "score_add_missing_product_traces": "Προσθήκη ιχνών προϊόντων που λείπουν",
   "score_add_missing_product_category": "Προσθήκη κατηγορίας",
+  "score_add_missing_precise_product_category": "Επιλέξτε μια πιο ακριβή κατηγορία",
   "score_add_missing_product_countries": "Προσθήκη χωρών προϊόντος που λείπουν",
   "score_add_missing_product_emb": "Προσθήκη κωδικών ιχνηλασιμότητας προϊόντος που λείπουν",
   "score_add_missing_product_labels": "Προσθήκη ετικετών προϊόντος που λείπουν",
