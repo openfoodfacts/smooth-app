@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Ajouter les informations nutritionnelles manquantes",
   "score_add_missing_product_traces": "Ajouter des traces de produits manquantes",
   "score_add_missing_product_category": "Ajouter une catégorie de produit manquante",
+  "score_add_missing_precise_product_category": "Sélectionnez une catégorie plus précise",
   "score_add_missing_product_countries": "Ajouter les pays de vente manquants",
   "score_add_missing_product_emb": "Ajouter les codes de traçabilité manquants",
   "score_add_missing_product_labels": "Ajouter les labels manquants",
