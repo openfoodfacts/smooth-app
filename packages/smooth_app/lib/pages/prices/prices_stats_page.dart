@@ -261,8 +261,8 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
 
   Widget _getDataTile({
     required int? value,
-    int? denominator,
     required String description,
+    int? denominator,
   }) {
     if (value == null) {
       return EMPTY_WIDGET;

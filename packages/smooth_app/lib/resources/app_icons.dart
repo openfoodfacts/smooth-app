@@ -488,8 +488,8 @@ class CircledArrow extends AppIcon {
        );
 
   const CircledArrow._base({
-    CircledArrowType? type,
     required this.turns,
+    CircledArrowType? type,
     this.circleColor,
     super.color,
     super.size,
@@ -1730,8 +1730,8 @@ abstract class AppIcon extends StatelessWidget {
 /// If not provided, the default [IconTheme] will be used (which lacks a [shadow])
 class AppIconTheme extends InheritedWidget {
   const AppIconTheme({
-    super.key,
     required super.child,
+    super.key,
     this.color,
     this.size,
     this.shadow,

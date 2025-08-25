@@ -84,7 +84,7 @@ bool _hasDiscount(Price price) {
 }
 
 class PriceDataDiscountedValue extends StatelessWidget {
-  const PriceDataDiscountedValue({super.key, required this.price});
+  const PriceDataDiscountedValue({required this.price, super.key});
 
   final Price price;
 

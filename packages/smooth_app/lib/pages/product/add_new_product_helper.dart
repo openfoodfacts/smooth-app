@@ -121,9 +121,9 @@ class AddNewProductEditorButton extends StatelessWidget {
   const AddNewProductEditorButton(
     this.product,
     this.editor, {
+    required this.isLoggedInMandatory,
     this.forceIconData,
     this.disabled = false,
-    required this.isLoggedInMandatory,
   });
 
   final Product product;

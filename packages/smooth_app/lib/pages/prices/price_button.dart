@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 /// Simple price button: displaying data with optional action.
 class PriceButton extends StatelessWidget {
   const PriceButton({
+    required this.onPressed,
     this.title,
     this.iconData,
     this.buttonStyle,
     this.tooltip,
-    required this.onPressed,
   });
 
   final String? title;

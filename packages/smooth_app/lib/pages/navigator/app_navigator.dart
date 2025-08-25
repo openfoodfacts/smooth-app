@@ -42,9 +42,9 @@ import 'package:smooth_app/widgets/text/text_extensions.dart';
 /// /!\ [GoRouter] doesn't support [maybePop] or returning a result from a push.
 class AppNavigator extends InheritedWidget {
   AppNavigator({
+    required super.child,
     super.key,
     List<NavigatorObserver>? observers,
-    required super.child,
   }) : _router = _SmoothGoRouter(observers: observers);
 
   // GoRouter is never accessible directly

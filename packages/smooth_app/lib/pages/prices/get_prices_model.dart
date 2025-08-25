@@ -10,11 +10,11 @@ import 'package:smooth_app/query/product_query.dart';
 class GetPricesModel {
   const GetPricesModel({
     required this.parameters,
+    required this.uri,
+    required this.title,
     this.displayEachOwner = true,
     this.displayEachProduct = true,
     this.displayEachLocation = true,
-    required this.uri,
-    required this.title,
     this.lazyCounterPrices,
     this.enableCountButton = true,
     this.subtitle,

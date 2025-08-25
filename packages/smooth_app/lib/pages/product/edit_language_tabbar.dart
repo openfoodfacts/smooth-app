@@ -19,11 +19,11 @@ import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
 class EditLanguageTabBar extends StatefulWidget {
   const EditLanguageTabBar({
-    super.key,
     required this.productEquality,
     required this.productLanguages,
     required this.onTabChanged,
     required this.forceUserLanguage,
+    super.key,
     this.defaultLanguageMissingState = OpenFoodFactsLanguageState.warning,
     this.mainLanguageMissingState = OpenFoodFactsLanguageState.warning,
     this.userLanguageMissingState,
@@ -35,11 +35,11 @@ class EditLanguageTabBar extends StatefulWidget {
   });
 
   const EditLanguageTabBar.noIndicator({
-    super.key,
     required this.productEquality,
     required this.productLanguages,
     required this.onTabChanged,
     required this.forceUserLanguage,
+    super.key,
     this.padding = const EdgeInsetsDirectional.only(start: 55.0),
   }) : defaultLanguageMissingState = OpenFoodFactsLanguageState.normal,
        mainLanguageMissingState = OpenFoodFactsLanguageState.normal,

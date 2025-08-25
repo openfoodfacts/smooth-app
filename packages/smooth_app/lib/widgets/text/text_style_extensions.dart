@@ -21,6 +21,7 @@ class WellSpacedTextHelper {
   );
 
   static Widget mergeWithWellSpacedTextStyle({
+    required Widget child,
     Key? key,
     TextStyle? style,
     TextAlign? textAlign,
@@ -28,7 +29,6 @@ class WellSpacedTextHelper {
     TextOverflow? overflow,
     int? maxLines,
     TextWidthBasis? textWidthBasis,
-    required Widget child,
   }) => DefaultTextStyle.merge(
     child: child,
     key: key,

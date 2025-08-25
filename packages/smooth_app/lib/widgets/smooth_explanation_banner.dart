@@ -185,9 +185,9 @@ class ExplanationBodyInfo extends StatelessWidget {
 
 class ExplanationTextContainer extends StatelessWidget {
   const ExplanationTextContainer({
-    super.key,
     required this.title,
     required this.items,
+    super.key,
   });
 
   final String title;

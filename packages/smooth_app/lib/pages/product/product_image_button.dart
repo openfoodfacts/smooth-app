@@ -64,8 +64,8 @@ enum ProductImageButtonType {
     required final ImageField imageField,
     required final OpenFoodFactsLanguage language,
     required final bool isLoggedInMandatory,
-    final double? borderWidth,
     required bool imageExists,
+    final double? borderWidth,
   }) => switch (this) {
     ProductImageButtonType.local => ProductImageLocalButton(
       product: product,
