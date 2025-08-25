@@ -49,9 +49,9 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">AppNavigator</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-observers"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">observers</span>, </span></li>
-<li><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>}</span></li>
+      <span class="name ">AppNavigator</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-child">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="-param-observers"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">observers</span>}</span></li>
 </ol>)
     </section>
 
@@ -62,9 +62,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">AppNavigator({
+  required super.child,
   super.key,
   List&lt;NavigatorObserver&gt;? observers,
-  required super.child,
 }) : _router = _SmoothGoRouter(observers: observers);</code></pre>
 </section>
 

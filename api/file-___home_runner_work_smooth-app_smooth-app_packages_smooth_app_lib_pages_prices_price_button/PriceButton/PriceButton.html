@@ -49,11 +49,11 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">PriceButton</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-title">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
+      <span class="name ">PriceButton</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-onPressed">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPressed</span>, </span></li>
+<li><span class="parameter" id="-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="-param-iconData"><span class="type-annotation">dynamic</span> <span class="parameter-name">iconData</span>, </span></li>
 <li><span class="parameter" id="-param-buttonStyle"><span class="type-annotation">dynamic</span> <span class="parameter-name">buttonStyle</span>, </span></li>
-<li><span class="parameter" id="-param-tooltip"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tooltip</span>, </span></li>
-<li><span class="parameter" id="-param-onPressed"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPressed</span>}</span></li>
+<li><span class="parameter" id="-param-tooltip"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tooltip</span>}</span></li>
 </ol>)
     </section>
 
@@ -64,11 +64,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const PriceButton({
+  required this.onPressed,
   this.title,
   this.iconData,
   this.buttonStyle,
   this.tooltip,
-  required this.onPressed,
 });</code></pre>
 </section>
 

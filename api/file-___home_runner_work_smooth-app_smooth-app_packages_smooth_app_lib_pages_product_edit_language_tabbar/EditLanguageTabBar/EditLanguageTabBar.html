@@ -49,13 +49,13 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">EditLanguageTabBar</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-productEquality"><span>required</span> <span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_edit_language_tabbar/DidProductChanged.html">DidProductChanged</a></span> <span class="parameter-name">productEquality</span>, </span></li>
+      <span class="name ">EditLanguageTabBar</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-productEquality">{<span>required</span> <span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_edit_language_tabbar/DidProductChanged.html">DidProductChanged</a></span> <span class="parameter-name">productEquality</span>, </span></li>
 <li><span class="parameter" id="-param-productLanguages"><span>required</span> <span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_edit_language_tabbar/ProductLanguagesProvider.html">ProductLanguagesProvider</a></span> <span class="parameter-name">productLanguages</span>, </span></li>
 <li><span class="parameter" id="-param-onTabChanged"><span>required</span> <span class="type-annotation">void</span> <span class="parameter-name">onTabChanged</span>(<ol class="parameter-list"><li><span class="parameter" id="param-language"><span class="type-annotation">dynamic</span> <span class="parameter-name">language</span></span></li>
 </ol>
 ), </span></li>
 <li><span class="parameter" id="-param-forceUserLanguage"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceUserLanguage</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
 <li><span class="parameter" id="-param-defaultLanguageMissingState"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a></span> <span class="parameter-name">defaultLanguageMissingState</span> = <span class="default-value">OpenFoodFactsLanguageState.warning</span>, </span></li>
 <li><span class="parameter" id="-param-mainLanguageMissingState"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a></span> <span class="parameter-name">mainLanguageMissingState</span> = <span class="default-value">OpenFoodFactsLanguageState.warning</span>, </span></li>
 <li><span class="parameter" id="-param-userLanguageMissingState"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a>?</span> <span class="parameter-name">userLanguageMissingState</span>, </span></li>
@@ -74,11 +74,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const EditLanguageTabBar({
-  super.key,
   required this.productEquality,
   required this.productLanguages,
   required this.onTabChanged,
   required this.forceUserLanguage,
+  super.key,
   this.defaultLanguageMissingState = OpenFoodFactsLanguageState.warning,
   this.mainLanguageMissingState = OpenFoodFactsLanguageState.warning,
   this.userLanguageMissingState,

@@ -49,9 +49,9 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">SmoothAlertDialog</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-title">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
+      <span class="name ">SmoothAlertDialog</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-body">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span></li>
+<li><span class="parameter" id="-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="-param-leadingTitle"><span class="type-annotation">dynamic</span> <span class="parameter-name">leadingTitle</span>, </span></li>
-<li><span class="parameter" id="-param-body"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span></li>
 <li><span class="parameter" id="-param-positiveAction"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> <span class="parameter-name">positiveAction</span>, </span></li>
 <li><span class="parameter" id="-param-negativeAction"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> <span class="parameter-name">negativeAction</span>, </span></li>
 <li><span class="parameter" id="-param-neutralAction"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> <span class="parameter-name">neutralAction</span>, </span></li>
@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const SmoothAlertDialog({
+  required this.body,
   this.title,
   this.leadingTitle,
-  required this.body,
   this.positiveAction,
   this.negativeAction,
   this.neutralAction,

@@ -49,11 +49,11 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">SmoothDraggableBottomSheet</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-headerBuilder"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">headerBuilder</span>, </span></li>
+      <span class="name ">SmoothDraggableBottomSheet</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-headerBuilder">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">headerBuilder</span>, </span></li>
 <li><span class="parameter" id="-param-headerHeight"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">headerHeight</span>, </span></li>
 <li><span class="parameter" id="-param-bodyBuilder"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">bodyBuilder</span>, </span></li>
 <li><span class="parameter" id="-param-borderRadius"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
 <li><span class="parameter" id="-param-initHeightFraction"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">initHeightFraction</span> = <span class="default-value">0.5</span>, </span></li>
 <li><span class="parameter" id="-param-minHeightFraction"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minHeightFraction</span>, </span></li>
 <li><span class="parameter" id="-param-maxHeightFraction"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">maxHeightFraction</span> = <span class="default-value">1.0</span>, </span></li>
@@ -70,11 +70,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const SmoothDraggableBottomSheet({
-  super.key,
   required this.headerBuilder,
   required this.headerHeight,
   required this.bodyBuilder,
   required this.borderRadius,
+  super.key,
   this.initHeightFraction = 0.5,
   this.minHeightFraction,
   this.maxHeightFraction = 1.0,

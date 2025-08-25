@@ -49,10 +49,10 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">SmoothCheckbox</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-value"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">value</span>, </span></li>
-<li><span class="parameter" id="-param-tristate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">tristate</span> = <span class="default-value">false</span>, </span></li>
+      <span class="name ">SmoothCheckbox</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-value">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">value</span>, </span></li>
 <li><span class="parameter" id="-param-onChanged"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onChanged</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="-param-tristate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">tristate</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="-param-mouseCursor"><span class="type-annotation">dynamic</span> <span class="parameter-name">mouseCursor</span>, </span></li>
 <li><span class="parameter" id="-param-activeColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">activeColor</span>, </span></li>
 <li><span class="parameter" id="-param-fillColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">fillColor</span>, </span></li>
@@ -79,10 +79,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const SmoothCheckbox({
-  super.key,
   required this.value,
-  this.tristate = false,
   required this.onChanged,
+  super.key,
+  this.tristate = false,
   this.mouseCursor,
   this.activeColor,
   this.fillColor,

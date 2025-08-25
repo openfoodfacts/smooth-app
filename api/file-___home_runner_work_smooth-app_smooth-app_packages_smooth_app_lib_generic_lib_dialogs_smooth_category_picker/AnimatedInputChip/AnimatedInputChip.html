@@ -49,10 +49,10 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">AnimatedInputChip</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-backgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">backgroundColor</span>, </span></li>
-<li><span class="parameter" id="-param-visible"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">visible</span>, </span></li>
+      <span class="name ">AnimatedInputChip</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-visible">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">visible</span>, </span></li>
 <li><span class="parameter" id="-param-label"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">label</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="-param-backgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">backgroundColor</span>, </span></li>
 <li><span class="parameter" id="-param-onDeleted"><span class="type-annotation">dynamic</span> <span class="parameter-name">onDeleted</span>, </span></li>
 <li><span class="parameter" id="-param-onAnimationEnd"><span class="type-annotation">dynamic</span> <span class="parameter-name">onAnimationEnd</span>}</span></li>
 </ol>)
@@ -65,10 +65,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const AnimatedInputChip({
-  Key? key,
-  this.backgroundColor,
   required this.visible,
   required this.label,
+  Key? key,
+  this.backgroundColor,
   this.onDeleted,
   this.onAnimationEnd,
 }) : super(key: key);</code></pre>

@@ -52,8 +52,8 @@
       <span class="name ">PriceModel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-proofType">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">proofType</span>, </span></li>
 <li><span class="parameter" id="-param-locations"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">locations</span>, </span></li>
 <li><span class="parameter" id="-param-currency"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">currency</span>, </span></li>
-<li><span class="parameter" id="-param-initialProduct"><span class="type-annotation">dynamic</span> <span class="parameter-name">initialProduct</span>, </span></li>
 <li><span class="parameter" id="-param-multipleProducts"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multipleProducts</span>, </span></li>
+<li><span class="parameter" id="-param-initialProduct"><span class="type-annotation">dynamic</span> <span class="parameter-name">initialProduct</span>, </span></li>
 <li><span class="parameter" id="-param-readyForPriceTagValidation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">readyForPriceTagValidation</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
     </section>
@@ -68,8 +68,8 @@
   required final ProofType proofType,
   required final List&lt;OsmLocation&gt;? locations,
   required final Currency currency,
-  final PriceMetaProduct? initialProduct,
   required this.multipleProducts,
+  final PriceMetaProduct? initialProduct,
   final bool readyForPriceTagValidation = false,
 }) : _proof = null,
      existingPrices = null,

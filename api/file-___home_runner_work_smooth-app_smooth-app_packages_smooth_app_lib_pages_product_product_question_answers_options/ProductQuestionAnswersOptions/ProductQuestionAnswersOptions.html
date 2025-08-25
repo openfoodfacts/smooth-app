@@ -50,10 +50,10 @@
 
     <section class="multi-line-signature">const
       <span class="name ">ProductQuestionAnswersOptions</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-question"><span class="type-annotation">dynamic</span> <span class="parameter-name">question</span>, </span></li>
-<li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-onAnswer"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onAnswer</span>(<ol class="parameter-list"><li><span class="parameter" id="param-"><span class="type-annotation">dynamic</span></span></li>
+<li><span class="parameter" id="-param-onAnswer">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onAnswer</span>(<ol class="parameter-list"><li><span class="parameter" id="param-"><span class="type-annotation">dynamic</span></span></li>
 </ol>
-)}</span></li>
+), </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>}</span></li>
 </ol>)
     </section>
 
@@ -65,8 +65,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const ProductQuestionAnswersOptions(
   this.question, {
-  super.key,
   required this.onAnswer,
+  super.key,
 });</code></pre>
 </section>
 

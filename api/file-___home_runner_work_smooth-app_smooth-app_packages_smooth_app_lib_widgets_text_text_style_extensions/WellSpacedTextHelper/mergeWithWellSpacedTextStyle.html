@@ -52,14 +52,14 @@
       
 
 <span class="returntype">dynamic</span>
-<span class="name ">mergeWithWellSpacedTextStyle</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
+<span class="name ">mergeWithWellSpacedTextStyle</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-child">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
 <li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-style"><span class="type-annotation">dynamic</span> <span class="parameter-name">style</span>, </span></li>
 <li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-textAlign"><span class="type-annotation">dynamic</span> <span class="parameter-name">textAlign</span>, </span></li>
 <li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-softWrap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">softWrap</span>, </span></li>
 <li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-overflow"><span class="type-annotation">dynamic</span> <span class="parameter-name">overflow</span>, </span></li>
 <li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-maxLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span>, </span></li>
-<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-textWidthBasis"><span class="type-annotation">dynamic</span> <span class="parameter-name">textWidthBasis</span>, </span></li>
-<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-child"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>}</span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-textWidthBasis"><span class="type-annotation">dynamic</span> <span class="parameter-name">textWidthBasis</span>}</span></li>
 </ol>)
 
       
@@ -72,6 +72,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Widget mergeWithWellSpacedTextStyle({
+  required Widget child,
   Key? key,
   TextStyle? style,
   TextAlign? textAlign,
@@ -79,7 +80,6 @@
   TextOverflow? overflow,
   int? maxLines,
   TextWidthBasis? textWidthBasis,
-  required Widget child,
 }) =&gt; DefaultTextStyle.merge(
   child: child,
   key: key,

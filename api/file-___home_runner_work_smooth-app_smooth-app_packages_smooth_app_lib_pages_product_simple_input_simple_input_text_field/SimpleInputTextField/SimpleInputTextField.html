@@ -55,6 +55,7 @@
 <li><span class="parameter" id="-param-tagType"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">tagType</span>, </span></li>
 <li><span class="parameter" id="-param-hintText"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">hintText</span>, </span></li>
 <li><span class="parameter" id="-param-controller"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span>, </span></li>
+<li><span class="parameter" id="-param-productType"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">productType</span>, </span></li>
 <li><span class="parameter" id="-param-autocompleteManager"><span class="type-annotation">dynamic</span> <span class="parameter-name">autocompleteManager</span>, </span></li>
 <li><span class="parameter" id="-param-withClearButton"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withClearButton</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="-param-minLengthForSuggestions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">minLengthForSuggestions</span> = <span class="default-value">1</span>, </span></li>
@@ -63,7 +64,6 @@
 )?, </span></li>
 <li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>, </span></li>
 <li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
-<li><span class="parameter" id="-param-productType"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">productType</span>, </span></li>
 <li><span class="parameter" id="-param-suffixIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">suffixIcon</span>, </span></li>
 <li><span class="parameter" id="-param-borderRadius"><span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>, </span></li>
 <li><span class="parameter" id="-param-textCapitalization"><span class="type-annotation">dynamic</span> <span class="parameter-name">textCapitalization</span>, </span></li>
@@ -84,6 +84,7 @@
   required this.tagType,
   required this.hintText,
   required this.controller,
+  required this.productType,
   this.autocompleteManager,
   this.withClearButton = false,
   this.minLengthForSuggestions = 1,
@@ -91,7 +92,6 @@
   this.shapeProvider,
   this.margin,
   this.padding,
-  required this.productType,
   this.suffixIcon,
   this.borderRadius,
   this.textCapitalization,

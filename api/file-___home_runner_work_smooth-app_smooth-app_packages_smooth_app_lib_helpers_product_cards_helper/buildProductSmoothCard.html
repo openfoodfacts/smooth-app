@@ -52,10 +52,10 @@
         
 
 <span class="returntype">dynamic</span>
-<span class="name ">buildProductSmoothCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="buildProductSmoothCard-param-header">{<span class="type-annotation">dynamic</span> <span class="parameter-name">header</span>, </span></li>
+<span class="name ">buildProductSmoothCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="buildProductSmoothCard-param-body">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span></li>
+<li><span class="parameter" id="buildProductSmoothCard-param-header"><span class="type-annotation">dynamic</span> <span class="parameter-name">header</span>, </span></li>
 <li><span class="parameter" id="buildProductSmoothCard-param-title"><span class="type-annotation">dynamic</span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="buildProductSmoothCard-param-titlePadding"><span class="type-annotation">dynamic</span> <span class="parameter-name">titlePadding</span>, </span></li>
-<li><span class="parameter" id="buildProductSmoothCard-param-body"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span></li>
 <li><span class="parameter" id="buildProductSmoothCard-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span> = <span class="default-value">EdgeInsets.zero</span>, </span></li>
 <li><span class="parameter" id="buildProductSmoothCard-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">const EdgeInsets.symmetric(horizontal: SMALL_SPACE)</span>, </span></li>
 <li><span class="parameter" id="buildProductSmoothCard-param-borderRadius"><span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>}</span></li>
@@ -72,10 +72,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget buildProductSmoothCard({
+  required Widget body,
   Widget? header,
   Widget? title,
   EdgeInsetsGeometry? titlePadding,
-  required Widget body,
   EdgeInsetsGeometry? padding = EdgeInsets.zero,
   EdgeInsetsGeometry? margin = const EdgeInsets.symmetric(
     horizontal: SMALL_SPACE,

@@ -53,8 +53,8 @@
 
 <span class="returntype">void</span>
 <span class="name ">trackProductEvent</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="trackProductEvent-param-msg"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsEvent.html">AnalyticsEvent</a></span> <span class="parameter-name">msg</span>, </span></li>
-<li><span class="parameter" id="trackProductEvent-param-eventValue">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">eventValue</span>, </span></li>
-<li><span class="parameter" id="trackProductEvent-param-product"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>}</span></li>
+<li><span class="parameter" id="trackProductEvent-param-product">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="trackProductEvent-param-eventValue"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">eventValue</span>}</span></li>
 </ol>)
 
       
@@ -68,8 +68,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static void trackProductEvent(
   AnalyticsEvent msg, {
-  int? eventValue,
   required Product product,
+  int? eventValue,
 }) =&gt; trackCustomEvent(
   msg.name,
   msg.category.tag,

@@ -51,9 +51,9 @@
     <section class="multi-line-signature">const
       <span class="name ">AddNewProductEditorButton</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
 <li><span class="parameter" id="-param-editor"><span class="type-annotation">dynamic</span> <span class="parameter-name">editor</span>, </span></li>
-<li><span class="parameter" id="-param-forceIconData">{<span class="type-annotation">dynamic</span> <span class="parameter-name">forceIconData</span>, </span></li>
-<li><span class="parameter" id="-param-disabled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">disabled</span> = <span class="default-value">false</span>, </span></li>
-<li><span class="parameter" id="-param-isLoggedInMandatory"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isLoggedInMandatory</span>}</span></li>
+<li><span class="parameter" id="-param-isLoggedInMandatory">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isLoggedInMandatory</span>, </span></li>
+<li><span class="parameter" id="-param-forceIconData"><span class="type-annotation">dynamic</span> <span class="parameter-name">forceIconData</span>, </span></li>
+<li><span class="parameter" id="-param-disabled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">disabled</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
     </section>
 
@@ -66,9 +66,9 @@
   <pre class="language-dart"><code class="language-dart">const AddNewProductEditorButton(
   this.product,
   this.editor, {
+  required this.isLoggedInMandatory,
   this.forceIconData,
   this.disabled = false,
-  required this.isLoggedInMandatory,
 });</code></pre>
 </section>
 

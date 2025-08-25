@@ -50,11 +50,11 @@
 
     <section class="multi-line-signature">const
       <span class="name ">GetPricesModel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-parameters">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">parameters</span>, </span></li>
+<li><span class="parameter" id="-param-uri"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">uri</span>, </span></li>
+<li><span class="parameter" id="-param-title"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="-param-displayEachOwner"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displayEachOwner</span> = <span class="default-value">true</span>, </span></li>
 <li><span class="parameter" id="-param-displayEachProduct"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displayEachProduct</span> = <span class="default-value">true</span>, </span></li>
 <li><span class="parameter" id="-param-displayEachLocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displayEachLocation</span> = <span class="default-value">true</span>, </span></li>
-<li><span class="parameter" id="-param-uri"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">uri</span>, </span></li>
-<li><span class="parameter" id="-param-title"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="-param-lazyCounterPrices"><span class="type-annotation">dynamic</span> <span class="parameter-name">lazyCounterPrices</span>, </span></li>
 <li><span class="parameter" id="-param-enableCountButton"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enableCountButton</span> = <span class="default-value">true</span>, </span></li>
 <li><span class="parameter" id="-param-subtitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">subtitle</span>, </span></li>
@@ -70,11 +70,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const GetPricesModel({
   required this.parameters,
+  required this.uri,
+  required this.title,
   this.displayEachOwner = true,
   this.displayEachProduct = true,
   this.displayEachLocation = true,
-  required this.uri,
-  required this.title,
   this.lazyCounterPrices,
   this.enableCountButton = true,
   this.subtitle,

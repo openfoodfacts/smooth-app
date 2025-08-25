@@ -49,9 +49,10 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">SmoothTextFormField</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-type"><span>required</span> <span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_text_form_field/TextFieldTypes.html">TextFieldTypes</a></span> <span class="parameter-name">type</span>, </span></li>
+      <span class="name ">SmoothTextFormField</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-type">{<span>required</span> <span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_text_form_field/TextFieldTypes.html">TextFieldTypes</a></span> <span class="parameter-name">type</span>, </span></li>
 <li><span class="parameter" id="-param-controller"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span>, </span></li>
+<li><span class="parameter" id="-param-hintText"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">hintText</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
 <li><span class="parameter" id="-param-enabled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enabled</span>, </span></li>
 <li><span class="parameter" id="-param-textInputAction"><span class="type-annotation">dynamic</span> <span class="parameter-name">textInputAction</span>, </span></li>
 <li><span class="parameter" id="-param-textCapitalization"><span class="type-annotation">dynamic</span> <span class="parameter-name">textCapitalization</span>, </span></li>
@@ -59,7 +60,6 @@
 </ol>
 )?, </span></li>
 <li><span class="parameter" id="-param-autofillHints"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">autofillHints</span>, </span></li>
-<li><span class="parameter" id="-param-hintText"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">hintText</span>, </span></li>
 <li><span class="parameter" id="-param-hintTextStyle"><span class="type-annotation">dynamic</span> <span class="parameter-name">hintTextStyle</span>, </span></li>
 <li><span class="parameter" id="-param-prefixIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">prefixIcon</span>, </span></li>
 <li><span class="parameter" id="-param-suffixIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">suffixIcon</span>, </span></li>
@@ -85,15 +85,15 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const SmoothTextFormField({
-  super.key,
   required this.type,
   required this.controller,
+  required this.hintText,
+  super.key,
   this.enabled,
   this.textInputAction,
   this.textCapitalization,
   this.validator,
   this.autofillHints,
-  required this.hintText,
   this.hintTextStyle,
   this.prefixIcon,
   this.suffixIcon,

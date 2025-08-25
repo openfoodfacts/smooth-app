@@ -53,8 +53,8 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">showProductPage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showProductPage-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="showProductPage-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
-<li><span class="parameter" id="showProductPage-param-proofType"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">proofType</span>}</span></li>
+<li><span class="parameter" id="showProductPage-param-proofType"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">proofType</span>, </span></li>
+<li><span class="parameter" id="showProductPage-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>}</span></li>
 </ol>)
 
       
@@ -68,8 +68,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showProductPage({
   required final BuildContext context,
-  final PriceMetaProduct? product,
   required final ProofType proofType,
+  final PriceMetaProduct? product,
 }) async {
   if (!await ProductRefresher().checkIfLoggedIn(
     context,
