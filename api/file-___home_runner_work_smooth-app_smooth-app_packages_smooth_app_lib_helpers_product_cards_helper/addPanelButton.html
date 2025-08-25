@@ -57,7 +57,7 @@
 ), </span></li>
 <li><span class="parameter" id="addPanelButton-param-leadingIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">leadingIcon</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-trailingIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">trailingIcon</span>, </span></li>
-<li><span class="parameter" id="addPanelButton-param-textAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">textAlign</span>, </span></li>
+<li><span class="parameter" id="addPanelButton-param-textAlign"><span class="type-annotation">dynamic</span> <span class="parameter-name">textAlign</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-borderRadius"><span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-elevation"><span class="type-annotation">dynamic</span> <span class="parameter-name">elevation</span>}</span></li>
@@ -75,7 +75,7 @@
   required final Function() onPressed,
   final Widget? leadingIcon,
   final Widget? trailingIcon,
-  final String? textAlign,
+  final TextAlign? textAlign,
   final EdgeInsetsGeometry? padding,
   BorderRadiusGeometry? borderRadius,
   WidgetStateProperty&lt;double?&gt;? elevation,
@@ -88,9 +88,9 @@
     borderRadius: borderRadius,
     elevation: elevation,
     onPressed: onPressed,
-    textAlign: leadingIcon == null &amp;&amp; trailingIcon == null
-        ? TextAlign.center
-        : null,
+    textAlign:
+        textAlign ??
+        (leadingIcon == null &amp;&amp; trailingIcon == null ? TextAlign.center : null),
     padding: padding,
   ),
 );</code></pre>

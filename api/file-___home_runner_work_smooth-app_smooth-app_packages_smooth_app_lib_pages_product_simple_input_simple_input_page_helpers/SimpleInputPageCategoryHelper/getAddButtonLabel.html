@@ -73,8 +73,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-String getAddButtonLabel(final AppLocalizations appLocalizations) =&gt;
-    appLocalizations.score_add_missing_product_category;</code></pre>
+String getAddButtonLabel(final AppLocalizations appLocalizations) {
+  if (terms.isNotEmpty) {
+    return appLocalizations.score_add_missing_precise_product_category;
+  }
+  return appLocalizations.score_add_missing_product_category;
+}</code></pre>
 </section>
 
 
