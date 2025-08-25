@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Lisää puuttuva ravintosisältö",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Lisää puuttuva tuoteluokka",
+  "score_add_missing_precise_product_category": "Valitse tarkempi kategoria",
   "score_add_missing_product_countries": "Lisää valmistusmaa",
   "score_add_missing_product_emb": "Lisää jäljitettävyyskoodi",
   "score_add_missing_product_labels": "Lisää puuttuvat merkit",
