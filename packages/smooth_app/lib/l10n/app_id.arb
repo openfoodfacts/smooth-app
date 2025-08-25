@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Tambahkan informasi nilai gizi yang kurang",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Tambahkan kategori produk yang kurang",
+  "score_add_missing_precise_product_category": "Pilih kategori yang lebih tepat",
   "score_add_missing_product_countries": "Tambahkan negara asal produk yang kurang",
   "score_add_missing_product_emb": "Tambahkan kode ketertelusuran produk yang kurang",
   "score_add_missing_product_labels": "Tambahkan label produk yang kurang",
