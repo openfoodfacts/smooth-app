@@ -994,6 +994,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get score_add_missing_product_category => 'Seleziona una categoria';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Aggiungi i paesi mancanti del prodotto';
 
@@ -1205,7 +1209,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get product_image_details_from_producer => 'From the producer';
 
   @override
-  String get product_image_details_contributor => 'Contributore';
+  String get product_image_details_contributor => 'Collaboratori';
 
   @override
   String get product_image_details_contributor_producer =>
@@ -2691,7 +2695,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Visualizza tutti i prezzi per questo prodotto';
 
   @override
   String get prices_entry_menu_open_proof => 'Visualizza la prova';
@@ -4311,7 +4315,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get photo_viewer_details_title => 'Dettagli della foto';
 
   @override
-  String get photo_viewer_details_contributor_title => 'Contributore';
+  String get photo_viewer_details_contributor_title => 'Collaboratori';
 
   @override
   String get photo_viewer_details_size_title => 'Dimensione';

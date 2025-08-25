@@ -996,6 +996,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'Додати відсутню категорію продукту';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Додайте відсутні країни для товарів';
 
@@ -2682,7 +2686,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Переглянути всі ціни на цей товар';
 
   @override
   String get prices_entry_menu_open_proof => 'Переглянути доказ';

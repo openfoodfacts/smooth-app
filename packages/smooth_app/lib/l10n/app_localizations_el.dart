@@ -1011,6 +1011,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get score_add_missing_product_category => 'Προσθήκη κατηγορίας';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Προσθήκη χωρών προϊόντος που λείπουν';
 
@@ -2713,7 +2717,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Δείτε όλες τις τιμές για αυτό το προϊόν';
 
   @override
   String get prices_entry_menu_open_proof => 'Δείτε την απόδειξη';

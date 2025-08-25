@@ -987,6 +987,10 @@ class AppLocalizationsVi extends AppLocalizations {
       'Thêm danh mục sản phẩm bị thiếu';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Thêm quốc gia sản phẩm bị thiếu';
 
@@ -2665,7 +2669,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Xem tất cả giá cho sản phẩm này';
 
   @override
   String get prices_entry_menu_open_proof => 'Xem bằng chứng';

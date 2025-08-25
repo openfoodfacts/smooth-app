@@ -958,6 +958,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get score_add_missing_product_category => '누락된 상품 카테고리 추가';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -2608,8 +2612,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+  String get prices_entry_menu_open_product_prices => '이 제품의 모든 가격 보기';
 
   @override
   String get prices_entry_menu_open_proof => '증거 보기';

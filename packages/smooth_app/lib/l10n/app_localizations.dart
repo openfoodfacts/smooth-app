@@ -2098,6 +2098,12 @@ abstract class AppLocalizations {
   /// **'Select a category'**
   String get score_add_missing_product_category;
 
+  /// No description provided for @score_add_missing_precise_product_category.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a more precise category'**
+  String get score_add_missing_precise_product_category;
+
   /// No description provided for @score_add_missing_product_countries.
   ///
   /// In en, this message translates to:

@@ -949,6 +949,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get score_add_missing_product_category => 'Select a category';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries => '添加缺失的产品产地国';
 
   @override

@@ -981,6 +981,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get score_add_missing_product_category => 'Lisää puuttuva tuoteluokka';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries => 'Lisää valmistusmaa';
 
   @override
@@ -2652,7 +2656,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Näytä kaikki tämän tuotteen hinnat';
 
   @override
   String get prices_entry_menu_open_proof => 'Näytä todiste';

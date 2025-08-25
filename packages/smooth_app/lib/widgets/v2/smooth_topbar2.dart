@@ -28,7 +28,7 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
        assert(forceMultiLines == false || subTitle == null);
 
   /// Height without the top view padding
-  static double kTopBar2Height = 100;
+  static const double kTopBar2Height = 100;
 
   final String title;
   final String? subTitle;

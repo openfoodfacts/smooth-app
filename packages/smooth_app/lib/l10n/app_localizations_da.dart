@@ -982,6 +982,10 @@ class AppLocalizationsDa extends AppLocalizations {
       'Tilføj manglende produktkategori';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Tilføj manglende produktlande';
 
@@ -2661,7 +2665,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Se alle priser for dette produkt';
 
   @override
   String get prices_entry_menu_open_proof => 'Se bevis';

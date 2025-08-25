@@ -978,6 +978,10 @@ class AppLocalizationsWo extends AppLocalizations {
   String get score_add_missing_product_category => 'Select a category';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
