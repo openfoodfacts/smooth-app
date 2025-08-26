@@ -322,9 +322,9 @@ class _ProductQuestionsWithoutQuestions extends _ProductQuestionsState {
 /// to keep its state or not
 class KeepQuestionWidgetAlive extends InheritedWidget {
   const KeepQuestionWidgetAlive({
-    super.key,
     required this.keepWidgetAlive,
     required super.child,
+    super.key,
   });
 
   final bool keepWidgetAlive;

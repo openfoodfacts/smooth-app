@@ -328,10 +328,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
         <RobotoffQuestion, InsightAnnotation?>{},
       );
 
-  InsightType? get _robotoffInsightType;
+  InsightType? get robotoffInsightType;
 
   Future<bool> _loadRobotoffQuestions() async {
-    final InsightType? type = _robotoffInsightType;
+    final InsightType? type = robotoffInsightType;
 
     if (type == null) {
       return false;
@@ -545,7 +545,7 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
       AnalyticsEditEvents.basicDetails;
 
   @override
-  InsightType get _robotoffInsightType => InsightType.BRAND;
+  InsightType get robotoffInsightType => InsightType.BRAND;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -613,7 +613,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => null;
 
   @override
-  Widget getIcon() => const Icon(Icons.shopping_cart);
+  Widget getIcon() => const icons.ShoppingCart();
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.stores;
@@ -622,7 +622,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.stores;
 
   @override
-  InsightType get _robotoffInsightType => InsightType.STORE;
+  InsightType get robotoffInsightType => InsightType.STORE;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -705,7 +705,7 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       );
 
   @override
-  InsightType? get _robotoffInsightType => null;
+  InsightType? get robotoffInsightType => null;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -801,7 +801,10 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.EMB_CODES;
 
   @override
-  Widget getIcon() => const Icon(Icons.factory);
+  Widget getIcon() => const Padding(
+    padding: EdgeInsetsDirectional.only(bottom: 2.0),
+    child: icons.Factory(),
+  );
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.embCodes;
@@ -822,7 +825,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   TextCapitalization getTextCapitalization() => TextCapitalization.characters;
 
   @override
-  InsightType? get _robotoffInsightType => null;
+  InsightType? get robotoffInsightType => null;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
@@ -905,7 +908,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.LABELS;
 
   @override
-  Widget getIcon() => const Icon(Icons.local_offer);
+  Widget getIcon() => const icons.Certification();
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.labels;
@@ -923,7 +926,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       );
 
   @override
-  InsightType get _robotoffInsightType => InsightType.LABEL;
+  InsightType get robotoffInsightType => InsightType.LABEL;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -956,8 +959,12 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_categories_title;
 
   @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
-      appLocalizations.score_add_missing_product_category;
+  String getAddButtonLabel(final AppLocalizations appLocalizations) {
+    if (terms.isNotEmpty) {
+      return appLocalizations.score_add_missing_precise_product_category;
+    }
+    return appLocalizations.score_add_missing_product_category;
+  }
 
   @override
   String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
@@ -1025,7 +1032,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
 
   @override
-  InsightType get _robotoffInsightType => InsightType.CATEGORY;
+  InsightType get robotoffInsightType => InsightType.CATEGORY;
 }
 
 class SimpleInputPageCategoryNotFoodHelper
@@ -1163,7 +1170,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
 
   @override
-  InsightType? get _robotoffInsightType => null;
+  InsightType? get robotoffInsightType => null;
 
   @override
   void dispose() {

@@ -257,9 +257,9 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   );
 
   Future<void> _sendEmail({
+    required final String recipient,
     final String body = '',
     final String subject = '',
-    required final String recipient,
     final List<String>? attachmentPaths,
   }) async {
     final Email email = Email(

@@ -30,9 +30,9 @@ const int kMinCellLengthInARowValue = 4;
 /// be no dropdown on the UI.
 class ColumnGroup {
   ColumnGroup({
+    required this.columns,
     this.currentColumnIndex,
     this.currentColumn,
-    required this.columns,
   });
 
   /// The index of the column that is displayed in the [ColumnGroup].

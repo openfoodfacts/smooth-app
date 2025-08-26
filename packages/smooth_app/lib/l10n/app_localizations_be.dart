@@ -994,6 +994,10 @@ class AppLocalizationsBe extends AppLocalizations {
       'Дадаць адсутную катэгорыю прадукту';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Дадаць адсутныя краіны паходжання прадукту';
 
@@ -2673,7 +2677,7 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Паглядзець усе цэны на гэты тавар';
 
   @override
   String get prices_entry_menu_open_proof => 'Паглядзець доказ';

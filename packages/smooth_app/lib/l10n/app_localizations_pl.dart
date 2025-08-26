@@ -1000,6 +1000,10 @@ class AppLocalizationsPl extends AppLocalizations {
       'Dodaj brakującą kategorię produktu';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Dodaj brakujące kraje pochodzenia produktów';
 
@@ -2684,7 +2688,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Zobacz wszystkie ceny tego produktu';
 
   @override
   String get prices_entry_menu_open_proof => 'Zobacz dowód';

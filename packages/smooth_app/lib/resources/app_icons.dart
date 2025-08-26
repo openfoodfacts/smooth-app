@@ -327,6 +327,16 @@ class Categories extends AppIcon {
   }) : super._(_IconsFont.categories);
 }
 
+class Certification extends AppIcon {
+  const Certification({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.certification);
+}
+
 class Chicken extends AppIcon {
   const Chicken({
     super.color,
@@ -488,8 +498,8 @@ class CircledArrow extends AppIcon {
        );
 
   const CircledArrow._base({
-    CircledArrowType? type,
     required this.turns,
+    CircledArrowType? type,
     this.circleColor,
     super.color,
     super.size,
@@ -862,6 +872,16 @@ class Eye extends AppIcon {
   }) : super._(_IconsFont.eye_invisible);
 }
 
+class Factory extends AppIcon {
+  const Factory({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.factory_icon);
+}
+
 class Fish extends AppIcon {
   const Fish({
     super.color,
@@ -1132,6 +1152,14 @@ class Milk extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_add);
+
+  const Milk.certification({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_certification);
 
   const Milk.download({
     super.color,
@@ -1512,6 +1540,16 @@ class Shop extends AppIcon {
   }) : super._(_IconsFont.shop);
 }
 
+class ShoppingCart extends AppIcon {
+  const ShoppingCart({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.shopping_cart);
+}
+
 class Soda extends AppIcon {
   const Soda.happy({
     super.color,
@@ -1576,6 +1614,16 @@ class Suggestion extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.suggestion);
+}
+
+class Traces extends AppIcon {
+  const Traces({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.traces);
 }
 
 class ThreeDots extends AppIcon {
@@ -1730,8 +1778,8 @@ abstract class AppIcon extends StatelessWidget {
 /// If not provided, the default [IconTheme] will be used (which lacks a [shadow])
 class AppIconTheme extends InheritedWidget {
   const AppIconTheme({
-    super.key,
     required super.child,
+    super.key,
     this.color,
     this.size,
     this.shadow,

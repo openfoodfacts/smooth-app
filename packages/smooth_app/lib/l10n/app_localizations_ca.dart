@@ -999,6 +999,10 @@ class AppLocalizationsCa extends AppLocalizations {
       'Afegiu la categoria de producte que falta';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Afegiu els països del producte que falten';
 
@@ -2685,7 +2689,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Veure tots els preus d\'aquest producte';
 
   @override
   String get prices_entry_menu_open_proof => 'Veure prova';

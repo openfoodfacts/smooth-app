@@ -961,6 +961,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get score_add_missing_product_category => 'הוספת קטגוריית מוצר חסרה';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries => 'הוספת מדינות מוצר חסרות';
 
   @override
@@ -2635,7 +2639,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'הצג את כל המחירים עבור מוצר זה';
 
   @override
   String get prices_entry_menu_open_proof => 'הצגת הוכחה';

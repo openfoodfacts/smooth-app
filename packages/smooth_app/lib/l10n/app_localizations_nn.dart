@@ -978,6 +978,10 @@ class AppLocalizationsNn extends AppLocalizations {
   String get score_add_missing_product_category => 'Select a category';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -2649,7 +2653,7 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Se alle priser for dette produktet';
 
   @override
   String get prices_entry_menu_open_proof => 'Se bevis';

@@ -987,6 +987,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Eksik ürün kategori bilgisini ekle';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Eksik ürün ülkelerini ekleyin';
 
@@ -2666,7 +2670,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Bu ürünün tüm fiyatlarını görüntüle';
 
   @override
   String get prices_entry_menu_open_proof => 'Kanıtı görüntüle';

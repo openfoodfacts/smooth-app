@@ -991,6 +991,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Přidejte chybějící kategorii produktu';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Přidat chybějící země produktu';
 
@@ -2671,7 +2675,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Zobrazit všechny ceny tohoto produktu';
 
   @override
   String get prices_entry_menu_open_proof => 'Zobrazit důkaz';

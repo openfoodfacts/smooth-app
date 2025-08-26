@@ -72,7 +72,7 @@ dependencies:
   email_validator: 3.0.0
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
-  file_picker: 10.3.1
+  file_picker: 10.3.2
   animated_line_through: 1.0.5
   mobkit_dashed_border: 0.0.8
 

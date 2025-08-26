@@ -991,6 +991,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get score_add_missing_product_category => 'Selecteer een categorie';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Voeg ontbrekende productlanden toe';
 
@@ -2687,7 +2691,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Bekijk alle prijzen voor dit product';
 
   @override
   String get prices_entry_menu_open_proof => 'Bekijk het bewijs';

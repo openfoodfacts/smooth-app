@@ -49,10 +49,10 @@ typedef CategoriesChangedCallback<T extends Object> = void Function(
 class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
   SmoothCategoryPicker({
     required this.categoryFinder,
-    Set<T>? currentCategories,
     required this.currentPath,
     required this.onCategoriesChanged,
     required this.onPathChanged,
+    Set<T>? currentCategories,
     this.onAddCategory,
     Key? key,
   })  : assert(currentPath.isNotEmpty),
@@ -253,12 +253,12 @@ abstract class SmoothCategory<T extends Comparable<T>> {
 
 class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
   const _CategoryView({
-    Key? key,
     required this.currentCategories,
     required this.currentPath,
     required this.onPathChanged,
     required this.onChanged,
     required this.categoryFinder,
+    Key? key,
     this.allowEmpty = false,
   }) : super(key: key);
 
@@ -363,12 +363,12 @@ typedef _DescendCategoryCallback<T extends SmoothCategory<dynamic>> = void
 
 class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
   const _CategoryPage({
-    Key? key,
     required this.currentCategories,
     required this.currentPath,
     required this.childCategories,
     required this.onDescend,
     required this.onSelect,
+    Key? key,
     this.allowEmpty = false,
   }) : super(key: key);
 
@@ -408,11 +408,11 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
 
 class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
   const _CategoryItem({
-    Key? key,
     required this.selected,
     required this.category,
     required this.onDescend,
     required this.onSelect,
+    Key? key,
     this.allowEmpty = false,
   }) : super(key: key);
 
@@ -584,10 +584,10 @@ class _SmoothCategoryDisplayState<T extends Object>
 
 class AnimatedInputChip extends StatefulWidget {
   const AnimatedInputChip({
-    Key? key,
-    this.backgroundColor,
     required this.visible,
     required this.label,
+    Key? key,
+    this.backgroundColor,
     this.onDeleted,
     this.onAnimationEnd,
   }) : super(key: key);
@@ -647,8 +647,8 @@ class _SqueezeTransition extends AnimatedWidget {
   // The [scale] argument must not be null. The [alignment] argument defaults
   // to [Alignment.center].
   const _SqueezeTransition({
-    Key? key,
     required Animation<Size> scale,
+    Key? key,
     this.child,
   }) : super(key: key, listenable: scale);
 
