@@ -1,7 +1,7 @@
-#permissions:
-#  contents: read
-#  pages: write
 name: GitHub Pages Deploy Action
+permissions:
+  contents: read
+  pages: write
 on:
     push:
         branches:
