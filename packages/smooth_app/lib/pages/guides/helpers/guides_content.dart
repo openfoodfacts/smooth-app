@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -6,10 +7,13 @@ import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/physics.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class GuidesPage extends StatelessWidget {
   const GuidesPage({
@@ -18,7 +22,7 @@ class GuidesPage extends StatelessWidget {
     required this.pageName,
     this.footer,
     super.key,
-  });
+  }) : assert(pageName.length > 0);
 
   final Widget header;
   final List<Widget> body;
@@ -158,9 +162,8 @@ class _GuidesParagraphTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Semantics(
       label: title,
@@ -176,12 +179,12 @@ class _GuidesParagraphTitle extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.ideographic,
+            spacing: BALANCED_SPACE,
             children: <Widget>[
               const Padding(
                 padding: EdgeInsetsDirectional.only(top: 3.3),
                 child: _GuidesParagraphArrow(),
               ),
-              const SizedBox(width: BALANCED_SPACE),
               Expanded(
                 child: Text(
                   title,
@@ -205,9 +208,8 @@ class _GuidesParagraphArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
 
     return SizedBox.square(
       dimension: 20.0,
@@ -266,9 +268,8 @@ class GuidesIllustratedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final int imageWidth =
         (desiredWidthPercent != null ? desiredWidthPercent! : 0.25) *
         100.0 ~/
@@ -287,12 +288,12 @@ class GuidesIllustratedText extends StatelessWidget {
               horizontal: GuidesParagraph._HORIZONTAL_PADDING,
             ),
             child: Row(
+              spacing: 15.0,
               children: <Widget>[
                 Expanded(
                   flex: imageWidth,
                   child: _ImageFromAssets(imagePath: imagePath),
                 ),
-                const SizedBox(width: 15.0),
                 Expanded(
                   flex: 100 - imageWidth,
                   child: DefaultTextStyle.merge(
@@ -332,9 +333,9 @@ class GuidesTitleWithText extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 15.0,
         children: <Widget>[
           _GuidesTextTitle(title: title, icon: icon),
-          const SizedBox(height: 15.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2.0),
             child: _GuidesFormattedText(text: text),
@@ -345,6 +346,80 @@ class GuidesTitleWithText extends StatelessWidget {
   }
 }
 
+class GuidesTitleWithBulletPoints extends StatelessWidget {
+  const GuidesTitleWithBulletPoints({
+    required this.title,
+    required this.icon,
+    required this.bulletPoints,
+    this.type = BulletPointType.arrow,
+    super.key,
+  });
+
+  final String title;
+  final AppIcon icon;
+  final List<String> bulletPoints;
+  final BulletPointType type;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(
+        top: 15.0,
+        bottom: 15.0,
+        start: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
+        end: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _GuidesTextTitle(title: title, icon: icon),
+          const SizedBox(height: 15.0),
+          ...bulletPoints.mapIndexed(
+            (int position, String item) => Padding(
+              padding: EdgeInsetsDirectional.only(
+                start: LARGE_SPACE,
+                end: LARGE_SPACE,
+                top: type == BulletPointType.arrow ? 8.0 : 0.0,
+              ),
+              child: Row(
+                spacing: 10.0,
+                children: <Widget>[
+                  switch (type) {
+                    BulletPointType.arrow => icons.CircledArrow.right(
+                      type: CircledArrowType.normal,
+                      circleColor: colors.primarySemiDark,
+                    ),
+                    BulletPointType.number => Container(
+                      decoration: BoxDecoration(
+                        color: colors.primarySemiDark,
+                        shape: BoxShape.circle,
+                      ),
+                      padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                      child: Text(
+                        (position + 1).toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  },
+                  Expanded(child: _GuidesFormattedText(text: item)),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+enum BulletPointType { arrow, number }
+
 class _GuidesTextTitle extends StatelessWidget {
   const _GuidesTextTitle({required this.title, required this.icon})
     : assert(title.length > 0);
@@ -354,9 +429,8 @@ class _GuidesTextTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -398,33 +472,20 @@ class _GuidesTextTitle extends StatelessWidget {
   }
 }
 
-class GuidesImage extends StatelessWidget {
-  const GuidesImage({
-    required this.imagePath,
+class GuidesCaptionContainer extends StatelessWidget {
+  const GuidesCaptionContainer({
     required this.caption,
-    this.desiredWidthPercent,
-    this.desiredHeightPercent,
+    required this.child,
     super.key,
-  }) : assert(caption.length > 0),
-       assert(
-         desiredWidthPercent == null ||
-             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
-       ),
-       assert(
-         desiredHeightPercent == null ||
-             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
-       );
+  }) : assert(caption.length > 0);
 
-  final String imagePath;
-  final double? desiredWidthPercent;
-  final double? desiredHeightPercent;
   final String caption;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Semantics(
       label: caption,
@@ -449,13 +510,9 @@ class GuidesImage extends StatelessWidget {
               end: MEDIUM_SPACE,
             ),
             child: Column(
+              spacing: 5.0,
               children: <Widget>[
-                _ImageFromAssets(
-                  imagePath: imagePath,
-                  desiredWidthPercent: desiredWidthPercent,
-                  desiredHeightPercent: desiredHeightPercent,
-                ),
-                const SizedBox(height: 5.0),
+                child,
                 Text(
                   caption,
                   style: const TextStyle(
@@ -468,6 +525,41 @@ class GuidesImage extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class GuidesImage extends StatelessWidget {
+  const GuidesImage({
+    required this.imagePath,
+    required this.caption,
+    this.desiredWidthPercent,
+    this.desiredHeightPercent,
+    super.key,
+  }) : assert(caption.length > 0),
+       assert(
+         desiredWidthPercent == null ||
+             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
+       ),
+       assert(
+         desiredHeightPercent == null ||
+             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
+       );
+
+  final String imagePath;
+  final double? desiredWidthPercent;
+  final double? desiredHeightPercent;
+  final String caption;
+
+  @override
+  Widget build(BuildContext context) {
+    return GuidesCaptionContainer(
+      caption: caption,
+      child: _ImageFromAssets(
+        imagePath: imagePath,
+        desiredWidthPercent: desiredWidthPercent,
+        desiredHeightPercent: desiredHeightPercent,
       ),
     );
   }
@@ -498,6 +590,16 @@ class _ImageFromAssets extends StatelessWidget {
         if (imagePath.endsWith('.svg')) {
           return SvgPicture.asset(
             imagePath,
+            width: desiredWidthPercent != null
+                ? constraints.maxWidth * desiredWidthPercent!
+                : null,
+            height: desiredHeightPercent != null
+                ? constraints.maxHeight * desiredHeightPercent!
+                : null,
+          );
+        } else if (imagePath.endsWith('.vec')) {
+          return SvgPicture(
+            AssetBytesLoader(imagePath),
             width: desiredWidthPercent != null
                 ? constraints.maxWidth * desiredWidthPercent!
                 : null,
