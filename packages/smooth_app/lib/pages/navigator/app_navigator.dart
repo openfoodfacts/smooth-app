@@ -334,6 +334,8 @@ class _SmoothGoRouter {
             return AppRoutes.HOME();
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
+          } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
+            return AppRoutes.GUIDE_GREEN_SCORE;
           } else if (path == _ExternalRoutes.SIGNUP) {
             return AppRoutes.SIGNUP;
           } else if (path != _InternalAppRoutes.HOME_PAGE) {
