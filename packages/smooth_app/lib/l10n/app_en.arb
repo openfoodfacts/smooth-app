@@ -3902,7 +3902,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_what_is_greenscore_paragraph2": "Le code couleur varie en allant du vert foncé (**A+**) pour les produits les **moins impactants** au rouge foncé (**F**) pour les **plus impactants**.",
+  "guide_greenscore_what_is_greenscore_paragraph2": "The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.",
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
