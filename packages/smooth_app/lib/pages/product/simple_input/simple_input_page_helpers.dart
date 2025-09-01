@@ -36,6 +36,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// "Have the terms been changed?"
   bool _changed = false;
 
+  /// If at least one call to [reInit] was done.
+  bool _initialized = false;
+
   /// Starts from scratch with a new (or refreshed) [Product].
   void reInit(final Product product, {final bool backgroundTask = false}) {
     this.product = product;
@@ -52,6 +55,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       unawaited(_loadRobotoffQuestions());
     } catch (_) {}
 
+    _initialized = true;
     notifyListeners();
   }
 
@@ -944,6 +948,14 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   @override
   List<String> initTerms(final Product product) =>
       product.categoriesTagsInLanguages?[getLanguage()] ?? <String>[];
+
+  @override
+  bool isPopulated(Product product) {
+    if (!_initialized) {
+      reInit(product);
+    }
+    return super.isPopulated(product);
+  }
 
   @override
   void changeProduct(final Product changedProduct) {
