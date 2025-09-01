@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class NewNutriscoreHeader extends StatelessWidget {
@@ -53,12 +54,8 @@ class NewNutriscoreHeader extends StatelessWidget {
                                     ),
                                     borderRadius: BorderRadius.circular(100.0),
                                   ),
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.lightbulb,
-                                      size: 18.0,
-                                      color: lightTheme ? Colors.white : null,
-                                    ),
+                                  child: const Center(
+                                    child: LightBulb(color: Colors.white),
                                   ),
                                 ),
                                 Padding(
@@ -149,17 +146,14 @@ class NewNutriscoreHeader extends StatelessWidget {
         ),
         Positioned(
           bottom: MEDIUM_SPACE,
-          right: VERY_LARGE_SPACE,
+          right: LARGE_SPACE,
           child: Container(
+            padding: const EdgeInsets.all(SMALL_SPACE),
             decoration: BoxDecoration(
               color: Colors.black26,
               borderRadius: BorderRadius.circular(100.0),
             ),
-            child: const Icon(
-              Icons.chevron_right,
-              color: Colors.white,
-              size: 32.0,
-            ),
+            child: const Chevron.right(color: Colors.white, size: 14.0),
           ),
         ),
       ],

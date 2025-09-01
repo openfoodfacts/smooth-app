@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 
 class NavigationPreferenceTile extends PreferenceTile {
   const NavigationPreferenceTile({
@@ -27,7 +27,7 @@ class NavigationPreferenceTile extends PreferenceTile {
       leading: leading,
       title: title,
       subtitleText: subtitleText,
-      trailing: Icon(ConstantIcons.forwardIcon),
+      trailing: const Chevron.right(size: 14.0),
       onTap: () {
         Navigator.push(
           context,
