@@ -3906,7 +3906,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Les logos Green-Score",
+  "guide_greenscore_logos_caption": "The Green-Score logos",
   "guide_greenscore_lca_title": "The core: Life cycle assessment (LCA)",
   "guide_greenscore_lca_arg1_title": "A scientific evaluation of food categories",
   "guide_greenscore_lca_arg1_text1": "For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).",
