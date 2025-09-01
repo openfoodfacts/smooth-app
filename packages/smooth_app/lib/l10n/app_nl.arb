@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
   "score_add_missing_product_traces": "Ontbrekende productsporen toevoegen",
   "score_add_missing_product_category": "Selecteer een categorie",
+  "score_add_missing_precise_product_category": "Selecteer een nauwkeurigere categorie",
   "score_add_missing_product_countries": "Voeg ontbrekende productlanden toe",
   "score_add_missing_product_emb": "Voeg ontbrekende producttraceerbaarheidscodes toe",
   "score_add_missing_product_labels": "Voeg ontbrekende productlabels toe",

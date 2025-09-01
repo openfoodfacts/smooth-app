@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Dodaj manjkajoče hranilne vrednosti",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Dodaj manjkajočo kategorijo izdelka",
+  "score_add_missing_precise_product_category": "Izberite natančnejšo kategorijo",
   "score_add_missing_product_countries": "Add missing product countries",
   "score_add_missing_product_emb": "Add missing product traceability codes",
   "score_add_missing_product_labels": "Add missing product labels",

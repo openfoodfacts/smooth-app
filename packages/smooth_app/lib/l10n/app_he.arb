@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "הוספת עובדות תזונתיות חסרות",
   "score_add_missing_product_traces": "הוספת עקבות חסרים למוצר",
   "score_add_missing_product_category": "הוספת קטגוריית מוצר חסרה",
+  "score_add_missing_precise_product_category": "נא לבחור קטגוריה מדויקת יותר",
   "score_add_missing_product_countries": "הוספת מדינות מוצר חסרות",
   "score_add_missing_product_emb": "הוספת קודים למעקב חסרים של מוצר",
   "score_add_missing_product_labels": "הוספת תוויות מוצר חסרות",

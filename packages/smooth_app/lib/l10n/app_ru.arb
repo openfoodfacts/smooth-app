@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Добавить данные о пищевой ценности",
   "score_add_missing_product_traces": "Добавить пропущенные треки товаров",
   "score_add_missing_product_category": "Добавить собственную категорию продукта",
+  "score_add_missing_precise_product_category": "Выберите более точную категорию",
   "score_add_missing_product_countries": "Добавить отсутствующие страны продукта",
   "score_add_missing_product_emb": "Добавьте отсутствующие коды отслеживания продукта",
   "score_add_missing_product_labels": "Добавить отсутствующие метки продукта",
@@ -1007,7 +1008,7 @@
       }
     }
   },
-  "product_tags_title": "Свойства товара",
+  "product_tags_title": "Свойства продукта",
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
@@ -1015,8 +1016,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "add_tag": "Add property",
-  "add_tags": "Добавить свойство",
+  "add_tag": "Добавить свойство",
+  "add_tags": "Добавить свойства",
   "add_edit_tags": "Добавить или изменить свойства",
   "edit_tag": "Изменить свойство",
   "remove_tag": "Удалить свойство",
@@ -1024,7 +1025,7 @@
   "tag_key_uneditable": "Свойство (нередактируемое)",
   "tag_key_input_hint": "Введите свойство",
   "tag_value": "Значение",
-  "tag_value_input_hint": "Введите цену",
+  "tag_value_input_hint": "Введите значение",
   "tag_key_item": "Свойство:",
   "tag_value_item": "Цена:",
   "tag_key_explanations": "Ключ должен быть написан строчными буквами и не содержать пробелов.",
@@ -3410,7 +3411,7 @@
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "Следующий {count,plural,  one {}  few {{count} вопросы}  many {{count} вопросы}=1{вопрос} other{{count} вопросы}}",
+  "robotoff_next_n_questions": "{count,plural,  one{Следующий {count} вопрос}  few{Следующие {count} вопроса}  many{Следующие {count} вопросов} =1{Следующий вопрос} other{}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {

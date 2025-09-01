@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "إضافة معلومات التغذية المفقودة",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "إضافة فئة المنتج مفقودة",
+  "score_add_missing_precise_product_category": "حدد فئة أكثر دقة",
   "score_add_missing_product_countries": "Add missing product countries",
   "score_add_missing_product_emb": "Add missing product traceability codes",
   "score_add_missing_product_labels": "Add missing product labels",

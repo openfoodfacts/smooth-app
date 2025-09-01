@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Afegiu les dades nutricionals que falten",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Afegiu la categoria de producte que falta",
+  "score_add_missing_precise_product_category": "Seleccioneu una categoria més precisa",
   "score_add_missing_product_countries": "Afegiu els països del producte que falten",
   "score_add_missing_product_emb": "Afegiu els codis de traçabilitat dels productes que falten",
   "score_add_missing_product_labels": "Afegiu les etiquetes dels productes que falten",

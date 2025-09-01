@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Pridėkite trūkstamus mitybos faktus",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Pridėkite trūkstamą produkto kategoriją",
+  "score_add_missing_precise_product_category": "Pasirinkite tikslesnę kategoriją",
   "score_add_missing_product_countries": "Pridėti trūkstamas produktų šalis",
   "score_add_missing_product_emb": "Pridėti trūkstamus produktų atsekamumo kodus",
   "score_add_missing_product_labels": "Pridėkite trūkstamas produktų eitketes",
