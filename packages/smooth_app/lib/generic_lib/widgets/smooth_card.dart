@@ -116,6 +116,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     this.contentBackgroundColor,
     this.borderRadius,
     this.includeShadow = true,
+    this.banner,
     super.key,
   });
 
@@ -133,6 +134,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
   final bool includeShadow;
+  final Widget? banner;
 
   @override
   Widget build(BuildContext context) {
@@ -163,6 +165,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
             titleTextStyle: titleTextStyle,
             titlePadding: titlePadding,
             borderRadius: borderRadius,
+            banner: banner,
           ),
           SmoothCardWithRoundedHeaderBody(
             contentBackgroundColor: contentBackgroundColor,

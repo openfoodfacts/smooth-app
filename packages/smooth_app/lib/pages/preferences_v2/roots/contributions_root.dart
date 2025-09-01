@@ -28,10 +28,15 @@ class ContributionsRoot extends PreferencesRoot {
     return <PreferenceCard>[
       PreferenceCard(
         title: appLocalizations.contribute,
+        // Quick test to make Pierre happy
+        bannerText: appLocalizations.contribute_improve_text,
         tiles: <PreferenceTile>[
           PreferenceTile(
             icon: Icons.add_circle_outline,
-            title: appLocalizations.user_search_contributor_title,
+            title:
+                appLocalizations.preferences_contributions_new_products_title,
+            subtitleText: appLocalizations
+                .preferences_contributions_new_products_subtitle,
             trailing: const LazyCounterWidget(
               LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
             ),
@@ -47,7 +52,7 @@ class ContributionsRoot extends PreferencesRoot {
             ),
           ),
           PreferenceTile(
-            icon: Icons.edit,
+            icon: Icons.edit_outlined,
             title: appLocalizations.user_search_informer_title,
             trailing: const LazyCounterWidget(
               LazyCounterUserSearch(UserSearchType.INFORMER),
@@ -64,7 +69,7 @@ class ContributionsRoot extends PreferencesRoot {
             ),
           ),
           PreferenceTile(
-            icon: Icons.add_a_photo,
+            icon: Icons.add_a_photo_outlined,
             title: appLocalizations.user_search_photographer_title,
             trailing: const LazyCounterWidget(
               LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
@@ -81,8 +86,9 @@ class ContributionsRoot extends PreferencesRoot {
             ),
           ),
           PreferenceTile(
-            icon: Icons.more_horiz,
-            title: appLocalizations.user_search_to_be_completed_title,
+            icon: Icons.done,
+            title: appLocalizations
+                .preferences_contributions_to_be_completed_title,
             trailing: const LazyCounterWidget(
               LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
             ),
@@ -98,8 +104,11 @@ class ContributionsRoot extends PreferencesRoot {
             ),
           ),
           PreferenceTile(
-            icon: Icons.more_outlined,
-            title: appLocalizations.all_search_to_be_completed_title,
+            icon: Icons.done_all,
+            title:
+                appLocalizations.preferences_contributions_all_incomplete_title,
+            subtitleText: appLocalizations
+                .preferences_contributions_all_incomplete_subtitle,
             onTap: () async => _openProductQuery(
               context: context,
               localDatabase: localDatabase,
@@ -110,8 +119,10 @@ class ContributionsRoot extends PreferencesRoot {
             ),
           ),
           UrlPreferenceTile(
-            icon: Icons.category,
+            icon: Icons.new_label_outlined,
             title: appLocalizations.categorize_products_country_title,
+            subtitleText:
+                appLocalizations.preferences_contributions_categorize_subtitle,
             url:
                 'https://hunger.openfoodfacts.org/eco-score?cc=${ProductQuery.getCountry().offTag}',
           ),

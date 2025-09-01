@@ -16,6 +16,7 @@ class SquarePreferenceTile extends PreferenceTile {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
 
@@ -46,9 +47,12 @@ class SquarePreferenceTile extends PreferenceTile {
                         child: Text(
                           title,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w500,
+                            color: lightTheme
+                                ? theme.primaryColor
+                                : Colors.white,
                           ),
                         ),
                       ),

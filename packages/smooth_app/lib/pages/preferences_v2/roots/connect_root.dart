@@ -11,6 +11,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
@@ -28,21 +29,108 @@ class ConnectRoot extends PreferencesRoot {
 
     return <PreferenceCard>[
       PreferenceCard(
-        title: 'Updates',
+        title: appLocalizations.preferences_connect_community_updates_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            icon: CupertinoIcons.news_solid,
+            icon: Icons.newspaper_outlined,
             title: appLocalizations.contact_title_newsletter,
+            subtitleText:
+                appLocalizations.preferences_connect_newsletter_subtitle,
             url: 'https://link.openfoodfacts.org/newsletter-en',
           ),
           UrlPreferenceTile(
-            icon: Icons.calendar_month,
-            title: appLocalizations.support_via_email,
+            icon: Icons.calendar_month_outlined,
+            title:
+                appLocalizations.preferences_connect_community_calendar_title,
+            subtitleText: appLocalizations
+                .preferences_connect_community_calendar_subtitle,
             url: 'https://wiki.openfoodfacts.org/Events',
           ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_connect_social_media_title,
+        tiles: <PreferenceTile>[
+          UrlPreferenceTile(
+            leading: SvgPicture.asset(
+              'assets/preferences/tiktok-logo.svg',
+              width: DEFAULT_ICON_SIZE,
+              package: AppHelper.APP_PACKAGE,
+            ),
+            title: appLocalizations.tiktok,
+            url: appLocalizations.tiktok_link,
+          ),
+          UrlPreferenceTile(
+            leading: SvgPicture.asset(
+              'assets/preferences/instagram-camera.svg',
+              width: DEFAULT_ICON_SIZE,
+              package: AppHelper.APP_PACKAGE,
+            ),
+            title: appLocalizations.instagram,
+            url: appLocalizations.instagram_link,
+          ),
+          UrlPreferenceTile(
+            leading: SvgPicture.asset(
+              'assets/preferences/x-logo.svg',
+              width: DEFAULT_ICON_SIZE,
+              colorFilter: ui.ColorFilter.mode(
+                Theme.of(context).colorScheme.onSurface,
+                ui.BlendMode.srcIn,
+              ),
+              package: AppHelper.APP_PACKAGE,
+            ),
+            title: appLocalizations.twitter,
+            url: appLocalizations.twitter_link,
+          ),
+          UrlPreferenceTile(
+            leading: SvgPicture.asset(
+              'assets/preferences/mastodon-logo.svg',
+              width: DEFAULT_ICON_SIZE,
+              package: AppHelper.APP_PACKAGE,
+            ),
+            title: appLocalizations.mastodon,
+            url: appLocalizations.mastodon_link,
+          ),
+          UrlPreferenceTile(
+            leading: SvgPicture.asset(
+              'assets/preferences/bluesky-logo.svg',
+              width: DEFAULT_ICON_SIZE,
+              package: AppHelper.APP_PACKAGE,
+            ),
+            title: appLocalizations.bsky,
+            url: appLocalizations.bsky_link,
+          ),
+          UrlPreferenceTile(
+            icon: Icons.newspaper,
+            title: appLocalizations.preferences_connect_blog_title,
+            subtitleText: appLocalizations.preferences_connect_blog_subtitle,
+            url: 'https://blog.openfoodfacts.org',
+          ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_connect_community_help_title,
+        tiles: <PreferenceTile>[
+          UrlPreferenceTile(
+            icon: Icons.forum_outlined,
+            title: appLocalizations.support_via_forum,
+            url: 'https://forum.openfoodfacts.org/',
+          ),
+          UrlPreferenceTile(
+            icon: Icons.chat_outlined,
+            title: appLocalizations.support_join_slack,
+            url: 'https://slack.openfoodfacts.org/',
+          ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_connect_improve_app_title,
+        tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.drafts,
-            title: appLocalizations.preferences_app_system_settings,
+            icon: Icons.pest_control_outlined,
+            title: appLocalizations.preferences_connect_debug_info_title,
+            subtitleText:
+                appLocalizations.preferences_connect_debug_info_subtitle,
             onTap: () async {
               final bool? includeLogs = await showDialog<bool>(
                 context: context,
@@ -90,95 +178,52 @@ class ConnectRoot extends PreferencesRoot {
               );
             },
           ),
-        ],
-      ),
-      PreferenceCard(
-        title: 'Social',
-        tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            leading: SvgPicture.asset(
-              'assets/preferences/tiktok-logo.svg',
-              width: DEFAULT_ICON_SIZE,
-              package: AppHelper.APP_PACKAGE,
-            ),
-            title: appLocalizations.preferences_app_system_settings,
-            url: appLocalizations.tiktok_link,
+          PreferenceTile(
+            icon: Icons.campaign_outlined,
+            title: appLocalizations.preferences_connect_feedback_title,
+            subtitleText:
+                appLocalizations.preferences_connect_feedback_subtitle,
+            onTap: () async {
+              final String emailBody = await _emailBody(appLocalizations);
+
+              if (!context.mounted) {
+                return;
+              }
+
+              await _sendEmail(
+                context: context,
+                recipient: 'mobile@openfoodfacts.org',
+                appLocalizations: appLocalizations,
+                body: emailBody,
+                subject:
+                    '${appLocalizations.help_with_openfoodfacts} (Feedback on the Open Food Facts app)',
+              );
+            },
           ),
           UrlPreferenceTile(
-            leading: SvgPicture.asset(
-              'assets/preferences/instagram-camera.svg',
-              width: DEFAULT_ICON_SIZE,
-              package: AppHelper.APP_PACKAGE,
-            ),
-            title: appLocalizations.instagram,
-            url: appLocalizations.instagram_link,
-          ),
-          UrlPreferenceTile(
-            leading: SvgPicture.asset(
-              'assets/preferences/x-logo.svg',
-              width: DEFAULT_ICON_SIZE,
-              colorFilter: ui.ColorFilter.mode(
-                Theme.of(context).colorScheme.onSurface,
-                ui.BlendMode.srcIn,
-              ),
-              package: AppHelper.APP_PACKAGE,
-            ),
-            title: appLocalizations.twitter,
-            url: appLocalizations.twitter_link,
-          ),
-          UrlPreferenceTile(
-            leading: SvgPicture.asset(
-              'assets/preferences/mastodon-logo.svg',
-              width: DEFAULT_ICON_SIZE,
-              package: AppHelper.APP_PACKAGE,
-            ),
-            title: appLocalizations.mastodon,
-            url: appLocalizations.mastodon_link,
-          ),
-          UrlPreferenceTile(
-            leading: SvgPicture.asset(
-              'assets/preferences/bluesky-logo.svg',
-              width: DEFAULT_ICON_SIZE,
-              package: AppHelper.APP_PACKAGE,
-            ),
-            title: appLocalizations.bsky,
-            url: appLocalizations.bsky_link,
-          ),
-          UrlPreferenceTile(
-            icon: Icons.newspaper,
-            title: appLocalizations.blog,
-            url: 'https://blog.openfoodfacts.org',
+            icon: Icons.add_comment_outlined,
+            title: appLocalizations.preferences_connect_survey_title,
+            subtitleText: appLocalizations.preferences_connect_survey_subtitle,
+            url: UserFeedbackHelper.getFeedbackFormLink(),
           ),
         ],
       ),
       PreferenceCard(
-        title: 'Forum',
+        title: appLocalizations.preferences_connect_professionals_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            icon: Icons.forum,
-            title: appLocalizations.support_via_forum,
-            url: 'https://forum.openfoodfacts.org/',
-          ),
-          UrlPreferenceTile(
-            icon: Icons.chat,
-            title: appLocalizations.support_join_slack,
-            url: 'https://slack.openfoodfacts.org/',
-          ),
-        ],
-      ),
-      PreferenceCard(
-        title: 'Professionals',
-        tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            icon: Icons.shopping_bag,
-            title: appLocalizations.preferences_app_store,
+            icon: Icons.factory_outlined,
+            title: appLocalizations.contact_title_pro_page,
+            subtitleText: appLocalizations.preferences_connect_pro_subtitle,
             url: ProductQuery.replaceSubdomain(
               'https://world.pro.openfoodfacts.org/',
             ),
           ),
           PreferenceTile(
-            icon: Icons.drafts,
+            icon: Icons.email_outlined,
             title: appLocalizations.contact_title_pro_email,
+            subtitleText:
+                appLocalizations.preferences_connect_pro_email_subtitle,
             onTap: () async => _sendEmail(
               context: context,
               recipient:
@@ -191,16 +236,20 @@ class ConnectRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: 'Press',
+        title: appLocalizations.preferences_connect_press_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
             icon: CupertinoIcons.news_solid,
             title: appLocalizations.contact_title_press_page,
+            subtitleText:
+                appLocalizations.preferences_connect_press_page_subtitle,
             url: 'https://world.openfoodfacts.org/press',
           ),
           PreferenceTile(
-            icon: Icons.drafts,
+            icon: Icons.email_outlined,
             title: appLocalizations.contact_title_press_email,
+            subtitleText:
+                appLocalizations.preferences_connect_press_email_subtitle,
             onTap: () async => _sendEmail(
               context: context,
               recipient:

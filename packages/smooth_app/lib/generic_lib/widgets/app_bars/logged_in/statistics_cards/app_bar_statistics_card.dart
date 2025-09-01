@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class AppBarStatisticsCard extends StatefulWidget {
     required this.imagePath,
     required this.description,
     required this.lazyCounter,
+    this.autoSizeGroup,
     super.key,
   }) : assert(imagePath.isNotEmpty, 'imagePath must not be empty.'),
        assert(description.isNotEmpty, 'description must not be empty.');
@@ -22,6 +24,7 @@ class AppBarStatisticsCard extends StatefulWidget {
   final String imagePath;
   final String description;
   final LazyCounter lazyCounter;
+  final AutoSizeGroup? autoSizeGroup;
 
   @override
   State<StatefulWidget> createState() => _AppBarStatisticsCardState();
@@ -46,70 +49,59 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
         child: Material(
           borderRadius: ROUNDED_BORDER_RADIUS,
           color: themeExtension.secondaryVibrant.withValues(alpha: 0.8),
-          child: Stack(
+          child: Row(
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  const SizedBox(width: MEDIUM_SPACE),
-                  SvgPicture.asset(widget.imagePath, height: 32.0),
-                  const SizedBox(width: MEDIUM_SPACE),
-                  Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              const SizedBox(width: MEDIUM_SPACE),
+              SvgPicture.asset(widget.imagePath, height: 32.0),
+              const SizedBox(width: MEDIUM_SPACE),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
                       children: <Widget>[
-                        const Spacer(),
-                        Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Text(
-                                count != null ? count.toString() : '0',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                        Expanded(
+                          child: Text(
+                            count != null ? count.toString() : '0',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
                             ),
-                          ],
+                          ),
                         ),
-                        Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: Text(
-                                widget.description,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.fade,
-                                softWrap: false,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
+                        if (_loading)
+                          const SizedBox(
+                            width: 16.0,
+                            height: 16.0,
+                            child: CircularProgressIndicator.adaptive(),
+                          )
+                        else
+                          const Icon(
+                            Icons.refresh,
+                            color: Colors.white,
+                            size: 16.0,
+                          ),
                       ],
                     ),
-                  ),
-                ],
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: AutoSizeText(
+                            widget.description,
+                            group: widget.autoSizeGroup,
+                            minFontSize: 8.0,
+                            softWrap: false,
+                            maxLines: 1,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              PositionedDirectional(
-                end: MEDIUM_SPACE,
-                top: MEDIUM_SPACE,
-                child: _loading
-                    ? const SizedBox(
-                        width: 16.0,
-                        height: 16.0,
-                        child: CircularProgressIndicator.adaptive(),
-                      )
-                    : const Icon(
-                        Icons.refresh,
-                        color: Colors.white,
-                        size: 16.0,
-                      ),
-              ),
+              const SizedBox(width: MEDIUM_SPACE),
             ],
           ),
         ),

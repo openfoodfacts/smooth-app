@@ -2,25 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
-class PreferencesRootSearchController extends ChangeNotifier {
+class PreferencesRootSearchController extends SearchHelper {
   PreferencesRootSearchController();
 
   String? query;
 
-  void search(String? keywords) {
+  @override
+  void search(
+    BuildContext context,
+    String? keywords, {
+    required Function(String) searchQueryCallback,
+  }) {
     query = keywords;
     notifyListeners();
   }
+
+  @override
+  String getHintText(AppLocalizations appLocalizations) {
+    return appLocalizations.preferences_app_bar_search_hint;
+  }
+
+  @override
+  String get historyKey => 'preferences_root_search_history';
 }
 
 /// Base class for all preference roots.
@@ -36,16 +52,23 @@ class PreferencesRootSearchController extends ChangeNotifier {
 /// query.
 /// The search query is performed deep in the widget tree.
 abstract class PreferencesRoot extends StatelessWidget {
-  const PreferencesRoot({super.key, this.title, this.customAppBar})
-    : assert(
-        title != null || customAppBar != null,
-        'Either title or customAppBar must be provided',
-      );
+  const PreferencesRoot({
+    super.key,
+    this.title,
+    this.customAppBar,
+    this.changeStatusBarBrightness,
+  }) : assert(
+         title != null || customAppBar != null,
+         'Either title or customAppBar must be provided',
+       );
 
   final String? title;
   final Widget? customAppBar;
+  final bool? changeStatusBarBrightness;
 
   List<PreferenceCard> getCards(BuildContext context);
+
+  Widget getBottom(BuildContext context) => EMPTY_WIDGET;
 
   List<ExternalSearchPreferenceTile> getExternalSearchTiles(
     BuildContext context,
@@ -86,8 +109,7 @@ abstract class PreferencesRoot extends StatelessWidget {
   Widget buildSearchResults(BuildContext context, List<PreferenceTile> tiles) {
     return SliverList.separated(
       itemBuilder: (BuildContext context, int index) => tiles[index],
-      separatorBuilder: (BuildContext context, _) =>
-          const SizedBox(height: SMALL_SPACE),
+      separatorBuilder: (BuildContext context, _) => const Divider(),
       itemCount: tiles.length,
     );
   }
@@ -107,11 +129,22 @@ abstract class PreferencesRoot extends StatelessWidget {
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
 
-    return Scaffold(
+    return SmoothScaffold(
+      changeStatusBarBrightness: changeStatusBarBrightness ?? true,
       backgroundColor: !context.darkTheme()
           ? themeExtension.primaryLight
           : null,
-      body: content,
+      body: Stack(
+        children: <Widget>[
+          content,
+          Positioned(
+            bottom: 0.0,
+            right: 0.0,
+            left: 0.0,
+            child: getBottom(context),
+          ),
+        ],
+      ),
     );
   }
 

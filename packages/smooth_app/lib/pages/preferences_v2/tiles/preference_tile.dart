@@ -42,19 +42,24 @@ class PreferenceTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
+    final Color color = context.lightTheme()
+        ? theme.primaryColor
+        : Colors.white;
+
     return ListTile(
-      leading:
-          leading ??
-          (icon != null
-              ? Icon(
-                  icon,
-                  color: context.lightTheme()
-                      ? theme.primaryColor
-                      : Colors.white,
+      leading: leading ?? (icon != null ? Icon(icon, color: color) : null),
+      title: Text(
+        title,
+        style: TextStyle(color: color, fontWeight: FontWeight.bold),
+      ),
+      subtitle:
+          subtitle ??
+          (subtitleText != null
+              ? Text(
+                  subtitleText!,
+                  style: TextStyle(color: color, fontStyle: FontStyle.italic),
                 )
               : null),
-      title: Text(title),
-      subtitle: subtitle ?? (subtitleText != null ? Text(subtitleText!) : null),
       trailing: trailing,
       onTap: onTap,
     );

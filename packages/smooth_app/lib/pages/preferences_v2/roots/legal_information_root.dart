@@ -27,18 +27,19 @@ class LegalInformationRoot extends PreferencesRoot {
       PreferenceCard(
         title: 'Open Food Facts',
         tiles: <PreferenceTile>[
+          // TODO(primael): Localize urls preferences.language UriHelper.replaceSubdomaine
           UrlPreferenceTile(
-            icon: Icons.file_open,
+            icon: Icons.article,
             title: appLocalizations.preferences_terms_of_use,
             url: 'https://world.openfoodfacts.org/terms-of-use',
           ),
           UrlPreferenceTile(
-            icon: Icons.file_open,
+            icon: Icons.gavel,
             title: appLocalizations.preferences_legal_mentions,
             url: 'https://world.openfoodfacts.org/legal',
           ),
           UrlPreferenceTile(
-            icon: Icons.file_open,
+            icon: Icons.privacy_tip,
             title: appLocalizations.preferences_privacy_policy,
             url: 'https://world.openfoodfacts.org/privacy',
           ),

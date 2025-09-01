@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/contributions_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class AllStatisticsButton extends StatelessWidget {
@@ -15,17 +17,21 @@ class AllStatisticsButton extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     return InkWell(
-      borderRadius: ROUNDED_BORDER_RADIUS,
+      borderRadius: BorderRadius.circular(12.0),
       onTap: () {
-        Navigator.of(context, rootNavigator: true).push<dynamic>(
-          MaterialPageRoute<dynamic>(
+        Navigator.push(
+          context,
+          MaterialPageRoute<Widget>(
             builder: (BuildContext context) =>
-                const UserPreferencesPage(type: PreferencePageType.ACCOUNT),
+                ChangeNotifierProvider<PreferencesRootSearchController>(
+                  create: (_) => PreferencesRootSearchController(),
+                  child: ContributionsRoot(title: appLocalizations.contribute),
+                ),
           ),
         );
       },
       child: Material(
-        borderRadius: ROUNDED_BORDER_RADIUS,
+        borderRadius: BorderRadius.circular(12.0),
         color: theme.cardColor,
         child: Row(
           mainAxisSize: MainAxisSize.max,

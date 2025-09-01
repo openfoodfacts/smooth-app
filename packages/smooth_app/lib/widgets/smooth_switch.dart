@@ -59,6 +59,12 @@ class _SmoothSwitchState extends State<SmoothSwitch>
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   void didUpdateWidget(covariant SmoothSwitch oldWidget) {
     super.didUpdateWidget(oldWidget);
 
@@ -129,7 +135,9 @@ class _SmoothSwitchState extends State<SmoothSwitch>
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(FlagProperty('active', value: widget.value));
+    properties.add(
+      FlagProperty('active', value: widget.value, ifTrue: 'on', ifFalse: 'off'),
+    );
   }
 }
 

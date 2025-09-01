@@ -8,6 +8,7 @@ class DefaultPreferencesRoot extends PreferencesRoot {
     required this.cards,
     super.customAppBar,
     this.externalSearchTiles = const <ExternalSearchPreferenceTile>[],
+    super.changeStatusBarBrightness = false,
     super.key,
   });
 

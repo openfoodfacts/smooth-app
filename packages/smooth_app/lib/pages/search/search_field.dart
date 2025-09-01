@@ -14,6 +14,8 @@ class SearchField extends StatefulWidget {
     required this.searchHelper,
     this.autofocus = false,
     this.showClearButton = true,
+    this.showNavigationButton = true,
+    this.searchOnChange = false,
     this.heroTag,
     this.onFocus,
     this.backgroundColor,
@@ -26,6 +28,8 @@ class SearchField extends StatefulWidget {
   final SearchHelper searchHelper;
   final bool autofocus;
   final bool showClearButton;
+  final bool showNavigationButton;
+  final bool searchOnChange;
   final bool enableSuggestions;
   final bool autocorrect;
 
@@ -97,6 +101,9 @@ class _SearchFieldState extends State<SearchField> {
               TextField(
                 controller: _controller,
                 focusNode: _focusNode,
+                onChanged: widget.searchOnChange
+                    ? (String query) => _performSearch(context, query)
+                    : null,
                 onSubmitted: (String query) => _performSearch(context, query),
                 textInputAction: TextInputAction.search,
                 enableSuggestions: widget.enableSuggestions,
@@ -134,10 +141,12 @@ class _SearchFieldState extends State<SearchField> {
       focusedBorder: border,
       contentPadding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
       hintText: widget.searchHelper.getHintText(localizations),
-      prefixIcon: const Align(
-        alignment: AlignmentDirectional.centerStart,
-        child: _BackIcon(),
-      ),
+      prefixIcon: widget.showNavigationButton
+          ? const Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: _BackIcon(),
+            )
+          : null,
       prefixIconConstraints: BoxConstraints.tightFor(
         width:
             SearchFieldUIHelper.SEARCH_BAR_HEIGHT +

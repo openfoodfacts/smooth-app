@@ -40,11 +40,13 @@ class PricesRoot extends PreferencesRoot {
           title: appLocalizations.user_profile_title_id_default(userId),
           tiles: <PreferenceTile>[
             PreferenceTile(
-              icon: CupertinoIcons.money_dollar_circle,
+              icon: Icons.attach_money_outlined,
               title: PriceUserButton.showUserTitle(
                 user: userId,
                 context: context,
               ),
+              subtitleText:
+                  appLocalizations.preferences_prices_user_prices_subtitle,
               trailing: LazyCounterWidget(LazyCounterPrices(userId)),
               onTap: () async => PriceUserButton.showUserPrices(
                 user: userId,
@@ -52,8 +54,9 @@ class PricesRoot extends PreferencesRoot {
               ),
             ),
             PreferenceTile(
-              icon: Icons.receipt,
+              icon: Icons.receipt_long_outlined,
               title: appLocalizations.user_search_proofs_title,
+              subtitleText: appLocalizations.preferences_prices_proofs_subtitle,
               onTap: () async => Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) =>
@@ -68,16 +71,20 @@ class PricesRoot extends PreferencesRoot {
         title: appLocalizations.contribute,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.add_shopping_cart,
+            icon: Icons.receipt_long_outlined,
             title: appLocalizations.prices_add_a_receipt,
+            subtitleText:
+                appLocalizations.preferences_prices_add_receipt_subtitle,
             onTap: () async => ProductPriceAddPage.showProductPage(
               context: context,
               proofType: ProofType.receipt,
             ),
           ),
           PreferenceTile(
-            icon: Icons.add_shopping_cart,
+            icon: Icons.sell_outlined,
             title: appLocalizations.prices_add_price_tags,
+            subtitleText:
+                appLocalizations.preferences_prices_add_price_tags_subtitle,
             onTap: () async => ProductPriceAddPage.showProductPage(
               context: context,
               proofType: ProofType.priceTag,
@@ -90,7 +97,8 @@ class PricesRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           PreferenceTile(
             icon: CupertinoIcons.money_dollar_circle,
-            title: appLocalizations.all_search_prices_latest_title,
+            title: appLocalizations.preferences_prices_newest_title,
+            subtitleText: appLocalizations.preferences_prices_newest_subtitle,
             trailing: const LazyCounterWidget(LazyCounterPrices(null)),
             onTap: () async => Navigator.of(context).push(
               MaterialPageRoute<void>(
@@ -110,7 +118,7 @@ class PricesRoot extends PreferencesRoot {
           ),
           PreferenceTile(
             icon: PriceButton.userIconData,
-            title: appLocalizations.all_search_prices_top_user_title,
+            title: appLocalizations.preferences_prices_top_contributors_title,
             onTap: () async => Navigator.of(context).push(
               MaterialPageRoute<void>(
                 builder: (BuildContext context) => const PricesUsersPage(),
@@ -137,7 +145,8 @@ class PricesRoot extends PreferencesRoot {
           ),
           PreferenceTile(
             icon: Icons.bar_chart,
-            title: appLocalizations.prices_stats_statistics,
+            title: appLocalizations.preferences_prices_metrics_title,
+            subtitleText: appLocalizations.preferences_prices_metrics_subtitle,
             onTap: () async => Navigator.of(context).push(
               MaterialPageRoute<void>(
                 builder: (BuildContext context) => const PricesStatsPage(),
@@ -147,7 +156,7 @@ class PricesRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: 'Experiments',
+        title: appLocalizations.preferences_prices_ways_contribute_title,
         tiles: <PreferenceTile>[
           if (userPreferences.getFlag(
                 UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
@@ -159,35 +168,42 @@ class PricesRoot extends PreferencesRoot {
               onTap: () async => ProofBulkAddPage.showPage(context: context),
             ),
           UrlPreferenceTile(
-            icon: Icons.assistant,
+            icon: Icons.add_a_photo_outlined,
             title: appLocalizations.prices_contribution_assistant,
             url:
                 'https://prices.openfoodfacts.org/experiments/contribution-assistant',
           ),
           UrlPreferenceTile(
-            icon: Icons.verified,
+            icon: Icons.check_circle_outline,
             title: appLocalizations.prices_validation_assistant,
+            subtitleText: appLocalizations
+                .preferences_prices_validation_assistant_subtitle,
             url:
                 'https://prices.openfoodfacts.org/experiments/price-validation-assistant',
           ),
           UrlPreferenceTile(
-            icon: Icons.add_box,
+            icon: Icons.add_photo_alternate_outlined,
             title: appLocalizations.prices_multiple_proof_addition_system,
+            subtitleText:
+                appLocalizations.preferences_prices_multiple_proof_subtitle,
             url: 'https://prices.openfoodfacts.org/proofs/add/multiple',
           ),
           UrlPreferenceTile(
-            icon: Icons.emoji_events,
-            title: appLocalizations.prices_challenges_page,
+            icon: Icons.emoji_events_outlined,
+            title: appLocalizations.preferences_prices_challenges_title,
+            subtitleText:
+                appLocalizations.preferences_prices_challenges_subtitle,
             url: 'https://prices.openfoodfacts.org/experiments/challenge',
           ),
         ],
       ),
       PreferenceCard(
-        title: appLocalizations.privacy_policy,
+        title: appLocalizations.preferences_prices_loyalty_data_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            icon: Icons.privacy_tip,
+            icon: Icons.card_membership_outlined,
             title: appLocalizations.contribute_prices_gdpr,
+            subtitleText: appLocalizations.preferences_prices_gdpr_subtitle,
             url: 'https://wiki.openfoodfacts.org/GDPR_request',
           ),
         ],

@@ -8,20 +8,15 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
-import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class ContributeRoot extends PreferencesRoot {
@@ -34,64 +29,47 @@ class ContributeRoot extends PreferencesRoot {
 
     return <PreferenceCard>[
       PreferenceCard(
-        title: appLocalizations.contribute,
+        title: appLocalizations.preferences_contribute_active_volunteer_title,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            icon: Icons.games,
-            title: 'Hunger Games',
-            onTap: () async => _hungerGames(context),
-          ),
-          PreferenceTile(
-            icon: Icons.data_saver_on,
-            title: appLocalizations.contribute_improve_header,
-            onTap: () async => _contribute(context),
-          ),
-          PreferenceTile(
-            icon: Icons.app_shortcut,
-            title: appLocalizations.contribute_sw_development,
-            onTap: () async => _develop(context),
-          ),
-          PreferenceTile(
-            icon: Icons.translate,
-            title: appLocalizations.contribute_translate_header,
-            onTap: () async => _translate(context),
-          ),
           UrlPreferenceTile(
-            icon: Icons.cleaning_services,
-            title: appLocalizations.contribute_data_quality,
-            url: 'https://wiki.openfoodfacts.org/Data_quality',
+            icon: Icons.group,
+            title: appLocalizations.contribute_join_skill_pool,
+            subtitleText:
+                appLocalizations.preferences_contribute_skill_pool_subtitle,
+            url:
+                'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
           ),
           UrlPreferenceTile(
             icon: Icons.volunteer_activism_outlined,
             title: appLocalizations.how_to_contribute,
+            subtitleText:
+                appLocalizations.preferences_contribute_how_to_subtitle,
             url: ProductQuery.replaceSubdomain(
               'https://world.openfoodfacts.org/contribute',
             ),
           ),
-          UrlPreferenceTile(
-            icon: Icons.group,
-            title: appLocalizations.contribute_join_skill_pool,
-            url:
-                'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
-          ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_contribute_mobile_dev_title,
+        tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.adaptive.share,
-            title: appLocalizations.contribute_share_header,
-            onTap: () async =>
-                _share(appLocalizations.contribute_share_content),
+            icon: Icons.app_shortcut,
+            title: appLocalizations.contribute_sw_development,
+            subtitleText:
+                appLocalizations.preferences_contribute_sw_dev_subtitle,
+            onTap: () async => _develop(context),
           ),
-          if (country.wikiUrl != null)
-            UrlPreferenceTile(
-              icon: Icons.language,
-              title: appLocalizations.help_improve_country,
-              url: country.wikiUrl!,
-            ),
+          // TODO(primael): rename to alpha
           if (GlobalVars.appStore.getEnrollInBetaURL() != null)
             PreferenceTile(
               icon: CupertinoIcons.lab_flask_solid,
               title: appLocalizations.contribute_enroll_alpha,
-              onTap: () async => _enrollInBeta(context),
+              subtitleText:
+                  appLocalizations.preferences_contribute_alpha_subtitle,
+              onTap: () async => _enrollInInternal(context),
             ),
+          // TODO(primael): add link to beta
           PreferenceTile(
             icon: Icons.emoji_people,
             title: appLocalizations.contributors_label,
@@ -100,64 +78,49 @@ class ContributeRoot extends PreferencesRoot {
           ),
         ],
       ),
+      PreferenceCard(
+        title: appLocalizations.preferences_contribute_local_community_title,
+        tiles: <PreferenceTile>[
+          PreferenceTile(
+            icon: Icons.translate,
+            title: appLocalizations.contribute_translate_header,
+            subtitleText:
+                appLocalizations.preferences_contribute_translate_subtitle,
+            onTap: () async => _translate(context),
+          ),
+          PreferenceTile(
+            icon: Icons.adaptive.share,
+            title: appLocalizations.contribute_share_header,
+            subtitleText:
+                appLocalizations.preferences_contribute_share_subtitle,
+            onTap: () async =>
+                _share(appLocalizations.contribute_share_content),
+          ),
+          if (country.wikiUrl != null)
+            UrlPreferenceTile(
+              icon: Icons.language,
+              title: appLocalizations.help_improve_country,
+              subtitleText:
+                  appLocalizations.preferences_contribute_country_subtitle,
+              url: country.wikiUrl!,
+            ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_contribute_data_quality_title,
+        tiles: <PreferenceTile>[
+          UrlPreferenceTile(
+            icon: Icons.cleaning_services,
+            title:
+                appLocalizations.preferences_contribute_data_quality_team_title,
+            subtitleText: appLocalizations
+                .preferences_contribute_data_quality_team_subtitle,
+            url: 'https://wiki.openfoodfacts.org/Data_quality',
+          ),
+        ],
+      ),
     ];
   }
-
-  Future<void> _hungerGames(BuildContext context) async {
-    // Track the hunger game analytics event
-    AnalyticsHelper.trackEvent(AnalyticsEvent.hungerGameOpened);
-
-    await Navigator.push<int>(
-      context,
-      MaterialPageRoute<int>(
-        builder: (BuildContext context) => const QuestionsPage(),
-      ),
-    );
-  }
-
-  Future<void> _contribute(BuildContext context) => showDialog<void>(
-    context: context,
-    builder: (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      return SmoothAlertDialog(
-        title: appLocalizations.contribute_improve_header,
-        body: Column(
-          children: <Widget>[
-            Text(appLocalizations.contribute_improve_text),
-            const SizedBox(height: 10),
-          ],
-        ),
-        positiveAction: SmoothActionButton(
-          text: AppLocalizations.of(
-            context,
-          ).contribute_improve_ProductsToBeCompleted,
-          onPressed: () async {
-            final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            Navigator.of(context).pop();
-            ProductQueryPageHelper.openBestChoice(
-              name: appLocalizations.all_search_to_be_completed_title,
-              localDatabase: localDatabase,
-              productQuery: PagedToBeCompletedProductQuery(
-                // TODO(monsieurtanuki): only food?
-                productType: ProductType.food,
-              ),
-              context: context,
-              editableAppBarTitle: false,
-            );
-          },
-        ),
-        negativeAction: SmoothActionButton(
-          onPressed: () {
-            Navigator.of(context, rootNavigator: true).pop('dialog');
-          },
-          text: appLocalizations.close,
-          minWidth: 100,
-        ),
-        actionsAxis: Axis.vertical,
-        actionsOrder: SmoothButtonsBarOrder.auto,
-      );
-    },
-  );
 
   Future<void> _develop(BuildContext context) => showDialog<void>(
     context: context,
@@ -241,7 +204,7 @@ class ContributeRoot extends PreferencesRoot {
   Future<void> _share(String content) async =>
       SharePlus.instance.share(ShareParams(text: content));
 
-  Future<void> _enrollInBeta(BuildContext context) async {
+  Future<void> _enrollInInternal(BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool? result = await showDialog<bool>(
       context: context,

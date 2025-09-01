@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_background.dart';
@@ -13,6 +14,8 @@ class LoggedInAppBarBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AutoSizeGroup autoSizeGroup = AutoSizeGroup();
+
     return FlexibleSpaceBar(
       collapseMode: CollapseMode.none,
       background: Padding(
@@ -35,8 +38,17 @@ class LoggedInAppBarBody extends StatelessWidget {
                 Row(
                   spacing: MEDIUM_SPACE,
                   children: <Widget>[
-                    const Expanded(child: ContributionStatisticsCard()),
-                    Expanded(child: PricesStatisticsCard(userId: userId)),
+                    Expanded(
+                      child: ContributionStatisticsCard(
+                        autoSizeGroup: autoSizeGroup,
+                      ),
+                    ),
+                    Expanded(
+                      child: PricesStatisticsCard(
+                        userId: userId,
+                        autoSizeGroup: autoSizeGroup,
+                      ),
+                    ),
                   ],
                 ),
                 const Expanded(

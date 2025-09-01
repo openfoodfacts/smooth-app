@@ -6,7 +6,8 @@ import 'package:smooth_app/themes/constant_icons.dart';
 
 class NavigationPreferenceTile extends PreferenceTile {
   const NavigationPreferenceTile({
-    required super.icon,
+    super.icon,
+    super.leading,
     required super.title,
     required super.subtitleText,
     this.root,
@@ -23,6 +24,7 @@ class NavigationPreferenceTile extends PreferenceTile {
   Widget build(BuildContext context) {
     return PreferenceTile(
       icon: icon,
+      leading: leading,
       title: title,
       subtitleText: subtitleText,
       trailing: Icon(ConstantIcons.forwardIcon),

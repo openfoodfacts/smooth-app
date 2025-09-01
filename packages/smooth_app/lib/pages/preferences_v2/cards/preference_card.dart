@@ -14,6 +14,7 @@ class PreferenceCard extends StatelessWidget {
     this.gridView = false,
     this.header,
     this.titleBackgroundColor,
+    this.bannerText,
     super.key,
   }) : assert(title.isNotEmpty, 'PreferenceCard title must not be empty.'),
        assert(
@@ -38,15 +39,21 @@ class PreferenceCard extends StatelessWidget {
   final bool gridView;
   final Widget? header;
   final Color? titleBackgroundColor;
+  final String? bannerText;
 
   @override
   Widget build(BuildContext context) {
     return SmoothCardWithRoundedHeader(
       leading: EMPTY_WIDGET,
       title: title,
+      banner: bannerText != null
+          ? Padding(
+              padding: const EdgeInsets.all(MEDIUM_SPACE),
+              child: Text(bannerText!),
+            )
+          : null,
       titleSpacing: MEDIUM_SPACE * 2,
-      titleTextStyle: Theme.of(context).textTheme.bodyLarge,
-      contentPadding: header != null ? EdgeInsets.zero : null,
+      contentPadding: !gridView ? EdgeInsets.zero : null,
       titleBackgroundColor: titleBackgroundColor,
       child: gridView
           ? GridView.count(
@@ -72,9 +79,21 @@ class PreferenceCard extends StatelessWidget {
                     ),
                     child: header,
                   ),
-                ...tiles,
+                ..._getTilesWithDividers(),
               ],
             ),
     );
+  }
+
+  // This function adds a divider between each tile
+  List<Widget> _getTilesWithDividers() {
+    final List<Widget> tilesWithDividers = <Widget>[];
+    for (int i = 0; i < tiles.length; i++) {
+      if (i > 0) {
+        tilesWithDividers.add(const Divider());
+      }
+      tilesWithDividers.add(tiles[i]);
+    }
+    return tilesWithDividers;
   }
 }

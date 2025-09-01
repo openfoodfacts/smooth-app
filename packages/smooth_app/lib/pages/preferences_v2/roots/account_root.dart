@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 
 class AccountRoot extends PreferencesRoot {
   const AccountRoot({required super.title});
@@ -26,21 +27,20 @@ class AccountRoot extends PreferencesRoot {
         title: appLocalizations.preferences_manage_account_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            icon: Icons.person,
+            leading: const Profile(),
             title: appLocalizations.view_profile,
             subtitleText: appLocalizations.preferences_on_off_website_subtitle,
             url: 'https://world.openfoodfacts.org/editor/$userId',
           ),
           UrlPreferenceTile(
-            icon: Icons.lock,
+            leading: const Password.lock(),
             title: appLocalizations.preferences_change_password_title,
             subtitleText: appLocalizations.preferences_on_off_website_subtitle,
             url: 'https://world.openfoodfacts.org/cgi/reset_password.pl',
           ),
           PreferenceTile(
-            icon: Icons.logout,
-            title: appLocalizations.preferences_app_store,
-            subtitleText: GlobalVars.storeLabel.name,
+            leading: const Logout(),
+            title: appLocalizations.sign_out,
             onTap: () async {
               if (await _confirmLogout(context, appLocalizations) == true) {
                 if (context.mounted) {
@@ -55,12 +55,21 @@ class AccountRoot extends PreferencesRoot {
           ),
         ],
       ),
-      PreferenceCard(
+    ];
+  }
+
+  @override
+  Widget getBottom(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Padding(
+      padding: const EdgeInsets.all(MEDIUM_SPACE),
+      child: PreferenceCard(
         title: appLocalizations.preferences_danger_zone,
         titleBackgroundColor: Colors.red,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.delete,
+            leading: const Delete.trash(),
             title: appLocalizations.account_delete,
             subtitleText:
                 appLocalizations.preferences_account_deletion_subtitle,
@@ -73,7 +82,7 @@ class AccountRoot extends PreferencesRoot {
           ),
         ],
       ),
-    ];
+    );
   }
 
   Future<bool?> _confirmLogout(

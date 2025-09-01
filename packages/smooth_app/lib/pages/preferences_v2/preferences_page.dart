@@ -31,6 +31,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 
 class PreferencesPage extends StatelessWidget {
   @override
@@ -114,18 +115,10 @@ class PreferencesPage extends StatelessWidget {
             ],
           ),
           PreferenceCard(
-            title: appLocalizations.preferences_card_general,
+            title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                icon: Icons.account_circle,
-                title: appLocalizations.myPreferences_profile_title,
-                subtitleText: appLocalizations.myPreferences_profile_subtitle,
-                target: const UserPreferencesPage(
-                  type: PreferencePageType.ACCOUNT,
-                ),
-              ),
-              NavigationPreferenceTile(
-                icon: Icons.egg,
+                leading: const HappyToast(),
                 title: appLocalizations.myPreferences_food_title,
                 subtitleText: appLocalizations.myPreferences_food_subtitle,
                 target: const UserPreferencesPage(
@@ -133,52 +126,28 @@ class PreferencesPage extends StatelessWidget {
                 ),
               ),
               NavigationPreferenceTile(
-                icon: Icons.euro,
-                title: appLocalizations.preferences_prices_title,
-                subtitleText: appLocalizations.preferences_prices_subtitle,
-                target: const UserPreferencesPage(
-                  type: PreferencePageType.PRICES,
-                ),
-              ),
-              NavigationPreferenceTile(
-                icon: Icons.settings,
+                leading: const Personalization.alt(),
                 title: appLocalizations.myPreferences_settings_title,
                 subtitleText: appLocalizations.myPreferences_settings_subtitle,
                 root: AppSettingsRoot(title: appLocalizations.settings_app_app),
               ),
-              if (userPreferences.devMode > 0)
-                NavigationPreferenceTile(
-                  icon: Icons.settings,
-                  title: appLocalizations.dev_preferences_screen_title,
-                  subtitleText:
-                      appLocalizations.dev_preferences_screen_subtitle,
-                  root: DevModeRoot(
-                    title: appLocalizations.dev_preferences_screen_title,
-                  ),
-                ),
             ],
           ),
           PreferenceCard(
             title: appLocalizations.preferences_card_project,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                icon: Icons.input,
-                title: appLocalizations.preferences_contribute_title,
-                subtitleText: appLocalizations.preferences_contribute_subtitle,
+                leading: const Contribute(),
+                title:
+                    appLocalizations.preferences_page_contribute_project_title,
+                subtitleText: appLocalizations
+                    .preferences_page_contribute_project_subtitle,
                 root: ContributeRoot(
                   title: appLocalizations.preferences_contribute_title,
                 ),
               ),
-              NavigationPreferenceTile(
-                icon: Icons.contact_mail,
-                title: appLocalizations.preferences_connect_title,
-                subtitleText: appLocalizations.preferences_connect_subtitle,
-                root: ConnectRoot(
-                  title: appLocalizations.preferences_connect_title,
-                ),
-              ),
               UrlPreferenceTile(
-                icon: Icons.volunteer_activism,
+                leading: const Donate(),
                 title: appLocalizations.preferences_support_title,
                 subtitleText: appLocalizations.preferences_support_subtitle,
                 url: appLocalizations.donate_url,
@@ -190,10 +159,18 @@ class PreferencesPage extends StatelessWidget {
             header: NewNutriscoreHeader(),
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                icon: Icons.support,
-                title: appLocalizations.preferences_faq_title,
-                subtitleText: appLocalizations.preferences_faq_subtitle,
+                leading: const Lifebuoy(),
+                title: appLocalizations.preferences_faq_subtitle,
+                subtitleText: appLocalizations.preferences_page_faq_subtitle,
                 root: FaqRoot(title: appLocalizations.preferences_faq_title),
+              ),
+              NavigationPreferenceTile(
+                leading: const Message.edit(),
+                title: appLocalizations.preferences_connect_title,
+                subtitleText: appLocalizations.preferences_connect_subtitle,
+                root: ConnectRoot(
+                  title: appLocalizations.preferences_connect_title,
+                ),
               ),
             ],
           ),
@@ -201,7 +178,7 @@ class PreferencesPage extends StatelessWidget {
             title: appLocalizations.preferences_card_about,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                icon: Icons.support,
+                leading: const Info(),
                 title: appLocalizations.preferences_legal_information_title,
                 subtitleText:
                     appLocalizations.preferences_legal_information_subtitle,
@@ -210,13 +187,21 @@ class PreferencesPage extends StatelessWidget {
                 ),
               ),
               NavigationPreferenceTile(
-                icon: Icons.support,
+                leading: const Programming(),
                 title: appLocalizations.preferences_about_app_title,
                 subtitleText: appLocalizations.preferences_about_app_subtitle,
                 root: AboutAppRoot(
                   title: appLocalizations.preferences_about_app_title,
                 ),
               ),
+              if (userPreferences.devMode > 0)
+                NavigationPreferenceTile(
+                  leading: const Lab(),
+                  title: 'Open Food Facts Labs',
+                  subtitleText:
+                      appLocalizations.dev_preferences_screen_subtitle,
+                  root: DevModeRoot(title: 'Open Food Facts Labs'),
+                ),
             ],
           ),
         ],

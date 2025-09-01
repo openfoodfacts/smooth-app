@@ -4,7 +4,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
@@ -22,10 +21,11 @@ class FaqRoot extends PreferencesRoot {
 
     return <PreferenceCard>[
       PreferenceCard(
-        title: 'Scores',
+        title: appLocalizations.preferences_faq_scores_methodologies_title,
         tiles: <PreferenceTile>[
-          _createNutriTile(
+          _createScoreTile(
             title: appLocalizations.nutriscore_generic,
+            subtitleText: appLocalizations.preferences_faq_nutriscore_subtitle,
             url: 'https://world.openfoodfacts.org/nutriscore',
             svg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, false),
           ),
@@ -34,24 +34,27 @@ class FaqRoot extends PreferencesRoot {
               SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
             ),
             title: appLocalizations.faq_nutriscore_nutriscore,
+            subtitleText:
+                appLocalizations.preferences_faq_nutriscore_v2_subtitle,
             onTap: () => Navigator.of(context, rootNavigator: true).push(
               MaterialPageRoute<void>(
                 builder: (BuildContext context) => const GuideNutriscoreV2(),
               ),
             ),
           ),
-          _createNutriTile(
+          _createScoreTile(
             title: appLocalizations.environmental_score_generic,
             url: 'https://world.openfoodfacts.org/ecoscore',
             svg: 'assets/cache/green-score-b.svg',
           ),
-          _createNutriTile(
+          _createScoreTile(
             title: appLocalizations.nova_group_generic,
             url: 'https://world.openfoodfacts.org/nova',
             svg: 'assets/cache/nova-group-4.svg',
           ),
-          _createNutriTile(
+          _createScoreTile(
             title: appLocalizations.nutrition_facts,
+            subtitleText: 'Discover the UK FSA methodology',
             url: 'https://world.openfoodfacts.org/traffic-lights',
             svg: 'assets/cache/low.svg',
             leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
@@ -59,32 +62,56 @@ class FaqRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: 'Miscellaneous',
+        title: appLocalizations.preferences_faq_discover_project_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            icon: Icons.question_mark,
-            title: appLocalizations.faq,
-            url: _getFAQUrl(),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.travel_explore,
-            title: appLocalizations.discover,
+            icon: Icons.travel_explore_outlined,
+            title: appLocalizations.preferences_faq_discover_off_title,
             url: ProductQuery.replaceSubdomain(
               'https://world.openfoodfacts.org/discover',
             ),
           ),
           UrlPreferenceTile(
-            icon: Icons.volunteer_activism,
+            icon: Icons.volunteer_activism_outlined,
             title: appLocalizations.how_to_contribute,
             url: ProductQuery.replaceSubdomain(
               'https://world.openfoodfacts.org/contribute',
             ),
           ),
           UrlPreferenceTile(
-            icon: Icons.add_comment,
-            title: appLocalizations.feed_back,
-            url: UserFeedbackHelper.getFeedbackFormLink(),
+            icon: Icons.question_mark,
+            title: appLocalizations.preferences_faq_faq_title,
+            url: _getFAQUrl(),
           ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_faq_off_ngo_title,
+        tiles: <PreferenceTile>[
+          /* UrlPreferenceTile(
+            icon: Icons.travel_explore_outlined,
+            // TODO : Localize
+            title: 'Discover Open Beauty Facts',
+            url: ProductQuery.replaceSubdomain(
+              'https://world.openbeautyfacts.org/discover',
+            ),
+          ),
+          UrlPreferenceTile(
+            icon: Icons.travel_explore_outlined,
+            // TODO : Localize
+            title: 'Discover Open Pet Food Facts',
+            url: ProductQuery.replaceSubdomain(
+              'https://world.openpetfoodfacts.org/discover',
+            ),
+          ),
+          UrlPreferenceTile(
+            icon: Icons.travel_explore_outlined,
+            // TODO : Localize
+            title: 'Discover Open Products Facts',
+            url: ProductQuery.replaceSubdomain(
+              'https://world.openproductsfacts.org/discover',
+            ),
+          ), */
           UrlPreferenceTile(
             icon: Icons.handshake_outlined,
             title: appLocalizations.faq_title_partners,
@@ -118,8 +145,9 @@ class FaqRoot extends PreferencesRoot {
     );
   }
 
-  UrlPreferenceTile _createNutriTile({
+  UrlPreferenceTile _createScoreTile({
     required String title,
+    String? subtitleText,
     required String url,
     required String svg,
     double? leadingSvgWidth,
@@ -127,6 +155,7 @@ class FaqRoot extends PreferencesRoot {
     return UrlPreferenceTile(
       leading: _createLeadingIcon(svg, width: leadingSvgWidth),
       title: title,
+      subtitleText: subtitleText,
       url: ProductQuery.replaceSubdomain(url),
     );
   }

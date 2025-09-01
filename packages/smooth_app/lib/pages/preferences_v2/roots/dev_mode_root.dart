@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -8,10 +7,8 @@ import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -21,7 +18,6 @@ import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_search_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -42,6 +38,18 @@ class DevModeRoot extends PreferencesRoot {
 
     return <PreferenceCard>[
       PreferenceCard(
+        title: appLocalizations.preferences_dev_mode_app_settings_title,
+        tiles: <PreferenceTile>[
+          PreferenceTile(
+            title: 'Reset app language',
+            onTap: () async {
+              userPreferences.setAppLanguageCode(null);
+              ProductQuery.setLanguage(context, userPreferences);
+            },
+          ),
+        ],
+      ),
+      PreferenceCard(
         title: appLocalizations.dev_mode_section_data,
         tiles: <PreferenceTile>[
           PreferenceTile(
@@ -59,6 +67,8 @@ class DevModeRoot extends PreferencesRoot {
           ),
           PreferenceTile(
             title: appLocalizations.offline_data,
+            subtitleText:
+                appLocalizations.preferences_dev_mode_offline_data_subtitle,
             onTap: () => Navigator.push<void>(
               context,
               MaterialPageRoute<void>(
@@ -66,7 +76,7 @@ class DevModeRoot extends PreferencesRoot {
               ),
             ),
           ),
-          PreferenceTile(
+          /* PreferenceTile(
             title: appLocalizations.dev_preferences_export_history_title,
             subtitleText: appLocalizations.clipboard_barcode_copy,
             onTap: () async {
@@ -135,9 +145,11 @@ class DevModeRoot extends PreferencesRoot {
                 ),
               );
             },
-          ),
+          ), */
           PreferenceTile(
-            title: 'Refresh all products from the server',
+            title: appLocalizations.preferences_dev_mode_refresh_products_title,
+            subtitleText:
+                appLocalizations.preferences_dev_mode_refresh_products_subtitle,
             trailing: const Icon(Icons.refresh),
             onTap: () async {
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -152,16 +164,15 @@ class DevModeRoot extends PreferencesRoot {
               _showSuccessMessage(context, appLocalizations);
             },
           ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_dev_mode_demo_mode_title,
+        tiles: <PreferenceTile>[
           PreferenceTile(
-            title: 'Reset app language',
-            onTap: () async {
-              userPreferences.setAppLanguageCode(null);
-              ProductQuery.setLanguage(context, userPreferences);
-            },
-          ),
-          PreferenceTile(
-            title: 'Add cards to scanner',
-            subtitleText: 'Adds 3 sample products to the scanner',
+            title: appLocalizations.preferences_dev_mode_add_cards_title,
+            subtitleText:
+                appLocalizations.preferences_dev_mode_add_cards_subtitle,
             onTap: () async {
               final ContinuousScanModel model = context
                   .read<ContinuousScanModel>();
@@ -174,6 +185,20 @@ class DevModeRoot extends PreferencesRoot {
               for (int i = 0; i < barcodes.length; i++) {
                 await model.onScan(barcodes[i]);
               }
+            },
+          ),
+          PreferenceTile(
+            title: appLocalizations.dev_preferences_reset_onboarding_title,
+            subtitleText:
+                appLocalizations.dev_preferences_reset_onboarding_subtitle,
+            onTap: () async {
+              await userPreferences.resetOnboarding();
+
+              if (!context.mounted) {
+                return;
+              }
+
+              _showSuccessMessage(context, appLocalizations);
             },
           ),
         ],
@@ -222,11 +247,6 @@ class DevModeRoot extends PreferencesRoot {
                 appLocalizations,
               ),
             ),
-        ],
-      ),
-      PreferenceCard(
-        title: 'Prices Server configuration',
-        tiles: <PreferenceTile>[
           PreferenceTile(
             title:
                 'Switch between prices.openfoodfacts.org (PROD) and test env',
@@ -250,22 +270,8 @@ class DevModeRoot extends PreferencesRoot {
               ],
             ),
           ),
-          TogglePreferenceTile(
-            icon: Icons.public,
-            title: appLocalizations.send_anonymous_data_toggle_title,
-            subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
-            state: userPreferences.userTracking,
-            onToggle: (bool value) {
-              userPreferences.setUserTracking(value);
-            },
-          ),
-        ],
-      ),
-      PreferenceCard(
-        title: 'Folksonomy Server configuration',
-        tiles: <PreferenceTile>[
           PreferenceTile(
-            title: 'Folksonomy host',
+            title: appLocalizations.preferences_dev_mode_folksonomy_host_title,
             subtitleText: ProductQuery.uriFolksonomyHelper.host,
             onTap: () async => _changeFolksonomyHost(
               context,
@@ -342,22 +348,6 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            title: appLocalizations.dev_mode_hide_environmental_score_title,
-            state: userPreferences.getExcludedAttributeIds().contains(
-              Attribute.ATTRIBUTE_ECOSCORE,
-            ),
-            onToggle: (bool value) async {
-              const String tag = Attribute.ATTRIBUTE_ECOSCORE;
-              final List<String> list = userPreferences
-                  .getExcludedAttributeIds();
-              list.removeWhere((final String element) => element == tag);
-              if (value) {
-                list.add(tag);
-              }
-              await userPreferences.setExcludedAttributeIds(list);
-            },
-          ),
-          TogglePreferenceTile(
             title: appLocalizations.dev_preferences_show_folksonomy_title,
             state:
                 userPreferences.getFlag(
@@ -380,22 +370,9 @@ class DevModeRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: appLocalizations.dev_mode_section_ui,
+        title: appLocalizations
+            .preferences_dev_mode_accessibility_experiments_title,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            title: appLocalizations.dev_preferences_reset_onboarding_title,
-            subtitleText:
-                appLocalizations.dev_preferences_reset_onboarding_subtitle,
-            onTap: () async {
-              await userPreferences.resetOnboarding();
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
           TogglePreferenceTile(
             title: appLocalizations.preferences_accessibility_remove_colors,
             state:
@@ -437,24 +414,10 @@ class DevModeRoot extends PreferencesRoot {
               _showSuccessMessage(context, appLocalizations);
             },
           ),
-          TogglePreferenceTile(
-            title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
-            subtitleText:
-                appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
-                ) ??
-                false,
-            onToggle: (bool value) async => userPreferences.setFlag(
-              UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
-              value,
-            ),
-          ),
         ],
       ),
       PreferenceCard(
-        title: appLocalizations.dev_mode_section_experimental_features,
+        title: 'Open Prices',
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
             title: appLocalizations.prices_bulk_proof_upload_title,
@@ -469,7 +432,8 @@ class DevModeRoot extends PreferencesRoot {
             ),
           ),
           TogglePreferenceTile(
-            title: 'Multi-products selection for prices',
+            title: appLocalizations
+                .preferences_dev_mode_multi_products_selection_title,
             state:
                 userPreferences.getFlag(
                   UserPreferencesDevMode
@@ -491,7 +455,7 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            title: 'User ordered knowledge panels',
+            title: appLocalizations.preferences_dev_mode_user_ordered_kp_title,
             state:
                 userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
@@ -511,7 +475,7 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           PreferenceTile(
-            title: 'Temporary access to location search',
+            title: appLocalizations.preferences_dev_mode_location_search_title,
             onTap: () async {
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
               final DaoOsmLocation daoOsmLocation = DaoOsmLocation(
@@ -558,17 +522,27 @@ class DevModeRoot extends PreferencesRoot {
               );
             },
           ),
-          PreferenceTile(
-            title: 'Preference Search...',
-            onTap: () async => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) =>
-                    const UserPreferencesSearchPage(),
-              ),
+        ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.dev_mode_section_experimental_features,
+        tiles: <PreferenceTile>[
+          TogglePreferenceTile(
+            title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
+            subtitleText:
+                appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
+            state:
+                userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
+                ) ??
+                false,
+            onToggle: (bool value) async => userPreferences.setFlag(
+              UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
+              value,
             ),
           ),
           TogglePreferenceTile(
-            title: 'Side by side comparison for 2 or 3 products',
+            title: appLocalizations.preferences_dev_mode_comparison_title,
             state:
                 userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
@@ -588,7 +562,8 @@ class DevModeRoot extends PreferencesRoot {
             },
           ),
           TogglePreferenceTile(
-            title: 'Product list import',
+            title:
+                appLocalizations.preferences_dev_mode_product_list_import_title,
             state:
                 userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagProductListImport,
