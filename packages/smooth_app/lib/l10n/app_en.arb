@@ -3897,7 +3897,7 @@
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_greenscore_what_is_greenscore_title": "Qu’est-ce que le Green-Score ?",
+  "guide_greenscore_what_is_greenscore_title": "What is the Green Score?",
   "guide_greenscore_what_is_greenscore_paragraph1": "The Green-Score is a logo that aims to inform you about the **environmental impact of food**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
