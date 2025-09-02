@@ -4371,7 +4371,7 @@
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Dengan diskon",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
@@ -4435,7 +4435,7 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Harga yang tercantum pada label harga",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
@@ -4447,7 +4447,7 @@
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Harga dan bukti per sumber",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
