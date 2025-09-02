@@ -147,9 +147,9 @@ class FaqRoot extends PreferencesRoot {
 
   UrlPreferenceTile _createScoreTile({
     required String title,
-    String? subtitleText,
     required String url,
     required String svg,
+    String? subtitleText,
     double? leadingSvgWidth,
   }) {
     return UrlPreferenceTile(

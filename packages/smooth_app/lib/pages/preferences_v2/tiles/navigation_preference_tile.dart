@@ -6,10 +6,10 @@ import 'package:smooth_app/resources/app_icons.dart';
 
 class NavigationPreferenceTile extends PreferenceTile {
   const NavigationPreferenceTile({
-    super.icon,
-    super.leading,
     required super.title,
     required super.subtitleText,
+    super.icon,
+    super.leading,
     this.root,
     this.target,
   }) : assert(

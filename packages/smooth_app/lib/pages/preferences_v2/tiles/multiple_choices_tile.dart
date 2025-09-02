@@ -11,10 +11,10 @@ class MultipleChoicesTile<T> extends PreferenceTile {
     required super.title,
     required this.leadingBuilder,
     required this.labels,
-    this.descriptions,
     required this.values,
     required this.currentValue,
     required this.onChanged,
+    this.descriptions,
   });
 
   final Iterable<WidgetBuilder>? leadingBuilder;

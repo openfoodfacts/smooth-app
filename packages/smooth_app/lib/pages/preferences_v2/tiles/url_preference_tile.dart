@@ -4,10 +4,10 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 
 class UrlPreferenceTile extends PreferenceTile {
   const UrlPreferenceTile({
-    super.leading,
-    super.icon,
     required super.title,
     required this.url,
+    super.leading,
+    super.icon,
     super.subtitleText,
   });
 
