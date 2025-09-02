@@ -1011,6 +1011,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get score_add_missing_product_category => 'Προσθήκη κατηγορίας';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Προσθήκη χωρών προϊόντος που λείπουν';
 
@@ -1355,7 +1359,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get cached_results_from => 'Εμφάνιση αποτελεσμάτων από:';
 
   @override
-  String get product_search_same_category => 'Σύγκριση με Κατηγορία';
+  String get product_search_same_category => 'Βρείτε εναλλακτικές λύσεις';
 
   @override
   String get product_search_same_category_short => 'Σύγκριση';
@@ -2578,7 +2582,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Επιτρέψτε στην κοινότητα να επικυρώσει τις τιμές που εξάγονται από την Τεχνητή Νοημοσύνη.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Πολλαπλές Ετικέτες Τιμής';
@@ -2587,24 +2591,25 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Μεταφόρτωση Μαζικής Απόδειξης';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Επιλογή αρχείων';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting =>
+      'Έναρξη της μεταφόρτωσης';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Τοπική αντιγραφή αρχείου #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Προετοιμασία μεταφόρτωσης #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Αποτυχία στην εικόνα #$index/$count';
   }
 
   @override
@@ -2694,34 +2699,39 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_view_prices => 'Δείτε τις τιμές';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Τιμοκατάλογος';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Αριθμός\nτιμών';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Προσθήκη νέας τιμής\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Άγνωστο κατάστημα';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Εισαγωγή τιμής από \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'Δείτε όλες τις τιμές για αυτό το προϊόν';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Δείτε την απόδειξη';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Δείτε τις υπόλοιπες τιμές μου';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Δείτε άλλες τιμές από τον συγγραφέα';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Δείτε άλλες τιμές από το κατάστημα';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -3041,7 +3051,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Τιμές συνεισφερόντων';
+    return 'Τιμές συνεργατών: $user';
   }
 
   @override
@@ -3184,13 +3194,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Αλλαγή της προεπιλεγμένης γλώσσας;';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Θέλετε η προεπιλεγμένη γλώσσα του προϊόντος να οριστεί σε \'$language\';';
   }
 
   @override
@@ -4608,13 +4618,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Ποιότητα δεδομένων';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Για μένα';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Ιστοσελίδα';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Τιμές';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
@@ -4801,7 +4811,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Επέκταση απόδειξης';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Ακατέργαστα δεδομένα';
 
   @override
   String page_indicator_with_total(int current, int total) {

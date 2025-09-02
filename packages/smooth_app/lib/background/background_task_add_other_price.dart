@@ -52,7 +52,6 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
   /// Adds the background task about adding prices.
   static Future<void> addTask({
     required BuildContext? context,
-    LocalDatabase? localDatabase,
     required final int proofId,
     required final DateTime date,
     required final Currency currency,
@@ -66,6 +65,7 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
+    LocalDatabase? localDatabase,
   }) async {
     assert(context != null || localDatabase != null);
     localDatabase ??= context!.read<LocalDatabase>();

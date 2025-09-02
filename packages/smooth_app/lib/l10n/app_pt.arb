@@ -407,7 +407,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Contribua com os preços solicitando uma exportação GDPR dos dados dos seus cartões de fidelidade",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -774,8 +774,9 @@
   "score_add_missing_ingredients": "Adicionar ingredientes que faltam",
   "score_add_missing_packaging_image": "Adicionar imagem de embalagem que falta",
   "score_add_missing_nutrition_facts": "Adicionar informações nutricionais que faltam",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Adicionar vestígios de produtos em falta",
   "score_add_missing_product_category": "Selecionar uma categoria",
+  "score_add_missing_precise_product_category": "Selecione uma categoria mais precisa",
   "score_add_missing_product_countries": "Adicionar países que faltam de produtos",
   "score_add_missing_product_emb": "Adicionar códigos de rastreabilidade que faltam de produtos",
   "score_add_missing_product_labels": "Adicionar rótulos que faltam de produtos",
@@ -1043,7 +1044,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Comparar com a categoria",
+  "product_search_same_category": "Encontre alternativas",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1605,7 +1606,7 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Adicionar um novo vestígio",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
@@ -1817,7 +1818,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Insira um vestígio (p. ex.: soja)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -2286,10 +2287,50 @@
   },
   "prices_app_dev_mode_flag": "Atalho para a aplicação Preços na página do produto",
   "prices_app_button": "Ir para a aplicação Preços",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
+  "prices_bulk_proof_upload_select": "Adicione etiquetas de preço diretamente da galeria",
+  "prices_bulk_proof_upload_warning": "Depois de selecionar as imagens, não será possível editá-las!",
+  "prices_bulk_proof_upload_warning_ai": "A IA irá analisar as suas provas para extrair os preços.",
+  "prices_bulk_proof_upload_community_switch": "Permitir que a comunidade valide os preços extraídos pela IA.",
+  "prices_bulk_proof_upload_subtitle": "Várias etiquetas de preço",
   "prices_bulk_proof_upload_title": "Envio em lote de comprovativos",
+  "prices_bulk_proof_upload_step_selecting": "Selecionando ficheiros",
+  "prices_bulk_proof_upload_step_starting": "Iniciando o upload",
+  "prices_bulk_proof_upload_step_copying": "Copiar localmente o ficheiro #{index}/{count}",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "A preparar o upload #{index}/{count}",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "Falha na imagem #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Preços",
   "prices_add_n_prices": "{count,plural, =1{Adicionar um preço} other{Adicionar {count} preços}}",
   "prices_send_n_prices": "{count,plural, =1{Enviar o preço} other{Enviar {count} preços}}",
@@ -2340,6 +2381,30 @@
   "prices_category_error_mandatory": "A categoria é obrigatória",
   "prices_barcode_reader_action": "Leitor de código de barras",
   "prices_view_prices": "Ver os preços",
+  "prices_list_title": "Lista de preços",
+  "prices_list_count": "Número de preços\n",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "Adicionar um novo preço\n",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_entry_shop_not_found": "Loja desconhecida",
+  "prices_entry_menu_title": "Entrada de preço a partir de \"{user}\"",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_product_prices": "Ver todos os preços deste produto",
+  "prices_entry_menu_open_proof": "Ver prova",
+  "prices_entry_menu_my_prices": "Veja os meus outros preços",
+  "prices_entry_menu_author_prices": "Ver outros preços do autor",
+  "prices_entry_menu_shop_prices": "Veja outros preços da loja",
   "prices_product_accessibility_summary": "{count,plural, =1{1 preço} other{{count} preços}} de {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2637,9 +2702,14 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Preços dos contribuintes",
+  "user_any_search_prices_title": "Preços para colaboradores: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Últimos preços adicionados",
   "@all_search_prices_latest_title": {
@@ -2662,7 +2732,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Adicionar várias provas",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2778,7 +2848,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Antes de validar, certifique-se de adicionar uma tradução apenas **se o idioma estiver presente na embalagem**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -2793,6 +2863,19 @@
   "add_basic_details_product_name_hint": "Introduza o nome do produto (por exemplo: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "Alterar o idioma predefinido?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Pretende que o idioma padrão do produto seja definido como '{language}'?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Bons exemplos",
   "@explanation_section_good_examples": {
@@ -3734,7 +3817,7 @@
   "contact_title_press_page": "Página de imprensa",
   "contact_title_press_email": "Contactos de imprensa",
   "contact_title_newsletter": "Assine o nosso boletim informativo",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Inscreva-se no nosso calendário comunitário",
   "hunger_games_loading_line1": "Por favor, dê-nos alguns segundos…",
   "hunger_games_loading_line2": "Estamos a descarregar as perguntas!",
   "hunger_games_error_label": "Ups! Algo correu mal... e não conseguimos carregar as perguntas.",
@@ -3807,8 +3890,8 @@
   "guide_nutriscore_v2_new_logo_text": "A partir de agora, o logótipo pode apresentar uma menção \"**Novo cálculo**\" para esclarecer que se trata efetivamente do novo cálculo.",
   "guide_nutriscore_v2_new_logo_image_caption": "O logótipo do novo Nutri-Score",
   "guide_nutriscore_v2_where_title": "Onde encontrar o novo cálculo do Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "O Nutri-Score é aplicado em 7 países: França, Alemanha, Bélgica, Espanha, Luxemburgo, Países Baixos e Suíça.",
+  "guide_nutriscore_v2_where_paragraph2": "Os fabricantes têm, no máximo, **2 anos** após a assinatura do decreto **para substituir** o cálculo antigo pelo novo.",
   "guide_nutriscore_v2_where_paragraph3": "Sem ter de esperar, já encontrará na aplicação OpenFoodFacts** o novo cálculo, mesmo que os fabricantes não tenham atualizado a classificação.",
   "guide_nutriscore_v2_unchanged_title": "O que não muda",
   "guide_nutriscore_v2_unchanged_paragraph1": "O Nutri-Score é uma pontuação concebida para **medir a qualidade nutricional**. É **complementar ao grupo NOVA** sobre **alimentos ultra-processados** (também presente na aplicação).",
@@ -4160,6 +4243,22 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
+  "product_page_tab_for_me": "Para mim",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Site",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Preços",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "product_page_tab_folksonomy": "Folksonomia",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
   "prices_products_list_length_many_pages": "Principais {pageSize} produtos (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4224,11 +4323,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Estatísticas",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Estatísticas de preços",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4368,15 +4467,15 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Última atualização em",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Ocorreu um erro ao carregar as estatísticas.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Pergunta respondida!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
@@ -4399,6 +4498,10 @@
   "product_edit_robotoff_expand_proof": "Expandir a prova",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "Dados brutos",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Página {current} / {total}",
   "@page_indicator_with_total": {

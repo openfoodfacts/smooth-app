@@ -4,7 +4,7 @@ import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
 /// Allow to control the [ScanPageCarousel] from outside
 class ExternalScanCarouselManager extends StatefulWidget {
-  const ExternalScanCarouselManager({super.key, required this.child});
+  const ExternalScanCarouselManager({required this.child, super.key});
 
   final Widget child;
 

@@ -75,3 +75,10 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: 🎁 Donations
           label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/133 # Add issue to the Releases project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: "autorelease: pending"
+          label-operator: OR
+          

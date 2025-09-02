@@ -9,7 +9,7 @@ import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class GuidesPage extends StatelessWidget {
   const GuidesPage({
@@ -109,9 +109,9 @@ class _GuidesPageBodyState extends State<_GuidesPageBody>
 
 class GuidesParagraph extends StatelessWidget {
   const GuidesParagraph({
-    super.key,
     required this.title,
     required this.content,
+    super.key,
   });
 
   static const double _HORIZONTAL_PADDING = 20.0;

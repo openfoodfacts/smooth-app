@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 
 class SmoothDraggableBottomSheet extends StatefulWidget {
   const SmoothDraggableBottomSheet({
-    super.key,
     required this.headerBuilder,
     required this.headerHeight,
     required this.bodyBuilder,
     required this.borderRadius,
+    super.key,
     this.initHeightFraction = 0.5,
     this.minHeightFraction,
     this.maxHeightFraction = 1.0,

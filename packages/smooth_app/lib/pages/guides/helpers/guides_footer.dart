@@ -72,7 +72,7 @@ class GuidesFooter extends StatelessWidget {
 }
 
 class _FooterPainter extends CustomPainter {
-  _FooterPainter({this.wazeSize = WAVE_SIZE, required Color color})
+  _FooterPainter({required Color color, this.wazeSize = WAVE_SIZE})
     : assert(color.a > 0.0),
       _localPaint = Paint()
         ..color = color

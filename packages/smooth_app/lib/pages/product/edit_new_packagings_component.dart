@@ -139,12 +139,12 @@ class _EditTextLine extends StatefulWidget {
     required this.controller,
     required this.iconName,
     required this.iconColor,
+    required this.productType,
     this.hint,
     this.tagType,
     this.minLengthForSuggestions = 1,
     this.categories,
     this.shapeProvider,
-    required this.productType,
   });
 
   final String title;

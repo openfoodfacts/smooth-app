@@ -35,8 +35,8 @@ class ProductPriceAddPage extends StatefulWidget {
 
   static Future<void> showProductPage({
     required final BuildContext context,
-    final PriceMetaProduct? product,
     required final ProofType proofType,
+    final PriceMetaProduct? product,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
