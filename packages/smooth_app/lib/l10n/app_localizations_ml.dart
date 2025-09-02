@@ -978,6 +978,10 @@ class AppLocalizationsMl extends AppLocalizations {
   String get score_add_missing_product_category => 'Select a category';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -1184,7 +1188,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get product_image_details_from_producer => 'From the producer';
 
   @override
-  String get product_image_details_contributor => 'Contributor';
+  String get product_image_details_contributor => 'സംഘാടകർ';
 
   @override
   String get product_image_details_contributor_producer =>
@@ -1314,7 +1318,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'ഇതരമാർഗങ്ങൾ കണ്ടെത്തുക';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -1897,7 +1901,7 @@ class AppLocalizationsMl extends AppLocalizations {
       'Input a label (eg: NutriScore)';
 
   @override
-  String get edit_product_form_item_labels_type => 'label';
+  String get edit_product_form_item_labels_type => 'ലേബൽ';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
@@ -2056,7 +2060,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get edit_product_form_item_categories_title => 'വിഭാഗങ്ങൾ';
 
   @override
-  String get edit_product_form_item_categories_hint => 'category';
+  String get edit_product_form_item_categories_hint => 'വിഭാഗം';
 
   @override
   String get edit_product_form_item_categories_type =>
@@ -2515,7 +2519,11 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
+      'AI വേർതിരിച്ചെടുത്ത വിലകൾ സാധൂകരിക്കാൻ സമൂഹത്തെ അനുവദിക്കുക.';
+=======
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,6 +2532,17 @@ class AppLocalizationsMl extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting =>
+      'ഫയലുകൾ തിരഞ്ഞെടുക്കുന്നു';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'അപ്‌ലോഡ് ആരംഭിക്കുന്നു';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return '#$index/$countഫയൽ ലോക്കലായി പകർത്തുന്നു';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2532,16 +2551,25 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return '#$index/$countഅപ്‌ലോഡ് തയ്യാറാക്കുന്നു';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return 'ഇമേജിൽ പരാജയപ്പെട്ടു #$index/$count';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2631,34 +2659,38 @@ class AppLocalizationsMl extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'വിലവിവരപ്പട്ടിക';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nവിലകളുടെ എണ്ണം';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '\nപുതിയ വില ചേർക്കുക';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'അജ്ഞാത സ്റ്റോർ';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '\"$user\" എന്നതിൽ നിന്നാണ് വില രേഖപ്പെടുത്തിയിരിക്കുന്നത്.';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'ഈ ഉൽപ്പന്നത്തിന്റെ എല്ലാ വിലകളും കാണുക';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'തെളിവ് കാണുക';
+
+  @override
+  String get prices_entry_menu_my_prices => 'എന്റെ മറ്റ് വിലകൾ കാണുക';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'രചയിതാവിന്റെ മറ്റ് വിലകൾ കാണുക.';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices => 'കടയിലെ മറ്റ് വിലകൾ കാണുക.';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2974,7 +3006,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'സംഭാവകരുടെ വിലകൾ: $user';
   }
 
   @override
@@ -3110,13 +3142,13 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'ഡിഫോൾട്ട് ഭാഷ മാറ്റണോ?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'ഉൽപ്പന്നത്തിന്റെ ഡിഫോൾട്ട് ഭാഷ \'$language\' ആയി സജ്ജീകരിക്കണോ?';
   }
 
   @override
@@ -4245,7 +4277,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get photo_viewer_details_title => 'Details of the photo';
 
   @override
-  String get photo_viewer_details_contributor_title => 'Contributor';
+  String get photo_viewer_details_contributor_title => 'സംഘാടകർ';
 
   @override
   String get photo_viewer_details_size_title => 'Size';
@@ -4509,7 +4541,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'എനിക്കായി';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4702,7 +4734,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'പ്രൂഫ് വികസിപ്പിക്കുക';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'റോ ഡാറ്റ';
 
   @override
   String page_indicator_with_total(int current, int total) {

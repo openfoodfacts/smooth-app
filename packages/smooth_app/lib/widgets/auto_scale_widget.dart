@@ -4,9 +4,9 @@ import 'package:flutter/widgets.dart';
 /// A Widget that will animate the change of its child size.
 class AutoScaleWidget extends SingleChildRenderObjectWidget {
   const AutoScaleWidget({
-    super.key,
     required this.duration,
     required this.vsync,
+    super.key,
     super.child,
   });
 

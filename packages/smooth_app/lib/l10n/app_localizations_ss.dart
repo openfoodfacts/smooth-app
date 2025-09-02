@@ -978,6 +978,10 @@ class AppLocalizationsSs extends AppLocalizations {
   String get score_add_missing_product_category => 'Select a category';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -1314,7 +1318,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'Tfola letinye tindlela';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2515,7 +2519,11 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
+      'Vumela ummango kutsi ucinisekise emanani lakhishwe yi-AI.';
+=======
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,6 +2532,16 @@ class AppLocalizationsSs extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting => 'Kukhetsa emafayela';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Kucala kulayisha';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Ifayela lekukopa endzaweni #$index/$count';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2532,16 +2550,25 @@ class AppLocalizationsSs extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return 'Kulungiselela kulayisha #$index/$count';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return 'Kwehlulekile esitfombeni #$index/$count';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2631,34 +2658,39 @@ class AppLocalizationsSs extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Luhlu lwemanani';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Inani\ntintsengo';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Ngeta\nintsengo lensha';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Sitolo lesingatiwa';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Kufaka intsengo kusuka ku \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'Buka onkhe emanani alomkhicito';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Buka bufakazi';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Buka lamanye emanani ami';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Buka lamanye emanani ngumbhali';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Buka lamanye emanani kusuka esitolo';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2975,7 +3007,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'Intsengo yebanikeli: $user';
   }
 
   @override
@@ -3111,13 +3143,13 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Shintja lulwimi lolusetjentiswako?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Ufuna lulwimi lwemkhicito lusethwe ku \'$language\'?';
   }
 
   @override
@@ -4510,7 +4542,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Kimi';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4703,7 +4735,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Nweba bufakazi';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Idatha leluhlata';
 
   @override
   String page_indicator_with_total(int current, int total) {

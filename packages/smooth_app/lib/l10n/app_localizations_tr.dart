@@ -987,6 +987,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Eksik ürün kategori bilgisini ekle';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Eksik ürün ülkelerini ekleyin';
 
@@ -1328,7 +1332,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get cached_results_from => 'Sonuçların gösterildiği:';
 
   @override
-  String get product_search_same_category => 'Kategoriye göre karşılaştır';
+  String get product_search_same_category => 'Alternatifleri bulun';
 
   @override
   String get product_search_same_category_short => 'Karşılaştır';
@@ -2528,11 +2532,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
+<<<<<<< HEAD
+      'Yapay zeka kanıtlarınız üzerinde çalışarak fiyatları çıkaracak.';
+
+  @override
+  String get prices_bulk_proof_upload_community_switch =>
+      'Yapay zeka tarafından çıkarılan fiyatların topluluk tarafından doğrulanmasına izin verin.';
+=======
       'AI will run on your proofs to extract prices.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Birden Fazla Fiyat Etiketi';
@@ -2541,6 +2553,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Toplu Kanıt Yüklemesi';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting => 'Dosyaları seçme';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Yükleme başlatılıyor';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return '#$index/${count}dosyası yerel olarak kopyalanıyor';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2549,16 +2571,25 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return 'Yükleme hazırlanıyor #$index/$count';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return '#$index/${count}görüntüsünde başarısız oldu';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2648,34 +2679,39 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_view_prices => 'Fiyatları görüntüle';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Fiyat listesi';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nfiyat sayısı';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '\nyeni bir fiyat ekle';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Bilinmeyen mağaza';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Fiyat girişi \"$user\" \'dan';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'Bu ürünün tüm fiyatlarını görüntüle';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Kanıtı görüntüle';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Diğer fiyatlarımı görüntüle';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Yazarın diğer fiyatlarını görüntüle';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Mağazadaki diğer fiyatları görün';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2993,7 +3029,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Katkıda bulunanların fiyatları';
+    return 'Katkıda bulunanların fiyatları: $user';
   }
 
   @override
@@ -3133,13 +3169,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Varsayılan dili değiştirmek ister misiniz?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Ürünün varsayılan dilinin \'$language\' olarak ayarlanmasını ister misiniz?';
   }
 
   @override
@@ -4538,16 +4574,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Veri kalitesi';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Benim için';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Web sitesi';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Fiyatlar';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Halkbilimi';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -4732,7 +4768,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Kanıtı genişlet';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Ham veriler';
 
   @override
   String page_indicator_with_total(int current, int total) {

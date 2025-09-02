@@ -2098,6 +2098,12 @@ abstract class AppLocalizations {
   /// **'Select a category'**
   String get score_add_missing_product_category;
 
+  /// No description provided for @score_add_missing_precise_product_category.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a more precise category'**
+  String get score_add_missing_precise_product_category;
+
   /// No description provided for @score_add_missing_product_countries.
   ///
   /// In en, this message translates to:
@@ -2683,7 +2689,7 @@ abstract class AppLocalizations {
   /// Button looking for the other products within the same category. Less than 30 characters
   ///
   /// In en, this message translates to:
-  /// **'Compare to Category'**
+  /// **'Find alternatives'**
   String get product_search_same_category;
 
   /// Button looking for the other products within the same category. Just the verb compare
@@ -4816,6 +4822,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Price entry from \"{user}\"'**
   String prices_entry_menu_title(String user);
+
+  /// No description provided for @prices_entry_menu_open_product_prices.
+  ///
+  /// In en, this message translates to:
+  /// **'View all prices for this product'**
+  String get prices_entry_menu_open_product_prices;
 
   /// No description provided for @prices_entry_menu_open_proof.
   ///

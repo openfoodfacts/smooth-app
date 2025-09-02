@@ -996,6 +996,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'Додати відсутню категорію продукту';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Додайте відсутні країни для товарів';
 
@@ -1335,7 +1339,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get cached_results_from => 'Показати результати з:';
 
   @override
-  String get product_search_same_category => 'Порівняти з Категорією';
+  String get product_search_same_category => 'Знайти альтернативи';
 
   @override
   String get product_search_same_category_short => 'Порівняти';
@@ -2541,11 +2545,19 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
+<<<<<<< HEAD
+      'ШІ працюватиме на ваших доказах, щоб отримати ціни.';
+
+  @override
+  String get prices_bulk_proof_upload_community_switch =>
+      'Дозвольте спільноті перевіряти ціни, отримані за допомогою штучного інтелекту.';
+=======
       'AI will run on your proofs to extract prices.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Кілька цінників';
@@ -2555,6 +2567,16 @@ class AppLocalizationsUk extends AppLocalizations {
       'Масове підтвердження завантаження';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting => 'Вибір файлів';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Початок завантаження';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Локальне копіювання файлу #$index/$count';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2563,16 +2585,25 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return 'Підготовка завантаження #$index/$count';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return 'Помилка на зображенні #$index/$count';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2664,34 +2695,38 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_view_prices => 'Переглянути ціни';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Прайс-лист';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Кількість цін\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Додати нову ціну\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Невідомий магазин';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Введена ціна від \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'Переглянути всі ціни на цей товар';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Переглянути доказ';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => 'Переглянути інші мої ціни';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => 'Переглянути інші ціни автора';
+
+  @override
+  String get prices_entry_menu_shop_prices =>
+      'Переглянути інші ціни з магазину';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -3010,7 +3045,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Ціни вкладників';
+    return 'Ціни для учасників: $user';
   }
 
   @override
@@ -3148,13 +3183,13 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Змінити мову за замовчуванням?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Ви хочете встановити мову продукту за замовчуванням на «$language»?';
   }
 
   @override
@@ -4564,13 +4599,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Якість даних';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Для мене';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Сайт';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Ціни';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
@@ -4759,7 +4794,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Розгорнути доказ';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Необроблені дані';
 
   @override
   String page_indicator_with_total(int current, int total) {

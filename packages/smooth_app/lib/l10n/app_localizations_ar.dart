@@ -976,6 +976,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get score_add_missing_product_category => 'إضافة فئة المنتج مفقودة';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -1312,7 +1316,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cached_results_from => 'إظهار النتائج من:';
 
   @override
-  String get product_search_same_category => 'قارن بالفئة';
+  String get product_search_same_category => 'البحث عن البدائل';
 
   @override
   String get product_search_same_category_short => 'قارن';
@@ -2510,7 +2514,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
+      'السماح للمجتمع بالتحقق من الأسعار المستخرجة بواسطة الذكاء الاصطناعي.';
+=======
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2519,6 +2527,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting => 'اختيار الملفات';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'بدء التحميل';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'نسخ الملف محليًا #$index/$count';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2527,16 +2545,25 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return 'جاري التحضير للتحميل #$index/$count';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return 'فشل في الصورة #$index/$count';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2626,34 +2653,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'قائمة الأسعار';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'عدد\nالأسعار';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'أضف سعرًا جديدًا\n';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'متجر غير معروف';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'سعر الدخول من \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'عرض جميع الأسعار لهذا المنتج';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'عرض الدليل';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => 'عرض أسعاري الأخرى';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => 'عرض الأسعار الأخرى للمؤلف';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'عرض الأسعار الأخرى من المتجر';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2969,7 +2999,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'أسعار المساهمين: $user';
   }
 
   @override
@@ -3105,13 +3135,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'تغيير اللغة الإفتراضية؟';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'هل تريد تعيين لغة المنتج الافتراضية إلى \'$language\'؟';
   }
 
   @override
@@ -4503,7 +4533,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'لي';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4696,7 +4726,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'توسيع الدليل';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'البيانات الخام';
 
   @override
   String page_indicator_with_total(int current, int total) {

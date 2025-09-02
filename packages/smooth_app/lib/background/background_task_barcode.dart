@@ -10,10 +10,10 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
   BackgroundTaskBarcode({
     required super.processName,
     required super.uniqueId,
-    super.language,
     required super.stamp,
     required this.barcode,
     required this.productType,
+    super.language,
   });
 
   BackgroundTaskBarcode.fromJson(super.json)

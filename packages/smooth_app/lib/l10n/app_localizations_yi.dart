@@ -978,6 +978,10 @@ class AppLocalizationsYi extends AppLocalizations {
   String get score_add_missing_product_category => 'Select a category';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -1314,7 +1318,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'געפֿינען אַלטערנאַטיוון';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2515,7 +2519,11 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
+      'דערלויבט דער קהילה צו וואַלידירן פרייזן עקסטראַקטעד דורך קינסטלעכער אינטעליגענץ.';
+=======
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2524,6 +2532,16 @@ class AppLocalizationsYi extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting => 'אויסקלייבן טעקעס';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'אָנהייבן דעם אַפּלאָוד';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'לאקאל קאפירן טעקע #$index/$count';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2532,16 +2550,25 @@ class AppLocalizationsYi extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return 'צוגרייטן אַפּלאָוד #$index/$count';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return 'דורכגעפאלן ביי בילד #$index/$count';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2631,34 +2658,37 @@ class AppLocalizationsYi extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'פרייז ליסטע';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'נומער פון\nפרייזן';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'לייג צו א\nנייעם פרייז';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'אומבאַקאַנטער קראָם';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'פרייז איינגאבע פון \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'זען אַלע פּרייזן פֿאַר דעם פּראָדוקט';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'זען באַווייַז';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_my_prices => 'זעט מײַנע אַנדערע פּרײַזן';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_author_prices => 'זעה אנדערע פרייזן פונעם מחבר';
+
+  @override
+  String get prices_entry_menu_shop_prices => 'זעט אנדערע פרייזן פון די קראָם';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2974,7 +3004,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'ביישטייערער פרייזן: $user';
   }
 
   @override
@@ -3110,13 +3140,13 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'טוישן די דיפאָלט שפּראַך?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'ווילסטו אז די פראדוקט\'ס דיפאלט שפראך זאל זיין געשטעלט צו \'$language\'?';
   }
 
   @override
@@ -4509,7 +4539,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'פֿאַר מיר';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4702,7 +4732,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'אויסברייטערן באַווייַז';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'רויע דאַטן';
 
   @override
   String page_indicator_with_total(int current, int total) {

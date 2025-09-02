@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 /// (Active color = fill color)
 class SmoothCheckbox extends StatelessWidget {
   const SmoothCheckbox({
-    super.key,
     required this.value,
-    this.tristate = false,
     required this.onChanged,
+    super.key,
+    this.tristate = false,
     this.mouseCursor,
     this.activeColor,
     this.fillColor,

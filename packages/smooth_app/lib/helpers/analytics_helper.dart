@@ -394,8 +394,8 @@ class AnalyticsHelper {
 
   static void trackProductEvent(
     AnalyticsEvent msg, {
-    int? eventValue,
     required Product product,
+    int? eventValue,
   }) => trackCustomEvent(
     msg.name,
     msg.category.tag,

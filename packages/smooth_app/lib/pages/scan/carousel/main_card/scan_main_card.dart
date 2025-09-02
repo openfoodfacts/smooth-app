@@ -3,10 +3,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/top_card/scan_search_card.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 class ScanMainCard extends StatelessWidget {
   const ScanMainCard();

@@ -78,10 +78,10 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   static Future<void> addTask(
     final Product minimalistProduct, {
     required BuildContext? context,
-    LocalDatabase? localDatabase,
     required final BackgroundTaskDetailsStamp stamp,
-    final bool showSnackBar = true,
     required final ProductType? productType,
+    LocalDatabase? localDatabase,
+    final bool showSnackBar = true,
   }) async {
     assert(context != null || localDatabase != null);
     localDatabase ??= context!.read<LocalDatabase>();

@@ -4,6 +4,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// "Add simple input" button for user contribution.
 class AddSimpleInputButton extends StatelessWidget {
@@ -13,10 +14,15 @@ class AddSimpleInputButton extends StatelessWidget {
   final AbstractSimpleInputPageHelper helper;
 
   @override
-  Widget build(BuildContext context) => addPanelButton(
-    helper.getAddButtonLabel(AppLocalizations.of(context)),
-    onPressed: () async => ProductFieldSimpleEditor(
-      helper,
-    ).edit(isLoggedInMandatory: true, context: context, product: product),
-  );
+  Widget build(BuildContext context) {
+    helper.reInit(product);
+    return addPanelButton(
+      helper.getAddButtonLabel(AppLocalizations.of(context)),
+      leadingIcon: const icons.Edit(),
+      textAlign: TextAlign.center,
+      onPressed: () async => ProductFieldSimpleEditor(
+        helper,
+      ).edit(isLoggedInMandatory: true, context: context, product: product),
+    );
+  }
 }

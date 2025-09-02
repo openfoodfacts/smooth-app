@@ -9,15 +9,15 @@ enum TextFieldTypes { PLAIN_TEXT, PASSWORD }
 
 class SmoothTextFormField extends StatefulWidget {
   const SmoothTextFormField({
-    super.key,
     required this.type,
     required this.controller,
+    required this.hintText,
+    super.key,
     this.enabled,
     this.textInputAction,
     this.textCapitalization,
     this.validator,
     this.autofillHints,
-    required this.hintText,
     this.hintTextStyle,
     this.prefixIcon,
     this.suffixIcon,

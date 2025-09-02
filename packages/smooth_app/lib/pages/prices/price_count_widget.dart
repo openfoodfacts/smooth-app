@@ -17,17 +17,17 @@ class PriceCountWidget extends StatelessWidget {
     buttonStyle: ElevatedButton.styleFrom(
       disabledForegroundColor: onPressed != null
           ? null
-          : _getForegroundColor(count),
+          : getForegroundColor(count),
       disabledBackgroundColor: onPressed != null
           ? null
           : _getBackgroundColor(count),
-      foregroundColor: onPressed == null ? null : _getForegroundColor(count),
+      foregroundColor: onPressed == null ? null : getForegroundColor(count),
       backgroundColor: onPressed == null ? null : _getBackgroundColor(count),
     ),
     tooltip: AppLocalizations.of(context).prices_button_count_price(count),
   );
 
-  static Color? _getForegroundColor(final int count) => switch (count) {
+  static Color getForegroundColor(final int count) => switch (count) {
     0 => Colors.red,
     1 => Colors.orange,
     _ => Colors.green,

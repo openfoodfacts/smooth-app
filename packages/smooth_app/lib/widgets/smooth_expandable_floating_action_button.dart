@@ -5,11 +5,11 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 
 class SmoothExpandableFloatingActionButton extends StatefulWidget {
   const SmoothExpandableFloatingActionButton({
-    super.key,
     required this.icon,
     required this.label,
     required this.scrollController,
     required this.onPressed,
+    super.key,
     this.shape,
   });
 

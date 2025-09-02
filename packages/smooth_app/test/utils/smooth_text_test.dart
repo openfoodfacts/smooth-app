@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smooth_app/widgets/smooth_text.dart' show StringExtension;
+import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 void main() {
   group('Smooth text', () {

@@ -991,6 +991,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get score_add_missing_product_category => 'Selecteer een categorie';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Voeg ontbrekende productlanden toe';
 
@@ -1331,7 +1335,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get cached_results_from => 'Resultaten weergeven van:';
 
   @override
-  String get product_search_same_category => 'Vergelijk met categorie';
+  String get product_search_same_category => 'Vind alternatieven';
 
   @override
   String get product_search_same_category_short => 'Vergelijken';
@@ -2549,11 +2553,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
+<<<<<<< HEAD
+      'AI zal uw bewijzen gebruiken om prijzen te berekenen.';
+
+  @override
+  String get prices_bulk_proof_upload_community_switch =>
+      'Geef de community de mogelijkheid om prijzen te valideren die door AI zijn verkregen.';
+=======
       'AI will run on your proofs to extract prices.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Meerdere prijskaartjes';
@@ -2562,6 +2574,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulkbewijs uploaden';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting => 'Bestanden selecteren';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting => 'Het uploaden starten';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'Lokaal kopiëren van bestand #$index/$count';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2570,16 +2592,25 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return 'Upload voorbereiden #$index/$count';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return 'Mislukt bij afbeelding #$index/$count';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2669,34 +2700,39 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_view_prices => 'Bekijk de prijzen';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Prijslijst';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Aantal\nprijzen';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Voeg een\nnieuwe prijs toe';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Onbekende winkel';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Prijsinvoer van \"$user\"';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'Bekijk alle prijzen voor dit product';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'Bekijk het bewijs';
+
+  @override
+  String get prices_entry_menu_my_prices => 'Bekijk mijn andere prijzen';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'Bekijk andere prijzen van de auteur';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Bekijk andere prijzen van de winkel';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -3015,7 +3051,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Prijzen van bijdragers';
+    return 'Prijzen van bijdrager: $user';
   }
 
   @override
@@ -3155,13 +3191,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'De standaardtaal wijzigen?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Wilt u dat de standaardtaal van het product wordt ingesteld op \'$language\'?';
   }
 
   @override
@@ -4565,13 +4601,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Gegevenskwaliteit';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'Voor mij';
 
   @override
   String get product_page_tab_website => 'Website';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Prijzen';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
@@ -4759,7 +4795,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'Bewijs uitklappen';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Ruwe gegevens';
 
   @override
   String page_indicator_with_total(int current, int total) {

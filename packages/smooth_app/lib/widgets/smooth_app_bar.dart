@@ -299,6 +299,8 @@ class _AppBarTitle extends StatelessWidget {
             style: (theme.textTheme.bodyMedium ?? const TextStyle()).copyWith(
               color: color,
             ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             child: ExcludeSemantics(
               excluding: ignoreSemanticsForSubtitle ?? false,
               child: subTitle,

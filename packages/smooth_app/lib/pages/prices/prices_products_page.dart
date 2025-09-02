@@ -94,6 +94,6 @@ class _InfiniteScrollProductManager
     required BuildContext context,
     required PriceProduct item,
   }) {
-    return SmoothCard(child: PriceProductWidget(item, enableCountButton: true));
+    return SmoothCard(child: PriceProductWidget(item));
   }
 }

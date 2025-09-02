@@ -23,7 +23,7 @@ jobs:
       tag_name: ${{ steps.release_please.outputs.tag_name }}
     steps:
       - name: Release-please
-        uses: googleapis/release-please-action@v4.2.0
+        uses: googleapis/release-please-action@v4.3.0
         id: release_please
         with:
            token: ${{ secrets.GITHUB_TOKEN }}
@@ -55,7 +55,7 @@ jobs:
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}" >> $GITHUB_ENV

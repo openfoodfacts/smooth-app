@@ -979,6 +979,10 @@ class AppLocalizationsKn extends AppLocalizations {
   String get score_add_missing_product_category => 'Select a category';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Select a more precise category';
+
+  @override
   String get score_add_missing_product_countries =>
       'Add missing product countries';
 
@@ -1315,7 +1319,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Compare to Category';
+  String get product_search_same_category => 'ಪರ್ಯಾಯಗಳನ್ನು ಹುಡುಕಿ';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -2516,7 +2520,11 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
+<<<<<<< HEAD
+      'AI ನಿಂದ ಹೊರತೆಗೆಯಲಾದ ಬೆಲೆಗಳನ್ನು ಮೌಲ್ಯೀಕರಿಸಲು ಸಮುದಾಯಕ್ಕೆ ಅನುಮತಿಸಿ.';
+=======
       'Allow the community to validate prices extracted by AI.';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2525,6 +2533,18 @@ class AppLocalizationsKn extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
+<<<<<<< HEAD
+  String get prices_bulk_proof_upload_step_selecting =>
+      'ಫೈಲ್‌ಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಲಾಗುತ್ತಿದೆ';
+
+  @override
+  String get prices_bulk_proof_upload_step_starting =>
+      'ಅಪ್‌ಲೋಡ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ';
+
+  @override
+  String prices_bulk_proof_upload_step_copying(int index, int count) {
+    return 'ಸ್ಥಳೀಯವಾಗಿ #$index/$countಫೈಲ್ ಅನ್ನು ನಕಲಿಸಲಾಗುತ್ತಿದೆ';
+=======
   String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
 
   @override
@@ -2533,16 +2553,25 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Locally copying file #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
+<<<<<<< HEAD
+    return '#$index/$countಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಸಿದ್ಧವಾಗುತ್ತಿದೆ';
+=======
     return 'Preparing upload #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
+<<<<<<< HEAD
+    return '#$index/$countಚಿತ್ರದಲ್ಲಿ ವಿಫಲವಾಗಿದೆ';
+=======
     return 'Failed at image #$index/$count';
+>>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -2632,34 +2661,39 @@ class AppLocalizationsKn extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'ಬೆಲೆ ಪಟ್ಟಿ';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => '\nಬೆಲೆಗಳ ಸಂಖ್ಯೆ';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => '\nಹೊಸ ಬೆಲೆಯನ್ನು ಸೇರಿಸಿ';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'ಅಪರಿಚಿತ ಅಂಗಡಿ';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return '\"$user\" ಇಂದ ಬೆಲೆ ನಮೂದು';
   }
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_product_prices =>
+      'ಈ ಉತ್ಪನ್ನದ ಎಲ್ಲಾ ಬೆಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_open_proof => 'ಪುರಾವೆ ವೀಕ್ಷಿಸಿ';
+
+  @override
+  String get prices_entry_menu_my_prices => 'ನನ್ನ ಇತರ ಬೆಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ';
 
   @override
   String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+      'ಲೇಖಕರಿಂದ ಇತರ ಬೆಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'ಅಂಗಡಿಯಲ್ಲಿರುವ ಇತರ ಬೆಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2975,7 +3009,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices';
+    return 'ಕೊಡುಗೆದಾರರ ಬೆಲೆಗಳು: $user';
   }
 
   @override
@@ -3111,13 +3145,13 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'ಡೀಫಾಲ್ಟ್ ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸುವುದೇ?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'ಉತ್ಪನ್ನದ ಡೀಫಾಲ್ಟ್ ಭಾಷೆಯನ್ನು \'$language\' ಗೆ ಹೊಂದಿಸಲು ನೀವು ಬಯಸುತ್ತೀರಾ?';
   }
 
   @override
@@ -4510,7 +4544,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'ನನಗಾಗಿ';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -4703,7 +4737,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get product_edit_robotoff_expand_proof => 'ಪ್ರೂಫ್ ಅನ್ನು ವಿಸ್ತರಿಸಿ';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'ಕಚ್ಚಾ ಡೇಟಾ';
 
   @override
   String page_indicator_with_total(int current, int total) {
