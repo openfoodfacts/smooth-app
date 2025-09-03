@@ -1012,7 +1012,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Επιλέξτε μια πιο ακριβή κατηγορία';
 
   @override
   String get score_add_missing_product_countries =>

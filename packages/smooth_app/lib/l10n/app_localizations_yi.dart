@@ -979,7 +979,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'אויסקלייבן אַ מער פּינקטלעכע קאַטעגאָריע';
 
   @override
   String get score_add_missing_product_countries =>

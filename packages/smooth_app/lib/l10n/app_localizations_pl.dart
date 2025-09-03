@@ -1001,7 +1001,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Wybierz bardziej precyzyjną kategorię';
 
   @override
   String get score_add_missing_product_countries =>
