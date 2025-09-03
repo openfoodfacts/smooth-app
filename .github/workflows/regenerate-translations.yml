@@ -48,17 +48,34 @@ jobs:
           cd packages/smooth_app
           flutter pub get
 
+      # Validate ARB files
+      - name: 🔍 Validate ARB files
+        run: |
+          cd packages/smooth_app
+          echo "Checking for ARB files..."
+          find lib/l10n -name "*.arb" | head -5
+          echo ""
+          echo "Validating app_en.arb syntax..."
+          python3 -c "import json; json.load(open('lib/l10n/app_en.arb'))"
+          echo "✅ ARB files are valid"
+
       # Install intl_utils globally
       - name: 🔧 Install intl_utils
-        run: flutter pub global activate intl_utils
+        run: |
+          flutter pub global activate intl_utils
+          flutter pub global list | grep intl_utils
 
       # Generate translation files
       - name: 🌐 Generate translation files
         run: |
           cd packages/smooth_app
+          echo "Current directory: $(pwd)"
+          echo "Checking l10n.yaml configuration:"
+          cat l10n.yaml
+          echo ""
           echo "Running intl_utils:generate..."
           flutter pub global run intl_utils:generate
-          echo "Translation file generation completed"
+          echo "Translation file generation completed successfully"
 
       # Check if there are any changes
       - name: 📊 Check for changes
