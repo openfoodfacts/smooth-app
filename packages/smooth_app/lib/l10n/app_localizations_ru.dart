@@ -1006,7 +1006,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Выберите более точную категорию';
 
   @override
   String get score_add_missing_product_countries =>
@@ -1290,17 +1290,17 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get product_tags_title => 'Свойства товара';
+  String get product_tags_title => 'Свойства продукта';
 
   @override
   String get no_product_tags_found_message =>
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get add_tag => 'Add property';
+  String get add_tag => 'Добавить свойство';
 
   @override
-  String get add_tags => 'Добавить свойство';
+  String get add_tags => 'Добавить свойства';
 
   @override
   String get add_edit_tags => 'Добавить или изменить свойства';
@@ -1324,7 +1324,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tag_value => 'Значение';
 
   @override
-  String get tag_value_input_hint => 'Введите цену';
+  String get tag_value_input_hint => 'Введите значение';
 
   @override
   String get tag_key_item => 'Свойство:';
@@ -3705,12 +3705,12 @@ class AppLocalizationsRu extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count вопросы',
-      one: 'вопрос',
-      many: '$count вопросы',
-      few: '$count вопросы',
+      other: '',
+      one: 'Следующий вопрос',
+      many: 'Следующие $count вопросов',
+      few: 'Следующие $count вопроса',
     );
-    return 'Следующий $_temp0';
+    return '$_temp0';
   }
 
   @override

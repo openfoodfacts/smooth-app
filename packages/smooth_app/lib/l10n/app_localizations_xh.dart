@@ -979,7 +979,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Khetha udidi oluchane ngakumbi';
 
   @override
   String get score_add_missing_product_countries =>

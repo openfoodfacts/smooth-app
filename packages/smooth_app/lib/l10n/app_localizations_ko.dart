@@ -958,8 +958,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get score_add_missing_product_category => '누락된 상품 카테고리 추가';
 
   @override
-  String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+  String get score_add_missing_precise_product_category => '더 정확한 카테고리를 선택하세요';
 
   @override
   String get score_add_missing_product_countries =>

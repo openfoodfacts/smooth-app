@@ -980,7 +980,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Odaberite precizniju kategoriju';
 
   @override
   String get score_add_missing_product_countries =>

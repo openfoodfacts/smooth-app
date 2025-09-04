@@ -980,7 +980,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'ಹೆಚ್ಚು ನಿಖರವಾದ ವರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ';
 
   @override
   String get score_add_missing_product_countries =>

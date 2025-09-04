@@ -975,7 +975,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'เลือกหมวดหมู่ที่แม่นยำยิ่งขึ้น';
 
   @override
   String get score_add_missing_product_countries =>
