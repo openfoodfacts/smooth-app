@@ -7324,31 +7324,31 @@ abstract class AppLocalizations {
   /// The title of the guide (please don't forget the use of non-breaking spaces)
   ///
   /// In en, this message translates to:
-  /// **'Le Green-Score'**
+  /// **'Green-Score'**
   String get guide_greenscore_title;
 
   /// No description provided for @guide_greenscore_what_is_greenscore_title.
   ///
   /// In en, this message translates to:
-  /// **'Qu’est-ce que le Green-Score ?'**
+  /// **'What is the Green Score?'**
   String get guide_greenscore_what_is_greenscore_title;
 
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'Le Green-Score est un logo qui a pour objectif de vous informer sur l\'**impact environnemental des aliments**.'**
+  /// **'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.'**
   String get guide_greenscore_what_is_greenscore_paragraph1;
 
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'Le code couleur varie en allant du vert foncé (**A+**) pour les produits les **moins impactants** au rouge foncé (**F**) pour les **plus impactants**.'**
+  /// **'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.'**
   String get guide_greenscore_what_is_greenscore_paragraph2;
 
   /// No description provided for @guide_greenscore_logos_caption.
   ///
   /// In en, this message translates to:
-  /// **'Les logos Green-Score'**
+  /// **'The Green-Score logos'**
   String get guide_greenscore_logos_caption;
 
   /// No description provided for @guide_greenscore_lca_title.

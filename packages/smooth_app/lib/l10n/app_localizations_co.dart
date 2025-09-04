@@ -4215,22 +4215,22 @@ class AppLocalizationsCo extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_greenscore_title => 'Le Green-Score';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'Qu’est-ce que le Green-Score ?';
+      'What is the Green Score?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'Le Green-Score est un logo qui a pour objectif de vous informer sur l\'**impact environnemental des aliments**.';
+      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'Le code couleur varie en allant du vert foncé (**A+**) pour les produits les **moins impactants** au rouge foncé (**F**) pour les **plus impactants**.';
+      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
 
   @override
-  String get guide_greenscore_logos_caption => 'Les logos Green-Score';
+  String get guide_greenscore_logos_caption => 'The Green-Score logos';
 
   @override
   String get guide_greenscore_lca_title =>
