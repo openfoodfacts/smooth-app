@@ -4286,22 +4286,22 @@ class AppLocalizationsId extends AppLocalizations {
   String get guide_greenscore_lca_arg2_title => '6 production steps';
 
   @override
-  String get guide_greenscore_lca_arg2_text1 => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
 
   @override
-  String get guide_greenscore_lca_arg2_text2 => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_text3 => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
 
   @override
-  String get guide_greenscore_lca_arg2_text4 => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
 
   @override
-  String get guide_greenscore_lca_arg2_text5 => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
 
   @override
-  String get guide_greenscore_lca_arg2_text6 => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
   String get guide_greenscore_lca_arg3_title =>

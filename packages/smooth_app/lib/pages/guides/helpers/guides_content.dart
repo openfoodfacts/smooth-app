@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -310,17 +311,17 @@ class GuidesIllustratedText extends StatelessWidget {
   }
 }
 
-class GuidesTitleWithText extends StatelessWidget {
-  const GuidesTitleWithText({
-    required this.title,
+class GuidesTitleContainer extends StatelessWidget {
+  const GuidesTitleContainer({
+    required this.child,
     required this.icon,
-    required this.text,
+    required this.title,
     super.key,
-  });
+  }) : assert(title.length > 0);
 
-  final String title;
+  final Widget child;
   final AppIcon icon;
-  final String text;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -336,11 +337,33 @@ class GuidesTitleWithText extends StatelessWidget {
         spacing: 15.0,
         children: <Widget>[
           _GuidesTextTitle(title: title, icon: icon),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2.0),
-            child: _GuidesFormattedText(text: text),
-          ),
+          child,
         ],
+      ),
+    );
+  }
+}
+
+class GuidesTitleWithText extends StatelessWidget {
+  const GuidesTitleWithText({
+    required this.title,
+    required this.icon,
+    required this.text,
+    super.key,
+  });
+
+  final String title;
+  final AppIcon icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return GuidesTitleContainer(
+      title: title,
+      icon: icon,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 2.0),
+        child: _GuidesFormattedText(text: text),
       ),
     );
   }
@@ -365,54 +388,47 @@ class GuidesTitleWithBulletPoints extends StatelessWidget {
     final SmoothColorsThemeExtension colors = context
         .extension<SmoothColorsThemeExtension>();
 
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: 15.0,
-        bottom: 15.0,
-        start: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
-        end: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
-      ),
+    return GuidesTitleContainer(
+      title: title,
+      icon: icon,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _GuidesTextTitle(title: title, icon: icon),
-          const SizedBox(height: 15.0),
-          ...bulletPoints.mapIndexed(
-            (int position, String item) => Padding(
-              padding: EdgeInsetsDirectional.only(
-                start: LARGE_SPACE,
-                end: LARGE_SPACE,
-                top: type == BulletPointType.arrow ? 8.0 : 0.0,
-              ),
-              child: Row(
-                spacing: 10.0,
-                children: <Widget>[
-                  switch (type) {
-                    BulletPointType.arrow => icons.CircledArrow.right(
-                      type: CircledArrowType.normal,
-                      circleColor: colors.primarySemiDark,
-                    ),
-                    BulletPointType.number => Container(
-                      decoration: BoxDecoration(
-                        color: colors.primarySemiDark,
-                        shape: BoxShape.circle,
+        children: bulletPoints
+            .mapIndexed(
+              (int position, String item) => Padding(
+                padding: EdgeInsetsDirectional.only(
+                  start: LARGE_SPACE,
+                  end: LARGE_SPACE,
+                  top: type == BulletPointType.arrow ? 8.0 : 0.0,
+                ),
+                child: Row(
+                  spacing: 10.0,
+                  children: <Widget>[
+                    switch (type) {
+                      BulletPointType.arrow => icons.CircledArrow.right(
+                        type: CircledArrowType.normal,
+                        circleColor: colors.primarySemiDark,
                       ),
-                      padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                      child: Text(
-                        (position + 1).toString(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
+                      BulletPointType.number => Container(
+                        decoration: BoxDecoration(
+                          color: colors.primarySemiDark,
+                          shape: BoxShape.circle,
+                        ),
+                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                        child: Text(
+                          (position + 1).toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
-                    ),
-                  },
-                  Expanded(child: _GuidesFormattedText(text: item)),
-                ],
+                    },
+                    Expanded(child: _GuidesFormattedText(text: item)),
+                  ],
+                ),
               ),
-            ),
-          ),
-        ],
+            )
+            .toList(growable: false),
       ),
     );
   }
@@ -472,6 +488,150 @@ class _GuidesTextTitle extends StatelessWidget {
   }
 }
 
+class GuidesContainer extends StatelessWidget {
+  const GuidesContainer({
+    required this.child,
+    this.margin,
+    this.padding,
+    super.key,
+  });
+
+  final Widget child;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return Padding(
+      padding:
+          margin ??
+          const EdgeInsetsDirectional.only(
+            top: BALANCED_SPACE,
+            start: GuidesParagraph._HORIZONTAL_PADDING,
+            end: GuidesParagraph._HORIZONTAL_PADDING,
+          ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: colors.primaryMedium,
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Padding(
+          padding:
+              padding ??
+              const EdgeInsetsDirectional.only(
+                top: 14.0,
+                bottom: SMALL_SPACE,
+                start: MEDIUM_SPACE,
+                end: MEDIUM_SPACE,
+              ),
+          child: child,
+        ),
+      ),
+    );
+  }
+}
+
+class GuidesGrid extends StatelessWidget {
+  const GuidesGrid({
+    required this.items,
+    this.columns,
+    this.horizontalSpacing,
+    this.verticalSpacing,
+    this.itemAssetHeight,
+    super.key,
+  });
+
+  final List<GuidesGridItem> items;
+  final double? itemAssetHeight;
+  final double? horizontalSpacing;
+  final double? verticalSpacing;
+  final int? columns;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
+    final double spacing = horizontalSpacing ?? 0.0;
+    final int columns = this.columns ?? 3;
+
+    return GuidesContainer(
+      padding: const EdgeInsetsDirectional.symmetric(
+        vertical: SMALL_SPACE,
+        horizontal: BALANCED_SPACE,
+      ),
+      margin: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+      child: SizedBox(
+        width: double.infinity,
+        child: LayoutBuilder(
+          builder: (_, BoxConstraints constraints) {
+            return Wrap(
+              spacing: spacing,
+              runSpacing: verticalSpacing ?? 0.0,
+              children: items
+                  .map(
+                    (GuidesGridItem item) => SizedBox(
+                      width:
+                          constraints.maxWidth / columns -
+                          (spacing * (columns - 1) / columns),
+                      child: Material(
+                        color: colors.primaryLight,
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.symmetric(
+                            horizontal: SMALL_SPACE,
+                            vertical: BALANCED_SPACE,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            spacing: MEDIUM_SPACE,
+                            children: <Widget>[
+                              SizedBox(
+                                height: 30.0,
+                                child: Align(
+                                  alignment: AlignmentDirectional.bottomCenter,
+                                  child: _ImageFromAssets(
+                                    imagePath: item.asset,
+                                  ),
+                                ),
+                              ),
+                              AutoSizeText(
+                                item.label,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 13.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(growable: false),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+@immutable
+class GuidesGridItem {
+  const GuidesGridItem({required this.asset, required this.label});
+
+  final String asset;
+  final String label;
+}
+
 class GuidesCaptionContainer extends StatelessWidget {
   const GuidesCaptionContainer({
     required this.caption,
@@ -484,46 +644,24 @@ class GuidesCaptionContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
-
     return Semantics(
       label: caption,
       image: true,
       excludeSemantics: true,
-      child: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          top: BALANCED_SPACE,
-          start: GuidesParagraph._HORIZONTAL_PADDING,
-          end: GuidesParagraph._HORIZONTAL_PADDING,
-        ),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: colors.primaryMedium,
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.only(
-              top: 14.0,
-              bottom: SMALL_SPACE,
-              start: MEDIUM_SPACE,
-              end: MEDIUM_SPACE,
+      child: GuidesContainer(
+        child: Column(
+          spacing: 5.0,
+          children: <Widget>[
+            child,
+            Text(
+              caption,
+              style: const TextStyle(
+                fontSize: 13.0,
+                fontStyle: FontStyle.italic,
+                color: Colors.black,
+              ),
             ),
-            child: Column(
-              spacing: 5.0,
-              children: <Widget>[
-                child,
-                Text(
-                  caption,
-                  style: const TextStyle(
-                    fontSize: 13.0,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          ],
         ),
       ),
     );

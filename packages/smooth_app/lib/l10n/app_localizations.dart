@@ -7387,41 +7387,41 @@ abstract class AppLocalizations {
   /// **'6 production steps'**
   String get guide_greenscore_lca_arg2_title;
 
-  /// No description provided for @guide_greenscore_lca_arg2_text1.
+  /// No description provided for @guide_greenscore_lca_arg2_agriculture.
   ///
   /// In en, this message translates to:
   /// **'Agriculture'**
-  String get guide_greenscore_lca_arg2_text1;
+  String get guide_greenscore_lca_arg2_agriculture;
 
-  /// No description provided for @guide_greenscore_lca_arg2_text2.
+  /// No description provided for @guide_greenscore_lca_arg2_processing.
   ///
   /// In en, this message translates to:
   /// **'Processing'**
-  String get guide_greenscore_lca_arg2_text2;
+  String get guide_greenscore_lca_arg2_processing;
 
-  /// No description provided for @guide_greenscore_lca_arg2_text3.
+  /// No description provided for @guide_greenscore_lca_arg2_packaging.
   ///
   /// In en, this message translates to:
   /// **'Packaging'**
-  String get guide_greenscore_lca_arg2_text3;
+  String get guide_greenscore_lca_arg2_packaging;
 
-  /// No description provided for @guide_greenscore_lca_arg2_text4.
+  /// No description provided for @guide_greenscore_lca_arg2_transportation.
   ///
   /// In en, this message translates to:
   /// **'Transportation'**
-  String get guide_greenscore_lca_arg2_text4;
+  String get guide_greenscore_lca_arg2_transportation;
 
-  /// No description provided for @guide_greenscore_lca_arg2_text5.
+  /// No description provided for @guide_greenscore_lca_arg2_distribution.
   ///
   /// In en, this message translates to:
   /// **'Distribution'**
-  String get guide_greenscore_lca_arg2_text5;
+  String get guide_greenscore_lca_arg2_distribution;
 
-  /// No description provided for @guide_greenscore_lca_arg2_text6.
+  /// No description provided for @guide_greenscore_lca_arg2_consumption.
   ///
   /// In en, this message translates to:
   /// **'Consumption'**
-  String get guide_greenscore_lca_arg2_text6;
+  String get guide_greenscore_lca_arg2_consumption;
 
   /// No description provided for @guide_greenscore_lca_arg3_title.
   ///

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
@@ -106,13 +107,13 @@ class _GreenScoreLogos extends StatelessWidget {
   const _GreenScoreLogos();
 
   static const List<String> assets = <String>[
-    'assets/guides/greenscore_a_plus.svg.vec',
-    'assets/guides/greenscore_a.svg.vec',
-    'assets/guides/greenscore_b.svg.vec',
-    'assets/guides/greenscore_c.svg.vec',
-    'assets/guides/greenscore_d.svg.vec',
-    'assets/guides/greenscore_e.svg.vec',
-    'assets/guides/greenscore_f.svg.vec',
+    'assets/guides/greenscore/greenscore_a_plus.svg.vec',
+    'assets/guides/greenscore/greenscore_a.svg.vec',
+    'assets/guides/greenscore/greenscore_b.svg.vec',
+    'assets/guides/greenscore/greenscore_c.svg.vec',
+    'assets/guides/greenscore/greenscore_d.svg.vec',
+    'assets/guides/greenscore/greenscore_e.svg.vec',
+    'assets/guides/greenscore/greenscore_f.svg.vec',
   ];
 
   @override
@@ -166,18 +167,41 @@ class _GreenScoreSection2 extends StatelessWidget {
         ),
         GuidesText(text: appLocalizations.guide_greenscore_lca_arg1_text2),
         GuidesText(text: appLocalizations.guide_greenscore_lca_arg1_text3),
-        GuidesTitleWithBulletPoints(
+        GuidesTitleContainer(
           title: appLocalizations.guide_greenscore_lca_arg2_title,
           icon: const icons.Gears(),
-          bulletPoints: <String>[
-            appLocalizations.guide_greenscore_lca_arg2_text1,
-            appLocalizations.guide_greenscore_lca_arg2_text2,
-            appLocalizations.guide_greenscore_lca_arg2_text3,
-            appLocalizations.guide_greenscore_lca_arg2_text4,
-            appLocalizations.guide_greenscore_lca_arg2_text5,
-            appLocalizations.guide_greenscore_lca_arg2_text6,
-          ],
-          type: BulletPointType.number,
+          child: GuidesGrid(
+            columns: 3,
+            verticalSpacing: SMALL_SPACE,
+            horizontalSpacing: MEDIUM_SPACE,
+            items: <GuidesGridItem>[
+              GuidesGridItem(
+                label: appLocalizations.guide_greenscore_lca_arg2_agriculture,
+                asset: 'assets/guides/greenscore/step_agriculture.svg',
+              ),
+              GuidesGridItem(
+                label: appLocalizations.guide_greenscore_lca_arg2_processing,
+                asset: 'assets/guides/greenscore/step_processing.svg',
+              ),
+              GuidesGridItem(
+                label: appLocalizations.guide_greenscore_lca_arg2_packaging,
+                asset: 'assets/guides/greenscore/step_packaging.svg',
+              ),
+              GuidesGridItem(
+                label:
+                    appLocalizations.guide_greenscore_lca_arg2_transportation,
+                asset: 'assets/guides/greenscore/step_transportation.svg',
+              ),
+              GuidesGridItem(
+                label: appLocalizations.guide_greenscore_lca_arg2_distribution,
+                asset: 'assets/guides/greenscore/step_distribution.svg',
+              ),
+              GuidesGridItem(
+                label: appLocalizations.guide_greenscore_lca_arg2_consumption,
+                asset: 'assets/guides/greenscore/step_consumption.svg',
+              ),
+            ],
+          ),
         ),
         GuidesTitleWithBulletPoints(
           title: appLocalizations.guide_greenscore_lca_arg3_title,
