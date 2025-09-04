@@ -164,7 +164,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             productType: null,
             withClearButton: true,
             autocompleteManager: AutocompleteManager(
-              const FolksonomyKeysAutocompleter(limit: 15),
+              const FolksonomyKeysAutocompleter(limit: 10),
             ),
             suffixIcon: const Icon(Icons.search),
           ),
@@ -188,7 +188,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
                 autocompleteManager: AutocompleteManager(
                   FolksonomyValuesAutocompleter(
                     keyProvider: () => keyController.text,
-                    limit: 15,
+                    limit: 10,
                   ),
                 ),
                 suffixIcon: const Icon(Icons.search),
