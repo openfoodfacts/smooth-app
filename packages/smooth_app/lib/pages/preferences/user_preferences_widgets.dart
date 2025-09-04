@@ -218,7 +218,6 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
     this.leadingBuilder,
     this.descriptions,
     this.dialogHeight,
-    this.hideTitle = false,
     super.key,
   }) : assert(labels.length > 0),
        assert(values.length == labels.length),
@@ -234,7 +233,6 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
   final T? currentValue;
   final ValueChanged<T>? onChanged;
   final double? dialogHeight;
-  final bool hideTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -242,24 +240,18 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
     final int currentValueIndex = _findCurrentValueIndex();
 
     return ListTile(
-      visualDensity: hideTitle ? VisualDensity.compact : null,
-      contentPadding: hideTitle ? EdgeInsetsDirectional.zero : null,
-      dense: hideTitle,
-      minTileHeight: hideTitle ? 0 : null,
-      title: !hideTitle
-          ? Padding(
-              padding: const EdgeInsetsDirectional.only(
-                top: SMALL_SPACE,
-                bottom: SMALL_SPACE,
-              ),
-              child: Text(title, style: theme.textTheme.headlineMedium),
-            )
-          : null,
+      title: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          top: SMALL_SPACE,
+          bottom: SMALL_SPACE,
+        ),
+        child: Text(title, style: theme.textTheme.headlineMedium),
+      ),
       subtitle: Padding(
-        padding: EdgeInsetsDirectional.only(
+        padding: const EdgeInsetsDirectional.only(
           start: SMALL_SPACE,
           top: SMALL_SPACE,
-          bottom: !hideTitle ? LARGE_SPACE : 0,
+          bottom: LARGE_SPACE,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
