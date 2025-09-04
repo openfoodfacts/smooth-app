@@ -7861,6 +7861,12 @@ abstract class AppLocalizations {
   /// **'For me'**
   String get product_page_tab_for_me;
 
+  /// Label of the photos tab on the product page
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get product_page_tab_photos;
+
   /// Label of the website tab on the product page
   ///
   /// In en, this message translates to:

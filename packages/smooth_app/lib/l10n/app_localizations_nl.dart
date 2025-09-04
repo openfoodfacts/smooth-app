@@ -992,7 +992,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Selecteer een nauwkeurigere categorie';
 
   @override
   String get score_add_missing_product_countries =>
@@ -2553,19 +2553,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
-<<<<<<< HEAD
       'AI zal uw bewijzen gebruiken om prijzen te berekenen.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Geef de community de mogelijkheid om prijzen te valideren die door AI zijn verkregen.';
-=======
-      'AI will run on your proofs to extract prices.';
-
-  @override
-  String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Meerdere prijskaartjes';
@@ -2574,7 +2566,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulkbewijs uploaden';
 
   @override
-<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'Bestanden selecteren';
 
   @override
@@ -2583,34 +2574,16 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Lokaal kopiëren van bestand #$index/$count';
-=======
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
-
-  @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
-
-  @override
-  String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-<<<<<<< HEAD
     return 'Upload voorbereiden #$index/$count';
-=======
-    return 'Preparing upload #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-<<<<<<< HEAD
     return 'Mislukt bij afbeelding #$index/$count';
-=======
-    return 'Failed at image #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -4602,6 +4575,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Voor mij';
+
+  @override
+  String get product_page_tab_photos => 'Photos';
 
   @override
   String get product_page_tab_website => 'Website';

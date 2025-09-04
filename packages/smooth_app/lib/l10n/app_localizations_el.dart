@@ -1012,7 +1012,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Επιλέξτε μια πιο ακριβή κατηγορία';
 
   @override
   String get score_add_missing_product_countries =>
@@ -2582,11 +2582,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-<<<<<<< HEAD
       'Επιτρέψτε στην κοινότητα να επικυρώσει τις τιμές που εξάγονται από την Τεχνητή Νοημοσύνη.';
-=======
-      'Allow the community to validate prices extracted by AI.';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Πολλαπλές Ετικέτες Τιμής';
@@ -2595,7 +2591,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Μεταφόρτωση Μαζικής Απόδειξης';
 
   @override
-<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'Επιλογή αρχείων';
 
   @override
@@ -2605,34 +2600,16 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Τοπική αντιγραφή αρχείου #$index/$count';
-=======
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
-
-  @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
-
-  @override
-  String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-<<<<<<< HEAD
     return 'Προετοιμασία μεταφόρτωσης #$index/$count';
-=======
-    return 'Preparing upload #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-<<<<<<< HEAD
     return 'Αποτυχία στην εικόνα #$index/$count';
-=======
-    return 'Failed at image #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -4642,6 +4619,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Για μένα';
+
+  @override
+  String get product_page_tab_photos => 'Photos';
 
   @override
   String get product_page_tab_website => 'Ιστοσελίδα';

@@ -979,7 +979,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'ເລືອກປະເພດທີ່ຊັດເຈນກວ່າ';
 
   @override
   String get score_add_missing_product_countries =>
@@ -2519,11 +2519,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-<<<<<<< HEAD
       'ອະນຸຍາດໃຫ້ຊຸມຊົນກວດສອບລາຄາທີ່ສະກັດມາຈາກ AI.';
-=======
-      'Allow the community to validate prices extracted by AI.';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2532,7 +2528,6 @@ class AppLocalizationsLo extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'ການເລືອກໄຟລ໌';
 
   @override
@@ -2541,34 +2536,16 @@ class AppLocalizationsLo extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'ການສຳເນົາໄຟລ໌ຢູ່ໃນທ້ອງຖິ່ນ #$index/$count';
-=======
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
-
-  @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
-
-  @override
-  String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-<<<<<<< HEAD
     return 'ກຳລັງກະກຽມການອັບໂຫລດ #$index/$count';
-=======
-    return 'Preparing upload #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-<<<<<<< HEAD
     return 'ລົ້ມເຫລວໃນຮູບພາບ #$index/$count';
-=======
-    return 'Failed at image #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -4540,6 +4517,9 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'ສໍາລັບຂ້ອຍ';
+
+  @override
+  String get product_page_tab_photos => 'Photos';
 
   @override
   String get product_page_tab_website => 'Website';

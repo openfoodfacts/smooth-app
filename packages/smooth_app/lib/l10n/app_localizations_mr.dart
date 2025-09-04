@@ -980,7 +980,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'अधिक अचूक श्रेणी निवडा';
 
   @override
   String get score_add_missing_product_countries =>
@@ -2521,11 +2521,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-<<<<<<< HEAD
       'एआय द्वारे काढलेल्या किमतींचे प्रमाणीकरण करण्याची समुदायाला परवानगी द्या.';
-=======
-      'Allow the community to validate prices extracted by AI.';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2534,7 +2530,6 @@ class AppLocalizationsMr extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'फायली निवडत आहे';
 
   @override
@@ -2543,34 +2538,16 @@ class AppLocalizationsMr extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'स्थानिक पातळीवर फाइल कॉपी करत आहे #$index/$count';
-=======
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
-
-  @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
-
-  @override
-  String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-<<<<<<< HEAD
     return 'अपलोडची तयारी करत आहे #$index/$count';
-=======
-    return 'Preparing upload #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-<<<<<<< HEAD
     return 'इमेजमध्ये अयशस्वी #$index/$count';
-=======
-    return 'Failed at image #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -4542,6 +4519,9 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'माझ्यासाठी';
+
+  @override
+  String get product_page_tab_photos => 'Photos';
 
   @override
   String get product_page_tab_website => 'Website';

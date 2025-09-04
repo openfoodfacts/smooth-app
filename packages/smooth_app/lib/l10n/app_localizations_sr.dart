@@ -4521,6 +4521,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get product_page_tab_for_me => 'For me';
 
   @override
+  String get product_page_tab_photos => 'Photos';
+
+  @override
   String get product_page_tab_website => 'Website';
 
   @override

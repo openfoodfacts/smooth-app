@@ -509,7 +509,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Contribua com os preços solicitando uma exportação GDPR dos dados dos seus cartões de fidelidade';
 
   @override
   String get tap_to_answer => 'Toque aqui para responder a perguntas';
@@ -995,14 +995,15 @@ class AppLocalizationsPt extends AppLocalizations {
       'Adicionar informações nutricionais que faltam';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces =>
+      'Adicionar vestígios de produtos em falta';
 
   @override
   String get score_add_missing_product_category => 'Selecionar uma categoria';
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Selecione uma categoria mais precisa';
 
   @override
   String get score_add_missing_product_countries =>
@@ -1901,7 +1902,8 @@ class AppLocalizationsPt extends AppLocalizations {
       'Adicionar uma nova categoria';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace =>
+      'Adicionar um novo vestígio';
 
   @override
   String get edit_product_form_item_add_suggestion => 'Dê uma sugestão';
@@ -2097,7 +2099,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Insira um vestígio (p. ex.: soja)';
 
   @override
   String get edit_product_form_item_categories_title => 'Categorias';
@@ -2559,32 +2561,27 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Adicione etiquetas de preço diretamente da galeria';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Depois de selecionar as imagens, não será possível editá-las!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
-      'AI will run on your proofs to extract prices.';
+      'A IA irá analisar as suas provas para extrair os preços.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-<<<<<<< HEAD
       'Permitir que a comunidade valide os preços extraídos pela IA.';
-=======
-      'Allow the community to validate prices extracted by AI.';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Várias etiquetas de preço';
 
   @override
   String get prices_bulk_proof_upload_title => 'Envio em lote de comprovativos';
 
   @override
-<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting =>
       'Selecionando ficheiros';
 
@@ -2594,34 +2591,16 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Copiar localmente o ficheiro #$index/$count';
-=======
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
-
-  @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
-
-  @override
-  String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-<<<<<<< HEAD
     return 'A preparar o upload #$index/$count';
-=======
-    return 'Preparing upload #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-<<<<<<< HEAD
     return 'Falha na imagem #$index/$count';
-=======
-    return 'Failed at image #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -3084,7 +3063,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get prices_challenges_page => 'Desafios';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'Adicionar várias provas';
 
   @override
   String get all_search_prices_top_location_single_title => 'Preços numa loja';
@@ -3184,7 +3163,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Antes de validar, certifique-se de adicionar uma tradução apenas **se o idioma estiver presente na embalagem**';
 
   @override
   String get add_basic_details_product_name_open_photo => 'Ver foto frontal';
@@ -4163,7 +4142,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get contact_title_newsletter => 'Assine o nosso boletim informativo';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar =>
+      'Inscreva-se no nosso calendário comunitário';
 
   @override
   String get hunger_games_loading_line1 => 'Por favor, dê-nos alguns segundos…';
@@ -4291,11 +4271,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'O Nutri-Score é aplicado em 7 países: França, Alemanha, Bélgica, Espanha, Luxemburgo, Países Baixos e Suíça.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Os fabricantes têm, no máximo, **2 anos** após a assinatura do decreto **para substituir** o cálculo antigo pelo novo.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4625,13 +4605,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get product_page_tab_for_me => 'Para mim';
 
   @override
+  String get product_page_tab_photos => 'Photos';
+
+  @override
   String get product_page_tab_website => 'Site';
 
   @override
   String get product_page_tab_prices => 'Preços';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -4682,10 +4665,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get prices_discount => 'Desconto';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Estatísticas';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Estatísticas de preços';
 
   @override
   String get prices_stats_prices_section => 'Preços';
@@ -4792,14 +4775,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get prices_stats_other => 'Outro';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Última atualização em';
 
   @override
   String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+      'Ocorreu um erro ao carregar as estatísticas.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Pergunta respondida!';
 
   @override
   String get product_edit_robotoff_proof => 'Demonstração';
@@ -5847,6 +5830,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get score_add_missing_product_category => 'Selecionar uma categoria';
 
   @override
+  String get score_add_missing_precise_product_category =>
+      'Selecione uma categoria mais precisa';
+
+  @override
   String get score_add_missing_product_countries =>
       'Adicionar países que faltam de produtos';
 
@@ -6432,7 +6419,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get faq => 'Perguntas frequentes';
 
   @override
-  String get discover => 'Descubra';
+  String get discover => 'Descobrir';
 
   @override
   String get how_to_contribute => 'Como contribuir';

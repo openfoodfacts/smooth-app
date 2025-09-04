@@ -1013,7 +1013,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Sélectionnez une catégorie plus précise';
 
   @override
   String get score_add_missing_product_countries =>
@@ -2580,19 +2580,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
-<<<<<<< HEAD
       'L\'IA sera exécutée sur vos preuves pour en extraire les prix.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Permettre à la communauté de valider les prix extraits par l\'IA.';
-=======
-      'AI will run on your proofs to extract prices.';
-
-  @override
-  String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle =>
@@ -2603,7 +2595,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Téléversement de preuves en masse';
 
   @override
-<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting =>
       'Sélection des fichiers';
 
@@ -2614,34 +2605,16 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Copie locale du fichier #$index/$count';
-=======
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
-
-  @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
-
-  @override
-  String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-<<<<<<< HEAD
     return 'Préparation du téléchargement #$index/$count';
-=======
-    return 'Preparing upload #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-<<<<<<< HEAD
     return 'Échec à l\'image #$index/$count';
-=======
-    return 'Failed at image #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -4646,6 +4619,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Pour moi';
+
+  @override
+  String get product_page_tab_photos => 'Photos';
 
   @override
   String get product_page_tab_website => 'Site Web';

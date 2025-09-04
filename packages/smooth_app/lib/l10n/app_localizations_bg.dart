@@ -996,7 +996,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Изберете по-точна категория';
 
   @override
   String get score_add_missing_product_countries =>
@@ -2551,11 +2551,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-<<<<<<< HEAD
       'Позволете на общността да валидира цените, извлечени от изкуствен интелект.';
-=======
-      'Allow the community to validate prices extracted by AI.';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2564,7 +2560,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-<<<<<<< HEAD
   String get prices_bulk_proof_upload_step_selecting => 'Избиране на файлове';
 
   @override
@@ -2574,34 +2569,16 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
     return 'Локално копира файл #$index/$count';
-=======
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
-
-  @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
-
-  @override
-  String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-<<<<<<< HEAD
     return 'Подготовка за качване #$index/$count';
-=======
-    return 'Preparing upload #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-<<<<<<< HEAD
     return 'Неуспешно при изображение #$index/$count';
-=======
-    return 'Failed at image #$index/$count';
->>>>>>> b5fbc6657 (fix: 6784 - readyForPriceTagValidation true only for priceTag and bulk (#6794))
   }
 
   @override
@@ -4581,6 +4558,9 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'За мен';
+
+  @override
+  String get product_page_tab_photos => 'Photos';
 
   @override
   String get product_page_tab_website => 'Уеб сайт';
