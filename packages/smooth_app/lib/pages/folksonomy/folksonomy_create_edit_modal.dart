@@ -37,12 +37,18 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
   late TextEditingController valueController;
   bool isKeyValid = true;
   bool isValueValid = true;
+  late final FocusNode keyFocusNode;
+  late final FocusNode valueFocusNode;
+  final Key keyAutocompleteKey = UniqueKey();
+  final Key valueAutocompleteKey = UniqueKey();
 
   @override
   void initState() {
     super.initState();
     keyController = TextEditingController(text: widget.oldKey);
     valueController = TextEditingController(text: widget.oldValue);
+    keyFocusNode = FocusNode();
+    valueFocusNode = FocusNode();
   }
 
   @override
@@ -58,6 +64,10 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
           isKeyValid: isKeyValid,
           isValueValid: isValueValid,
           onSave: _onSubmit,
+          keyFocusNode: keyFocusNode,
+          valueFocusNode: valueFocusNode,
+          keyAutocompleteKey: keyAutocompleteKey,
+          valueAutocompleteKey: valueAutocompleteKey,
         ),
         _FolksonomyEditTagContentFooter(onSave: _onSubmit),
       ],
@@ -93,6 +103,8 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
   void dispose() {
     keyController.dispose();
     valueController.dispose();
+    keyFocusNode.dispose();
+    valueFocusNode.dispose();
     super.dispose();
   }
 }
@@ -105,6 +117,10 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
     required this.isKeyEditable,
     required this.isKeyValid,
     required this.isValueValid,
+    required this.keyFocusNode,
+    required this.valueFocusNode,
+    required this.keyAutocompleteKey,
+    required this.valueAutocompleteKey,
   });
 
   final TextEditingController keyController;
@@ -113,6 +129,10 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
   final bool isKeyValid;
   final bool isValueValid;
   final VoidCallback onSave;
+  final FocusNode keyFocusNode;
+  final FocusNode valueFocusNode;
+  final Key keyAutocompleteKey;
+  final Key valueAutocompleteKey;
 
   @override
   Widget build(BuildContext context) {
@@ -135,8 +155,8 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             hasErrors: !isKeyValid,
           ),
           SimpleInputTextField(
-            focusNode: FocusNode(),
-            autocompleteKey: UniqueKey(),
+            focusNode: keyFocusNode,
+            autocompleteKey: keyAutocompleteKey,
             constraints: const BoxConstraints(maxWidth: double.infinity),
             tagType: null,
             hintText: appLocalizations.tag_key_input_hint,
@@ -157,8 +177,8 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             valueListenable: keyController,
             builder: (BuildContext context, _, _) {
               return SimpleInputTextField(
-                focusNode: FocusNode(),
-                autocompleteKey: UniqueKey(),
+                focusNode: valueFocusNode,
+                autocompleteKey: valueAutocompleteKey,
                 constraints: const BoxConstraints(maxWidth: double.infinity),
                 tagType: null,
                 hintText: appLocalizations.tag_value_input_hint,
