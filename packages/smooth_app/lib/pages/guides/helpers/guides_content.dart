@@ -12,6 +12,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -491,12 +492,15 @@ class _GuidesTextTitle extends StatelessWidget {
 class GuidesContainer extends StatelessWidget {
   const GuidesContainer({
     required this.child,
+    this.color,
     this.margin,
     this.padding,
     super.key,
   });
 
   final Widget child;
+
+  final Color? color;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
 
@@ -515,7 +519,11 @@ class GuidesContainer extends StatelessWidget {
           ),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: colors.primaryMedium,
+          color:
+              color ??
+              (context.lightTheme()
+                  ? colors.primaryMedium
+                  : colors.primaryUltraBlack),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Padding(
@@ -554,6 +562,8 @@ class GuidesGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors = context
         .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     final double spacing = horizontalSpacing ?? 0.0;
     final int columns = this.columns ?? 3;
 
@@ -563,6 +573,7 @@ class GuidesGrid extends StatelessWidget {
         horizontal: BALANCED_SPACE,
       ),
       margin: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+      color: lightTheme ? null : colors.primaryTone,
       child: SizedBox(
         width: double.infinity,
         child: LayoutBuilder(
@@ -577,7 +588,9 @@ class GuidesGrid extends StatelessWidget {
                           constraints.maxWidth / columns -
                           (spacing * (columns - 1) / columns),
                       child: Material(
-                        color: colors.primaryLight,
+                        color: lightTheme
+                            ? colors.primaryLight
+                            : colors.primaryUltraBlack,
                         borderRadius: BorderRadius.circular(15.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.symmetric(
@@ -655,10 +668,10 @@ class GuidesCaptionContainer extends StatelessWidget {
             child,
             Text(
               caption,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 13.0,
                 fontStyle: FontStyle.italic,
-                color: Colors.black,
+                color: context.lightTheme() ? Colors.black : Colors.white,
               ),
             ),
           ],
