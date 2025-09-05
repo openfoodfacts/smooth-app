@@ -4217,40 +4217,40 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Alama ya Kijani ni nini?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Alama ya Kijani ni nembo inayolenga kukujulisha kuhusu **athari ya chakula** kwa mazingira.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Msimbo wa rangi hutofautiana kutoka kijani kibichi (**A+**) kwa **bidhaa zenye athari kidogo** hadi nyekundu iliyokolea (**F**) kwa **bidhaa zenye athari kubwa**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Nembo za Green-Alama';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Msingi: Tathmini ya mzunguko wa maisha (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Tathmini ya kisayansi ya kategoria za chakula';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Kwa kila aina ya bidhaa, alama **kielelezo** huanzishwa kwa kutumia data kutoka hifadhidata ya mazingira ya Agribalyse (iliyoundwa na ADEME na INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Uchambuzi wa mzunguko wa maisha** ni mbinu sanifu ya tathmini ya kufanya tathmini ya mazingira ya hatua nyingi na ya vigezo vingi.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Inapima:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 hatua za uzalishaji';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4272,40 +4272,40 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      'Viashiria 14 vya athari za mazingira';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Mabadiliko ya hali ya hewa / alama ya kaboni';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Upungufu wa safu ya ozoni';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Mionzi ya ionizing';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Ardhi';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Matumizi ya maji na nishati';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Uchafuzi wa hewa';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Maji ya baharini na safi (chembe, asidi, eutrophication)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Upungufu wa rasilimali.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonasi na adhabu';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Ili zawadi bidhaa bora ndani ya aina, sisi kisha kutumia bonasi na adhabu kulingana na vigezo kadhaa:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4321,7 +4321,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Bonasi hutolewa kulingana na asili ya viungo. Bonasi hii inazingatia athari kwenye usafirishaji na pia sera ya mazingira ya kila nchi ya mzalishaji.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4344,27 +4344,27 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Ili kuhesabu kwa usahihi Alama ya Kijani, ni muhimu kuwa na habari ambayo haijabainishwa lazima kwenye kifungashio (kama vile asili na asilimia kamili ya kila kiungo) au ambayo haipatikani kwa urahisi katika fomu inayoweza kutumika (kama vile orodha ya vipengele vyote vya ufungaji na aina sahihi za plastiki zilizotumiwa).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Thamani za wastani hutumiwa wakati maelezo haya bado hayapatikani, lakini sasa tunatoa wito kwa kila mtu atusaidie kukusanya taarifa hii ambayo itakuwa muhimu sana kwa Alama ya Kijani lakini pia kwa matumizi mengine mengi.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Jinsi wananchi wanaweza kusaidia';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Raia wote wanaweza kutusaidia kukusanya na kupanga maelezo yaliyopo kwenye bidhaa au ambayo yanaweza kupatikana kutoka kwao, kama vile habari juu ya ufungashaji: Dhamana za Misheni: orodha kubwa ya shirikishi ya ufungaji wa bidhaa zote za chakula (kwa Kifaransa)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Jinsi watengenezaji wanaweza kusaidia';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Watengenezaji wanaweza kututumia taarifa zao moja kwa moja kupitia jukwaa letu lisilolipishwa la watayarishaji.';
 
   @override
   String get guide_greenscore_share_link =>

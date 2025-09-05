@@ -4255,96 +4255,94 @@ class AppLocalizationsHu extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'Mi a zöld pontszám?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'A Green-Score egy logó, amelynek célja, hogy tájékoztasson az **élelmiszerek környezeti hatásáról**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'A színkód a sötétzöldtől (**A+**) a **legkevésbé környezetre ható** termékekhez a sötétvörösig (**F**) a **legnagyobb hatású** termékekhez tartozik.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'A Green-Score logók';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'A lényeg: Életciklus-értékelés (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Az élelmiszerkategóriák tudományos értékelése';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Minden termékkategóriára egy **benchmark** pontszámot határoznak meg az Agribalyse környezetvédelmi adatbázisának adatai alapján (amelyet az ADEME és az INRAE tervezett).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      'Az **életciklus-elemzés** egy szabványosított értékelési módszer többlépcsős és többkritériumos környezeti értékelés elvégzésére.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Méretei:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 gyártási lépés';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'Mezőgazdaság';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'Feldolgozás';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Csomagolás';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'Szállítás';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'Elosztás';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Fogyasztás';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 környezeti hatásmutató';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Klímaváltozás/szénlábnyom';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Az ózonréteg elvékonyodása';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Ionizáló sugárzás';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Föld';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Víz- és energiafelhasználás';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'A levegő szennyezése';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Tengeri és édesvíz (részecskék, savasodás, eutrofizáció)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Erőforrások kimerülése.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bónuszok és büntetések';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'A kategórián belüli jobb termékek jutalmazása érdekében bónuszokat és büntetéseket alkalmazunk több kritérium alapján:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4356,11 +4354,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Összetevők eredete';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'A bónusz az összetevők eredete alapján jár. Ez a bónusz figyelembe veszi a szállításra gyakorolt hatást, valamint az egyes termelők országának környezetvédelmi politikáját.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4371,7 +4369,7 @@ class AppLocalizationsHu extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Csomagolás';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4383,27 +4381,27 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'A Green-Score pontos kiszámításához olyan információkra van szükség, amelyek nem feltétlenül szerepelnek a csomagoláson (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Az átlagértékeket akkor használjuk, ha ez az információ még nem áll rendelkezésre, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Hogyan segíthetnek a polgárok';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Minden állampolgár segíthet nekünk a termékeken található vagy azokból kikövetkeztethető információk, például a csomagoláson található információk összegyűjtésében és rendszerezésében: Mission Emballages: nagyszabású, közösen készített nyilvántartás az összes élelmiszertermék csomagolásáról (francia nyelven)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Hogyan segíthetnek a gyártók';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'A gyártók közvetlenül elküldhetik nekünk adataikat az ingyenes platformunkon keresztül.';
 
   @override
   String get guide_greenscore_share_link =>

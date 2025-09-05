@@ -4217,40 +4217,40 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'რა არის მწვანე ქულა?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'მწვანე ქულა არის ლოგო, რომლის მიზანია გაცნობოთ **საკვების გარემოზე ზემოქმედების** შესახებ.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'ფერის კოდი მერყეობს მუქი მწვანედან (**A+**) **ყველაზე ნაკლებად შთამბეჭდავი** პროდუქტებისთვის მუქი წითელიდან (**F**) **ყველაზე შთამბეჭდავი** პროდუქტებისთვის.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Green-Score-ის ლოგოები';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'ძირითადი: სასიცოცხლო ციკლის შეფასება (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'საკვების კატეგორიების სამეცნიერო შეფასება';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'თითოეული პროდუქტის კატეგორიისთვის, **საორიენტაციო** ქულა დგინდება Agribalyse-ის გარემოსდაცვითი მონაცემთა ბაზიდან (შემუშავებულია ADEME-სა და INRAE-ს მიერ) მიღებული მონაცემების გამოყენებით.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**სასიცოცხლო ციკლის ანალიზი** არის სტანდარტიზებული შეფასების მეთოდი მრავალსაფეხურიანი და მრავალკრიტერიუმიანი გარემოსდაცვითი შეფასების ჩასატარებლად.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**ზომავს:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 წარმოების ეტაპი';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4272,40 +4272,40 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      'გარემოზე ზემოქმედების 14 ინდიკატორი';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'კლიმატის ცვლილება/ნახშირბადის კვალი';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'ოზონის შრის გათხელება';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'იონიზირებული გამოსხივება';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'მიწა';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'წყლისა და ენერგიის გამოყენება';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'ჰაერის დაბინძურება';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'ზღვის და მტკნარი წყალი (ნაწილაკები, მჟავიანობა, ევტროფიკაცია)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'რესურსების გამოფიტვა.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'ბონუსები და ჯარიმები';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'კატეგორიაში უკეთესი პროდუქტების დასაჯილდოებლად, ჩვენ ვიყენებთ ბონუსებსა და ჯარიმებს რამდენიმე კრიტერიუმის საფუძველზე:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4321,7 +4321,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'ბონუსი გაიცემა ინგრედიენტების წარმოშობის მიხედვით. ეს ბონუსი ითვალისწინებს ტრანსპორტირებაზე ზემოქმედებას და ასევე თითოეული მწარმოებლის ქვეყნის გარემოსდაცვით პოლიტიკას.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4344,27 +4344,27 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      '„მწვანე ქულის“ ზუსტად გამოსათვლელად აუცილებელია ისეთი ინფორმაციის ქონა, რომელიც შეფუთვაზე აუცილებლად არ არის მითითებული (მაგალითად, წარმომავლობა და თითოეული ინგრედიენტის ზუსტი პროცენტული მაჩვენებელი) ან რომელიც იშვიათად არის ხელმისაწვდომი გამოსაყენებელი ფორმით (მაგალითად, შეფუთვის ყველა კომპონენტის სია გამოყენებული პლასტმასის ზუსტი ტიპებით).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'საშუალო მნიშვნელობები გამოიყენება მაშინ, როდესაც ეს ინფორმაცია ჯერ არ არის ხელმისაწვდომი, თუმცა ახლა ყველას მოვუწოდებთ, დაგვეხმარონ ამ ინფორმაციის შეგროვებაში, რაც ძალიან სასარგებლო იქნება როგორც მწვანე ქულისთვის, ასევე მრავალი სხვა გამოყენებისთვის.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'როგორ შეუძლიათ მოქალაქეებს დახმარება';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'ყველა მოქალაქეს შეუძლია დაგვეხმაროს პროდუქტებზე არსებული ან მათგან გამოტანილი ინფორმაციის შეგროვებასა და სტრუქტურირებაში, მაგალითად, შეფუთვაზე არსებული ინფორმაციის: Mission Emballages: ყველა საკვები პროდუქტის შეფუთვის მასშტაბური კოლაბორაციული ინვენტარი (ფრანგულად)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'როგორ შეუძლიათ მწარმოებლებს დახმარება';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'მწარმოებლებს შეუძლიათ გამოგვიგზავნონ თავიანთი ინფორმაცია პირდაპირ ჩვენი უფასო პლატფორმის საშუალებით, რომელიც მწარმოებლებისთვისაა განკუთვნილი.';
 
   @override
   String get guide_greenscore_share_link =>

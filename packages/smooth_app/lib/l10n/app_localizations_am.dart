@@ -4215,41 +4215,38 @@ class AppLocalizationsAm extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'አረንጓዴው ነጥብ ምንድን ነው?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'አረንጓዴው ነጥብ ስለ ** የምግብ አካባቢያዊ ተጽእኖ ለእርስዎ ለማሳወቅ ያለመ አርማ ነው።';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'የቀለም ኮድ ከጨለማ አረንጓዴ (**A+**) ለ ** ቢያንስ ተፅዕኖ ፈጣሪ ** ምርቶች ወደ ጥቁር ቀይ (**F**) ለ ** በጣም ተፅዕኖ ፈጣሪዎች ይለያያል።';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'የአረንጓዴው ነጥብ አርማዎች';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'ዋናው፡ የሕይወት ዑደት ግምገማ (LCA)';
 
   @override
-  String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+  String get guide_greenscore_lca_arg1_title => 'የምግብ ምድቦች ሳይንሳዊ ግምገማ';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'ለእያንዳንዱ የምርት ምድብ የ **ቤንችማርክ** ነጥብ ከአግሪባሊሴ የአካባቢ ዳታቤዝ (በADEME እና INRAE የተነደፈ) መረጃን በመጠቀም ይመሰረታል።';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**የህይወት ኡደት ትንተና** ባለ ብዙ ደረጃ እና ባለብዙ መስፈርት የአካባቢ ግምገማ ለማካሄድ ደረጃውን የጠበቀ የግምገማ ዘዴ ነው።';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**የሚለካው:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 የምርት ደረጃዎች';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4270,41 +4267,39 @@ class AppLocalizationsAm extends AppLocalizations {
   String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 የአካባቢ ተጽዕኖ አመልካቾች';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'የአየር ንብረት ለውጥ/የካርቦን አሻራ';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'የኦዞን ንብርብር መሟጠጥ';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'ionizing ጨረር';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'መሬት';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'የውሃ እና የኃይል አጠቃቀም';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'የአየር ብክለት';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'የባህር እና ንጹህ ውሃ (ቅንጣቶች፣ አሲዳማነት፣ eutrophication)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'የሀብቶች መሟጠጥ.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'ጉርሻዎች እና ቅጣቶች';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'በምድብ ውስጥ የተሻሉ ምርቶችን ለመሸለም፣ ከዚያም በብዙ መስፈርቶች ላይ ተመስርተን ጉርሻዎችን እና ቅጣቶችን እንተገብራለን፡';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4320,7 +4315,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'ጉርሻ የሚሰጠው በእቃዎቹ አመጣጥ ላይ በመመስረት ነው። ይህ ጉርሻ በትራንስፖርት ላይ ያለውን ተጽእኖ እና የእያንዳንዱን አምራች ሀገር የአካባቢ ጥበቃ ፖሊሲ ግምት ውስጥ ያስገባል.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4343,27 +4338,25 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'ግሪን-ውጤትን በትክክል ለማስላት በማሸጊያው ላይ የግድ ያልተገለፀ መረጃ (እንደ መነሻ እና የእያንዳንዱ ንጥረ ነገር ትክክለኛ መቶኛ) ወይም በጥቅም ላይ ሊውል በሚችል መልኩ ብዙም የማይገኝ (ለምሳሌ የማሸጊያው ሁሉንም ክፍሎች ከትክክለኛዎቹ የፕላስቲክ ዓይነቶች ጋር ዝርዝር) ማግኘት ያስፈልጋል።';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'አማካኝ እሴቶች ጥቅም ላይ የሚውሉት ይህ መረጃ ገና በማይገኝበት ጊዜ ነው፣ አሁን ግን ሁሉም ሰው ይህንን መረጃ እንድንሰበስብ እንዲረዳን እንጠይቃለን ይህም ለግሪን-ውጤት በጣም ጠቃሚ ይሆናል ነገር ግን ለሌሎች በርካታ አገልግሎቶች።';
 
   @override
-  String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+  String get guide_greenscore_transparency_arg1_title => 'ዜጎች እንዴት መርዳት እንደሚችሉ';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'ሁሉም ዜጎች በምርቶች ላይ ያለውን ወይም ከነሱ ሊወጡ የሚችሉ መረጃዎችን እንድንሰበስብ እና እንዲያዋቅር ሊረዱን ይችላሉ፤ እንደ ማሸግ ላይ ያለ መረጃ፡ Mission Emballages፡ ለሁሉም የምግብ ምርቶች (በፈረንሳይኛ) መጠነ ሰፊ የትብብር ክምችት';
 
   @override
-  String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+  String get guide_greenscore_transparency_arg2_title => 'አምራቾች እንዴት እንደሚረዱ';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'አምራቾች መረጃቸውን በቀጥታ በአምራቾቻችን በነፃ መድረክ በኩል ሊልኩልን ይችላሉ።';
 
   @override
   String get guide_greenscore_share_link =>

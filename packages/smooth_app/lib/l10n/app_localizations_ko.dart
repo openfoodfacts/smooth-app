@@ -4162,99 +4162,93 @@ class AppLocalizationsKo extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_greenscore_title => 'Green-Score';
+  String get guide_greenscore_title => '친환경 점수';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => '그린 스코어란 무엇인가요?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      '그린스코어는 **식품의 환경적 영향**에 대한 정보를 제공하기 위해 만들어진 로고입니다.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      '색상 코드는 **가장 영향이 적은** 제품을 나타내는 진한 녹색(**A+**)부터 **가장 영향이 큰** 제품을 나타내는 진한 빨간색(**F**)까지 다양합니다.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => '그린스코어 로고';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => '핵심: 수명주기평가(LCA)';
 
   @override
-  String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+  String get guide_greenscore_lca_arg1_title => '식품 카테고리에 대한 과학적 평가';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      '각 제품 카테고리에 대해 **벤치마크** 점수는 Agribalyse 환경 데이터베이스(ADEME 및 INRAE에서 설계)의 데이터를 사용하여 설정됩니다.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**생명주기 분석**은 다단계, 다기준 환경 평가를 실시하기 위한 표준화된 평가 방법입니다.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**측정 항목:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6단계 생산';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => '농업';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => '처리';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => '포장';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => '수송';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => '분포';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => '소비';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14가지 환경영향지표';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => '기후 변화/탄소 발자국';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => '오존층 파괴';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => '이온화 방사선';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => '땅';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => '물과 에너지 사용';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => '대기 오염';
 
   @override
-  String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+  String get guide_greenscore_lca_arg3_text7 => '해양 및 담수(입자, 산성화, 부영양화)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => '자원 고갈.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => '보너스 및 페널티';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      '카테고리 내에서 더 나은 제품에 대한 보상을 제공하기 위해 우리는 다음과 같은 여러 기준에 따라 보너스와 페널티를 적용합니다.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4265,12 +4259,11 @@ class AppLocalizationsKo extends AppLocalizations {
       'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+  String get guide_greenscore_bonuses_penalties_arg2_title => '성분의 유래';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      '재료의 원산지에 따라 보너스가 지급됩니다. 이 보너스는 운송에 미치는 영향과 각 생산국의 환경 정책을 고려합니다.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4281,7 +4274,7 @@ class AppLocalizationsKo extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => '포장';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4293,27 +4286,26 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      '그린 스코어를 정확하게 계산하려면 포장에 반드시 명시되어 있지 않은 정보(예: 원산지 및 각 성분의 정확한 비율)나 사용 가능한 형태로 거의 제공되지 않는 정보(예: 포장의 모든 구성 요소 목록과 사용된 플라스틱의 정확한 유형)가 필요합니다.';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '이 정보를 아직 얻을 수 없을 때는 평균값을 사용하지만, 이제 우리는 모든 분들의 도움을 받아 이 정보를 수집하고 있습니다. 이 정보는 Green-Score뿐만 아니라 다른 여러 용도에도 매우 유용할 것입니다.';
 
   @override
-  String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+  String get guide_greenscore_transparency_arg1_title => '시민들이 어떻게 도울 수 있나요?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      '모든 시민은 제품에 존재하는 정보나 제품에서 추론할 수 있는 정보(예: 포장 정보)를 수집하고 구성하는 데 도움을 줄 수 있습니다. Mission Emballages: 모든 식품에 대한 대규모 협업 포장 목록(프랑스어)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      '제조업체가 어떻게 도움을 줄 수 있나요?';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      '제조업체는 우리의 생산자를 위한 무료 플랫폼을 통해 직접 정보를 보낼 수 있습니다.';
 
   @override
   String get guide_greenscore_share_link =>

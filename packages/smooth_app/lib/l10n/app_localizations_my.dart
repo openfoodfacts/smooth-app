@@ -4222,41 +4222,39 @@ class AppLocalizationsMy extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'Green Score ကဘာလဲ။';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score သည် **အစားအစာ၏ပတ်ဝန်းကျင်ဆိုင်ရာအကျိုးသက်ရောက်မှု** အကြောင်း သင့်အား အသိပေးရန် ရည်ရွယ်သည့် လိုဂိုတစ်ခုဖြစ်သည်။';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      '**အကျိုးသက်ရောက်မှုအရှိဆုံး ** ထုတ်ကုန်များအတွက် **အကျိုးသက်ရောက်မှုအနည်းဆုံး** ထုတ်ကုန်များအတွက် အစိမ်းရင့်ရောင် (**A+**) မှ အရောင်ကုဒ်သည် အနီရောင် (**F**) အထိ ကွဲပြားပါသည်။';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Green-Score လိုဂိုများ';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'အဓိက- ဘဝသံသရာ အကဲဖြတ်ခြင်း (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'အစားအသောက် အမျိုးအစားများကို သိပ္ပံနည်းကျ အကဲဖြတ်ခြင်း။';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'ထုတ်ကုန်အမျိုးအစားတစ်ခုစီအတွက်၊ Agribalyse ပတ်ဝန်းကျင်ဒေတာဘေ့စ် (ADEME နှင့် INRAE မှ ဒီဇိုင်းထုတ်သည်) မှ ဒေတာကို အသုံးပြု၍ **စံသတ်မှတ်ချက်** ရမှတ်ကို သတ်မှတ်သည်။';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**ဘဝစက်ဝန်းခွဲခြမ်းစိတ်ဖြာခြင်း** သည် အဆင့်များစွာနှင့် စံသတ်မှတ်ချက်များစွာရှိသော ပတ်ဝန်းကျင်ဆိုင်ရာ အကဲဖြတ်မှုကို ဆောင်ရွက်ရန်အတွက် စံပြုအကဲဖြတ်သည့်နည်းလမ်းတစ်ခုဖြစ်သည်။';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**တိုင်းတာသည်**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => 'ထုတ်လုပ်မှု အဆင့် ၆';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4278,40 +4276,41 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      'သဘာဝပတ်ဝန်းကျင် ထိခိုက်မှု ညွှန်းကိန်း ၁၄';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'ရာသီဥတုပြောင်းလဲမှု/ကာဗွန်ခြေရာ';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'အိုဇုန်းလွှာ ကျဆင်းခြင်း။';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'အိုင်းယွန်းဓါတ်ရောင်ခြည်';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'မြေ';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'ရေနှင့်စွမ်းအင်အသုံးပြုမှု';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'လေထုညစ်ညမ်းမှု';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'အဏ္ဏဝါနှင့် ရေချို (အမှုန်အမွှားများ၊ အက်ဆစ်ဓာတ်ပြုခြင်း၊ eutrophication)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'အရင်းအမြစ်များ ကုန်ဆုံးခြင်း။';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title =>
+      'ဘောနပ်စ်များနှင့် ပြစ်ဒဏ်များ';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'အမျိုးအစားတစ်ခုအတွင်း ပိုမိုကောင်းမွန်သော ထုတ်ကုန်များကို ဆုချရန်၊ စံသတ်မှတ်ချက်များစွာအပေါ် အခြေခံ၍ ဘောနပ်စ်များနှင့် ပြစ်ဒဏ်များကို အသုံးပြုသည်-';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4327,7 +4326,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'ပါဝင်ပစ္စည်းများ၏ မူလအစပေါ်မူတည်၍ ဘောနပ်စ်ချီးမြှင့်ပါသည်။ ဤအပိုဆုသည် သယ်ယူပို့ဆောင်ရေးအပေါ် အကျိုးသက်ရောက်မှုနှင့် ထုတ်လုပ်သူတိုင်း၏ နိုင်ငံတစ်ခုစီ၏ သဘာဝပတ်ဝန်းကျင်ဆိုင်ရာ မူဝါဒကိုလည်း ထည့်သွင်းစဉ်းစားပါသည်။';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4350,27 +4349,27 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Green-Score ကို တိကျစွာ တွက်ချက်ရန်၊ ထုပ်ပိုးမှုတွင် သေချာပေါက် သတ်မှတ်ထားခြင်း မရှိဘဲ (ဥပမာ- ပါဝင်ပစ္စည်း တစ်ခုစီ၏ ရာခိုင်နှုန်း အတိအကျ ကဲ့သို့) သို့မဟုတ် အသုံးပြုနိုင်သော ပုံစံဖြင့် ရရှိခဲသော (ဥပမာ- တိကျသော ပလတ်စတစ် အမျိုးအစားများနှင့် ထုပ်ပိုးမှု၏ အစိတ်အပိုင်းအားလုံး စာရင်းကဲ့သို့) အချက်အလက်များ ရှိရန် လိုအပ်ပါသည်။';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'ဤအချက်အလက်ကို မရရှိနိုင်သေးချိန်တွင် ပျမ်းမျှတန်ဖိုးများကို အသုံးပြုထားသော်လည်း Green-Score အတွက်သာမက အခြားအသုံးပြုမှုများစွာအတွက်ပါ အလွန်အသုံးဝင်မည့် ဤအချက်အလက်များကို စုဆောင်းရာတွင် ကူညီပေးရန် လူတိုင်းကို ကျွန်ုပ်တို့ တောင်းဆိုထားပါသည်။';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'နိုင်ငံသားတွေ ဘယ်လိုကူညီနိုင်မလဲ။';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'ထုပ်ပိုးမှုဆိုင်ရာ အချက်အလက်ကဲ့သို့သော ထုတ်ကုန်များတွင်ပါရှိသော သို့မဟုတ် ၎င်းတို့ထံမှ နုတ်ယူနိုင်သော အချက်အလက်များကို စုဆောင်းပြီး ဖွဲ့စည်းတည်ဆောက်ရန် ကူညီပေးနိုင်သည်- Mission Emballages- အစားအသောက်ထုတ်ကုန်အားလုံးအတွက် ထုပ်ပိုးမှုဆိုင်ရာ ကြီးမားသော ပူးပေါင်းပါဝင်မှုစာရင်း (ပြင်သစ်ဘာသာဖြင့်)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'ထုတ်လုပ်သူတွေက ဘယ်လိုကူညီနိုင်မလဲ။';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'ထုတ်လုပ်သူသည် ထုတ်လုပ်သူများအတွက် ကျွန်ုပ်တို့၏ အခမဲ့ပလပ်ဖောင်းမှတစ်ဆင့် ၎င်းတို့၏ အချက်အလက်များကို ကျွန်ုပ်တို့ထံ တိုက်ရိုက်ပေးပို့နိုင်ပါသည်။';
 
   @override
   String get guide_greenscore_share_link =>

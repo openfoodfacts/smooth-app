@@ -4217,40 +4217,40 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Kāds ir zaļais rādītājs?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score ir logotips, kura mērķis ir informēt jūs par **pārtikas ietekmi uz vidi**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Krāsu kods atšķiras no tumši zaļas (**A+**) **vismazāk ietekmējošiem** produktiem līdz tumši sarkanai (**F**) **visietekmīgākiem** produktiem.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Green-Score logotipi';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Kodols: Dzīves cikla novērtējums (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Pārtikas kategoriju zinātnisks novērtējums';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Katrai produktu kategorijai tiek noteikts **etalona** rādītājs, izmantojot datus no Agribalyse vides datubāzes (izstrādājušas ADEME un INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Dzīves cikla analīze** ir standartizēta novērtēšanas metode daudzpakāpju un daudzkritēriju vides novērtējuma veikšanai.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Tā izmēri:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 ražošanas soļi';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4259,7 +4259,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Iepakojums';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4271,41 +4271,40 @@ class AppLocalizationsLv extends AppLocalizations {
   String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 ietekmes uz vidi rādītāji';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Klimata pārmaiņas/oglekļa pēdas nospiedums';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Ozona slāņa noārdīšanās';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Jonizējošais starojums';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Zeme';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Ūdens un enerģijas patēriņš';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Gaisa piesārņojums';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Jūras un saldūdens (daļiņas, paskābināšanās, eitrofikācija)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Resursu izsīkums.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonusi un sodi';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Lai apbalvotu labākus produktus noteiktā kategorijā, mēs piemērojam prēmijas un sodus, pamatojoties uz vairākiem kritērijiem:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4317,11 +4316,11 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Sastāvdaļu izcelsme';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Bonuss tiek piešķirts, pamatojoties uz sastāvdaļu izcelsmi. Šī bonusa piešķiršana ņem vērā ietekmi uz transportu, kā arī katra ražotāja valsts vides politiku.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4332,7 +4331,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Iepakojums';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4344,27 +4343,27 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Lai precīzi aprēķinātu Zaļo rādītāju, ir nepieciešama informācija, kas ne vienmēr ir norādīta uz iepakojuma (piemēram, katras sastāvdaļas izcelsme un precīzs procentuālais daudzums) vai kas reti ir pieejama izmantojamā formā (piemēram, visu iepakojuma sastāvdaļu saraksts ar precīziem izmantotās plastmasas veidiem).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Ja šī informācija vēl nav pieejama, tiek izmantotas vidējās vērtības, taču tagad mēs aicinām ikvienu palīdzēt mums apkopot šo informāciju, kas būs ļoti noderīga gan Green-Score sistēmai, gan daudziem citiem mērķiem.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Kā iedzīvotāji var palīdzēt';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Visi iedzīvotāji var mums palīdzēt apkopot un strukturēt informāciju, kas atrodas uz produktiem vai ko var no tiem secināt, piemēram, informāciju uz iepakojuma: Mission Emballages: liela mēroga kopīga visu pārtikas produktu iepakojuma inventarizācija (franciski).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Kā ražotāji var palīdzēt';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Ražotāji var nosūtīt mums savu informāciju tieši, izmantojot mūsu bezmaksas platformu ražotājiem.';
 
   @override
   String get guide_greenscore_share_link =>

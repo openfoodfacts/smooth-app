@@ -4216,40 +4216,39 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Ki sa Nòt Vèt la ye?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score a se yon logo ki gen pou objektif enfòme w sou **enpak manje genyen sou anviwònman an**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Kòd koulè a varye soti nan vèt fonse (**A+**) pou pwodwi ki **mwens gen enpak** yo rive nan wouj fonse (**F**) pou pwodwi ki **gen plis enpak** yo.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Logo Green-Score yo';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'Nwayo a: Evalyasyon sik lavi (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Yon evalyasyon syantifik sou kategori manje yo';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Pou chak kategori pwodwi, yo etabli yon nòt **referans** lè l sèvi avèk done ki soti nan baz done anviwònman Agribalyse la (ADEME ak INRAE te fè l).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Analiz sik lavi** se yon metòd evalyasyon estanda pou fè yon evalyasyon anviwònman an plizyè etap ak plizyè kritè.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => 'Li mezire:';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 etap pwodiksyon';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4271,40 +4270,40 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 endikatè enpak anviwònman an';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Chanjman klimatik/anprent kabòn';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Rediksyon kouch ozòn';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Radyasyon iyonizan';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Tè';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Itilizasyon dlo ak enèji';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Polisyon lè a';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Dlo maren ak dlo dous (patikil, asidifikasyon, eutrofizasyon)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Epuizman resous yo.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonis ak penalite';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Pou rekonpanse pi bon pwodwi nan yon kategori, nou aplike bonis ak penalite ki baze sou plizyè kritè:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4316,11 +4315,11 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Orijin egredyan yo';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Yo bay yon bonis selon orijin engredyan yo. Bonis sa a pran an kont enpak sou transpò ak politik anviwònman chak peyi pwodiktè.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4343,27 +4342,27 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Pou kalkile Green-Score la avèk presizyon, li nesesè pou gen enfòmasyon ki pa nesesèman espesifye sou anbalaj la (tankou orijin nan ak pousantaj egzak chak engredyan) oubyen ki raman disponib nan yon fòm itilizab (tankou yon lis tout konpozan anbalaj la ak kalite plastik egzak yo itilize yo).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Yo itilize valè mwayèn lè enfòmasyon sa a poko disponib, men kounye a n ap mande tout moun pou ede nou kolekte enfòmasyon sa a ki pral trè itil pou Green-Score la men tou pou anpil lòt itilizasyon.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Kijan sitwayen yo ka ede';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Tout sitwayen ka ede nou rasanble epi estriktire enfòmasyon ki prezan sou pwodwi yo oubyen ki ka dedwi de yo, tankou enfòmasyon sou anbalaj: Misyon Emballages: yon gwo envantè kolaboratif sou anbalaj pou tout pwodwi alimantè (an franse)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Kijan manifaktirè yo ka ede';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Manifaktirè yo ka voye enfòmasyon yo ban nou dirèkteman atravè platfòm gratis nou an pou pwodiktè yo.';
 
   @override
   String get guide_greenscore_share_link =>
