@@ -5,7 +5,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class GuideNutriscoreV2 extends StatelessWidget {
   const GuideNutriscoreV2({super.key});
@@ -26,7 +26,6 @@ class GuideNutriscoreV2 extends StatelessWidget {
       ],
       footer: SliverToBoxAdapter(
         child: GuidesFooter(
-          shareMessage: appLocalizations.guide_nutriscore_v2_share_message,
           shareUrl: appLocalizations.guide_nutriscore_v2_share_link,
         ),
       ),
@@ -61,7 +60,7 @@ class _NutriScoreHeaderIllustration extends StatelessWidget {
             SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.a, false),
           ),
         ),
-        const Expanded(flex: 28, child: Arrow.down(color: Colors.white)),
+        const Expanded(flex: 28, child: icons.Arrow.down(color: Colors.white)),
         Expanded(
           flex: 40,
           child: SvgPicture.asset(
@@ -117,27 +116,27 @@ class _NutriScoreSection2 extends StatelessWidget {
         GuidesText(text: appLocalizations.guide_nutriscore_v2_why_v2_intro),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg1_title,
-          icon: const Milk(),
+          icon: const icons.Milk(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg1_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg2_title,
-          icon: const Soda.unhappy(),
+          icon: const icons.Soda.unhappy(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg2_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg3_title,
-          icon: const Salt(),
+          icon: const icons.Salt(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg3_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg4_title,
-          icon: const Fish(),
+          icon: const icons.Fish(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg4_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg5_title,
-          icon: const Chicken(),
+          icon: const icons.Chicken(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg5_text,
         ),
       ],

@@ -337,6 +337,16 @@ class Certification extends AppIcon {
   }) : super._(_IconsFont.certification);
 }
 
+class Charity extends AppIcon {
+  const Charity({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.charity);
+}
+
 class Chicken extends AppIcon {
   const Chicken({
     super.color,
@@ -832,6 +842,14 @@ class Environment extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.environment);
+
+  const Environment.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.environment_alt);
 }
 
 class ExternalLink extends AppIcon {
@@ -932,6 +950,26 @@ class Info extends AppIcon {
   }) : super._(_IconsFont.info);
 }
 
+class Farmer extends AppIcon {
+  const Farmer({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.farmer);
+}
+
+class Gears extends AppIcon {
+  const Gears({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.gears);
+}
+
 class Graph extends AppIcon {
   const Graph({
     super.color,
@@ -1026,6 +1064,14 @@ class Lab extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.lab);
+
+  const Lab.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.lab_alt);
 }
 
 class Labels extends AppIcon {
@@ -1116,6 +1162,16 @@ class MagicWand extends AppIcon {
   }) : super._(_IconsFont.magic_wand);
 }
 
+class Manufacturing extends AppIcon {
+  const Manufacturing({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.manufacturing);
+}
+
 class Menu extends AppIcon {
   const Menu.hamburger({
     super.color,
@@ -1186,6 +1242,24 @@ class Milk extends AppIcon {
   }) : super._(_IconsFont.milk_filled_unhappy);
 }
 
+class Monkey extends AppIcon {
+  const Monkey.happy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.monkey_happy);
+
+  const Monkey.sad({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.monkey_sad);
+}
+
 class Move extends AppIcon {
   const Move({
     super.color,
@@ -1232,6 +1306,16 @@ class OCR extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.ocr);
+}
+
+class Origins extends AppIcon {
+  const Origins({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.origins);
 }
 
 class Outdated extends AppIcon {
