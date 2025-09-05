@@ -956,8 +956,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get score_add_missing_product_category => '不足している製品カテゴリを追加';
 
   @override
-  String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+  String get score_add_missing_precise_product_category => 'より正確なカテゴリを選択してください';
 
   @override
   String get score_add_missing_product_countries => '不足している製品の国を追加';

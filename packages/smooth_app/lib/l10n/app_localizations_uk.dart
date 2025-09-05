@@ -997,7 +997,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Виберіть точнішу категорію';
 
   @override
   String get score_add_missing_product_countries =>

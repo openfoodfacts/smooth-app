@@ -991,7 +991,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Zgjidhni një kategori më të saktë';
 
   @override
   String get score_add_missing_product_countries =>

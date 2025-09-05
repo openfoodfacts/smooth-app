@@ -982,7 +982,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Valitse tarkempi kategoria';
 
   @override
   String get score_add_missing_product_countries => 'Lisää valmistusmaa';

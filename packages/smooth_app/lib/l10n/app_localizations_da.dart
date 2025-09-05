@@ -983,7 +983,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Vælg en mere præcis kategori';
 
   @override
   String get score_add_missing_product_countries =>
