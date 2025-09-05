@@ -247,6 +247,20 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     for (int i = 0; i < barcodes.length; i++) {
       final String barcode = barcodes[i];
       final bool isProduct = barcode.isNotEmpty;
+      final bool priceIsDiscounted = pricesAreDiscounted[i];
+      double price = prices[i];
+      double? priceWithoutDiscount = pricesWithoutDiscount[i];
+      if (priceIsDiscounted) {
+        if (priceWithoutDiscount != null) {
+          if (price > priceWithoutDiscount) {
+            final double tmp = price;
+            price = priceWithoutDiscount;
+            priceWithoutDiscount = tmp;
+          } else if (price == priceWithoutDiscount) {
+            priceWithoutDiscount = null;
+          }
+        }
+      }
       final Price newPrice = Price()
         ..date = date
         ..currency = currency
@@ -259,9 +273,9 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
         ..labelsTags = isProduct ? null : labels[i]
         ..pricePer = isProduct ? null : PricePer.fromOffTag(pricePers[i])
         ..type = isProduct ? PriceType.product : PriceType.category
-        ..priceIsDiscounted = pricesAreDiscounted[i]
-        ..price = prices[i]
-        ..priceWithoutDiscount = pricesWithoutDiscount[i];
+        ..priceIsDiscounted = priceIsDiscounted
+        ..price = price
+        ..priceWithoutDiscount = priceWithoutDiscount;
 
       // create price
       final MaybeError<Price?> addedPrice =
