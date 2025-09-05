@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Share",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Sephetho sa Green ke eng?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score ke lets'oao le ikemiselitseng ho u tsebisa ka **tšusumetso ea tikoloho ea lijo **.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Khoutu ea 'mala e fapana ho tloha ho botala bo lefifi (**A+**) bakeng sa **lihlahisoa tse nang le tšusumetso e nyane ** ho isa ho bofubelu bo lefifi (**F**) bakeng sa **lihlahisoa tse nang le tšusumetso e kholo **.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Li-logo tsa Green-Score",
+  "guide_greenscore_lca_title": "Taba ea mantlha: Tekolo ea potoloho ea bophelo (LCA)",
+  "guide_greenscore_lca_arg1_title": "Tlhahlobo ea saense ea lihlopha tsa lijo",
+  "guide_greenscore_lca_arg1_text1": "Bakeng sa sehlopha ka seng sa sehlahisoa, lintlha tsa **benchmark** li thehoa ho sebelisoa lintlha tse tsoang ho database ea tikoloho ea Agribalyse (e entsoeng ke ADEME le INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Tlhahlobo ea potoloho ea bophelo** ke mokhoa o tloaelehileng oa tlhahlobo bakeng sa ho etsa tlhahlobo ea tikoloho ea mekhahlelo e mengata le ea litekanyetso tse ngata.",
+  "guide_greenscore_lca_arg1_text3": "**E lekanya:**",
+  "guide_greenscore_lca_arg2_title": "6 mehato ea tlhahiso",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "14 matšoao a phello ea tikoloho",
+  "guide_greenscore_lca_arg3_text1": "Phetoho ea boemo ba leholimo/mokhahlelo oa khabone",
+  "guide_greenscore_lca_arg3_text2": "Ho fokotseha ha ozone",
+  "guide_greenscore_lca_arg3_text3": "Mahlaseli a ionizing",
+  "guide_greenscore_lca_arg3_text4": "Naha",
+  "guide_greenscore_lca_arg3_text5": "Tšebeliso ea metsi le matla",
+  "guide_greenscore_lca_arg3_text6": "Tšilafalo ea moea",
+  "guide_greenscore_lca_arg3_text7": "Metsi a leoatle le a hloekileng (likaroloana, acidification, eutrophication)",
+  "guide_greenscore_lca_arg3_text8": "Ho fokotseha ha lisebelisoa.",
+  "guide_greenscore_bonuses_penalties_title": "Libonase & likotlo",
+  "guide_greenscore_bonuses_penalties_intro": "Ho putsa lihlahisoa tse betere ka har'a sehlopha, re sebelisa libonase le likotlo ho latela maemo a 'maloa:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Bonase e fanoa ho latela tšimoloho ea metsoako. Bonase ena e ela hloko phello ea lipalangoang le leano la tikoloho la naha ka 'ngoe ea mohlahisi.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "Ho bala ka nepo Green-Score, hoa hlokahala ho ba le tlhaiso-leseling e sa hlalosoang ka har'a sephutheloana (joalo ka tšimoloho le peresente e nepahetseng ea motsoako ka mong) kapa e fumanehang seoelo ka mokhoa o ka sebelisoang (joalo ka lethathamo la likarolo tsohle tsa sephutheloana le mefuta e nepahetseng ea polasetiki e sebelisitsoeng).",
+  "guide_greenscore_transparency_intro2": "Karolelano ea litekanyetso e sebelisoa ha tlhahisoleseding ena e e-s'o fumanehe, empa hona joale re ipiletsa ho bohle ho re thusa ho bokella boitsebiso bona bo tla ba molemo haholo bakeng sa Green-Score empa hape le bakeng sa lisebelisoa tse ling tse ngata.",
+  "guide_greenscore_transparency_arg1_title": "Baahi ba ka thusa joang",
+  "guide_greenscore_transparency_arg1_text": "Baahi bohle ba ka re thusa ho bokella le ho hlophisa tlhaiso-leseling e teng ka lihlahisoa kapa e ka nkuoang ho tsoa ho tsona, joalo ka tlhaiso-leseling mabapi le ho paka: Mission Emballages: lethathamo le leholo la kopanelo la ho paka lihlahisoa tsohle tsa lijo (ka Sefora)",
+  "guide_greenscore_transparency_arg2_title": "Kamoo bahlahisi ba ka thusang kateng",
+  "guide_greenscore_transparency_arg2_text": "Baetsi ba ka re romella lintlha tsa bona ka kotloloho ka sethala sa rona sa mahala sa bahlahisi.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
