@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Bagikan",
-  "guide_nutriscore_v2_enabled": "benar",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "Nutri-Score terus berkembang: penjelasan!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score merupakan skor yang dirancang untuk **mengukur kualitas nutrisi**. Ini **melengkapi klasifikasi grup NOVA** untuk **makanan ultra proses** (yang juga ada di dalam aplikasi).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Bagi produsen, tampilan Nutri-Score **tetap opsional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Apa itu Skor Hijau?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score adalah logo yang bertujuan untuk memberi tahu Anda tentang **dampak lingkungan dari makanan**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Kode warna bervariasi dari hijau tua (**A+**) untuk produk **yang paling tidak berdampak** hingga merah tua (**F**) untuk produk **yang paling berdampak**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Logo Skor Hijau",
+  "guide_greenscore_lca_title": "Inti: Penilaian siklus hidup (LCA)",
+  "guide_greenscore_lca_arg1_title": "Evaluasi ilmiah terhadap kategori makanan",
+  "guide_greenscore_lca_arg1_text1": "Untuk setiap kategori produk, skor **patokan** ditetapkan menggunakan data dari basis data lingkungan Agribalyse (dirancang oleh ADEME dan INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Analisis siklus hidup** adalah metode penilaian standar untuk melaksanakan penilaian lingkungan multi-tahap dan multi-kriteria.",
+  "guide_greenscore_lca_arg1_text3": "**Pengukurannya:**",
+  "guide_greenscore_lca_arg2_title": "6 langkah produksi",
+  "guide_greenscore_lca_arg2_agriculture": "Pertanian",
+  "guide_greenscore_lca_arg2_processing": "Memproses",
+  "guide_greenscore_lca_arg2_packaging": "Kemasan",
+  "guide_greenscore_lca_arg2_transportation": "Transportasi",
+  "guide_greenscore_lca_arg2_distribution": "Distribusi",
+  "guide_greenscore_lca_arg2_consumption": "Konsumsi",
+  "guide_greenscore_lca_arg3_title": "14 indikator dampak lingkungan",
+  "guide_greenscore_lca_arg3_text1": "Perubahan iklim/jejak karbon",
+  "guide_greenscore_lca_arg3_text2": "Penipisan lapisan ozon",
+  "guide_greenscore_lca_arg3_text3": "Radiasi pengion",
+  "guide_greenscore_lca_arg3_text4": "Tanah",
+  "guide_greenscore_lca_arg3_text5": "Penggunaan air & energi",
+  "guide_greenscore_lca_arg3_text6": "Polusi udara",
+  "guide_greenscore_lca_arg3_text7": "Air laut & air tawar (partikel, pengasaman, eutrofikasi)",
+  "guide_greenscore_lca_arg3_text8": "Penipisan sumber daya.",
+  "guide_greenscore_bonuses_penalties_title": "Bonus dan penalti",
+  "guide_greenscore_bonuses_penalties_intro": "Untuk memberi penghargaan pada produk yang lebih baik dalam suatu kategori, kami kemudian menerapkan bonus & penalti berdasarkan beberapa kriteria:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode produksi",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Bonus diberikan kepada produk - produk yang memiliki label resmi, label atau sertifikasi yang menjamin manfaat - manfaat pada lingkungan (organik, perdagangan adil, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Asal usul bahan",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus diberikan berdasarkan asal bahan. Bonus ini memperhitungkan dampak transportasi dan kebijakan lingkungan masing-masing negara produsen.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Spesies yang terancam punah",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Penalti diberikan kepada produk - produk yang mengandung bahan yang memiliki dampak - dampak negatif signifikan terhadap keanekaragaman hayati dan ekosistem, seperti minyak sawit, yang proses produksinya bertanggung jawab untuk deforestasi besar - besaran.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Kemasan",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Penalti dihitung dengan mempertimbangkan sirkularitas kemasan (penggunaan bahan baku daur ulang dan kemampuan untuk di daur ulang kembali) dan overpacking.",
+  "guide_greenscore_transparency_title": "Meningkatnya kebutuhan akan transparansi untuk mengukur dan mengurangi dampak lingkungan dengan lebih baik",
+  "guide_greenscore_transparency_intro1": "Untuk menghitung Skor Hijau secara akurat, diperlukan informasi yang belum tentu tercantum pada kemasan (seperti asal dan persentase pasti setiap bahan) atau yang jarang tersedia dalam bentuk yang dapat digunakan (seperti daftar semua komponen kemasan dengan jenis plastik yang digunakan).",
+  "guide_greenscore_transparency_intro2": "Nilai rata-rata digunakan saat informasi ini belum tersedia, tetapi sekarang kami mengajak semua orang untuk membantu kami mengumpulkan informasi ini yang akan sangat berguna untuk Green-Score tetapi juga untuk banyak kegunaan lainnya.",
+  "guide_greenscore_transparency_arg1_title": "Bagaimana warga negara dapat membantu",
+  "guide_greenscore_transparency_arg1_text": "Semua warga negara dapat membantu kami mengumpulkan dan menyusun informasi yang ada pada produk atau yang dapat disimpulkan darinya, seperti informasi pada kemasan: Misi Emballages: inventarisasi kolaboratif berskala besar dari kemasan untuk semua produk makanan (dalam bahasa Prancis)",
+  "guide_greenscore_transparency_arg2_title": "Bagaimana produsen dapat membantu",
+  "guide_greenscore_transparency_arg2_text": "Produsen dapat mengirimkan informasi mereka langsung kepada kami melalui platform gratis kami untuk produsen.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/skor-hijau",
   "preview_badge": "Pratinjau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
