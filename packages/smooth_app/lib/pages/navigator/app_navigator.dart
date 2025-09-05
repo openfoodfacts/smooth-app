@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
@@ -242,10 +243,16 @@ class _SmoothGoRouter {
                   path: _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE,
                   builder: (_, _) => const GuideNutriscoreV2(),
                 ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE,
+                  builder: (_, _) => const GuideGreenScore(),
+                ),
               ],
               redirect: (_, GoRouterState state) {
                 if (state.uri.pathSegments.last !=
-                    _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE) {
+                        _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE ||
+                    state.uri.pathSegments.last !=
+                        _InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE) {
                   return AppRoutes.EXTERNAL(state.path ?? '');
                 } else {
                   return null;
@@ -327,6 +334,8 @@ class _SmoothGoRouter {
             return AppRoutes.HOME();
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
+          } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
+            return AppRoutes.GUIDE_GREEN_SCORE;
           } else if (path == _ExternalRoutes.SIGNUP) {
             return AppRoutes.SIGNUP;
           } else if (path != _InternalAppRoutes.HOME_PAGE) {
@@ -439,11 +448,13 @@ class _InternalAppRoutes {
 
   static const String _GUIDES = '_guides';
   static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
+  static const String GUIDE_GREEN_SCORE_PAGE = '_green-score';
 }
 
 class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
+  static const String GUIDE_GREEN_SCORE = '/green-score';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
   static const String SIGNUP = '/signup';
 }
@@ -491,9 +502,13 @@ class AppRoutes {
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';
 
-  // Guide for NutriScore (TODO: If we have more guides, we should use a more generic algorithm)
+  // Guide for NutriScore
   static String get GUIDE_NUTRISCORE_V2 =>
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
+
+  // Guide for Green-Score
+  static String get GUIDE_GREEN_SCORE =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE}';
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 

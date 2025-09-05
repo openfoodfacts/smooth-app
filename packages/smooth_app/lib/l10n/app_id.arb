@@ -1802,7 +1802,7 @@
   "@edit_product_form_item_emb_help_info2_item1_explanation": {
     "description": "Example of an EC code (shouldn't be translated)"
   },
-  "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+  "edit_product_form_item_emb_help_info2_item2_text": "**Kode EMB** yang digunakan di Prancis:",
   "@edit_product_form_item_emb_help_info2_item2_text": {
     "description": "Explanation about EMB codes"
   },
@@ -1818,7 +1818,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Masukkan penelusuran (misalnya: Kedelai)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -1834,27 +1834,27 @@
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "Praktik yang baik: Kategori",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "Pilih **hanya kategori yang paling spesifik**.\nKategori induk akan ditambahkan secara otomatis.",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
-  "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+  "edit_product_form_item_categories_explanation_info2_title": "Kategori tidak ada?",
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "Jika suatu kategori **tidak tersedia di autocomplete**, silakan tambahkan saja.\nHal ini akan membantu kami memperbaiki Open Food Facts di negara Anda.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Ikan sarden dalam minyak zaitun",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Jus jeruk dari konsentrat",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
@@ -1901,15 +1901,15 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "Praktik yang baik: Informasi gizi",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nilai gizi",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+  "edit_product_form_item_nutrition_facts_explanation_info1_content": "Pertama, pilih apakah **nilai-nilai tersebut disediakan**:",
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1917,15 +1917,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Kemudian, masukkan nilai gizi **seperti yang tertera pada kemasan**. Jika tidak ada nilai, Anda dapat mengklik ikon “Mata”.",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Kolom tidak ada?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "Jika ada entri yang hilang, Anda dapat **mengklik ikon “Plus”** untuk menambahkannya (misalnya: vitamin D, magnesium…).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -2287,12 +2287,12 @@
   },
   "prices_app_dev_mode_flag": "Pintasan ke aplikasi Harga di halaman produk",
   "prices_app_button": "Buka aplikasi Harga",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_select": "Tambahkan label harga langsung dari galeri",
+  "prices_bulk_proof_upload_warning": "Setelah Anda memilih gambar, Anda tidak akan dapat menyuntingnya!",
+  "prices_bulk_proof_upload_warning_ai": "AI akan menganalisis bukti-bukti Anda untuk mengekstrak harga.",
   "prices_bulk_proof_upload_community_switch": "Memungkinkan komunitas untuk memvalidasi harga yang diekstraksi oleh AI.",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_subtitle": "Label Harga Duplikat",
+  "prices_bulk_proof_upload_title": "Unggah Bukti dalam Jumlah Besar",
   "prices_bulk_proof_upload_step_selecting": "Memilih file",
   "prices_bulk_proof_upload_step_starting": "Memulai pengunggahan",
   "prices_bulk_proof_upload_step_copying": "Menyalin file secara lokal #{index}/{count}",
@@ -2723,7 +2723,7 @@
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "Asisten Kontribusi Harga",
   "prices_validation_assistant": "Asisten Validasi Harga",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
@@ -2732,7 +2732,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Tambahkan Beberapa Bukti",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2840,23 +2840,23 @@
   },
   "basic_details": "Informasi Dasar",
   "product_name": "Nama Produk",
-  "product_names": "Product Names",
+  "product_names": "Nama Produk",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
-  "add_basic_details_product_name_add_translation": "Add a new translation",
+  "add_basic_details_product_name_add_translation": "Tambahkan terjemahan baru",
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Sebelum memvalidasi, pastikan Anda hanya menambahkan terjemahan **jika bahasa tersebut tercantum pada kemasan**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
-  "add_basic_details_product_name_open_photo": "View front photo",
+  "add_basic_details_product_name_open_photo": "Lihat foto tampak depan",
   "@add_basic_details_product_name_open_photo": {
     "description": "Button to view the front photo of the product (on top of the screen)"
   },
-  "add_basic_details_product_name_take_photo": "Take front photo",
+  "add_basic_details_product_name_take_photo": "Ambil foto tampak depan",
   "@add_basic_details_product_name_take_photo": {
     "description": "Button to take a photo of the front of the product (when there is no photo yet)"
   },
@@ -2877,23 +2877,23 @@
       }
     }
   },
-  "explanation_section_good_examples": "Good examples",
+  "explanation_section_good_examples": "Contoh yang baik",
   "@explanation_section_good_examples": {
     "description": "Title for the section with good examples"
   },
-  "explanation_section_bad_examples": "Bad examples",
+  "explanation_section_bad_examples": "Contoh yang buruk",
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "Praktik yang baik: Nama produk",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
-  "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+  "add_basic_details_product_name_help_info1": "Nama produk adalah **nama utama yang tercetak pada kemasan**. Nama tersebut dapat merupakan merek dagang terdaftar.",
   "@add_basic_details_product_name_help_info1": {
     "description": "Text explaining how to write the product name"
   },
-  "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+  "add_basic_details_product_name_help_info2": "**Catatan:** Jangan menambahkan terjemahan **jika bahasa tersebut tidak tercantum pada kemasan**.",
   "@add_basic_details_product_name_help_info2": {
     "description": "Text explaining how to write the product name"
   },
@@ -2901,19 +2901,19 @@
   "@add_basic_details_product_name_help_good_examples_1": {
     "description": "A 1st good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+  "add_basic_details_product_name_help_good_examples_2": "Saus Tomat",
   "@add_basic_details_product_name_help_good_examples_2": {
     "description": "A 2nd good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+  "add_basic_details_product_name_help_bad_examples_1_explanation": "Jangan sertakan merek dalam nama produk",
   "@add_basic_details_product_name_help_bad_examples_1_explanation": {
     "description": "Explanation for the first bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+  "add_basic_details_product_name_help_bad_examples_1_example": "Saus Tomat **oleh Heinz**",
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Jangan gunakan simbol ®, ™, ©, atau sejenisnya",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
@@ -2921,7 +2921,7 @@
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
-  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+  "add_basic_details_product_name_other_translations": "{count,plural, other{{count} terjemahan lainnya}}",
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
@@ -2934,39 +2934,39 @@
   "brand_names": "Nama merek",
   "add_basic_details_brand_name_error": "Harap masukkan nama merek",
   "add_basic_details_brand_names_hint": "Masukkan merek (mis: Ferrero)",
-  "add_basic_details_product_brand_help_title": "Good practices: Brands",
+  "add_basic_details_product_brand_help_title": "Praktik yang baik: Merek",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "Masukkan **semua merek produk**.",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "Merek utama",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "**Merek utama**, yang umumnya ditampilkan dengan jelas di bagian depan kemasan, harus **dimasukkan terlebih dahulu**.",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "Merk lainnya",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "Ketika dijual **oleh perusahaan besar**:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** dijual oleh **Danone**",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "Ketika dijual dengan mereknya **yang diterjemahkan ke dalam beberapa bahasa**:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** terkadang ditulis sebagai **Val Nature**",
   "@add_basic_details_product_brand_help_info3_item2_explanation": {
     "description": "Text explaining how to write brands"
   },
@@ -2980,7 +2980,7 @@
   },
   "quantity": "Kuantitas dan berat",
   "add_basic_details_quantity_hint": "Masukkan berat dan jika diperlukan jumlahnya (misalnya: 4x100g)",
-  "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+  "add_basic_details_product_quantity_help_title": "Praktik yang baik: Kuantitas",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
   },
@@ -4371,7 +4371,7 @@
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Dengan diskon",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
@@ -4435,19 +4435,19 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Harga yang tercantum pada label harga",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Mata uang",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Tahun",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Harga dan bukti per sumber",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4455,7 +4455,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Aplikasi seluler",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4467,15 +4467,15 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Terakhir diperbarui pada",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Terjadi kesalahan saat memuat statistik.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Pertanyaan telah terjawab!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
