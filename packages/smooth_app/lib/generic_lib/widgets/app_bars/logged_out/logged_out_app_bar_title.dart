@@ -16,6 +16,7 @@ class LoggedOutAppBarTitle extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Row(
+      spacing: MEDIUM_SPACE,
       children: <Widget>[
         Container(
           width: PROFILE_PICTURE_SIZE,
@@ -32,7 +33,6 @@ class LoggedOutAppBarTitle extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: MEDIUM_SPACE),
         Expanded(
           child: Column(
             children: <Widget>[

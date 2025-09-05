@@ -137,10 +137,10 @@ abstract class PreferencesRoot extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           content,
-          Positioned(
+          PositionedDirectional(
             bottom: 0.0,
-            right: 0.0,
-            left: 0.0,
+            end: 0.0,
+            start: 0.0,
             child: getBottom(context),
           ),
         ],

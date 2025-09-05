@@ -11,7 +11,7 @@ import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class AccountRoot extends PreferencesRoot {
   const AccountRoot({required super.title});
@@ -27,19 +27,19 @@ class AccountRoot extends PreferencesRoot {
         title: appLocalizations.preferences_manage_account_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            leading: const Profile(),
+            leading: const icons.Profile(),
             title: appLocalizations.view_profile,
             subtitleText: appLocalizations.preferences_on_off_website_subtitle,
             url: 'https://world.openfoodfacts.org/editor/$userId',
           ),
           UrlPreferenceTile(
-            leading: const Password.lock(),
+            leading: const icons.Password.lock(),
             title: appLocalizations.preferences_change_password_title,
             subtitleText: appLocalizations.preferences_on_off_website_subtitle,
             url: 'https://world.openfoodfacts.org/cgi/reset_password.pl',
           ),
           PreferenceTile(
-            leading: const Logout(),
+            leading: const icons.Logout(),
             title: appLocalizations.sign_out,
             onTap: () async {
               if (await _confirmLogout(context, appLocalizations) == true) {
@@ -47,7 +47,7 @@ class AccountRoot extends PreferencesRoot {
                   await context.read<UserManagementProvider>().logout();
                   AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
                   if (context.mounted) {
-                    Navigator.pop(context);
+                    Navigator.of(context).pop();
                   }
                 }
               }
@@ -63,18 +63,17 @@ class AccountRoot extends PreferencesRoot {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Padding(
-      padding: const EdgeInsets.all(MEDIUM_SPACE),
+      padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
       child: PreferenceCard(
         title: appLocalizations.preferences_danger_zone,
         titleBackgroundColor: Colors.red,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            leading: const Delete.trash(),
+            leading: const icons.Delete.trash(),
             title: appLocalizations.account_delete,
             subtitleText:
                 appLocalizations.preferences_account_deletion_subtitle,
-            onTap: () async => Navigator.push<void>(
-              context,
+            onTap: () async => Navigator.of(context).push<void>(
               MaterialPageRoute<void>(
                 builder: (BuildContext context) => AccountDeletionWebview(),
               ),
@@ -96,11 +95,11 @@ class AccountRoot extends PreferencesRoot {
         body: Text(appLocalizations.sign_out_confirmation),
         positiveAction: SmoothActionButton(
           text: appLocalizations.yes,
-          onPressed: () async => Navigator.pop(context, true),
+          onPressed: () async => Navigator.of(context).pop(true),
         ),
         negativeAction: SmoothActionButton(
           text: appLocalizations.no,
-          onPressed: () => Navigator.pop(context, false),
+          onPressed: () => Navigator.of(context).pop(false),
         ),
       );
     },

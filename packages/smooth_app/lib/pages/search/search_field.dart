@@ -5,6 +5,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_hero.dart';
@@ -23,6 +24,7 @@ class SearchField extends StatefulWidget {
     this.focusNode,
     this.enableSuggestions = false,
     this.autocorrect = false,
+    this.hintTextStyle,
   });
 
   final SearchHelper searchHelper;
@@ -37,6 +39,7 @@ class SearchField extends StatefulWidget {
   final void Function()? onFocus;
   final Color? backgroundColor;
   final Color? foregroundColor;
+  final TextStyle? hintTextStyle;
 
   final FocusNode? focusNode;
 
@@ -76,6 +79,8 @@ class _SearchFieldState extends State<SearchField> {
     }
 
     final TextStyle textStyle = SearchFieldUIHelper.textStyle(context);
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final Widget? additionalFilter = widget.searchHelper.getAdditionalFilter();
     return ChangeNotifierProvider<TextEditingController>.value(
@@ -109,7 +114,11 @@ class _SearchFieldState extends State<SearchField> {
                 enableSuggestions: widget.enableSuggestions,
                 autocorrect: widget.autocorrect,
                 style: textStyle,
-                decoration: _getInputDecoration(context, localizations),
+                decoration: _getInputDecoration(
+                  context,
+                  localizations,
+                  themeExtension,
+                ),
                 cursorColor: textStyle.color,
               ),
               if (additionalFilter != null) additionalFilter,
@@ -123,11 +132,15 @@ class _SearchFieldState extends State<SearchField> {
   InputDecoration _getInputDecoration(
     BuildContext context,
     AppLocalizations localizations,
+    SmoothColorsThemeExtension themeExtension,
   ) {
     final BoxDecoration decoration = SearchFieldUIHelper.decoration(context);
     final OutlineInputBorder border = OutlineInputBorder(
       borderRadius: decoration.borderRadius! as BorderRadius,
-      borderSide: decoration.border!.top.copyWith(width: 2.0),
+      borderSide: decoration.border!.top.copyWith(
+        width: 2.0,
+        color: context.lightTheme() ? null : themeExtension.secondaryVibrant,
+      ),
     );
 
     return InputDecoration(
@@ -141,6 +154,7 @@ class _SearchFieldState extends State<SearchField> {
       focusedBorder: border,
       contentPadding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
       hintText: widget.searchHelper.getHintText(localizations),
+      hintStyle: widget.hintTextStyle,
       prefixIcon: widget.showNavigationButton
           ? const Align(
               alignment: AlignmentDirectional.centerStart,
@@ -220,7 +234,9 @@ class SearchBarIcon extends StatelessWidget {
       aspectRatio: 1.0,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: theme.primaryDark,
+          color: context.lightTheme()
+              ? theme.primaryDark
+              : theme.secondaryVibrant,
           shape: BoxShape.circle,
         ),
         child: Padding(
@@ -277,7 +293,7 @@ class SearchFieldUIHelper {
 
     return BoxDecoration(
       borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
-      color: lightTheme ? Colors.white : theme.greyDark,
+      color: lightTheme ? Colors.white : theme.cellOdd,
       border: Border.all(
         color: lightTheme ? theme.primaryBlack : theme.primarySemiDark,
       ),

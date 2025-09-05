@@ -9,13 +9,13 @@ import 'package:smooth_app/themes/theme_provider.dart';
 class PreferenceTile extends StatelessWidget {
   const PreferenceTile({
     required this.title,
-    super.key,
     this.leading,
     this.icon,
     this.subtitleText,
     this.subtitle,
     this.trailing,
     this.onTap,
+    super.key,
   }) : assert(
          (subtitleText != null && subtitle == null) ||
              (subtitleText == null && subtitle != null) ||
@@ -61,6 +61,7 @@ class PreferenceTile extends StatelessWidget {
                 )
               : null),
       trailing: trailing,
+
       onTap: onTap,
     );
   }

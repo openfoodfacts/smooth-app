@@ -11,7 +11,8 @@ import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
@@ -66,7 +67,11 @@ class CountrySelectorTile extends PreferenceTile {
                           .selectedItem;
 
                   return PreferenceTile(
-                    leading: const Countries(),
+                    leading: icons.Countries(
+                      color: context.lightTheme()
+                          ? Theme.of(context).primaryColor
+                          : Colors.white,
+                    ),
                     title: title,
                     subtitle: Row(
                       spacing: VERY_SMALL_SPACE,
@@ -90,7 +95,7 @@ class CountrySelectorTile extends PreferenceTile {
                       ],
                     ),
                     onTap: () => _openCountrySelector(context),
-                    trailing: const Edit(),
+                    trailing: const icons.Edit(),
                   );
                 },
               ),

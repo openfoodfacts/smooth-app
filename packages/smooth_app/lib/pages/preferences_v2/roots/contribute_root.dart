@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -18,21 +17,28 @@ import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ContributeRoot extends PreferencesRoot {
   const ContributeRoot({required super.title});
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OpenFoodFactsCountry country = ProductQuery.getCountry();
+
+    final Color iconColor = context.lightTheme()
+        ? theme.primaryColor
+        : Colors.white;
 
     return <PreferenceCard>[
       PreferenceCard(
         title: appLocalizations.preferences_contribute_active_volunteer_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            icon: Icons.group,
+            leading: icons.Profile(color: iconColor),
             title: appLocalizations.contribute_join_skill_pool,
             subtitleText:
                 appLocalizations.preferences_contribute_skill_pool_subtitle,
@@ -40,7 +46,7 @@ class ContributeRoot extends PreferencesRoot {
                 'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
           ),
           UrlPreferenceTile(
-            icon: Icons.volunteer_activism_outlined,
+            leading: icons.Donate(color: iconColor),
             title: appLocalizations.how_to_contribute,
             subtitleText:
                 appLocalizations.preferences_contribute_how_to_subtitle,
@@ -54,7 +60,7 @@ class ContributeRoot extends PreferencesRoot {
         title: appLocalizations.preferences_contribute_mobile_dev_title,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.app_shortcut,
+            leading: icons.Programming(color: iconColor),
             title: appLocalizations.contribute_sw_development,
             subtitleText:
                 appLocalizations.preferences_contribute_sw_dev_subtitle,
@@ -63,7 +69,7 @@ class ContributeRoot extends PreferencesRoot {
           // TODO(primael): rename to alpha
           if (GlobalVars.appStore.getEnrollInBetaURL() != null)
             PreferenceTile(
-              icon: CupertinoIcons.lab_flask_solid,
+              leading: icons.Lab(color: iconColor),
               title: appLocalizations.contribute_enroll_alpha,
               subtitleText:
                   appLocalizations.preferences_contribute_alpha_subtitle,
@@ -82,7 +88,7 @@ class ContributeRoot extends PreferencesRoot {
         title: appLocalizations.preferences_contribute_local_community_title,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            icon: Icons.translate,
+            leading: icons.Language(color: iconColor),
             title: appLocalizations.contribute_translate_header,
             subtitleText:
                 appLocalizations.preferences_contribute_translate_subtitle,
@@ -98,7 +104,7 @@ class ContributeRoot extends PreferencesRoot {
           ),
           if (country.wikiUrl != null)
             UrlPreferenceTile(
-              icon: Icons.language,
+              leading: icons.Language.world(color: iconColor),
               title: appLocalizations.help_improve_country,
               subtitleText:
                   appLocalizations.preferences_contribute_country_subtitle,
@@ -110,7 +116,7 @@ class ContributeRoot extends PreferencesRoot {
         title: appLocalizations.preferences_contribute_data_quality_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            icon: Icons.cleaning_services,
+            leading: icons.Sparkles(color: iconColor),
             title:
                 appLocalizations.preferences_contribute_data_quality_team_title,
             subtitleText: appLocalizations
@@ -134,7 +140,7 @@ class ContributeRoot extends PreferencesRoot {
             Text(appLocalizations.contribute_develop_text),
             const SizedBox(height: VERY_LARGE_SPACE),
             Text(appLocalizations.contribute_develop_text_2),
-            const SizedBox(height: 10),
+            const SizedBox(height: BALANCED_SPACE),
             SmoothAlertContentButton(
               label: 'Slack',
               icon: Icons.open_in_new,
@@ -148,7 +154,7 @@ class ContributeRoot extends PreferencesRoot {
               onPressed: () async =>
                   LaunchUrlHelper.launchURL('https://github.com/openfoodfacts'),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: BALANCED_SPACE),
             SwitchListTile.adaptive(
               title: Text(appLocalizations.contribute_develop_dev_mode_title),
               subtitle: Text(
@@ -162,10 +168,10 @@ class ContributeRoot extends PreferencesRoot {
         ),
         negativeAction: SmoothActionButton(
           onPressed: () {
-            Navigator.of(context, rootNavigator: true).pop('dialog');
+            Navigator.of(context, rootNavigator: true).pop();
           },
           text: appLocalizations.close,
-          minWidth: 100,
+          minWidth: 100.0,
         ),
       );
     },
@@ -190,7 +196,7 @@ class ContributeRoot extends PreferencesRoot {
         ),
         negativeAction: SmoothActionButton(
           onPressed: () {
-            Navigator.of(context, rootNavigator: true).pop('dialog');
+            Navigator.of(context, rootNavigator: true).pop();
           },
           text: appLocalizations.close,
           minWidth: 100,
@@ -213,11 +219,11 @@ class ContributeRoot extends PreferencesRoot {
         body: Text(appLocalizations.contribute_enroll_alpha_warning),
         negativeAction: SmoothActionButton(
           text: appLocalizations.close,
-          onPressed: () => Navigator.pop(context, false),
+          onPressed: () => Navigator.of(context).pop(false),
         ),
         positiveAction: SmoothActionButton(
           text: appLocalizations.okay,
-          onPressed: () => Navigator.pop(context, true),
+          onPressed: () => Navigator.of(context).pop(true),
         ),
       ),
     );
@@ -230,13 +236,18 @@ class ContributeRoot extends PreferencesRoot {
 
   Future<void> _contributors(BuildContext context) => showDialog<void>(
     context: context,
-    builder: (BuildContext context) => _ContributorsDialog(),
+    builder: (BuildContext context) => const _ContributorsDialog(),
   );
 }
 
-class _ContributorsDialog extends StatelessWidget {
-  _ContributorsDialog();
+class _ContributorsDialog extends StatefulWidget {
+  const _ContributorsDialog();
 
+  @override
+  State<_ContributorsDialog> createState() => _ContributorsDialogState();
+}
+
+class _ContributorsDialogState extends State<_ContributorsDialog> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -284,10 +295,10 @@ class _ContributorsDialog extends StatelessWidget {
                                   contributor.profilePath,
                                 ),
                                 child: Ink(
+                                  width: 40.0,
+                                  height: 40.0,
                                   decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
+                                    borderRadius: ROUNDED_BORDER_RADIUS,
                                     image: DecorationImage(
                                       image: NetworkImage(
                                         contributor.avatarUrl,
@@ -295,8 +306,6 @@ class _ContributorsDialog extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  width: 40.0,
-                                  height: 40.0,
                                 ),
                               ),
                             ),
@@ -310,7 +319,7 @@ class _ContributorsDialog extends StatelessWidget {
           }
 
           return const Padding(
-            padding: EdgeInsets.all(LARGE_SPACE),
+            padding: EdgeInsetsDirectional.all(LARGE_SPACE),
             child: CircularProgressIndicator.adaptive(),
           );
         },
@@ -327,7 +336,7 @@ class _ContributorsDialog extends StatelessWidget {
           Navigator.of(context, rootNavigator: true).pop('dialog');
         },
         text: appLocalizations.close,
-        minWidth: 100,
+        minWidth: 100.0,
       ),
       actionsAxis: Axis.vertical,
       actionsOrder: SmoothButtonsBarOrder.auto,

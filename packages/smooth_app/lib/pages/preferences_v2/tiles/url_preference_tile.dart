@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 
 class UrlPreferenceTile extends PreferenceTile {
-  const UrlPreferenceTile({
+  UrlPreferenceTile({
     required super.title,
     required this.url,
     super.leading,
     super.icon,
     super.subtitleText,
-  });
+    super.key,
+  }) : assert(url.isNotEmpty);
 
   final String url;
 
@@ -20,7 +22,7 @@ class UrlPreferenceTile extends PreferenceTile {
       icon: icon,
       title: title,
       subtitleText: subtitleText,
-      trailing: const Icon(Icons.open_in_new_rounded),
+      trailing: ExternalLink(size: 16.0, color: Theme.of(context).primaryColor),
       onTap: () async =>
           LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
     );

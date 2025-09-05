@@ -46,29 +46,8 @@ class _SearchBottomBarState extends State<SearchBottomBar> {
                 searchHelper: context.read<PreferencesRootSearchController>(),
                 showNavigationButton: false,
                 searchOnChange: true,
-              ) /* SmoothTextFormField(
-                type: TextFieldTypes.PLAIN_TEXT,
-                controller: _controller,
-                hintText: appLocalizations.preferences_app_bar_search_hint,
-                hintTextStyle: TextStyle(
-                  color: lightTheme
-                      ? themeExtension.primaryDark
-                      : themeExtension.primaryLight,
-                  fontStyle: FontStyle.italic,
-                ),
-                maxLines: 1,
-                outlined: true,
-                suffixIcon: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: ROUNDED_BORDER_RADIUS,
-                    color: theme.primaryColor,
-                  ),
-                  child: const Icon(Icons.search, color: Colors.white),
-                ),
-                onChanged: (String? value) {
-                  context.read<PreferencesRootSearchController>().search(value);
-                },
-              ), */,
+                hintTextStyle: const TextStyle(fontStyle: FontStyle.italic),
+              ),
             ),
           ],
         ),
@@ -89,7 +68,6 @@ class _SearchBottomBarBackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Path path = Path()
-      ..moveTo(0, 0)
       ..arcToPoint(Offset(radius.x, radius.y), radius: radius, clockwise: false)
       ..lineTo(size.width - radius.x, radius.y)
       ..arcToPoint(Offset(size.width, 0), radius: radius, clockwise: false)
@@ -113,7 +91,7 @@ class _SearchBottomBarBackgroundPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_SearchBottomBarBackgroundPainter oldDelegate) =>
-      radius != oldDelegate.radius;
+      radius != oldDelegate.radius || _paint.color != oldDelegate._paint.color;
 
   @override
   bool shouldRebuildSemantics(_SearchBottomBarBackgroundPainter oldDelegate) =>

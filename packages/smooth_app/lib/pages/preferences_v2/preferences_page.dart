@@ -14,7 +14,7 @@ import 'package:smooth_app/pages/preferences_v2/cards/headers/new_nutriscore_hea
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/about_app_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
-import 'package:smooth_app/pages/preferences_v2/roots/connect_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/connect/connect_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/contribute_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/contributions_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/default_root.dart';
@@ -31,7 +31,8 @@ import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class PreferencesPage extends StatelessWidget {
   @override
@@ -39,8 +40,13 @@ class PreferencesPage extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     context.watch<UserManagementProvider>();
+    final ThemeData theme = Theme.of(context);
 
     final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
+
+    final Color iconColor = context.lightTheme()
+        ? theme.primaryColor
+        : Colors.white;
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
@@ -59,15 +65,16 @@ class PreferencesPage extends StatelessWidget {
                   'assets/preferences/prices_contribution.svg',
                 ),
                 onTap: () {
-                  Navigator.push(
-                    context,
+                  Navigator.of(context).push(
                     MaterialPageRoute<Widget>(
                       builder: (BuildContext context) =>
                           ChangeNotifierProvider<
                             PreferencesRootSearchController
                           >(
                             create: (_) => PreferencesRootSearchController(),
-                            child: const PricesRoot(title: 'Prices'),
+                            child: PricesRoot(
+                              title: appLocalizations.preferences_prices_title,
+                            ),
                           ),
                     ),
                   );
@@ -81,8 +88,7 @@ class PreferencesPage extends StatelessWidget {
                 onTap: () async {
                   AnalyticsHelper.trackEvent(AnalyticsEvent.hungerGameOpened);
 
-                  await Navigator.push<int>(
-                    context,
+                  await Navigator.of(context).push<int>(
                     MaterialPageRoute<int>(
                       builder: (BuildContext context) => const QuestionsPage(),
                     ),
@@ -95,8 +101,7 @@ class PreferencesPage extends StatelessWidget {
                   'assets/preferences/products_contribution.svg',
                 ),
                 onTap: () {
-                  Navigator.push(
-                    context,
+                  Navigator.of(context).push(
                     MaterialPageRoute<Widget>(
                       builder: (BuildContext context) =>
                           ChangeNotifierProvider<
@@ -118,7 +123,7 @@ class PreferencesPage extends StatelessWidget {
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                leading: const HappyToast(),
+                leading: icons.HappyToast(color: iconColor),
                 title: appLocalizations.myPreferences_food_title,
                 subtitleText: appLocalizations.myPreferences_food_subtitle,
                 target: const UserPreferencesPage(
@@ -126,7 +131,7 @@ class PreferencesPage extends StatelessWidget {
                 ),
               ),
               NavigationPreferenceTile(
-                leading: const Personalization.alt(),
+                leading: icons.Personalization.alt(color: iconColor),
                 title: appLocalizations.myPreferences_settings_title,
                 subtitleText: appLocalizations.myPreferences_settings_subtitle,
                 root: AppSettingsRoot(title: appLocalizations.settings_app_app),
@@ -137,7 +142,7 @@ class PreferencesPage extends StatelessWidget {
             title: appLocalizations.preferences_card_project,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                leading: const Contribute(),
+                leading: icons.Contribute(color: iconColor),
                 title:
                     appLocalizations.preferences_page_contribute_project_title,
                 subtitleText: appLocalizations
@@ -147,7 +152,7 @@ class PreferencesPage extends StatelessWidget {
                 ),
               ),
               UrlPreferenceTile(
-                leading: const Donate(),
+                leading: icons.Donate(color: iconColor),
                 title: appLocalizations.preferences_support_title,
                 subtitleText: appLocalizations.preferences_support_subtitle,
                 url: appLocalizations.donate_url,
@@ -159,13 +164,13 @@ class PreferencesPage extends StatelessWidget {
             header: NewNutriscoreHeader(),
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                leading: const Lifebuoy(),
+                leading: icons.Lifebuoy(color: iconColor),
                 title: appLocalizations.preferences_faq_subtitle,
                 subtitleText: appLocalizations.preferences_page_faq_subtitle,
                 root: FaqRoot(title: appLocalizations.preferences_faq_title),
               ),
               NavigationPreferenceTile(
-                leading: const Message.edit(),
+                leading: icons.Message.edit(color: iconColor),
                 title: appLocalizations.preferences_connect_title,
                 subtitleText: appLocalizations.preferences_connect_subtitle,
                 root: ConnectRoot(
@@ -178,7 +183,7 @@ class PreferencesPage extends StatelessWidget {
             title: appLocalizations.preferences_card_about,
             tiles: <PreferenceTile>[
               NavigationPreferenceTile(
-                leading: const Info(),
+                leading: icons.Info(color: iconColor),
                 title: appLocalizations.preferences_legal_information_title,
                 subtitleText:
                     appLocalizations.preferences_legal_information_subtitle,
@@ -187,7 +192,7 @@ class PreferencesPage extends StatelessWidget {
                 ),
               ),
               NavigationPreferenceTile(
-                leading: const Programming(),
+                leading: icons.Programming(color: iconColor),
                 title: appLocalizations.preferences_about_app_title,
                 subtitleText: appLocalizations.preferences_about_app_subtitle,
                 root: AboutAppRoot(
@@ -196,11 +201,15 @@ class PreferencesPage extends StatelessWidget {
               ),
               if (userPreferences.devMode > 0)
                 NavigationPreferenceTile(
-                  leading: const Lab(),
-                  title: 'Open Food Facts Labs',
+                  leading: icons.Lab(color: iconColor),
+                  title: appLocalizations
+                      .preferences_page_open_food_facts_labs_title,
                   subtitleText:
                       appLocalizations.dev_preferences_screen_subtitle,
-                  root: DevModeRoot(title: 'Open Food Facts Labs'),
+                  root: DevModeRoot(
+                    title: appLocalizations
+                        .preferences_page_open_food_facts_labs_title,
+                  ),
                 ),
             ],
           ),

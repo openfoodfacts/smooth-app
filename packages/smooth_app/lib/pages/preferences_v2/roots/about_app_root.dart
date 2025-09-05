@@ -9,7 +9,7 @@ import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class AboutAppRoot extends PreferencesRoot {
   const AboutAppRoot({required super.title});
@@ -24,7 +24,7 @@ class AboutAppRoot extends PreferencesRoot {
         title: appLocalizations.preferences_about_information_title,
         tiles: <PreferenceTile>[
           PreferenceTile(
-            leading: const Info(),
+            leading: const icons.Info(),
             title: appLocalizations.preferences_version_number_title,
             subtitle: FutureBuilder<PackageInfo>(
               future: PackageInfo.fromPlatform(),
@@ -33,11 +33,9 @@ class AboutAppRoot extends PreferencesRoot {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Row(
                         mainAxisSize: MainAxisSize.max,
-
                         children: <Widget>[
-                          SizedBox(
-                            width: 12.0,
-                            height: 12.0,
+                          SizedBox.square(
+                            dimension: 12.0,
                             child: CircularProgressIndicator(),
                           ),
                         ],
@@ -51,12 +49,12 @@ class AboutAppRoot extends PreferencesRoot {
             ),
           ),
           PreferenceTile(
-            leading: const Camera.filled(),
+            leading: const icons.Camera.filled(),
             title: appLocalizations.preferences_scanner_title,
             subtitleText: GlobalVars.scannerLabel.name,
           ),
           PreferenceTile(
-            leading: const AppStore(),
+            leading: const icons.AppStore(),
             title: appLocalizations.preferences_app_store,
             subtitleText: GlobalVars.storeLabel.name,
           ),
@@ -66,7 +64,7 @@ class AboutAppRoot extends PreferencesRoot {
         title: appLocalizations.preferences_contribute_title,
         tiles: <PreferenceTile>[
           UrlPreferenceTile(
-            leading: const GitHub(),
+            leading: const icons.GitHub(),
             title: appLocalizations.preferences_source_code,
             subtitleText: appLocalizations.preferences_source_code_subtitle,
             url: 'https://github.com/openfoodfacts/smooth-app',
@@ -74,7 +72,7 @@ class AboutAppRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: 'Development',
+        title: appLocalizations.preferences_about_app_development_title,
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
             title: appLocalizations.contribute_develop_dev_mode_title,

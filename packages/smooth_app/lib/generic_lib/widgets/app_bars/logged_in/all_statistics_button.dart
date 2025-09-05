@@ -19,10 +19,9 @@ class AllStatisticsButton extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(12.0),
       onTap: () {
-        Navigator.push(
-          context,
+        Navigator.of(context).push(
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) =>
+            builder: (_) =>
                 ChangeNotifierProvider<PreferencesRootSearchController>(
                   create: (_) => PreferencesRootSearchController(),
                   child: ContributionsRoot(title: appLocalizations.contribute),

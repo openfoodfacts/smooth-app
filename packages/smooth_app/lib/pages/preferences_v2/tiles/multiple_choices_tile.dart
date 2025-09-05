@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -127,7 +127,7 @@ class MultipleChoicesTile<T> extends PreferenceTile {
           onChanged?.call(res);
         }
       },
-      trailing: const Edit(),
+      trailing: const icons.Edit(),
     );
   }
 

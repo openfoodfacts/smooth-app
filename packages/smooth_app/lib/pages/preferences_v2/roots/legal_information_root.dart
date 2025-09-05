@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class LegalInformationRoot extends PreferencesRoot {
   const LegalInformationRoot({required super.title});
@@ -27,21 +28,26 @@ class LegalInformationRoot extends PreferencesRoot {
       PreferenceCard(
         title: 'Open Food Facts',
         tiles: <PreferenceTile>[
-          // TODO(primael): Localize urls preferences.language UriHelper.replaceSubdomaine
           UrlPreferenceTile(
             icon: Icons.article,
             title: appLocalizations.preferences_terms_of_use,
-            url: 'https://world.openfoodfacts.org/terms-of-use',
+            url: ProductQuery.replaceSubdomain(
+              'https://world.openfoodfacts.org/terms-of-use',
+            ),
           ),
           UrlPreferenceTile(
             icon: Icons.gavel,
             title: appLocalizations.preferences_legal_mentions,
-            url: 'https://world.openfoodfacts.org/legal',
+            url: ProductQuery.replaceSubdomain(
+              'https://world.openfoodfacts.org/legal',
+            ),
           ),
           UrlPreferenceTile(
             icon: Icons.privacy_tip,
             title: appLocalizations.preferences_privacy_policy,
-            url: 'https://world.openfoodfacts.org/privacy',
+            url: ProductQuery.replaceSubdomain(
+              'https://world.openfoodfacts.org/privacy',
+            ),
           ),
           PreferenceTile(
             icon: Icons.file_open,

@@ -7,8 +7,10 @@ class TogglePreferenceTile extends PreferenceTile {
     required super.title,
     required this.state,
     required this.onToggle,
+    super.leading,
     super.icon,
     super.subtitleText,
+    super.key,
   });
 
   final bool state;
@@ -17,6 +19,7 @@ class TogglePreferenceTile extends PreferenceTile {
   @override
   Widget build(BuildContext context) {
     return PreferenceTile(
+      leading: leading,
       icon: icon,
       title: title,
       subtitleText: subtitleText,

@@ -6,18 +6,13 @@ enum StoreLabel {
   Test;
 
   String get name {
-    switch (this) {
-      case StoreLabel.GooglePlayStore:
-        return 'Google Play Store';
-      case StoreLabel.AppleAppStore:
-        return 'Apple App Store';
-      case StoreLabel.FDroid:
-        return 'F-Droid';
-      case StoreLabel.AmazonAppStore:
-        return 'Amazon App Store';
-      case StoreLabel.Test:
-        return 'Test Store';
-    }
+    return switch (this) {
+      StoreLabel.GooglePlayStore => 'Google Play Store',
+      StoreLabel.AppleAppStore => 'Apple App Store',
+      StoreLabel.FDroid => 'F-Droid',
+      StoreLabel.AmazonAppStore => 'Amazon App Store',
+      StoreLabel.Test => 'Test Store',
+    };
   }
 }
 

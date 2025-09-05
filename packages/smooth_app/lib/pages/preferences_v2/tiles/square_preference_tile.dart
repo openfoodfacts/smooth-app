@@ -30,7 +30,7 @@ class SquarePreferenceTile extends PreferenceTile {
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       child: Material(
-        color: Colors.transparent,
+        type: MaterialType.transparency,
         child: InkWell(
           onTap: onTap,
           borderRadius: ROUNDED_BORDER_RADIUS,
@@ -39,7 +39,24 @@ class SquarePreferenceTile extends PreferenceTile {
             child: Column(
               spacing: SMALL_SPACE,
               children: <Widget>[
-                Expanded(child: Center(child: illustration)),
+                Expanded(
+                  child: Center(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white54,
+                          width: 2.0,
+                          strokeAlign: BorderSide.strokeAlignOutside,
+                        ),
+                        borderRadius: BorderRadius.circular(100.0),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: illustration,
+                      ),
+                    ),
+                  ),
+                ),
                 Expanded(
                   child: Row(
                     children: <Widget>[

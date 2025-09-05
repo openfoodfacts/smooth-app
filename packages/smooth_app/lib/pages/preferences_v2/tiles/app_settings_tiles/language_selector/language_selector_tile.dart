@@ -13,7 +13,8 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_list_choice.dart';
 import 'package:smooth_app/widgets/selector_screen/smooth_screen_selector_provider.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
@@ -39,67 +40,69 @@ class LanguageSelectorTile extends PreferenceTile {
         builder: (BuildContext context, _LanguageSelectorProvider provider, _) {
           return switch (provider.value) {
             PreferencesSelectorLoadingState<OpenFoodFactsLanguage> _ =>
-              const SizedBox(
-                height: 20.0,
-                child: Center(child: CircularProgressIndicator.adaptive()),
-              ),
+              _buildLoadingState(),
             PreferencesSelectorLoadedState<OpenFoodFactsLanguage> _ =>
-              ConsumerValueNotifierFilter<
-                _LanguageSelectorProvider,
-                PreferencesSelectorState<OpenFoodFactsLanguage>
-              >(
-                buildWhen:
-                    (
-                      PreferencesSelectorState<OpenFoodFactsLanguage>?
-                      previousValue,
-                      PreferencesSelectorState<OpenFoodFactsLanguage>
-                      currentValue,
-                    ) =>
-                        previousValue != null &&
-                        currentValue is! PreferencesSelectorEditingState &&
-                        (currentValue
-                                    as PreferencesSelectorLoadedState<
-                                      OpenFoodFactsLanguage
-                                    >)
-                                .selectedItem !=
-                            (previousValue
-                                    as PreferencesSelectorLoadedState<
-                                      OpenFoodFactsLanguage
-                                    >)
-                                .selectedItem,
-                builder:
-                    (
-                      _,
-                      PreferencesSelectorState<OpenFoodFactsLanguage> value,
-                      _,
-                    ) {
-                      final OpenFoodFactsLanguage? language =
-                          (value
-                                  as PreferencesSelectorLoadedState<
-                                    OpenFoodFactsLanguage
-                                  >)
-                              .selectedItem;
-
-                      return PreferenceTile(
-                        leading: const Language(),
-                        title: title,
-                        subtitle: Row(
-                          spacing: VERY_SMALL_SPACE,
-                          children: <Widget>[
-                            if (language != null)
-                              Text(_getCompleteName(language))
-                            else
-                              const Icon(Icons.public),
-                          ],
-                        ),
-                        onTap: () => _openLanguageSelector(context),
-                        trailing: const Edit(),
-                      );
-                    },
-              ),
+              _buildLoadedState(context),
           };
         },
       ),
+    );
+  }
+
+  Widget _buildLoadingState() {
+    return const SizedBox(
+      height: 20.0,
+      child: Center(child: CircularProgressIndicator.adaptive()),
+    );
+  }
+
+  Widget _buildLoadedState(BuildContext context) {
+    return ConsumerValueNotifierFilter<
+      _LanguageSelectorProvider,
+      PreferencesSelectorState<OpenFoodFactsLanguage>
+    >(
+      buildWhen:
+          (
+            PreferencesSelectorState<OpenFoodFactsLanguage>? previousValue,
+            PreferencesSelectorState<OpenFoodFactsLanguage> currentValue,
+          ) =>
+              previousValue != null &&
+              currentValue is! PreferencesSelectorEditingState &&
+              (currentValue
+                          as PreferencesSelectorLoadedState<
+                            OpenFoodFactsLanguage
+                          >)
+                      .selectedItem !=
+                  (previousValue
+                          as PreferencesSelectorLoadedState<
+                            OpenFoodFactsLanguage
+                          >)
+                      .selectedItem,
+      builder: (_, PreferencesSelectorState<OpenFoodFactsLanguage> value, _) {
+        final OpenFoodFactsLanguage? language =
+            (value as PreferencesSelectorLoadedState<OpenFoodFactsLanguage>)
+                .selectedItem;
+
+        return PreferenceTile(
+          leading: icons.Language(
+            color: context.lightTheme()
+                ? Theme.of(context).primaryColor
+                : Colors.white,
+          ),
+          title: title,
+          subtitle: Row(
+            spacing: VERY_SMALL_SPACE,
+            children: <Widget>[
+              if (language != null)
+                Text(_getCompleteName(language))
+              else
+                const Icon(Icons.public),
+            ],
+          ),
+          onTap: () => _openLanguageSelector(context),
+          trailing: const icons.Edit(),
+        );
+      },
     );
   }
 

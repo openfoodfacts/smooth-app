@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -31,6 +32,6 @@ abstract class ExternalSearchPreferenceTile extends PreferenceTile {
               );
             },
           )
-        : const SizedBox.shrink();
+        : EMPTY_WIDGET;
   }
 }

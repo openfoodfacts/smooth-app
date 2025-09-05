@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class NewNutriscoreHeader extends StatelessWidget {
@@ -17,7 +17,7 @@ class NewNutriscoreHeader extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Material(
-          color: const Color.fromARGB(255, 33, 150, 83),
+          color: const Color(0xFF219653),
           child: InkWell(
             onTap: () => Navigator.of(context, rootNavigator: true).push(
               MaterialPageRoute<void>(
@@ -35,7 +35,7 @@ class NewNutriscoreHeader extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Container(
+                          DecoratedBox(
                             decoration: BoxDecoration(
                               color: Colors.black38,
                               borderRadius: BorderRadius.circular(100.0),
@@ -46,16 +46,11 @@ class NewNutriscoreHeader extends StatelessWidget {
                                 Container(
                                   padding: const EdgeInsets.all(SMALL_SPACE),
                                   decoration: BoxDecoration(
-                                    color: const Color.fromARGB(
-                                      31,
-                                      240,
-                                      239,
-                                      239,
-                                    ),
+                                    color: Colors.black.withAlpha(40),
                                     borderRadius: BorderRadius.circular(100.0),
                                   ),
                                   child: const Center(
-                                    child: LightBulb(color: Colors.white),
+                                    child: icons.LightBulb(color: Colors.white),
                                   ),
                                 ),
                                 Padding(
@@ -153,7 +148,7 @@ class NewNutriscoreHeader extends StatelessWidget {
               color: Colors.black26,
               borderRadius: BorderRadius.circular(100.0),
             ),
-            child: const Chevron.right(color: Colors.white, size: 14.0),
+            child: const icons.Chevron.right(color: Colors.white, size: 14.0),
           ),
         ),
       ],

@@ -23,7 +23,7 @@ class LoggedOutAppBarContent extends StatelessWidget {
           child: Container(
             margin: EdgeInsets.only(
               top:
-                  MediaQuery.of(context).padding.top +
+                  MediaQuery.paddingOf(context).top +
                   TOOLBAR_HEIGHT +
                   MEDIUM_SPACE,
             ),

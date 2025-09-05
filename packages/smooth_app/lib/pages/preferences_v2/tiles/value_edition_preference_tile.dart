@@ -54,10 +54,10 @@ class ValueEditionPreferenceTile extends PreferenceTile {
               title: title,
               close: true,
               body: Column(
+                spacing: BALANCED_SPACE,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(title),
-                  const SizedBox(height: BALANCED_SPACE),
                   TextField(
                     controller: controller,
                     autocorrect: false,

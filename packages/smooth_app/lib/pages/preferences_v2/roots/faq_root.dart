@@ -88,30 +88,6 @@ class FaqRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_faq_off_ngo_title,
         tiles: <PreferenceTile>[
-          /* UrlPreferenceTile(
-            icon: Icons.travel_explore_outlined,
-            // TODO : Localize
-            title: 'Discover Open Beauty Facts',
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openbeautyfacts.org/discover',
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.travel_explore_outlined,
-            // TODO : Localize
-            title: 'Discover Open Pet Food Facts',
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openpetfoodfacts.org/discover',
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.travel_explore_outlined,
-            // TODO : Localize
-            title: 'Discover Open Products Facts',
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openproductsfacts.org/discover',
-            ),
-          ), */
           UrlPreferenceTile(
             icon: Icons.handshake_outlined,
             title: appLocalizations.faq_title_partners,
@@ -132,9 +108,8 @@ class FaqRoot extends PreferencesRoot {
   }
 
   Widget _createLeadingIcon(String svg, {double? width}) {
-    return SizedBox(
-      width: 2 * DEFAULT_ICON_SIZE,
-      height: 2 * DEFAULT_ICON_SIZE,
+    return SizedBox.square(
+      dimension: 2 * DEFAULT_ICON_SIZE,
       child: Center(
         child: SvgPicture.asset(
           svg,

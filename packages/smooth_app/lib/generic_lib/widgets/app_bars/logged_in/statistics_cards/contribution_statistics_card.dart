@@ -6,7 +6,7 @@ import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 
 class ContributionStatisticsCard extends StatelessWidget {
-  const ContributionStatisticsCard({super.key, this.autoSizeGroup});
+  const ContributionStatisticsCard({this.autoSizeGroup, super.key});
 
   final AutoSizeGroup? autoSizeGroup;
 

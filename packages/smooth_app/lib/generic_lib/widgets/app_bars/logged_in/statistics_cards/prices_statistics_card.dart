@@ -7,8 +7,8 @@ import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 class PricesStatisticsCard extends StatelessWidget {
   const PricesStatisticsCard({
     required this.userId,
-    super.key,
     this.autoSizeGroup,
+    super.key,
   });
 
   final String userId;

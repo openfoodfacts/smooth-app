@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/connect/send_email_dialog.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
@@ -131,52 +132,7 @@ class ConnectRoot extends PreferencesRoot {
             title: appLocalizations.preferences_connect_debug_info_title,
             subtitleText:
                 appLocalizations.preferences_connect_debug_info_subtitle,
-            onTap: () async {
-              final bool? includeLogs = await showDialog<bool>(
-                context: context,
-                builder: (BuildContext context) {
-                  return SmoothAlertDialog(
-                    title: appLocalizations
-                        .support_via_email_include_logs_dialog_title,
-                    body: Text(
-                      appLocalizations
-                          .support_via_email_include_logs_dialog_body,
-                    ),
-                    close: true,
-                    positiveAction: SmoothActionButton(
-                      text: appLocalizations.yes,
-                      onPressed: () => Navigator.of(context).pop(true),
-                    ),
-                    negativeAction: SmoothActionButton(
-                      text: appLocalizations.no,
-                      onPressed: () => Navigator.of(context).pop(false),
-                    ),
-                  );
-                },
-              );
-
-              if (includeLogs == null) {
-                return;
-              }
-
-              final String emailBody = await _emailBody(appLocalizations);
-
-              if (!context.mounted) {
-                return;
-              }
-
-              await _sendEmail(
-                context: context,
-                recipient: 'mobile@openfoodfacts.org',
-                appLocalizations: appLocalizations,
-                body: emailBody,
-                subject:
-                    '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
-                attachmentPaths: includeLogs == true
-                    ? Logs.logFilesPaths
-                    : null,
-              );
-            },
+            onTap: _openDebugLogDialog(context, appLocalizations),
           ),
           PreferenceTile(
             icon: Icons.campaign_outlined,
@@ -264,6 +220,52 @@ class ConnectRoot extends PreferencesRoot {
     ];
   }
 
+  Future<void> Function() _openDebugLogDialog(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) => () async {
+    final bool? includeLogs = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          title: appLocalizations.support_via_email_include_logs_dialog_title,
+          body: Text(
+            appLocalizations.support_via_email_include_logs_dialog_body,
+          ),
+          close: true,
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.yes,
+            onPressed: () => Navigator.of(context).pop(true),
+          ),
+          negativeAction: SmoothActionButton(
+            text: appLocalizations.no,
+            onPressed: () => Navigator.of(context).pop(false),
+          ),
+        );
+      },
+    );
+
+    if (includeLogs == null) {
+      return;
+    }
+
+    final String emailBody = await _emailBody(appLocalizations);
+
+    if (!context.mounted) {
+      return;
+    }
+
+    await _sendEmail(
+      context: context,
+      recipient: 'mobile@openfoodfacts.org',
+      appLocalizations: appLocalizations,
+      body: emailBody,
+      subject:
+          '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
+      attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
+    );
+  };
+
   Future<void> _sendEmail({
     required final BuildContext context,
     required final String recipient,
@@ -293,53 +295,8 @@ class ConnectRoot extends PreferencesRoot {
         context: context,
         builder: (BuildContext context) => ScaffoldMessenger(
           child: Builder(
-            //Added scaffold to make the snack bar appear on the same level as dialog
-            builder: (BuildContext context) => Scaffold(
-              backgroundColor: Colors.transparent,
-              body: SmoothAlertDialog(
-                title: appLocalizations.no_email_client_available_dialog_title,
-                body: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text(appLocalizations.please_send_us_an_email_to),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(recipient),
-                        IconButton(
-                          icon: const Icon(Icons.copy),
-                          tooltip: appLocalizations.copy_email_to_clip_board,
-                          onPressed: () async {
-                            await Clipboard.setData(
-                              ClipboardData(text: recipient),
-                            );
-                            if (context.mounted) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    appLocalizations.email_copied_to_clip_board,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  behavior: SnackBarBehavior.floating,
-                                ),
-                              );
-                            }
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                positiveAction: SmoothActionButton(
-                  onPressed: () =>
-                      Navigator.of(context, rootNavigator: true).pop(),
-                  text: appLocalizations.okay,
-                ),
-              ),
-            ),
+            builder: (BuildContext context) =>
+                SendEmailDialog(recipient: recipient),
           ),
         ),
       );

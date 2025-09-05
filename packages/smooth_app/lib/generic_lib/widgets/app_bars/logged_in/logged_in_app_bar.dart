@@ -6,7 +6,7 @@ import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_
 import 'package:smooth_app/generic_lib/widgets/app_bars/search_bottom_bar.dart';
 
 class LoggedInAppBar extends StatelessWidget {
-  const LoggedInAppBar({required this.userId, super.key});
+  LoggedInAppBar({required this.userId, super.key}) : assert(userId.isNotEmpty);
   final String userId;
 
   @override

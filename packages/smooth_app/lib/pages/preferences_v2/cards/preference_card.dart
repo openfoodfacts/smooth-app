@@ -3,6 +3,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A card that contains a list of [PreferenceTile].
 /// It is used to group related preferences together.
@@ -79,18 +80,22 @@ class PreferenceCard extends StatelessWidget {
                     ),
                     child: header,
                   ),
-                ..._getTilesWithDividers(),
+                ..._getTilesWithDividers(context),
               ],
             ),
     );
   }
 
   // This function adds a divider between each tile
-  List<Widget> _getTilesWithDividers() {
+  List<Widget> _getTilesWithDividers(BuildContext context) {
+    final bool lightTheme = context.lightTheme();
+
     final List<Widget> tilesWithDividers = <Widget>[];
     for (int i = 0; i < tiles.length; i++) {
       if (i > 0) {
-        tilesWithDividers.add(const Divider());
+        tilesWithDividers.add(
+          Divider(color: lightTheme ? Colors.grey[300] : Colors.grey[800]),
+        );
       }
       tilesWithDividers.add(tiles[i]);
     }

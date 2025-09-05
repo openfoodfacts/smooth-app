@@ -24,6 +24,11 @@ class AppSettingsRoot extends PreferencesRoot {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final ThemeData theme = Theme.of(context);
+
+    final Color iconColor = context.lightTheme()
+        ? theme.primaryColor
+        : Colors.white;
 
     final CurrencySelectorHelper currencyHelper = CurrencySelectorHelper();
     final Currency selectedCurrency = currencyHelper.getSelected(
@@ -38,10 +43,10 @@ class AppSettingsRoot extends PreferencesRoot {
           MultipleChoicesTile<String>(
             title: appLocalizations.darkmode,
             leadingBuilder: <WidgetBuilder>[
-              (_) => const Icon(Icons.brightness_medium),
-              (_) => const Icon(Icons.light_mode),
-              (_) => const Icon(Icons.dark_mode_outlined),
-              (_) => const Icon(Icons.dark_mode),
+              (_) => Icon(Icons.brightness_medium, color: iconColor),
+              (_) => Icon(Icons.light_mode, color: iconColor),
+              (_) => Icon(Icons.dark_mode_outlined, color: iconColor),
+              (_) => Icon(Icons.dark_mode, color: iconColor),
             ],
             labels: <String>[
               appLocalizations.darkmode_system_default,
@@ -73,14 +78,14 @@ class AppSettingsRoot extends PreferencesRoot {
             autoValidate: false,
           ),
           PreferenceTile(
-            leading: const icons.Currency(),
+            leading: icons.Currency(color: iconColor),
             title: appLocalizations.currency_picker_label,
             subtitleText: selectedCurrency.getFullName(),
             onTap: () => currencyHelper.openCurrencySelector(
               context: context,
               selected: selectedCurrency,
             ),
-            trailing: const icons.Edit(),
+            trailing: icons.Edit(color: iconColor),
           ),
         ],
       ),
@@ -90,9 +95,9 @@ class AppSettingsRoot extends PreferencesRoot {
           MultipleChoicesTile<UserPictureSource>(
             title: appLocalizations.choose_image_source_title,
             leadingBuilder: <WidgetBuilder>[
-              (_) => const Icon(Icons.edit_note_rounded),
-              (_) => const Icon(Icons.camera),
-              (_) => const Icon(Icons.image),
+              (_) => Icon(Icons.edit_note_rounded, color: iconColor),
+              (_) => Icon(Icons.camera, color: iconColor),
+              (_) => Icon(Icons.image, color: iconColor),
             ],
             labels: <String>[
               appLocalizations.user_picture_source_ask,
@@ -114,6 +119,7 @@ class AppSettingsRoot extends PreferencesRoot {
         title: appLocalizations.preferences_app_settings_products,
         tiles: <PreferenceTile>[
           TogglePreferenceTile(
+            leading: icons.NutritionFacts.alt(color: iconColor),
             title: appLocalizations.expand_nutrition_facts,
             subtitleText: appLocalizations.expand_nutrition_facts_body,
             state:
@@ -131,6 +137,7 @@ class AppSettingsRoot extends PreferencesRoot {
             ),
           ),
           TogglePreferenceTile(
+            leading: icons.Ingredients.basket(color: iconColor),
             title: appLocalizations.expand_ingredients,
             subtitleText: appLocalizations.expand_ingredients_body,
             state:

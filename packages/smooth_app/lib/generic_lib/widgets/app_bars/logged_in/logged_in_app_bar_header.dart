@@ -45,6 +45,7 @@ class LoggedInAppBarHeader extends StatelessWidget {
         const SizedBox(width: MEDIUM_SPACE),
         Expanded(
           child: Column(
+            spacing: VERY_SMALL_SPACE,
             children: <Widget>[
               Row(
                 children: <Widget>[
@@ -62,7 +63,6 @@ class LoggedInAppBarHeader extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: VERY_SMALL_SPACE),
               Row(
                 children: <Widget>[
                   Flexible(
@@ -90,8 +90,7 @@ class LoggedInAppBarHeader extends StatelessWidget {
           child: IconButton(
             icon: Icon(Icons.settings, color: theme.primaryColor),
             onPressed: () {
-              Navigator.push(
-                context,
+              Navigator.of(context).push(
                 MaterialPageRoute<Widget>(
                   builder: (BuildContext context) =>
                       ChangeNotifierProvider<PreferencesRootSearchController>(

@@ -67,13 +67,13 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                         if (_loading)
-                          const SizedBox(
-                            width: 16.0,
-                            height: 16.0,
+                          const SizedBox.square(
+                            dimension: 16.0,
                             child: CircularProgressIndicator.adaptive(),
                           )
                         else
