@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Share",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "हरित-अङ्कः किम् ?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "ग्रीन-स्कोरः एकः लोगो अस्ति यस्य उद्देश्यं **खाद्यस्य पर्यावरणीयप्रभावस्य** विषये भवन्तं सूचयितुं भवति।",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "वर्णसङ्केतः **अत्यन्तं प्रभावशालिनः** उत्पादानाम् कृते गहरे हरितवर्णात् (**A+**) तः **अधिकतमप्रभावशालिनः** उत्पादानाम् कृते गहरे रक्तवर्णीयः (**F**) यावत् भिद्यते ।",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "ग्रीन-स्कोर-चिह्नानि",
+  "guide_greenscore_lca_title": "मूलम् : जीवनचक्रस्य मूल्याङ्कनम् (LCA) .",
+  "guide_greenscore_lca_arg1_title": "खाद्यवर्गाणां वैज्ञानिकं मूल्याङ्कनम्",
+  "guide_greenscore_lca_arg1_text1": "प्रत्येकस्य उत्पादवर्गस्य कृते Agribalyse पर्यावरणीयदत्तांशकोशस्य (ADEME तथा INRAE द्वारा परिकल्पितस्य) आँकडानां उपयोगेन **बेन्चमार्क** स्कोरः स्थापितः भवति ।",
+  "guide_greenscore_lca_arg1_text2": "**जीवनचक्रविश्लेषणम्** बहुचरणीयं बहुमापदण्डं च पर्यावरणमूल्यांकनं कर्तुं मानकीकृतमूल्यांकनपद्धतिः अस्ति।",
+  "guide_greenscore_lca_arg1_text3": "**इदं मापयति:**",
+  "guide_greenscore_lca_arg2_title": "६ उत्पादनपदार्थाः",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "१४ पर्यावरणप्रभावसूचकाः",
+  "guide_greenscore_lca_arg3_text1": "जलवायुपरिवर्तनम्/कार्बनपदचिह्नम्",
+  "guide_greenscore_lca_arg3_text2": "ओजोनस्तरस्य क्षयः",
+  "guide_greenscore_lca_arg3_text3": "आयनीकरण विकिरण",
+  "guide_greenscore_lca_arg3_text4": "भूः",
+  "guide_greenscore_lca_arg3_text5": "जल & ऊर्जा उपयोग",
+  "guide_greenscore_lca_arg3_text6": "वायुप्रदूषणम्",
+  "guide_greenscore_lca_arg3_text7": "समुद्री एवं ताजा जल (कण, अम्लीकरण, यूट्रोफिकेशन)",
+  "guide_greenscore_lca_arg3_text8": "संसाधनानाम् क्षयः ।",
+  "guide_greenscore_bonuses_penalties_title": "बोनस एवं दण्ड",
+  "guide_greenscore_bonuses_penalties_intro": "एकस्य वर्गस्य अन्तः उत्तम-उत्पादानाम् पुरस्काराय, ततः वयं अनेक-मापदण्डानाम् आधारेण बोनस-दण्डान् प्रयोजयामः:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
+  "guide_greenscore_bonuses_penalties_arg2_text": "अवयवानां उत्पत्तिम् आधारीकृत्य बोनसः प्रदत्तः भवति । अस्मिन् बोनस् परिवहनस्य प्रभावं अपि च प्रत्येकस्य उत्पादकस्य देशस्य पर्यावरणनीतिं गृह्णाति ।",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "ग्रीन-स्कोरस्य सटीकगणनायाः कृते एतादृशी सूचना आवश्यकी भवति, या पैकेजिंग् इत्यत्र अनिवार्यतया निर्दिष्टा न भवति (यथा प्रत्येकस्य घटकस्य उत्पत्तिः सटीकप्रतिशतता च) अथवा या उपयोगयोग्यरूपेण दुर्लभतया उपलब्धा भवति (यथा प्रयुक्तानां प्लास्टिकानां सटीकप्रकारस्य सह पैकेजिंग् इत्यस्य सर्वेषां घटकानां सूची)",
+  "guide_greenscore_transparency_intro2": "यदा एषा सूचना अद्यापि उपलब्धा नास्ति तदा औसतमूल्यानां उपयोगः भवति, परन्तु वयम् अधुना सर्वेभ्यः आह्वानं कुर्मः यत् एतां सूचनां संग्रहीतुं साहाय्यं कुर्वन्तु यत् ग्रीन-स्कोरस्य कृते अतीव उपयोगी भविष्यति परन्तु अन्येषां बहूनां उपयोगानां कृते अपि।",
+  "guide_greenscore_transparency_arg1_title": "नागरिकाः कथं साहाय्यं कर्तुं शक्नुवन्ति",
+  "guide_greenscore_transparency_arg1_text": "सर्वे नागरिकाः अस्माकं सहायतां कर्तुं शक्नुवन्ति यत् उत्पादेषु वर्तमानाः अथवा तेभ्यः निष्कर्षः निकासितुं शक्यन्ते, यथा पैकेजिंग् विषये सूचना: Mission Emballages: सर्वेषां खाद्यपदार्थानाम् पैकेजिंगस्य बृहत्-परिमाणस्य सहकारिणी-सूची (फ्रेञ्चभाषायां)",
+  "guide_greenscore_transparency_arg2_title": "निर्मातारः कथं साहाय्यं कर्तुं शक्नुवन्ति",
+  "guide_greenscore_transparency_arg2_text": "निर्मातारः उत्पादकानां कृते अस्माकं निःशुल्कमञ्चद्वारा प्रत्यक्षतया स्वसूचनाः अस्मान् प्रेषयितुं शक्नुवन्ति।",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/हरित-अङ्कः",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
