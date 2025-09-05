@@ -71,9 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension colors = Theme.of(
-    context,
-  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
+  final SmoothColorsThemeExtension colors = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final int imageWidth =
       (desiredWidthPercent != null ? desiredWidthPercent! : 0.25) *
       100.0 ~&#47;
@@ -92,12 +91,12 @@ Widget build(BuildContext context) {
             horizontal: GuidesParagraph._HORIZONTAL_PADDING,
           ),
           child: Row(
+            spacing: 15.0,
             children: &lt;Widget&gt;[
               Expanded(
                 flex: imageWidth,
                 child: _ImageFromAssets(imagePath: imagePath),
               ),
-              const SizedBox(width: 15.0),
               Expanded(
                 flex: 100 - imageWidth,
                 child: DefaultTextStyle.merge(

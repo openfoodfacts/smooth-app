@@ -71,52 +71,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension colors = Theme.of(
-    context,
-  ).extension&lt;SmoothColorsThemeExtension&gt;()!;
-
-  return Semantics(
-    label: caption,
-    image: true,
-    excludeSemantics: true,
-    child: Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: BALANCED_SPACE,
-        start: GuidesParagraph._HORIZONTAL_PADDING,
-        end: GuidesParagraph._HORIZONTAL_PADDING,
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: colors.primaryMedium,
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Padding(
-          padding: const EdgeInsetsDirectional.only(
-            top: 14.0,
-            bottom: SMALL_SPACE,
-            start: MEDIUM_SPACE,
-            end: MEDIUM_SPACE,
-          ),
-          child: Column(
-            children: &lt;Widget&gt;[
-              _ImageFromAssets(
-                imagePath: imagePath,
-                desiredWidthPercent: desiredWidthPercent,
-                desiredHeightPercent: desiredHeightPercent,
-              ),
-              const SizedBox(height: 5.0),
-              Text(
-                caption,
-                style: const TextStyle(
-                  fontSize: 13.0,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+  return GuidesCaptionContainer(
+    caption: caption,
+    child: _ImageFromAssets(
+      imagePath: imagePath,
+      desiredWidthPercent: desiredWidthPercent,
+      desiredHeightPercent: desiredHeightPercent,
     ),
   );
 }</code></pre>

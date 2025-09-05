@@ -71,23 +71,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsetsDirectional.only(
-      top: 15.0,
-      bottom: 15.0,
-      start: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
-      end: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: &lt;Widget&gt;[
-        _GuidesTextTitle(title: title, icon: icon),
-        const SizedBox(height: 15.0),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2.0),
-          child: _GuidesFormattedText(text: text),
-        ),
-      ],
+  return GuidesTitleContainer(
+    title: title,
+    icon: icon,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+      child: _GuidesFormattedText(text: text),
     ),
   );
 }</code></pre>
