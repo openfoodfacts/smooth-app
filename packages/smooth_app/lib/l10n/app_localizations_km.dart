@@ -979,7 +979,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'ជ្រើសរើសប្រភេទច្បាស់លាស់ជាងនេះ។';
 
   @override
   String get score_add_missing_product_countries =>

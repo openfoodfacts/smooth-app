@@ -979,7 +979,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Roghnaigh catagóir níos cruinne';
 
   @override
   String get score_add_missing_product_countries =>

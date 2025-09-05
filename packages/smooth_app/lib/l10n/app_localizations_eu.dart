@@ -982,7 +982,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Hautatu kategoria zehatzago bat';
 
   @override
   String get score_add_missing_product_countries =>

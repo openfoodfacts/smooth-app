@@ -982,7 +982,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Välj en mer exakt kategori';
 
   @override
   String get score_add_missing_product_countries =>

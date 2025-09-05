@@ -979,7 +979,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Elektu pli precizan kategorion';
 
   @override
   String get score_add_missing_product_countries =>

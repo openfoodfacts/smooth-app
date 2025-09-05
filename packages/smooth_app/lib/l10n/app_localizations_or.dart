@@ -982,7 +982,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'ଏକ ଅଧିକ ସଠିକ୍ ବର୍ଗ ଚୟନ କରନ୍ତୁ';
 
   @override
   String get score_add_missing_product_countries =>

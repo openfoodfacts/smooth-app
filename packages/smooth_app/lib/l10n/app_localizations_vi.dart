@@ -988,7 +988,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Chọn một danh mục chính xác hơn';
 
   @override
   String get score_add_missing_product_countries =>

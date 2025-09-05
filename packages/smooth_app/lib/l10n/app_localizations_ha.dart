@@ -979,7 +979,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Zaɓi wani madaidaicin nau\'i';
 
   @override
   String get score_add_missing_product_countries =>

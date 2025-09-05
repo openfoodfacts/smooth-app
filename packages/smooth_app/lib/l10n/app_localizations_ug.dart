@@ -979,7 +979,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'تېخىمۇ ئېنىق تۈرنى تاللاڭ';
 
   @override
   String get score_add_missing_product_countries =>

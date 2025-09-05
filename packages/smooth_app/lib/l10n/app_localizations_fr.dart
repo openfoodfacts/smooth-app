@@ -1013,7 +1013,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Sélectionnez une catégorie plus précise';
 
   @override
   String get score_add_missing_product_countries =>

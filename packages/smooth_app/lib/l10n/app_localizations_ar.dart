@@ -976,8 +976,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get score_add_missing_product_category => 'إضافة فئة المنتج مفقودة';
 
   @override
-  String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+  String get score_add_missing_precise_product_category => 'حدد فئة أكثر دقة';
 
   @override
   String get score_add_missing_product_countries =>
