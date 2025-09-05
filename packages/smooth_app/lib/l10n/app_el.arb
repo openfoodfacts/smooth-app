@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Κοινοποίηση",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://gr.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Τι είναι η Πράσινη Βαθμολογία;",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Το Green-Score είναι ένα λογότυπο που στοχεύει να σας ενημερώσει σχετικά με τις **περιβαλλοντικές επιπτώσεις των τροφίμων**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Ο χρωματικός κώδικας ποικίλλει από σκούρο πράσινο (**A+**) για τα **λιγότερο εντυπωσιακά** προϊόντα έως σκούρο κόκκινο (**F**) για τα **περισσότερο εντυπωσιακά** προϊόντα.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Τα λογότυπα του Green-Score",
+  "guide_greenscore_lca_title": "Ο πυρήνας: Αξιολόγηση κύκλου ζωής (LCA)",
+  "guide_greenscore_lca_arg1_title": "Μια επιστημονική αξιολόγηση των κατηγοριών τροφίμων",
+  "guide_greenscore_lca_arg1_text1": "Για κάθε κατηγορία προϊόντος, καθορίζεται μια **βαθμολογία αναφοράς** χρησιμοποιώντας δεδομένα από την περιβαλλοντική βάση δεδομένων Agribalyse (σχεδιασμένη από την ADEME και την INRAE).",
+  "guide_greenscore_lca_arg1_text2": "Η **ανάλυση κύκλου ζωής** είναι μια τυποποιημένη μέθοδος αξιολόγησης για τη διεξαγωγή πολυσταδιακής και πολυκριτηριακής περιβαλλοντικής αξιολόγησης.",
+  "guide_greenscore_lca_arg1_text3": "**Μετράει:**",
+  "guide_greenscore_lca_arg2_title": "6 βήματα παραγωγής",
+  "guide_greenscore_lca_arg2_agriculture": "Γεωργία",
+  "guide_greenscore_lca_arg2_processing": "Επεξεργασία",
+  "guide_greenscore_lca_arg2_packaging": "Συσκευασία",
+  "guide_greenscore_lca_arg2_transportation": "Μεταφορά",
+  "guide_greenscore_lca_arg2_distribution": "Διανομή",
+  "guide_greenscore_lca_arg2_consumption": "Κατανάλωση",
+  "guide_greenscore_lca_arg3_title": "14 δείκτες περιβαλλοντικών επιπτώσεων",
+  "guide_greenscore_lca_arg3_text1": "Κλιματική αλλαγή/αποτύπωμα άνθρακα",
+  "guide_greenscore_lca_arg3_text2": "Καταστροφή της στιβάδας του όζοντος",
+  "guide_greenscore_lca_arg3_text3": "Ιονίζουσα ακτινοβολία",
+  "guide_greenscore_lca_arg3_text4": "Γη",
+  "guide_greenscore_lca_arg3_text5": "Χρήση νερού και ενέργειας",
+  "guide_greenscore_lca_arg3_text6": "Ρύπανση του αέρα",
+  "guide_greenscore_lca_arg3_text7": "Θαλάσσιο και γλυκό νερό (σωματίδια, οξίνιση, ευτροφισμός)",
+  "guide_greenscore_lca_arg3_text8": "Εξάντληση πόρων.",
+  "guide_greenscore_bonuses_penalties_title": "Μπόνους και κυρώσεις",
+  "guide_greenscore_bonuses_penalties_intro": "Για να ανταμείψουμε καλύτερα προϊόντα σε μια κατηγορία, εφαρμόζουμε μπόνους και κυρώσεις με βάση διάφορα κριτήρια:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Τρόπος παραγωγής",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Ένα μπόνους απονέμεται σε προϊόντα που έχουν επίσημη ετικέτα, ετικέτα ή πιστοποίηση που εγγυάται περιβαλλοντικά οφέλη (βιολογικά, δίκαιου εμπορίου, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Προέλευση των συστατικών",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Απονέμεται ένα μπόνους με βάση την προέλευση των συστατικών. Αυτό το μπόνους λαμβάνει υπόψη τον αντίκτυπο στις μεταφορές, καθώς και την περιβαλλοντική πολιτική της χώρας κάθε παραγωγού.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Είδη υπό εξαφάνιση",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Επιβάλλεται ποινή σε προϊόντα που περιέχουν συστατικά που έχουν σημαντικές αρνητικές επιπτώσεις στη βιοποικιλότητα και στα οικοσυστήματα, όπως το φοινικέλαιο, η παραγωγή του οποίου ευθύνεται για τη μαζική αποψίλωση των δασών.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Συσκευασία",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Υπολογίζεται ποινή για να ληφθεί υπόψη η κυκλικότητα της συσκευασίας (χρήση ανακυκλωμένης πρώτης ύλης και δυνατότητα ανακύκλωσης) και η υπερβολική συσκευασία.",
+  "guide_greenscore_transparency_title": "Αυξημένη ανάγκη για διαφάνεια για την καλύτερη μέτρηση και τη μείωση των περιβαλλοντικών επιπτώσεων",
+  "guide_greenscore_transparency_intro1": "Για τον ακριβή υπολογισμό του Green-Score, είναι απαραίτητο να υπάρχουν πληροφορίες που δεν αναφέρονται απαραίτητα στη συσκευασία (όπως η προέλευση και το ακριβές ποσοστό κάθε συστατικού) ή που σπάνια είναι διαθέσιμες σε χρησιμοποιήσιμη μορφή (όπως μια λίστα με όλα τα συστατικά της συσκευασίας με τους ακριβείς τύπους πλαστικών που χρησιμοποιούνται).",
+  "guide_greenscore_transparency_intro2": "Οι μέσες τιμές χρησιμοποιούνται όταν αυτές οι πληροφορίες δεν είναι ακόμη διαθέσιμες, αλλά τώρα καλούμε όλους να μας βοηθήσουν να συλλέξουμε αυτές τις πληροφορίες, οι οποίες θα είναι πολύ χρήσιμες για το Green-Score αλλά και για πολλές άλλες χρήσεις.",
+  "guide_greenscore_transparency_arg1_title": "Πώς μπορούν να βοηθήσουν οι πολίτες",
+  "guide_greenscore_transparency_arg1_text": "Όλοι οι πολίτες μπορούν να μας βοηθήσουν να συλλέξουμε και να δομήσουμε τις πληροφορίες που υπάρχουν στα προϊόντα ή που μπορούν να εξαχθούν από αυτά, όπως πληροφορίες σχετικά με τις συσκευασίες: Mission Emballages: μια μεγάλης κλίμακας συνεργατική απογραφή συσκευασιών για όλα τα τρόφιμα (στα γαλλικά)",
+  "guide_greenscore_transparency_arg2_title": "Πώς μπορούν να βοηθήσουν οι κατασκευαστές",
+  "guide_greenscore_transparency_arg2_text": "Οι κατασκευαστές μπορούν να μας στείλουν τις πληροφορίες τους απευθείας μέσω της δωρεάν πλατφόρμας μας για παραγωγούς.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Προεπισκόπηση",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

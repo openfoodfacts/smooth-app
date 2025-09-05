@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Delen",
-  "guide_nutriscore_v2_enabled": "waar",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "De Nutri-Score Evolueert: Toelichtingen!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "De Nutri-Score is een score die is ontworpen om **de voedingskwaliteit te meten**. Het is **complementair aan de NOVA-groep** op **ultrabewerkte voedingsmiddelen** (ook aanwezig in de applicatie).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Voor fabrikanten blijft de weergave van de Nutri-Score **optioneel**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Wat is de Green Score?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "De Green-Score is een logo dat bedoeld is om u te informeren over de **milieu-impact van voeding**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "De kleurcode varieert van donkergroen (**A+**) voor de **producten met de minste impact** tot donkerrood (**F**) voor de **producten met de meeste impact**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "De Green-Score-logo's",
+  "guide_greenscore_lca_title": "De kern: Levenscyclusanalyse (LCA)",
+  "guide_greenscore_lca_arg1_title": "Een wetenschappelijke evaluatie van voedselcategorieën",
+  "guide_greenscore_lca_arg1_text1": "Voor elke productcategorie wordt een **benchmark**-score vastgesteld met behulp van gegevens uit de milieudatabase van Agribalyse (ontworpen door ADEME en INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Levenscyclusanalyse** is een gestandaardiseerde beoordelingsmethode voor het uitvoeren van een milieubeoordeling in meerdere fasen en op basis van meerdere criteria.",
+  "guide_greenscore_lca_arg1_text3": "**Het meet:**",
+  "guide_greenscore_lca_arg2_title": "6 productiestappen",
+  "guide_greenscore_lca_arg2_agriculture": "Landbouw",
+  "guide_greenscore_lca_arg2_processing": "Verwerking",
+  "guide_greenscore_lca_arg2_packaging": "Verpakking",
+  "guide_greenscore_lca_arg2_transportation": "Transport",
+  "guide_greenscore_lca_arg2_distribution": "Distributie",
+  "guide_greenscore_lca_arg2_consumption": "Consumptie",
+  "guide_greenscore_lca_arg3_title": "14 milieu-impactindicatoren",
+  "guide_greenscore_lca_arg3_text1": "Klimaatverandering/koolstofvoetafdruk",
+  "guide_greenscore_lca_arg3_text2": "Aantasting van de ozonlaag",
+  "guide_greenscore_lca_arg3_text3": "Ioniserende straling",
+  "guide_greenscore_lca_arg3_text4": "Land",
+  "guide_greenscore_lca_arg3_text5": "Water- en energieverbruik",
+  "guide_greenscore_lca_arg3_text6": "Luchtvervuiling",
+  "guide_greenscore_lca_arg3_text7": "Zee- en zoetwater (deeltjes, verzuring, eutrofiëring)",
+  "guide_greenscore_lca_arg3_text8": "Uitputting van hulpbronnen.",
+  "guide_greenscore_bonuses_penalties_title": "Bonussen en boetes",
+  "guide_greenscore_bonuses_penalties_intro": "Om betere producten binnen een categorie te belonen, passen we bonussen en straffen toe op basis van verschillende criteria:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Productiewijze",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Er wordt een bonus toegekend aan producten die een officieel label, een label of een certificering hebben die milieuvoordelen garandeert (biologisch, fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Herkomst van de ingrediënten",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Er wordt een bonus toegekend op basis van de herkomst van de ingrediënten. Deze bonus houdt rekening met de impact op transport en het milieubeleid van het land van de producent.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Bedreigde soorten",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Producten die ingrediënten bevatten die aanzienlijke negatieve gevolgen hebben voor de biodiversiteit en ecosystemen, worden bestraft. Zoals palmolie, waarvan de productie tot massale ontbossing leidt.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Verpakking",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Er wordt een sanctie berekend om rekening te houden met de circulariteit van verpakkingen (gebruik van gerecyclycleerde grondstoffen en recycleerbaarheid) en oververpakking.",
+  "guide_greenscore_transparency_title": "Een grotere behoefte aan transparantie om de milieu-impact beter te meten en te verminderen",
+  "guide_greenscore_transparency_intro1": "Om de Green-Score nauwkeurig te kunnen berekenen, is informatie nodig die niet per se op de verpakking staat (zoals de herkomst en het exacte percentage van elk ingrediënt) of die zelden in bruikbare vorm beschikbaar is (zoals een lijst met alle bestanddelen van de verpakking en de precieze soorten plastic die zijn gebruikt).",
+  "guide_greenscore_transparency_intro2": "Wanneer deze informatie nog niet beschikbaar is, gebruiken we gemiddelde waarden. We roepen nu echter iedereen op om ons te helpen deze informatie te verzamelen. Deze informatie is niet alleen nuttig voor de Green-Score, maar ook voor veel andere doeleinden.",
+  "guide_greenscore_transparency_arg1_title": "Hoe burgers kunnen helpen",
+  "guide_greenscore_transparency_arg1_text": "Alle burgers kunnen ons helpen bij het verzamelen en structureren van de informatie die op producten aanwezig is of die daaruit kan worden afgeleid, zoals informatie op verpakkingen: Mission Emballages: een grootschalige, gezamenlijke inventarisatie van verpakkingen voor alle voedingsproducten (in het Frans)",
+  "guide_greenscore_transparency_arg2_title": "Hoe fabrikanten kunnen helpen",
+  "guide_greenscore_transparency_arg2_text": "Fabrikanten kunnen hun informatie rechtstreeks aan ons doorgeven via ons gratis platform voor producenten.",
+  "guide_greenscore_share_link": "https://nl.openfoodfacts.org/groene-score",
   "preview_badge": "Voorbeeld",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

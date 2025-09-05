@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "공유하기",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "친환경 점수",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "그린 스코어란 무엇인가요?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "그린스코어는 **식품의 환경적 영향**에 대한 정보를 제공하기 위해 만들어진 로고입니다.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "색상 코드는 **가장 영향이 적은** 제품을 나타내는 진한 녹색(**A+**)부터 **가장 영향이 큰** 제품을 나타내는 진한 빨간색(**F**)까지 다양합니다.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "그린스코어 로고",
+  "guide_greenscore_lca_title": "핵심: 수명주기평가(LCA)",
+  "guide_greenscore_lca_arg1_title": "식품 카테고리에 대한 과학적 평가",
+  "guide_greenscore_lca_arg1_text1": "각 제품 카테고리에 대해 **벤치마크** 점수는 Agribalyse 환경 데이터베이스(ADEME 및 INRAE에서 설계)의 데이터를 사용하여 설정됩니다.",
+  "guide_greenscore_lca_arg1_text2": "**생명주기 분석**은 다단계, 다기준 환경 평가를 실시하기 위한 표준화된 평가 방법입니다.",
+  "guide_greenscore_lca_arg1_text3": "**측정 항목:**",
+  "guide_greenscore_lca_arg2_title": "6단계 생산",
+  "guide_greenscore_lca_arg2_agriculture": "농업",
+  "guide_greenscore_lca_arg2_processing": "처리",
+  "guide_greenscore_lca_arg2_packaging": "포장",
+  "guide_greenscore_lca_arg2_transportation": "수송",
+  "guide_greenscore_lca_arg2_distribution": "분포",
+  "guide_greenscore_lca_arg2_consumption": "소비",
+  "guide_greenscore_lca_arg3_title": "14가지 환경영향지표",
+  "guide_greenscore_lca_arg3_text1": "기후 변화/탄소 발자국",
+  "guide_greenscore_lca_arg3_text2": "오존층 파괴",
+  "guide_greenscore_lca_arg3_text3": "이온화 방사선",
+  "guide_greenscore_lca_arg3_text4": "땅",
+  "guide_greenscore_lca_arg3_text5": "물과 에너지 사용",
+  "guide_greenscore_lca_arg3_text6": "대기 오염",
+  "guide_greenscore_lca_arg3_text7": "해양 및 담수(입자, 산성화, 부영양화)",
+  "guide_greenscore_lca_arg3_text8": "자원 고갈.",
+  "guide_greenscore_bonuses_penalties_title": "보너스 및 페널티",
+  "guide_greenscore_bonuses_penalties_intro": "카테고리 내에서 더 나은 제품에 대한 보상을 제공하기 위해 우리는 다음과 같은 여러 기준에 따라 보너스와 페널티를 적용합니다.",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "성분의 유래",
+  "guide_greenscore_bonuses_penalties_arg2_text": "재료의 원산지에 따라 보너스가 지급됩니다. 이 보너스는 운송에 미치는 영향과 각 생산국의 환경 정책을 고려합니다.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "포장",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "그린 스코어를 정확하게 계산하려면 포장에 반드시 명시되어 있지 않은 정보(예: 원산지 및 각 성분의 정확한 비율)나 사용 가능한 형태로 거의 제공되지 않는 정보(예: 포장의 모든 구성 요소 목록과 사용된 플라스틱의 정확한 유형)가 필요합니다.",
+  "guide_greenscore_transparency_intro2": "이 정보를 아직 얻을 수 없을 때는 평균값을 사용하지만, 이제 우리는 모든 분들의 도움을 받아 이 정보를 수집하고 있습니다. 이 정보는 Green-Score뿐만 아니라 다른 여러 용도에도 매우 유용할 것입니다.",
+  "guide_greenscore_transparency_arg1_title": "시민들이 어떻게 도울 수 있나요?",
+  "guide_greenscore_transparency_arg1_text": "모든 시민은 제품에 존재하는 정보나 제품에서 추론할 수 있는 정보(예: 포장 정보)를 수집하고 구성하는 데 도움을 줄 수 있습니다. Mission Emballages: 모든 식품에 대한 대규모 협업 포장 목록(프랑스어)",
+  "guide_greenscore_transparency_arg2_title": "제조업체가 어떻게 도움을 줄 수 있나요?",
+  "guide_greenscore_transparency_arg2_text": "제조업체는 우리의 생산자를 위한 무료 플랫폼을 통해 직접 정보를 보낼 수 있습니다.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

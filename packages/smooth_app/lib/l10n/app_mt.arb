@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Share",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "X'inhu l-Punteġġ Aħdar?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Il-Green-Score huwa logo li għandu l-għan li jinfurmak dwar l-**impatt ambjentali tal-ikel**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Il-kodiċi tal-kulur ivarja minn aħdar skur (**A+**) għall-prodotti **bl-inqas impatt** għal aħmar skur (**F**) għall-prodotti **bl-aktar impatt**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Il-logos tal-Green-Score",
+  "guide_greenscore_lca_title": "Il-qalba: Valutazzjoni taċ-ċiklu tal-ħajja (LCA)",
+  "guide_greenscore_lca_arg1_title": "Evalwazzjoni xjentifika tal-kategoriji tal-ikel",
+  "guide_greenscore_lca_arg1_text1": "Għal kull kategorija ta' prodott, jiġi stabbilit punteġġ **ta' riferiment** bl-użu tad-dejta mid-database ambjentali Agribalyse (iddisinjata mill-ADEME u l-INRAE).",
+  "guide_greenscore_lca_arg1_text2": "L-**Analiżi taċ-ċiklu tal-ħajja** hija metodu ta' valutazzjoni standardizzat għat-twettiq ta' valutazzjoni ambjentali b'ħafna stadji u b'ħafna kriterji.",
+  "guide_greenscore_lca_arg1_text3": "**Ikejjel:**",
+  "guide_greenscore_lca_arg2_title": "6 passi ta' produzzjoni",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "14-il indikatur tal-impatt ambjentali",
+  "guide_greenscore_lca_arg3_text1": "Tibdil fil-klima/impronta tal-karbonju",
+  "guide_greenscore_lca_arg3_text2": "Tnaqqis tas-saff tal-ożonu",
+  "guide_greenscore_lca_arg3_text3": "Radjazzjoni jonizzanti",
+  "guide_greenscore_lca_arg3_text4": "Art",
+  "guide_greenscore_lca_arg3_text5": "Użu tal-ilma u l-enerġija",
+  "guide_greenscore_lca_arg3_text6": "Tniġġis tal-arja",
+  "guide_greenscore_lca_arg3_text7": "Ilma baħar u ħelu (partiċelli, aċidifikazzjoni, ewtrofikazzjoni)",
+  "guide_greenscore_lca_arg3_text8": "Tnaqqis tar-riżorsi.",
+  "guide_greenscore_bonuses_penalties_title": "Bonuses u penali",
+  "guide_greenscore_bonuses_penalties_intro": "Biex nippremjaw prodotti aħjar f'kategorija, imbagħad napplikaw bonusijiet u penalitajiet ibbażati fuq diversi kriterji:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Jingħata bonus ibbażat fuq l-oriġini tal-ingredjenti. Dan il-bonus iqis l-impatt fuq it-trasport u wkoll il-politika ambjentali tal-pajjiż ta' kull produttur.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "Biex jiġi kkalkulat b'mod preċiż il-Green-Score, huwa neċessarju li jkun hemm informazzjoni li mhix neċessarjament speċifikata fuq l-imballaġġ (bħall-oriġini u l-perċentwal eżatt ta' kull ingredjent) jew li rarament tkun disponibbli f'forma utilizzabbli (bħal lista tal-komponenti kollha tal-imballaġġ bit-tipi preċiżi ta' plastik użati).",
+  "guide_greenscore_transparency_intro2": "Il-valuri medji jintużaw meta din l-informazzjoni tkun għadha mhix disponibbli, iżda issa qed nappellaw lil kulħadd biex jgħinna niġbru din l-informazzjoni li se tkun utli ħafna għall-Green-Score iżda wkoll għal ħafna użi oħra.",
+  "guide_greenscore_transparency_arg1_title": "Kif iċ-ċittadini jistgħu jgħinu",
+  "guide_greenscore_transparency_arg1_text": "Iċ-ċittadini kollha jistgħu jgħinuna niġbru u nistrutturaw l-informazzjoni li hija preżenti fuq il-prodotti jew li tista' tiġi dedotta minnhom, bħal informazzjoni dwar l-imballaġġ: Mission Emballages: inventarju kollaborattiv fuq skala kbira tal-imballaġġ għall-prodotti tal-ikel kollha (bil-Franċiż)",
+  "guide_greenscore_transparency_arg2_title": "Kif il-manifatturi jistgħu jgħinu",
+  "guide_greenscore_transparency_arg2_text": "Il-manifatturi jistgħu jibagħtulna l-informazzjoni tagħhom direttament permezz tal-pjattaforma bla ħlas tagħna għall-produtturi.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

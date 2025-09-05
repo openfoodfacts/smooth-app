@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "שיתוף",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "Nutri-Score מתפתח: הסברים!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score הוא ציון שנועד **למדוד איכות תזונתית**. הוא **משלים לקבוצת NOVA** על **מזון אולטרה מעובד** (קיים גם ביישום).",
   "guide_nutriscore_v2_unchanged_paragraph2": "ליצרנים, התצוגה של Nutri-Score **נותרת בגדר רשות**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "מהו הציון הירוק?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "ה-Green-Score הוא לוגו שמטרתו ליידע אתכם על **ההשפעה הסביבתית של מזון**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "קוד הצבעים משתנה מירוק כהה (**A+**) עבור המוצרים **בעלי ההשפעה הפחותה** ועד אדום כהה (**F**) עבור המוצרים **בעלי ההשפעה המשמעותית ביותר**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "הלוגואים של גרין-סקור",
+  "guide_greenscore_lca_title": "הליבה: הערכת מחזור חיים (LCA)",
+  "guide_greenscore_lca_arg1_title": "הערכה מדעית של קטגוריות מזון",
+  "guide_greenscore_lca_arg1_text1": "עבור כל קטגוריית מוצרים, נקבע ציון **בנצ'מרק** באמצעות נתונים ממסד הנתונים הסביבתי Agribalyse (שעוצב על ידי ADEME ו-INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**ניתוח מחזור חיים** היא שיטת הערכה סטנדרטית לביצוע הערכה סביבתית רב-שלבית ורב-קריטריונים.",
+  "guide_greenscore_lca_arg1_text3": "**זה מודד:**",
+  "guide_greenscore_lca_arg2_title": "6 שלבי ייצור",
+  "guide_greenscore_lca_arg2_agriculture": "חקלאות",
+  "guide_greenscore_lca_arg2_processing": "עיבוד",
+  "guide_greenscore_lca_arg2_packaging": "אריזה",
+  "guide_greenscore_lca_arg2_transportation": "שינוע",
+  "guide_greenscore_lca_arg2_distribution": "הפצה",
+  "guide_greenscore_lca_arg2_consumption": "צריכה",
+  "guide_greenscore_lca_arg3_title": "14 מדדי השפעה סביבתית",
+  "guide_greenscore_lca_arg3_text1": "שינויי אקלים/טביעת רגל פחמנית",
+  "guide_greenscore_lca_arg3_text2": "דלדול שכבת האוזון",
+  "guide_greenscore_lca_arg3_text3": "קרינה מייננת",
+  "guide_greenscore_lca_arg3_text4": "אֶרֶץ",
+  "guide_greenscore_lca_arg3_text5": "צריכת מים ואנרגיה",
+  "guide_greenscore_lca_arg3_text6": "זיהום אוויר",
+  "guide_greenscore_lca_arg3_text7": "מים ימיים ומתוקים (חלקיקים, החמצה, איטרופיקציה)",
+  "guide_greenscore_lca_arg3_text8": "דלדול משאבים.",
+  "guide_greenscore_bonuses_penalties_title": "בונוסים ועונשים",
+  "guide_greenscore_bonuses_penalties_intro": "כדי לתגמל מוצרים טובים יותר בתוך קטגוריה מסוימת, אנו מיישמים בונוסים ועונשים על סמך מספר קריטריונים:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "מצב הייצור",
+  "guide_greenscore_bonuses_penalties_arg1_text": "בונוס מוענק למוצרים שיש להם תווית רשמית, תווית או אישור שמבטיחים יתרונות סביבתיים (אורגני, סחר הוגן, ערך סביבתי גבוה, תווית אדומה צרפתית, Bleu Blanc Cœur - לב כחול לבן, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "מקור הרכיבים",
+  "guide_greenscore_bonuses_penalties_arg2_text": "בונוס מוענק על סמך מקור המרכיבים. בונוס זה לוקח בחשבון את ההשפעה על התחבורה וגם את המדיניות הסביבתית של כל מדינה של יצרן.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "זנים בסכנת הכחדה",
+  "guide_greenscore_bonuses_penalties_arg3_text": "ציון לרעה ניתן למוצרים שמכילים מוצרים שיש להם השפעות שליליות על מגוון ביולוגי ועל מערכות סביבתיות, כגון שמן דקלים, שהייצור שלו אחראי על בירוא יערות נרחב.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "אריזה",
+  "guide_greenscore_bonuses_penalties_arg4_text": "ציון לרעה מחושב כדי לקחת בחשבון את מיחזוריות האריזה (שימוש בחומר גולמי ומתמחזר) לצד אריזת יתר.",
+  "guide_greenscore_transparency_title": "צורך גובר בשקיפות למדידה טובה יותר והפחתת ההשפעה הסביבתית",
+  "guide_greenscore_transparency_intro1": "כדי לחשב במדויק את הציון הירוק, יש צורך במידע שאינו בהכרח מצוין על האריזה (כגון המקור והאחוז המדויק של כל מרכיב) או מידע שכמעט ולא זמין בצורה שמישה (כגון רשימה של כל רכיבי האריזה עם סוגי הפלסטיק המדויקים שבהם נעשה שימוש).",
+  "guide_greenscore_transparency_intro2": "ערכים ממוצעים משמשים כאשר מידע זה עדיין אינו זמין, אך כעת אנו קוראים לכולם לעזור לנו לאסוף מידע זה, שיהיה שימושי מאוד עבור ה-Green-Score אך גם עבור שימושים רבים אחרים.",
+  "guide_greenscore_transparency_arg1_title": "כיצד אזרחים יכולים לעזור",
+  "guide_greenscore_transparency_arg1_text": "כל האזרחים יכולים לעזור לנו לאסוף ולבנות את המידע הקיים על מוצרים או שניתן להסיק מהם, כגון מידע על אריזות: משימה Emballages: מלאי שיתופי בקנה מידה גדול של אריזות לכל מוצרי המזון (בצרפתית).",
+  "guide_greenscore_transparency_arg2_title": "כיצד יצרנים יכולים לעזור",
+  "guide_greenscore_transparency_arg2_text": "יצרנים יכולים לשלוח לנו את המידע שלהם ישירות דרך הפלטפורמה החינמית שלנו ליצרנים.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "תצוגה מקדימה",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
