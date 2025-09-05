@@ -97,10 +97,10 @@ packages:
     dependency: "direct main"
     description:
       name: audioplayers
-      sha256: e653f162ddfcec1da2040ba2d8553fff1662b5c2a5c636f4c21a3b11bee497de
+      sha256: "5441fa0ceb8807a5ad701199806510e56afde2b4913d9d17c2f19f2902cf0ae4"
       url: "https://pub.dev"
     source: hosted
-    version: "6.5.0"
+    version: "6.5.1"
   audioplayers_android:
     dependency: transitive
     description:
