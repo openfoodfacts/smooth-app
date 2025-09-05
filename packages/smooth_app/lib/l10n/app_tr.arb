@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Paylaş",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "Nutri-Score gelişiyor: açıklamalar!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score, **besin kalitesini ölçmek** için tasarlanmış bir puandır. **NOVA grubunun** **ultra işlenmiş gıdalar** (uygulamada da mevcuttur) konusundaki çalışmalarını **tamamlayıcı** niteliktedir.",
   "guide_nutriscore_v2_unchanged_paragraph2": "Üreticiler için Nutri-Score'un görüntülenmesi **isteğe bağlı** kalmaktadır.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Yeşil Puan Nedir?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Yeşil Puan, gıdanın **çevresel etkisi** hakkında sizi bilgilendirmeyi amaçlayan bir logodur.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Renk kodu, **en az etkili** ürünler için koyu yeşilden (**A+**) **en etkili** ürünler için koyu kırmızıya (**F**) kadar değişmektedir.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Yeşil Puan logoları",
+  "guide_greenscore_lca_title": "Çekirdek: Yaşam döngüsü değerlendirmesi (LCA)",
+  "guide_greenscore_lca_arg1_title": "Gıda kategorilerinin bilimsel değerlendirmesi",
+  "guide_greenscore_lca_arg1_text1": "Her ürün kategorisi için, Agribalyse çevre veritabanından (ADEME ve INRAE tarafından tasarlanmıştır) alınan veriler kullanılarak bir **kıyaslama** puanı belirlenir.",
+  "guide_greenscore_lca_arg1_text2": "**Yaşam döngüsü analizi** çok aşamalı ve çok kriterli çevresel değerlendirme yapmak için kullanılan standartlaştırılmış bir değerlendirme yöntemidir.",
+  "guide_greenscore_lca_arg1_text3": "**Ölçer:**",
+  "guide_greenscore_lca_arg2_title": "6 üretim adımı",
+  "guide_greenscore_lca_arg2_agriculture": "Tarım",
+  "guide_greenscore_lca_arg2_processing": "İşleme",
+  "guide_greenscore_lca_arg2_packaging": "Ambalaj",
+  "guide_greenscore_lca_arg2_transportation": "Taşıma",
+  "guide_greenscore_lca_arg2_distribution": "Dağıtım",
+  "guide_greenscore_lca_arg2_consumption": "Tüketim",
+  "guide_greenscore_lca_arg3_title": "14 çevresel etki göstergesi",
+  "guide_greenscore_lca_arg3_text1": "İklim değişikliği/karbon ayak izi",
+  "guide_greenscore_lca_arg3_text2": "Ozon tabakasının incelmesi",
+  "guide_greenscore_lca_arg3_text3": "İyonlaştırıcı radyasyon",
+  "guide_greenscore_lca_arg3_text4": "Kara",
+  "guide_greenscore_lca_arg3_text5": "Su ve enerji kullanımı",
+  "guide_greenscore_lca_arg3_text6": "Hava kirliliği",
+  "guide_greenscore_lca_arg3_text7": "Deniz ve tatlı su (partiküller, asitlenme, ötrofikasyon)",
+  "guide_greenscore_lca_arg3_text8": "Kaynakların tükenmesi.",
+  "guide_greenscore_bonuses_penalties_title": "Bonuslar ve cezalar",
+  "guide_greenscore_bonuses_penalties_intro": "Bir kategorideki daha iyi ürünleri ödüllendirmek için, aşağıdaki kriterlere göre bonuslar ve cezalar uygularız:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Üretim modu",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Resmi etiketi, etiketi veya çevresel faydaları garanti eden bir sertifikası (organik, adil ticaret, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC) olan ürünlere bir bonus verilir.",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Malzemelerin kaynağı",
+  "guide_greenscore_bonuses_penalties_arg2_text": "İçeriklerin menşeine göre bir bonus verilir. Bu bonus, her üreticinin ülkesinin nakliye üzerindeki etkisini ve çevre politikasını da dikkate alır.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Nesli tükenmekte olan türler",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Üretimi büyük çaplı ormansızlaşmaya neden olan hurma yağı gibi biyoçeşitlilik ve ekosistemler üzerinde önemli olumsuz etkileri olan bileşenler içeren ürünlere ceza verilir.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Ambalaj",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Paketlemenin döngüselliği (geri dönüştürülmüş hammadde kullanımı ve geri dönüştürülebilirlik) ve aşırı paketleme dikkate alınarak bir ceza hesaplanır.",
+  "guide_greenscore_transparency_title": "Çevresel etkileri daha iyi ölçmek ve azaltmak için artan şeffaflık ihtiyacı",
+  "guide_greenscore_transparency_intro1": "Yeşil Puanı doğru bir şekilde hesaplamak için, ambalaj üzerinde belirtilmeyen (örneğin menşei ve her bir bileşenin tam yüzdesi) veya nadiren kullanılabilir formda bulunan (örneğin ambalajın tüm bileşenlerinin listesi ve kullanılan plastiklerin tam türleri) bilgilere ihtiyaç vardır.",
+  "guide_greenscore_transparency_intro2": "Bu bilgiler henüz mevcut olmadığında ortalama değerler kullanılır, ancak şimdi herkesi bu bilgileri toplamamıza yardımcı olmaya çağırıyoruz; bu bilgiler Yeşil Puan için ve aynı zamanda birçok başka kullanım için çok faydalı olacak.",
+  "guide_greenscore_transparency_arg1_title": "Vatandaşlar nasıl yardımcı olabilir?",
+  "guide_greenscore_transparency_arg1_text": "Tüm vatandaşlar, ürünlerde bulunan veya bunlardan çıkarılabilecek bilgileri (örneğin ambalaj bilgileri) toplamamıza ve yapılandırmamıza yardımcı olabilir: Mission Emballages: tüm gıda ürünleri için ambalajların geniş ölçekli ortak envanteri (Fransızca)",
+  "guide_greenscore_transparency_arg2_title": "Üreticiler nasıl yardımcı olabilir?",
+  "guide_greenscore_transparency_arg2_text": "Üreticiler bilgilerini doğrudan üreticilere özel ücretsiz platformumuz üzerinden bize gönderebilirler.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/yeşil-puan",
   "preview_badge": "Ön izleme",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
