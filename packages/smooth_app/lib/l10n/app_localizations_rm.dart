@@ -4268,7 +4268,7 @@ class AppLocalizationsRm extends AppLocalizations {
   String get guide_greenscore_lca_arg2_distribution => 'Distribution';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Consum';
 
   @override
   String get guide_greenscore_lca_arg3_title =>

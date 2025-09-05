@@ -4219,40 +4219,41 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      '¿Imataq Verde Puntuacion?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score nisqaqa huk logotipo nisqa, chaymi **mikhuypa pachamamapi imayna kasqanmanta** willayta munan.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Llimpi codigoqa hukniraymi yana verde (**A+**) **aswan pisi impactoyuq** rurukunapaq yana puka (**F**) **aswan impactoyuq** rurukunapaq.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption =>
+      'Chay Verde-Puntuación nisqa logotipokuna';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Ukhun: Kawsay muyu chaninchay (LCA) .';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Mikhuy categoría nisqakunamanta cientifico chaninchay';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Sapa ruru categoría nisqapaqmi, **benchmark** nisqa yupayta churakun Agribalyse pachamamamanta willakuypa willakuyninkunawan (ADEMEwan INRAEwan ruwasqa).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Análisis de ciclo de vida** nisqa chaninchanapaq ruwaymi, achka etapayuq, achka criterioyuq pachamama chaninchay ruwanapaq.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Tupun:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 ruruchina ruwaykuna';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4274,40 +4275,41 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 pachamamapi llakichishka rikuchikkuna';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Pacha tikray/carbono nisqapa puriynin';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Ozono nisqa qata pisiyaynin';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Radiación ionizante nisqa';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Allpa';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Yaku & kallpa llamk’achiyta';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Wayra qhillichay';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Mama qucha & misk\'i yaku (partículas, acidificación, eutroficación) .';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Recursokuna pisiyay.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bonos & penaltis nisqakuna';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Aswan allin rurukuna huk categoría ukhupi premianapaq, chaymanta bonificacionkuna & multakuna achka criterio kaqpi ruwasqayku:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4323,7 +4325,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Chay ingredientekuna maymanta hamusqanman hinan huk bonificacionta qonku. Kay bonificación nisqapiqa qhawarikunmi chay impacto nisqa transporte nisqapi hinallataq sapa ruruchiqpa suyunpa política ambiental nisqatapas.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4346,31 +4348,31 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Green-Score nisqa allinta yupanapaqqa, willakuyniyuqmi kanan, chaykunaqa manam necesariamentechu embalaje nisqapi nisqa kachkan (ahinataq maymanta hamusqanmanta hinaspa sapa ingredientepa pachakmanta chiqap kasqanmanta) utaq pisillapim tarikun forma utilizable nisqapi (ahinataq huk lista llapa componentekuna embalaje nisqamanta chay clase preciso plásticos nisqawan).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Chawpi chanikuna llamk\'achisqa kanku mayk\'aq kay willay manaraq kanchu, ichaqa kunan llapa runata waqyachkayku kay willayta huñuypi yanapawanaykupaq mayqinchus ancha allin kanqa Verde-Puntuación kaqpaq ichaqa achka wak llamk\'anakunapaqpas.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Imaynatataq llaqtamasikuna yanapankuman';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Llapa llaqta runakunam yanapawasunman huñunapaq hinaspa estructuranapaq willakuykunata, chaykunam kachkan rurukunapi utaq chaymanta hurqusqa kanman, ahinataq willakuykunata envasesmanta: Misión Emballages: hatun inventario colaborativo envases nisqamanta llapan mikhuy rurukunapaq (francés simipi)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Imaynatataq fabricaqkuna yanapankuman';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Ruwaqkuna willakuyninkuta chiqamanta apachimuwankuman mana qullqiyuq plataformaykuwan ruruchiqkunapaq.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://fr.openfoodfacts.org/verde-puntuación nisqapi';
 
   @override
   String get preview_badge => 'Preview';

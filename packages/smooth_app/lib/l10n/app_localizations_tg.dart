@@ -4217,41 +4217,39 @@ class AppLocalizationsTg extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'Холи сабз чист?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score логотипест, ки ҳадафи он ба шумо дар бораи **таъсири муҳити зисти ғизо** маълумот додан мебошад.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Рамзи ранг аз сабзи торик (**A+**) барои маҳсулоти **камтаъсирнок** то сурхи торик (**F**) барои маҳсулоти **таъсиртарин** фарқ мекунад.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Логотипҳои Green-Score';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'Асос: Арзёбии давраи ҳаёт (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Арзёбии илмии категорияҳои ғизо';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Барои ҳар як категорияи маҳсулот, бо истифода аз маълумот аз пойгоҳи муҳити зисти Agribalyse (аз ҷониби ADEME ва INRAE тарҳрезӣ шудааст) баҳои **бенчмарк** муқаррар карда мешавад.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Таҳлили давраи ҳаёт** усули стандартикунонидашудаи баҳодиҳӣ барои гузаронидани арзёбии бисёрмарҳила ва бисёркритериявии муҳити зист мебошад.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '** Он андоза:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 қадами истеҳсолӣ';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4273,40 +4271,39 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 нишондиҳандаҳои таъсири муҳити зист';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Тағйирёбии иқлим/изи карбон';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Камшавии қабати озон';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Радиатсияи ионизатсиякунанда';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Замин';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Истифодаи об ва энергия';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Ифлосшавии ҳаво';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Оби баҳрӣ ва ширин (зарраҳо, кислотаҳо, эвтрофикатсия)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Камшавии захираҳо.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Бонусҳо ва ҷаримаҳо';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Барои мукофотонидани маҳсулоти беҳтар дар як категория, мо пас аз он дар асоси якчанд меъёрҳо мукофотпулӣ ва ҷаримаҳо татбиқ мекунем:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4322,7 +4319,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Бонус дар асоси пайдоиши компонентҳо дода мешавад. Ин бонус таъсир ба нақлиёт ва инчунин сиёсати экологии ҳар як кишвари истеҳсолкунандаро ба назар мегирад.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4345,27 +4342,27 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Барои дуруст ҳисоб кардани нишондиҳандаи сабз, маълумоте лозим аст, ки дар бастабандӣ ҳатман нишон дода нашудаанд (масалан, пайдоиш ва фоизи дақиқи ҳар як ингредиент) ё дар шакли қобили истифода хеле кам дастрас аст (масалан, рӯйхати ҳама ҷузъҳои бастабандӣ бо намудҳои дақиқи пластикии истифодашуда).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Арзиши миёна вақте истифода мешавад, ки ин маълумот ҳанӯз дастрас нест, аммо мо ҳоло ҳамаро даъват мекунем, ки ба мо дар ҷамъоварии ин маълумот кӯмак расонанд, ки барои Green-Score ва инчунин барои бисёр истифодаҳои дигар муфид хоҳанд буд.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Чӣ тавр шаҳрвандон метавонанд кӯмак расонанд';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Ҳама шаҳрвандон метавонанд ба мо дар ҷамъоварӣ ва сохтори маълумоте, ки дар маҳсулот мавҷуд аст ё аз онҳо баровардан мумкин аст, кӯмак расонанд, масалан, маълумот дар бораи бастабандӣ: Mission Emballages: инвентаризатсияи васеъмиқёси муштараки бастабандӣ барои ҳама маҳсулоти хӯрокворӣ (бо забони фаронсавӣ)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Чӣ тавр истеҳсолкунандагон метавонанд кӯмак расонанд';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Истеҳсолкунандагон метавонанд маълумоти худро мустақиман тавассути платформаи ройгони мо барои истеҳсолкунандагон фиристанд.';
 
   @override
   String get guide_greenscore_share_link =>

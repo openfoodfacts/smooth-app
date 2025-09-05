@@ -4217,41 +4217,40 @@ class AppLocalizationsUz extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'Yashil ball nima?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score logotipi boʻlib, u sizga oziq-ovqatning **atrof-muhitga taʼsiri** haqida maʼlumot berishga qaratilgan.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Rang kodi **eng taʼsirli** mahsulotlar uchun toʻq yashil (**A+**)dan **eng taʼsirli** mahsulotlar uchun toʻq qizil (**F**)gacha oʻzgaradi.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Green-Score logotiplari';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Asosiy: Hayot aylanishini baholash (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Oziq-ovqat toifalarini ilmiy baholash';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Har bir mahsulot toifasi uchun **benchmark** ball Agribalyse atrof-muhit ma\'lumotlar bazasi ma\'lumotlaridan (ADEME va INRAE tomonidan ishlab chiqilgan) o\'rnatiladi.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Hayot sikli tahlili** - bu ko\'p bosqichli va ko\'p mezonli ekologik baholashni o\'tkazish uchun standartlashtirilgan baholash usuli.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**O\'lchaydi:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 ishlab chiqarish bosqichi';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4273,40 +4272,41 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 ta atrof-muhitga ta\'sir ko\'rsatish ko\'rsatkichlari';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Iqlim o\'zgarishi/uglerod izi';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Ozon qatlamining emirilishi';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Ionlashtiruvchi nurlanish';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Yer';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Suv va energiyadan foydalanish';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Havoning ifloslanishi';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Dengiz va toza suv (zarralar, kislotalanish, evtrofikatsiya)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Resurslarning kamayishi.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bonuslar va jarimalar';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Bir toifadagi yaxshiroq mahsulotlarni mukofotlash uchun biz bir nechta mezonlarga asoslangan bonuslar va jarimalarni qo\'llaymiz:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4322,7 +4322,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Bonus ingredientlarning kelib chiqishiga qarab beriladi. Ushbu bonus transportga ta\'sirini, shuningdek, har bir ishlab chiqaruvchi mamlakatning ekologik siyosatini hisobga oladi.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4345,27 +4345,27 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Yashil ballni to\'g\'ri hisoblash uchun qadoqda ko\'rsatilmagan ma\'lumotlarga (masalan, har bir ingredientning kelib chiqishi va aniq foizi) yoki foydalanish mumkin bo\'lgan shaklda kamdan-kam uchraydigan ma\'lumotlarga (masalan, ishlatiladigan plastmassalarning aniq turlari bilan o\'rashning barcha tarkibiy qismlarining ro\'yxati) ega bo\'lishi kerak.';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Bu maʼlumot hali mavjud boʻlmaganda oʻrtacha qiymatlar qoʻllaniladi, lekin hozir biz barchani ushbu maʼlumotni yigʻishda yordam berishga chaqiramiz, bu Green-Score uchun, balki boshqa koʻplab maqsadlarda ham foydali boʻladi.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Fuqarolar qanday yordam berishi mumkin';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Barcha fuqarolar bizga mahsulotlarda mavjud bo\'lgan yoki ulardan xulosa chiqarish mumkin bo\'lgan ma\'lumotlarni to\'plash va tuzishda yordam berishi mumkin, masalan, qadoqlash haqidagi ma\'lumotlar: Mission Emballages: barcha oziq-ovqat mahsulotlari uchun qadoqlashning keng ko\'lamli hamkorlikdagi inventarizatsiyasi (frantsuz tilida)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Ishlab chiqaruvchilar qanday yordam berishi mumkin';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Ishlab chiqaruvchilar o\'z ma\'lumotlarini to\'g\'ridan-to\'g\'ri ishlab chiqaruvchilar uchun bepul platformamiz orqali yuborishlari mumkin.';
 
   @override
   String get guide_greenscore_share_link =>

@@ -4221,40 +4221,40 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'He aha te Score Green?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Ko te Green-Score he moko e whai ana ki te whakamohio ki a koe mo te **paanga ki te taiao o te kai**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'He rereke te waehere tae mai i te kaakaariki pouri (**A+**) mo nga hua ** iti rawa te paheketanga** ki te whero pouri (**F**) mo nga hua **tino whai paanga**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Ko nga tohu moko Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Ko te kaupapa: Aromatawai huringa ora (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'He aro mātai pūtaiao o ngā kāwai kai';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Mo ia waahanga hua, ka whakatauhia he tohu **tohu** ma te whakamahi i nga raraunga mai i te paataka taiao a Agribalyse (na ADEME me INRAE i hoahoa).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Ko te tātaritanga o te huringa ora** he tikanga aromatawai paerewa mo te whakahaere i nga waahanga maha me nga paearu maha o te aromatawai taiao.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Ka ine:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 nga waahanga whakaputa';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4275,41 +4275,41 @@ class AppLocalizationsMi extends AppLocalizations {
   String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 nga tohu paanga taiao';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Huringa huarere/ tapuwae waro';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 =>
+      'Te paheketanga o te papa ozone';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Irirangi katote';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Whenua';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Te wai me te whakamahi kaha';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Te parahanga o te hau';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Te wai moana me te wai māori (matūriki, waikawa, eutrophication)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Te whakaheke i nga rauemi.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Nga putea me nga whiu';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Ki te utu i nga hua pai ake i roto i tetahi waahanga, ka tukuna e matou nga putea me nga whiu i runga i te maha o nga tohu:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4325,7 +4325,7 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Ka whakawhiwhia he bonus i runga i te takenga mai o nga kai. Ka whai whakaaro tenei bonus ki te paanga ki te kawe waka me te kaupapa here taiao o ia whenua kaihanga.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4348,27 +4348,27 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Kia tika ai te tatau i te Tohu-Kakariki, me whai korero kaore i te tino tohuhia ki runga i te kete (penei i te takenga mai me te paheketanga tika o ia whakauru) he iti nei ranei te waatea i roto i te ahua ka taea te whakamahi (penei i te raarangi o nga waahanga katoa o te kete me nga momo kirihou e whakamahia ana).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Ka whakamahia nga uara toharite ina kare ano enei korero i te watea, engari kei te karanga matou ki nga tangata katoa ki te awhina i a matou ki te kohikohi i enei korero ka tino whai hua mo te Green-Score engari mo etahi atu whakamahinga.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Me pehea e taea ai e te tangata whenua te awhina';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Ka taea e nga tangata whenua katoa te awhina i a tatou ki te kohikohi me te hanga i nga korero kei runga i nga hua, ka taea ranei te tango mai i a raatau, penei i nga korero mo te kohinga: Mission Emballages: he pukapuka mahi tahi nui mo te kohinga mo nga hua kai katoa (i te reo Wīwī)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Me pehea e taea ai e nga kaihanga te awhina';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Ka taea e nga Kaihanga te tuku mai i a raatau korero ki a maatau na roto i ta maatau papaahi koreutu mo nga kaihanga.';
 
   @override
   String get guide_greenscore_share_link =>

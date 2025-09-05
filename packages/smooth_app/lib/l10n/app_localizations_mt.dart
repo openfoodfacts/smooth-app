@@ -4218,40 +4218,40 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'X\'inhu l-Punteġġ Aħdar?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Il-Green-Score huwa logo li għandu l-għan li jinfurmak dwar l-**impatt ambjentali tal-ikel**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Il-kodiċi tal-kulur ivarja minn aħdar skur (**A+**) għall-prodotti **bl-inqas impatt** għal aħmar skur (**F**) għall-prodotti **bl-aktar impatt**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Il-logos tal-Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Il-qalba: Valutazzjoni taċ-ċiklu tal-ħajja (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Evalwazzjoni xjentifika tal-kategoriji tal-ikel';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Għal kull kategorija ta\' prodott, jiġi stabbilit punteġġ **ta\' riferiment** bl-użu tad-dejta mid-database ambjentali Agribalyse (iddisinjata mill-ADEME u l-INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      'L-**Analiżi taċ-ċiklu tal-ħajja** hija metodu ta\' valutazzjoni standardizzat għat-twettiq ta\' valutazzjoni ambjentali b\'ħafna stadji u b\'ħafna kriterji.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Ikejjel:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 passi ta\' produzzjoni';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4273,40 +4273,40 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14-il indikatur tal-impatt ambjentali';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Tibdil fil-klima/impronta tal-karbonju';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Tnaqqis tas-saff tal-ożonu';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Radjazzjoni jonizzanti';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Art';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Użu tal-ilma u l-enerġija';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Tniġġis tal-arja';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Ilma baħar u ħelu (partiċelli, aċidifikazzjoni, ewtrofikazzjoni)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Tnaqqis tar-riżorsi.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonuses u penali';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Biex nippremjaw prodotti aħjar f\'kategorija, imbagħad napplikaw bonusijiet u penalitajiet ibbażati fuq diversi kriterji:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4322,7 +4322,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Jingħata bonus ibbażat fuq l-oriġini tal-ingredjenti. Dan il-bonus iqis l-impatt fuq it-trasport u wkoll il-politika ambjentali tal-pajjiż ta\' kull produttur.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4345,27 +4345,27 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Biex jiġi kkalkulat b\'mod preċiż il-Green-Score, huwa neċessarju li jkun hemm informazzjoni li mhix neċessarjament speċifikata fuq l-imballaġġ (bħall-oriġini u l-perċentwal eżatt ta\' kull ingredjent) jew li rarament tkun disponibbli f\'forma utilizzabbli (bħal lista tal-komponenti kollha tal-imballaġġ bit-tipi preċiżi ta\' plastik użati).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Il-valuri medji jintużaw meta din l-informazzjoni tkun għadha mhix disponibbli, iżda issa qed nappellaw lil kulħadd biex jgħinna niġbru din l-informazzjoni li se tkun utli ħafna għall-Green-Score iżda wkoll għal ħafna użi oħra.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Kif iċ-ċittadini jistgħu jgħinu';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Iċ-ċittadini kollha jistgħu jgħinuna niġbru u nistrutturaw l-informazzjoni li hija preżenti fuq il-prodotti jew li tista\' tiġi dedotta minnhom, bħal informazzjoni dwar l-imballaġġ: Mission Emballages: inventarju kollaborattiv fuq skala kbira tal-imballaġġ għall-prodotti tal-ikel kollha (bil-Franċiż)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Kif il-manifatturi jistgħu jgħinu';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Il-manifatturi jistgħu jibagħtulna l-informazzjoni tagħhom direttament permezz tal-pjattaforma bla ħlas tagħna għall-produtturi.';
 
   @override
   String get guide_greenscore_share_link =>

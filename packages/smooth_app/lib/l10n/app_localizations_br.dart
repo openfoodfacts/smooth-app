@@ -4219,40 +4219,40 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Petra eo ar skor glas ?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Ur logo eo ar Green-Score hag a glask kelaouiñ ac\'hanoc\'h diwar-benn **efedoù ar boued war an endro**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Kemmañ a ra ar c\'hod liv eus ar glas teñval (**A+**) evit ar produioù **nebeutañ o efed** betek ar ruz teñval (**F**) evit ar produioù **ar muiañ a efed**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Logoioù ar Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Ar c\'hreiz : Priziañ ar c\'helc\'hiad buhez (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Ur priziadenn skiantel eus ar rummadoù boued';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Evit pep rummad produ e vez staliet ur skor **benchmark** dre implijout roadennoù eus diaz roadennoù an endro Agribalyse (savet gant ADEME hag INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Analizañ ar c\'helc\'hiad buhez** zo un doare priziañ skoueriekaet evit kas da benn ur priziadenn endroel liespazenn ha lieskriterioù.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Muzuliañ a ra :**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 pazenn produiñ';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4261,7 +4261,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Enpakañ';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4274,40 +4274,40 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 diskouezer efed war an endro';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Emdroadur an hin/roud karbon';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Digresk ar gwiskad ozon';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Skinadur ionizañ';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Douar';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Implij an dour hag an energiezh';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Saotradur an aer |';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Dour mor ha dous (rannigoù, asidifikadur, eutrofikadur)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Digresk ar binvioù.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Prizioù ha kastizoù';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Evit gounit produioù gwelloc\'h e-barzh ur rummad e lakaomp neuze prizioù ha kastizoù diazezet war meur a dalvoudegezh :';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4319,11 +4319,11 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Orin an aozennoù';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Ur bonus a vez roet diwar orin ar c\'hementadoù. Gant ar bonus-mañ e vez kemeret e kont an efedoù war an treuzdougen hag ivez politikerezh an endro bro pep produer.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4334,7 +4334,7 @@ class AppLocalizationsBr extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Enpakañ';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4346,27 +4346,27 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Evit jediñ ar Green-Score en un doare reizh eo ret kaout titouroù ha n\'int ket spisaet dre ret war ar pakad (evel orin ha dregantad resis pep elfenn) pe a vez kavet ral a wech e stumm implijus (evel ur roll eus holl elfennoù ar pakad gant ar seurt plastikoù resis implijet).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Arveret e vez talvoudoù keitat pa n\'eo ket hegerz an titouroù-mañ c\'hoazh, met goulenn a reomp bremañ digant an holl sikour ac\'hanomp da zastum an titouroù-se a vo talvoudus-kenañ evit ar Green-Score met ivez evit meur a implij all.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Penaos e c\'hall ar geodedourien sikour';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'An holl geodedourien a c’hell sikour ac’hanomp da zastum ha da frammañ an titouroù a zo war ar produioù pe a c’heller tennañ diwarno, evel titouroù diwar-benn an endalc’hadoù : Mission Emballages : un inventaire collaboratif à grand échelle des emballages pour tous les produits alimentaires (e galleg)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Penaos e c\'hall ar c\'henderc\'herien sikour';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Ar c\'henderc\'herien a c\'hell kas deomp o titouroù war-eeun dre hor leurenn digoust evit ar broduerien.';
 
   @override
   String get guide_greenscore_share_link =>

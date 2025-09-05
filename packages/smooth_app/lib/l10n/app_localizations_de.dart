@@ -4301,154 +4301,151 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Was ist der Green Score?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Der Green-Score ist ein Logo, das Sie über die **Umweltauswirkungen von Lebensmitteln** informieren soll.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Der Farbcode variiert von Dunkelgrün (**A+**) für die **am wenigsten wirkungsvollen** Produkte bis Dunkelrot (**F**) für die **am wirkungsvollsten** Produkte.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Die Green-Score-Logos';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'Der Kern: Ökobilanz (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Eine wissenschaftliche Bewertung von Lebensmittelkategorien';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Für jede Produktkategorie wird anhand von Daten aus der Umweltdatenbank Agribalyse (entwickelt von ADEME und INRAE) ein **Benchmark**-Score ermittelt.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      'Die **Lebenszyklusanalyse** ist ein standardisiertes Bewertungsverfahren zur Durchführung einer mehrstufigen und multikriteriellen Umweltbewertung.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Es misst:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 Produktionsschritte';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'Landwirtschaft';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'Verarbeitung';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Art der Verpackung';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'Transport';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'Verteilung';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Verbrauch';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 Umweltwirkungsindikatoren';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Klimawandel/CO2-Fußabdruck';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Abbau der Ozonschicht';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Ionisierende Strahlung';
 
   @override
   String get guide_greenscore_lca_arg3_text4 => 'Land';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Wasser- und Energieverbrauch';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Luftverschmutzung';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Meer- und Süßwasser (Partikel, Versauerung, Eutrophierung)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Erschöpfung der Ressourcen.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Boni & Strafen';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Um bessere Produkte innerhalb einer Kategorie zu belohnen, wenden wir Boni und Strafen auf der Grundlage mehrerer Kriterien an:';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg1_title =>
-      'Mode of production';
+  String get guide_greenscore_bonuses_penalties_arg1_title => 'Produktionsart';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'Ein Bonus wird an Produkte mit offiziellem Label, einem Label oder einer Zertifizierung, die Umweltvorteile garantiert, vergeben (Bio, fairer Handel, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Herkunft der Inhaltsstoffe';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Je nach Herkunft der Zutaten wird ein Bonus vergeben. Dieser berücksichtigt die Auswirkungen auf den Transport und die Umweltpolitik des jeweiligen Herstellerlandes.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
-      'Endangered species';
+      'Gefährdete Arten';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'Erzeugnisse, die wesentliche negative Auswirkungen auf die biologische Vielfalt und die Ökosysteme haben, werden mit einer Strafe belegt, z. B. das Palmöl, dessen Produktion für die massive Entwaldung verantwortlich ist.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title =>
+      'Art der Verpackung';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'Eine Strafe wird errechnet, um nachhaltige Verpackungen (Verwendung von recyceltem Rohstoff und Recyclingfähigkeit) und Verpackungsüberschuss zu berücksichtigen.';
 
   @override
   String get guide_greenscore_transparency_title =>
-      'An increased need for transparency to better measure and reduce environmental impacts';
+      'Ein erhöhter Bedarf an Transparenz, um Umweltauswirkungen besser zu bewerten und zu verringern';
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Für die genaue Berechnung des Green-Scores sind Informationen notwendig, die nicht unbedingt auf der Verpackung angegeben sind (wie etwa die Herkunft und der genaue Prozentsatz der einzelnen Zutaten) oder die selten in verwertbarer Form vorliegen (wie etwa eine Auflistung aller Bestandteile der Verpackung mit den genauen verwendeten Kunststoffarten).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Wenn diese Informationen noch nicht verfügbar sind, werden Durchschnittswerte verwendet. Wir rufen jetzt jedoch alle dazu auf, uns bei der Erfassung dieser Informationen zu unterstützen, die für den Green-Score, aber auch für viele andere Zwecke sehr nützlich sein werden.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Wie Bürger helfen können';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Alle Bürger können uns dabei helfen, die Informationen zu sammeln und zu strukturieren, die auf Produkten vorhanden sind oder sich daraus ableiten lassen, wie beispielsweise Informationen zu Verpackungen: Mission Emballages: ein groß angelegtes gemeinschaftliches Inventar der Verpackungen für alle Lebensmittelprodukte (auf Französisch)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Wie Hersteller helfen können';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Hersteller können uns ihre Informationen direkt über unsere kostenlose Plattform für Produzenten übermitteln.';
 
   @override
   String get guide_greenscore_share_link =>

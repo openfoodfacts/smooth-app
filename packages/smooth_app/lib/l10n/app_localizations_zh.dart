@@ -4161,7 +4161,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => '包装';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4218,8 +4218,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+  String get guide_greenscore_bonuses_penalties_arg2_title => '成分來源';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
@@ -4234,7 +4233,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => '包装';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>

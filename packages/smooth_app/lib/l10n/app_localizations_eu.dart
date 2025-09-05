@@ -4229,40 +4229,40 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Zer da Puntuazio Berdea?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score elikagaien **inpaktuaren** berri emateko helburua duen logotipo bat da.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Kolore kodea berde ilunaren (**A+**) koloretik **eragin txikieneko** produktuen kolorera eta gorri ilunaren (**F**) kolorera aldatzen da, **eragin handiena duten** produktuen kolorerako.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Green-Score logotipoak';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Muina: Bizi-zikloaren ebaluazioa (BZA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Elikagai-kategorien ebaluazio zientifikoa';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Produktu-kategoria bakoitzerako, **erreferentziazko** puntuazio bat ezartzen da Agribalyse ingurumen-datu-baseko datuak erabiliz (ADEMEk eta INRAEk diseinatua).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Bizi-zikloaren analisia** ingurumen-ebaluazio bat egiteko ebaluazio-metodo estandarizatu bat da, etapa anitzeko eta irizpide anitzekoa.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Neurtzen du:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 ekoizpen urrats';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4271,7 +4271,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Ontziratzea';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4284,40 +4284,42 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 ingurumen-inpaktuaren adierazle';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Klima aldaketa/karbono aztarna';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Ozono geruzaren agortzea';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Erradiazio ionizatzailea';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Lurra';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Uraren eta energiaren erabilera';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Airearen kutsadura';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Itsasoko eta ur gezako uretan (partikulak, azidotzea, eutrofizazioa)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Baliabideen agortzea.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Hobariak eta zigorrak';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Kategoria bateko produktu hobeak saritzeko, hainbat irizpideren araberako hobariak eta zigorrak aplikatzen ditugu:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4333,7 +4335,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Osagaien jatorriaren araberako hobari bat ematen da. Hobari honek garraioan duen eragina eta ekoizle bakoitzaren herrialdeko ingurumen-politika kontuan hartzen ditu.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4344,7 +4346,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Ontziratzea';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4356,27 +4358,27 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Green-Score zehatz-mehatz kalkulatzeko, ontzian zehaztuta ez dagoen informazioa izan behar da (adibidez, osagai bakoitzaren jatorria eta ehuneko zehatza) edo gutxitan eskuragarri dagoen informazioa (adibidez, ontziko osagai guztien zerrenda, erabilitako plastiko mota zehatzekin).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Batez besteko balioak erabiltzen dira informazio hori oraindik eskuragarri ez dagoenean, baina orain guztioi dei egiten dizuegu informazio hau biltzen laguntzeko, oso erabilgarria izango baita Green-Score-rako, baina baita beste hainbat erabilerarako ere.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Nola lagundu dezaketen herritarrek';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Herritar guztiek lagun diezagukete produktuetan dagoen edo horietatik ondoriozta daitekeen informazioa biltzen eta egituratzen, hala nola ontziei buruzko informazioa: Emballages Misioa: elikagai-produktu guztien ontzien inbentario kolaboratibo handia (frantsesez)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Nola lagundu dezaketen fabrikatzaileek';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Fabrikatzaileek beren informazioa zuzenean bidal diezagukete ekoizleentzako doako plataformaren bidez.';
 
   @override
   String get guide_greenscore_share_link =>

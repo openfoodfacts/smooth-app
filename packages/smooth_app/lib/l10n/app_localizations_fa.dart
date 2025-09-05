@@ -4215,41 +4215,39 @@ class AppLocalizationsFa extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'امتیاز سبز چیست؟';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'امتیاز سبز لوگویی است که هدف آن آگاه‌سازی شما در مورد **تأثیر زیست‌محیطی غذا** است.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'کد رنگ از سبز تیره (**A+**) برای محصولات **کم‌تأثیرترین** تا قرمز تیره (**F**) برای محصولات **تأثیرگذارترین** متغیر است.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'لوگوهای گرین اسکور';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'هسته: ارزیابی چرخه حیات (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'ارزیابی علمی دسته بندی مواد غذایی';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'برای هر دسته محصول، یک امتیاز **معیار** با استفاده از داده‌های پایگاه داده زیست‌محیطی Agribalyse (طراحی شده توسط ADEME و INRAE) تعیین می‌شود.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**تحلیل چرخه حیات** یک روش ارزیابی استاندارد برای انجام ارزیابی زیست‌محیطی چند مرحله‌ای و چند معیاره است.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**اندازه‌گیری می‌کند:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '۶ مرحله تولید';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4270,41 +4268,39 @@ class AppLocalizationsFa extends AppLocalizations {
   String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '۱۴ شاخص تأثیر زیست‌محیطی';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'تغییرات اقلیمی/ردپای کربن';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'تخریب لایه اوزون';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'تابش یونیزه کننده';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'زمین';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'مصرف آب و انرژی';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'آلودگی هوا';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'آب‌های دریایی و شیرین (ذرات، اسیدی شدن، اوتریفیکاسیون)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'کاهش منابع.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'پاداش‌ها و جریمه‌ها';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'برای پاداش دادن به محصولات بهتر در یک دسته، ما بر اساس چندین معیار، پاداش‌ها و جریمه‌هایی را اعمال می‌کنیم:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4320,7 +4316,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'بر اساس منشأ مواد تشکیل‌دهنده، پاداشی اعطا می‌شود. این پاداش، تأثیر بر حمل‌ونقل و همچنین سیاست زیست‌محیطی هر کشور تولیدکننده را در نظر می‌گیرد.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4343,27 +4339,27 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'برای محاسبه دقیق امتیاز سبز، لازم است اطلاعاتی داشته باشیم که لزوماً روی بسته‌بندی مشخص نشده‌اند (مانند مبدا و درصد دقیق هر ماده) یا به ندرت به شکل قابل استفاده در دسترس هستند (مانند فهرستی از تمام اجزای بسته‌بندی با انواع دقیق پلاستیک‌های استفاده شده).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'مقادیر میانگین زمانی استفاده می‌شوند که این اطلاعات هنوز در دسترس نباشند، اما اکنون از همه می‌خواهیم که در جمع‌آوری این اطلاعات که برای امتیاز سبز و همچنین برای بسیاری از کاربردهای دیگر بسیار مفید خواهد بود، به ما کمک کنند.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'چگونه شهروندان می‌توانند کمک کنند';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'همه شهروندان می‌توانند به ما در جمع‌آوری و ساختاردهی اطلاعاتی که روی محصولات وجود دارد یا می‌توان از آنها استنباط کرد، مانند اطلاعات روی بسته‌بندی، کمک کنند: Mission Emballages: یک فهرست مشارکتی در مقیاس بزرگ از بسته‌بندی برای همه محصولات غذایی (به زبان فرانسه)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'چگونه تولیدکنندگان می‌توانند کمک کنند';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'تولیدکنندگان می‌توانند اطلاعات خود را مستقیماً از طریق پلتفرم رایگان ما برای تولیدکنندگان برای ما ارسال کنند.';
 
   @override
   String get guide_greenscore_share_link =>

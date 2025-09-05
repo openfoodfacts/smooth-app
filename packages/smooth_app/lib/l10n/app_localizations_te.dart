@@ -4219,40 +4219,39 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'గ్రీన్ స్కోర్ అంటే ఏమిటి?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'గ్రీన్-స్కోర్ అనేది ఆహారం యొక్క **పర్యావరణ ప్రభావం** గురించి మీకు తెలియజేయడానికి ఉద్దేశించిన లోగో.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      '**అత్యల్ప ప్రభావవంతమైన** ఉత్పత్తులకు రంగు కోడ్ ముదురు ఆకుపచ్చ (**A+**) నుండి **అత్యంత ప్రభావవంతమైన** ఉత్పత్తులకు ముదురు ఎరుపు (**F**) వరకు మారుతుంది.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'గ్రీన్-స్కోర్ లోగోలు';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'ముఖ్యాంశం: జీవిత చక్ర అంచనా (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'ఆహార వర్గాల శాస్త్రీయ మూల్యాంకనం';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'ప్రతి ఉత్పత్తి వర్గానికి, అగ్రిబాలిస్ పర్యావరణ డేటాబేస్ (ADEME మరియు INRAE చే రూపొందించబడినది) నుండి డేటాను ఉపయోగించి **బెంచ్‌మార్క్** స్కోర్ ఏర్పాటు చేయబడింది.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**జీవిత చక్ర విశ్లేషణ** అనేది బహుళ-దశల మరియు బహుళ-ప్రమాణాల పర్యావరణ అంచనాను నిర్వహించడానికి ఒక ప్రామాణిక అంచనా పద్ధతి.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**ఇది కొలుస్తుంది:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 ఉత్పత్తి దశలు';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4273,41 +4272,40 @@ class AppLocalizationsTe extends AppLocalizations {
   String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 పర్యావరణ ప్రభావ సూచికలు';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'వాతావరణ మార్పు/కార్బన్ ఉద్గారాలు';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'ఓజోన్ పొర క్షీణత';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'అయోనైజింగ్ రేడియేషన్';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'దేశం';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'నీరు & శక్తి వినియోగం';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'వాయు కాలుష్యం';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'సముద్ర & మంచినీరు (కణాలు, ఆమ్లీకరణ, యూట్రోఫికేషన్)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'వనరుల క్షీణత.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'బోనస్‌లు & జరిమానాలు';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'ఒక వర్గంలోని మెరుగైన ఉత్పత్తులకు బహుమతి ఇవ్వడానికి, మేము అనేక ప్రమాణాల ఆధారంగా బోనస్‌లు & జరిమానాలను వర్తింపజేస్తాము:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4323,7 +4321,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'పదార్థాల మూలం ఆధారంగా బోనస్ ఇవ్వబడుతుంది. ఈ బోనస్ రవాణాపై ప్రభావాన్ని మరియు ప్రతి ఉత్పత్తిదారు దేశం యొక్క పర్యావరణ విధానాన్ని కూడా పరిగణనలోకి తీసుకుంటుంది.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4346,27 +4344,27 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'గ్రీన్-స్కోర్‌ను ఖచ్చితంగా లెక్కించడానికి, ప్యాకేజింగ్‌లో తప్పనిసరిగా పేర్కొనబడని సమాచారం (ప్రతి పదార్ధం యొక్క మూలం మరియు ఖచ్చితమైన శాతం వంటివి) లేదా ఉపయోగించదగిన రూపంలో అరుదుగా లభించే సమాచారం (ఉపయోగించిన ప్లాస్టిక్‌ల యొక్క ఖచ్చితమైన రకాలతో ప్యాకేజింగ్‌లోని అన్ని భాగాల జాబితా వంటివి) కలిగి ఉండటం అవసరం.';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'ఈ సమాచారం ఇంకా అందుబాటులో లేనప్పుడు సగటు విలువలు ఉపయోగించబడతాయి, కానీ గ్రీన్-స్కోర్‌కి మరియు అనేక ఇతర ఉపయోగాలకు కూడా చాలా ఉపయోగకరంగా ఉండే ఈ సమాచారాన్ని సేకరించడంలో మాకు సహాయం చేయాలని మేము ఇప్పుడు అందరినీ కోరుతున్నాము.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'పౌరులు ఎలా సహాయపడగలరు';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'ఉత్పత్తులపై ఉన్న లేదా వాటి నుండి తీసుకోగల సమాచారాన్ని సేకరించి, నిర్మాణం చేయడంలో అన్ని పౌరులు మాకు సహాయపడగలరు, ఉదాహరణకు ప్యాకేజింగ్ సమాచారం: మిషన్ ఎంబాలేజెస్: అన్ని ఆహార ఉత్పత్తుల కోసం ప్యాకేజింగ్ యొక్క పెద్ద-స్థాయి సహకార జాబితా (ఫ్రెంచ్‌లో)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'తయారీదారులు ఎలా సహాయపడగలరు';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'తయారీదారులు మా ఉచిత ఉత్పత్తిదారుల వేదిక ద్వారా తమ సమాచారాన్ని మాకు నేరుగా పంపవచ్చు.';
 
   @override
   String get guide_greenscore_share_link =>

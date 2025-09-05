@@ -4216,41 +4216,40 @@ class AppLocalizationsCv extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'Симӗс балл мӗн вӑл?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score — логотип, вӑл сире **апат-ҫимӗҫ тавралӑха мӗнле витӗм кӳни** ҫинчен пӗлтерме тӑрӑшать.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Тӗс кодӗ **чи сахал витӗмлӗ** продуктсемшӗн тӗксӗм симӗсрен (**A+**) пуҫласа **чи витӗмлӗ** продуктсемшӗн тӗксӗм хӗрлӗ (**F**) таран улшӑнать.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Green-Score логотипӗсем';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Тӗп шухӑшӗ: пурнӑҫ циклне хак пани (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Апат-ҫимӗҫ категорийӗсене наука тӗлӗшӗнчен хак пани';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Кашни продукт категорийӗ валли Agribalyse тавралӑх базинчи (ADEME тата INRAE хатӗрленӗ) даннӑйсемпе усӑ курса **бенчмарк** баллне палӑртаҫҫӗ.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Пурнӑҫ циклӗн анализӗ** — нумай тапхӑрлӑ тата нумай критериллӗ тавралӑх хаклавне туса пымалли стандартизациленӗ хаклав меслечӗ.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Вӑл виҫет:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 производство тапхӑрӗ';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4272,40 +4271,40 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 тавралӑха витӗм кӳрекен кӑтартусем';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Климат улшӑнӑвӗ/углерод йӗрӗ';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Озон сийӗ чакни';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Ионизацилекен радиаци';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Çӗр';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Шывпа тата энергипе усӑ курасси';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Сывлӑша вараласси';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Тинӗс тата тӑварсӑр шыв (пайӑркасем, йӳҫекленӳ, эвтрофикаци)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Ресурссем пӗтни.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Премисемпе штрафсем';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Пӗр-пӗр категорире лайӑхрах продукцие хавхалантарма эпир унтан темиҫе критери тӑрӑх премисемпе штрафсем паратпӑр:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4321,7 +4320,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Ингредиентсем ӑҫтан тухнине кура бонус параҫҫӗ. Ку преми транспорт ҫине мӗнле витӗм кӳнине тата кашни производитель ҫӗршывӗн экологи политикине шута илет.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4344,27 +4343,27 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Green-Score тӗрӗс шутласа кӑларма упаковкӑра палӑртман информаци (сӑмахран, кашни ингредиентӑн ӑҫтан тухни тата унӑн тӗрӗс процентӗ) е усӑ курма юрӑхлӑ формӑра сайра тӗл пулакан (сӑмахран, упаковкӑн мӗнпур компоненчӗсен списокӗпе усӑ курнӑ пластикӑн тӗрӗс тӗсӗсем) пулмалла.';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Вӑтам хаксемпе ҫак информаци ҫук чухне усӑ кураҫҫӗ, анчах эпир халӗ пурне те ҫак информацие пухма пулӑшма чӗнетпӗр, вӑл Green-Score валли те, ытти нумай ӗҫре те питӗ усӑллӑ пулӗ.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Граждансем мӗнле пулӑшма пултараҫҫӗ';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Пур граждансем те пире продукци ҫинчен е унран пӗлме пултаракан информацие пухма тата йӗркелеме пулӑшма пултараҫҫӗ, сӑмахран, упаковка ҫинчен калакан информацие: Mission Emballages: пур апат-ҫимӗҫ продукчӗсен упаковкасен пысӑк масштаблӑ пӗрлехи инвентаризацийӗ (французла)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Производительсем мӗнле пулӑшма пултараҫҫӗ';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Производительсем хӑйсен информацине пире тӳрех пирӗн производительсем валли тунӑ тӳлевсӗр платформа урлӑ ярса пама пултараҫҫӗ.';
 
   @override
   String get guide_greenscore_share_link =>

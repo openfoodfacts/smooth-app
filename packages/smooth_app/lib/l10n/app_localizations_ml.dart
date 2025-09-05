@@ -4218,40 +4218,39 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'എന്താണ് ഗ്രീൻ സ്കോർ?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      '**ഭക്ഷണത്തിന്റെ പാരിസ്ഥിതിക ആഘാതം** നിങ്ങളെ അറിയിക്കാൻ ലക്ഷ്യമിട്ടുള്ള ഒരു ലോഗോയാണ് ഗ്രീൻ-സ്കോർ.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'ഏറ്റവും കുറഞ്ഞ സ്വാധീനമുള്ള** ഉൽപ്പന്നങ്ങൾക്ക് കടും പച്ച (**A+**) മുതൽ **ഏറ്റവും സ്വാധീനമുള്ള** ഉൽപ്പന്നങ്ങൾക്ക് കടും ചുവപ്പ് (**F**) വരെ വർണ്ണ കോഡ് വ്യത്യാസപ്പെടുന്നു.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'ഗ്രീൻ-സ്കോർ ലോഗോകൾ';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'കാതൽ: ജീവിതചക്ര വിലയിരുത്തൽ (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'ഭക്ഷ്യ വിഭാഗങ്ങളുടെ ശാസ്ത്രീയ വിലയിരുത്തൽ';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'ഓരോ ഉൽപ്പന്ന വിഭാഗത്തിനും, Agribalyse പരിസ്ഥിതി ഡാറ്റാബേസിൽ നിന്നുള്ള ഡാറ്റ (ADEME ഉം INRAE ഉം രൂപകൽപ്പന ചെയ്തത്) ഉപയോഗിച്ച് ഒരു **ബെഞ്ച്മാർക്ക്** സ്കോർ സ്ഥാപിക്കുന്നു.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**ജീവിതചക്ര വിശകലനം** എന്നത് ഒരു മൾട്ടി-സ്റ്റേജ്, മൾട്ടി-മാനദണ്ഡ പരിസ്ഥിതി വിലയിരുത്തൽ നടത്തുന്നതിനുള്ള ഒരു സ്റ്റാൻഡേർഡ് വിലയിരുത്തൽ രീതിയാണ്.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**ഇത് അളക്കുന്നത്:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 നിർമ്മാണ ഘട്ടങ്ങൾ';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4272,41 +4271,41 @@ class AppLocalizationsMl extends AppLocalizations {
   String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 പാരിസ്ഥിതിക ആഘാത സൂചകങ്ങൾ';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'കാലാവസ്ഥാ വ്യതിയാനം/കാർബൺ കാൽപ്പാടുകൾ';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'ഓസോൺ പാളിയുടെ ശോഷണം';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'അയോണൈസിംഗ് റേഡിയേഷൻ';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'രാജ്യം';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 =>
+      'ജലത്തിന്റെയും ഊർജ്ജത്തിന്റെയും ഉപയോഗം';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'വായു മലിനീകരണം';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'സമുദ്രജലവും ശുദ്ധജലവും (കണികകൾ, അമ്ലീകരണം, യൂട്രോഫിക്കേഷൻ)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'വിഭവങ്ങളുടെ കുറവ്.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'ബോണസുകളും പിഴകളും';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'ഒരു വിഭാഗത്തിലെ മികച്ച ഉൽപ്പന്നങ്ങൾക്ക് പ്രതിഫലം നൽകുന്നതിന്, നിരവധി മാനദണ്ഡങ്ങൾ അടിസ്ഥാനമാക്കി ഞങ്ങൾ ബോണസുകളും പിഴകളും പ്രയോഗിക്കുന്നു:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4322,7 +4321,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'ചേരുവകളുടെ ഉത്ഭവത്തെ അടിസ്ഥാനമാക്കിയാണ് ബോണസ് നൽകുന്നത്. ഓരോ നിർമ്മാതാവിന്റെയും രാജ്യത്തിന്റെ ഗതാഗതത്തിലും പരിസ്ഥിതി നയത്തിലും ഉണ്ടാകുന്ന ആഘാതം കണക്കിലെടുത്താണ് ഈ ബോണസ് നൽകുന്നത്.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4345,27 +4344,27 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'ഗ്രീൻ-സ്കോർ കൃത്യമായി കണക്കാക്കാൻ, പാക്കേജിംഗിൽ നിർബന്ധമായും വ്യക്തമാക്കിയിട്ടില്ലാത്ത വിവരങ്ങൾ (ഓരോ ചേരുവയുടെയും ഉത്ഭവസ്ഥാനവും കൃത്യമായ ശതമാനവും പോലുള്ളവ) അല്ലെങ്കിൽ ഉപയോഗയോഗ്യമായ രൂപത്തിൽ അപൂർവ്വമായി മാത്രം ലഭ്യമായ വിവരങ്ങൾ (ഉദാഹരണത്തിന്, പാക്കേജിംഗിലെ എല്ലാ ഘടകങ്ങളുടെയും, ഉപയോഗിക്കുന്ന പ്ലാസ്റ്റിക്കുകളുടെ കൃത്യമായ തരങ്ങളും അടങ്ങിയ ഒരു ലിസ്റ്റ്) ഉണ്ടായിരിക്കേണ്ടത് ആവശ്യമാണ്.';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'ഈ വിവരങ്ങൾ ഇതുവരെ ലഭ്യമല്ലാത്തപ്പോൾ ശരാശരി മൂല്യങ്ങൾ ഉപയോഗിക്കുന്നു, എന്നാൽ ഗ്രീൻ-സ്കോറിനും മറ്റ് പല ഉപയോഗങ്ങൾക്കും വളരെ ഉപയോഗപ്രദമാകുന്ന ഈ വിവരങ്ങൾ ശേഖരിക്കാൻ ഞങ്ങളെ സഹായിക്കാൻ ഞങ്ങൾ ഇപ്പോൾ എല്ലാവരോടും അഭ്യർത്ഥിക്കുന്നു.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'പൗരന്മാർക്ക് എങ്ങനെ സഹായിക്കാനാകും';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'ഉൽപ്പന്നങ്ങളിൽ അടങ്ങിയിരിക്കുന്നതോ അവയിൽ നിന്ന് അനുമാനിക്കാവുന്നതോ ആയ വിവരങ്ങൾ ശേഖരിക്കാനും ഘടനാപരമായി ക്രമീകരിക്കാനും എല്ലാ പൗരന്മാർക്കും ഞങ്ങളെ സഹായിക്കാനാകും, ഉദാഹരണത്തിന് പാക്കേജിംഗിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ: മിഷൻ എംബാലേജുകൾ: എല്ലാ ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾക്കുമുള്ള പാക്കേജിംഗിന്റെ വലിയ തോതിലുള്ള സഹകരണ ഇൻവെന്ററി (ഫ്രഞ്ചിൽ)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'നിർമ്മാതാക്കൾക്ക് എങ്ങനെ സഹായിക്കാനാകും';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'നിർമ്മാതാക്കൾക്ക് ഞങ്ങളുടെ നിർമ്മാതാക്കൾക്കായുള്ള സൗജന്യ പ്ലാറ്റ്‌ഫോം വഴി അവരുടെ വിവരങ്ങൾ നേരിട്ട് ഞങ്ങൾക്ക് അയയ്ക്കാൻ കഴിയും.';
 
   @override
   String get guide_greenscore_share_link =>

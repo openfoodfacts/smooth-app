@@ -4218,40 +4218,40 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Beth yw\'r Sgôr Werdd?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Mae\'r Sgôr Werdd yn logo sy\'n ceisio rhoi gwybod i chi am **effaith amgylcheddol bwyd**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Mae\'r cod lliw yn amrywio o wyrdd tywyll (**A+**) ar gyfer y cynhyrchion **sydd â\'r effaith leiaf** i goch tywyll (**F**) ar gyfer y cynhyrchion **sydd â\'r effaith fwyaf**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Logos y Sgôr Gwyrdd';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Y craidd: Asesiad cylch bywyd (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Gwerthusiad gwyddonol o gategorïau bwyd';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Ar gyfer pob categori cynnyrch, sefydlir sgôr **meincnod** gan ddefnyddio data o gronfa ddata amgylcheddol Agribalyse (a ddyluniwyd gan ADEME ac INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      'Mae **dadansoddiad cylch bywyd** yn ddull asesu safonol ar gyfer cynnal asesiad amgylcheddol aml-gam ac aml-feini prawf.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Mae\'n mesur:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 cham cynhyrchu';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4273,40 +4273,40 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 dangosydd effaith amgylcheddol';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Newid hinsawdd/ôl troed carbon';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Gwanhau\'r haen osôn';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Ymbelydredd ïoneiddio';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Tir';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Defnydd dŵr ac ynni';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Llygredd aer';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Dŵr môr a dŵr croyw (gronynnau, asideiddio, ewtroffeiddio)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Diffyg adnoddau.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonysau a chosbau';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'I wobrwyo cynhyrchion gwell o fewn categori, yna rydym yn rhoi bonysau a chosbau yn seiliedig ar sawl maen prawf:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4322,7 +4322,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Dyfernir bonws yn seiliedig ar darddiad y cynhwysion. Mae\'r bonws hwn yn ystyried yr effaith ar gludiant a hefyd polisi amgylcheddol gwlad pob cynhyrchydd.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4345,27 +4345,27 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Er mwyn cyfrifo\'r Sgôr Werdd yn gywir, mae angen cael gwybodaeth nad yw o reidrwydd wedi\'i nodi ar y pecynnu (megis tarddiad a chanran union pob cynhwysyn) neu sydd anaml ar gael mewn ffurf ddefnyddiadwy (megis rhestr o holl gydrannau\'r pecynnu gyda\'r union fathau o blastigion a ddefnyddir).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Defnyddir gwerthoedd cyfartalog pan nad yw\'r wybodaeth hon ar gael eto, ond rydym nawr yn galw ar bawb i\'n helpu i gasglu\'r wybodaeth hon a fydd yn ddefnyddiol iawn ar gyfer y Sgôr Werdd ond hefyd ar gyfer llawer o ddefnyddiau eraill.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Sut gall dinasyddion helpu';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Gall pob dinesydd ein helpu i gasglu a strwythuro\'r wybodaeth sydd ar gael ar gynhyrchion neu y gellir ei chasglu ohonynt, fel gwybodaeth ar becynnu: Mission Emballages: rhestr eiddo gydweithredol ar raddfa fawr o becynnu ar gyfer pob cynnyrch bwyd (yn Ffrangeg)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Sut gall gweithgynhyrchwyr helpu';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Gall gweithgynhyrchwyr anfon eu gwybodaeth atom yn uniongyrchol drwy ein platfform am ddim i gynhyrchwyr.';
 
   @override
   String get guide_greenscore_share_link =>

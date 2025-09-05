@@ -4260,7 +4260,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Ambalaža';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4318,7 +4318,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Poreklo sastojaka';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
@@ -4333,7 +4333,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Ambalaža';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>

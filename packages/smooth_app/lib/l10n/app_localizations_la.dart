@@ -4217,40 +4217,40 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Quid est Punctum Viridis?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Insigne \"Green-Score\" est quod te de **impactu ciborum in ambientem** certiorem facere propositum habet.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Color variat a viridi obscuro (**A+**) pro rebus **minime impactantibus** ad rubrum obscurum (**F**) pro rebus **maxime impactantibus**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Insignia Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Nucleus: Aestimatio cycli vitae (ACV)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Aestimatio scientifica categoriarum ciborum';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Pro singulis categoriis productorum, mensura **benchmark** constituitur utens datis ex indice datorum de rebus environmentalibus Agribalyse (ab ADEME et INRAE designato).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Analysis cycli vitae** est methodus aestimationis normata ad perficiendam aestimationem environmentalem multi-stadialem et multi-criterialem.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Metitur:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => 'Sex gradus productionis';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4272,40 +4272,40 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      'Quattuordecim indices impactus environmentalis';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Mutatio climatis/vestigium carbonis';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Depletio strati ozoni';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Radiatio ionizans';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Terra';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Usus aquae et energiae';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Pollutio aeris';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Aqua marina et dulcis (particulae, acidificatio, eutrophicatio)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Depletio opum.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Praemia et poenae';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Ut meliora producta intra categoriam praemientur, deinde praemia et poenas secundum plura criteria adhibemus:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4321,7 +4321,7 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Praemium secundum originem ingredientium tribuitur. Hoc praemium et effectum in transportationem et etiam rationem rerum naturalium cuiusque patriae productoris considerat.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4344,27 +4344,27 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Ad accurate Viridis Punctum computandum, necesse est habere informationem quae non necessario in involucro specificatur (velut origo et exacta proportio cuiusque ingredientis) vel quae raro in forma utili praesto est (velut index omnium partium involucri cum generibus precisis plasticarum adhibitarum).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Valores medii adhibentur cum hae informationes nondum praesto sunt, sed nunc omnes ad auxilium nostrum in colligendis his informationibus, quae non solum non solum pro Green-Score sed etiam pro multis aliis usibus perutilis erit, rogamus.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Quomodo cives adiuvare possint';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Omnes cives nobis auxilium ferre possunt ad informationem, quae in productis adest vel ex eis deduci potest, colligendam et ordinandam: Mission Emballages: inventarium collaborativum amplum involucrorum omnium productorum alimentariorum (Francogallice).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Quomodo fabri adiuvare possunt';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Fabricatores nobis suas informationes directe per suggestum nostrum gratuitum fabricatoribus destinatum mittere possunt.';
 
   @override
   String get guide_greenscore_share_link =>

@@ -4219,96 +4219,94 @@ class AppLocalizationsMs extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'Apakah Skor Hijau?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'The Green-Score ialah logo yang bertujuan untuk memberitahu anda tentang **impak alam sekitar makanan**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Kod warna berbeza daripada hijau tua (**A+**) untuk produk **paling berkesan** kepada merah gelap (**F**) untuk produk **paling berkesan**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Logo Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Teras: Penilaian kitaran hayat (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Penilaian saintifik bagi kategori makanan';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Untuk setiap kategori produk, skor **penanda aras** diwujudkan menggunakan data daripada pangkalan data alam sekitar Agribalyse (reka bentuk oleh ADEME dan INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Analisis kitaran hayat** ialah kaedah penilaian piawai untuk menjalankan penilaian alam sekitar berbilang peringkat dan berbilang kriteria.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Ia mengukur:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 langkah pengeluaran';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'Pertanian';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'Pemprosesan';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Pembungkusan';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'Pangangkutan';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'Pengedaran';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Penggunaan';
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 penunjuk kesan alam sekitar';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Perubahan iklim/jejak karbon';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Penipisan lapisan ozon';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Sinaran mengion';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Tanah';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Penggunaan air & tenaga';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Pencemaran udara';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Marin & air tawar (zarah, pengasidan, eutrofikasi)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Kehabisan sumber.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonus & penalti';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Untuk memberi ganjaran kepada produk yang lebih baik dalam kategori, kami kemudiannya menggunakan bonus & penalti berdasarkan beberapa kriteria:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4320,11 +4318,11 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Asal-usul bahan ramuan';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Bonus diberikan berdasarkan asal bahan. Bonus ini mengambil kira impak ke atas pengangkutan dan juga dasar alam sekitar setiap negara pengeluar.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4335,11 +4333,11 @@ class AppLocalizationsMs extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Pembungkusan';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'Sesuatu penalti dikira dengan mengambil kira pengitaran semula pembungkusan (penggunaan bahan mentah yang dikitar semula dan kebolehkitaran semula) dan pembungkusan berlebihan.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4347,27 +4345,27 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Untuk mengira Skor Hijau dengan tepat, adalah perlu untuk mempunyai maklumat yang tidak semestinya dinyatakan pada pembungkusan (seperti asal usul dan peratusan tepat setiap ramuan) atau yang jarang didapati dalam bentuk yang boleh digunakan (seperti senarai semua komponen pembungkusan dengan jenis plastik yang tepat digunakan).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Nilai purata digunakan apabila maklumat ini belum tersedia, tetapi kami kini menyeru semua orang untuk membantu kami mengumpul maklumat ini yang akan sangat berguna untuk Green-Score tetapi juga untuk banyak kegunaan lain.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Bagaimana rakyat boleh membantu';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Semua rakyat boleh membantu kami mengumpulkan dan menyusun maklumat yang terdapat pada produk atau yang boleh disimpulkan daripadanya, seperti maklumat tentang pembungkusan: Mission Emballages: inventori pembungkusan kerjasama berskala besar untuk semua produk makanan (dalam bahasa Perancis)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Bagaimana pengilang boleh membantu';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Pengilang boleh menghantar maklumat mereka terus kepada kami melalui platform percuma kami untuk pengeluar.';
 
   @override
   String get guide_greenscore_share_link =>

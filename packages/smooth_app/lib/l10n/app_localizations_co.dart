@@ -4219,40 +4219,40 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Chì ghjè u Puntu Verde?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'U Green-Score hè un logu chì hà per scopu d\'informà vi nantu à l\'impattu ambientale di l\'alimentu.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'U codice di culore varieghja da u verde scuru (**A+**) per i prudutti **menu impattanti** à u rossu scuru (**F**) per i prudutti **più impattanti**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'I loghi di Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'U core: Valutazione di u ciclu di vita (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Una valutazione scientifica di e categurie alimentarie';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Per ogni categuria di prudutti, un puntuatu di **riferimentu** hè stabilitu aduprendu i dati di a basa di dati ambientale Agribalyse (cuncipita da ADEME è INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      'L\'analisi di u ciclu di vita hè un metudu di valutazione standardizatu per realizà una valutazione ambientale multi-stadio è multi-criteriu.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Misura:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 tappe di pruduzzione';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4274,40 +4274,41 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 indicatori d\'impattu ambientale';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Cambiamentu climaticu / impronta di carbone';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 =>
+      'Deplezione di u stratu d\'ozonu';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Radiazioni ionizzanti';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Terra';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Cunsumu d\'acqua è d\'energia';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Inquinamentu di l\'aria';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Acqua marina è dolce (particelle, acidificazione, eutrofizazione)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Esaurimentu di e risorse.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonus è penalità';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Per ricumpensà i prudutti megliu in una categuria, applichemu bonus è penalità basati annantu à parechji criteri:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4323,7 +4324,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Un bonus hè attribuitu secondu l\'origine di l\'ingredienti. Stu bonus tene contu di l\'impattu nant\'à u trasportu è ancu di a pulitica ambientale di u paese di ogni pruduttore.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4346,27 +4347,27 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Per calculà currettamente u Green-Score, hè necessariu avè infurmazioni chì ùn sò micca necessariamente specificate nantu à l\'imballu (cum\'è l\'origine è a percentuale esatta di ogni ingrediente) o chì sò raramente dispunibili in forma utilizabile (cum\'è una lista di tutti i cumpunenti di l\'imballu cù i tipi precisi di plastiche aduprate).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'I valori medi sò aduprati quandu sta infurmazione ùn hè ancu dispunibile, ma avà facemu un appellu à tutti per aiutà ci à raccoglie sta infurmazione chì serà assai utile per u Green-Score ma ancu per parechji altri usi.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Cumu i citadini ponu aiutà';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Tutti i citadini ci ponu aiutà à raccoglie è strutturà l\'infurmazioni prisenti nantu à i prudutti o chì si ponu deduce da elli, cum\'è l\'infurmazioni nantu à l\'imballaggi: Mission Emballages: un inventariu collaborativu à grande scala di l\'imballaggi per tutti i prudutti alimentari (in francese)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Cumu i pruduttori ponu aiutà';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'I pruduttori ponu mandà ci e so informazioni direttamente per mezu di a nostra piattaforma gratuita per i pruduttori.';
 
   @override
   String get guide_greenscore_share_link =>

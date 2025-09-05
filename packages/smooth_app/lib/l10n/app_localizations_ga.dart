@@ -4219,41 +4219,40 @@ class AppLocalizationsGa extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'Cad é an Scór Glas?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Is lógó é an Scór Glas a bhfuil sé mar aidhm aige tú a chur ar an eolas faoi **thionchar comhshaoil bia**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Athraíonn an cód datha ó ghlas dorcha (**A+**) do na táirgí **is lú tionchar** go dearg dorcha (**F**) do na táirgí **is mó tionchar**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Lógónna an Scóir Ghlais';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'An croílár: Measúnú timthriall saoil (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Meastóireacht eolaíoch ar chatagóirí bia';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'I gcás gach catagóire táirgí, bunaítear scór **tagarmharcála** ag baint úsáide as sonraí ó bhunachar sonraí comhshaoil Agribalyse (arna dhearadh ag ADEME agus INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      'Is modh measúnaithe caighdeánaithe é **anailís timthriall saoil** chun measúnú comhshaoil ilchéime agus ilchritéir a dhéanamh.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Tomhaiseann sé:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 chéim táirgthe';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4275,40 +4274,39 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 tháscaire tionchair chomhshaoil';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'Athrú aeráide/lorg carbóin';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Ídiú ciseal ózóin';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Radaíocht ianúcháin';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Talamh';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Úsáid uisce agus fuinnimh';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Truailliú aeir';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Uisce mara & úr (cáithníní, aigéadú, eotrófú)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Ídiú acmhainní.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bónais & pionóis';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Chun luach saothair a thabhairt do tháirgí níos fearr laistigh de chatagóir, cuirimid bónais agus pionóis i bhfeidhm bunaithe ar roinnt critéar:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4324,7 +4322,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Bronntar bónas bunaithe ar bhunús na gcomhábhar. Cuireann an bónas seo san áireamh an tionchar atá aige ar iompar agus beartas comhshaoil thír gach táirgeora chomh maith.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4347,27 +4345,27 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Chun an Scór Glas a ríomh go cruinn, is gá faisnéis a bheith ann nach bhfuil sonraithe ar an bpacáistiú (amhail bunús agus céatadán cruinn gach comhábhair) nó nach mbíonn ar fáil go minic i bhfoirm inúsáidte (amhail liosta de chomhpháirteanna uile an phacáistithe leis na cineálacha beachta plaisteach a úsáidtear).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Úsáidtear meánluachanna nuair nach bhfuil an fhaisnéis seo ar fáil go fóill, ach táimid ag iarraidh ar gach duine anois cabhrú linn an fhaisnéis seo a bhailiú a bheidh an-úsáideach don Scór Glas ach le haghaidh go leor úsáidí eile freisin.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Conas is féidir le saoránaigh cabhrú';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Is féidir le gach saoránach cabhrú linn an fhaisnéis atá i láthair ar tháirgí nó is féidir a bhaint astu a bhailiú agus a struchtúrú, amhail faisnéis ar phacáistiú: Mission Emballages: fardal comhoibríoch ar scála mór ar phacáistiú do gach táirge bia (i bhFraincis)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Conas is féidir le monaróirí cabhrú';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Is féidir le monaróirí a gcuid faisnéise a sheoladh chugainn go díreach tríd ár n-ardán saor in aisce do tháirgeoirí.';
 
   @override
   String get guide_greenscore_share_link =>

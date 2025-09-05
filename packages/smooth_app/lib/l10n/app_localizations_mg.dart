@@ -4221,40 +4221,40 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Inona ny Green Score?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Ny Green-Score dia logo izay mikendry ny hampahafantatra anao ny **fiantraikany amin\'ny tontolo iainana**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Ny kaody loko dia miovaova manomboka amin\'ny maitso maizina (**A+**) ho an\'ny vokatra **tsy misy fiatraikany** ka hatramin\'ny mena maizina (**F**) ho an\'ny vokatra **miantraika indrindra**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Ny logos Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Ny fototra: fanombanana ny tsingerin\'ny fiainana (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Fanombanana ara-tsiansa ny sokajy sakafo';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Ho an\'ny sokajy vokatra tsirairay dia misy isa **marika** apetraka amin\'ny alalan\'ny angona avy amin\'ny angona momba ny tontolo iainana Agribalyse (naorin\'i ADEME sy INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Ny famakafakana ny tsingerin\'ny fiainana** dia fomba fanombanana manara-penitra amin\'ny fanatanterahana ny fanombanana ara-tontolo iainana misy dingana maro sy fepetra maro.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Mandrefy:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 dingana famokarana';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4263,7 +4263,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Fonosana';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4276,40 +4276,41 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 famantarana ny fiantraikany amin\'ny tontolo iainana';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Fiovan\'ny toetr\'andro/dian\'ny karbôna';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Fanimbana sosona ozon';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Taratra ionizing';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Tany';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Fampiasana rano sy angovo';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Fandotoana ny rivotra';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Rano an-dranomasina sy madio (partikely, acidification, eutrophication)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 =>
+      'Fanimbana ny loharanon-karena.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Bonus sy sazy';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Mba hanomezana valisoa vokatra tsara kokoa ao anatin\'ny sokajy iray, dia mampihatra tambiny sy sazy mifototra amin\'ny fepetra maromaro izahay:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4325,7 +4326,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Ny bonus dia omena arakaraka ny niandohan\'ny akora. Ity bonus ity dia mirakitra ny fiantraikan\'ny fitaterana ary koa ny politika momba ny tontolo iainana any amin\'ny firenena mpamokatra tsirairay.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4336,7 +4337,7 @@ class AppLocalizationsMg extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Fonosana';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4348,27 +4349,27 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Mba hanaovana kajy marina ny Green-Score, dia ilaina ny manana fampahalalana izay tsy voatery voafaritra ao amin\'ny fonosana (toy ny fiaviana sy ny isan-jaton\'ny akora tsirairay) na izay tsy dia misy amin\'ny endrika azo ampiasaina (toy ny lisitry ny singa rehetra amin\'ny fonosana miaraka amin\'ireo karazana plastika ampiasaina).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Ny soatoavina antonony dia ampiasaina rehefa tsy mbola misy ity fampahalalana ity, saingy miantso ny rehetra izahay ankehitriny mba hanampy anay hanangona ity fampahalalana ity izay tena ilaina ho an\'ny Green-Score fa koa ho an\'ny fampiasana maro hafa.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Ahoana no ahafahan\'ny olom-pirenena manampy';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Ny olom-pirenena rehetra dia afaka manampy antsika hanangona sy handrafetana ny vaovao misy eo amin\'ny vokatra na azo tsoahina avy amin\'izy ireo, toy ny fampahalalana momba ny fonosana: Mission Emballages: firaketana fiaraha-miasa lehibe momba ny fonosana ho an\'ny vokatra sakafo rehetra (amin\'ny teny frantsay)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Ahoana no ahafahan\'ny mpanamboatra manampy';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Ny mpanamboatra dia afaka mandefa mivantana ny mombamomba azy amin\'ny alàlan\'ny sehatra maimaim-poana ho an\'ny mpamokatra.';
 
   @override
   String get guide_greenscore_share_link =>

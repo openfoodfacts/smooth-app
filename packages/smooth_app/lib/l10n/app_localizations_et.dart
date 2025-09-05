@@ -4217,40 +4217,39 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Mis on roheline punktisumma?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Green-Score on logo, mille eesmärk on teavitada teid **toidu keskkonnamõjust**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Värvikood varieerub tumerohelisest (**A+**) **kõige väiksema mõjuga** toodete puhul tumepunaseni (**F**) **kõige suurema mõjuga** toodete puhul.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Green-Score\'i logod';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'Tuum: elutsükli hindamine (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Toidukategooriate teaduslik hindamine';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'Iga tootekategooria jaoks määratakse **võrdlusnäitaja**, kasutades Agribalyse\'i keskkonnaandmebaasi (ADEME ja INRAE loodud) andmeid.';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Elutsükli analüüs** on standardiseeritud hindamismeetod mitmeastmelise ja mitmekriteeriumilise keskkonnamõju hindamise läbiviimiseks.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**See mõõdab:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 tootmisetappi';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4271,41 +4270,41 @@ class AppLocalizationsEt extends AppLocalizations {
   String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 keskkonnamõju näitajat';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Kliimamuutused/süsiniku jalajälg';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Osoonikihi kahanemine';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Ioniseeriv kiirgus';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Maa';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Vee ja energia tarbimine';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Õhu saastamine';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Mere- ja magevesi (osakesed, hapestumine, eutrofeerumine)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Ressursside ammendumine.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Boonused ja karistused';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'Paremate toodete premeerimiseks kategoorias rakendame boonuseid ja karistusi mitme kriteeriumi alusel:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4321,7 +4320,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'Boonust antakse koostisosade päritolu alusel. See boonus võtab arvesse transpordimõju ja iga tootja riigi keskkonnapoliitikat.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4344,27 +4343,27 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Rohelise skoori täpseks arvutamiseks on vaja teavet, mis ei ole pakendil tingimata märgitud (näiteks iga koostisosa päritolu ja täpne protsent) või mis on harva kättesaadav kasutataval kujul (näiteks pakendi kõigi komponentide loetelu koos kasutatud plastide täpsete tüüpidega).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'Kui see teave pole veel saadaval, kasutatakse keskmisi väärtusi, kuid nüüd kutsume kõiki üles aitama meil seda teavet koguda, mis on väga kasulik nii Green-Score\'i kui ka paljude muude otstarvete jaoks.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'Kuidas kodanikud saavad aidata';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'Kõik kodanikud saavad aidata meil koguda ja struktureerida toodetel olevat või neist tuletatavat teavet, näiteks pakendil olevat teavet: Mission Emballages: ulatuslik ühine pakendiinventuur kõikide toiduainete jaoks (prantsuse keeles)';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Kuidas tootjad saavad aidata';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Tootjad saavad meile oma teabe otse meie tasuta tootjatele mõeldud platvormi kaudu saata.';
 
   @override
   String get guide_greenscore_share_link =>

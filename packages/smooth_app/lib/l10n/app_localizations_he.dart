@@ -4204,155 +4204,148 @@ class AppLocalizationsHe extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'מהו הציון הירוק?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'ה-Green-Score הוא לוגו שמטרתו ליידע אתכם על **ההשפעה הסביבתית של מזון**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'קוד הצבעים משתנה מירוק כהה (**A+**) עבור המוצרים **בעלי ההשפעה הפחותה** ועד אדום כהה (**F**) עבור המוצרים **בעלי ההשפעה המשמעותית ביותר**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'הלוגואים של גרין-סקור';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => 'הליבה: הערכת מחזור חיים (LCA)';
 
   @override
-  String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+  String get guide_greenscore_lca_arg1_title => 'הערכה מדעית של קטגוריות מזון';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'עבור כל קטגוריית מוצרים, נקבע ציון **בנצ\'מרק** באמצעות נתונים ממסד הנתונים הסביבתי Agribalyse (שעוצב על ידי ADEME ו-INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**ניתוח מחזור חיים** היא שיטת הערכה סטנדרטית לביצוע הערכה סביבתית רב-שלבית ורב-קריטריונים.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**זה מודד:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 שלבי ייצור';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'חקלאות';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'עיבוד';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'אריזה';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'שינוע';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'הפצה';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'צריכה';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14 מדדי השפעה סביבתית';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => 'שינויי אקלים/טביעת רגל פחמנית';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'דלדול שכבת האוזון';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'קרינה מייננת';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'אֶרֶץ';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'צריכת מים ואנרגיה';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'זיהום אוויר';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'מים ימיים ומתוקים (חלקיקים, החמצה, איטרופיקציה)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'דלדול משאבים.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'בונוסים ועונשים';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'כדי לתגמל מוצרים טובים יותר בתוך קטגוריה מסוימת, אנו מיישמים בונוסים ועונשים על סמך מספר קריטריונים:';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg1_title =>
-      'Mode of production';
+  String get guide_greenscore_bonuses_penalties_arg1_title => 'מצב הייצור';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'בונוס מוענק למוצרים שיש להם תווית רשמית, תווית או אישור שמבטיחים יתרונות סביבתיים (אורגני, סחר הוגן, ערך סביבתי גבוה, תווית אדומה צרפתית, Bleu Blanc Cœur - לב כחול לבן, MSC/ASC).';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+  String get guide_greenscore_bonuses_penalties_arg2_title => 'מקור הרכיבים';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      'בונוס מוענק על סמך מקור המרכיבים. בונוס זה לוקח בחשבון את ההשפעה על התחבורה וגם את המדיניות הסביבתית של כל מדינה של יצרן.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
-      'Endangered species';
+      'זנים בסכנת הכחדה';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'ציון לרעה ניתן למוצרים שמכילים מוצרים שיש להם השפעות שליליות על מגוון ביולוגי ועל מערכות סביבתיות, כגון שמן דקלים, שהייצור שלו אחראי על בירוא יערות נרחב.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'אריזה';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'ציון לרעה מחושב כדי לקחת בחשבון את מיחזוריות האריזה (שימוש בחומר גולמי ומתמחזר) לצד אריזת יתר.';
 
   @override
   String get guide_greenscore_transparency_title =>
-      'An increased need for transparency to better measure and reduce environmental impacts';
+      'צורך גובר בשקיפות למדידה טובה יותר והפחתת ההשפעה הסביבתית';
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'כדי לחשב במדויק את הציון הירוק, יש צורך במידע שאינו בהכרח מצוין על האריזה (כגון המקור והאחוז המדויק של כל מרכיב) או מידע שכמעט ולא זמין בצורה שמישה (כגון רשימה של כל רכיבי האריזה עם סוגי הפלסטיק המדויקים שבהם נעשה שימוש).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'ערכים ממוצעים משמשים כאשר מידע זה עדיין אינו זמין, אך כעת אנו קוראים לכולם לעזור לנו לאסוף מידע זה, שיהיה שימושי מאוד עבור ה-Green-Score אך גם עבור שימושים רבים אחרים.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+      'כיצד אזרחים יכולים לעזור';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'כל האזרחים יכולים לעזור לנו לאסוף ולבנות את המידע הקיים על מוצרים או שניתן להסיק מהם, כגון מידע על אריזות: משימה Emballages: מלאי שיתופי בקנה מידה גדול של אריזות לכל מוצרי המזון (בצרפתית).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'כיצד יצרנים יכולים לעזור';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'יצרנים יכולים לשלוח לנו את המידע שלהם ישירות דרך הפלטפורמה החינמית שלנו ליצרנים.';
 
   @override
   String get guide_greenscore_share_link =>

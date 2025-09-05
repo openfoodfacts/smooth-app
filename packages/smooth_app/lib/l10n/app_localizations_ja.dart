@@ -4125,96 +4125,90 @@ class AppLocalizationsJa extends AppLocalizations {
   String get guide_greenscore_title => 'Green-Score';
 
   @override
-  String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+  String get guide_greenscore_what_is_greenscore_title => 'グリーンスコアとは何ですか?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'グリーンスコアは、**食品の環境への影響**について知らせることを目的としたロゴです。';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      '色コードは、**影響が最も少ない** 製品を表す濃い緑 (**A+**) から、**影響が最も大きい** 製品を表す濃い赤 (**F**) まで異なります。';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'グリーンスコアのロゴ';
 
   @override
-  String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+  String get guide_greenscore_lca_title => '核となるのは、ライフサイクルアセスメント（LCA）です。';
 
   @override
-  String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+  String get guide_greenscore_lca_arg1_title => '食品カテゴリーの科学的評価';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      '各製品カテゴリーごとに、Agribalyse 環境データベース (ADEME と INRAE が設計) のデータを使用して **ベンチマーク** スコアが確立されます。';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**ライフサイクル分析** は、多段階かつ多基準の環境評価を実行するための標準化された評価方法です。';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**サイズ:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6つの製造ステップ';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => '農業';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => '加工';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'パッケージング';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => '輸送';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => '流通';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => '消費';
 
   @override
-  String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+  String get guide_greenscore_lca_arg3_title => '14の環境影響指標';
 
   @override
-  String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+  String get guide_greenscore_lca_arg3_text1 => '気候変動/カーボンフットプリント';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'オゾン層の破壊';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => '電離放射線';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => '土地';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => '水とエネルギーの使用';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => '大気汚染';
 
   @override
-  String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+  String get guide_greenscore_lca_arg3_text7 => '海水と淡水（粒子、酸性化、富栄養化）';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => '資源の枯渇。';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'ボーナスとペナルティ';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply bonuses & penalties based on several criterion:';
+      'カテゴリー内でより優れた製品に報酬を与えるために、いくつかの基準に基づいてボーナスとペナルティを適用します。';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4225,12 +4219,11 @@ class AppLocalizationsJa extends AppLocalizations {
       'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+  String get guide_greenscore_bonuses_penalties_arg2_title => '成分の起源';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.';
+      '原材料の原産地に基づいてボーナスが付与されます。このボーナスは、輸送への影響と、各生産国の環境政策を考慮に入れています。';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4241,7 +4234,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'パッケージング';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4253,27 +4246,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'グリーンスコアを正確に計算するには、パッケージに必ずしも明記されていない情報（原産地や各成分の正確な割合など）や、使用可能な形式で入手できることがほとんどない情報（パッケージの全コンポーネントのリストと、使用されているプラスチックの正確な種類など）が必要です。';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      'この情報がまだ入手できない場合は平均値が使用されますが、私たちは現在、グリーンスコアだけでなく他の多くの用途にも非常に役立つこの情報の収集に協力するよう皆様に呼びかけています。';
 
   @override
-  String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help';
+  String get guide_greenscore_transparency_arg1_title => '市民がどのように支援できるか';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'すべての市民は、製品に存在する情報や、包装に関する情報など、製品から推測できる情報を収集し、構造化することに協力できます。ミッション・エンバラージュ：すべての食品の包装に関する大規模な共同目録（フランス語）';
 
   @override
-  String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+  String get guide_greenscore_transparency_arg2_title => 'メーカーがどのように支援できるか';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'メーカーは、当社の生産者向け無料プラットフォームを通じて、直接情報をお送りいただけます。';
 
   @override
   String get guide_greenscore_share_link =>
