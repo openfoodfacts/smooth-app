@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Zdielať",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Eko-skóre",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Čo je to Zelené skóre?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score je logo, ktorého cieľom je informovať vás o **vplyve potravín na životné prostredie**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Farebný kód sa pohybuje od tmavozelenej (**A+**) pre produkty s **najmenej vplyvom** po tmavočervenú (**F**) pre produkty s **najväčším vplyvom**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Logá Green-Score",
+  "guide_greenscore_lca_title": "Jadro: Posúdenie životného cyklu (LCA)",
+  "guide_greenscore_lca_arg1_title": "Vedecké hodnotenie kategórií potravín",
+  "guide_greenscore_lca_arg1_text1": "Pre každú kategóriu produktov sa stanovuje **referenčné** skóre s použitím údajov z environmentálnej databázy Agribalyse (ktorú navrhli ADEME a INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Analýza životného cyklu** je štandardizovaná metóda hodnotenia na vykonávanie viacstupňového a viackriteriálneho environmentálneho hodnotenia.",
+  "guide_greenscore_lca_arg1_text3": "**Merie:**",
+  "guide_greenscore_lca_arg2_title": "6 výrobných krokov",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Balenie",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "14 ukazovateľov vplyvu na životné prostredie",
+  "guide_greenscore_lca_arg3_text1": "Klimatická zmena/uhlíková stopa",
+  "guide_greenscore_lca_arg3_text2": "Úbytok ozónovej vrstvy",
+  "guide_greenscore_lca_arg3_text3": "Ionizujúce žiarenie",
+  "guide_greenscore_lca_arg3_text4": "Pozemok",
+  "guide_greenscore_lca_arg3_text5": "Spotreba vody a energie",
+  "guide_greenscore_lca_arg3_text6": "Znečistenie ovzdušia",
+  "guide_greenscore_lca_arg3_text7": "Morská a sladká voda (častice, okysľovanie, eutrofizácia)",
+  "guide_greenscore_lca_arg3_text8": "Vyčerpanie zdrojov.",
+  "guide_greenscore_bonuses_penalties_title": "Bonusy a sankcie",
+  "guide_greenscore_bonuses_penalties_intro": "Aby sme odmenili lepšie produkty v rámci kategórie, uplatňujeme bonusy a penalizácie na základe niekoľkých kritérií:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Spôsob výroby",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Bonus sa udeľuje produktom, ktoré majú oficiálnu značku, označenie alebo certifikáciu zaručujúcu environmentálne výhody (organické, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Pôvod surovín",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus sa udeľuje na základe pôvodu surovín. Tento bonus zohľadňuje vplyv na dopravu a tiež environmentálnu politiku krajiny každého výrobcu.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Ohrozené druhy",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Pokuta sa udeľuje za produkty, ktoré obsahujú zložky, ktoré majú výrazný negatívny vplyv na biodiverzitu a ekosystémy, ako napríklad palmový olej, ktorého produkcia je zodpovedná za masívne odlesňovanie.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Balenie",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Pokuta sa vypočíta tak, aby sa zohľadnila kruhovosť balenia (použitie recyklovanej suroviny a recyklovateľnosť) a nadmerného balenia.",
+  "guide_greenscore_transparency_title": "Zvýšená potreba transparentnosti na lepšie meranie a znižovanie vplyvov na životné prostredie",
+  "guide_greenscore_transparency_intro1": "Na presný výpočet Green-Score je potrebné mať informácie, ktoré nie sú nevyhnutne uvedené na obale (ako napríklad pôvod a presné percento každej zložky) alebo ktoré sú zriedkavo dostupné v použiteľnej forme (ako napríklad zoznam všetkých zložiek obalu s presným uvedením použitých typov plastov).",
+  "guide_greenscore_transparency_intro2": "Priemerné hodnoty sa používajú, keď tieto informácie ešte nie sú k dispozícii, ale teraz vyzývame všetkých, aby nám pomohli zhromaždiť tieto informácie, ktoré budú veľmi užitočné pre Green-Score, ale aj pre mnoho ďalších použití.",
+  "guide_greenscore_transparency_arg1_title": "Ako môžu občania pomôcť",
+  "guide_greenscore_transparency_arg1_text": "Všetci občania nám môžu pomôcť zhromaždiť a štruktúrovať informácie, ktoré sú uvedené na výrobkoch alebo ktoré sa z nich dajú odvodiť, ako napríklad informácie o obaloch: Mission Emballages: rozsiahly kolaboratívny inventár obalov pre všetky potravinárske výrobky (vo francúzštine)",
+  "guide_greenscore_transparency_arg2_title": "Ako môžu pomôcť výrobcovia",
+  "guide_greenscore_transparency_arg2_text": "Výrobcovia nám môžu posielať svoje informácie priamo prostredníctvom našej bezplatnej platformy pre výrobcov.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Náhľad",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
