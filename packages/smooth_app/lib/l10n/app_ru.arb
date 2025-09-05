@@ -1198,14 +1198,14 @@
       "count": {}
     }
   },
-  "plural_compare_x_products": "{count,plural, one {} few {Сравнить {count} Продукты} many {Сравнить {count} Продукты}=1{Сравнить один продукт} other{Сравнить {count} Продукты}}",
+  "plural_compare_x_products": "{count,plural, few {Сравнить {count} Продукты} many {Сравнить {count} Продукты} =1{Сравнить один продукт} other{Сравнить {count} Продукты}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, one {} few {{count} выбрано продуктов} many {{count} выбрано продуктов}=0{Не выбрано ни одного продукта} =1{Один выбранный продукт} other{{count} выбрано продуктов}}",
+  "multiselect_title": "{count,plural, few {{count} выбрано продуктов} many {{count} выбрано продуктов} =0{Не выбрано ни одного продукта} =1{Один выбранный продукт} other{{count} выбрано продуктов}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
@@ -1389,14 +1389,14 @@
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
-  "product_list_reloading_in_progress_multiple": "Обновление {count,plural,  one {}  few {продуктов}  many {продуктов}=0{продукта} =1{продукта} other{продуктов}} в вашей истории",
+  "product_list_reloading_in_progress_multiple": "Обновление {count,plural, few {продуктов} many {продуктов} =0{продукта} =1{продукта} other{продуктов}} в вашей истории",
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
       "count": {}
     }
   },
-  "product_list_reloading_success_multiple": "{count,plural,  one {}  few {Продукты}  many {Продукты}=0{Продукт} =1{Продукт} other{Продукты}} обновление завершено",
+  "product_list_reloading_success_multiple": "{count,plural, few {Продукты} many {Продукты} =0{Продукт} =1{Продукт} other{Продукты}} обновление завершено",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
@@ -2332,8 +2332,8 @@
     }
   },
   "prices_generic_title": "Цены",
-  "prices_add_n_prices": "{count,plural, one {} few {Добавить {count} цены} many {Добавить {count} цены}=1{Добавить цену} other{Добавить {count} цены}}",
-  "prices_send_n_prices": "{count,plural, one {} few {Отправить {count} цены} many {Отправить {count} цены}=1{Отправить цену} other{Отправить {count} цены}}",
+  "prices_add_n_prices": "{count,plural, few {Добавить {count} цены} many {Добавить {count} цены} =1{Добавить цену} other{Добавить {count} цены}}",
+  "prices_send_n_prices": "{count,plural, few {Отправить {count} цены} many {Отправить {count} цены} =1{Отправить цену} other{Отправить {count} цены}}",
   "prices_add_an_item": "Добавить элемент",
   "prices_add_a_price": "Добавить цену",
   "prices_add_a_receipt": "Добавить чек",
@@ -2405,7 +2405,7 @@
   "prices_entry_menu_my_prices": "Посмотреть мои другие цены",
   "prices_entry_menu_author_prices": "Посмотреть другие цены автора",
   "prices_entry_menu_shop_prices": "Посмотреть другие цены из магазина",
-  "prices_product_accessibility_summary": "{count,plural, one {} few {{count} цены} many {{count} цены}=1{1 цена} other{{count} цены}} за {product}",
+  "prices_product_accessibility_summary": "{count,plural, few {{count} цены} many {{count} цены} =1{1 цена} other{{count} цены}} за {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2417,7 +2417,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, one {} few {Все {count} цены} many {Все {count} цены}=0{Пока нет цены} =1{Только одна цена} other{Все {count} цены}}",
+  "prices_list_length_one_page": "{count,plural, few {Все {count} цены} many {Все {count} цены} =0{Пока нет цены} =1{Только одна цена} other{Все {count} цены}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2469,7 +2469,7 @@
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, one {} few {Все {count} доказательства} many {Все {count} доказательства}=0{Пока нет доказательств} =1{Только одно доказательство} other{Все {count} доказательства}}",
+  "prices_proofs_list_length_one_page": "{count,plural, few {Все {count} доказательства} many {Все {count} доказательства} =0{Пока нет доказательств} =1{Только одно доказательство} other{Все {count} доказательства}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2514,7 +2514,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, one {} few {{count} доказательства} many {{count} доказательства}=0{Нет доказательств} =1{Одно доказательство} other{{count} доказательства}}",
+  "prices_button_count_proof": "{count,plural, few {{count} доказательства} many {{count} доказательства} =0{Нет доказательств} =1{Одно доказательство} other{{count} доказательства}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2523,7 +2523,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, one {} few {{count} продуктов} many {{count} продуктов}=0{Нет продукта} =1{Один продукт} other{{count} продуктов}}",
+  "prices_button_count_product": "{count,plural, few {{count} продуктов} many {{count} продуктов} =0{Нет продукта} =1{Один продукт} other{{count} продуктов}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2532,7 +2532,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, one {} few {{count} пользователей} many {{count} пользователей}=0{Нет пользователя} =1{Один пользователь} other{{count} пользователей}}",
+  "prices_button_count_user": "{count,plural, few {{count} пользователей} many {{count} пользователей} =0{Нет пользователя} =1{Один пользователь} other{{count} пользователей}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2541,7 +2541,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, one {} few {{count} цены} many {{count} цены}=0{Нет цены} =1{Одна цена} other{{count} цены}}",
+  "prices_button_count_price": "{count,plural, few {{count} цены} many {{count} цены} =0{Нет цены} =1{Одна цена} other{{count} цены}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -3411,7 +3411,7 @@
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "{count,plural,  one{Следующий {count} вопрос}  few{Следующие {count} вопроса}  many{Следующие {count} вопросов} =1{Следующий вопрос} other{}}",
+  "robotoff_next_n_questions": "{count,plural, few{Следующие {count} вопроса} many{Следующие {count} вопросов} =1{Следующий вопрос} other{Следующий {count} вопрос}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
