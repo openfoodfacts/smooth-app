@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Adăugați informațiile nutriționale care lipsesc",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Selectați o categorie",
+  "score_add_missing_precise_product_category": "Selectați o categorie mai precisă",
   "score_add_missing_product_countries": "Adăugați țările care lipsesc",
   "score_add_missing_product_emb": "Adăugați codurile de trasabilitate ale produselor care lipsesc",
   "score_add_missing_product_labels": "Adăugați etichetele produselor care lipsesc",

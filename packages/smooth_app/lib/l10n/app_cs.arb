@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Přidejte chybějící výživová fakta",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Přidejte chybějící kategorii produktu",
+  "score_add_missing_precise_product_category": "Vyberte přesnější kategorii",
   "score_add_missing_product_countries": "Přidat chybějící země produktu",
   "score_add_missing_product_emb": "Přidat chybějící kódy sledovatelnosti produktu",
   "score_add_missing_product_labels": "Přidat chybějící štítky produktu",

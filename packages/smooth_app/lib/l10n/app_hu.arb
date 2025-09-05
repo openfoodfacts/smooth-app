@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Hiányzó tápértékadatok hozzáadása",
   "score_add_missing_product_traces": "Hiányzó összetevőnyom hozzáadása",
   "score_add_missing_product_category": "Kategória kiválasztása",
+  "score_add_missing_precise_product_category": "Válasszon pontosabb kategóriát",
   "score_add_missing_product_countries": "Termék országainak pótlása",
   "score_add_missing_product_emb": "Hiányzó üzemkódok hozzáadása",
   "score_add_missing_product_labels": "Hiányzó címkék hozzáadása",

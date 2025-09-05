@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
   "score_add_missing_product_traces": "Tilføj manglende produktspor",
   "score_add_missing_product_category": "Tilføj manglende produktkategori",
+  "score_add_missing_precise_product_category": "Vælg en mere præcis kategori",
   "score_add_missing_product_countries": "Tilføj manglende produktlande",
   "score_add_missing_product_emb": "Tilføj manglende produktsporbarhedskoder",
   "score_add_missing_product_labels": "Tilføj manglende produktketiketter",

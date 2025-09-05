@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
 
   async: 2.13.0
-  go_router: 16.2.0
+  go_router: 16.2.1
   barcode_widget: 2.0.4
   carousel_slider: 5.1.1
   cupertino_icons: 1.0.8
@@ -45,7 +45,7 @@ dependencies:
   diacritic: 0.1.6
   app_store_shared:
     path: ../app_store/shared
-  audioplayers: 6.5.0
+  audioplayers: 6.5.1
   flutter_email_sender: 7.0.0
   flutter_native_splash: 2.4.6
   image: 4.5.4
@@ -113,7 +113,7 @@ dev_dependencies:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  mockito: 5.5.0
+  mockito: 5.5.1
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
   flutter_lints: 6.0.0

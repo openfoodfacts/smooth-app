@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "補充營養成分",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Select a category",
+  "score_add_missing_precise_product_category": "Select a more precise category",
   "score_add_missing_product_countries": "添加缺失的产品产地国",
   "score_add_missing_product_emb": "添加缺失的产品代码（翻译注：可能是条形码",
   "score_add_missing_product_labels": "添加缺失的产品标签",

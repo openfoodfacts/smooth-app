@@ -776,6 +776,7 @@
   "score_add_missing_nutrition_facts": "不足している栄養成分表を追加",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "不足している製品カテゴリを追加",
+  "score_add_missing_precise_product_category": "より正確なカテゴリを選択してください",
   "score_add_missing_product_countries": "不足している製品の国を追加",
   "score_add_missing_product_emb": "不足している製品のトレーサビリティコードを追加",
   "score_add_missing_product_labels": "不足している製品ラベルを追加",
