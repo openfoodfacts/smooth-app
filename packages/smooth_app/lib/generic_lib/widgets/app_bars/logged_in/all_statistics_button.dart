@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/contributions_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class AllStatisticsButton extends StatelessWidget {
@@ -31,7 +32,7 @@ class AllStatisticsButton extends StatelessWidget {
       },
       child: Material(
         borderRadius: BorderRadius.circular(12.0),
-        color: theme.cardColor,
+        color: Colors.white,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,16 +41,12 @@ class AllStatisticsButton extends StatelessWidget {
             Text(
               appLocalizations.preferences_app_bar_see_all_stats,
               style: TextStyle(
-                color: lightTheme ? theme.primaryColor : Colors.white,
+                color: theme.primaryColor,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(width: MEDIUM_SPACE),
-            Icon(
-              Icons.arrow_circle_right,
-              size: 24.0,
-              color: lightTheme ? theme.primaryColor : Colors.white,
-            ),
+            icons.CircledArrow.right(size: 14.0, color: theme.primaryColor),
           ],
         ),
       ),

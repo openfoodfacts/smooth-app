@@ -23,66 +23,89 @@ class AboutAppRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_about_information_title,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            leading: const icons.Info(),
-            title: appLocalizations.preferences_version_number_title,
-            subtitle: FutureBuilder<PackageInfo>(
-              future: PackageInfo.fromPlatform(),
-              builder:
-                  (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: <Widget>[
-                          SizedBox.square(
-                            dimension: 12.0,
-                            child: CircularProgressIndicator(),
-                          ),
-                        ],
-                      );
-                    }
-                    if (snapshot.hasError) {
-                      return Text('Error: ${snapshot.error}');
-                    }
-                    return Text(snapshot.data!.version);
-                  },
-            ),
-          ),
-          PreferenceTile(
-            leading: const icons.Camera.filled(),
-            title: appLocalizations.preferences_scanner_title,
-            subtitleText: GlobalVars.scannerLabel.name,
-          ),
-          PreferenceTile(
-            leading: const icons.AppStore(),
-            title: appLocalizations.preferences_app_store,
-            subtitleText: GlobalVars.storeLabel.name,
-          ),
+          _buildVersionTile(appLocalizations),
+          _buildScannerTile(appLocalizations),
+          _buildAppStoreTile(appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_contribute_title,
-        tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            leading: const icons.GitHub(),
-            title: appLocalizations.preferences_source_code,
-            subtitleText: appLocalizations.preferences_source_code_subtitle,
-            url: 'https://github.com/openfoodfacts/smooth-app',
-          ),
-        ],
+        tiles: <PreferenceTile>[_buildSourceCodeTile(appLocalizations)],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_about_app_development_title,
         tiles: <PreferenceTile>[
-          TogglePreferenceTile(
-            title: appLocalizations.contribute_develop_dev_mode_title,
-            subtitleText: appLocalizations.contribute_develop_dev_mode_subtitle,
-            state: userPreferences.devMode != 0,
-            onToggle: (final bool devMode) async =>
-                userPreferences.setDevMode(devMode ? 1 : 0),
-          ),
+          _buildDevModeTile(appLocalizations, userPreferences),
         ],
       ),
     ];
+  }
+
+  // Information section
+  PreferenceTile _buildVersionTile(AppLocalizations appLocalizations) {
+    return PreferenceTile(
+      leading: const icons.Info(),
+      title: appLocalizations.preferences_version_number_title,
+      subtitle: FutureBuilder<PackageInfo>(
+        future: PackageInfo.fromPlatform(),
+        builder: (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Row(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                SizedBox.square(
+                  dimension: 12.0,
+                  child: CircularProgressIndicator(),
+                ),
+              ],
+            );
+          }
+          if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          }
+          return Text(snapshot.data!.version);
+        },
+      ),
+    );
+  }
+
+  PreferenceTile _buildScannerTile(AppLocalizations appLocalizations) {
+    return PreferenceTile(
+      leading: const icons.Camera.filled(),
+      title: appLocalizations.preferences_scanner_title,
+      subtitleText: GlobalVars.scannerLabel.name,
+    );
+  }
+
+  PreferenceTile _buildAppStoreTile(AppLocalizations appLocalizations) {
+    return PreferenceTile(
+      leading: const icons.AppStore(),
+      title: appLocalizations.preferences_app_store,
+      subtitleText: GlobalVars.storeLabel.name,
+    );
+  }
+
+  // Contribute section
+  UrlPreferenceTile _buildSourceCodeTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      leading: const icons.GitHub(),
+      title: appLocalizations.preferences_source_code,
+      subtitleText: appLocalizations.preferences_source_code_subtitle,
+      url: 'https://github.com/openfoodfacts/smooth-app',
+    );
+  }
+
+  // Development section
+  TogglePreferenceTile _buildDevModeTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.contribute_develop_dev_mode_title,
+      subtitleText: appLocalizations.contribute_develop_dev_mode_subtitle,
+      state: userPreferences.devMode != 0,
+      onToggle: (final bool devMode) async =>
+          userPreferences.setDevMode(devMode ? 1 : 0),
+    );
   }
 }

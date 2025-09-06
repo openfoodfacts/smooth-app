@@ -23,88 +23,135 @@ class FaqRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_faq_scores_methodologies_title,
         tiles: <PreferenceTile>[
-          _createScoreTile(
-            title: appLocalizations.nutriscore_generic,
-            subtitleText: appLocalizations.preferences_faq_nutriscore_subtitle,
-            url: 'https://world.openfoodfacts.org/nutriscore',
-            svg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, false),
-          ),
-          PreferenceTile(
-            leading: _createLeadingIcon(
-              SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
-            ),
-            title: appLocalizations.faq_nutriscore_nutriscore,
-            subtitleText:
-                appLocalizations.preferences_faq_nutriscore_v2_subtitle,
-            onTap: () => Navigator.of(context, rootNavigator: true).push(
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const GuideNutriscoreV2(),
-              ),
-            ),
-          ),
-          _createScoreTile(
-            title: appLocalizations.environmental_score_generic,
-            url: 'https://world.openfoodfacts.org/ecoscore',
-            svg: 'assets/cache/green-score-b.svg',
-          ),
-          _createScoreTile(
-            title: appLocalizations.nova_group_generic,
-            url: 'https://world.openfoodfacts.org/nova',
-            svg: 'assets/cache/nova-group-4.svg',
-          ),
-          _createScoreTile(
-            title: appLocalizations.nutrition_facts,
-            subtitleText: 'Discover the UK FSA methodology',
-            url: 'https://world.openfoodfacts.org/traffic-lights',
-            svg: 'assets/cache/low.svg',
-            leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
-          ),
+          _buildNutriscoreTile(appLocalizations),
+          _buildNutriscoreV2Tile(context, appLocalizations),
+          _buildEcoscoreTile(appLocalizations),
+          _buildNovaTile(appLocalizations),
+          _buildTrafficLightsTile(appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_faq_discover_project_title,
         tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            icon: Icons.travel_explore_outlined,
-            title: appLocalizations.preferences_faq_discover_off_title,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/discover',
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.volunteer_activism_outlined,
-            title: appLocalizations.how_to_contribute,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/contribute',
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.question_mark,
-            title: appLocalizations.preferences_faq_faq_title,
-            url: _getFAQUrl(),
-          ),
+          _buildDiscoverOffTile(appLocalizations),
+          _buildHowToContributeTile(appLocalizations),
+          _buildFaqTile(appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_faq_off_ngo_title,
         tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            icon: Icons.handshake_outlined,
-            title: appLocalizations.faq_title_partners,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/partners',
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.remove_red_eye_outlined,
-            title: appLocalizations.faq_title_vision,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs',
-            ),
-          ),
+          _buildPartnersTile(appLocalizations),
+          _buildVisionTile(appLocalizations),
         ],
       ),
     ];
+  }
+
+  // Scores and Methodologies section
+  UrlPreferenceTile _buildNutriscoreTile(AppLocalizations appLocalizations) {
+    return _createScoreTile(
+      title: appLocalizations.nutriscore_generic,
+      subtitleText: appLocalizations.preferences_faq_nutriscore_subtitle,
+      url: 'https://world.openfoodfacts.org/nutriscore',
+      svg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, false),
+    );
+  }
+
+  PreferenceTile _buildNutriscoreV2Tile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      leading: _createLeadingIcon(
+        SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
+      ),
+      title: appLocalizations.faq_nutriscore_nutriscore,
+      subtitleText: appLocalizations.preferences_faq_nutriscore_v2_subtitle,
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const GuideNutriscoreV2(),
+        ),
+      ),
+    );
+  }
+
+  UrlPreferenceTile _buildEcoscoreTile(AppLocalizations appLocalizations) {
+    return _createScoreTile(
+      title: appLocalizations.environmental_score_generic,
+      url: 'https://world.openfoodfacts.org/ecoscore',
+      svg: 'assets/cache/green-score-b.svg',
+    );
+  }
+
+  UrlPreferenceTile _buildNovaTile(AppLocalizations appLocalizations) {
+    return _createScoreTile(
+      title: appLocalizations.nova_group_generic,
+      url: 'https://world.openfoodfacts.org/nova',
+      svg: 'assets/cache/nova-group-4.svg',
+    );
+  }
+
+  UrlPreferenceTile _buildTrafficLightsTile(AppLocalizations appLocalizations) {
+    return _createScoreTile(
+      title: appLocalizations.nutrition_facts,
+      subtitleText: 'Discover the UK FSA methodology',
+      url: 'https://world.openfoodfacts.org/traffic-lights',
+      svg: 'assets/cache/low.svg',
+      leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
+    );
+  }
+
+  // Discover Project section
+  UrlPreferenceTile _buildDiscoverOffTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      icon: Icons.travel_explore_outlined,
+      title: appLocalizations.preferences_faq_discover_off_title,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/discover',
+      ),
+    );
+  }
+
+  UrlPreferenceTile _buildHowToContributeTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return UrlPreferenceTile(
+      icon: Icons.volunteer_activism_outlined,
+      title: appLocalizations.how_to_contribute,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/contribute',
+      ),
+    );
+  }
+
+  UrlPreferenceTile _buildFaqTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      icon: Icons.question_mark,
+      title: appLocalizations.preferences_faq_faq_title,
+      url: _getFAQUrl(),
+    );
+  }
+
+  // OFF NGO section
+  UrlPreferenceTile _buildPartnersTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      icon: Icons.handshake_outlined,
+      title: appLocalizations.faq_title_partners,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/partners',
+      ),
+    );
+  }
+
+  UrlPreferenceTile _buildVisionTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      icon: Icons.remove_red_eye_outlined,
+      title: appLocalizations.faq_title_vision,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs',
+      ),
+    );
   }
 
   Widget _createLeadingIcon(String svg, {double? width}) {

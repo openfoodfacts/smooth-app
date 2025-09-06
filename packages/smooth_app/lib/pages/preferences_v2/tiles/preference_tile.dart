@@ -57,7 +57,10 @@ class PreferenceTile extends StatelessWidget {
           (subtitleText != null
               ? Text(
                   subtitleText!,
-                  style: TextStyle(color: color, fontStyle: FontStyle.italic),
+                  style: TextStyle(
+                    color: color.withValues(alpha: 0.8),
+                    fontStyle: FontStyle.italic,
+                  ),
                 )
               : null),
       trailing: trailing,

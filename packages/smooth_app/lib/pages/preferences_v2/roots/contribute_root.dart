@@ -37,95 +37,152 @@ class ContributeRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_contribute_active_volunteer_title,
         tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            leading: icons.Profile(color: iconColor),
-            title: appLocalizations.contribute_join_skill_pool,
-            subtitleText:
-                appLocalizations.preferences_contribute_skill_pool_subtitle,
-            url:
-                'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
-          ),
-          UrlPreferenceTile(
-            leading: icons.Donate(color: iconColor),
-            title: appLocalizations.how_to_contribute,
-            subtitleText:
-                appLocalizations.preferences_contribute_how_to_subtitle,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/contribute',
-            ),
-          ),
+          _buildSkillPoolTile(appLocalizations, iconColor),
+          _buildHowToContributeTile(appLocalizations, iconColor),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_contribute_mobile_dev_title,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            leading: icons.Programming(color: iconColor),
-            title: appLocalizations.contribute_sw_development,
-            subtitleText:
-                appLocalizations.preferences_contribute_sw_dev_subtitle,
-            onTap: () async => _develop(context),
-          ),
-          // TODO(primael): rename to alpha
+          _buildSoftwareDevelopmentTile(context, appLocalizations, iconColor),
           if (GlobalVars.appStore.getEnrollInBetaURL() != null)
-            PreferenceTile(
-              leading: icons.Lab(color: iconColor),
-              title: appLocalizations.contribute_enroll_alpha,
-              subtitleText:
-                  appLocalizations.preferences_contribute_alpha_subtitle,
-              onTap: () async => _enrollInInternal(context),
-            ),
-          // TODO(primael): add link to beta
-          PreferenceTile(
-            icon: Icons.emoji_people,
-            title: appLocalizations.contributors_label,
-            subtitleText: appLocalizations.contributors_description,
-            onTap: () async => _contributors(context),
-          ),
+            _buildEnrollAlphaTile(context, appLocalizations, iconColor),
+          _buildContributorsTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_contribute_local_community_title,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            leading: icons.Language(color: iconColor),
-            title: appLocalizations.contribute_translate_header,
-            subtitleText:
-                appLocalizations.preferences_contribute_translate_subtitle,
-            onTap: () async => _translate(context),
-          ),
-          PreferenceTile(
-            icon: Icons.adaptive.share,
-            title: appLocalizations.contribute_share_header,
-            subtitleText:
-                appLocalizations.preferences_contribute_share_subtitle,
-            onTap: () async =>
-                _share(appLocalizations.contribute_share_content),
-          ),
+          _buildTranslateTile(context, appLocalizations, iconColor),
+          _buildShareTile(appLocalizations),
           if (country.wikiUrl != null)
-            UrlPreferenceTile(
-              leading: icons.Language.world(color: iconColor),
-              title: appLocalizations.help_improve_country,
-              subtitleText:
-                  appLocalizations.preferences_contribute_country_subtitle,
-              url: country.wikiUrl!,
-            ),
+            _buildCountryImproveTile(appLocalizations, country, iconColor),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_contribute_data_quality_title,
         tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            leading: icons.Sparkles(color: iconColor),
-            title:
-                appLocalizations.preferences_contribute_data_quality_team_title,
-            subtitleText: appLocalizations
-                .preferences_contribute_data_quality_team_subtitle,
-            url: 'https://wiki.openfoodfacts.org/Data_quality',
-          ),
+          _buildDataQualityTile(appLocalizations, iconColor),
         ],
       ),
     ];
+  }
+
+  // Active Volunteer section
+  UrlPreferenceTile _buildSkillPoolTile(
+    AppLocalizations appLocalizations,
+    Color iconColor,
+  ) {
+    return UrlPreferenceTile(
+      leading: icons.Profile(color: iconColor),
+      title: appLocalizations.contribute_join_skill_pool,
+      subtitleText: appLocalizations.preferences_contribute_skill_pool_subtitle,
+      url:
+          'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
+    );
+  }
+
+  UrlPreferenceTile _buildHowToContributeTile(
+    AppLocalizations appLocalizations,
+    Color iconColor,
+  ) {
+    return UrlPreferenceTile(
+      leading: icons.Donate(color: iconColor),
+      title: appLocalizations.how_to_contribute,
+      subtitleText: appLocalizations.preferences_contribute_how_to_subtitle,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/contribute',
+      ),
+    );
+  }
+
+  // Mobile Development section
+  PreferenceTile _buildSoftwareDevelopmentTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    Color iconColor,
+  ) {
+    return PreferenceTile(
+      leading: icons.Programming(color: iconColor),
+      title: appLocalizations.contribute_sw_development,
+      subtitleText: appLocalizations.preferences_contribute_sw_dev_subtitle,
+      onTap: () async => _develop(context),
+    );
+  }
+
+  PreferenceTile _buildEnrollAlphaTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    Color iconColor,
+  ) {
+    return PreferenceTile(
+      leading: icons.Lab(color: iconColor),
+      title: appLocalizations.contribute_enroll_alpha,
+      subtitleText: appLocalizations.preferences_contribute_alpha_subtitle,
+      onTap: () async => _enrollInInternal(context),
+    );
+  }
+
+  PreferenceTile _buildContributorsTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      icon: Icons.emoji_people,
+      title: appLocalizations.contributors_label,
+      subtitleText: appLocalizations.contributors_description,
+      onTap: () async => _contributors(context),
+    );
+  }
+
+  // Local Community section
+  PreferenceTile _buildTranslateTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    Color iconColor,
+  ) {
+    return PreferenceTile(
+      leading: icons.Language(color: iconColor),
+      title: appLocalizations.contribute_translate_header,
+      subtitleText: appLocalizations.preferences_contribute_translate_subtitle,
+      onTap: () async => _translate(context),
+    );
+  }
+
+  PreferenceTile _buildShareTile(AppLocalizations appLocalizations) {
+    return PreferenceTile(
+      icon: Icons.adaptive.share,
+      title: appLocalizations.contribute_share_header,
+      subtitleText: appLocalizations.preferences_contribute_share_subtitle,
+      onTap: () async => _share(appLocalizations.contribute_share_content),
+    );
+  }
+
+  UrlPreferenceTile _buildCountryImproveTile(
+    AppLocalizations appLocalizations,
+    OpenFoodFactsCountry country,
+    Color iconColor,
+  ) {
+    return UrlPreferenceTile(
+      leading: icons.Language.world(color: iconColor),
+      title: appLocalizations.help_improve_country,
+      subtitleText: appLocalizations.preferences_contribute_country_subtitle,
+      url: country.wikiUrl!,
+    );
+  }
+
+  // Data Quality section
+  UrlPreferenceTile _buildDataQualityTile(
+    AppLocalizations appLocalizations,
+    Color iconColor,
+  ) {
+    return UrlPreferenceTile(
+      leading: icons.Sparkles(color: iconColor),
+      title: appLocalizations.preferences_contribute_data_quality_team_title,
+      subtitleText:
+          appLocalizations.preferences_contribute_data_quality_team_subtitle,
+      url: 'https://wiki.openfoodfacts.org/Data_quality',
+    );
   }
 
   Future<void> _develop(BuildContext context) => showDialog<void>(

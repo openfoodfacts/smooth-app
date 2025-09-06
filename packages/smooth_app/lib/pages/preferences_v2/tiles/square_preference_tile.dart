@@ -26,7 +26,7 @@ class SquarePreferenceTile extends PreferenceTile {
       decoration: BoxDecoration(
         color: lightTheme
             ? themeExtension.primaryMedium
-            : themeExtension.primaryDark,
+            : const Color(0xFF333333),
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       child: Material(

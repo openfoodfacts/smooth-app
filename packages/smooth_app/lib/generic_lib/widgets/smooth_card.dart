@@ -106,6 +106,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     required this.child,
     this.leading,
     this.leadingIconSize,
+    this.leadingMargin,
     this.leadingPadding,
     this.trailing,
     this.titleTextStyle,
@@ -123,6 +124,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   final String title;
   final Widget? leading;
   final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingMargin;
   final EdgeInsetsGeometry? leadingPadding;
   final Widget? trailing;
   final Widget child;
@@ -160,6 +162,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
             titleSpacing: titleSpacing,
             leading: leading,
             leadingIconSize: leadingIconSize,
+            leadingMargin: leadingMargin,
             leadingPadding: leadingPadding,
             trailing: trailing,
             titleTextStyle: titleTextStyle,
@@ -209,6 +212,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
     this.titleSpacing,
     this.leading,
     this.leadingIconSize,
+    this.leadingMargin,
     this.leadingPadding,
     this.trailing,
     this.titleTextStyle,
@@ -222,6 +226,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   final double? titleSpacing;
   final Widget? leading;
   final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingMargin;
   final EdgeInsetsGeometry? leadingPadding;
   final Widget? trailing;
   final TextStyle? titleTextStyle;
@@ -268,21 +273,24 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   if (leading != null)
-                    IconTheme(
-                      data: IconThemeData(
-                        color: titleBackgroundColor,
-                        size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
-                      ),
-                      child: DecoratedBox(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
+                    Container(
+                      margin: leadingMargin,
+                      child: IconTheme(
+                        data: IconThemeData(
+                          color: titleBackgroundColor,
+                          size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
                         ),
-                        child: Padding(
-                          padding:
-                              leadingPadding ??
-                              const EdgeInsetsDirectional.all(6.0),
-                          child: leading,
+                        child: DecoratedBox(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding:
+                                leadingPadding ??
+                                const EdgeInsetsDirectional.all(6.0),
+                            child: leading,
+                          ),
                         ),
                       ),
                     ),

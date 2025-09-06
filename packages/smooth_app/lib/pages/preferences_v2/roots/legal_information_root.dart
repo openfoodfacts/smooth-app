@@ -28,50 +28,71 @@ class LegalInformationRoot extends PreferencesRoot {
       PreferenceCard(
         title: 'Open Food Facts',
         tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            icon: Icons.article,
-            title: appLocalizations.preferences_terms_of_use,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/terms-of-use',
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.gavel,
-            title: appLocalizations.preferences_legal_mentions,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/legal',
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.privacy_tip,
-            title: appLocalizations.preferences_privacy_policy,
-            url: ProductQuery.replaceSubdomain(
-              'https://world.openfoodfacts.org/privacy',
-            ),
-          ),
-          PreferenceTile(
-            icon: Icons.file_open,
-            title: appLocalizations.preferences_licenses,
-            onTap: () async {
-              final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
-              if (!context.mounted) {
-                return;
-              }
-
-              showLicensePage(
-                context: context,
-                applicationName: packageInfo.appName,
-                applicationVersion: packageInfo.version,
-                applicationIcon: SvgPicture.asset(
-                  logo,
-                  height: MediaQuery.sizeOf(context).height * 0.1,
-                ),
-              );
-            },
-          ),
+          _buildTermsOfUseTile(appLocalizations),
+          _buildLegalMentionsTile(appLocalizations),
+          _buildPrivacyPolicyTile(appLocalizations),
+          _buildLicensesTile(context, appLocalizations, logo),
         ],
       ),
     ];
+  }
+
+  // Legal Information section
+  UrlPreferenceTile _buildTermsOfUseTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      icon: Icons.article,
+      title: appLocalizations.preferences_terms_of_use,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/terms-of-use',
+      ),
+    );
+  }
+
+  UrlPreferenceTile _buildLegalMentionsTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      icon: Icons.gavel,
+      title: appLocalizations.preferences_legal_mentions,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/legal',
+      ),
+    );
+  }
+
+  UrlPreferenceTile _buildPrivacyPolicyTile(AppLocalizations appLocalizations) {
+    return UrlPreferenceTile(
+      icon: Icons.privacy_tip,
+      title: appLocalizations.preferences_privacy_policy,
+      url: ProductQuery.replaceSubdomain(
+        'https://world.openfoodfacts.org/privacy',
+      ),
+    );
+  }
+
+  PreferenceTile _buildLicensesTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    String logo,
+  ) {
+    return PreferenceTile(
+      icon: Icons.file_open,
+      title: appLocalizations.preferences_licenses,
+      onTap: () async {
+        final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+        if (!context.mounted) {
+          return;
+        }
+
+        showLicensePage(
+          context: context,
+          applicationName: packageInfo.appName,
+          applicationVersion: packageInfo.version,
+          applicationIcon: SvgPicture.asset(
+            logo,
+            height: MediaQuery.sizeOf(context).height * 0.1,
+          ),
+        );
+      },
+    );
   }
 }

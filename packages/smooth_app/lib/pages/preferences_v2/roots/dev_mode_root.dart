@@ -40,130 +40,15 @@ class DevModeRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_dev_mode_app_settings_title,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            title: 'Reset app language',
-            onTap: () async {
-              userPreferences.setAppLanguageCode(null);
-              ProductQuery.setLanguage(context, userPreferences);
-            },
-          ),
+          _buildResetLanguageTile(context, userPreferences),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.dev_mode_section_data,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            title: appLocalizations.background_task_title,
-            subtitleText: appLocalizations.background_task_subtitle,
-            trailing: const BackgroundTaskBadge(
-              child: Icon(Icons.edit_notifications_outlined),
-            ),
-            onTap: () async => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const OfflineTaskPage(),
-              ),
-            ),
-          ),
-          PreferenceTile(
-            title: appLocalizations.offline_data,
-            subtitleText:
-                appLocalizations.preferences_dev_mode_offline_data_subtitle,
-            onTap: () => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const OfflineDataPage(),
-              ),
-            ),
-          ),
-          /* PreferenceTile(
-            title: appLocalizations.dev_preferences_export_history_title,
-            subtitleText: appLocalizations.clipboard_barcode_copy,
-            onTap: () async {
-              final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final Map<String, dynamic> export = await DaoProductList(
-                localDatabase,
-              ).export(ProductList.history());
-              final List<Widget> children = <Widget>[];
-              for (final String barcode in export.keys) {
-                final bool? exists = export[barcode] as bool?;
-                children.add(
-                  ListTile(
-                    leading: Icon(
-                      exists == null
-                          ? Icons.error
-                          : exists
-                          ? Icons.check
-                          : Icons.help_outline,
-                    ),
-                    title: Text(barcode),
-                    subtitle: Text(
-                      exists == null
-                          ? appLocalizations
-                                .dev_preferences_export_history_progress_error
-                          : exists
-                          ? appLocalizations
-                                .dev_preferences_export_history_progress_found
-                          : appLocalizations
-                                .dev_preferences_export_history_progress_not_found,
-                    ),
-                  ),
-                );
-              }
-
-              if (!context.mounted) {
-                return;
-              }
-              await showDialog<void>(
-                context: context,
-                builder: (BuildContext context) => SmoothAlertDialog(
-                  title: appLocalizations
-                      .dev_preferences_export_history_dialog_title,
-                  body: SizedBox(
-                    height: 400,
-                    width: 300,
-                    child: ListView(children: children),
-                  ),
-                  negativeAction: SmoothActionButton(
-                    text: appLocalizations.copy_to_clipboard,
-                    onPressed: () async {
-                      final StringBuffer data = StringBuffer();
-
-                      for (final String key in export.keys) {
-                        data.write('$key, ');
-                      }
-
-                      await Clipboard.setData(
-                        ClipboardData(text: data.toString()),
-                      );
-                    },
-                  ),
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.okay,
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ),
-              );
-            },
-          ), */
-          PreferenceTile(
-            title: appLocalizations.preferences_dev_mode_refresh_products_title,
-            subtitleText:
-                appLocalizations.preferences_dev_mode_refresh_products_subtitle,
-            trailing: const Icon(Icons.refresh),
-            onTap: () async {
-              final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final DaoProduct daoProduct = DaoProduct(localDatabase);
-              await daoProduct.clearAllLanguages();
-              await BackgroundTaskLanguageRefresh.addTask(localDatabase);
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
+          _buildBackgroundTaskTile(context, appLocalizations),
+          _buildOfflineDataTile(context, appLocalizations),
+          _buildRefreshProductsTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
@@ -656,5 +541,79 @@ class DevModeRoot extends PreferencesRoot {
       );
       ProductQuery.setQueryType(userPreferences);
     }
+  }
+
+  // App Settings section
+  PreferenceTile _buildResetLanguageTile(
+    BuildContext context,
+    UserPreferences userPreferences,
+  ) {
+    return PreferenceTile(
+      title: 'Reset app language',
+      onTap: () async {
+        userPreferences.setAppLanguageCode(null);
+        ProductQuery.setLanguage(context, userPreferences);
+      },
+    );
+  }
+
+  // Data section
+  PreferenceTile _buildBackgroundTaskTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.background_task_title,
+      subtitleText: appLocalizations.background_task_subtitle,
+      trailing: const BackgroundTaskBadge(
+        child: Icon(Icons.edit_notifications_outlined),
+      ),
+      onTap: () async => Navigator.push<void>(
+        context,
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const OfflineTaskPage(),
+        ),
+      ),
+    );
+  }
+
+  PreferenceTile _buildOfflineDataTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.offline_data,
+      subtitleText: appLocalizations.preferences_dev_mode_offline_data_subtitle,
+      onTap: () => Navigator.push<void>(
+        context,
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const OfflineDataPage(),
+        ),
+      ),
+    );
+  }
+
+  PreferenceTile _buildRefreshProductsTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.preferences_dev_mode_refresh_products_title,
+      subtitleText:
+          appLocalizations.preferences_dev_mode_refresh_products_subtitle,
+      trailing: const Icon(Icons.refresh),
+      onTap: () async {
+        final LocalDatabase localDatabase = context.read<LocalDatabase>();
+        final DaoProduct daoProduct = DaoProduct(localDatabase);
+        await daoProduct.clearAllLanguages();
+        await BackgroundTaskLanguageRefresh.addTask(localDatabase);
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
   }
 }

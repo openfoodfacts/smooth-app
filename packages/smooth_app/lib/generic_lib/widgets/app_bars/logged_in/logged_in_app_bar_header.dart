@@ -25,6 +25,7 @@ class LoggedInAppBarHeader extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     return Row(
+      spacing: MEDIUM_SPACE,
       children: <Widget>[
         Container(
           width: PROFILE_PICTURE_SIZE,
@@ -42,7 +43,6 @@ class LoggedInAppBarHeader extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: MEDIUM_SPACE),
         Expanded(
           child: Column(
             spacing: VERY_SMALL_SPACE,
@@ -95,7 +95,7 @@ class LoggedInAppBarHeader extends StatelessWidget {
                   builder: (BuildContext context) =>
                       ChangeNotifierProvider<PreferencesRootSearchController>(
                         create: (_) => PreferencesRootSearchController(),
-                        child: const AccountRoot(title: 'Account'),
+                        child: AccountRoot(title: appLocalizations.account),
                       ),
                 ),
               );

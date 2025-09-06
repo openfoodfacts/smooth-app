@@ -40,149 +40,236 @@ class AppSettingsRoot extends PreferencesRoot {
         title:
             appLocalizations.preferences_app_settings_graphical_interface_title,
         tiles: <PreferenceTile>[
-          MultipleChoicesTile<String>(
-            title: appLocalizations.darkmode,
-            leadingBuilder: <WidgetBuilder>[
-              (_) => Icon(Icons.brightness_medium, color: iconColor),
-              (_) => Icon(Icons.light_mode, color: iconColor),
-              (_) => Icon(Icons.dark_mode_outlined, color: iconColor),
-              (_) => Icon(Icons.dark_mode, color: iconColor),
-            ],
-            labels: <String>[
-              appLocalizations.darkmode_system_default,
-              appLocalizations.darkmode_light,
-              appLocalizations.darkmode_dark,
-              appLocalizations.theme_amoled,
-            ],
-            values: const <String>[
-              THEME_SYSTEM_DEFAULT,
-              THEME_LIGHT,
-              THEME_DARK,
-              THEME_AMOLED,
-            ],
-            currentValue: themeProvider.currentTheme,
-            onChanged: (String? newValue) => themeProvider.setTheme(newValue!),
-          ),
+          _buildThemeTile(appLocalizations, themeProvider, iconColor),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.settings_app_app,
         tiles: <PreferenceTile>[
-          LanguageSelectorTile(
-            title: appLocalizations.language_picker_label,
-            autoValidate: false,
-          ),
-          CountrySelectorTile(
-            title: appLocalizations.country_picker_label,
-            forceCurrencyChange: false,
-            autoValidate: false,
-          ),
-          PreferenceTile(
-            leading: icons.Currency(color: iconColor),
-            title: appLocalizations.currency_picker_label,
-            subtitleText: selectedCurrency.getFullName(),
-            onTap: () => currencyHelper.openCurrencySelector(
-              context: context,
-              selected: selectedCurrency,
-            ),
-            trailing: icons.Edit(color: iconColor),
+          _buildLanguageTile(appLocalizations),
+          _buildCountryTile(appLocalizations),
+          _buildCurrencyTile(
+            appLocalizations,
+            selectedCurrency,
+            currencyHelper,
+            context,
+            iconColor,
           ),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_app_settings_media_title,
         tiles: <PreferenceTile>[
-          MultipleChoicesTile<UserPictureSource>(
-            title: appLocalizations.choose_image_source_title,
-            leadingBuilder: <WidgetBuilder>[
-              (_) => Icon(Icons.edit_note_rounded, color: iconColor),
-              (_) => Icon(Icons.camera, color: iconColor),
-              (_) => Icon(Icons.image, color: iconColor),
-            ],
-            labels: <String>[
-              appLocalizations.user_picture_source_ask,
-              appLocalizations.settings_app_camera,
-              appLocalizations.gallery_source_label,
-            ],
-            values: const <UserPictureSource>[
-              UserPictureSource.SELECT,
-              UserPictureSource.CAMERA,
-              UserPictureSource.GALLERY,
-            ],
-            currentValue: userPreferences.userPictureSource,
-            onChanged: (final UserPictureSource? newValue) async =>
-                userPreferences.setUserPictureSource(newValue!),
-          ),
+          _buildImageSourceTile(appLocalizations, userPreferences, iconColor),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_app_settings_products,
         tiles: <PreferenceTile>[
-          TogglePreferenceTile(
-            leading: icons.NutritionFacts.alt(color: iconColor),
-            title: appLocalizations.expand_nutrition_facts,
-            subtitleText: appLocalizations.expand_nutrition_facts_body,
-            state:
-                userPreferences.getFlag(
-                  KnowledgePanelCard.getExpandFlagTag(
-                    KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
-                  ),
-                ) ??
-                false,
-            onToggle: (final bool value) => userPreferences.setFlag(
-              KnowledgePanelCard.getExpandFlagTag(
-                KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
-              ),
-              value,
-            ),
+          _buildExpandNutritionTile(
+            appLocalizations,
+            userPreferences,
+            iconColor,
           ),
-          TogglePreferenceTile(
-            leading: icons.Ingredients.basket(color: iconColor),
-            title: appLocalizations.expand_ingredients,
-            subtitleText: appLocalizations.expand_ingredients_body,
-            state:
-                userPreferences.getFlag(
-                  KnowledgePanelCard.getExpandFlagTag(
-                    KnowledgePanelCard.PANEL_INGREDIENTS_ID,
-                  ),
-                ) ??
-                false,
-            onToggle: (final bool value) => userPreferences.setFlag(
-              KnowledgePanelCard.getExpandFlagTag(
-                KnowledgePanelCard.PANEL_INGREDIENTS_ID,
-              ),
-              value,
-            ),
+          _buildExpandIngredientsTile(
+            appLocalizations,
+            userPreferences,
+            iconColor,
           ),
-          TogglePreferenceTile(
-            title: appLocalizations.search_product_filter_visibility_title,
-            subtitleText:
-                appLocalizations.search_product_filter_visibility_subtitle,
-            state: userPreferences.searchProductTypeFilterVisible,
-            onToggle: (final bool visible) async =>
-                userPreferences.setSearchProductTypeFilter(visible),
-          ),
+          _buildSearchFilterTile(appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.crash_reporting_toggle_title,
         tiles: <PreferenceTile>[
-          TogglePreferenceTile(
-            title: appLocalizations.crash_reporting_toggle_title,
-            subtitleText: appLocalizations.crash_reporting_toggle_subtitle,
-            state: userPreferences.crashReports,
-            onToggle: (final bool value) =>
-                userPreferences.setCrashReports(value),
-          ),
-          TogglePreferenceTile(
-            title: appLocalizations.send_anonymous_data_toggle_title,
-            subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
-            state: userPreferences.userTracking,
-            onToggle: (final bool value) =>
-                userPreferences.setUserTracking(value),
-          ),
+          _buildCrashReportingTile(appLocalizations, userPreferences),
+          _buildAnonymousDataTile(appLocalizations, userPreferences),
         ],
       ),
     ];
+  }
+
+  // Graphical Interface section
+  MultipleChoicesTile<String> _buildThemeTile(
+    AppLocalizations appLocalizations,
+    ThemeProvider themeProvider,
+    Color iconColor,
+  ) {
+    return MultipleChoicesTile<String>(
+      title: appLocalizations.darkmode,
+      leadingBuilder: <WidgetBuilder>[
+        (_) => Icon(Icons.brightness_medium, color: iconColor),
+        (_) => Icon(Icons.light_mode, color: iconColor),
+        (_) => Icon(Icons.dark_mode_outlined, color: iconColor),
+        (_) => Icon(Icons.dark_mode, color: iconColor),
+      ],
+      labels: <String>[
+        appLocalizations.darkmode_system_default,
+        appLocalizations.darkmode_light,
+        appLocalizations.darkmode_dark,
+        appLocalizations.theme_amoled,
+      ],
+      values: const <String>[
+        THEME_SYSTEM_DEFAULT,
+        THEME_LIGHT,
+        THEME_DARK,
+        THEME_AMOLED,
+      ],
+      currentValue: themeProvider.currentTheme,
+      onChanged: (String? newValue) => themeProvider.setTheme(newValue!),
+    );
+  }
+
+  // App Settings section
+  LanguageSelectorTile _buildLanguageTile(AppLocalizations appLocalizations) {
+    return LanguageSelectorTile(
+      title: appLocalizations.language_picker_label,
+      autoValidate: false,
+    );
+  }
+
+  CountrySelectorTile _buildCountryTile(AppLocalizations appLocalizations) {
+    return CountrySelectorTile(
+      title: appLocalizations.country_picker_label,
+      forceCurrencyChange: false,
+      autoValidate: false,
+    );
+  }
+
+  PreferenceTile _buildCurrencyTile(
+    AppLocalizations appLocalizations,
+    Currency selectedCurrency,
+    CurrencySelectorHelper currencyHelper,
+    BuildContext context,
+    Color iconColor,
+  ) {
+    return PreferenceTile(
+      leading: icons.Currency(color: iconColor),
+      title: appLocalizations.currency_picker_label,
+      subtitleText: selectedCurrency.getFullName(),
+      onTap: () => currencyHelper.openCurrencySelector(
+        context: context,
+        selected: selectedCurrency,
+      ),
+      trailing: icons.Edit(color: iconColor),
+    );
+  }
+
+  // Media section
+  MultipleChoicesTile<UserPictureSource> _buildImageSourceTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+    Color iconColor,
+  ) {
+    return MultipleChoicesTile<UserPictureSource>(
+      title: appLocalizations.choose_image_source_title,
+      leadingBuilder: <WidgetBuilder>[
+        (_) => Icon(Icons.edit_note_rounded, color: iconColor),
+        (_) => Icon(Icons.camera, color: iconColor),
+        (_) => Icon(Icons.image, color: iconColor),
+      ],
+      labels: <String>[
+        appLocalizations.user_picture_source_ask,
+        appLocalizations.settings_app_camera,
+        appLocalizations.gallery_source_label,
+      ],
+      values: const <UserPictureSource>[
+        UserPictureSource.SELECT,
+        UserPictureSource.CAMERA,
+        UserPictureSource.GALLERY,
+      ],
+      currentValue: userPreferences.userPictureSource,
+      onChanged: (final UserPictureSource? newValue) async =>
+          userPreferences.setUserPictureSource(newValue!),
+    );
+  }
+
+  // Products section
+  TogglePreferenceTile _buildExpandNutritionTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+    Color iconColor,
+  ) {
+    return TogglePreferenceTile(
+      leading: icons.NutritionFacts.alt(color: iconColor),
+      title: appLocalizations.expand_nutrition_facts,
+      subtitleText: appLocalizations.expand_nutrition_facts_body,
+      state:
+          userPreferences.getFlag(
+            KnowledgePanelCard.getExpandFlagTag(
+              KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
+            ),
+          ) ??
+          false,
+      onToggle: (final bool value) => userPreferences.setFlag(
+        KnowledgePanelCard.getExpandFlagTag(
+          KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
+        ),
+        value,
+      ),
+    );
+  }
+
+  TogglePreferenceTile _buildExpandIngredientsTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+    Color iconColor,
+  ) {
+    return TogglePreferenceTile(
+      leading: icons.Ingredients.basket(color: iconColor),
+      title: appLocalizations.expand_ingredients,
+      subtitleText: appLocalizations.expand_ingredients_body,
+      state:
+          userPreferences.getFlag(
+            KnowledgePanelCard.getExpandFlagTag(
+              KnowledgePanelCard.PANEL_INGREDIENTS_ID,
+            ),
+          ) ??
+          false,
+      onToggle: (final bool value) => userPreferences.setFlag(
+        KnowledgePanelCard.getExpandFlagTag(
+          KnowledgePanelCard.PANEL_INGREDIENTS_ID,
+        ),
+        value,
+      ),
+    );
+  }
+
+  TogglePreferenceTile _buildSearchFilterTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.search_product_filter_visibility_title,
+      subtitleText: appLocalizations.search_product_filter_visibility_subtitle,
+      state: userPreferences.searchProductTypeFilterVisible,
+      onToggle: (final bool visible) async =>
+          userPreferences.setSearchProductTypeFilter(visible),
+    );
+  }
+
+  // Data Collection section
+  TogglePreferenceTile _buildCrashReportingTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.crash_reporting_toggle_title,
+      subtitleText: appLocalizations.crash_reporting_toggle_subtitle,
+      state: userPreferences.crashReports,
+      onToggle: (final bool value) => userPreferences.setCrashReports(value),
+    );
+  }
+
+  TogglePreferenceTile _buildAnonymousDataTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.send_anonymous_data_toggle_title,
+      subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
+      state: userPreferences.userTracking,
+      onToggle: (final bool value) => userPreferences.setUserTracking(value),
+    );
   }
 }

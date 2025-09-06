@@ -31,104 +31,167 @@ class ContributionsRoot extends PreferencesRoot {
         // Quick test to make Pierre happy
         bannerText: appLocalizations.contribute_improve_text,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            icon: Icons.add_circle_outline,
-            title:
-                appLocalizations.preferences_contributions_new_products_title,
-            subtitleText: appLocalizations
-                .preferences_contributions_new_products_subtitle,
-            trailing: const LazyCounterWidget(
-              LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
-            ),
-            onTap: () async => _openProductQuery(
-              context: context,
-              localDatabase: localDatabase,
-              productQuery: PagedUserProductQuery(
-                userId: userId,
-                type: UserSearchType.CONTRIBUTOR,
-                productType: ProductType.food,
-              ),
-              title: appLocalizations.user_search_contributor_title,
-            ),
+          _buildNewProductsTile(
+            context,
+            appLocalizations,
+            localDatabase,
+            userId,
           ),
-          PreferenceTile(
-            icon: Icons.edit_outlined,
-            title: appLocalizations.user_search_informer_title,
-            trailing: const LazyCounterWidget(
-              LazyCounterUserSearch(UserSearchType.INFORMER),
-            ),
-            onTap: () async => _openProductQuery(
-              context: context,
-              localDatabase: localDatabase,
-              productQuery: PagedUserProductQuery(
-                userId: userId,
-                type: UserSearchType.INFORMER,
-                productType: ProductType.food,
-              ),
-              title: appLocalizations.user_search_informer_title,
-            ),
+          _buildInformerTile(context, appLocalizations, localDatabase, userId),
+          _buildPhotographerTile(
+            context,
+            appLocalizations,
+            localDatabase,
+            userId,
           ),
-          PreferenceTile(
-            icon: Icons.add_a_photo_outlined,
-            title: appLocalizations.user_search_photographer_title,
-            trailing: const LazyCounterWidget(
-              LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
-            ),
-            onTap: () async => _openProductQuery(
-              context: context,
-              localDatabase: localDatabase,
-              productQuery: PagedUserProductQuery(
-                userId: userId,
-                type: UserSearchType.PHOTOGRAPHER,
-                productType: ProductType.food,
-              ),
-              title: appLocalizations.user_search_photographer_title,
-            ),
+          _buildToBeCompletedTile(
+            context,
+            appLocalizations,
+            localDatabase,
+            userId,
           ),
-          PreferenceTile(
-            icon: Icons.done,
-            title: appLocalizations
-                .preferences_contributions_to_be_completed_title,
-            trailing: const LazyCounterWidget(
-              LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
-            ),
-            onTap: () async => _openProductQuery(
-              context: context,
-              localDatabase: localDatabase,
-              productQuery: PagedUserProductQuery(
-                userId: userId,
-                type: UserSearchType.TO_BE_COMPLETED,
-                productType: ProductType.food,
-              ),
-              title: appLocalizations.user_search_to_be_completed_title,
-            ),
-          ),
-          PreferenceTile(
-            icon: Icons.done_all,
-            title:
-                appLocalizations.preferences_contributions_all_incomplete_title,
-            subtitleText: appLocalizations
-                .preferences_contributions_all_incomplete_subtitle,
-            onTap: () async => _openProductQuery(
-              context: context,
-              localDatabase: localDatabase,
-              productQuery: PagedToBeCompletedProductQuery(
-                productType: ProductType.food,
-              ),
-              title: appLocalizations.all_search_to_be_completed_title,
-            ),
-          ),
-          UrlPreferenceTile(
-            icon: Icons.new_label_outlined,
-            title: appLocalizations.categorize_products_country_title,
-            subtitleText:
-                appLocalizations.preferences_contributions_categorize_subtitle,
-            url:
-                'https://hunger.openfoodfacts.org/eco-score?cc=${ProductQuery.getCountry().offTag}',
-          ),
+          _buildAllIncompleteTile(context, appLocalizations, localDatabase),
+          _buildCategorizeProductsTile(appLocalizations),
         ],
       ),
     ];
+  }
+
+  // Contribution section
+  PreferenceTile _buildNewProductsTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    LocalDatabase localDatabase,
+    String userId,
+  ) {
+    return PreferenceTile(
+      icon: Icons.add_circle_outline,
+      title: appLocalizations.preferences_contributions_new_products_title,
+      subtitleText:
+          appLocalizations.preferences_contributions_new_products_subtitle,
+      trailing: const LazyCounterWidget(
+        LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
+      ),
+      onTap: () async => _openProductQuery(
+        context: context,
+        localDatabase: localDatabase,
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.CONTRIBUTOR,
+          productType: ProductType.food,
+        ),
+        title: appLocalizations.user_search_contributor_title,
+      ),
+    );
+  }
+
+  PreferenceTile _buildInformerTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    LocalDatabase localDatabase,
+    String userId,
+  ) {
+    return PreferenceTile(
+      icon: Icons.edit_outlined,
+      title: appLocalizations.user_search_informer_title,
+      trailing: const LazyCounterWidget(
+        LazyCounterUserSearch(UserSearchType.INFORMER),
+      ),
+      onTap: () async => _openProductQuery(
+        context: context,
+        localDatabase: localDatabase,
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.INFORMER,
+          productType: ProductType.food,
+        ),
+        title: appLocalizations.user_search_informer_title,
+      ),
+    );
+  }
+
+  PreferenceTile _buildPhotographerTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    LocalDatabase localDatabase,
+    String userId,
+  ) {
+    return PreferenceTile(
+      icon: Icons.add_a_photo_outlined,
+      title: appLocalizations.user_search_photographer_title,
+      trailing: const LazyCounterWidget(
+        LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
+      ),
+      onTap: () async => _openProductQuery(
+        context: context,
+        localDatabase: localDatabase,
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.PHOTOGRAPHER,
+          productType: ProductType.food,
+        ),
+        title: appLocalizations.user_search_photographer_title,
+      ),
+    );
+  }
+
+  PreferenceTile _buildToBeCompletedTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    LocalDatabase localDatabase,
+    String userId,
+  ) {
+    return PreferenceTile(
+      icon: Icons.done,
+      title: appLocalizations.preferences_contributions_to_be_completed_title,
+      trailing: const LazyCounterWidget(
+        LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
+      ),
+      onTap: () async => _openProductQuery(
+        context: context,
+        localDatabase: localDatabase,
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.TO_BE_COMPLETED,
+          productType: ProductType.food,
+        ),
+        title: appLocalizations.user_search_to_be_completed_title,
+      ),
+    );
+  }
+
+  PreferenceTile _buildAllIncompleteTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    LocalDatabase localDatabase,
+  ) {
+    return PreferenceTile(
+      icon: Icons.done_all,
+      title: appLocalizations.preferences_contributions_all_incomplete_title,
+      subtitleText:
+          appLocalizations.preferences_contributions_all_incomplete_subtitle,
+      onTap: () async => _openProductQuery(
+        context: context,
+        localDatabase: localDatabase,
+        productQuery: PagedToBeCompletedProductQuery(
+          productType: ProductType.food,
+        ),
+        title: appLocalizations.all_search_to_be_completed_title,
+      ),
+    );
+  }
+
+  UrlPreferenceTile _buildCategorizeProductsTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return UrlPreferenceTile(
+      icon: Icons.new_label_outlined,
+      title: appLocalizations.categorize_products_country_title,
+      subtitleText:
+          appLocalizations.preferences_contributions_categorize_subtitle,
+      url:
+          'https://hunger.openfoodfacts.org/eco-score?cc=${ProductQuery.getCountry().offTag}',
+    );
   }
 
   Future<void> _openProductQuery({

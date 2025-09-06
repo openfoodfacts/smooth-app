@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -154,7 +155,7 @@ class _SearchFieldState extends State<SearchField> {
       focusedBorder: border,
       contentPadding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
       hintText: widget.searchHelper.getHintText(localizations),
-      hintStyle: widget.hintTextStyle,
+      hintStyle: widget.hintTextStyle ?? const TextStyle(color: Colors.black54),
       prefixIcon: widget.showNavigationButton
           ? const Align(
               alignment: AlignmentDirectional.centerStart,
@@ -293,7 +294,7 @@ class SearchFieldUIHelper {
 
     return BoxDecoration(
       borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
-      color: lightTheme ? Colors.white : theme.cellOdd,
+      color: lightTheme ? Colors.white : lightColorScheme.secondary,
       border: Border.all(
         color: lightTheme ? theme.primaryBlack : theme.primarySemiDark,
       ),

@@ -26,36 +26,57 @@ class AccountRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_manage_account_title,
         tiles: <PreferenceTile>[
-          UrlPreferenceTile(
-            leading: const icons.Profile(),
-            title: appLocalizations.view_profile,
-            subtitleText: appLocalizations.preferences_on_off_website_subtitle,
-            url: 'https://world.openfoodfacts.org/editor/$userId',
-          ),
-          UrlPreferenceTile(
-            leading: const icons.Password.lock(),
-            title: appLocalizations.preferences_change_password_title,
-            subtitleText: appLocalizations.preferences_on_off_website_subtitle,
-            url: 'https://world.openfoodfacts.org/cgi/reset_password.pl',
-          ),
-          PreferenceTile(
-            leading: const icons.Logout(),
-            title: appLocalizations.sign_out,
-            onTap: () async {
-              if (await _confirmLogout(context, appLocalizations) == true) {
-                if (context.mounted) {
-                  await context.read<UserManagementProvider>().logout();
-                  AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
-                  if (context.mounted) {
-                    Navigator.of(context).pop();
-                  }
-                }
-              }
-            },
-          ),
+          _buildViewProfileTile(appLocalizations, userId),
+          _buildChangePasswordTile(appLocalizations),
+          _buildSignOutTile(context, appLocalizations),
         ],
       ),
     ];
+  }
+
+  // Account Management section
+  UrlPreferenceTile _buildViewProfileTile(
+    AppLocalizations appLocalizations,
+    String? userId,
+  ) {
+    return UrlPreferenceTile(
+      leading: const icons.Profile(),
+      title: appLocalizations.view_profile,
+      subtitleText: appLocalizations.preferences_on_off_website_subtitle,
+      url: 'https://world.openfoodfacts.org/editor/$userId',
+    );
+  }
+
+  UrlPreferenceTile _buildChangePasswordTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return UrlPreferenceTile(
+      leading: const icons.Password.lock(),
+      title: appLocalizations.preferences_change_password_title,
+      subtitleText: appLocalizations.preferences_on_off_website_subtitle,
+      url: 'https://world.openfoodfacts.org/cgi/reset_password.pl',
+    );
+  }
+
+  PreferenceTile _buildSignOutTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      leading: const icons.Logout(),
+      title: appLocalizations.sign_out,
+      onTap: () async {
+        if (await _confirmLogout(context, appLocalizations) == true) {
+          if (context.mounted) {
+            await context.read<UserManagementProvider>().logout();
+            AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
+            if (context.mounted) {
+              Navigator.of(context).pop();
+            }
+          }
+        }
+      },
+    );
   }
 
   @override
@@ -68,18 +89,25 @@ class AccountRoot extends PreferencesRoot {
         title: appLocalizations.preferences_danger_zone,
         titleBackgroundColor: Colors.red,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            leading: const icons.Delete.trash(),
-            title: appLocalizations.account_delete,
-            subtitleText:
-                appLocalizations.preferences_account_deletion_subtitle,
-            onTap: () async => Navigator.of(context).push<void>(
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => AccountDeletionWebview(),
-              ),
-            ),
-          ),
+          _buildAccountDeletionTile(context, appLocalizations),
         ],
+      ),
+    );
+  }
+
+  // Danger Zone section
+  PreferenceTile _buildAccountDeletionTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      leading: const icons.Delete.trash(),
+      title: appLocalizations.account_delete,
+      subtitleText: appLocalizations.preferences_account_deletion_subtitle,
+      onTap: () async => Navigator.of(context).push<void>(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => AccountDeletionWebview(),
+        ),
       ),
     );
   }
