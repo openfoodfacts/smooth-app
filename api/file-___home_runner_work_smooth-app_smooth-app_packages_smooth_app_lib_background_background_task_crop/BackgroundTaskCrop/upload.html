@@ -74,21 +74,25 @@
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;void&gt; upload() async {
   final ProductImage productImage = getProductImageChange();
-  final String? imageUrl = await OpenFoodAPIClient.setProductImageCrop(
-    barcode: barcode,
-    imageField: productImage.field!,
-    language: getLanguage(),
-    imgid: productImage.imgid!,
-    angle: productImage.angle!,
-    x1: productImage.x1!,
-    y1: productImage.y1!,
-    x2: productImage.x2!,
-    y2: productImage.y2!,
-    user: getUser(),
-    uriHelper: uriProductHelper,
-  );
-  if (imageUrl == null) {
-    throw Exception(&#39;Could not select picture&#39;);
+  try {
+    final String? imageUrl = await OpenFoodAPIClient.setProductImageCrop(
+      barcode: barcode,
+      imageField: productImage.field!,
+      language: getLanguage(),
+      imgid: productImage.imgid!,
+      angle: productImage.angle!,
+      x1: productImage.x1!,
+      y1: productImage.y1!,
+      x2: productImage.x2!,
+      y2: productImage.y2!,
+      user: getUser(),
+      uriHelper: uriProductHelper,
+    );
+    if (imageUrl == null) {
+      throw Exception(&#39;Could not select picture&#39;);
+    }
+  } catch (e) {
+    throw Exception(&#39;$e $productImage&#39;);
   }
 }</code></pre>
 </section>

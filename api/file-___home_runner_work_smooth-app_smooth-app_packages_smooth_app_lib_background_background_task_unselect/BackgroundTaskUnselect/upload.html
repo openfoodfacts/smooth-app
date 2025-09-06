@@ -72,13 +72,20 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;void&gt; upload() async =&gt; OpenFoodAPIClient.unselectProductImage(
-  barcode: barcode,
-  imageField: ImageField.fromOffTag(imageField)!,
-  language: getLanguage(),
-  user: getUser(),
-  uriHelper: uriProductHelper,
-);</code></pre>
+Future&lt;void&gt; upload() async {
+  final OpenFoodFactsLanguage language = getLanguage();
+  try {
+    return OpenFoodAPIClient.unselectProductImage(
+      barcode: barcode,
+      imageField: ImageField.fromOffTag(imageField)!,
+      language: language,
+      user: getUser(),
+      uriHelper: uriProductHelper,
+    );
+  } catch (e) {
+    throw Exception(&#39;$e (${language.offTag} $imageField $barcode)&#39;);
+  }
+}</code></pre>
 </section>
 
 
