@@ -979,7 +979,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Категорияи дақиқтареро интихоб кунед';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsTg extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,159 @@ class AppLocalizationsTg extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Холи сабз чист?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score логотипест, ки ҳадафи он ба шумо дар бораи **таъсири муҳити зисти ғизо** маълумот додан мебошад.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Рамзи ранг аз сабзи торик (**A+**) барои маҳсулоти **камтаъсирнок** то сурхи торик (**F**) барои маҳсулоти **таъсиртарин** фарқ мекунад.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Логотипҳои Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title => 'Асос: Арзёбии давраи ҳаёт (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Арзёбии илмии категорияҳои ғизо';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Барои ҳар як категорияи маҳсулот, бо истифода аз маълумот аз пойгоҳи муҳити зисти Agribalyse (аз ҷониби ADEME ва INRAE тарҳрезӣ шудааст) баҳои **бенчмарк** муқаррар карда мешавад.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Таҳлили давраи ҳаёт** усули стандартикунонидашудаи баҳодиҳӣ барои гузаронидани арзёбии бисёрмарҳила ва бисёркритериявии муҳити зист мебошад.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '** Он андоза:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 қадами истеҳсолӣ';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 нишондиҳандаҳои таъсири муҳити зист';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Тағйирёбии иқлим/изи карбон';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Камшавии қабати озон';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Радиатсияи ионизатсиякунанда';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Замин';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Истифодаи об ва энергия';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Ифлосшавии ҳаво';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Оби баҳрӣ ва ширин (зарраҳо, кислотаҳо, эвтрофикатсия)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Камшавии захираҳо.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Бонусҳо ва ҷаримаҳо';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Барои мукофотонидани маҳсулоти беҳтар дар як категория, мо пас аз он дар асоси якчанд меъёрҳо мукофотпулӣ ва ҷаримаҳо татбиқ мекунем:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Бонус дар асоси пайдоиши компонентҳо дода мешавад. Ин бонус таъсир ба нақлиёт ва инчунин сиёсати экологии ҳар як кишвари истеҳсолкунандаро ба назар мегирад.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Барои дуруст ҳисоб кардани нишондиҳандаи сабз, маълумоте лозим аст, ки дар бастабандӣ ҳатман нишон дода нашудаанд (масалан, пайдоиш ва фоизи дақиқи ҳар як ингредиент) ё дар шакли қобили истифода хеле кам дастрас аст (масалан, рӯйхати ҳама ҷузъҳои бастабандӣ бо намудҳои дақиқи пластикии истифодашуда).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Арзиши миёна вақте истифода мешавад, ки ин маълумот ҳанӯз дастрас нест, аммо мо ҳоло ҳамаро даъват мекунем, ки ба мо дар ҷамъоварии ин маълумот кӯмак расонанд, ки барои Green-Score ва инчунин барои бисёр истифодаҳои дигар муфид хоҳанд буд.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Чӣ тавр шаҳрвандон метавонанд кӯмак расонанд';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Ҳама шаҳрвандон метавонанд ба мо дар ҷамъоварӣ ва сохтори маълумоте, ки дар маҳсулот мавҷуд аст ё аз онҳо баровардан мумкин аст, кӯмак расонанд, масалан, маълумот дар бораи бастабандӣ: Mission Emballages: инвентаризатсияи васеъмиқёси муштараки бастабандӣ барои ҳама маҳсулоти хӯрокворӣ (бо забони фаронсавӣ)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Чӣ тавр истеҳсолкунандагон метавонанд кӯмак расонанд';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Истеҳсолкунандагон метавонанд маълумоти худро мустақиман тавассути платформаи ройгони мо барои истеҳсолкунандагон фиристанд.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

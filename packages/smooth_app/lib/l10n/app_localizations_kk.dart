@@ -979,7 +979,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Нақтырақ санатты таңдаңыз';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsKk extends AppLocalizations {
   String get guide_share_label => 'Бөлісу';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,163 @@ class AppLocalizationsKk extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Жасыл ұпай дегеніміз не?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score - бұл **тағамның қоршаған ортаға әсері** туралы хабарлауға бағытталған логотип.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Түс коды **ең аз әсер ететін** өнімдер үшін қою жасылдан (**A+**) **ең әсерлі** өнімдер үшін қою қызылға (**F**) дейін өзгереді.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Green-Score логотиптері';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Негізгі: Өмірлік циклді бағалау (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Азық-түлік категорияларына ғылыми баға беру';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Әрбір өнім санаты үшін Agribalyse экологиялық дерекқорының деректері (ADEME және INRAE әзірлеген) арқылы **бенчмарк** ұпайы белгіленеді.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Өмірлік циклді талдау** – көп сатылы және көп критериалды экологиялық бағалауды жүргізуге арналған стандартталған бағалау әдісі.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Өлшемдері:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 өндірістік қадам';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Қаптама';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 қоршаған ортаға әсер ету көрсеткіштері';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Климаттың өзгеруі/көміртек ізі';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Озон қабатының бұзылуы';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Иондаушы сәулелену';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Жер';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Су және энергияны пайдалану';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Ауаның ластануы';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Теңіз және тұщы су (бөлшектер, қышқылдану, эвтрофикация)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Ресурстардың сарқылуы.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Бонустар мен айыппұлдар';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Санаттағы жақсырақ өнімдерді марапаттау үшін біз бірнеше критерийге негізделген бонустар мен айыппұлдарды қолданамыз:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Ингредиенттердің шығу тегі негізінде бонус беріледі. Бұл бонус тасымалдауға әсер етуді, сондай-ақ әрбір өндіруші елінің экологиялық саясатын ескереді.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Қаптама';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Жасыл баллды дәл есептеу үшін қаптамада міндетті түрде көрсетілмеген (мысалы, әрбір ингредиенттің шығу тегі және нақты пайызы) немесе қолдануға жарамды түрінде сирек болатын ақпарат (мысалы, қолданылатын пластмассалардың нақты түрлерімен қаптаманың барлық компоненттерінің тізімі) болуы қажет.';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Орташа мәндер бұл ақпарат әлі қол жетімді болмаған кезде пайдаланылады, бірақ біз қазір барлығын осы ақпаратты жинауға көмектесуге шақырамыз, бұл Жасыл ұпай үшін өте пайдалы болады, сонымен қатар басқа да көптеген пайдаланулар үшін.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Қалай азаматтар көмектесе алады';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Барлық азаматтар бізге өнімдерде бар немесе олардан шығарылатын ақпаратты жинауға және құрылымдауға көмектесе алады, мысалы, орау туралы ақпарат: Mission Emballages: барлық азық-түлік өнімдеріне арналған орауыштардың кең ауқымды бірлескен түгендеуі (француз тілінде)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Өндірушілер қалай көмектесе алады';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Өндірушілер бізге өз ақпаратын өндірушілерге арналған тегін платформамыз арқылы тікелей жібере алады.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

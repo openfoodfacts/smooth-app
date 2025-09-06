@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Rannañ",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Petra eo ar skor glas ?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Ur logo eo ar Green-Score hag a glask kelaouiñ ac'hanoc'h diwar-benn **efedoù ar boued war an endro**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Kemmañ a ra ar c'hod liv eus ar glas teñval (**A+**) evit ar produioù **nebeutañ o efed** betek ar ruz teñval (**F**) evit ar produioù **ar muiañ a efed**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Logoioù ar Green-Score",
+  "guide_greenscore_lca_title": "Ar c'hreiz : Priziañ ar c'helc'hiad buhez (LCA)",
+  "guide_greenscore_lca_arg1_title": "Ur priziadenn skiantel eus ar rummadoù boued",
+  "guide_greenscore_lca_arg1_text1": "Evit pep rummad produ e vez staliet ur skor **benchmark** dre implijout roadennoù eus diaz roadennoù an endro Agribalyse (savet gant ADEME hag INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Analizañ ar c'helc'hiad buhez** zo un doare priziañ skoueriekaet evit kas da benn ur priziadenn endroel liespazenn ha lieskriterioù.",
+  "guide_greenscore_lca_arg1_text3": "**Muzuliañ a ra :**",
+  "guide_greenscore_lca_arg2_title": "6 pazenn produiñ",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Enpakañ",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "14 diskouezer efed war an endro",
+  "guide_greenscore_lca_arg3_text1": "Emdroadur an hin/roud karbon",
+  "guide_greenscore_lca_arg3_text2": "Digresk ar gwiskad ozon",
+  "guide_greenscore_lca_arg3_text3": "Skinadur ionizañ",
+  "guide_greenscore_lca_arg3_text4": "Douar",
+  "guide_greenscore_lca_arg3_text5": "Implij an dour hag an energiezh",
+  "guide_greenscore_lca_arg3_text6": "Saotradur an aer |",
+  "guide_greenscore_lca_arg3_text7": "Dour mor ha dous (rannigoù, asidifikadur, eutrofikadur)",
+  "guide_greenscore_lca_arg3_text8": "Digresk ar binvioù.",
+  "guide_greenscore_bonuses_penalties_title": "Prizioù ha kastizoù",
+  "guide_greenscore_bonuses_penalties_intro": "Evit gounit produioù gwelloc'h e-barzh ur rummad e lakaomp neuze prizioù ha kastizoù diazezet war meur a dalvoudegezh :",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Orin an aozennoù",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Ur bonus a vez roet diwar orin ar c'hementadoù. Gant ar bonus-mañ e vez kemeret e kont an efedoù war an treuzdougen hag ivez politikerezh an endro bro pep produer.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Enpakañ",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "Evit jediñ ar Green-Score en un doare reizh eo ret kaout titouroù ha n'int ket spisaet dre ret war ar pakad (evel orin ha dregantad resis pep elfenn) pe a vez kavet ral a wech e stumm implijus (evel ur roll eus holl elfennoù ar pakad gant ar seurt plastikoù resis implijet).",
+  "guide_greenscore_transparency_intro2": "Arveret e vez talvoudoù keitat pa n'eo ket hegerz an titouroù-mañ c'hoazh, met goulenn a reomp bremañ digant an holl sikour ac'hanomp da zastum an titouroù-se a vo talvoudus-kenañ evit ar Green-Score met ivez evit meur a implij all.",
+  "guide_greenscore_transparency_arg1_title": "Penaos e c'hall ar geodedourien sikour",
+  "guide_greenscore_transparency_arg1_text": "An holl geodedourien a c’hell sikour ac’hanomp da zastum ha da frammañ an titouroù a zo war ar produioù pe a c’heller tennañ diwarno, evel titouroù diwar-benn an endalc’hadoù : Mission Emballages : un inventaire collaboratif à grand échelle des emballages pour tous les produits alimentaires (e galleg)",
+  "guide_greenscore_transparency_arg2_title": "Penaos e c'hall ar c'henderc'herien sikour",
+  "guide_greenscore_transparency_arg2_text": "Ar c'henderc'herien a c'hell kas deomp o titouroù war-eeun dre hor leurenn digoust evit ar broduerien.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

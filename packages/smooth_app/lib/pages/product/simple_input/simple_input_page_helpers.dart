@@ -692,7 +692,7 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.ORIGINS;
 
   @override
-  Widget getIcon() => const Icon(Icons.travel_explore);
+  Widget getIcon() => const icons.Origins();
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.origins;

@@ -979,7 +979,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Elektu pli precizan kategorion';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsEo extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,159 @@ class AppLocalizationsEo extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Kio estas la Verda Poentaro?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'La Verda Poentaro estas emblemo, kiu celas informi vin pri la **media efiko de nutraĵoj**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'La kolorkodo varias de malhelverda (**A+**) por la **malplej efikaj** produktoj ĝis malhelruĝa (**F**) por la **plej efikaj** produktoj.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'La Green-Score-emblemoj';
+
+  @override
+  String get guide_greenscore_lca_title => 'La kerno: Vivciklo-takso (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Scienca taksado de manĝaĵkategorioj';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Por ĉiu produkta kategorio, **komparnorma** poentaro estas establita uzante datumojn el la media datumbazo Agribalyse (kreita de ADEME kaj INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Vivcikla analizo** estas normigita taksmetodo por efektivigi plurŝtupan kaj plurkriterian median taksadon.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Ĝi mezuras:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 produktadpaŝoj';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Pakaĵo';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 indikiloj pri media efiko';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Klimata ŝanĝo/karbona spuro';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Malplenigo de la ozontavolo';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Joniga radiado';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Tero';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Akvo kaj energiouzo';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Poluado de aero';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Mara kaj dolĉa akvo (partikloj, acidiĝo, eŭtrofiĝo)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Malplenigo de rimedoj.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Gratifikoj kaj punoj';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Por rekompenci pli bonajn produktojn ene de kategorio, ni aplikas gratifikojn kaj punojn bazitajn sur pluraj kriterioj:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origino de ingrediencoj';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Gratifiko estas aljuĝata surbaze de la deveno de la ingrediencoj. Ĉi tiu gratifiko konsideras la efikon sur transportadon kaj ankaŭ la median politikon de la lando de ĉiu produktanto.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Pakaĵo';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Por precize kalkuli la Verdan Poentaron, necesas havi informojn, kiuj ne nepre estas specifitaj sur la pakaĵo (kiel ekzemple la origino kaj la preciza procento de ĉiu ingredienco) aŭ kiuj malofte haveblas en uzebla formo (kiel ekzemple listo de ĉiuj komponantoj de la pakaĵo kun la precizaj specoj de uzitaj plastoj).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Mezaj valoroj estas uzataj kiam ĉi tiu informo ankoraŭ ne haveblas, sed ni nun alvokas ĉiujn helpi nin kolekti ĉi tiun informon, kiu estos tre utila por la Verda-Poentaro sed ankaŭ por multaj aliaj uzoj.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Kiel civitanoj povas helpi';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Ĉiuj civitanoj povas helpi nin kolekti kaj strukturi la informojn, kiuj troviĝas sur produktoj aŭ kiujn oni povas dedukti el ili, kiel ekzemple informojn pri pakaĵoj: Misio Emballages: grandskala kunlabora inventaro de pakaĵoj por ĉiuj nutraĵaj produktoj (en la franca)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Kiel fabrikantoj povas helpi';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Fabrikistoj povas sendi al ni siajn informojn rekte per nia senpaga platformo por produktantoj.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

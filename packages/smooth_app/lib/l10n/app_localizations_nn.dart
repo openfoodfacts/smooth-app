@@ -979,7 +979,7 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Velg en mer presis kategori';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsNn extends AppLocalizations {
   String get guide_share_label => 'Del';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,160 @@ class AppLocalizationsNn extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Hva er den grønne poengsummen?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score er en logo som har som mål å informere deg om **miljøpåvirkningen av mat**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Fargekoden varierer fra mørkegrønn (**A+**) for de **minst effektive** produktene til mørkerød (**F**) for de **mest effektive** produktene.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Green-Score-logoene';
+
+  @override
+  String get guide_greenscore_lca_title => 'Kjernen: Livssyklusanalyse (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'En vitenskapelig evaluering av matkategorier';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'For hver produktkategori etableres en **benchmark**-score ved hjelp av data fra miljødatabasen Agribalyse (utviklet av ADEME og INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Livssyklusanalyse** er en standardisert vurderingsmetode for å gjennomføre en flertrinns og flerkriteriebasert miljøvurdering.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Den måler:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 produksjonstrinn';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Prosessering';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Emballasje';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Fordeling';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Forbruk';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 indikatorer for miljøpåvirkning';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Klimaendringer/karbonavtrykk';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Nedbryting av ozonlaget';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ioniserende stråling';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Jord';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Vann- og energiforbruk';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Luftforurensning';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Marint og ferskvann (partikler, forsuring, eutrofiering)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Uttømming av ressurser.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonuser og straffer';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'For å belønne bedre produkter innenfor en kategori, bruker vi deretter bonuser og straffer basert på flere kriterier:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Ingrediensopprinnelse';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Det gis en bonus basert på ingrediensenes opprinnelse. Denne bonusen tar hensyn til transportpåvirkningen og miljøpolitikken i hver produsents land.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Emballasje';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'For å beregne Green-Score nøyaktig er det nødvendig med informasjon som ikke nødvendigvis er spesifisert på emballasjen (som opprinnelse og den nøyaktige prosentandelen av hver ingrediens), eller som sjelden er tilgjengelig i brukbar form (som en liste over alle komponentene i emballasjen med de nøyaktige plasttypene som brukes).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Gjennomsnittsverdier brukes når denne informasjonen ikke er tilgjengelig ennå, men vi oppfordrer nå alle til å hjelpe oss med å samle inn denne informasjonen, som vil være svært nyttig for Green-Score, men også for mange andre bruksområder.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Hvordan innbyggere kan hjelpe';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Alle borgere kan hjelpe oss med å samle og strukturere informasjonen som finnes på produkter eller som kan utledes fra dem, for eksempel informasjon om emballasje: Mission Emballages: en storstilt samarbeidende inventarisering av emballasje for alle matvarer (på fransk)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Hvordan produsenter kan hjelpe';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Produsenter kan sende oss informasjonen sin direkte via vår gratis plattform for produsenter.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

@@ -980,7 +980,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Odaberite precizniju kategoriju';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4107,9 +4107,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4219,7 +4216,162 @@ class AppLocalizationsHr extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Što je Zeleni rezultat?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Zeleni rezultat je logotip koji vas informira o **utjecaju hrane na okoliš**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kod boje varira od tamnozelene (**A+**) za proizvode s **najmanjim utjecajem** do tamnocrvene (**F**) za proizvode s **najvećim utjecajem**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Logotipi Green-Scorea';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Jezgra: Procjena životnog ciklusa (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Znanstvena evaluacija kategorija hrane';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Za svaku kategoriju proizvoda, **referentni** rezultat se utvrđuje korištenjem podataka iz ekološke baze podataka Agribalyse (koju su osmislili ADEME i INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Analiza životnog ciklusa** je standardizirana metoda procjene za provođenje višefazne i višekriterijske procjene utjecaja na okoliš.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Mjeri:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 koraka proizvodnje';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 pokazatelja utjecaja na okoliš';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Klimatske promjene/ugljični otisak';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Oštećenje ozonskog omotača';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ionizirajuće zračenje';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Zemljište';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Potrošnja vode i energije';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Zagađenje zraka';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Morska i slatka voda (čestice, zakiseljavanje, eutrofikacija)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Iscrpljivanje resursa.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonusi i kazne';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Kako bismo nagradili bolje proizvode unutar kategorije, primjenjujemo bonuse i kazne na temelju nekoliko kriterija:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bonus se dodjeljuje na temelju podrijetla sastojaka. Ovaj bonus uzima u obzir utjecaj na prijevoz, kao i politiku zaštite okoliša zemlje svakog proizvođača.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Za točan izračun Green-Scorea potrebno je imati informacije koje nisu nužno navedene na ambalaži (kao što su podrijetlo i točan postotak svakog sastojka) ili koje su rijetko dostupne u upotrebljivom obliku (kao što je popis svih komponenti ambalaže s točnim vrstama korištene plastike).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Prosječne vrijednosti se koriste kada te informacije još nisu dostupne, ali sada pozivamo sve da nam pomognu prikupiti ove informacije koje će biti vrlo korisne za Green-Score, ali i za mnoge druge namjene.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Kako građani mogu pomoći';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Svi građani mogu nam pomoći u prikupljanju i strukturiranju informacija koje se nalaze na proizvodima ili koje se iz njih mogu zaključiti, kao što su informacije na ambalaži: Mission Emballages: veliki kolaborativni popis ambalaže za sve prehrambene proizvode (na francuskom)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Kako proizvođači mogu pomoći';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Proizvođači nam mogu poslati svoje podatke izravno putem naše besplatne platforme za proizvođače.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

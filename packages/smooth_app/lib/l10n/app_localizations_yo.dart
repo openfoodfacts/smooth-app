@@ -979,7 +979,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Yan ẹka kongẹ diẹ sii';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsYo extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,161 @@ class AppLocalizationsYo extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Kini Iwọn Alawọ ewe?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score jẹ aami kan ti o ni ero lati sọ fun ọ nipa ** ipa ayika ti ounjẹ ***.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Koodu awọ yatọ lati alawọ ewe dudu (** A +**) fun awọn ọja ** ti o kere julọ si pupa dudu (*F ***) fun awọn ọja ** ti o ni ipa julọ **.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Awọn aami Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Ipilẹṣẹ: Ṣiṣayẹwo iwọn igbesi aye (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'A ijinle sayensi imọ ti ounje isori';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Fun ẹka ọja kọọkan, Dimegilio ** ala *** jẹ idasilẹ ni lilo data lati ibi ipamọ data ayika Agribalyse (apẹrẹ nipasẹ ADEME ati INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '** Onínọmbà igbesi-aye igbesi aye *** jẹ ọna igbelewọn idiwọn fun ṣiṣe ipele ipele-pupọ ati igbelewọn ayika-ọpọlọpọ.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '** O ṣe iwọn: ***';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 gbóògì awọn igbesẹ';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 ayika ikolu ifi';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Iyipada oju-ọjọ / ifẹsẹtẹ erogba';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Osonu Layer idinku';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ìtọjú ionizing';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Ilẹ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Omi & lilo agbara';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Idoti ti afẹfẹ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Omi & omi titun (awọn patikulu, acidification, eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Idinku awọn ohun elo.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'imoriri & ifiyaje';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Lati san awọn ọja to dara julọ laarin ẹka kan, lẹhinna a lo awọn ẹbun & awọn ijiya ti o da lori awọn ami-ẹri pupọ:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'A ajeseku ti wa ni fun un da lori awọn Oti ti awọn eroja. Ajeseku yii ṣe akiyesi ipa lori gbigbe ati tun eto imulo ayika ti orilẹ-ede olupilẹṣẹ kọọkan.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Lati ṣe iṣiro deede Green-Score, o jẹ dandan lati ni alaye eyiti ko ṣe pataki ni pato lori apoti (bii ipilẹṣẹ ati ipin gangan ti eroja kọọkan) tabi eyiti o ṣọwọn wa ni fọọmu lilo (gẹgẹbi atokọ ti gbogbo awọn paati ti apoti pẹlu awọn iru pilasitik deede ti a lo).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Awọn iye apapọ ni a lo nigbati alaye yii ko ti wa, ṣugbọn a n pe gbogbo eniyan ni bayi lati ṣe iranlọwọ fun wa lati gba alaye yii eyiti yoo wulo pupọ fun Green-Score ṣugbọn fun ọpọlọpọ awọn lilo miiran.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Bawo ni awọn ara ilu ṣe le ṣe iranlọwọ';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Gbogbo awọn ara ilu le ṣe iranlọwọ fun wa lati ṣajọ ati ṣeto alaye ti o wa lori awọn ọja tabi ti o le ṣe yọkuro lati ọdọ wọn, gẹgẹbi alaye lori apoti: Awọn emballages Mission: atokọ ifọwọsowọpọ titobi nla ti apoti fun gbogbo awọn ọja ounjẹ (ni Faranse)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Bawo ni awọn olupese le ṣe iranlọwọ';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Awọn aṣelọpọ le firanṣẹ alaye wọn taara si wa nipasẹ pẹpẹ ọfẹ wa fun awọn olupilẹṣẹ.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

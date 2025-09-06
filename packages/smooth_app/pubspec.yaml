@@ -13,11 +13,12 @@ dependencies:
     sdk: flutter
 
   async: 2.13.0
-  go_router: 16.2.0
+  go_router: 16.2.1
   barcode_widget: 2.0.4
   carousel_slider: 5.1.1
   cupertino_icons: 1.0.8
   flutter_svg: 2.2.1
+  vector_graphics: 1.1.19
   flutter_map: 8.2.1
   html: 0.15.6
   flutter_widget_from_html_core: 0.17.0
@@ -45,7 +46,7 @@ dependencies:
   diacritic: 0.1.6
   app_store_shared:
     path: ../app_store/shared
-  audioplayers: 6.5.0
+  audioplayers: 6.5.1
   flutter_email_sender: 7.0.0
   flutter_native_splash: 2.4.6
   image: 4.5.4
@@ -113,7 +114,7 @@ dev_dependencies:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  mockito: 5.5.0
+  mockito: 5.5.1
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
   flutter_lints: 6.0.0
@@ -154,6 +155,7 @@ flutter:
     - assets/audio/
     - assets/cache/
     - assets/cacheTintable/
+    - assets/guides/greenscore/
     - assets/metadata/
     - assets/misc/
     - assets/network/cert.pem

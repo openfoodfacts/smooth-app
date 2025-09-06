@@ -982,7 +982,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Hautatu kategoria zehatzago bat';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4116,9 +4116,6 @@ class AppLocalizationsEu extends AppLocalizations {
   String get guide_share_label => 'Partekatu';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4228,7 +4225,164 @@ class AppLocalizationsEu extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Zer da Puntuazio Berdea?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score elikagaien **inpaktuaren** berri emateko helburua duen logotipo bat da.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kolore kodea berde ilunaren (**A+**) koloretik **eragin txikieneko** produktuen kolorera eta gorri ilunaren (**F**) kolorera aldatzen da, **eragin handiena duten** produktuen kolorerako.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Green-Score logotipoak';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Muina: Bizi-zikloaren ebaluazioa (BZA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Elikagai-kategorien ebaluazio zientifikoa';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Produktu-kategoria bakoitzerako, **erreferentziazko** puntuazio bat ezartzen da Agribalyse ingurumen-datu-baseko datuak erabiliz (ADEMEk eta INRAEk diseinatua).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Bizi-zikloaren analisia** ingurumen-ebaluazio bat egiteko ebaluazio-metodo estandarizatu bat da, etapa anitzeko eta irizpide anitzekoa.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Neurtzen du:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 ekoizpen urrats';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Ontziratzea';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 ingurumen-inpaktuaren adierazle';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Klima aldaketa/karbono aztarna';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ozono geruzaren agortzea';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Erradiazio ionizatzailea';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Lurra';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Uraren eta energiaren erabilera';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Airearen kutsadura';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Itsasoko eta ur gezako uretan (partikulak, azidotzea, eutrofizazioa)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Baliabideen agortzea.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Hobariak eta zigorrak';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Kategoria bateko produktu hobeak saritzeko, hainbat irizpideren araberako hobariak eta zigorrak aplikatzen ditugu:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Osagaien jatorriaren araberako hobari bat ematen da. Hobari honek garraioan duen eragina eta ekoizle bakoitzaren herrialdeko ingurumen-politika kontuan hartzen ditu.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Ontziratzea';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Green-Score zehatz-mehatz kalkulatzeko, ontzian zehaztuta ez dagoen informazioa izan behar da (adibidez, osagai bakoitzaren jatorria eta ehuneko zehatza) edo gutxitan eskuragarri dagoen informazioa (adibidez, ontziko osagai guztien zerrenda, erabilitako plastiko mota zehatzekin).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Batez besteko balioak erabiltzen dira informazio hori oraindik eskuragarri ez dagoenean, baina orain guztioi dei egiten dizuegu informazio hau biltzen laguntzeko, oso erabilgarria izango baita Green-Score-rako, baina baita beste hainbat erabilerarako ere.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Nola lagundu dezaketen herritarrek';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Herritar guztiek lagun diezagukete produktuetan dagoen edo horietatik ondoriozta daitekeen informazioa biltzen eta egituratzen, hala nola ontziei buruzko informazioa: Emballages Misioa: elikagai-produktu guztien ontzien inbentario kolaboratibo handia (frantsesez)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Nola lagundu dezaketen fabrikatzaileek';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Fabrikatzaileek beren informazioa zuzenean bidal diezagukete ekoizleentzako doako plataformaren bidez.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

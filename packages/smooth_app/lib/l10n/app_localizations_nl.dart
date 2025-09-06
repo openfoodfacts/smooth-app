@@ -992,7 +992,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Selecteer een nauwkeurigere categorie';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4156,9 +4156,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get guide_share_label => 'Delen';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'waar';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'De Nutri-Score Evolueert: Toelichtingen!';
 
@@ -4268,7 +4265,159 @@ class AppLocalizationsNl extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Wat is de Green Score?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'De Green-Score is een logo dat bedoeld is om u te informeren over de **milieu-impact van voeding**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'De kleurcode varieert van donkergroen (**A+**) voor de **producten met de minste impact** tot donkerrood (**F**) voor de **producten met de meeste impact**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'De Green-Score-logo\'s';
+
+  @override
+  String get guide_greenscore_lca_title => 'De kern: Levenscyclusanalyse (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Een wetenschappelijke evaluatie van voedselcategorieën';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Voor elke productcategorie wordt een **benchmark**-score vastgesteld met behulp van gegevens uit de milieudatabase van Agribalyse (ontworpen door ADEME en INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Levenscyclusanalyse** is een gestandaardiseerde beoordelingsmethode voor het uitvoeren van een milieubeoordeling in meerdere fasen en op basis van meerdere criteria.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Het meet:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 productiestappen';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Landbouw';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Verwerking';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Verpakking';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transport';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distributie';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumptie';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 milieu-impactindicatoren';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Klimaatverandering/koolstofvoetafdruk';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Aantasting van de ozonlaag';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ioniserende straling';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Land';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Water- en energieverbruik';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Luchtvervuiling';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Zee- en zoetwater (deeltjes, verzuring, eutrofiëring)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Uitputting van hulpbronnen.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonussen en boetes';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Om betere producten binnen een categorie te belonen, passen we bonussen en straffen toe op basis van verschillende criteria:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title => 'Productiewijze';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'Er wordt een bonus toegekend aan producten die een officieel label, een label of een certificering hebben die milieuvoordelen garandeert (biologisch, fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Herkomst van de ingrediënten';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Er wordt een bonus toegekend op basis van de herkomst van de ingrediënten. Deze bonus houdt rekening met de impact op transport en het milieubeleid van het land van de producent.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Bedreigde soorten';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'Producten die ingrediënten bevatten die aanzienlijke negatieve gevolgen hebben voor de biodiversiteit en ecosystemen, worden bestraft. Zoals palmolie, waarvan de productie tot massale ontbossing leidt.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Verpakking';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'Er wordt een sanctie berekend om rekening te houden met de circulariteit van verpakkingen (gebruik van gerecyclycleerde grondstoffen en recycleerbaarheid) en oververpakking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'Een grotere behoefte aan transparantie om de milieu-impact beter te meten en te verminderen';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Om de Green-Score nauwkeurig te kunnen berekenen, is informatie nodig die niet per se op de verpakking staat (zoals de herkomst en het exacte percentage van elk ingrediënt) of die zelden in bruikbare vorm beschikbaar is (zoals een lijst met alle bestanddelen van de verpakking en de precieze soorten plastic die zijn gebruikt).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Wanneer deze informatie nog niet beschikbaar is, gebruiken we gemiddelde waarden. We roepen nu echter iedereen op om ons te helpen deze informatie te verzamelen. Deze informatie is niet alleen nuttig voor de Green-Score, maar ook voor veel andere doeleinden.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Hoe burgers kunnen helpen';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Alle burgers kunnen ons helpen bij het verzamelen en structureren van de informatie die op producten aanwezig is of die daaruit kan worden afgeleid, zoals informatie op verpakkingen: Mission Emballages: een grootschalige, gezamenlijke inventarisatie van verpakkingen voor alle voedingsproducten (in het Frans)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Hoe fabrikanten kunnen helpen';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Fabrikanten kunnen hun informatie rechtstreeks aan ons doorgeven via ons gratis platform voor producenten.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://nl.openfoodfacts.org/groene-score';
 
   @override
   String get preview_badge => 'Voorbeeld';

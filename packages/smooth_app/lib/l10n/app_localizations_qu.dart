@@ -979,7 +979,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Aswan chiqan categoría nisqa akllay';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4106,9 +4106,6 @@ class AppLocalizationsQu extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4218,7 +4215,164 @@ class AppLocalizationsQu extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      '¿Imataq Verde Puntuacion?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score nisqaqa huk logotipo nisqa, chaymi **mikhuypa pachamamapi imayna kasqanmanta** willayta munan.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Llimpi codigoqa hukniraymi yana verde (**A+**) **aswan pisi impactoyuq** rurukunapaq yana puka (**F**) **aswan impactoyuq** rurukunapaq.';
+
+  @override
+  String get guide_greenscore_logos_caption =>
+      'Chay Verde-Puntuación nisqa logotipokuna';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Ukhun: Kawsay muyu chaninchay (LCA) .';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Mikhuy categoría nisqakunamanta cientifico chaninchay';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Sapa ruru categoría nisqapaqmi, **benchmark** nisqa yupayta churakun Agribalyse pachamamamanta willakuypa willakuyninkunawan (ADEMEwan INRAEwan ruwasqa).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Análisis de ciclo de vida** nisqa chaninchanapaq ruwaymi, achka etapayuq, achka criterioyuq pachamama chaninchay ruwanapaq.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Tupun:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 ruruchina ruwaykuna';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 pachamamapi llakichishka rikuchikkuna';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Pacha tikray/carbono nisqapa puriynin';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ozono nisqa qata pisiyaynin';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Radiación ionizante nisqa';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Allpa';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Yaku & kallpa llamk’achiyta';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Wayra qhillichay';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Mama qucha & misk\'i yaku (partículas, acidificación, eutroficación) .';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Recursokuna pisiyay.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bonos & penaltis nisqakuna';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Aswan allin rurukuna huk categoría ukhupi premianapaq, chaymanta bonificacionkuna & multakuna achka criterio kaqpi ruwasqayku:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Chay ingredientekuna maymanta hamusqanman hinan huk bonificacionta qonku. Kay bonificación nisqapiqa qhawarikunmi chay impacto nisqa transporte nisqapi hinallataq sapa ruruchiqpa suyunpa política ambiental nisqatapas.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Green-Score nisqa allinta yupanapaqqa, willakuyniyuqmi kanan, chaykunaqa manam necesariamentechu embalaje nisqapi nisqa kachkan (ahinataq maymanta hamusqanmanta hinaspa sapa ingredientepa pachakmanta chiqap kasqanmanta) utaq pisillapim tarikun forma utilizable nisqapi (ahinataq huk lista llapa componentekuna embalaje nisqamanta chay clase preciso plásticos nisqawan).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Chawpi chanikuna llamk\'achisqa kanku mayk\'aq kay willay manaraq kanchu, ichaqa kunan llapa runata waqyachkayku kay willayta huñuypi yanapawanaykupaq mayqinchus ancha allin kanqa Verde-Puntuación kaqpaq ichaqa achka wak llamk\'anakunapaqpas.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Imaynatataq llaqtamasikuna yanapankuman';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Llapa llaqta runakunam yanapawasunman huñunapaq hinaspa estructuranapaq willakuykunata, chaykunam kachkan rurukunapi utaq chaymanta hurqusqa kanman, ahinataq willakuykunata envasesmanta: Misión Emballages: hatun inventario colaborativo envases nisqamanta llapan mikhuy rurukunapaq (francés simipi)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Imaynatataq fabricaqkuna yanapankuman';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Ruwaqkuna willakuyninkuta chiqamanta apachimuwankuman mana qullqiyuq plataformaykuwan ruruchiqkunapaq.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/verde-puntuación nisqapi';
 
   @override
   String get preview_badge => 'Preview';

@@ -979,7 +979,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Dooro qayb ka sii saxsan';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsSo extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,163 @@ class AppLocalizationsSo extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Waa maxay Dhibcaha Cagaaran?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Dhibcaha cagaaran waa calaamad ujeedadeedu tahay in lagu ogeysiiyo **saamaynta deegaanka ee cuntada**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Koodhka midabku wuxuu ku kala duwan yahay cagaar madow (** A+**) ** alaabooyinka ugu saamaynta yar ** ilaa casaanka madow (**F**) ee ** alaabooyinka ugu saamaynta badan **';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Calaamadaha Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Xuddunta: Qiimaynta meertada nolosha (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Qiimaynta sayniska ee qaybaha cuntada';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Qayb kasta oo badeecad ah, ** bartilmaameedka ** waxaa lagu aasaasay iyadoo la adeegsanayo xogta xogta deegaanka ee Agribalyse (oo ay u qaabeeyeen ADEME iyo INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Falanqaynta meertada nolosha** waa hab qiimayn heersare ah oo lagu fuliyo qiimaynta deegaanka ee heerar badan iyo shuruudo badan.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Waxay qiyaastay:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 tillaabo wax soo saar';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 tilmaamayaasha saamaynta deegaanka';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Isbeddelka cimiladu / raad kaarboon';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Lakabka Osoone oo yaraada';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ionizing shucaaca';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Dhulka';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Isticmaalka biyaha & tamarta';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Wasakhowga hawada';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Biyaha badda iyo biyaha saafiga ah (qurub, aysiidh, eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Khayraadka oo yaraada.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Gunnooyinka & rigoorayaal';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Si loo abaalmariyo agabka ka wanaagsan qaybta, waxaanu markaas ku dabaqnaa gunno & ganaaxyo ku salaysan dhawr shuruudood:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Gunno ayaa lagu bixiyaa iyadoo lagu saleynayo asalka maaddooyinka. Gunnadani waxay tixgalinaysaa saamaynta ay ku leedahay gaadiidka iyo sidoo kale siyaasadda deegaanka ee waddan kasta oo soo-saare ah.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Si sax ah loo xisaabiyo Buundada Cagaaran, waxaa lagama maarmaan ah in la helo macluumaad aan daruuri ahayn in lagu caddeeyo baakooyinka (sida asalka iyo boqolleyda saxda ah ee walx kasta) ama si dhif ah loo heli karo qaab la isticmaali karo (sida liiska dhammaan qaybaha baakadaha oo ay ku jiraan noocyada saxda ah ee balaastikada loo isticmaalo).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Celceliska qiyamka ayaa la isticmaalaa marka macluumaadkan aan weli la heli karin, laakiin hadda waxaan ugu baaqaynaa qof walba inuu naga caawiyo ururinta macluumaadkan oo aad waxtar u leh Green-Score laakiin sidoo kale adeegyo kale oo badan.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Sidee muwaadiniintu u caawin karaan';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Dhammaan muwaadiniinta waxay naga caawin karaan ururinta iyo qaabaynta macluumaadka ku jira alaabada ama laga soo saari karo iyaga, sida macluumaadka ku saabsan baakadaha: Mission Emballages: alaab balaadhan oo wada shaqayneed oo baakad ah dhammaan alaabta cuntada (Faransiiska)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Sida soosaarayaashu u caawin karaan';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Soo-saareyaashu waxay si toos ah noogu soo diri karaan macluumaadkooda iyada oo loo marayo goobtayada bilaashka ah ee wax soo saarayaasha.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

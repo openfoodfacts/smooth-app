@@ -979,7 +979,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Tagh roinn nas mionaidiche';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4107,9 +4107,6 @@ class AppLocalizationsGd extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4219,7 +4216,162 @@ class AppLocalizationsGd extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Dè a th’ anns an Sgòr Uaine?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      '’S e suaicheantas a th’ anns an Sgòr Uaine a tha ag amas air fiosrachadh a thoirt dhut mu **bhuaidh àrainneachdail bìdh**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Tha an còd dath ag atharrachadh bho uaine dorcha (**A+**) airson na toraidhean **leis an ìre as lugha buaidh** gu dearg dorcha (**F**) airson na toraidhean **leis an ìre as motha buaidh**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Suaicheantasan an Sgòr Uaine';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'A’ chridhe: Measadh cearcall-beatha (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Measadh saidheansail air roinnean bìdh';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Airson gach roinn thoraidhean, thèid sgòr **coimeas** a stèidheachadh a’ cleachdadh dàta bhon stòr-dàta àrainneachdail Agribalyse (air a dhealbhadh le ADEME agus INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '’S e dòigh-obrach àbhaisteach a th’ ann an **mion-sgrùdadh cearcall-beatha** airson measadh àrainneachdail ioma-ìre agus ioma-shlat-tomhais a dhèanamh.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Tha e a’ tomhas:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 ceumannan cinneasachaidh';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 comharran buaidh àrainneachdail';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Atharrachadh clìomaid/lorg carboin';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Crìonadh sreath òson';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Rèididheachd ianachaidh';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Tìr';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Cleachdadh uisge is lùtha';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Truailleadh adhair';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Uisge mara is uisge ùr (mìrean, searbhachadh, eutrofachadh)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Crìonadh ghoireasan.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bònasan is peanasan';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Gus duaisean a thoirt do thoraidhean nas fheàrr taobh a-staigh roinn, bidh sinn an uairsin a’ cur bònasan is peanasan an sàs stèidhichte air grunn shlatan-tomhais:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Thèid bònas a thoirt seachad a rèir tùs nan tàthchuid. Bidh am bònas seo a’ toirt aire don bhuaidh a th’ aig còmhdhail agus cuideachd do phoileasaidh àrainneachdail dùthaich gach riochdaire.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Gus an Sgòr Uaine obrachadh a-mach gu ceart, feumar fiosrachadh a bhith agad nach eil air a shònrachadh air a’ phacaid (leithid tùs agus an dearbh cheudad de gach tàthchuid) no nach eil ri fhaighinn ach ainneamh ann an cruth a ghabhas cleachdadh (leithid liosta de na pàirtean uile den phacaid leis na seòrsaichean plastaig a chaidh a chleachdadh).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Bithear a’ cleachdadh luachan cuibheasach nuair nach eil am fiosrachadh seo ri fhaighinn fhathast, ach tha sinn a-nis ag iarraidh air a h-uile duine ar cuideachadh le bhith a’ cruinneachadh an fhiosrachaidh seo a bhios glè fheumail airson an Sgòr Uaine ach cuideachd airson mòran chleachdaidhean eile.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Mar as urrainn do shaoranaich cuideachadh';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Faodaidh a h-uile saoranach ar cuideachadh le bhith a’ cruinneachadh agus a’ structaradh an fhiosrachaidh a tha an làthair air toraidhean no a ghabhas a thoirt a-mach bhuapa, leithid fiosrachadh air pacaigeadh: Mission Emballages: clàr-stuth co-obrachail mòr-sgèile de phacaigeadh airson a h-uile toradh bìdh (ann am Fraingis)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Mar as urrainn do luchd-saothrachaidh cuideachadh';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Faodaidh luchd-saothrachaidh am fiosrachadh aca a chuir thugainn gu dìreach tron àrd-ùrlar an-asgaidh againn do luchd-dèanaimh.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

@@ -979,7 +979,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Tlhopha setlhopha se se tlhomameng thata';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4107,9 +4107,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4219,7 +4216,163 @@ class AppLocalizationsTn extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Maduo a Botala ke eng?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score ke letshwao le le ikaeletseng go go itsise ka **diphelelo tsa dijo mo tikologong**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Khoutu ya mmala e farologana go tswa go botala jo bontsho (**A+**) jwa ditlhagiswa tse di **senang tshusumetso e ntsi** go ya go bohibidu jo bontsho (**F**) jwa ditlhagiswa tse di nang le tshusumetso e ntsi**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Matshwao a Maduo a Botala';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Moko: Tshekatsheko ya modikologo wa botshelo (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Tshekatsheko ya saense ya ditlhopha tsa dijo';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Mo setlhopheng sengwe le sengwe sa setlhagiswa, go tlhomiwa maduo a **benchmark** go dirisiwa tshedimosetso go tswa mo polokelotshedimosetsong ya tikologo ya Agribalyse (e e tlhamilweng ke ADEME le INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Tshekatsheko ya modikologo wa botshelo** ke mokgwa wa tlhatlhobo o o tlhomamisitsweng wa go dira tlhatlhobo ya tikologo ya dikgato tse dintsi le ya dikelo tse dintsi.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**E lekanya:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => 'Dikgato di le 6 tsa tlhagiso';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      'ditshupo di le 14 tsa ditlamorago tsa tikologo';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Phetogo ya tlelaemete/motlhala wa khabone';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Go nyelela ga llaga ya ozone';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Marang a a ionisang';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Lefatshe';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Tiriso ya metsi le maatla';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Kgotlelego ya mowa';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Metsi a lewatle le a a phepa (dikarolwana, go nna asiti, go nna eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Go fela ga ditsompelo.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Dibonase le dikotlhao';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Go duela dikumo tse di botoka mo setlhopheng, re bo re dirisa dibonase le dikotlhao go ikaegilwe ka ditlhokego di le mmalwa:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bonase e abelwa go ikaegilwe ka tshimologo ya metswako. Bonase ena e nahana ka tshusumetso ho dipalangwang mme hape le pholisi ya tikoloho ya naha e nngwe le e nngwe ya mohlahisi.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Go bala ka nepo Green-Score, go botlhokwa go nna le tshedimosetso e e sa tlhalosiwang mo sephuthelwaneng (jaaka tshimologo le phesente e e tlhomameng ya motswako mongwe le mongwe) kgotsa e e sa bonweng ka sewelo ka sebopego se se ka dirisiwang (jaaka lenaane la dikarolo tsotlhe tsa polasetiki tse di nang le mofuta o o tlhomameng wa tiriso).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Dipalopalo tsa palogare di dirisiwa fa tshedimosetso eno e ise e nne teng, mme jaanong re kopa mongwe le mongwe go re thusa go kokoanya tshedimosetso eno e e tla nnang mosola thata mo Green-Score mme gape le mo ditirisong tse dingwe tse dintsi.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Ka fa baagi ba ka thusang ka teng';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Baagi botlhe ba ka re thusa go kokoanya le go rulaganya tshedimosetso e e leng teng mo ditlhagisweng kgotsa e e ka tswang mo go tsone, jaaka tshedimosetso ka ga go phuthela: Mission Emballages: lenaane le legolo la tirisanommogo la go phuthela dikumo tsotlhe tsa dijo (ka Sefora)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Kafa batlhagisi ba ka thusang ka gone';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Bahlahisi ba ka re romela tlhahisoleseding ya bona ka kotloloho ka sethala sa rona sa mahala sa bahlahisi.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.dintlha tsa dijo tse di bulegileng.org/maduo-a-tala';
 
   @override
   String get preview_badge => 'Preview';

@@ -979,7 +979,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Seleccionatz una categoria mai precisa';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4107,9 +4107,6 @@ class AppLocalizationsOc extends AppLocalizations {
   String get guide_share_label => 'Partejar';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4219,7 +4216,165 @@ class AppLocalizationsOc extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Qu es la Puntuacion Verda?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Lo Verd-Score es un lògo que vòl vos informar de l\' **impacte environamental de la noiridura**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Lo còde de color varia del verd escur (**A+**) pels produches **mens impactants** al roge escur (**F**) pels produches **mai impactants**.';
+
+  @override
+  String get guide_greenscore_logos_caption =>
+      'Los lògos de la puntuacion verda';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Lo còr: Avaloracion del cicle de vida (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Una avaloracion scientifica de las categorias alimentàrias';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Per cada categoria de produch, una nòta de **referéncia** es establida en utilizant de donadas de la basa de donadas environamentala Agribalyse (concebuda per ADEME e INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**L\'analisi del cicle de vida** es un metòde d\'avaloracion estandardizat per realizar una avaloracion environamentala multiestadi e multicritèris.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Mesura:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 etapas de produccion';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 indicadors d\'impacte environamental';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Cambiament climatic/emprenta de carbòni';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Esgotament de la capa d\'ozòn';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Radiacion ionizanta';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Tèrra';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 =>
+      'L\'usatge de l\'aiga e de l\'energia';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Pollucion de l\'aire';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Aiga marina e doça (particulas, acidificacion, eutroficacion)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Esgotament de las ressorsas.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bonificacions e penalitats';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Per recompensar de melhors produches dins una categoria, aplicam alara de bonus e de penalitats en foncion de divèrses critèris:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Un bonus es balhat en foncion de l\'origina dels ingredients. Aquel bonus pren en compte l\'impacte sul transpòrt e tanben la politica environamentala del país de cada productor.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Per calcular amb precision lo Green-Score, es necessari d\'aver d\'informacions qu\'es pas necessàriament especificadas sus l\'embalatge (coma l\'origina e lo percentatge exacte de cada ingredient) o qu\'es rarament disponibla jos forma utilizabla (coma una lista de totes los compausants de l\'embalatge amb los tipes precises de plastics utilizats).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Las valors mejanas son utilizadas quand aquesta informacion es pas encara disponibla, mas demandam ara a totes de nos ajudar a collectar aquesta informacion que serà fòrça utila pel Green-Score mas tanben per fòrça autres usatges.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Cossí los ciutadans pòdon ajudar';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Toti es ciutadans mos pòden ajudar a amassar e estructurar era informacion qu’ei presenta sus es productes o que se pòt dedusir d’eri, coma era informacion sus er embalatge: Mission Emballages: un inventari collaboratiu a grana escala d’embalatge entà toti es productes alimentaris (en francés)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Cossí los fabricants pòdon ajudar';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Los fabricants nos pòdon mandar lors informacions dirèctament a travèrs nòstra plataforma gratuita pels productors.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

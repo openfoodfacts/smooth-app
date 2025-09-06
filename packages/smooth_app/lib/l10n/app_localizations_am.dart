@@ -979,7 +979,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'ይበልጥ ትክክለኛ የሆነ ምድብ ይምረጡ';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4103,9 +4103,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4215,7 +4212,155 @@ class AppLocalizationsAm extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'አረንጓዴው ነጥብ ምንድን ነው?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'አረንጓዴው ነጥብ ስለ ** የምግብ አካባቢያዊ ተጽእኖ ለእርስዎ ለማሳወቅ ያለመ አርማ ነው።';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'የቀለም ኮድ ከጨለማ አረንጓዴ (**A+**) ለ ** ቢያንስ ተፅዕኖ ፈጣሪ ** ምርቶች ወደ ጥቁር ቀይ (**F**) ለ ** በጣም ተፅዕኖ ፈጣሪዎች ይለያያል።';
+
+  @override
+  String get guide_greenscore_logos_caption => 'የአረንጓዴው ነጥብ አርማዎች';
+
+  @override
+  String get guide_greenscore_lca_title => 'ዋናው፡ የሕይወት ዑደት ግምገማ (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title => 'የምግብ ምድቦች ሳይንሳዊ ግምገማ';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'ለእያንዳንዱ የምርት ምድብ የ **ቤንችማርክ** ነጥብ ከአግሪባሊሴ የአካባቢ ዳታቤዝ (በADEME እና INRAE የተነደፈ) መረጃን በመጠቀም ይመሰረታል።';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**የህይወት ኡደት ትንተና** ባለ ብዙ ደረጃ እና ባለብዙ መስፈርት የአካባቢ ግምገማ ለማካሄድ ደረጃውን የጠበቀ የግምገማ ዘዴ ነው።';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**የሚለካው:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 የምርት ደረጃዎች';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 የአካባቢ ተጽዕኖ አመልካቾች';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'የአየር ንብረት ለውጥ/የካርቦን አሻራ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'የኦዞን ንብርብር መሟጠጥ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'ionizing ጨረር';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'መሬት';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'የውሃ እና የኃይል አጠቃቀም';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'የአየር ብክለት';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'የባህር እና ንጹህ ውሃ (ቅንጣቶች፣ አሲዳማነት፣ eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'የሀብቶች መሟጠጥ.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'ጉርሻዎች እና ቅጣቶች';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'በምድብ ውስጥ የተሻሉ ምርቶችን ለመሸለም፣ ከዚያም በብዙ መስፈርቶች ላይ ተመስርተን ጉርሻዎችን እና ቅጣቶችን እንተገብራለን፡';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'ጉርሻ የሚሰጠው በእቃዎቹ አመጣጥ ላይ በመመስረት ነው። ይህ ጉርሻ በትራንስፖርት ላይ ያለውን ተጽእኖ እና የእያንዳንዱን አምራች ሀገር የአካባቢ ጥበቃ ፖሊሲ ግምት ውስጥ ያስገባል.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'ግሪን-ውጤትን በትክክል ለማስላት በማሸጊያው ላይ የግድ ያልተገለፀ መረጃ (እንደ መነሻ እና የእያንዳንዱ ንጥረ ነገር ትክክለኛ መቶኛ) ወይም በጥቅም ላይ ሊውል በሚችል መልኩ ብዙም የማይገኝ (ለምሳሌ የማሸጊያው ሁሉንም ክፍሎች ከትክክለኛዎቹ የፕላስቲክ ዓይነቶች ጋር ዝርዝር) ማግኘት ያስፈልጋል።';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'አማካኝ እሴቶች ጥቅም ላይ የሚውሉት ይህ መረጃ ገና በማይገኝበት ጊዜ ነው፣ አሁን ግን ሁሉም ሰው ይህንን መረጃ እንድንሰበስብ እንዲረዳን እንጠይቃለን ይህም ለግሪን-ውጤት በጣም ጠቃሚ ይሆናል ነገር ግን ለሌሎች በርካታ አገልግሎቶች።';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title => 'ዜጎች እንዴት መርዳት እንደሚችሉ';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'ሁሉም ዜጎች በምርቶች ላይ ያለውን ወይም ከነሱ ሊወጡ የሚችሉ መረጃዎችን እንድንሰበስብ እና እንዲያዋቅር ሊረዱን ይችላሉ፤ እንደ ማሸግ ላይ ያለ መረጃ፡ Mission Emballages፡ ለሁሉም የምግብ ምርቶች (በፈረንሳይኛ) መጠነ ሰፊ የትብብር ክምችት';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title => 'አምራቾች እንዴት እንደሚረዱ';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'አምራቾች መረጃቸውን በቀጥታ በአምራቾቻችን በነፃ መድረክ በኩል ሊልኩልን ይችላሉ።';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

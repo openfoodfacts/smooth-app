@@ -979,7 +979,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'অধিক নিখুঁত শ্ৰেণী এটা বাছক';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsAs extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,159 @@ class AppLocalizationsAs extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'সেউজীয়া স্ক’ৰ কি?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'গ্ৰীণ-স্ক\'ৰ হৈছে এটা ল\'গ\' যিয়ে আপোনাক **খাদ্যৰ পৰিৱেশ প্ৰভাৱ**ৰ বিষয়ে অৱগত কৰাৰ লক্ষ্য ৰাখে।';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'ৰঙৰ ক\'ড **কম প্ৰভাৱশালী** সামগ্ৰীৰ বাবে গাঢ় সেউজীয়া (**A+**)ৰ পৰা **সৰ্বাধিক প্ৰভাৱশালী** সামগ্ৰীৰ বাবে গাঢ় ৰঙা (**F**)লৈকে ভিন্ন হয়।';
+
+  @override
+  String get guide_greenscore_logos_caption => 'গ্ৰীণ-স্ক’ৰৰ ল’গ’বোৰ';
+
+  @override
+  String get guide_greenscore_lca_title => 'মূল: জীৱনচক্ৰৰ মূল্যায়ন (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'খাদ্যৰ শ্ৰেণীসমূহৰ বৈজ্ঞানিক মূল্যায়ন';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'প্ৰতিটো পণ্য শ্ৰেণীৰ বাবে, Agribalyse পৰিৱেশ ডাটাবেছৰ পৰা তথ্য ব্যৱহাৰ কৰি এটা **বেঞ্চমাৰ্ক** স্ক\'ৰ স্থাপন কৰা হয় (ADEME আৰু INRAE দ্বাৰা ডিজাইন কৰা)।';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**জীৱনচক্ৰ বিশ্লেষণ** হৈছে বহু-পৰ্যায় আৰু বহু-মাপকাঠীযুক্ত পৰিৱেশ মূল্যায়ন সম্পন্ন কৰাৰ বাবে এক প্ৰামাণিক মূল্যায়ন পদ্ধতি।';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**ইয়াৰ জোখ:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '৬টা উৎপাদন পদক্ষেপ';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '১৪টা পৰিৱেশ প্ৰভাৱৰ সূচক';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'জলবায়ু পৰিৱৰ্তন/কাৰ্বন ফুটপ্ৰিণ্ট';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'অ’জন স্তৰৰ অভাৱ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'আয়নীকৰণ বিকিৰণ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'ভূমি';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'পানী আৰু শক্তিৰ ব্যৱহাৰ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'বায়ু প্ৰদূষণ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'সাগৰীয় আৰু মিঠা পানী (কণা, এচিডিফিকেশন, ইউট্ৰফিকেশন)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'সম্পদৰ অভাৱ।';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'বোনাছ আৰু পেনাল্টি';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'এটা শ্ৰেণীৰ ভিতৰত উন্নত সামগ্ৰীক পুৰস্কৃত কৰিবলৈ, আমি তাৰ পিছত কেইবাটাও মাপকাঠীৰ ওপৰত ভিত্তি কৰি বোনাছ আৰু শাস্তি প্ৰয়োগ কৰো:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'উপাদানসমূহৰ উৎপত্তিৰ ওপৰত ভিত্তি কৰি বোনাছ প্ৰদান কৰা হয়। এই বোনাছে পৰিবহণৰ ওপৰত প্ৰভাৱ আৰু লগতে প্ৰতিজন উৎপাদক দেশৰ পৰিৱেশ নীতিৰ প্ৰতি লক্ষ্য ৰাখে।';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'গ্ৰীণ-স্ক’ৰ সঠিকভাৱে গণনা কৰিবলৈ হ’লে এনে তথ্য থকাটো প্ৰয়োজনীয় যিবোৰ পেকেজিঙৰ ওপৰত নিৰ্দিষ্ট কৰাটো বাধ্যতামূলক নহয় (যেনে প্ৰতিটো উপাদানৰ উৎপত্তি আৰু সঠিক শতাংশ) বা যিবোৰ ব্যৱহাৰযোগ্য ৰূপত খুব কমেইহে উপলব্ধ (যেনে পেকেজিঙৰ সকলো উপাদানৰ তালিকা ব্যৱহৃত নিৰ্দিষ্ট ধৰণৰ প্লাষ্টিকৰ সৈতে)।';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'এই তথ্য এতিয়াও উপলব্ধ নহ’লে গড় মান ব্যৱহাৰ কৰা হয়, কিন্তু আমি এতিয়া সকলোকে এই তথ্য সংগ্ৰহ কৰাত সহায় কৰিবলৈ আহ্বান জনাইছো যিটো গ্ৰীণ-স্ক’ৰৰ বাবে অতি উপযোগী হ’ব কিন্তু আন বহু ব্যৱহাৰৰ বাবেও।';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'নাগৰিকে কেনেকৈ সহায় কৰিব পাৰে';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'সকলো নাগৰিকে আমাক পণ্যৰ ওপৰত উপস্থিত বা ইয়াৰ পৰা অনুমান কৰিব পৰা তথ্য সংগ্ৰহ আৰু গঠন কৰাত সহায় কৰিব পাৰে, যেনে পেকেজিঙৰ তথ্য: মিছন এম্বেলেজ: সকলো খাদ্য সামগ্ৰীৰ পেকেজিঙৰ বৃহৎ পৰিসৰৰ সহযোগিতামূলক তথ্য (ফৰাচী ভাষাত)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'প্ৰস্তুতকাৰীয়ে কেনেকৈ সহায় কৰিব পাৰে';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'প্ৰস্তুতকাৰীসকলে তেওঁলোকৰ তথ্য আমালৈ পোনপটীয়াকৈ আমাৰ উৎপাদকসকলৰ বাবে বিনামূলীয়া মঞ্চৰ জৰিয়তে প্ৰেৰণ কৰিব পাৰে।';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/সেউজীয়া-স্ক\'ৰ';
 
   @override
   String get preview_badge => 'Preview';

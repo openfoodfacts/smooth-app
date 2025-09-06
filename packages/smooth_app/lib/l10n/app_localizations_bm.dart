@@ -979,7 +979,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'A’ ye kulu dɔ sugandi min ka surun kosɛbɛ';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4107,9 +4107,6 @@ class AppLocalizationsBm extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4219,7 +4216,163 @@ class AppLocalizationsBm extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Score Vert ye mun ye?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score ye logo ye min laɲini ye ka aw kunnafoni **dumuni bɛ se ka nɔ min bila sigida la**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kulɛri cogoya bɛ danfara ka bɔ jɛman dibi la (**A+**) la **fɛn minnu tɛ nɔ bila kosɛbɛ** la ka taa a bila bilen dibi la (**F**) la **fɛnw na minnu bɛ nɔ bila kosɛbɛ**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'A ye Green-Score logow ye';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'A kunba ye : Ɲɛnamaya taabolo jateminɛ (LCA) .';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Dumuni suguyaw jateminɛ dɔnniya siratigɛ la';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Fɛn dilannen suguya kelen-kelen bɛɛ kama, **benchmark** jate bɛ sigi senkan ni kunnafoniw ye minnu bɔra Agribalyse sigida kunnafonidilan na (ADEME ni INRAE ye minnu dabɔ).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Ɲɛnamaya taabolo sɛgɛsɛgɛli** ye jateminɛ kɛcogo ye min bɛ kɛ ka sigida jateminɛ kɛcogo caman ni sariya caman kɛ.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**A bɛ suman:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 sɛnɛcogo taabolo';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 sigida laminiko gɛlɛya jiralanw';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Waati jiginni/karɔbɔli senna';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ozɔni (Ozone) hakɛ dɔgɔyali';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 =>
+      'Radiation ionize (radiation ionize) ye';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Duguma';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Ji & fanga baaracogo';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Fiɲɛ nɔgɔli';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Kɔgɔji & jisuma (particules, acidification, eutrophication) .';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Nafolo dɔgɔyali.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bonus & pénalités (jalakiw) ye';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Walasa ka fɛn ɲumanw sara kulu dɔ kɔnɔ, o kɔfɛ, an bɛ bonus & penalties (bonus & penalties) kɛ ka da sariya damadɔ kan:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bonus bɛ di ka da a fɛnw bɔyɔrɔ kan. Nin bonyali in bɛ jateminɛ kɛ nɔ min bɛ sɔrɔ bolifɛnw na ani fana sɛnɛfɛn dilannikɛla kelen-kelen bɛɛ ka jamana ka sigidako politiki.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Walasa ka Green-Score jate tigitigi, a ka kan ka kunnafoniw sɔrɔ minnu ma fɔ kosɛbɛ foroko kan (i n’a fɔ a bɔyɔrɔ ani a kɛcogo kelen-kelen bɛɛ kɛmɛsarada la tigitigi) walima minnu man teli ka sɔrɔ cogo la min bɛ se ka baara kɛ (i n’a fɔ foroko kɔnɔfɛnw bɛɛ lisɛli ni plastiki suguya tigitigiw ye minnu bɛ kɛ).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Nafa hakɛ danmadɔw bɛ baara kɛ ni nin kunnafoniw ma sɔrɔ fɔlɔ, nka an bɛ wele bila sisan bɛɛ ma u k’an dɛmɛ ka nin kunnafoniw lajɛ min nafa bɛna bonya kosɛbɛ Green-Score la nka nafa caman wɛrɛw fana na.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Jamanadenw bɛ se ka dɛmɛ don cogo min na';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Jamanaden bɛɛ bɛ se k’an dɛmɛ ka kunnafoniw lajɛ ani k’u labɛn, kunnafoniw minnu bɛ sɔrɔ fɛnw kan walima minnu bɛ se ka bɔ u la, i n’a fɔ kunnafoniw minnu bɛ sɔrɔ pakew kan: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Dilanbagaw bɛ se ka dɛmɛ don cogo min na';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Dilanbagaw bɛ se k’u ka kunnafoniw ci an ma k’a ɲɛsin an ka feerekɛyɔrɔ gansan ma min bɛ kɛ fɛn dilannikɛlaw ye.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/jatebɔ-sɛbɛn ɲɛ jɛman';
 
   @override
   String get preview_badge => 'Preview';

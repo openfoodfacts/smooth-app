@@ -962,7 +962,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'נא לבחור קטגוריה מדויקת יותר';
 
   @override
   String get score_add_missing_product_countries => 'הוספת מדינות מוצר חסרות';
@@ -4095,9 +4095,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get guide_share_label => 'שיתוף';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title => 'Nutri-Score מתפתח: הסברים!';
 
   @override
@@ -4204,7 +4201,155 @@ class AppLocalizationsHe extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'מהו הציון הירוק?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'ה-Green-Score הוא לוגו שמטרתו ליידע אתכם על **ההשפעה הסביבתית של מזון**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'קוד הצבעים משתנה מירוק כהה (**A+**) עבור המוצרים **בעלי ההשפעה הפחותה** ועד אדום כהה (**F**) עבור המוצרים **בעלי ההשפעה המשמעותית ביותר**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'הלוגואים של גרין-סקור';
+
+  @override
+  String get guide_greenscore_lca_title => 'הליבה: הערכת מחזור חיים (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title => 'הערכה מדעית של קטגוריות מזון';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'עבור כל קטגוריית מוצרים, נקבע ציון **בנצ\'מרק** באמצעות נתונים ממסד הנתונים הסביבתי Agribalyse (שעוצב על ידי ADEME ו-INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**ניתוח מחזור חיים** היא שיטת הערכה סטנדרטית לביצוע הערכה סביבתית רב-שלבית ורב-קריטריונים.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**זה מודד:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 שלבי ייצור';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'חקלאות';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'עיבוד';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'אריזה';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'שינוע';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'הפצה';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'צריכה';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 מדדי השפעה סביבתית';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'שינויי אקלים/טביעת רגל פחמנית';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'דלדול שכבת האוזון';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'קרינה מייננת';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'אֶרֶץ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'צריכת מים ואנרגיה';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'זיהום אוויר';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'מים ימיים ומתוקים (חלקיקים, החמצה, איטרופיקציה)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'דלדול משאבים.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'בונוסים ועונשים';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'כדי לתגמל מוצרים טובים יותר בתוך קטגוריה מסוימת, אנו מיישמים בונוסים ועונשים על סמך מספר קריטריונים:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title => 'מצב הייצור';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'בונוס מוענק למוצרים שיש להם תווית רשמית, תווית או אישור שמבטיחים יתרונות סביבתיים (אורגני, סחר הוגן, ערך סביבתי גבוה, תווית אדומה צרפתית, Bleu Blanc Cœur - לב כחול לבן, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title => 'מקור הרכיבים';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'בונוס מוענק על סמך מקור המרכיבים. בונוס זה לוקח בחשבון את ההשפעה על התחבורה וגם את המדיניות הסביבתית של כל מדינה של יצרן.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'זנים בסכנת הכחדה';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'ציון לרעה ניתן למוצרים שמכילים מוצרים שיש להם השפעות שליליות על מגוון ביולוגי ועל מערכות סביבתיות, כגון שמן דקלים, שהייצור שלו אחראי על בירוא יערות נרחב.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'אריזה';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'ציון לרעה מחושב כדי לקחת בחשבון את מיחזוריות האריזה (שימוש בחומר גולמי ומתמחזר) לצד אריזת יתר.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'צורך גובר בשקיפות למדידה טובה יותר והפחתת ההשפעה הסביבתית';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'כדי לחשב במדויק את הציון הירוק, יש צורך במידע שאינו בהכרח מצוין על האריזה (כגון המקור והאחוז המדויק של כל מרכיב) או מידע שכמעט ולא זמין בצורה שמישה (כגון רשימה של כל רכיבי האריזה עם סוגי הפלסטיק המדויקים שבהם נעשה שימוש).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'ערכים ממוצעים משמשים כאשר מידע זה עדיין אינו זמין, אך כעת אנו קוראים לכולם לעזור לנו לאסוף מידע זה, שיהיה שימושי מאוד עבור ה-Green-Score אך גם עבור שימושים רבים אחרים.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'כיצד אזרחים יכולים לעזור';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'כל האזרחים יכולים לעזור לנו לאסוף ולבנות את המידע הקיים על מוצרים או שניתן להסיק מהם, כגון מידע על אריזות: משימה Emballages: מלאי שיתופי בקנה מידה גדול של אריזות לכל מוצרי המזון (בצרפתית).';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'כיצד יצרנים יכולים לעזור';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'יצרנים יכולים לשלוח לנו את המידע שלהם ישירות דרך הפלטפורמה החינמית שלנו ליצרנים.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'תצוגה מקדימה';

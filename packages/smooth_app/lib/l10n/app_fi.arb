@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Jaa",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "Nutri-Score kehittyy: selityksiä!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score on pistemäärä, joka on suunniteltu **mittaamaan ravintoarvoa**. Se **täydentää NOVA-ryhmää** **ultrajalostetuissa elintarvikkeissa** (sisältyy myös hakemukseen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Valmistajille Nutri-Score-näyttö **pysyy valinnaisena**.",
   "guide_nutriscore_v2_share_link": "https://world-fi.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Mikä on vihreä pisteytys?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score on logo, jonka tarkoituksena on tiedottaa sinulle **ruoan ympäristövaikutuksista**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Värikoodi vaihtelee tummanvihreästä (**A+**) **vähiten vaikuttaville** tuotteille tummanpunaiseen (**F**) **vaikuttavimmille** tuotteille.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Green-Score-logot",
+  "guide_greenscore_lca_title": "Ydin: Elinkaariarviointi (LCA)",
+  "guide_greenscore_lca_arg1_title": "Elintarvikekategorioiden tieteellinen arviointi",
+  "guide_greenscore_lca_arg1_text1": "Kullekin tuotekategorialle määritetään **vertailuarvo** Agribalyse-ympäristötietokannan (ADEME:n ja INRAE:n suunnittelema) tietojen perusteella.",
+  "guide_greenscore_lca_arg1_text2": "**Elinkaarianalyysi** on standardoitu arviointimenetelmä monivaiheisen ja monikriteerisen ympäristöarvioinnin suorittamiseksi.",
+  "guide_greenscore_lca_arg1_text3": "**Se mittaa:**",
+  "guide_greenscore_lca_arg2_title": "6 tuotantovaihetta",
+  "guide_greenscore_lca_arg2_agriculture": "Maatalous",
+  "guide_greenscore_lca_arg2_processing": "Jalostus",
+  "guide_greenscore_lca_arg2_packaging": "Pakkaus",
+  "guide_greenscore_lca_arg2_transportation": "Kuljetus",
+  "guide_greenscore_lca_arg2_distribution": "Jakelu",
+  "guide_greenscore_lca_arg2_consumption": "Kulutus",
+  "guide_greenscore_lca_arg3_title": "14 ympäristövaikutusindikaattoria",
+  "guide_greenscore_lca_arg3_text1": "Ilmastonmuutos/hiilijalanjälki",
+  "guide_greenscore_lca_arg3_text2": "Otsonikerroksen oheneminen",
+  "guide_greenscore_lca_arg3_text3": "Ionisoiva säteily",
+  "guide_greenscore_lca_arg3_text4": "Maa",
+  "guide_greenscore_lca_arg3_text5": "Veden ja energian kulutus",
+  "guide_greenscore_lca_arg3_text6": "Ilman saastuminen",
+  "guide_greenscore_lca_arg3_text7": "Meri- ja makea vesi (hiukkaset, happamoituminen, rehevöityminen)",
+  "guide_greenscore_lca_arg3_text8": "Resurssien ehtyminen.",
+  "guide_greenscore_bonuses_penalties_title": "Bonukset ja rangaistukset",
+  "guide_greenscore_bonuses_penalties_intro": "Palkitsemaan parempia tuotteita tietyssä kategoriassa käytämme bonuksia ja rangaistuksia useiden kriteerien perusteella:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Tuotantotapa",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Bonus myönnetään tuotteille, joilla on virallinen merkki, merkki tai ympäristöhyödyt takaava sertifikaatti (luomu, reilu kauppa, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Ainesosien alkuperä",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus myönnetään ainesosien alkuperän perusteella. Tämä bonus ottaa huomioon kuljetukseen kohdistuvat vaikutukset sekä kunkin tuottajamaan ympäristöpolitiikan.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Uhanalaiset lajit",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Rangaistus tuomitaan tuotteille, jotka sisältävät ainesosia, joilla on merkittäviä kielteisiä vaikutuksia luonnon monimuotoisuuteen ja ekosysteemeihin, kuten palmuöljy, jonka tuotanto on vastuussa massiivisesta metsäkadosta.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Pakkaus",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Pakkauksen (kierrätetyn raaka-aineen käyttö ja kierrätettävyys) ja ylipakkauksen kiertokulun huomioon ottamiseksi lasketaan rangaistus.",
+  "guide_greenscore_transparency_title": "Lisääntynyt avoimuuden tarve parantamaan ympäristövaikutusten mittaamista ja vähentämistä",
+  "guide_greenscore_transparency_intro1": "Green-Score-pistemäärän tarkka laskeminen edellyttää tietoja, joita ei välttämättä ole eritelty pakkauksessa (kuten alkuperä ja kunkin ainesosan tarkka prosenttiosuus) tai joita on harvoin saatavilla käyttökelpoisessa muodossa (kuten luettelo kaikista pakkauksen osista ja käytetyistä muovityypeistä).",
+  "guide_greenscore_transparency_intro2": "Keskiarvoja käytetään, kun tätä tietoa ei ole vielä saatavilla, mutta nyt pyydämme kaikkia auttamaan meitä keräämään tätä tietoa, joka on erittäin hyödyllistä Green-Scoren lisäksi myös monissa muissa tarkoituksissa.",
+  "guide_greenscore_transparency_arg1_title": "Miten kansalaiset voivat auttaa",
+  "guide_greenscore_transparency_arg1_text": "Kaikki kansalaiset voivat auttaa meitä keräämään ja jäsentämään tuotteissa olevia tai niistä johdettavia tietoja, kuten pakkaustietoja: Mission Emballages: laaja yhteistyöhön perustuva pakkauskartoitus kaikille elintarvikkeille (ranskaksi)",
+  "guide_greenscore_transparency_arg2_title": "Miten valmistajat voivat auttaa",
+  "guide_greenscore_transparency_arg2_text": "Valmistajat voivat lähettää meille tietonsa suoraan ilmaisen tuottaja-alustamme kautta.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Esikatselu",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

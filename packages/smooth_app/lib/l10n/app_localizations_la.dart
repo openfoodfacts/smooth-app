@@ -979,7 +979,7 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Categoriam accuratiorem elige';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsLa extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,162 @@ class AppLocalizationsLa extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Quid est Punctum Viridis?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Insigne \"Green-Score\" est quod te de **impactu ciborum in ambientem** certiorem facere propositum habet.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Color variat a viridi obscuro (**A+**) pro rebus **minime impactantibus** ad rubrum obscurum (**F**) pro rebus **maxime impactantibus**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Insignia Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Nucleus: Aestimatio cycli vitae (ACV)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Aestimatio scientifica categoriarum ciborum';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Pro singulis categoriis productorum, mensura **benchmark** constituitur utens datis ex indice datorum de rebus environmentalibus Agribalyse (ab ADEME et INRAE designato).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Analysis cycli vitae** est methodus aestimationis normata ad perficiendam aestimationem environmentalem multi-stadialem et multi-criterialem.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Metitur:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => 'Sex gradus productionis';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      'Quattuordecim indices impactus environmentalis';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Mutatio climatis/vestigium carbonis';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Depletio strati ozoni';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Radiatio ionizans';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Terra';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Usus aquae et energiae';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Pollutio aeris';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Aqua marina et dulcis (particulae, acidificatio, eutrophicatio)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Depletio opum.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Praemia et poenae';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Ut meliora producta intra categoriam praemientur, deinde praemia et poenas secundum plura criteria adhibemus:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Praemium secundum originem ingredientium tribuitur. Hoc praemium et effectum in transportationem et etiam rationem rerum naturalium cuiusque patriae productoris considerat.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Ad accurate Viridis Punctum computandum, necesse est habere informationem quae non necessario in involucro specificatur (velut origo et exacta proportio cuiusque ingredientis) vel quae raro in forma utili praesto est (velut index omnium partium involucri cum generibus precisis plasticarum adhibitarum).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Valores medii adhibentur cum hae informationes nondum praesto sunt, sed nunc omnes ad auxilium nostrum in colligendis his informationibus, quae non solum non solum pro Green-Score sed etiam pro multis aliis usibus perutilis erit, rogamus.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Quomodo cives adiuvare possint';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Omnes cives nobis auxilium ferre possunt ad informationem, quae in productis adest vel ex eis deduci potest, colligendam et ordinandam: Mission Emballages: inventarium collaborativum amplum involucrorum omnium productorum alimentariorum (Francogallice).';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Quomodo fabri adiuvare possunt';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Fabricatores nobis suas informationes directe per suggestum nostrum gratuitum fabricatoribus destinatum mittere possunt.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

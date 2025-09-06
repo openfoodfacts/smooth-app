@@ -979,7 +979,7 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Paw ɔfã a ɛyɛ pɛpɛɛpɛ kɛse';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4107,9 +4107,6 @@ class AppLocalizationsTw extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4219,7 +4216,166 @@ class AppLocalizationsTw extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Dɛn ne Green Score no?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score yɛ ahyɛnsodeɛ a ne botaeɛ ne sɛ ɛbɛbɔ wo amanneɛ wɔ **nneɛma a atwa yɛn ho ahyia a aduane nya** ho.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kɔla no gu ahorow fi ahabammono tuntum (**A+**) ma **nneɛma a enni nkɛntɛnso kɛse** kosi kɔkɔɔ tuntum (**F**) ma **nneɛma a enni nkɛntɛnso kɛse**.';
+
+  @override
+  String get guide_greenscore_logos_caption =>
+      'Green-Score ahyɛnsode ahorow no';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Ade titiriw no: Asetra mu kyinhyia nhwehwɛmu (LCA) .';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Nyansahu mu nhwehwɛmu a wɔyɛe wɔ nnuan akuw ahorow ho';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Wɔ afiri biara mu no, wɔde nsɛm a ɛfiri Agribalyse nneɛma a atwa yɛn ho ahyia ho nsɛm akoraeɛ (a ADEME ne INRAE na wɔayɛ) na ɛde **benchmark** nkontabuo si hɔ.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Asetra mu kyinhyia nhwehwɛmu** yɛ nhwehwɛmu kwan a wɔahyɛ da ayɛ a wɔfa so yɛ nneɛma a atwa yɛn ho ahyia ho nhwehwɛmu a ɛwɔ akwan horow pii ne gyinapɛn ahorow pii.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Ɛsusu sɛ:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 anammɔn a wɔfa so yɛ nneɛma';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 nneɛma a atwa yɛn ho ahyia ho nsɛnkyerɛnne';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Wim nsakrae/carbon footprint';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 =>
+      'Ozone a ɛwɔ nipadua no mu a ɛso tew';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Mframa a ɛma ionizing';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Asase';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Nsuo & ahoɔden a wɔde di dwuma';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Mframa a wɔsɛe no';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Po & nsuo pa (nneɛma nketenkete, acidification, eutrophication) .';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 =>
+      'Nneɛma a wɔde yɛ adwuma a ɛresɛe.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bonuses & asotwe a wɔde ma';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Sɛ yɛbɛtua nneɛma a eye wɔ ɔfã bi mu ka a, afei yɛde bonus & asotwe a egyina gyinapɛn ahorow pii so di dwuma:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Wogyina faako a nneɛma a wɔde yɛ aduan no fi so na ɛma wonya akatua. Saa akatua yi susuw nkɛntɛnso a ɛwɔ akwantu so ne nneɛma a atwa yɛn ho ahyia ho nhyehyɛe a ɛwɔ ɔman a wɔyɛ nneɛma biara mu nso ho.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Sɛ wobɛbu Green-Score no pɛpɛɛpɛ a, ɛho hia sɛ wonya nsɛm a ɛnyɛ nea wɔakyerɛ wɔ nneɛma a wɔde ahyɛ mu no so (te sɛ nea efi mu ba ne ɔha biara mu nkyem pɔtee a ɛwɔ ade biara mu) anaasɛ ɛntaa mma wɔ ɔkwan a wobetumi de adi dwuma so (te sɛ nneɛma a wɔde ahyɛ mu no nyinaa din a wɔakyerɛw a plastic ahorow pɔtee a wɔde di dwuma wom).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Wɔde average values di dwuma bere a saa nsɛm yi nnya mmae, nanso seesei yɛrefrɛ obiara sɛ ɔmmoa yɛn mma yɛnboaboa saa nsɛm yi ano a ɛbɛyɛ mfasoɔ kɛseɛ ama Green-Score nanso ɛbɛyɛ mfasoɔ kɛseɛ ama dwumadie foforɔ pii nso.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Sɛnea ɔman mma betumi aboa';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Ɔman mma nyinaa betumi aboa yɛn ma yɛaboaboa nsɛm a ɛwɔ nneɛma a wɔyɛ ho anaasɛ wobetumi anya afi mu no ano na yɛahyehyɛ, te sɛ nsɛm a ɛfa nneɛma a wɔde kyekyere nneɛma ho: Mission Emballages: nneɛma a wɔde kyekyere nnuan nyinaa ho nsɛm a wɔbom yɛ kɛse (wɔ Franse kasa mu)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Sɛnea wɔn a wɔyɛ nneɛma betumi aboa';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Wɔn a wɔyɛ nneɛma no betumi de wɔn nsɛm amena yɛn tẽẽ denam yɛn kwan a wontua hwee a yɛde ma wɔn a wɔyɛ nneɛma no so.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/asɛmfua a ɛyɛ ahabammono';
 
   @override
   String get preview_badge => 'Preview';

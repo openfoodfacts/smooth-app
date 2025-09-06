@@ -979,7 +979,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'وڌيڪ صحيح درجو چونڊيو';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4103,9 +4103,6 @@ class AppLocalizationsSd extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4215,7 +4212,159 @@ class AppLocalizationsSd extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'گرين اسڪور ڇا آهي؟';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'گرين اسڪور هڪ لوگو آهي جنهن جو مقصد توهان کي **کاڌي جي ماحولياتي اثر** بابت آگاهي ڏيڻ آهي.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'رنگ ڪوڊ **گهٽ ۾ گهٽ اثر ڪندڙ** شين لاءِ ڳاڙهو سائو (**A+**) کان **تمام گهڻو اثر ڪندڙ** شين لاءِ ڳاڙهو ڳاڙهو (**F**) تائين مختلف آهي.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'گرين اسڪور لوگو';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'بنيادي: زندگي جي چڪر جو جائزو (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title => 'کاڌي جي قسمن جو سائنسي جائزو';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'هر پراڊڪٽ ڪيٽيگري لاءِ، ايگري بيليس ماحولياتي ڊيٽابيس (ADEME ۽ INRAE پاران ٺهيل) مان ڊيٽا استعمال ڪندي هڪ **بينچ مارڪ** اسڪور قائم ڪيو ويندو آهي.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**زندگي جي چڪر جو تجزيو** هڪ معياري تشخيص جو طريقو آهي جيڪو گھڻن مرحلن ۽ گھڻن معيارن واري ماحولياتي تشخيص کي انجام ڏيڻ لاءِ آهي.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**اهو ماپي ٿو:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 پيداوار جا مرحلا';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 ماحولياتي اثر جا اشارا';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'موسمياتي تبديلي / ڪاربن فوٽ پرنٽ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'اوزون جي پرت جي گهٽتائي';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'آئنائيزنگ تابڪاري';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'زمين';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'پاڻي ۽ توانائي جو استعمال';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'هوا جي آلودگي';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'سامونڊي ۽ تازي پاڻي (ذرا، تيزابيت، يوٽروفيڪيشن)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'وسيلن جي کوٽ.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'بونس ۽ ڏنڊ';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'ڪنهن به درجي ۾ بهتر شين کي انعام ڏيڻ لاءِ، اسان پوءِ ڪيترن ئي معيارن جي بنياد تي بونس ۽ ڏنڊ لاڳو ڪندا آهيون:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'اجزاء جي اصليت جي بنياد تي هڪ بونس ڏنو ويندو آهي. هي بونس ٽرانسپورٽ تي اثر ۽ هر پيدا ڪندڙ ملڪ جي ماحولياتي پاليسي کي پڻ مدنظر رکي ٿو.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'گرين اسڪور کي صحيح طور تي ڳڻڻ لاءِ، اهڙي معلومات هجڻ ضروري آهي جيڪا پيڪنگ تي ضروري طور تي بيان نه ڪئي وئي هجي (جهڙوڪ هر جزو جي اصليت ۽ صحيح سيڪڙو) يا جيڪا استعمال لائق صورت ۾ گهٽ ئي موجود هجي (جهڙوڪ پيڪنگ جي سڀني حصن جي فهرست استعمال ٿيل پلاسٽڪ جي صحيح قسمن سان).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'جڏهن هي معلومات اڃا تائين دستياب نه آهي ته سراسري قدر استعمال ڪيا ويندا آهن، پر هاڻي اسان سڀني کي اپيل ڪري رهيا آهيون ته اسان کي هي معلومات گڏ ڪرڻ ۾ مدد ڪن جيڪا گرين اسڪور لاءِ تمام گهڻي ڪارآمد هوندي پر ٻين ڪيترن ئي استعمالن لاءِ پڻ.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'شهري ڪيئن مدد ڪري سگهن ٿا';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'سڀئي شهري اسان کي شين تي موجود معلومات گڏ ڪرڻ ۽ ترتيب ڏيڻ ۾ مدد ڪري سگهن ٿا يا انهن مان حاصل ڪري سگهجي ٿو، جهڙوڪ پيڪنگنگ بابت معلومات: مشن ايمباليجز: سڀني کاڌي جي شين لاءِ پيڪنگنگ جي هڪ وڏي پيماني تي تعاون واري فهرست (فرانسيسي ۾)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'ٺاهيندڙ ڪيئن مدد ڪري سگهن ٿا';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'ٺاهيندڙ اسان کي پنهنجي معلومات سڌو سنئون اسان جي مفت پليٽ فارم ذريعي موڪلي سگهن ٿا جيڪي پيدا ڪندڙ آهن.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

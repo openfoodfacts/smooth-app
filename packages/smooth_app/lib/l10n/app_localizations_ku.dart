@@ -979,7 +979,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Kategoriyek rasttir hilbijêre';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsKu extends AppLocalizations {
   String get guide_share_label => 'Re';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,160 @@ class AppLocalizationsKu extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Xala Kesk çi ye?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score logoyek e ku armanc dike we di derbarê **bandora xwarinê li ser jîngehê** de agahdar bike.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Koda rengan ji keskê tarî (**A+**) ji bo hilberên **kêmtirîn bandorker** heta sorê tarî (**F**) ji bo hilberên **herî bandorker** diguhere.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Logoyên Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Bingeh: Nirxandina Çerxa Jiyanê (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Nirxandineke zanistî ya kategoriyên xwarinê';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Ji bo her kategoriya hilberê, bi karanîna daneyên ji databasa jîngehê ya Agribalyse (ku ji hêla ADEME û INRAE ve hatî çêkirin) puanek **benchmark** tê destnîşankirin.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Analîza çerxa jiyanê** rêbazeke nirxandinê ya standardkirî ye ji bo pêkanîna nirxandineke jîngehê ya pir-qonaxî û pir-pîvanî.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Ew dipîve:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 gavên hilberînê';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 nîşaneyên bandora jîngehê';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Guherîna avhewayê / şopa karbonê';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Kêmbûna qata ozonê';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Tîrêjên îyonîze';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Welat';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Bikaranîna av û enerjiyê';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Qirêjiya hewayê';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Ava deryayî û şirîn (perçe, asîdkirin, ewtrofîkirin)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Kêmbûna çavkaniyan.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonus û cezayan';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Ji bo xelatkirina berhemên çêtir di nav kategoriyekê de, em li gorî çend pîvanan bonus û cezayan bicîh tînin:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Li gorî eslê malzemeyan bonusek tê dayîn. Ev bonus bandora li ser veguhastinê û her weha polîtîkaya jîngehê ya welatê her hilberîner li ber çavan digire.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Ji bo hesabkirina rast a Pûana Kesk, pêdivî bi agahdariyên ku ne hewce ye li ser pakêtê werin diyarkirin (wek mînak jêderk û rêjeya rast a her malzemeyê) an jî kêm caran bi awayekî bikêrhatî peyda bibin (wek mînak navnîşek hemî pêkhateyên pakêtê bi celebên rastîn ên plastîkên hatine bikar anîn).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Nirxên navînî têne bikar anîn dema ku ev agahî hîn peyda nebin, lê em niha bang li her kesî dikin ku alîkariya me bikin ku em vê agahiyê berhev bikin ku dê ji bo Green-Score lê di heman demê de ji bo gelek karanînên din jî pir bikêr be.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Welatî çawa dikarin alîkariyê bikin';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Hemû welatî dikarin ji bo berhevkirin û rêkxistina agahiyên li ser berheman an jî agahiyên ku ji wan têne derxistin, wek mînak agahiyên li ser pakêtan, alîkariya me bikin: Mission Emballages: envantereke hevkar a berfireh a pakêtan ji bo hemû berhemên xwarinê (bi Fransî)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Çawa hilberîner dikarin bibin alîkar';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Hilberîner dikarin agahiyên xwe rasterast bi rêya platforma me ya belaş ji bo hilberîneran ji me re bişînin.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';
