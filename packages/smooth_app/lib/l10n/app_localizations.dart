@@ -7732,7 +7732,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_title.
   ///
   /// In en, this message translates to:
-  /// **'Missing title'**
+  /// **'The problems with ultra-processing'**
   String get guide_nova_explanations_title;
 
   /// No description provided for @guide_nova_explanations_arg1_title.
