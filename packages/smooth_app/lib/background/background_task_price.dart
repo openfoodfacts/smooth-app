@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -274,8 +275,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
         ..pricePer = isProduct ? null : PricePer.fromOffTag(pricePers[i])
         ..type = isProduct ? PriceType.product : PriceType.category
         ..priceIsDiscounted = priceIsDiscounted
-        ..price = price
-        ..priceWithoutDiscount = priceWithoutDiscount;
+        ..price = _fixPriceDecimals(price)
+        ..priceWithoutDiscount = priceWithoutDiscount == null
+            ? null
+            : _fixPriceDecimals(priceWithoutDiscount);
 
       // create price
       final MaybeError<Price?> addedPrice =
@@ -296,4 +299,9 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
 
   @override
   bool isDeduplicable() => false;
+
+  double _fixPriceDecimals(final double price) {
+    final num power10 = pow(10, currency.decimalNumbers);
+    return (price * power10).toInt() / power10;
+  }
 }
