@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Сподели",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Зелен-Резултат",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Какво е Зеленият резултат?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Зеленият резултат е лого, което има за цел да ви информира за **въздействието на храната върху околната среда**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Цветовият код варира от тъмнозелено (**A+**) за **най-малко въздействащите** продукти до тъмночервено (**F**) за **най-въздействащите** продукти.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Логотата на Green-Score",
+  "guide_greenscore_lca_title": "Основното: Оценка на жизнения цикъл (LCA)",
+  "guide_greenscore_lca_arg1_title": "Научна оценка на категориите храни",
+  "guide_greenscore_lca_arg1_text1": "За всяка продуктова категория се определя **бенчмарк** резултат, използвайки данни от екологичната база данни Agribalyse (разработена от ADEME и INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Анализът на жизнения цикъл** е стандартизиран метод за оценка, който се използва за извършване на многоетапна и многокритериална екологична оценка.",
+  "guide_greenscore_lca_arg1_text3": "**Измерва:**",
+  "guide_greenscore_lca_arg2_title": "6 производствени стъпки",
+  "guide_greenscore_lca_arg2_agriculture": "Земеделие",
+  "guide_greenscore_lca_arg2_processing": "Преработка",
+  "guide_greenscore_lca_arg2_packaging": "Опаковка",
+  "guide_greenscore_lca_arg2_transportation": "Транспортиране",
+  "guide_greenscore_lca_arg2_distribution": "Дистрибуция",
+  "guide_greenscore_lca_arg2_consumption": "Потребление",
+  "guide_greenscore_lca_arg3_title": "14 показателя за въздействие върху околната среда",
+  "guide_greenscore_lca_arg3_text1": "Изменение на климата/въглероден отпечатък",
+  "guide_greenscore_lca_arg3_text2": "Изчерпване на озоновия слой",
+  "guide_greenscore_lca_arg3_text3": "Йонизиращо лъчение",
+  "guide_greenscore_lca_arg3_text4": "Земя",
+  "guide_greenscore_lca_arg3_text5": "Потребление на вода и енергия",
+  "guide_greenscore_lca_arg3_text6": "Замърсяване на въздуха",
+  "guide_greenscore_lca_arg3_text7": "Морска и сладка вода (частици, подкиселяване, еутрофикация)",
+  "guide_greenscore_lca_arg3_text8": "Изчерпване на ресурсите.",
+  "guide_greenscore_bonuses_penalties_title": "Бонуси и наказания",
+  "guide_greenscore_bonuses_penalties_intro": "За да възнаградим по-добрите продукти в дадена категория, ние прилагаме бонуси и санкции въз основа на няколко критерия:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Начин на производство",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Бонус се присъжда на продукти, които имат официален етикет, етикет или сертификат, който гарантира ползи за околната среда (органичен, справедлива търговия, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Произход на съставките",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Бонус се присъжда въз основа на произхода на съставките. Този бонус отчита въздействието върху транспорта, както и екологичната политика на всяка страна производител.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Застрашени видове",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Налага се наказание на продуктите, които съдържат съставки, които имат значително отрицателно въздействие върху биоразнообразието и екосистемите, като палмово масло, чието производство е отговорно за масово обезлесяване.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Опаковка",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Неустойката се изчислява, за да се вземе предвид кръговостта на опаковката (използване на рециклирана суровина и възможност за рециклиране) и свръхопаковане.",
+  "guide_greenscore_transparency_title": "Повишена нужда от прозрачност за по-добро измерване и намаляване на въздействието върху околната среда",
+  "guide_greenscore_transparency_intro1": "За да се изчисли точно Green-Score, е необходимо да има информация, която не е задължително да е посочена на опаковката (като произхода и точния процент на всяка съставка) или която рядко е налична в използваема форма (като списък на всички компоненти на опаковката с точните видове използвани пластмаси).",
+  "guide_greenscore_transparency_intro2": "Средните стойности се използват, когато тази информация все още не е налична, но сега призоваваме всички да ни помогнат да съберем тази информация, която ще бъде много полезна за Green-Score, но и за много други приложения.",
+  "guide_greenscore_transparency_arg1_title": "Как гражданите могат да помогнат",
+  "guide_greenscore_transparency_arg1_text": "Всички граждани могат да ни помогнат да съберем и структурираме информацията, която се намира върху продуктите или която може да бъде извлечена от тях, като например информацията върху опаковките: Mission Emballages: мащабен съвместен инвентар на опаковките за всички хранителни продукти (на френски език)",
+  "guide_greenscore_transparency_arg2_title": "Как производителите могат да помогнат",
+  "guide_greenscore_transparency_arg2_text": "Производителите могат да ни изпращат информацията си директно чрез нашата безплатна платформа за производители.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

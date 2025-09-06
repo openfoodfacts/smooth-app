@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "مشاركة",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "الدرجة الغذائية في تطور: تفسيرات!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "النتيجة البيئية",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "ما هي النتيجة الخضراء؟",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score هو شعار يهدف إلى إعلامك بالتأثير البيئي للغذاء.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "يختلف رمز اللون من الأخضر الداكن (**A+**) للمنتجات **الأقل تأثيرًا** إلى الأحمر الداكن (**F**) للمنتجات **الأكثر تأثيرًا**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "شعارات Green-Score",
+  "guide_greenscore_lca_title": "الجوهر: تقييم دورة الحياة (LCA)",
+  "guide_greenscore_lca_arg1_title": "تقييم علمي لفئات الأغذية",
+  "guide_greenscore_lca_arg1_text1": "بالنسبة لكل فئة من فئات المنتجات، يتم إنشاء درجة **معيارية** باستخدام البيانات من قاعدة بيانات Agribalyse البيئية (التي صممها ADEME وINRAE).",
+  "guide_greenscore_lca_arg1_text2": "**تحليل دورة الحياة** هو أسلوب تقييم موحد لإجراء تقييم بيئي متعدد المراحل ومتعدد المعايير.",
+  "guide_greenscore_lca_arg1_text3": "**يقيس:**",
+  "guide_greenscore_lca_arg2_title": "6 خطوات الإنتاج",
+  "guide_greenscore_lca_arg2_agriculture": "زراعة",
+  "guide_greenscore_lca_arg2_processing": "معالجة",
+  "guide_greenscore_lca_arg2_packaging": "التغليف",
+  "guide_greenscore_lca_arg2_transportation": "مواصلات",
+  "guide_greenscore_lca_arg2_distribution": "توزيع",
+  "guide_greenscore_lca_arg2_consumption": "استهلاك",
+  "guide_greenscore_lca_arg3_title": "14 مؤشرًا للأثر البيئي",
+  "guide_greenscore_lca_arg3_text1": "تغير المناخ/البصمة الكربونية",
+  "guide_greenscore_lca_arg3_text2": "استنفاد طبقة الأوزون",
+  "guide_greenscore_lca_arg3_text3": "الإشعاع المؤين",
+  "guide_greenscore_lca_arg3_text4": "أرض",
+  "guide_greenscore_lca_arg3_text5": "استخدام المياه والطاقة",
+  "guide_greenscore_lca_arg3_text6": "تلوث الهواء",
+  "guide_greenscore_lca_arg3_text7": "المياه البحرية والعذبة (الجسيمات، الحموضة، التغذية الزائدة)",
+  "guide_greenscore_lca_arg3_text8": "استنزاف الموارد.",
+  "guide_greenscore_bonuses_penalties_title": "المكافآت والعقوبات",
+  "guide_greenscore_bonuses_penalties_intro": "لمكافأة المنتجات الأفضل ضمن فئة معينة، نقوم بعد ذلك بتطبيق المكافآت والعقوبات بناءً على عدة معايير:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "طريقة الإنتاج",
+  "guide_greenscore_bonuses_penalties_arg1_text": "يتم منح مكافأة للمنتجات التي تحمل ملصقًا رسميًا أو علامة أو شهادة تضمن الفوائد البيئية (عضوي، تجارة عادلة، HVE، Label Rouge، Bleu Blanc Cœur، MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "أصل المكونات",
+  "guide_greenscore_bonuses_penalties_arg2_text": "تُمنح مكافأة بناءً على مصدر المكونات، مع مراعاة تأثيرها على النقل والسياسة البيئية لكل بلد مُنتِج.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "الأنواع المهددة بالإنقراض",
+  "guide_greenscore_bonuses_penalties_arg3_text": "ويتم فرض عقوبة على المنتجات التي تحتوي على مكونات لها آثار سلبية كبيرة على التنوع البيولوجي والنظم البيئية، مثل زيت النخيل، الذي يتسبب إنتاجه في إزالة الغابات على نطاق واسع.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "التغليف",
+  "guide_greenscore_bonuses_penalties_arg4_text": "يتم احتساب عقوبة عند عدم مراعاة الالتزام بجودة التغليف (استخدام المواد الخام المعاد تدويرها والقابلة أصلًا لإعادة التدوير) والالتزام بعدم التعبئة الزائدة للمنتج في العبوات أو الصناديق.",
+  "guide_greenscore_transparency_title": "الحاجة المتزايدة إلى الشفافية لقياس التأثيرات البيئية والحد منها بشكل أفضل",
+  "guide_greenscore_transparency_intro1": "لحساب الدرجة الخضراء بشكل دقيق، من الضروري الحصول على معلومات غير محددة بالضرورة على العبوة (مثل المنشأ والنسبة المئوية الدقيقة لكل مكون) أو التي نادراً ما تكون متاحة في شكل قابل للاستخدام (مثل قائمة بجميع مكونات العبوة مع الأنواع الدقيقة من البلاستيك المستخدمة).",
+  "guide_greenscore_transparency_intro2": "يتم استخدام القيم المتوسطة عندما لا تكون هذه المعلومات متاحة بعد، ولكننا ندعو الجميع الآن لمساعدتنا في جمع هذه المعلومات التي ستكون مفيدة للغاية لـ Green-Score ولكن أيضًا للعديد من الاستخدامات الأخرى.",
+  "guide_greenscore_transparency_arg1_title": "كيف يمكن للمواطنين المساعدة",
+  "guide_greenscore_transparency_arg1_text": "يمكن لجميع المواطنين مساعدتنا في جمع وتنظيم المعلومات الموجودة على المنتجات أو التي يمكن استنتاجها منها، مثل المعلومات المتعلقة بالتغليف: مهمة Emballages: جرد تعاوني واسع النطاق للتغليف لجميع المنتجات الغذائية (بالفرنسية)",
+  "guide_greenscore_transparency_arg2_title": "كيف يمكن للمصنعين المساعدة",
+  "guide_greenscore_transparency_arg2_text": "يمكن للمصنعين إرسال معلوماتهم إلينا مباشرة من خلال منصتنا المجانية للمنتجين.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

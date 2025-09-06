@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Ibahagi",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Ano ang Green Score?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Ang Green-Score ay isang logo na naglalayong ipaalam sa iyo ang tungkol sa **epekto sa kapaligiran ng pagkain**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Ang code ng kulay ay nag-iiba mula sa madilim na berde (**A+**) para sa mga **pinakamaliit na epekto** na mga produkto hanggang sa madilim na pula (**F**) para sa **pinakamaimpluwensyang** mga produkto.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Ang mga logo ng Green-Score",
+  "guide_greenscore_lca_title": "Ang core: Life cycle assessment (LCA)",
+  "guide_greenscore_lca_arg1_title": "Isang siyentipikong pagsusuri ng mga kategorya ng pagkain",
+  "guide_greenscore_lca_arg1_text1": "Para sa bawat kategorya ng produkto, mayroong **benchmark** na marka gamit ang data mula sa Agribalyse environmental database (dinisenyo ng ADEME at INRAE).",
+  "guide_greenscore_lca_arg1_text2": "Ang **Pagsusuri sa ikot ng buhay** ay isang standardized na paraan ng pagtatasa para sa pagsasagawa ng isang multi-stage at multi-criteria na pagtatasa sa kapaligiran.",
+  "guide_greenscore_lca_arg1_text3": "**Sinusukat nito:**",
+  "guide_greenscore_lca_arg2_title": "6 na hakbang sa paggawa",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Balot",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "14 na tagapagpahiwatig ng epekto sa kapaligiran",
+  "guide_greenscore_lca_arg3_text1": "Pagbabago ng klima/carbon footprint",
+  "guide_greenscore_lca_arg3_text2": "Pagkaubos ng ozone layer",
+  "guide_greenscore_lca_arg3_text3": "Ionizing radiation",
+  "guide_greenscore_lca_arg3_text4": "Lupa",
+  "guide_greenscore_lca_arg3_text5": "Paggamit ng tubig at enerhiya",
+  "guide_greenscore_lca_arg3_text6": "Polusyon sa hangin",
+  "guide_greenscore_lca_arg3_text7": "Marine at sariwang tubig (mga particle, acidification, eutrophication)",
+  "guide_greenscore_lca_arg3_text8": "Pagkaubos ng mga mapagkukunan.",
+  "guide_greenscore_bonuses_penalties_title": "Mga bonus at parusa",
+  "guide_greenscore_bonuses_penalties_intro": "Upang gantimpalaan ang mas mahuhusay na produkto sa loob ng isang kategorya, pagkatapos ay ilalapat namin ang mga bonus at parusa batay sa ilang pamantayan:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Pinagmulan ng mga sangkap",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Ang isang bonus ay iginawad batay sa pinagmulan ng mga sangkap. Isinasaalang-alang ng bonus na ito ang epekto sa transportasyon at gayundin ang patakaran sa kapaligiran ng bawat bansa ng producer.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Balot",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "Upang tumpak na kalkulahin ang Green-Score, kinakailangan na magkaroon ng impormasyon na hindi kinakailangang tinukoy sa packaging (tulad ng pinagmulan at eksaktong porsyento ng bawat sangkap) o kung saan ay bihirang magagamit sa form na magagamit (tulad ng isang listahan ng lahat ng mga bahagi ng packaging na may mga tiyak na uri ng mga plastik na ginamit).",
+  "guide_greenscore_transparency_intro2": "Ginagamit ang mga average na halaga kapag hindi pa available ang impormasyong ito, ngunit nananawagan kami ngayon sa lahat na tulungan kaming kolektahin ang impormasyong ito na magiging lubhang kapaki-pakinabang para sa Green-Score ngunit para din sa maraming iba pang gamit.",
+  "guide_greenscore_transparency_arg1_title": "Paano makakatulong ang mga mamamayan",
+  "guide_greenscore_transparency_arg1_text": "Ang lahat ng mamamayan ay makakatulong sa amin na tipunin at ayusin ang impormasyong naroroon sa mga produkto o maaaring mahihinuha mula sa mga ito, tulad ng impormasyon sa packaging: Mission Emballages: isang malakihang collaborative na imbentaryo ng packaging para sa lahat ng produktong pagkain (sa French)",
+  "guide_greenscore_transparency_arg2_title": "Paano makakatulong ang mga tagagawa",
+  "guide_greenscore_transparency_arg2_text": "Maaaring ipadala sa amin ng mga tagagawa ang kanilang impormasyon nang direkta sa pamamagitan ng aming libreng platform para sa mga producer.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
