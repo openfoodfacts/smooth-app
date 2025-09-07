@@ -988,7 +988,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Daha kesin bir kategori seçin';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4132,9 +4132,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get guide_share_label => 'Paylaş';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title => 'Nutri-Score gelişiyor: açıklamalar!';
 
   @override
@@ -4242,7 +4239,159 @@ class AppLocalizationsTr extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Yeşil Puan Nedir?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Yeşil Puan, gıdanın **çevresel etkisi** hakkında sizi bilgilendirmeyi amaçlayan bir logodur.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Renk kodu, **en az etkili** ürünler için koyu yeşilden (**A+**) **en etkili** ürünler için koyu kırmızıya (**F**) kadar değişmektedir.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Yeşil Puan logoları';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Çekirdek: Yaşam döngüsü değerlendirmesi (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Gıda kategorilerinin bilimsel değerlendirmesi';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Her ürün kategorisi için, Agribalyse çevre veritabanından (ADEME ve INRAE tarafından tasarlanmıştır) alınan veriler kullanılarak bir **kıyaslama** puanı belirlenir.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Yaşam döngüsü analizi** çok aşamalı ve çok kriterli çevresel değerlendirme yapmak için kullanılan standartlaştırılmış bir değerlendirme yöntemidir.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Ölçer:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 üretim adımı';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Tarım';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'İşleme';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Ambalaj';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Taşıma';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Dağıtım';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Tüketim';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 çevresel etki göstergesi';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'İklim değişikliği/karbon ayak izi';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ozon tabakasının incelmesi';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'İyonlaştırıcı radyasyon';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Kara';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Su ve enerji kullanımı';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Hava kirliliği';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Deniz ve tatlı su (partiküller, asitlenme, ötrofikasyon)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Kaynakların tükenmesi.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonuslar ve cezalar';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Bir kategorideki daha iyi ürünleri ödüllendirmek için, aşağıdaki kriterlere göre bonuslar ve cezalar uygularız:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title => 'Üretim modu';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'Resmi etiketi, etiketi veya çevresel faydaları garanti eden bir sertifikası (organik, adil ticaret, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC) olan ürünlere bir bonus verilir.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Malzemelerin kaynağı';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'İçeriklerin menşeine göre bir bonus verilir. Bu bonus, her üreticinin ülkesinin nakliye üzerindeki etkisini ve çevre politikasını da dikkate alır.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Nesli tükenmekte olan türler';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'Üretimi büyük çaplı ormansızlaşmaya neden olan hurma yağı gibi biyoçeşitlilik ve ekosistemler üzerinde önemli olumsuz etkileri olan bileşenler içeren ürünlere ceza verilir.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Ambalaj';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'Paketlemenin döngüselliği (geri dönüştürülmüş hammadde kullanımı ve geri dönüştürülebilirlik) ve aşırı paketleme dikkate alınarak bir ceza hesaplanır.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'Çevresel etkileri daha iyi ölçmek ve azaltmak için artan şeffaflık ihtiyacı';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Yeşil Puanı doğru bir şekilde hesaplamak için, ambalaj üzerinde belirtilmeyen (örneğin menşei ve her bir bileşenin tam yüzdesi) veya nadiren kullanılabilir formda bulunan (örneğin ambalajın tüm bileşenlerinin listesi ve kullanılan plastiklerin tam türleri) bilgilere ihtiyaç vardır.';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Bu bilgiler henüz mevcut olmadığında ortalama değerler kullanılır, ancak şimdi herkesi bu bilgileri toplamamıza yardımcı olmaya çağırıyoruz; bu bilgiler Yeşil Puan için ve aynı zamanda birçok başka kullanım için çok faydalı olacak.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Vatandaşlar nasıl yardımcı olabilir?';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Tüm vatandaşlar, ürünlerde bulunan veya bunlardan çıkarılabilecek bilgileri (örneğin ambalaj bilgileri) toplamamıza ve yapılandırmamıza yardımcı olabilir: Mission Emballages: tüm gıda ürünleri için ambalajların geniş ölçekli ortak envanteri (Fransızca)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Üreticiler nasıl yardımcı olabilir?';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Üreticiler bilgilerini doğrudan üreticilere özel ücretsiz platformumuz üzerinden bize gönderebilirler.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/yeşil-puan';
 
   @override
   String get preview_badge => 'Ön izleme';

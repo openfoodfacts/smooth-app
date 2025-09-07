@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Chia sẻ",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Điểm sinh thái",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Điểm xanh là gì?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score là một logo có mục đích cung cấp thông tin cho bạn về **tác động của thực phẩm đến môi trường**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Mã màu thay đổi từ màu xanh lá cây đậm (**A+**) cho các sản phẩm **ít tác động nhất** đến màu đỏ đậm (**F**) cho các sản phẩm **có tác động lớn nhất**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Logo Green-Score",
+  "guide_greenscore_lca_title": "Cốt lõi: Đánh giá vòng đời (LCA)",
+  "guide_greenscore_lca_arg1_title": "Đánh giá khoa học về các loại thực phẩm",
+  "guide_greenscore_lca_arg1_text1": "Đối với mỗi danh mục sản phẩm, điểm chuẩn **được thiết lập bằng cách sử dụng dữ liệu từ cơ sở dữ liệu môi trường Agribalyse (do ADEME và INRAE thiết kế).",
+  "guide_greenscore_lca_arg1_text2": "**Phân tích vòng đời** là phương pháp đánh giá chuẩn hóa để thực hiện đánh giá môi trường nhiều giai đoạn và nhiều tiêu chí.",
+  "guide_greenscore_lca_arg1_text3": "**Nó đo:**",
+  "guide_greenscore_lca_arg2_title": "6 bước sản xuất",
+  "guide_greenscore_lca_arg2_agriculture": "Nông nghiệp",
+  "guide_greenscore_lca_arg2_processing": "Đang xử lý",
+  "guide_greenscore_lca_arg2_packaging": "Bao bì",
+  "guide_greenscore_lca_arg2_transportation": "Vận chuyển",
+  "guide_greenscore_lca_arg2_distribution": "Phân phối",
+  "guide_greenscore_lca_arg2_consumption": "Tiêu thụ",
+  "guide_greenscore_lca_arg3_title": "14 chỉ số tác động môi trường",
+  "guide_greenscore_lca_arg3_text1": "Biến đổi khí hậu/dấu chân carbon",
+  "guide_greenscore_lca_arg3_text2": "Sự suy giảm tầng ôzôn",
+  "guide_greenscore_lca_arg3_text3": "Bức xạ ion hóa",
+  "guide_greenscore_lca_arg3_text4": "Đất",
+  "guide_greenscore_lca_arg3_text5": "Sử dụng nước và năng lượng",
+  "guide_greenscore_lca_arg3_text6": "Ô nhiễm không khí",
+  "guide_greenscore_lca_arg3_text7": "Nước biển và nước ngọt (các hạt, axit hóa, phú dưỡng)",
+  "guide_greenscore_lca_arg3_text8": "Sự cạn kiệt tài nguyên.",
+  "guide_greenscore_bonuses_penalties_title": "Tiền thưởng và tiền phạt",
+  "guide_greenscore_bonuses_penalties_intro": "Để thưởng cho những sản phẩm tốt hơn trong một danh mục, chúng tôi sẽ áp dụng tiền thưởng và hình phạt dựa trên một số tiêu chí:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Phương thức sản xuất",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Điểm cộng được thêm cho các sản phẩm có nhãn chính thức, nhãn hoặc chứng nhận đảm bảo lợi ích môi trường (hữu cơ, thương mại công bằng, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Nguồn gốc của các thành phần",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Tiền thưởng được trao dựa trên nguồn gốc của nguyên liệu. Khoản tiền thưởng này có tính đến tác động đến vận chuyển và chính sách môi trường của từng quốc gia sản xuất.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Những loài có nguy có bị tuyệt chủng",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Một hình phạt được đưa ra đối với các sản phẩm có chứa các thành phần có tác động tiêu cực đáng kể đến đa dạng sinh học và hệ sinh thái, chẳng hạn như dầu cọ, việc sản xuất dầu cọ là nguyên nhân gây ra nạn phá rừng lớn.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Bao bì",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Hình phạt được tính để tính đến tính tuần hoàn của bao bì (sử dụng nguyên liệu thô tái chế và khả năng tái chế) và đóng gói quá mức.",
+  "guide_greenscore_transparency_title": "Nhu cầu về sự minh bạch ngày càng tăng để có thể đo lường tốt hơn và giảm tác động môi trường",
+  "guide_greenscore_transparency_intro1": "Để tính toán chính xác Điểm Xanh, cần phải có thông tin không nhất thiết phải ghi trên bao bì (chẳng hạn như nguồn gốc và tỷ lệ phần trăm chính xác của từng thành phần) hoặc hiếm khi có sẵn ở dạng có thể sử dụng (chẳng hạn như danh sách tất cả các thành phần của bao bì với các loại nhựa chính xác được sử dụng).",
+  "guide_greenscore_transparency_intro2": "Giá trị trung bình được sử dụng khi thông tin này chưa có sẵn, nhưng hiện chúng tôi đang kêu gọi mọi người giúp chúng tôi thu thập thông tin này, điều này sẽ rất hữu ích cho Green-Score cũng như nhiều mục đích sử dụng khác.",
+  "guide_greenscore_transparency_arg1_title": "Người dân có thể giúp đỡ như thế nào",
+  "guide_greenscore_transparency_arg1_text": "Mọi công dân có thể giúp chúng tôi thu thập và cấu trúc thông tin có trên sản phẩm hoặc có thể suy ra từ chúng, chẳng hạn như thông tin về bao bì: Mission Emballages: một kho lưu trữ bao bì hợp tác quy mô lớn cho tất cả các sản phẩm thực phẩm (bằng tiếng Pháp)",
+  "guide_greenscore_transparency_arg2_title": "Các nhà sản xuất có thể giúp đỡ như thế nào",
+  "guide_greenscore_transparency_arg2_text": "Các nhà sản xuất có thể gửi thông tin trực tiếp cho chúng tôi thông qua nền tảng miễn phí dành cho nhà sản xuất.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

@@ -979,7 +979,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Hlawula xiyenge lexi kongomeke swinene';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4106,9 +4106,6 @@ class AppLocalizationsTs extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4218,7 +4215,163 @@ class AppLocalizationsTs extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Xana Xikoro xa Rihlaza i yini?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score i logo leyi kongomisaka eka ku ku tivisa hi **vuyelo bya mbango bya swakudya**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Khodi ya mihlovo yi hambana kusuka eka rihlaza ro dzwihala (**A+**) eka switirhisiwa leswi **swi nga khumbiki ngopfu** kuya eka swotshuka swa ntima (**F**) eka switirhisiwa leswi **swi nga na nkucetelo swinene**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Tilogo ta Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Nkoka: Nkambisiso wa xirhendzevutani xa vutomi (LCA) .';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Ku kamberiwa ka sayense ka swiyenge swa swakudya';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Eka xiyenge xin’wana na xin’wana xa swikumiwa, xikoro xa **benchmark** xi simekiwile hi ku tirhisa datha ku suka eka database ya mbango ya Agribalyse (leyi endliweke hi ADEME na INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Nxopaxopo wa xirhendzevutani xa vutomi** i ndlela yo kambela leyi ringaniseriweke yo endla nkambisiso wa mbango wa switeji swo tala na swipimelo swo tala.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Yi pima:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 wa magoza ya vuhumelerisi';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 wa swikombiso swa ku khumbeka ka mbango';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Ku cinca ka maxelo/ku humelela ka khaboni';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ku hela ka leyara ya ozone';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 =>
+      'Radiation leyi endlaka leswaku ku va ni ion';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Phatsama';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Ku tirhisiwa ka mati & eneji';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Ku thyakisa moya';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Mati ya lwandle & yo tenga (swiphemuphemu, acidification, eutrophication) .';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Ku hela ka switirhisiwa.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Tibonasi & swigwevo';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Ku hakela switirhisiwa swo antswa endzeni ka xiyenge, hi tlhela hi tirhisa tibhonasi & swigwevo leswi simekiweke eka swipimelo swo hlayanyana:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bonasi yi nyikiwa kuya hi masungulo ya switirhisiwa. Bonasi leyi yi tekela enhlokweni nkucetelo eka vutleketli xikan’we na pholisi ya mbango ya tiko rin’wana na rin’wana ra muhumelerisi.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Ku hlayela kahle Green-Score, swa laveka kuva na mahungu lawa yanga boxiwangiki eka ku pakiwa (kufana na masungulo na tiphesente leti kongomeke ta xiaki xin’wana na xin’wana) kumbe lawa yanga tala ku kumeka hi xivumbeko lexi tirhisiwaka (kufana na nxaxamelo wa swiphemu hinkwaswo swa xipaci na tinxaka leti kongomeke ta tipulasitiki leti tirhisiweke).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Mimpimo ya le xikarhi ya tirhisiwa loko mahungu lawa ya nga si kumeka, kambe sweswi hi kombela un’wana na un’wana ku hi pfuna ku hlengeleta mahungu lawa lawa ya nga ta pfuna swinene eka Green-Score kambe na le ka matirhiselo man’wana yo tala.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Ndlela leyi vaaki va nga pfunaka ha yona';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Vaaki hinkwavo va nga hi pfuna ku hlengeleta na ku hlela mahungu lama nga kona eka swikumiwa kumbe leswi nga humesiwaka eka swona, ku fana na mahungu ya ku paka: Mission Emballages: nxaxamelo lowukulu wa ntirhisano wa ku pakiwa ka swikumiwa hinkwaswo swa swakudya (hi Xifurwa) .';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Ndlela leyi vaendli va swilo va nga pfunaka ha yona';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Vaendli va nga hi rhumela vuxokoxoko bya vona hi ku kongoma hi ku tirhisa pulatifomo ya hina ya mahala eka vahumelerisi.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/xikoro xa rihlaza';
 
   @override
   String get preview_badge => 'Preview';

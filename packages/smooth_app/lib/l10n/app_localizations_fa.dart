@@ -979,7 +979,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'یک دسته بندی دقیق تر انتخاب کنید';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4103,9 +4103,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get guide_share_label => 'اشتراک';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4215,7 +4212,158 @@ class AppLocalizationsFa extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'امتیاز سبز چیست؟';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'امتیاز سبز لوگویی است که هدف آن آگاه‌سازی شما در مورد **تأثیر زیست‌محیطی غذا** است.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'کد رنگ از سبز تیره (**A+**) برای محصولات **کم‌تأثیرترین** تا قرمز تیره (**F**) برای محصولات **تأثیرگذارترین** متغیر است.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'لوگوهای گرین اسکور';
+
+  @override
+  String get guide_greenscore_lca_title => 'هسته: ارزیابی چرخه حیات (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'ارزیابی علمی دسته بندی مواد غذایی';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'برای هر دسته محصول، یک امتیاز **معیار** با استفاده از داده‌های پایگاه داده زیست‌محیطی Agribalyse (طراحی شده توسط ADEME و INRAE) تعیین می‌شود.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**تحلیل چرخه حیات** یک روش ارزیابی استاندارد برای انجام ارزیابی زیست‌محیطی چند مرحله‌ای و چند معیاره است.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**اندازه‌گیری می‌کند:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '۶ مرحله تولید';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '۱۴ شاخص تأثیر زیست‌محیطی';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'تغییرات اقلیمی/ردپای کربن';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'تخریب لایه اوزون';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'تابش یونیزه کننده';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'زمین';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'مصرف آب و انرژی';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'آلودگی هوا';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'آب‌های دریایی و شیرین (ذرات، اسیدی شدن، اوتریفیکاسیون)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'کاهش منابع.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'پاداش‌ها و جریمه‌ها';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'برای پاداش دادن به محصولات بهتر در یک دسته، ما بر اساس چندین معیار، پاداش‌ها و جریمه‌هایی را اعمال می‌کنیم:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'بر اساس منشأ مواد تشکیل‌دهنده، پاداشی اعطا می‌شود. این پاداش، تأثیر بر حمل‌ونقل و همچنین سیاست زیست‌محیطی هر کشور تولیدکننده را در نظر می‌گیرد.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'برای محاسبه دقیق امتیاز سبز، لازم است اطلاعاتی داشته باشیم که لزوماً روی بسته‌بندی مشخص نشده‌اند (مانند مبدا و درصد دقیق هر ماده) یا به ندرت به شکل قابل استفاده در دسترس هستند (مانند فهرستی از تمام اجزای بسته‌بندی با انواع دقیق پلاستیک‌های استفاده شده).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'مقادیر میانگین زمانی استفاده می‌شوند که این اطلاعات هنوز در دسترس نباشند، اما اکنون از همه می‌خواهیم که در جمع‌آوری این اطلاعات که برای امتیاز سبز و همچنین برای بسیاری از کاربردهای دیگر بسیار مفید خواهد بود، به ما کمک کنند.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'چگونه شهروندان می‌توانند کمک کنند';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'همه شهروندان می‌توانند به ما در جمع‌آوری و ساختاردهی اطلاعاتی که روی محصولات وجود دارد یا می‌توان از آنها استنباط کرد، مانند اطلاعات روی بسته‌بندی، کمک کنند: Mission Emballages: یک فهرست مشارکتی در مقیاس بزرگ از بسته‌بندی برای همه محصولات غذایی (به زبان فرانسه)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'چگونه تولیدکنندگان می‌توانند کمک کنند';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'تولیدکنندگان می‌توانند اطلاعات خود را مستقیماً از طریق پلتفرم رایگان ما برای تولیدکنندگان برای ما ارسال کنند.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

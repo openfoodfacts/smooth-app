@@ -979,7 +979,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Sarudza chikamu chakanyatsojeka';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsSn extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,162 @@ class AppLocalizationsSn extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Chii chinonzi Green Score?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Iyo Green-Score chiratidzo chine chinangwa chekuzivisa iwe nezve **kukanganisa kwezvakatipoteredza kwechikafu **.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kodhi yeruvara inosiyana kubva kune yakasvibira yakasviba (**A+**) kune ** isinganyanye kukanganisa ** zvigadzirwa kusvika kune yakasviba tsvuku (**F**) kune ** inonyanya kukanganisa ** zvigadzirwa.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Iyo Green-Score logos';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Iyo yakakosha: Hupenyu kutenderera kuongorora (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Ongororo yesainzi yezvikamu zvekudya';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Pachikamu chega chega chechigadzirwa, ** bhenji** chibodzwa chinotangwa pachishandiswa data kubva kuAgribalyse yemamiriro ekunze database (yakagadzirwa neADEME neINRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Kuongorora kutenderera kwehupenyu** inzira yekuongorora yakamisikidzwa yekuita nhanho dzakawanda uye dzakasiyana-siyana dzekuongorora kwezvakatipoteredza.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Inoyera:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 matanho ekugadzira';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 kwezvakatipoteredza kukanganisa zviratidzo';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Kuchinja kwemamiriro ekunze/ carbon footprint';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer inopera';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Nyika';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Mvura & kushandiswa kwesimba';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Kusvibiswa kwemhepo';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Marine uye mvura yakachena (zvidimbu, acidification, eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Kupera kwezvinhu.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Mabhonasi & zvirango';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Kuti tipe mubairo zvigadzirwa zviri nani mukati mechikamu, isu tinobva taisa mabhonasi & zvirango zvichibva pane akati wandei maitiro:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bhonasi inopiwa zvichienderana nekwakabva zvinhu. Bhonasi iyi inofunga nezvezvinokonzeresa zvekufambisa uyezve mutemo wezvakatipoteredza wenyika yemugadziri wega wega.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Kuti uverenge nemazvo Green-Score, zvinodikanwa kuve neruzivo rusinganyatso kutsanangurwa pakurongedza (senge kwakabva uye chikamu chaicho chechinhu chimwe nechimwe) kana chisingawanzo kuwanikwa muchimiro chinogona kushandiswa (senge runyorwa rwezvese zvikamu zvekurongedza nemhando chaidzo dzemapurasitiki anoshandiswa).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Avhareji tsika dzinoshandiswa kana ruzivo urwu rwusati rwavepo, asi tave kudaidza munhu wese kuti atibatsire kuunganidza ruzivo urwu rwunozobatsira zvakanyanya kuGreen-Chibodzwa asiwo kune zvimwe zvakawanda zvinoshandiswa.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Vagari vangabatsira sei';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Vese vagari vanogona kutibatsira kuunganidza uye kuronga ruzivo rwuripo pane zvigadzirwa kana izvo zvinogona kutorwa kubva kwavari, senge ruzivo rwekurongedza: Mission Emballages: yakakura-yakakura yekubatana heta yekurongedza yezvese zvigadzirwa zvekudya (muFrench)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Kuti vagadziri vangabatsira sei';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Vagadziri vanogona kutitumira ruzivo rwavo zvakananga kuburikidza nepuratifomu yedu yemahara yevagadziri.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

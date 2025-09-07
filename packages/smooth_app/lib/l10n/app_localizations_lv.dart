@@ -980,7 +980,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Izvēlieties precīzāku kategoriju';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get guide_share_label => 'Dalīties';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,161 @@ class AppLocalizationsLv extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Kāds ir zaļais rādītājs?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score ir logotips, kura mērķis ir informēt jūs par **pārtikas ietekmi uz vidi**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Krāsu kods atšķiras no tumši zaļas (**A+**) **vismazāk ietekmējošiem** produktiem līdz tumši sarkanai (**F**) **visietekmīgākiem** produktiem.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Green-Score logotipi';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Kodols: Dzīves cikla novērtējums (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Pārtikas kategoriju zinātnisks novērtējums';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Katrai produktu kategorijai tiek noteikts **etalona** rādītājs, izmantojot datus no Agribalyse vides datubāzes (izstrādājušas ADEME un INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Dzīves cikla analīze** ir standartizēta novērtēšanas metode daudzpakāpju un daudzkritēriju vides novērtējuma veikšanai.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Tā izmēri:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 ražošanas soļi';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Iepakojums';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 ietekmes uz vidi rādītāji';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Klimata pārmaiņas/oglekļa pēdas nospiedums';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ozona slāņa noārdīšanās';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Jonizējošais starojums';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Zeme';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Ūdens un enerģijas patēriņš';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Gaisa piesārņojums';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Jūras un saldūdens (daļiņas, paskābināšanās, eitrofikācija)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Resursu izsīkums.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonusi un sodi';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Lai apbalvotu labākus produktus noteiktā kategorijā, mēs piemērojam prēmijas un sodus, pamatojoties uz vairākiem kritērijiem:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Sastāvdaļu izcelsme';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bonuss tiek piešķirts, pamatojoties uz sastāvdaļu izcelsmi. Šī bonusa piešķiršana ņem vērā ietekmi uz transportu, kā arī katra ražotāja valsts vides politiku.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Iepakojums';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Lai precīzi aprēķinātu Zaļo rādītāju, ir nepieciešama informācija, kas ne vienmēr ir norādīta uz iepakojuma (piemēram, katras sastāvdaļas izcelsme un precīzs procentuālais daudzums) vai kas reti ir pieejama izmantojamā formā (piemēram, visu iepakojuma sastāvdaļu saraksts ar precīziem izmantotās plastmasas veidiem).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Ja šī informācija vēl nav pieejama, tiek izmantotas vidējās vērtības, taču tagad mēs aicinām ikvienu palīdzēt mums apkopot šo informāciju, kas būs ļoti noderīga gan Green-Score sistēmai, gan daudziem citiem mērķiem.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Kā iedzīvotāji var palīdzēt';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Visi iedzīvotāji var mums palīdzēt apkopot un strukturēt informāciju, kas atrodas uz produktiem vai ko var no tiem secināt, piemēram, informāciju uz iepakojuma: Mission Emballages: liela mēroga kopīga visu pārtikas produktu iepakojuma inventarizācija (franciski).';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Kā ražotāji var palīdzēt';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Ražotāji var nosūtīt mums savu informāciju tieši, izmantojot mūsu bezmaksas platformu ražotājiem.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

@@ -979,7 +979,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Илүү нарийн ангиллыг сонгоно уу';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsMn extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,162 @@ class AppLocalizationsMn extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Ногоон оноо гэж юу вэ?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score нь **хүнсний байгаль орчинд үзүүлэх нөлөөллийн** талаар мэдээлэл өгөх зорилготой лого юм.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Өнгөний код нь **хамгийн нөлөө үзүүлэх** бүтээгдэхүүний хар ногоон (**A+**)-аас **хамгийн нөлөөлөлтэй** бүтээгдэхүүний хар улаан (**F**) хүртэл өөр өөр байдаг.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Ногоон онооны лого';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Гол нь: Амьдралын мөчлөгийн үнэлгээ (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Хүнсний ангиллын шинжлэх ухааны үнэлгээ';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Бүтээгдэхүүний ангилал тус бүрийн хувьд Agribalyse байгаль орчны мэдээллийн сангаас (ADEME болон INRAE боловсруулсан) өгөгдлийг ашиглан **бенчмарк** оноог тогтоодог.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Амьдралын мөчлөгийн шинжилгээ** нь олон үе шаттай, олон шалгуур бүхий байгаль орчны үнэлгээг хийх стандартчилсан үнэлгээний арга юм.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Энэ нь:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => 'Үйлдвэрлэлийн 6 үе шат';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      'Байгаль орчинд нөлөөлөх байдлын 14 үзүүлэлт';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Уур амьсгалын өөрчлөлт/нүүрстөрөгчийн ул мөр';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Озоны давхаргын цоорхой';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ионжуулагч цацраг';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Газар';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Ус ба эрчим хүчний хэрэглээ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Агаарын бохирдол';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Далайн болон цэнгэг ус (тоосонцор, хүчиллэгжилт, эвтрофикаци)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Нөөцийн хомсдол.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Урамшуулал ба торгууль';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Ангилал доторх илүү сайн бүтээгдэхүүнийг урамшуулахын тулд бид хэд хэдэн шалгуурт үндэслэн урамшуулал, торгууль хэрэглэдэг:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Найрлагын гарал үүслийг харгалзан урамшуулал олгоно. Энэхүү урамшуулал нь тээвэрлэлтэд үзүүлэх нөлөөлөл, мөн үйлдвэрлэгч бүрийн улс орны байгаль орчны бодлогыг харгалзан үздэг.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Ногоон оноог үнэн зөв тооцоолохын тулд сав баглаа боодол дээр заавал заагаагүй мэдээлэл (орц бүрдэл бүрийн гарал үүсэл, яг тодорхой хувь гэх мэт) эсвэл ашиглах боломжтой хэлбэрээр ховор байдаг (жишээ нь, ашигласан хуванцарын бүх бүрэлдэхүүн хэсгүүдийн жагсаалт гэх мэт) байх шаардлагатай.';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Энэ мэдээлэл хараахан гараагүй үед дундаж утгыг ашигладаг, гэхдээ бид Ногоон онооны хувьд төдийгүй бусад олон хэрэглээнд тустай энэ мэдээллийг цуглуулахад туслаач гэж бид хүн бүрийг уриалж байна.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title => 'Иргэд яаж туслах вэ';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Сав баглаа боодлын талаарх мэдээлэл гэх мэт бүтээгдэхүүн дээр байгаа эсвэл тэдгээрээс гаргаж болох мэдээллийг цуглуулж, бүтэцжүүлэхэд бүх иргэд тусалж чадна: Эрхэм зорилго: Бүх хүнсний бүтээгдэхүүний сав баглаа боодлын томоохон хэмжээний хамтын тооллого (Франц хэлээр)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Үйлдвэрлэгчид хэрхэн туслах вэ';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Үйлдвэрлэгчид манай үйлдвэрлэгчдэд зориулсан үнэгүй платформоор дамжуулан мэдээллээ бидэнд шууд илгээх боломжтой.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

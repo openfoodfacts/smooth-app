@@ -979,7 +979,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Veldu nákvæmari flokk';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsIs extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,161 @@ class AppLocalizationsIs extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Hvað er Græna stigagjöfin?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Græna stigið er lógó sem miðar að því að upplýsa þig um **umhverfisáhrif matvæla**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Litakóðinn er breytilegur frá dökkgrænum (**A+**) fyrir vörurnar sem hafa **minnst áhrif** til dökkrauðum (**F**) fyrir vörurnar sem hafa **mest áhrif**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Green-Score lógóin';
+
+  @override
+  String get guide_greenscore_lca_title => 'Kjarninn: Lífsferilsmat (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Vísindalegt mat á matvælaflokkum';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Fyrir hvern vöruflokk er ákveðið viðmiðunarstig með því að nota gögn úr umhverfisgagnagrunninum Agribalyse (hannaður af ADEME og INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Lífsferilsgreining** er stöðluð matsaðferð til að framkvæma fjölþrepa og fjölþátta umhverfismat.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Það mælir:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 framleiðsluskref';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 vísbendingar um umhverfisáhrif';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Loftslagsbreytingar/kolefnisspor';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Þynning ósonlagsins';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Jónandi geislun';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Land';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Vatns- og orkunotkun';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Loftmengun';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Sjávar- og ferskvatn (agnir, súrnun, ofauðgun)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Tæming auðlinda.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bónusar og refsingar';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Til að verðlauna betri vörur innan tiltekins flokks, beitum við síðan bónusum og refsingum byggðum á nokkrum viðmiðum:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bónus er veittur út frá uppruna innihaldsefnanna. Þessi bónus tekur mið af áhrifum á flutninga og einnig umhverfisstefnu lands hvers framleiðanda.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Til að reikna út Græna stigið nákvæmlega er nauðsynlegt að hafa upplýsingar sem eru ekki endilega tilgreindar á umbúðunum (eins og uppruni og nákvæmt hlutfall hvers innihaldsefnis) eða sem eru sjaldan tiltækar í nothæfu formi (eins og listi yfir alla íhluti umbúðanna ásamt nákvæmum tegundum plasts sem notaðar eru).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Meðalgildi eru notuð þegar þessar upplýsingar eru ekki enn tiltækar, en við köllum nú á alla til að hjálpa okkur að safna þessum upplýsingum sem verða mjög gagnlegar fyrir Green-Score en einnig til margra annarra nota.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Hvernig borgarar geta hjálpað';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Allir borgarar geta hjálpað okkur að safna og skipuleggja upplýsingar sem eru að finna á vörum eða sem hægt er að álykta út frá þeim, svo sem upplýsingar á umbúðum: Mission Emballages: stórfelld sameiginleg skrá yfir umbúðir fyrir allar matvæli (á frönsku).';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Hvernig framleiðendur geta hjálpað';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Framleiðendur geta sent okkur upplýsingar sínar beint í gegnum ókeypis vettvang okkar fyrir framleiðendur.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

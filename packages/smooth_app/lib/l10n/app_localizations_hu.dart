@@ -996,7 +996,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Válasszon pontosabb kategóriát';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4143,9 +4143,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get guide_share_label => 'Megosztás';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4255,7 +4252,160 @@ class AppLocalizationsHu extends AppLocalizations {
       'https://hu.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Mi a zöld pontszám?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'A Green-Score egy logó, amelynek célja, hogy tájékoztasson az **élelmiszerek környezeti hatásáról**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'A színkód a sötétzöldtől (**A+**) a **legkevésbé környezetre ható** termékekhez a sötétvörösig (**F**) a **legnagyobb hatású** termékekhez tartozik.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'A Green-Score logók';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'A lényeg: Életciklus-értékelés (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Az élelmiszerkategóriák tudományos értékelése';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Minden termékkategóriára egy **benchmark** pontszámot határoznak meg az Agribalyse környezetvédelmi adatbázisának adatai alapján (amelyet az ADEME és az INRAE tervezett).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      'Az **életciklus-elemzés** egy szabványosított értékelési módszer többlépcsős és többkritériumos környezeti értékelés elvégzésére.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Méretei:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 gyártási lépés';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Mezőgazdaság';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Feldolgozás';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Csomagolás';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Szállítás';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Elosztás';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Fogyasztás';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 környezeti hatásmutató';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Klímaváltozás/szénlábnyom';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Az ózonréteg elvékonyodása';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ionizáló sugárzás';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Föld';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Víz- és energiafelhasználás';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'A levegő szennyezése';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Tengeri és édesvíz (részecskék, savasodás, eutrofizáció)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Erőforrások kimerülése.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bónuszok és büntetések';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'A kategórián belüli jobb termékek jutalmazása érdekében bónuszokat és büntetéseket alkalmazunk több kritérium alapján:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Összetevők eredete';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'A bónusz az összetevők eredete alapján jár. Ez a bónusz figyelembe veszi a szállításra gyakorolt hatást, valamint az egyes termelők országának környezetvédelmi politikáját.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Csomagolás';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'A Green-Score pontos kiszámításához olyan információkra van szükség, amelyek nem feltétlenül szerepelnek a csomagoláson (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Az átlagértékeket akkor használjuk, ha ez az információ még nem áll rendelkezésre, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Hogyan segíthetnek a polgárok';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Minden állampolgár segíthet nekünk a termékeken található vagy azokból kikövetkeztethető információk, például a csomagoláson található információk összegyűjtésében és rendszerezésében: Mission Emballages: nagyszabású, közösen készített nyilvántartás az összes élelmiszertermék csomagolásáról (francia nyelven)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Hogyan segíthetnek a gyártók';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'A gyártók közvetlenül elküldhetik nekünk adataikat az ingyenes platformunkon keresztül.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Előnézet';

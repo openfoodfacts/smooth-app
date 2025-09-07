@@ -979,7 +979,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'אויסקלייבן אַ מער פּינקטלעכע קאַטעגאָריע';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4103,9 +4103,6 @@ class AppLocalizationsYi extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4215,7 +4212,162 @@ class AppLocalizationsYi extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'וואָס איז דער גרין סקאָר?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'דער גרין-סקאָר איז אַ לאָגאָ וואָס צילט צו אינפאָרמירן אייך וועגן דעם **אומגעבונגס-איינפלוס פון עסן**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'דער קאָליר קאָד ווערייִרט פֿון טונקל גרין (**A+**) פֿאַר די **מינדסטער אימפּאַקטפולע** פּראָדוקטן ביז טונקל רויט (**F**) פֿאַר די **מערסט אימפּאַקטפולע** פּראָדוקטן.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'די גרין-סקאָר לאָגאָס';
+
+  @override
+  String get guide_greenscore_lca_title => 'דער קערן: לעבן ציקל אפשאצונג (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'א וויסנשאפטלעכע אפשאצונג פון עסן קאטעגאריעס';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'פֿאַר יעדער פּראָדוקט קאַטעגאָריע, ווערט אַ **בענטשמאַרק** כעזשבן באַשטימט ניצנדיק דאַטן פֿון דער אַגריבאַלייז ענווייראָנמענטאַל דאַטאַבאַזע (דיזיינד דורך ADEME און INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**לעבנס-ציקל אנאליז** איז א סטאנדארדיזירטע אפשאצונג מעטאד פארן דורכפירן א מערפאכיגע און מערפאכיגע קריטעריע סביבה אפשאצונג.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => 'עס מעסט:';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 פּראָדוקציע טריט';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 אינדיקאַטאָרן פֿאַר דער השפּעה פֿון דער סביבה';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'קלימאַט ענדערונג/קאַרבאָן פֿוסדרוק';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'אָזאָן שיכט אויסשעפּונג';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'יאָניזירנדיקע ראַדיאַציע';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'לאַנד';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'וואַסער און ענערגיע נוצן';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'לופט פארפּעסטיקונג';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'מאַרינע און פרישע וואַסער (פּאַרטיקלען, פֿאַרזויערונג, עוטראָפיקאַציע)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'אויסשעפּונג פון רעסורסן.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'באָנוסעס און שטראָפֿן';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'כּדי צו באַלוינען בעסערע פּראָדוקטן אין אַ קאַטעגאָריע, לייגן מיר דאַן צו באָנוסעס און שטראָפֿן באַזירט אויף עטלעכע קריטעריעס:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'א באָנוס ווערט געגעבן באַזירט אויף דעם אָפּשטאַם פון די ינגרידיאַנץ. דער באָנוס נעמט אין באַטראַכט די השפּעה אויף טראַנספּאָרטאַציע און אויך די ענווייראָנמענטאַלע פּאָליטיק פון יעדן פּראָדוצירער\'ס לאַנד.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'כדי גענוי אויסצורעכענען דעם גרין-סקאָר, איז נויטיק צו האבן אינפארמאציע וואס איז נישט דוקא ספעציפיצירט אויף דער פארפאקונג (ווי דער מקור און דער גענויער פראצענט פון יעדן אינגרעדיענט) אדער וואס איז זעלטן פאראן אין א נוצבארער פארעם (ווי א ליסטע פון אלע קאמפאנענטן פון דער פארפאקונג מיט די גענויע סארטן פלאסטיק וואס ווערן גענוצט).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'דורכשניטלעכע ווערטן ווערן גענוצט ווען די אינפארמאציע איז נאך נישט פאראן, אבער מיר רופן יעצט יעדן צו העלפן אונז זאמלען די אינפארמאציע וואס וועט זיין זייער נוצלעך פארן גרין-סקור אבער אויך פאר אסאך אנדערע נוצן.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'ווי בירגער קענען העלפֿן';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'אַלע בירגער קענען אונדז העלפֿן זאַמלען און סטרוקטורירן די אינפֿאָרמאַציע וואָס איז פֿאַראַן אויף פּראָדוקטן אָדער וואָס קען מען פֿון זיי אַרויסנעמען, ווי למשל אינפֿאָרמאַציע אויף פֿאַרפּאַקונג: מיסיע עמבאַלאַדזשעס: אַ גרויס-מאָסשטאַביגער קאָלאַבאָראַטיווער אינווענטאַר פֿון פֿאַרפּאַקונג פֿאַר אַלע עסן פּראָדוקטן (אין פֿראַנצייזיש)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'ווי פאַבריקאַנטן קענען העלפֿן';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'פאַבריקאַנטן קענען אונדז שיקן זייער אינפֿאָרמאַציע גלייך דורך אונדזער פריי פּלאַטפאָרמע פֿאַר פּראָדוצירער.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

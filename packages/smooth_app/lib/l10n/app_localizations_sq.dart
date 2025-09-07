@@ -991,7 +991,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Zgjidhni një kategori më të saktë';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4117,9 +4117,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4229,7 +4226,164 @@ class AppLocalizationsSq extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Cili është Rezultati i Gjelbër?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score është një logo që synon t\'ju informojë rreth **ndikimit mjedisor të ushqimit**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kodi i ngjyrës varion nga jeshile e errët (**A+**) për produktet **më pak ndikuese** deri në të kuqe të errët (**F**) për produktet **më shumë ndikuese**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Logot e Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Thelbi: Vlerësimi i ciklit jetësor (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Një vlerësim shkencor i kategorive ushqimore';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Për secilën kategori produkti, përcaktohet një **pikë referimi** duke përdorur të dhëna nga baza e të dhënave mjedisore Agribalyse (e projektuar nga ADEME dhe INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Analiza e ciklit jetësor** është një metodë standarde vlerësimi për kryerjen e një vlerësimi mjedisor shumëfazor dhe shumëkriterësh.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Mat:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 hapa prodhimi';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 tregues të ndikimit në mjedis';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Ndryshimi i klimës/gjurma e karbonit';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Hollimi i shtresës së ozonit';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Rrezatimi jonizues';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Tokë';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Përdorimi i ujit dhe energjisë';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Ndotja e ajrit';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Ujë detar dhe i ëmbël (grimca, acidifikim, eutrofikim)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Shterimi i burimeve.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'Bonuse dhe penalitete';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Për të shpërblyer produktet më të mira brenda një kategorie, ne aplikojmë bonuse dhe penalitete bazuar në disa kritere:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Një bonus jepet në bazë të origjinës së përbërësve. Ky bonus merr në konsideratë ndikimin në transport dhe gjithashtu politikën mjedisore të vendit të secilit prodhues.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Për të llogaritur me saktësi Green-Score, është e nevojshme të keni informacion që nuk specifikohet domosdoshmërisht në paketim (siç është origjina dhe përqindja e saktë e secilit përbërës) ose që rrallë është i disponueshëm në formë të përdorshme (siç është një listë e të gjithë përbërësve të paketimit me llojet e sakta të plastikës së përdorur).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Vlerat mesatare përdoren kur ky informacion nuk është ende i disponueshëm, por tani po u bëjmë thirrje të gjithëve që të na ndihmojnë të mbledhim këtë informacion i cili do të jetë shumë i dobishëm për Green-Score, por edhe për shumë përdorime të tjera.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Si mund të ndihmojnë qytetarët';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Të gjithë qytetarët mund të na ndihmojnë të mbledhim dhe strukturojmë informacionin që është i pranishëm në produkte ose që mund të nxirret prej tyre, siç është informacioni mbi paketimin: Mission Emballages: një inventar bashkëpunues në shkallë të gjerë i paketimit për të gjitha produktet ushqimore (në frëngjisht)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Si mund të ndihmojnë prodhuesit';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Prodhuesit mund të na dërgojnë informacionin e tyre direkt përmes platformës sonë falas për prodhuesit.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

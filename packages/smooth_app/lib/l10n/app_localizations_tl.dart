@@ -979,7 +979,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Pumili ng mas tumpak na kategorya';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4108,9 +4108,6 @@ class AppLocalizationsTl extends AppLocalizations {
   String get guide_share_label => 'Ibahagi';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4220,7 +4217,163 @@ class AppLocalizationsTl extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Ano ang Green Score?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Ang Green-Score ay isang logo na naglalayong ipaalam sa iyo ang tungkol sa **epekto sa kapaligiran ng pagkain**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Ang code ng kulay ay nag-iiba mula sa madilim na berde (**A+**) para sa mga **pinakamaliit na epekto** na mga produkto hanggang sa madilim na pula (**F**) para sa **pinakamaimpluwensyang** mga produkto.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Ang mga logo ng Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Ang core: Life cycle assessment (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Isang siyentipikong pagsusuri ng mga kategorya ng pagkain';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Para sa bawat kategorya ng produkto, mayroong **benchmark** na marka gamit ang data mula sa Agribalyse environmental database (dinisenyo ng ADEME at INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      'Ang **Pagsusuri sa ikot ng buhay** ay isang standardized na paraan ng pagtatasa para sa pagsasagawa ng isang multi-stage at multi-criteria na pagtatasa sa kapaligiran.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Sinusukat nito:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 na hakbang sa paggawa';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Balot';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 na tagapagpahiwatig ng epekto sa kapaligiran';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Pagbabago ng klima/carbon footprint';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Pagkaubos ng ozone layer';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Lupa';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Paggamit ng tubig at enerhiya';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Polusyon sa hangin';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Marine at sariwang tubig (mga particle, acidification, eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 =>
+      'Pagkaubos ng mga mapagkukunan.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Mga bonus at parusa';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Upang gantimpalaan ang mas mahuhusay na produkto sa loob ng isang kategorya, pagkatapos ay ilalapat namin ang mga bonus at parusa batay sa ilang pamantayan:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Pinagmulan ng mga sangkap';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Ang isang bonus ay iginawad batay sa pinagmulan ng mga sangkap. Isinasaalang-alang ng bonus na ito ang epekto sa transportasyon at gayundin ang patakaran sa kapaligiran ng bawat bansa ng producer.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Balot';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Upang tumpak na kalkulahin ang Green-Score, kinakailangan na magkaroon ng impormasyon na hindi kinakailangang tinukoy sa packaging (tulad ng pinagmulan at eksaktong porsyento ng bawat sangkap) o kung saan ay bihirang magagamit sa form na magagamit (tulad ng isang listahan ng lahat ng mga bahagi ng packaging na may mga tiyak na uri ng mga plastik na ginamit).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Ginagamit ang mga average na halaga kapag hindi pa available ang impormasyong ito, ngunit nananawagan kami ngayon sa lahat na tulungan kaming kolektahin ang impormasyong ito na magiging lubhang kapaki-pakinabang para sa Green-Score ngunit para din sa maraming iba pang gamit.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Paano makakatulong ang mga mamamayan';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Ang lahat ng mamamayan ay makakatulong sa amin na tipunin at ayusin ang impormasyong naroroon sa mga produkto o maaaring mahihinuha mula sa mga ito, tulad ng impormasyon sa packaging: Mission Emballages: isang malakihang collaborative na imbentaryo ng packaging para sa lahat ng produktong pagkain (sa French)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Paano makakatulong ang mga tagagawa';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Maaaring ipadala sa amin ng mga tagagawa ang kanilang impormasyon nang direkta sa pamamagitan ng aming libreng platform para sa mga producer.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

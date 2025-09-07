@@ -979,7 +979,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Pilih kategori sing luwih tepat';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsJv extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,160 @@ class AppLocalizationsJv extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Apa Green Score?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score minangka logo sing tujuane menehi informasi babagan **dampak lingkungan panganan**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kode werna beda-beda saka ijo peteng (**A+**) kanggo produk **paling pengaruh** nganti abang peteng (**F**) kanggo produk **paling pengaruh**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Logo Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title => 'Inti: Life cycle assessment (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Evaluasi ilmiah babagan kategori panganan';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Kanggo saben kategori produk, skor **benchmark** ditetepake nggunakake data saka database lingkungan Agribalyse (dirancang dening ADEME lan INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Analisis siklus urip** minangka metode penilaian standar kanggo nindakake penilaian lingkungan multi-tahap lan multi-kriteria.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Iku ngukur:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 langkah produksi';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 Indikator Dampak Lingkungan';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Owah-owahan iklim / jejak karbon';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Penipisan lapisan ozon';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Radiasi ionisasi';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'tanah';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Panggunaan banyu lan energi';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Polusi udara';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Banyu segara lan segara (partikel, pengasaman, eutrofikasi)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Kurangé sumber daya.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonus & paukuman';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Kanggo menehi ganjaran produk sing luwih apik ing sawijining kategori, kita banjur ngetrapake bonus & denda adhedhasar sawetara kritéria:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'A bonus dianugerahi adhedhasar asal saka úa. Bonus iki njupuk menyang akun impact ing transportasi lan uga kabijakan lingkungan saben negara produser.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Kanggo ngetung Green-Score kanthi akurat, sampeyan kudu duwe informasi sing ora kudu ditemtokake ing kemasan (kayata asal-usul lan persentase pas saben bahan) utawa sing arang kasedhiya ing wangun sing bisa digunakake (kayata dhaptar kabeh komponen kemasan kanthi jinis plastik sing digunakake).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Nilai rata-rata digunakake nalika informasi iki durung kasedhiya, nanging kita saiki nelpon ing everyone kanggo bantuan kita ngumpulake informasi iki kang bakal banget migunani kanggo Green-Score nanging uga kanggo akeh kegunaan liyane.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Kepiye warga bisa mbantu';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Kabeh warga bisa mbantu kita ngumpulake lan nyusun informasi sing ana ing produk utawa sing bisa disimpulake, kayata informasi babagan kemasan: Mission Emballages: inventarisasi kolaborasi skala gedhe kanggo kabeh produk panganan (ing basa Prancis)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Carane manufaktur bisa bantuan';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Produsen bisa ngirim informasi langsung liwat platform gratis kanggo produser.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

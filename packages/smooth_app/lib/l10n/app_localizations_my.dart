@@ -979,7 +979,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'ပိုမိုတိကျသောအမျိုးအစားကိုရွေးချယ်ပါ။';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4110,9 +4110,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get guide_share_label => 'ေဝမွ်မည္';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4222,7 +4219,161 @@ class AppLocalizationsMy extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Green Score ကဘာလဲ။';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score သည် **အစားအစာ၏ပတ်ဝန်းကျင်ဆိုင်ရာအကျိုးသက်ရောက်မှု** အကြောင်း သင့်အား အသိပေးရန် ရည်ရွယ်သည့် လိုဂိုတစ်ခုဖြစ်သည်။';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      '**အကျိုးသက်ရောက်မှုအရှိဆုံး ** ထုတ်ကုန်များအတွက် **အကျိုးသက်ရောက်မှုအနည်းဆုံး** ထုတ်ကုန်များအတွက် အစိမ်းရင့်ရောင် (**A+**) မှ အရောင်ကုဒ်သည် အနီရောင် (**F**) အထိ ကွဲပြားပါသည်။';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Green-Score လိုဂိုများ';
+
+  @override
+  String get guide_greenscore_lca_title => 'အဓိက- ဘဝသံသရာ အကဲဖြတ်ခြင်း (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'အစားအသောက် အမျိုးအစားများကို သိပ္ပံနည်းကျ အကဲဖြတ်ခြင်း။';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'ထုတ်ကုန်အမျိုးအစားတစ်ခုစီအတွက်၊ Agribalyse ပတ်ဝန်းကျင်ဒေတာဘေ့စ် (ADEME နှင့် INRAE မှ ဒီဇိုင်းထုတ်သည်) မှ ဒေတာကို အသုံးပြု၍ **စံသတ်မှတ်ချက်** ရမှတ်ကို သတ်မှတ်သည်။';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**ဘဝစက်ဝန်းခွဲခြမ်းစိတ်ဖြာခြင်း** သည် အဆင့်များစွာနှင့် စံသတ်မှတ်ချက်များစွာရှိသော ပတ်ဝန်းကျင်ဆိုင်ရာ အကဲဖြတ်မှုကို ဆောင်ရွက်ရန်အတွက် စံပြုအကဲဖြတ်သည့်နည်းလမ်းတစ်ခုဖြစ်သည်။';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**တိုင်းတာသည်**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => 'ထုတ်လုပ်မှု အဆင့် ၆';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      'သဘာဝပတ်ဝန်းကျင် ထိခိုက်မှု ညွှန်းကိန်း ၁၄';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'ရာသီဥတုပြောင်းလဲမှု/ကာဗွန်ခြေရာ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'အိုဇုန်းလွှာ ကျဆင်းခြင်း။';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'အိုင်းယွန်းဓါတ်ရောင်ခြည်';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'မြေ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'ရေနှင့်စွမ်းအင်အသုံးပြုမှု';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'လေထုညစ်ညမ်းမှု';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'အဏ္ဏဝါနှင့် ရေချို (အမှုန်အမွှားများ၊ အက်ဆစ်ဓာတ်ပြုခြင်း၊ eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'အရင်းအမြစ်များ ကုန်ဆုံးခြင်း။';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title =>
+      'ဘောနပ်စ်များနှင့် ပြစ်ဒဏ်များ';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'အမျိုးအစားတစ်ခုအတွင်း ပိုမိုကောင်းမွန်သော ထုတ်ကုန်များကို ဆုချရန်၊ စံသတ်မှတ်ချက်များစွာအပေါ် အခြေခံ၍ ဘောနပ်စ်များနှင့် ပြစ်ဒဏ်များကို အသုံးပြုသည်-';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'ပါဝင်ပစ္စည်းများ၏ မူလအစပေါ်မူတည်၍ ဘောနပ်စ်ချီးမြှင့်ပါသည်။ ဤအပိုဆုသည် သယ်ယူပို့ဆောင်ရေးအပေါ် အကျိုးသက်ရောက်မှုနှင့် ထုတ်လုပ်သူတိုင်း၏ နိုင်ငံတစ်ခုစီ၏ သဘာဝပတ်ဝန်းကျင်ဆိုင်ရာ မူဝါဒကိုလည်း ထည့်သွင်းစဉ်းစားပါသည်။';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Green-Score ကို တိကျစွာ တွက်ချက်ရန်၊ ထုပ်ပိုးမှုတွင် သေချာပေါက် သတ်မှတ်ထားခြင်း မရှိဘဲ (ဥပမာ- ပါဝင်ပစ္စည်း တစ်ခုစီ၏ ရာခိုင်နှုန်း အတိအကျ ကဲ့သို့) သို့မဟုတ် အသုံးပြုနိုင်သော ပုံစံဖြင့် ရရှိခဲသော (ဥပမာ- တိကျသော ပလတ်စတစ် အမျိုးအစားများနှင့် ထုပ်ပိုးမှု၏ အစိတ်အပိုင်းအားလုံး စာရင်းကဲ့သို့) အချက်အလက်များ ရှိရန် လိုအပ်ပါသည်။';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'ဤအချက်အလက်ကို မရရှိနိုင်သေးချိန်တွင် ပျမ်းမျှတန်ဖိုးများကို အသုံးပြုထားသော်လည်း Green-Score အတွက်သာမက အခြားအသုံးပြုမှုများစွာအတွက်ပါ အလွန်အသုံးဝင်မည့် ဤအချက်အလက်များကို စုဆောင်းရာတွင် ကူညီပေးရန် လူတိုင်းကို ကျွန်ုပ်တို့ တောင်းဆိုထားပါသည်။';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'နိုင်ငံသားတွေ ဘယ်လိုကူညီနိုင်မလဲ။';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'ထုပ်ပိုးမှုဆိုင်ရာ အချက်အလက်ကဲ့သို့သော ထုတ်ကုန်များတွင်ပါရှိသော သို့မဟုတ် ၎င်းတို့ထံမှ နုတ်ယူနိုင်သော အချက်အလက်များကို စုဆောင်းပြီး ဖွဲ့စည်းတည်ဆောက်ရန် ကူညီပေးနိုင်သည်- Mission Emballages- အစားအသောက်ထုတ်ကုန်အားလုံးအတွက် ထုပ်ပိုးမှုဆိုင်ရာ ကြီးမားသော ပူးပေါင်းပါဝင်မှုစာရင်း (ပြင်သစ်ဘာသာဖြင့်)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'ထုတ်လုပ်သူတွေက ဘယ်လိုကူညီနိုင်မလဲ။';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'ထုတ်လုပ်သူသည် ထုတ်လုပ်သူများအတွက် ကျွန်ုပ်တို့၏ အခမဲ့ပလပ်ဖောင်းမှတစ်ဆင့် ၎င်းတို့၏ အချက်အလက်များကို ကျွန်ုပ်တို့ထံ တိုက်ရိုက်ပေးပို့နိုင်ပါသည်။';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

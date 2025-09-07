@@ -982,7 +982,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'ଏକ ଅଧିକ ସଠିକ୍ ବର୍ଗ ଚୟନ କରନ୍ତୁ';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4109,9 +4109,6 @@ class AppLocalizationsOr extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4221,7 +4218,159 @@ class AppLocalizationsOr extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'ଗ୍ରୀନ୍ ସ୍କୋର କ’ଣ?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'ଗ୍ରୀନ୍-ସ୍କୋର୍ ହେଉଛି ଏକ ଲୋଗୋ ଯାହା ଆପଣଙ୍କୁ **ଖାଦ୍ୟର ପରିବେଶଗତ ପ୍ରଭାବ** ବିଷୟରେ ସୂଚନା ଦେବା ପାଇଁ ଉଦ୍ଦିଷ୍ଟ।';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      '**ସର୍ବାଧିକ ପ୍ରଭାବଶାଳୀ** ଉତ୍ପାଦ ପାଇଁ ରଙ୍ଗ କୋଡ୍ ଗାଢ଼ ସବୁଜ (**A+**) ଠାରୁ **ସର୍ବାଧିକ ପ୍ରଭାବଶାଳୀ** ଉତ୍ପାଦ ପାଇଁ ଗାଢ଼ ଲାଲ (**F**) ପର୍ଯ୍ୟନ୍ତ ଭିନ୍ନ ହୋଇଥାଏ।';
+
+  @override
+  String get guide_greenscore_logos_caption => 'ସବୁଜ-ସ୍କୋର ଲୋଗୋଗୁଡ଼ିକ';
+
+  @override
+  String get guide_greenscore_lca_title => 'ମୂଳ: ଜୀବନଚକ୍ର ମୂଲ୍ୟାଙ୍କନ (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'ଖାଦ୍ୟ ବର୍ଗଗୁଡ଼ିକର ଏକ ବୈଜ୍ଞାନିକ ମୂଲ୍ୟାଙ୍କନ';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'ପ୍ରତ୍ୟେକ ଉତ୍ପାଦ ବର୍ଗ ପାଇଁ, Agribalyse ପରିବେଶଗତ ଡାଟାବେସ୍ (ADEME ଏବଂ INRAE ଦ୍ୱାରା ଡିଜାଇନ୍ କରାଯାଇଥିବା) ରୁ ତଥ୍ୟ ବ୍ୟବହାର କରି ଏକ **ବେଞ୍ଚମାର୍କ** ସ୍କୋର ସ୍ଥାପନ କରାଯାଏ।';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**ଜୀବନଚକ୍ର ବିଶ୍ଳେଷଣ** ହେଉଛି ଏକ ବହୁ-ସ୍ତରୀୟ ଏବଂ ବହୁ-ମାନଦଣ୍ଡ ପରିବେଶଗତ ମୂଲ୍ୟାଙ୍କନ ପାଇଁ ଏକ ମାନକିତ ମୂଲ୍ୟାଙ୍କନ ପଦ୍ଧତି।';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**ଏହା ମାପ କରେ:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6ଟି ଉତ୍ପାଦନ ପଦକ୍ଷେପ';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '୧୪ଟି ପରିବେଶଗତ ପ୍ରଭାବ ସୂଚକ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'ଜଳବାୟୁ ପରିବର୍ତ୍ତନ/କାର୍ବନ ପଦଚିହ୍ନ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'ଓଜୋନ୍ ସ୍ତର ହ୍ରାସ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'ଆୟୋନାଇଜିଂ ବିକିରଣ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'ଭୂମି';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'ଜଳ ଏବଂ ଶକ୍ତି ବ୍ୟବହାର';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'ବାୟୁ ପ୍ରଦୂଷଣ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'ସାମୁଦ୍ରିକ ଏବଂ ମଧୁର ଜଳ (କଣା, ଏସିଡିଫିକେସନ୍, ୟୁଟ୍ରୋଫିକେସନ୍)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'ସମ୍ବଳର ହ୍ରାସ।';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'ବୋନସ୍ ଏବଂ ଜରିମାନା';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'ଏକ ବର୍ଗ ମଧ୍ୟରେ ଉତ୍ତମ ଉତ୍ପାଦଗୁଡ଼ିକୁ ପୁରସ୍କୃତ କରିବା ପାଇଁ, ଆମେ ଅନେକ ମାନଦଣ୍ଡ ଉପରେ ଆଧାର କରି ବୋନସ୍ ଏବଂ ଦଣ୍ଡ ପ୍ରୟୋଗ କରୁ:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'ଉପାଦାନର ଉତ୍ପତ୍ତି ଉପରେ ଆଧାର କରି ଏକ ବୋନସ୍ ପ୍ରଦାନ କରାଯାଏ। ଏହି ବୋନସ୍ ପରିବହନ ଉପରେ ପ୍ରଭାବ ଏବଂ ପ୍ରତ୍ୟେକ ଉତ୍ପାଦକଙ୍କ ଦେଶର ପରିବେଶ ନୀତିକୁ ମଧ୍ୟ ବିଚାରକୁ ନେଇଥାଏ।';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'ସବୁଜ-ସ୍କୋରକୁ ସଠିକ୍ ଭାବରେ ଗଣନା କରିବା ପାଇଁ, ଏପରି ସୂଚନା ରହିବା ଆବଶ୍ୟକ ଯାହା ପ୍ୟାକେଜିଂରେ ନିର୍ଦ୍ଦିଷ୍ଟ କରାଯାଇ ନାହିଁ (ଯେପରିକି ପ୍ରତ୍ୟେକ ଉପାଦାନର ଉତ୍ପତ୍ତି ଏବଂ ସଠିକ୍ ପ୍ରତିଶତ) କିମ୍ବା ଯାହା ବ୍ୟବହାରଯୋଗ୍ୟ ରୂପରେ କ୍ୱଚିତ୍ ଉପଲବ୍ଧ (ଯେପରିକି ବ୍ୟବହୃତ ସଠିକ୍ ପ୍ରକାରର ପ୍ଲାଷ୍ଟିକ୍ ସହିତ ପ୍ୟାକେଜିଂର ସମସ୍ତ ଉପାଦାନଗୁଡ଼ିକର ତାଲିକା)।';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'ଯେତେବେଳେ ଏହି ସୂଚନା ଏପର୍ଯ୍ୟନ୍ତ ଉପଲବ୍ଧ ନଥିଲା ସେତେବେଳେ ହାରାହାରି ମୂଲ୍ୟ ବ୍ୟବହାର କରାଯାଏ, କିନ୍ତୁ ଆମେ ଏବେ ସମସ୍ତଙ୍କୁ ଏହି ସୂଚନା ସଂଗ୍ରହ କରିବାରେ ସାହାଯ୍ୟ କରିବାକୁ ଆହ୍ୱାନ କରୁଛୁ ଯାହା ଗ୍ରୀନ୍-ସ୍କୋର ପାଇଁ ବହୁତ ଉପଯୋଗୀ ହେବ ଏବଂ ଅନ୍ୟାନ୍ୟ ଅନେକ ବ୍ୟବହାର ପାଇଁ ମଧ୍ୟ।';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'ନାଗରିକମାନେ କିପରି ସାହାଯ୍ୟ କରିପାରିବେ';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'ସମସ୍ତ ନାଗରିକ ଆମକୁ ଉତ୍ପାଦଗୁଡ଼ିକ ଉପରେ ଥିବା ସୂଚନା ସଂଗ୍ରହ ଏବଂ ଗଠନ କରିବାରେ ସାହାଯ୍ୟ କରିପାରିବେ କିମ୍ବା ସେଥିରୁ ଅନୁମାନ କରାଯାଇପାରିବ, ଯେପରିକି ପ୍ୟାକେଜିଂ ସମ୍ବନ୍ଧୀୟ ସୂଚନା: ମିଶନ ଏମ୍ବାଲେଜେସ୍: ସମସ୍ତ ଖାଦ୍ୟ ଉତ୍ପାଦ ପାଇଁ ପ୍ୟାକେଜିଂର ଏକ ବୃହତ ପରିମାଣର ସହଯୋଗୀ ତାଲିକା (ଫରାସୀ ଭାଷାରେ)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'ନିର୍ମାତାମାନେ କିପରି ସାହାଯ୍ୟ କରିପାରିବେ';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'ଉତ୍ପାଦକମାନେ ଆମର ମାଗଣା ଉତ୍ପାଦକ ପ୍ଲାଟଫର୍ମ ମାଧ୍ୟମରେ ସିଧାସଳଖ ସେମାନଙ୍କର ସୂଚନା ପଠାଇପାରିବେ।';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

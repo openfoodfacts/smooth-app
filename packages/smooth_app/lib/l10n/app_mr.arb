@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Share",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "ग्रीन स्कोअर म्हणजे काय?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "ग्रीन-स्कोअर हा एक लोगो आहे जो तुम्हाला **अन्नाचा पर्यावरणीय परिणाम** याबद्दल माहिती देण्याचे उद्दिष्ट ठेवतो.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "**सर्वात कमी परिणाम करणाऱ्या** उत्पादनांसाठी रंग कोड गडद हिरवा (**A+**) ते **सर्वात परिणाम करणाऱ्या** उत्पादनांसाठी गडद लाल (**F**) पर्यंत बदलतो.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "ग्रीन-स्कोअर लोगो",
+  "guide_greenscore_lca_title": "गाभा: जीवनचक्र मूल्यांकन (LCA)",
+  "guide_greenscore_lca_arg1_title": "अन्न श्रेणींचे वैज्ञानिक मूल्यांकन",
+  "guide_greenscore_lca_arg1_text1": "प्रत्येक उत्पादन श्रेणीसाठी, अ‍ॅग्रीबॅलिस पर्यावरणीय डेटाबेसमधील डेटा (ADEME आणि INRAE द्वारे डिझाइन केलेले) वापरून **बेंचमार्क** स्कोअर स्थापित केला जातो.",
+  "guide_greenscore_lca_arg1_text2": "**जीवनचक्र विश्लेषण** ही बहु-चरणीय आणि बहु-निकषीय पर्यावरणीय मूल्यांकन करण्यासाठी एक प्रमाणित मूल्यांकन पद्धत आहे.",
+  "guide_greenscore_lca_arg1_text3": "**ते मोजते:**",
+  "guide_greenscore_lca_arg2_title": "६ उत्पादन पायऱ्या",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "१४ पर्यावरणीय परिणाम निर्देशक",
+  "guide_greenscore_lca_arg3_text1": "हवामान बदल/कार्बन फूटप्रिंट",
+  "guide_greenscore_lca_arg3_text2": "ओझोन थराचा ऱ्हास",
+  "guide_greenscore_lca_arg3_text3": "आयोनायझिंग रेडिएशन",
+  "guide_greenscore_lca_arg3_text4": "जमीन",
+  "guide_greenscore_lca_arg3_text5": "पाणी आणि ऊर्जेचा वापर",
+  "guide_greenscore_lca_arg3_text6": "हवेचे प्रदूषण",
+  "guide_greenscore_lca_arg3_text7": "सागरी आणि गोडे पाणी (कण, आम्लीकरण, युट्रोफिकेशन)",
+  "guide_greenscore_lca_arg3_text8": "संसाधनांचा ऱ्हास.",
+  "guide_greenscore_bonuses_penalties_title": "बोनस आणि दंड",
+  "guide_greenscore_bonuses_penalties_intro": "श्रेणीमध्ये चांगल्या उत्पादनांना बक्षीस देण्यासाठी, आम्ही अनेक निकषांवर आधारित बोनस आणि दंड लागू करतो:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
+  "guide_greenscore_bonuses_penalties_arg2_text": "घटकांच्या उत्पत्तीच्या आधारावर बोनस दिला जातो. हा बोनस वाहतुकीवर होणारा परिणाम आणि प्रत्येक उत्पादक देशाच्या पर्यावरणीय धोरणाचा विचार करतो.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "ग्रीन-स्कोअरची अचूक गणना करण्यासाठी, पॅकेजिंगवर निर्दिष्ट केलेली नसलेली माहिती (जसे की प्रत्येक घटकाचे मूळ आणि अचूक टक्केवारी) किंवा वापरण्यायोग्य स्वरूपात क्वचितच उपलब्ध असलेली माहिती (जसे की पॅकेजिंगच्या सर्व घटकांची यादी ज्यामध्ये वापरल्या जाणाऱ्या प्लास्टिकचे अचूक प्रकार आहेत) असणे आवश्यक आहे.",
+  "guide_greenscore_transparency_intro2": "जेव्हा ही माहिती अद्याप उपलब्ध नसते तेव्हा सरासरी मूल्ये वापरली जातात, परंतु आता आम्ही सर्वांना ही माहिती गोळा करण्यास मदत करण्याचे आवाहन करत आहोत जी ग्रीन-स्कोअरसाठी खूप उपयुक्त ठरेल परंतु इतर अनेक उपयोगांसाठी देखील उपयुक्त ठरेल.",
+  "guide_greenscore_transparency_arg1_title": "नागरिक कशी मदत करू शकतात",
+  "guide_greenscore_transparency_arg1_text": "सर्व नागरिक उत्पादनांवर असलेली किंवा त्यांच्याकडून काढता येणारी माहिती गोळा करण्यास आणि रचना करण्यास आम्हाला मदत करू शकतात, जसे की पॅकेजिंगवरील माहिती: मिशन एम्बालेजेस: सर्व अन्न उत्पादनांसाठी पॅकेजिंगची मोठ्या प्रमाणात सहयोगी यादी (फ्रेंचमध्ये)",
+  "guide_greenscore_transparency_arg2_title": "उत्पादक कशी मदत करू शकतात",
+  "guide_greenscore_transparency_arg2_text": "उत्पादक आमच्या उत्पादकांसाठी असलेल्या मोफत व्यासपीठाद्वारे त्यांची माहिती थेट पाठवू शकतात.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

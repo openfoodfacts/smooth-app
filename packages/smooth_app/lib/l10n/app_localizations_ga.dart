@@ -979,7 +979,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Roghnaigh catagóir níos cruinne';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4107,9 +4107,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get guide_share_label => 'Comhroinn';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4219,7 +4216,160 @@ class AppLocalizationsGa extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Cad é an Scór Glas?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Is lógó é an Scór Glas a bhfuil sé mar aidhm aige tú a chur ar an eolas faoi **thionchar comhshaoil bia**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Athraíonn an cód datha ó ghlas dorcha (**A+**) do na táirgí **is lú tionchar** go dearg dorcha (**F**) do na táirgí **is mó tionchar**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Lógónna an Scóir Ghlais';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'An croílár: Measúnú timthriall saoil (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Meastóireacht eolaíoch ar chatagóirí bia';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'I gcás gach catagóire táirgí, bunaítear scór **tagarmharcála** ag baint úsáide as sonraí ó bhunachar sonraí comhshaoil Agribalyse (arna dhearadh ag ADEME agus INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      'Is modh measúnaithe caighdeánaithe é **anailís timthriall saoil** chun measúnú comhshaoil ilchéime agus ilchritéir a dhéanamh.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Tomhaiseann sé:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 chéim táirgthe';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 tháscaire tionchair chomhshaoil';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Athrú aeráide/lorg carbóin';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ídiú ciseal ózóin';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Radaíocht ianúcháin';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Talamh';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Úsáid uisce agus fuinnimh';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Truailliú aeir';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Uisce mara & úr (cáithníní, aigéadú, eotrófú)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Ídiú acmhainní.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bónais & pionóis';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Chun luach saothair a thabhairt do tháirgí níos fearr laistigh de chatagóir, cuirimid bónais agus pionóis i bhfeidhm bunaithe ar roinnt critéar:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Bronntar bónas bunaithe ar bhunús na gcomhábhar. Cuireann an bónas seo san áireamh an tionchar atá aige ar iompar agus beartas comhshaoil thír gach táirgeora chomh maith.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Chun an Scór Glas a ríomh go cruinn, is gá faisnéis a bheith ann nach bhfuil sonraithe ar an bpacáistiú (amhail bunús agus céatadán cruinn gach comhábhair) nó nach mbíonn ar fáil go minic i bhfoirm inúsáidte (amhail liosta de chomhpháirteanna uile an phacáistithe leis na cineálacha beachta plaisteach a úsáidtear).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Úsáidtear meánluachanna nuair nach bhfuil an fhaisnéis seo ar fáil go fóill, ach táimid ag iarraidh ar gach duine anois cabhrú linn an fhaisnéis seo a bhailiú a bheidh an-úsáideach don Scór Glas ach le haghaidh go leor úsáidí eile freisin.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Conas is féidir le saoránaigh cabhrú';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Is féidir le gach saoránach cabhrú linn an fhaisnéis atá i láthair ar tháirgí nó is féidir a bhaint astu a bhailiú agus a struchtúrú, amhail faisnéis ar phacáistiú: Mission Emballages: fardal comhoibríoch ar scála mór ar phacáistiú do gach táirge bia (i bhFraincis)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Conas is féidir le monaróirí cabhrú';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Is féidir le monaróirí a gcuid faisnéise a sheoladh chugainn go díreach tríd ár n-ardán saor in aisce do tháirgeoirí.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

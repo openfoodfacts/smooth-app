@@ -7153,12 +7153,6 @@ abstract class AppLocalizations {
   /// **'Share'**
   String get guide_share_label;
 
-  /// Please NEVER touch this value and let the OFF team change it!
-  ///
-  /// In en, this message translates to:
-  /// **'true'**
-  String get guide_nutriscore_v2_enabled;
-
   /// The title of the guide (please don't forget the use of non-breaking spaces)
   ///
   /// In en, this message translates to:
@@ -7327,11 +7321,269 @@ abstract class AppLocalizations {
   /// **'https://world.openfoodfacts.org/nutriscore-v2'**
   String get guide_nutriscore_v2_share_link;
 
-  /// Please let empty for now (maybe use in the future)
+  /// The title of the guide (please don't forget the use of non-breaking spaces)
   ///
   /// In en, this message translates to:
-  /// **''**
-  String get guide_nutriscore_v2_share_message;
+  /// **'Green-Score'**
+  String get guide_greenscore_title;
+
+  /// No description provided for @guide_greenscore_what_is_greenscore_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What is the Green Score?'**
+  String get guide_greenscore_what_is_greenscore_title;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.'**
+  String get guide_greenscore_what_is_greenscore_paragraph1;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.'**
+  String get guide_greenscore_what_is_greenscore_paragraph2;
+
+  /// No description provided for @guide_greenscore_logos_caption.
+  ///
+  /// In en, this message translates to:
+  /// **'The Green-Score logos'**
+  String get guide_greenscore_logos_caption;
+
+  /// No description provided for @guide_greenscore_lca_title.
+  ///
+  /// In en, this message translates to:
+  /// **'The core: Life cycle assessment (LCA)'**
+  String get guide_greenscore_lca_title;
+
+  /// No description provided for @guide_greenscore_lca_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A scientific evaluation of food categories'**
+  String get guide_greenscore_lca_arg1_title;
+
+  /// No description provided for @guide_greenscore_lca_arg1_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).'**
+  String get guide_greenscore_lca_arg1_text1;
+
+  /// No description provided for @guide_greenscore_lca_arg1_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.'**
+  String get guide_greenscore_lca_arg1_text2;
+
+  /// No description provided for @guide_greenscore_lca_arg1_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'**It measures:**'**
+  String get guide_greenscore_lca_arg1_text3;
+
+  /// No description provided for @guide_greenscore_lca_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'6 production steps'**
+  String get guide_greenscore_lca_arg2_title;
+
+  /// No description provided for @guide_greenscore_lca_arg2_agriculture.
+  ///
+  /// In en, this message translates to:
+  /// **'Agriculture'**
+  String get guide_greenscore_lca_arg2_agriculture;
+
+  /// No description provided for @guide_greenscore_lca_arg2_processing.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing'**
+  String get guide_greenscore_lca_arg2_processing;
+
+  /// No description provided for @guide_greenscore_lca_arg2_packaging.
+  ///
+  /// In en, this message translates to:
+  /// **'Packaging'**
+  String get guide_greenscore_lca_arg2_packaging;
+
+  /// No description provided for @guide_greenscore_lca_arg2_transportation.
+  ///
+  /// In en, this message translates to:
+  /// **'Transportation'**
+  String get guide_greenscore_lca_arg2_transportation;
+
+  /// No description provided for @guide_greenscore_lca_arg2_distribution.
+  ///
+  /// In en, this message translates to:
+  /// **'Distribution'**
+  String get guide_greenscore_lca_arg2_distribution;
+
+  /// No description provided for @guide_greenscore_lca_arg2_consumption.
+  ///
+  /// In en, this message translates to:
+  /// **'Consumption'**
+  String get guide_greenscore_lca_arg2_consumption;
+
+  /// No description provided for @guide_greenscore_lca_arg3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'14 environmental impact indicators'**
+  String get guide_greenscore_lca_arg3_title;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Climate change/carbon footprint'**
+  String get guide_greenscore_lca_arg3_text1;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'Ozone layer depletion'**
+  String get guide_greenscore_lca_arg3_text2;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Ionizing radiation'**
+  String get guide_greenscore_lca_arg3_text3;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Land'**
+  String get guide_greenscore_lca_arg3_text4;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text5.
+  ///
+  /// In en, this message translates to:
+  /// **'Water & energy use'**
+  String get guide_greenscore_lca_arg3_text5;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text6.
+  ///
+  /// In en, this message translates to:
+  /// **'Pollution of air'**
+  String get guide_greenscore_lca_arg3_text6;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text7.
+  ///
+  /// In en, this message translates to:
+  /// **'Marine & fresh water (particles, acidification, eutrophication)'**
+  String get guide_greenscore_lca_arg3_text7;
+
+  /// No description provided for @guide_greenscore_lca_arg3_text8.
+  ///
+  /// In en, this message translates to:
+  /// **'Depletion of resources.'**
+  String get guide_greenscore_lca_arg3_text8;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Bonuses & penalties'**
+  String get guide_greenscore_bonuses_penalties_title;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_intro.
+  ///
+  /// In en, this message translates to:
+  /// **'To reward better products within a category, we then apply bonuses & penalties based on several criterion:'**
+  String get guide_greenscore_bonuses_penalties_intro;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Mode of production'**
+  String get guide_greenscore_bonuses_penalties_arg1_title;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg1_text.
+  ///
+  /// In en, this message translates to:
+  /// **'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).'**
+  String get guide_greenscore_bonuses_penalties_arg1_text;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Origin of ingredients'**
+  String get guide_greenscore_bonuses_penalties_arg2_title;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg2_text.
+  ///
+  /// In en, this message translates to:
+  /// **'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.'**
+  String get guide_greenscore_bonuses_penalties_arg2_text;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Endangered species'**
+  String get guide_greenscore_bonuses_penalties_arg3_title;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg3_text.
+  ///
+  /// In en, this message translates to:
+  /// **'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.'**
+  String get guide_greenscore_bonuses_penalties_arg3_text;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg4_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Packaging'**
+  String get guide_greenscore_bonuses_penalties_arg4_title;
+
+  /// No description provided for @guide_greenscore_bonuses_penalties_arg4_text.
+  ///
+  /// In en, this message translates to:
+  /// **'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.'**
+  String get guide_greenscore_bonuses_penalties_arg4_text;
+
+  /// No description provided for @guide_greenscore_transparency_title.
+  ///
+  /// In en, this message translates to:
+  /// **'An increased need for transparency to better measure and reduce environmental impacts'**
+  String get guide_greenscore_transparency_title;
+
+  /// No description provided for @guide_greenscore_transparency_intro1.
+  ///
+  /// In en, this message translates to:
+  /// **'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).'**
+  String get guide_greenscore_transparency_intro1;
+
+  /// No description provided for @guide_greenscore_transparency_intro2.
+  ///
+  /// In en, this message translates to:
+  /// **'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.'**
+  String get guide_greenscore_transparency_intro2;
+
+  /// No description provided for @guide_greenscore_transparency_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'How citizens can help'**
+  String get guide_greenscore_transparency_arg1_title;
+
+  /// No description provided for @guide_greenscore_transparency_arg1_text.
+  ///
+  /// In en, this message translates to:
+  /// **'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)'**
+  String get guide_greenscore_transparency_arg1_text;
+
+  /// No description provided for @guide_greenscore_transparency_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'How manufacturers can help'**
+  String get guide_greenscore_transparency_arg2_title;
+
+  /// No description provided for @guide_greenscore_transparency_arg2_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Manufacturers can send us their information directly through our free platform for producers.'**
+  String get guide_greenscore_transparency_arg2_text;
+
+  /// No description provided for @guide_greenscore_share_link.
+  ///
+  /// In en, this message translates to:
+  /// **'https://fr.openfoodfacts.org/green-score'**
+  String get guide_greenscore_share_link;
 
   /// Badge to indicate that the product is in preview mode (Be careful with this translation)
   ///

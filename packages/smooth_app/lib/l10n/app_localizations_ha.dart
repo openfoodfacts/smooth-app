@@ -979,7 +979,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Zaɓi wani madaidaicin nau\'i';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4105,9 +4105,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4217,7 +4214,159 @@ class AppLocalizationsHa extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Menene Green Score?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score tambari ce da ke nufin sanar da ku game da ** tasirin abinci na muhalli **.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Lambar launi ta bambanta daga kore mai duhu (**A+**) don samfuran ** mafi ƙarancin tasiri ** zuwa ja ja (**F**) don samfuran ** mafi tasiri **.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Alamomin Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Mahimmanci: Kiwon Lafiyar Rayuwa (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Ƙimar kimiyya na nau\'ikan abinci';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Ga kowane nau\'in samfur, an kafa makin ** alamar ** ta amfani da bayanai daga bayanan muhalli na Agribalyse (wanda ADEME da INRAE suka tsara).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Binciken zagayowar rayuwa** shine daidaitaccen hanyar kima don aiwatar da kima mai matakai da ma\'auni da yawa.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Yana aunawa:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 matakan samarwa';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 alamomin tasirin muhalli';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Canjin yanayi / sawun carbon';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Ozone Layer raguwa';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Ƙasa';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Amfani da ruwa & makamashi';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Gurbacewar iska';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Marine & ruwa mai dadi (barbashi, acidification, eutrophication)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Rage albarkatu.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & Hukunci';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Don ba da lada mafi kyawun samfura a cikin nau\'i, sannan mu yi amfani da kari & azabtarwa bisa la\'akari da yawa:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Ana ba da kyauta bisa tushen abubuwan sinadaran. Wannan kari yana la\'akari da tasirin sufuri da kuma manufofin muhalli na kowace ƙasa mai samarwa.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Don ƙididdige Green-Score daidai, yana da mahimmanci a sami bayanan da ba lallai ba ne a kayyade kan marufi (kamar asalin da ainihin adadin kowane sashi) ko wanda ba kasafai ake samun su ta sigar da za a iya amfani da su ba (kamar jerin duk abubuwan da ke cikin marufi tare da takamaiman nau\'ikan robobi da aka yi amfani da su).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Ana amfani da matsakaicin ƙima lokacin da wannan bayanin bai kasance ba tukuna, amma yanzu muna kira ga kowa da kowa ya taimaka mana wajen tattara wannan bayanin wanda zai yi amfani sosai ga Green-Score amma har ma da sauran amfani.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Yadda \'yan ƙasa za su iya taimakawa';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Duk \'yan ƙasa za su iya taimaka mana mu tattara da tsara bayanan da ke kan samfuran ko waɗanda za a iya fitar da su daga gare su, kamar bayanai kan marufi: Ofishin Jakadancin: babban marufi na haɗin gwiwa na marufi don duk samfuran abinci (a cikin Faransanci)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Yadda masana\'anta zasu iya taimakawa';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Masu kera za su iya aiko mana da bayanansu kai tsaye ta dandalin mu na kyauta don masu samarwa.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

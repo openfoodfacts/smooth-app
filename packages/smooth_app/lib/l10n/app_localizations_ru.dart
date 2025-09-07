@@ -1006,7 +1006,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Выберите более точную категорию';
 
   @override
   String get score_add_missing_product_countries =>
@@ -1290,17 +1290,17 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get product_tags_title => 'Свойства товара';
+  String get product_tags_title => 'Свойства продукта';
 
   @override
   String get no_product_tags_found_message =>
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get add_tag => 'Add property';
+  String get add_tag => 'Добавить свойство';
 
   @override
-  String get add_tags => 'Добавить свойство';
+  String get add_tags => 'Добавить свойства';
 
   @override
   String get add_edit_tags => 'Добавить или изменить свойства';
@@ -1324,7 +1324,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tag_value => 'Значение';
 
   @override
-  String get tag_value_input_hint => 'Введите цену';
+  String get tag_value_input_hint => 'Введите значение';
 
   @override
   String get tag_key_item => 'Свойство:';
@@ -3705,12 +3705,12 @@ class AppLocalizationsRu extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count вопросы',
-      one: 'вопрос',
-      many: '$count вопросы',
-      few: '$count вопросы',
+      other: 'Следующий $count вопрос',
+      one: 'Следующий вопрос',
+      many: 'Следующие $count вопросов',
+      few: 'Следующие $count вопроса',
     );
-    return 'Следующий $_temp0';
+    return '$_temp0';
   }
 
   @override
@@ -4207,9 +4207,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get guide_share_label => 'Поделиться';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4319,7 +4316,161 @@ class AppLocalizationsRu extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Что такое «Зеленый счет»?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score — это логотип, цель которого — информировать вас о **воздействии продуктов питания на окружающую среду**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Цветовой код варьируется от темно-зеленого (**A+**) для **наименее эффективных** продуктов до темно-красного (**F**) для **наиболее эффективных** продуктов.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Логотипы Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Ядро: Оценка жизненного цикла (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Научная оценка категорий продуктов питания';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Для каждой категории продуктов **контрольный** балл устанавливается с использованием данных из экологической базы данных Agribalyse (разработанной ADEME и INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Анализ жизненного цикла** — это стандартизированный метод оценки, позволяющий проводить многоэтапную и многокритериальную оценку воздействия на окружающую среду.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Он измеряет:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 этапов производства';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Сельское хозяйство';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Обработка';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Упаковка';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Транспорт';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Распределение';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Потребление';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 показателей воздействия на окружающую среду';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Изменение климата/углеродный след';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Разрушение озонового слоя';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ионизирующее излучение';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Земля';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Использование воды и энергии';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Загрязнение воздуха';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Морская и пресная вода (частицы, закисление, эвтрофикация)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Истощение ресурсов.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Бонусы и штрафы';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Чтобы поощрить лучшие продукты в категории, мы применяем бонусы и штрафы на основе нескольких критериев:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Метод производства';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'Бонус присуждается продуктам, имеющим официальную маркировку, этикетку или сертификацию, гарантирующую экологические преимущества (органический, справедливая торговля, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Происхождение ингредиентов';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Бонус присуждается в зависимости от происхождения ингредиентов. Этот бонус учитывает воздействие на транспортировку, а также экологическую политику страны-производителя.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title => 'Вымирающие виды';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'Штраф взимается за продукты, содержащие ингредиенты, которые оказывают существенное негативное воздействие на биоразнообразие и экосистемы, например, пальмовое масло, производство которого приводит к массовой вырубке лесов.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Упаковка';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'Штраф рассчитывается с учетом цикличности упаковки (использование переработанного сырья и пригодности к вторичной переработке), а также избыточной упаковки.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'Повышенная потребность в прозрачности для лучшего измерения и снижения воздействия на окружающую среду';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Для точного расчета Green-Score необходимо иметь информацию, которая не обязательно указана на упаковке (например, происхождение и точное процентное содержание каждого ингредиента) или которая редко доступна в удобной для использования форме (например, список всех компонентов упаковки с указанием точных типов использованного пластика).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Средние значения используются, когда эта информация еще недоступна, но сейчас мы призываем всех помочь нам собрать эту информацию, которая будет очень полезна для Green-Score, а также для многих других целей.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Как граждане могут помочь';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Все граждане могут помочь нам собрать и структурировать информацию, которая присутствует на продуктах или которую можно из них вывести, например, информацию на упаковке: Mission Emballages: масштабная совместная инвентаризация упаковки для всех пищевых продуктов (на французском языке)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Как производители могут помочь';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Производители могут отправлять нам свою информацию напрямую через нашу бесплатную платформу для производителей.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Предварительный просмотр';

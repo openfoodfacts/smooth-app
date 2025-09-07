@@ -980,7 +980,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Dibabit ur rummad resisoc\'h';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4106,9 +4106,6 @@ class AppLocalizationsBr extends AppLocalizations {
   String get guide_share_label => 'Rannañ';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4218,7 +4215,162 @@ class AppLocalizationsBr extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Petra eo ar skor glas ?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Ur logo eo ar Green-Score hag a glask kelaouiñ ac\'hanoc\'h diwar-benn **efedoù ar boued war an endro**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Kemmañ a ra ar c\'hod liv eus ar glas teñval (**A+**) evit ar produioù **nebeutañ o efed** betek ar ruz teñval (**F**) evit ar produioù **ar muiañ a efed**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Logoioù ar Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Ar c\'hreiz : Priziañ ar c\'helc\'hiad buhez (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Ur priziadenn skiantel eus ar rummadoù boued';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Evit pep rummad produ e vez staliet ur skor **benchmark** dre implijout roadennoù eus diaz roadennoù an endro Agribalyse (savet gant ADEME hag INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Analizañ ar c\'helc\'hiad buhez** zo un doare priziañ skoueriekaet evit kas da benn ur priziadenn endroel liespazenn ha lieskriterioù.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Muzuliañ a ra :**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 pazenn produiñ';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Enpakañ';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 diskouezer efed war an endro';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Emdroadur an hin/roud karbon';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Digresk ar gwiskad ozon';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Skinadur ionizañ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Douar';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Implij an dour hag an energiezh';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Saotradur an aer |';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Dour mor ha dous (rannigoù, asidifikadur, eutrofikadur)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Digresk ar binvioù.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Prizioù ha kastizoù';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Evit gounit produioù gwelloc\'h e-barzh ur rummad e lakaomp neuze prizioù ha kastizoù diazezet war meur a dalvoudegezh :';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Orin an aozennoù';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Ur bonus a vez roet diwar orin ar c\'hementadoù. Gant ar bonus-mañ e vez kemeret e kont an efedoù war an treuzdougen hag ivez politikerezh an endro bro pep produer.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Enpakañ';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Evit jediñ ar Green-Score en un doare reizh eo ret kaout titouroù ha n\'int ket spisaet dre ret war ar pakad (evel orin ha dregantad resis pep elfenn) pe a vez kavet ral a wech e stumm implijus (evel ur roll eus holl elfennoù ar pakad gant ar seurt plastikoù resis implijet).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Arveret e vez talvoudoù keitat pa n\'eo ket hegerz an titouroù-mañ c\'hoazh, met goulenn a reomp bremañ digant an holl sikour ac\'hanomp da zastum an titouroù-se a vo talvoudus-kenañ evit ar Green-Score met ivez evit meur a implij all.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Penaos e c\'hall ar geodedourien sikour';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'An holl geodedourien a c’hell sikour ac’hanomp da zastum ha da frammañ an titouroù a zo war ar produioù pe a c’heller tennañ diwarno, evel titouroù diwar-benn an endalc’hadoù : Mission Emballages : un inventaire collaboratif à grand échelle des emballages pour tous les produits alimentaires (e galleg)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Penaos e c\'hall ar c\'henderc\'herien sikour';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Ar c\'henderc\'herien a c\'hell kas deomp o titouroù war-eeun dre hor leurenn digoust evit ar broduerien.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

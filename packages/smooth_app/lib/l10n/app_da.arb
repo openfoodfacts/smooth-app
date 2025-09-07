@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Del",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "Nutri-Score udvikler sig: forklaringer!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en score designet til at **måle ernæringskvalitet**. Den er **supplerende til NOVA-gruppen** om **ultraforarbejdede fødevarer** (også til stede i ansøgningen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For producenter er visningen af Nutri-Score ** fortsat valgfri**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Øko-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Hvad er den grønne score?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score er et logo, der har til formål at informere dig om **fødevarers miljøpåvirkning**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Farvekoden varierer fra mørkegrøn (**A+**) for de **mindst effektfulde** produkter til mørkerød (**F**) for de **mest effektfulde** produkter.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Green-Score-logoerne",
+  "guide_greenscore_lca_title": "Kernen: Livscyklusvurdering (LCA)",
+  "guide_greenscore_lca_arg1_title": "En videnskabelig evaluering af fødevarekategorier",
+  "guide_greenscore_lca_arg1_text1": "For hver produktkategori fastsættes en **benchmark**-score ved hjælp af data fra Agribalyse-miljødatabasen (udviklet af ADEME og INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Livscyklusanalyse** er en standardiseret vurderingsmetode til udførelse af en flertrins- og flerkriterie-miljøvurdering.",
+  "guide_greenscore_lca_arg1_text3": "**Den måler:**",
+  "guide_greenscore_lca_arg2_title": "6 produktionstrin",
+  "guide_greenscore_lca_arg2_agriculture": "Landbrug",
+  "guide_greenscore_lca_arg2_processing": "Bearbejdning",
+  "guide_greenscore_lca_arg2_packaging": "Emballage",
+  "guide_greenscore_lca_arg2_transportation": "Transport",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Forbrug",
+  "guide_greenscore_lca_arg3_title": "14 indikatorer for miljøpåvirkning",
+  "guide_greenscore_lca_arg3_text1": "Klimaforandringer/kulstofaftryk",
+  "guide_greenscore_lca_arg3_text2": "Udtømning af ozonlaget",
+  "guide_greenscore_lca_arg3_text3": "Ioniserende stråling",
+  "guide_greenscore_lca_arg3_text4": "Jord",
+  "guide_greenscore_lca_arg3_text5": "Vand- og energiforbrug",
+  "guide_greenscore_lca_arg3_text6": "Luftforurening",
+  "guide_greenscore_lca_arg3_text7": "Hav- og ferskvand (partikler, forsuring, eutrofiering)",
+  "guide_greenscore_lca_arg3_text8": "Udtømning af ressourcer.",
+  "guide_greenscore_bonuses_penalties_title": "Bonusser og sanktioner",
+  "guide_greenscore_bonuses_penalties_intro": "For at belønne bedre produkter inden for en kategori, anvender vi derefter bonusser og sanktioner baseret på flere kriterier:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Produktionsmåde",
+  "guide_greenscore_bonuses_penalties_arg1_text": "En bonus tildeles produkter, som har et officielt mærke, et mærke eller en certificering, der garanterer miljømæssige fordele (organisk, fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Oprindelse af ingredienser",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Der tildeles en bonus baseret på ingrediensernes oprindelse. Denne bonus tager højde for transportpåvirkningen og miljøpolitikken i hver producents land.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Truede arter",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Produkter, hvis ingrediensindhold har betydelig negativ indvirkning på biodiversitet og økosystemer, såsom palmeolie, hvis produktion er ansvarlig for massiv skovrydning, straffes.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Emballage",
+  "guide_greenscore_bonuses_penalties_arg4_text": "En straf beregnes for at tage højde for emballagegenanvendelighed (brug af genanvendt råmateriale og genanvendelighed) og overemballering.",
+  "guide_greenscore_transparency_title": "Et øget behov for gennemsigtighed for bedre at kunne måle og reducere miljøpåvirkninger",
+  "guide_greenscore_transparency_intro1": "For at beregne Green-Score præcist er det nødvendigt at have oplysninger, som ikke nødvendigvis er specificeret på emballagen (såsom oprindelsen og den nøjagtige procentdel af hver ingrediens), eller som sjældent er tilgængelige i brugbar form (såsom en liste over alle emballagens komponenter med de præcise typer plast, der er anvendt).",
+  "guide_greenscore_transparency_intro2": "Gennemsnitsværdier bruges, når disse oplysninger endnu ikke er tilgængelige, men vi opfordrer nu alle til at hjælpe os med at indsamle disse oplysninger, som vil være meget nyttige for Green-Score, men også til mange andre formål.",
+  "guide_greenscore_transparency_arg1_title": "Hvordan borgere kan hjælpe",
+  "guide_greenscore_transparency_arg1_text": "Alle borgere kan hjælpe os med at indsamle og strukturere de oplysninger, der findes på produkter, eller som kan udledes af dem, såsom oplysninger om emballage: Mission Emballages: en storstilet fælles opgørelse over emballage til alle fødevarer (på fransk)",
+  "guide_greenscore_transparency_arg2_title": "Hvordan producenter kan hjælpe",
+  "guide_greenscore_transparency_arg2_text": "Producenter kan sende os deres oplysninger direkte via vores gratis platform for producenter.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Forhåndsvisning",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

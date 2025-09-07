@@ -995,7 +995,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Seleziona una categoria più precisa';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4165,9 +4165,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get guide_share_label => 'Condividi';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'Il Nutri-Score è in evoluzione: spiegazioni!';
 
@@ -4278,7 +4275,163 @@ class AppLocalizationsIt extends AppLocalizations {
       'https://world-it.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'Cos\'è il Green Score?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Il Green-Score è un logo che ha lo scopo di informarti sull\'**impatto ambientale del cibo**.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Il codice colore varia dal verde scuro (**A+**) per i prodotti **meno impattanti** al rosso scuro (**F**) per i prodotti **più impattanti**.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'I loghi Green-Score';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Il nucleo: valutazione del ciclo di vita (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Una valutazione scientifica delle categorie alimentari';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Per ogni categoria di prodotto viene stabilito un punteggio di **riferimento** utilizzando i dati del database ambientale Agribalyse (progettato da ADEME e INRAE).';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**L\'analisi del ciclo di vita** è un metodo di valutazione standardizzato per eseguire una valutazione ambientale multifase e multicriterio.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Misura:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 fasi di produzione';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agricoltura';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Trasformazione';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Imballaggio';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Trasporto';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribuzione';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumo';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 indicatori di impatto ambientale';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'Cambiamento climatico/impronta di carbonio';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 =>
+      'esaurimento dello strato di ozono';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Radiazioni ionizzanti';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Terra';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'Consumo di acqua ed energia';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Inquinamento dell\'aria';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Acqua marina e dolce (particelle, acidificazione, eutrofizzazione)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Esaurimento delle risorse.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Bonus e penalità';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Per premiare i prodotti migliori all\'interno di una categoria, applichiamo bonus e penalità in base a diversi criteri:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Modalità di produzione';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'Un bonus assegnato ai prodotti aventi un\'etichetta ufficiale, un\'etichetta o una certificazione che garantisca benefici ambientali (biologico, commercio equosolidale, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origine degli ingredienti';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Viene assegnato un bonus in base all\'origine degli ingredienti. Questo bonus tiene conto dell\'impatto sul trasporto e delle politiche ambientali del Paese di ciascun produttore.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Specie in pericolo';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'Una sanzione è data ai prodotti che contengono ingredienti aventi significativi impatti negativi sulla biodiversità e gli ecosistemi, come l\'olio di palma, la produzione del quale è responsabile di massiccia deforestazione.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Imballaggio';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'Una sanzione è calcolata per considerare la circolarità degli imballaggi (uso di materie prime riciclate e riciclabilità) e imballaggi eccessivi.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'Una maggiore esigenza di trasparenza per misurare meglio e ridurre gli impatti ambientali';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Per calcolare con precisione il Green-Score, è necessario disporre di informazioni che non sono necessariamente specificate sulla confezione (come l\'origine e la percentuale esatta di ciascun ingrediente) o che raramente sono disponibili in forma fruibile (come un elenco di tutti i componenti della confezione con i tipi precisi di plastica utilizzati).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Quando queste informazioni non sono ancora disponibili, vengono utilizzati valori medi, ma ora chiediamo a tutti di aiutarci a raccogliere queste informazioni che saranno molto utili per il Green-Score ma anche per molti altri usi.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Come possono aiutare i cittadini';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Tutti i cittadini possono aiutarci a raccogliere e strutturare le informazioni presenti sui prodotti o che possono essere dedotte da essi, come le informazioni sugli imballaggi: Mission Emballages: un inventario collaborativo su larga scala degli imballaggi per tutti i prodotti alimentari (in francese)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Come possono aiutare i produttori';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'I produttori possono inviarci le loro informazioni direttamente tramite la nostra piattaforma gratuita per produttori.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Anteprima';

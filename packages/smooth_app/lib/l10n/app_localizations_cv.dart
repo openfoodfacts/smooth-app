@@ -979,7 +979,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Тӗрӗсрех категори суйласа илӗр';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsCv extends AppLocalizations {
   String get guide_share_label => 'Share';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,161 @@ class AppLocalizationsCv extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title => 'Симӗс балл мӗн вӑл?';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'Green-Score — логотип, вӑл сире **апат-ҫимӗҫ тавралӑха мӗнле витӗм кӳни** ҫинчен пӗлтерме тӑрӑшать.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'Тӗс кодӗ **чи сахал витӗмлӗ** продуктсемшӗн тӗксӗм симӗсрен (**A+**) пуҫласа **чи витӗмлӗ** продуктсемшӗн тӗксӗм хӗрлӗ (**F**) таран улшӑнать.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'Green-Score логотипӗсем';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'Тӗп шухӑшӗ: пурнӑҫ циклне хак пани (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'Апат-ҫимӗҫ категорийӗсене наука тӗлӗшӗнчен хак пани';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'Кашни продукт категорийӗ валли Agribalyse тавралӑх базинчи (ADEME тата INRAE хатӗрленӗ) даннӑйсемпе усӑ курса **бенчмарк** баллне палӑртаҫҫӗ.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '**Пурнӑҫ циклӗн анализӗ** — нумай тапхӑрлӑ тата нумай критериллӗ тавралӑх хаклавне туса пымалли стандартизациленӗ хаклав меслечӗ.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '**Вӑл виҫет:**';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 производство тапхӑрӗ';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title =>
+      '14 тавралӑха витӗм кӳрекен кӑтартусем';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 => 'Климат улшӑнӑвӗ/углерод йӗрӗ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'Озон сийӗ чакни';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'Ионизацилекен радиаци';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'Çӗр';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 =>
+      'Шывпа тата энергипе усӑ курасси';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'Сывлӑша вараласси';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 =>
+      'Тинӗс тата тӑварсӑр шыв (пайӑркасем, йӳҫекленӳ, эвтрофикаци)';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'Ресурссем пӗтни.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'Премисемпе штрафсем';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'Пӗр-пӗр категорире лайӑхрах продукцие хавхалантарма эпир унтан темиҫе критери тӑрӑх премисемпе штрафсем паратпӑр:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'Ингредиентсем ӑҫтан тухнине кура бонус параҫҫӗ. Ку преми транспорт ҫине мӗнле витӗм кӳнине тата кашни производитель ҫӗршывӗн экологи политикине шута илет.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'Green-Score тӗрӗс шутласа кӑларма упаковкӑра палӑртман информаци (сӑмахран, кашни ингредиентӑн ӑҫтан тухни тата унӑн тӗрӗс процентӗ) е усӑ курма юрӑхлӑ формӑра сайра тӗл пулакан (сӑмахран, упаковкӑн мӗнпур компоненчӗсен списокӗпе усӑ курнӑ пластикӑн тӗрӗс тӗсӗсем) пулмалла.';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'Вӑтам хаксемпе ҫак информаци ҫук чухне усӑ кураҫҫӗ, анчах эпир халӗ пурне те ҫак информацие пухма пулӑшма чӗнетпӗр, вӑл Green-Score валли те, ытти нумай ӗҫре те питӗ усӑллӑ пулӗ.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'Граждансем мӗнле пулӑшма пултараҫҫӗ';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'Пур граждансем те пире продукци ҫинчен е унран пӗлме пултаракан информацие пухма тата йӗркелеме пулӑшма пултараҫҫӗ, сӑмахран, упаковка ҫинчен калакан информацие: Mission Emballages: пур апат-ҫимӗҫ продукчӗсен упаковкасен пысӑк масштаблӑ пӗрлехи инвентаризацийӗ (французла)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'Производительсем мӗнле пулӑшма пултараҫҫӗ';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'Производительсем хӑйсен информацине пире тӳрех пирӗн производительсем валли тунӑ тӳлевсӗр платформа урлӑ ярса пама пултараҫҫӗ.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';

@@ -979,7 +979,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'تېخىمۇ ئېنىق تۈرنى تاللاڭ';
 
   @override
   String get score_add_missing_product_countries =>
@@ -4104,9 +4104,6 @@ class AppLocalizationsUg extends AppLocalizations {
   String get guide_share_label => 'ھەمبەھىرلەش';
 
   @override
-  String get guide_nutriscore_v2_enabled => 'true';
-
-  @override
   String get guide_nutriscore_v2_title =>
       'The Nutri-Score is evolving: explanations!';
 
@@ -4216,7 +4213,160 @@ class AppLocalizationsUg extends AppLocalizations {
       'https://world.openfoodfacts.org/nutriscore-v2';
 
   @override
-  String get guide_nutriscore_v2_share_message => '';
+  String get guide_greenscore_title => 'Green-Score';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_title =>
+      'يېشىل نومۇر دېگەن نېمە؟';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph1 =>
+      'يېشىل نومۇر بولسا سىزگە يېمەكلىكنىڭ ** مۇھىت تەسىرى ھەققىدە ئۇچۇر بېرىشنى مەقسەت قىلغان بەلگە.';
+
+  @override
+  String get guide_greenscore_what_is_greenscore_paragraph2 =>
+      'رەڭ كودى ** تەسىرى ئەڭ تۆۋەن ** مەھسۇلاتلارنىڭ قېنىق يېشىل (** A + **) دىن ** ئەڭ تەسىر كۈچكە ئىگە ** مەھسۇلاتلىرىنىڭ قېنىق قىزىل (** F **) غا ئوخشىمايدۇ.';
+
+  @override
+  String get guide_greenscore_logos_caption => 'يېشىل نومۇر بەلگىسى';
+
+  @override
+  String get guide_greenscore_lca_title =>
+      'يادرولۇق: ھايات دەۋرىيلىكىنى باھالاش (LCA)';
+
+  @override
+  String get guide_greenscore_lca_arg1_title =>
+      'يېمەكلىك تۈرلىرىنى ئىلمىي باھالاش';
+
+  @override
+  String get guide_greenscore_lca_arg1_text1 =>
+      'ھەر بىر مەھسۇلات تۈرىگە ، Agribalyse مۇھىت سانلىق مەلۇمات ئامبىرى (ADEME ۋە INRAE تەرىپىدىن لايىھەلەنگەن) سانلىق مەلۇماتلاردىن پايدىلىنىپ ** ئۆلچەم ** نومۇرى بېكىتىلىدۇ.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text2 =>
+      '** ھايات دەۋرىيلىكى ئانالىزى ** كۆپ باسقۇچلۇق ۋە كۆپ ئۆلچەملىك مۇھىت باھالاش ئېلىپ بېرىشنىڭ قېلىپلاشقان باھالاش ئۇسۇلى.';
+
+  @override
+  String get guide_greenscore_lca_arg1_text3 => '** ئۆلچەم قىلىدۇ: **';
+
+  @override
+  String get guide_greenscore_lca_arg2_title => '6 ئىشلەپچىقىرىش باسقۇچى';
+
+  @override
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+
+  @override
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
+
+  @override
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+
+  @override
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+
+  @override
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+
+  @override
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+
+  @override
+  String get guide_greenscore_lca_arg3_title => '14 مۇھىت تەسىرى كۆرسەتكۈچى';
+
+  @override
+  String get guide_greenscore_lca_arg3_text1 =>
+      'كېلىمات ئۆزگىرىش / كاربون ئىزى';
+
+  @override
+  String get guide_greenscore_lca_arg3_text2 => 'ئوزون قەۋىتىنىڭ خورىشى';
+
+  @override
+  String get guide_greenscore_lca_arg3_text3 => 'رادىئاتسىيە رادىئاتسىيىسى';
+
+  @override
+  String get guide_greenscore_lca_arg3_text4 => 'يەر';
+
+  @override
+  String get guide_greenscore_lca_arg3_text5 => 'سۇ ۋە ئېنېرگىيە ئىشلىتىش';
+
+  @override
+  String get guide_greenscore_lca_arg3_text6 => 'ھاۋانىڭ بۇلغىنىشى';
+
+  @override
+  String get guide_greenscore_lca_arg3_text7 => 'دېڭىز-ئوكيان ۋە تاتلىق سۇ';
+
+  @override
+  String get guide_greenscore_lca_arg3_text8 => 'بايلىقنىڭ ئازىيىشى.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_title => 'مۇكاپات ۋە جازا';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_intro =>
+      'بىر تۈر ئىچىدىكى تېخىمۇ ياخشى مەھسۇلاتلارنى مۇكاپاتلاش ئۈچۈن ، بىز بىر قانچە ئۆلچەمگە ئاساسەن مۇكاپات ۋە جازا قوللىنىمىز:';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg1_text =>
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_title =>
+      'Origin of ingredients';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg2_text =>
+      'تەركىبلەرنىڭ كېلىش مەنبەسىگە ئاساسەن مۇكاپات تارقىتىلىدۇ. بۇ مۇكاپات قاتناشقا بولغان تەسىرىنى ، شۇنداقلا ھەر بىر ئىشلەپچىقارغۇچى دۆلەتنىڭ مۇھىت سىياسىتىنى ئويلاشقان.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg3_text =>
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+
+  @override
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+
+  @override
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
+
+  @override
+  String get guide_greenscore_transparency_intro1 =>
+      'يېشىل نومۇرنى توغرا ھېسابلاش ئۈچۈن ، ئوراپ قاچىلاشتا ئېنىق بەلگىلەنمىگەن (ھەر بىر تەركىبنىڭ كېلىپ چىقىشى ۋە ئېنىق نىسبىتى دېگەندەك) ياكى ئىشلىتىشكە بولىدىغان شەكىلدە ناھايىتى ئاز ئۇچرايدىغان ئۇچۇرلار بولۇشى كېرەك (مەسىلەن ، ئورالغان ئورالمىنىڭ بارلىق زاپچاسلىرىنىڭ تىزىملىكى).';
+
+  @override
+  String get guide_greenscore_transparency_intro2 =>
+      'ئوتتۇرىچە ئۇچۇرلار بۇ ئۇچۇرلار تېخى تېپىلمىغان ۋاقىتتا ئىشلىتىلىدۇ ، ئەمما بىز ھازىر كۆپچىلىكنى يېشىل نومۇرغا پايدىلىق ، ئەمما باشقا نۇرغۇن ئىشلىتىشلەر ئۈچۈن پايدىلىق بولغان بۇ ئۇچۇرلارنى توپلىشىمىزغا ياردەم قىلىشقا چاقىرىمىز.';
+
+  @override
+  String get guide_greenscore_transparency_arg1_title =>
+      'پۇقرالار قانداق ياردەم قىلالايدۇ';
+
+  @override
+  String get guide_greenscore_transparency_arg1_text =>
+      'بارلىق پۇقرالار بىزنىڭ مەھسۇلاتلاردا بار ياكى ئۇلاردىن يەكۈنلەشكە بولىدىغان ئۇچۇرلارنى يىغىش ۋە قۇرۇلمىمىزغا ياردەم بېرەلەيدۇ ، مەسىلەن ئورالما ئۇچۇرلىرى: بۇرچ ئورنىتىش: بارلىق يېمەكلىك مەھسۇلاتلىرىنىڭ ئورالمىلىرىنى كەڭ كۆلەمدە ھەمكارلىق ئامبىرى (فىرانسۇزچە)';
+
+  @override
+  String get guide_greenscore_transparency_arg2_title =>
+      'ئىشلەپچىقارغۇچىلار قانداق ياردەم قىلالايدۇ';
+
+  @override
+  String get guide_greenscore_transparency_arg2_text =>
+      'ئىشلەپچىقارغۇچىلار بىزگە ئۇچۇرلىرىنى ئىشلەپچىقارغۇچىلار ئۈچۈن ھەقسىز سۇپىمىز ئارقىلىق بىۋاسىتە ئەۋەتەلەيدۇ.';
+
+  @override
+  String get guide_greenscore_share_link =>
+      'https://fr.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'Preview';
