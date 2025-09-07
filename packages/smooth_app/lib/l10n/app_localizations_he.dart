@@ -4349,7 +4349,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://il.openfoodfacts.org/green-score';
 
   @override
   String get preview_badge => 'תצוגה מקדימה';
