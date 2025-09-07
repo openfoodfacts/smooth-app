@@ -30,9 +30,7 @@ class ValueEditionPreferenceTile extends PreferenceTile {
       title: title,
       subtitleText: subtitleText,
       trailing: const Icon(Icons.edit),
-      onTap: () {
-        _showInputTextDialog(context);
-      },
+      onTap: () => _showInputTextDialog(context),
     );
   }
 

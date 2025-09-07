@@ -78,7 +78,7 @@ class FaqRoot extends PreferencesRoot {
 
   UrlPreferenceTile _buildEcoscoreTile(AppLocalizations appLocalizations) {
     return _createScoreTile(
-      title: appLocalizations.environmental_score_generic,
+      title: appLocalizations.environmental_score_generic_new,
       url: 'https://world.openfoodfacts.org/ecoscore',
       svg: 'assets/cache/green-score-b.svg',
     );
@@ -86,7 +86,7 @@ class FaqRoot extends PreferencesRoot {
 
   UrlPreferenceTile _buildNovaTile(AppLocalizations appLocalizations) {
     return _createScoreTile(
-      title: appLocalizations.nova_group_generic,
+      title: appLocalizations.nova_group_generic_new,
       url: 'https://world.openfoodfacts.org/nova',
       svg: 'assets/cache/nova-group-4.svg',
     );

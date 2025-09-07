@@ -79,14 +79,14 @@ class SvgCache extends AbstractCache {
 
     final String fileName = Uri.parse(iconUrl).pathSegments.last;
     return switch (fileName) {
-      'ecoscore-a.svg' => localizations.environmental_score_a,
-      'ecoscore-b.svg' => localizations.environmental_score_b,
-      'ecoscore-c.svg' => localizations.environmental_score_c,
-      'ecoscore-d.svg' => localizations.environmental_score_d,
-      'ecoscore-e.svg' => localizations.environmental_score_e,
-      'ecoscore-unknown.svg' => localizations.environmental_score_unknown,
+      'ecoscore-a.svg' => localizations.environmental_score_a_new,
+      'ecoscore-b.svg' => localizations.environmental_score_b_new,
+      'ecoscore-c.svg' => localizations.environmental_score_c_new,
+      'ecoscore-d.svg' => localizations.environmental_score_d_new,
+      'ecoscore-e.svg' => localizations.environmental_score_e_new,
+      'ecoscore-unknown.svg' => localizations.environmental_score_unknown_new,
       'ecoscore-not-applicable.svg' =>
-        localizations.environmental_score_not_applicable,
+        localizations.environmental_score_not_applicable_new,
       'nova-group-1.svg' => localizations.nova_group_1,
       'nova-group-2.svg' => localizations.nova_group_2,
       'nova-group-3.svg' => localizations.nova_group_3,

@@ -55,7 +55,7 @@ class AboutAppRoot extends PreferencesRoot {
               children: <Widget>[
                 SizedBox.square(
                   dimension: 12.0,
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator.adaptive(),
                 ),
               ],
             );

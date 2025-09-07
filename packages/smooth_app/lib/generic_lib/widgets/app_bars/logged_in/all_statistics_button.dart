@@ -5,7 +5,6 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/contributions_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class AllStatisticsButton extends StatelessWidget {
   const AllStatisticsButton({super.key});
@@ -15,10 +14,10 @@ class AllStatisticsButton extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final bool lightTheme = context.lightTheme();
+    final BorderRadius borderRadius = BorderRadius.circular(12.0);
 
     return InkWell(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: borderRadius,
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute<Widget>(
@@ -31,7 +30,7 @@ class AllStatisticsButton extends StatelessWidget {
         );
       },
       child: Material(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: borderRadius,
         color: Colors.white,
         child: Row(
           mainAxisSize: MainAxisSize.max,

@@ -6,8 +6,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
-import 'package:smooth_app/services/logs/smooth_log_levels.dart';
-import 'package:smooth_app/services/logs/smooth_logs_service.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -128,7 +127,7 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
         );
       }
     } catch (e) {
-      LogsService().log(LogLevel.error, 'Error loading data: $e');
+      Logs.e('Error loading data: $e');
     } finally {
       _loading = false;
       if (mounted) {

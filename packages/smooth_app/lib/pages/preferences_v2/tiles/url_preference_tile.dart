@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class UrlPreferenceTile extends PreferenceTile {
   UrlPreferenceTile({
@@ -22,7 +22,10 @@ class UrlPreferenceTile extends PreferenceTile {
       icon: icon,
       title: title,
       subtitleText: subtitleText,
-      trailing: ExternalLink(size: 16.0, color: Theme.of(context).primaryColor),
+      trailing: icons.ExternalLink(
+        size: 16.0,
+        color: Theme.of(context).primaryColor,
+      ),
       onTap: () async =>
           LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
     );

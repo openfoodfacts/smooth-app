@@ -117,7 +117,7 @@ class ContributeRoot extends PreferencesRoot {
   ) {
     return PreferenceTile(
       leading: icons.Lab(color: iconColor),
-      title: appLocalizations.contribute_enroll_alpha,
+      title: appLocalizations.preferences_contribute_enroll_alpha,
       subtitleText: appLocalizations.preferences_contribute_alpha_subtitle,
       onTap: () async => _enrollInInternal(context),
     );
@@ -143,7 +143,7 @@ class ContributeRoot extends PreferencesRoot {
   ) {
     return PreferenceTile(
       leading: icons.Language(color: iconColor),
-      title: appLocalizations.contribute_translate_header,
+      title: appLocalizations.preferences_contribute_translate_header,
       subtitleText: appLocalizations.preferences_contribute_translate_subtitle,
       onTap: () async => _translate(context),
     );
@@ -272,7 +272,7 @@ class ContributeRoot extends PreferencesRoot {
     final bool? result = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        title: appLocalizations.contribute_enroll_alpha,
+        title: appLocalizations.preferences_contribute_enroll_alpha,
         body: Text(appLocalizations.contribute_enroll_alpha_warning),
         negativeAction: SmoothActionButton(
           text: appLocalizations.close,

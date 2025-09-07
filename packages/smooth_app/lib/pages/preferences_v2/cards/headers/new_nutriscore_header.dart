@@ -98,9 +98,9 @@ class NewNutriscoreHeader extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Positioned(
+                          PositionedDirectional(
                             top: 24.0,
-                            right: 32.0,
+                            end: 32.0,
                             child: Transform.rotate(
                               angle: pi / 3,
                               child: Opacity(
@@ -112,9 +112,9 @@ class NewNutriscoreHeader extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Positioned(
+                          PositionedDirectional(
                             top: 24.0,
-                            right: 48.0,
+                            end: 48.0,
                             child: Transform.rotate(
                               angle: pi / 6,
                               child: Opacity(

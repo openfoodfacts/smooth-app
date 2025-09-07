@@ -35,8 +35,7 @@ class NavigationPreferenceTile extends PreferenceTile {
         color: context.lightTheme() ? theme.primaryColor : Colors.white,
       ),
       onTap: () {
-        Navigator.push(
-          context,
+        Navigator.of(context).push(
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) => root != null
                 ? ChangeNotifierProvider<PreferencesRootSearchController>(

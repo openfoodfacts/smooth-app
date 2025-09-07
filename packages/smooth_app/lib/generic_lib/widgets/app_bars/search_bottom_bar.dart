@@ -73,7 +73,7 @@ class _SearchBottomBarBackgroundPainter extends CustomPainter {
     final Path path = Path()
       ..arcToPoint(Offset(radius.x, radius.y), radius: radius, clockwise: false)
       ..lineTo(size.width - radius.x, radius.y)
-      ..arcToPoint(Offset(size.width, 0), radius: radius, clockwise: false)
+      ..arcToPoint(Offset(size.width, 0.0), radius: radius, clockwise: false)
       ..lineTo(size.width, size.height - radius.y)
       ..arcToPoint(
         Offset(size.width - radius.x, size.height),
@@ -82,11 +82,11 @@ class _SearchBottomBarBackgroundPainter extends CustomPainter {
       )
       ..lineTo(radius.x, size.height)
       ..arcToPoint(
-        Offset(0, size.height - radius.y),
+        Offset(0.0, size.height - radius.y),
         radius: radius,
         clockwise: true,
       )
-      ..lineTo(0, 0)
+      ..lineTo(0.0, 0.0)
       ..close();
 
     canvas.drawPath(path, _paint);

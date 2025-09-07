@@ -95,7 +95,9 @@ class LoggedInAppBarHeader extends StatelessWidget {
                   builder: (BuildContext context) =>
                       ChangeNotifierProvider<PreferencesRootSearchController>(
                         create: (_) => PreferencesRootSearchController(),
-                        child: AccountRoot(title: appLocalizations.account),
+                        child: AccountRoot(
+                          title: appLocalizations.preferences_account_title,
+                        ),
                       ),
                 ),
               );

@@ -64,10 +64,10 @@ class PreferenceCard extends StatelessWidget {
               crossAxisCount: 3,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.only(
+              padding: const EdgeInsetsDirectional.only(
                 bottom: MEDIUM_SPACE,
-                left: MEDIUM_SPACE,
-                right: MEDIUM_SPACE,
+                start: MEDIUM_SPACE,
+                end: MEDIUM_SPACE,
               ),
               mainAxisSpacing: MEDIUM_SPACE,
               crossAxisSpacing: MEDIUM_SPACE,
@@ -77,9 +77,9 @@ class PreferenceCard extends StatelessWidget {
               children: <Widget>[
                 if (header != null)
                   ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: ROUNDED_RADIUS,
-                      topRight: ROUNDED_RADIUS,
+                    borderRadius: const BorderRadius.vertical(
+                      top: ROUNDED_RADIUS,
+                      bottom: ROUNDED_RADIUS,
                     ),
                     child: header,
                   ),

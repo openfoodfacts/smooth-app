@@ -44,7 +44,7 @@ class DevModeRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: appLocalizations.dev_mode_section_data,
+        title: appLocalizations.preferences_dev_mode_section_data,
         tiles: <PreferenceTile>[
           _buildBackgroundTaskTile(context, appLocalizations),
           _buildOfflineDataTile(context, appLocalizations),
@@ -54,418 +54,83 @@ class DevModeRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_dev_mode_demo_mode_title,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            title: appLocalizations.preferences_dev_mode_add_cards_title,
-            subtitleText:
-                appLocalizations.preferences_dev_mode_add_cards_subtitle,
-            onTap: () async {
-              final ContinuousScanModel model = context
-                  .read<ContinuousScanModel>();
-
-              const List<String> barcodes = <String>[
-                '5449000000996',
-                '3017620425035',
-                '3175680011480',
-              ];
-              for (int i = 0; i < barcodes.length; i++) {
-                await model.onScan(barcodes[i]);
-              }
-            },
-          ),
-          PreferenceTile(
-            title: appLocalizations.dev_preferences_reset_onboarding_title,
-            subtitleText:
-                appLocalizations.dev_preferences_reset_onboarding_subtitle,
-            onTap: () async {
-              await userPreferences.resetOnboarding();
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
+          _buildAddCardsTile(context),
+          _buildResetOnboardingTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.dev_mode_section_server,
         tiles: <PreferenceTile>[
-          PreferenceTile(
-            title: appLocalizations.dev_preferences_environment_switch_title,
-            trailing: DropdownButton<bool>(
-              value:
-                  userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagProd,
-                  ) ??
-                  true,
-              elevation: 16,
-              onChanged: (bool? newValue) async {
-                await userPreferences.setFlag(
-                  UserPreferencesDevMode.userPreferencesFlagProd,
-                  newValue,
-                );
-                ProductQuery.setQueryType(userPreferences);
-              },
-              items: const <DropdownMenuItem<bool>>[
-                DropdownMenuItem<bool>(value: true, child: Text('PROD')),
-                DropdownMenuItem<bool>(value: false, child: Text('TEST')),
-              ],
-            ),
-          ),
+          _buildEnvironmentSwitchTile(appLocalizations, userPreferences),
           if (userPreferences.getFlag(
                 UserPreferencesDevMode.userPreferencesFlagProd,
               ) ==
               false)
-            PreferenceTile(
-              icon: Icons.temple_buddhist,
-              title: appLocalizations.dev_preferences_test_environment_title,
-              subtitleText: appLocalizations
-                  .dev_preferences_test_environment_subtitle(
-                    ProductQuery.getTestUriProductHelper(
-                      userPreferences,
-                    ).getPostUri(path: '').toString(),
-                  ),
-              onTap: () async => _changeTestEnvDomain(
-                context,
-                userPreferences,
-                appLocalizations,
-              ),
-            ),
-          PreferenceTile(
-            title:
-                'Switch between prices.openfoodfacts.org (PROD) and test env',
-            trailing: DropdownButton<bool>(
-              value:
-                  userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagPriceProd,
-                  ) ??
-                  true,
-              elevation: 16,
-              onChanged: (bool? newValue) async {
-                await userPreferences.setFlag(
-                  UserPreferencesDevMode.userPreferencesFlagPriceProd,
-                  newValue,
-                );
-                ProductQuery.setQueryType(userPreferences);
-              },
-              items: const <DropdownMenuItem<bool>>[
-                DropdownMenuItem<bool>(value: true, child: Text('PROD')),
-                DropdownMenuItem<bool>(value: false, child: Text('TEST')),
-              ],
-            ),
-          ),
-          PreferenceTile(
-            title: appLocalizations.preferences_dev_mode_folksonomy_host_title,
-            subtitleText: ProductQuery.uriFolksonomyHelper.host,
-            onTap: () async => _changeFolksonomyHost(
+            _buildTestEnvironmentTile(
               context,
-              userPreferences,
               appLocalizations,
+              userPreferences,
             ),
-          ),
+          _buildPriceEnvironmentSwitchTile(appLocalizations, userPreferences),
+          _buildFolksonomyHostTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.dev_mode_section_news,
         tiles: <PreferenceTile>[
-          ValueEditionPreferenceTile(
-            title: appLocalizations.dev_preferences_news_custom_url_title,
-            subtitleWithEmptyValue:
-                appLocalizations.dev_preferences_news_custom_url_empty_value,
-            dialogAction:
-                appLocalizations.dev_preferences_news_custom_url_subtitle,
-            value: userPreferences.getDevModeString(
-              UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
-            ),
-            onNewValue: (String newUrl) => userPreferences.setDevModeString(
-              UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
-              newUrl,
-            ),
-            validator: (String value) =>
-                value.isEmpty || Uri.tryParse(value) != null,
-          ),
-          PreferenceTile(
-            title: appLocalizations.dev_preferences_news_provider_status_title,
-            subtitle: Consumer<AppNewsProvider>(
-              builder: (_, AppNewsProvider provider, _) {
-                return Text(switch (provider.state) {
-                  AppNewsStateLoading() => 'Loading…',
-                  AppNewsStateLoaded(lastUpdate: final DateTime date) =>
-                    appLocalizations
-                        .dev_preferences_news_provider_status_subtitle(
-                          DateFormat.yMd().format(date),
-                        ),
-                  AppNewsStateError(exception: final dynamic e) => 'Error $e',
-                });
-              },
-            ),
-            trailing: IconButton(
-              icon: const Icon(Icons.refresh),
-              onPressed: () => context.read<AppNewsProvider>().loadLatestNews(
-                forceUpdate: true,
-              ),
-            ),
-          ),
+          _buildCustomNewsUrlTile(appLocalizations, userPreferences),
+          _buildNewsProviderStatusTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.dev_mode_section_product_page,
         tiles: <PreferenceTile>[
-          TogglePreferenceTile(
-            title: appLocalizations.dev_preferences_edit_ingredients_title,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagEditIngredients,
-                ) ??
-                false,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode.userPreferencesFlagEditIngredients,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
-          TogglePreferenceTile(
-            title: appLocalizations.dev_preferences_show_folksonomy_title,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-                ) ??
-                true,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
+          _buildEditIngredientsTile(context, appLocalizations, userPreferences),
+          _buildShowFolksonomyTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
         title: appLocalizations
             .preferences_dev_mode_accessibility_experiments_title,
         tiles: <PreferenceTile>[
-          TogglePreferenceTile(
-            title: appLocalizations.preferences_accessibility_remove_colors,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode
-                      .userPreferencesFlagAccessibilityNoColor,
-                ) ??
-                false,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
+          _buildAccessibilityNoColorTile(
+            context,
+            appLocalizations,
+            userPreferences,
           ),
-          TogglePreferenceTile(
-            title: appLocalizations.preferences_accessibility_show_emoji,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
-                ) ??
-                false,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
+          _buildAccessibilityEmojiTile(
+            context,
+            appLocalizations,
+            userPreferences,
           ),
         ],
       ),
       PreferenceCard(
         title: 'Open Prices',
         tiles: <PreferenceTile>[
-          TogglePreferenceTile(
-            title: appLocalizations.prices_bulk_proof_upload_title,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
-                ) ??
-                false,
-            onToggle: (bool value) async => userPreferences.setFlag(
-              UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
-              value,
-            ),
+          _buildBulkProofUploadTile(appLocalizations, userPreferences),
+          _buildMultiProductsSelectionTile(
+            context,
+            appLocalizations,
+            userPreferences,
           ),
-          TogglePreferenceTile(
-            title: appLocalizations
-                .preferences_dev_mode_multi_products_selection_title,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode
-                      .userPreferencesFlagPricesReceiptMultiSelection,
-                ) ??
-                false,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode
-                    .userPreferencesFlagPricesReceiptMultiSelection,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
-          TogglePreferenceTile(
-            title: appLocalizations.preferences_dev_mode_user_ordered_kp_title,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
-                ) ??
-                false,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
-          PreferenceTile(
-            title: appLocalizations.preferences_dev_mode_location_search_title,
-            onTap: () async {
-              final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final DaoOsmLocation daoOsmLocation = DaoOsmLocation(
-                localDatabase,
-              );
-              final List<OsmLocation> osmLocations = await daoOsmLocation
-                  .getAll();
-              if (!context.mounted) {
-                return;
-              }
-              final List<SearchLocationPreloadedItem> preloadedList =
-                  <SearchLocationPreloadedItem>[];
-              for (final OsmLocation osmLocation in osmLocations) {
-                preloadedList.add(
-                  SearchLocationPreloadedItem(osmLocation, popFirst: false),
-                );
-              }
-              final OsmLocation? osmLocation =
-                  await Navigator.push<OsmLocation>(
-                    context,
-                    MaterialPageRoute<OsmLocation>(
-                      builder: (BuildContext context) => SearchPage(
-                        SearchLocationHelper(),
-                        preloadedList: preloadedList,
-                        autofocus: false,
-                      ),
-                    ),
-                  );
-              if (osmLocation == null) {
-                return;
-              }
-              await daoOsmLocation.put(osmLocation);
-              if (!context.mounted) {
-                return;
-              }
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    osmLocation.getTitle() ??
-                        osmLocation.getSubtitle() ??
-                        osmLocation.getLatLng().toString(),
-                  ),
-                ),
-              );
-            },
-          ),
+          _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
+          _buildLocationSearchTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.dev_mode_section_experimental_features,
         tiles: <PreferenceTile>[
-          TogglePreferenceTile(
-            title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
-            subtitleText:
-                appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
-                ) ??
-                false,
-            onToggle: (bool value) async => userPreferences.setFlag(
-              UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
-              value,
-            ),
+          _buildSpellCheckerOcrTile(appLocalizations, userPreferences),
+          _buildBoostedComparisonTile(
+            context,
+            appLocalizations,
+            userPreferences,
           ),
-          TogglePreferenceTile(
-            title: appLocalizations.preferences_dev_mode_comparison_title,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
-                ) ??
-                false,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
-          ),
-          TogglePreferenceTile(
-            title:
-                appLocalizations.preferences_dev_mode_product_list_import_title,
-            state:
-                userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagProductListImport,
-                ) ??
-                false,
-            onToggle: (bool value) async {
-              await userPreferences.setFlag(
-                UserPreferencesDevMode.userPreferencesFlagProductListImport,
-                value,
-              );
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _showSuccessMessage(context, appLocalizations);
-            },
+          _buildProductListImportTile(
+            context,
+            appLocalizations,
+            userPreferences,
           ),
         ],
       ),
@@ -478,6 +143,482 @@ class DevModeRoot extends PreferencesRoot {
   ) => ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(content: Text(appLocalizations.dev_preferences_button_positive)),
   );
+
+  // Demo Mode section methods
+  PreferenceTile _buildAddCardsTile(BuildContext context) {
+    return PreferenceTile(
+      title: 'Add cards',
+      onTap: () async {
+        final ContinuousScanModel model = context.read<ContinuousScanModel>();
+
+        const List<String> barcodes = <String>[
+          '5449000000996',
+          '3017620425035',
+          '3175680011480',
+        ];
+        for (int i = 0; i < barcodes.length; i++) {
+          await model.onScan(barcodes[i]);
+        }
+      },
+    );
+  }
+
+  PreferenceTile _buildResetOnboardingTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.dev_preferences_reset_onboarding_title,
+      onTap: () async {
+        await userPreferences.resetOnboarding();
+      },
+    );
+  }
+
+  // Server section methods
+  PreferenceTile _buildEnvironmentSwitchTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.dev_preferences_environment_switch_title,
+      trailing: DropdownButton<bool>(
+        value:
+            userPreferences.getFlag(
+              UserPreferencesDevMode.userPreferencesFlagProd,
+            ) ??
+            true,
+        elevation: 16,
+        onChanged: (bool? newValue) async {
+          await userPreferences.setFlag(
+            UserPreferencesDevMode.userPreferencesFlagProd,
+            newValue,
+          );
+          ProductQuery.setQueryType(userPreferences);
+        },
+        items: const <DropdownMenuItem<bool>>[
+          DropdownMenuItem<bool>(value: true, child: Text('PROD')),
+          DropdownMenuItem<bool>(value: false, child: Text('TEST')),
+        ],
+      ),
+    );
+  }
+
+  PreferenceTile _buildTestEnvironmentTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return PreferenceTile(
+      icon: Icons.temple_buddhist,
+      title: appLocalizations.dev_preferences_test_environment_title,
+      subtitleText: appLocalizations.dev_preferences_test_environment_subtitle(
+        ProductQuery.getTestUriProductHelper(
+          userPreferences,
+        ).getPostUri(path: '').toString(),
+      ),
+      onTap: () async =>
+          _changeTestEnvDomain(context, userPreferences, appLocalizations),
+    );
+  }
+
+  PreferenceTile _buildPriceEnvironmentSwitchTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return PreferenceTile(
+      title: 'Switch between prices.openfoodfacts.org (PROD) and test env',
+      trailing: DropdownButton<bool>(
+        value:
+            userPreferences.getFlag(
+              UserPreferencesDevMode.userPreferencesFlagPriceProd,
+            ) ??
+            true,
+        elevation: 16,
+        onChanged: (bool? newValue) async {
+          await userPreferences.setFlag(
+            UserPreferencesDevMode.userPreferencesFlagPriceProd,
+            newValue,
+          );
+          ProductQuery.setQueryType(userPreferences);
+        },
+        items: const <DropdownMenuItem<bool>>[
+          DropdownMenuItem<bool>(value: true, child: Text('PROD')),
+          DropdownMenuItem<bool>(value: false, child: Text('TEST')),
+        ],
+      ),
+    );
+  }
+
+  PreferenceTile _buildFolksonomyHostTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.preferences_dev_mode_folksonomy_host_title,
+      subtitleText: ProductQuery.uriFolksonomyHelper.host,
+      onTap: () async =>
+          _changeFolksonomyHost(context, userPreferences, appLocalizations),
+    );
+  }
+
+  // News section methods
+  ValueEditionPreferenceTile _buildCustomNewsUrlTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return ValueEditionPreferenceTile(
+      title: appLocalizations.dev_preferences_news_custom_url_title,
+      subtitleWithEmptyValue:
+          appLocalizations.dev_preferences_news_custom_url_empty_value,
+      dialogAction: appLocalizations.dev_preferences_news_custom_url_subtitle,
+      value: userPreferences.getDevModeString(
+        UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
+      ),
+      onNewValue: (String newUrl) => userPreferences.setDevModeString(
+        UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
+        newUrl,
+      ),
+      validator: (String value) => value.isEmpty || Uri.tryParse(value) != null,
+    );
+  }
+
+  PreferenceTile _buildNewsProviderStatusTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.dev_preferences_news_provider_status_title,
+      subtitle: Consumer<AppNewsProvider>(
+        builder: (_, AppNewsProvider provider, _) {
+          return Text(switch (provider.state) {
+            AppNewsStateLoading() => 'Loading…',
+            AppNewsStateLoaded(lastUpdate: final DateTime date) =>
+              appLocalizations.dev_preferences_news_provider_status_subtitle(
+                DateFormat.yMd().format(date),
+              ),
+            AppNewsStateError(exception: final dynamic e) => 'Error $e',
+          });
+        },
+      ),
+      trailing: IconButton(
+        icon: const Icon(Icons.refresh),
+        onPressed: () =>
+            context.read<AppNewsProvider>().loadLatestNews(forceUpdate: true),
+      ),
+    );
+  }
+
+  // Product Page section methods
+  TogglePreferenceTile _buildEditIngredientsTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.dev_preferences_edit_ingredients_title,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  TogglePreferenceTile _buildShowFolksonomyTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.preferences_dev_preferences_show_folksonomy_title,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
+          ) ??
+          true,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  // Accessibility section methods
+  TogglePreferenceTile _buildAccessibilityNoColorTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.preferences_accessibility_remove_colors,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  TogglePreferenceTile _buildAccessibilityEmojiTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.preferences_accessibility_show_emoji,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  // Open Prices section methods
+  TogglePreferenceTile _buildBulkProofUploadTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.prices_bulk_proof_upload_title,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
+          ) ??
+          false,
+      onToggle: (bool value) async => userPreferences.setFlag(
+        UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
+        value,
+      ),
+    );
+  }
+
+  TogglePreferenceTile _buildMultiProductsSelectionTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title:
+          appLocalizations.preferences_dev_mode_multi_products_selection_title,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode
+                .userPreferencesFlagPricesReceiptMultiSelection,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagPricesReceiptMultiSelection,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  TogglePreferenceTile _buildUserOrderedKpTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.preferences_dev_mode_user_ordered_kp_title,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  PreferenceTile _buildLocationSearchTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      title: appLocalizations.preferences_dev_mode_location_search_title,
+      onTap: () async {
+        final LocalDatabase localDatabase = context.read<LocalDatabase>();
+        final DaoOsmLocation daoOsmLocation = DaoOsmLocation(localDatabase);
+        final List<OsmLocation> osmLocations = await daoOsmLocation.getAll();
+        if (!context.mounted) {
+          return;
+        }
+        final List<SearchLocationPreloadedItem> preloadedList =
+            <SearchLocationPreloadedItem>[];
+        for (final OsmLocation osmLocation in osmLocations) {
+          preloadedList.add(
+            SearchLocationPreloadedItem(osmLocation, popFirst: false),
+          );
+        }
+        final OsmLocation? osmLocation = await Navigator.push<OsmLocation>(
+          context,
+          MaterialPageRoute<OsmLocation>(
+            builder: (BuildContext context) => SearchPage(
+              SearchLocationHelper(),
+              preloadedList: preloadedList,
+              autofocus: false,
+            ),
+          ),
+        );
+        if (osmLocation == null) {
+          return;
+        }
+        await daoOsmLocation.put(osmLocation);
+        if (!context.mounted) {
+          return;
+        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              osmLocation.getTitle() ??
+                  osmLocation.getSubtitle() ??
+                  osmLocation.getLatLng().toString(),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  // Experimental Features section methods
+  TogglePreferenceTile _buildSpellCheckerOcrTile(
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
+      subtitleText: appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
+          ) ??
+          false,
+      onToggle: (bool value) async => userPreferences.setFlag(
+        UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
+        value,
+      ),
+    );
+  }
+
+  TogglePreferenceTile _buildBoostedComparisonTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.preferences_dev_mode_comparison_title,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  TogglePreferenceTile _buildProductListImportTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: appLocalizations.preferences_dev_mode_product_list_import_title,
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagProductListImport,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagProductListImport,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
 
   Future<void> _changeTestEnvDomain(
     BuildContext context,
