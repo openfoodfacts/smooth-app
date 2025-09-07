@@ -3945,7 +3945,7 @@
   "guide_greenscore_transparency_arg1_text": "כל האזרחים יכולים לעזור לנו לאסוף ולבנות את המידע הקיים על מוצרים או שניתן להסיק מהם, כגון מידע על אריזות: משימה Emballages: מלאי שיתופי בקנה מידה גדול של אריזות לכל מוצרי המזון (בצרפתית).",
   "guide_greenscore_transparency_arg2_title": "כיצד יצרנים יכולים לעזור",
   "guide_greenscore_transparency_arg2_text": "יצרנים יכולים לשלוח לנו את המידע שלהם ישירות דרך הפלטפורמה החינמית שלנו ליצרנים.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_share_link": "https://il.openfoodfacts.org/green-score",
   "preview_badge": "תצוגה מקדימה",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
