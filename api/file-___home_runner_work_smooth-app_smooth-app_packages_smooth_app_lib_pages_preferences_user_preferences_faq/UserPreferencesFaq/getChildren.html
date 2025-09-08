@@ -104,10 +104,17 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
     &#47;&#47;&#47; Hide the icon
     icon: const Icon(Icons.info, size: 0.0),
   ),
-  _getNutriListTile(
+  _getListTile(
     title: appLocalizations.nova_group_generic,
-    url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;nova&#39;,
-    svg: &#39;assets&#47;cache&#47;nova-group-4.svg&#39;,
+    leadingSvg: &#39;assets&#47;cache&#47;nova-group-4.svg&#39;,
+    onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
+      MaterialPageRoute&lt;void&gt;(
+        builder: (BuildContext context) =&gt; const GuideNOVA(),
+      ),
+    ),
+
+    &#47;&#47;&#47; Hide the icon
+    icon: const Icon(Icons.info, size: 0.0),
   ),
   _getNutriListTile(
     title: appLocalizations.nutrition_facts,
