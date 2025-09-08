@@ -4460,7 +4460,8 @@ class AppLocalizationsHy extends AppLocalizations {
       'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
-  String get guide_nova_explanations_title => 'Missing title';
+  String get guide_nova_explanations_title =>
+      'The problems with ultra-processing';
 
   @override
   String get guide_nova_explanations_arg1_title =>
