@@ -834,6 +834,26 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData transparency = IconData(
+    0xe948,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData document_sparkles = IconData(
+    0xe94a,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData monkey_wondering = IconData(
+    0xe94b,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData strength = IconData(
+    0xe94c,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
 }
 
 class _FoodIconsFont {

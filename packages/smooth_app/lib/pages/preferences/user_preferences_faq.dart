@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
+import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
@@ -77,10 +78,17 @@ class UserPreferencesFaq extends AbstractUserPreferences {
       /// Hide the icon
       icon: const Icon(Icons.info, size: 0.0),
     ),
-    _getNutriListTile(
+    _getListTile(
       title: appLocalizations.nova_group_generic,
-      url: 'https://world.openfoodfacts.org/nova',
-      svg: 'assets/cache/nova-group-4.svg',
+      leadingSvg: 'assets/cache/nova-group-4.svg',
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const GuideNOVA(),
+        ),
+      ),
+
+      /// Hide the icon
+      icon: const Icon(Icons.info, size: 0.0),
     ),
     _getNutriListTile(
       title: appLocalizations.nutrition_facts,

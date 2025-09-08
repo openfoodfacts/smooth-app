@@ -4365,8 +4365,134 @@ class AppLocalizationsJv extends AppLocalizations {
       'Produsen bisa ngirim informasi langsung liwat platform gratis kanggo produser.';
 
   @override
+  String get guide_greenscore_better_product_title =>
+      'Which product is better for the planet?';
+
+  @override
+  String get guide_greenscore_better_product_arg1_title =>
+      'It can be hard to tell';
+
+  @override
+  String get guide_greenscore_better_product_arg1_text =>
+      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+
+  @override
+  String get guide_greenscore_better_product_arg2_title =>
+      'You have the power!';
+
+  @override
+  String get guide_greenscore_better_product_arg2_text =>
+      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+
+  @override
+  String get guide_greenscore_better_product_arg3_title =>
+      'Helps to be responsible and decide';
+
+  @override
+  String get guide_greenscore_better_product_arg3_text =>
+      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+
+  @override
+  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+
+  @override
+  String get guide_greenscore_better_product_arg4_text =>
+      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+
+  @override
   String get guide_greenscore_share_link =>
       'https://fr.openfoodfacts.org/green-score';
+
+  @override
+  String get guide_nova_title => 'Ultra-processed foods';
+
+  @override
+  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+
+  @override
+  String get guide_nova_what_is_nova_paragraph1 =>
+      'The NOVA groups inform you about the level of food processing.';
+
+  @override
+  String get guide_nova_what_is_nova_paragraph2 =>
+      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+
+  @override
+  String get guide_nova_logos_caption => 'The NOVA logos';
+
+  @override
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
+
+  @override
+  String get guide_nova_groups_intro =>
+      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+
+  @override
+  String get guide_nova_groups_arg1_title =>
+      'Minimally processed or unprocessed foods';
+
+  @override
+  String get guide_nova_groups_arg1_text =>
+      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+
+  @override
+  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+
+  @override
+  String get guide_nova_groups_arg2_text =>
+      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+
+  @override
+  String get guide_nova_groups_arg3_title => 'Processed foods';
+
+  @override
+  String get guide_nova_groups_arg3_text =>
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+
+  @override
+  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
+
+  @override
+  String get guide_nova_groups_arg4_text =>
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+
+  @override
+  String get guide_nova_explanations_title => 'Missing title';
+
+  @override
+  String get guide_nova_explanations_arg1_title =>
+      'Extreme processing of food ingredients';
+
+  @override
+  String get guide_nova_explanations_arg1_text =>
+      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+
+  @override
+  String get guide_nova_explanations_arg2_title =>
+      'Additives that go beyond pure food safety';
+
+  @override
+  String get guide_nova_explanations_arg2_text =>
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+
+  @override
+  String get guide_nova_explanations_arg3_title =>
+      'Processing you can’t do at home';
+
+  @override
+  String get guide_nova_explanations_arg3_text =>
+      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+
+  @override
+  String get guide_nova_explanations_arg4_title =>
+      'The predatory and financial aspects of ultra-processing';
+
+  @override
+  String get guide_nova_explanations_arg4_text =>
+      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

@@ -156,6 +156,7 @@ flutter:
     - assets/cache/
     - assets/cacheTintable/
     - assets/guides/greenscore/
+    - assets/guides/nova/
     - assets/metadata/
     - assets/misc/
     - assets/network/cert.pem
