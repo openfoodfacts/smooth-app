@@ -107,6 +107,20 @@ Future&lt;void&gt; addPrices({
   for (int i = 0; i &lt; barcodes.length; i++) {
     final String barcode = barcodes[i];
     final bool isProduct = barcode.isNotEmpty;
+    final bool priceIsDiscounted = pricesAreDiscounted[i];
+    double price = prices[i];
+    double? priceWithoutDiscount = pricesWithoutDiscount[i];
+    if (priceIsDiscounted) {
+      if (priceWithoutDiscount != null) {
+        if (price &gt; priceWithoutDiscount) {
+          final double tmp = price;
+          price = priceWithoutDiscount;
+          priceWithoutDiscount = tmp;
+        } else if (price == priceWithoutDiscount) {
+          priceWithoutDiscount = null;
+        }
+      }
+    }
     final Price newPrice = Price()
       ..date = date
       ..currency = currency
@@ -119,9 +133,11 @@ Future&lt;void&gt; addPrices({
       ..labelsTags = isProduct ? null : labels[i]
       ..pricePer = isProduct ? null : PricePer.fromOffTag(pricePers[i])
       ..type = isProduct ? PriceType.product : PriceType.category
-      ..priceIsDiscounted = pricesAreDiscounted[i]
-      ..price = prices[i]
-      ..priceWithoutDiscount = pricesWithoutDiscount[i];
+      ..priceIsDiscounted = priceIsDiscounted
+      ..price = _fixPriceDecimals(price)
+      ..priceWithoutDiscount = priceWithoutDiscount == null
+          ? null
+          : _fixPriceDecimals(priceWithoutDiscount);
 
     &#47;&#47; create price
     final MaybeError&lt;Price?&gt; addedPrice =
