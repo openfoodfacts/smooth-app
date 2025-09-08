@@ -4,7 +4,7 @@
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "Da",
+  "yes": "Yes",
   "@yes": {},
   "add": "Додај",
   "@add": {},
@@ -41,7 +41,7 @@
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
   "go_back_to_top": "Go back to top",
-  "save": "Sačuvaj",
+  "save": "Save",
   "save_confirmation": "Are you sure you want to save?",
   "skip": "Skip",
   "cancel": "Cancel",
@@ -50,9 +50,9 @@
   "@ignore": {
     "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
   },
-  "close": "Zatvori",
+  "close": "Затвори",
   "@close": {},
-  "no": "Ne",
+  "no": "No",
   "@no": {},
   "stop": "Stop",
   "@stop": {},
@@ -159,7 +159,7 @@
   "incorrect_credentials": "Incorrect username or password.",
   "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
   "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-  "login": "Korisničko ime",
+  "login": "Login",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -197,7 +197,7 @@
   "@sign_out_confirmation": {
     "description": "Pop up title: Reassuring if the user really want to sign out"
   },
-  "password": "Lozinka",
+  "password": "Password",
   "forgot_password": "Forgot password",
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
@@ -237,7 +237,7 @@
     "description": "Progress indicator dialog during the actual signing up process"
   },
   "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-  "sign_up_page_display_name_hint": "Naziv",
+  "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
   "sign_up_page_email_hint": "E-mail",
   "sign_up_page_email_error_empty": "E-mail is required",
@@ -254,7 +254,7 @@
       }
     }
   },
-  "sign_up_page_password_hint": "Lozinka",
+  "sign_up_page_password_hint": "Password",
   "sign_up_page_password_error_empty": "Please enter a password",
   "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
   "sign_up_page_confirm_password_hint": "Confirm Password",
@@ -288,7 +288,7 @@
   "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
   "sign_up_page_provide_valid_email": "Please provide a valid email address.",
   "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
-  "settingsTitle": "Podešavanja",
+  "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "The title of the Settings page"
   },
@@ -481,11 +481,11 @@
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
-  "scan_navbar_label": "Scan",
+  "scan_navbar_label": "Скенирање",
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the scanning of products"
   },
-  "history_navbar_label": "Istorija",
+  "history_navbar_label": "History",
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the history and compare mode"
   },
@@ -514,7 +514,7 @@
   "@scan_history": {
     "description": "Page title: List type: Products in the whole scan history"
   },
-  "search": "Pretraživanje",
+  "search": "Search",
   "@search": {
     "description": "Hint text of a search text input field"
   },
@@ -554,7 +554,7 @@
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
-  "ingredients": "Sastojci",
+  "ingredients": "Ingredients",
   "@ingredients": {},
   "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
   "ingredients_editing_error": "Failed to save the ingredients.",
@@ -568,7 +568,7 @@
   "packaging_editing_error": "Failed to save the packaging.",
   "packaging_editing_image_error": "Failed to get a new packaging image.",
   "packaging_editing_title": "Edit Packaging",
-  "nutrition": "Nutritivne vrednosti",
+  "nutrition": "Nutrition",
   "@nutrition": {},
   "nutrition_facts_photo": "Nutrition facts photo",
   "@nutrition_facts_photo": {
@@ -682,7 +682,7 @@
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
   "recycling_photo_title": "Recycling Photo",
   "take_photo_title": "Take a picture",
-  "take_more_photo_title": "Take more photos",
+  "take_more_photo_title": "Take more pictures",
   "front_photo_uploaded": "Front photo uploaded",
   "@front_photo_uploaded": {},
   "ingredients_photo_button_label": "Ingredients photo",
@@ -731,7 +731,7 @@
   "@recycling_photo_button_label": {},
   "recycling_photo_uploaded": "Recycling photo uploaded",
   "@recycling_photo_uploaded": {},
-  "take_more_photo_button_label": "Take more photos",
+  "take_more_photo_button_label": "Take more pictures",
   "@take_more_photo_button_label": {},
   "other_photo_uploaded": "Miscellaneous photo uploaded",
   "@other_photo_uploaded": {},
@@ -776,7 +776,7 @@
   "score_add_missing_nutrition_facts": "Add missing nutrition facts",
   "score_add_missing_product_traces": "Add missing product traces",
   "score_add_missing_product_category": "Select a category",
-  "score_add_missing_precise_product_category": "Select a more precise category",
+  "score_add_missing_precise_product_category": "Изаберите прецизнију категорију",
   "score_add_missing_product_countries": "Add missing product countries",
   "score_add_missing_product_emb": "Add missing product traceability codes",
   "score_add_missing_product_labels": "Add missing product labels",
@@ -787,8 +787,8 @@
   "nutrition_page_title": "Nutrition Facts",
   "nutrition_page_nutritional_info_title": "Nutritional information",
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
-  "nutrition_page_nutritional_info_value_positive": "Da",
-  "nutrition_page_nutritional_info_value_negative": "Ne",
+  "nutrition_page_nutritional_info_value_positive": "Yes",
+  "nutrition_page_nutritional_info_value_negative": "No",
   "nutrition_page_nutritional_info_open_photo": "Open photo",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
   "@nutrition_page_nutritional_info_explanation_title": {
@@ -806,7 +806,7 @@
   "nutrition_page_per_100g_100ml": "per 100g/ml",
   "nutrition_page_per_serving": "per serving",
   "nutrition_page_add_nutrient": "Add a nutrient",
-  "nutrition_page_serving_size": "Porcija",
+  "nutrition_page_serving_size": "Serving size",
   "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
   "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
   "@nutrition_page_serving_size_explanation_title": {
@@ -923,7 +923,7 @@
       }
     }
   },
-  "product_image_action_take_new_picture": "Capture New",
+  "product_image_action_take_new_picture": "Take a new picture",
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
@@ -993,7 +993,7 @@
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
-  "app_review_negative_modal_negative_button": "Ne",
+  "app_review_negative_modal_negative_button": "No",
   "could_not_refresh": "Could not refresh product",
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
@@ -1012,11 +1012,11 @@
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
-  "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+  "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way.",
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "add_tag": "Add property",
+  "add_tag": "Add a property",
   "add_tags": "Add properties",
   "add_edit_tags": "Add or edit properties",
   "edit_tag": "Edit property",
@@ -1044,7 +1044,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Find alternatives",
+  "product_search_same_category": "Пронађите алтернативе",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1146,7 +1146,7 @@
   "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
-  "clear": "Obriši",
+  "clear": "Clear",
   "@clear": {
     "description": "Clears a product list (short label)"
   },
@@ -1236,7 +1236,7 @@
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
-  "retry_button_label": "Retry",
+  "retry_button_label": "Покушај поново",
   "connect_with_us": "Connect with us",
   "tiktok": "Follow us on TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
@@ -1260,7 +1260,7 @@
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+  "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
@@ -1338,7 +1338,7 @@
       }
     }
   },
-  "authorize_button_label": "Authorise",
+  "authorize_button_label": "Authorize",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -1460,7 +1460,7 @@
     }
   },
   "settings_app_app": "Application",
-  "settings_app_data": "Privacy & monitoring",
+  "settings_app_data": "Features & Crash monitoring",
   "settings_app_camera": "Camera",
   "settings_app_products": "Products",
   "settings_app_miscellaneous": "Miscellaneous",
@@ -1487,7 +1487,7 @@
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
-  "crash_reporting_toggle_title": "Crash reporting",
+  "crash_reporting_toggle_title": "Report us bugs and crashes",
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
@@ -1495,11 +1495,11 @@
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
-  "send_anonymous_data_toggle_title": "Send anonymous data",
+  "send_anonymous_data_toggle_title": "Report us feature usage",
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
-  "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+  "send_anonymous_data_toggle_subtitle": "When enabled, strictly anonymous information regarding feature usage will be sent to the Open Food Facts servers, so that we can understand how features are used in order to improve them. Otherwise, a 0 id will be sent.",
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
@@ -1541,7 +1541,7 @@
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
-  "edit_product_label": "Izmenite proizvod",
+  "edit_product_label": "Edit product",
   "@edit_product_label": {
     "description": "Edit product button label"
   },
@@ -1557,7 +1557,7 @@
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_label_short": "Izmeni",
+  "edit_product_label_short": "Edit",
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
@@ -1614,7 +1614,7 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
-  "edit_product_form_item_deny_suggestion": "Deny suggestion",
+  "edit_product_form_item_deny_suggestion": "Одбиј предлог",
   "@edit_product_form_item_deny_suggestion": {
     "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
   },
@@ -1686,7 +1686,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_stores_title": "Prodavnice",
+  "edit_product_form_item_stores_title": "Stores",
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
@@ -1810,7 +1810,7 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_traces_title": "Tragovi",
+  "edit_product_form_item_traces_title": "Traces",
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
@@ -1862,7 +1862,7 @@
   "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
   "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
   "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-  "edit_product_form_item_ingredients_title": "Sastojci",
+  "edit_product_form_item_ingredients_title": "Ingredients",
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
@@ -1893,7 +1893,7 @@
   "@edit_product_form_item_packaging_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_form_item_nutrition_facts_title": "Hranljiva vrednost",
+  "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
   "@edit_product_form_item_nutrition_facts_title": {
     "description": "Product edition - Nutrition facts - Title"
   },
@@ -1913,7 +1913,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_title": "Hranljiva vrednost",
+  "edit_product_form_item_nutrition_facts_explanation_info2_title": "Nutrition facts",
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1929,7 +1929,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_save": "Izmeni",
+  "edit_product_form_save": "Edit",
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
@@ -1937,7 +1937,7 @@
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "Lista sastojaka",
+  "edit_product_ingredients_list_title": "List of ingredients",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -2056,7 +2056,7 @@
   "@user_list_button_new": {
     "description": "Short label of a 'create a new list' button"
   },
-  "user_list_empty_label": "No list available yet, please start by creating one",
+  "user_list_empty_label": "No list available yet!\nPlease start by creating one.",
   "@user_list_empty_label": {
     "description": "Content displayed when there is no list"
   },
@@ -2137,7 +2137,7 @@
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "category_picker_no_category_found_button": "Nazad",
+  "category_picker_no_category_found_button": "Назад",
   "@category_picker_no_category_found_button": {
     "description": "Button label when no category is available"
   },
@@ -2290,12 +2290,12 @@
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
-  "prices_bulk_proof_upload_community_switch": "Allow the community to validate prices extracted by AI.",
+  "prices_bulk_proof_upload_community_switch": "Дозволите заједници да потврди цене које је извадила вештачка интелигенција.",
   "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_bulk_proof_upload_step_selecting": "Selecting files",
-  "prices_bulk_proof_upload_step_starting": "Starting the upload",
-  "prices_bulk_proof_upload_step_copying": "Locally copying file #{index}/{count}",
+  "prices_bulk_proof_upload_step_selecting": "Избор датотека",
+  "prices_bulk_proof_upload_step_starting": "Покретање отпремања",
+  "prices_bulk_proof_upload_step_copying": "Локално копирање датотеке #{index}/{count}",
   "@prices_bulk_proof_upload_step_copying": {
     "description": "A message stating the current copy step",
     "placeholders": {
@@ -2307,7 +2307,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_preparing": "Preparing upload #{index}/{count}",
+  "prices_bulk_proof_upload_step_preparing": "Припрема отпремања #{index}/{count}",
   "@prices_bulk_proof_upload_step_preparing": {
     "description": "A message stating the current upload step",
     "placeholders": {
@@ -2319,7 +2319,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_error": "Failed at image #{index}/{count}",
+  "prices_bulk_proof_upload_step_error": "Неуспешно на слици #{index}/{count}",
   "@prices_bulk_proof_upload_step_error": {
     "description": "A message stating the current error step",
     "placeholders": {
@@ -2359,8 +2359,8 @@
     }
   },
   "prices_barcode_enter": "Enter the Barcode",
-  "prices_category_enter": "Item without barcode",
-  "prices_per_kilogram": "Price per kilogram",
+  "prices_category_enter": "Ставка без бар-кода",
+  "prices_per_kilogram": "Цена по килограму",
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
@@ -2368,30 +2368,30 @@
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
-  "prices_per_kilogram_short": " / kg",
+  "prices_per_kilogram_short": " / кг",
   "@prices_per_kilogram_short": {
     "description": "Short title for PricePer.kilogram"
   },
-  "prices_per_unit_short": " / unit",
+  "prices_per_unit_short": " / јединица",
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
   "prices_category_mandatory": "Mandatory",
-  "prices_category_optional": "Optional",
-  "prices_category_error_mandatory": "The category is mandatory",
+  "prices_category_optional": "Опционо",
+  "prices_category_error_mandatory": "Категорија је обавезна",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
-  "prices_list_title": "Price list",
-  "prices_list_count": "Number of\nprices",
+  "prices_list_title": "Ценовник",
+  "prices_list_count": "Број цена од\n",
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
-  "prices_list_add_new_price": "Add a\nnew price",
+  "prices_list_add_new_price": "Додај\nнову цену",
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
-  "prices_entry_shop_not_found": "Unknown store",
-  "prices_entry_menu_title": "Price entry from \"{user}\"",
+  "prices_entry_shop_not_found": "Непозната продавница",
+  "prices_entry_menu_title": "Унос цене од „{user}“",
   "@prices_entry_menu_title": {
     "description": "Title of the menu for a price entry",
     "placeholders": {
@@ -2400,11 +2400,11 @@
       }
     }
   },
-  "prices_entry_menu_open_product_prices": "View all prices for this product",
-  "prices_entry_menu_open_proof": "View proof",
-  "prices_entry_menu_my_prices": "View my other prices",
-  "prices_entry_menu_author_prices": "View other prices by the author",
-  "prices_entry_menu_shop_prices": "View other prices from the shop",
+  "prices_entry_menu_open_product_prices": "Погледајте све цене за овај производ",
+  "prices_entry_menu_open_proof": "Погледајте доказ",
+  "prices_entry_menu_my_prices": "Погледајте моје остале цене",
+  "prices_entry_menu_author_prices": "Погледајте остале цене аутора",
+  "prices_entry_menu_shop_prices": "Погледајте остале цене из продавнице",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2550,7 +2550,7 @@
       }
     }
   },
-  "prices_amount_existing_subtitle": "Price previously added",
+  "prices_amount_existing_subtitle": "Цена је претходно додата",
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
   "prices_amount_price_normal": "Price",
@@ -2702,7 +2702,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Contributor prices: {user}",
+  "user_any_search_prices_title": "Цене сарадника: {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
     "placeholders": {
@@ -2798,7 +2798,7 @@
   "@summary_card_button_add_basic_details": {
     "description": "Summary card - Button to add details about the product"
   },
-  "edit_photo_button_label": "Izmeni",
+  "edit_photo_button_label": "Edit",
   "@edit_photo_button_label": {
     "description": "Edit photo button label"
   },
@@ -2810,7 +2810,7 @@
   "@edit_photo_select_existing_button_label": {
     "description": "Edit 'select existing image' button label"
   },
-  "edit_photo_select_existing_all_label": "Existing images for this product",
+  "edit_photo_select_existing_all_label": "Existing images",
   "@edit_photo_select_existing_all_label": {
     "description": "Page title"
   },
@@ -2864,11 +2864,11 @@
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
-  "add_basic_details_product_name_change_main_language_title": "Change the default language?",
+  "add_basic_details_product_name_change_main_language_title": "Променити подразумевани језик?",
   "@add_basic_details_product_name_change_main_language_title": {
     "description": "Title of the dialog to change the main language of the product name"
   },
-  "add_basic_details_product_name_change_main_language_text": "Do you want the product's default language to be set to ‘{language}’?",
+  "add_basic_details_product_name_change_main_language_text": "Да ли желите да подразумевани језик производа буде подешен на „{language}“?",
   "@add_basic_details_product_name_change_main_language_text": {
     "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
     "placeholders": {
@@ -3000,7 +3000,7 @@
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "barcode": "Barkod",
+  "barcode": "Barcode",
   "barcode_barcode": "Barcode: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
@@ -3136,7 +3136,7 @@
   "@gallery_source_access_denied_dialog_button": {
     "description": "Button to open the app settings"
   },
-  "share": "Podeli",
+  "share": "Share",
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
@@ -3185,7 +3185,7 @@
       }
     }
   },
-  "capture": "Capture New",
+  "capture": "Take a new picture",
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
@@ -3855,7 +3855,7 @@
   "@guide_title": {
     "description": "A title for a guide"
   },
-  "guide_share_label": "Podeli",
+  "guide_share_label": "Share",
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,97 +3897,97 @@
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_greenscore_what_is_greenscore_title": "What is the Green Score?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "The Green-Score is a logo that aims to inform you about the **environmental impact of food**.",
+  "guide_greenscore_what_is_greenscore_title": "Шта је Зелени резултат?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Зелени резултат је лого који има за циљ да вас информише о **утицају хране на животну средину**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_what_is_greenscore_paragraph2": "The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.",
+  "guide_greenscore_what_is_greenscore_paragraph2": "Шифра боје варира од тамнозелене (**А+**) за производе са **најмањим утицајем** до тамноцрвене (**Ф**) за производе са **највећим утицајем**.",
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "The Green-Score logos",
-  "guide_greenscore_lca_title": "The core: Life cycle assessment (LCA)",
-  "guide_greenscore_lca_arg1_title": "A scientific evaluation of food categories",
-  "guide_greenscore_lca_arg1_text1": "For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).",
-  "guide_greenscore_lca_arg1_text2": "**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.",
-  "guide_greenscore_lca_arg1_text3": "**It measures:**",
-  "guide_greenscore_lca_arg2_title": "6 production steps",
+  "guide_greenscore_logos_caption": "Логотипи Green-Score-а",
+  "guide_greenscore_lca_title": "Језгро: Процена животног циклуса (LCA)",
+  "guide_greenscore_lca_arg1_title": "Научна евалуација категорија хране",
+  "guide_greenscore_lca_arg1_text1": "За сваку категорију производа, **референтна** оцена се утврђује коришћењем података из еколошке базе података Agribalyse (коју су дизајнирали ADEME и INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Анализа животног циклуса** је стандардизована метода процене за спровођење вишестепене и вишекритеријумске процене утицаја на животну средину.",
+  "guide_greenscore_lca_arg1_text3": "**Мери:**",
+  "guide_greenscore_lca_arg2_title": "6 корака производње",
   "guide_greenscore_lca_arg2_agriculture": "Agriculture",
   "guide_greenscore_lca_arg2_processing": "Processing",
-  "guide_greenscore_lca_arg2_packaging": "Ambalaža",
+  "guide_greenscore_lca_arg2_packaging": "Packaging",
   "guide_greenscore_lca_arg2_transportation": "Transportation",
   "guide_greenscore_lca_arg2_distribution": "Distribution",
   "guide_greenscore_lca_arg2_consumption": "Consumption",
-  "guide_greenscore_lca_arg3_title": "14 environmental impact indicators",
-  "guide_greenscore_lca_arg3_text1": "Climate change/carbon footprint",
-  "guide_greenscore_lca_arg3_text2": "Ozone layer depletion",
-  "guide_greenscore_lca_arg3_text3": "Ionizing radiation",
-  "guide_greenscore_lca_arg3_text4": "Land",
-  "guide_greenscore_lca_arg3_text5": "Water & energy use",
-  "guide_greenscore_lca_arg3_text6": "Pollution of air",
-  "guide_greenscore_lca_arg3_text7": "Marine & fresh water (particles, acidification, eutrophication)",
-  "guide_greenscore_lca_arg3_text8": "Depletion of resources.",
-  "guide_greenscore_bonuses_penalties_title": "Bonuses & penalties",
-  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply bonuses & penalties based on several criterion:",
+  "guide_greenscore_lca_arg3_title": "14 индикатора утицаја на животну средину",
+  "guide_greenscore_lca_arg3_text1": "Климатске промене/угљенични отисак",
+  "guide_greenscore_lca_arg3_text2": "Оштећење озонског омотача",
+  "guide_greenscore_lca_arg3_text3": "Јонизујуће зрачење",
+  "guide_greenscore_lca_arg3_text4": "Земљиште",
+  "guide_greenscore_lca_arg3_text5": "Потрошња воде и енергије",
+  "guide_greenscore_lca_arg3_text6": "Загађење ваздуха",
+  "guide_greenscore_lca_arg3_text7": "Морска и слатка вода (честице, закисељавање, еутрофикација)",
+  "guide_greenscore_lca_arg3_text8": "Исцрпљивање ресурса.",
+  "guide_greenscore_bonuses_penalties_title": "Бонуси и казне",
+  "guide_greenscore_bonuses_penalties_intro": "Да бисмо наградили боље производе унутар категорије, примењујемо бонусе и казне на основу неколико критеријума:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
   "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
-  "guide_greenscore_bonuses_penalties_arg2_title": "Poreklo sastojaka",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer's country.",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Бонус се додељује на основу порекла састојака. Овај бонус узима у обзир утицај на транспорт, као и политику заштите животне средине земље сваког произвођача.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
   "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
-  "guide_greenscore_bonuses_penalties_arg4_title": "Ambalaža",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
   "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
-  "guide_greenscore_transparency_intro2": "Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help",
-  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)",
-  "guide_greenscore_transparency_arg2_title": "How manufacturers can help",
-  "guide_greenscore_transparency_arg2_text": "Manufacturers can send us their information directly through our free platform for producers.",
-  "guide_greenscore_better_product_title": "Which product is better for the planet?",
-  "guide_greenscore_better_product_arg1_title": "It can be hard to tell",
-  "guide_greenscore_better_product_arg1_text": "Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).",
-  "guide_greenscore_better_product_arg2_title": "You have the power!",
-  "guide_greenscore_better_product_arg2_text": "The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!",
-  "guide_greenscore_better_product_arg3_title": "Helps to be responsible and decide",
-  "guide_greenscore_better_product_arg3_text": "Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.",
-  "guide_greenscore_better_product_arg4_title": "Transparency",
-  "guide_greenscore_better_product_arg4_text": "Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.",
+  "guide_greenscore_transparency_intro1": "Да би се прецизно израчунао Зелени резултат, неопходно је имати информације које нису нужно наведене на амбалажи (као што су порекло и тачан проценат сваког састојка) или које су ретко доступне у употребљивом облику (као што је списак свих компоненти амбалаже са прецизним врстама коришћене пластике).",
+  "guide_greenscore_transparency_intro2": "Просечне вредности се користе када ове информације још нису доступне, али сада позивамо све да нам помогну у прикупљању ових информација које ће бити веома корисне за Зелени резултат, али и за многе друге сврхе.",
+  "guide_greenscore_transparency_arg1_title": "Како грађани могу помоћи",
+  "guide_greenscore_transparency_arg1_text": "Сви грађани могу нам помоћи да прикупимо и структурирамо информације које се налазе на производима или које се из њих могу закључити, као што су информације на амбалажи: Mission Emballages: велики заједнички инвентар амбалаже за све прехрамбене производе (на француском)",
+  "guide_greenscore_transparency_arg2_title": "Како произвођачи могу помоћи",
+  "guide_greenscore_transparency_arg2_text": "Произвођачи нам могу послати своје информације директно преко наше бесплатне платформе за произвођаче.",
+  "guide_greenscore_better_product_title": "Који је производ бољи за планету?",
+  "guide_greenscore_better_product_arg1_title": "Тешко је рећи",
+  "guide_greenscore_better_product_arg1_text": "Избор одрживе хране једна је од најмоћнијих ствари које можемо учинити за климу, јер **наш глобални прехрамбени систем је одговоран за више од четвртине свих емисија гасова стаклене баште**.\n(Извор: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Ти имаш моћ!",
+  "guide_greenscore_better_product_arg2_text": "Добра вест је да нам ово даје моћан начин да створимо промене.\n**Свако од нас поједе око 1.000 оброка сваке године**. То је 1.000 прилика да **изаберемо бољу будућност за планету**!",
+  "guide_greenscore_better_product_arg3_title": "Помаже у преузимању одговорности и доношењу одлука",
+  "guide_greenscore_better_product_arg3_text": "Избор одрживе хране може деловати сложено. Етикете су збуњујуће, а информације често недостају. Зелени резултат је креиран да би то поједноставио, дајући вам **јасну**, **научно засновану** и **транспарентну** еколошку оцену за прехрамбене производе, баш тамо где вам је потребна: док купујете.",
+  "guide_greenscore_better_product_arg4_title": "Транспарентност",
+  "guide_greenscore_better_product_arg4_text": "За разлику од власничких ознака, прорачун Green-Score-а је **потпуно отворен** и може га **проверити било ко**.",
   "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nova_what_is_nova_title": "What is ultra-processing?",
-  "guide_nova_what_is_nova_paragraph1": "The NOVA groups inform you about the level of food processing.",
+  "guide_nova_what_is_nova_title": "Шта је ултра-процесирање?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA групе вас обавештавају о нивоу обраде хране.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).",
+  "guide_nova_what_is_nova_paragraph2": "NOVA класификација омогућава категоризацију хране у **4 групе** на основу њиховог **степена индустријске обраде** (минимално прерађена или непрерађена храна, кулинарски састојци, прерађена храна, ултра-прерађена храна).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_logos_caption": "The NOVA logos",
-  "guide_nova_groups_title": "The 4 NOVA groups",
-  "guide_nova_groups_intro": "There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.",
-  "guide_nova_groups_arg1_title": "Minimally processed or unprocessed foods",
-  "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
-  "guide_nova_groups_arg2_title": "Prerađeni kulinarski sastojci",
-  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
-  "guide_nova_groups_arg3_title": "Prerađena hrana",
-  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.",
+  "guide_nova_logos_caption": "НОВА логотипи",
+  "guide_nova_groups_title": "4 NOVA групе",
+  "guide_nova_groups_intro": "Постоје 4 НОВА групе, а проблематична је Група 4 - Ултра-прерађена храна.",
+  "guide_nova_groups_arg1_title": "Минимално прерађена или непрерађена храна",
+  "guide_nova_groups_arg1_text": "Непрерађена (или природна) храна су јестиви делови биљака (семе, плодови, лишће, стабљике, корење) или животиња (мишићи, изнутрице, јаја, млеко), као и гљивице, алге и вода, након што су одвојени од природе.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Прерађени кулинарски састојци, као што су уља, путер, шећер и со, су супстанце добијене из хране Групе 1 или из природе кроз процесе који укључују пресовање, рафинирање, млевење, млевење и сушење.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Прерађена храна, као што су флаширано поврће, конзервисана риба, воће у сирупу, сиреви и свеже направљени хлебови, првенствено се праве додавањем соли, уља, шећера или других супстанци из Групе 2 у храну Групе 1. Процеси укључују различите методе конзервирања или кувања, а у случају хлеба и сира, безалкохолну ферментацију. Већина прерађене хране има два или три састојка и препознатљиве су као модификоване верзије хране Групе 1. Могу се јести саме или, чешће, у комбинацији са другом храном.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
-  "guide_nova_explanations_title": "The problems with ultra-processing",
-  "guide_nova_explanations_arg1_title": "Extreme processing of food ingredients",
-  "guide_nova_explanations_arg1_text": "Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
-  "guide_nova_explanations_arg2_title": "Additives that go beyond pure food safety",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
-  "guide_nova_explanations_arg3_title": "Processing you can’t do at home",
-  "guide_nova_explanations_arg3_text": "A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
-  "guide_nova_explanations_arg4_title": "The predatory and financial aspects of ultra-processing",
-  "guide_nova_explanations_arg4_text": "The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
+  "guide_nova_groups_arg4_text": "Ултра-прерађена храна, као што су безалкохолна пића, слатке или слане упаковане грицкалице, реконституисани месни производи и претходно припремљена замрзнута јела, нису само модификована храна, већ формулације направљене углавном или у потпуности од супстанци добијених из хране и адитива, са мало или нимало нетакнуте хране Групе 1. Састојци у овим формулацијама обично укључују оне који се такође налазе у прерађеној храни, као што су шећери, уља, масти или со. Међутим, ултра-прерађени производи такође садрже друге изворе енергије и хранљивих материја које се обично не користе у кулинарским припремама. Неки од њих се директно екстрахују из хране, као што су казеин, лактоза, сурутка и глутен.",
+  "guide_nova_explanations_title": "Проблеми са ултра-процесирањем",
+  "guide_nova_explanations_arg1_title": "Екстремна обрада састојака хране",
+  "guide_nova_explanations_arg1_text": "Многи се добијају даљом обрадом састојака хране, као што су хидрогенизована или интерестерификована уља, хидролизовани протеини, изолат сојиних протеина, малтодекстрин, инвертни шећер и кукурузни сируп са високим садржајем фруктозе.",
+  "guide_nova_explanations_arg2_title": "Адитиви који превазилазе пуку безбедност хране",
+  "guide_nova_explanations_arg2_text": "Адитиви у ултра-прерађеној храни укључују неке који се такође користе у прерађеној храни, као што су конзерванси, антиоксиданси и стабилизатори. Класе адитива који се налазе само у ултра-прерађеним производима укључују оне који се користе за имитирање или побољшање сензорних квалитета хране или за прикривање неукусних аспеката финалног производа. Ови адитиви укључују боје и друге боје, стабилизаторе боја; ароме, појачиваче укуса, заслађиваче без шећера; и помоћна средства за обраду као што су карбонизатори, средства за учвршћивање, средства за повећање и спречавање повећања запремине, средства за уклањање пене, средства против згрудњавања и глазирање, емулгатори, секвестранти и хумектанти.",
+  "guide_nova_explanations_arg3_title": "Обрада коју не можете обавити код куће",
+  "guide_nova_explanations_arg3_text": "За комбиновање уобичајено многих састојака и стварање коначног производа (отуда и „ултра-обрађен“) користи се мноштво процеса. Процеси укључују неколико без домаћих еквивалената, као што су хидрогенација и хидролиза, екструзија и обликовање, и претходна обрада за пржење.",
+  "guide_nova_explanations_arg4_title": "Предаторски и финансијски аспекти ултра-обраде",
+  "guide_nova_explanations_arg4_text": "Општа сврха ултра-прераде је стварање брендираних, практичних (трајних, спремних за конзумацију), атрактивних (хипер-укусних) и високо профитабилних (јефтини састојци) прехрамбених производа дизајнираних да замене све остале групе хране. Ултра-прерађени прехрамбени производи су обично атрактивно паковани и интензивно се пласирају на тржиште.",
   "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
@@ -4207,7 +4207,7 @@
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_error_button": "Retry",
+  "carousel_error_button": "Покушај поново",
   "carousel_unknown_product_header": "Unknown product",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
@@ -4311,7 +4311,7 @@
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
-  "product_footer_action_barcode_short": "Barkod",
+  "product_footer_action_barcode_short": "Barcode",
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
@@ -4331,7 +4331,7 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
-  "product_page_tab_for_me": "For me",
+  "product_page_tab_for_me": "За мене",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
@@ -4571,27 +4571,27 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
-  "product_edit_robotoff_positive_button": "Accept suggestion",
+  "product_edit_robotoff_positive_button": "Прихвати предлог",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
   },
-  "product_edit_robotoff_negative_button": "Reject suggestion",
+  "product_edit_robotoff_negative_button": "Одбиј предлог",
   "@product_edit_robotoff_negative_button": {
     "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
   },
-  "product_edit_robotoff_show_proof": "Show proof",
+  "product_edit_robotoff_show_proof": "Покажите доказ",
   "@product_edit_robotoff_show_proof": {
     "description": "Button to show the proof related to a suggestion"
   },
-  "product_edit_robotoff_expand_proof": "Expand proof",
+  "product_edit_robotoff_expand_proof": "Прошири доказ",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   },
-  "product_page_tab_raw_data": "Raw data",
+  "product_page_tab_raw_data": "Необрађени подаци",
   "@product_page_tab_raw_data": {
     "description": "Label of the raw data tab on the product page"
   },
-  "page_indicator_with_total": "Page {current} / {total}",
+  "page_indicator_with_total": "Страна {current} / {total}",
   "@page_indicator_with_total": {
     "description": "Page indicator showing current page and total pages",
     "placeholders": {
@@ -4605,7 +4605,7 @@
       }
     }
   },
-  "page_indicator": "Page {current}",
+  "page_indicator": "Страница {current}",
   "@page_indicator": {
     "description": "Page indicator showing only current page when total is unknown",
     "placeholders": {
@@ -4615,7 +4615,7 @@
       }
     }
   },
-  "item_count_with_total": "{count} of {total} items",
+  "item_count_with_total": "{count} од {total} ставки",
   "@item_count_with_total": {
     "description": "Item count showing current number of items and total items",
     "placeholders": {
@@ -4629,7 +4629,7 @@
       }
     }
   },
-  "item_count": "{count} items",
+  "item_count": "{count} ставке",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
@@ -4639,15 +4639,15 @@
       }
     }
   },
-  "prices_no_result": "No price statistics found.",
+  "prices_no_result": "Није пронађена статистика цена.",
   "@prices_no_result": {
     "description": "Message shown when there are no price statistics available to display"
   },
-  "prices_error_loading_more_items": "Error loading more items",
+  "prices_error_loading_more_items": "Грешка при учитавању додатних ставки",
   "@prices_error_loading_more_items": {
     "description": "Error message shown when additional items fail to load"
   },
-  "prices_proof_error": "Authentication failed, unable to fetch proofs",
+  "prices_proof_error": "Аутентификација није успела, није могуће преузети доказе",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   }
