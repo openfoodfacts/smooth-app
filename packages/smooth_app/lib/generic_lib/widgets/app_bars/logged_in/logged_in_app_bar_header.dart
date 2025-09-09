@@ -19,8 +19,8 @@ class LoggedInAppBarHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 
@@ -96,11 +96,11 @@ class LoggedInAppBarHeader extends StatelessWidget {
                   MaterialPageRoute<Widget>(
                     builder: (BuildContext context) =>
                         ChangeNotifierProvider<PreferencesRootSearchController>(
-                          create: (_) => PreferencesRootSearchController(),
-                          child: AccountRoot(
-                            title: appLocalizations.preferences_account_title,
-                          ),
-                        ),
+                      create: (_) => PreferencesRootSearchController(),
+                      child: AccountRoot(
+                        title: appLocalizations.preferences_account_title,
+                      ),
+                    ),
                   ),
                 );
               },

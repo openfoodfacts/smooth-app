@@ -63,6 +63,7 @@ class _SummaryAttributeGroupHeader extends StatelessWidget {
           ),
         )
       : isFirstGroup
-      ? const SizedBox(height: SMALL_SPACE)
-      : Divider(color: context.lightTheme() ? Colors.black12 : Colors.white24);
+          ? const SizedBox(height: SMALL_SPACE)
+          : Divider(
+              color: context.lightTheme() ? Colors.black12 : Colors.white24);
 }

@@ -149,8 +149,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     product: widget.product,
                     onShowImagePreview: (_, OpenFoodFactsLanguage language) =>
                         setState(() {
-                          _imageLanguagePreview = language;
-                        }),
+                      _imageLanguagePreview = language;
+                    }),
                   ),
                   SizedBox(height: _heightSpace),
                   _ProductBrandsInputWidget(
@@ -191,8 +191,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave = await MayExitPageHelper()
-          .openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         _brandsHelper.restoreItemsBeforeLastAddition();
         return false;
@@ -264,11 +264,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     if (_productNameEditorProvider.hasChanged()) {
       hasChanged = true;
-      result.lang =
-          _productNameEditorProvider.value.defaultLanguageOverride ??
+      result.lang = _productNameEditorProvider.value.defaultLanguageOverride ??
           _product.lang;
-      result.productNameInLanguages = _productNameEditorProvider
-          .getChangedProductNames();
+      result.productNameInLanguages =
+          _productNameEditorProvider.getChangedProductNames();
     }
 
     if (hasChanged) {
@@ -281,7 +280,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   bool _isOwnerField(
     final ProductField productField, {
     final OpenFoodFactsLanguage? language,
-  }) => _product.hasOwnerField(productField, language: language);
+  }) =>
+      _product.hasOwnerField(productField, language: language);
 }
 
 class _ProductBrandsInputWidget extends StatelessWidget {

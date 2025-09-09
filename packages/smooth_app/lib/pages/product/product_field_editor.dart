@@ -173,11 +173,12 @@ class ProductFieldNutritionEditor extends ProductFieldEditor {
     required final BuildContext context,
     required final Product product,
     final bool isLoggedInMandatory = true,
-  }) async => NutritionPageLoader.showNutritionPage(
-    product: product,
-    isLoggedInMandatory: isLoggedInMandatory,
-    context: context,
-  );
+  }) async =>
+      NutritionPageLoader.showNutritionPage(
+        product: product,
+        isLoggedInMandatory: isLoggedInMandatory,
+        context: context,
+      );
 }
 
 abstract class ProductFieldOcrEditor extends ProductFieldEditor {

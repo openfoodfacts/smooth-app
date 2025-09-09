@@ -28,10 +28,10 @@ class OnboardingHomePage extends StatelessWidget {
             const _OnboardingWelcomePageContent(),
             OnboardingBottomHills(
               onTap: () async {
-                final UserPreferences userPreferences = context
-                    .read<UserPreferences>();
-                final LocalDatabase localDatabase = context
-                    .read<LocalDatabase>();
+                final UserPreferences userPreferences =
+                    context.read<UserPreferences>();
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
 
                 /// Enable crash reports and user tracking by default
                 /// (Can be disabled by the user later in the settings)
@@ -195,7 +195,7 @@ class _SunAndCloudState extends State<_SunAndCloud>
 // TODO(g123k): Move elsewhere when the onboarding will be redesigned
 class OnboardingConfig {
   OnboardingConfig._(Size screenSize)
-    : fontMultiplier = computeFontMultiplier(screenSize);
+      : fontMultiplier = computeFontMultiplier(screenSize);
   final double fontMultiplier;
 
   static double computeFontMultiplier(Size screenSize) =>

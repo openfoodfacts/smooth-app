@@ -81,12 +81,12 @@ class ProductTitleCard extends StatelessWidget {
                     noImageBuilder: (_) => const PictureNotFound(),
                     onTap: !dense
                         ? () async => Navigator.push<void>(
-                            context,
-                            MaterialPageRoute<bool>(
-                              builder: (BuildContext context) =>
-                                  ProductImageGalleryView(product: product),
-                            ),
-                          )
+                              context,
+                              MaterialPageRoute<bool>(
+                                builder: (BuildContext context) =>
+                                    ProductImageGalleryView(product: product),
+                              ),
+                            )
                         : null,
                   ),
                 ),

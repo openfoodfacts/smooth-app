@@ -14,7 +14,8 @@ class PriceLabelRepository extends PriceTaxonomyRepository<TaxonomyLabel> {
   @override
   Map<OpenFoodFactsLanguage, String>? getTaxonomyNames(
     final TaxonomyLabel item,
-  ) => item.name;
+  ) =>
+      item.name;
 
   @protected
   @override

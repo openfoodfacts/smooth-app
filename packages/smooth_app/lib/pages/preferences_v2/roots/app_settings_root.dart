@@ -26,9 +26,8 @@ class AppSettingsRoot extends PreferencesRoot {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData theme = Theme.of(context);
 
-    final Color iconColor = context.lightTheme()
-        ? theme.primaryColor
-        : Colors.white;
+    final Color iconColor =
+        context.lightTheme() ? theme.primaryColor : Colors.white;
 
     final CurrencySelectorHelper currencyHelper = CurrencySelectorHelper();
     final Currency selectedCurrency = currencyHelper.getSelected(
@@ -198,8 +197,7 @@ class AppSettingsRoot extends PreferencesRoot {
       leading: icons.NutritionFacts.alt(color: iconColor),
       title: appLocalizations.expand_nutrition_facts,
       subtitleText: appLocalizations.expand_nutrition_facts_body,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             KnowledgePanelCard.getExpandFlagTag(
               KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
             ),
@@ -223,8 +221,7 @@ class AppSettingsRoot extends PreferencesRoot {
       leading: icons.Ingredients.basket(color: iconColor),
       title: appLocalizations.expand_ingredients,
       subtitleText: appLocalizations.expand_ingredients_body,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             KnowledgePanelCard.getExpandFlagTag(
               KnowledgePanelCard.PANEL_INGREDIENTS_ID,
             ),

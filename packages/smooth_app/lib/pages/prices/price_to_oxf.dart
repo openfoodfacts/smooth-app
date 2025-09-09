@@ -14,13 +14,13 @@ class PriceToOxF {
   PriceToOxF._(this._name, this._helper);
 
   PriceToOxF._store(final Location location)
-    : this._(location.name?.trim(), SimpleInputPageStoreHelper());
+      : this._(location.name?.trim(), SimpleInputPageStoreHelper());
 
   PriceToOxF._country(final Location location)
-    : this._(
-        OpenFoodFactsCountry.fromOffTag(location.countryCode?.trim())?.name,
-        SimpleInputPageCountryHelper(null),
-      );
+      : this._(
+          OpenFoodFactsCountry.fromOffTag(location.countryCode?.trim())?.name,
+          SimpleInputPageCountryHelper(null),
+        );
 
   final String? _name;
   final AbstractSimpleInputPageHelper _helper;
@@ -43,10 +43,10 @@ class PriceToOxF {
 
     final MaybeError<Location> maybeLocation =
         await OpenPricesAPIClient.getOSMLocation(
-          locationOSMId: locationOSMId,
-          locationOSMType: locationOSMType,
-          uriHelper: ProductQuery.uriPricesHelper,
-        );
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
     if (maybeLocation.isError) {
       return;
     }
@@ -71,11 +71,11 @@ class PriceToOxF {
     if (actualBarcodes.length == 1) {
       // better data from single product search
       final String barcode = actualBarcodes.first;
-      final FetchedProduct fetchedProduct = await ProductRefresher()
-          .silentFetchAndRefresh(
-            localDatabase: localDatabase,
-            barcode: barcode,
-          );
+      final FetchedProduct fetchedProduct =
+          await ProductRefresher().silentFetchAndRefresh(
+        localDatabase: localDatabase,
+        barcode: barcode,
+      );
       if (fetchedProduct.status != FetchedProductStatus.ok) {
         return;
       }

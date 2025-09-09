@@ -241,8 +241,8 @@ class _ImageSourceButton extends StatelessWidget {
               color: context.lightTheme()
                   ? primaryColor
                   : context
-                        .extension<SmoothColorsThemeExtension>()
-                        .primaryLight,
+                      .extension<SmoothColorsThemeExtension>()
+                      .primaryLight,
             ),
           ),
           padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
@@ -278,17 +278,18 @@ Future<CropParameters?> confirmAndUploadNewPicture(
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
   final UserPictureSource? forcedSource,
-}) async => confirmAndUploadNewImage(
-  context,
-  cropHelper: ProductCropNewHelper(
-    imageField: imageField,
-    language: language,
-    barcode: barcode,
-    productType: productType,
-  ),
-  isLoggedInMandatory: isLoggedInMandatory,
-  forcedSource: forcedSource,
-);
+}) async =>
+    confirmAndUploadNewImage(
+      context,
+      cropHelper: ProductCropNewHelper(
+        imageField: imageField,
+        language: language,
+        barcode: barcode,
+        productType: productType,
+      ),
+      isLoggedInMandatory: isLoggedInMandatory,
+      forcedSource: forcedSource,
+    );
 
 /// Lets the user pick a picture, crop it, and save it.
 Future<CropParameters?> confirmAndUploadNewImage(

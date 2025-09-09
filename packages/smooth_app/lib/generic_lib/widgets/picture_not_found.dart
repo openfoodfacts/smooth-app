@@ -7,24 +7,24 @@ class PictureNotFound extends StatelessWidget {
     this.foregroundColor,
     this.style = PictureNotFoundStyle.happy,
     super.key,
-  }) : backgroundDecoration = null,
-       _useInk = false;
+  })  : backgroundDecoration = null,
+        _useInk = false;
 
   const PictureNotFound.decoration({
     this.backgroundDecoration,
     this.foregroundColor,
     this.style = PictureNotFoundStyle.happy,
     super.key,
-  }) : backgroundColor = null,
-       _useInk = false;
+  })  : backgroundColor = null,
+        _useInk = false;
 
   const PictureNotFound.ink({
     this.backgroundDecoration,
     this.foregroundColor,
     this.style = PictureNotFoundStyle.happy,
     super.key,
-  }) : _useInk = true,
-       backgroundColor = null;
+  })  : _useInk = true,
+        backgroundColor = null;
 
   final BoxDecoration? backgroundDecoration;
   final Color? backgroundColor;
@@ -56,19 +56,18 @@ class PictureNotFound extends StatelessWidget {
 
     if (_useInk) {
       return Ink(
-        decoration:
-            BoxDecoration(
-              color: backgroundColor ?? defaultBackgroundColor,
-            ).copyWith(
-              color: backgroundDecoration?.color,
-              image: backgroundDecoration?.image,
-              border: backgroundDecoration?.border,
-              borderRadius: backgroundDecoration?.borderRadius,
-              boxShadow: backgroundDecoration?.boxShadow,
-              gradient: backgroundDecoration?.gradient,
-              backgroundBlendMode: backgroundDecoration?.backgroundBlendMode,
-              shape: BoxShape.rectangle,
-            ),
+        decoration: BoxDecoration(
+          color: backgroundColor ?? defaultBackgroundColor,
+        ).copyWith(
+          color: backgroundDecoration?.color,
+          image: backgroundDecoration?.image,
+          border: backgroundDecoration?.border,
+          borderRadius: backgroundDecoration?.borderRadius,
+          boxShadow: backgroundDecoration?.boxShadow,
+          gradient: backgroundDecoration?.gradient,
+          backgroundBlendMode: backgroundDecoration?.backgroundBlendMode,
+          shape: BoxShape.rectangle,
+        ),
         child: child,
       );
     } else {

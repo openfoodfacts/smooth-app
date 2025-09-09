@@ -63,8 +63,7 @@ class LanguagesSelector extends StatelessWidget {
       context.read<LocalDatabase>(),
     );
 
-    final TextStyle textStyle =
-        Theme.of(
+    final TextStyle textStyle = Theme.of(
           context,
         ).textTheme.bodyMedium?.copyWith(color: foregroundColor) ??
         TextStyle(color: foregroundColor);
@@ -134,8 +133,8 @@ class LanguagesSelector extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
-    final List<OpenFoodFactsLanguage> allLanguages = _languages
-        .getSupportedLanguagesNameInEnglish();
+    final List<OpenFoodFactsLanguage> allLanguages =
+        _languages.getSupportedLanguagesNameInEnglish();
 
     final Map<String, int> popularList = userPreferences.languagesUsage;
 
@@ -178,21 +177,21 @@ class LanguagesSelector extends StatelessWidget {
 
     final OpenFoodFactsLanguage? language =
         await showSmoothModalSheetForTextField<OpenFoodFactsLanguage>(
-          context: context,
-          header: SmoothModalSheetHeader(
-            title: title ?? appLocalizations.language_selector_title,
-            prefix: const SmoothModalSheetHeaderPrefixIndicator(),
-            suffix: const SmoothModalSheetHeaderCloseButton(),
-          ),
-          bodyBuilder: (BuildContext context) {
-            return _LanguagesList(
-              selectedLanguages: selectedLanguagesList,
-              popularLanguages: popularLanguagesList,
-              otherLanguages: otherLanguagesList,
-              checkedIcon: checkedIcon,
-            );
-          },
+      context: context,
+      header: SmoothModalSheetHeader(
+        title: title ?? appLocalizations.language_selector_title,
+        prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+        suffix: const SmoothModalSheetHeaderCloseButton(),
+      ),
+      bodyBuilder: (BuildContext context) {
+        return _LanguagesList(
+          selectedLanguages: selectedLanguagesList,
+          popularLanguages: popularLanguagesList,
+          otherLanguages: otherLanguagesList,
+          checkedIcon: checkedIcon,
         );
+      },
+    );
 
     if (language != null) {
       userPreferences.increaseLanguageUsage(language);
@@ -273,8 +272,8 @@ class _LanguagesListState extends State<_LanguagesList> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final double keyboardHeight = MediaQuery.viewInsetsOf(context).bottom;
 
@@ -282,8 +281,7 @@ class _LanguagesListState extends State<_LanguagesList> {
       children: <Widget>[
         SizedBox(
           width: double.infinity,
-          height:
-              MediaQuery.sizeOf(context).height *
+          height: MediaQuery.sizeOf(context).height *
               (widget.selectedLanguages.isNotEmpty ? 0.4 : 0.3),
           child: Theme(
             data: Theme.of(context).copyWith(

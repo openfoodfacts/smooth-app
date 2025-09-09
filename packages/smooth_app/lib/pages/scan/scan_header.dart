@@ -41,9 +41,8 @@ class _ScanHeaderState extends State<ScanHeader> {
     final bool compareFeatureAvailable = model.compareFeatureAvailable;
 
     return AnimatedOpacity(
-      opacity: model.compareFeatureEnabled
-          ? _visibleOpacity
-          : _invisibleOpacity,
+      opacity:
+          model.compareFeatureEnabled ? _visibleOpacity : _invisibleOpacity,
       duration: SmoothAnimationsDuration.brief,
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -78,9 +77,9 @@ class _ScanHeaderState extends State<ScanHeader> {
                   child: Tooltip(
                     message: compareFeatureAvailable
                         ? appLocalizations
-                              .scan_header_compare_button_valid_state_tooltip
+                            .scan_header_compare_button_valid_state_tooltip
                         : appLocalizations
-                              .scan_header_compare_button_invalid_state_tooltip,
+                            .scan_header_compare_button_invalid_state_tooltip,
                     child: AnimatedOpacity(
                       opacity: compareFeatureAvailable ? 1.0 : 0.5,
                       duration: SmoothAnimationsDuration.brief,
@@ -89,8 +88,8 @@ class _ScanHeaderState extends State<ScanHeader> {
                         icon: const icons.Compare(size: 19.0),
                         onPressed: compareFeatureAvailable
                             ? () async {
-                                final ContinuousScanModel model = context
-                                    .read<ContinuousScanModel>();
+                                final ContinuousScanModel model =
+                                    context.read<ContinuousScanModel>();
                                 await model.refreshProductList();
                                 if (!context.mounted) {
                                   return;
@@ -100,15 +99,14 @@ class _ScanHeaderState extends State<ScanHeader> {
                                   MaterialPageRoute<void>(
                                     builder: (BuildContext context) =>
                                         PersonalizedRankingPage(
-                                          barcodes: model
-                                              .getAvailableBarcodes()
-                                              .toList(),
-                                          title:
-                                              ProductQueryPageHelper.getProductListLabel(
-                                                model.productList,
-                                                appLocalizations,
-                                              ),
-                                        ),
+                                      barcodes:
+                                          model.getAvailableBarcodes().toList(),
+                                      title: ProductQueryPageHelper
+                                          .getProductListLabel(
+                                        model.productList,
+                                        appLocalizations,
+                                      ),
+                                    ),
                                   ),
                                 );
                               }

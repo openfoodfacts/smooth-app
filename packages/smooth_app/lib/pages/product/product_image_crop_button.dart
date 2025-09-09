@@ -133,22 +133,23 @@ class ProductImageCropButton extends ProductImageButton {
   Future<CropParameters?> _openCropNewPage(
     final NavigatorState navigatorState,
     final File imageFile,
-  ) async => navigatorState.push<CropParameters>(
-    MaterialPageRoute<CropParameters>(
-      builder: (BuildContext context) => CropPage(
-        inputFile: imageFile,
-        initiallyDifferent: false,
-        isLoggedInMandatory: isLoggedInMandatory,
-        cropHelper: ProductCropNewHelper(
-          language: language,
-          barcode: barcode,
-          productType: product.productType,
-          imageField: _imageData.imageField,
+  ) async =>
+      navigatorState.push<CropParameters>(
+        MaterialPageRoute<CropParameters>(
+          builder: (BuildContext context) => CropPage(
+            inputFile: imageFile,
+            initiallyDifferent: false,
+            isLoggedInMandatory: isLoggedInMandatory,
+            cropHelper: ProductCropNewHelper(
+              language: language,
+              barcode: barcode,
+              productType: product.productType,
+              imageField: _imageData.imageField,
+            ),
+          ),
+          fullscreenDialog: true,
         ),
-      ),
-      fullscreenDialog: true,
-    ),
-  );
+      );
 
   ProductImage? _getBestProductImage() {
     if (product.images == null) {
@@ -175,15 +176,15 @@ class ProductImageCropButton extends ProductImageButton {
   /// Sometimes you get all null coordinates, or all 0, or all -1.
   Rect? _getCropRect(final ProductImage productImage) =>
       productImage.x1 == productImage.x2 &&
-          productImage.y1 == productImage.y2 &&
-          productImage.x1 == productImage.y1
-      ? null
-      : Rect.fromLTRB(
-          productImage.x1!.toDouble(),
-          productImage.y1!.toDouble(),
-          productImage.x2!.toDouble(),
-          productImage.y2!.toDouble(),
-        );
+              productImage.y1 == productImage.y2 &&
+              productImage.x1 == productImage.y1
+          ? null
+          : Rect.fromLTRB(
+              productImage.x1!.toDouble(),
+              productImage.y1!.toDouble(),
+              productImage.x2!.toDouble(),
+              productImage.y2!.toDouble(),
+            );
 
   ProductImageData get _imageData =>
       getProductImageData(product, imageField, language);

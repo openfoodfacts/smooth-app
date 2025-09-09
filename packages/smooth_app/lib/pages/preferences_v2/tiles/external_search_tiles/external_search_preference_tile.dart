@@ -13,9 +13,8 @@ abstract class ExternalSearchPreferenceTile extends PreferenceTile {
 
   @override
   Widget build(BuildContext context) {
-    final String? keyword = context
-        .watch<PreferencesRootSearchController>()
-        .query;
+    final String? keyword =
+        context.watch<PreferencesRootSearchController>().query;
 
     return keyword != null
         ? PreferenceTile(

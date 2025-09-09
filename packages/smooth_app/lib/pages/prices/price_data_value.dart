@@ -24,8 +24,8 @@ class PriceDataValue extends StatelessWidget {
     );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool hasDiscount = _hasDiscount(price);
 
     return Column(
@@ -99,9 +99,8 @@ class PriceDataDiscountedValue extends StatelessWidget {
         (price.price - price.priceWithoutDiscount!) /
             price.priceWithoutDiscount!,
       ),
-      backgroundColor: context
-          .extension<SmoothColorsThemeExtension>()
-          .secondaryVibrant,
+      backgroundColor:
+          context.extension<SmoothColorsThemeExtension>().secondaryVibrant,
       textColor: Colors.white,
     );
   }

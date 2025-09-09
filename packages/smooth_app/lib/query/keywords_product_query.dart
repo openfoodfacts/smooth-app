@@ -18,17 +18,16 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
 
   @override
   ProductList getProductList() => ProductList.keywordSearch(
-    keywords,
-    pageSize: pageSize,
-    pageNumber: pageNumber,
-    language: language,
-    country: country,
-    productType: productType,
-  );
+        keywords,
+        pageSize: pageSize,
+        pageNumber: pageNumber,
+        language: language,
+        country: country,
+        productType: productType,
+      );
 
   @override
-  String toString() =>
-      'KeywordsProductQuery('
+  String toString() => 'KeywordsProductQuery('
       '"$keywords"'
       ', $pageSize'
       ', $pageNumber'

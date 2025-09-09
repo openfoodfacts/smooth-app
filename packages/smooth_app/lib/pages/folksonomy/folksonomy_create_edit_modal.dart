@@ -66,8 +66,7 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
       isKeyValid =
           isKeyValid && !widget.existingKeys!.contains(keyController.text);
     } else if (widget.action == FolksonomyAction.edit) {
-      isKeyValid =
-          isKeyValid &&
+      isKeyValid = isKeyValid &&
           (keyController.text == widget.oldKey ||
               !widget.existingKeys!.contains(keyController.text));
     }
@@ -194,17 +193,16 @@ class _FolksonomyEditTagContentTitleState
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(
-            duration: const Duration(milliseconds: 500),
-            vsync: this,
-          )
-          ..addListener(() => setState(() {}))
-          ..addStatusListener((AnimationStatus status) {
-            if (status == AnimationStatus.completed) {
-              _controller.reverse();
-            }
-          });
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    )
+      ..addListener(() => setState(() {}))
+      ..addStatusListener((AnimationStatus status) {
+        if (status == AnimationStatus.completed) {
+          _controller.reverse();
+        }
+      });
   }
 
   @override
@@ -219,8 +217,8 @@ class _FolksonomyEditTagContentTitleState
   @override
   Widget build(BuildContext context) {
     if (_animation == null) {
-      final SmoothColorsThemeExtension extension = context
-          .extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension =
+          context.extension<SmoothColorsThemeExtension>();
 
       _animation = ColorTween(
         begin: DefaultTextStyle.of(context).style.color,

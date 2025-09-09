@@ -18,11 +18,11 @@ class MockedScanner extends Scanner {
       String category, {
       int? eventValue,
       String? barcode,
-    })
-    trackCustomEvent,
+    }) trackCustomEvent,
     required bool hasMoreThanOneCamera,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
-  }) => Container();
+  }) =>
+      Container();
 }

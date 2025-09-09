@@ -14,8 +14,8 @@ class ValueEditionPreferenceTile extends PreferenceTile {
     this.hint,
     this.subtitleWithEmptyValue,
     this.validator,
-  }) : assert(dialogAction.length > 0),
-       super(subtitleText: dialogAction);
+  })  : assert(dialogAction.length > 0),
+        super(subtitleText: dialogAction);
 
   final String? value;
   final String? hint;

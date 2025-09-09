@@ -38,25 +38,25 @@ class ProductPicture extends StatefulWidget {
     WidgetBuilder? noImageBuilder,
     bool blurFilter = true,
   }) : this._(
-         transientFile: null,
-         product: product,
-         imageField: imageField,
-         language: language ?? ProductQuery.getLanguage(),
-         allowAlternativeLanguage: allowAlternativeLanguage,
-         size: size,
-         fallbackUrl: fallbackUrl,
-         heroTag: heroTag,
-         onTap: onTap,
-         borderRadius: borderRadius,
-         imageFoundBorder: imageFoundBorder,
-         imageNotFoundBorder: imageNotFoundBorder,
-         errorTextStyle: errorTextStyle,
-         showObsoleteIcon: showObsoleteIcon,
-         showOwnerIcon: showOwnerIcon,
-         noImageBuilder: noImageBuilder,
-         blurFilter: blurFilter,
-         imageProvider: null,
-       );
+          transientFile: null,
+          product: product,
+          imageField: imageField,
+          language: language ?? ProductQuery.getLanguage(),
+          allowAlternativeLanguage: allowAlternativeLanguage,
+          size: size,
+          fallbackUrl: fallbackUrl,
+          heroTag: heroTag,
+          onTap: onTap,
+          borderRadius: borderRadius,
+          imageFoundBorder: imageFoundBorder,
+          imageNotFoundBorder: imageNotFoundBorder,
+          errorTextStyle: errorTextStyle,
+          showObsoleteIcon: showObsoleteIcon,
+          showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
+          imageProvider: null,
+        );
 
   ProductPicture.fromTransientFile({
     required TransientFile transientFile,
@@ -77,25 +77,25 @@ class ProductPicture extends StatefulWidget {
     WidgetBuilder? noImageBuilder,
     bool blurFilter = true,
   }) : this._(
-         transientFile: transientFile,
-         product: product,
-         imageField: imageField,
-         language: language,
-         allowAlternativeLanguage: allowAlternativeLanguage,
-         size: size,
-         fallbackUrl: fallbackUrl,
-         heroTag: heroTag,
-         onTap: onTap,
-         borderRadius: borderRadius,
-         imageFoundBorder: imageFoundBorder,
-         imageNotFoundBorder: imageNotFoundBorder,
-         errorTextStyle: errorTextStyle,
-         showObsoleteIcon: showObsoleteIcon,
-         showOwnerIcon: showOwnerIcon,
-         noImageBuilder: noImageBuilder,
-         blurFilter: blurFilter,
-         imageProvider: null,
-       );
+          transientFile: transientFile,
+          product: product,
+          imageField: imageField,
+          language: language,
+          allowAlternativeLanguage: allowAlternativeLanguage,
+          size: size,
+          fallbackUrl: fallbackUrl,
+          heroTag: heroTag,
+          onTap: onTap,
+          borderRadius: borderRadius,
+          imageFoundBorder: imageFoundBorder,
+          imageNotFoundBorder: imageNotFoundBorder,
+          errorTextStyle: errorTextStyle,
+          showObsoleteIcon: showObsoleteIcon,
+          showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
+          imageProvider: null,
+        );
 
   ProductPicture.fromImageProvider({
     required ImageProvider imageProvider,
@@ -112,25 +112,25 @@ class ProductPicture extends StatefulWidget {
     WidgetBuilder? noImageBuilder,
     bool blurFilter = true,
   }) : this._(
-         imageProvider: imageProvider,
-         transientFile: null,
-         product: null,
-         imageField: null,
-         language: null,
-         allowAlternativeLanguage: false,
-         size: size,
-         fallbackUrl: fallbackUrl,
-         heroTag: heroTag,
-         onTap: onTap,
-         borderRadius: borderRadius,
-         imageFoundBorder: imageFoundBorder,
-         imageNotFoundBorder: imageNotFoundBorder,
-         errorTextStyle: errorTextStyle,
-         showObsoleteIcon: showObsoleteIcon,
-         showOwnerIcon: showOwnerIcon,
-         noImageBuilder: noImageBuilder,
-         blurFilter: blurFilter,
-       );
+          imageProvider: imageProvider,
+          transientFile: null,
+          product: null,
+          imageField: null,
+          language: null,
+          allowAlternativeLanguage: false,
+          size: size,
+          fallbackUrl: fallbackUrl,
+          heroTag: heroTag,
+          onTap: onTap,
+          borderRadius: borderRadius,
+          imageFoundBorder: imageFoundBorder,
+          imageNotFoundBorder: imageNotFoundBorder,
+          errorTextStyle: errorTextStyle,
+          showObsoleteIcon: showObsoleteIcon,
+          showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
+        );
 
   ProductPicture._({
     required this.product,
@@ -152,10 +152,10 @@ class ProductPicture extends StatefulWidget {
     this.showOwnerIcon = false,
     this.noImageBuilder,
     super.key,
-  }) : assert(imageFoundBorder >= 0.0),
-       assert(imageNotFoundBorder >= 0.0),
-       assert(heroTag == null || heroTag.isNotEmpty),
-       assert(size.width >= 0.0 && size.height >= 0.0);
+  })  : assert(imageFoundBorder >= 0.0),
+        assert(imageNotFoundBorder >= 0.0),
+        assert(heroTag == null || heroTag.isNotEmpty),
+        assert(size.width >= 0.0 && size.height >= 0.0);
 
   final Product? product;
   final ImageField? imageField;
@@ -223,13 +223,13 @@ class _ProductPictureState extends State<ProductPicture> {
 
       child = _ProductPictureAssetsSvg(
         asset: 'assets/product/product_error.svg',
-        semanticsLabel: appLocalizations
-            .product_image_error_accessibility_label(
-              widget.imageField?.getPictureAccessibilityLabel(
-                    appLocalizations,
-                  ) ??
-                  appLocalizations.product_image_front_accessibility_label,
-            ),
+        semanticsLabel:
+            appLocalizations.product_image_error_accessibility_label(
+          widget.imageField?.getPictureAccessibilityLabel(
+                appLocalizations,
+              ) ??
+              appLocalizations.product_image_front_accessibility_label,
+        ),
         text: appLocalizations.product_image_error,
         textStyle: TextStyle(
           color: context.extension<SmoothColorsThemeExtension>().error,
@@ -244,8 +244,7 @@ class _ProductPictureState extends State<ProductPicture> {
         imageProvider: imageProvider!.$1!,
         imageField: widget.imageField,
         outdated: imageProvider.$2,
-        locked:
-            widget.imageField != null &&
+        locked: widget.imageField != null &&
             widget.product?.isImageLocked(
                   widget.imageField!,
                   widget.language ?? ProductQuery.getLanguage(),
@@ -297,8 +296,8 @@ class _ProductPictureState extends State<ProductPicture> {
   Color? _getSplashColor(BuildContext context) {
     try {
       return context.read<ProductPageCompatibility>().color?.withValues(
-        alpha: 0.5,
-      );
+            alpha: 0.5,
+          );
     } catch (_) {
       return null;
     }
@@ -409,8 +408,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     final Widget image = Semantics(
-      label:
-          imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+      label: imageField?.getPictureAccessibilityLabel(appLocalizations) ??
           appLocalizations.product_image_front_accessibility_label,
       image: true,
       excludeSemantics: true,
@@ -517,18 +515,17 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       height: size.height,
       fit: BoxFit.contain,
       image: imageProvider,
-      loadingBuilder:
-          (
-            BuildContext context,
-            Widget child,
-            ImageChunkEvent? loadingProgress,
-          ) {
-            if (loadingProgress == null) {
-              return child;
-            }
+      loadingBuilder: (
+        BuildContext context,
+        Widget child,
+        ImageChunkEvent? loadingProgress,
+      ) {
+        if (loadingProgress == null) {
+          return child;
+        }
 
-            return _loadingPlaceholder(context);
-          },
+        return _loadingPlaceholder(context);
+      },
       errorBuilder: (_, _, _) {
         onError.call();
         return EMPTY_WIDGET;
@@ -552,14 +549,14 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
   }
 
   Widget _loadingPlaceholder(BuildContext context) => DecoratedBox(
-    decoration: BoxDecoration(
-      borderRadius: borderRadius,
-      border: border > 0.0
-          ? Border.all(color: Theme.of(context).dividerColor, width: 1.0)
-          : null,
-    ),
-    child: const Center(child: CircularProgressIndicator()),
-  );
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+          border: border > 0.0
+              ? Border.all(color: Theme.of(context).dividerColor, width: 1.0)
+              : null,
+        ),
+        child: const Center(child: CircularProgressIndicator()),
+      );
 }
 
 class _OutdatedProductPictureIcon extends StatelessWidget {
@@ -576,11 +573,11 @@ class _OutdatedProductPictureIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _ProductPictureIcon(
-      semanticsLabel: appLocalizations
-          .product_image_outdated_message_accessibility_label(
-            imageField?.getPictureAccessibilityLabel(appLocalizations) ??
-                appLocalizations.product_image_front_accessibility_label,
-          ),
+      semanticsLabel:
+          appLocalizations.product_image_outdated_message_accessibility_label(
+        imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+            appLocalizations.product_image_front_accessibility_label,
+      ),
       icon: const icons.Outdated(size: 15.0),
       padding: const EdgeInsetsDirectional.only(
         top: 4.5,
@@ -607,11 +604,11 @@ class _LockedProductPictureIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _ProductPictureIcon(
-      semanticsLabel: appLocalizations
-          .product_image_locked_message_accessibility_label(
-            imageField?.getPictureAccessibilityLabel(appLocalizations) ??
-                appLocalizations.product_image_front_accessibility_label,
-          ),
+      semanticsLabel:
+          appLocalizations.product_image_locked_message_accessibility_label(
+        imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+            appLocalizations.product_image_front_accessibility_label,
+      ),
       icon: IconTheme.merge(
         data: const IconThemeData(size: 16.0),
         child: const OwnerFieldIcon(),
@@ -671,8 +668,8 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
     this.imageOverride,
     this.borderRadius,
     this.border = 0.0,
-  }) : assert(asset.isNotEmpty),
-       assert(size.width > 0.0 && size.height > 0.0);
+  })  : assert(asset.isNotEmpty),
+        assert(size.width > 0.0 && size.height > 0.0);
 
   final String asset;
   final String semanticsLabel;
@@ -695,8 +692,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Positioned.fill(
-              child:
-                  imageOverride?.call(context) ??
+              child: imageOverride?.call(context) ??
                   SvgPicture.asset(
                     asset,
                     width: size.width,
@@ -724,10 +720,9 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
                   borderRadius: borderRadius,
                   border: border > 0.0
                       ? Border.all(
-                          color:
-                              (textStyle?.color ??
-                                      Theme.of(context).dividerColor)
-                                  .withValues(alpha: 0.2),
+                          color: (textStyle?.color ??
+                                  Theme.of(context).dividerColor)
+                              .withValues(alpha: 0.2),
                           width: 1.0,
                         )
                       : null,

@@ -63,9 +63,9 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
                   Text(
                     _appLocalizations.error_occurred,
                     style: Theme.of(context).textTheme.bodyMedium?.apply(
-                      fontWeightDelta: 500,
-                      color: Colors.red,
-                    ),
+                          fontWeightDelta: 500,
+                          color: Colors.red,
+                        ),
                   ),
                   const SizedBox(height: VERY_LARGE_SPACE),
                   Text(

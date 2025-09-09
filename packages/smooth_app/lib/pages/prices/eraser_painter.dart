@@ -35,8 +35,7 @@ class EraserPainter extends CustomPainter {
     if (cropRect == null) {
       _paint.strokeWidth = _strokeWidthFactor * sqrt(size.width * size.height);
     } else {
-      _paint.strokeWidth =
-          _strokeWidthFactor *
+      _paint.strokeWidth = _strokeWidthFactor *
           sqrt(size.width * size.height / cropRect!.width / cropRect!.height);
     }
 

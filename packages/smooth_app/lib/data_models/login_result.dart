@@ -21,10 +21,9 @@ class LoginResult {
         LoginResultType.unsuccessful => appLocalizations.incorrect_credentials,
         LoginResultType.serverIssue =>
           appLocalizations.login_result_type_server_issue,
-        LoginResultType.exception =>
-          isNoNetworkException(text!)
-              ? appLocalizations.login_result_type_server_unreachable
-              : text!,
+        LoginResultType.exception => isNoNetworkException(text!)
+            ? appLocalizations.login_result_type_server_unreachable
+            : text!,
       };
 
   static bool isNoNetworkException(final String text) =>
@@ -37,8 +36,7 @@ class LoginResult {
     final UserPreferences userPreferences,
   ) async {
     try {
-      final bool prodUrl =
-          userPreferences.getFlag(
+      final bool prodUrl = userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagProd,
           ) ??
           true;

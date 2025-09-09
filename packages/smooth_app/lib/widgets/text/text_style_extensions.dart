@@ -29,14 +29,15 @@ class WellSpacedTextHelper {
     TextOverflow? overflow,
     int? maxLines,
     TextWidthBasis? textWidthBasis,
-  }) => DefaultTextStyle.merge(
-    child: child,
-    key: key,
-    style: style ?? const TextStyle(height: _WELL_SPACED_TEXT_HEIGHT),
-    textAlign: textAlign,
-    softWrap: softWrap,
-    overflow: overflow,
-    maxLines: maxLines,
-    textWidthBasis: textWidthBasis,
-  );
+  }) =>
+      DefaultTextStyle.merge(
+        child: child,
+        key: key,
+        style: style ?? const TextStyle(height: _WELL_SPACED_TEXT_HEIGHT),
+        textAlign: textAlign,
+        softWrap: softWrap,
+        overflow: overflow,
+        maxLines: maxLines,
+        textWidthBasis: textWidthBasis,
+      );
 }

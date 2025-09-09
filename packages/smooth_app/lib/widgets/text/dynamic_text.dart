@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 
 /// A simple implementation that checks if the [child] fits the bounds.
 /// If not, it will use the [replacement].
-class SmoothDynamicLayout
-    extends
-        SlottedMultiChildRenderObjectWidget<_SmoothDynamicLayoutId, RenderBox> {
+class SmoothDynamicLayout extends SlottedMultiChildRenderObjectWidget<
+    _SmoothDynamicLayoutId, RenderBox> {
   const SmoothDynamicLayout({
     required this.child,
     required this.replacement,
@@ -18,19 +17,20 @@ class SmoothDynamicLayout
 
   @override
   Widget? childForSlot(_SmoothDynamicLayoutId slot) => switch (slot) {
-    _SmoothDynamicLayoutId.child => child,
-    _SmoothDynamicLayoutId.replacement => replacement,
-  };
+        _SmoothDynamicLayoutId.child => child,
+        _SmoothDynamicLayoutId.replacement => replacement,
+      };
 
   @override
   SlottedContainerRenderObjectMixin<_SmoothDynamicLayoutId, RenderBox>
-  createRenderObject(BuildContext context) => _SmoothDynamicTextRenderObject();
+      createRenderObject(BuildContext context) =>
+          _SmoothDynamicTextRenderObject();
 
   @override
   Iterable<_SmoothDynamicLayoutId> get slots => const <_SmoothDynamicLayoutId>[
-    _SmoothDynamicLayoutId.child,
-    _SmoothDynamicLayoutId.replacement,
-  ];
+        _SmoothDynamicLayoutId.child,
+        _SmoothDynamicLayoutId.replacement,
+      ];
 }
 
 enum _SmoothDynamicLayoutId { child, replacement }

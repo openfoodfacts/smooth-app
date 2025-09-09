@@ -76,7 +76,7 @@ class BarcodeAnimation extends StatelessWidget {
 
 class CloudUploadAnimation extends StatelessWidget {
   const CloudUploadAnimation({required this.size, this.color, super.key})
-    : _circleColor = null;
+      : _circleColor = null;
 
   const CloudUploadAnimation.circle({
     required this.size,
@@ -132,10 +132,10 @@ class CloudUploadAnimation extends StatelessWidget {
 
 class DoubleChevronAnimation extends StatefulWidget {
   const DoubleChevronAnimation.animate({this.size, super.key})
-    : animated = true;
+      : animated = true;
 
   const DoubleChevronAnimation.stopped({this.size, super.key})
-    : animated = false;
+      : animated = false;
 
   final double? size;
   final bool animated;

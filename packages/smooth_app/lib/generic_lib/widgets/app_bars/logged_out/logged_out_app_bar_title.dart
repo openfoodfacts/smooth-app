@@ -11,8 +11,8 @@ class LoggedOutAppBarTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return FlexibleSpaceBar(

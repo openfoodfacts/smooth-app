@@ -48,8 +48,7 @@ class KnowledgePanelCard extends StatelessWidget {
 
     // in some cases there's nothing to click about.
     // cf. https://github.com/openfoodfacts/smooth-app/issues/5700
-    final bool improvedIsClickable =
-        isClickable &&
+    final bool improvedIsClickable = isClickable &&
         KnowledgePanelsBuilder.hasSomethingToDisplay(product, panelId);
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(vertical: SMALL_SPACE),
@@ -58,21 +57,20 @@ class KnowledgePanelCard extends StatelessWidget {
         onTap: !improvedIsClickable
             ? null
             : () async => Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => SmoothBrightnessOverride(
-                    brightness: SmoothBrightnessOverride.of(
-                      context,
-                    )?.brightness,
-                    child: KnowledgePanelPage(
-                      panelId: panelId,
-                      product: product,
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => SmoothBrightnessOverride(
+                      brightness: SmoothBrightnessOverride.of(
+                        context,
+                      )?.brightness,
+                      child: KnowledgePanelPage(
+                        panelId: panelId,
+                        product: product,
+                      ),
                     ),
                   ),
                 ),
-              ),
-        child:
-            KnowledgePanelsBuilder.getPanelSummaryWidget(
+        child: KnowledgePanelsBuilder.getPanelSummaryWidget(
               panel,
               isClickable: improvedIsClickable,
               margin: EdgeInsets.zero,

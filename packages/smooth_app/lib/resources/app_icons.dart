@@ -219,8 +219,8 @@ class Arrow extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 0,
-       super._(_IconsFont.arrow_right);
+  })  : turns = 0,
+        super._(_IconsFont.arrow_right);
 
   const Arrow.left({
     super.color,
@@ -228,8 +228,8 @@ class Arrow extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 2,
-       super._(_IconsFont.arrow_right);
+  })  : turns = 2,
+        super._(_IconsFont.arrow_right);
 
   const Arrow.down({
     super.color,
@@ -237,8 +237,8 @@ class Arrow extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 1,
-       super._(_IconsFont.arrow_right);
+  })  : turns = 1,
+        super._(_IconsFont.arrow_right);
 
   const Arrow.up({
     super.color,
@@ -246,8 +246,8 @@ class Arrow extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 3,
-       super._(_IconsFont.arrow_right);
+  })  : turns = 3,
+        super._(_IconsFont.arrow_right);
 
   final int turns;
 
@@ -384,8 +384,8 @@ class Chevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 2,
-       super._(_IconsFont.chevron_right);
+  })  : turns = 2,
+        super._(_IconsFont.chevron_right);
 
   const Chevron.right({
     super.color,
@@ -393,8 +393,8 @@ class Chevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 0,
-       super._(_IconsFont.chevron_right);
+  })  : turns = 0,
+        super._(_IconsFont.chevron_right);
 
   const Chevron.up({
     super.color,
@@ -402,8 +402,8 @@ class Chevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 2,
-       super._(_IconsFont.chevron_down);
+  })  : turns = 2,
+        super._(_IconsFont.chevron_down);
 
   const Chevron.down({
     super.color,
@@ -411,8 +411,8 @@ class Chevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 0,
-       super._(_IconsFont.chevron_down);
+  })  : turns = 0,
+        super._(_IconsFont.chevron_down);
 
   final int turns;
 
@@ -433,16 +433,16 @@ class CircledArrow extends AppIcon {
     String? semanticLabel,
     Key? key,
   }) : this._base(
-         type: type,
-         turns: 0,
-         circleColor: circleColor,
-         color: color,
-         size: size,
-         padding: padding,
-         shadow: shadow,
-         semanticLabel: semanticLabel,
-         key: key,
-       );
+          type: type,
+          turns: 0,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          padding: padding,
+          shadow: shadow,
+          semanticLabel: semanticLabel,
+          key: key,
+        );
 
   const CircledArrow.left({
     CircledArrowType? type,
@@ -454,16 +454,16 @@ class CircledArrow extends AppIcon {
     String? semanticLabel,
     Key? key,
   }) : this._base(
-         type: type,
-         turns: 2,
-         circleColor: circleColor,
-         color: color,
-         size: size,
-         padding: padding,
-         shadow: shadow,
-         semanticLabel: semanticLabel,
-         key: key,
-       );
+          type: type,
+          turns: 2,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          padding: padding,
+          shadow: shadow,
+          semanticLabel: semanticLabel,
+          key: key,
+        );
 
   const CircledArrow.down({
     CircledArrowType? type,
@@ -475,16 +475,16 @@ class CircledArrow extends AppIcon {
     String? semanticLabel,
     Key? key,
   }) : this._base(
-         type: type,
-         turns: 1,
-         circleColor: circleColor,
-         color: color,
-         size: size,
-         padding: padding,
-         shadow: shadow,
-         semanticLabel: semanticLabel,
-         key: key,
-       );
+          type: type,
+          turns: 1,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          padding: padding,
+          shadow: shadow,
+          semanticLabel: semanticLabel,
+          key: key,
+        );
 
   const CircledArrow.up({
     CircledArrowType? type,
@@ -496,16 +496,16 @@ class CircledArrow extends AppIcon {
     String? semanticLabel,
     Key? key,
   }) : this._base(
-         type: type,
-         turns: 3,
-         circleColor: circleColor,
-         color: color,
-         size: size,
-         padding: padding,
-         shadow: shadow,
-         semanticLabel: semanticLabel,
-         key: key,
-       );
+          type: type,
+          turns: 3,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          padding: padding,
+          shadow: shadow,
+          semanticLabel: semanticLabel,
+          key: key,
+        );
 
   const CircledArrow._base({
     required this.turns,
@@ -517,18 +517,18 @@ class CircledArrow extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : assert(
-         (circleColor == null &&
-                 (type == null || type == CircledArrowType.thin)) ||
-             (circleColor != null && type == CircledArrowType.normal),
-         'circleColor is only supported and must be provided when type = CircledArrowType.normal',
-       ),
-       type = type ?? CircledArrowType.thin,
-       super._(
-         type == CircledArrowType.thin
-             ? _IconsFont.circled_arrow
-             : _IconsFont.arrow_right,
-       );
+  })  : assert(
+          (circleColor == null &&
+                  (type == null || type == CircledArrowType.thin)) ||
+              (circleColor != null && type == CircledArrowType.normal),
+          'circleColor is only supported and must be provided when type = CircledArrowType.normal',
+        ),
+        type = type ?? CircledArrowType.thin,
+        super._(
+          type == CircledArrowType.thin
+              ? _IconsFont.circled_arrow
+              : _IconsFont.arrow_right,
+        );
 
   final int turns;
   final CircledArrowType type;
@@ -784,8 +784,8 @@ class DoubleChevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 3,
-       super._(_IconsFont.double_chevron);
+  })  : turns = 3,
+        super._(_IconsFont.double_chevron);
 
   const DoubleChevron.right({
     super.color,
@@ -793,8 +793,8 @@ class DoubleChevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 1,
-       super._(_IconsFont.double_chevron);
+  })  : turns = 1,
+        super._(_IconsFont.double_chevron);
 
   const DoubleChevron.up({
     super.color,
@@ -802,8 +802,8 @@ class DoubleChevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 0,
-       super._(_IconsFont.double_chevron);
+  })  : turns = 0,
+        super._(_IconsFont.double_chevron);
 
   const DoubleChevron.down({
     super.color,
@@ -811,8 +811,8 @@ class DoubleChevron extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 2,
-       super._(_IconsFont.double_chevron);
+  })  : turns = 2,
+        super._(_IconsFont.double_chevron);
 
   final int turns;
 
@@ -1743,8 +1743,8 @@ class ThreeDots extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 0,
-       super._(_IconsFont.dots_vertical);
+  })  : turns = 0,
+        super._(_IconsFont.dots_vertical);
 
   const ThreeDots.horizontal({
     super.color,
@@ -1752,8 +1752,8 @@ class ThreeDots extends AppIcon {
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : turns = 1,
-       super._(_IconsFont.dots_vertical);
+  })  : turns = 1,
+        super._(_IconsFont.dots_vertical);
 
   final int turns;
 
@@ -1847,9 +1847,9 @@ abstract class AppIcon extends StatelessWidget {
     double? size,
     this.semanticLabel,
     super.key,
-  }) : _size = size,
-       _color = color,
-       assert(size == null || size >= 0);
+  })  : _size = size,
+        _color = color,
+        assert(size == null || size >= 0);
 
   final IconData icon;
   final Color? _color;
@@ -1868,10 +1868,9 @@ abstract class AppIcon extends StatelessWidget {
     final IconThemeData iconThemeData = IconTheme.of(context);
     final Color? color = switch (this.color) {
       Color _ => this.color,
-      _ =>
-        iconTheme?.color ??
-            iconThemeData.color ??
-            Theme.of(context).iconTheme.color,
+      _ => iconTheme?.color ??
+          iconThemeData.color ??
+          Theme.of(context).iconTheme.color,
     };
 
     return Icon(
@@ -1882,8 +1881,8 @@ abstract class AppIcon extends StatelessWidget {
       shadows: shadow != null
           ? <Shadow>[shadow!]
           : iconTheme?.shadow != null
-          ? <Shadow>[iconTheme!.shadow!]
-          : null,
+              ? <Shadow>[iconTheme!.shadow!]
+              : null,
     );
   }
 

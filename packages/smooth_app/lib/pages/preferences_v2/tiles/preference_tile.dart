@@ -16,16 +16,16 @@ class PreferenceTile extends StatelessWidget {
     this.trailing,
     this.onTap,
     super.key,
-  }) : assert(
-         (subtitleText != null && subtitle == null) ||
-             (subtitleText == null && subtitle != null) ||
-             (subtitleText == null && subtitle == null),
-         'Either subtitleText or subtitle must be provided, not both.',
-       ),
-       assert(
-         leading == null || icon == null,
-         'Either leading or icon must be provided.',
-       );
+  })  : assert(
+          (subtitleText != null && subtitle == null) ||
+              (subtitleText == null && subtitle != null) ||
+              (subtitleText == null && subtitle == null),
+          'Either subtitleText or subtitle must be provided, not both.',
+        ),
+        assert(
+          leading == null || icon == null,
+          'Either leading or icon must be provided.',
+        );
 
   final Widget? leading;
   final IconData? icon;
@@ -42,9 +42,8 @@ class PreferenceTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    final Color color = context.lightTheme()
-        ? theme.primaryColor
-        : Colors.white;
+    final Color color =
+        context.lightTheme() ? theme.primaryColor : Colors.white;
 
     return ListTile(
       leading: leading ?? (icon != null ? Icon(icon, color: color) : null),
@@ -52,8 +51,7 @@ class PreferenceTile extends StatelessWidget {
         title,
         style: TextStyle(color: color, fontWeight: FontWeight.bold),
       ),
-      subtitle:
-          subtitle ??
+      subtitle: subtitle ??
           (subtitleText != null
               ? Text(
                   subtitleText!,
@@ -64,7 +62,6 @@ class PreferenceTile extends StatelessWidget {
                 )
               : null),
       trailing: trailing,
-
       onTap: onTap,
     );
   }

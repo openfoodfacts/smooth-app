@@ -42,8 +42,8 @@ class FimberLogImpl implements AppLogService {
   }
 
   Future<File> get _fileName => _filesDirectory.then(
-    (Directory dir) => File(join(dir.absolute.path, 'app_logs.log')),
-  );
+        (Directory dir) => File(join(dir.absolute.path, 'app_logs.log')),
+      );
 
   Future<Directory> get _filesDirectory => getApplicationSupportDirectory()
       .then((Directory dir) => Directory(join(dir.absolute.path, 'logs')))
@@ -124,10 +124,8 @@ class FimberLogImpl implements AppLogService {
   String _getFimberLogLevel(LogLevel level) => level.fimberLevel;
 
   String get _defaultTag {
-    final String tag = StackTrace.current
-        .toString()
-        .split('\n')[4]
-        .split('.')[0];
+    final String tag =
+        StackTrace.current.toString().split('\n')[4].split('.')[0];
 
     // Some tags looks like "#1    some text" -> we only use "some text"
     if (tag.startsWith('#')) {

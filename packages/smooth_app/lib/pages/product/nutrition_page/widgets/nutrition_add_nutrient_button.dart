@@ -29,8 +29,8 @@ class NutritionAddNutrientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(
@@ -107,8 +107,8 @@ Future<void> _openNutrientSelectorModalSheet(
 ) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  final NutritionContainerHelper nutritionContainer = context
-      .read<NutritionContainerHelper>();
+  final NutritionContainerHelper nutritionContainer =
+      context.read<NutritionContainerHelper>();
   final List<OrderedNutrient> leftovers = List<OrderedNutrient>.from(
     nutritionContainer.getLeftoverNutrients(),
   );
@@ -122,16 +122,16 @@ Future<void> _openNutrientSelectorModalSheet(
 
   final OrderedNutrient? selected =
       await showSmoothModalSheetForTextField<OrderedNutrient>(
-        context: context,
-        header: SmoothModalSheetHeader(
-          title: appLocalizations.nutrition_page_add_nutrient,
-          prefix: const SmoothModalSheetHeaderPrefixIndicator(),
-          suffix: const SmoothModalSheetHeaderCloseButton(),
-        ),
-        bodyBuilder: (BuildContext context) {
-          return _NutrientList(list: filteredList);
-        },
-      );
+    context: context,
+    header: SmoothModalSheetHeader(
+      title: appLocalizations.nutrition_page_add_nutrient,
+      prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+      suffix: const SmoothModalSheetHeaderCloseButton(),
+    ),
+    bodyBuilder: (BuildContext context) {
+      return _NutrientList(list: filteredList);
+    },
+  );
 
   if (selected != null) {
     nutritionContainer.add(selected);

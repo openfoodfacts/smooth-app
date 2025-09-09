@@ -66,36 +66,37 @@ enum ProductImageButtonType {
     required final bool isLoggedInMandatory,
     required bool imageExists,
     final double? borderWidth,
-  }) => switch (this) {
-    ProductImageButtonType.local => ProductImageLocalButton(
-      product: product,
-      imageField: imageField,
-      language: language,
-      isLoggedInMandatory: isLoggedInMandatory,
-      borderWidth: borderWidth,
-      imageExists: imageExists,
-    ),
-    ProductImageButtonType.server => ProductImageServerButton(
-      product: product,
-      imageField: imageField,
-      language: language,
-      isLoggedInMandatory: isLoggedInMandatory,
-      borderWidth: borderWidth,
-    ),
-    ProductImageButtonType.unselect => ProductImageUnselectButton(
-      product: product,
-      productType: product.productType,
-      imageField: imageField,
-      language: language,
-      isLoggedInMandatory: isLoggedInMandatory,
-      borderWidth: borderWidth,
-    ),
-    ProductImageButtonType.edit => ProductImageCropButton(
-      product: product,
-      imageField: imageField,
-      language: language,
-      isLoggedInMandatory: isLoggedInMandatory,
-      borderWidth: borderWidth,
-    ),
-  };
+  }) =>
+      switch (this) {
+        ProductImageButtonType.local => ProductImageLocalButton(
+            product: product,
+            imageField: imageField,
+            language: language,
+            isLoggedInMandatory: isLoggedInMandatory,
+            borderWidth: borderWidth,
+            imageExists: imageExists,
+          ),
+        ProductImageButtonType.server => ProductImageServerButton(
+            product: product,
+            imageField: imageField,
+            language: language,
+            isLoggedInMandatory: isLoggedInMandatory,
+            borderWidth: borderWidth,
+          ),
+        ProductImageButtonType.unselect => ProductImageUnselectButton(
+            product: product,
+            productType: product.productType,
+            imageField: imageField,
+            language: language,
+            isLoggedInMandatory: isLoggedInMandatory,
+            borderWidth: borderWidth,
+          ),
+        ProductImageButtonType.edit => ProductImageCropButton(
+            product: product,
+            imageField: imageField,
+            language: language,
+            isLoggedInMandatory: isLoggedInMandatory,
+            borderWidth: borderWidth,
+          ),
+      };
 }

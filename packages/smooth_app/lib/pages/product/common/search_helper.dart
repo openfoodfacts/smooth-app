@@ -36,13 +36,15 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
   Future<void> addQuery(
     final LocalDatabase localDatabase,
     final String query,
-  ) async => DaoStringList(localDatabase).add(historyKey, query);
+  ) async =>
+      DaoStringList(localDatabase).add(historyKey, query);
 
   /// Removes a query from the history.
   Future<bool> removeQuery(
     final LocalDatabase localDatabase,
     final String query,
-  ) async => DaoStringList(localDatabase).remove(historyKey, query);
+  ) async =>
+      DaoStringList(localDatabase).remove(historyKey, query);
 
   /// Typical search when we have a controller+focus.
   void searchWithController(
@@ -50,19 +52,20 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
     String query,
     TextEditingController controller,
     FocusNode focusNode,
-  ) => search(
-    context,
-    query,
-    searchQueryCallback: (String query) {
-      controller.text = query;
-      focusNode.requestFocus();
-    },
-  );
+  ) =>
+      search(
+        context,
+        query,
+        searchQueryCallback: (String query) {
+          controller.text = query;
+          focusNode.requestFocus();
+        },
+      );
 }
 
 class SearchQuery {
   const SearchQuery({required this.search, required this.widget})
-    : assert(search.length > 0);
+      : assert(search.length > 0);
 
   final String search;
   final Widget widget;

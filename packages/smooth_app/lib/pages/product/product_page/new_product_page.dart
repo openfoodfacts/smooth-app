@@ -137,8 +137,7 @@ class ProductPageState extends State<ProductPage>
             ),
             SliverToBoxAdapter(
               child: HeroMode(
-                enabled:
-                    widget.withHeroAnimation &&
+                enabled: widget.withHeroAnimation &&
                     widget.heroTag?.isNotEmpty == true,
                 child: SummaryCard(
                   upToDateProduct,
@@ -199,8 +198,8 @@ class ProductPageState extends State<ProductPage>
   }
 
   static ProductPageState of(BuildContext context) {
-    final ProductPageState? result = context
-        .findAncestorStateOfType<ProductPageState>();
+    final ProductPageState? result =
+        context.findAncestorStateOfType<ProductPageState>();
     assert(result != null, 'No ProductPageState found in context');
     return result!;
   }
@@ -210,10 +209,10 @@ class ProductPageCompatibility {
   ProductPageCompatibility({
     required Color color,
     required MatchedProductV2 matchedProductV2,
-  }) : _color = color,
-       score = ProductCompatibilityHelper.product(
-         matchedProductV2,
-       ).getFormattedScore();
+  })  : _color = color,
+        score = ProductCompatibilityHelper.product(
+          matchedProductV2,
+        ).getFormattedScore();
 
   final Color _color;
   final String? score;

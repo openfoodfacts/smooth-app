@@ -15,19 +15,21 @@ class PriceCategoryRepository
   @override
   Map<OpenFoodFactsLanguage, String>? getTaxonomyNames(
     final TaxonomyCategory item,
-  ) => item.name;
+  ) =>
+      item.name;
 
   @protected
   @override
   Future<Map<String, TaxonomyCategory>?> download(
     final List<String> tags,
-  ) async => OpenFoodAPIClient.getTaxonomyCategories(
-    TaxonomyCategoryQueryConfiguration(
-      tags: tags,
-      country: getCountry(),
-      languages: <OpenFoodFactsLanguage>[getLanguage()],
-      fields: <TaxonomyCategoryField>[TaxonomyCategoryField.NAME],
-      includeChildren: false,
-    ),
-  );
+  ) async =>
+      OpenFoodAPIClient.getTaxonomyCategories(
+        TaxonomyCategoryQueryConfiguration(
+          tags: tags,
+          country: getCountry(),
+          languages: <OpenFoodFactsLanguage>[getLanguage()],
+          fields: <TaxonomyCategoryField>[TaxonomyCategoryField.NAME],
+          includeChildren: false,
+        ),
+      );
 }

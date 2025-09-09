@@ -17,8 +17,8 @@ class AppBarStatisticsCard extends StatefulWidget {
     required this.lazyCounter,
     this.autoSizeGroup,
     super.key,
-  }) : assert(imagePath.isNotEmpty, 'imagePath must not be empty.'),
-       assert(description.isNotEmpty, 'description must not be empty.');
+  })  : assert(imagePath.isNotEmpty, 'imagePath must not be empty.'),
+        assert(description.isNotEmpty, 'description must not be empty.');
 
   final String imagePath;
   final String description;
@@ -34,8 +34,8 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     final int? count = widget.lazyCounter.getLocalCount(userPreferences);

@@ -126,8 +126,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                 ),
                 backgroundColor: context.lightTheme()
                     ? context
-                          .extension<SmoothColorsThemeExtension>()
-                          .primaryLight
+                        .extension<SmoothColorsThemeExtension>()
+                        .primaryLight
                     : null,
                 body: SingleChildScrollView(
                   controller: _scrollController,
@@ -142,8 +142,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                         onLocationChanged:
                             (OsmLocation? oldLocation, OsmLocation location) =>
                                 PriceAddHelper(
-                                  context,
-                                ).updateCurrency(oldLocation, location, model),
+                          context,
+                        ).updateCurrency(oldLocation, location, model),
                       ),
                       const SizedBox(height: LARGE_SPACE),
                       const PriceCurrencyCard(),
@@ -205,13 +205,13 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     }
 
     if (!saving) {
-      final bool? pleaseSave = await MayExitPageHelper()
-          .openSaveBeforeLeavingDialog(
-            context,
-            title: AppLocalizations.of(
-              context,
-            ).prices_add_n_prices(model.length),
-          );
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(
+        context,
+        title: AppLocalizations.of(
+          context,
+        ).prices_add_n_prices(model.length),
+      );
       if (pleaseSave == null) {
         return false;
       }

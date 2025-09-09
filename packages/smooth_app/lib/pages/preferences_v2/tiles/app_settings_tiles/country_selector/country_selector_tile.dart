@@ -40,27 +40,23 @@ class CountrySelectorTile extends PreferenceTile {
         builder: (BuildContext context, _CountrySelectorProvider provider, _) {
           return switch (provider.value) {
             PreferencesSelectorLoadingState<Country> _ => const SizedBox(
-              height: 20.0,
-              child: Center(child: CircularProgressIndicator.adaptive()),
-            ),
+                height: 20.0,
+                child: Center(child: CircularProgressIndicator.adaptive()),
+              ),
             PreferencesSelectorLoadedState<Country> _ =>
-              ConsumerValueNotifierFilter<
-                _CountrySelectorProvider,
-                PreferencesSelectorState<Country>
-              >(
-                buildWhen:
-                    (
-                      PreferencesSelectorState<Country>? previousValue,
-                      PreferencesSelectorState<Country> currentValue,
-                    ) =>
-                        previousValue != null &&
-                        currentValue is! PreferencesSelectorEditingState &&
-                        (currentValue
-                                    as PreferencesSelectorLoadedState<Country>)
-                                .selectedItem !=
-                            (previousValue
-                                    as PreferencesSelectorLoadedState<Country>)
-                                .selectedItem,
+              ConsumerValueNotifierFilter<_CountrySelectorProvider,
+                  PreferencesSelectorState<Country>>(
+                buildWhen: (
+                  PreferencesSelectorState<Country>? previousValue,
+                  PreferencesSelectorState<Country> currentValue,
+                ) =>
+                    previousValue != null &&
+                    currentValue is! PreferencesSelectorEditingState &&
+                    (currentValue as PreferencesSelectorLoadedState<Country>)
+                            .selectedItem !=
+                        (previousValue
+                                as PreferencesSelectorLoadedState<Country>)
+                            .selectedItem,
                 builder: (_, PreferencesSelectorState<Country> value, _) {
                   final Country? country =
                       (value as PreferencesSelectorLoadedState<Country>)
@@ -106,38 +102,37 @@ class CountrySelectorTile extends PreferenceTile {
   }
 
   Future<void> _openCountrySelector(BuildContext context) async {
-    final dynamic newCountry = await Navigator.of(context, rootNavigator: true)
-        .push(
-          PageRouteBuilder<dynamic>(
-            pageBuilder: (_, _, _) => _CountrySelectorScreen(
-              provider: context.read<_CountrySelectorProvider>(),
-            ),
-            transitionsBuilder:
-                (
-                  BuildContext context,
-                  Animation<double> animation,
-                  Animation<double> secondaryAnimation,
-                  Widget child,
-                ) {
-                  final Tween<Offset> tween = Tween<Offset>(
-                    begin: const Offset(0.0, 1.0),
-                    end: Offset.zero,
-                  );
-                  final CurvedAnimation curvedAnimation = CurvedAnimation(
-                    parent: animation,
-                    curve: Curves.easeInOut,
-                  );
-                  final Animation<Offset> position = tween.animate(
-                    curvedAnimation,
-                  );
+    final dynamic newCountry =
+        await Navigator.of(context, rootNavigator: true).push(
+      PageRouteBuilder<dynamic>(
+        pageBuilder: (_, _, _) => _CountrySelectorScreen(
+          provider: context.read<_CountrySelectorProvider>(),
+        ),
+        transitionsBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+        ) {
+          final Tween<Offset> tween = Tween<Offset>(
+            begin: const Offset(0.0, 1.0),
+            end: Offset.zero,
+          );
+          final CurvedAnimation curvedAnimation = CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeInOut,
+          );
+          final Animation<Offset> position = tween.animate(
+            curvedAnimation,
+          );
 
-                  return SlideTransition(
-                    position: position,
-                    child: FadeTransition(opacity: animation, child: child),
-                  );
-                },
-          ),
-        );
+          return SlideTransition(
+            position: position,
+            child: FadeTransition(opacity: animation, child: child),
+          );
+        },
+      ),
+    );
 
     if (!context.mounted) {
       return;
@@ -211,54 +206,53 @@ class _CountrySelectorScreen extends StatelessWidget {
     return SmoothSelectorScreen<Country>(
       provider: provider,
       title: appLocalizations.country_selector_title,
-      itemBuilder:
-          (
-            BuildContext context,
-            Country country,
-            bool selected,
-            String filter,
-          ) {
-            return Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    EmojiHelper.getCountryEmoji(country)!,
-                    style: const TextStyle(fontSize: 25.0),
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    country.offTag.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Expanded(
-                  flex: 7,
-                  child: TextHighlighter(
-                    text: country.name,
-                    filter: filter,
-                    textStyle: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ],
-            );
-          },
-      itemsFilter:
-          (
-            List<Country> list,
-            Country? selectedItem,
-            Country? selectedItemOverride,
-            String filter,
-          ) => _filterCountries(
-            list,
-            selectedItem,
-            selectedItemOverride,
-            filter,
-          ),
+      itemBuilder: (
+        BuildContext context,
+        Country country,
+        bool selected,
+        String filter,
+      ) {
+        return Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Text(
+                EmojiHelper.getCountryEmoji(country)!,
+                style: const TextStyle(fontSize: 25.0),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Text(
+                country.offTag.toUpperCase(),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Expanded(
+              flex: 7,
+              child: TextHighlighter(
+                text: country.name,
+                filter: filter,
+                textStyle: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+          ],
+        );
+      },
+      itemsFilter: (
+        List<Country> list,
+        Country? selectedItem,
+        Country? selectedItemOverride,
+        String filter,
+      ) =>
+          _filterCountries(
+        list,
+        selectedItem,
+        selectedItemOverride,
+        filter,
+      ),
     );
   }
 

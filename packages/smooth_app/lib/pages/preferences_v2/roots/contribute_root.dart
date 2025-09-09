@@ -29,9 +29,8 @@ class ContributeRoot extends PreferencesRoot {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OpenFoodFactsCountry country = ProductQuery.getCountry();
 
-    final Color iconColor = context.lightTheme()
-        ? theme.primaryColor
-        : Colors.white;
+    final Color iconColor =
+        context.lightTheme() ? theme.primaryColor : Colors.white;
 
     return <PreferenceCard>[
       PreferenceCard(
@@ -186,83 +185,87 @@ class ContributeRoot extends PreferencesRoot {
   }
 
   Future<void> _develop(BuildContext context) => showDialog<void>(
-    context: context,
-    builder: (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      final UserPreferences userPreferences = context.watch<UserPreferences>();
-      return SmoothAlertDialog(
-        title: appLocalizations.contribute_sw_development,
-        body: Column(
-          children: <Widget>[
-            Text(appLocalizations.contribute_develop_text),
-            const SizedBox(height: VERY_LARGE_SPACE),
-            Text(appLocalizations.contribute_develop_text_2),
-            const SizedBox(height: BALANCED_SPACE),
-            SmoothAlertContentButton(
-              label: 'Slack',
-              icon: Icons.open_in_new,
-              onPressed: () async =>
-                  LaunchUrlHelper.launchURL('https://slack.openfoodfacts.org/'),
+        context: context,
+        builder: (BuildContext context) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          final UserPreferences userPreferences =
+              context.watch<UserPreferences>();
+          return SmoothAlertDialog(
+            title: appLocalizations.contribute_sw_development,
+            body: Column(
+              children: <Widget>[
+                Text(appLocalizations.contribute_develop_text),
+                const SizedBox(height: VERY_LARGE_SPACE),
+                Text(appLocalizations.contribute_develop_text_2),
+                const SizedBox(height: BALANCED_SPACE),
+                SmoothAlertContentButton(
+                  label: 'Slack',
+                  icon: Icons.open_in_new,
+                  onPressed: () async => LaunchUrlHelper.launchURL(
+                      'https://slack.openfoodfacts.org/'),
+                ),
+                const SizedBox(height: SMALL_SPACE),
+                SmoothAlertContentButton(
+                  label: 'GitHub',
+                  icon: Icons.open_in_new,
+                  onPressed: () async => LaunchUrlHelper.launchURL(
+                      'https://github.com/openfoodfacts'),
+                ),
+                const SizedBox(height: BALANCED_SPACE),
+                SwitchListTile.adaptive(
+                  title:
+                      Text(appLocalizations.contribute_develop_dev_mode_title),
+                  subtitle: Text(
+                    appLocalizations.contribute_develop_dev_mode_subtitle,
+                  ),
+                  value: userPreferences.devMode != 0,
+                  onChanged: (final bool devMode) async =>
+                      userPreferences.setDevMode(devMode ? 1 : 0),
+                ),
+              ],
             ),
-            const SizedBox(height: SMALL_SPACE),
-            SmoothAlertContentButton(
-              label: 'GitHub',
-              icon: Icons.open_in_new,
-              onPressed: () async =>
-                  LaunchUrlHelper.launchURL('https://github.com/openfoodfacts'),
+            negativeAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop();
+              },
+              text: appLocalizations.close,
+              minWidth: 100.0,
             ),
-            const SizedBox(height: BALANCED_SPACE),
-            SwitchListTile.adaptive(
-              title: Text(appLocalizations.contribute_develop_dev_mode_title),
-              subtitle: Text(
-                appLocalizations.contribute_develop_dev_mode_subtitle,
-              ),
-              value: userPreferences.devMode != 0,
-              onChanged: (final bool devMode) async =>
-                  userPreferences.setDevMode(devMode ? 1 : 0),
-            ),
-          ],
-        ),
-        negativeAction: SmoothActionButton(
-          onPressed: () {
-            Navigator.of(context, rootNavigator: true).pop();
-          },
-          text: appLocalizations.close,
-          minWidth: 100.0,
-        ),
+          );
+        },
       );
-    },
-  );
 
   Future<void> _translate(BuildContext context) => showDialog<void>(
-    context: context,
-    builder: (BuildContext context) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      return SmoothAlertDialog(
-        title: appLocalizations.contribute_translate_header,
-        body: Column(
-          children: <Widget>[
-            Text(appLocalizations.contribute_translate_text),
-            Text(appLocalizations.contribute_translate_text_2),
-          ],
-        ),
-        positiveAction: SmoothActionButton(
-          onPressed: () async =>
-              LaunchUrlHelper.launchURL('https://translate.openfoodfacts.org/'),
-          text: appLocalizations.contribute_translate_link_text,
-        ),
-        negativeAction: SmoothActionButton(
-          onPressed: () {
-            Navigator.of(context, rootNavigator: true).pop();
-          },
-          text: appLocalizations.close,
-          minWidth: 100,
-        ),
-        actionsAxis: Axis.vertical,
-        actionsOrder: SmoothButtonsBarOrder.auto,
+        context: context,
+        builder: (BuildContext context) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          return SmoothAlertDialog(
+            title: appLocalizations.contribute_translate_header,
+            body: Column(
+              children: <Widget>[
+                Text(appLocalizations.contribute_translate_text),
+                Text(appLocalizations.contribute_translate_text_2),
+              ],
+            ),
+            positiveAction: SmoothActionButton(
+              onPressed: () async => LaunchUrlHelper.launchURL(
+                  'https://translate.openfoodfacts.org/'),
+              text: appLocalizations.contribute_translate_link_text,
+            ),
+            negativeAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop();
+              },
+              text: appLocalizations.close,
+              minWidth: 100,
+            ),
+            actionsAxis: Axis.vertical,
+            actionsOrder: SmoothButtonsBarOrder.auto,
+          );
+        },
       );
-    },
-  );
 
   Future<void> _share(String content) async =>
       SharePlus.instance.share(ShareParams(text: content));
@@ -292,9 +295,9 @@ class ContributeRoot extends PreferencesRoot {
   }
 
   Future<void> _contributors(BuildContext context) => showDialog<void>(
-    context: context,
-    builder: (BuildContext context) => const _ContributorsDialog(),
-  );
+        context: context,
+        builder: (BuildContext context) => const _ContributorsDialog(),
+      );
 }
 
 class _ContributorsDialog extends StatefulWidget {
@@ -330,46 +333,44 @@ class _ContributorsDialogState extends State<_ContributorsDialog> {
                 controller: _scrollController,
                 child: Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
-                  children: contributors
-                      .map((dynamic contributorsData) {
-                        final ContributorsModel contributor =
-                            ContributorsModel.fromJson(
-                              contributorsData as Map<String, dynamic>,
-                            );
-                        return Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Semantics(
-                            value: appLocalizations
-                                .contributors_dialog_entry_description(
-                                  contributor.login,
-                                ),
-                            excludeSemantics: true,
-                            child: Tooltip(
-                              message: contributor.login,
-                              child: InkWell(
-                                customBorder: const CircleBorder(),
-                                onTap: () async => LaunchUrlHelper.launchURL(
-                                  contributor.profilePath,
-                                ),
-                                child: Ink(
-                                  width: 40.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: ROUNDED_BORDER_RADIUS,
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                        contributor.avatarUrl,
-                                      ),
-                                      fit: BoxFit.cover,
-                                    ),
+                  children: contributors.map((dynamic contributorsData) {
+                    final ContributorsModel contributor =
+                        ContributorsModel.fromJson(
+                      contributorsData as Map<String, dynamic>,
+                    );
+                    return Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Semantics(
+                        value: appLocalizations
+                            .contributors_dialog_entry_description(
+                          contributor.login,
+                        ),
+                        excludeSemantics: true,
+                        child: Tooltip(
+                          message: contributor.login,
+                          child: InkWell(
+                            customBorder: const CircleBorder(),
+                            onTap: () async => LaunchUrlHelper.launchURL(
+                              contributor.profilePath,
+                            ),
+                            child: Ink(
+                              width: 40.0,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                borderRadius: ROUNDED_BORDER_RADIUS,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    contributor.avatarUrl,
                                   ),
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                           ),
-                        );
-                      })
-                      .toList(growable: false),
+                        ),
+                      ),
+                    );
+                  }).toList(growable: false),
                 ),
               ),
             );

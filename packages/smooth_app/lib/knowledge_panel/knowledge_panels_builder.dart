@@ -29,9 +29,8 @@ class KnowledgePanelsBuilder {
     required bool onboardingMode,
   }) {
     final String? panelId = panelElement.panelElement?.panelId;
-    final KnowledgePanel? rootPanel = panelId == null
-        ? null
-        : getKnowledgePanel(product, panelId);
+    final KnowledgePanel? rootPanel =
+        panelId == null ? null : getKnowledgePanel(product, panelId);
     final List<Widget> children = <Widget>[];
     if (rootPanel != null) {
       children.add(
@@ -59,8 +58,7 @@ class KnowledgePanelsBuilder {
     }
     if (!onboardingMode) {
       if (panelId == 'health_card') {
-        final bool nutritionAddOrUpdate =
-            product.statesTags?.contains(
+        final bool nutritionAddOrUpdate = product.statesTags?.contains(
               ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag,
             ) ??
             false;
@@ -72,9 +70,9 @@ class KnowledgePanelsBuilder {
 
         final bool needEditIngredients =
             context.read<UserPreferences>().getFlag(
-              UserPreferencesDevMode.userPreferencesFlagEditIngredients,
-            ) ??
-            false;
+                      UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+                    ) ??
+                false;
         if ((product.ingredientsText == null ||
                 product.ingredientsText!.isEmpty) &&
             needEditIngredients) {
@@ -134,7 +132,8 @@ class KnowledgePanelsBuilder {
   static KnowledgePanel? getKnowledgePanel(
     final Product product,
     final String panelId,
-  ) => product.knowledgePanels?.panelIdToPanelMap[panelId];
+  ) =>
+      product.knowledgePanels?.panelIdToPanelMap[panelId];
 
   /// Returns the unique "root" panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getRootPanelElement(

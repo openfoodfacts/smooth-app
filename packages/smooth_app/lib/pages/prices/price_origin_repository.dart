@@ -14,19 +14,21 @@ class PriceOriginRepository extends PriceTaxonomyRepository<TaxonomyOrigin> {
   @override
   Map<OpenFoodFactsLanguage, String>? getTaxonomyNames(
     final TaxonomyOrigin item,
-  ) => item.name;
+  ) =>
+      item.name;
 
   @protected
   @override
   Future<Map<String, TaxonomyOrigin>?> download(
     final List<String> tags,
-  ) async => OpenFoodAPIClient.getTaxonomyOrigins(
-    TaxonomyOriginQueryConfiguration(
-      tags: tags,
-      country: getCountry(),
-      languages: <OpenFoodFactsLanguage>[getLanguage()],
-      fields: <TaxonomyOriginField>[TaxonomyOriginField.NAME],
-      includeChildren: false,
-    ),
-  );
+  ) async =>
+      OpenFoodAPIClient.getTaxonomyOrigins(
+        TaxonomyOriginQueryConfiguration(
+          tags: tags,
+          country: getCountry(),
+          languages: <OpenFoodFactsLanguage>[getLanguage()],
+          fields: <TaxonomyOriginField>[TaxonomyOriginField.NAME],
+          includeChildren: false,
+        ),
+      );
 }

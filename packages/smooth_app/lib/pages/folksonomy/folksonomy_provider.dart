@@ -28,10 +28,10 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     try {
       final MaybeError<String> token =
           await FolksonomyAPIClient.getAuthenticationToken(
-            username: user.userId,
-            password: user.password,
-            uriHelper: ProductQuery.uriFolksonomyHelper,
-          );
+        username: user.userId,
+        password: user.password,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
 
       if (token.isError) {
         throw Exception('Could not get token: ${token.error}');
@@ -54,9 +54,9 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
       final Map<String, ProductTag> tags =
           await FolksonomyAPIClient.getProductTags(
-            barcode: barcode,
-            uriHelper: ProductQuery.uriFolksonomyHelper,
-          );
+        barcode: barcode,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
 
       _tags.clear();
       _tags.addAll(tags.values);

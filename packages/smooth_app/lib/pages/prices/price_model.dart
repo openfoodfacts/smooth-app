@@ -21,21 +21,21 @@ class PriceModel with ChangeNotifier {
     required this.multipleProducts,
     final PriceMetaProduct? initialProduct,
     final bool readyForPriceTagValidation = false,
-  }) : _proof = null,
-       existingPrices = null,
-       _proofType = proofType,
-       _date = DateTime.now(),
-       _currency = currency,
-       _locations = locations,
-       _readyForPriceTagValidation = readyForPriceTagValidation,
-       _priceAmountModels = <PriceAmountModel>[
-         if (initialProduct != null) PriceAmountModel(product: initialProduct),
-       ];
+  })  : _proof = null,
+        existingPrices = null,
+        _proofType = proofType,
+        _date = DateTime.now(),
+        _currency = currency,
+        _locations = locations,
+        _readyForPriceTagValidation = readyForPriceTagValidation,
+        _priceAmountModels = <PriceAmountModel>[
+          if (initialProduct != null) PriceAmountModel(product: initialProduct),
+        ];
 
   PriceModel.proof({required Proof proof, this.existingPrices})
-    : multipleProducts = true,
-      _readyForPriceTagValidation = false,
-      _priceAmountModels = <PriceAmountModel>[] {
+      : multipleProducts = true,
+        _readyForPriceTagValidation = false,
+        _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
   }
 

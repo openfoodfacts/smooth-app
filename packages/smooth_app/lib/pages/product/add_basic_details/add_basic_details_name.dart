@@ -39,7 +39,7 @@ class AddProductNameInputWidget extends StatefulWidget {
 
   final Product product;
   final Function(ImageField imageField, OpenFoodFactsLanguage language)
-  onShowImagePreview;
+      onShowImagePreview;
 
   @override
   State<AddProductNameInputWidget> createState() =>
@@ -48,7 +48,7 @@ class AddProductNameInputWidget extends StatefulWidget {
 
 class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
   final Map<OpenFoodFactsLanguage, DebouncedTextEditingController>
-  _controllers = <OpenFoodFactsLanguage, DebouncedTextEditingController>{};
+      _controllers = <OpenFoodFactsLanguage, DebouncedTextEditingController>{};
 
   static const int MIN_COLLAPSED_COUNT = 3;
 
@@ -73,130 +73,109 @@ class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
           ],
         ),
         contentPadding: EdgeInsets.zero,
-        child:
-            ValueNotifierListener<
-              ProductNameEditorProvider,
-              _ProductNameEditorProviderState
-            >(
-              listener:
-                  (
-                    final BuildContext context,
-                    _ProductNameEditorProviderState? oldValue,
-                    _ProductNameEditorProviderState value,
-                  ) {
-                    if (oldValue?.productNames.length !=
-                        value.productNames.length) {
-                      for (final _EditingProductName productName
-                          in value.productNames) {
-                        if (!_controllers.containsKey(productName.language)) {
-                          _controllers[productName
-                              .language] = DebouncedTextEditingController(
-                            controller:
-                                TextEditingController(text: productName.name)
-                                  ..addListener(() {
-                                    context
-                                        .read<ProductNameEditorProvider>()
-                                        .onNameChanged(
-                                          productName.language,
-                                          _controllers[productName.language]!
-                                              .text,
-                                        );
-                                  }),
-                          );
-                        }
-                      }
-                    }
-                  },
-              child:
-                  ConsumerValueNotifierFilter<
-                    ProductNameEditorProvider,
-                    _ProductNameEditorProviderState
-                  >(
-                    buildWhen:
+        child: ValueNotifierListener<ProductNameEditorProvider,
+            _ProductNameEditorProviderState>(
+          listener: (
+            final BuildContext context,
+            _ProductNameEditorProviderState? oldValue,
+            _ProductNameEditorProviderState value,
+          ) {
+            if (oldValue?.productNames.length != value.productNames.length) {
+              for (final _EditingProductName productName
+                  in value.productNames) {
+                if (!_controllers.containsKey(productName.language)) {
+                  _controllers[productName.language] =
+                      DebouncedTextEditingController(
+                    controller: TextEditingController(text: productName.name)
+                      ..addListener(() {
+                        context.read<ProductNameEditorProvider>().onNameChanged(
+                              productName.language,
+                              _controllers[productName.language]!.text,
+                            );
+                      }),
+                  );
+                }
+              }
+            }
+          },
+          child: ConsumerValueNotifierFilter<ProductNameEditorProvider,
+              _ProductNameEditorProviderState>(
+            buildWhen: (
+              _ProductNameEditorProviderState? oldValue,
+              _ProductNameEditorProviderState value,
+            ) =>
+                oldValue?.productNames.length != value.productNames.length ||
+                oldValue?.addedLanguages.length != value.addedLanguages.length,
+            builder: (
+              final BuildContext context,
+              final _ProductNameEditorProviderState value,
+              _,
+            ) {
+              final int count = _collapsed
+                  ? math.min(
+                      value.productNames.length - value.addedLanguages.length,
+                      MIN_COLLAPSED_COUNT,
+                    )
+                  : value.productNames.length;
+
+              final bool collapsed = _collapsed &&
+                  value.productNames.length - value.addedLanguages.length >
+                      MIN_COLLAPSED_COUNT;
+
+              return Column(
+                children: <Widget>[
+                  ...value.productNames.sublist(0, count).map(
                         (
-                          _ProductNameEditorProviderState? oldValue,
-                          _ProductNameEditorProviderState value,
+                          _EditingProductName productName,
                         ) =>
-                            oldValue?.productNames.length !=
-                                value.productNames.length ||
-                            oldValue?.addedLanguages.length !=
-                                value.addedLanguages.length,
-                    builder:
-                        (
-                          final BuildContext context,
-                          final _ProductNameEditorProviderState value,
-                          _,
-                        ) {
-                          final int count = _collapsed
-                              ? math.min(
-                                  value.productNames.length -
-                                      value.addedLanguages.length,
-                                  MIN_COLLAPSED_COUNT,
-                                )
-                              : value.productNames.length;
-
-                          final bool collapsed =
-                              _collapsed &&
-                              value.productNames.length -
-                                      value.addedLanguages.length >
-                                  MIN_COLLAPSED_COUNT;
-
-                          return Column(
-                            children: <Widget>[
-                              ...value.productNames
-                                  .sublist(0, count)
-                                  .map(
-                                    (
-                                      _EditingProductName productName,
-                                    ) => _ProductNameInputWidget(
-                                      productName: productName,
-                                      controller:
-                                          _controllers[productName.language]!,
-                                      onShowImagePreview: () {
-                                        widget.onShowImagePreview(
-                                          ImageField.FRONT,
-                                          productName.language,
-                                        );
-                                      },
-                                    ),
-                                  ),
-                              if (value.addedLanguages.isNotEmpty &&
-                                  _collapsed) ...<Widget>[
-                                const _ProductNameNewTranslationWarning(),
-                                ...value.productNames
-                                    .sublist(
-                                      value.productNames.length -
-                                          value.addedLanguages.length,
-                                    )
-                                    .map(
-                                      (
-                                        _EditingProductName productName,
-                                      ) => _ProductNameInputWidget(
-                                        productName: productName,
-                                        controller:
-                                            _controllers[productName.language]!,
-                                        onShowImagePreview: () {
-                                          widget.onShowImagePreview(
-                                            ImageField.FRONT,
-                                            productName.language,
-                                          );
-                                        },
-                                      ),
-                                    ),
-                              ],
-                              if (collapsed)
-                                _ProductNameCollapsedSection(
-                                  onTap: () => setState(() {
-                                    _collapsed = false;
-                                  }),
-                                )
-                              else
-                                const SizedBox(height: BALANCED_SPACE),
-                            ],
-                          );
-                        },
-                  ),
-            ),
+                            _ProductNameInputWidget(
+                          productName: productName,
+                          controller: _controllers[productName.language]!,
+                          onShowImagePreview: () {
+                            widget.onShowImagePreview(
+                              ImageField.FRONT,
+                              productName.language,
+                            );
+                          },
+                        ),
+                      ),
+                  if (value.addedLanguages.isNotEmpty &&
+                      _collapsed) ...<Widget>[
+                    const _ProductNameNewTranslationWarning(),
+                    ...value.productNames
+                        .sublist(
+                          value.productNames.length -
+                              value.addedLanguages.length,
+                        )
+                        .map(
+                          (
+                            _EditingProductName productName,
+                          ) =>
+                              _ProductNameInputWidget(
+                            productName: productName,
+                            controller: _controllers[productName.language]!,
+                            onShowImagePreview: () {
+                              widget.onShowImagePreview(
+                                ImageField.FRONT,
+                                productName.language,
+                              );
+                            },
+                          ),
+                        ),
+                  ],
+                  if (collapsed)
+                    _ProductNameCollapsedSection(
+                      onTap: () => setState(() {
+                        _collapsed = false;
+                      }),
+                    )
+                  else
+                    const SizedBox(height: BALANCED_SPACE),
+                ],
+              );
+            },
+          ),
+        ),
       ),
     );
   }
@@ -227,23 +206,22 @@ class _ProductNameAddNewLanguage extends StatelessWidget {
   }
 
   Future<void> _openLanguagePicker(BuildContext context) async {
-    final ProductNameEditorProvider provider = context
-        .read<ProductNameEditorProvider>();
+    final ProductNameEditorProvider provider =
+        context.read<ProductNameEditorProvider>();
 
     final List<OpenFoodFactsLanguage> selectedLanguages = provider
-        .value
-        .productNames
+        .value.productNames
         .map((final _EditingProductName productName) => productName.language)
         .toList(growable: false);
 
     final OpenFoodFactsLanguage? language =
         await LanguagesSelector.openLanguageSelector(
-          context,
-          selectedLanguages: selectedLanguages,
-          title: AppLocalizations.of(
-            context,
-          ).add_basic_details_product_name_add_translation,
-        );
+      context,
+      selectedLanguages: selectedLanguages,
+      title: AppLocalizations.of(
+        context,
+      ).add_basic_details_product_name_add_translation,
+    );
 
     if (language != null) {
       provider.addLanguage(language);
@@ -272,8 +250,8 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -398,8 +376,8 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final bool? res = await showSmoothListOfChoicesModalSheet<bool>(
       context: context,
@@ -413,8 +391,8 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
         child: TextWithBoldParts(
           text: appLocalizations
               .add_basic_details_product_name_change_main_language_text(
-                Languages().getNameInEnglish(widget.productName.language),
-              ),
+            Languages().getNameInEnglish(widget.productName.language),
+          ),
           textStyle: Theme.of(
             context,
           ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
@@ -431,8 +409,8 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
 
     if (mounted && res == true) {
       context.read<ProductNameEditorProvider>().changeDefaultLanguage(
-        widget.productName.language,
-      );
+            widget.productName.language,
+          );
     }
   }
 
@@ -458,15 +436,13 @@ class _ProductNameCollapsedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
-    final _ProductNameEditorProviderState state = context
-        .watch<ProductNameEditorProvider>()
-        .value;
-    final int count =
-        state.productNames.length -
+    final _ProductNameEditorProviderState state =
+        context.watch<ProductNameEditorProvider>().value;
+    final int count = state.productNames.length -
         (math.min(
               state.productNames.length,
               _AddProductNameInputWidgetState.MIN_COLLAPSED_COUNT,
@@ -614,8 +590,8 @@ class _ProductNameNewTranslationWarningState
       return EMPTY_WIDGET;
     }
 
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     double? height;
@@ -721,17 +697,16 @@ class _ProductNameNewTranslationWarningState
       return;
     }
 
-    _controller =
-        AnimationController(
-            duration: SmoothAnimationsDuration.medium,
-            vsync: this,
-          )
-          ..addListener(() => setState(() {}))
-          ..addStatusListener((final AnimationStatus status) {
-            if (status == AnimationStatus.completed) {
-              context.read<UserPreferences>().hideInputProductNameBanner();
-            }
-          });
+    _controller = AnimationController(
+      duration: SmoothAnimationsDuration.medium,
+      vsync: this,
+    )
+      ..addListener(() => setState(() {}))
+      ..addStatusListener((final AnimationStatus status) {
+        if (status == AnimationStatus.completed) {
+          context.read<UserPreferences>().hideInputProductNameBanner();
+        }
+      });
     _animation = Tween<double>(begin: 0.0, end: _size!.height).animate(
       CurvedAnimation(curve: Curves.easeInOutCubic, parent: _controller!),
     );
@@ -975,9 +950,9 @@ class _ProductNameEditorProviderState {
   });
 
   _ProductNameEditorProviderState.init()
-    : productNames = <_EditingProductName>[],
-      addedLanguages = <OpenFoodFactsLanguage>[],
-      defaultLanguageOverride = null;
+      : productNames = <_EditingProductName>[],
+        addedLanguages = <OpenFoodFactsLanguage>[],
+        defaultLanguageOverride = null;
 
   final List<_EditingProductName> productNames;
   final List<OpenFoodFactsLanguage> addedLanguages;
@@ -999,12 +974,12 @@ class _EditingProductName {
     required bool hasPhoto,
     required bool mainLanguage,
   }) : this(
-         language: language,
-         initialName: initialName,
-         name: initialName,
-         hasPhoto: hasPhoto,
-         mainLanguage: mainLanguage,
-       );
+          language: language,
+          initialName: initialName,
+          name: initialName,
+          hasPhoto: hasPhoto,
+          mainLanguage: mainLanguage,
+        );
 
   final OpenFoodFactsLanguage language;
   final String initialName;

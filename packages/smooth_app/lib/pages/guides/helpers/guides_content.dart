@@ -47,7 +47,7 @@ class GuidesPage extends StatelessWidget {
 
 class _GuidesPageBody extends StatefulWidget {
   const _GuidesPageBody({required this.slivers, required this.pageName})
-    : assert(pageName.length > 0);
+      : assert(pageName.length > 0);
 
   final List<Widget> slivers;
   final String pageName;
@@ -164,8 +164,8 @@ class _GuidesParagraphTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
 
     return Semantics(
       label: title,
@@ -210,8 +210,8 @@ class _GuidesParagraphArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
 
     return SizedBox.square(
       dimension: 20.0,
@@ -261,8 +261,8 @@ class GuidesIllustratedText extends StatelessWidget {
     required this.imagePath,
     required this.desiredWidthPercent,
     super.key,
-  }) : assert(text.length > 0),
-       assert(imagePath.length > 0);
+  })  : assert(text.length > 0),
+        assert(imagePath.length > 0);
 
   final String text;
   final String imagePath;
@@ -270,12 +270,12 @@ class GuidesIllustratedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
     final int imageWidth =
         (desiredWidthPercent != null ? desiredWidthPercent! : 0.25) *
-        100.0 ~/
-        1;
+            100.0 ~/
+            1;
 
     return Semantics(
       label: text,
@@ -386,8 +386,8 @@ class GuidesTitleWithBulletPoints extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
 
     return GuidesTitleContainer(
       title: title,
@@ -406,23 +406,23 @@ class GuidesTitleWithBulletPoints extends StatelessWidget {
                   children: <Widget>[
                     switch (type) {
                       BulletPointType.arrow => icons.CircledArrow.right(
-                        type: CircledArrowType.normal,
-                        circleColor: colors.primarySemiDark,
-                      ),
-                      BulletPointType.number => Container(
-                        decoration: BoxDecoration(
-                          color: colors.primarySemiDark,
-                          shape: BoxShape.circle,
+                          type: CircledArrowType.normal,
+                          circleColor: colors.primarySemiDark,
                         ),
-                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                        child: Text(
-                          (position + 1).toString(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
+                      BulletPointType.number => Container(
+                          decoration: BoxDecoration(
+                            color: colors.primarySemiDark,
+                            shape: BoxShape.circle,
+                          ),
+                          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                          child: Text(
+                            (position + 1).toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
-                      ),
                     },
                     Expanded(child: _GuidesFormattedText(text: item)),
                   ],
@@ -439,15 +439,15 @@ enum BulletPointType { arrow, number }
 
 class _GuidesTextTitle extends StatelessWidget {
   const _GuidesTextTitle({required this.title, required this.icon})
-    : assert(title.length > 0);
+      : assert(title.length > 0);
 
   final String title;
   final AppIcon icon;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -506,12 +506,11 @@ class GuidesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
 
     return Padding(
-      padding:
-          margin ??
+      padding: margin ??
           const EdgeInsetsDirectional.only(
             top: BALANCED_SPACE,
             start: GuidesParagraph._HORIZONTAL_PADDING,
@@ -519,16 +518,14 @@ class GuidesContainer extends StatelessWidget {
           ),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color:
-              color ??
+          color: color ??
               (context.lightTheme()
                   ? colors.primaryMedium
                   : colors.primaryUltraBlack),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Padding(
-          padding:
-              padding ??
+          padding: padding ??
               const EdgeInsetsDirectional.only(
                 top: 14.0,
                 bottom: SMALL_SPACE,
@@ -560,8 +557,8 @@ class GuidesGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final double spacing = horizontalSpacing ?? 0.0;
@@ -584,8 +581,7 @@ class GuidesGrid extends StatelessWidget {
               children: items
                   .map(
                     (GuidesGridItem item) => SizedBox(
-                      width:
-                          constraints.maxWidth / columns -
+                      width: constraints.maxWidth / columns -
                           (spacing * (columns - 1) / columns),
                       child: Material(
                         color: lightTheme
@@ -615,7 +611,6 @@ class GuidesGrid extends StatelessWidget {
                                 item.label,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 13.0,
@@ -688,15 +683,15 @@ class GuidesImage extends StatelessWidget {
     this.desiredWidthPercent,
     this.desiredHeightPercent,
     super.key,
-  }) : assert(caption.length > 0),
-       assert(
-         desiredWidthPercent == null ||
-             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
-       ),
-       assert(
-         desiredHeightPercent == null ||
-             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
-       );
+  })  : assert(caption.length > 0),
+        assert(
+          desiredWidthPercent == null ||
+              desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
+        ),
+        assert(
+          desiredHeightPercent == null ||
+              desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
+        );
 
   final String imagePath;
   final double? desiredWidthPercent;
@@ -721,14 +716,14 @@ class _ImageFromAssets extends StatelessWidget {
     required this.imagePath,
     this.desiredWidthPercent,
     this.desiredHeightPercent,
-  }) : assert(
-         desiredWidthPercent == null ||
-             desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
-       ),
-       assert(
-         desiredHeightPercent == null ||
-             desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
-       );
+  })  : assert(
+          desiredWidthPercent == null ||
+              desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0,
+        ),
+        assert(
+          desiredHeightPercent == null ||
+              desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0,
+        );
 
   final String imagePath;
   final double? desiredWidthPercent;

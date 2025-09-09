@@ -16,8 +16,8 @@ import 'package:smooth_app/helpers/strings_helper.dart';
 /// position
 class DecimalSeparatorRewriter extends TextInputFormatter {
   DecimalSeparatorRewriter(NumberFormat format)
-    : _decimalSeparator = format.symbols.DECIMAL_SEP,
-      _separatorToReplace = _findSeparatorToReplace(format) {
+      : _decimalSeparator = format.symbols.DECIMAL_SEP,
+        _separatorToReplace = _findSeparatorToReplace(format) {
     // Here we check that there are no group separators.
     // The formatted string should
     // * contain the nine digits 1..9
@@ -132,8 +132,8 @@ class MoveSeparatorResult {
     required this.newText,
     required this.newBasePosition,
     required this.newExtentPosition,
-  }) : assert(newBasePosition >= 0),
-       assert(newExtentPosition >= 0);
+  })  : assert(newBasePosition >= 0),
+        assert(newExtentPosition >= 0);
 
   final String newText;
   final int newBasePosition;

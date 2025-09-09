@@ -17,8 +17,8 @@ class PricesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return PinnedHeaderSliver(
       child: DecoratedBox(
@@ -70,8 +70,8 @@ class _PricesPageCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return DecoratedBox(
@@ -135,8 +135,8 @@ class _PricesHeaderAddPriceButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return DecoratedBox(

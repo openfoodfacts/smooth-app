@@ -92,16 +92,16 @@ class UploadedImageGallery extends StatelessWidget {
                         borderRadius: ANGULAR_BORDER_RADIUS,
                         onTap: () async =>
                             Navigator.of(context).pop<CropParameters?>(
-                              await useExistingPhotoFor(
-                                context: context,
-                                rawImage: rawImage,
-                                barcode: barcode,
-                                imageField: imageField,
-                                isLoggedInMandatory: isLoggedInMandatory,
-                                productType: productType,
-                                language: language,
-                              ),
-                            ),
+                          await useExistingPhotoFor(
+                            context: context,
+                            rawImage: rawImage,
+                            barcode: barcode,
+                            imageField: imageField,
+                            isLoggedInMandatory: isLoggedInMandatory,
+                            productType: productType,
+                            language: language,
+                          ),
+                        ),
                       ),
                     ),
                   ),

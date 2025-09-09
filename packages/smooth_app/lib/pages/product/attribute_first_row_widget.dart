@@ -84,9 +84,8 @@ class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
           shape: (index == terms.length - 1 && borderFlag)
               ? null
               : const Border(bottom: BorderSide()),
-          trailing: terms[index].second != null
-              ? Text(terms[index].second!)
-              : null,
+          trailing:
+              terms[index].second != null ? Text(terms[index].second!) : null,
         );
       },
     );

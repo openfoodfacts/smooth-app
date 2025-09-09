@@ -49,13 +49,13 @@ class AddNewProductTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Text(
-    label,
-    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-    ),
-    maxLines: maxLines,
-  );
+        label,
+        style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+            ),
+        maxLines: maxLines,
+      );
 }
 
 /// Card subtitle for "Add new product" page.
@@ -104,13 +104,13 @@ class AddNewProductButton extends StatelessWidget {
         backgroundColor: onPressed == null
             ? (dark ? darkGrey : lightGrey)
             : done
-            ? Colors.green[700]
-            : themeData.colorScheme.secondary,
+                ? Colors.green[700]
+                : themeData.colorScheme.secondary,
         foregroundColor: onPressed == null
             ? (dark ? lightGrey : darkGrey)
             : done
-            ? Colors.white
-            : themeData.colorScheme.onSecondary,
+                ? Colors.white
+                : themeData.colorScheme.onSecondary,
       ),
     );
   }
@@ -144,10 +144,10 @@ class AddNewProductEditorButton extends StatelessWidget {
       disabled
           ? null
           : () async => editor.edit(
-              context: context,
-              product: product,
-              isLoggedInMandatory: isLoggedInMandatory,
-            ),
+                context: context,
+                product: product,
+                isLoggedInMandatory: isLoggedInMandatory,
+              ),
       done: done,
     );
   }
@@ -178,7 +178,7 @@ class AddNewProductScoreIcon extends StatelessWidget {
 
 class _AddNewProductNutriScoreIcon extends StatelessWidget {
   _AddNewProductNutriScoreIcon({required String fileName, required this.height})
-    : nutriScore = extractValue(fileName);
+      : nutriScore = extractValue(fileName);
 
   final NutriScoreValue nutriScore;
   final double height;

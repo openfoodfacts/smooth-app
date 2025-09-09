@@ -140,9 +140,11 @@ class DevModeRoot extends PreferencesRoot {
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> _showSuccessMessage(
     BuildContext context,
     AppLocalizations appLocalizations,
-  ) => ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text(appLocalizations.dev_preferences_button_positive)),
-  );
+  ) =>
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text(appLocalizations.dev_preferences_button_positive)),
+      );
 
   // Demo Mode section methods
   PreferenceTile _buildAddCardsTile(BuildContext context) {
@@ -184,8 +186,7 @@ class DevModeRoot extends PreferencesRoot {
     return PreferenceTile(
       title: appLocalizations.dev_preferences_environment_switch_title,
       trailing: DropdownButton<bool>(
-        value:
-            userPreferences.getFlag(
+        value: userPreferences.getFlag(
               UserPreferencesDevMode.userPreferencesFlagProd,
             ) ??
             true,
@@ -230,8 +231,7 @@ class DevModeRoot extends PreferencesRoot {
     return PreferenceTile(
       title: 'Switch between prices.openfoodfacts.org (PROD) and test env',
       trailing: DropdownButton<bool>(
-        value:
-            userPreferences.getFlag(
+        value: userPreferences.getFlag(
               UserPreferencesDevMode.userPreferencesFlagPriceProd,
             ) ??
             true,
@@ -319,8 +319,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.dev_preferences_edit_ingredients_title,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagEditIngredients,
           ) ??
           false,
@@ -346,8 +345,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_dev_preferences_show_folksonomy_title,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
           ) ??
           true,
@@ -374,8 +372,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_accessibility_remove_colors,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
           ) ??
           false,
@@ -401,8 +398,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_accessibility_show_emoji,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
           ) ??
           false,
@@ -428,8 +424,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.prices_bulk_proof_upload_title,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
           ) ??
           false,
@@ -448,8 +443,7 @@ class DevModeRoot extends PreferencesRoot {
     return TogglePreferenceTile(
       title:
           appLocalizations.preferences_dev_mode_multi_products_selection_title,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode
                 .userPreferencesFlagPricesReceiptMultiSelection,
           ) ??
@@ -476,8 +470,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_dev_mode_user_ordered_kp_title,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
           ) ??
           false,
@@ -554,8 +547,7 @@ class DevModeRoot extends PreferencesRoot {
     return TogglePreferenceTile(
       title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
       subtitleText: appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
           ) ??
           false,
@@ -573,8 +565,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_dev_mode_comparison_title,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
           ) ??
           false,
@@ -600,8 +591,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_dev_mode_product_list_import_title,
-      state:
-          userPreferences.getFlag(
+      state: userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagProductListImport,
           ) ??
           false,
@@ -625,8 +615,7 @@ class DevModeRoot extends PreferencesRoot {
     UserPreferences userPreferences,
     AppLocalizations appLocalizations,
   ) async {
-    _textFieldController.text =
-        userPreferences.getDevModeString(
+    _textFieldController.text = userPreferences.getDevModeString(
           UserPreferencesDevMode.userPreferencesTestEnvDomain,
         ) ??
         uriHelperFoodTest.domain;

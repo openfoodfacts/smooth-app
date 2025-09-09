@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppBarBackground extends StatelessWidget {
   const AppBarBackground({required this.height, required this.child, super.key})
-    : assert(height > 0.0);
+      : assert(height > 0.0);
 
   final double height;
   final Widget child;

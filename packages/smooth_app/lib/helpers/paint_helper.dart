@@ -6,8 +6,8 @@ class DashedLinePainter extends CustomPainter {
     this.dashGap = 3.0,
     this.dashSpace = 3.0,
   }) : _paint = Paint()
-         ..color = color
-         ..strokeWidth = 1.0;
+          ..color = color
+          ..strokeWidth = 1.0;
 
   final double dashGap;
   final double dashSpace;

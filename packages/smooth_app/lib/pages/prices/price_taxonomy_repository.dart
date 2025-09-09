@@ -91,5 +91,6 @@ abstract class PriceTaxonomyRepository<T> {
     final OpenFoodFactsLanguage language,
     final OpenFoodFactsCountry country,
     final String tag,
-  ) => '${language.offTag}_${country.offTag}:$tag';
+  ) =>
+      '${language.offTag}_${country.offTag}:$tag';
 }

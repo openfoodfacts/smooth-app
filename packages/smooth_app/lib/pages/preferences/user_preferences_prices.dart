@@ -187,27 +187,31 @@ class UserPreferencesPrices extends AbstractUserPreferences {
   // we need the [AppNavigator] for a better back-gesture management.
   @override
   Future<void> runHeaderAction() async => AppNavigator.of(
-    context,
-  ).push(AppRoutes.PREFERENCES(PreferencePageType.PRICES));
+        context,
+      ).push(AppRoutes.PREFERENCES(PreferencePageType.PRICES));
 
   UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
     final LazyCounter? lazyCounter,
-  }) => UserPreferencesItemSimple(
-    labels: <String>[title],
-    builder: (_) => Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      elevation: 5,
-      color: Theme.of(context).cardColor,
-      child: UserPreferencesListTile(
-        title: Text(title),
-        onTap: onTap,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        leading: UserPreferencesListTile.getTintedIcon(leading, context),
-        trailing: lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
-      ),
-    ),
-  );
+  }) =>
+      UserPreferencesItemSimple(
+        labels: <String>[title],
+        builder: (_) => Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          elevation: 5,
+          color: Theme.of(context).cardColor,
+          child: UserPreferencesListTile(
+            title: Text(title),
+            onTap: onTap,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            leading: UserPreferencesListTile.getTintedIcon(leading, context),
+            trailing:
+                lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
+          ),
+        ),
+      );
 }

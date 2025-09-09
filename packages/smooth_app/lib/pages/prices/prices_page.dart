@@ -28,8 +28,8 @@ class PricesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return SmoothScaffold2(
@@ -37,9 +37,8 @@ class PricesPage extends StatelessWidget {
       brightness: Brightness.light,
       topBar: SmoothTopBar2(
         leadingAction: SmoothLeadingAction.back,
-        backgroundColor: lightTheme
-            ? extension.primaryBlack
-            : extension.primaryUltraBlack,
+        backgroundColor:
+            lightTheme ? extension.primaryBlack : extension.primaryUltraBlack,
         foregroundColor: lightTheme ? Colors.white : null,
         elevationColor: lightTheme ? Colors.black54 : Colors.white12,
         title: appLocalizations.prices_list_title,
@@ -54,18 +53,17 @@ class PricesPage extends StatelessWidget {
             (UserPreferences? previousValue, UserPreferences currentValue) =>
                 previousValue?.shouldShowPricesFeedbackForm !=
                 currentValue.shouldShowPricesFeedbackForm,
-        builder:
-            (
-              final BuildContext context,
-              final UserPreferences userPreferences,
-              _,
-            ) {
-              if (!userPreferences.shouldShowPricesFeedbackForm) {
-                return EMPTY_WIDGET;
-              }
+        builder: (
+          final BuildContext context,
+          final UserPreferences userPreferences,
+          _,
+        ) {
+          if (!userPreferences.shouldShowPricesFeedbackForm) {
+            return EMPTY_WIDGET;
+          }
 
-              return const _PricesFeedbackForm();
-            },
+          return const _PricesFeedbackForm();
+        },
       ),
       children: <Widget>[
         if (!model.displayEachProduct)

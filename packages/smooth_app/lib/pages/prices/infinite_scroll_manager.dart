@@ -9,12 +9,11 @@ abstract class InfiniteScrollManager<T> {
     final List<T>? initialItems,
     final int? totalItems,
     final int? totalPages,
-  }) : _items = List<T>.from(initialItems ?? <T>[]),
-       _currentPage = initialItems != null && initialItems.isNotEmpty
-           ? _initialPage
-           : 0,
-       _totalPages = totalPages,
-       _totalItems = totalItems;
+  })  : _items = List<T>.from(initialItems ?? <T>[]),
+        _currentPage =
+            initialItems != null && initialItems.isNotEmpty ? _initialPage : 0,
+        _totalPages = totalPages,
+        _totalItems = totalItems;
 
   static const int _initialPage = 1;
 

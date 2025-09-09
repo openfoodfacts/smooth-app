@@ -16,8 +16,8 @@ class AppBarAuthenticationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 

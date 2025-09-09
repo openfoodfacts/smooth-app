@@ -115,21 +115,22 @@ class AccountRoot extends PreferencesRoot {
   Future<bool?> _confirmLogout(
     BuildContext context,
     AppLocalizations appLocalizations,
-  ) async => showDialog<bool>(
-    context: context,
-    builder: (BuildContext context) {
-      return SmoothAlertDialog(
-        title: appLocalizations.sign_out,
-        body: Text(appLocalizations.sign_out_confirmation),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.yes,
-          onPressed: () async => Navigator.of(context).pop(true),
-        ),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.no,
-          onPressed: () => Navigator.of(context).pop(false),
-        ),
+  ) async =>
+      showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) {
+          return SmoothAlertDialog(
+            title: appLocalizations.sign_out,
+            body: Text(appLocalizations.sign_out_confirmation),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.yes,
+              onPressed: () async => Navigator.of(context).pop(true),
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.no,
+              onPressed: () => Navigator.of(context).pop(false),
+            ),
+          );
+        },
       );
-    },
-  );
 }

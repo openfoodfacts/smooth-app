@@ -85,14 +85,14 @@ class AppNewsStyle {
     String? buttonBackground,
     String? buttonTextColor,
     String? contentBackgroundColor,
-  }) : titleBackground = _parseColor(titleBackground),
-       titleTextColor = _parseColor(titleTextColor),
-       titleIndicatorColor = _parseColor(titleIndicatorColor),
-       messageBackground = _parseColor(messageBackground),
-       messageTextColor = _parseColor(messageTextColor),
-       buttonBackground = _parseColor(buttonBackground),
-       buttonTextColor = _parseColor(buttonTextColor),
-       contentBackgroundColor = _parseColor(contentBackgroundColor);
+  })  : titleBackground = _parseColor(titleBackground),
+        titleTextColor = _parseColor(titleTextColor),
+        titleIndicatorColor = _parseColor(titleIndicatorColor),
+        messageBackground = _parseColor(messageBackground),
+        messageTextColor = _parseColor(messageTextColor),
+        buttonBackground = _parseColor(buttonBackground),
+        buttonTextColor = _parseColor(buttonTextColor),
+        contentBackgroundColor = _parseColor(contentBackgroundColor);
 
   final Color? titleBackground;
   final Color? titleTextColor;
@@ -147,8 +147,8 @@ class AppNewsFeedItem {
     required this.news,
     DateTime? startDate,
     DateTime? endDate,
-  }) : _startDate = startDate,
-       _endDate = endDate;
+  })  : _startDate = startDate,
+        _endDate = endDate;
 
   final AppNewsItem news;
   final DateTime? _startDate;

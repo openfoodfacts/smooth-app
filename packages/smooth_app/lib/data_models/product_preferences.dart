@@ -207,9 +207,9 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ) {
     final AvailableProductPreferences myAvailableProductPreferences =
         AvailableProductPreferences.loadFromJSONStrings(
-          preferenceImportancesString: preferenceImportancesString,
-          attributeGroupsString: attributeGroupsString,
-        );
+      preferenceImportancesString: preferenceImportancesString,
+      attributeGroupsString: attributeGroupsString,
+    );
     availableProductPreferences = myAvailableProductPreferences;
   }
 

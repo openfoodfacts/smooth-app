@@ -11,31 +11,30 @@ class PriceCountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => PriceButton(
-    onPressed: onPressed,
-    iconData: PriceButton.priceIconData,
-    title: '$count',
-    buttonStyle: ElevatedButton.styleFrom(
-      disabledForegroundColor: onPressed != null
-          ? null
-          : getForegroundColor(count),
-      disabledBackgroundColor: onPressed != null
-          ? null
-          : _getBackgroundColor(count),
-      foregroundColor: onPressed == null ? null : getForegroundColor(count),
-      backgroundColor: onPressed == null ? null : _getBackgroundColor(count),
-    ),
-    tooltip: AppLocalizations.of(context).prices_button_count_price(count),
-  );
+        onPressed: onPressed,
+        iconData: PriceButton.priceIconData,
+        title: '$count',
+        buttonStyle: ElevatedButton.styleFrom(
+          disabledForegroundColor:
+              onPressed != null ? null : getForegroundColor(count),
+          disabledBackgroundColor:
+              onPressed != null ? null : _getBackgroundColor(count),
+          foregroundColor: onPressed == null ? null : getForegroundColor(count),
+          backgroundColor:
+              onPressed == null ? null : _getBackgroundColor(count),
+        ),
+        tooltip: AppLocalizations.of(context).prices_button_count_price(count),
+      );
 
   static Color getForegroundColor(final int count) => switch (count) {
-    0 => Colors.red,
-    1 => Colors.orange,
-    _ => Colors.green,
-  };
+        0 => Colors.red,
+        1 => Colors.orange,
+        _ => Colors.green,
+      };
 
   static Color? _getBackgroundColor(final int count) => switch (count) {
-    0 => Colors.red[100],
-    1 => Colors.orange[100],
-    _ => Colors.green[100],
-  };
+        0 => Colors.red[100],
+        1 => Colors.orange[100],
+        _ => Colors.green[100],
+      };
 }

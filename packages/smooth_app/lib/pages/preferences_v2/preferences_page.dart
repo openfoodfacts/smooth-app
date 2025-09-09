@@ -44,9 +44,8 @@ class PreferencesPage extends StatelessWidget {
 
     final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
 
-    final Color iconColor = context.lightTheme()
-        ? theme.primaryColor
-        : Colors.white;
+    final Color iconColor =
+        context.lightTheme() ? theme.primaryColor : Colors.white;
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
@@ -120,11 +119,11 @@ class PreferencesPage extends StatelessWidget {
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) =>
                 ChangeNotifierProvider<PreferencesRootSearchController>(
-                  create: (_) => PreferencesRootSearchController(),
-                  child: PricesRoot(
-                    title: appLocalizations.preferences_prices_title,
-                  ),
-                ),
+              create: (_) => PreferencesRootSearchController(),
+              child: PricesRoot(
+                title: appLocalizations.preferences_prices_title,
+              ),
+            ),
           ),
         );
       },
@@ -163,11 +162,11 @@ class PreferencesPage extends StatelessWidget {
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) =>
                 ChangeNotifierProvider<PreferencesRootSearchController>(
-                  create: (_) => PreferencesRootSearchController(),
-                  child: ContributionsRoot(
-                    title: appLocalizations.preferences_contributions_title,
-                  ),
-                ),
+              create: (_) => PreferencesRootSearchController(),
+              child: ContributionsRoot(
+                title: appLocalizations.preferences_contributions_title,
+              ),
+            ),
           ),
         );
       },

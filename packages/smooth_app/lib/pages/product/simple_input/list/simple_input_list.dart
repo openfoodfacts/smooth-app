@@ -31,9 +31,8 @@ class SimpleInputList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> localTerms = context
-        .watch<ValueNotifier<List<String>>>()
-        .value;
+    final List<String> localTerms =
+        context.watch<ValueNotifier<List<String>>>().value;
 
     if (!helper.reorderable) {
       return Column(
@@ -46,25 +45,24 @@ class SimpleInputList extends StatelessWidget {
             key: listKey,
             initialItemCount: localTerms.length,
             padding: EdgeInsets.zero,
-            itemBuilder:
-                (
-                  BuildContext context,
-                  int position,
-                  Animation<double> animation,
-                ) {
-                  return KeyedSubtree(
-                    key: ValueKey<String>(localTerms[position]),
-                    child: SizeTransition(
-                      sizeFactor: animation,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.symmetric(
-                          horizontal: SMALL_SPACE,
-                        ),
-                        child: _getItem(context, localTerms, position),
-                      ),
+            itemBuilder: (
+              BuildContext context,
+              int position,
+              Animation<double> animation,
+            ) {
+              return KeyedSubtree(
+                key: ValueKey<String>(localTerms[position]),
+                child: SizeTransition(
+                  sizeFactor: animation,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: SMALL_SPACE,
                     ),
-                  );
-                },
+                    child: _getItem(context, localTerms, position),
+                  ),
+                ),
+              );
+            },
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
           ),

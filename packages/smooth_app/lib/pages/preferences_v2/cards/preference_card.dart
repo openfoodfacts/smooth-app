@@ -17,23 +17,23 @@ class PreferenceCard extends StatelessWidget {
     this.titleBackgroundColor,
     this.bannerText,
     super.key,
-  }) : assert(title.isNotEmpty, 'PreferenceCard title must not be empty.'),
-       assert(
-         tiles.isNotEmpty,
-         'PreferenceCard must contain at least one tile.',
-       ),
-       assert(
-         !gridView ||
-             tiles.every(
-               (PreferenceTile tile) =>
-                   tile.runtimeType == SquarePreferenceTile,
-             ),
-         'When gridView is true, all tiles must be of type SquarePreferenceTile.',
-       ),
-       assert(
-         header == null || !gridView,
-         'Header must be null when gridView is true.',
-       );
+  })  : assert(title.isNotEmpty, 'PreferenceCard title must not be empty.'),
+        assert(
+          tiles.isNotEmpty,
+          'PreferenceCard must contain at least one tile.',
+        ),
+        assert(
+          !gridView ||
+              tiles.every(
+                (PreferenceTile tile) =>
+                    tile.runtimeType == SquarePreferenceTile,
+              ),
+          'When gridView is true, all tiles must be of type SquarePreferenceTile.',
+        ),
+        assert(
+          header == null || !gridView,
+          'Header must be null when gridView is true.',
+        );
 
   final String title;
   final List<PreferenceTile> tiles;
@@ -57,8 +57,7 @@ class PreferenceCard extends StatelessWidget {
       titleSpacing: MEDIUM_SPACE * 2,
       contentPadding: !gridView ? EdgeInsets.zero : null,
       clipBehavior: Clip.antiAlias,
-      titleBackgroundColor:
-          titleBackgroundColor ??
+      titleBackgroundColor: titleBackgroundColor ??
           (context.lightTheme() ? null : const Color(0xFF322219)),
       child: gridView
           ? GridView.count(

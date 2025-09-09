@@ -67,8 +67,7 @@ class ProductFooterBarcodeButton extends StatelessWidget {
                       margin: EdgeInsetsDirectional.only(
                         start: SMALL_SPACE,
                         end: SMALL_SPACE,
-                        bottom:
-                            ProductFooter.kHeight +
+                        bottom: ProductFooter.kHeight +
                             MediaQuery.viewPaddingOf(context).bottom,
                       ),
                       text: appLocalizations.clipboard_barcode_copied(barcode),

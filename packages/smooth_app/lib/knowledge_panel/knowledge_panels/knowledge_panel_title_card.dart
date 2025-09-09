@@ -107,8 +107,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                             fontSize: hasSubtitle ? 15.5 : 15.0,
                             fontWeight: hasSubtitle
                                 ? isClickable
-                                      ? FontWeight.w600
-                                      : FontWeight.bold
+                                    ? FontWeight.w600
+                                    : FontWeight.bold
                                 : FontWeight.normal,
                           ),
                         ),

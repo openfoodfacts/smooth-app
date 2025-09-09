@@ -9,11 +9,11 @@ class BackgroundCropResult {
   }) : isError = false;
 
   BackgroundCropResult.error(this.message)
-    : filePath = null,
-      fileSize = null,
-      width = null,
-      height = null,
-      isError = true;
+      : filePath = null,
+        fileSize = null,
+        width = null,
+        height = null,
+        isError = true;
 
   final String? filePath;
   final int? fileSize;

@@ -80,8 +80,8 @@ class _SearchFieldState extends State<SearchField> {
     }
 
     final TextStyle textStyle = SearchFieldUIHelper.textStyle(context);
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final Widget? additionalFilter = widget.searchHelper.getAdditionalFilter();
     return ChangeNotifierProvider<TextEditingController>.value(
@@ -172,8 +172,7 @@ class _SearchFieldState extends State<SearchField> {
             )
           : null,
       prefixIconConstraints: BoxConstraints.tightFor(
-        width:
-            SearchFieldUIHelper.SEARCH_BAR_HEIGHT +
+        width: SearchFieldUIHelper.SEARCH_BAR_HEIGHT +
             (SearchFieldUIHelper.SEARCH_BAR_PADDING.horizontal) / 2,
       ),
       suffixIcon: widget.showClearButton
@@ -228,7 +227,7 @@ class _SearchIcon extends StatelessWidget {
 
 class SearchBarIcon extends StatelessWidget {
   const SearchBarIcon({this.icon, this.onTap, this.label, super.key})
-    : assert(label == null || onTap != null);
+      : assert(label == null || onTap != null);
 
   final VoidCallback? onTap;
   final String? label;
@@ -244,9 +243,8 @@ class SearchBarIcon extends StatelessWidget {
       aspectRatio: 1.0,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: context.lightTheme()
-              ? theme.primaryDark
-              : theme.secondaryVibrant,
+          color:
+              context.lightTheme() ? theme.primaryDark : theme.secondaryVibrant,
           shape: BoxShape.circle,
         ),
         child: Padding(

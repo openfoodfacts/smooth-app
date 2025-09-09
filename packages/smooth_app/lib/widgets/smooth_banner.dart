@@ -51,9 +51,8 @@ class SmoothBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double bottomPadding = addSafeArea
-        ? MediaQuery.viewPaddingOf(context).bottom
-        : 0.0;
+    final double bottomPadding =
+        addSafeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
 
     Widget child = IntrinsicHeight(
       child: Row(
@@ -105,15 +104,14 @@ class SmoothBanner extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 title!,
-                                style:
-                                    (titleStyle ??
-                                            const TextStyle(
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.bold,
-                                            ))
-                                        .copyWith(
-                                          color: titleColor ?? _titleColor,
-                                        ),
+                                style: (titleStyle ??
+                                        const TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        ))
+                                    .copyWith(
+                                  color: titleColor ?? _titleColor,
+                                ),
                               ),
                             ),
                           if (onDismissClicked != null) ...<Widget>[
@@ -146,12 +144,11 @@ class SmoothBanner extends StatelessWidget {
                     ),
                     child: TextWithBoldParts(
                       text: content,
-                      textStyle:
-                          (contentStyle ??
-                                  const TextStyle(fontSize: 14.0, height: 1.6))
-                              .copyWith(
-                                color: contentColor ?? const Color(0xFF373737),
-                              ),
+                      textStyle: (contentStyle ??
+                              const TextStyle(fontSize: 14.0, height: 1.6))
+                          .copyWith(
+                        color: contentColor ?? const Color(0xFF373737),
+                      ),
                     ),
                   ),
                   if (bottomPadding > 0) SizedBox(height: bottomPadding),

@@ -321,48 +321,50 @@ class ConnectRoot extends PreferencesRoot {
   Future<void> Function() _openDebugLogDialog(
     BuildContext context,
     AppLocalizations appLocalizations,
-  ) => () async {
-    final bool? includeLogs = await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          title: appLocalizations.support_via_email_include_logs_dialog_title,
-          body: Text(
-            appLocalizations.support_via_email_include_logs_dialog_body,
-          ),
-          close: true,
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.yes,
-            onPressed: () => Navigator.of(context).pop(true),
-          ),
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.no,
-            onPressed: () => Navigator.of(context).pop(false),
-          ),
+  ) =>
+      () async {
+        final bool? includeLogs = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            return SmoothAlertDialog(
+              title:
+                  appLocalizations.support_via_email_include_logs_dialog_title,
+              body: Text(
+                appLocalizations.support_via_email_include_logs_dialog_body,
+              ),
+              close: true,
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.yes,
+                onPressed: () => Navigator.of(context).pop(true),
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.no,
+                onPressed: () => Navigator.of(context).pop(false),
+              ),
+            );
+          },
         );
-      },
-    );
 
-    if (includeLogs == null) {
-      return;
-    }
+        if (includeLogs == null) {
+          return;
+        }
 
-    final String emailBody = await _emailBody(appLocalizations);
+        final String emailBody = await _emailBody(appLocalizations);
 
-    if (!context.mounted) {
-      return;
-    }
+        if (!context.mounted) {
+          return;
+        }
 
-    await _sendEmail(
-      context: context,
-      recipient: 'mobile@openfoodfacts.org',
-      appLocalizations: appLocalizations,
-      body: emailBody,
-      subject:
-          '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
-      attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
-    );
-  };
+        await _sendEmail(
+          context: context,
+          recipient: 'mobile@openfoodfacts.org',
+          appLocalizations: appLocalizations,
+          body: emailBody,
+          subject:
+              '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
+          attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
+        );
+      };
 
   Future<void> _sendEmail({
     required final BuildContext context,

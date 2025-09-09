@@ -57,27 +57,20 @@ class LanguageSelectorTile extends PreferenceTile {
   }
 
   Widget _buildLoadedState(BuildContext context) {
-    return ConsumerValueNotifierFilter<
-      _LanguageSelectorProvider,
-      PreferencesSelectorState<OpenFoodFactsLanguage>
-    >(
-      buildWhen:
-          (
-            PreferencesSelectorState<OpenFoodFactsLanguage>? previousValue,
-            PreferencesSelectorState<OpenFoodFactsLanguage> currentValue,
-          ) =>
-              previousValue != null &&
-              currentValue is! PreferencesSelectorEditingState &&
-              (currentValue
-                          as PreferencesSelectorLoadedState<
-                            OpenFoodFactsLanguage
-                          >)
-                      .selectedItem !=
-                  (previousValue
-                          as PreferencesSelectorLoadedState<
-                            OpenFoodFactsLanguage
-                          >)
-                      .selectedItem,
+    return ConsumerValueNotifierFilter<_LanguageSelectorProvider,
+        PreferencesSelectorState<OpenFoodFactsLanguage>>(
+      buildWhen: (
+        PreferencesSelectorState<OpenFoodFactsLanguage>? previousValue,
+        PreferencesSelectorState<OpenFoodFactsLanguage> currentValue,
+      ) =>
+          previousValue != null &&
+          currentValue is! PreferencesSelectorEditingState &&
+          (currentValue
+                      as PreferencesSelectorLoadedState<OpenFoodFactsLanguage>)
+                  .selectedItem !=
+              (previousValue
+                      as PreferencesSelectorLoadedState<OpenFoodFactsLanguage>)
+                  .selectedItem,
       builder: (_, PreferencesSelectorState<OpenFoodFactsLanguage> value, _) {
         final OpenFoodFactsLanguage? language =
             (value as PreferencesSelectorLoadedState<OpenFoodFactsLanguage>)
@@ -113,38 +106,37 @@ class LanguageSelectorTile extends PreferenceTile {
   }
 
   Future<void> _openLanguageSelector(BuildContext context) async {
-    final dynamic newLanguage = await Navigator.of(context, rootNavigator: true)
-        .push(
-          PageRouteBuilder<dynamic>(
-            pageBuilder: (_, _, _) => _LanguageSelectorScreen(
-              provider: context.read<_LanguageSelectorProvider>(),
-            ),
-            transitionsBuilder:
-                (
-                  BuildContext context,
-                  Animation<double> animation,
-                  Animation<double> secondaryAnimation,
-                  Widget child,
-                ) {
-                  final Tween<Offset> tween = Tween<Offset>(
-                    begin: const Offset(0.0, 1.0),
-                    end: Offset.zero,
-                  );
-                  final CurvedAnimation curvedAnimation = CurvedAnimation(
-                    parent: animation,
-                    curve: Curves.easeInOut,
-                  );
-                  final Animation<Offset> position = tween.animate(
-                    curvedAnimation,
-                  );
+    final dynamic newLanguage =
+        await Navigator.of(context, rootNavigator: true).push(
+      PageRouteBuilder<dynamic>(
+        pageBuilder: (_, _, _) => _LanguageSelectorScreen(
+          provider: context.read<_LanguageSelectorProvider>(),
+        ),
+        transitionsBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+        ) {
+          final Tween<Offset> tween = Tween<Offset>(
+            begin: const Offset(0.0, 1.0),
+            end: Offset.zero,
+          );
+          final CurvedAnimation curvedAnimation = CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeInOut,
+          );
+          final Animation<Offset> position = tween.animate(
+            curvedAnimation,
+          );
 
-                  return SlideTransition(
-                    position: position,
-                    child: FadeTransition(opacity: animation, child: child),
-                  );
-                },
-          ),
-        );
+          return SlideTransition(
+            position: position,
+            child: FadeTransition(opacity: animation, child: child),
+          );
+        },
+      ),
+    );
 
     if (!context.mounted) {
       return;
@@ -164,8 +156,8 @@ class LanguageSelectorTile extends PreferenceTile {
       context.read<UserPreferences>(),
       languageCode: newLanguage.code,
     );
-    final ProductPreferences productPreferences = context
-        .read<ProductPreferences>();
+    final ProductPreferences productPreferences =
+        context.read<ProductPreferences>();
     await BackgroundTaskLanguageRefresh.addTask(context.read<LocalDatabase>());
 
     // Refresh the news feed
@@ -190,45 +182,44 @@ class _LanguageSelectorScreen extends StatelessWidget {
     return SmoothSelectorScreen<OpenFoodFactsLanguage>(
       provider: provider,
       title: appLocalizations.language_selector_title,
-      itemBuilder:
-          (
-            BuildContext context,
-            OpenFoodFactsLanguage language,
-            bool selected,
-            String filter,
-          ) {
-            return Row(
-              children: <Widget>[
-                const Icon(Icons.language),
-                const SizedBox(width: LARGE_SPACE),
-                Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: SMALL_SPACE,
-                    ),
-                    child: TextHighlighter(
-                      text: LanguageSelectorTile._getCompleteName(language),
-                      filter: filter,
-                      textStyle: const TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                  ),
+      itemBuilder: (
+        BuildContext context,
+        OpenFoodFactsLanguage language,
+        bool selected,
+        String filter,
+      ) {
+        return Row(
+          children: <Widget>[
+            const Icon(Icons.language),
+            const SizedBox(width: LARGE_SPACE),
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: SMALL_SPACE,
                 ),
-              ],
-            );
-          },
-      itemsFilter:
-          (
-            List<OpenFoodFactsLanguage> list,
-            OpenFoodFactsLanguage? selectedItem,
-            OpenFoodFactsLanguage? selectedItemOverride,
-            String filter,
-          ) => _filterCountries(
-            list,
-            selectedItem,
-            selectedItemOverride,
-            filter,
-          ),
+                child: TextHighlighter(
+                  text: LanguageSelectorTile._getCompleteName(language),
+                  filter: filter,
+                  textStyle: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+      itemsFilter: (
+        List<OpenFoodFactsLanguage> list,
+        OpenFoodFactsLanguage? selectedItem,
+        OpenFoodFactsLanguage? selectedItemOverride,
+        String filter,
+      ) =>
+          _filterCountries(
+        list,
+        selectedItem,
+        selectedItemOverride,
+        filter,
+      ),
     );
   }
 

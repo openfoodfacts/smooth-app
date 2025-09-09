@@ -90,19 +90,19 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
     final User user = ProductQuery.getWriteUser();
     final MaybeError<GetProofsResult> result =
         await OpenPricesAPIClient.getProofs(
-          GetProofsParameters()
-            ..orderBy = <OrderBy<GetProofsOrderField>>[
-              const OrderBy<GetProofsOrderField>(
-                field: GetProofsOrderField.created,
-                ascending: false,
-              ),
-            ]
-            ..owner = user.userId
-            ..pageSize = _pageSize
-            ..pageNumber = pageNumber,
-          uriHelper: ProductQuery.uriPricesHelper,
-          bearerToken: _bearerToken!,
-        );
+      GetProofsParameters()
+        ..orderBy = <OrderBy<GetProofsOrderField>>[
+          const OrderBy<GetProofsOrderField>(
+            field: GetProofsOrderField.created,
+            ascending: false,
+          ),
+        ]
+        ..owner = user.userId
+        ..pageSize = _pageSize
+        ..pageNumber = pageNumber,
+      uriHelper: ProductQuery.uriPricesHelper,
+      bearerToken: _bearerToken!,
+    );
 
     if (result.isError) {
       throw Exception(result.error ?? 'Failed to fetch proofs');

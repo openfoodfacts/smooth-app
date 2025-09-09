@@ -199,11 +199,12 @@ class ContributionsRoot extends PreferencesRoot {
     required LocalDatabase localDatabase,
     required PagedProductQuery productQuery,
     required String title,
-  }) async => ProductQueryPageHelper.openBestChoice(
-    name: title,
-    localDatabase: localDatabase,
-    productQuery: productQuery,
-    context: context,
-    editableAppBarTitle: true,
-  );
+  }) async =>
+      ProductQueryPageHelper.openBestChoice(
+        name: title,
+        localDatabase: localDatabase,
+        productQuery: productQuery,
+        context: context,
+        editableAppBarTitle: true,
+      );
 }

@@ -19,8 +19,8 @@ class SearchBottomBar extends StatefulWidget implements PreferredSizeWidget {
 class _SearchBottomBarState extends State<SearchBottomBar> {
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 

@@ -38,10 +38,9 @@ class SmoothScaffold extends Scaffold {
     super.endDrawerEnableOpenDragGesture = true,
     super.restorationId,
   }) : super(
-         resizeToAvoidBottomInset: fixKeyboard
-             ? false
-             : resizeToAvoidBottomInset,
-       );
+          resizeToAvoidBottomInset:
+              fixKeyboard ? false : resizeToAvoidBottomInset,
+        );
 
   static Color get semiTranslucentStatusBar {
     if (Platform.isIOS || Platform.isMacOS) {
@@ -75,8 +74,8 @@ class SmoothScaffoldState extends ScaffoldState {
     if (_contentBehindStatusBar) {
       final Color statusBarColor =
           (widget as SmoothScaffold).statusBarBackgroundColor ??
-          AppBarTheme.of(context).backgroundColor ??
-          SmoothScaffold.semiTranslucentStatusBar;
+              AppBarTheme.of(context).backgroundColor ??
+              SmoothScaffold.semiTranslucentStatusBar;
 
       if (_spaceBehindStatusBar) {
         child = Column(
@@ -104,8 +103,7 @@ class SmoothScaffoldState extends ScaffoldState {
     }
 
     if ((widget as SmoothScaffold).fixKeyboard) {
-      final double padding =
-          MediaQuery.viewInsetsOf(context).bottom -
+      final double padding = MediaQuery.viewInsetsOf(context).bottom -
           MediaQuery.viewPaddingOf(context).bottom;
 
       if (padding > 0.0) {
@@ -167,9 +165,8 @@ class SmoothScaffoldState extends ScaffoldState {
         return SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.light,
-          systemNavigationBarContrastEnforced: !Platform.isAndroid
-              ? false
-              : null,
+          systemNavigationBarContrastEnforced:
+              !Platform.isAndroid ? false : null,
         );
 
       case Brightness.light:
@@ -177,9 +174,8 @@ class SmoothScaffoldState extends ScaffoldState {
         return SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.light,
           statusBarBrightness: Brightness.dark,
-          systemNavigationBarContrastEnforced: !Platform.isAndroid
-              ? false
-              : null,
+          systemNavigationBarContrastEnforced:
+              !Platform.isAndroid ? false : null,
         );
     }
   }

@@ -12,8 +12,8 @@ class SmoothHtmlFakeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return SizedBox(
       width: double.infinity,
@@ -66,7 +66,7 @@ class SmoothHtmlFakeButton extends StatelessWidget {
   }
 
   /// Returns the standard icon color for external link icons.
-  /// 
+  ///
   /// Ensures proper visibility in both light and dark modes.
   Color _getIconColor(ThemeData theme) {
     switch (theme.brightness) {

@@ -20,12 +20,12 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   });
 
   BackgroundTaskLanguageRefresh.fromJson(super.json)
-    : excludeBarcodes = _getStringList(json, _jsonTagExcludeBarcodes),
-      productType =
-          ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
-          // for legacy reason (not refreshed products = no product type)
-          ProductType.food,
-      super.fromJson();
+      : excludeBarcodes = _getStringList(json, _jsonTagExcludeBarcodes),
+        productType =
+            ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
+                // for legacy reason (not refreshed products = no product type)
+                ProductType.food,
+        super.fromJson();
 
   static List<String> _getStringList(
     final Map<String, dynamic> json,
@@ -89,19 +89,21 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) => null;
+  ) =>
+      null;
 
   static BackgroundTask _getNewTask(
     final String uniqueId,
     final List<String> excludeBarcodes,
     final ProductType productType,
-  ) => BackgroundTaskLanguageRefresh._(
-    processName: _operationType.processName,
-    uniqueId: uniqueId,
-    stamp: ';languageRefresh;${productType.offTag}',
-    excludeBarcodes: excludeBarcodes,
-    productType: productType,
-  );
+  ) =>
+      BackgroundTaskLanguageRefresh._(
+        processName: _operationType.processName,
+        uniqueId: uniqueId,
+        stamp: ';languageRefresh;${productType.offTag}',
+        excludeBarcodes: excludeBarcodes,
+        productType: productType,
+      );
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
@@ -127,21 +129,21 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     }
     final SearchResult searchResult =
         await SearchProductsManager.searchProducts(
-          getUser(),
-          ProductSearchQueryConfiguration(
-            fields: ProductQuery.fields,
-            parametersList: <Parameter>[
-              const PageSize(size: _pageSize),
-              const PageNumber(page: 1),
-              BarcodeParameter.list(barcodes),
-            ],
-            language: language,
-            country: ProductQuery.getCountry(),
-            version: ProductQuery.productQueryVersion,
-          ),
-          uriHelper: _uriProductHelper,
-          type: SearchProductsType.background,
-        );
+      getUser(),
+      ProductSearchQueryConfiguration(
+        fields: ProductQuery.fields,
+        parametersList: <Parameter>[
+          const PageSize(size: _pageSize),
+          const PageNumber(page: 1),
+          BarcodeParameter.list(barcodes),
+        ],
+        language: language,
+        country: ProductQuery.getCountry(),
+        version: ProductQuery.productQueryVersion,
+      ),
+      uriHelper: _uriProductHelper,
+      type: SearchProductsType.background,
+    );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot refresh language');
     }

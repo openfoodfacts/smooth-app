@@ -29,8 +29,8 @@ class PriceDataWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final String locale = Localizations.localeOf(context).toLanguageTag();
 
@@ -39,17 +39,15 @@ class PriceDataWidget extends StatelessWidget {
     return DefaultTextStyle.merge(
       style: TextStyle(color: extension.primaryBlack, fontSize: 15.0),
       child: Padding(
-        padding:
-            padding ??
+        padding: padding ??
             const EdgeInsetsDirectional.symmetric(
               horizontal: MEDIUM_SPACE,
               vertical: BALANCED_SPACE,
             ),
         child: IconTheme.merge(
           data: IconThemeData(
-            color: lightTheme
-                ? extension.primaryNormal
-                : extension.primaryMedium,
+            color:
+                lightTheme ? extension.primaryNormal : extension.primaryMedium,
           ),
           child: Column(
             spacing: SMALL_SPACE,
@@ -78,8 +76,7 @@ class PriceDataWidget extends StatelessWidget {
                   Expanded(
                     child: _PriceDataEntry(
                       icon: const icons.Shop(size: 20.0),
-                      label:
-                          price.location?.name ??
+                      label: price.location?.name ??
                           appLocalizations.prices_entry_shop_not_found,
                       labelPadding: const EdgeInsetsDirectional.only(
                         bottom: 2.5,
@@ -129,8 +126,8 @@ class _PriceDataEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Row(
@@ -175,8 +172,8 @@ class _PriceMenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return Tooltip(
       message: MaterialLocalizations.of(context).showMenuTooltip,

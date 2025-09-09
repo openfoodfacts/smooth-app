@@ -19,8 +19,8 @@ class StrikeThroughText extends Text {
     super.textWidthBasis,
     super.textHeightBehavior,
     super.selectionColor,
-  }) : assert(strikeThroughThickness > 0.0),
-       super(style: style?.copyWith(decoration: TextDecoration.none));
+  })  : assert(strikeThroughThickness > 0.0),
+        super(style: style?.copyWith(decoration: TextDecoration.none));
 
   final StrikeThroughTextType strikeThroughType;
   final double strikeThroughThickness;
@@ -31,8 +31,7 @@ class StrikeThroughText extends Text {
     return CustomPaint(
       foregroundPainter: strikeThroughType != StrikeThroughTextType.none
           ? _StrikeThroughPainter(
-              color:
-                  strikeThroughColor ??
+              color: strikeThroughColor ??
                   style?.color ??
                   DefaultTextStyle.of(context).style.color ??
                   Colors.black,

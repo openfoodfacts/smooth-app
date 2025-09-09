@@ -24,8 +24,7 @@ class ScannerMLKit extends Scanner {
       String category, {
       int? eventValue,
       String? barcode,
-    })
-    trackCustomEvent,
+    }) trackCustomEvent,
     required bool hasMoreThanOneCamera,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
@@ -65,8 +64,7 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
     String category, {
     int? eventValue,
     String? barcode,
-  })
-  trackCustomEvent;
+  }) trackCustomEvent;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
 
@@ -230,13 +228,12 @@ class _TorchIconState extends State<_TorchIcon> {
           return EMPTY_WIDGET;
         }
 
-        final CustomScannerController controller = context
-            .watch<CustomScannerController>();
+        final CustomScannerController controller =
+            context.watch<CustomScannerController>();
         final bool isTorchOn = controller.isTorchOn;
 
         return VisorButton(
-          tooltip:
-              widget.toggleFlashModeTooltip ??
+          tooltip: widget.toggleFlashModeTooltip ??
               'Turn ON or OFF the flash of the camera',
           onTap: () async {
             widget.hapticFeedback.call();
@@ -270,8 +267,8 @@ class _ToggleCameraIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CustomScannerController controller = context
-        .watch<CustomScannerController>();
+    final CustomScannerController controller =
+        context.watch<CustomScannerController>();
 
     return ValueListenableBuilder<int>(
       valueListenable: controller.availableCameras,

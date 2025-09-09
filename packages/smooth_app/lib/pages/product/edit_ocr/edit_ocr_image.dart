@@ -53,14 +53,14 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final ImageProvider? imageProvider = widget.transientFile
-        .getImageProvider();
+    final ImageProvider? imageProvider =
+        widget.transientFile.getImageProvider();
     final bool hasImage = imageProvider != null;
 
     final Size screenSize = MediaQuery.sizeOf(context);
@@ -265,33 +265,31 @@ class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
                     child: Image(
                       fit: BoxFit.contain,
                       image: widget.imageProvider,
-                      frameBuilder:
-                          (
-                            BuildContext context,
-                            Widget child,
-                            int? frame,
-                            bool wasSynchronouslyLoaded,
-                          ) {
-                            if (frame == null) {
-                              return _loadingWidget();
-                            } else if (_isLoading) {
-                              onNextFrame(
-                                () => setState(() => _isLoading = false),
-                              );
-                            }
-                            return child;
-                          },
-                      loadingBuilder:
-                          (
-                            BuildContext context,
-                            Widget child,
-                            ImageChunkEvent? loadingProgress,
-                          ) {
-                            if (loadingProgress == null) {
-                              return child;
-                            }
-                            return _loadingWidget();
-                          },
+                      frameBuilder: (
+                        BuildContext context,
+                        Widget child,
+                        int? frame,
+                        bool wasSynchronouslyLoaded,
+                      ) {
+                        if (frame == null) {
+                          return _loadingWidget();
+                        } else if (_isLoading) {
+                          onNextFrame(
+                            () => setState(() => _isLoading = false),
+                          );
+                        }
+                        return child;
+                      },
+                      loadingBuilder: (
+                        BuildContext context,
+                        Widget child,
+                        ImageChunkEvent? loadingProgress,
+                      ) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return _loadingWidget();
+                      },
                       errorBuilder: _onError,
                     ),
                   ),
@@ -307,8 +305,8 @@ class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
               else if (state == OcrState.EXTRACTING_DATA)
                 Builder(
                   builder: (BuildContext context) {
-                    final SmoothColorsThemeExtension extension = context
-                        .extension<SmoothColorsThemeExtension>();
+                    final SmoothColorsThemeExtension extension =
+                        context.extension<SmoothColorsThemeExtension>();
 
                     return Positioned.fill(
                       child: _ExtractTextAnimation(
@@ -526,9 +524,8 @@ class _EditOCRImageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color color = (onPressed != null && enabled)
-        ? Colors.white
-        : const Color(0x88FFFFFF);
+    final Color color =
+        (onPressed != null && enabled) ? Colors.white : const Color(0x88FFFFFF);
 
     return Ink(
       decoration: BoxDecoration(

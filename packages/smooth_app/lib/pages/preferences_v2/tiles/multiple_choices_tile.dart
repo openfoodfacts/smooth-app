@@ -35,8 +35,7 @@ class MultipleChoicesTile<T> extends PreferenceTile {
       title: title,
       subtitleText: labels.elementAt(currentValueIndex),
       onTap: () async {
-        final double itemHeight =
-            (descriptions != null ? 15.0 : 0.0) +
+        final double itemHeight = (descriptions != null ? 15.0 : 0.0) +
             (5.0 * 2) +
             1.0 +
             (56.0 + Theme.of(context).visualDensity.baseSizeAdjustment.dy);
@@ -114,8 +113,7 @@ class MultipleChoicesTile<T> extends PreferenceTile {
 
           res = await showSmoothModalSheet<T>(
             context: context,
-            minHeight:
-                smoothModalSheet.computeHeaderHeight(context) +
+            minHeight: smoothModalSheet.computeHeaderHeight(context) +
                 itemHeight * labels.length,
             builder: (BuildContext context) {
               return smoothModalSheet;
@@ -161,15 +159,15 @@ class _ChoiceItem<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final SmoothColorsThemeExtension extension = theme
-        .extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension extension =
+        theme.extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = context.lightTheme();
 
     final Color backgroundColor = selected
         ? (lightTheme ? extension.primaryMedium : extension.primaryTone)
         : context.lightTheme()
-        ? Colors.transparent
-        : extension.primaryUltraBlack;
+            ? Colors.transparent
+            : extension.primaryUltraBlack;
 
     return Semantics(
       value: label,

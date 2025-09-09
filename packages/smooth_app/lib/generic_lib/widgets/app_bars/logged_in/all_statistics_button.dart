@@ -26,9 +26,9 @@ class AllStatisticsButton extends StatelessWidget {
             MaterialPageRoute<Widget>(
               builder: (_) =>
                   ChangeNotifierProvider<PreferencesRootSearchController>(
-                    create: (_) => PreferencesRootSearchController(),
-                    child: ContributionsRoot(title: appLocalizations.contribute),
-                  ),
+                create: (_) => PreferencesRootSearchController(),
+                child: ContributionsRoot(title: appLocalizations.contribute),
+              ),
             ),
           );
         },

@@ -63,11 +63,11 @@ class SmoothTextFormField extends StatefulWidget {
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
 
   static TextStyle defaultHintTextStyle(BuildContext context) => TextStyle(
-    fontStyle: FontStyle.italic,
-    color: context.lightTheme()
-        ? const Color(0x99000000)
-        : const Color(0xBBFFFFFF),
-  );
+        fontStyle: FontStyle.italic,
+        color: context.lightTheme()
+            ? const Color(0x99000000)
+            : const Color(0xBBFFFFFF),
+      );
 }
 
 class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
@@ -88,8 +88,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
     ).style.copyWith(fontSize: 15.0);
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -106,16 +106,14 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       autofocus: widget.autofocus ?? false,
       maxLines: widget.maxLines,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      onChanged:
-          widget.onChanged ??
+      onChanged: widget.onChanged ??
           (String data) {
             // Rebuilds for changing the eye icon
             if (widget.type == TextFieldTypes.PASSWORD && data.length != 1) {
               setState(() {});
             }
           },
-      spellCheckConfiguration:
-          widget.spellCheckConfiguration ??
+      spellCheckConfiguration: widget.spellCheckConfiguration ??
           const SpellCheckConfiguration.disabled(),
       onFieldSubmitted: widget.onFieldSubmitted,
       style: TextStyle(fontSize: textSize),
@@ -125,8 +123,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
           FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
       ],
       decoration: InputDecoration(
-        contentPadding:
-            widget.contentPadding ??
+        contentPadding: widget.contentPadding ??
             const EdgeInsets.symmetric(
               horizontal: LARGE_SPACE,
               vertical: SMALL_SPACE,
@@ -147,8 +144,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
           borderSide: _getBorder(themeExtension).borderSide,
         ),
-        suffixIcon:
-            widget.suffixIcon ??
+        suffixIcon: widget.suffixIcon ??
             (widget.type == TextFieldTypes.PASSWORD
                 ? IconButton(
                     tooltip: appLocalization.show_password,

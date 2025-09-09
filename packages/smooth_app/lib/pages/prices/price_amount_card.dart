@@ -53,8 +53,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
     final int total = priceModel.length;
 
     return SmoothCardWithRoundedHeader(
-      title:
-          '${appLocalizations.prices_amount_subtitle}'
+      title: '${appLocalizations.prices_amount_subtitle}'
           '${total == 1 ? '' : ' (${widget.index + 1}/$total)'}',
       leading: const Icon(Icons.calculate_rounded),
       contentPadding: const EdgeInsetsDirectional.symmetric(

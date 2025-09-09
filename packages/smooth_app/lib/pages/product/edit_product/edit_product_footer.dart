@@ -43,36 +43,33 @@ class _EditProductFooterState extends State<EditProductFooter>
   @override
   void initState() {
     super.initState();
-    _menuController =
-        AnimationController(
-            vsync: this,
-            duration: SmoothAnimationsDuration.medium,
-          )
-          ..addListener(() {
-            setState(() {
-              _menuOffsetX = _menuAnimation.value;
+    _menuController = AnimationController(
+      vsync: this,
+      duration: SmoothAnimationsDuration.medium,
+    )
+      ..addListener(() {
+        setState(() {
+          _menuOffsetX = _menuAnimation.value;
 
-              /// Also move the upload indicator
-              if (widget.uploadIndicator) {
-                _loadingOffsetY =
-                    _height *
-                    (1 - _menuOffsetX.progressAndClamp(0.0, _maxOffsetX, 1.0));
-              }
-            });
-          })
-          ..addStatusListener((AnimationStatus status) {
-            if (status == AnimationStatus.completed && _menuOffsetX > 0.0) {
-              _scrollController.jumpTo(0.0);
-            }
-          });
-
-    _loadingController =
-        AnimationController(
-          vsync: this,
-          duration: SmoothAnimationsDuration.long,
-        )..addListener(() {
-          setState(() => _loadingOffsetY = _loadingAnimation.value);
+          /// Also move the upload indicator
+          if (widget.uploadIndicator) {
+            _loadingOffsetY = _height *
+                (1 - _menuOffsetX.progressAndClamp(0.0, _maxOffsetX, 1.0));
+          }
         });
+      })
+      ..addStatusListener((AnimationStatus status) {
+        if (status == AnimationStatus.completed && _menuOffsetX > 0.0) {
+          _scrollController.jumpTo(0.0);
+        }
+      });
+
+    _loadingController = AnimationController(
+      vsync: this,
+      duration: SmoothAnimationsDuration.long,
+    )..addListener(() {
+        setState(() => _loadingOffsetY = _loadingAnimation.value);
+      });
 
     if (widget.uploadIndicator) {
       _loadingOffsetY = 0.0;
@@ -153,11 +150,11 @@ class _EditProductFooterState extends State<EditProductFooter>
                         ),
                         color: context.lightTheme()
                             ? context
-                                  .extension<SmoothColorsThemeExtension>()
-                                  .primaryBlack
+                                .extension<SmoothColorsThemeExtension>()
+                                .primaryBlack
                             : context
-                                  .extension<SmoothColorsThemeExtension>()
-                                  .primarySemiDark,
+                                .extension<SmoothColorsThemeExtension>()
+                                .primarySemiDark,
                       ),
                       child: SizedBox(
                         width: BUTTON_WIDTH,
@@ -168,8 +165,7 @@ class _EditProductFooterState extends State<EditProductFooter>
                             bottom: MediaQuery.viewPaddingOf(context).bottom,
                           ),
                           child: Transform.rotate(
-                            angle:
-                                math.pi *
+                            angle: math.pi *
                                 (1 -
                                     _menuOffsetX.progressAndClamp(
                                       0.0,
@@ -238,8 +234,7 @@ class _EditProductFooterState extends State<EditProductFooter>
       }
 
       if (widget.uploadIndicator) {
-        _loadingOffsetY =
-            _height *
+        _loadingOffsetY = _height *
             (1 - _menuOffsetX.progressAndClamp(0.0, _maxOffsetX, 1.0));
       }
     });
@@ -286,8 +281,8 @@ class _EditPageLoadingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 
@@ -295,9 +290,8 @@ class _EditPageLoadingIndicator extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: context.lightTheme()
-                ? Colors.black12
-                : const Color(0x10FFFFFF),
+            color:
+                context.lightTheme() ? Colors.black12 : const Color(0x10FFFFFF),
             blurRadius: 6.0,
             offset: const Offset(0.0, -4.0),
           ),

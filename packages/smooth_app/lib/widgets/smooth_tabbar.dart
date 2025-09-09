@@ -40,19 +40,17 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return CustomPaint(
       foregroundPainter: _ProductHeaderTabBarPainter(
         progress: _horizontalProgress,
-        primaryColor:
-            widget.overflowMainColor ??
+        primaryColor: widget.overflowMainColor ??
             (lightTheme ? theme.primaryLight : theme.primaryDark),
-        bottomSeparatorColor: lightTheme
-            ? theme.primaryBlack
-            : theme.primaryNormal,
+        bottomSeparatorColor:
+            lightTheme ? theme.primaryBlack : theme.primaryNormal,
       ),
       child: SizedBox(
         height: SmoothTabBar.TAB_BAR_HEIGHT,
@@ -123,7 +121,7 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
 
 class SmoothTabBarItem<T> {
   const SmoothTabBarItem({required this.label, required this.value})
-    : assert(label.length > 0);
+      : assert(label.length > 0);
 
   final String label;
   final T value;
@@ -196,11 +194,11 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
     if (progress > 0.0) {
       _paint.shader =
           ui.Gradient.linear(Offset.zero, Offset(gradientSize, 0.0), <Color>[
-            primaryColor.withValues(
-              alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
-            ),
-            backgroundColor,
-          ]);
+        primaryColor.withValues(
+          alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
+        ),
+        backgroundColor,
+      ]);
 
       canvas.drawRect(Rect.fromLTWH(0, 0, gradientSize, size.height), _paint);
     }

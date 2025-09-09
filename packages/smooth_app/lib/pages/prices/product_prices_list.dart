@@ -64,10 +64,10 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
     required this.model,
     GetPricesResult? pricesResult,
   }) : super(
-         initialItems: pricesResult?.items,
-         totalItems: pricesResult?.total,
-         totalPages: pricesResult?.numberOfPages,
-       );
+          initialItems: pricesResult?.items,
+          totalItems: pricesResult?.total,
+          totalPages: pricesResult?.numberOfPages,
+        );
 
   /// The model containing price query parameters
   final GetPricesModel model;
@@ -79,9 +79,9 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 
     final MaybeError<GetPricesResult> result =
         await OpenPricesAPIClient.getPrices(
-          parameters,
-          uriHelper: ProductQuery.uriPricesHelper,
-        );
+      parameters,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
 
     if (result.isError) {
       throw result.detailError;
@@ -100,8 +100,8 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   Widget buildItem({required BuildContext context, required Price item}) {
     final PriceProduct? priceProduct = item.product;
 
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return SmoothCard(

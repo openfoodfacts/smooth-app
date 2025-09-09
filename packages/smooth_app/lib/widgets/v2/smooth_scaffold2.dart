@@ -18,9 +18,9 @@ class SmoothScaffold2 extends StatefulWidget {
     this.bottomSafeArea = true,
     super.key,
   }) : assert(
-         (bottomBar == null || floatingBottomBar == null),
-         'You can provide either a fixed bottomBar or a floatingBottomBar, not both.',
-       );
+          (bottomBar == null || floatingBottomBar == null),
+          'You can provide either a fixed bottomBar or a floatingBottomBar, not both.',
+        );
 
   final SmoothTopBar2? topBar;
   final List<Widget> children;
@@ -161,9 +161,9 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
     // Body
     final double bodyTopPosition = topBarHeight > 0.0
         ? topBarHeight -
-              (injectPaddingInBody || contentBelowTopBar
-                  ? HEADER_ROUNDED_RADIUS.x
-                  : 0.0)
+            (injectPaddingInBody || contentBelowTopBar
+                ? HEADER_ROUNDED_RADIUS.x
+                : 0.0)
         : 0.0;
     layoutChild(
       _SmoothScaffold2Widget.body,

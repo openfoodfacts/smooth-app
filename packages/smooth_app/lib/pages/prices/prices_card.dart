@@ -71,8 +71,7 @@ class PricesCounter extends StatefulWidget {
   final Widget Function(
     GetPricesModel model,
     ProductPriceRefresher productPriceRefresher,
-  )?
-  child;
+  )? child;
 
   @override
   State<PricesCounter> createState() => _PricesCounterState();
@@ -106,9 +105,8 @@ class _PricesCounterState extends State<PricesCounter> {
     return Badge(
       offset: Offset.zero,
       isLabelVisible: total != null,
-      backgroundColor: context
-          .extension<SmoothColorsThemeExtension>()
-          .secondaryNormal,
+      backgroundColor:
+          context.extension<SmoothColorsThemeExtension>().secondaryNormal,
       label: Padding(
         padding: const EdgeInsetsDirectional.only(
           start: VERY_SMALL_SPACE,
@@ -143,17 +141,17 @@ class _PricesCardViewButton extends StatelessWidget {
       child:
           (GetPricesModel model, ProductPriceRefresher productPriceRefresher) =>
               SmoothLargeButtonWithIcon(
-                text: appLocalizations.prices_view_prices,
-                leadingIcon: const Icon(CupertinoIcons.tag_fill),
-                onPressed: () async => Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => PricesPage(
-                      model,
-                      pricesResult: productPriceRefresher.pricesResult,
-                    ),
-                  ),
-                ),
-              ),
+        text: appLocalizations.prices_view_prices,
+        leadingIcon: const Icon(CupertinoIcons.tag_fill),
+        onPressed: () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PricesPage(
+              model,
+              pricesResult: productPriceRefresher.pricesResult,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

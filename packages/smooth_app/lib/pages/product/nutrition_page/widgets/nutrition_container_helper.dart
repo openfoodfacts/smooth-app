@@ -18,8 +18,8 @@ class NutritionContainerHelper extends ChangeNotifier {
       _loadValues(product.nutriments!);
     }
     setServingText(product.servingSize);
-    _initialNoNutritionData = _noNutritionData =
-        product.noNutritionData ?? false;
+    _initialNoNutritionData =
+        _noNutritionData = product.noNutritionData ?? false;
   }
 
   /// Returns the [Nutrient] that matches the [orderedNutrient].
@@ -106,7 +106,7 @@ class NutritionContainerHelper extends ChangeNotifier {
 
       Set<String> extractedNutrients =
           extractionResult.latestInsight?.data?.nutrients?.keys.toSet() ??
-          <String>{};
+              <String>{};
 
       extractedNutrients = extractedNutrients
           .where((String nutrient) => !nutrient.contains('_serving'))
@@ -117,8 +117,8 @@ class NutritionContainerHelper extends ChangeNotifier {
         // If the nutrient is not in the list of nutrients, we add it
         final OrderedNutrient? missingNutrient = getLeftoverNutrients()
             .firstWhereOrNull((final OrderedNutrient orderedNutrient) {
-              return orderedNutrient.nutrient?.offTag == nutrientOffTag;
-            });
+          return orderedNutrient.nutrient?.offTag == nutrientOffTag;
+        });
 
         if (missingNutrient != null) {
           add(missingNutrient);
@@ -127,8 +127,8 @@ class NutritionContainerHelper extends ChangeNotifier {
 
       for (final OrderedNutrient orderedNutrient in _nutrients) {
         final Nutrient nutrient = getNutrient(orderedNutrient)!;
-        final RobotoffNutrientEntity? robotoffNutrientEntity = extractionResult
-            .getNutrientEntity(nutrient, perSize);
+        final RobotoffNutrientEntity? robotoffNutrientEntity =
+            extractionResult.getNutrientEntity(nutrient, perSize);
         if (robotoffNutrientEntity != null) {
           AnalyticsHelper.trackRobotoffExtraction(
             AnalyticsRobotoffEvents.robotoffNutritionExtracted,
@@ -149,13 +149,13 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Returns the not interesting nutrients, for a "Please add me!" list.
   Iterable<OrderedNutrient> getLeftoverNutrients() => _nutrients.where(
-    (final OrderedNutrient element) => _isNotRelevant(element),
-  );
+        (final OrderedNutrient element) => _isNotRelevant(element),
+      );
 
   /// Returns the interesting nutrients that need to be displayed.
   Iterable<OrderedNutrient> getDisplayableNutrients() => _nutrients.where(
-    (final OrderedNutrient element) => !_isNotRelevant(element),
-  );
+        (final OrderedNutrient element) => !_isNotRelevant(element),
+      );
 
   /// Returns true if the [OrderedNutrient] is not relevant.
   bool _isNotRelevant(final OrderedNutrient orderedNutrient) {

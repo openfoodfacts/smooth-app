@@ -17,16 +17,15 @@ class SquarePreferenceTile extends PreferenceTile {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final SmoothColorsThemeExtension themeExtension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: lightTheme
-            ? themeExtension.primaryMedium
-            : const Color(0xFF333333),
+        color:
+            lightTheme ? themeExtension.primaryMedium : const Color(0xFF333333),
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       child: Material(
@@ -67,9 +66,8 @@ class SquarePreferenceTile extends PreferenceTile {
                           style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w500,
-                            color: lightTheme
-                                ? theme.primaryColor
-                                : Colors.white,
+                            color:
+                                lightTheme ? theme.primaryColor : Colors.white,
                           ),
                         ),
                       ),

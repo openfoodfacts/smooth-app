@@ -10,14 +10,13 @@ class SmoothHtmlDecimal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return CustomPaint(
       painter: _HtmlDecimalPainter(
-        color: context.lightTheme()
-            ? extension.greyMedium
-            : extension.greyNormal,
+        color:
+            context.lightTheme() ? extension.greyMedium : extension.greyNormal,
         index: index,
         textDirection: Directionality.of(context),
         textStyle: const TextStyle(

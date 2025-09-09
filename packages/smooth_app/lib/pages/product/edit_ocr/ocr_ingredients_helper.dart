@@ -19,13 +19,15 @@ class OcrIngredientsHelper extends OcrHelper {
   @override
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
     final Product product,
-  ) => product.ingredientsTextInLanguages;
+  ) =>
+      product.ingredientsTextInLanguages;
 
   @override
   void setMultilingualTexts(
     final Product product,
     final Map<OpenFoodFactsLanguage, String> texts,
-  ) => product.ingredientsTextInLanguages = texts;
+  ) =>
+      product.ingredientsTextInLanguages = texts;
 
   @override
   String? getImageUrl(final Product product) => product.imageIngredientsUrl;
@@ -108,13 +110,13 @@ class OcrIngredientsHelper extends OcrHelper {
   ) async {
     final OcrIngredientsResult result =
         await OpenFoodAPIClient.extractIngredients(
-          getUser(),
-          product.barcode!,
-          language,
-          uriHelper: ProductQuery.getUriProductHelper(
-            productType: product.productType,
-          ),
-        );
+      getUser(),
+      product.barcode!,
+      language,
+      uriHelper: ProductQuery.getUriProductHelper(
+        productType: product.productType,
+      ),
+    );
     return result.ingredientsTextFromImage;
   }
 

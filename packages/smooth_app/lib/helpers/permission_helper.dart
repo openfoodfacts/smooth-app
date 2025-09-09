@@ -7,8 +7,8 @@ import 'package:smooth_app/services/smooth_services.dart';
 
 class PermissionListener extends ValueNotifier<DevicePermission> {
   PermissionListener({required this.permission})
-    : _status = _DevicePermissionStatus.initial,
-      super(DevicePermission._initial(permission));
+      : _status = _DevicePermissionStatus.initial,
+        super(DevicePermission._initial(permission));
 
   final Permission permission;
   _DevicePermissionStatus _status = _DevicePermissionStatus.initial;
@@ -97,7 +97,7 @@ class DevicePermission {
   const DevicePermission._(this.permission, this.status);
 
   const DevicePermission._initial(this.permission)
-    : status = DevicePermissionStatus.checking;
+      : status = DevicePermissionStatus.checking;
 
   DevicePermission._fromPermissionStatus(
     this.permission,
