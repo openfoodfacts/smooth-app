@@ -92,20 +92,13 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
     &#47;&#47;&#47; Hide the icon
     icon: const Icon(Icons.info, size: 0.0),
   ),
-  _getListTile(
-    title: appLocalizations.environmental_score_generic,
-    leadingSvg: &#39;assets&#47;cache&#47;green-score-b.svg&#39;,
-    onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
-      MaterialPageRoute&lt;void&gt;(
-        builder: (BuildContext context) =&gt; const GuideGreenScore(),
-      ),
-    ),
-
-    &#47;&#47;&#47; Hide the icon
-    icon: const Icon(Icons.info, size: 0.0),
+  _getNutriListTile(
+    title: appLocalizations.environmental_score_generic_new,
+    url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;ecoscore&#39;,
+    svg: &#39;assets&#47;cache&#47;green-score-b.svg&#39;,
   ),
   _getListTile(
-    title: appLocalizations.nova_group_generic,
+    title: appLocalizations.nova_group_generic_new,
     leadingSvg: &#39;assets&#47;cache&#47;nova-group-4.svg&#39;,
     onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute&lt;void&gt;(

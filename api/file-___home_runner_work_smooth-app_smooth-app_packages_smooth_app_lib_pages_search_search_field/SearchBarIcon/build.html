@@ -79,7 +79,9 @@ Widget build(BuildContext context) {
     aspectRatio: 1.0,
     child: DecoratedBox(
       decoration: BoxDecoration(
-        color: theme.primaryDark,
+        color: context.lightTheme()
+            ? theme.primaryDark
+            : theme.secondaryVibrant,
         shape: BoxShape.circle,
       ),
       child: Padding(

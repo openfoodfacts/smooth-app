@@ -68,6 +68,11 @@ Future&lt;void&gt; loadValues() async {
   value = PreferencesSelectorLoadingState&lt;T&gt;();
 
   final List&lt;T&gt; values = await onLoadValues();
+
+  if (!_attached) {
+    return;
+  }
+
   value = PreferencesSelectorLoadedState&lt;T&gt;(
     selectedItem: getSelectedValue(values),
     items: values,

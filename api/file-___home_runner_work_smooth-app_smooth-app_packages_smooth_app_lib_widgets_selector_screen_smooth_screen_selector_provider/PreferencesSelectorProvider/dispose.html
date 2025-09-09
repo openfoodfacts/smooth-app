@@ -71,6 +71,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 void dispose() {
   preferences.removeListener(onPreferencesChanged);
+  _attached = false;
   super.dispose();
 }</code></pre>
 </section>
