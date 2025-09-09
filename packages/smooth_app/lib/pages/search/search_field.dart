@@ -139,8 +139,10 @@ class _SearchFieldState extends State<SearchField> {
     final OutlineInputBorder border = OutlineInputBorder(
       borderRadius: decoration.borderRadius! as BorderRadius,
       borderSide: decoration.border!.top.copyWith(
-        width: 2.0,
-        color: context.lightTheme() ? null : themeExtension.secondaryVibrant,
+        width: 1.0,
+        color: context.lightTheme()
+            ? themeExtension.primaryDark
+            : themeExtension.secondaryVibrant,
       ),
     );
 
@@ -152,7 +154,14 @@ class _SearchFieldState extends State<SearchField> {
       ),
       border: border,
       enabledBorder: border,
-      focusedBorder: border,
+      focusedBorder: border.copyWith(
+        borderSide: decoration.border!.top.copyWith(
+          width: 2.0,
+          color: context.lightTheme()
+              ? themeExtension.primaryDark
+              : themeExtension.secondaryVibrant,
+        ),
+      ),
       contentPadding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
       hintText: widget.searchHelper.getHintText(localizations),
       hintStyle: widget.hintTextStyle ?? const TextStyle(color: Colors.black54),

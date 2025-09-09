@@ -82,8 +82,12 @@ class AppSettingsRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.crash_reporting_toggle_title,
         tiles: <PreferenceTile>[
-          _buildCrashReportingTile(appLocalizations, userPreferences),
-          _buildAnonymousDataTile(appLocalizations, userPreferences),
+          _buildCrashReportingTile(
+            appLocalizations,
+            userPreferences,
+            iconColor,
+          ),
+          _buildAnonymousDataTile(appLocalizations, userPreferences, iconColor),
         ],
       ),
     ];
@@ -252,8 +256,10 @@ class AppSettingsRoot extends PreferencesRoot {
   TogglePreferenceTile _buildCrashReportingTile(
     AppLocalizations appLocalizations,
     UserPreferences userPreferences,
+    Color iconColor,
   ) {
     return TogglePreferenceTile(
+      leading: icons.Crash(color: iconColor),
       title: appLocalizations.crash_reporting_toggle_title,
       subtitleText: appLocalizations.crash_reporting_toggle_subtitle,
       state: userPreferences.crashReports,
@@ -264,8 +270,10 @@ class AppSettingsRoot extends PreferencesRoot {
   TogglePreferenceTile _buildAnonymousDataTile(
     AppLocalizations appLocalizations,
     UserPreferences userPreferences,
+    Color iconColor,
   ) {
     return TogglePreferenceTile(
+      leading: icons.Incognito(color: iconColor),
       title: appLocalizations.send_anonymous_data_toggle_title,
       subtitleText: appLocalizations.send_anonymous_data_toggle_subtitle,
       state: userPreferences.userTracking,

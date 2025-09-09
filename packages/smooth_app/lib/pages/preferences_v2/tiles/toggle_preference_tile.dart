@@ -23,6 +23,7 @@ class TogglePreferenceTile extends PreferenceTile {
       icon: icon,
       title: title,
       subtitleText: subtitleText,
+      onTap: () => onToggle(!state),
       trailing: SmoothSwitch(value: state, onChanged: onToggle),
     );
   }

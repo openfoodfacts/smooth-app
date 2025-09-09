@@ -24,87 +24,90 @@ class LoggedInAppBarHeader extends StatelessWidget {
 
     final bool lightTheme = context.lightTheme();
 
-    return Row(
-      spacing: MEDIUM_SPACE,
-      children: <Widget>[
-        Container(
-          width: PROFILE_PICTURE_SIZE,
-          height: PROFILE_PICTURE_SIZE,
-          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: theme.cardColor,
-          ),
-          child: Center(
-            child: SvgPicture.asset(
-              lightTheme
-                  ? 'assets/app/release_icon_light_transparent_no_border.svg'
-                  : 'assets/app/release_icon_dark_transparent_no_border.svg',
+    return FlexibleSpaceBar(
+      expandedTitleScale: 1.0,
+      title: Row(
+        spacing: MEDIUM_SPACE,
+        children: <Widget>[
+          Container(
+            width: PROFILE_PICTURE_SIZE,
+            height: PROFILE_PICTURE_SIZE,
+            padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: theme.cardColor,
+            ),
+            child: Center(
+              child: SvgPicture.asset(
+                lightTheme
+                    ? 'assets/app/release_icon_light_transparent_no_border.svg'
+                    : 'assets/app/release_icon_dark_transparent_no_border.svg',
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: Column(
-            spacing: VERY_SMALL_SPACE,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      userId,
-                      style: TextStyle(
-                        color: themeExtension.secondaryNormal,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      appLocalizations.preferences_app_bar_message,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        DecoratedBox(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            icon: Icon(Icons.settings, color: theme.primaryColor),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) =>
-                      ChangeNotifierProvider<PreferencesRootSearchController>(
-                        create: (_) => PreferencesRootSearchController(),
-                        child: AccountRoot(
-                          title: appLocalizations.preferences_account_title,
+          Expanded(
+            child: Column(
+              spacing: VERY_SMALL_SPACE,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Flexible(
+                      child: Text(
+                        userId,
+                        style: TextStyle(
+                          color: themeExtension.secondaryNormal,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
                         ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
+                    ),
+                  ],
                 ),
-              );
-            },
+                Row(
+                  children: <Widget>[
+                    Flexible(
+                      child: Text(
+                        appLocalizations.preferences_app_bar_message,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+          DecoratedBox(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: Icon(Icons.settings, color: theme.primaryColor),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) =>
+                        ChangeNotifierProvider<PreferencesRootSearchController>(
+                          create: (_) => PreferencesRootSearchController(),
+                          child: AccountRoot(
+                            title: appLocalizations.preferences_account_title,
+                          ),
+                        ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

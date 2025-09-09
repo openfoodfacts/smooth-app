@@ -118,6 +118,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     this.borderRadius,
     this.includeShadow = true,
     this.banner,
+    this.clipBehavior,
     super.key,
   });
 
@@ -137,6 +138,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   final BorderRadius? borderRadius;
   final bool includeShadow;
   final Widget? banner;
+  final Clip? clipBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -174,6 +176,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
             contentBackgroundColor: contentBackgroundColor,
             contentPadding: contentPadding,
             borderRadius: borderRadius,
+            clipBehavior: clipBehavior,
             child: child,
           ),
         ],
@@ -367,12 +370,14 @@ class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
     this.contentPadding,
     this.contentBackgroundColor,
     this.borderRadius,
+    this.clipBehavior,
   });
 
   final Widget child;
   final EdgeInsetsGeometry? contentPadding;
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
+  final Clip? clipBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -388,6 +393,7 @@ class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
                     .extension<SmoothColorsThemeExtension>()
                     .primaryUltraBlack
               : null),
+      clipBehavior: clipBehavior,
       child: child,
     );
   }

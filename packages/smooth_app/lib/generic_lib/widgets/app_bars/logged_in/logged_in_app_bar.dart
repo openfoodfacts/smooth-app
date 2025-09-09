@@ -25,6 +25,8 @@ class LoggedInAppBar extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
       ),
+      elevation: 12.0,
+      forceElevated: true,
     );
   }
 }

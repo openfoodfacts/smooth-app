@@ -24,6 +24,8 @@ class LoggedOutAppBar extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
       ),
+      elevation: 8.0,
+      shadowColor: Colors.black54,
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
@@ -25,7 +26,7 @@ class FaqRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           _buildNutriscoreTile(appLocalizations),
           _buildNutriscoreV2Tile(context, appLocalizations),
-          _buildEcoscoreTile(appLocalizations),
+          _buildGreenscoreTile(context, appLocalizations),
           _buildNovaTile(appLocalizations),
           _buildTrafficLightsTile(appLocalizations),
         ],
@@ -76,11 +77,18 @@ class FaqRoot extends PreferencesRoot {
     );
   }
 
-  UrlPreferenceTile _buildEcoscoreTile(AppLocalizations appLocalizations) {
-    return _createScoreTile(
+  PreferenceTile _buildGreenscoreTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      leading: _createLeadingIcon('assets/cache/green-score-b.svg'),
       title: appLocalizations.environmental_score_generic_new,
-      url: 'https://world.openfoodfacts.org/ecoscore',
-      svg: 'assets/cache/green-score-b.svg',
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const GuideGreenScore(),
+        ),
+      ),
     );
   }
 

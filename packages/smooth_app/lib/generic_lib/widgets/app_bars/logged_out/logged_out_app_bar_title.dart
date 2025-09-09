@@ -15,47 +15,50 @@ class LoggedOutAppBarTitle extends StatelessWidget {
         .extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return Row(
-      spacing: MEDIUM_SPACE,
-      children: <Widget>[
-        Container(
-          width: PROFILE_PICTURE_SIZE,
-          height: PROFILE_PICTURE_SIZE,
-          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-          clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white,
-          ),
-          child: Center(
-            child: SvgPicture.asset(
-              'assets/app/release_icon_light_transparent_no_border.svg',
+    return FlexibleSpaceBar(
+      expandedTitleScale: 1.0,
+      title: Row(
+        spacing: MEDIUM_SPACE,
+        children: <Widget>[
+          Container(
+            width: PROFILE_PICTURE_SIZE,
+            height: PROFILE_PICTURE_SIZE,
+            padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+            clipBehavior: Clip.antiAlias,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+            ),
+            child: Center(
+              child: SvgPicture.asset(
+                'assets/app/release_icon_light_transparent_no_border.svg',
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      appLocalizations.logged_out,
-                      style: TextStyle(
-                        color: themeExtension.secondaryNormal,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w600,
+          Expanded(
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Flexible(
+                      child: Text(
+                        appLocalizations.logged_out,
+                        style: TextStyle(
+                          color: themeExtension.secondaryNormal,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

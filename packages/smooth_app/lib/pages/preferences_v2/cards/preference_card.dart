@@ -56,6 +56,7 @@ class PreferenceCard extends StatelessWidget {
           : null,
       titleSpacing: MEDIUM_SPACE * 2,
       contentPadding: !gridView ? EdgeInsets.zero : null,
+      clipBehavior: Clip.antiAlias,
       titleBackgroundColor:
           titleBackgroundColor ??
           (context.lightTheme() ? null : const Color(0xFF322219)),

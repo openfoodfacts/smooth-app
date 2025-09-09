@@ -45,7 +45,16 @@ class AllStatisticsButton extends StatelessWidget {
               ),
             ),
             const SizedBox(width: MEDIUM_SPACE),
-            icons.CircledArrow.right(size: 14.0, color: theme.primaryColor),
+            SizedBox.square(
+              dimension: 20.0,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: theme.primaryColor,
+                  shape: BoxShape.circle,
+                ),
+                child: const icons.Arrow.right(color: Colors.white, size: 10.0),
+              ),
+            ),
           ],
         ),
       ),
