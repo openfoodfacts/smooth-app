@@ -106,31 +106,39 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     required this.child,
     this.leading,
     this.leadingIconSize,
+    this.leadingMargin,
     this.leadingPadding,
     this.trailing,
     this.titleTextStyle,
     this.titlePadding,
+    this.titleSpacing,
     this.contentPadding,
     this.titleBackgroundColor,
     this.contentBackgroundColor,
     this.borderRadius,
     this.includeShadow = true,
+    this.banner,
+    this.clipBehavior,
     super.key,
   });
 
   final String title;
   final Widget? leading;
   final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingMargin;
   final EdgeInsetsGeometry? leadingPadding;
   final Widget? trailing;
   final Widget child;
   final TextStyle? titleTextStyle;
   final EdgeInsetsGeometry? titlePadding;
+  final double? titleSpacing;
   final EdgeInsetsGeometry? contentPadding;
   final Color? titleBackgroundColor;
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
   final bool includeShadow;
+  final Widget? banner;
+  final Clip? clipBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -153,18 +161,22 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
           SmoothCardWithRoundedHeaderTop(
             title: title,
             titleBackgroundColor: titleBackgroundColor,
+            titleSpacing: titleSpacing,
             leading: leading,
             leadingIconSize: leadingIconSize,
+            leadingMargin: leadingMargin,
             leadingPadding: leadingPadding,
             trailing: trailing,
             titleTextStyle: titleTextStyle,
             titlePadding: titlePadding,
             borderRadius: borderRadius,
+            banner: banner,
           ),
           SmoothCardWithRoundedHeaderBody(
             contentBackgroundColor: contentBackgroundColor,
             contentPadding: contentPadding,
             borderRadius: borderRadius,
+            clipBehavior: clipBehavior,
             child: child,
           ),
         ],
@@ -200,8 +212,10 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   const SmoothCardWithRoundedHeaderTop({
     required this.title,
     this.titleBackgroundColor,
+    this.titleSpacing,
     this.leading,
     this.leadingIconSize,
+    this.leadingMargin,
     this.leadingPadding,
     this.trailing,
     this.titleTextStyle,
@@ -212,8 +226,10 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
 
   final String title;
   final Color? titleBackgroundColor;
+  final double? titleSpacing;
   final Widget? leading;
   final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingMargin;
   final EdgeInsetsGeometry? leadingPadding;
   final Widget? trailing;
   final TextStyle? titleTextStyle;
@@ -260,25 +276,28 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   if (leading != null)
-                    IconTheme(
-                      data: IconThemeData(
-                        color: titleBackgroundColor,
-                        size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
-                      ),
-                      child: DecoratedBox(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
+                    Container(
+                      margin: leadingMargin,
+                      child: IconTheme(
+                        data: IconThemeData(
+                          color: titleBackgroundColor,
+                          size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
                         ),
-                        child: Padding(
-                          padding:
-                              leadingPadding ??
-                              const EdgeInsetsDirectional.all(6.0),
-                          child: leading,
+                        child: DecoratedBox(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding:
+                                leadingPadding ??
+                                const EdgeInsetsDirectional.all(6.0),
+                            child: leading,
+                          ),
                         ),
                       ),
                     ),
-                  const SizedBox(width: MEDIUM_SPACE),
+                  SizedBox(width: titleSpacing ?? MEDIUM_SPACE),
                   Expanded(
                     child: Text(
                       title,
@@ -351,12 +370,14 @@ class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
     this.contentPadding,
     this.contentBackgroundColor,
     this.borderRadius,
+    this.clipBehavior,
   });
 
   final Widget child;
   final EdgeInsetsGeometry? contentPadding;
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
+  final Clip? clipBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -372,6 +393,7 @@ class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
                     .extension<SmoothColorsThemeExtension>()
                     .primaryUltraBlack
               : null),
+      clipBehavior: clipBehavior,
       child: child,
     );
   }

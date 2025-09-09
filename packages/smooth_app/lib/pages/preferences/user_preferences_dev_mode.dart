@@ -109,7 +109,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
       ),
     ),
-    UserPreferencesItemSection(label: appLocalizations.dev_mode_section_data),
+    UserPreferencesItemSection(
+      label: appLocalizations.preferences_dev_mode_section_data,
+    ),
     UserPreferencesItemTile(
       title: appLocalizations.background_task_title,
       subtitle: appLocalizations.background_task_subtitle,
@@ -352,7 +354,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       },
     ),
     UserPreferencesItemSwitch(
-      title: appLocalizations.dev_preferences_show_folksonomy_title,
+      title: appLocalizations.preferences_dev_preferences_show_folksonomy_title,
       value: userPreferences.getFlag(userPreferencesFlagHideFolksonomy) ?? true,
       onChanged: (bool value) async {
         await userPreferences.setFlag(userPreferencesFlagHideFolksonomy, value);

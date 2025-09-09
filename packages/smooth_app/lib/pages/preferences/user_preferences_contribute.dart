@@ -116,12 +116,12 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         ),
       if (GlobalVars.appStore.getEnrollInBetaURL() != null)
         _getListTile(
-          appLocalizations.contribute_enroll_alpha,
+          appLocalizations.preferences_contribute_enroll_alpha,
           () async {
             final bool? result = await showDialog<bool>(
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(
-                title: appLocalizations.contribute_enroll_alpha,
+                title: appLocalizations.preferences_contribute_enroll_alpha,
                 body: Text(appLocalizations.contribute_enroll_alpha_warning),
                 negativeAction: SmoothActionButton(
                   text: appLocalizations.close,
