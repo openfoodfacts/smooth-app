@@ -4620,7 +4620,7 @@
   "@preferences_faq_subtitle": {
     "description": "Subtitle for the faq preferences tile"
   },
-  "logged_out": "Ausgeloggt",
+  "logged_out": "Abgemeldet",
   "@logged_out": {
     "description": "Text to show when the user is logged out"
   },
