@@ -1163,12 +1163,6 @@ abstract class AppLocalizations {
   /// **'Donate to Open Food Facts'**
   String get contribute_donate_header;
 
-  /// No description provided for @contribute_enroll_alpha.
-  ///
-  /// In en, this message translates to:
-  /// **'Enroll in internal alpha version'**
-  String get contribute_enroll_alpha;
-
   /// No description provided for @contribute_enroll_alpha_warning.
   ///
   /// In en, this message translates to:
@@ -4349,6 +4343,12 @@ abstract class AppLocalizations {
   /// **'DEV Mode'**
   String get dev_preferences_screen_title;
 
+  /// User dev preferences - Subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Access experimental features and development tools'**
+  String get dev_preferences_screen_subtitle;
+
   /// User dev preferences - Reset onboarding - Title
   ///
   /// In en, this message translates to:
@@ -5173,23 +5173,11 @@ abstract class AppLocalizations {
   /// **'User Interface'**
   String get dev_mode_section_ui;
 
-  /// No description provided for @dev_mode_section_data.
-  ///
-  /// In en, this message translates to:
-  /// **'Data'**
-  String get dev_mode_section_data;
-
   /// No description provided for @dev_mode_section_experimental_features.
   ///
   /// In en, this message translates to:
   /// **'Experimental features'**
   String get dev_mode_section_experimental_features;
-
-  /// Title for switch toggle to show or hide folksonomy, product tags on product details page
-  ///
-  /// In en, this message translates to:
-  /// **'Exclude Folksonomy'**
-  String get dev_preferences_show_folksonomy_title;
 
   /// User dev preferences - Disable Green Score - Title
   ///
@@ -6931,59 +6919,59 @@ abstract class AppLocalizations {
   /// **'Nutri-Score is not applicable (New calculation)'**
   String get nutriscore_not_applicable_new_formula;
 
-  /// No description provided for @environmental_score_generic.
+  /// No description provided for @environmental_score_generic_new.
   ///
   /// In en, this message translates to:
-  /// **'Green Score'**
-  String get environmental_score_generic;
+  /// **'Green-Score'**
+  String get environmental_score_generic_new;
 
-  /// No description provided for @environmental_score_a.
+  /// No description provided for @environmental_score_a_new.
   ///
   /// In en, this message translates to:
-  /// **'Green Score A'**
-  String get environmental_score_a;
+  /// **'Green-Score A'**
+  String get environmental_score_a_new;
 
-  /// No description provided for @environmental_score_b.
+  /// No description provided for @environmental_score_b_new.
   ///
   /// In en, this message translates to:
-  /// **'Green Score B'**
-  String get environmental_score_b;
+  /// **'Green-Score B'**
+  String get environmental_score_b_new;
 
-  /// No description provided for @environmental_score_c.
+  /// No description provided for @environmental_score_c_new.
   ///
   /// In en, this message translates to:
-  /// **'Green Score C'**
-  String get environmental_score_c;
+  /// **'Green-Score C'**
+  String get environmental_score_c_new;
 
-  /// No description provided for @environmental_score_d.
+  /// No description provided for @environmental_score_d_new.
   ///
   /// In en, this message translates to:
-  /// **'Green Score D'**
-  String get environmental_score_d;
+  /// **'Green-Score D'**
+  String get environmental_score_d_new;
 
-  /// No description provided for @environmental_score_e.
+  /// No description provided for @environmental_score_e_new.
   ///
   /// In en, this message translates to:
-  /// **'Green Score E'**
-  String get environmental_score_e;
+  /// **'Green-Score E'**
+  String get environmental_score_e_new;
 
-  /// No description provided for @environmental_score_unknown.
+  /// No description provided for @environmental_score_unknown_new.
   ///
   /// In en, this message translates to:
-  /// **'Unknown Green Score'**
-  String get environmental_score_unknown;
+  /// **'Unknown Green-Score'**
+  String get environmental_score_unknown_new;
 
-  /// No description provided for @environmental_score_not_applicable.
+  /// No description provided for @environmental_score_not_applicable_new.
   ///
   /// In en, this message translates to:
-  /// **'Green Score is not applicable'**
-  String get environmental_score_not_applicable;
+  /// **'Green-Score is not applicable'**
+  String get environmental_score_not_applicable_new;
 
-  /// No description provided for @nova_group_generic.
+  /// No description provided for @nova_group_generic_new.
   ///
   /// In en, this message translates to:
-  /// **'Ultra-processing - NOVA groups'**
-  String get nova_group_generic;
+  /// **'Ultra-processed foods - NOVA groups'**
+  String get nova_group_generic_new;
 
   /// No description provided for @nova_group_1.
   ///
@@ -8659,6 +8647,792 @@ abstract class AppLocalizations {
   /// **'Proof'**
   String get product_edit_robotoff_proof;
 
+  /// Title for the general preferences card
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get preferences_card_general;
+
+  /// Title for the prices preferences title
+  ///
+  /// In en, this message translates to:
+  /// **'Prices'**
+  String get preferences_prices_title;
+
+  /// Subtitle for the prices preferences title
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your prices preferences'**
+  String get preferences_prices_subtitle;
+
+  /// Title for the project preferences card
+  ///
+  /// In en, this message translates to:
+  /// **'The Open Food Facts project'**
+  String get preferences_card_project;
+
+  /// Title for the contribution preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Contribute'**
+  String get preferences_contribute_title;
+
+  /// Subtitle for the contribution preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Translate, improve our tools…'**
+  String get preferences_contribute_subtitle;
+
+  /// Title for the contribution preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Connect'**
+  String get preferences_connect_title;
+
+  /// Subtitle for the contribution preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Reach out, or Follow us on social media'**
+  String get preferences_connect_subtitle;
+
+  /// Title for the support preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Make a donation'**
+  String get preferences_support_title;
+
+  /// Subtitle for the support preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Help us inform millions of consumers around the world'**
+  String get preferences_support_subtitle;
+
+  /// Title for the help and support preferences card
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get preferences_card_help;
+
+  /// Title for the faq preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get preferences_faq_title;
+
+  /// Subtitle for the faq preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Get answers to your questions'**
+  String get preferences_faq_subtitle;
+
+  /// Text to show when the user is logged out
+  ///
+  /// In en, this message translates to:
+  /// **'Logged out'**
+  String get logged_out;
+
+  /// Message to show in the preferences app bar when the user is logged in
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for being one of our members!'**
+  String get preferences_app_bar_message;
+
+  /// Preferences app bar products modified card
+  ///
+  /// In en, this message translates to:
+  /// **'Products modified'**
+  String get preferences_app_bar_products_modified;
+
+  /// Preferences app bar prices added card
+  ///
+  /// In en, this message translates to:
+  /// **'Prices added'**
+  String get preferences_app_bar_prices_added;
+
+  /// Preferences app bar see all stats button
+  ///
+  /// In en, this message translates to:
+  /// **'See all stats'**
+  String get preferences_app_bar_see_all_stats;
+
+  /// External search preference tile title
+  ///
+  /// In en, this message translates to:
+  /// **'Search {provider} for \"{keyword}\"'**
+  String external_search_tile_title(String provider, String keyword);
+
+  /// Preferences app bar search bar hint
+  ///
+  /// In en, this message translates to:
+  /// **'Search for a setting (e.g. Nutri-Score)'**
+  String get preferences_app_bar_search_hint;
+
+  /// Preferences dev mode tile for showing emoji
+  ///
+  /// In en, this message translates to:
+  /// **'Accessibility: Show emoji'**
+  String get preferences_accessibility_show_emoji;
+
+  /// Preferences dev mode tile for removing colors
+  ///
+  /// In en, this message translates to:
+  /// **'Accessibility: Remove colors'**
+  String get preferences_accessibility_remove_colors;
+
+  /// Title for the app settings products card
+  ///
+  /// In en, this message translates to:
+  /// **'Products'**
+  String get preferences_app_settings_products;
+
+  /// Title for the app settings products card
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get preferences_card_about;
+
+  /// Title for the preferences legal information card
+  ///
+  /// In en, this message translates to:
+  /// **'Legal information'**
+  String get preferences_legal_information_title;
+
+  /// Subtitle for the preferences legal information card
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of use, privacy policy, and more'**
+  String get preferences_legal_information_subtitle;
+
+  /// Title for the terms of use tile
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of use'**
+  String get preferences_terms_of_use;
+
+  /// Title for the preferences legal mentions card
+  ///
+  /// In en, this message translates to:
+  /// **'Legal mentions'**
+  String get preferences_legal_mentions;
+
+  /// Title for the preferences privacy policy tile
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get preferences_privacy_policy;
+
+  /// Title for the preferences licenses tile
+  ///
+  /// In en, this message translates to:
+  /// **'Licenses'**
+  String get preferences_licenses;
+
+  /// Title for the preferences about app card
+  ///
+  /// In en, this message translates to:
+  /// **'About the app'**
+  String get preferences_about_app_title;
+
+  /// Subtitle for the preferences about app card
+  ///
+  /// In en, this message translates to:
+  /// **'Technical information, developer information, and more'**
+  String get preferences_about_app_subtitle;
+
+  /// Title for the preferences information card
+  ///
+  /// In en, this message translates to:
+  /// **'Information'**
+  String get preferences_card_information;
+
+  /// Title for the preferences version number tile
+  ///
+  /// In en, this message translates to:
+  /// **'Version number'**
+  String get preferences_version_number_title;
+
+  /// Title for the preferences scanner tile
+  ///
+  /// In en, this message translates to:
+  /// **'Scanner'**
+  String get preferences_scanner_title;
+
+  /// Title for the preferences app store tile
+  ///
+  /// In en, this message translates to:
+  /// **'App store'**
+  String get preferences_app_store;
+
+  /// Title for the preferences app system settings tile
+  ///
+  /// In en, this message translates to:
+  /// **'System settings'**
+  String get preferences_app_system_settings;
+
+  /// Title for the preferences source code tile
+  ///
+  /// In en, this message translates to:
+  /// **'Access the source code'**
+  String get preferences_source_code;
+
+  /// Subtitle for the preferences source code tile
+  ///
+  /// In en, this message translates to:
+  /// **'And start making an impact for millions'**
+  String get preferences_source_code_subtitle;
+
+  /// Title for the preferences add prices contribution tile
+  ///
+  /// In en, this message translates to:
+  /// **'Add prices'**
+  String get preferences_add_prices;
+
+  /// Title for the preferences complete products contribution tile
+  ///
+  /// In en, this message translates to:
+  /// **'Complete products'**
+  String get preferences_complete_products;
+
+  /// Title for the preferences tips header
+  ///
+  /// In en, this message translates to:
+  /// **'Tips'**
+  String get preferences_tips;
+
+  /// Title for the tips discover nutriscore header
+  ///
+  /// In en, this message translates to:
+  /// **'Discover the new Nutri-Score'**
+  String get tips_discover_nutriscore;
+
+  /// Subtitle for preferences tiles leading to the Open Food Facts website
+  ///
+  /// In en, this message translates to:
+  /// **'On the Open Food Facts website'**
+  String get preferences_on_off_website_subtitle;
+
+  /// Title for the preferences manage account tile
+  ///
+  /// In en, this message translates to:
+  /// **'Manage my account'**
+  String get preferences_manage_account_title;
+
+  /// Title for the preferences change password tile
+  ///
+  /// In en, this message translates to:
+  /// **'Change my password'**
+  String get preferences_change_password_title;
+
+  /// Title for the preferences danger zone tile
+  ///
+  /// In en, this message translates to:
+  /// **'Danger zone'**
+  String get preferences_danger_zone;
+
+  /// Subtitle for the preferences account deletion tile
+  ///
+  /// In en, this message translates to:
+  /// **'All your contributions will be lost'**
+  String get preferences_account_deletion_subtitle;
+
+  /// Title of the contributions preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'Contributions'**
+  String get preferences_contributions_title;
+
+  /// Title for the dev mode app settings card
+  ///
+  /// In en, this message translates to:
+  /// **'App settings'**
+  String get preferences_dev_mode_app_settings_title;
+
+  /// Subtitle for the offline data tile in dev mode
+  ///
+  /// In en, this message translates to:
+  /// **'Very experimental way to scan products offline'**
+  String get preferences_dev_mode_offline_data_subtitle;
+
+  /// Title for refreshing all products from server
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh all products from the server'**
+  String get preferences_dev_mode_refresh_products_title;
+
+  /// Subtitle warning for refreshing all products
+  ///
+  /// In en, this message translates to:
+  /// **'Please avoid doing that unless absolutely necessary'**
+  String get preferences_dev_mode_refresh_products_subtitle;
+
+  /// Title for the demo mode card in dev mode
+  ///
+  /// In en, this message translates to:
+  /// **'Demo mode'**
+  String get preferences_dev_mode_demo_mode_title;
+
+  /// Title for adding cards to scanner in demo mode
+  ///
+  /// In en, this message translates to:
+  /// **'Add cards to scanner'**
+  String get preferences_dev_mode_add_cards_title;
+
+  /// Subtitle for adding cards to scanner in demo mode
+  ///
+  /// In en, this message translates to:
+  /// **'Adds 3 sample products to the scanner'**
+  String get preferences_dev_mode_add_cards_subtitle;
+
+  /// Title for folksonomy host setting
+  ///
+  /// In en, this message translates to:
+  /// **'Folksonomy host'**
+  String get preferences_dev_mode_folksonomy_host_title;
+
+  /// Title for accessibility experiments card
+  ///
+  /// In en, this message translates to:
+  /// **'Accessibility experiments'**
+  String get preferences_dev_mode_accessibility_experiments_title;
+
+  /// Title for multi-products selection feature
+  ///
+  /// In en, this message translates to:
+  /// **'Multi-products selection for prices'**
+  String get preferences_dev_mode_multi_products_selection_title;
+
+  /// Title for user ordered knowledge panels feature
+  ///
+  /// In en, this message translates to:
+  /// **'User ordered knowledge panels'**
+  String get preferences_dev_mode_user_ordered_kp_title;
+
+  /// Title for temporary location search access
+  ///
+  /// In en, this message translates to:
+  /// **'Temporary access to location search'**
+  String get preferences_dev_mode_location_search_title;
+
+  /// Title for side by side comparison feature
+  ///
+  /// In en, this message translates to:
+  /// **'Side by side comparison for 2 or 3 products'**
+  String get preferences_dev_mode_comparison_title;
+
+  /// Title for product list import feature
+  ///
+  /// In en, this message translates to:
+  /// **'Product list import'**
+  String get preferences_dev_mode_product_list_import_title;
+
+  /// Title for scores and methodologies card in FAQ
+  ///
+  /// In en, this message translates to:
+  /// **'Scores & methodologies'**
+  String get preferences_faq_scores_methodologies_title;
+
+  /// Subtitle for Nutri-Score in FAQ
+  ///
+  /// In en, this message translates to:
+  /// **'Discover how the Nutri-Score is computed'**
+  String get preferences_faq_nutriscore_subtitle;
+
+  /// Subtitle for Nutri-Score V2 in FAQ
+  ///
+  /// In en, this message translates to:
+  /// **'Discover the main changes to the methodology'**
+  String get preferences_faq_nutriscore_v2_subtitle;
+
+  /// Title for discover the project card in FAQ
+  ///
+  /// In en, this message translates to:
+  /// **'Discover the project'**
+  String get preferences_faq_discover_project_title;
+
+  /// Title for discover Open Food Facts tile
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Open Food Facts'**
+  String get preferences_faq_discover_off_title;
+
+  /// Title for FAQ tile
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ - Frequently Asked Questions'**
+  String get preferences_faq_faq_title;
+
+  /// Title for Open Food Facts NGO card
+  ///
+  /// In en, this message translates to:
+  /// **'The Open Food Facts NGO'**
+  String get preferences_faq_off_ngo_title;
+
+  /// Title for information card in about app
+  ///
+  /// In en, this message translates to:
+  /// **'Information'**
+  String get preferences_about_information_title;
+
+  /// Title for community updates card
+  ///
+  /// In en, this message translates to:
+  /// **'Get community updates'**
+  String get preferences_connect_community_updates_title;
+
+  /// Subtitle for newsletter tile
+  ///
+  /// In en, this message translates to:
+  /// **'Stay in the loop with app and community news'**
+  String get preferences_connect_newsletter_subtitle;
+
+  /// Title for community calendar tile
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe to our community calendar'**
+  String get preferences_connect_community_calendar_title;
+
+  /// Subtitle for community calendar tile
+  ///
+  /// In en, this message translates to:
+  /// **'Get involved by attending one of our virtual events'**
+  String get preferences_connect_community_calendar_subtitle;
+
+  /// Title for social media card
+  ///
+  /// In en, this message translates to:
+  /// **'Follow us on social media'**
+  String get preferences_connect_social_media_title;
+
+  /// Title for blog tile
+  ///
+  /// In en, this message translates to:
+  /// **'The Open Food Facts blog'**
+  String get preferences_connect_blog_title;
+
+  /// Subtitle for blog tile
+  ///
+  /// In en, this message translates to:
+  /// **'Get the latest news, as they happen'**
+  String get preferences_connect_blog_subtitle;
+
+  /// Title for community help card
+  ///
+  /// In en, this message translates to:
+  /// **'Get help from the community'**
+  String get preferences_connect_community_help_title;
+
+  /// Title for improve app card
+  ///
+  /// In en, this message translates to:
+  /// **'Help us improve the app'**
+  String get preferences_connect_improve_app_title;
+
+  /// Title for debug information tile
+  ///
+  /// In en, this message translates to:
+  /// **'Send us debug information'**
+  String get preferences_connect_debug_info_title;
+
+  /// Subtitle for debug information tile
+  ///
+  /// In en, this message translates to:
+  /// **'Send us an email with detailed debugging information'**
+  String get preferences_connect_debug_info_subtitle;
+
+  /// Title for feedback tile
+  ///
+  /// In en, this message translates to:
+  /// **'Send us feedback about the app'**
+  String get preferences_connect_feedback_title;
+
+  /// Subtitle for feedback tile
+  ///
+  /// In en, this message translates to:
+  /// **'Help shape the future of the app'**
+  String get preferences_connect_feedback_subtitle;
+
+  /// Title for survey tile
+  ///
+  /// In en, this message translates to:
+  /// **'Take the app survey'**
+  String get preferences_connect_survey_title;
+
+  /// Subtitle for survey tile
+  ///
+  /// In en, this message translates to:
+  /// **'Help us understand what we should build next'**
+  String get preferences_connect_survey_subtitle;
+
+  /// Title for professionals card
+  ///
+  /// In en, this message translates to:
+  /// **'Professionals'**
+  String get preferences_connect_professionals_title;
+
+  /// Subtitle for professional contact tile
+  ///
+  /// In en, this message translates to:
+  /// **'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)'**
+  String get preferences_connect_pro_subtitle;
+
+  /// Subtitle for professional email tile
+  ///
+  /// In en, this message translates to:
+  /// **'Get in touch to get started'**
+  String get preferences_connect_pro_email_subtitle;
+
+  /// Title for press card
+  ///
+  /// In en, this message translates to:
+  /// **'Press'**
+  String get preferences_connect_press_title;
+
+  /// Subtitle for press page tile
+  ///
+  /// In en, this message translates to:
+  /// **'Get all the material you need for your report'**
+  String get preferences_connect_press_page_subtitle;
+
+  /// Subtitle for press email tile
+  ///
+  /// In en, this message translates to:
+  /// **'Get in touch for press inquiries or to let us know about your report'**
+  String get preferences_connect_press_email_subtitle;
+
+  /// Title for active volunteer card
+  ///
+  /// In en, this message translates to:
+  /// **'Become an active volunteer'**
+  String get preferences_contribute_active_volunteer_title;
+
+  /// Subtitle for skill pool tile
+  ///
+  /// In en, this message translates to:
+  /// **'Development, Communication, Design… any kind of volunteering or expertise is welcomed!'**
+  String get preferences_contribute_skill_pool_subtitle;
+
+  /// Subtitle for how to contribute tile
+  ///
+  /// In en, this message translates to:
+  /// **'Discover some of the many ways you can contribute'**
+  String get preferences_contribute_how_to_subtitle;
+
+  /// Title for mobile app development card
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile app development'**
+  String get preferences_contribute_mobile_dev_title;
+
+  /// Subtitle for software development tile
+  ///
+  /// In en, this message translates to:
+  /// **'Learn how to contribute to software development'**
+  String get preferences_contribute_sw_dev_subtitle;
+
+  /// Subtitle for alpha enrollment tile
+  ///
+  /// In en, this message translates to:
+  /// **'Daily unstable builds, brand new features'**
+  String get preferences_contribute_alpha_subtitle;
+
+  /// Title for local community card
+  ///
+  /// In en, this message translates to:
+  /// **'Grow your local community'**
+  String get preferences_contribute_local_community_title;
+
+  /// Subtitle for translate tile
+  ///
+  /// In en, this message translates to:
+  /// **'Help with software, contents, ingredient analysis translations'**
+  String get preferences_contribute_translate_subtitle;
+
+  /// Subtitle for share tile
+  ///
+  /// In en, this message translates to:
+  /// **'We have prepared a little template to help you :-)'**
+  String get preferences_contribute_share_subtitle;
+
+  /// Subtitle for improve country tile
+  ///
+  /// In en, this message translates to:
+  /// **'Simple steps to grow food transparency in your country'**
+  String get preferences_contribute_country_subtitle;
+
+  /// Title for data quality card
+  ///
+  /// In en, this message translates to:
+  /// **'Data quality'**
+  String get preferences_contribute_data_quality_title;
+
+  /// Title for data quality team tile
+  ///
+  /// In en, this message translates to:
+  /// **'Join the data quality team'**
+  String get preferences_contribute_data_quality_team_title;
+
+  /// Subtitle for data quality team tile
+  ///
+  /// In en, this message translates to:
+  /// **'Join our effort to ensure the database is complete and accurate'**
+  String get preferences_contribute_data_quality_team_subtitle;
+
+  /// Title for new products added tile
+  ///
+  /// In en, this message translates to:
+  /// **'0 products added'**
+  String get preferences_contributions_new_products_title;
+
+  /// Subtitle for new products added tile
+  ///
+  /// In en, this message translates to:
+  /// **'New products I added to Open Food Facts'**
+  String get preferences_contributions_new_products_subtitle;
+
+  /// Title for products to be completed tile
+  ///
+  /// In en, this message translates to:
+  /// **'Products I need to complete'**
+  String get preferences_contributions_to_be_completed_title;
+
+  /// Title for all incomplete products tile
+  ///
+  /// In en, this message translates to:
+  /// **'All incomplete products'**
+  String get preferences_contributions_all_incomplete_title;
+
+  /// Subtitle for all incomplete products tile
+  ///
+  /// In en, this message translates to:
+  /// **'Products you can help complete'**
+  String get preferences_contributions_all_incomplete_subtitle;
+
+  /// Subtitle for categorize products tile
+  ///
+  /// In en, this message translates to:
+  /// **'Help compute the Nutri-Score & Green-Score in your country'**
+  String get preferences_contributions_categorize_subtitle;
+
+  /// Subtitle for user prices tile
+  ///
+  /// In en, this message translates to:
+  /// **'Prices I contributed'**
+  String get preferences_prices_user_prices_subtitle;
+
+  /// Subtitle for proofs tile
+  ///
+  /// In en, this message translates to:
+  /// **'Price tags and receipts'**
+  String get preferences_prices_proofs_subtitle;
+
+  /// Subtitle for add receipt tile
+  ///
+  /// In en, this message translates to:
+  /// **'Take photos of your receipts and scan associated barcodes'**
+  String get preferences_prices_add_receipt_subtitle;
+
+  /// Subtitle for add price tags tile
+  ///
+  /// In en, this message translates to:
+  /// **'Take photos of prices in a shop'**
+  String get preferences_prices_add_price_tags_subtitle;
+
+  /// Title for newest prices tile
+  ///
+  /// In en, this message translates to:
+  /// **'Newest prices'**
+  String get preferences_prices_newest_title;
+
+  /// Subtitle for newest prices tile
+  ///
+  /// In en, this message translates to:
+  /// **'Latest prices added by the Open Prices community'**
+  String get preferences_prices_newest_subtitle;
+
+  /// Title for top contributors tile
+  ///
+  /// In en, this message translates to:
+  /// **'Contributors with the most prices'**
+  String get preferences_prices_top_contributors_title;
+
+  /// Title for price metrics tile
+  ///
+  /// In en, this message translates to:
+  /// **'Open Price metrics'**
+  String get preferences_prices_metrics_title;
+
+  /// Subtitle for price metrics tile
+  ///
+  /// In en, this message translates to:
+  /// **'Follow the evolution of the project'**
+  String get preferences_prices_metrics_subtitle;
+
+  /// Title for ways to contribute card
+  ///
+  /// In en, this message translates to:
+  /// **'Ways to contribute'**
+  String get preferences_prices_ways_contribute_title;
+
+  /// Subtitle for validation assistant tile
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm prices added by yourself or others, with the help of AI'**
+  String get preferences_prices_validation_assistant_subtitle;
+
+  /// Subtitle for multiple proof addition tile
+  ///
+  /// In en, this message translates to:
+  /// **'Quickly add many receipts or photos of shelves from your camera roll'**
+  String get preferences_prices_multiple_proof_subtitle;
+
+  /// Title for monthly challenges tile
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly challenges'**
+  String get preferences_prices_challenges_title;
+
+  /// Subtitle for monthly challenges tile
+  ///
+  /// In en, this message translates to:
+  /// **'Participate in monthly thematic quests to collect prices'**
+  String get preferences_prices_challenges_subtitle;
+
+  /// Title for loyalty data card
+  ///
+  /// In en, this message translates to:
+  /// **'Reclaim your loyalty data'**
+  String get preferences_prices_loyalty_data_title;
+
+  /// Subtitle for GDPR tile
+  ///
+  /// In en, this message translates to:
+  /// **'Learn how to request your data'**
+  String get preferences_prices_gdpr_subtitle;
+
+  /// Title for the customize app card on preferences page
+  ///
+  /// In en, this message translates to:
+  /// **'Customize the app'**
+  String get preferences_page_customize_app_title;
+
+  /// Title for the contribute to project navigation tile
+  ///
+  /// In en, this message translates to:
+  /// **'Contribute to the project'**
+  String get preferences_page_contribute_project_title;
+
+  /// Subtitle for the contribute to project navigation tile
+  ///
+  /// In en, this message translates to:
+  /// **'Simple ways to help Open Food Facts'**
+  String get preferences_page_contribute_project_subtitle;
+
+  /// Subtitle for the FAQ navigation tile on preferences page
+  ///
+  /// In en, this message translates to:
+  /// **'Score methodologies, help, and more about the project'**
+  String get preferences_page_faq_subtitle;
+
   /// Tooltip for the button to accept the suggestion of the Robotoff question
   ///
   /// In en, this message translates to:
@@ -8730,6 +9504,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Authentication failed, unable to fetch proofs'**
   String get prices_proof_error;
+
+  /// Message to restart the app to apply changes, used in the preferences screen
+  ///
+  /// In en, this message translates to:
+  /// **'Please restart the app to apply the changes.'**
+  String get restart_to_apply_message;
+
+  /// Title for the graphical interface preferences card in app settings
+  ///
+  /// In en, this message translates to:
+  /// **'Graphical interface'**
+  String get preferences_app_settings_graphical_interface_title;
+
+  /// Title for the media preferences card in app settings
+  ///
+  /// In en, this message translates to:
+  /// **'Media'**
+  String get preferences_app_settings_media_title;
+
+  /// Title for the development preferences card in about app section
+  ///
+  /// In en, this message translates to:
+  /// **'Development'**
+  String get preferences_about_app_development_title;
+
+  /// Title for the Open Food Facts Labs navigation tile in preferences page
+  ///
+  /// In en, this message translates to:
+  /// **'Open Food Facts Labs'**
+  String get preferences_page_open_food_facts_labs_title;
+
+  /// Title for the account preferences root
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get preferences_root_account_title;
+
+  /// Button label + pop up window title: Shows information about helping by translating
+  ///
+  /// In en, this message translates to:
+  /// **'Bring Open Food Facts to your language'**
+  String get preferences_contribute_translate_header;
+
+  /// No description provided for @preferences_contribute_enroll_alpha.
+  ///
+  /// In en, this message translates to:
+  /// **'Enroll in the alpha version of the app'**
+  String get preferences_contribute_enroll_alpha;
+
+  /// Title for the contributions and product data preferences card in dev mode
+  ///
+  /// In en, this message translates to:
+  /// **'Contributions & Product data'**
+  String get preferences_dev_mode_section_data;
+
+  /// Title for switch toggle to show or hide folksonomy, product tags on product details page
+  ///
+  /// In en, this message translates to:
+  /// **'Do not show Folksonomy'**
+  String get preferences_dev_preferences_show_folksonomy_title;
+
+  /// Title for the account preferences root
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get preferences_account_title;
 }
 
 class _AppLocalizationsDelegate
