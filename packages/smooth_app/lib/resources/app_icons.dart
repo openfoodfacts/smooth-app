@@ -757,6 +757,14 @@ class Document extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.document);
+
+  const Document.sparkles({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.document_sparkles);
 }
 
 class Donate extends AppIcon {
@@ -1258,6 +1266,14 @@ class Monkey extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.monkey_sad);
+
+  const Monkey.wondering({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.monkey_wondering);
 }
 
 class Move extends AppIcon {
@@ -1680,6 +1696,16 @@ class Sparkles extends AppIcon {
   }) : super._(_IconsFont.sparkles);
 }
 
+class Strength extends AppIcon {
+  const Strength({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.strength);
+}
+
 class Stores extends AppIcon {
   const Stores({
     super.color,
@@ -1763,6 +1789,16 @@ class Torch extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.torch_off);
+}
+
+class Transparency extends AppIcon {
+  const Transparency({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.transparency);
 }
 
 class Vibration extends AppIcon {

@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 class GuideGreenScore extends StatelessWidget {
@@ -23,6 +24,7 @@ class GuideGreenScore extends StatelessWidget {
         _GreenScoreSection2(),
         _GreenScoreSection3(),
         _GreenScoreSection4(),
+        _GreenScoreSection5(),
       ],
       footer: SliverToBoxAdapter(
         child: GuidesFooter(
@@ -103,6 +105,41 @@ class _GreenScoreSection1 extends StatelessWidget {
   }
 }
 
+class _GreenScoreSection2 extends StatelessWidget {
+  const _GreenScoreSection2();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return GuidesParagraph(
+      title: appLocalizations.guide_greenscore_better_product_title,
+      content: <Widget>[
+        GuidesTitleWithText(
+          icon: const icons.Monkey.wondering(),
+          title: appLocalizations.guide_greenscore_better_product_arg1_title,
+          text: appLocalizations.guide_greenscore_better_product_arg1_text,
+        ),
+        GuidesTitleWithText(
+          icon: const icons.Strength(),
+          title: appLocalizations.guide_greenscore_better_product_arg2_title,
+          text: appLocalizations.guide_greenscore_better_product_arg2_text,
+        ),
+        GuidesTitleWithText(
+          icon: const icons.Transparency(),
+          title: appLocalizations.guide_greenscore_better_product_arg3_title,
+          text: appLocalizations.guide_greenscore_better_product_arg3_text,
+        ),
+        GuidesTitleWithText(
+          icon: const icons.Document.sparkles(),
+          title: appLocalizations.guide_greenscore_better_product_arg4_title,
+          text: appLocalizations.guide_greenscore_better_product_arg4_text,
+        ),
+      ],
+    );
+  }
+}
+
 class _GreenScoreLogos extends StatelessWidget {
   const _GreenScoreLogos();
 
@@ -128,20 +165,32 @@ class _GreenScoreLogos extends StatelessWidget {
 
           return ConstrainedBox(
             constraints: BoxConstraints(maxWidth: maxWidth),
-            child: Row(
-              children: assets
-                  .map(
-                    (String path) => Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture(
-                          AssetBytesLoader(path),
-                          width: maxWidth / (assets.length + 1),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Row(
+                  children: assets
+                      .map(
+                        (String path) => Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SvgPicture(
+                              AssetBytesLoader(path),
+                              width: maxWidth / (assets.length + 1),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  )
-                  .toList(growable: false),
+                      )
+                      .toList(growable: false),
+                ),
+                SvgPicture(
+                  AssetBytesLoader(
+                    context.lightTheme()
+                        ? 'assets/guides/greenscore/logos_arrow.svg.vec'
+                        : 'assets/guides/greenscore/logos_arrow_dark.svg.vec',
+                  ),
+                ),
+              ],
             ),
           );
         },
@@ -150,12 +199,13 @@ class _GreenScoreLogos extends StatelessWidget {
   }
 }
 
-class _GreenScoreSection2 extends StatelessWidget {
-  const _GreenScoreSection2();
+class _GreenScoreSection3 extends StatelessWidget {
+  const _GreenScoreSection3();
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String assetSuffix = context.lightTheme() ? '' : '_dark';
 
     return GuidesParagraph(
       title: appLocalizations.guide_greenscore_lca_title,
@@ -177,28 +227,34 @@ class _GreenScoreSection2 extends StatelessWidget {
             items: <GuidesGridItem>[
               GuidesGridItem(
                 label: appLocalizations.guide_greenscore_lca_arg2_agriculture,
-                asset: 'assets/guides/greenscore/step_agriculture.svg',
+                asset:
+                    'assets/guides/greenscore/step_agriculture$assetSuffix.svg.vec',
               ),
               GuidesGridItem(
                 label: appLocalizations.guide_greenscore_lca_arg2_processing,
-                asset: 'assets/guides/greenscore/step_processing.svg',
+                asset:
+                    'assets/guides/greenscore/step_processing$assetSuffix.svg.vec',
               ),
               GuidesGridItem(
                 label: appLocalizations.guide_greenscore_lca_arg2_packaging,
-                asset: 'assets/guides/greenscore/step_packaging.svg',
+                asset:
+                    'assets/guides/greenscore/step_packaging$assetSuffix.svg.vec',
               ),
               GuidesGridItem(
                 label:
                     appLocalizations.guide_greenscore_lca_arg2_transportation,
-                asset: 'assets/guides/greenscore/step_transportation.svg',
+                asset:
+                    'assets/guides/greenscore/step_transportation$assetSuffix.svg.vec',
               ),
               GuidesGridItem(
                 label: appLocalizations.guide_greenscore_lca_arg2_distribution,
-                asset: 'assets/guides/greenscore/step_distribution.svg',
+                asset:
+                    'assets/guides/greenscore/step_distribution$assetSuffix.svg.vec',
               ),
               GuidesGridItem(
                 label: appLocalizations.guide_greenscore_lca_arg2_consumption,
-                asset: 'assets/guides/greenscore/step_consumption.svg',
+                asset:
+                    'assets/guides/greenscore/step_consumption$assetSuffix.svg.vec',
               ),
             ],
           ),
@@ -222,8 +278,8 @@ class _GreenScoreSection2 extends StatelessWidget {
   }
 }
 
-class _GreenScoreSection3 extends StatelessWidget {
-  const _GreenScoreSection3();
+class _GreenScoreSection4 extends StatelessWidget {
+  const _GreenScoreSection4();
 
   @override
   Widget build(BuildContext context) {
@@ -260,8 +316,8 @@ class _GreenScoreSection3 extends StatelessWidget {
   }
 }
 
-class _GreenScoreSection4 extends StatelessWidget {
-  const _GreenScoreSection4();
+class _GreenScoreSection5 extends StatelessWidget {
+  const _GreenScoreSection5();
 
   @override
   Widget build(BuildContext context) {
