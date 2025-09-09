@@ -16,22 +16,22 @@ class AllStatisticsButton extends StatelessWidget {
 
     final BorderRadius borderRadius = BorderRadius.circular(12.0);
 
-    return InkWell(
+    return Material(
       borderRadius: borderRadius,
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute<Widget>(
-            builder: (_) =>
-                ChangeNotifierProvider<PreferencesRootSearchController>(
-                  create: (_) => PreferencesRootSearchController(),
-                  child: ContributionsRoot(title: appLocalizations.contribute),
-                ),
-          ),
-        );
-      },
-      child: Material(
+      color: Colors.white,
+      child: InkWell(
         borderRadius: borderRadius,
-        color: Colors.white,
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute<Widget>(
+              builder: (_) =>
+                  ChangeNotifierProvider<PreferencesRootSearchController>(
+                    create: (_) => PreferencesRootSearchController(),
+                    child: ContributionsRoot(title: appLocalizations.contribute),
+                  ),
+            ),
+          );
+        },
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,

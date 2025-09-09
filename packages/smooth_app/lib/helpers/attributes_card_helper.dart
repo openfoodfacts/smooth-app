@@ -40,11 +40,22 @@ Widget getAttributeDisplayIcon(
 }) {
   return attribute.getCircledIcon(
         backgroundColor: isFoodPreferences!
-            ? Theme.of(context!).primaryColor
+            ? _getFoodPreferencesBackgroundColor(context!)
             : getAttributeDisplayBackgroundColor(attribute),
         size: 32.0,
       ) ??
       EMPTY_WIDGET;
+}
+
+/// Returns appropriate background color for food preferences that works in both light and dark mode.
+Color _getFoodPreferencesBackgroundColor(BuildContext context) {
+  final ThemeData theme = Theme.of(context);
+  switch (theme.brightness) {
+    case Brightness.light:
+      return theme.primaryColor;
+    case Brightness.dark:
+      return theme.colorScheme.primary;
+  }
 }
 
 Color getAttributeDisplayBackgroundColor(final Attribute attribute) =>
