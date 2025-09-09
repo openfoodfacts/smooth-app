@@ -54,11 +54,26 @@ class SmoothHtmlFakeButton extends StatelessWidget {
                   ),
                 ),
               ),
-              const icons.ExternalLink(color: Colors.black, size: 16.0),
+              icons.ExternalLink(
+                color: _getIconColor(Theme.of(context)),
+                size: 16.0,
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  /// Returns the standard icon color for external link icons.
+  /// 
+  /// Ensures proper visibility in both light and dark modes.
+  Color _getIconColor(ThemeData theme) {
+    switch (theme.brightness) {
+      case Brightness.light:
+        return Colors.black45;
+      case Brightness.dark:
+        return Colors.white;
+    }
   }
 }

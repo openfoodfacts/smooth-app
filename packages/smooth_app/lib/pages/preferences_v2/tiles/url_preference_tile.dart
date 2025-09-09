@@ -24,10 +24,22 @@ class UrlPreferenceTile extends PreferenceTile {
       subtitleText: subtitleText,
       trailing: icons.ExternalLink(
         size: 16.0,
-        color: Theme.of(context).primaryColor,
+        color: _getIconColor(Theme.of(context)),
       ),
       onTap: () async =>
           LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
     );
+  }
+
+  /// Returns the standard icon color for external link icons.
+  /// 
+  /// Ensures proper visibility in both light and dark modes.
+  Color _getIconColor(ThemeData theme) {
+    switch (theme.brightness) {
+      case Brightness.light:
+        return Colors.black45;
+      case Brightness.dark:
+        return Colors.white;
+    }
   }
 }
