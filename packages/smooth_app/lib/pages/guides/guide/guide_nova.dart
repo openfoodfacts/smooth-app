@@ -162,10 +162,11 @@ class _NOVASection2 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_nova_groups_title,
       content: <Widget>[
+        GuidesText(text: appLocalizations.guide_nova_groups_intro),
         GuidesTitleWithText(
           title: appLocalizations.guide_nova_groups_arg1_title,
           icon: const icons.FoodIcons.nova1(),
-          text: appLocalizations.guide_nova_groups_arg2_text,
+          text: appLocalizations.guide_nova_groups_arg1_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nova_groups_arg2_title,
