@@ -452,9 +452,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get contribute_donate_header => 'Donate to Open Food Facts';
 
   @override
-  String get contribute_enroll_alpha => 'Enroll in internal alpha version';
-
-  @override
   String get contribute_enroll_alpha_warning =>
       'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
 
@@ -2360,6 +2357,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get dev_preferences_screen_title => 'DEV Mode';
 
   @override
+  String get dev_preferences_screen_subtitle =>
+      'Access experimental features and development tools';
+
+  @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
 
   @override
@@ -2917,13 +2918,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get dev_mode_section_ui => 'User Interface';
 
   @override
-  String get dev_mode_section_data => 'Data';
-
-  @override
   String get dev_mode_section_experimental_features => 'Experimental features';
-
-  @override
-  String get dev_preferences_show_folksonomy_title => 'Exclude Folksonomy';
 
   @override
   String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
@@ -3979,32 +3974,32 @@ class AppLocalizationsKm extends AppLocalizations {
       'Nutri-Score is not applicable (New calculation)';
 
   @override
-  String get environmental_score_generic => 'Green Score';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a => 'Green Score A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b => 'Green Score B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c => 'Green Score C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d => 'Green Score D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e => 'Green Score E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown => 'Unknown Green Score';
+  String get environmental_score_unknown_new => 'Unknown Green-Score';
 
   @override
-  String get environmental_score_not_applicable =>
-      'Green Score is not applicable';
+  String get environmental_score_not_applicable_new =>
+      'Green-Score is not applicable';
 
   @override
-  String get nova_group_generic => 'Ultra-processing - NOVA groups';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4975,6 +4970,471 @@ class AppLocalizationsKm extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Proof';
 
   @override
+  String get preferences_card_general => 'General';
+
+  @override
+  String get preferences_prices_title => 'Prices';
+
+  @override
+  String get preferences_prices_subtitle => 'Manage your prices preferences';
+
+  @override
+  String get preferences_card_project => 'The Open Food Facts project';
+
+  @override
+  String get preferences_contribute_title => 'Contribute';
+
+  @override
+  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+
+  @override
+  String get preferences_connect_title => 'Connect';
+
+  @override
+  String get preferences_connect_subtitle =>
+      'Reach out, or Follow us on social media';
+
+  @override
+  String get preferences_support_title => 'Make a donation';
+
+  @override
+  String get preferences_support_subtitle =>
+      'Help us inform millions of consumers around the world';
+
+  @override
+  String get preferences_card_help => 'Help & Support';
+
+  @override
+  String get preferences_faq_title => 'FAQ';
+
+  @override
+  String get preferences_faq_subtitle => 'Get answers to your questions';
+
+  @override
+  String get logged_out => 'Logged out';
+
+  @override
+  String get preferences_app_bar_message =>
+      'Thank you for being one of our members!';
+
+  @override
+  String get preferences_app_bar_products_modified => 'Products modified';
+
+  @override
+  String get preferences_app_bar_prices_added => 'Prices added';
+
+  @override
+  String get preferences_app_bar_see_all_stats => 'See all stats';
+
+  @override
+  String external_search_tile_title(String provider, String keyword) {
+    return 'Search $provider for \"$keyword\"';
+  }
+
+  @override
+  String get preferences_app_bar_search_hint =>
+      'Search for a setting (e.g. Nutri-Score)';
+
+  @override
+  String get preferences_accessibility_show_emoji =>
+      'Accessibility: Show emoji';
+
+  @override
+  String get preferences_accessibility_remove_colors =>
+      'Accessibility: Remove colors';
+
+  @override
+  String get preferences_app_settings_products => 'Products';
+
+  @override
+  String get preferences_card_about => 'About';
+
+  @override
+  String get preferences_legal_information_title => 'Legal information';
+
+  @override
+  String get preferences_legal_information_subtitle =>
+      'Terms of use, privacy policy, and more';
+
+  @override
+  String get preferences_terms_of_use => 'Terms of use';
+
+  @override
+  String get preferences_legal_mentions => 'Legal mentions';
+
+  @override
+  String get preferences_privacy_policy => 'Privacy policy';
+
+  @override
+  String get preferences_licenses => 'Licenses';
+
+  @override
+  String get preferences_about_app_title => 'About the app';
+
+  @override
+  String get preferences_about_app_subtitle =>
+      'Technical information, developer information, and more';
+
+  @override
+  String get preferences_card_information => 'Information';
+
+  @override
+  String get preferences_version_number_title => 'Version number';
+
+  @override
+  String get preferences_scanner_title => 'Scanner';
+
+  @override
+  String get preferences_app_store => 'App store';
+
+  @override
+  String get preferences_app_system_settings => 'System settings';
+
+  @override
+  String get preferences_source_code => 'Access the source code';
+
+  @override
+  String get preferences_source_code_subtitle =>
+      'And start making an impact for millions';
+
+  @override
+  String get preferences_add_prices => 'Add prices';
+
+  @override
+  String get preferences_complete_products => 'Complete products';
+
+  @override
+  String get preferences_tips => 'Tips';
+
+  @override
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+
+  @override
+  String get preferences_on_off_website_subtitle =>
+      'On the Open Food Facts website';
+
+  @override
+  String get preferences_manage_account_title => 'Manage my account';
+
+  @override
+  String get preferences_change_password_title => 'Change my password';
+
+  @override
+  String get preferences_danger_zone => 'Danger zone';
+
+  @override
+  String get preferences_account_deletion_subtitle =>
+      'All your contributions will be lost';
+
+  @override
+  String get preferences_contributions_title => 'Contributions';
+
+  @override
+  String get preferences_dev_mode_app_settings_title => 'App settings';
+
+  @override
+  String get preferences_dev_mode_offline_data_subtitle =>
+      'Very experimental way to scan products offline';
+
+  @override
+  String get preferences_dev_mode_refresh_products_title =>
+      'Refresh all products from the server';
+
+  @override
+  String get preferences_dev_mode_refresh_products_subtitle =>
+      'Please avoid doing that unless absolutely necessary';
+
+  @override
+  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+
+  @override
+  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+
+  @override
+  String get preferences_dev_mode_add_cards_subtitle =>
+      'Adds 3 sample products to the scanner';
+
+  @override
+  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+
+  @override
+  String get preferences_dev_mode_accessibility_experiments_title =>
+      'Accessibility experiments';
+
+  @override
+  String get preferences_dev_mode_multi_products_selection_title =>
+      'Multi-products selection for prices';
+
+  @override
+  String get preferences_dev_mode_user_ordered_kp_title =>
+      'User ordered knowledge panels';
+
+  @override
+  String get preferences_dev_mode_location_search_title =>
+      'Temporary access to location search';
+
+  @override
+  String get preferences_dev_mode_comparison_title =>
+      'Side by side comparison for 2 or 3 products';
+
+  @override
+  String get preferences_dev_mode_product_list_import_title =>
+      'Product list import';
+
+  @override
+  String get preferences_faq_scores_methodologies_title =>
+      'Scores & methodologies';
+
+  @override
+  String get preferences_faq_nutriscore_subtitle =>
+      'Discover how the Nutri-Score is computed';
+
+  @override
+  String get preferences_faq_nutriscore_v2_subtitle =>
+      'Discover the main changes to the methodology';
+
+  @override
+  String get preferences_faq_discover_project_title => 'Discover the project';
+
+  @override
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+
+  @override
+  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+
+  @override
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+
+  @override
+  String get preferences_about_information_title => 'Information';
+
+  @override
+  String get preferences_connect_community_updates_title =>
+      'Get community updates';
+
+  @override
+  String get preferences_connect_newsletter_subtitle =>
+      'Stay in the loop with app and community news';
+
+  @override
+  String get preferences_connect_community_calendar_title =>
+      'Subscribe to our community calendar';
+
+  @override
+  String get preferences_connect_community_calendar_subtitle =>
+      'Get involved by attending one of our virtual events';
+
+  @override
+  String get preferences_connect_social_media_title =>
+      'Follow us on social media';
+
+  @override
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+
+  @override
+  String get preferences_connect_blog_subtitle =>
+      'Get the latest news, as they happen';
+
+  @override
+  String get preferences_connect_community_help_title =>
+      'Get help from the community';
+
+  @override
+  String get preferences_connect_improve_app_title => 'Help us improve the app';
+
+  @override
+  String get preferences_connect_debug_info_title =>
+      'Send us debug information';
+
+  @override
+  String get preferences_connect_debug_info_subtitle =>
+      'Send us an email with detailed debugging information';
+
+  @override
+  String get preferences_connect_feedback_title =>
+      'Send us feedback about the app';
+
+  @override
+  String get preferences_connect_feedback_subtitle =>
+      'Help shape the future of the app';
+
+  @override
+  String get preferences_connect_survey_title => 'Take the app survey';
+
+  @override
+  String get preferences_connect_survey_subtitle =>
+      'Help us understand what we should build next';
+
+  @override
+  String get preferences_connect_professionals_title => 'Professionals';
+
+  @override
+  String get preferences_connect_pro_subtitle =>
+      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+
+  @override
+  String get preferences_connect_pro_email_subtitle =>
+      'Get in touch to get started';
+
+  @override
+  String get preferences_connect_press_title => 'Press';
+
+  @override
+  String get preferences_connect_press_page_subtitle =>
+      'Get all the material you need for your report';
+
+  @override
+  String get preferences_connect_press_email_subtitle =>
+      'Get in touch for press inquiries or to let us know about your report';
+
+  @override
+  String get preferences_contribute_active_volunteer_title =>
+      'Become an active volunteer';
+
+  @override
+  String get preferences_contribute_skill_pool_subtitle =>
+      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+
+  @override
+  String get preferences_contribute_how_to_subtitle =>
+      'Discover some of the many ways you can contribute';
+
+  @override
+  String get preferences_contribute_mobile_dev_title =>
+      'Mobile app development';
+
+  @override
+  String get preferences_contribute_sw_dev_subtitle =>
+      'Learn how to contribute to software development';
+
+  @override
+  String get preferences_contribute_alpha_subtitle =>
+      'Daily unstable builds, brand new features';
+
+  @override
+  String get preferences_contribute_local_community_title =>
+      'Grow your local community';
+
+  @override
+  String get preferences_contribute_translate_subtitle =>
+      'Help with software, contents, ingredient analysis translations';
+
+  @override
+  String get preferences_contribute_share_subtitle =>
+      'We have prepared a little template to help you :-)';
+
+  @override
+  String get preferences_contribute_country_subtitle =>
+      'Simple steps to grow food transparency in your country';
+
+  @override
+  String get preferences_contribute_data_quality_title => 'Data quality';
+
+  @override
+  String get preferences_contribute_data_quality_team_title =>
+      'Join the data quality team';
+
+  @override
+  String get preferences_contribute_data_quality_team_subtitle =>
+      'Join our effort to ensure the database is complete and accurate';
+
+  @override
+  String get preferences_contributions_new_products_title => '0 products added';
+
+  @override
+  String get preferences_contributions_new_products_subtitle =>
+      'New products I added to Open Food Facts';
+
+  @override
+  String get preferences_contributions_to_be_completed_title =>
+      'Products I need to complete';
+
+  @override
+  String get preferences_contributions_all_incomplete_title =>
+      'All incomplete products';
+
+  @override
+  String get preferences_contributions_all_incomplete_subtitle =>
+      'Products you can help complete';
+
+  @override
+  String get preferences_contributions_categorize_subtitle =>
+      'Help compute the Nutri-Score & Green-Score in your country';
+
+  @override
+  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+
+  @override
+  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+
+  @override
+  String get preferences_prices_add_receipt_subtitle =>
+      'Take photos of your receipts and scan associated barcodes';
+
+  @override
+  String get preferences_prices_add_price_tags_subtitle =>
+      'Take photos of prices in a shop';
+
+  @override
+  String get preferences_prices_newest_title => 'Newest prices';
+
+  @override
+  String get preferences_prices_newest_subtitle =>
+      'Latest prices added by the Open Prices community';
+
+  @override
+  String get preferences_prices_top_contributors_title =>
+      'Contributors with the most prices';
+
+  @override
+  String get preferences_prices_metrics_title => 'Open Price metrics';
+
+  @override
+  String get preferences_prices_metrics_subtitle =>
+      'Follow the evolution of the project';
+
+  @override
+  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+
+  @override
+  String get preferences_prices_validation_assistant_subtitle =>
+      'Confirm prices added by yourself or others, with the help of AI';
+
+  @override
+  String get preferences_prices_multiple_proof_subtitle =>
+      'Quickly add many receipts or photos of shelves from your camera roll';
+
+  @override
+  String get preferences_prices_challenges_title => 'Monthly challenges';
+
+  @override
+  String get preferences_prices_challenges_subtitle =>
+      'Participate in monthly thematic quests to collect prices';
+
+  @override
+  String get preferences_prices_loyalty_data_title =>
+      'Reclaim your loyalty data';
+
+  @override
+  String get preferences_prices_gdpr_subtitle =>
+      'Learn how to request your data';
+
+  @override
+  String get preferences_page_customize_app_title => 'Customize the app';
+
+  @override
+  String get preferences_page_contribute_project_title =>
+      'Contribute to the project';
+
+  @override
+  String get preferences_page_contribute_project_subtitle =>
+      'Simple ways to help Open Food Facts';
+
+  @override
+  String get preferences_page_faq_subtitle =>
+      'Score methodologies, help, and more about the project';
+
+  @override
   String get product_edit_robotoff_positive_button => 'ទទួលយកការណែនាំ';
 
   @override
@@ -5019,4 +5479,44 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ការផ្ទៀងផ្ទាត់បានបរាជ័យ មិនអាចទៅយកភស្តុតាងបានទេ។';
+
+  @override
+  String get restart_to_apply_message =>
+      'Please restart the app to apply the changes.';
+
+  @override
+  String get preferences_app_settings_graphical_interface_title =>
+      'Graphical interface';
+
+  @override
+  String get preferences_app_settings_media_title => 'Media';
+
+  @override
+  String get preferences_about_app_development_title => 'Development';
+
+  @override
+  String get preferences_page_open_food_facts_labs_title =>
+      'Open Food Facts Labs';
+
+  @override
+  String get preferences_root_account_title => 'Account';
+
+  @override
+  String get preferences_contribute_translate_header =>
+      'Bring Open Food Facts to your language';
+
+  @override
+  String get preferences_contribute_enroll_alpha =>
+      'Enroll in the alpha version of the app';
+
+  @override
+  String get preferences_dev_mode_section_data =>
+      'Contributions & Product data';
+
+  @override
+  String get preferences_dev_preferences_show_folksonomy_title =>
+      'Do not show Folksonomy';
+
+  @override
+  String get preferences_account_title => 'Account';
 }
