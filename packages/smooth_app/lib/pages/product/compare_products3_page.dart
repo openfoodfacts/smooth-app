@@ -375,7 +375,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       final Product product = products[i];
       
       // Check if this attribute has unknown status for any product
-      if (attribute.status == AttributeStatus.UNKNOWN) {
+      if (attribute.status == Attribute.STATUS_UNKNOWN) {
         hasUnknownAttribute = true;
       }
       
