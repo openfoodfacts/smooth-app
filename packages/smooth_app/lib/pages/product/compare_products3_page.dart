@@ -11,8 +11,11 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/pages/search/search_page.dart';
+import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -25,6 +28,25 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
   AttributeGroup.ATTRIBUTE_GROUP_ENVIRONMENT,
 ];
+
+enum ProductRankingMethod {
+  personalScore,
+  nutriScore,
+  ecoScore,
+}
+
+extension ProductRankingMethodExtension on ProductRankingMethod {
+  String getDisplayName(AppLocalizations appLocalizations) {
+    switch (this) {
+      case ProductRankingMethod.personalScore:
+        return 'Personal Score';
+      case ProductRankingMethod.nutriScore:
+        return 'Nutri-Score';
+      case ProductRankingMethod.ecoScore:
+        return 'Eco-Score';
+    }
+  }
+}
 
 /// Test page about comparing 3 products. Work in progress.
 class CompareProducts3Page extends StatefulWidget {
@@ -52,9 +74,14 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
   final List<NutritionContainerHelper> _nutritionContainers =
       <NutritionContainerHelper>[];
 
+  // Ranking system
+  ProductRankingMethod _rankingMethod = ProductRankingMethod.personalScore;
+  List<Product> _sortedProducts = <Product>[];
+
   @override
   void initState() {
     super.initState();
+    _sortedProducts = List<Product>.from(widget.products);
     for (final Product product in widget.products) {
       _nutritionContainers.add(
         NutritionContainerHelper(
@@ -72,8 +99,12 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
 
     final ProductPreferences productPreferences = context
         .watch<ProductPreferences>();
+    
+    // Sort products based on current ranking method
+    _sortProductsByRanking(productPreferences);
+    
     final List<List<Attribute>> scoreAttributesArray = <List<Attribute>>[];
-    for (final Product product in widget.products) {
+    for (final Product product in _sortedProducts) {
       final List<Attribute> tmp = <Attribute>[];
       for (final String importance in _sortedImportances) {
         final List<Attribute> attributes = getSortedAttributes(
@@ -95,8 +126,11 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       final Nutrient nutrient = _getNutrient(orderedNutrient);
       final List<double?> values = <double?>[];
       bool notNull = false;
-      for (final NutritionContainerHelper nutritionContainer
-          in _nutritionContainers) {
+      for (int i = 0; i < _sortedProducts.length; i++) {
+        final Product product = _sortedProducts[i];
+        // Find the nutrition container for this specific product
+        final int originalIndex = widget.products.indexOf(product);
+        final NutritionContainerHelper nutritionContainer = _nutritionContainers[originalIndex];
         final double? value = nutritionContainer.getValue(nutrient);
         values.add(value);
         if (value != null) {
@@ -116,7 +150,34 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       spaceBehindStatusBar: false,
       statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
       appBar: SmoothAppBar(
-        title: Text('Compare ${widget.products.length} products'),
+        title: Text('Compare ${_sortedProducts.length} products'),
+        actions: [
+          PopupMenuButton<ProductRankingMethod>(
+            icon: const Icon(Icons.sort),
+            onSelected: (ProductRankingMethod method) {
+              setState(() {
+                _rankingMethod = method;
+              });
+            },
+            itemBuilder: (BuildContext context) {
+              return ProductRankingMethod.values.map((ProductRankingMethod method) {
+                return PopupMenuItem<ProductRankingMethod>(
+                  value: method,
+                  child: Row(
+                    children: [
+                      if (_rankingMethod == method)
+                        const Icon(Icons.check, size: 16.0),
+                      if (_rankingMethod != method)
+                        const SizedBox(width: 16.0),
+                      const SizedBox(width: 8.0),
+                      Text(method.getDisplayName(appLocalizations)),
+                    ],
+                  ),
+                );
+              }).toList();
+            },
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[
@@ -125,10 +186,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: <Widget>[
-                const Center(
+                Center(
                   child: Text(
-                    'Personal compatibility score',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    'Ranking by: ${_rankingMethod.getDisplayName(appLocalizations)}',
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),
                 const SizedBox(height: 8.0),
@@ -139,7 +200,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        for (int i = 0; i < widget.products.length; i++)
+                        for (int i = 0; i < _sortedProducts.length; i++)
                           SizedBox(
                             width: 150,
                             child: Column(
@@ -148,14 +209,14 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
                                   height: 40,
                                   color: ProductCompatibilityHelper.product(
                                     MatchedProductV2(
-                                      widget.products[i],
+                                      _sortedProducts[i],
                                       productPreferences,
                                     ),
                                   ).getColor(context),
                                   child: Center(
                                     child: Text(
                                       MatchedProductV2(
-                                        widget.products[i],
+                                        _sortedProducts[i],
                                         productPreferences,
                                       ).score.toInt().toString(),
                                       style: const TextStyle(
@@ -175,14 +236,14 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: <Widget>[
                                           SmoothMainProductImage(
-                                            product: widget.products[i],
+                                            product: _sortedProducts[i],
                                             width: 60,
                                             height: 60,
                                           ),
                                           const SizedBox(height: 4.0),
                                           Expanded(
                                             child: Text(
-                                              getProductName(widget.products[i], appLocalizations),
+                                              getProductName(_sortedProducts[i], appLocalizations),
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 12.0,
@@ -193,7 +254,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
                                             ),
                                           ),
                                           Text(
-                                            getProductBrands(widget.products[i], appLocalizations),
+                                            getProductBrands(_sortedProducts[i], appLocalizations),
                                             style: const TextStyle(
                                               fontSize: 10.0,
                                               color: Colors.grey,
@@ -202,10 +263,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                           ),
-                                          if (widget.products[i].quantity != null && 
-                                              widget.products[i].quantity!.isNotEmpty)
+                                          if (_sortedProducts[i].quantity != null && 
+                                              _sortedProducts[i].quantity!.isNotEmpty)
                                             Text(
-                                              widget.products[i].quantity!,
+                                              _sortedProducts[i].quantity!,
                                               style: const TextStyle(
                                                 fontSize: 10.0,
                                                 color: Colors.grey,
@@ -222,6 +283,8 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
                               ],
                             ),
                           ),
+                        // Add product buttons
+                        _buildAddProductButtons(context, appLocalizations),
                       ],
                     ),
                   ),
@@ -241,7 +304,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
                       _getAttributeRow(
                         attributesArray: scoreAttributesArray,
                         index: i,
-                        products: widget.products,
+                        products: _sortedProducts,
                       ),
                     ...nutrientValues,
                   ],
@@ -384,6 +447,36 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     );
   }
 
+  void _sortProductsByRanking(ProductPreferences productPreferences) {
+    _sortedProducts.sort((Product a, Product b) {
+      switch (_rankingMethod) {
+        case ProductRankingMethod.personalScore:
+          final MatchedProductV2 matchedA = MatchedProductV2(a, productPreferences);
+          final MatchedProductV2 matchedB = MatchedProductV2(b, productPreferences);
+          // Higher scores first (best on left)
+          return matchedB.score.compareTo(matchedA.score);
+          
+        case ProductRankingMethod.nutriScore:
+          final String? scoreA = a.nutriscore;
+          final String? scoreB = b.nutriscore;
+          if (scoreA == null && scoreB == null) return 0;
+          if (scoreA == null) return 1; // Null scores go to the right
+          if (scoreB == null) return -1;
+          // A is best, E is worst
+          return scoreA.compareTo(scoreB);
+          
+        case ProductRankingMethod.ecoScore:
+          final String? scoreA = a.ecoscoreGrade;
+          final String? scoreB = b.ecoscoreGrade;
+          if (scoreA == null && scoreB == null) return 0;
+          if (scoreA == null) return 1; // Null scores go to the right
+          if (scoreB == null) return -1;
+          // A is best, E is worst
+          return scoreA.compareTo(scoreB);
+      }
+    });
+  }
+
   Nutrient _getNutrient(final OrderedNutrient orderedNutrient) {
     if (orderedNutrient.nutrient != null) {
       return orderedNutrient.nutrient!;
@@ -392,5 +485,97 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       return Nutrient.energyKJ;
     }
     throw Exception('unknown nutrient for "${orderedNutrient.id}"');
+  }
+
+  Widget _buildAddProductButtons(BuildContext context, AppLocalizations appLocalizations) {
+    return Row(
+      children: [
+        const SizedBox(width: 8.0),
+        // Search button
+        SizedBox(
+          width: 80,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                child: InkWell(
+                  onTap: () => _addProductBySearch(context),
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: const Icon(
+                      Icons.search,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4.0),
+              Text(
+                'Search',
+                style: const TextStyle(fontSize: 12.0),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 8.0),
+        // Scan button
+        SizedBox(
+          width: 80,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                child: InkWell(
+                  onTap: () => _addProductByScan(context),
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: const Icon(
+                      Icons.qr_code_scanner,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4.0),
+              Text(
+                'Scan',
+                style: const TextStyle(fontSize: 12.0),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _addProductBySearch(BuildContext context) {
+    AppNavigator.of(context).push(
+      AppRoutes.SEARCH,
+      extra: SearchPageExtra(
+        searchHelper: SearchProductHelper(),
+        autofocus: true,
+      ),
+    );
+  }
+
+  void _addProductByScan(BuildContext context) {
+    // Navigate to home page which will show the scan tab
+    // This is a simplified implementation - in a full implementation
+    // you might want to navigate directly to a scan page if available
+    Navigator.of(context).pop();
   }
 }
