@@ -73,53 +73,6 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     final ProductPreferences productPreferences = context
         .watch<ProductPreferences>();
     final List<List<Attribute>> scoreAttributesArray = <List<Attribute>>[];
-    final List<Widget> scoreWidgets = <Widget>[];
-    for (final Product product in widget.products) {
-      final MatchedProductV2 matchedProduct = MatchedProductV2(
-        product,
-        productPreferences,
-      );
-      final ProductCompatibilityHelper helper =
-          ProductCompatibilityHelper.product(matchedProduct);
-      scoreWidgets.add(
-        Expanded(
-          child: Container(
-            color: helper.getColor(context),
-            child: Center(
-              child: Text(
-                matchedProduct.score.toInt().toString(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-
-    final List<String> names = <String>[];
-    final List<String> brands = <String>[];
-    final List<String> quantities = <String>[];
-    final List<Widget> pictures = <Widget>[];
-    final Size screenSize = MediaQuery.sizeOf(context);
-    for (final Product product in widget.products) {
-      names.add(getProductName(product, appLocalizations));
-      brands.add(getProductBrands(product, appLocalizations));
-      quantities.add(product.quantity ?? '');
-      pictures.add(
-        Expanded(
-          child: Center(
-            child: SmoothMainProductImage(
-              product: product,
-              width: screenSize.width * 0.20,
-              height: screenSize.width * 0.20,
-            ),
-          ),
-        ),
-      );
-    }
     for (final Product product in widget.products) {
       final List<Attribute> tmp = <Attribute>[];
       for (final String importance in _sortedImportances) {
@@ -151,7 +104,11 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
         }
       }
       if (notNull) {
-        nutrientValues.add(_getNutrientRow(values: values, nutrient: nutrient));
+        nutrientValues.add(_getNutrientRow(
+          values: values,
+          nutrient: nutrient,
+          orderedNutrient: orderedNutrient,
+        ));
       }
     }
     return SmoothScaffold(
@@ -161,52 +118,143 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       appBar: SmoothAppBar(
         title: Text('Compare ${widget.products.length} products'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          children: <Widget>[
-            const Center(child: Text('Personal compatibility score')),
-            _getWidgetRow(scoreWidgets),
-            _getTextRow(names),
-            const SizedBox(height: 8.0),
-            _getTextRow(brands),
-            const SizedBox(height: 8.0),
-            _getTextRow(quantities),
-            _getWidgetRow(pictures),
-            const Divider(),
-            for (int i = 0; i < scoreAttributesArray.first.length; i++)
-              _getAttributeRow(
-                attributesArray: scoreAttributesArray,
-                index: i,
-                products: widget.products,
+      body: Column(
+        children: <Widget>[
+          // Fixed header section
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: <Widget>[
+                const Center(
+                  child: Text(
+                    'Personal compatibility score',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                // Horizontal scrollable area for scores and products
+                SizedBox(
+                  height: 200,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for (int i = 0; i < widget.products.length; i++)
+                          SizedBox(
+                            width: 150,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 40,
+                                  color: ProductCompatibilityHelper.product(
+                                    MatchedProductV2(
+                                      widget.products[i],
+                                      productPreferences,
+                                    ),
+                                  ).getColor(context),
+                                  child: Center(
+                                    child: Text(
+                                      MatchedProductV2(
+                                        widget.products[i],
+                                        productPreferences,
+                                      ).score.toInt().toString(),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 8.0),
+                                Expanded(
+                                  child: Card(
+                                    margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          SmoothMainProductImage(
+                                            product: widget.products[i],
+                                            width: 60,
+                                            height: 60,
+                                          ),
+                                          const SizedBox(height: 4.0),
+                                          Expanded(
+                                            child: Text(
+                                              getProductName(widget.products[i], appLocalizations),
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12.0,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          Text(
+                                            getProductBrands(widget.products[i], appLocalizations),
+                                            style: const TextStyle(
+                                              fontSize: 10.0,
+                                              color: Colors.grey,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          if (widget.products[i].quantity != null && 
+                                              widget.products[i].quantity!.isNotEmpty)
+                                            Text(
+                                              widget.products[i].quantity!,
+                                              style: const TextStyle(
+                                                fontSize: 10.0,
+                                                color: Colors.grey,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Divider(),
+          // Scrollable comparison content
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    for (int i = 0; i < scoreAttributesArray.first.length; i++)
+                      _getAttributeRow(
+                        attributesArray: scoreAttributesArray,
+                        index: i,
+                        products: widget.products,
+                      ),
+                    ...nutrientValues,
+                  ],
+                ),
               ),
-            ...nutrientValues,
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  Row _getTextRow(final List<String> texts) => _getWidgetRow(<Widget>[
-    for (final String text in texts) Expanded(child: Text(text)),
-  ]);
 
-  Row _getWidgetRow(final List<Widget> widgets) {
-    final List<Widget> children = <Widget>[];
-    bool first = true;
-    for (final Widget widget in widgets) {
-      if (first) {
-        first = false;
-      } else {
-        children.add(const VerticalDivider());
-      }
-      children.add(widget);
-    }
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: children,
-    );
-  }
 
   Nutrient? _getAttributeNutrient(final String attributeId) {
     switch (attributeId) {
@@ -256,10 +304,18 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
   }) {
     final List<Widget> children = <Widget>[];
     late String title;
+    bool hasUnknownAttribute = false;
+    
     for (int i = 0; i < widget.products.length; i++) {
       final Attribute attribute = attributesArray[i][index];
       title = attribute.name!;
       final Product product = products[i];
+      
+      // Check if this attribute has unknown status for any product
+      if (attribute.status == AttributeStatus.UNKNOWN) {
+        hasUnknownAttribute = true;
+      }
+      
       Widget? child = _getChild(attribute, product);
       child = Expanded(
         child: Container(
@@ -279,7 +335,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
         const Divider(),
         Padding(
           padding: const EdgeInsets.only(top: SMALL_SPACE),
-          child: AutoSizeText('$title (?)', maxLines: 2),
+          child: AutoSizeText(
+            hasUnknownAttribute ? '$title (?)' : title,
+            maxLines: 2,
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -292,6 +351,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
   Widget _getNutrientRow({
     required final List<double?> values,
     required final Nutrient nutrient,
+    required final OrderedNutrient orderedNutrient,
   }) {
     final List<Widget> children = <Widget>[];
     for (final double? value in values) {
@@ -311,7 +371,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
         const Divider(),
         Padding(
           padding: const EdgeInsets.only(top: SMALL_SPACE),
-          child: AutoSizeText(nutrient.name, maxLines: 2),
+          child: AutoSizeText(
+            orderedNutrient.name ?? nutrient.name,
+            maxLines: 2,
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
