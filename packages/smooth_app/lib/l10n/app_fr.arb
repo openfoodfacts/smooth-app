@@ -3920,7 +3920,7 @@
   "guide_greenscore_lca_arg3_text1": "Changement climatique/empreinte carbone",
   "guide_greenscore_lca_arg3_text2": "Appauvrissement de la couche d'ozone",
   "guide_greenscore_lca_arg3_text3": "rayonnement ionisant",
-  "guide_greenscore_lca_arg3_text4": "Atterrir",
+  "guide_greenscore_lca_arg3_text4": "Land",
   "guide_greenscore_lca_arg3_text5": "Consommation d'eau et d'énergie",
   "guide_greenscore_lca_arg3_text6": "Pollution de l'air",
   "guide_greenscore_lca_arg3_text7": "Eau marine et eau douce (particules, acidification, eutrophisation)",
@@ -3956,7 +3956,7 @@
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nova_what_is_nova_title": "Qu'est-ce que l'ultra-traitement ?",
+  "guide_nova_what_is_nova_title": "Qu'est-ce que l'ultra-transformation ?",
   "guide_nova_what_is_nova_paragraph1": "Les groupes NOVA vous informent sur le niveau de transformation des aliments.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
