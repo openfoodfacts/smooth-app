@@ -15,6 +15,7 @@ class PreferenceTile extends StatelessWidget {
     this.subtitle,
     this.trailing,
     this.onTap,
+    this.padding,
     super.key,
   }) : assert(
          (subtitleText != null && subtitle == null) ||
@@ -34,6 +35,7 @@ class PreferenceTile extends StatelessWidget {
   final Widget? subtitle;
   final Widget? trailing;
   final Function()? onTap;
+  final EdgeInsetsDirectional? padding;
 
   String get keywords =>
       '${title.toLowerCase()} ${subtitleText?.toLowerCase() ?? ''}';
@@ -63,8 +65,8 @@ class PreferenceTile extends StatelessWidget {
                   ),
                 )
               : null),
+      contentPadding: padding,
       trailing: trailing,
-
       onTap: onTap,
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
@@ -69,6 +70,10 @@ class ContributionsRoot extends PreferencesRoot {
       title: appLocalizations.preferences_contributions_new_products_title,
       subtitleText:
           appLocalizations.preferences_contributions_new_products_subtitle,
+      padding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+        end: SMALL_SPACE,
+      ),
       trailing: const LazyCounterWidget(
         LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
       ),
@@ -94,6 +99,10 @@ class ContributionsRoot extends PreferencesRoot {
     return PreferenceTile(
       icon: Icons.edit_outlined,
       title: appLocalizations.user_search_informer_title,
+      padding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+        end: SMALL_SPACE,
+      ),
       trailing: const LazyCounterWidget(
         LazyCounterUserSearch(UserSearchType.INFORMER),
       ),
@@ -119,6 +128,10 @@ class ContributionsRoot extends PreferencesRoot {
     return PreferenceTile(
       icon: Icons.add_a_photo_outlined,
       title: appLocalizations.user_search_photographer_title,
+      padding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+        end: SMALL_SPACE,
+      ),
       trailing: const LazyCounterWidget(
         LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
       ),
@@ -144,6 +157,10 @@ class ContributionsRoot extends PreferencesRoot {
     return PreferenceTile(
       icon: Icons.done,
       title: appLocalizations.preferences_contributions_to_be_completed_title,
+      padding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+        end: SMALL_SPACE,
+      ),
       trailing: const LazyCounterWidget(
         LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
       ),
