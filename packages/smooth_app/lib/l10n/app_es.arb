@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Ayuda a mejorar Open Food Facts en tu país",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -516,7 +516,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_store": "Search for a store",
+  "search_store": "Buscar una tienda",
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
@@ -532,7 +532,7 @@
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
-  "label_reload": "Reload",
+  "label_reload": "Recargar",
   "@label_reload": {
     "description": "Reload a page"
   },
