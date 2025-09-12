@@ -651,10 +651,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_email_sender
-      sha256: d39eb5e91358fc19ec4050da69accec21f9d5b2b6bcf188aa246327b6ca2352c
+      sha256: d81dc29c4ec5895fa84dc057b1c3a6c0c4a69aaa21b0196f0d8b286b7ac8e9e7
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0"
+    version: "8.0.0"
   flutter_icmp_ping:
     dependency: transitive
     description:
