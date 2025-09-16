@@ -96,18 +96,21 @@ Widget build(BuildContext context) {
             children: &lt;Widget&gt;[
               Expanded(
                 child: Center(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.white54,
-                        width: 2.0,
-                        strokeAlign: BorderSide.strokeAlignOutside,
+                  child: AspectRatio(
+                    aspectRatio: 1.0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white54,
+                          width: 2.0,
+                          strokeAlign: BorderSide.strokeAlignOutside,
+                        ),
+                        borderRadius: BorderRadius.circular(100.0),
                       ),
-                      borderRadius: BorderRadius.circular(100.0),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100.0),
-                      child: illustration,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: illustration,
+                      ),
                     ),
                   ),
                 ),
@@ -116,8 +119,9 @@ Widget build(BuildContext context) {
                 child: Row(
                   children: &lt;Widget&gt;[
                     Expanded(
-                      child: Text(
+                      child: AutoSizeText(
                         title,
+                        group: autoSizeGroup,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15.0,
@@ -168,6 +172,7 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_tiles_square_preference_tile/SquarePreferenceTile-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_tiles_square_preference_tile/SquarePreferenceTile/autoSizeGroup.html">autoSizeGroup</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_tiles_square_preference_tile/SquarePreferenceTile/illustration.html">illustration</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>

@@ -71,6 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final ThemeData theme = Theme.of(context);
+
   return PreferenceTile(
     leading: leading,
     icon: icon,
@@ -78,7 +80,7 @@ Widget build(BuildContext context) {
     subtitleText: subtitleText,
     trailing: icons.ExternalLink(
       size: 16.0,
-      color: Theme.of(context).primaryColor,
+      color: context.lightTheme() ? theme.primaryColor : Colors.white,
     ),
     onTap: () async =&gt;
         LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),

@@ -89,15 +89,7 @@ Widget build(BuildContext context) {
           ? LoggedInAppBar(userId: userId)
           : const LoggedOutAppBar(),
       cards: &lt;PreferenceCard&gt;[
-        PreferenceCard(
-          title: appLocalizations.contribute,
-          gridView: true,
-          tiles: &lt;PreferenceTile&gt;[
-            _buildPricesContributionTile(context, appLocalizations),
-            _buildHungerGamesTile(context),
-            _buildCompleteProductsTile(context, appLocalizations),
-          ],
-        ),
+        _buildContributeCard(context, appLocalizations),
         PreferenceCard(
           title: appLocalizations.preferences_page_customize_app_title,
           tiles: &lt;PreferenceTile&gt;[

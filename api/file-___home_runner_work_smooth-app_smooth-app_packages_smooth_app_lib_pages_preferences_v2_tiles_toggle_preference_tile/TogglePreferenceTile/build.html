@@ -77,7 +77,15 @@ Widget build(BuildContext context) {
     title: title,
     subtitleText: subtitleText,
     onTap: () =&gt; onToggle(!state),
-    trailing: SmoothSwitch(value: state, onChanged: onToggle),
+    padding: const EdgeInsetsDirectional.only(
+      start: LARGE_SPACE,
+      end: SMALL_SPACE,
+    ),
+    trailing: SmoothSwitch(
+      value: state,
+      onChanged: onToggle,
+      size: const Size(38.0, 24.0),
+    ),
   );
 }</code></pre>
 </section>

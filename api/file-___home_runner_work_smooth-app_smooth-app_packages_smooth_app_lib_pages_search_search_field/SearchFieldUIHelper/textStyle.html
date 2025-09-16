@@ -52,8 +52,7 @@
       
 
 <span class="returntype">dynamic</span>
-<span class="name ">textStyle</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="textStyle-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
-</ol>)
+<span class="name ">textStyle</span>(<wbr>)
 
       
 
@@ -64,10 +63,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static TextStyle textStyle(BuildContext context) {
-  final bool lightTheme = !context.watch&lt;ThemeProvider&gt;().isDarkMode(context);
-  return TextStyle(color: lightTheme ? Colors.black : Colors.white);
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">static TextStyle textStyle() =&gt; const TextStyle(color: Colors.black);</code></pre>
 </section>
 
 
