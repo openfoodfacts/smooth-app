@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
@@ -92,6 +93,10 @@ class PricesRoot extends PreferencesRoot {
       icon: Icons.attach_money_outlined,
       title: PriceUserButton.showUserTitle(user: userId, context: context),
       subtitleText: appLocalizations.preferences_prices_user_prices_subtitle,
+      padding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+        end: SMALL_SPACE,
+      ),
       trailing: LazyCounterWidget(LazyCounterPrices(userId)),
       onTap: () async =>
           PriceUserButton.showUserPrices(user: userId, context: context),
@@ -155,6 +160,10 @@ class PricesRoot extends PreferencesRoot {
       icon: CupertinoIcons.money_dollar_circle,
       title: appLocalizations.preferences_prices_newest_title,
       subtitleText: appLocalizations.preferences_prices_newest_subtitle,
+      padding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+        end: SMALL_SPACE,
+      ),
       trailing: const LazyCounterWidget(LazyCounterPrices(null)),
       onTap: () async => Navigator.of(context).push(
         MaterialPageRoute<void>(

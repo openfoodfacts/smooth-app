@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/widgets/smooth_switch.dart';
 
@@ -24,7 +25,15 @@ class TogglePreferenceTile extends PreferenceTile {
       title: title,
       subtitleText: subtitleText,
       onTap: () => onToggle(!state),
-      trailing: SmoothSwitch(value: state, onChanged: onToggle),
+      padding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+        end: SMALL_SPACE,
+      ),
+      trailing: SmoothSwitch(
+        value: state,
+        onChanged: onToggle,
+        size: const Size(38.0, 24.0),
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -9,10 +10,12 @@ class SquarePreferenceTile extends PreferenceTile {
   const SquarePreferenceTile({
     required super.title,
     required this.illustration,
+    this.autoSizeGroup,
     super.onTap,
   });
 
   final Widget illustration;
+  final AutoSizeGroup? autoSizeGroup;
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +44,21 @@ class SquarePreferenceTile extends PreferenceTile {
               children: <Widget>[
                 Expanded(
                   child: Center(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white54,
-                          width: 2.0,
-                          strokeAlign: BorderSide.strokeAlignOutside,
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white54,
+                            width: 2.0,
+                            strokeAlign: BorderSide.strokeAlignOutside,
+                          ),
+                          borderRadius: BorderRadius.circular(100.0),
                         ),
-                        borderRadius: BorderRadius.circular(100.0),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100.0),
-                        child: illustration,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100.0),
+                          child: illustration,
+                        ),
                       ),
                     ),
                   ),
@@ -61,8 +67,9 @@ class SquarePreferenceTile extends PreferenceTile {
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text(
+                        child: AutoSizeText(
                           title,
+                          group: autoSizeGroup,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 15.0,
