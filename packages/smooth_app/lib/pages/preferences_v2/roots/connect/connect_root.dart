@@ -111,10 +111,6 @@ class ConnectRoot extends PreferencesRoot {
         'assets/preferences/tiktok-logo.svg',
         width: DEFAULT_ICON_SIZE,
         package: AppHelper.APP_PACKAGE,
-        colorFilter: ui.ColorFilter.mode(
-          Theme.of(context).colorScheme.onSurface,
-          ui.BlendMode.srcIn,
-        ),
       ),
       title: appLocalizations.tiktok,
       url: appLocalizations.tiktok_link,

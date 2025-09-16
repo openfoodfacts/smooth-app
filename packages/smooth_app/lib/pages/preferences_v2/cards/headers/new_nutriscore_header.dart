@@ -145,11 +145,11 @@ class NewNutriscoreHeader extends StatelessWidget {
           child: Container(
             width: 32.0,
             height: 32.0,
-            padding: const EdgeInsets.only(
+            padding: const EdgeInsetsDirectional.only(
               top: SMALL_SPACE,
               bottom: SMALL_SPACE,
-              left: SMALL_SPACE,
-              right: SMALL_SPACE - 2.0,
+              start: SMALL_SPACE,
+              end: SMALL_SPACE - 2.0,
             ),
             decoration: BoxDecoration(
               color: Colors.black26,

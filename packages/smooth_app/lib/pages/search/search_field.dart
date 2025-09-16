@@ -290,9 +290,7 @@ class SearchFieldUIHelper {
   static const EdgeInsetsGeometry SEARCH_BAR_PADDING =
       EdgeInsetsDirectional.only(start: 20.0, end: BALANCED_SPACE, bottom: 3.0);
 
-  static TextStyle textStyle() {
-    return const TextStyle(color: Colors.black);
-  }
+  static TextStyle textStyle() => const TextStyle(color: Colors.black);
 
   static BoxDecoration decoration(BuildContext context) {
     final SmoothColorsThemeExtension theme = Theme.of(
