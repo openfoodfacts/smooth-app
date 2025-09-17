@@ -5076,7 +5076,7 @@
   "@preferences_prices_challenges_subtitle": {
     "description": "Subtitle for monthly challenges tile"
   },
-  "preferences_prices_loyalty_data_title": "Claim uw loyaliteitsgegevens terug",
+  "preferences_prices_loyalty_data_title": "Eis uw loyaliteitsgegevens terug",
   "@preferences_prices_loyalty_data_title": {
     "description": "Title for loyalty data card"
   },
@@ -5204,7 +5204,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Breng Open Food Facts naar uw taal",
+  "preferences_contribute_translate_header": "Vertaal Open Food Facts in uw taal",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
