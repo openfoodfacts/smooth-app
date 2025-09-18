@@ -4398,7 +4398,7 @@ class AppLocalizationsAa extends AppLocalizations {
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';

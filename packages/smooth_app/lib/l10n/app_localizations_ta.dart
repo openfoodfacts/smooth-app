@@ -2364,7 +2364,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'பரிசோதனை அம்சங்கள் மற்றும் மேம்பாட்டு கருவிகளை அணுகவும்';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3990,32 +3990,33 @@ class AppLocalizationsTa extends AppLocalizations {
       'நியூட்ரி-ஸ்கோர் பொருந்தாது (புதிய கணக்கீடு)';
 
   @override
-  String get environmental_score_generic_new => 'Green-Score';
+  String get environmental_score_generic_new => 'பச்சை-ஸ்கோர்';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'பச்சை-மதிப்பெண் A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'பச்சை-மதிப்பெண் B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'பச்சை-ஸ்கோர் C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'பச்சை-மதிப்பெண் D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'பச்சை-மதிப்பெண் E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'தெரியாத பச்சை மதிப்பெண்';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'பச்சை மதிப்பெண் பொருந்தாது.';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - நோவா குழுக்கள்';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4377,131 +4378,131 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'எந்த தயாரிப்பு கிரகத்திற்கு சிறந்தது?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'சொல்ல கடினமாக இருக்கலாம்.';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      '**நமது உலகளாவிய உணவு முறை அனைத்து பசுமை இல்ல வாயு வெளியேற்றங்களிலும் கால் பங்கிற்கும் மேலாக பொறுப்பேற்பதால்**, நிலையான உணவைத் தேர்ந்தெடுப்பது காலநிலைக்கு நாம் செய்யக்கூடிய மிக சக்திவாய்ந்த விஷயங்களில் ஒன்றாகும்.\n(ஆதாரம்: பூரே & நெமெசெக், அறிவியல், 2018).';
 
   @override
   String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+      'உங்களிடம் சக்தி இருக்கிறது!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'நல்ல செய்தி என்னவென்றால், இது மாற்றத்தை உருவாக்க ஒரு சக்திவாய்ந்த வழியை நமக்கு வழங்குகிறது.\n**நாம் ஒவ்வொருவரும் ஒவ்வொரு வருடமும் சுமார் 1,000 உணவுகளை சாப்பிடுகிறோம்**. அது **இந்த கிரகத்திற்கு சிறந்த எதிர்காலத்தைத் தேர்ந்தெடுப்பதற்கான** 1,000 வாய்ப்புகள்!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'பொறுப்பாக இருந்து முடிவெடுக்க உதவுகிறது.';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. கிரீன்-ஸ்கோர் அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'வெளிப்படைத்தன்மை';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'தனியுரிம லேபிள்களைப் போலன்றி, கிரீன்-ஸ்கோர் கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'அல்ட்ரா-பிராசசிங் என்றால் என்ன?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'உணவு பதப்படுத்துதலின் அளவைப் பற்றி NOVA குழுக்கள் உங்களுக்குத் தெரிவிக்கின்றன.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      '**தொழில்துறை செயலாக்கத்தின்** (குறைந்தபட்ச பதப்படுத்தப்பட்ட அல்லது பதப்படுத்தப்படாத உணவுகள், சமையல் பொருட்கள், பதப்படுத்தப்பட்ட உணவுகள், தீவிர பதப்படுத்தப்பட்ட உணவுகள்) அடிப்படையில் உணவுகளை **4 குழுக்களாக** வகைப்படுத்த NOVA வகைப்பாடு அனுமதிக்கிறது.';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'நோவா லோகோக்கள்';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 NOVA குழுக்கள்';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      '4 NOVA குழுக்கள் உள்ளன, அவற்றில் சிக்கலானது குழு 4 - அல்ட்ரா-பதப்படுத்தப்பட்ட உணவுகள்.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'குறைந்தபட்சமாக பதப்படுத்தப்பட்ட அல்லது பதப்படுத்தப்படாத உணவுகள்';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'பதப்படுத்தப்படாத (அல்லது இயற்கை) உணவுகள் என்பவை இயற்கையிலிருந்து பிரிக்கப்பட்ட பிறகு, தாவரங்களின் உண்ணக்கூடிய பாகங்கள் (விதைகள், பழங்கள், இலைகள், தண்டுகள், வேர்கள்) அல்லது விலங்குகள் (தசை, கழிவுகள், முட்டை, பால்), அத்துடன் பூஞ்சை, பாசி மற்றும் நீர் ஆகியவை ஆகும்.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'பதப்படுத்தப்பட்ட சமையல் பொருட்கள், எண்ணெய்கள், வெண்ணெய், சர்க்கரை மற்றும் உப்பு போன்றவை, குழு 1 உணவுகளிலிருந்து அல்லது இயற்கையிலிருந்து பெறப்பட்ட பொருட்களாகும், அவை அழுத்துதல், சுத்திகரித்தல், அரைத்தல், அரைத்தல் மற்றும் உலர்த்துதல் உள்ளிட்ட செயல்முறைகள் மூலம் பெறப்படுகின்றன.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'பதப்படுத்தப்பட்ட உணவுகள், பாட்டில் காய்கறிகள், பதிவு செய்யப்பட்ட மீன்கள், சிரப்பில் உள்ள பழங்கள், பாலாடைக்கட்டிகள் மற்றும் புதிதாக தயாரிக்கப்பட்ட ரொட்டிகள் போன்றவை முதன்மையாக உப்பு, எண்ணெய், சர்க்கரை அல்லது குழு 2 இலிருந்து குழு 1 உணவுகளில் சேர்க்கப்படுவதன் மூலம் தயாரிக்கப்படுகின்றன. செயல்முறைகளில் பல்வேறு பாதுகாப்பு அல்லது சமையல் முறைகள் அடங்கும், மேலும் ரொட்டிகள் மற்றும் சீஸ் விஷயத்தில், மது அல்லாத நொதித்தல் ஆகியவை அடங்கும். பெரும்பாலான பதப்படுத்தப்பட்ட உணவுகளில் இரண்டு அல்லது மூன்று பொருட்கள் உள்ளன, மேலும் அவை குழு 1 உணவுகளின் மாற்றியமைக்கப்பட்ட பதிப்புகளாக அடையாளம் காணப்படுகின்றன. அவற்றை தனியாகவோ அல்லது பொதுவாக, மற்ற உணவுகளுடன் சேர்த்துவோ சாப்பிடலாம்.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'குளிர்பானங்கள், இனிப்பு அல்லது காரமான தொகுக்கப்பட்ட சிற்றுண்டிகள், மறுசீரமைக்கப்பட்ட இறைச்சி பொருட்கள் மற்றும் முன்பே தயாரிக்கப்பட்ட உறைந்த உணவுகள் போன்ற மிகை பதப்படுத்தப்பட்ட உணவுகள் வெறும் மாற்றியமைக்கப்பட்ட உணவுகள் மட்டுமல்ல, பெரும்பாலும் அல்லது முழுமையாக உணவுகள் மற்றும் சேர்க்கைகளிலிருந்து பெறப்பட்ட பொருட்களிலிருந்து தயாரிக்கப்படும் சூத்திரங்கள், குரூப் 1 உணவில் சிறிதளவு அல்லது எந்த பாதிப்பும் இல்லாமல். இந்த சூத்திரங்களில் உள்ள பொருட்கள் பொதுவாக சர்க்கரைகள், எண்ணெய்கள், கொழுப்புகள் அல்லது உப்பு போன்ற பதப்படுத்தப்பட்ட உணவுகளிலும் காணப்படுகின்றன. இருப்பினும், மிகை பதப்படுத்தப்பட்ட பொருட்களில் பொதுவாக சமையல் தயாரிப்புகளில் பயன்படுத்தப்படாத ஆற்றல் மற்றும் ஊட்டச்சத்துக்களின் பிற மூலங்களும் உள்ளன. இவற்றில் சில கேசீன், லாக்டோஸ், மோர் மற்றும் பசையம் போன்ற உணவுகளிலிருந்து நேரடியாகப் பிரித்தெடுக்கப்படுகின்றன.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'அல்ட்ரா-பிராசசிங்கில் உள்ள சிக்கல்கள்';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'உணவுப் பொருட்களின் தீவிர செயலாக்கம்';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'ஹைட்ரஜனேற்றப்பட்ட அல்லது ஆர்வமூட்டும் எண்ணெய்கள், ஹைட்ரோலைஸ் செய்யப்பட்ட புரதங்கள், சோயா புரதம் தனிமைப்படுத்தல், மால்டோடெக்ஸ்ட்ரின், தலைகீழ் சர்க்கரை மற்றும் உயர்-பிரக்டோஸ் கார்ன் சிரப் போன்ற உணவுப் பொருட்களை மேலும் செயலாக்குவதன் மூலம் பல பெறப்படுகின்றன.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'தூய உணவுப் பாதுகாப்பைத் தாண்டிச் செல்லும் சேர்க்கைகள்';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'பதப்படுத்தப்பட்ட உணவுகளில் பயன்படுத்தப்படும் சேர்க்கைப் பொருட்களில் பதப்படுத்தப்பட்ட உணவுகளிலும் பயன்படுத்தப்படும் சில பொருட்கள் அடங்கும், அதாவது பாதுகாப்புப் பொருட்கள், ஆக்ஸிஜனேற்றிகள் மற்றும் நிலைப்படுத்திகள். பதப்படுத்தப்பட்ட தயாரிப்புகளில் மட்டுமே காணப்படும் சேர்க்கைப் பொருட்களில் உணவுகளின் உணர்ச்சித் தரங்களைப் பின்பற்ற அல்லது மேம்படுத்த அல்லது இறுதிப் பொருளின் விரும்பத்தகாத அம்சங்களை மறைக்கப் பயன்படுத்தப்படும் சேர்க்கைப் பொருட்கள் அடங்கும். இந்தச் சேர்க்கைப் பொருட்களில் சாயங்கள் மற்றும் பிற வண்ணங்கள், வண்ண நிலைப்படுத்திகள்; சுவைகள், சுவையை அதிகரிக்கும் பொருட்கள், சர்க்கரை அல்லாத இனிப்புப் பொருட்கள்; மற்றும் கார்பனேட்டிங், ஃபர்மிங், பல்கிங் மற்றும் ஆன்டி-பல்கிங் ஏஜென்ட்கள், டி-ஃபோமிங், ஆன்டி-கேக்கிங் மற்றும் மெருகூட்டல் ஏஜென்ட்கள், குழம்பாக்கிகள், சீக்வெஸ்ட்ரான்ட்கள் மற்றும் ஈரப்பதமூட்டிகள் போன்ற செயலாக்க உதவிகள் அடங்கும்.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'வீட்டிலேயே செய்ய முடியாத செயலாக்கம்';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'பொதுவாக பல பொருட்களை ஒன்றிணைத்து இறுதிப் பொருளை உருவாக்குவதற்கு (எனவே \'மிகவும் பதப்படுத்தப்பட்ட\') பல செயல்முறைகள் பயன்படுத்தப்படுகின்றன. இந்த செயல்முறைகளில் உள்நாட்டு சமமானவை இல்லாத பல அடங்கும், அதாவது ஹைட்ரஜனேற்றம் மற்றும் நீராற்பகுப்பு, வெளியேற்றம் மற்றும் மோல்டிங், மற்றும் வறுக்க முன் செயலாக்கம்.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'அல்ட்ரா-பிராசசிங்கின் கொள்ளையடிக்கும் மற்றும் நிதி அம்சங்கள்';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'அல்ட்ரா-பதப்படுத்தலின் ஒட்டுமொத்த நோக்கம், மற்ற அனைத்து உணவுக் குழுக்களையும் மாற்றுவதற்காக வடிவமைக்கப்பட்ட பிராண்டட், வசதியான (நீடித்த, உட்கொள்ளத் தயாராக), கவர்ச்சிகரமான (மிகவும் சுவையான) மற்றும் அதிக லாபகரமான (குறைந்த விலை பொருட்கள்) உணவுப் பொருட்களை உருவாக்குவதாகும். அல்ட்ரா-பதப்படுத்தப்பட்ட உணவுப் பொருட்கள் பொதுவாக கவர்ச்சிகரமான முறையில் பேக் செய்யப்பட்டு தீவிரமாக சந்தைப்படுத்தப்படுகின்றன.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4988,91 +4989,95 @@ class AppLocalizationsTa extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Proof';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => 'பொது';
 
   @override
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'உங்கள் விலை விருப்பங்களை நிர்வகிக்கவும்';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'திறந்த உணவு உண்மைகள் திட்டம்';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'மொழிபெயர்க்கவும், எங்கள் கருவிகளை மேம்படுத்தவும்…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'இணைக்கவும்';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'எங்களைத் தொடர்பு கொள்ளுங்கள் அல்லது சமூக ஊடகங்களில் எங்களைப் பின்தொடருங்கள்';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'உலகெங்கிலும் உள்ள மில்லியன் கணக்கான நுகர்வோருக்குத் தெரிவிக்க எங்களுக்கு உதவுங்கள்.';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'உதவி & ஆதரவு';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle =>
+      'உங்கள் கேள்விகளுக்கான பதில்களைப் பெறுங்கள்';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'வெளியேறிவிட்டார்';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'எங்கள் உறுப்பினர்களில் ஒருவராக இருப்பதற்கு நன்றி!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
 
   @override
-  String get preferences_app_bar_prices_added => 'Prices added';
+  String get preferences_app_bar_prices_added => 'விலைகள் சேர்க்கப்பட்டன';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats =>
+      'எல்லா புள்ளிவிவரங்களையும் காண்க';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return '\"$keyword\" -ஐ $provider -ல் தேடவும்.';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'ஒரு அமைப்பைத் தேடுங்கள் (எ.கா. நியூட்ரி-ஸ்கோர்)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'அணுகல்தன்மை: ஈமோஜியைக் காட்டு';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'அணுகல்தன்மை: வண்ணங்களை அகற்று';
 
   @override
   String get preferences_app_settings_products => 'Products';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'இதைப் பற்றி';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'சட்ட தகவல்';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'பயன்பாட்டு விதிமுறைகள், தனியுரிமைக் கொள்கை மற்றும் பல';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5084,155 +5089,159 @@ class AppLocalizationsTa extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'உரிமங்கள்';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'பயன்பாட்டைப் பற்றி';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'தொழில்நுட்பத் தகவல், டெவலப்பர் தகவல் மற்றும் பல';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'தகவல்';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'பதிப்பு எண்';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'ஸ்கேனர்';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'ஆப் ஸ்டோர்';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'கணினி அமைப்புகள்';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'மூலக் குறியீட்டை அணுகவும்';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'மில்லியன் கணக்கானவர்களுக்கு ஒரு தாக்கத்தை ஏற்படுத்தத் தொடங்குங்கள்.';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'முழுமையான தயாரிப்புகள்';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'குறிப்புகள்';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'புதிய நியூட்ரி-ஸ்கோரைக் கண்டறியவும்';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'ஓபன் ஃபுட் ஃபேக்ட்ஸ் வலைத்தளத்தில்';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'எனது கணக்கை நிர்வகிக்கவும்';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'எனது கடவுச்சொல்லை மாற்று';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'ஆபத்து மண்டலம்';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'உங்கள் பங்களிப்புகள் அனைத்தும் இழக்கப்படும்.';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'பயன்பாட்டு அமைப்புகள்';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'தயாரிப்புகளை ஆஃப்லைனில் ஸ்கேன் செய்வதற்கான மிகவும் சோதனை வழி';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'சேவையகத்திலிருந்து அனைத்து தயாரிப்புகளையும் புதுப்பிக்கவும்.';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'மிகவும் அவசியமானால் தவிர, தயவுசெய்து அதைச் செய்வதைத் தவிர்க்கவும்.';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'டெமோ பயன்முறை';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'ஸ்கேனரில் கார்டுகளைச் சேர்க்கவும்';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'ஸ்கேனரில் 3 மாதிரி தயாரிப்புகளைச் சேர்க்கிறது.';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title => 'ஃபோக்சோனமி ஹோஸ்ட்';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'அணுகல்தன்மை பரிசோதனைகள்';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'விலைகளுக்கு ஏற்ப பல தயாரிப்புகளின் தேர்வு';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'பயனர் ஆர்டர் செய்த தகவல் பலகைகள்';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'இருப்பிடத் தேடலுக்கான தற்காலிக அணுகல்';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      '2 அல்லது 3 தயாரிப்புகளுக்கான பக்கவாட்டு ஒப்பீடு';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'தயாரிப்பு பட்டியல் இறக்குமதி';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'மதிப்பெண்கள் & வழிமுறைகள்';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'நியூட்ரி-ஸ்கோர் எவ்வாறு கணக்கிடப்படுகிறது என்பதைக் கண்டறியவும்.';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'முறைமையில் ஏற்பட்ட முக்கிய மாற்றங்களைக் கண்டறியவும்.';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'திறந்த உணவு உண்மைகளைக் கண்டறியவும்';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'அடிக்கடி கேட்கப்படும் கேள்விகள் - அடிக்கடி கேட்கப்படும் கேள்விகள்';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'திறந்த உணவு உண்மைகள் அரசு சாரா நிறுவனம்';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'தகவல்';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'சமூக புதுப்பிப்புகளைப் பெறுங்கள்';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'பயன்பாடு மற்றும் சமூக செய்திகளுடன் இணைந்திருங்கள்.';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5240,217 +5249,224 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'எங்கள் மெய்நிகர் நிகழ்வுகளில் ஒன்றில் கலந்துகொள்வதன் மூலம் ஈடுபடுங்கள்.';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'சமூக ஊடகங்களில் எங்களைப் பின்தொடருங்கள்';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'திறந்த உணவு உண்மைகள் வலைப்பதிவு';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'சமீபத்திய செய்திகளை அவை நடக்கும்போதே பெறுங்கள்';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'சமூகத்திடமிருந்து உதவி பெறுங்கள்';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'பயன்பாட்டை மேம்படுத்த எங்களுக்கு உதவுங்கள்.';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'பிழைத்திருத்த தகவலை எங்களுக்கு அனுப்புங்கள்.';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'விரிவான பிழைத்திருத்த தகவலுடன் எங்களுக்கு ஒரு மின்னஞ்சல் அனுப்புங்கள்.';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'பயன்பாட்டைப் பற்றிய உங்கள் கருத்துக்களை எங்களுக்கு அனுப்புங்கள்.';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'பயன்பாட்டின் எதிர்காலத்தை வடிவமைக்க உதவுங்கள்.';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title =>
+      'பயன்பாட்டு கணக்கெடுப்பில் பங்கேற்கவும்';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'அடுத்து என்ன கட்ட வேண்டும் என்பதைப் புரிந்துகொள்ள உதவுங்கள்.';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'வல்லுநர்கள்';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'முற்றிலும் இலவசம், 500 பயன்பாடுகள் மற்றும் மில்லியன் கணக்கான நுகர்வோருக்கு துல்லியமான தரவை உறுதி செய்கிறது. சுய சேவை, உங்கள் PIM அல்லது விரிதாள்களுடன் (XLSX) இணக்கமானது.';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'தொடங்குவதற்கு தொடர்பு கொள்ளவும்.';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'உங்கள் அறிக்கைக்குத் தேவையான அனைத்துப் பொருட்களையும் பெறுங்கள்.';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'பத்திரிகை விசாரணைகளுக்கு அல்லது உங்கள் அறிக்கையைப் பற்றி எங்களுக்குத் தெரிவிக்க தொடர்பு கொள்ளவும்.';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'ஒரு செயலில் தன்னார்வலராகுங்கள்';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'மேம்பாடு, தொடர்பு, வடிவமைப்பு… எந்த வகையான தன்னார்வத் தொண்டு அல்லது நிபுணத்துவமும் வரவேற்கப்படுகிறது!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'நீங்கள் பங்களிக்கக்கூடிய பல வழிகளில் சிலவற்றைக் கண்டறியவும்.';
 
   @override
-  String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+  String get preferences_contribute_mobile_dev_title => 'மொபைல் செயலி மேம்பாடு';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'மென்பொருள் மேம்பாட்டிற்கு எவ்வாறு பங்களிப்பது என்பதை அறிக.';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'தினசரி நிலையற்ற உருவாக்கங்கள், புத்தம் புதிய அம்சங்கள்';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'உங்கள் உள்ளூர் சமூகத்தை வளர்க்கவும்.';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'மென்பொருள், உள்ளடக்கங்கள், மூலப்பொருள் பகுப்பாய்வு மொழிபெயர்ப்புகளுக்கு உதவி.';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'உங்களுக்கு உதவ ஒரு சிறிய டெம்ப்ளேட்டை நாங்கள் தயார் செய்துள்ளோம் :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'உங்கள் நாட்டில் உணவு வெளிப்படைத்தன்மையை வளர்ப்பதற்கான எளிய வழிமுறைகள்.';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'தரவுகளின் தரம்';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'தரவு தரக் குழுவில் சேருங்கள்';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'தரவுத்தளம் முழுமையாகவும் துல்லியமாகவும் இருப்பதை உறுதிசெய்ய எங்கள் முயற்சியில் சேருங்கள்.';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 தயாரிப்புகள் சேர்க்கப்படவில்லை';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'திறந்த உணவு உண்மைகளில் நான் சேர்த்த புதிய தயாரிப்புகள்';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'நான் முடிக்க வேண்டிய தயாரிப்புகள்';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'முழுமையற்ற அனைத்து தயாரிப்புகளும்';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'நீங்கள் முடிக்க உதவும் தயாரிப்புகள்';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'உங்கள் நாட்டில் நியூட்ரி-ஸ்கோர் & கிரீன்-ஸ்கோரைக் கணக்கிட உதவுங்கள்.';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'நான் பங்களித்த விலைகள்';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'விலைக் குறிச்சொற்கள் மற்றும் ரசீதுகள்';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'உங்கள் ரசீதுகளின் புகைப்படங்களை எடுத்து தொடர்புடைய பார்கோடுகளை ஸ்கேன் செய்யுங்கள்.';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'ஒரு கடையில் விலைகளின் புகைப்படங்களை எடுத்துக் கொள்ளுங்கள்.';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'புதிய விலைகள்';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'திறந்த விலைகள் சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'அதிக விலைகளைக் கொண்ட பங்களிப்பாளர்கள்';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'திறந்த விலை அளவீடுகள்';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'திட்டத்தின் பரிணாம வளர்ச்சியைப் பின்பற்றுங்கள்';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'பங்களிப்பதற்கான வழிகள்';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'AI உதவியுடன், நீங்களோ அல்லது மற்றவர்களோ சேர்த்த விலைகளை உறுதிப்படுத்தவும்.';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'உங்கள் கேமரா ரோலில் இருந்து பல ரசீதுகள் அல்லது அலமாரிகளின் புகைப்படங்களை விரைவாகச் சேர்க்கவும்';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'மாதாந்திர சவால்கள்';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'விலைகளைச் சேகரிக்க மாதாந்திர கருப்பொருள் தேடல்களில் பங்கேற்கவும்';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'உங்கள் விசுவாசத் தரவை மீட்டெடுக்கவும்';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'உங்கள் தரவை எவ்வாறு கோருவது என்பதை அறிக.';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title =>
+      'பயன்பாட்டைத் தனிப்பயனாக்குங்கள்';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'திட்டத்திற்கு பங்களிக்கவும்';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'உணவு உண்மைகளைத் திறக்க உதவும் எளிய வழிகள்';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'திட்டத்தைப் பற்றிய மதிப்பெண் முறைகள், உதவி மற்றும் பல.';
 
   @override
   String get product_edit_robotoff_positive_button => 'பரிந்துரையை ஏற்கிறேன்';
@@ -5500,40 +5516,40 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'மாற்றங்களைப் பயன்படுத்த பயன்பாட்டை மறுதொடக்கம் செய்யவும்.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'வரைகலை இடைமுகம்';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'ஊடகம்';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'திறந்த உணவு உண்மைகள் ஆய்வகங்கள்';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'திறந்த உணவு உண்மைகளை உங்கள் மொழியில் கொண்டு வாருங்கள்.';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'பயன்பாட்டின் ஆல்பா பதிப்பில் பதிவுசெய்யவும்';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'பங்களிப்புகள் & தயாரிப்பு தரவு';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'ஃபோக்சோனமியைக் காட்டாதே';
 
   @override
   String get preferences_account_title => 'Account';

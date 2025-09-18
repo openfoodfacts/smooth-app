@@ -2358,7 +2358,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'ექსპერიმენტულ ფუნქციებსა და განვითარების ინსტრუმენტებზე წვდომა';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3978,29 +3978,30 @@ class AppLocalizationsKa extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'მწვანე ქულა A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'მწვანე ქულა B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'მწვანე ქულა C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'მწვანე ქულა D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'მწვანე ქულა E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'უცნობი მწვანე ქულა';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'მწვანე ქულა არ გამოიყენება';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'ულტრა-დამუშავებული საკვები - NOVA ჯგუფები';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4363,131 +4364,129 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'რომელი პროდუქტია უკეთესი პლანეტისთვის?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'შეიძლება ძნელი სათქმელია';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'მდგრადი საკვების არჩევა ერთ-ერთი ყველაზე ძლიერი რამაა, რისი გაკეთებაც კლიმატისთვის შეგვიძლია, რადგან **ჩვენი გლობალური კვების სისტემა პასუხისმგებელია სათბურის გაზების ყველა გამონაბოლქვის მეოთხედზე**.\n(წყარო: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'შენ გაქვს ძალა!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'კარგი ამბავი ის არის, რომ ეს ცვლილებების განხორციელების ძლიერ გზას გვაძლევს.\n**თითოეული ჩვენგანი ყოველწლიურად დაახლოებით 1000 კვებას მიირთმევს**. ეს 1000 შესაძლებლობაა **პლანეტისთვის უკეთესი მომავლის ასარჩევად**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'ეხმარება პასუხისმგებლობის აღებასა და გადაწყვეტილების მიღებაში';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'მდგრადი საკვების არჩევა შეიძლება რთულად მოგეჩვენოთ. ეტიკეტები დამაბნეველია და ინფორმაცია ხშირად აკლია. Green-Score შეიქმნა მისი გასამარტივებლად, რაც გთავაზობთ **მკაფიო**, **მეცნიერებაზე დაფუძნებულ** და **გამჭვირვალე** გარემოსდაცვით რეიტინგს საკვები პროდუქტებისთვის, ზუსტად იქ, სადაც გჭირდებათ: შოპინგის დროს.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'გამჭვირვალობა';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'საკუთრების ეტიკეტებისგან განსხვავებით, მწვანე ქულის გამოთვლა **სრულიად ღიაა** და მისი **გადამოწმება ნებისმიერს** შეუძლია.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'რა არის ულტრა-დამუშავება?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'NOVA ჯგუფები გაცნობებენ საკვების გადამუშავების დონის შესახებ.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'NOVA კლასიფიკაცია საშუალებას იძლევა, საკვები პროდუქტები დაიყოს **4 ჯგუფად** მათი **სამრეწველო დამუშავების ხარისხის** მიხედვით (მინიმალურად დამუშავებული ან დაუმუშავებელი საკვები, კულინარიული ინგრედიენტები, დამუშავებული საკვები, ულტრადამუშავებული საკვები).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'NOVA-ს ლოგოები';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 NOVA ჯგუფი';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'არსებობს 4 NOVA ჯგუფი, რომელთაგან ყველაზე პრობლემურია მე-4 ჯგუფი - ულტრადამუშავებული საკვები.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'მინიმალურად დამუშავებული ან დაუმუშავებელი საკვები';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'დაუმუშავებელი (ანუ ნატურალური) საკვები არის მცენარეების (თესლი, ნაყოფი, ფოთლები, ღეროები, ფესვები) ან ცხოველების (კუნთები, სუბპროდუქტები, კვერცხი, რძე), ასევე სოკოები, წყალმცენარეები და წყალი, ბუნებისგან გამოყოფის შემდეგ.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'დამუშავებული კულინარიული ინგრედიენტები, როგორიცაა ზეთები, კარაქი, შაქარი და მარილი, არის ნივთიერებები, რომლებიც მიიღება პირველი ჯგუფის საკვები პროდუქტებიდან ან ბუნებიდან ისეთი პროცესების მეშვეობით, როგორიცაა დაპრესილი, რაფინირებული, დაფქული, დაფქული და გაშრობა.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'გადამუშავებული საკვები, როგორიცაა ბოთლში დაკონსერვებული ბოსტნეული, დაკონსერვებული თევზი, ხილი სიროფში, ყველი და ახლად გამომცხვარი პური, ძირითადად მზადდება მე-2 ჯგუფის პროდუქტებში მარილის, ზეთის, შაქრის ან სხვა ნივთიერებების დამატებით. პროცესები მოიცავს სხვადასხვა შენახვის ან მომზადების მეთოდს, ხოლო პურისა და ყველის შემთხვევაში, უალკოჰოლო დუღილს. გადამუშავებული საკვების უმეტესობა შეიცავს ორ ან სამ ინგრედიენტს და ამოსაცნობია, როგორც პირველი ჯგუფის პროდუქტების მოდიფიცირებული ვერსიები. მათი მირთმევა შესაძლებელია დამოუკიდებლად ან, უფრო ხშირად, სხვა საკვებთან ერთად.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'ულტრა-დამუშავებული საკვები, როგორიცაა გამაგრილებელი სასმელები, ტკბილი ან მარილიანი შეფუთული საჭმელები, აღდგენილი ხორცპროდუქტები და წინასწარ მომზადებული გაყინული კერძები, არ არის მხოლოდ მოდიფიცირებული საკვები, არამედ ფორმულირებები, რომლებიც ძირითადად ან მთლიანად მზადდება საკვებიდან და დანამატებიდან მიღებული ნივთიერებებისგან, თითქმის არ შეიცავს ან საერთოდ არ შეიცავს პირველი ჯგუფის საკვებს. ამ ფორმულირებების ინგრედიენტები, როგორც წესი, მოიცავს დამუშავებულ საკვებში არსებულ ინგრედიენტებს, როგორიცაა შაქარი, ზეთები, ცხიმები ან მარილი. თუმცა, ულტრა-დამუშავებული პროდუქტები ასევე შეიცავს ენერგიისა და საკვები ნივთიერებების სხვა წყაროებს, რომლებიც ჩვეულებრივ არ გამოიყენება კულინარიულ პრეპარატებში. ზოგიერთი მათგანი პირდაპირ მიიღება საკვებიდან, როგორიცაა კაზეინი, ლაქტოზა, შრატი და გლუტენი.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'ულტრა-დამუშავების პრობლემები';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'საკვები ინგრედიენტების ექსტრემალური დამუშავება';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'ბევრი მათგანი მიიღება საკვები კომპონენტების შემდგომი დამუშავებით, როგორიცაა ჰიდროგენიზებული ან ინტერესტერიფიცირებული ზეთები, ჰიდროლიზებული ცილები, სოიოს ცილის იზოლატი, მალტოდექსტრინი, ინვერტული შაქარი და მაღალი ფრუქტოზის შემცველი სიმინდის სიროფი.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'დანამატები, რომლებიც წმინდა საკვების უვნებლობას სცილდება';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'ულტრა-დამუშავებულ საკვებში არსებული დანამატები მოიცავს ისეთ დანამატებს, რომლებიც ასევე გამოიყენება დამუშავებულ საკვებში, როგორიცაა კონსერვანტები, ანტიოქსიდანტები და სტაბილიზატორები. მხოლოდ ულტრა-დამუშავებულ პროდუქტებში არსებული დანამატების კლასები მოიცავს ისეთ დანამატებს, რომლებიც გამოიყენება საკვების სენსორული თვისებების იმიტაციის ან გაძლიერების ან საბოლოო პროდუქტის არასასიამოვნო ასპექტების დასაფარად. ეს დანამატები მოიცავს საღებავებს და სხვა საღებავებს, ფერის სტაბილიზატორებს; არომატიზატორებს, გემოს გამაძლიერებლებს, უშაქრო დამატკბობლებს; და გადამუშავების დამხმარე საშუალებებს, როგორიცაა კარბონატული, გამამკვრივებელი, შემავსებელი და შემავსებლის საწინააღმდეგო აგენტები, ქაფის საწინააღმდეგო, შეწებების საწინააღმდეგო და გლაზურის აგენტები, ემულგატორები, სეკვესტრანტები და დამატენიანებელი საშუალებები.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'დამუშავება, რომლის გაკეთებაც სახლში არ შეგიძლიათ';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'როგორც წესი, მრავალი ინგრედიენტის შესაერთებლად და საბოლოო პროდუქტის (აქედან გამომდინარე, „ულტრა-დამუშავებული“) შესაქმნელად გამოიყენება პროცესების მრავალი თანმიმდევრობა. პროცესები მოიცავს რამდენიმეს, რომლებსაც ადგილობრივი ეკვივალენტები არ აქვთ, როგორიცაა ჰიდროგენიზაცია და ჰიდროლიზება, ექსტრუზია და ჩამოსხმა, ასევე წინასწარი დამუშავება შესაწვავად.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'ულტრა-დამუშავების მტაცებლური და ფინანსური ასპექტები';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'ულტრა-დამუშავების საერთო მიზანია ბრენდირებული, მოსახერხებელი (ხანგრძლივი, მოხმარებისთვის მზა), მიმზიდველი (ჰიპერ-გემრიელი) და მაღალმომგებიანი (დაბალი ღირებულების ინგრედიენტები) საკვები პროდუქტების შექმნა, რომლებიც შექმნილია ყველა სხვა საკვები ჯგუფის ჩასანაცვლებლად. ულტრა-დამუშავებული საკვები პროდუქტები, როგორც წესი, მიმზიდველად არის შეფუთული და ინტენსიურად იყიდება ბაზარზე.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4978,46 +4977,46 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'მართეთ თქვენი ფასების პარამეტრები';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'ღია საკვების ფაქტების პროექტი';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'თარგმნეთ, გააუმჯობესეთ ჩვენი ხელსაწყოები…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'დაკავშირება';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'დაგვიკავშირდით, ან გამოგვყევით სოციალურ მედიაში';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'დაგვეხმარეთ მსოფლიოს მილიონობით მომხმარებლის ინფორმირებაში';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'დახმარება და მხარდაჭერა';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'მიიღეთ პასუხები თქვენს კითხვებზე';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'გამოსული';
 
   @override
-  String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+  String get preferences_app_bar_message => 'გმადლობთ, რომ ჩვენი წევრი ხართ!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5026,24 +5025,24 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'ყველა სტატისტიკის ნახვა';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'მოძებნეთ $provider \"$keyword\"-სთვის';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'პარამეტრის ძიება (მაგ. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'ხელმისაწვდომობა: emoji-ს ჩვენება';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'ხელმისაწვდომობა: ფერების წაშლა';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5052,11 +5051,11 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'იურიდიული ინფორმაცია';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'გამოყენების პირობები, კონფიდენციალურობის პოლიტიკა და სხვა';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5068,36 +5067,36 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'ლიცენზიები';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'აპლიკაციის შესახებ';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'ტექნიკური ინფორმაცია, დეველოპერის ინფორმაცია და სხვა';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'ვერსიის ნომერი';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'სკანერი';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'აპლიკაციების მაღაზია';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'სისტემის პარამეტრები';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'წყაროს კოდზე წვდომა';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'და დაიწყეთ მილიონობით ადამიანზე გავლენის მოხდენა';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5106,117 +5105,123 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'რჩევები';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'აღმოაჩინეთ ახალი Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'ღია საკვების ფაქტების ვებსაიტზე';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'ჩემი ანგარიშის მართვა';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'პაროლის შეცვლა';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'საფრთხის ზონა';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'თქვენი ყველა წვლილი დაიკარგება';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title =>
+      'აპლიკაციის პარამეტრები';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'ძალიან ექსპერიმენტული გზა პროდუქტების ოფლაინ სკანირებისთვის';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'სერვერიდან ყველა პროდუქტის განახლება';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'გთხოვთ, თავი შეიკავოთ ამის გაკეთებისგან, თუ აბსოლუტურად აუცილებელი არ არის';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'დემო რეჟიმი';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'ბარათების დამატება სკანერში';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'სკანერს 3 ნიმუშის პროდუქტს უმატებს';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'ფოლკსონომიის მასპინძელი';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'ხელმისაწვდომობის ექსპერიმენტები';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'ფასების მიხედვით მრავალი პროდუქტის არჩევანი';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'მომხმარებლის მიერ დალაგებული ცოდნის პანელები';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'მდებარეობის ძიებაზე დროებითი წვდომა';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      '2 ან 3 პროდუქტის ერთმანეთის გვერდიგვერდ შედარება';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'პროდუქტების სიის იმპორტი';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'ქულები და მეთოდოლოგიები';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'გაიგეთ, როგორ გამოითვლება Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'მეთოდოლოგიაში ძირითადი ცვლილებების გაცნობა';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'აღმოაჩინეთ ღია კვების ფაქტები';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'ხშირად დასმული კითხვები - ხშირად დასმული კითხვები';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'არასამთავრობო ორგანიზაცია „ღია საკვების ფაქტები“';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'მიიღეთ საზოგადოების განახლებები';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'იყავით ინფორმირებული აპლიკაციისა და საზოგადოების სიახლეების შესახებ';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5224,217 +5229,223 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'ჩაერთეთ ჩვენს ერთ-ერთ ვირტუალურ ღონისძიებაში';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'გამოგვყევით სოციალურ მედიაში';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'ღია კვების ფაქტების ბლოგი';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'მიიღეთ უახლესი ამბები, როგორც კი ისინი მოხდება';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'მიიღეთ დახმარება საზოგადოებისგან';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'დაგვეხმარეთ აპლიკაციის გაუმჯობესებაში';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'გამოგვიგზავნეთ გამართვის ინფორმაცია';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'გამოგვიგზავნეთ ელ.წერილი დეტალური გამართვის ინფორმაციით';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'გამოგვიგზავნეთ გამოხმაურება აპლიკაციის შესახებ';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'დაგვეხმარეთ აპლიკაციის მომავლის ჩამოყალიბებაში';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title =>
+      'მიიღეთ მონაწილეობა აპლიკაციის გამოკითხვაში';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'დაგვეხმარეთ გავიგოთ, რა უნდა შევქმნათ შემდეგ';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'პროფესიონალები';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'სრულიად უფასო, უზრუნველყოფს ზუსტ მონაცემებს 500 აპლიკაციისა და მილიონობით მომხმარებლისთვის. თვითმომსახურება, თავსებადია თქვენს PIM-თან ან ცხრილებთან (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'დასაწყებად დაგვიკავშირდით';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'მიიღეთ ყველა საჭირო მასალა თქვენი ანგარიშისთვის';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'დაგვიკავშირდით პრესასთან დაკავშირებული შეკითხვებისთვის ან თქვენი ანგარიშის შესახებ ინფორმაციის მისაღებად';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'გახდი აქტიური მოხალისე';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'განვითარება, კომუნიკაცია, დიზაინი… ნებისმიერი სახის მოხალისეობა ან ექსპერტიზა მისასალმებელია!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'აღმოაჩინეთ რამდენიმე გზა, რომლითაც შეგიძლიათ წვლილი შეიტანოთ';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'მობილური აპლიკაციის შემუშავება';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'ისწავლეთ, როგორ შეიტანოთ წვლილი პროგრამული უზრუნველყოფის შემუშავებაში';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'ყოველდღიური არასტაბილური აწყობები, სრულიად ახალი ფუნქციები';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'გაზარდეთ თქვენი ადგილობრივი საზოგადოება';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'დახმარება პროგრამულ უზრუნველყოფასთან, შინაარსთან, ინგრედიენტების ანალიზთან დაკავშირებულ თარგმანებთან დაკავშირებით';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'ჩვენ მოვამზადეთ პატარა შაბლონი, რომელიც დაგეხმარებათ :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'მარტივი ნაბიჯები თქვენს ქვეყანაში საკვების გამჭვირვალობის გასაზრდელად';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'შემოუერთდით მონაცემთა ხარისხის გუნდს';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'შემოგვიერთდით, რათა უზრუნველყოთ მონაცემთა ბაზის სისრულე და სიზუსტე';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      'დამატებულია 0 პროდუქტი';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'ახალი პროდუქტები, რომლებიც დავამატე Open Food Facts-ში';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'პროდუქტები, რომლებიც უნდა დავასრულო';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'ყველა არასრული პროდუქტი';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'პროდუქტები, რომელთა დასრულებაშიც დახმარება შეგიძლიათ';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'დაგვეხმარეთ თქვენს ქვეყანაში Nutri-Score-ისა და Green-Score-ის გამოთვლაში';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'ჩემს მიერ შეტანილი ფასები';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'ფასების ეტიკეტები და ქვითრები';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'გადაუღეთ ფოტოები თქვენს ქვითრებს და დაასკანირეთ მასთან დაკავშირებული შტრიხკოდები';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'მაღაზიაში ფასების ფოტოების გადაღება';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'უახლესი ფასები';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'ღია ფასების საზოგადოების მიერ დამატებული უახლესი ფასები';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'კონტრიბუტორები ყველაზე მეტი ფასით';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'ღია ფასის მეტრიკა';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'მიჰყევით პროექტის ევოლუციას';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'წვლილის შეტანის გზები';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'დაადასტურეთ თქვენს მიერ ან სხვების მიერ დამატებული ფასები, ხელოვნური ინტელექტის დახმარებით';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'სწრაფად დაამატეთ თქვენი კამერის ალბომიდან თაროების მრავალი ქვითარი ან ფოტო';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'ყოველთვიური გამოწვევები';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'მიიღეთ მონაწილეობა ყოველთვიურ თემატურ ქვესტებში ფასების შესაგროვებლად';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'დაიბრუნეთ თქვენი ლოიალობის მონაცემები';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'შეიტყვეთ, თუ როგორ მოითხოვოთ თქვენი მონაცემები';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'აპლიკაციის პერსონალიზება';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'წვლილი შეიტანეთ პროექტში';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'მარტივი გზები, რათა დავეხმაროთ Open Food Facts-ს';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'ქულების მეთოდოლოგიები, დახმარება და სხვა პროექტის შესახებ';
 
   @override
   String get product_edit_robotoff_positive_button => 'შეთავაზების მიღება';
@@ -5484,40 +5495,40 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'ცვლილებების ასამოქმედებლად, გთხოვთ, გადატვირთოთ აპლიკაცია.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'გრაფიკული ინტერფეისი';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'მედია';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'ღია საკვების ფაქტების ლაბორატორიები';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'თქვენს ენაზე გადმოიტანეთ ღია საკვების ფაქტები';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'დარეგისტრირდით აპლიკაციის ალფა ვერსიაში';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'წვლილი და პროდუქტის მონაცემები';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'არ აჩვენო ფოლკსონომია';
 
   @override
   String get preferences_account_title => 'Account';

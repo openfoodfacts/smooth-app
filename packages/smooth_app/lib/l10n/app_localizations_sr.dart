@@ -4399,7 +4399,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -4434,14 +4434,14 @@ class AppLocalizationsSr extends AppLocalizations {
       'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => 'Prerađeni kulinarski sastojci';
 
   @override
   String get guide_nova_groups_arg2_text =>
       'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => 'Prerađena hrana';
 
   @override
   String get guide_nova_groups_arg3_text =>
@@ -5079,7 +5079,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Technical information, developer information, and more';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Informacija';
 
   @override
   String get preferences_version_number_title => 'Version number';
@@ -5209,7 +5209,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Informacija';
 
   @override
   String get preferences_connect_community_updates_title =>
