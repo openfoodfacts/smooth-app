@@ -1,0 +1,28 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/statistics_cards/app_bar_statistics_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/preferences/lazy_counter.dart';
+
+class PricesStatisticsCard extends StatelessWidget {
+  const PricesStatisticsCard({
+    required this.userId,
+    this.autoSizeGroup,
+    super.key,
+  });
+
+  final String userId;
+  final AutoSizeGroup? autoSizeGroup;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return AppBarStatisticsCard(
+      imagePath: 'assets/preferences/cash.svg',
+      description: appLocalizations.preferences_app_bar_prices_added,
+      lazyCounter: LazyCounterPrices(userId),
+      autoSizeGroup: autoSizeGroup,
+    );
+  }
+}

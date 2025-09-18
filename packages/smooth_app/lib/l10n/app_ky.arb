@@ -3856,10 +3856,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Бөлүшүү",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3897,10 +3893,59 @@
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Жашыл балл деген эмне?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score - бул **тамак-аштын айлана-чөйрөгө тийгизген таасири** жөнүндө маалымат берүүгө багытталган логотип.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Түс коду **эң аз таасир этүүчү** товарлар үчүн кочкул жашылдан (**A+**) **эң таасирдүү** өнүмдөр үчүн кочкул кызылга (**F**) чейин өзгөрөт.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Green-Score логотиптери",
+  "guide_greenscore_lca_title": "Негизги: Жашоо циклин баалоо (LCA)",
+  "guide_greenscore_lca_arg1_title": "Тамак-аш категорияларына илимий баа берүү",
+  "guide_greenscore_lca_arg1_text1": "Ар бир продукт категориясы үчүн Agribalyse экологиялык маалымат базасынын (ADEME жана INRAE тарабынан иштелип чыккан) маалыматтарын колдонуу менен **бенчмарк** баллы түзүлөт.",
+  "guide_greenscore_lca_arg1_text2": "**Жашоо циклинин анализи** – бул көп баскычтуу жана көп критерийлүү экологиялык баалоону жүргүзүү үчүн стандартташтырылган баалоо ыкмасы.",
+  "guide_greenscore_lca_arg1_text3": "**Бул өлчөө:**",
+  "guide_greenscore_lca_arg2_title": "6 өндүрүш кадамы",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "14 экологиялык таасир көрсөткүчтөрү",
+  "guide_greenscore_lca_arg3_text1": "Климаттын өзгөрүшү/көмүртек изи",
+  "guide_greenscore_lca_arg3_text2": "Озон катмарынын бузулушу",
+  "guide_greenscore_lca_arg3_text3": "Иондоштуруучу нурлануу",
+  "guide_greenscore_lca_arg3_text4": "Жер",
+  "guide_greenscore_lca_arg3_text5": "Суу жана энергияны пайдалануу",
+  "guide_greenscore_lca_arg3_text6": "Абанын булганышы",
+  "guide_greenscore_lca_arg3_text7": "Деңиз жана таза суу (бөлүкчөлөр, кычкылдануу, эвтрофикация)",
+  "guide_greenscore_lca_arg3_text8": "Ресурстардын түгөнүшү.",
+  "guide_greenscore_bonuses_penalties_title": "Бонустар жана айыптар",
+  "guide_greenscore_bonuses_penalties_intro": "Категориядагы жакшыраак өнүмдөрдү сыйлоо үчүн, биз бир нече критерийлердин негизинде бонустарды жана айыптарды колдонобуз:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Бонус ингредиенттердин келип чыгышына жараша берилет. Бул бонус транспортко тийгизген таасирин, ошондой эле ар бир өндүрүүчүнүн өлкөнүн экологиялык саясатын эске алат.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_intro1": "Жашыл-Упайды так эсептөө үчүн таңгакта сөзсүз түрдө көрсөтүлбөгөн (мисалы, ар бир ингредиенттин келип чыгышы жана так пайызы) же колдонууга жарамдуу формада сейрек кездешүүчү маалымат (мисалы, колдонулган пластмассалардын так түрлөрү менен таңгактын бардык компоненттеринин тизмеси) болушу керек.",
+  "guide_greenscore_transparency_intro2": "Орточо маанилер бул маалымат жок болгон учурда колдонулат, бирок биз азыр бардыгын бул маалыматты чогултууга жардам берүүгө чакырып жатабыз, ал Жашыл-Упай үчүн, ошондой эле башка көптөгөн колдонуулар үчүн абдан пайдалуу болот.",
+  "guide_greenscore_transparency_arg1_title": "Жарандар кантип жардам бере алат",
+  "guide_greenscore_transparency_arg1_text": "Бардык жарандар бизге азыктарда бар же алардан чыгарыла турган маалыматты чогултууга жана түзүүгө жардам бере алышат, мисалы, таңгак жөнүндө маалымат: Mission Emballages: бардык тамак-аш азыктары үчүн таңгактардын кеңири масштабдуу биргелешкен инвентаризациясы (французча)",
+  "guide_greenscore_transparency_arg2_title": "Өндүрүүчүлөр кантип жардам бере алышат",
+  "guide_greenscore_transparency_arg2_text": "Өндүрүүчүлөр бизге өздөрүнүн маалыматын түздөн-түз өндүрүүчүлөр үчүн акысыз платформабыз аркылуу жөнөтө алышат.",
+  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

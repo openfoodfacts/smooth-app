@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 enum TextFieldTypes { PLAIN_TEXT, PASSWORD }
@@ -31,6 +33,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.maxLines,
     this.borderRadius,
     this.contentPadding,
+    this.outlined = false,
   });
 
   final TextFieldTypes type;
@@ -54,6 +57,7 @@ class SmoothTextFormField extends StatefulWidget {
   final int? maxLines;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? contentPadding;
+  final bool outlined;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -84,6 +88,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
     ).style.copyWith(fontSize: 15.0);
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -135,10 +141,11 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         hintMaxLines: widget.maxLines ?? 2,
         border: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+          borderSide: _getBorder(themeExtension).borderSide,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
-          borderSide: const BorderSide(color: Colors.transparent, width: 5.0),
+          borderSide: _getBorder(themeExtension).borderSide,
         ),
         suffixIcon:
             widget.suffixIcon ??
@@ -158,4 +165,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       ),
     );
   }
+
+  OutlineInputBorder _getBorder(SmoothColorsThemeExtension themeExtension) =>
+      OutlineInputBorder(
+        borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+        borderSide: widget.outlined
+            ? BorderSide(color: themeExtension.primaryBlack, width: 1.0)
+            : const BorderSide(color: Colors.transparent, width: 5.0),
+      );
 }

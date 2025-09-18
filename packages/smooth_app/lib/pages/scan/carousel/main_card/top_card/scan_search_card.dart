@@ -141,7 +141,7 @@ class _ScanSearchBar extends StatelessWidget {
                           maxLines: 1,
                           textScaler: TextScaler.noScaling,
                           overflow: TextOverflow.ellipsis,
-                          style: SearchFieldUIHelper.textStyle(context),
+                          style: SearchFieldUIHelper.textStyle(),
                         ),
                       ),
                     ),

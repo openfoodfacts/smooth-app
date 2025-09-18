@@ -25,6 +25,8 @@ abstract class PreferencesSelectorProvider<T>
   Future<List<T>> onLoadValues();
   T getSelectedValue(List<T> values);
 
+  bool _attached = true;
+
   void changeSelectedItem(T item) {
     final PreferencesSelectorLoadedState<T> state =
         value as PreferencesSelectorLoadedState<T>;
@@ -61,6 +63,11 @@ abstract class PreferencesSelectorProvider<T>
     value = PreferencesSelectorLoadingState<T>();
 
     final List<T> values = await onLoadValues();
+
+    if (!_attached) {
+      return;
+    }
+
     value = PreferencesSelectorLoadedState<T>(
       selectedItem: getSelectedValue(values),
       items: values,
@@ -70,6 +77,7 @@ abstract class PreferencesSelectorProvider<T>
   @override
   void dispose() {
     preferences.removeListener(onPreferencesChanged);
+    _attached = false;
     super.dispose();
   }
 }

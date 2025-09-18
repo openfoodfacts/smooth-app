@@ -6,7 +6,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SmoothSwitch extends StatefulWidget {
-  SmoothSwitch({
+  const SmoothSwitch({
     required this.value,
     required this.onChanged,
     this.size,
@@ -16,7 +16,7 @@ class SmoothSwitch extends StatefulWidget {
     this.backgroundActiveColor,
     this.backgroundInactiveColor,
     super.key,
-  }) : assert(size == null || (size.width >= 52.0 && size.height >= 30.0));
+  });
 
   final bool value;
   final ValueChanged<bool> onChanged;
@@ -56,6 +56,12 @@ class _SmoothSwitchState extends State<SmoothSwitch>
     if (widget.value) {
       _animationController.forward(from: 1.0);
     }
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -129,7 +135,9 @@ class _SmoothSwitchState extends State<SmoothSwitch>
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(FlagProperty('active', value: widget.value));
+    properties.add(
+      FlagProperty('active', value: widget.value, ifTrue: 'on', ifFalse: 'off'),
+    );
   }
 }
 

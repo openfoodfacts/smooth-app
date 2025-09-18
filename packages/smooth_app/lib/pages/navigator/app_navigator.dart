@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -17,6 +16,7 @@ import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences_v2/preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
@@ -213,18 +213,8 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
-              builder: (BuildContext context, GoRouterState state) {
-                final String? type = state.pathParameters['preferenceType'];
-
-                final PreferencePageType? pageType = PreferencePageType.values
-                    .firstWhereOrNull((PreferencePageType e) => e.name == type);
-
-                if (pageType == null) {
-                  throw Exception('Unsupported preference page type: $type');
-                }
-
-                return UserPreferencesPage(type: pageType);
-              },
+              builder: (BuildContext context, GoRouterState state) =>
+                  PreferencesPage(),
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
@@ -240,17 +230,23 @@ class _SmoothGoRouter {
               path: _InternalAppRoutes._GUIDES,
               routes: <GoRoute>[
                 GoRoute(
-                  path: _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE,
+                  path: _InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE,
                   builder: (_, _) => const GuideNutriscoreV2(),
                 ),
                 GoRoute(
-                  path: _InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE,
+                  path: _InternalAppRoutes.GUIDE_NOVA_PAGE,
+                  builder: (_, _) => const GuideGreenScore(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE,
                   builder: (_, _) => const GuideGreenScore(),
                 ),
               ],
               redirect: (_, GoRouterState state) {
                 if (state.uri.pathSegments.last !=
                         _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE ||
+                    state.uri.pathSegments.last !=
+                        _InternalAppRoutes.GUIDE_NOVA_PAGE ||
                     state.uri.pathSegments.last !=
                         _InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE) {
                   return AppRoutes.EXTERNAL(state.path ?? '');
@@ -332,10 +328,12 @@ class _SmoothGoRouter {
             }
           } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
             return AppRoutes.HOME();
-          } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
-            return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
             return AppRoutes.GUIDE_GREEN_SCORE;
+          } else if (path == _ExternalRoutes.GUIDE_NOVA_SCORE) {
+            return AppRoutes.GUIDE_NOVA;
+          } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
+            return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.SIGNUP) {
             return AppRoutes.SIGNUP;
           } else if (path != _InternalAppRoutes.HOME_PAGE) {
@@ -447,14 +445,16 @@ class _InternalAppRoutes {
   static const String SIGNUP_PAGE = '_signup';
 
   static const String _GUIDES = '_guides';
-  static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
   static const String GUIDE_GREEN_SCORE_PAGE = '_green-score';
+  static const String GUIDE_NOVA_PAGE = '_nova-score';
+  static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
 }
 
 class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
   static const String GUIDE_GREEN_SCORE = '/green-score';
+  static const String GUIDE_NOVA_SCORE = '/nova';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
   static const String SIGNUP = '/signup';
 }
@@ -502,13 +502,17 @@ class AppRoutes {
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';
 
-  // Guide for NutriScore
-  static String get GUIDE_NUTRISCORE_V2 =>
-      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
-
   // Guide for Green-Score
   static String get GUIDE_GREEN_SCORE =>
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE}';
+
+  // Guide for Nova
+  static String get GUIDE_NOVA =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NOVA_PAGE}';
+
+  // Guide for NutriScore
+  static String get GUIDE_NUTRISCORE_V2 =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 
