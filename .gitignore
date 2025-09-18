@@ -238,6 +238,7 @@ android_keys.zip
 .fvm/
 
 # Unsupported locales
+lib/l10n/intl_en.arb
 packages/smooth_app/lib/l10n/app_ach.arb
 packages/smooth_app/lib/l10n/app_ast.arb
 packages/smooth_app/lib/l10n/app_ber.arb
