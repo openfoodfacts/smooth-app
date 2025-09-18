@@ -66,7 +66,7 @@ jobs:
           flutter pub global list | grep intl_utils
 
       # Generate translation files
-      - name: 🌐 Generate translation files
+      - name: "chore: 🌐 Generate translation files"
         run: |
           cd packages/smooth_app
           echo "Current directory: $(pwd)"
@@ -123,7 +123,6 @@ jobs:
           branch: auto/regenerate-translations-${{ github.run_number }}
           delete-branch: true
           labels: |
-            🌐 l10n
-            🤖 automated pr
+            translations
           assignees: |
             ${{ github.actor }}

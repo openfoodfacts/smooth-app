@@ -2364,7 +2364,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Sartu funtzio esperimentalak eta garapen tresnak';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -4005,14 +4005,15 @@ class AppLocalizationsEu extends AppLocalizations {
   String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Green-Score ezezaguna';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Green-Score ez da aplikagarria';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Ultraprozesatutako elikagaiak - NOVA taldeak';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4377,131 +4378,131 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Zein produktu da hobea planetarentzat?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Zaila izan daiteke esatea';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Janari jasangarria aukeratzea klimaren alde egin dezakegun gauzarik indartsuenetako bat da, **gure munduko elikagai-sistema berotegi-efektuko gasen isurien laurden baten erantzule baita**.\n(Iturria: Poore & Nemecek, Science, 2018).';
 
   @override
   String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+      'Zuk daukazu boterea!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Berri ona da honek aldaketak sortzeko modu indartsua ematen digula.\n**Gutako bakoitzak 1.000 otordu inguru jaten ditu urtero**. Hori 1.000 aukera dira **planetarentzat etorkizun hobea aukeratzeko**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Arduratsua izaten eta erabakitzen laguntzen du';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Janari jasangarria aukeratzea konplexua iruditu daiteke. Etiketak nahasgarriak dira eta informazioa askotan falta da. Green-Score sortu zen hori errazteko, elikagai produktuen ingurumen-balorazio **argi**, **zientzian oinarritutako** eta **gardena** emanez, behar duzun lekuan bertan: erosketak egiten dituzun bitartean.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Gardentasuna';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Etiketa jabedunen aldean, Green-Score kalkulua **guztiz irekia** da eta edonork **egiaztatu** dezake.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Zer da ultraprozesamendua?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'NOVA taldeek elikagaien prozesamendu-mailaren berri ematen dizute.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'NOVA sailkapenak elikagaiak **4 talde**tan sailkatzea ahalbidetzen du, **prozesatze industrialaren mailaren** arabera (gutxienez prozesatutako edo prozesatu gabeko elikagaiak, sukaldaritza-osagaiak, prozesatutako elikagaiak, ultra-prozesatutako elikagaiak).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'NOVA logotipoak.';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 NOVA taldeak';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      '4 NOVA talde daude, arazoa sortzen duena 4. taldea da - Ultra-prozesatutako elikagaiak.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Gutxienez prozesatutako edo prozesatu gabeko elikagaiak';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Prozesatu gabeko (edo elikagai naturalak) landareen (haziak, fruituak, hostoak, zurtoinak, sustraiak) edo animalien (giharrak, erraiak, arrautzak, esnea) atal jangarriak dira, baita onddoak, algak eta ura ere, naturatik bereizi ondoren.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title =>
+      'Sukaldaritzako osagaiak prozesatu';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Sukaldaritzako osagai prozesatuak, hala nola olioak, gurina, azukrea eta gatza, 1. taldeko elikagaietatik edo naturatik eratorritako substantziak dira, prentsatzea, fintzea, ehotzea, fresatzea eta lehortzea barne hartzen dituzten prozesuen bidez.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => 'Prozesatutako jakiak';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Prozesatutako elikagaiak, hala nola botilatutako barazkiak, kontserbak dituen arraina, almibarretan dauden frutak, gaztak eta ogi freskoak, batez ere 2. taldeko elikagaiei gatza, olioa, azukrea edo beste substantzia batzuk gehituz egiten dira 1. taldeko elikagaiei. Prozesuek hainbat kontserbazio edo sukaldaritza metodo barne hartzen dituzte, eta ogien eta gaztaren kasuan, hartzidura ez-alkoholikoa. Prozesatutako elikagai gehienek bi edo hiru osagai dituzte eta 1. taldeko elikagaien bertsio aldatu gisa ezagutzen dira. Beren kabuz edo, ohikoagoa dena, beste elikagai batzuekin konbinatuta jan daitezke.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Ultraprozesatutako elikagaiak, hala nola freskagarriak, gozoak edo gaziak diren pintxoak, haragi-produktu birkonposatuak eta aurrez prestatutako plater izoztuak, ez dira soilik elikagai eraldatuak, baizik eta elikagaietatik eta gehigarrietatik eratorritako substantziekin egindako formulazioak, gehienbat edo osorik, 1. taldeko elikagai osorik gabe. Formulazio horietako osagaien artean, normalean, elikagai prozesatuetan ere aurkitzen direnak daude, hala nola azukreak, olioak, gantzak edo gatza. Hala ere, ultraprozesatutako produktuek sukaldaritza-prestaketetan normalean erabiltzen ez diren beste energia eta mantenugai iturri batzuk ere badituzte. Horietako batzuk zuzenean elikagaietatik ateratzen dira, hala nola kaseina, laktosa, gazura eta glutena.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Ultraprozesamenduaren arazoak';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Elikagaien osagaien prozesamendu zorrotza';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Asko elikagaien osagaien prozesamendu gehiagotik eratorriak dira, hala nola hidrogenatutako edo interesterifikatutako olioak, hidrolizatutako proteinak, soja proteina isolatua, maltodextrina, azukre alderantzikatua eta fruktosa handiko arto almibarra.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Elikagaien segurtasun hutsa baino haratago doazen gehigarriak';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Ultraprozesatutako elikagaietako gehigarrien artean, prozesatutako elikagaietan ere erabiltzen diren batzuk daude, hala nola kontserbatzaileak, antioxidatzaileak eta egonkortzaileak. Ultraprozesatutako produktuetan bakarrik aurkitzen diren gehigarrien klaseen artean, elikagaien zentzumen-ezaugarriak imitatu edo hobetzeko edo azken produktuaren alderdi desatseginak ezkutatzeko erabiltzen direnak daude. Gehigarri horien artean daude koloratzaileak eta beste kolore batzuk, kolore-egonkortzaileak; zaporeak, zapore-indartzaileak, azukrerik gabeko edulkoratzaileak; eta prozesatzeko laguntzaileak, hala nola karbonatatzaileak, sendotzaileak, bolumen-emaileak eta bolumen-kontrakoak, apar-kentzaileak, antiaglomeratzaileak eta glaseatzaileak, emultsionatzaileak, sekuestratzaileak eta hezetzaileak.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Etxean egin ezin duzun prozesamendua';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Osagai ugari konbinatzeko eta azken produktua sortzeko prozesu-segida ugari erabiltzen dira (horregatik \'ultra-prozesatua\'). Prozesu horien artean, etxeko baliokiderik ez duten hainbat daude, hala nola hidrogenazioa eta hidrolizazioa, estrusioa eta moldekatzea, eta frijitzeko aurre-prozesatzea.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Ultraprozesamenduaren alderdi harrapariak eta finantzarioak';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Ultraprozesamenduaren helburu nagusia markako, erosoko (iraunkorrak, kontsumitzeko prest), erakargarriak (hiper-ahogozoak) eta oso errentagarriak (kostu baxuko osagaiak) diren elikagaiak sortzea da, gainerako elikagai-talde guztiak ordezkatzeko diseinatuta. Ultraprozesatutako elikagaiak normalean modu erakargarrian ontziratzen dira eta modu intentsiboan merkaturatzen dira.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4986,52 +4987,53 @@ class AppLocalizationsEu extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Proof';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => 'Orokorra';
 
   @override
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'Kudeatu zure prezioen lehentasunak';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Elikagaien Datu Irekiak proiektua';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => 'Ekarpena egin';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle => 'Itzuli, hobetu gure tresnak…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Konektatu';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Jarri gurekin harremanetan, edo jarraitu gaitzazu sare sozialetan';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Lagundu iezaguzu mundu osoko milioika kontsumitzaile informatzen';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Laguntza eta euskarria';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Lortu zure galderei erantzunak';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Saioa itxita';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Eskerrik asko gure kide izateagatik!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5040,40 +5042,40 @@ class AppLocalizationsEu extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Ikusi estatistika guztiak';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Bilatu $provider \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Bilatu ezarpen bat (adibidez, Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Irisgarritasuna: Erakutsi emojiak';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Irisgarritasuna: Kendu koloreak';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => 'Produktuak';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'Honi buruz';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Lege-informazioa';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Erabilera baldintzak, pribatutasun politika eta gehiago';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => 'Erabilera baldintzak';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
@@ -5082,155 +5084,158 @@ class AppLocalizationsEu extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Lizentziak';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Aplikazioari buruz';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Informazio teknikoa, garatzaileentzako informazioa eta gehiago';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Informazioa';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Bertsio zenbakia';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Eskanerra';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Aplikazio-denda';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Sistemaren ezarpenak';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Iturburu-kodera sartu';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'Eta milioika pertsonengan eragina izaten hasi';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'Produktuak bete';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'aholkuak';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Ezagutu Nutri-Score berria';
 
   @override
-  String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+  String get preferences_on_off_website_subtitle => 'Open Food Facts webgunean';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Kudeatu nire kontua';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Aldatu nire pasahitza';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Arrisku-eremua';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Zure ekarpen guztiak galduko dira';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => 'Ekarpenak';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title =>
+      'Aplikazioaren ezarpenak';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Produktuak lineaz kanpo eskaneatzeko modu oso esperimentala';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Freskatu produktu guztiak zerbitzaritik';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Mesedez, saihestu hori egitea guztiz beharrezkoa ez bada';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Demo modua';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Gehitu txartelak eskanerrera';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      '3 lagin produktu gehitzen dizkio eskanerrari';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Folksonomia ostalaria';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Irisgarritasun esperimentuak';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Produktu anitzeko aukeraketa prezioen arabera';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Erabiltzaileak ordenatutako ezagutza-panelak';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Kokapen bilaketarako aldi baterako sarbidea';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      '2 edo 3 produkturen alboz alboko konparaketa';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Produktuen zerrenda inportatzea';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Puntuazioak eta metodologiak';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Ezagutu nola kalkulatzen den Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Metodologian izandako aldaketa nagusiak ezagutu';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Ezagutu Janari Irekien Datuak';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'Maiz egiten diren galderak - FAQ';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Open Food Facts GKEa';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Informazioa';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Jaso komunitatearen eguneraketak';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Egon eguneratuta aplikazioaren eta komunitatearen berriekin';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5238,217 +5243,222 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Parte hartu gure ekitaldi birtualetako batean parte hartuz';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Jarrai gaitzazu sare sozialetan';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Elikagaien Datu Irekien bloga';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Jaso azken berriak, gertatzen diren heinean';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Lortu laguntza komunitatetik';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Lagundu iezaguzu aplikazioa hobetzen';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Bidali iezaguzu arazketa-informazioa';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Bidali mezu elektroniko bat arazketa-informazio zehatzarekin';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Bidali iezaguzu aplikazioari buruzko iritzia';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Lagundu aplikazioaren etorkizuna moldatzen';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Egin aplikazioaren inkesta';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Lagundu iezaguzu hurrengoan zer eraiki behar dugun ulertzen';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Profesionalak';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Guztiz doakoa, 500 aplikazio eta milioika kontsumitzailerentzako datu zehatzak bermatzen ditu. Autozerbitzua, zure PIM edo kalkulu-orriekin (XLSX) bateragarria.';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Jarri gurekin harremanetan hasteko';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => 'Prentsa';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Lortu zure txostenerako behar duzun material guztia';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Jarri gurekin harremanetan prentsa-kontsultetarako edo zure txostenaren berri emateko';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Boluntario aktibo bihurtu';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Garapena, Komunikazioa, Diseinua… edozein boluntariotza edo esperientzia mota ongi etorria da!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Ezagutu laguntzeko modu ugari batzuk';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Mugikorretarako aplikazioen garapena';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Ikasi software garapenean nola lagundu';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Eguneroko eraikuntza ezegonkorrak, funtzio berri-berriak';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Hazi zure tokiko komunitatea';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Laguntza softwarearekin, edukiekin, osagaien analisiekin itzulpenekin';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Txantiloi txiki bat prestatu dugu laguntzeko :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Zure herrialdean elikagaien gardentasuna handitzeko urrats errazak';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Batu zaitez datuen kalitate taldeari';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Batu zaitez gure ahaleginari datu-basea osoa eta zehatza dela ziurtatzeko';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 produktu gehitu dira';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Open Food Facts-era gehitu ditudan produktu berriak';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Osatu behar ditudan produktuak';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Produktu osatugabe guztiak';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Lagun zaitzakezun produktuak osatzen';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Lagundu zure herrialdeko Nutri-Score eta Green-Score kalkulatzen';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Nik eman ditudan prezioak';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'Prezio-etiketak eta ordainagiriak';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Atera zure ordainagirien argazkiak eta eskaneatu lotutako barra-kodeak';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Denda bateko prezioen argazkiak atera';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Prezio berrienak';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices komunitateak gehitutako azken prezioak';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Prezio gehien dituzten kolaboratzaileak';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title =>
+      'Irekitze Prezioaren neurketak';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Jarrai ezazu proiektuaren bilakaera';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Ekartzeko moduak';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Berretsi zuk edo beste batzuek gehitutako prezioak, IAren laguntzarekin';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Gehitu azkar ordainagiri edo apaletako argazki asko zure kamera-erroilutik';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Hileroko erronkak';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Parte hartu hileroko gaikako bilaketan prezioak biltzeko';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Berreskuratu zure leialtasun datuak';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Ikasi zure datuak nola eskatu';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title =>
+      'Pertsonalizatu aplikazioa';
 
   @override
-  String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+  String get preferences_page_contribute_project_title => 'Lagundu proiektuari';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Janari Informazio Irekia laguntzeko modu errazak';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Puntuazio metodologiak, laguntza eta proiektuari buruzko gehiago';
 
   @override
   String get product_edit_robotoff_positive_button => 'Onartu iradokizuna';
@@ -5498,41 +5508,41 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Aldaketak aplikatzeko, berrabiarazi aplikazioa.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Interfaze grafikoa';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Komunikabideak';
 
   @override
-  String get preferences_about_app_development_title => 'Development';
+  String get preferences_about_app_development_title => 'Garapena';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Elikagaien Datuen Laborategi Irekiak';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'Kontua';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ekarri Janari Informazio Irekia zure hizkuntzara';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Eman izena aplikazioaren alfa bertsioan';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Ekarpenak eta produktuen datuak';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Ez erakutsi folksonomia';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'Kontua';
 }

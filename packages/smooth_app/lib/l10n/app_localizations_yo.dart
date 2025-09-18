@@ -2358,7 +2358,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Wọle si awọn ẹya idanwo ati awọn irinṣẹ idagbasoke';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3979,29 +3979,29 @@ class AppLocalizationsYo extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Alawọ-Score A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Alawọ-Score B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Alawọ-Score C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Alawọ-Score D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Alawọ-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Aimọ Green-Dimegilio';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+  String get environmental_score_not_applicable_new => 'Green-Score ko wulo';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Awọn ounjẹ ti a ṣe ilana Ultra - awọn ẹgbẹ NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4363,131 +4363,129 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Ọja wo ni o dara julọ fun aye?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'O le jẹ gidigidi lati sọ';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Yiyan ounjẹ alagbero jẹ ọkan ninu awọn ohun ti o lagbara julọ ti a le ṣe fun oju-ọjọ, nitori ** eto ounjẹ agbaye wa ni iduro fun diẹ sii ju idamẹrin gbogbo awọn itujade gaasi eefin ***.\n( Orisun: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'O ni agbara!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Irohin ti o dara ni pe eyi fun wa ni ọna ti o lagbara lati ṣẹda iyipada.\n**Olukuluku wa jeunun to egberun kan lodun**. Iyẹn ni awọn aye 1,000 lati ** yan ọjọ iwaju ti o dara julọ fun ile-aye ***!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Ṣe iranlọwọ lati jẹ iduro ati pinnu';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Yiyan ounje alagbero le lero eka. Awọn aami ti wa ni airoju ati alaye ti wa ni igba sonu. Green-Score ni a ṣẹda lati jẹ ki o rọrun, fun ọ ni ** ko o ***, ** orisun-imọ-jinlẹ, ati ** igbelewọn ayika fun awọn ọja ounjẹ, ni ibiti o nilo rẹ: lakoko ti o raja.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Itumọ';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Ko dabi awọn aami ohun-ini, iṣiro Green-Score jẹ ṣiṣi silẹ patapata *** ati pe o le jẹri ** jẹri nipasẹ ẹnikẹni ***.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Kini ultra-processing?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Awọn ẹgbẹ NOVA sọ fun ọ nipa ipele ti iṣelọpọ ounjẹ.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Isọdi NOVA ngbanilaaye fun isori ti awọn ounjẹ si awọn ẹgbẹ 4 ** ti o da lori ** iwọn wọn ti sisẹ ile-iṣẹ *** (ti o ni ilọsiwaju tabi awọn ounjẹ ti ko ni ilana, awọn eroja ounjẹ, awọn ounjẹ ti a ṣe ilana, awọn ounjẹ ti a ṣe ilana ultra).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Awọn aami NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => 'Awọn ẹgbẹ 4 NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Awọn ẹgbẹ NOVA mẹrin wa, iṣoro naa jẹ Ẹgbẹ 4 - Awọn ounjẹ ti a ṣe ilana Ultra.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Awọn ounjẹ ti a ti ni ilọsiwaju tabi awọn ounjẹ ti a ko ṣe ilana';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Awọn ounjẹ ti a ko ṣe ilana (tabi adayeba) jẹ awọn ẹya ti o jẹun ti awọn irugbin (awọn irugbin, awọn eso, awọn ewe, awọn eso, awọn gbongbo) tabi ẹranko (isan, awọn ẹyin, ẹyin, wara), ati elu, ewe, ati omi, lẹhin ti a yapa kuro ninu ẹda.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Awọn eroja ounjẹ ti a ṣe ilana, gẹgẹbi awọn epo, bota, suga, ati iyọ, jẹ awọn nkan ti o wa lati awọn ounjẹ Ẹgbẹ 1 tabi lati iseda nipasẹ awọn ilana ti o ni titẹ, isọdọtun, lilọ, milling, ati gbigbe.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn ẹfọ ti a fi sinu igo, ẹja ti a fi sinu akolo, awọn eso ninu omi ṣuga oyinbo, awọn warankasi, ati awọn akara titun ti a ṣe, ni akọkọ ṣe nipasẹ fifi iyọ, epo, suga, tabi awọn nkan miiran lati Ẹgbẹ 2 si awọn ounjẹ Ẹgbẹ 1. Awọn ilana pẹlu ọpọlọpọ awọn itọju tabi awọn ọna sise, ati ninu ọran ti akara ati warankasi, bakteria ti kii-ọti-lile. Pupọ awọn ounjẹ ti a ṣe ilana ni awọn eroja meji tabi mẹta ati pe o jẹ idanimọ bi awọn ẹya ti a yipada ti awọn ounjẹ Ẹgbẹ 1. Wọn le jẹ lori ara wọn tabi, ni igbagbogbo, ni apapo pẹlu awọn ounjẹ miiran.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Awọn ounjẹ ti a ṣe ilana ultra, gẹgẹbi awọn ohun mimu rirọ, awọn ounjẹ ipanu ti o dun tabi didùn, awọn ọja ẹran ti a tun ṣe, ati awọn ounjẹ ti a ti mura silẹ tẹlẹ, kii ṣe awọn ounjẹ ti a tunṣe lasan ṣugbọn awọn agbekalẹ ti a ṣe ni okeene tabi patapata lati awọn nkan ti o wa lati awọn ounjẹ ati awọn afikun, pẹlu diẹ si ko si ounjẹ Ẹgbẹ 1 mule. Awọn eroja ninu awọn agbekalẹ wọnyi nigbagbogbo pẹlu awọn ti a tun rii ninu awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn suga, awọn epo, awọn ọra, tabi iyọ. Bibẹẹkọ, awọn ọja ti a ṣe ilana ultra tun ni awọn orisun agbara miiran ati awọn ounjẹ ti kii ṣe lo deede ni awọn igbaradi ounjẹ. Diẹ ninu awọn wọnyi ni a fa jade taara lati awọn ounjẹ, gẹgẹbi casein, lactose, whey, ati gluten.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'Awọn iṣoro pẹlu ultra-processing';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Awọn iwọn processing ti ounje eroja';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Ọpọlọpọ ni o wa lati iṣelọpọ siwaju sii ti awọn eroja ounjẹ, gẹgẹbi hydrogenated tabi awọn epo ti o nifẹ si, awọn ọlọjẹ hydrolyzed, soy protein isolate, maltodextrin, suga invert, ati omi ṣuga oyinbo agbado fructose giga.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Awọn afikun ti o kọja aabo ounje mimọ';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Awọn afikun ninu awọn ounjẹ ti a ṣe ilana ultra pẹlu diẹ ninu awọn ti a tun lo ninu awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn ohun itọju, awọn antioxidants, ati awọn amuduro. Awọn kilasi ti awọn afikun ti a rii nikan ni awọn ọja ti a ṣe ilana ultra pẹlu awọn ti a lo lati ṣe afarawe tabi mu awọn agbara ifarako ti awọn ounjẹ jẹ tabi lati paarọ awọn abala aibikita ti ọja ikẹhin. Awọn afikun wọnyi pẹlu awọn awọ ati awọn awọ miiran, awọn amuduro awọ; awọn adun, awọn imudara adun, awọn aladun ti kii ṣe suga; ati awọn iranlọwọ processing gẹgẹbi carbonating, firming, bulking ati egboogi-bulking òjíṣẹ, de-foaming, egboogi-caking ati glazing òjíṣẹ, emulsifiers, sequestrants, ati humectants.';
 
   @override
-  String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+  String get guide_nova_explanations_arg3_title => 'Ṣiṣeto o ko le ṣe ni ile';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Ọpọlọpọ awọn ilana ti awọn ilana ni a lo lati ṣajọpọ ọpọlọpọ awọn eroja nigbagbogbo ati lati ṣẹda ọja ikẹhin (nitorinaa \'iṣakoso-ilọsiwaju\'). Awọn ilana naa pẹlu ọpọlọpọ pẹlu ko si awọn deede ile, gẹgẹbi hydrogenation ati hydrolysation, extrusion ati mimu, ati ṣiṣe-ṣaaju fun didin.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Awọn aperanje ati owo ise ti olekenka-processing';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Idi gbogbogbo ti iṣelọpọ olekenka ni lati ṣẹda iyasọtọ, irọrun (ti o tọ, ṣetan lati jẹ), ẹwa (hyper-palatable) ati ere pupọ (awọn eroja idiyele kekere) awọn ọja ounjẹ ti a ṣe apẹrẹ lati yi gbogbo awọn ẹgbẹ ounjẹ miiran pada. Awọn ọja ounjẹ ti a ṣe ilana Ultra ni a maa n ṣajọ ni ẹwa ati tita ni itara.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4978,46 +4976,47 @@ class AppLocalizationsYo extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'Ṣakoso awọn ayanfẹ iye owo rẹ';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'The Open Food Facts ise agbese';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Tumọ, ṣe ilọsiwaju awọn irinṣẹ wa…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Sopọ';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Kan si, tabi Tẹle wa lori media media';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Ran wa lọwọ lati sọ fun awọn miliọnu awọn onibara ni ayika agbaye';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Iranlọwọ & Atilẹyin';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Gba awọn idahun si awọn ibeere rẹ';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Ti jade';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'O ṣeun fun jije ọkan ninu awọn ọmọ ẹgbẹ wa!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5026,37 +5025,36 @@ class AppLocalizationsYo extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Wo gbogbo awọn iṣiro';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Wa $provider fun \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Wa eto (fun apẹẹrẹ Nutri-Score)';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => 'Wiwọle: Ṣafihan emoji';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Wiwọle: Yọ awọn awọ kuro';
 
   @override
   String get preferences_app_settings_products => 'Products';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'Nipa';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Alaye ofin';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Awọn ofin lilo, ilana ipamọ, ati diẹ sii';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5068,36 +5066,36 @@ class AppLocalizationsYo extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Awọn iwe-aṣẹ';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Nipa ohun elo naa';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Alaye imọ-ẹrọ, alaye olupilẹṣẹ, ati diẹ sii';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Nọmba ẹya';
 
   @override
   String get preferences_scanner_title => 'Scanner';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'App itaja';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Eto eto';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Wọle si koodu orisun';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'Ati bẹrẹ ṣiṣe ipa fun awọn miliọnu';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5106,103 +5104,103 @@ class AppLocalizationsYo extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Italolobo';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Iwari titun Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Lori oju opo wẹẹbu Awọn Otitọ Ounjẹ Ṣii';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Ṣakoso akọọlẹ mi';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Yi ọrọ igbaniwọle mi pada';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Agbegbe ewu';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Gbogbo awọn ifunni rẹ yoo sọnu';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Awọn eto app';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Ọna adanwo pupọ lati ṣe ọlọjẹ awọn ọja ni aisinipo';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Sọ gbogbo ọja lati ọdọ olupin naa';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Jọwọ yago fun ṣiṣe iyẹn ayafi ti o jẹ dandan';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Ipo demo';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title => 'Fi awọn kaadi si scanner';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Ṣe afikun awọn ọja ayẹwo 3 si ọlọjẹ naa';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomi alejo';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Awọn adanwo Wiwọle';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Aṣayan awọn ọja pupọ fun awọn idiyele';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'User paṣẹ imo paneli';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Wiwọle fun igba diẹ si wiwa ipo';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Ifiwewe ẹgbẹ nipa ẹgbẹ fun awọn ọja 2 tabi 3';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'agbewọle akojọ ọja';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Awọn iṣiro & awọn ilana';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Ṣawari bi o ṣe ṣe iṣiro Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Ṣawari awọn ayipada akọkọ si ilana';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Iwari Open Food Facts';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'FAQ - Awọn ibeere Nigbagbogbo';
 
   @override
   String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
@@ -5212,11 +5210,11 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Gba awọn imudojuiwọn agbegbe';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Duro ni lupu pẹlu app ati awọn iroyin agbegbe';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5224,217 +5222,216 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Kopa nipa wiwa ọkan ninu awọn iṣẹlẹ foju wa';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Tẹle wa lori media media';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Awọn Open Food Facts bulọọgi';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Gba awọn iroyin tuntun, bi wọn ṣe ṣẹlẹ';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Gba iranlọwọ lati agbegbe';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Ran wa lọwọ lati mu ohun elo naa dara';
 
   @override
-  String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+  String get preferences_connect_debug_info_title => 'Fi wa alaye yokokoro';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Fi imeeli ranṣẹ si wa pẹlu alaye ti n ṣatunṣe aṣiṣe';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Fi esi ranṣẹ si wa nipa ohun elo naa';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Ṣe iranlọwọ apẹrẹ ọjọ iwaju ti app naa';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Ya awọn app iwadi';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Ran wa lọwọ lati ni oye ohun ti o yẹ ki a kọ ni atẹle';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Awọn akosemose';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Lapapọ ọfẹ, ṣe idaniloju data deede fun awọn ohun elo 500 & awọn miliọnu awọn alabara. Iṣẹ ti ara ẹni, ibaramu pẹlu PIM rẹ tabi awọn iwe kaakiri (XLSX)';
 
   @override
-  String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+  String get preferences_connect_pro_email_subtitle => 'Kan si lati bẹrẹ';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Gba gbogbo ohun elo ti o nilo fun ijabọ rẹ';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Kan si fun awọn ibeere tẹ tabi lati jẹ ki a mọ nipa ijabọ rẹ';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Di oluyọọda ti nṣiṣe lọwọ';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Idagbasoke, Ibaraẹnisọrọ, Apẹrẹ… eyikeyi iru iyọọda tabi imọran ni a ṣe itẹwọgba!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Ṣe afẹri diẹ ninu awọn ọna pupọ ti o le ṣe alabapin';
 
   @override
-  String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+  String get preferences_contribute_mobile_dev_title => 'Mobile app idagbasoke';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Kọ ẹkọ bi o ṣe le ṣe alabapin si idagbasoke sọfitiwia';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Awọn ile aiduro ojoojumọ, awọn ẹya tuntun';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Dagba agbegbe agbegbe rẹ';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Iranlọwọ pẹlu sọfitiwia, awọn akoonu, awọn itumọ itupalẹ eroja';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'A ti pese awoṣe kekere kan lati ran ọ lọwọ :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Awọn igbesẹ ti o rọrun lati dagba akoyawo ounjẹ ni orilẹ-ede rẹ';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Darapọ mọ ẹgbẹ didara data naa';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Darapọ mọ ipa wa lati rii daju pe data data ti pari ati pe';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title => '0 awọn ọja kun';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Awọn ọja titun Mo ṣafikun si Awọn Otitọ Ounjẹ Ṣii';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Awọn ọja Mo nilo lati pari';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Gbogbo awọn ọja ti ko pari';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Awọn ọja ti o le ṣe iranlọwọ ni pipe';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Ṣe iranlọwọ ṣe iṣiro Nutri-Score & Green-Score ni orilẹ ede rẹ';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Awọn idiyele ti mo ṣe alabapin';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'Awọn ami idiyele ati awọn iwe-owo';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Ya awọn fọto ti awọn owo-owo rẹ ki o ṣayẹwo awọn koodu bar ti o somọ';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Ya awọn fọto ti awọn idiyele ni ile itaja kan';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Hunting owo';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Awọn idiyele tuntun ti a ṣafikun nipasẹ agbegbe Awọn idiyele Ṣii';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Awọn olùkópa pẹlu awọn julọ owo';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Ṣii Awọn metiriki Iye';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Tẹle awọn itankalẹ ti ise agbese';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'Awọn ọna lati ṣe alabapin';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Jẹrisi awọn idiyele ti a ṣafikun nipasẹ ararẹ tabi awọn miiran, pẹlu iranlọwọ ti AI';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Ni kiakia ṣafikun ọpọlọpọ awọn owo-owo tabi awọn fọto ti selifu lati inu yipo kamẹra rẹ';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Awọn italaya oṣooṣu';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Kopa ninu awọn ibeere ibeere ti oṣooṣu lati gba awọn idiyele';
 
   @override
-  String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+  String get preferences_prices_loyalty_data_title => 'Gba data iṣootọ rẹ pada';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Kọ ẹkọ bi o ṣe le beere data rẹ';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Ṣe akanṣe ohun elo naa';
 
   @override
-  String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+  String get preferences_page_contribute_project_title => 'Tiwon si ise agbese';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Awọn ọna ti o rọrun lati ṣe iranlọwọ Ṣii Awọn Otitọ Ounjẹ';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Awọn ilana Dimegilio, iranlọwọ, ati diẹ sii nipa iṣẹ akanṣe naa';
 
   @override
   String get product_edit_robotoff_positive_button => 'Gba aba';
@@ -5483,11 +5480,11 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Jọwọ tun app bẹrẹ lati lo awọn ayipada.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Ni wiwo ayaworan';
 
   @override
   String get preferences_app_settings_media_title => 'Media';
@@ -5497,26 +5494,25 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Ṣii Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Mu Awọn Otitọ Ounjẹ Ṣii wá si ede rẹ';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Fi orukọ silẹ ni ẹya alfa ti app naa';
 
   @override
-  String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+  String get preferences_dev_mode_section_data => 'Awọn ifunni & ọja data';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Maṣe ṣe afihan Folksonomy';
 
   @override
   String get preferences_account_title => 'Account';

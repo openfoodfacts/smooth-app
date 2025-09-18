@@ -2358,7 +2358,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'تەجرىبە ئىقتىدارلىرى ۋە ئېچىش قوراللىرىنى زىيارەت قىلىڭ';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3978,29 +3978,30 @@ class AppLocalizationsUg extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'يېشىل نومۇر A.';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Green-Score B.';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Green-Score C.';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Green-Score D.';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Green-Score E.';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'نامەلۇم يېشىل نومۇر';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'يېشىل نومۇر قوللىنىلمايدۇ';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر - NOVA گۇرۇپپىسى';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4361,19 +4362,18 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'قايسى مەھسۇلات يەر شارىغا پايدىلىق؟';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'بۇنى بىر نېمە دېمەك تەس';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
       'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'سىزدە كۈچ بار!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
@@ -4381,111 +4381,112 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'مەسئۇلىيەتچان ۋە قارار چىقىرىشقا ياردەم بېرىدۇ';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'سىجىل يېمەكلىكلەرنى تاللاش مۇرەككەپ ھېس قىلالايدۇ. بەلگىلەر قالايمىقان بولۇپ ، ئۇچۇرلار دائىم يوقاپ كېتىدۇ. يېشىل نومۇر ئۇنى ئاددىيلاشتۇرۇش ئۈچۈن ياسالغان بولۇپ ، سىزگە ئېھتىياجلىق بولغان جايدا: سىز مال سېتىۋالغاندا سىزگە ** ئېنىق ** ، ** ئىلىم-پەننى ئاساس قىلغان ** ۋە ** سۈزۈك ** مۇھىت دەرىجىسىنى بېرىدۇ.';
 
   @override
   String get guide_greenscore_better_product_arg4_title => 'Transparency';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'ئىگىدارلىق بەلگىسىگە ئوخشىمايدىغىنى ، يېشىل نومۇر ھېسابلاش ** پۈتۈنلەي ئوچۇق ** بولۇپ ، ** ھەر قانداق ئادەم تەرىپىدىن ** دەلىللىيەلەيدۇ.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title =>
+      'ئۇلترا بىر تەرەپ قىلىش دېگەن نېمە؟';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'NOVA گۇرۇپپىلىرى سىزگە يېمەكلىك پىششىقلاپ ئىشلەش سەۋىيىسى ھەققىدە ئۇچۇر بېرىدۇ.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'NOVA تۈرگە ئايرىپ يېمەكلىكلەرنى ** 4 گۇرۇپپىغا ئايرىشقا بولىدۇ ، ئۇلارنىڭ ** پىششىقلاپ ئىشلەش دەرىجىسى ** (ئەڭ تۆۋەن پىششىقلاپ ئىشلەنگەن ياكى پىششىقلاپ ئىشلەنمىگەن يېمەكلىكلەر ، ئاشپەزلىك تەركىبلىرى ، پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر ، دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'NOVA بەلگىسى';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 NOVA گۇرۇپپىسى';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      '4 NOVA گۇرۇپپىسى بار ، مەسىلە بار 4-گۇرۇپپا - دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'ئەڭ تۆۋەن پىششىقلاپ ئىشلەنگەن ياكى پىششىقلاپ ئىشلەنمىگەن يېمەكلىكلەر';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'پىششىقلاپ ئىشلەنمىگەن (ياكى تەبىئىي) يېمەكلىكلەر تەبىئەتتىن ئايرىلغاندىن كېيىن ئۆسۈملۈكلەرنىڭ (ئۇرۇق ، مېۋە ، يوپۇرماق ، غولى ، يىلتىزى) ياكى ھايۋانلارنىڭ (مۇسكۇل ، تۇخۇم ، تۇخۇم ، سۈت) ، شۇنداقلا زەمبۇرۇغ ، يۈسۈن ۋە سۇنىڭ يېيىشلىك قىسمى.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'پىششىقلاپ ئىشلەنگەن ئاشپەزلىك تەركىبلەر ، مەسىلەن ماي ، سېرىق ماي ، شېكەر ۋە تۇز قاتارلىقلار 1-گۇرۇپپىدىكى يېمەكلىكلەردىن ياكى تەبىئەتتىن بېسىش ، پىششىقلاپ ئىشلەش ، ئۇۋىلاش ، ئورۇش ۋە قۇرۇتۇشنى ئۆز ئىچىگە ئالىدۇ.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر ، مەسىلەن بوتۇلكىلىق كۆكتاتلار ، كونسېرۋا بېلىقى ، شەربەت ، پىشلاق ۋە يېڭى ياسالغان بولكىلار قاتارلىق مېۋىلەر ئاساسلىقى 2-گۇرۇپپىدىن 1-گۇرۇپپىدىكى يېمەكلىكلەرگە تۇز ، ماي ، شېكەر ياكى باشقا ماددىلارنى قوشۇش ئارقىلىق ياسالغان. جەريانلار ھەر خىل قوغداش ياكى پىشۇرۇش ئۇسۇللىرىنى ئۆز ئىچىگە ئالىدۇ ، بولكا ۋە پىشلاق ، ئىسپىرتسىز ئېچىتىش. پىششىقلاپ ئىشلەنگەن يېمەكلىكلەرنىڭ كۆپىنچىسىدە ئىككى ياكى ئۈچ تەركىب بار بولۇپ ، 1-گۇرۇپپىدىكى يېمەكلىكلەرنىڭ ئۆزگەرتىلگەن نۇسخىسى دەپ تونۇلىدۇ. ئۇلارنى ئۆزى يېيىشكە بولىدۇ ، ئادەتتە باشقا يېمەكلىكلەر بىلەن بىللە يېيىشكە بولىدۇ.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر ، مەسىلەن يۇمشاق ئىچىملىكلەر ، تاتلىق ياكى مەززىلىك ئورالغان يېمەكلىكلەر ، قايتا ياسالغان گۆش مەھسۇلاتلىرى ۋە ئالدىن تەييارلانغان توڭلىتىلغان تاماقلار ، پەقەت ئۆزگەرتىلگەن يېمەكلىك بولۇپلا قالماستىن ، بەلكى كۆپىنچە ياكى پۈتۈنلەي يېمەكلىك ۋە خۇرۇچتىن ھاسىل بولغان ماددىلاردىن ياسالغان ، 1-گۇرۇپپىدىكى يېمەكلىكلەر ئاز. بۇ خىل تەركىبلەر تەركىبىدە ئادەتتە پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر ، مەسىلەن ، شېكەر ، ماي ، ماي ياكى تۇز قاتارلىقلار بار. قانداقلا بولمىسۇن ، ئۇلترا پىششىقلاپ ئىشلەنگەن مەھسۇلاتلار يەنە ئاشپەزلىك تەييارلىقىدا ئىشلىتىلمەيدىغان باشقا ئېنېرگىيە مەنبەسى ۋە ئوزۇقلۇق ماددىلارنى ئۆز ئىچىگە ئالىدۇ. بۇلارنىڭ بەزىلىرى كاسىن ، لاكتوزا ، چاق ۋە يېلىمى قاتارلىق يېمەكلىكلەردىن بىۋاسىتە ئېلىنغان.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'ئۇلترا بىر تەرەپ قىلىشتىكى مەسىلىلەر';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'يېمەكلىك تەركىبلىرىنى ھەددىدىن زىيادە پىششىقلاپ ئىشلەش';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'نۇرغۇنلىرى ھىدروگېنلانغان ياكى قىزىقىدىغان ماي ، ھىدرولىزلانغان ئاقسىل ، پۇرچاق ئاقسىلى ئايرىمىسى ، مالتودېكترىن ، تەتۈر شېكەر ۋە يۇقىرى فرۇكتوزالىق كۆممىقوناق قىيامى قاتارلىق يېمەكلىك تەركىبلىرىنى تېخىمۇ پىششىقلاپ ئىشلەشتىن ھاسىل بولىدۇ.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'ساپ يېمەكلىك بىخەتەرلىكىدىن ھالقىغان خۇرۇچلار';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن يېمەكلىكلەرنىڭ خۇرۇچلىرى پىششىقلاپ ئىشلەنگەن يېمەكلىكلەرگىمۇ ئىشلىتىلىدۇ ، مەسىلەن چىرىشتىن ساقلاش دورىسى ، ئوكسىدلىنىشقا قارشى تۇرغۇچى ۋە تۇراقلاشتۇرغۇچ. پەقەت دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن مەھسۇلاتلاردىلا تېپىلغان خۇرۇچلار تۈرى يېمەكلىكلەرنىڭ سەزگۈ سۈپىتىنى دورىغان ياكى كۈچەيتىدىغان ياكى ئاخىرقى مەھسۇلاتنىڭ ياقتۇرمايدىغان تەرەپلىرىنى ئۆزگەرتىش ئۈچۈن ئىشلىتىلىدىغان تۈرلەرنى ئۆز ئىچىگە ئالىدۇ. بۇ خۇرۇچلار بوياق ۋە باشقا رەڭلەرنى ، رەڭ تۇراقلاشتۇرغۇچنى ئۆز ئىچىگە ئالىدۇ. تەم ، تەم تەڭشىگۈچ ، شېكەرسىز تاتلىق يېمەكلىكلەر كاربوناتلاش ، ئوت ئۆچۈرۈش ، كۆپۈككە قارشى تۇرۇش ۋە كۆپۈككە قارشى تۇرۇش دورىسى ، كۆپۈك يوقىتىش ، تورتقا قارشى تۇرۇش ۋە سىرلاش دورىسى ، ئېمۇلسىيىلەشتۈرگۈچ ، سۇيۇقلۇق يوقىتىش دورىسى ۋە نەملىك ساقلاش دورىسى قاتارلىق پىششىقلاپ ئىشلەش قوراللىرى.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'ئۆيدە قىلالمايسىز بىر تەرەپ قىلىش';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'ئادەتتە نۇرغۇن تەركىبلەرنى بىرلەشتۈرۈش ۋە ئاخىرقى مەھسۇلاتنى بارلىققا كەلتۈرۈش ئۈچۈن نۇرغۇن تەرتىپ تەرتىپلىرى ئىشلىتىلىدۇ (شۇڭلاشقا «دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەش»). بۇ جەريانلار ھىدروگېنلاش ۋە ھىدرولىزلاش ، قېزىش ۋە قېلىپلاشتۇرۇش ، قورۇما قورۇشتىن بۇرۇن پىششىقلاپ ئىشلەش قاتارلىق دۆلەت ئىچىدە تەڭداشسىز بىر قانچەسىنى ئۆز ئىچىگە ئالىدۇ.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەشنىڭ يىرتقۇچ ۋە مالىيە تەرەپلىرى';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەشنىڭ ئومۇمىي مەقسىتى باشقا بارلىق يېمەكلىك گۇرۇپپىلىرىنى يۆتكەش ئۈچۈن لايىھەلەنگەن داڭلىق ، قۇلايلىق (چىداملىق ، ئىستېمال قىلىشقا تەييار) ، جەلپكار (يۇقىرى يېيىشلىك) ۋە كىرىمى يۇقىرى (ئەرزان باھالىق تەركىبلەر) يېمەكلىك مەھسۇلاتلىرىنى بارلىققا كەلتۈرۈش. دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن يېمەكلىك مەھسۇلاتلىرى ئادەتتە جەلپكار ئورالغان ۋە قويۇق بازارغا سېلىنىدۇ.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4976,10 +4977,10 @@ class AppLocalizationsUg extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'باھا مايىللىقىڭىزنى باشقۇرۇڭ';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'ئوچۇق يېمەكلىك پاكىتلىرى تۈرى';
 
   @override
   String get preferences_contribute_title => 'Contribute';
@@ -4988,34 +4989,34 @@ class AppLocalizationsUg extends AppLocalizations {
   String get preferences_contribute_subtitle => 'Translate, improve our tools…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'ئۇلاڭ';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'ئىجتىمائىي ئالاقە تورىدا بىزگە ئەگىشىڭ ياكى بىزگە ئەگىشىڭ';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'دۇنيادىكى مىليونلىغان ئىستېمالچىلارغا خەۋەر قىلىشىمىزغا ياردەملىشىڭ';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'ياردەم ۋە ياردەم';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'سوئالىڭىزغا جاۋابقا ئېرىشىڭ';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'تىزىمدىن چىقتى';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'بىزنىڭ بىر ئەزاسى بولغانلىقىمىزغا رەھمەت!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5024,7 +5025,8 @@ class AppLocalizationsUg extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats =>
+      'بارلىق سانلىق مەلۇماتلارنى كۆرۈڭ';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
@@ -5033,28 +5035,28 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'تەڭشەكنى ئىزدەڭ (مەسىلەن Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'ئىشلىتىشچانلىقى: emoji نى كۆرسىتىش';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'ئىشلىتىشچانلىقى: رەڭلەرنى ئۆچۈرۈڭ';
 
   @override
   String get preferences_app_settings_products => 'Products';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'ھەققىدە';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'قانۇن ئۇچۇرى';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'ئىشلىتىش شەرتلىرى ، مەخپىيەتلىك تۈزۈمى ۋە باشقىلار';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5066,36 +5068,36 @@ class AppLocalizationsUg extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'ئىجازەتنامە';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'ئەپ ھەققىدە';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'تېخنىكىلىق ئۇچۇرلار ، ئاچقۇچىلار ئۇچۇرلىرى ۋە باشقىلار';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'نەشرى نومۇرى';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'سكاننېر';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'ئەپ دۇكىنى';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'سىستېما تەڭشىكى';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'ئەسلى كودنى زىيارەت قىلىڭ';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'ھەمدە مىليونلىغان كىشىلەرگە تەسىر كۆرسىتىشكە باشلاڭ';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5104,117 +5106,118 @@ class AppLocalizationsUg extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'كۆرسەتمىلەر';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'يېڭى Nutri-Score نى بايقايسىز';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'ئوچۇق يېمەكلىك پاكىتلىرى تور بېتىدە';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'ھېساباتىمنى باشقۇرۇڭ';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'پارولىمنى ئۆزگەرتىڭ';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'خەتەر رايونى';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'بارلىق تۆھپىڭىز يوقىلىدۇ';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'ئەپ تەڭشىكى';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'تورسىز مەھسۇلاتلارنى سايىلەشنىڭ ناھايىتى تەجرىبە ئۇسۇلى';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'مۇلازىمېتىردىكى بارلىق مەھسۇلاتلارنى يېڭىلاڭ';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'ئەگەر زۆرۈر بولمىسا ، بۇنداق قىلىشتىن ساقلىنىڭ';
 
   @override
   String get preferences_dev_mode_demo_mode_title => 'Demo mode';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title => 'سايىلىغۇچقا كارتا قوشۇڭ';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'سايىلىغۇچقا 3 ئۈلگە مەھسۇلات قوشىدۇ';
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'زىيارەت قىلىش تەجرىبىسى';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'باھا ئۈچۈن كۆپ مەھسۇلات تاللاش';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'ئىشلەتكۈچى بىلىم تاختىسى زاكاز قىلدى';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'ئورۇن ئىزدەشكە ۋاقىتلىق كىرىش';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      '2 ياكى 3 مەھسۇلاتنى بىرمۇبىر سېلىشتۇرۇش';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'مەھسۇلات تىزىملىكى ئىمپورت';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'نومۇر ۋە ئۇسۇل';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Nutri-Score نىڭ قانداق ھېسابلانغانلىقىنى بايقايسىز';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'مېتودولوگىيەدىكى ئاساسلىق ئۆزگىرىشلەرنى بايقايسىز';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'ئوچۇق يېمەكلىك پاكىتلىرىنى بايقايسىز';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'سوئال - دائىم سورايدىغان سوئاللار';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'ئوچۇق يېمەكلىك پاكىتلىرى ئاممىۋى تەشكىلات';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'مەھەللە يېڭىلانمىلىرىغا ئېرىشىڭ';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'ئەپ ۋە مەھەللە خەۋەرلىرى بىلەن بىللە تۇرۇڭ';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5222,74 +5225,76 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'مەۋھۇم پائالىيەتلىرىمىزنىڭ بىرىگە قاتنىشىش ئارقىلىق قاتنىشىڭ';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'ئىجتىمائىي تاراتقۇلاردا بىزگە ئەگىشىڭ';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'ئوچۇق يېمەكلىك پاكىتلىرى بىلوگى';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'ئۇلار يۈز بەرگەندەك ئەڭ يېڭى خەۋەرلەرگە ئېرىشىڭ';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'جەمئىيەتتىن ياردەمگە ئېرىشىڭ';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'ئەپنى ياخشىلىشىمىزغا ياردەم قىلىڭ';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'بىزگە خاتالىق ئۇچۇرى ئەۋەتىڭ';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'تەپسىلىي ھەل قىلىش ئۇچۇرلىرى بىلەن بىزگە ئېلېكترونلۇق خەت ئەۋەتىڭ';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'بۇ دېتال ھەققىدە بىزگە تەكلىپ-پىكىر ئەۋەتىڭ';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'ئەپنىڭ كەلگۈسىنى شەكىللەندۈرۈشكە ياردەم قىلىڭ';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'ئەپ تەكشۈرۈشىنى ئېلىپ بېرىڭ';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'كېيىنكى قەدەمدە نېمە قۇرۇشىمىزنى چۈشىنىشىمىزگە ياردەم قىلىڭ';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'كەسپى خادىملار';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'پۈتۈنلەي ھەقسىز ، 500 ئەپ ۋە مىليونلىغان ئىستېمالچىلارنىڭ توغرا سانلىق مەلۇماتلىرىغا كاپالەتلىك قىلىدۇ. ئۆزىڭىزگە مۇلازىمەت قىلىش ، PIM ياكى ئېلېكترونلۇق جەدۋىلىڭىزگە ماس كېلىدۇ (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'باشلاش ئۈچۈن ئالاقىلىشىڭ';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'دوكلاتىڭىزغا كېرەكلىك بارلىق ماتېرىياللارنى ئېلىڭ';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'ئاخبارات سوئالى بىلەن ئالاقىلىشىڭ ياكى دوكلاتىڭىزنى بىزگە بىلدۈرۈڭ';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'ئاكتىپ پىدائىي بولۇڭ';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
@@ -5297,142 +5302,143 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'سىز تۆھپە قوشالايدىغان نۇرغۇن ئۇسۇللارنى بايقايسىز';
 
   @override
-  String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+  String get preferences_contribute_mobile_dev_title => 'كۆچمە ئەپ ئېچىش';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'يۇمشاق دېتال ئېچىشقا قانداق تۆھپە قوشۇشنى ئۆگىنىۋېلىڭ';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'كۈندىلىك تۇراقسىز قۇرۇلۇشلار ، يېڭى ئىقتىدارلار';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'يەرلىك مەھەللىڭىزنى تەرەققىي قىلدۇرۇڭ';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'يۇمشاق دېتال ، مەزمۇن ، تەركىب ئانالىز تەرجىمىلىرى بىلەن ياردەم';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'سىزگە ياردەم قىلىش ئۈچۈن ئازراق قېلىپ تەييارلىدۇق :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'دۆلىتىڭىزدىكى يېمەكلىكنىڭ سۈزۈكلۈكىنى ئاشۇرۇشنىڭ ئاددىي قەدەملىرى';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'سانلىق مەلۇمات سۈپىتى گۇرۇپپىسىغا قوشۇلۇڭ';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'سانداننىڭ تولۇق ۋە توغرا بولۇشىغا كاپالەتلىك قىلىش ئۈچۈن تىرىشىڭ';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 مەھسۇلات قوشۇلدى';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'مەن ئوچۇق يېمەكلىك پاكىتلىرىغا قوشقان يېڭى مەھسۇلاتلار';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'مەن تاماملىشىم كېرەك بولغان مەھسۇلاتلار';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'بارلىق تولۇق بولمىغان مەھسۇلاتلار';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'تولۇقلاشقا ياردەم بېرەلەيدىغان مەھسۇلاتلار';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'دۆلىتىڭىزدىكى ئوزۇقلۇق نومۇرى ۋە يېشىل نومۇرلارنى ھېسابلاشقا ياردەملىشىڭ';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => 'مەن تۆھپە قوشقان باھا';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'باھا بەلگىسى ۋە تالون';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'تالونلىرىڭىزنى رەسىمگە تارتىپ ، مۇناسىۋەتلىك تاياقچە كودلارنى سايىلەڭ';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'دۇكاندىكى باھالارنى سۈرەتكە تارتىڭ';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'ئەڭ يېڭى باھا';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'ئوچۇق باھا جەمئىيىتى قوشقان ئەڭ يېڭى باھا';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'باھاسى ئەڭ كۆپ بولغان تۆھپىكارلار';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'ئوچۇق باھا كۆرسەتكۈچى';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'تۈرنىڭ تەرەققىياتىغا ئەگىشىڭ';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'تۆھپە قوشۇش ئۇسۇللىرى';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'سۈنئىي ئەقىلنىڭ ياردىمىدە ئۆزىڭىز ياكى باشقىلار قوشقان باھانى جەزملەشتۈرۈڭ';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'كامېرا تىزىملىكىڭىزدىن نۇرغۇن تالون ياكى ساقلانما رەسىملەرنى تېز قوشۇڭ';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'ئايلىق رىقابەت';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'باھا توپلاش ئۈچۈن ئايلىق تېمىلىق سوئاللارغا قاتنىشىڭ';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'ساداقەتمەنلىك سانلىق مەلۇماتلىرىڭىزنى قايتۇرۇۋېلىڭ';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'سانلىق مەلۇماتلىرىڭىزنى قانداق تەلەپ قىلىشنى ئۆگىنىۋېلىڭ';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'ئەپنى خاسلاشتۇرۇڭ';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'بۇ تۈرگە تۆھپە قوشۇڭ';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'ئوچۇق يېمەكلىك پاكىتلىرىغا ياردەم بېرىشنىڭ ئاددىي ئۇسۇللىرى';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'تۈر مېتودولوگىيەسى ، ياردەم ۋە باشقا تۈرلەر';
 
   @override
   String get product_edit_robotoff_positive_button => 'تەكلىپنى قوبۇل قىلىڭ';
@@ -5481,11 +5487,11 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'ئۆزگەرتىشلەرنى قوللىنىش ئۈچۈن ئەپنى قايتا قوزغىتىڭ.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'گرافىكلىق كۆرۈنمە يۈزى';
 
   @override
   String get preferences_app_settings_media_title => 'Media';
@@ -5495,26 +5501,26 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'ئوچۇق يېمەكلىك پاكىتلىرى تەجرىبىخانىسى';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'تىلىڭىزغا ئوچۇق يېمەكلىك پاكىتلىرىنى ئېلىپ كېلىڭ';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'ئەپنىڭ ئالفا نۇسخىسىغا تىزىملىتىڭ';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'تۆھپە ۋە مەھسۇلات سانلىق مەلۇماتلىرى';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Folksonomy نى كۆرسەتمەڭ';
 
   @override
   String get preferences_account_title => 'Account';

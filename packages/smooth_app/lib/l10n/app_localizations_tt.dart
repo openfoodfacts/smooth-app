@@ -2359,7 +2359,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Эксперименталь үзенчәлекләргә һәм үсеш коралларына керегез';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3978,29 +3978,29 @@ class AppLocalizationsTt extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Яшел балл А.';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Яшел балл В.';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Яшел балл С.';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Яшел балл D.';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Яшел балл Э.';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Билгесез яшел-балл';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+  String get environmental_score_not_applicable_new => 'Яшел балл кулланылмый';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Ультра эшкәртелгән ризыклар - NOVA төркемнәре';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4361,19 +4361,18 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Кайсы продукт планета өчен яхшырак?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Моны әйтү кыен булырга мөмкин';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
       'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'Сездә көч бар!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
@@ -4381,111 +4380,109 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Responsibleаваплы булырга һәм карар кабул итәргә булыша';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Тотрыклы ризык сайлау катлаулы булырга мөмкин. Ярлыклар буталчык, мәгълүмат еш юк. Яшел-балл аны гади итү өчен ясалган, сезгә кирәк булган җирдә азык-төлек продуктлары өчен ** ачык **, ** фәнгә нигезләнгән **, һәм ** ачык ** экологик рейтинг бирә.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Ачыклык';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Хуҗалык этикеткаларыннан аермалы буларак, Яшел-Счетны исәпләү ** бөтенләй ачык ** һәм аны ** теләсә кем раслый ала **.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Ультра эшкәртү нәрсә ул?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'NOVA төркемнәре сезгә азык эшкәртү дәрәҗәсе турында хәбәр итә.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'NOVA классификациясе азык-төлекне ** 4 төркемгә ** сәнәгать эшкәртү дәрәҗәсенә нигезләнеп ** (минималь эшкәртелгән яки эшкәртелмәгән ризыклар, кулинария ингредиентлары, эшкәртелгән ризыклар, ультра эшкәртелгән ризыклар) нигезендә классификацияләргә мөмкинлек бирә.';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'NOVA логотиплары';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 НОВА төркеме';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      '4 NOVA төркеме бар, проблемалы 4 группа - Ультра эшкәртелгән ризык.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Минималь эшкәртелгән яки эшкәртелмәгән ризыклар';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Эшкәртелмәгән (яки табигый) ризыклар - табигатьтән аерылганнан соң үсемлекләрнең (орлыклар, җиләк-җимешләр, яфраклар, сабаклар, тамырлар) яки хайваннарның (мускул, офаль, йомырка, сөт) ашарга яраклы өлешләре.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Эшкәртелгән кулинария ингредиентлары, майлар, май, шикәр, тоз кебек, 1 группа ризыкларыннан яки табигатьтән алынган матдәләр, басу, эшкәртү, тарту, тегермән, киптерү.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Эшкәртелгән ризыклар, мәсәлән, шешә яшелчәләр, консервланган балык, сироптагы җимешләр, сырлар, һәм яңа ясалган икмәкләр, беренче чиратта, 2 группадан 1 группа ризыкларына тоз, май, шикәр яки башка матдәләр кушып ясала. Процессларга төрле саклау яки пешерү ысуллары керә, икмәк һәм сыр очракта, алкогольсез ферментация. Күпчелек эшкәртелгән ризыкларның ике-өч ингредиенты бар һәм алар 1-нче төркем ризыкларының үзгәртелгән версияләре булып таныла. Аларны үзләре яки, гадәттә, башка ризыклар белән берлектә ашарга мөмкин.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Ультра эшкәртелгән ризыклар, мәсәлән, алкогольле эчемлекләр, татлы яки тәмле пакетланган ашамлыклар, реконструкцияләнгән ит продуктлары, алдан әзерләнгән туңдырылган ризыклар үзгәртелгән ризыклар гына түгел, ә күбесенчә яки тулысынча ризыклардан һәм өстәмәләрдән алынган матдәләрдән ясалган формулалар, 1-нче төркем ризыклары аз. Бу формулировкалардагы ингредиентлар, гадәттә, шикәр, май, май яки тоз кебек эшкәртелгән ризыкларда да бар. Ләкин, ультра эшкәртелгән продуктларда шулай ук кулинария препаратларында кулланылмаган башка энергия чыганаклары һәм туклыклы матдәләр бар. Аларның кайберләре турыдан-туры казин, лактоза, зәңгәр, глютен кебек ризыклардан алынган.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Ультра эшкәртү проблемалары';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Азык ингредиентларын экстремаль эшкәртү';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Күпчелеге водородлаштырылган яки кызыклы майлар, гидролизацияләнгән аксымнар, соя протеины изоляциясе, малтодекстрин, шикәрне кире кайтару һәм югары фруктоза кукуруз сиропы кебек азык компонентларын алга таба эшкәртүдән алынган.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Чиста азык куркынычсызлыгыннан арткан өстәмәләр';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Ультра эшкәртелгән ризыкларга өстәмәләр эшкәртелгән ризыкларда кулланыла, мәсәлән, консервантлар, антиоксидантлар, стабилизаторлар. Ультра эшкәртелгән продуктларда гына табылган өстәмәләр классларына ашамлыкларның сенсор сыйфатларын охшату яки арттыру яки соңгы продуктның яраксыз якларын яшерү өчен кулланылганнар керә. Бу өстәмәләргә буяулар һәм башка төсләр, төс стабилизаторлары керә; тәмләр, тәмләткечләр, шикәр булмаган тәмләткечләр; һәм эшкәртү җайланмалары, мәсәлән, карбонлаштыру, ату, туплау һәм анти-туплау агентлары, күбекләү, тортка каршы һәм пыяла агентлары, эмульсиваторлар, секвестрантлар, гумектантлар.';
 
   @override
-  String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+  String get guide_nova_explanations_arg3_title => 'Өйдә эшләп булмый эшкәртү';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Гадәттә күп ингредиентларны берләштерү һәм соңгы продукт ясау өчен күп процесслар эзлеклелеге кулланыла (димәк, \'ультра эшкәртелгән\'). Процессларга водородлаштыру һәм гидролизация, экструзия һәм формалаштыру, кыздыру өчен алдан эшкәртү кебек эчке эквивалентлары булмаган берничә керә.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Ультра эшкәртүнең ерткыч һәм финанс аспектлары';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Ультра эшкәртүнең гомуми максаты - маркалы, уңайлы (чыдам, кулланырга әзер), җәлеп итүчән (гипер-тәмле) һәм югары керемле (аз чыгымлы ингредиентлар) азык-төлек продуктларын барлыкка китерү. Ультра эшкәртелгән азык продуктлары гадәттә җәлеп ителә һәм интенсив базарда сатыла.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4970,16 +4967,17 @@ class AppLocalizationsTt extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Proof';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => 'Töptän';
 
   @override
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'Сезнең бәяләр өстенлекләрен идарә итегез';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Ачык азык фактлары проекты';
 
   @override
   String get preferences_contribute_title => 'Contribute';
@@ -4988,34 +4986,33 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_contribute_subtitle => 'Translate, improve our tools…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Бәйләнегез';
 
   @override
-  String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+  String get preferences_connect_subtitle => 'Социаль медиада безгә иярегез';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Безгә бөтен дөнья буенча миллионлаган кулланучыларга хәбәр итәргә булыш';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Ярдәм һәм ярдәм';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Сорауларыгызга җавап алыгыз';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Чыгып киттеләр';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Безнең әгъзаларның берсе булганыгыз өчен рәхмәт!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5024,7 +5021,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Барлык статистиканы карагыз';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
@@ -5033,28 +5030,27 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Көйләү эзләгез (мәсәлән, Nutri-Score)';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => 'Мөмкинлек: эможны күрсәт';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Мөмкинлек: төсләрне бетерегез';
 
   @override
   String get preferences_app_settings_products => 'Products';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'Хакында';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Хокукый мәгълүмат';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Куллану шартлары, хосусыйлык политикасы һәм башкалар';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5066,36 +5062,36 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Лицензияләр';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Кушымта турында';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Техник мәгълүмат, уйлап табучы турында мәгълүмат һәм башкалар';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Мәгълүмат';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Вариант саны';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Сканер';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Кушымта кибете';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Система көйләүләре';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Чыганак кодына керегез';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'Миллионлаган кешеләргә тәэсир итә башлагыз';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5104,117 +5100,121 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Киңәшләр';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Яңа Nutri-Score белән танышыгыз';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Ачык азык фактлары сайтында';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Минем хисап белән идарә итү';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Серсүземне үзгәртегез';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Куркынычлык зонасы';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Сезнең барлык кертемнәрегез юкка чыгачак';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Кушымта көйләүләре';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Оффлайн продуктларны сканерлау өчен бик эксперименталь ысул';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Сервердан барлык продуктларны яңартыгыз';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Зинһар, бөтенләй кирәк булмаса';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Демо режимы';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Сканерга карточкалар өстәгез';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Сканерга 3 үрнәк продукт өсти';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Фольксономия алып баручысы';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Уңайлык экспериментлары';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Бәяләр өчен күп продукт сайлау';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Кулланучы белем панельләренә заказ биргән';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Урын эзләүгә вакытлыча керү';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      '2 яки 3 продукт өчен чагыштыру';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Продукция исемлеге импорт';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Баллар һәм методикалар';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Nutri-Score ничек исәпләнгәнен ачыклагыз';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Методиканың төп үзгәрешләрен табыгыз';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Ачык ризык фактларын ачу';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'Сораулар - Еш бирелә торган сораулар';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Ачык азык фактлары иҗтимагый оешмасы';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Мәгълүмат';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Communityәмгыять яңартуларын алыгыз';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Кушымта һәм җәмгыять яңалыклары белән әйләнештә калыгыз';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5222,74 +5222,74 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Виртуаль вакыйгаларның берсендә катнашып катнашыгыз';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Социаль медиада безне эзләгез';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Ачык азык фактлары блогы';
 
   @override
-  String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+  String get preferences_connect_blog_subtitle => 'Соңгы яңалыкларны алыгыз';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Theәмгыятьтән ярдәм алыгыз';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Кушымтаны яхшыртырга булыш';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Безгә төзәтмәләр турында мәгълүмат җибәрегез';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Безгә җентекле көйләү мәгълүматлары булган электрон почта җибәрегез';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Кушымта турында безгә җавап җибәрегез';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Кушымтаның киләчәген формалаштырырга булыш';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Кушымта тикшерүен алыгыз';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Алга таба нәрсә төзергә кирәклеген аңларга булыш';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Профессионаллар';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Бөтенләй бушлай, 500 кушымталар һәм миллионлаган кулланучылар өчен төгәл мәгълүматны тәэмин итә. PIM яки электрон таблицалар белән туры килгән үз-үзеңә хезмәт күрсәтү (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Башлау өчен элемтәгә керегез';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Доклад өчен кирәкле материалны алыгыз';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Матбугат сораулары өчен элемтәгә керегез яки сезнең доклад турында безгә хәбәр итегез';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Актив волонтер бул';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
@@ -5297,142 +5297,143 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Сез үз өлешегезне кертә аласыз';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Мобиль кушымтаны эшләү';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Программаны эшкәртүгә ничек өлеш кертергә өйрәнегез';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Көн саен тотрыксыз корылмалар, яңа үзенчәлекләр';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Localирле җәмгыятьне үстерегез';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Программа, эчтәлек, ингредиент анализ тәрҗемәләре белән булыш';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Без сезгә ярдәм итәр өчен бераз шаблон әзерләдек :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Сезнең илдә азык-төлекнең ачыклыгын арттыру өчен гади адымнар';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Мәгълүмат сыйфаты командасына кушылыгыз';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Мәгълүматлар базасының тулы һәм төгәл булуын тәэмин итү өчен безнең көчебезгә кушылыгыз';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 продукт өстәлде';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Ачык азык фактларына мин яңа продуктлар өстәдем';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Мин тутырырга тиеш продуктлар';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Барлык тулы булмаган продуктлар';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Сез тулыландырырга ярдәм итә торган продуктлар';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Сезнең илдә Nutri-Score & Green-Score исәпләргә булышыгыз';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => 'Мин керткән бәяләр';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'Бәяләр һәм квитанцияләр';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Квитанцияләрегезне фотога төшерегез һәм штрих-кодларны сканерлагыз';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Кибеттә бәяләрне фотога төшерегез';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Яңа бәяләр';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Ачык бәяләр җәмгыяте өстәгән соңгы бәяләр';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Иң күп бәяләр белән катнашучылар';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Ачык бәяләр';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Проект эволюциясен күзәтегез';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'Contributeз өлеш кертү юллары';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'ЯИ ярдәмендә үзегез яки башкалар кушкан бәяләрне раслагыз';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Камера роллыннан бик күп квитанцияләрне яки киштәләрнең фотоларын өстәгез';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Айлык авырлыклар';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Бәяләр җыю өчен айлык тематик эзләнүләрдә катнашыгыз';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Сезнең тугрылык мәгълүматыгызны кире кайтарыгыз';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Мәгълүматны ничек сорарга өйрәнегез';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Кушымтаны көйләгез';
 
   @override
-  String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+  String get preferences_page_contribute_project_title => 'Проектка өлеш кертү';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Ачык азык фактларына булышуның гади ысуллары';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Проект турында методика, ярдәм һәм башкалар';
 
   @override
   String get product_edit_robotoff_positive_button => 'Тәкъдимне кабул итегез';
@@ -5481,40 +5482,40 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Зинһар, үзгәртүләрне куллану өчен кушымтаны яңадан эшләтеп җибәрегез.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'График интерфейс';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Медиа';
 
   @override
-  String get preferences_about_app_development_title => 'Development';
+  String get preferences_about_app_development_title => 'Эшләнмә';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Азык-төлек фактлары лабораториясе';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ачык ризык фактларын телегезгә китерегез';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Кушымтаның альфа версиясенә язылу';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Иганәләр һәм продукт мәгълүматлары';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Фольксономияне күрсәтмәгез';
 
   @override
   String get preferences_account_title => 'Account';

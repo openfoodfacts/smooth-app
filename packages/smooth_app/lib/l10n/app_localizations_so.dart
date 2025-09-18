@@ -2358,7 +2358,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Hel sifooyinka tijaabada iyo agabka horumarinta';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3979,29 +3979,31 @@ class AppLocalizationsSo extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Cagaaran-Dhibcaha A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Cagaaran-Dhibcaha B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Cagaaran-Dhibcaha C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Cagaaran-Dhibcaha D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Cagaaran-Dhibcaha E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new =>
+      'Cagaaran-Dhibcaha Aan La Aqoon';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Green-Score ma khuseyso';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Cuntooyinka aadka loo habeeyey - kooxaha NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4365,131 +4367,131 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Aladee u fiican meeraha?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Way adkaan kartaa in la sheego';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Doorashada cunto waara waa mid ka mid ah waxyaalaha ugu awooda badan ee aan u samayn karno cimilada, sida **Nidaamkeena cuntada aduunka ayaa mas\'uul ka ah in ka badan rubuc dhammaan gaaska aqalka dhirta lagu sii daayo**.\n(Isha: Poore & Nemecek, Science, 2018).';
 
   @override
   String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+      'Awood baad leedahay!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Warka fiicani waa in tani ay ina siinayso hab awood leh oo aan ku abuurno isbeddel.\n**Mid kasta oo naga mid ah waxa uu cunaa ku dhawaad 1,000 cunto sanadkiiba**. Taasi waa 1,000 fursadood oo ** loo doorto mustaqbal wanaagsan meeraha ***!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Wuxuu caawiyaa inuu masuul ka noqdo oo uu go\'aansado';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Doorashada cunto waara waxay dareemi kartaa mid adag. Calaamaduhu waa jahawareer oo macluumaadka inta badan waa la la\'yahay. Dhibcaha Cagaaran waxaa loo sameeyay si uu u fududeeyo, isaga oo ku siinaya ** cad ***, ** saynis ku saleysan ***, iyo ** daah-furnaanta** qiimeynta deegaanka ee alaabta cuntada, isla meesha aad uga baahan tahay: marka aad wax iibsaneyso.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Hufnaan';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Si ka duwan calaamadaha lahaanshaha, xisaabinta Green-Score waa ** si buuxda u furan *** oo waxaa xaqiijin kara *** qof kasta.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Waa maxay ultra-processing?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Kooxaha NOVA waxay ku ogeysiinayaan heerka habaynta cuntada.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Kala soocida NOVA waxay u ogolaanaysaa in loo kala saaro cuntooyinka **4 kooxood** iyadoo lagu salaynayo **shahaadada habaynta warshadaha** (cuntooyinka ugu yar ee warshadaysan ama aan la warshadayn, maaddooyinka cuntada lagu kariyo, cuntooyinka warshadaysan, cuntooyinka aadka loo habeeyey).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Calaamadaha NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4ta kooxood ee NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Waxaa jira 4 kooxood oo NOVA ah, midda dhibka lehina waa Kooxda 4 - Cuntooyinka aadka loo farsameeyey.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Cuntooyinka ugu yar ee la warshadeeyay ama aan la farsamayn';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Cuntooyinka aan la warshadayn (ama dabiiciga ah) waa qaybaha la cuni karo ee dhirta (miraha, miraha, caleemaha, jirridda, xididdada) ama xayawaanka (murqaha, bararka, ukunta, caanaha), iyo sidoo kale fungi, algae, iyo biyaha, ka dib marka laga sooco dabeecadda.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Maaddooyinka cunto karinta ee la habeeyey, sida saliidaha, subagga, sonkorta, iyo milixda, waa maaddooyin laga helo Cuntooyinka Kooxda 1 ama dabeecadda iyada oo loo marayo habab ay ku jiraan cadaadis, sifeyn, shiidi, shiiditaan, iyo qallajin.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Cuntooyinka la habeeyey, sida khudaarta dhalada ku jirta, kalluunka qasacadaysan, miraha sharoobada ku jira, farmaajo, iyo roodhida cusub ee la sameeyey, waxa ugu horrayn lagu sameeyaa iyadoo lagu darayo milix, saliid, sonkor, ama walxo kale oo ka socda kooxda 2 ilaa cuntooyinka kooxda 1. Nidaamyada waxaa ka mid ah dhawrid ama habab cunto karinta oo kala duwan, iyo marka laga hadlayo rootiga iyo farmaajo, halsano aan alkohol ahayn. Inta badan cuntooyinka la warshadeeyay waxay leeyihiin laba ama saddex maaddooyin waxaana loo aqoonsan karaa inay yihiin noocyada cuntada ee Kooxda 1. Iyaga waa la cuni karaa iskood ama, inta badan, marka lagu daro cuntooyinka kale.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Cuntooyinka aadka loo habeeyey, sida cabitaannada fudud, cuntooyinka fudud ee macaan ama macaan, hilibka dib loo habeeyey, iyo suxuunta barafaysan ee hore loo sii diyaariyey, maaha oo keliya cuntooyinka la beddelay ee waa kuwo laga sameeyey inta badan ama gebi ahaanba walxaha laga soo dheegtay cuntooyinka iyo waxyaalaha lagu daro, iyada oo ay yar tahay ama aanay jirin cunto Group 1 ah. Waxyaabaha ay ka kooban yihiin hab-raacyadan sida caadiga ah waxa ka mid ah kuwa sidoo kale laga helo cuntooyinka warshadaysan, sida sonkorta, saliidaha, dufanka, ama milixda. Si kastaba ha ahaatee, alaabta aadka loo habeeyey ayaa sidoo kale ka kooban ilo kale oo tamar ah iyo nafaqooyin aan sida caadiga ah loo isticmaalin diyaarinta cunto karinta. Qaar ka mid ah kuwan waxaa si toos ah looga soo saaraa cuntooyinka, sida casein, lactose, whey, iyo gluten.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'Dhibaatooyinka hab-socodka ultra-ka';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Habaynta aadka u daran ee maaddooyinka cuntada';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Kuwo badan ayaa laga soo qaatay habayn dheeraad ah oo ka kooban cuntada, sida saliidaha hydrogenated ama xiisaha leh, borotiinnada hydrolyzed, borotiinka soy go\'doominta, maltodextrin, sonkorta rogan, iyo sharoobada galleyda ee fructose-sare.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Waxyaabaha lagu daro ee ka baxsan badbaadada cuntada saafiga ah';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Waxyaalaha lagu daro cuntooyinka aadka loo habeeyey waxaa ka mid ah qaar sidoo kale loo isticmaalo cuntooyinka warshadaysan, sida kuwa ilaaliya, antioxidants, iyo stabilizers. Qaybaha wax lagu daro ee laga helo kaliya alaabta aadka loo habeeyey waxaa ka mid ah kuwa loo isticmaalo in lagu daydo ama kor loogu qaado tayada dareenka cuntooyinka ama in lagu qariyo dhinacyada aan la jeclayn ee sheyga kama dambaysta ah. Waxyaabaha lagu daro waxaa ka mid ah dheeha iyo midabyo kale, xasiliyeyaasha midabka; dhadhanka, kobciya dhadhanka, macaanayaasha aan sonkorta lahayn; iyo qalabka wax lagu farsameeyo sida kaarboonaysiinta, adkaynta, bulking iyo wakiilada ka-hortagga bulking, xumbaynta, ka-hortagga keega iyo wakiilada dhaldhalaalka, emulsifiers, sequestrants, iyo humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Hagaajinta kuma samayn kartid guriga';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Nidaamyo badan oo isdaba-joog ah ayaa loo adeegsadaa in la isku daro maaddooyinka badan ee sida caadiga ah iyo in la abuuro wax soo saarka ugu dambeeya (sidaa darteed \'ultra-processed\'). Nidaamyada waxaa ka mid ah dhowr aan lahayn wax u dhigma gudaha, sida hydrogenation iyo hydrolysation, extrusion iyo molding, iyo ka hor-u-habaynta shiilitaanka.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Dhinacyada ugaadhsiga iyo dhaqaalaha ee hab-socodka ultra-processing';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Ujeedada guud ee hab-socodka aadka u sarreeya waa in la abuuro summad leh, habboon (raagi karta, diyaar u ah in la isticmaalo), soo jiidasho leh (sare-u-qaadi karo) iyo faa\'iido sare leh (waxyaabaha qiimahoodu jaban yahay) alaabta cuntada loogu talagalay in lagu baro dhammaan kooxaha kale ee cuntada. Alaabooyinka cuntada sida aadka ah loo farsameeyay ayaa inta badan loo baakadeeyaa si soo jiidasho leh waxaana si xoogan loo suuq geeyaa.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4980,46 +4982,47 @@ class AppLocalizationsSo extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'Maamul dookhyadaada qiimaha';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project =>
+      'Mashruuca Xaqiiqooyinka Cuntada Furan';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle => 'Turjun, hagaaji qalabkeena…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Ku xidhnow';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Nala soo xiriir, ama nagala soco baraha bulshada';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Naga caawi in aad la socodsiiso malaayiin macaamiisha ah ee adduunka oo dhan';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Caawinta & Taageerada';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'U hel jawaabaha su\'aalahaaga';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Ka baxay';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Waad ku mahadsan tahay inaad ka mid tahay xubnahayaga!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5028,24 +5031,23 @@ class AppLocalizationsSo extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Eeg dhammaan xisaabaadka';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Ka raadi $provider \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Raadi goob (tusaale Nutri-Score)';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => 'Helitaanka: Muuji emoji';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Helitaanka: Ka saar midabada';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5054,11 +5056,11 @@ class AppLocalizationsSo extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Xogta sharciga ah';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Shuruudaha isticmaalka, siyaasadda khaaska ah, iyo in ka badan';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5070,36 +5072,36 @@ class AppLocalizationsSo extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Shatiyada';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Ku saabsan abka';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Macluumaadka farsamada, macluumaadka horumariyaha, iyo in ka badan';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Nambarka nooca';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Sawir qaade';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'App Store';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Dejinta nidaamka';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Gal code isha';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'Oo bilow samaynta saamaynta malaayiin';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5108,117 +5110,121 @@ class AppLocalizationsSo extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Talooyin';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Soo ogow Nutri-Score cusub';
 
   @override
   String get preferences_on_off_website_subtitle =>
       'On the Open Food Facts website';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Maamul akoonkayga';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Beddel erayga sirta ah';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Aagga khatarta ah';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Dhammaan wax ku biirintaada waa la waayi doonaa';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Dejinta abka';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Qaab aad u tijaabaysan oo alaabta lagu baadho offline';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Dib u cusboonaysii dhammaan badeecooyinka serverka';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Fadlan iska ilaali inaad taas samayso ilaa aad lama huraan u ah mooyee';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Habka demo';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Ku dar kaadhadhka iskaanka';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Wuxuu ku daraa 3 muunad shaybaarka sawirka';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Martigeliyaha Folksonomy';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Tijaabooyinka gelitaanka';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Xulashada badeecadaha badan ee qiimaha';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Dabaqadaha aqoonta isticmaalaha la dalbaday';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Helitaanka ku meel gaadhka ah ee goob raadinta';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Isbarbardhigga dhinac-dhinac ee 2 ama 3 alaab';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Soo dejinta liiska alaabta';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'Dhibcaha & hababka';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Soo ogow sida Nutri-Score loo xisaabiyo';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Soo ogow isbeddellada ugu waaweyn ee habka';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Soo hel Xaqiiqooyinka Cuntada Furan';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'FAQ - Su\'aalaha Inta badan La Isweydiiyo';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'NGO-ga Xaqiiqooyinka Cuntada Furan';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Hel wararka bulshada';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'La soco abka iyo wararka bulshada';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5226,217 +5232,222 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Ka qayb gal adigoo ka qayb galaya mid ka mid ah dhacdooyinkayada casriga ah';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Nagala soco baraha bulshada';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Buloogga Xaqiiqooyinka Cuntada Furan';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Hel wararkii ugu dambeeyay, sida ay u dhacaan';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Caawimo ka hel bulshada';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Naga caawi horumarinta abka';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Noo soo dir macluumaadka qaladka';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Noogu soo dir iimayl leh macluumaad khaladaad faahfaahsan';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Noo soo dir faallo celin ku saabsan abka';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Ka caawi qaabaynta mustaqbalka abka';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Qaado sahanka abka';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Naga caawi inaan fahanno waxa ay tahay inaan dhisno xiga';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Xirfadlayaasha';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Gebi ahaanba bilaash ah, waxay hubisaa xogta saxda ah ee 500 apps & malaayiin macaamiisha ah. Is-adeegga, ku habboon PIM kaaga ama xaashiyahaaga (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'La xidhiidh si aad u bilowdo';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Hel dhammaan agabka aad ugu baahan tahay warbixintaada';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'La xidhiidh su\'aalaha saxaafadda ama si aad noogu soo sheegto warbixintaada';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Noqo tabaruce firfircoon';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Horumarinta, Isgaadhsiinta, Nakhshad… nooc kasta oo tabaruc ama khibrad ah waa la soo dhaweynayaa!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Soo ogow qaar ka mid ah siyaabaha badan ee aad wax ku biirin karto';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Horumarinta abka mobaylka';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Baro sida looga qayb qaato horumarinta software';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Dhismo aan degganayn maalin walba, astaamo cusub';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Kori bulshada deegaankaaga';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Ka caawi software, waxa ku jira, turjumaada falanqaynta walxaha';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Waxaan kuu diyaarinay template yar oo ku caawiya :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Tallaabooyin fudud oo lagu kobcinayo hufnaanta cuntada ee dalkaaga';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Ku biir kooxda tayada xogta';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Ku soo biir dadaalkayaga si aan u hubinno in kaydku yahay mid dhamaystiran oo sax ah';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 alaabta lagu daray';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Alaabooyin cusub oo aan ku daray Xaqiiqooyinka Cuntada Furan';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Alaabooyinka aan u baahanahay inaan dhamaystiro';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Dhammaan alaabooyinka aan dhamaystirnayn';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Alaabooyinka aad ku caawin karto dhamaystirka';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Ka caawi xisaabinta Nutri-Score & Green-Score ee dalkaaga';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Qiimaha aan ku darsaday';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'Qiimayaasha qiimaha iyo rasiidhada';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Sawirro ka qaad rasiidhadaada oo sawir koodhadhka la xidhiidha';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Sawiro ka qaad qiimaha dukaanka dhexdiisa';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Qiimaha ugu cusub';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Qiimihii ugu dambeeyay ee ay ku dartay bulshada Qiimaha Furan';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Ka qaybqaatayaasha leh qiimaha ugu badan';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Halbeegyada Qiimaha Furan';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => 'Raac horumarka mashruuca';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'Siyaabaha wax lagu biirin karo';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Xaqiiji qiimayaasha aad adigu ama kuwa kale ku dartay, iyadoo la kaashanayo AI';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Si dhakhso leh ugu dar rasiidhada ama sawirada khaanadaha duubista kamaradaada';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Caqabadaha billaha ah';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Ka qayb qaado weydiimaha mawduucyada bilaha ah si aad u soo ururiso qiimaha';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Soo cesho xogtaada daacadnimada';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Baro sida loo codsado xogtaada';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Habbee abka';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Wax ku darso mashruuca';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Siyaabaha fudud ee lagu caawin karo Furitaanka Xaqiiqooyinka Cuntada';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Habka dhibcaha, caawimada, iyo wax badan oo ku saabsan mashruuca';
 
   @override
   String get product_edit_robotoff_positive_button => 'Aqbal talada';
@@ -5486,40 +5497,40 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Fadlan dib u billow abka si aad u dabaqdo isbedelada';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Interface garaaf';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Warbaahinta';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Fur shaybaadhka Xaqiiqooyinka Cuntada';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Keen Xaqiiqo Cunno Furan luqadaada';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Isku qor nooca alfa ee abka';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Wax ku biirinta & xogta alaabta';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Ha muujin Folksonomy';
 
   @override
   String get preferences_account_title => 'Account';
