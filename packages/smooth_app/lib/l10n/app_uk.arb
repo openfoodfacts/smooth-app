@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Донатьте на Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Зареєструватися у внутрішній альфа-версії",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Будь ласка, зверніть увагу, що з внутрішньою альфа-версією можлива повна втрата даних, і додаток може стати непридатним для використання в будь-який момент!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Незавантажені продукти",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Доступ до експериментальних функцій та інструментів розробки",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Перезапустити onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "Конфігурація постачальника новин",
   "dev_mode_section_product_page": "Сторінка продукту",
   "dev_mode_section_ui": "Інтерфейс користувача",
-  "dev_mode_section_data": "Дані",
   "dev_mode_section_experimental_features": "Експериментальні функції",
-  "dev_preferences_show_folksonomy_title": "Виключити фольксономію",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Виключити Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Невідомий Nutri-Score (новий розрахунок)",
   "nutriscore_not_applicable": "Nutri-Score не застосовується",
   "nutriscore_not_applicable_new_formula": "Nutri-Score не застосовується (новий розрахунок)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Невідомий Green Score",
-  "environmental_score_not_applicable": "Green Score не застосовується",
-  "nova_group_generic": "Ультраобробка - групи НОВА",
+  "environmental_score_generic_new": "Green-Score (показник впливу на довкілля)",
+  "environmental_score_a_new": "Зелений бал A",
+  "environmental_score_b_new": "Зелений бал B",
+  "environmental_score_c_new": "Зелений бал C",
+  "environmental_score_d_new": "Зелений бал D",
+  "environmental_score_e_new": "Зелений бал E",
+  "environmental_score_unknown_new": "Невідомий зелений бал",
+  "environmental_score_not_applicable_new": "Грін-Скор не застосовується",
+  "nova_group_generic_new": "Ультраоброблені продукти - групи NOVA",
   "nova_group_1": "Група NOVA 1",
   "nova_group_2": "Група NOVA 2",
   "nova_group_3": "Група NOVA 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Усі громадяни можуть допомогти нам зібрати та структурувати інформацію, яка присутня на продуктах або яку можна з них вивести, наприклад, інформацію про упаковку: Mission Emballages: масштабна спільна інвентаризація упаковки для всіх харчових продуктів (французькою мовою)",
   "guide_greenscore_transparency_arg2_title": "Як виробники можуть допомогти",
   "guide_greenscore_transparency_arg2_text": "Виробники можуть надсилати нам свою інформацію безпосередньо через нашу безкоштовну платформу для виробників.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Який продукт кращий для планети?",
+  "guide_greenscore_better_product_arg1_title": "Важко сказати",
+  "guide_greenscore_better_product_arg1_text": "Вибір екологічно чистих продуктів харчування – це один із найпотужніших кроків, які ми можемо зробити для клімату, оскільки **наша глобальна продовольча система відповідає за понад чверть усіх викидів парникових газів**.\n(Джерело: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "У тебе є сила!",
+  "guide_greenscore_better_product_arg2_text": "Гарна новина полягає в тому, що це дає нам потужний спосіб змінити світ на краще.\n**Кожен з нас з'їдає близько 1000 страв щороку**. Це 1000 можливостей **обрати краще майбутнє для планети**!",
+  "guide_greenscore_better_product_arg3_title": "Допомагає бути відповідальним та приймати рішення",
+  "guide_greenscore_better_product_arg3_text": "Вибір екологічно чистих продуктів харчування може здатися складним. Етикетки заплутують, а інформація часто відсутня. Green-Score був створений для того, щоб спростити цей процес, надаючи вам **чіткий**, **науково обґрунтований** та **прозорий** екологічний рейтинг харчових продуктів саме там, де вам це потрібно: під час покупок.",
+  "guide_greenscore_better_product_arg4_title": "Прозорість",
+  "guide_greenscore_better_product_arg4_text": "На відміну від власних позначок, розрахунок Green-Score є **повністю відкритим** і може бути **перевірений будь-ким**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ультраоброблені продукти",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Що таке ультраобробка?",
+  "guide_nova_what_is_nova_paragraph1": "Групи NOVA інформують вас про рівень обробки харчових продуктів.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Класифікація NOVA дозволяє класифікувати продукти харчування на **4 групи** залежно від їхнього **ступеню промислової обробки** (мінімально оброблені або необроблені продукти, кулінарні інгредієнти, оброблені продукти, ультраоброблені продукти).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Логотипи NOVA",
+  "guide_nova_groups_title": "4 групи NOVA",
+  "guide_nova_groups_intro": "Існує 4 групи NOVA, проблемною є Група 4 – Ультраоброблені продукти.",
+  "guide_nova_groups_arg1_title": "Мінімально оброблені або необроблені продукти",
+  "guide_nova_groups_arg1_text": "Необроблені (або натуральні) продукти харчування – це їстівні частини рослин (насіння, плоди, листя, стебла, коріння) або тварин (м’язи, субпродукти, яйця, молоко), а також гриби, водорості та вода, після того, як їх відокремили від природи.",
+  "guide_nova_groups_arg2_title": "Оброблені кулінарні інгредієнти",
+  "guide_nova_groups_arg2_text": "Оброблені кулінарні інгредієнти, такі як олії, масло, цукор та сіль, – це речовини, отримані з продуктів Групи 1 або з природи за допомогою процесів, що включають пресування, рафінування, подрібнення, фрезерування та сушіння.",
+  "guide_nova_groups_arg3_title": "Напівфабрикати",
+  "guide_nova_groups_arg3_text": "Перероблені харчові продукти, такі як овочі в пляшках, рибні консерви, фрукти в сиропі, сири та свіжоспечений хліб, в основному виготовляються шляхом додавання солі, олії, цукру або інших речовин з 2-ї групи до продуктів 1-ї групи. Процеси включають різні методи консервування або приготування їжі, а у випадку хліба та сиру - безалкогольне бродіння. Більшість перероблених харчових продуктів містять два або три інгредієнти та є модифікованими версіями продуктів 1-ї групи. Їх можна вживати окремо або, що частіше, у поєднанні з іншими продуктами.",
+  "guide_nova_groups_arg4_title": "Ультраоброблені продукти",
+  "guide_nova_groups_arg4_text": "Ультраоброблені харчові продукти, такі як безалкогольні напої, солодкі або солоні упаковані снеки, відновлені м'ясні продукти та попередньо приготовані заморожені страви, – це не просто модифіковані харчові продукти, а рецептури, виготовлені переважно або повністю з речовин, отриманих з харчових продуктів та добавок, з малою кількістю або взагалі без неушкоджених харчових продуктів Групи 1. Інгредієнти в цих рецептурах зазвичай включають ті, що також містяться в оброблених харчових продуктах, такі як цукри, олії, жири або сіль. Однак ультраоброблені продукти також містять інші джерела енергії та поживних речовин, які зазвичай не використовуються в кулінарних приготуваннях. Деякі з них безпосередньо видобуваються з харчових продуктів, такі як казеїн, лактоза, сироватка та глютен.",
+  "guide_nova_explanations_title": "Проблеми з ультраобробкою",
+  "guide_nova_explanations_arg1_title": "Екстремальна обробка харчових інгредієнтів",
+  "guide_nova_explanations_arg1_text": "Багато з них отримують в результаті подальшої обробки харчових компонентів, таких як гідрогенізовані або переетерифіковані олії, гідролізовані білки, ізолят соєвого білка, мальтодекстрин, інвертний цукор та кукурудзяний сироп з високим вмістом фруктози.",
+  "guide_nova_explanations_arg2_title": "Добавки, що виходять за рамки чистої безпеки харчових продуктів",
+  "guide_nova_explanations_arg2_text": "Добавки в ультраоброблених харчових продуктах включають деякі, що також використовуються в оброблених харчових продуктах, такі як консерванти, антиоксиданти та стабілізатори. Класи добавок, що містяться лише в ультраоброблених продуктах, включають ті, що використовуються для імітації або покращення сенсорних якостей харчових продуктів або для маскування несмачних аспектів кінцевого продукту. Ці добавки включають барвники та інші барвники, стабілізатори кольору; ароматизатори, підсилювачі смаку, нецукрові підсолоджувачі; та допоміжні речовини для обробки, такі як карбонізатори, зміцнювачі, наповнювачі та антинаповнювачі, піногасники, антизлежувачі та глазурувальники, емульгатори, секвестранти та зволожувачі.",
+  "guide_nova_explanations_arg3_title": "Обробка, яку неможливо виконати вдома",
+  "guide_nova_explanations_arg3_text": "Для поєднання зазвичай багатьох інгредієнтів та створення кінцевого продукту (звідси й «ультраоброблений») використовується безліч послідовностей процесів. Ці процеси включають кілька, які не мають побутових аналогів, таких як гідрогенізація та гідролізація, екструзія та формування, а також попередня обробка для смаження.",
+  "guide_nova_explanations_arg4_title": "Хижацькі та фінансові аспекти ультраобробки",
+  "guide_nova_explanations_arg4_text": "Загальна мета ультраобробки полягає у створенні брендованих, зручних (міцних, готових до вживання), привабливих (надто смачних) та високоприбуткових (з низькими витратами на інгредієнти) харчових продуктів, призначених для витіснення всіх інших груп продуктів харчування. Ультраоброблені харчові продукти зазвичай привабливо упаковуються та інтенсивно просуваються на ринку.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Попередній перегляд",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Загальні",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Ціни",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Керуйте своїми ціновими налаштуваннями",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Проєкт «Факти про відкриту їжу»",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Підтримати проєкт",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Перекладайте, покращуйте наші інструменти…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Підключитися",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Звертайтеся до нас або слідкуйте за нами в соціальних мережах",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Зробіть пожертву",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Допоможіть нам інформувати мільйони споживачів у всьому світі",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Довідка та підтримка",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "ЧаПИ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Отримайте відповіді на свої запитання",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Вийшов з системи",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Дякуємо, що ви є одним із наших учасників!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Змінені товари",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Переглянути всю статистику",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Пошук {provider} за запитом \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Пошук налаштування (наприклад, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Доступність: Показати емодзі",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Доступність: Видалити кольори",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Товари",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Про додаток",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Правова інформація",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Умови використання, політика конфіденційності та інше",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Умови використання",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Юридичні згадки",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Політика конфіденційности",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Ліцензії",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Про додаток",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Технічна інформація, інформація для розробників та інше",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Інформація",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Номер версії",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Сканер",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Магазин додатків",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Системні налаштування",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Доступ до вихідного коду",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "І почніть впливати на мільйони",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Додати ціни",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Доповнюйте інформацію про продукти",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Поради",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Відкрийте для себе новий Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "На веб-сайті Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Керувати моїм обліковим записом",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Змінити мій пароль",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "НЕБЕЗПЕЧНА ЗОНА",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Усі ваші внески будуть втрачені",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Внески",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Налаштування програми",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Дуже експериментальний спосіб сканування продуктів офлайн",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Оновити всі продукти з сервера",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Будь ласка, уникайте цього, якщо це не є абсолютно необхідним",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Демо-режим",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Додавання карток до сканера",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Додає 3 зразки продуктів до сканера",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Ведучий фолксономії",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Експерименти з доступністю",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Вибір кількох товарів за цінами",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Користувачі впорядкували панелі знань",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Тимчасовий доступ до пошуку місцезнаходження",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Порівняння 2 або 3 продуктів",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Імпорт списку товарів",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Оцінки та методології",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Дізнайтеся, як розраховується Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Дізнайтеся про основні зміни в методології",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Відкрийте для себе проєкт",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Відкрийте для себе факти про відкриту їжу",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Часті запитання",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Громадська організація «Факти про відкриту їжу»",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Інформація",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Отримуйте оновлення спільноти",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Будьте в курсі новин застосунку та спільноти",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Підпишіться на календар нашої спільноти",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Долучайтеся, відвідавши один із наших віртуальних заходів",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Слідкуйте за нами в соціальних мережах",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Блог «Факти про відкриту їжу»",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Отримуйте останні новини, як тільки вони трапляються",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Отримайте допомогу від громади",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Допоможіть нам покращити додаток",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Надішліть нам інформацію для налагодження",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Надішліть нам електронного листа з детальною інформацією про налагодження",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Надішліть нам відгук про додаток",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Допоможіть сформувати майбутнє додатка",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Пройдіть опитування щодо програми",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Допоможіть нам зрозуміти, що нам слід будувати далі",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Професіонали",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Абсолютно безкоштовно, забезпечує точні дані для 500 програм та мільйонів споживачів. Самообслуговування, сумісне з вашим PIM або електронними таблицями (XLSX).",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Зв'яжіться з нами, щоб розпочати",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Натисніть",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Отримайте всі необхідні матеріали для вашого звіту",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Звертайтеся до нас з питань преси або щоб повідомити про ваш звіт",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Станьте активним волонтером",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Розробка, комунікація, дизайн… будь-який вид волонтерства чи експертизи вітається!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Відкрийте для себе деякі з багатьох способів, як ви можете зробити свій внесок",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Розробка мобільних додатків",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Дізнайтеся, як зробити внесок у розробку програмного забезпечення",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Щоденні нестабільні збірки, абсолютно нові функції",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Розвивайте свою місцеву громаду",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Допомога з програмним забезпеченням, контентом, перекладом аналізу інгредієнтів",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Ми підготували невеликий шаблон, щоб допомогти вам :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Прості кроки для підвищення прозорості харчових продуктів у вашій країні",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Якість даних",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Приєднуйтесь до команди з якості даних",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Приєднуйтесь до наших зусиль, щоб забезпечити повноту та точність бази даних",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "Додано 0 товарів",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Нові продукти, які я додав до Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Продукти, які мені потрібно виконати",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Усі некомплектні продукти",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Продукти, які ви можете допомогти завершити",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Допоможіть розрахувати Nutri-Score та Green-Score у вашій країні",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Ціни, які я надав",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Цінники та квитанції",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Сфотографуйте свої чеки та відскануйте відповідні штрих-коди",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Фотографуйте ціни в магазині",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Найновіші ціни",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Останні ціни, додані спільнотою Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Автори з найбільшою кількістю цін",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Метрики ціни відкриття",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Слідкуйте за розвитком проекту",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Способи зробити внесок",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Підтверджуйте ціни, додані вами або іншими, за допомогою штучного інтелекту",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Швидко додавайте багато чеків або фотографій полиць зі своєї фотоплівки",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Щомісячні виклики",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Беріть участь у щомісячних тематичних квестах, щоб збирати призи",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Поверніть свої дані лояльності",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Дізнайтеся, як запросити свої дані",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Налаштуйте програму",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Зробіть свій внесок у проєкт",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Прості способи допомогти. Відкрийте факти про їжу.",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Методології оцінювання, допомога та багато іншого про проєкт",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Прийняти пропозицію",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Не вдалося пройти автентифікацію, неможливо отримати докази",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Будь ласка, перезапустіть програму, щоб застосувати зміни.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Графічний інтерфейс",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Медіа",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Розроблення",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Відкриті лабораторії фактів про їжу",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Обліковий запис",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Перенесіть Open Food Facts на свою мову",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Зареєструйтесь в альфа-версії програми",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Внески та дані про продукт",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Не показувати фолксономію",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Обліковий запис",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "प्रयोगात्मकविशेषताः विकाससाधनं च प्राप्नुवन्तु",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "हरित-अङ्क A",
+  "environmental_score_b_new": "हरित-अङ्क B",
+  "environmental_score_c_new": "हरित-अङ्क C",
+  "environmental_score_d_new": "हरित-अङ्क D",
+  "environmental_score_e_new": "हरित-स्कोर ई",
+  "environmental_score_unknown_new": "अज्ञात ग्रीन-स्कोर",
+  "environmental_score_not_applicable_new": "ग्रीन-स्कोर न प्रयोज्यम्",
+  "nova_group_generic_new": "अति-संसाधित खाद्यपदार्थाः - NOVA समूहाः",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "सर्वे नागरिकाः अस्माकं सहायतां कर्तुं शक्नुवन्ति यत् उत्पादेषु वर्तमानाः अथवा तेभ्यः निष्कर्षः निकासितुं शक्यन्ते, यथा पैकेजिंग् विषये सूचना: Mission Emballages: सर्वेषां खाद्यपदार्थानाम् पैकेजिंगस्य बृहत्-परिमाणस्य सहकारिणी-सूची (फ्रेञ्चभाषायां)",
   "guide_greenscore_transparency_arg2_title": "निर्मातारः कथं साहाय्यं कर्तुं शक्नुवन्ति",
   "guide_greenscore_transparency_arg2_text": "निर्मातारः उत्पादकानां कृते अस्माकं निःशुल्कमञ्चद्वारा प्रत्यक्षतया स्वसूचनाः अस्मान् प्रेषयितुं शक्नुवन्ति।",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/हरित-अङ्कः",
+  "guide_greenscore_better_product_title": "ग्रहस्य कृते कः उत्पादः श्रेष्ठः ?",
+  "guide_greenscore_better_product_arg1_title": "कठिनं वक्तुं शक्यते",
+  "guide_greenscore_better_product_arg1_text": "स्थायिभोजनस्य चयनं जलवायुस्य कृते वयं कर्तुं शक्नुमः इति एकं शक्तिशाली कार्यम् अस्ति, यतः **अस्माकं वैश्विकखाद्यव्यवस्था सर्वेषां ग्रीनहाउस-वायु-उत्सर्जनस्य चतुर्थांशाधिकस्य उत्तरदायी अस्ति** |.\n(स्रोत: Poore & Nemecek, विज्ञान, 2018)।",
+  "guide_greenscore_better_product_arg2_title": "भवतः शक्तिः अस्ति !",
+  "guide_greenscore_better_product_arg2_text": "सुसमाचारः अस्ति यत् एतेन परिवर्तनस्य निर्माणस्य एकः शक्तिशाली मार्गः प्राप्यते।\n**अस्माकं प्रत्येकं प्रतिवर्षं प्रायः १,००० भोजनं खादति**। तत् **ग्रहस्य कृते उत्तमं भविष्यं चयनं कर्तुं** १,००० अवसराः!",
+  "guide_greenscore_better_product_arg3_title": "उत्तरदायी भवितुं निर्णयं च कर्तुं साहाय्यं करोति",
+  "guide_greenscore_better_product_arg3_text": "स्थायिभोजनस्य चयनं जटिलं अनुभवितुं शक्नोति। लेबल् भ्रान्तिकारकं भवति, सूचना च प्रायः अभावः भवति । ग्रीन-स्कोर इत्यस्य निर्माणं सरलं कर्तुं कृतम्, यत् भवन्तं खाद्यपदार्थानाम् कृते **स्पष्टं**, **विज्ञान-आधारितं**, **पारदर्शकं** च पर्यावरण-रेटिंग् ददाति, यत्र भवतः आवश्यकता अस्ति: यदा भवन्तः शॉपिङ् कुर्वन्ति।",
+  "guide_greenscore_better_product_arg4_title": "पारदर्शिता",
+  "guide_greenscore_better_product_arg4_text": "स्वामित्वलेबलस्य विपरीतम्, Green-Score गणना **पूर्णतया उद्घाटिता** अस्ति तथा च **केनापि सत्यापितुं शक्यते** ।",
+  "guide_greenscore_share_link": "https://hi.openfoodfacts.org/ग्रीन-स्कोर इति वृत्तान्तः",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "अति-प्रक्रियाकरणं किम् ?",
+  "guide_nova_what_is_nova_paragraph1": "नोवा-समूहाः भवन्तं खाद्यप्रसंस्करणस्य स्तरस्य विषये सूचयन्ति ।",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA वर्गीकरणेन खाद्यपदार्थानाम् **औद्योगिकप्रसंस्करणस्य डिग्री** (न्यूनतमरूपेण संसाधितानि अथवा अप्रसंस्कृतानि खाद्यानि, पाकसामग्री, संसाधितानि खाद्यानि, अति-संसाधितानि खाद्यानि) आधारेण **4 समूहेषु** वर्गीकरणस्य अनुमतिः अस्ति",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "नोवा-चिह्नानि",
+  "guide_nova_groups_title": "४ नोवा समूहाः",
+  "guide_nova_groups_intro": "अत्र ४ नोवा-समूहाः सन्ति, समस्याप्रदः समूहः ४ - अल्ट्रा-प्रोसेस्ड् खाद्यानि ।",
+  "guide_nova_groups_arg1_title": "न्यूनतमरूपेण संसाधितानि अथवा असंसाधितानि आहारपदार्थानि",
+  "guide_nova_groups_arg1_text": "अप्रसंस्कृतानि (प्राकृतिकानि वा) आहाराः वनस्पतयः (बीजानि, फलानि, पत्राणि, काण्डानि, मूलं) वा पशूनां (स्नायुः, आन्तरिकाः, अण्डानि, दुग्धं) खाद्यभागाः, तथैव कवकाः, शैवालाः, जलं च प्रकृत्याः पृथक् कृत्वा भवन्ति",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "संसाधिताः पाकसामग्रीः, यथा तैलं, घृतं, शर्करा, लवणं च, समूह 1 खाद्यपदार्थेभ्यः अथवा प्रकृत्याः प्रक्रियाणां माध्यमेन प्राप्ताः पदार्थाः सन्ति, येषु दबावः, परिष्कारः, पीसः, पिष्टः, शोषणं च अन्तर्भवति",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "संसाधितानि आहारपदार्थानि, यथा शीशीकृतानि शाकानि, डिब्बाबंदमत्स्यानि, सिरपमध्ये फलानि, पनीरं, नवनिर्मितानि रोटिकानि च मुख्यतया समूह 2 तः समूह 1 खाद्यपदार्थेषु लवणं, तैलं, शर्करा, अन्यद्रव्याणि वा योजयित्वा निर्मिताः भवन्ति प्रक्रियासु विविधाः संरक्षणविधयः पाकविधयः वा, रोटिकानां, पनीरस्य च सन्दर्भे अमद्ययुक्तं किण्वनं च अन्तर्भवति । अधिकांशतः संसाधितभोजनेषु द्वौ वा त्रीणि वा घटकानि सन्ति, ते च समूह 1 खाद्यानां परिवर्तितसंस्करणरूपेण ज्ञातुं शक्यन्ते । स्वयमेव वा अधिकतया अन्यैः आहारैः सह वा खादितुं शक्यन्ते ।",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "अति-संसाधितानि खाद्यानि, यथा शीतलपेयानि, मधुराणि वा स्वादिष्टानि वा पैकेज्ड् स्नैक्स, पुनर्गठितमांसपदार्थाः, पूर्वनिर्मितानि जमेन व्यञ्जनानि च, केवलं परिवर्तितानि आहारपदार्थानि न अपितु अधिकतया वा पूर्णतया वा खाद्यपदार्थैः, योजकैः च प्राप्तैः पदार्थैः निर्मिताः सूत्राणि सन्ति, यत्र समूहः १ अन्नं अल्पं वा न वा अक्षुण्णं भवति एतेषु सूत्रेषु प्रायः शर्करा, तैलं, मेदः, लवणं वा इत्यादिषु संसाधितभोजनेषु अपि दृश्यन्ते । परन्तु अति-संसाधित-उत्पादानाम् अन्ये ऊर्जा-स्रोताः अपि सन्ति, पोषक-द्रव्याणि च सन्ति, येषां उपयोगः सामान्यतया पाककलायां न भवति । एतेषु केचन प्रत्यक्षतया कैसिन्, लैक्टोज, मृदा, लसः इत्यादिभ्यः आहारपदार्थेभ्यः निष्कासिताः भवन्ति ।",
+  "guide_nova_explanations_title": "अति-प्रक्रियाकरणस्य समस्याः",
+  "guide_nova_explanations_arg1_title": "आहारसामग्रीणां अत्यन्तं प्रसंस्करणम्",
+  "guide_nova_explanations_arg1_text": "अनेकाः खाद्यघटकानाम् अग्रे प्रसंस्करणात् उत्पद्यन्ते, यथा हाइड्रोजनयुक्तानि अथवा ब्याजयुक्तानि तैलानि, जलविघटनितप्रोटीनानि, सोयाप्रोटीनपृथक्करणं, माल्टोडेक्स्ट्रिन्, इन्वर्टशर्करा, उच्च-फ्रुक्टोज-मक्का-सिरप् च",
+  "guide_nova_explanations_arg2_title": "शुद्धाहारसुरक्षायाः परं गच्छन्ति ये योजकाः",
+  "guide_nova_explanations_arg2_text": "अति-संसाधित-आहारेषु योजकाः केचन सन्ति येषां उपयोगः संसाधित-आहारेषु अपि भवति, यथा संरक्षकाः, एण्टीऑक्सिडेण्ट्, स्थिरीकरणं च । केवलं अति-संसाधित-उत्पादेषु दृश्यमानानां योजकवर्गेषु खाद्यानां संवेदीगुणानां अनुकरणाय वा वर्धनाय वा अन्तिम-उत्पादस्य अस्वादहीन-पक्षेषु वेषं स्थापयितुं वा प्रयुक्ताः योजकाः सन्ति एतेषु योजकानाम् अन्तर्भवति रञ्जकाः अन्ये च वर्णाः, वर्णस्थिरीकरणकर्तारः; स्वादाः, स्वादवर्धकाः, अशर्करा मधुरकारकाः; तथा कार्बोनेशन, फर्मिंग, बल्किंग् तथा एण्टी-बल्किंग एजेण्ट्, डि-फोमिंग, एण्टी-केकिंग तथा ग्लेज़िंग एजेण्ट्, पायसीकारी, सिक्वेस्ट्रेण्ट्, ह्यूमेक्टेण्ट् इत्यादीनि प्रसंस्करणसहायकाः।",
+  "guide_nova_explanations_arg3_title": "प्रसंस्करणं भवन्तः गृहे कर्तुं न शक्नुवन्ति",
+  "guide_nova_explanations_arg3_text": "सामान्यतया अनेकानाम् अवयवानां संयोजनाय अन्तिम-उत्पादस्य (अतः 'अति-संसाधित') निर्माणार्थं प्रक्रियाणां क्रमानां बहुलतायाः उपयोगः भवति । प्रक्रियासु अनेकाः सन्ति येषां घरेलुसमतुल्यता नास्ति, यथा जलवायुकरणं जलविपाकं च, निष्कासनं, ढालनं च, भर्जनार्थं पूर्वप्रक्रियाकरणं च",
+  "guide_nova_explanations_arg4_title": "अति-प्रक्रियाकरणस्य शिकारी-वित्तीय-पक्षाः",
+  "guide_nova_explanations_arg4_text": "अति-प्रक्रियाकरणस्य समग्रं उद्देश्यं अन्येषां सर्वेषां खाद्यसमूहानां विस्थापनार्थं डिजाइनं कृत्वा ब्राण्ड्-कृतं, सुविधाजनकं (स्थायित्वं, उपभोगार्थं सज्जं), आकर्षकं (अति-स्वादयुक्तं) अत्यन्तं लाभप्रदं (कम-लाभयुक्तं घटकं) च खाद्यपदार्थानां निर्माणं भवति अल्ट्रा-प्रोसेस्ड् खाद्यपदार्थाः प्रायः आकर्षकरूपेण पैकेज्ड् भवन्ति, गहनतया च विपणनं कुर्वन्ति ।",
+  "guide_nova_share_link": "https://hi.openfoodfacts.org/nova इति वृत्तान्तः",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "स्वस्य मूल्यप्राथमिकतानां प्रबन्धनं कुर्वन्तु",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "मुक्तभोजनतथ्यपरियोजना",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "अनुवादं कुर्वन्तु, अस्माकं साधनानि सुधारयन्तु…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "संयुज्",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "हस्तं प्रसारयन्तु, अथवा सामाजिकमाध्यमेषु अस्मान् अनुसरणं कुर्वन्तु",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "विश्वस्य कोटिकोटि उपभोक्तृभ्यः सूचनां दातुं अस्मान् साहाय्यं कुर्वन्तु",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "सहायता एवं समर्थन",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "भवतः प्रश्नानाम् उत्तराणि प्राप्नुवन्तु",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "लॉग आउट् कृतवान्",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "अस्माकं सदस्येषु अन्यतमः इति धन्यवादः!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "सर्वाणि आँकडानि पश्यन्तु",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "\"{keyword}\" इति {provider} इति अन्वेषणं कुर्वन्तु ।",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "सेटिंग् अन्वेष्टुम् (उदा. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "सुलभता : इमोजी दर्शयतु",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "सुलभता : वर्णाः निष्कासयन्तु",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "कानूनी सूचना",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "उपयोगस्य नियमाः, गोपनीयतानीतिः, इत्यादीनि च",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "अनुज्ञापत्राणि",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "एप् विषये",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "तकनीकीसूचना, विकासकस्य सूचना, इत्यादीनि च",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "संस्करणसङ्ख्या",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "स्कैनर",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "एप् स्टोर",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "सिस्टम् सेटिंग्स्",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "स्रोतसङ्केतं प्राप्नुवन्तु",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "तथा कोटिजनानाम् कृते प्रभावं कर्तुं आरभत",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "संकेता",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "नवीनं Nutri-Score इति अन्वेषणं कुर्वन्तु",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts इति जालपुटे",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "मम खातं प्रबन्धयतु",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "मम गुप्तशब्दं परिवर्तयन्तु",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "खतरा क्षेत्र",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "भवतः सर्वाणि योगदानानि नष्टानि भविष्यन्ति",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "एप् सेटिंग्स्",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "उत्पादानाम् अफलाइन स्कैनिङ्गस्य अतीव प्रयोगात्मकः उपायः",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "सर्वरतः सर्वाणि उत्पादानि ताजगीकृत्य स्थापयन्तु",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "कृपया तत् कर्तुं परिहरन्तु यावत् अत्यन्तं आवश्यकं न भवति",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "डेमो मोड",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "स्कैनर् मध्ये कार्ड्स् योजयन्तु",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "स्कैनरे ३ नमूनाउत्पादाः योजयति",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "लोकस्वरशास्त्र यजमान",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "सुलभता प्रयोगाः",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "मूल्यानां कृते बहु-उत्पादचयनम्",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "उपयोक्त्रेण ज्ञानपटलानि आदेशितानि",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "स्थानसन्धानस्य अस्थायी प्रवेशः",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "२ वा ३ उत्पादानाम् कृते पार्श्वे पार्श्वे तुलना",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "उत्पादसूची आयातम्",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "स्कोर एवं पद्धतियाँ",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score इत्यस्य गणना कथं भवति इति अन्वेष्टुम्",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "पद्धत्या मुख्यपरिवर्तनानि अन्वेषयन्तु",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "खुले खाद्यतथ्यस्य आविष्कारं कुर्वन्तु",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - बहुधा पृष्टाः प्रश्नाः",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "द ओपन फूड फैक्ट्स एनजीओ",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "समुदायस्य अद्यतनं प्राप्नुवन्तु",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "एप् तथा सामुदायिकवार्ता सह लूप् मध्ये तिष्ठन्तु",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "अस्माकं एकस्मिन् आभासीकार्यक्रमे भागं गृहीत्वा सम्मिलिताः भवन्तु",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "सामाजिकमाध्यमेषु अस्मान् अनुसरणं कुर्वन्तु",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "The Open Food Facts इति ब्लोग्",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "नवीनतमवार्ताः प्राप्नुवन्तु, यथा भवन्ति",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "समुदायतः सहायतां प्राप्नुवन्तु",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "एप् सुधारयितुम् अस्मान् साहाय्यं कुर्वन्तु",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "अस्मान् त्रुटिनिवारणसूचना प्रेषयन्तु",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "विस्तृतं त्रुटिनिवारणसूचना सह अस्मान् ईमेल प्रेषयन्तु",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "एप् विषये प्रतिक्रियाः अस्मान् प्रेषयन्तु",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "एप्लिकेशनस्य भविष्यं स्वरूपयितुं सहायतां कुर्वन्तु",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "एप् सर्वेक्षणं गृह्यताम्",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "अग्रे किं निर्मातव्यम् इति अवगन्तुं अस्मान् साहाय्यं कुर्वन्तु",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "व्यावसायिक",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "सर्वथा निःशुल्कं, 500 एप्स & कोटिकोटि उपभोक्तृणां कृते सटीकदत्तांशं सुनिश्चितं करोति। स्वसेवा, भवतः PIM अथवा स्प्रेडशीट् (XLSX) सह सङ्गतम्",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "आरम्भं कर्तुं सम्पर्कं कुर्वन्तु",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "भवतः प्रतिवेदनस्य कृते आवश्यकं सर्वं सामग्रीं प्राप्नुवन्तु",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "प्रेस-प्रश्नार्थं वा भवतः प्रतिवेदनस्य विषये अस्मान् ज्ञापयितुं वा सम्पर्कं कुर्वन्तु",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "सक्रियः स्वयंसेवकः भवतु",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "विकास, संचार, डिजाइन… किसी भी प्रकार के स्वयंसेवा या विशेषज्ञता का स्वागत है!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "भवन्तः योगदानं दातुं शक्नुवन्ति अनेकेषु उपायासु केचन उपायाः अन्वेषयन्तु",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "मोबाईल एप्लिकेशन विकास",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "सॉफ्टवेयरविकासे कथं योगदानं दातुं शक्यते इति ज्ञातव्यम्",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "दैनिकं अस्थिरनिर्माणं, नूतनानि विशेषतानि",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "स्वस्थानीयसमुदायं वर्धयन्तु",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "सॉफ्टवेयर, सामग्री, घटकविश्लेषण अनुवादेषु सहायतां कुर्वन्तु",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "भवतः सहायार्थं वयं किञ्चित् टेम्पलेट् सज्जीकृतवन्तः :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "भवतः देशे खाद्यपारदर्शितायाः वर्धनार्थं सरलपदार्थाः",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "दत्तांशगुणवत्तादले सम्मिलिताः भवन्तु",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "दत्तांशकोशः सम्पूर्णः समीचीनः च इति सुनिश्चित्य अस्माकं प्रयासे सम्मिलिताः भवन्तु",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 उत्पादाः योजिताः",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "मया Open Food Facts इत्यत्र नवीनाः उत्पादाः योजिताः",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "उत्पादाः मया पूर्णाः कर्तव्याः",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "सर्वे अपूर्णाः उत्पादाः",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "उत्पादाः भवन्तः पूर्णं कर्तुं साहाय्यं कर्तुं शक्नुवन्ति",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "स्वदेशे Nutri-Score & Green-Score इत्यस्य गणनायां सहायतां कुर्वन्तु",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "मूल्यानि मया योगदानं दत्तम्",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "मूल्यचिह्नानि रसीदानि च",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "स्वस्य रसीदानां छायाचित्रं गृहीत्वा तत्सम्बद्धानां बारकोड् स्कैन् कुर्वन्तु",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "एकस्मिन् दुकाने मूल्यानां छायाचित्रं गृह्यताम्",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "नवीनतममूल्यानि",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Open Prices समुदायेन योजिताः नवीनतमाः मूल्याः",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "अधिकतममूल्यानि युक्ताः योगदातारः",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "मूल्यमापनं उद्घाटयतु",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "परियोजनायाः विकासस्य अनुसरणं कुर्वन्तु",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "योगदानस्य उपायाः",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "स्वयमेव वा अन्यैः वा योजितमूल्यानां पुष्टिं कुर्वन्तु, एआइ इत्यस्य साहाय्येन",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "शीघ्रं स्वस्य कॅमेरा-रोलतः अनेकानि रसीदानि अथवा अलमारयः फोटो योजयन्तु",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "मासिकं आव्हानं",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "मूल्यानि संग्रहीतुं मासिकविषयगत-अन्वेषणेषु भागं गृह्णन्तु",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "स्वस्य निष्ठादत्तांशं पुनः प्राप्नुवन्तु",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "भवतः दत्तांशं कथं अनुरोधयितुं शक्यते इति ज्ञातव्यम्",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "एप् अनुकूलितं कुर्वन्तु",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "परियोजनायां योगदानं ददातु",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Open Food Facts इत्यस्य सहायतायाः सरलाः उपायाः",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "परियोजनायाः विषये पद्धतिः, सहायता, इत्यादीनि च स्कोरं कुर्वन्तु",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "सुझावं स्वीकुरुत",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "प्रमाणीकरणं विफलम्, प्रमाणानि आनेतुं असमर्थम्",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "परिवर्तनं प्रयोक्तुं कृपया एप् पुनः आरभत।",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "चित्रात्मकं अन्तरफलकं",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "मीडिया",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "खाद्यतथ्यप्रयोगशालाः उद्घाटयन्तु",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Open Food Facts इत्येतत् स्वभाषायां आनयन्तु",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "एप् इत्यस्य अल्फा संस्करणे नामाङ्कनं कुर्वन्तु",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "योगदान एवं उत्पाद डेटा",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "लोकपदं न दर्शयतु",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

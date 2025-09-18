@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Akses ciri percubaan dan alat pembangunan",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Skor Hijau A",
+  "environmental_score_b_new": "Skor Hijau B",
+  "environmental_score_c_new": "Skor Hijau C",
+  "environmental_score_d_new": "Skor Hijau D",
+  "environmental_score_e_new": "Skor Hijau E",
+  "environmental_score_unknown_new": "Skor Hijau Tidak Diketahui",
+  "environmental_score_not_applicable_new": "Green-Score tidak berkenaan",
+  "nova_group_generic_new": "Makanan ultra-diproses - kumpulan NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Semua rakyat boleh membantu kami mengumpulkan dan menyusun maklumat yang terdapat pada produk atau yang boleh disimpulkan daripadanya, seperti maklumat tentang pembungkusan: Mission Emballages: inventori pembungkusan kerjasama berskala besar untuk semua produk makanan (dalam bahasa Perancis)",
   "guide_greenscore_transparency_arg2_title": "Bagaimana pengilang boleh membantu",
   "guide_greenscore_transparency_arg2_text": "Pengilang boleh menghantar maklumat mereka terus kepada kami melalui platform percuma kami untuk pengeluar.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Produk manakah yang lebih baik untuk planet ini?",
+  "guide_greenscore_better_product_arg1_title": "Ia boleh menjadi sukar untuk diberitahu",
+  "guide_greenscore_better_product_arg1_text": "Memilih makanan yang mampan ialah salah satu perkara paling berkuasa yang boleh kita lakukan untuk iklim, kerana **sistem makanan global kita bertanggungjawab untuk lebih satu perempat daripada semua pelepasan gas rumah hijau**.\n(Sumber: Poore & Nemecek, Sains, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Anda mempunyai kuasa!",
+  "guide_greenscore_better_product_arg2_text": "Berita baiknya ialah ini memberi kita cara yang berkesan untuk mencipta perubahan.\n**Setiap daripada kita makan sekitar 1,000 hidangan setiap tahun**. Itulah 1,000 peluang untuk **memilih masa depan yang lebih baik untuk planet ini**!",
+  "guide_greenscore_better_product_arg3_title": "Membantu untuk bertanggungjawab dan membuat keputusan",
+  "guide_greenscore_better_product_arg3_text": "Memilih makanan yang mampan boleh terasa rumit. Label mengelirukan dan maklumat sering hilang. Green-Score dicipta untuk menjadikannya mudah, memberikan anda penilaian alam sekitar **jelas**, **berasaskan sains** dan **telus** untuk produk makanan, tepat di tempat yang anda perlukan: semasa anda membeli-belah.",
+  "guide_greenscore_better_product_arg4_title": "Ketelusan",
+  "guide_greenscore_better_product_arg4_text": "Tidak seperti label proprietari, pengiraan Green-Score **terbuka sepenuhnya** dan boleh **disahkan oleh sesiapa sahaja**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Apakah pemprosesan ultra?",
+  "guide_nova_what_is_nova_paragraph1": "Kumpulan NOVA memberitahu anda tentang tahap pemprosesan makanan.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Klasifikasi NOVA membenarkan pengkategorian makanan kepada **4 kumpulan** berdasarkan **darjah pemprosesan industri** mereka (makanan diproses atau tidak diproses secara minimum, bahan masakan, makanan diproses, makanan ultra-diproses).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Logo NOVA",
+  "guide_nova_groups_title": "4 kumpulan NOVA",
+  "guide_nova_groups_intro": "Terdapat 4 kumpulan NOVA, yang bermasalah ialah Kumpulan 4 - Makanan ultra-proses.",
+  "guide_nova_groups_arg1_title": "Makanan yang diproses secara minimum atau tidak diproses",
+  "guide_nova_groups_arg1_text": "Makanan yang tidak diproses (atau semula jadi) ialah bahagian tumbuhan yang boleh dimakan (biji, buah, daun, batang, akar) atau haiwan (otot, jeroan, telur, susu), serta kulat, alga, dan air, selepas dipisahkan daripada alam semula jadi.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Bahan masakan yang diproses, seperti minyak, mentega, gula dan garam, adalah bahan yang diperoleh daripada makanan Kumpulan 1 atau daripada alam semula jadi melalui proses yang termasuk menekan, menapis, mengisar, mengisar dan mengeringkan.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Makanan yang diproses, seperti sayur-sayuran dalam botol, ikan dalam tin, buah-buahan dalam sirap, keju dan roti yang baru dibuat, terutamanya dibuat dengan menambahkan garam, minyak, gula atau bahan lain daripada makanan Kumpulan 2 kepada Kumpulan 1. Proses termasuk pelbagai kaedah pengawetan atau memasak, dan dalam kes roti dan keju, penapaian bukan alkohol. Kebanyakan makanan yang diproses mempunyai dua atau tiga bahan dan boleh dikenali sebagai versi diubah suai bagi makanan Kumpulan 1. Mereka boleh dimakan sendiri atau, lebih biasa, digabungkan dengan makanan lain.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Makanan ultra-diproses, seperti minuman ringan, snek berbungkus manis atau berperisa, produk daging yang disusun semula, dan hidangan sejuk beku yang telah disediakan sebelum ini, bukan sekadar makanan yang diubah suai tetapi formulasi yang dibuat kebanyakannya atau keseluruhannya daripada bahan yang diperoleh daripada makanan dan bahan tambahan, dengan sedikit atau tiada makanan Kumpulan 1 yang utuh. Ramuan dalam formulasi ini biasanya termasuk yang juga terdapat dalam makanan yang diproses, seperti gula, minyak, lemak atau garam. Walau bagaimanapun, produk ultra-diproses juga mengandungi sumber tenaga dan nutrien lain yang biasanya tidak digunakan dalam penyediaan masakan. Sebahagian daripada ini diekstrak terus daripada makanan, seperti kasein, laktosa, whey, dan gluten.",
+  "guide_nova_explanations_title": "Masalah dengan pemprosesan ultra",
+  "guide_nova_explanations_arg1_title": "Pemprosesan bahan makanan yang melampau",
+  "guide_nova_explanations_arg1_text": "Kebanyakannya diperoleh daripada pemprosesan lanjut juzuk makanan, seperti minyak terhidrogenasi atau yang diminati, protein terhidrolisis, pengasingan protein soya, maltodekstrin, gula songsang dan sirap jagung fruktosa tinggi.",
+  "guide_nova_explanations_arg2_title": "Aditif yang melampaui keselamatan makanan tulen",
+  "guide_nova_explanations_arg2_text": "Aditif dalam makanan ultra-diproses termasuk beberapa yang juga digunakan dalam makanan yang diproses, seperti pengawet, antioksidan dan penstabil. Kelas aditif yang hanya terdapat dalam produk ultra-proses termasuk yang digunakan untuk meniru atau meningkatkan kualiti deria makanan atau untuk menyamarkan aspek produk akhir yang tidak enak. Bahan tambahan ini termasuk pewarna dan warna lain, penstabil warna; perisa, penambah rasa, pemanis bukan gula; dan bahan bantu pemprosesan seperti agen pengkarbonat, penegang, pukal dan anti pukal, penyahbuih, agen anti pecak dan kaca, pengemulsi, sekuestran dan humektan.",
+  "guide_nova_explanations_arg3_title": "Pemprosesan yang anda tidak boleh lakukan di rumah",
+  "guide_nova_explanations_arg3_text": "Pelbagai urutan proses digunakan untuk menggabungkan bahan yang biasanya banyak dan untuk mencipta produk akhir (oleh itu 'ultra-diproses'). Proses tersebut termasuk beberapa tanpa setara domestik, seperti penghidrogenan dan hidrolisis, penyemperitan dan pengacuan, dan pra-pemprosesan untuk menggoreng.",
+  "guide_nova_explanations_arg4_title": "Aspek pemangsa dan kewangan pemprosesan ultra",
+  "guide_nova_explanations_arg4_text": "Tujuan keseluruhan pemprosesan ultra adalah untuk mencipta produk makanan berjenama, mudah (tahan lama, sedia untuk dimakan), menarik (hiper sedap) dan sangat menguntungkan (ramuan kos rendah) yang direka untuk menggantikan semua kumpulan makanan lain. Produk makanan ultra-proses biasanya dibungkus dengan menarik dan dipasarkan secara intensif.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Urus pilihan harga anda",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Projek Fakta Makanan Terbuka",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Sumbang",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Terjemah, perbaiki alatan kami…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Sambung",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Hubungi kami, atau Ikuti kami di media sosial",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Bantu kami memaklumkan berjuta-juta pengguna di seluruh dunia",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Bantuan & Sokongan",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "SOALAN-SOALAN LAZIM",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Dapatkan jawapan kepada soalan anda",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Log keluar",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Terima kasih kerana menjadi salah seorang ahli kami!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Lihat semua statistik",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Cari {provider} untuk \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Cari tetapan (cth Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Kebolehaksesan: Tunjukkan emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Kebolehcapaian: Alih keluar warna",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produk",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Tentang",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Maklumat undang-undang",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Syarat penggunaan, dasar privasi dan banyak lagi",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Syarat-syarat penggunaan",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lesen",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Mengenai apl",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Maklumat teknikal, maklumat pembangun dan banyak lagi",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Nombor versi",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Pengimbas",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Kedai aplikasi",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Tetapan sistem",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Akses kod sumber",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Dan mula memberi kesan kepada berjuta-juta",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Produk lengkap",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Petua",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Temui Nutri-Score baharu",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Di laman web Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Urus akaun saya",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Tukar kata laluan saya",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Zon bahaya",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Semua sumbangan anda akan hilang",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Tetapan apl",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Cara yang sangat eksperimen untuk mengimbas produk di luar talian",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Muat semula semua produk daripada pelayan",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Tolong elakkan daripada melakukan itu melainkan benar-benar perlu",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Mod demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Tambahkan kad pada pengimbas",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Menambah 3 sampel produk pada pengimbas",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Hos Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Percubaan kebolehaksesan",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Pilihan berbilang produk untuk harga",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Panel pengetahuan pesanan pengguna",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Akses sementara ke carian lokasi",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Perbandingan sebelah menyebelah untuk 2 atau 3 produk",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Import senarai produk",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Skor & metodologi",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Ketahui cara Nutri-Score dikira",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Temui perubahan utama kepada metodologi",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Temuilah projek",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Temui Fakta Makanan Terbuka",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Soalan Lazim - Soalan Lazim",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "NGO Fakta Makanan Terbuka",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Dapatkan kemas kini komuniti",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Ikuti perkembangan dengan berita apl dan komuniti",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Terlibat dengan menghadiri salah satu acara maya kami",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Ikuti kami di media sosial",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Blog Fakta Makanan Terbuka",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Dapatkan berita terkini, semasa ia berlaku",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Dapatkan bantuan daripada komuniti",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Bantu kami menambah baik apl",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Hantarkan maklumat nyahpepijat kepada kami",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Hantarkan e-mel kepada kami dengan maklumat penyahpepijatan terperinci",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Hantar maklum balas kepada kami tentang apl itu",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Bantu membentuk masa depan apl",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Ambil tinjauan apl",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Bantu kami memahami perkara yang perlu kami bina seterusnya",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesional",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Percuma sepenuhnya, memastikan data tepat untuk 500 apl & berjuta-juta pengguna. Layan diri, serasi dengan PIM atau hamparan (XLSX) anda",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Hubungi untuk bermula",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Akhbar",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Dapatkan semua bahan yang anda perlukan untuk laporan anda",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Hubungi kami untuk pertanyaan akhbar atau untuk memberitahu kami tentang laporan anda",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Menjadi sukarelawan yang aktif",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Pembangunan, Komunikasi, Reka Bentuk… sebarang jenis sukarelawan atau kepakaran dialu-alukan!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Temui beberapa daripada banyak cara anda boleh menyumbang",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Pembangunan aplikasi mudah alih",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Ketahui cara menyumbang kepada pembangunan perisian",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Binaan harian yang tidak stabil, ciri baharu",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Kembangkan komuniti setempat anda",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Bantuan dengan perisian, kandungan, terjemahan analisis ramuan",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Kami telah menyediakan sedikit templat untuk membantu anda :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Langkah mudah untuk mengembangkan ketelusan makanan di negara anda",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Sertai pasukan kualiti data",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Sertai usaha kami untuk memastikan pangkalan data adalah lengkap dan tepat",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 produk ditambah",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Produk baharu yang saya tambahkan pada Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produk yang perlu saya siapkan",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Semua produk tidak lengkap",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produk yang boleh anda bantu selesaikan",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Bantu mengira Nutri-Score & Green-Score di negara anda",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Harga yang saya sumbangkan",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Tanda harga dan resit",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Ambil foto resit anda dan imbas kod bar yang berkaitan",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Ambil gambar harga di kedai",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Harga terbaru",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Harga terkini ditambah oleh komuniti Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Penyumbang dengan harga terbanyak",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metrik Harga Terbuka",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Ikuti evolusi projek",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Cara untuk menyumbang",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Sahkan harga yang ditambahkan oleh anda sendiri atau orang lain, dengan bantuan AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Tambah banyak resit atau foto rak daripada gulungan kamera anda dengan cepat",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Cabaran bulanan",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Sertai pencarian tematik bulanan untuk mengumpul harga",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Tuntut semula data kesetiaan anda",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Ketahui cara meminta data anda",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Sesuaikan apl",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Menyumbang kepada projek",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Cara mudah untuk membantu Fakta Makanan Terbuka",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodologi skor, bantuan dan banyak lagi tentang projek",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Terima cadangan",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Pengesahan gagal, tidak dapat mengambil bukti",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Sila mulakan semula apl untuk menggunakan perubahan.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Antara muka grafik",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Pembangunan",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Makmal Fakta Makanan Terbuka",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Bawa Fakta Makanan Terbuka kepada bahasa anda",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Daftar dalam versi alfa apl",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Data Sumbangan & Produk",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Jangan tunjukkan Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

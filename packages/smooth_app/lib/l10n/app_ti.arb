@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "ናይ ፈተነ ባህርያትን ናይ ምዕባለ መሳርሒታትን ምርካብ",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "ቀጠልያ-ነጥቢ ሀ",
+  "environmental_score_b_new": "ቀጠልያ-ነጥቢ ለ",
+  "environmental_score_c_new": "ቀጠልያ-ነጥቢ ሐ",
+  "environmental_score_d_new": "ቀጠልያ-ነጥቢ መ",
+  "environmental_score_e_new": "ቀጠልያ-ነጥቢ E",
+  "environmental_score_unknown_new": "ዘይፍለጥ ቀጠልያ-ነጥቢ",
+  "environmental_score_not_applicable_new": "ግሪን-ስኮር ተግባራዊ ኣይኮነን።",
+  "nova_group_generic_new": "ኣዝዩ ዝተመስርሑ መግብታት - ጉጅለታት ኖቫ",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "ኩሎም ዜጋታት ኣብ ፍርያት ዝርከብ ወይ ካብኡ ክውሰድ ዝኽእል ሓበሬታ ንምእካብን ንምውዳብን ክሕግዙና ይኽእሉ እዮም፣ ከም ሓበሬታ ብዛዕባ መዐሸጊ: Mission Emballages: ሰፊሕ ናይ ምትሕብባር ዝርዝር መዐሸጊ ንኹሎም ፍርያት መግቢ (ብፈረንሳ)",
   "guide_greenscore_transparency_arg2_title": "ኣፍረይቲ ብኸመይ ክሕግዙ ይኽእሉ",
   "guide_greenscore_transparency_arg2_text": "ኣፍረይቲ ብቐጥታ ብመንገዲ እቲ ንኣፍረይቲ ዝኸውን ነጻ መድረኽና ሓበሬታኦም ክሰዱልና ይኽእሉ።",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/ሓምላይ-ነጥቢ",
+  "guide_greenscore_better_product_title": "ኣየናይ ፍርያት እዩ ንፕላኔትና ዝሓሸ?",
+  "guide_greenscore_better_product_arg1_title": "ክትነግሮ ከቢድ ክኸውን ይኽእል እዩ።",
+  "guide_greenscore_better_product_arg1_text": "ዘላቒ መግቢ ምምራጽ ሓደ ካብቲ ንክሊማ ክንገብሮ እንኽእል ሓያል ነገራት እዩ፣ ምኽንያቱ **ዓለማዊ ስርዓተ መግቢና ንልዕሊ ርብዒ ካብ ኩሉ ልቀት ጋዝ ምድረበዳ ተሓታቲ እዩ**።\n(ፍልፍል፡ ፑረ & ነመቸክ፡ ሳይንስ፡ 2018)።",
+  "guide_greenscore_better_product_arg2_title": "ሓይሊ ኣለካ!",
+  "guide_greenscore_better_product_arg2_text": "እቲ ጽቡቕ ነገር እዚ ለውጢ ንምፍጣር ሓያል መንገዲ ዝህበና ምዃኑ እዩ።\n**ነፍሲ ወከፍና ኣብ ዓመት ከባቢ 1000 መግቢ ንበልዕ**። እዚ ማለት **ንፕላኔትና ዝሓሸ መጻኢ ንምምራጽ** 1000 ዕድላት እዩ!",
+  "guide_greenscore_better_product_arg3_title": "ሓላፍነት ክትወስድን ክትውስንን ይሕግዝ",
+  "guide_greenscore_better_product_arg3_text": "ዘላቒ መግቢ ምምራጽ ዝተሓላለኸ ኮይኑ ክስምዓካ ይኽእል። መለለዪታት ምድንጋር ዝፈጥር ኮይኑ መብዛሕትኡ ግዜ ሓበሬታ ይጎድል። እቲ ሓምላይ-ነጥቢ ቀሊል ንኽኸውን ዝተፈጥረ ኮይኑ፡ ንፍርያት መግቢ **ንጹር**፡ **ኣብ ሳይንስ ዝተመርኮሰ**፡ ከምኡ'ውን **ግሉጽ** ከባብያዊ ደረጃ ይህበካ፡ ልክዕ ኣብቲ ዘድልየካ ቦታ: ኣብ እትዕድገሉ እዋን።",
+  "guide_greenscore_better_product_arg4_title": "ግልፅነት",
+  "guide_greenscore_better_product_arg4_text": "ዘይከም ዋንነት ዘለዎም ምልክታት፡ ስሌት ቀጠልያ-ነጥቢ **ምሉእ ብምሉእ ክፉት** ኮይኑ **ብዝኾነ ሰብ** ክረጋገጽ ይኽእል።",
+  "guide_greenscore_share_link": "https://ti.openfoodfacts.org/ሓምላይ-ነጥቢ",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "ኣልትራ-ፕሮሰሲንግ እንታይ እዩ?",
+  "guide_nova_what_is_nova_paragraph1": "እተን ጉጅለታት ኖቫ ብዛዕባ ደረጃ መስርሕ መግቢ ይሕብራኻ።",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "ምደባ NOVA ንመግብታት ብመሰረት **ደረጃ ኢንዱስትርያዊ መስርሖም** (ብውሑድ ዝተመስርሑ ወይ ዘይተመስርሑ መግብታት፣ ቀመማት ምግቢ፣ ዝተመስርሑ መግብታት፣ ኣዝዮም ዝተመስርሑ መግብታት) መሰረት ብምግባር ኣብ **4 ጉጅለታት** ክምደቡ የኽእል።",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "እቶም ናይ ኖቫ ኣርማታት",
+  "guide_nova_groups_title": "እተን 4 ጉጅለታት ኖቫ",
+  "guide_nova_groups_intro": "4 ጉጅለታት ኖቫ ኣለዋ፡ እቲ ጸገም ዘለዎ ጉጅለ 4 - Ultra-processed foods እዩ።",
+  "guide_nova_groups_arg1_title": "ብውሑድ ደረጃ ዝተመስርሑ ወይ ዘይተመስርሑ መግብታት",
+  "guide_nova_groups_arg1_text": "ዘይተመስርሑ (ወይ ተፈጥሮኣዊ) መግብታት፡ ካብ ተፈጥሮ ምስ ተፈልዩ፡ ዝብላዕ ክፋላት ተኽሊ (ዘርኢ፡ ፍረታት፡ ቆጽሊ፡ ጕንዲ፡ ሱር) ወይ እንስሳታት (ጭዋዳ፡ ስጋ፡ እንቋቑሖ፡ ጸባ)፡ ከምኡ’ውን ፋንጋስ፡ ኣልጌን ማይን እዮም።",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "ከም ዘይቲ፡ ሓርጭ፡ ሽኮርን ጨውን ዝኣመሰሉ ዝተመስርሑ ቀመማት ምግቢ፡ ካብ ጉጅለ 1 መግብታት ወይ ካብ ተፈጥሮ ብመገዲ ምጽቃጥ፡ ምጽራይ፡ ምፍሓር፡ ምፍሓርን ምንቃጽን ዘጠቓልል መስርሕ ዝመጹ ንጥረ ነገራት እዮም።",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "ዝተመስርሑ መግብታት፡ ከም ጥርሙዝ ኣሕምልቲ፡ ቆርቆሮ ዓሳ፡ ፍረታት ኣብ ሽሮፕ፡ በርበረን ሓድሽ ዝተሰርሑ ባኒን፡ ብቐንዱ ካብ ጉጅለ 2 ናብ ጉጅለ 1 መግብታት ጨው፡ ዘይቲ፡ ሽኮር ወይ ካልእ ንጥረ ነገራት ብምውሳኽ ይስራሕ። መስርሓት ዝተፈላለየ ኣገባብ ምዕቃብ ወይ ምብሳል ዘጠቓልል ኮይኑ፡ ኣብ ጉዳይ ባኒን በርበረን ድማ ኣልኮላዊ መስተ ዘይብሉ ምብላዕ ዘጠቓልል እዩ። መብዛሕትኦም ዝተመስርሑ መግብታት ክልተ ወይ ሰለስተ ቀመማት ዘለዎም ኮይኖም ከም ዝተመሓየሹ ስሪት ናይ ጉጅለ 1 መግብታት ይፍለጡ። ባዕሎም ወይ ድማ ብብዝሒ ምስ ካልኦት መግብታት ተደሚሮም ክምገቡ ይኽእሉ።",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "ኣዝዮም ዝተመስርሑ መግብታት፡ ከም ልስሉስ መስተታት፡ ምቁር ወይ ምቁር ዝተዓሸገ ምቁር መግቢ፡ ዳግማይ ዝተሃንጸ ፍርያት ስጋ፡ ከምኡ’ውን ቅድሚኡ ዝተዳለወ ፍሪዝ ምግቢ፡ ዝተቐየሩ መግብታት ጥራይ ዘይኮኑስ፡ መብዛሕትኡ ወይ ምሉእ ብምሉእ ካብ መግብታትን ተወሰኽቲ ነገራትን ዝመጹ ንጥረ ነገራት ዝተሰርሑ ቅመማት እዮም፡ ውሑድ ወይ ድማ ዋላ ሓንቲ ዘይተበላሸወ መግቢ ጉጅለ 1። ኣብዞም ቅመማት ዝርከቡ ቀመማት መብዛሕትኡ ግዜ ኣብ ዝተመስርሑ መግብታት እውን ዝርከቡ ከም ሽኮር፡ ዘይቲ፡ ስብሒ ወይ ጨው ዘጠቓልሉ እዮም። ይኹን እምበር፡ ኣዝዮም ዝተመስርሑ ፍርያት፡ ካልኦት ምንጪታት ጸዓትን መኣዛታትን እውን ኣለዎም፡ እዚ ድማ ብተለምዶ ኣብ ምድላዋት ምግቢ ዘይጥቀሙሉ እዮም። ገለ ካብዚኦም ብቐጥታ ካብ ከም ካዚን፣ ላክቶስ፣ ጸባ ጡብን ግሉተንን ዝኣመሰሉ መግብታት ዝወጽእ እዩ።",
+  "guide_nova_explanations_title": "ኣብ ኣልትራ-ፕሮሰሲንግ ዘሎ ጸገማት",
+  "guide_nova_explanations_arg1_title": "ልዕሊ ዓቐን መስርሕ ቀመማት መግቢ",
+  "guide_nova_explanations_arg1_text": "ብዙሓት ካብ ተወሳኺ መስርሕ ናይ መግቢ ኣካላት ዝመጹ እዮም፣ ከም ሃይድሮጅን ዘለዎ ወይ ኢንተረስተሪፋይድ ዘይቲ፣ ሃይድሮላይዝድ ፕሮቲናት፣ ሶያ ፕሮቲን ተነጺሉ፣ ማልቶዴክስትሪን፣ ኢንቨርት ሽኮርን ልዑል ፍሩክቶስ ዘለዎ ሽሮፕ ቆሎን።",
+  "guide_nova_explanations_arg2_title": "ካብ ጽሩይ ድሕነት መግቢ ንላዕሊ ዝኾኑ ተወሰኽቲ ነገራት",
+  "guide_nova_explanations_arg2_text": "ኣብ ኣዝዮም ዝተመስርሑ መግብታት ዝርከቡ ተወሰኽቲ ገለ ኣብ ዝተመስርሑ መግብታት እውን ዝጥቀሙ ከም መዕቆቢ፣ ጸረ-ኦክስጅንን ረጋጊእን ዝኣመሰሉ ይርከብዎም። ኣብ ኣዝዮም ዝተመስርሑ ፍርያት ጥራይ ዝርከቡ መደባት ተወሰኽቲ፡ ንህዋሳዊ ባህርያት መግብታት ንምምሳል ወይ ንምዕባይ ወይ ድማ ነቲ ዘይጥዑም መዳያት ናይቲ ናይ መወዳእታ ፍርያት ንምሽፋን ዝጥቀሙሉ እዮም። እዞም ተወሰኽቲ ነገራት ቀለምን ካልኦት ሕብርታትን፣ ሕብሪ ዘረጋግኡ፤ መኣዛታት፣ መኣዛታት ዘደንፍዑ፣ ሽኮር ዘይኮኑ መመቐሪታት፤ ከምኡ’ውን ናይ መስርሕ ሓገዝቲ ከም ካርቦኒቲንግ፣ ፊርሚንግ፣ ቡልኪንግን ጸረ-ቡልኪንግን ኣጀንት፣ ዲ-ፎሚንግ፣ ጸረ-ኬኪንግን ግላዚንግን ኤጀንት፣ ኢሙልሳይፈርስ፣ ሴክዌስትራንትስን ሁሜክታንትን ዝኣመሰሉ።",
+  "guide_nova_explanations_arg3_title": "ኣብ ገዛኻ ክትገብሮ ዘይትኽእል መስርሕ",
+  "guide_nova_explanations_arg3_text": "መብዛሕትኡ ግዜ ብዙሓት ቀመማት ንምውህሃድን ነቲ ናይ መወዳእታ ፍርያት ንምፍጣርን (ስለዚ ‘ኣልትራ-ፕሮሰስድ’) ብዙሕ ቅደም ተኸተል መስርሓት ይጥቀሙ። እቶም መስርሓት ናይ ውሽጢ ዓዲ መመዘኒ ዘይብሎም ሓያሎ ዘጠቓልሉ ኮይኖም፡ ከም ሃይድሮጅኔሽንን ሃይድሮላይዜሽንን፡ ኤክስትሩዥንን ሞልዲንግን፡ ከምኡ’ውን ቅድመ-መስርሕ ንመጥበሲ ዝኣመሰሉ እዮም።",
+  "guide_nova_explanations_arg4_title": "እቲ ሃዳናይን ፋይናንሳውን መዳያት ኣልትራ-ፕሮሰሲንግ",
+  "guide_nova_explanations_arg4_text": "ሓፈሻዊ ዕላማ ኣልትራ-ፕሮሰሲንግ ንኹሎም ካልኦት ጉጅለታት መግቢ ንምፍንቓል ዝተዳለዉ ምልክት ዘለዎም፣ ምቹኣት (ነባሪ፣ ንሃልኪ ድሉዋት)፣ ሰሓብቲ (ልዕሊ ዓቐን ጣዕሚ ዘለዎም)ን ልዑል መኽሰብ ዘለዎምን (ትሑት ዋጋ ዘለዎም ቀመማት) ፍርያት መግቢ ምፍጣር እዩ። መብዛሕትኡ ግዜ ኣዝዮም ዝተመስርሑ ፍርያት መግቢ ብሰሓቢ መንገዲ ይዕሸጉን ብጽዑቕ ዕዳጋ ይቐርቡን።",
+  "guide_nova_share_link": "https://ti.openfoodfacts.org/nova ዝብል ጽሑፍ ኣሎ።",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "ናይ ዋጋታት ምርጫታትካ ኣመሓድር",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "ፕሮጀክት ክፉት ሓቅታት መግቢ",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "ተርጉም፣ መሳርሒታትና ኣመሓይሽ…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "ምርኻብ",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "ኢድካ ዘርጊሕካ፡ ወይ ኣብ ማሕበራዊ መራኸቢታት ተኸታተሉና።",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "ኣብ መላእ ዓለም ንዝርከቡ ሚልዮናት ተጠቀምቲ ክንሕብር ሓግዙና።",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "ሓገዝ & ደገፍ",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "ንሕቶታትኩም መልሲ ረኸቡ።",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "ወጺኡ",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "ሓደ ካብ ኣባላትና ብምዃንኩም የቐንየልና!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "ኩሉ ስታቲስቲክስ ርአ",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "{provider} ን \"{keyword}\" ድለዩ።",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "ንሓደ ቅጥዒ ድለዩ (ንኣብነት ኒውትሪ-ስኮር)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "ተበጻሕነት: ኢሞጂ ኣርእዩ",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "ተበጻሕነት፦ ሕብርታት ኣወግድ",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "ሕጋዊ ሓበሬታ",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "ውዕል ኣጠቓቕማ፡ ፖሊሲ ውልቃዊ ሓበሬታን ካልእን",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "ፍቓድ ምሃብ",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "ብዛዕባ እቲ ኣፕ",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "ቴክኒካዊ ሓበሬታ፡ ሓበሬታ ዲቨሎፐርን ካልእን",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "ቁጽሪ ስሪት።",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "ስካነር",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "ኣፕ ስቶር",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "ናይ ስርዓት ቅጥዕታት",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "ነቲ ምንጪ ኮድ ምብጻሕ",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "ንሚልዮናት ድማ ጽልዋ ክትገብር ጀምር",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "መቑሽሽ",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "ሓድሽ ኒውትሪ-ስኮር ርኸብዎ።",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "ኣብ መርበብ ሓበሬታ ክፉት ሓቅታት መግቢ",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "ኣካውንተይ ኣመሓድር",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "ፓስዎርድይ ቀይር",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "ሓደጋ ዞባ",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "ኩሉ ኣበርክቶኹም ክጠፍእ እዩ።",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "ናይ ኣፕ ቅጥዕታት",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "ብጣዕሚ ፈተነ ዝገብር መንገዲ ፍርያት ካብ መስመር ወጻኢ ስካን ንምግባር",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "ኩሉ ፍርያት ካብቲ ሰርቨር ምሕዳስ",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "በጃኹም ፍጹም ኣድላዪ እንተዘይኮይኑ ካብ ምግባር ተቖጠቡ።",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "ዲሞ ሞድ",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "ካርድታት ናብ ስካነር ምውሳኽ",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "3 ናሙና ፍርያት ኣብቲ ስካነር ይውስኽ",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "ፎልክሶኖሚ ኣአንጋዲ",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "ናይ ተበጻሕነት ፈተነታት",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "ንዋጋታት ዝኸውን ምርጫ ብዙሕ ፍርያት",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "ተጠቃሚ ዝኣዘዘ ናይ ፍልጠት ፓነላት",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "ግዝያዊ ምብጻሕ ናብ ምድላይ ቦታ",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "ን2 ወይ 3 ፍርያት ጎኒ ንጎኒ ምውድዳር",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "ዝርዝር ፍርያት ምእታው",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "ነጥብታትን ኣገባባትን",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "ኒውትሪ-ስኮር ብኸመይ ከም ዝስላዕ ርኸቡ።",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "ቀንዲ ለውጥታት ናይቲ ኣገባብ ርኸቡ።",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "ክፉት ሓቅታት መግቢ ርኸቡ።",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - ብተደጋጋሚ ዝሕተቱ ሕቶታት",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "እቲ ክፉት ሓቅታት መግቢ ዘይመንግስታዊ ትካል",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "ናይ ማሕበረሰብ ሓድሽ ሓበሬታ ረኸቡ።",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "ምስ ኣፕን ማሕበረሰባዊ ዜናታትን ኣብ ሉፕ ጽናሕ",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "ኣብ ሓደ ካብቲ ቨርቹዋል መደባትና ብምስታፍ ተሳተፉ",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "ኣብ ማሕበራዊ ሚድያ ተኸታተሉና።",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "ብሎግ ክፉት ሓቅታት መግቢ",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "እዋናዊ ዜናታት ርኸቡ፣ ከምቲ ዘጋጥም",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "ካብ ሕብረተሰብ ሓገዝ ውሰድ",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "ነቲ ኣፕ ንምምሕያሽ ሓግዙና።",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "ናይ ዲባግ ሓበሬታ ስደዱልና",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "ዝርዝር ሓበሬታ ምእራም ዘለዎ ኢመይል ስደዱልና",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "ብዛዕባ እቲ ኣፕ ርእይቶ ስደዱልና",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "መጻኢ ናይቲ ኣፕ ንምቕራጽ ሓግዙ",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "ነቲ ናይ ኣፕ ዳህሳስ ውሰድዎ።",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "ቀጺልና እንታይ ክንሃንጽ ከም ዘለና ንምርዳእ ሓግዙና።",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "ሰብ ሞያ",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "ፍጹም ነጻ፣ ን500 ኣፕስ & ሚልዮናት ተጠቀምቲ ቅኑዕ ዳታ የረጋግጽ። ርእሰ-ኣገልግሎት፣ ምስ ፒኣይኤም ወይ ስፕረድሺትካ (XLSX) ዝሰማማዕ",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "ንኽትጅምሩ ርኸቡ።",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "ንጸብጻብካ ዘድልየካ ኩሉ ንዋት ውሰድ",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "ንናይ ፕረስ ሕቶታት ወይ ብዛዕባ ጸብጻብኩም ንኽትሕብሩና ርኸቡ።",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "ንጡፍ ወለንተኛ ኩን።",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "ልምዓት፣ ርክብ፣ ዲዛይን… ዝኾነ ዓይነት ወለንታዊ ስራሕ ወይ ክእለት ምቕባል ይግበረልኩም!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "ገለ ካብቲ ብዙሕ ኣበርክቶ ክትገብር እትኽእል መገድታት ርኸብ",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "ምምዕባል ሞባይል ኣፕ",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "ኣብ ምምዕባል ሶፍትዌር ከመይ ጌርካ ኣበርክቶ ከም እትገብር ተማሃር",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "መዓልታዊ ዘይርጉእ ህንጻታት፡ ፍጹም ሓድሽ ባህርያት",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "ኣብ ከባቢኻ ዝርከብ ማሕበረሰብ ኣዕብዮ",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "ኣብ ሶፍትዌር፣ ትሕዝቶ፣ ትርጉማት ትንተና ቀመማት ሓገዝ",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "ንዓኹም ክትሕግዘኩም ንእሽቶ ቴምፕሌት ኣዳሊና ኣለና :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "ኣብ ሃገርካ ግሉጽነት መግቢ ንምዕባይ ቀለልቲ ስጉምትታት",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "ኣብቲ ናይ ዳታ ጽሬት ጉጅለ ተጸንበሩ",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "እቲ ዳታቤዝ ምሉእን ቅኑዕን ምዃኑ ንምርግጋጽ ኣብ እንገብሮ ጻዕሪ ተጸንበሩ",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 ፍርያት ተወሰኸ",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "ኣብ Open Food Facts ዝወሰኽክዎም ሓደስቲ ፍርያት",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "ክውድኦም ዘለኒ ፍርያት",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "ኩሎም ዘይተማልኡ ፍርያት",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "ንኽትውድኡ ክትሕግዙ እትኽእሉ ፍርያት",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "ኣብ ሃገርኩም ንዘሎ Nutri-Score & Green-Score ንምሕሳብ ሓግዙ",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "ኣነ ዘበርከትክዎም ዋጋታት",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "ዋጋ ምልክትን ቅብሊታትን",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "ቅብሊታትካ ስእሊ ውሰድ እሞ ምስኡ ዝተኣሳሰሩ ባርኮድ ስካን ግበር",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "ኣብ ሓደ ድኳን ዋጋታት ስእሊ ውሰድ",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "ሓድሽ ዋጋታት",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "ብማሕበረሰብ ክፉት ዋጋታት ዝተወሰኹ ናይ መወዳእታ ዋጋታት",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "ዝበዝሐ ዋጋ ዘለዎም ኣበርከትቲ",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "ክፉት ዋጋ መለክዒታት",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "ምዕባለ ናይቲ ፕሮጀክት ተኸታተሉ።",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "ኣበርክቶ እትገብረሉ መገድታት",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "ብገዛእ ርእስኻ ወይ ብኻልኦት ዝተወሰኹ ዋጋታት ኣረጋግጽ፣ ብሓገዝ AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "ቀልጢፍካ ካብ ካሜራ ሮልካ ብዙሕ ቅብሊታት ወይ ስእሊ መደርደሪታት ወስኸሉ።",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "ወርሓዊ ብድሆታት",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "ዋጋታት ንምእካብ ኣብ ወርሓዊ ቴማዊ ጕዕዞታት ተሳተፍ",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "ናይ ተኣማንነት ዳታኻ ምምላስ",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "ዳታኻ ከመይ ጌርካ ከም እትሓትት ተማሃር",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "ነቲ ኣፕ ብዝጥዕመካ ኣመዓራርዮ",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "ኣብቲ ፕሮጀክት ኣበርክቶ ግበሩ",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "ቀለልቲ መገድታት ንኽፉት ሓቅታት መግቢ ንምሕጋዝ",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "ብዛዕባ እቲ ፕሮጀክት ኣገባባት፡ ሓገዝን ካልእን ነጥቢ ምሃብ",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "ሓሳብ ተቐበል",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "ምርግጋጽ ምርግጋጽ ፈሺሉ፣ መርትዖታት ከምጽእ ኣይከኣለን",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "በጃኹም ነቲ ኣፕ ዳግማይ ጀምርዎ ነቲ ለውጢ ንምትግባር።",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "ግራፊካዊ መተሓላለፊ",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "ሚድያ",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "ክፉት ናይ መግቢ ሓቅታት ቤተ ፈተነታት",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "ክፉት ሓቅታት መግቢ ናብ ቋንቋኹም ኣምጽኡ",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "ኣብቲ ኣልፋ ቨርዥን ናይቲ ኣፕ ተመዝገቡ።",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "ኣበርክቶታትን ዳታ ፍርያትን",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "ፎልክሶኖሚ ኣይትርእዩ",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

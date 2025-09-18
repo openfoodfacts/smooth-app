@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Qasuni në veçoritë eksperimentale dhe mjetet e zhvillimit",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Rezultati i Gjelbër A",
+  "environmental_score_b_new": "Rezultati i Gjelbër B",
+  "environmental_score_c_new": "Rezultati i Gjelbër C",
+  "environmental_score_d_new": "Rezultati i Gjelbër D",
+  "environmental_score_e_new": "Rezultati i Gjelbër E",
+  "environmental_score_unknown_new": "Rezultati i panjohur i gjelbër",
+  "environmental_score_not_applicable_new": "Rezultati i Gjelbër nuk zbatohet",
+  "nova_group_generic_new": "Ushqime ultra të përpunuara - grupet NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Të gjithë qytetarët mund të na ndihmojnë të mbledhim dhe strukturojmë informacionin që është i pranishëm në produkte ose që mund të nxirret prej tyre, siç është informacioni mbi paketimin: Mission Emballages: një inventar bashkëpunues në shkallë të gjerë i paketimit për të gjitha produktet ushqimore (në frëngjisht)",
   "guide_greenscore_transparency_arg2_title": "Si mund të ndihmojnë prodhuesit",
   "guide_greenscore_transparency_arg2_text": "Prodhuesit mund të na dërgojnë informacionin e tyre direkt përmes platformës sonë falas për prodhuesit.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Cili produkt është më i mirë për planetin?",
+  "guide_greenscore_better_product_arg1_title": "Mund të jetë e vështirë të thuhet",
+  "guide_greenscore_better_product_arg1_text": "Zgjedhja e ushqimit të qëndrueshëm është një nga gjërat më të fuqishme që mund të bëjmë për klimën, pasi **sistemi ynë global ushqimor është përgjegjës për më shumë se një të katërtën e të gjitha emetimeve të gazrave serrë**.\n(Burimi: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Ti ke fuqinë!",
+  "guide_greenscore_better_product_arg2_text": "Lajmi i mirë është se kjo na jep një mënyrë të fuqishme për të krijuar ndryshim.\n**Secili prej nesh ha rreth 1,000 vakte çdo vit**. Këto janë 1,000 mundësi për të **zgjedhur një të ardhme më të mirë për planetin**!",
+  "guide_greenscore_better_product_arg3_title": "Ndihmon të jesh përgjegjës dhe të vendosësh",
+  "guide_greenscore_better_product_arg3_text": "Zgjedhja e ushqimit të qëndrueshëm mund të duket komplekse. Etiketat janë konfuze dhe informacioni shpesh mungon. Rezultati i Gjelbër u krijua për ta bërë të thjeshtë, duke ju dhënë një vlerësim mjedisor të **qartë**, të **bazuar në shkencë** dhe **transparent** për produktet ushqimore, pikërisht aty ku ju nevojitet: ndërsa blini.",
+  "guide_greenscore_better_product_arg4_title": "Transparenca",
+  "guide_greenscore_better_product_arg4_text": "Ndryshe nga etiketat pronësore, llogaritja e Green-Score është **plotësisht e hapur** dhe mund të **verifikohet nga kushdo**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Çfarë është ultra-përpunimi?",
+  "guide_nova_what_is_nova_paragraph1": "Grupet NOVA ju informojnë rreth nivelit të përpunimit të ushqimit.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Klasifikimi NOVA lejon kategorizimin e ushqimeve në **4 grupe** bazuar në **shkallën e përpunimit industrial** (ushqime minimalisht të përpunuara ose të papërpunuara, përbërës kulinarë, ushqime të përpunuara, ushqime ultra të përpunuara).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Logot e NOVA-s",
+  "guide_nova_groups_title": "4 grupet NOVA",
+  "guide_nova_groups_intro": "Ekzistojnë 4 grupe NOVA, ku problematiku është Grupi 4 - Ushqime ultra të përpunuara.",
+  "guide_nova_groups_arg1_title": "Ushqime të përpunuara minimalisht ose të papërpunuara",
+  "guide_nova_groups_arg1_text": "Ushqimet e papërpunuara (ose natyrale) janë pjesët e ngrënshme të bimëve (fara, fruta, gjethe, kërcell, rrënjë) ose kafshëve (muskuj, të brendshme, vezë, qumësht), si dhe kërpudhat, algat dhe uji, pasi janë ndarë nga natyra.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Përbërësit e përpunuar të kuzhinës, siç janë vajrat, gjalpi, sheqeri dhe kripa, janë substanca që rrjedhin nga ushqimet e Grupit 1 ose nga natyra përmes proceseve që përfshijnë presimin, rafinimin, bluarjen, bluarjen dhe tharjen.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Ushqimet e përpunuara, të tilla si perimet e ambalazhuara, peshku i konservuar, frutat në shurup, djathërat dhe bukët e sapobëra, bëhen kryesisht duke shtuar kripë, vaj, sheqer ose substanca të tjera nga ushqimet e Grupit 2 në ato të Grupit 1. Proceset përfshijnë metoda të ndryshme ruajtjeje ose gatimi, dhe në rastin e bukës dhe djathit, fermentim joalkoolik. Shumica e ushqimeve të përpunuara kanë dy ose tre përbërës dhe njihen si versione të modifikuara të ushqimeve të Grupit 1. Ato mund të hahen vetëm ose, më shpesh, në kombinim me ushqime të tjera.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ushqimet ultra të përpunuara, siç janë pijet joalkoolike, ushqimet e ëmbla ose të kripura të paketuara, produktet e mishit të rikonstituar dhe gatimet e ngrira të parapërgatitura, nuk janë thjesht ushqime të modifikuara, por formulime të bëra kryesisht ose tërësisht nga substanca të nxjerra nga ushqimet dhe aditivë, me pak ose aspak ushqim të paprekur të Grupit 1. Përbërësit në këto formulime zakonisht përfshijnë ato që gjenden edhe në ushqimet e përpunuara, siç janë sheqernat, vajrat, yndyrnat ose kripa. Megjithatë, produktet ultra të përpunuara përmbajnë edhe burime të tjera energjie dhe lëndësh ushqyese që nuk përdoren zakonisht në përgatitjet kulinare. Disa prej tyre nxirren direkt nga ushqimet, siç janë kazeina, laktoza, hirra dhe gluteni.",
+  "guide_nova_explanations_title": "Problemet me ultra-përpunimin",
+  "guide_nova_explanations_arg1_title": "Përpunim ekstrem i përbërësve të ushqimit",
+  "guide_nova_explanations_arg1_text": "Shumë prej tyre rrjedhin nga përpunimi i mëtejshëm i përbërësve të ushqimit, siç janë vajrat e hidrogjenizuara ose të interesterifikuara, proteinat e hidrolizuara, izolati i proteinës së sojës, maltodekstrina, sheqeri invert dhe shurupi i misrit me përmbajtje të lartë fruktoze.",
+  "guide_nova_explanations_arg2_title": "Aditivë që shkojnë përtej sigurisë së pastër ushqimore",
+  "guide_nova_explanations_arg2_text": "Shtesat në ushqimet ultra të përpunuara përfshijnë disa që përdoren edhe në ushqimet e përpunuara, siç janë konservuesit, antioksidantët dhe stabilizuesit. Klasat e shtesave që gjenden vetëm në produktet ultra të përpunuara përfshijnë ato që përdoren për të imituar ose përmirësuar cilësitë shqisore të ushqimeve ose për të maskuar aspektet e pakëndshme të produktit përfundimtar. Këto shtesa përfshijnë ngjyrues dhe ngjyra të tjera, stabilizues ngjyrash; aroma, përmirësues shijesh, ëmbëlsues jo-sheqer; dhe ndihmës përpunimi siç janë agjentët karbonizues, forcimi, mbushës dhe anti-mbushës, agjentët kundër shkumëzimit, anti-grumbullimit dhe lustrimit, emulsifikuesit, sekuestruesit dhe humektantët.",
+  "guide_nova_explanations_arg3_title": "Përpunim që nuk mund të bëhet në shtëpi",
+  "guide_nova_explanations_arg3_text": "Një mori sekuencash procesesh përdoren për të kombinuar zakonisht shumë përbërës dhe për të krijuar produktin përfundimtar (pra 'ultra të përpunuar'). Proceset përfshijnë disa pa ekuivalentë vendas, siç janë hidrogjenizimi dhe hidroliza, nxjerrja dhe formëzimi, dhe parapërpunimi për skuqje.",
+  "guide_nova_explanations_arg4_title": "Aspektet grabitqare dhe financiare të ultra-përpunimit",
+  "guide_nova_explanations_arg4_text": "Qëllimi i përgjithshëm i ultra-përpunimit është të krijojë produkte ushqimore të markës, të përshtatshme (të qëndrueshme, të gatshme për t’u konsumuar), tërheqëse (hiper-të shijshme) dhe shumë fitimprurëse (me përbërës me kosto të ulët), të dizajnuara për të zëvendësuar të gjitha grupet e tjera ushqimore. Produktet ushqimore të ultra-përpunuara zakonisht paketohen në mënyrë tërheqëse dhe tregtohen intensivisht.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Menaxhoni preferencat tuaja të çmimeve",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Projekti i Fakte të Hapura Ushqimore",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Përkthejeni, përmirësoni mjetet tona…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Lidhu",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Na kontaktoni, ose na ndiqni në rrjetet sociale",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Na ndihmoni të informojmë miliona konsumatorë në të gjithë botën",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Ndihmë dhe Mbështetje",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Merrni përgjigje për pyetjet tuaja",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Dola nga llogaria",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Faleminderit që jeni një nga anëtarët tanë!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Shiko të gjitha statistikat",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Kërko {provider} për \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Kërko për një cilësim (p.sh. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Aksesueshmëria: Shfaq emoji-t",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Aksesueshmëria: Hiq ngjyrat",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Informacion ligjor",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Kushtet e përdorimit, politika e privatësisë dhe më shumë",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licencat",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Rreth aplikacionit",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Informacion teknik, informacion për zhvilluesit dhe më shumë",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Numri i versionit",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skaner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Dyqani i aplikacioneve",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Cilësimet e sistemit",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Qasuni në kodin burimor",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Dhe filloni të keni një ndikim për miliona njerëz",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Këshilla",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Zbuloni Nutri-Score-in e ri",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Në faqen e internetit Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Menaxho llogarinë time",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Ndrysho fjalëkalimin tim",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Zona e rrezikut",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Të gjitha kontributet tuaja do të humbasin",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Cilësimet e aplikacionit",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Mënyrë shumë eksperimentale për të skanuar produktet jashtë linje",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Rifresko të gjitha produktet nga serveri",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Ju lutem shmangni këtë nëse nuk është absolutisht e nevojshme",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Modaliteti Demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Shto karta në skaner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Shton 3 produkte mostër në skaner",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Mikpritës i Folksonomisë",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Eksperimentet e aksesueshmërisë",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Përzgjedhje e shumë produkteve për çmimet",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Panelet e njohurive të renditura nga përdoruesi",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Qasje e përkohshme në kërkimin e vendndodhjes",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Krahasim krah për krah për 2 ose 3 produkte",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Importimi i listës së produkteve",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Rezultatet dhe metodologjitë",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Zbuloni se si llogaritet Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Zbuloni ndryshimet kryesore në metodologji",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Zbuloni Fakte të Hapura për Ushqimin",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Pyetje të Shpeshta",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "OJQ-ja The Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Merrni përditësime nga komuniteti",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Qëndroni të informuar me lajmet e aplikacionit dhe komunitetit",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Angazhohuni duke marrë pjesë në një nga eventet tona virtuale",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Na ndiqni në mediat sociale",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Blogu i Fakte të Hapura Ushqimore",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Merrni lajmet më të fundit, teksa ato ndodhin",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Merrni ndihmë nga komuniteti",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Na ndihmoni të përmirësojmë aplikacionin",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Na dërgoni informacion mbi debugging-un",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Na dërgoni një email me informacion të detajuar për debugging-un",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Na dërgoni reagime rreth aplikacionit",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Ndihmoni në formësimin e së ardhmes së aplikacionit",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Merrni pjesë në anketën e aplikacionit",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Na ndihmoni të kuptojmë se çfarë duhet të ndërtojmë më pas",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesionistët",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Plotësisht falas, siguron të dhëna të sakta për 500 aplikacione dhe miliona konsumatorë. Vetëshërbim, i pajtueshëm me PIM ose spreadsheet-et tuaja (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Na kontaktoni për të filluar",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Merrni të gjithë materialin që ju nevojitet për raportin tuaj",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Na kontaktoni për pyetje nga shtypi ose për të na njoftuar rreth raportit tuaj",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Bëhuni një vullnetar aktiv",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Zhvillim, Komunikim, Dizajn… çdo lloj vullnetarizmi ose ekspertize është i mirëpritur!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Zbuloni disa nga shumë mënyrat se si mund të kontribuoni",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Zhvillimi i aplikacioneve mobile",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Mësoni si të kontribuoni në zhvillimin e softuerëve",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Ndërtime të përditshme të paqëndrueshme, veçori krejt të reja",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Rritni komunitetin tuaj lokal",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Ndihmë me programe kompjuterike, përmbajtje, përkthime të analizës së përbërësve",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Ne kemi përgatitur një model të vogël për t'ju ndihmuar :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Hapa të thjeshtë për të rritur transparencën ushqimore në vendin tuaj",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Bashkohuni me ekipin e cilësisë së të dhënave",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Bashkohuni me përpjekjet tona për të siguruar që baza e të dhënave të jetë e plotë dhe e saktë",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 produkte të shtuara",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Produkte të reja që shtova te Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produktet që duhet të përfundoj",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Të gjitha produktet e papërfunduara",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produkte që mund të ndihmoni në përfundimin e tyre",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Ndihmoni në llogaritjen e Nutri-Score dhe Green-Score në vendin tuaj",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Çmimet që kam kontribuar",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Etiketat e çmimeve dhe faturat",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Bëni fotografi të faturave tuaja dhe skanoni barkodet përkatëse",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Bëni fotografi të çmimeve në një dyqan",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Çmimet më të reja",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Çmimet më të fundit të shtuara nga komuniteti i Çmimeve të Hapura",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Kontribuesit me çmimet më të larta",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metrikat e Çmimit të Hapur",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Ndiqni evolucionin e projektit",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Mënyrat për të kontribuar",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Konfirmoni çmimet e shtuara nga ju ose të tjerët, me ndihmën e IA-së",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Shtoni shpejt shumë fatura ose foto të rafteve nga filmi juaj i kamerës",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Sfidat mujore",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Merrni pjesë në misione tematike mujore për të mbledhur çmime",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Rimerrni të dhënat tuaja të besnikërisë",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Mësoni si të kërkoni të dhënat tuaja",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Personalizo aplikacionin",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Kontribuoni në projekt",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Mënyra të thjeshta për të ndihmuar në Hapjen e Fakte Ushqimore",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodologjitë e pikëzimit, ndihmë dhe më shumë rreth projektit",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Prano sugjerimin",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Autentifikimi dështoi, provat nuk mund të merren",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Ju lutemi rinisni aplikacionin për të zbatuar ndryshimet.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Ndërfaqe grafike",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Laboratorët e Fakteve Ushqimore të Hapura",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Sillni Fakte Ushqimore të Hapura në gjuhën tuaj",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Regjistrohuni në versionin alfa të aplikacionit",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Kontributet dhe të dhënat e produktit",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Mos e shfaq Folksonominë",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

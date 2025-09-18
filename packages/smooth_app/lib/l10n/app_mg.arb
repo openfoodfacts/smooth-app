@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Midira amin'ny endri-javatra andrana sy fitaovana fampandrosoana",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Firaketana",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score tsy fantatra",
+  "environmental_score_not_applicable_new": "Green-Score dia tsy azo ampiharina",
+  "nova_group_generic_new": "Sakafo tena voahodina - vondrona NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Ny olom-pirenena rehetra dia afaka manampy antsika hanangona sy handrafetana ny vaovao misy eo amin'ny vokatra na azo tsoahina avy amin'izy ireo, toy ny fampahalalana momba ny fonosana: Mission Emballages: firaketana fiaraha-miasa lehibe momba ny fonosana ho an'ny vokatra sakafo rehetra (amin'ny teny frantsay)",
   "guide_greenscore_transparency_arg2_title": "Ahoana no ahafahan'ny mpanamboatra manampy",
   "guide_greenscore_transparency_arg2_text": "Ny mpanamboatra dia afaka mandefa mivantana ny mombamomba azy amin'ny alàlan'ny sehatra maimaim-poana ho an'ny mpamokatra.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Inona no vokatra tsara kokoa ho an'ny planeta?",
+  "guide_greenscore_better_product_arg1_title": "Mety ho sarotra ny milaza izany",
+  "guide_greenscore_better_product_arg1_text": "Ny fisafidianana sakafo maharitra dia iray amin'ireo zavatra matanjaka indrindra azontsika atao ho an'ny toetr'andro, satria **ny rafitra ara-tsakafo eran-tany no tompon'andraikitra amin'ny ampahefatry ny entona mandatsa-dranomaso rehetra**.\n(Loharano: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Anao ny hery!",
+  "guide_greenscore_better_product_arg2_text": "Ny vaovao tsara dia manome antsika fomba mahery vaika hamoronana fiovana izany.\n**Mihinana 1 000 eo ho eo isan-taona ny tsirairay avy amintsika**. Izany dia fahafahana 1,000 ** hisafidianana hoavy tsara kokoa ho an'ny planeta**!",
+  "guide_greenscore_better_product_arg3_title": "Manampy mba ho tompon'andraikitra sy hanapa-kevitra",
+  "guide_greenscore_better_product_arg3_text": "Mety ho sarotra ny fisafidianana sakafo maharitra. Misafotofoto ny etikety ary matetika tsy ampy ny vaovao. Ny Green-Score dia noforonina mba hanamora izany, manome anao ny ** mazava**, ** mifototra amin'ny siansa**, ary ** mangarahara** naoty momba ny tontolo iainana ho an'ny vokatra sakafo, eo amin'ny toerana ilanao azy: rehefa miantsena ianao.",
+  "guide_greenscore_better_product_arg4_title": "mangarahara",
+  "guide_greenscore_better_product_arg4_text": "Tsy toy ny etikety tompon'andraikitra, ny kajy Green-Score dia ** misokatra tanteraka** ary azo **hamarinin'ny olona**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Inona no atao hoe ultra-processing?",
+  "guide_nova_what_is_nova_paragraph1": "Ny vondrona NOVA dia mampahafantatra anao ny haavon'ny fanodinana sakafo.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Ny fanasokajiana ny NOVA dia mamela ny fanasokajiana ny sakafo ho **vondrona 4** araka ny **ny ambaratongan'ny fanodinana indostrialy** (sakafo voahodina kely indrindra na tsy voahodina, akora nahandro, sakafo voahodina, sakafo faran'izay voahodina).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Ny logos NOVA",
+  "guide_nova_groups_title": "Ireo vondrona 4 NOVA",
+  "guide_nova_groups_intro": "Misy vondrona NOVA 4, ny olana dia ny vondrona 4 - sakafo ultra-processed.",
+  "guide_nova_groups_arg1_title": "Sakafo voahodina kely na tsy voahodina",
+  "guide_nova_groups_arg1_text": "Ny sakafo tsy voahodina (na voajanahary) dia ny ampahany azo hanina amin'ny zavamaniry (voa, voankazo, raviny, taho, fakany) na biby (hozatra, atiny, atody, ronono), ary koa holatra, ahidrano, ary rano, rehefa tafasaraka amin'ny natiora.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Ny akora hohanina voahodina, toy ny menaka, dibera, siramamy, ary sira, dia akora azo avy amin'ny sakafo Vondrona 1 na avy amin'ny natiora amin'ny alalan'ny dingana izay ahitana fanerena, fanadiovana, fitotoana, fitotoana ary fanamainana.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Ny sakafo voahodina, toy ny legioma anaty tavoahangy, trondro am-bifotsy, voankazo ao anaty sirop, fromazy, ary mofo vao vita, dia atao amin'ny fanampiana sira, menaka, siramamy, na zavatra hafa avy amin'ny vondrona 2 ka hatramin'ny sakafo Vondrona 1. Ny dingana dia ahitana fomba fitehirizana na fandrahoan-tsakafo isan-karazany, ary amin'ny resaka mofo sy fromazy, fermentation tsy misy alikaola. Ny ankamaroan'ny sakafo voahodina dia misy akora roa na telo ary azo fantarina ho dika novaina amin'ny sakafo Vondrona 1. Azo hanina samirery izy ireo na, matetika kokoa, miaraka amin'ny sakafo hafa.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ny sakafo faran'izay voahodina, toy ny zava-pisotro malefaka, tsakitsaky mamy na mamy, vokatra avy amin'ny hena amboarina, ary lovia mangatsiaka efa voaomana mialoha, dia tsy sakafo novaina fotsiny fa fandrafetana vita amin'ny ankapobeny na tanteraka avy amin'ny akora azo avy amin'ny sakafo sy ny fanampin-tsakafo, miaraka amin'ny sakafon'ny Vondrona 1 kely. Ny akora ao anatin'ireo fandrafetana ireo matetika dia ahitana izay hita ao amin'ny sakafo voahodina, toy ny siramamy, menaka, tavy, na sira. Na izany aza, ny vokatra vita amin'ny ultra-processed dia misy loharanom-angovo sy otrikaina hafa tsy ampiasaina amin'ny fikarakarana sakafo. Ny sasany amin'izy ireo dia nalaina mivantana avy amin'ny sakafo, toy ny casein, lactose, whey, ary gluten.",
+  "guide_nova_explanations_title": "Ny olana amin'ny ultra-processing",
+  "guide_nova_explanations_arg1_title": "Fikarakarana tafahoatra ny akora sakafo",
+  "guide_nova_explanations_arg1_text": "Maro no azo avy amin'ny fanodinana bebe kokoa ny singa ara-tsakafo, toy ny menaka hydrogenated na mahaliana, proteinina hydrolyzed, soja proteinina mitoka-monina, maltodextrin, siramamy invert, ary sirop katsaka be fructose.",
+  "guide_nova_explanations_arg2_title": "Fanampiny izay mihoatra ny fiarovana ara-tsakafo madio",
+  "guide_nova_explanations_arg2_text": "Ny additives amin'ny sakafo vita amin'ny ultra-processed dia misy ny sasany izay ampiasaina amin'ny sakafo voahodina, toy ny preservatives, antioxidants, ary stabilizers. Ny kilasin'ny additives tsy hita afa-tsy amin'ny vokatra vita amin'ny ultra-processed dia ahitana ireo ampiasaina hanahaka na hanatsara ny toetran'ny sakafo na hanafenana ireo endrika tsy mahafinaritra amin'ny vokatra farany. Ireo additives ireo dia ahitana loko sy loko hafa, stabilizers loko; tsiro, fanampin-tsakafo, tsy misy siramamy; ary fitaovana fanodinana toy ny karbônina, fanamafisana, fanamafisam-peo ary anti-bulking agents, de-foaming, anti-caking sy glazing agents, emulsifiers, sequestrants ary humectants.",
+  "guide_nova_explanations_arg3_title": "Ny fanodinana tsy azonao atao ao an-trano",
+  "guide_nova_explanations_arg3_text": "Betsaka ny filaharan'ny dingana ampiasaina mba hanambatra ireo akora maro mazàna sy hamoronana ny vokatra farany (noho izany dia 'voahodina be'). Ny dingana dia misy maromaro tsy misy mitovy amin'ny an-trano, toy ny hydrogenation sy hydrolysation, extrusion sy moulding, ary ny fanodinana mialoha ho an'ny endasina.",
+  "guide_nova_explanations_arg4_title": "Ny lafiny miremby sy ara-bola amin'ny fanodinana ultra",
+  "guide_nova_explanations_arg4_text": "Ny tanjona ankapoben'ny fanodinana ultra dia ny hamorona vokatra sakafo misy marika, mety (maharitra, vonona hohanina), mahasarika (hiper-mahafinaritra) ary tena mahazo tombony (engaron'ny vidiny mora) natao hamindrana ireo vondrona sakafo hafa rehetra. Ny vokatra sakafo vita amin'ny fomba faran'izay bitika dia mazàna nofonosina amin'ny fomba mahasarika sy amidin'ny tsena.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Tantano ny safidinao amin'ny vidiny",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Ny tetikasa Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Adikao, hatsarao ny fitaovantsika…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Connect",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Manatona, na Araho izahay amin'ny media sosialy",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Ampio izahay hampahafantatra mpanjifa an-tapitrisany eran-tany",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Fanampiana & Fanohanana",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Mahazoa valin'ny fanontanianao",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Nivoaka",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Misaotra anao amin'ny maha-mpikambana anay!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Jereo ny antontan'isa rehetra",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Karohy {provider} ny \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Mitadiava toerana (oh: Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Accessibility: Asehoy ny emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Accessibility: Esory ny loko",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Fampahalalana ara-dalàna",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Fepetra fampiasana, politika momba ny fiainana manokana, sy ny maro hafa",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "fahazoan-dalana",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Momba ny app",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Fampahalalana ara-teknika, fampahalalana momba ny mpamorona ary maro hafa",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Laharana dikan-teny",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Scanner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "App store",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Fikirana rafitra",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Midira amin'ny kaody loharano",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Ary manomboka miantraika amin'ny olona an-tapitrisany",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "SOSO-KEVITRA",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Fantaro ny Nutri-Score vaovao",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Ao amin'ny tranokala Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Tantano ny kaontiko",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Ovay ny tenimiafinao",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Faritra mampidi-doza",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Ho very avokoa ny fandraisanao anjara",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Fikirana fampiharana",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Fomba tena andrana hijerena vokatra ivelan'ny aterineto",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Havaozy ny vokatra rehetra avy amin'ny mpizara",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Aza adino ny manao izany raha tsy hoe tena ilaina",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo mode",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Ampio karatra amin'ny scanner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Manampy vokatra santionany 3 amin'ny scanner",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy mpampiantrano",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Andrana fahafahana miditra",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Fifantenana vokatra marobe amin'ny vidiny",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Ny tontolon'ny fahalalana nodidian'ny mpampiasa",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Fidirana vonjimaika amin'ny fikarohana toerana",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Ampitahao amin'ny vokatra 2 na 3",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Import lisitry ny vokatra",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Scores & methodologies",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Fantaro ny fomba kajy ny Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Fantaro ireo fiovana lehibe amin'ny fomba fiasa",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Fantaro ny tetikasa",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Fantaro ny zava-misy momba ny sakafo misokatra",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Fanontaniana matetika",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Ny ONG Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Mahazoa vaovao momba ny fiaraha-monina",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Mijanòna hatrany amin'ny fampiharana sy ny vaovaon'ny vondrom-piarahamonina",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Mandraisa anjara amin'ny fanatrehana ny iray amin'ireo hetsika virtoaly",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Araho izahay amin'ny media sosialy",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Ny bilaogy Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Raiso ny vaovao farany, araka izay mitranga",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Mangataha fanampiana avy amin'ny fiaraha-monina",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Ampio izahay hanatsara ny fampiharana",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Alefaso anay ny fampahalalana debug",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Alefaso mailaka izahay miaraka amin'ny fampahalalana momba ny debugging amin'ny antsipiriany",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Alefaso anay ny hevitra momba ny fampiharana",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Ampio hamolavola ny hoavin'ny fampiharana",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Raiso ny fanadihadiana app",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Ampio izahay hahatakatra izay tokony hamboarinay manaraka",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "matihanina",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Maimaimpoana tanteraka, miantoka angon-drakitra marina ho an'ny fampiharana 500 & mpanjifa an-tapitrisany. Fanompoan-tena, mifanaraka amin'ny PIM na takelakao (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Mifandraisa amin'ny fanombohana",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Raiso ny fitaovana rehetra ilainao amin'ny tatitrao",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Mifandraisa amin'ny mpanao gazety na ampahafantaro anay ny tatitrao",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Lasa mpilatsaka an-tsitrapo mavitrika",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Fampandrosoana, Fifandraisana, Famolavolana… izay karazana asa an-tsitrapo na fahaiza-manao dia raisina an-tsitrapo!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Fantaro ny sasany amin'ireo fomba maro ahafahanao mandray anjara",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Fampandrosoana fampiharana finday",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Ianaro ny fomba fandraisana anjara amin'ny fampivoarana rindrambaiko",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Fanorenana tsy miorina isan'andro, endri-javatra vaovao",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Ampitomboy ny fiaraha-monina misy anao",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Fanampiana amin'ny rindrankajy, atiny, fandikana analyse ingredient",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Nanomana modely kely izahay hanampy anao :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Dingana tsotra hampitomboana ny mangarahara ara-tsakafo ao amin'ny firenenao",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Midira ao amin'ny ekipa kalitao data",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Miaraha miasa aminay mba hahazoana antoka fa feno sy marina ny angon-drakitra",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 vokatra nampiana",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Vokatra vaovao nampiako tao amin'ny Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Ny vokatra mila vitako",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Ny vokatra tsy feno rehetra",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Ny vokatra azonao ampiana mba hamitana",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Ampio kajy ny Nutri-Score & Green-Score ao amin'ny firenenao",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Vidiny nomeko",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Vidiny sy tapakila",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Makà sarin'ny rosiao ary diniho ny kaody tsipika mifandraika amin'izany",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Makà sarin'ny vidiny amina fivarotana iray",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Vidiny vaovao",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Vidy farany nampidirin'ny vondrom-piarahamonina Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Mpandray anjara manana vidiny be indrindra",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Open Price metrika",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Araho ny fivoaran'ny tetikasa",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Fomba fandraisana anjara",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Hamafiso ny vidiny ampianao na olon-kafa, miaraka amin'ny fanampian'ny AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Manampia rosia na sarin'ny talantalana maro avy amin'ny horonan-tsaryo",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Fanamby isam-bolana",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Mandraisa anjara amin'ny fikatsahana lohahevitra isam-bolana hanangonana vidiny",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Avereno indray ny angona momba ny tsy fivadihanao",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Ianaro ny fomba fangatahana ny angonao",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Amboary ny fampiharana",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Mandraisa anjara amin'ny tetikasa",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Fomba tsotra hanampiana ny Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodolojia, fanampiana, ary bebe kokoa momba ny tetikasa",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Ekeo ny soso-kevitra",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Tsy nahomby ny fanamarinana, tsy afaka naka porofo",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Avereno azafady ny fampiharana hampihatra ireo fanovana.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Interface grafika",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "haino aman-jery",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Mitondrà Open Food Facts amin'ny fiteninao",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Misoratra anarana amin'ny dika alpha amin'ny fampiharana",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Fandraisana anjara & angona vokatra",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Aza mampiseho Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Přispějte na Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Zapsat do interní alfa verze",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Vezměte prosím na vědomí, že s interní alfa verzí je možná úplná ztráta dat a aplikace se může kdykoli stát nepoužitelnou!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Nedokončené",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Přístup k experimentálním funkcím a vývojářským nástrojům",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restartovat zapojení",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "Konfigurace poskytovatele zpráv",
   "dev_mode_section_product_page": "Stránka produktu",
   "dev_mode_section_ui": "Uživatelské rozhraní",
-  "dev_mode_section_data": "Údaje",
   "dev_mode_section_experimental_features": "Experimentální funkce",
-  "dev_preferences_show_folksonomy_title": "Vyloučit uživatelské přidávání štítků",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Vyloučit Green-Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Neznámé Nutri-Score (Nový výpočet)",
   "nutriscore_not_applicable": "Nutri-Score nelze použít",
   "nutriscore_not_applicable_new_formula": "Nutri-Score nelze použít (Nový výpočet)",
-  "environmental_score_generic": "Green-Score",
-  "environmental_score_a": "Green-Score A",
-  "environmental_score_b": "Green-Score B",
-  "environmental_score_c": "Green-Score C",
-  "environmental_score_d": "Green-Score D",
-  "environmental_score_e": "Green-Score E",
-  "environmental_score_unknown": "Neznámé Green-Score",
-  "environmental_score_not_applicable": "Green-Score nelze použít",
-  "nova_group_generic": "Ultra-zpracování - skupiny NOVA",
+  "environmental_score_generic_new": "Eco-score",
+  "environmental_score_a_new": "Zelené skóre A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Zelené skóre E",
+  "environmental_score_unknown_new": "Neznámé zelené skóre",
+  "environmental_score_not_applicable_new": "Green-Score se nepoužije",
+  "nova_group_generic_new": "Ultra zpracované potraviny - skupiny NOVA",
   "nova_group_1": "Skupina NOVA 1",
   "nova_group_2": "Skupina NOVA 2",
   "nova_group_3": "Skupina NOVA 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Všichni občané nám mohou pomoci shromažďovat a strukturovat informace, které jsou na produktech uvedeny nebo z nich lze odvodit, například informace na obalech: Mission Emballages: rozsáhlý společný inventář obalů pro všechny potravinářské výrobky (ve francouzštině)",
   "guide_greenscore_transparency_arg2_title": "Jak mohou výrobci pomoci",
   "guide_greenscore_transparency_arg2_text": "Výrobci nám mohou zasílat své informace přímo prostřednictvím naší bezplatné platformy pro výrobce.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Který produkt je lepší pro planetu?",
+  "guide_greenscore_better_product_arg1_title": "Může být těžké říct",
+  "guide_greenscore_better_product_arg1_text": "Výběr udržitelných potravin je jednou z nejsilnějších věcí, které můžeme pro klima udělat, protože **náš globální potravinový systém je zodpovědný za více než čtvrtinu všech emisí skleníkových plynů**.\n(Zdroj: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Máš moc!",
+  "guide_greenscore_better_product_arg2_text": "Dobrou zprávou je, že nám to dává účinný způsob, jak dosáhnout změny.\n**Každý z nás sní přibližně 1 000 jídel ročně**. To je 1 000 příležitostí **zvolit si lepší budoucnost pro planetu**!",
+  "guide_greenscore_better_product_arg3_title": "Pomáhá být zodpovědný a rozhodovat se",
+  "guide_greenscore_better_product_arg3_text": "Výběr udržitelných potravin se může zdát složitý. Štítky jsou matoucí a informace často chybí. Systém Green-Score byl vytvořen proto, aby to zjednodušil a poskytl vám **jasné**, **vědecky podložené** a **transparentní** environmentální hodnocení potravinářských výrobků přímo tam, kde ho potřebujete: při nakupování.",
+  "guide_greenscore_better_product_arg4_title": "Průhlednost",
+  "guide_greenscore_better_product_arg4_text": "Na rozdíl od proprietárních značek je výpočet Green-Score **zcela otevřený** a může být **ověřen kýmkoli**.",
+  "guide_greenscore_share_link": "https://cs.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra zpracované potraviny",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Co je ultraprocessing?",
+  "guide_nova_what_is_nova_paragraph1": "Skupiny NOVA vás informují o úrovni zpracování potravin.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Klasifikace NOVA umožňuje rozdělení potravin do **4 skupin** na základě jejich **stupně průmyslového zpracování** (minimálně zpracované nebo nezpracované potraviny, kulinářské ingredience, zpracované potraviny, ultrazpracované potraviny).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Loga NOVA",
+  "guide_nova_groups_title": "4 skupiny NOVA",
+  "guide_nova_groups_intro": "Existují 4 skupiny NOVA, problematická je skupina 4 – Ultrazpracované potraviny.",
+  "guide_nova_groups_arg1_title": "Minimálně zpracované nebo nezpracované potraviny",
+  "guide_nova_groups_arg1_text": "Nezpracované (nebo přírodní) potraviny jsou jedlé části rostlin (semena, plody, listy, stonky, kořeny) nebo zvířat (svalovina, droby, vejce, mléko), jakož i houby, řasy a voda, po oddělení od přírody.",
+  "guide_nova_groups_arg2_title": "Běžně zpracované kuchyňské přísady",
+  "guide_nova_groups_arg2_text": "Zpracované kulinářské přísady, jako jsou oleje, máslo, cukr a sůl, jsou látky získané z potravin skupiny 1 nebo z přírody procesy, které zahrnují lisování, rafinaci, mletí, mletí a sušení.",
+  "guide_nova_groups_arg3_title": "Běžně zpracované potraviny",
+  "guide_nova_groups_arg3_text": "Zpracované potraviny, jako je balená zelenina, rybí konzervy, ovoce v sirupu, sýry a čerstvě upečený chléb, se vyrábějí primárně přidáním soli, oleje, cukru nebo jiných látek ze skupiny 2 do potravin skupiny 1. Procesy zahrnují různé metody konzervace nebo vaření a v případě chleba a sýrů nealkoholické kvašení. Většina zpracovaných potravin má dvě nebo tři složky a lze je rozpoznat jako upravené verze potravin skupiny 1. Lze je konzumovat samostatně nebo častěji v kombinaci s jinými potravinami.",
+  "guide_nova_groups_arg4_title": "Ultra zpracované potraviny",
+  "guide_nova_groups_arg4_text": "Ultrazpracované potraviny, jako jsou nealkoholické nápoje, sladké nebo slané balené pochutiny, rekonstituované masné výrobky a předpřipravené mražené pokrmy, nejsou jen modifikované potraviny, ale složení vyrobené převážně nebo výhradně z látek odvozených z potravin a přídatných látek, s malým nebo žádným obsahem intaktních potravin skupiny 1. Složky v těchto složení obvykle zahrnují ty, které se nacházejí i ve zpracovaných potravinách, jako jsou cukry, oleje, tuky nebo sůl. Ultrazpracované výrobky však obsahují i další zdroje energie a živin, které se v kulinářských přípravách obvykle nepoužívají. Některé z nich jsou přímo extrahovány z potravin, jako je kasein, laktóza, syrovátka a lepek.",
+  "guide_nova_explanations_title": "Problémy s ultraprocessingem",
+  "guide_nova_explanations_arg1_title": "Extrémní zpracování potravinářských surovin",
+  "guide_nova_explanations_arg1_text": "Mnoho z nich pochází z dalšího zpracování složek potravin, jako jsou hydrogenované nebo interesterifikované oleje, hydrolyzované bílkoviny, izolát sójových bílkovin, maltodextrin, invertní cukr a kukuřičný sirup s vysokým obsahem fruktózy.",
+  "guide_nova_explanations_arg2_title": "Přísady, které jdou nad rámec čisté bezpečnosti potravin",
+  "guide_nova_explanations_arg2_text": "Mezi přísady v ultrazpracovaných potravinách patří některé, které se používají i ve zpracovaných potravinách, jako jsou konzervanty, antioxidanty a stabilizátory. Mezi třídy přísad, které se nacházejí pouze v ultrazpracovaných produktech, patří ty, které se používají k napodobení nebo vylepšení senzorických vlastností potravin nebo k zakrytí nechutných aspektů konečného produktu. Mezi tyto přísady patří barviva a jiná barviva, stabilizátory barev, aromata, zvýrazňovače chuti, necukerná sladidla a pomocné látky při zpracování, jako jsou syticí, zpevňující, objemové a protiplísňové látky, odpěňovací, protispékavé a lešticí látky, emulgátory, sekvestranty a zvlhčovadla.",
+  "guide_nova_explanations_arg3_title": "Zpracování, které doma nezvládnete",
+  "guide_nova_explanations_arg3_text": "K zkombinování obvykle mnoha ingrediencí a vytvoření konečného produktu (odtud „ultra zpracovaný“) se používá řada postupů. Mezi tyto postupy patří několik, které nemají v domácí srovnání, jako je hydrogenace a hydrolýza, extruze a tvarování a předzpracování pro smažení.",
+  "guide_nova_explanations_arg4_title": "Predátorské a finanční aspekty ultraprocessingu",
+  "guide_nova_explanations_arg4_text": "Celkovým účelem ultrazpracování je vytvořit značkové, pohodlné (trvanlivé, připravené ke konzumaci), atraktivní (hyperchutné) a vysoce ziskové (levné ingredience) potravinářské výrobky určené k nahrazení všech ostatních skupin potravin. Ultrazpracované potraviny jsou obvykle atraktivně baleny a intenzivně uváděny na trh.",
+  "guide_nova_share_link": "https://cs.openfoodfacts.org/nova",
   "preview_badge": "Náhled",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Hlavní nastavení",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Ceny",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Spravujte své cenové preference",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Projekt Otevřená fakta o jídle",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Přispět",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Překládejte, vylepšujte naše nástroje…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Připojit",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Kontaktujte nás nebo nás sledujte na sociálních sítích",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Přispějte",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Pomozte nám informovat miliony spotřebitelů po celém světě",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Nápověda a podpora",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "Často kladené otázky",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Získejte odpovědi na své otázky",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Odhlášen/a",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Děkujeme, že jste jedním z našich členů!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Produkty upraveny",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Ceny přidány",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Zobrazit všechny statistiky",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Hledat v {provider} výraz „{keyword}“",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Vyhledejte nastavení (např. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Přístupnost: Zobrazit emotikony",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Přístupnost: Odebrat barvy",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produkty",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "O aplikaci",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Právní informace",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Podmínky použití, zásady ochrany osobních údajů a další",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Podmínky použití",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Právní zmínky",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Zásady ochrany osobních údajů",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licence",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "O aplikaci",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Technické informace, informace pro vývojáře a další",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Informace",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Číslo verze",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skener",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Obchod s aplikacemi",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Nastavení systému",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Přístup ke zdrojovému kódu",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "A začněte ovlivňovat miliony lidí",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Přidat ceny",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Dokončete produkty",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Tipy",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Objevte nový Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Na webových stránkách Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Spravovat můj účet",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Změnit heslo",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Nebezpečná zóna",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Všechny vaše příspěvky budou ztraceny",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Příspěvky",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Nastavení aplikace",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Velmi experimentální způsob skenování produktů offline",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Obnovit všechny produkty ze serveru",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Prosím, vyhněte se tomu, pokud to není nezbytně nutné",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo režim",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Přidání karet do skeneru",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Přidá do skeneru 3 vzorky produktů",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Hostitel folksonomie",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Experimenty s přístupností",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Výběr více produktů za dané ceny",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Uživatelem seřazené znalostní panely",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Dočasný přístup k vyhledávání polohy",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Porovnání 2 nebo 3 produktů vedle sebe",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Import seznamu produktů",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Skóre a metodologie",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Zjistěte, jak se vypočítává Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Objevte hlavní změny v metodice",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Zjistěte více o projektu",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Objevte fakta o jídle na Open Food",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Často kladené otázky - Často kladené otázky",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Nevládní organizace Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Informace",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Získejte aktualizace komunity",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Zůstaňte v obraze díky aplikacím a novinkám z komunity",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Zapojte se účastí na jedné z našich virtuálních akcí",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Sledujte nás na sociálních sítích",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Blog Otevřená fakta o jídle",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Získejte nejnovější zprávy, jakmile se stanou",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Získejte pomoc od komunity",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Pomozte nám vylepšit aplikaci",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Zašlete nám informace o ladění",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Pošlete nám e-mail s podrobnými informacemi o ladění",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Pošlete nám zpětnou vazbu k aplikaci",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Pomozte utvářet budoucnost aplikace",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Zúčastněte se průzkumu aplikace",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Pomozte nám pochopit, co bychom měli dále budovat",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesionálové",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Zcela zdarma, zajišťuje přesná data pro 500 aplikací a miliony spotřebitelů. Samoobsluha, kompatibilní s vaším PIM nebo tabulkami (XLSX).",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Kontaktujte nás a začněte",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Média",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Získejte veškerý materiál, který potřebujete pro svou zprávu",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Kontaktujte nás s dotazy pro tisk nebo s informacemi o vaší zprávě.",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Staňte se aktivním dobrovolníkem",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Vývoj, komunikace, design… jakýkoli druh dobrovolnictví nebo odbornosti je vítán!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Objevte některé z mnoha způsobů, jak můžete přispět",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Vývoj mobilních aplikací",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Naučte se, jak se podílet na vývoji softwaru",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Denně nestabilní sestavení, zbrusu nové funkce",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Rozšiřte svou místní komunitu",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Pomoc se softwarem, obsahem, překlady analýz složek",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Připravili jsme pro vás malou šablonu, která vám s tím pomůže :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Jednoduché kroky k větší transparentnosti potravin ve vaší zemi",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Kvalita dat",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Přidejte se k týmu pro kvalitu dat",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Přidejte se k našemu úsilí o zajištění úplnosti a přesnosti databáze",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 přidáno produktů",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Nové produkty, které jsem přidal/a do Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produkty, které potřebuji dokončit",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Všechny neúplné produkty",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produkty, které můžete pomoci dokončit",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Pomozte s výpočtem Nutri-Score a Green-Score ve vaší zemi",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Ceny, které jsem přispěl/a",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Cenovky a účtenky",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Vyfoťte si účtenky a naskenujte příslušné čárové kódy",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Vyfoťte si ceny v obchodě",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Nejnovější ceny",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Nejnovější ceny přidané komunitou Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Přispěvatelé s nejvyššími cenami",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metriky otevírací ceny",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Sledujte vývoj projektu",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Způsoby, jak přispět",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Potvrďte ceny, které jste přidali vy nebo jiní, s pomocí umělé inteligence",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Rychle přidejte mnoho účtenek nebo fotografií polic z alba fotoaparátu",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Měsíční výzvy",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Zúčastněte se měsíčních tematických úkolů a sbírejte ceny",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Získejte zpět svá věrnostní data",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Zjistěte, jak si vyžádat svá data",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Přizpůsobte si aplikaci",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Přispějte k projektu",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Jednoduché způsoby, jak pomoci Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodiky hodnocení, pomoc a další informace o projektu",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Přijmout návrh",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Ověření selhalo, nelze načíst důkazy",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Pro použití změn restartujte aplikaci.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafické rozhraní",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Média",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Vývoj",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Otevřené laboratoře faktů o potravinách",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Účet",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Přineste fakta o otevřeném jídle do svého jazyka",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Zaregistrujte se do alfa verze aplikace",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Příspěvky a produktová data",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Nezobrazovat folksonomii",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Účet",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

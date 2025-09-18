@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "ເຂົ້າເຖິງຄຸນສົມບັດທົດລອງ ແລະເຄື່ອງມືພັດທະນາ",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "ຄະແນນສີຂຽວ A",
+  "environmental_score_b_new": "ຄະແນນສີຂຽວ B",
+  "environmental_score_c_new": "ຄະແນນສີຂຽວ C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "ຄະແນນສີຂຽວ E",
+  "environmental_score_unknown_new": "ຄະແນນສີຂຽວທີ່ບໍ່ຮູ້ຈັກ",
+  "environmental_score_not_applicable_new": "Green-Score ບໍ່ສາມາດໃຊ້ໄດ້",
+  "nova_group_generic_new": "ອາຫານປຸງແຕ່ງພິເສດ - ກຸ່ມ NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "ພົນລະເມືອງທຸກຄົນສາມາດຊ່ວຍພວກເຮົາເກັບກໍາແລະຈັດໂຄງສ້າງຂໍ້ມູນທີ່ມີຢູ່ໃນຜະລິດຕະພັນຫຼືທີ່ສາມາດ deduced ຈາກພວກເຂົາ, ເຊັ່ນ: ຂໍ້ມູນກ່ຽວກັບການຫຸ້ມຫໍ່: ພາລະກິດ Emballages: ເປັນສາງຮ່ວມກັນຂະຫນາດໃຫຍ່ຂອງການຫຸ້ມຫໍ່ສໍາລັບຜະລິດຕະພັນອາຫານທັງຫມົດ (ໃນພາສາຝຣັ່ງ)",
   "guide_greenscore_transparency_arg2_title": "ຜູ້ຜະລິດສາມາດຊ່ວຍໄດ້ແນວໃດ",
   "guide_greenscore_transparency_arg2_text": "ຜູ້ຜະລິດສາມາດສົ່ງໃຫ້ພວກເຮົາຂໍ້ມູນຂອງພວກເຂົາໂດຍກົງຜ່ານເວທີຟຣີຂອງພວກເຮົາສໍາລັບຜູ້ຜະລິດ.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "ຜະລິດຕະພັນໃດທີ່ດີກວ່າສໍາລັບດາວ?",
+  "guide_greenscore_better_product_arg1_title": "ມັນສາມາດເວົ້າໄດ້ຍາກ",
+  "guide_greenscore_better_product_arg1_text": "ການເລືອກອາຫານແບບຍືນຍົງແມ່ນສິ່ງໜຶ່ງທີ່ມີພະລັງທີ່ສຸດທີ່ພວກເຮົາສາມາດເຮັດໄດ້ສໍາລັບສະພາບອາກາດ, ເພາະວ່າ ** ລະບົບອາຫານທົ່ວໂລກຂອງພວກເຮົາມີຄວາມຮັບຜິດຊອບຫຼາຍກວ່າຫນຶ່ງສ່ວນສີ່ຂອງການປ່ອຍອາຍພິດເຮືອນແກ້ວ **.\n(ແຫຼ່ງຂໍ້ມູນ: Poore & Nemecek, ວິທະຍາສາດ, 2018).",
+  "guide_greenscore_better_product_arg2_title": "ເຈົ້າມີພະລັງ!",
+  "guide_greenscore_better_product_arg2_text": "ຂ່າວດີແມ່ນວ່ານີ້ເຮັດໃຫ້ພວກເຮົາມີວິທີທີ່ມີປະສິດທິພາບໃນການສ້າງການປ່ຽນແປງ.\n**ເຮົາແຕ່ລະຄົນກິນອາຫານປະມານ 1,000 ຄາບຕໍ່ປີ**. ນັ້ນແມ່ນ 1,000 ໂອກາດທີ່ຈະ **ເລືອກອະນາຄົດທີ່ດີກວ່າຂອງດາວເຄາະ**!",
+  "guide_greenscore_better_product_arg3_title": "ຊ່ວຍໃຫ້ມີຄວາມຮັບຜິດຊອບແລະການຕັດສິນໃຈ",
+  "guide_greenscore_better_product_arg3_text": "ການເລືອກອາຫານທີ່ຍືນຍົງສາມາດມີຄວາມຮູ້ສຶກສັບສົນ. ປ້າຍກຳກັບມີຄວາມສັບສົນ ແລະຂໍ້ມູນມັກຈະຂາດຫາຍໄປ. Green-Score ຖືກສ້າງຂຶ້ນເພື່ອເຮັດໃຫ້ມັນງ່າຍດາຍ, ໃຫ້ທ່ານ ** ຊັດເຈນ **, ** ວິທະຍາສາດໂດຍອີງໃສ່ **, ແລະ ** ໂປ່ງໃສ ** ການຈັດອັນດັບສິ່ງແວດລ້ອມສໍາລັບຜະລິດຕະພັນອາຫານ, ໃນບ່ອນທີ່ທ່ານຕ້ອງການ: ໃນຂະນະທີ່ທ່ານຊື້ເຄື່ອງ.",
+  "guide_greenscore_better_product_arg4_title": "ຄວາມໂປ່ງໃສ",
+  "guide_greenscore_better_product_arg4_text": "ບໍ່ຄືກັບປ້າຍກຳກັບທີ່ເປັນເຈົ້າຂອງ, ການຄຳນວນ Green-Score ແມ່ນ **ເປີດຢ່າງຄົບຖ້ວນ** ແລະສາມາດຖືກກວດສອບໄດ້ໂດຍທຸກຄົນ**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "ການປະມວນຜົນແບບພິເສດແມ່ນຫຍັງ?",
+  "guide_nova_what_is_nova_paragraph1": "ກຸ່ມ NOVA ແຈ້ງໃຫ້ທ່ານຊາບກ່ຽວກັບລະດັບການປຸງແຕ່ງອາຫານ.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "ການ​ຈັດ​ປະ​ເພດ NOVA ອະ​ນຸ​ຍາດ​ໃຫ້​ສໍາ​ລັບ​ການ​ຈັດ​ປະ​ເພດ​ຂອງ​ອາ​ຫານ​ອອກ​ເປັນ **4 ກຸ່ມ** ໂດຍ​ອີງ​ໃສ່ ** ລະ​ດັບ​ການ​ປຸງ​ແຕ່ງ​ອຸດ​ສາ​ຫະ​ກໍາ ** (ອາ​ຫານ​ທີ່​ປຸງ​ແຕ່ງ​ຫນ້ອຍ​ຫຼື​ຍັງ​ບໍ່​ໄດ້​ປຸງ​ແຕ່ງ​, ສ່ວນ​ປະ​ກອບ​ສໍາ​ປຸງ​ແຕ່ງ​ອາ​ຫານ​, ອາ​ຫານ​ປຸງ​ແຕ່ງ​, ອາ​ຫານ​ທີ່​ປຸງ​ແຕ່ງ ultra​)​.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "ໂລໂກ້ NOVA",
+  "guide_nova_groups_title": "4 ກຸ່ມ NOVA",
+  "guide_nova_groups_intro": "ມີ 4 ກຸ່ມ NOVA, ກຸ່ມທີ່ມີບັນຫາແມ່ນກຸ່ມ 4 - ອາຫານທີ່ປຸງແຕ່ງພິເສດ.",
+  "guide_nova_groups_arg1_title": "ອາຫານທີ່ປຸງແຕ່ງ ຫຼືບໍ່ໄດ້ປຸງແຕ່ງໜ້ອຍທີ່ສຸດ",
+  "guide_nova_groups_arg1_text": "ອາຫານທີ່ບໍ່ໄດ້ປຸງແຕ່ງ (ຫຼືທໍາມະຊາດ) ແມ່ນສ່ວນທີ່ກິນໄດ້ຂອງພືດ (ແກ່ນ, ຫມາກ, ໃບ, ລໍາຕົ້ນ, ຮາກ) ຫຼືສັດ (ກ້າມເນື້ອ, ໄຂມັນ, ໄຂ່, ນົມ), ເຊັ່ນດຽວກັນກັບເຊື້ອເຫັດ, algae, ແລະນ້ໍາ, ຫຼັງຈາກແຍກອອກຈາກທໍາມະຊາດ.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "ສ່ວນປະກອບເຮັດອາຫານປຸງແຕ່ງເຊັ່ນ: ນໍ້າມັນ, ມັນເບີ, ນໍ້າຕານ, ແລະເກືອ, ແມ່ນສານທີ່ມາຈາກອາຫານກຸ່ມ 1 ຫຼືຈາກທໍາມະຊາດໂດຍຜ່ານຂະບວນການຕ່າງໆ ລວມມີການກົດ, ກັ່ນ, ຂັດ, ໂມ້, ແລະ ຕາກແຫ້ງ.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "ອາຫານປຸງແຕ່ງເຊັ່ນ: ຜັກກະປ໋ອງ, ປາກະປ໋ອງ, ຫມາກໄມ້ໃນຢານ້ໍາ, ເນີຍແຂງ, ແລະເຂົ້າຈີ່ທີ່ເຮັດສົດໆ, ຕົ້ນຕໍແມ່ນເຮັດໂດຍການເພີ່ມເກືອ, ນ້ໍາມັນ, ້ໍາຕານ, ຫຼືສານອື່ນໆຈາກກຸ່ມ 2 ໄປຫາອາຫານກຸ່ມ 1. ຂະບວນການປະກອບມີວິທີການຮັກສາຫຼືການປຸງແຕ່ງຕ່າງໆ, ແລະໃນກໍລະນີຂອງເຂົ້າຈີ່ແລະເນີຍແຂງ, ການຫມັກທີ່ບໍ່ມີເຫຼົ້າ. ອາຫານປຸງແຕ່ງສ່ວນໃຫຍ່ມີສອງຫຼືສາມສ່ວນປະ ກອບສໍາແລະຖືກຮັບຮູ້ເປັນສະບັບດັດແກ້ຂອງອາຫານກຸ່ມ 1. ພວກເຂົາສາມາດກິນໄດ້ດ້ວຍຕົນເອງຫຼື, ໂດຍທົ່ວໄປແລ້ວ, ປະສົມປະສານກັບອາຫານອື່ນໆ.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "ອາຫານທີ່ປຸງແຕ່ງແບບພິເສດ, ເຊັ່ນ: ນ້ຳອັດລົມ, ອາຫານຫວ່າງທີ່ບັນຈຸຫວານ ຫຼື ເຄັມ, ຜະລິດຕະພັນຊີ້ນສັດທີ່ສ້າງຂຶ້ນໃໝ່, ແລະອາຫານແຊ່ແຂງທີ່ກຽມໄວ້ກ່ອນແລ້ວ, ບໍ່ແມ່ນອາຫານທີ່ປຸງແຕ່ງແລ້ວ, ແຕ່ເປັນອາຫານທີ່ປຸງແຕ່ງເປັນສ່ວນໃຫຍ່ ຫຼື ທັງໝົດຈາກສານທີ່ມາຈາກອາຫານ ແລະ ທາດປະສົມຕ່າງໆ, ໂດຍມີອາຫານກຸ່ມ 1 ໜ້ອຍຫາບໍ່ຕິດ. ສ່ວນປະກອບໃນສູດເຫຼົ່ານີ້ມັກຈະມີຢູ່ໃນອາຫານປຸງແຕ່ງເຊັ່ນ: ນໍ້າຕານ, ນໍ້າມັນ, ໄຂມັນ, ຫຼືເກືອ. ແນວໃດກໍ່ຕາມ, ຜະລິດຕະພັນປຸງແຕ່ງພິເສດຍັງມີແຫຼ່ງພະລັງງານ ແລະສານອາຫານອື່ນໆທີ່ບໍ່ໄດ້ໃຊ້ໃນການກະກຽມເຮັດອາຫານ. ບາງສ່ວນຂອງເຫຼົ່ານີ້ແມ່ນສະກັດໂດຍກົງຈາກອາຫານ, ເຊັ່ນ casein, lactose, whey, ແລະ gluten.",
+  "guide_nova_explanations_title": "ບັນຫາກ່ຽວກັບການປຸງແຕ່ງ ultra",
+  "guide_nova_explanations_arg1_title": "ການປຸງແຕ່ງທີ່ຮຸນແຮງຂອງສ່ວນປະກອບອາຫານ",
+  "guide_nova_explanations_arg1_text": "ຈໍານວນຫຼາຍແມ່ນໄດ້ມາຈາກການປຸງແຕ່ງເພີ່ມເຕີມຂອງສ່ວນປະກອບອາຫານ, ເຊັ່ນ: ນ້ໍາມັນໄຮໂດຣເຈນຫຼືມີຄວາມສົນໃຈ, ທາດໂປຼຕີນຈາກ hydrolyzed, ທາດໂປຼຕີນຈາກ soy isolate, maltodextrin, ້ໍາຕານ invert, ແລະນ້ໍາສາລີ fructose ສູງ.",
+  "guide_nova_explanations_arg2_title": "ສານເຕີມແຕ່ງທີ່ເກີນຄວາມປອດໄພຂອງອາຫານບໍລິສຸດ",
+  "guide_nova_explanations_arg2_text": "ສານເຕີມແຕ່ງໃນອາຫານທີ່ປຸງແຕ່ງພິເສດລວມມີບາງຊະນິດທີ່ຍັງໃຊ້ໃນອາຫານປຸງແຕ່ງເຊັ່ນ: ສານກັນບູດ, ສານຕ້ານອະນຸມູນອິດສະລະ, ແລະສານຕ້ານອະນຸມູນອິດສະລະ. ໝວດໝູ່ຂອງສານເຕີມແຕ່ງທີ່ພົບເຫັນຢູ່ໃນຜະລິດຕະພັນທີ່ຜ່ານການປຸງແຕ່ງແບບພິເສດແມ່ນລວມເອົາສິ່ງທີ່ໃຊ້ເພື່ອຮຽນແບບ ຫຼື ປັບປຸງຄຸນນະພາບທາງດ້ານຄວາມຮູ້ສຶກຂອງອາຫານ ຫຼື ເພື່ອປອມແປງລັກສະນະທີ່ບໍ່ແຊບຊ້ອຍຂອງຜະລິດຕະພັນສຸດທ້າຍ. ສານເສີມເຫຼົ່ານີ້ລວມມີສີຍ້ອມສີແລະສີອື່ນໆ, ສະຖຽນລະພາບສີ; ລົດຊາດ, ເຄື່ອງປຸງລົດຊາດ, ນໍ້າຫວານທີ່ບໍ່ມີນໍ້າຕານ; ແລະເຄື່ອງຊ່ວຍໃນການປຸງແຕ່ງເຊັ່ນ: ກາກບອນ, ການເຮັດໃຫ້ແຫນ້ນ, bulking ແລະຕ້ານການ bulking ຕົວແທນ, de-foaming, ຕ້ານການ caking ແລະ glazing, emulsifiers, sequestrants, ແລະ humectants.",
+  "guide_nova_explanations_arg3_title": "ການປຸງແຕ່ງທີ່ທ່ານບໍ່ສາມາດເຮັດຢູ່ເຮືອນ",
+  "guide_nova_explanations_arg3_text": "ຂະບວນການຫຼາຍລຳດັບແມ່ນໃຊ້ເພື່ອສົມທົບສ່ວນປະກອບຫຼາຍອັນຕາມປົກກະຕິ ແລະສ້າງຜະລິດຕະພັນສຸດທ້າຍ (ເພາະສະນັ້ນ 'ການປຸງແຕ່ງພິເສດ'). ຂະບວນການດັ່ງກ່າວປະກອບມີຫຼາຍຂັ້ນຕອນທີ່ບໍ່ມີການທຽບເທົ່າພາຍໃນປະເທດ, ເຊັ່ນ: ການສ້າງໄຮໂດຣເຈນແລະ hydrolysation, extrusion ແລະ molding, ແລະການປຸງແຕ່ງກ່ອນສໍາລັບການ frying.",
+  "guide_nova_explanations_arg4_title": "ດ້ານການລ້າ ແລະດ້ານການເງິນຂອງການປະມວນຜົນແບບພິເສດ",
+  "guide_nova_explanations_arg4_text": "ຈຸດປະສົງໂດຍລວມຂອງການປຸງແຕ່ງແບບພິເສດແມ່ນເພື່ອສ້າງຍີ່ຫໍ້, ສະດວກ (ທົນທານ, ພ້ອມທີ່ຈະບໍລິໂພກ), ດຶງດູດໃຈ (hyper-palatable) ແລະຜະລິດຕະພັນອາຫານທີ່ມີກໍາໄລສູງ (ຄ່າໃຊ້ຈ່າຍຕ່ໍາ) ທີ່ຖືກອອກແບບມາເພື່ອຍ້າຍກຸ່ມອາຫານອື່ນໆທັງຫມົດ. ຜະລິດຕະພັນອາຫານທີ່ປຸງແຕ່ງແບບພິເສດແມ່ນປົກກະຕິແລ້ວຖືກຫຸ້ມຫໍ່ຢ່າງດຶງດູດ ແລະ ຕະຫຼາດຢ່າງເຂັ້ມງວດ.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "ຈັດການການຕັ້ງຄ່າລາຄາຂອງທ່ານ",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "ໂຄງການ Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "ແປພາສາ, ປັບປຸງເຄື່ອງມືຂອງພວກເຮົາ…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "ເຊື່ອມຕໍ່",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "ຕິດຕໍ່, ຫຼືຕິດຕາມພວກເຮົາໃນສື່ມວນຊົນສັງຄົມ",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "ຊ່ວຍພວກເຮົາແຈ້ງໃຫ້ຜູ້ຊົມໃຊ້ຫຼາຍລ້ານຄົນໃນທົ່ວໂລກ",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "ຊ່ວຍເຫຼືອ & ສະຫນັບສະຫນູນ",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "ໄດ້​ຮັບ​ຄໍາ​ຕອບ​ສໍາ​ລັບ​ຄໍາ​ຖາມ​ຂອງ​ທ່ານ​",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "ອອກຈາກລະບົບແລ້ວ",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "ຂໍ​ຂອບ​ໃຈ​ທ່ານ​ສໍາ​ລັບ​ການ​ເປັນ​ຫນຶ່ງ​ໃນ​ສະ​ມາ​ຊິກ​ຂອງ​ພວກ​ເຮົາ​!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "ເບິ່ງສະຖິຕິທັງໝົດ",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "ຊອກຫາ {provider} ສໍາລັບ \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "ຊອກຫາການຕັ້ງຄ່າ (ເຊັ່ນ: Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "ການຊ່ວຍເຂົ້າເຖິງ: ສະແດງອີໂມຈິ",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "ການເຂົ້າເຖິງ: ເອົາສີອອກ",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "ຂໍ້ມູນທາງກົດໝາຍ",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "ເງື່ອນໄຂການນໍາໃຊ້, ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ, ແລະອື່ນໆ",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "ໃບອະນຸຍາດ",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "ກ່ຽວກັບແອັບ",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "ຂໍ້ມູນດ້ານວິຊາການ, ຂໍ້ມູນນັກພັດທະນາ, ແລະອື່ນໆ",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "ໝາຍເລກລຸ້ນ",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "ເຄື່ອງສະແກນ",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "ຮ້ານແອັບ",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "ການຕັ້ງຄ່າລະບົບ",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "ເຂົ້າເຖິງລະຫັດແຫຼ່ງ",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "ແລະເລີ່ມຕົ້ນສ້າງຜົນກະທົບສໍາລັບລ້ານ",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "ເຄັດລັບ",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "ຄົ້ນພົບຄະແນນ Nutri-Score ໃໝ່",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "ຢູ່ໃນເວັບໄຊທ໌ Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "ຈັດການບັນຊີຂອງຂ້ອຍ",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "ປ່ຽນລະຫັດຜ່ານຂອງຂ້ອຍ",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "ເຂດອັນຕະລາຍ",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "ການປະກອບສ່ວນທັງໝົດຂອງທ່ານຈະສູນເສຍໄປ",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "ການຕັ້ງຄ່າແອັບ",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "ວິທີທົດລອງຫຼາຍເພື່ອສະແກນຜະລິດຕະພັນອອບລາຍ",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "ໂຫຼດຜະລິດຕະພັນທັງໝົດຄືນໃໝ່ຈາກເຊີບເວີ",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "ກະລຸນາຫຼີກເວັ້ນການເຮັດສິ່ງນັ້ນເວັ້ນເສຍແຕ່ມີຄວາມຈໍາເປັນຢ່າງແທ້ຈິງ",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "ໂໝດສາທິດ",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "ເພີ່ມບັດໃສ່ເຄື່ອງສະແກນ",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "ເພີ່ມ 3 ຜະລິດຕະພັນຕົວຢ່າງໃສ່ເຄື່ອງສະແກນ",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "ເຈົ້າພາບ Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "ການທົດລອງການຊ່ວຍເຂົ້າເຖິງ",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "ການຄັດເລືອກຫຼາຍຜະລິດຕະພັນສໍາລັບລາຄາ",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "ຜູ້ໃຊ້ສັ່ງແຜງຄວາມຮູ້",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "ການເຂົ້າເຖິງຊົ່ວຄາວໃນການຊອກຫາສະຖານທີ່",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "ການປຽບທຽບດ້ານຂ້າງສໍາລັບ 2 ຫຼື 3 ຜະລິດຕະພັນ",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "ບັນຊີລາຍຊື່ຜະລິດຕະພັນນໍາເຂົ້າ",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "ຄະແນນ & ວິທີການ",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "ຄົ້ນພົບວິທີການຄິດໄລ່ Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "ຄົ້ນພົບການປ່ຽນແປງຫຼັກຂອງວິທີການ",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "ຄົ້ນພົບຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດ",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - ຄໍາຖາມທີ່ຖາມເລື້ອຍໆ",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "ອົງການ NGO ເປີດເຜີຍຄວາມຈິງກ່ຽວກັບອາຫານ",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "ຮັບອັບເດດຊຸມຊົນ",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "ຕິດຕາມຂ່າວສານຂອງແອັບ ແລະຊຸມຊົນ",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "ມີສ່ວນຮ່ວມໂດຍການເຂົ້າຮ່ວມຫນຶ່ງໃນກິດຈະກໍາ virtual ຂອງພວກເຮົາ",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "ຕິດຕາມພວກເຮົາໃນສື່ສັງຄົມ",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Open Food Facts blog",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "ໄດ້​ຮັບ​ຂ່າວ​ຫລ້າ​ສຸດ​, ຍ້ອນ​ວ່າ​ມັນ​ເກີດ​ຂຶ້ນ​",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "ຂໍຄວາມຊ່ວຍເຫຼືອຈາກຊຸມຊົນ",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "ຊ່ວຍພວກເຮົາປັບປຸງແອັບ",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "ສົ່ງຂໍ້ມູນດີບັກໃຫ້ພວກເຮົາ",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "ສົ່ງອີເມວຫາພວກເຮົາພ້ອມກັບຂໍ້ມູນການດີບັກລະອຽດ",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "ສົ່ງຄໍາຕິຊົມໃຫ້ພວກເຮົາກ່ຽວກັບ app ໄດ້",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "ຊ່ວຍສ້າງອະນາຄົດຂອງແອັບ",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "ເອົາ​ການ​ສໍາ​ຫຼວດ app ໄດ້​",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "ຊ່ວຍພວກເຮົາເຂົ້າໃຈສິ່ງທີ່ພວກເຮົາຄວນຈະສ້າງຕໍ່ໄປ",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "ຜູ້ຊ່ຽວຊານ",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "ບໍ່ເສຍຄ່າທັງໝົດ, ຮັບປະກັນຂໍ້ມູນທີ່ຖືກຕ້ອງສຳລັບ 500 ແອັບ ແລະ ຜູ້ບໍລິໂພກຫຼາຍລ້ານຄົນ. ການ​ບໍ​ລິ​ການ​ຕົນ​ເອງ​, ເຂົ້າ​ກັນ​ໄດ້​ກັບ PIM ຫຼື​ສະ​ເປ​ຣດ​ຊີດ (XLSX​) ຂອງ​ທ່ານ",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "ຕິດຕໍ່ເພື່ອເລີ່ມຕົ້ນ",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "ເອົາເອກະສານທັງຫມົດທີ່ທ່ານຕ້ອງການສໍາລັບການລາຍງານຂອງທ່ານ",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "ຕິດຕໍ່ສອບຖາມຂ່າວ ຫຼື ແຈ້ງໃຫ້ພວກເຮົາຮູ້ກ່ຽວກັບບົດລາຍງານຂອງທ່ານ",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "ກາຍເປັນອາສາສະໝັກທີ່ຫ້າວຫັນ",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "ການ​ພັດ​ທະ​ນາ, ການ​ສື່​ສານ, ການ​ອອກ​ແບບ… ປະ​ເພດ​ຂອງ​ອາ​ສາ​ສະ​ຫມັກ​ຫຼື​ຄວາມ​ຊ່ຽວ​ຊານ​ແມ່ນ​ຍິນ​ດີ​ຕ້ອນ​ຮັບ!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "ຄົ້ນພົບບາງວິທີທີ່ທ່ານສາມາດປະກອບສ່ວນໄດ້",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "ການພັດທະນາແອັບຯມືຖື",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "ຮຽນຮູ້ວິທີການປະກອບສ່ວນເຂົ້າໃນການພັດທະນາຊອບແວ",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "ການກໍ່ສ້າງທີ່ບໍ່ຫມັ້ນຄົງປະຈໍາວັນ, ຄຸນນະສົມບັດໃຫມ່ຍີ່ຫໍ້",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "ຂະຫຍາຍຊຸມຊົນທ້ອງຖິ່ນຂອງທ່ານ",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "ຊ່ວຍເຫຼືອກ່ຽວກັບຊອບແວ, ເນື້ອໃນ, ການແປການວິເຄາະສ່ວນປະກອບ",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "ພວກເຮົາໄດ້ກະກຽມແມ່ແບບເລັກນ້ອຍເພື່ອຊ່ວຍໃຫ້ທ່ານ :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "ຂັ້ນຕອນງ່າຍໆເພື່ອສ້າງຄວາມໂປ່ງໃສດ້ານອາຫານໃນປະເທດຂອງທ່ານ",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "ເຂົ້າຮ່ວມທີມງານຄຸນນະພາບຂໍ້ມູນ",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "ເຂົ້າຮ່ວມຄວາມພະຍາຍາມຂອງພວກເຮົາເພື່ອຮັບປະກັນຖານຂໍ້ມູນແມ່ນຄົບຖ້ວນແລະຖືກຕ້ອງ",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "ເພີ່ມ 0 ຜະລິດຕະພັນ",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "ຜະລິດຕະພັນໃຫມ່ທີ່ຂ້ອຍໄດ້ເພີ່ມໃສ່ Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "ຜະລິດຕະພັນທີ່ຂ້ອຍຕ້ອງການໃຫ້ສໍາເລັດ",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "ຜະລິດຕະພັນທີ່ບໍ່ຄົບຖ້ວນທັງຫມົດ",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "ຜະລິດຕະພັນທີ່ທ່ານສາມາດຊ່ວຍສໍາເລັດ",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "ຊ່ວຍຄິດໄລ່ຄະແນນ Nutri-Score & Green-Score ໃນປະເທດຂອງທ່ານ",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "ລາຄາທີ່ຂ້ອຍໄດ້ປະກອບສ່ວນ",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "ປ້າຍລາຄາ ແລະໃບຮັບເງິນ",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "ຖ່າຍຮູບໃບຮັບເງິນຂອງທ່ານແລະສະແກນບາໂຄດທີ່ກ່ຽວຂ້ອງ",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "ຖ່າຍຮູບລາຄາໃນຮ້ານ",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "ລາຄາໃໝ່ລ່າສຸດ",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "ລາຄາຫຼ້າສຸດເພີ່ມໂດຍຊຸມຊົນ Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "ຜູ້ປະກອບສ່ວນທີ່ມີລາຄາຫຼາຍທີ່ສຸດ",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "ເປີດການວັດແທກລາຄາ",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "ປະຕິບັດຕາມວິວັດທະນາການຂອງໂຄງການ",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "ວິທີການປະກອບສ່ວນ",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "ຢືນຢັນລາຄາທີ່ເພີ່ມໂດຍຕົວທ່ານເອງຫຼືຄົນອື່ນ, ດ້ວຍການຊ່ວຍເຫຼືອຂອງ AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "ເພີ່ມໃບຮັບເງິນ ຫຼືຮູບຂອງຊັ້ນວາງຈໍານວນຫຼາຍຈາກມ້ວນກ້ອງຂອງທ່ານຢ່າງວ່ອງໄວ",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "ສິ່ງທ້າທາຍປະຈໍາເດືອນ",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "ເຂົ້າຮ່ວມໃນການຄົ້ນຫາຫົວຂໍ້ປະຈໍາເດືອນເພື່ອເກັບກໍາລາຄາ",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "ຮຽກຄືນຂໍ້ມູນຄວາມສັດຊື່ຂອງທ່ານ",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "ຮຽນຮູ້ວິທີຮ້ອງຂໍຂໍ້ມູນຂອງທ່ານ",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "ປັບແຕ່ງແອັບຯ",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "ປະກອບສ່ວນເຂົ້າໃນໂຄງການ",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "ວິທີງ່າຍໆທີ່ຈະຊ່ວຍໃຫ້ Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "ວິທີການໃຫ້ຄະແນນ, ການຊ່ວຍເຫຼືອ, ແລະເພີ່ມເຕີມກ່ຽວກັບໂຄງການ",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "ຍອມຮັບຄໍາແນະນໍາ",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "ການພິສູດຢືນຢັນລົ້ມເຫລວ, ບໍ່ສາມາດດຶງຂໍ້ມູນຫຼັກຖານໄດ້",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "ກະລຸນາປິດເປີດແອັບຄືນໃໝ່ເພື່ອນຳໃຊ້ການປ່ຽນແປງ.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "ການໂຕ້ຕອບຮູບພາບ",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "ສື່ມວນຊົນ",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "ເປີດຫ້ອງທົດລອງຄວາມຈິງດ້ານອາຫານ",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "ເອົາຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດເຜີຍໃຫ້ກັບພາສາຂອງເຈົ້າ",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "ລົງທະບຽນໃນເວີຊັນອັນຟາຂອງແອັບ",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "ການປະກອບສ່ວນ ແລະຂໍ້ມູນຜະລິດຕະພັນ",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "ຢ່າສະແດງ Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

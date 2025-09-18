@@ -32,7 +32,7 @@
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
-  "exit_label": "Verlaten",
+  "exit_label": "Afsluiten",
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
@@ -56,7 +56,7 @@
   "@no": {},
   "stop": "Stop",
   "@stop": {},
-  "finish": "Beëindigen",
+  "finish": "Voltooien",
   "@finish": {},
   "calculate": "Berekenen",
   "@calculate": {
@@ -72,7 +72,7 @@
   "@error_occurred": {},
   "featureInProgress": "We werken nog aan deze functie, wacht af",
   "@featureInProgress": {},
-  "label_web": "Bekijk op het web",
+  "label_web": "Bekijk in een browser",
   "@label_web": {},
   "learnMore": "Meer informatie",
   "@learnMore": {},
@@ -141,11 +141,11 @@
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
-  "productDataUtility": "Bekijk de voedselgegevens die relevant zijn voor uw voorkeuren.",
+  "productDataUtility": "Zie de voedselgegevens die relevant zijn voor uw voorkeuren.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "Kies voedingsmiddelen die goed voor je zijn.",
+  "healthCardUtility": "Kies de producten die goed voor je zijn.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
@@ -159,7 +159,7 @@
   "incorrect_credentials": "Onjuiste gebruikersnaam of wachtwoord.",
   "password_lost_incorrect_credentials": "Dit e-mailadres of deze gebruikersnaam bestaat niet. Controleer uw inloggegevens.",
   "password_lost_server_unavailable": "We ondervinden momenteel vertragingen op onze servers en bieden hiervoor onze excuses aan. Probeer het later opnieuw.",
-  "login": "Log in",
+  "login": "Inloggen",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -171,7 +171,7 @@
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Voer je gebruikersnaam of e-mailadres in",
+  "login_page_username_or_email": "Voer gebruikersnaam of e-mailadres in",
   "login_page_password_error_empty": "Voer een wachtwoord in alstublieft",
   "create_account": "Account aanmaken",
   "@create_account": {
@@ -206,7 +206,7 @@
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
-  "reset_password": "Paswoord resetten",
+  "reset_password": "Wachtwoord resetten",
   "@reset_password": {
     "description": "Forgot password page title"
   },
@@ -215,7 +215,7 @@
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "Een e-mail met een link om je wachtwoord te resetten is verstuurd naar het e-mailadres dat gekoppeld is aan je account. Controleer ook je spammap",
+  "reset_password_done": "Een e-mail met een link om je wachtwoord te resetten is verstuurd naar het e-mailadres dat gekoppeld is aan je account. Controleer ook je spammap.",
   "send_reset_password_mail": "Wachtwoord wijzigen",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
@@ -240,13 +240,13 @@
   "sign_up_page_display_name_hint": "Naam",
   "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is vereist",
+  "sign_up_page_email_error_empty": "E-mail is verplicht",
   "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
   "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
-  "sign_up_page_username_error_empty": "Voer aub. een gebruikersnaam in",
-  "sign_up_page_username_error_invalid": "Vul a. u. b. een geldige gebruikersnaam in",
+  "sign_up_page_username_error_empty": "Voer een gebruikersnaam in",
+  "sign_up_page_username_error_invalid": "Vul a.u.b. een geldige gebruikersnaam in",
   "sign_up_page_username_description": "Gebruikersnaam mag geen spaties, hoofdletters of speciale tekens bevatten.",
-  "sign_up_page_username_length_invalid": "De gebruikersnaam mag niet langer zijn dan {value} tekens",
+  "sign_up_page_username_length_invalid": "Gebruikersnaam mag niet langer zijn dan {value} tekens",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -257,8 +257,8 @@
   "sign_up_page_password_hint": "Wachtwoord",
   "sign_up_page_password_error_empty": "Voer een wachtwoord in alstublieft",
   "sign_up_page_password_error_invalid": "Voer een geldig wachtwoord in (minimaal 6 tekens)",
-  "sign_up_page_confirm_password_hint": "Wachtwoord bevestigen",
-  "sign_up_page_confirm_password_error_empty": "Bevestig uw wachtwoord",
+  "sign_up_page_confirm_password_hint": "Bevestig wachtwoord",
+  "sign_up_page_confirm_password_error_empty": "Bevestig a.u.b. het nieuwe wachtwoord",
   "sign_up_page_confirm_password_error_invalid": "De wachtwoorden komen niet overeen",
   "sign_up_page_agree_text": "Ik ga akkoord met de Open Food Facts",
   "@sign_up_page_agree_text": {
@@ -287,7 +287,7 @@
   "sign_up_page_user_name_already_used": "De gebruikersnaam bestaat al, kies een andere gebruikersnaam.",
   "sign_up_page_email_already_exists": "bestaat al, log in op het account of probeer het met een ander e-mailadres.",
   "sign_up_page_provide_valid_email": "Voer een geldig e-mailadres in alsjeblieft.",
-  "sign_up_page_server_busy": "Het spijt ons zeer erg, we hebben wat technische problemen bij het aanmaken van uw account. Probeer het later opnieuw.",
+  "sign_up_page_server_busy": "Het spijt ons heel erg, we hebben wat technische problemen bij het aanmaken van uw account. Probeer het later opnieuw.",
   "settingsTitle": "Instellingen",
   "@settingsTitle": {
     "description": "The title of the Settings page"
@@ -313,7 +313,7 @@
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
-  "contributors_dialog_title": "Bijdragers",
+  "contributors_dialog_title": "Medewerkers",
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
@@ -336,7 +336,7 @@
   "support_via_forum": "Vraag om hulp op ons forum",
   "support_via_email": "Stuur ons een e-mail",
   "support_via_email_include_logs_dialog_title": "App-logboeken verzenden?",
-  "support_via_email_include_logs_dialog_body": "Wilt u toepassingslogboeken toevoegen aan uw e-mail?",
+  "support_via_email_include_logs_dialog_body": "Wilt u toepassingslogboeken als bijlage bij uw e-mail voegen?",
   "termsOfUse": "Gebruiksvoorwaarden",
   "@termsOfUse": {},
   "legalNotices": "Juridische mededelingen",
@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Doneer aan Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Schrijf u in voor de interne alfaversie",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Houd er rekening mee dat met de interne alfaversie volledig gegevensverlies mogelijk is en dat de app op elk moment onbruikbaar kan worden!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Onvoltooide producten",
@@ -384,7 +382,7 @@
   },
   "contribute_improve_text": "De database is het hart van het project. Je kan ons makkelijk en heel snel helpen: door de app voor je telefoon te downloaden en te beginnen met het toevoegen of verbeteren van producten.\n\nDe Open Food Facts-website biedt vele andere manieren om bij te dragen: ",
   "@contribute_improve_text": {},
-  "contribute_translate_header": "Vertaal",
+  "contribute_translate_header": "Vertalen",
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -427,7 +425,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Word een speler voor voedseltransparantie",
+  "contribute_to_get_rewards": "Word een deelnemer aan voedseltransparantie",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -449,13 +447,13 @@
   "@join_us": {
     "description": "Join which is actually Signup"
   },
-  "myPreferences_profile_title": "Jouw profiel",
-  "myPreferences_profile_subtitle": "Beheer je Open Food Facts-bijdragersaccount.",
+  "myPreferences_profile_title": "Uw profiel",
+  "myPreferences_profile_subtitle": "Beheer uw Open Food Facts-bijdragersaccount.",
   "myPreferences_settings_title": "App-instellingen",
   "myPreferences_settings_subtitle": "Donkere modus, Talen…",
   "myPreferences_food_title": "Voedselvoorkeuren",
   "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
-  "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als u er een heeft.",
+  "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als je er een hebt.",
   "confirmResetPreferences": "Voedselvoorkeuren resetten?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -464,11 +462,11 @@
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "ranking_tab_all": "Alle",
+  "ranking_tab_all": "Alles",
   "ranking_subtitle_match_yes": "Een geweldige overeenkomst voor u",
   "ranking_subtitle_match_no": "Zeer slechte overeenkomst",
   "ranking_subtitle_match_maybe": "Onbekende overeenkomst",
-  "refresh_with_new_preferences": "Vernieuw de lijst met uw nieuwe voorkeuren",
+  "refresh_with_new_preferences": "Ververs de lijst met je nieuwe voorkeuren",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
   },
@@ -497,7 +495,7 @@
   "@category": {
     "description": "From a product list, there's a category filter: this is its title"
   },
-  "category_all": "Alle",
+  "category_all": "Alles",
   "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
@@ -530,7 +528,7 @@
   "@unknownBrand": {},
   "unknownProductName": "Onbekende productnaam",
   "@unknownProductName": {},
-  "label_refresh": "Herladen",
+  "label_refresh": "Vernieuw",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -558,9 +556,9 @@
   "@ingredients": {},
   "ingredients_editing_instructions": "Behoud de originele volgorde. Geef het percentage aan indien gespecificeerd. Scheid met een komma of koppelteken en gebruik haakjes voor ingrediënten van een ingrediënt.",
   "ingredients_editing_error": "Kan de ingrediënten niet opslaan.",
-  "ingredients_editing_image_error": "Kan geen afbeelding voor de nieuwe ingrediënten ophalen.",
+  "ingredients_editing_image_error": "Kan geen afbeelding voor nieuwe ingrediënten ophalen.",
   "ingredients_editing_title": "Ingrediënten bewerken",
-  "ingredients_photo": "Foto van de ingrediëntenlijst",
+  "ingredients_photo": "Ingrediënten foto",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
@@ -679,20 +677,20 @@
   },
   "front_packaging_photo_title": "Foto van voorkant verpakking",
   "ingredients_photo_title": "Foto van de ingrediëntenlijst",
-  "nutritional_facts_photo_title": "Foto van voedingswaarden",
-  "recycling_photo_title": "Recycling afbeelding",
-  "take_photo_title": "Maak een foto",
+  "nutritional_facts_photo_title": "Foto van de voedingswaardetabel",
+  "recycling_photo_title": "Foto recycleren",
+  "take_photo_title": "Neem een foto",
   "take_more_photo_title": "Maak meer foto's",
   "front_photo_uploaded": "Foto voorkant geüpload",
   "@front_photo_uploaded": {},
-  "ingredients_photo_button_label": "Foto van de ingrediëntenlijst",
+  "ingredients_photo_button_label": "Ingrediënten foto",
   "@ingredients_photo_button_label": {},
   "ingredients_photo_uploaded": "Foto van ingrediënten geüpload",
   "@ingredients_photo_uploaded": {},
   "nutrition_cache_loading_error": "Kan voedingsstoffen uit de cache niet laden",
   "nutritional_facts_photo_button_label": "Foto van voedingswaarden",
   "@nutritional_facts_photo_button_label": {},
-  "nutritional_facts_input_button_label": "Voer voedingswaarden in",
+  "nutritional_facts_input_button_label": "Vul voedingswaarden in",
   "nutritional_facts_added": "Voedingswaarden toegevoegd",
   "categories_added": "Categorieën toegevoegd",
   "new_product_title_nutriscore": "Bereken de Nutri-Score",
@@ -747,7 +745,7 @@
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Voorste afbeelding uploaden naar Open Food Facts",
+  "uploading_image_type_front": "Afbeelding van de voorkant uploaden naar Open Food Facts",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
@@ -755,7 +753,7 @@
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Uploaden van afbeelding van voedingswaarden naar Open Food Facts",
+  "uploading_image_type_nutrition": "Voedingswaardenafbeelding uploaden naar Open Food Facts",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
@@ -807,7 +805,7 @@
   "nutrition_page_per_serving": "per portie",
   "nutrition_page_add_nutrient": "Voeg voedingsstof toe",
   "nutrition_page_serving_size": "Grootte van een portie",
-  "nutrition_page_serving_size_hint": "Voer een portiegrootte in (bijv. 100g)",
+  "nutrition_page_serving_size_hint": "Voer een portiegrootte in (bijv. 100 g)",
   "nutrition_page_serving_size_explanation_title": "Goede praktijken: Portiegrootte",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
@@ -871,7 +869,7 @@
   "@no_product_found": {},
   "no_location_found": "Geen locatie gevonden",
   "not_found": "niet gevonden:",
-  "refreshing_product": "Product herladen",
+  "refreshing_product": "Herladen product",
   "@refreshing_product": {
     "description": "Confirmation, that the product data of a cached product is queried again"
   },
@@ -927,7 +925,7 @@
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "Maak een foto",
+  "product_image_action_take_picture": "Neem een foto",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -988,7 +986,7 @@
   "tagline_app_review": "Vind je de app leuk?",
   "tagline_app_review_button_positive": "Ik vind het geweldig! 😍",
   "tagline_app_review_button_negative": "Niet echt…",
-  "tagline_app_review_button_later": "Vraag me later nog eens",
+  "tagline_app_review_button_later": "Vraag het me later nog eens",
   "tagline_feed_news_button": "Meer weten",
   "app_review_negative_modal_title": "Vind je onze app niet leuk?",
   "app_review_negative_modal_text": "Kunt u een paar seconden de tijd nemen om ons te vertellen waarom?",
@@ -1012,11 +1010,11 @@
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
-  "no_product_tags_found_message": "Geen producteigenschappen gevonden. Eigenschappen kunnen worden gebruikt om producten op een flexibele manier gedetailleerder te beschrijven. Tik om toe te voegen.",
+  "no_product_tags_found_message": "Geen producteigenschappen gevonden. Eigenschappen kunnen worden gebruikt om producten op een flexibele manier gedetailleerder te beschrijven.",
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "add_tag": "Eigenschap toevoegen",
+  "add_tag": "Voeg een eigenschap toe",
   "add_tags": "Eigenschappen toevoegen",
   "add_edit_tags": "Eigenschappen toevoegen of bewerken",
   "edit_tag": "Eigenschap bewerken",
@@ -1048,7 +1046,7 @@
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "Vergelijken",
+  "product_search_same_category_short": "Vergelijk",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1072,7 +1070,7 @@
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
-  "product_improvement_obsolete_nutrition_image": "De voedingsafbeelding is verouderd: vernieuw deze alstublieft.",
+  "product_improvement_obsolete_nutrition_image": "De voedingsafbeelding is verouderd: ververs deze alstublieft.",
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
@@ -1080,7 +1078,7 @@
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
-  "country_chooser_label": "Kies een land a.u.b.",
+  "country_chooser_label": "Kies een land a.u.b",
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
@@ -1114,7 +1112,7 @@
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Sommige omgevingskenmerken zijn locatiespecifiek",
+  "country_selection_explanation": "Sommige milieukenmerken zijn locatie-specifiek",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
@@ -1122,7 +1120,7 @@
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
-  "native_app_settings": "Native app-instellingen",
+  "native_app_settings": "Instellingen voor native applicaties",
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
@@ -1198,7 +1196,7 @@
       "count": {}
     }
   },
-  "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Vergelijk {count} producten}}",
+  "plural_compare_x_products": "{count,plural, =1{Vergelijk één product} other{Vergelijk {count} producten}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
@@ -1228,7 +1226,7 @@
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
-  "compare_products_appbar_title": "Producten vergelijken",
+  "compare_products_appbar_title": "Vergelijk Producten",
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
@@ -1260,11 +1258,11 @@
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "Om barcodes te scannen met de camera van uw telefoon, moet u de toegang autoriseren.",
+  "permissions_page_body1": "Om barcodes te scannen met de camera van uw telefoon, moet u toestemming verlenen.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
-  "permissions_page_body2": "Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden aan- en uitgeschakeld.",
+  "permissions_page_body2": "Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden in- en uitgeschakeld.",
   "@permissions_page_body2": {
     "description": "second paragraph for the camera permission's page (onboarding)"
   },
@@ -1316,7 +1314,7 @@
       }
     }
   },
-  "contact_form_body": "{osContent}\nApp-versie:{appVersion}\nApp-buildnummer:{appBuildNumber}\nApp-pakketnaam:{appPackageName}",
+  "contact_form_body": "{osContent}\nApp versie:{appVersion}\nApp build nummer:{appBuildNumber}\nApp package naam:{appPackageName}",
   "@contact_form_body": {
     "description": "Contact form content",
     "placeholders": {
@@ -1389,21 +1387,21 @@
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
-  "product_list_reloading_in_progress_multiple": "Verversen van {count,plural, =0{product} =1{product} other{products}} in jouw geschiedens",
+  "product_list_reloading_in_progress_multiple": "Verversen van {count,plural, =0{product} =1{product} other{producten}} in jouw geschiedens",
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
       "count": {}
     }
   },
-  "product_list_reloading_success_multiple": "{count,plural, =0{Product} =1{Product} other{Producten}} verversen voltooid",
+  "product_list_reloading_success_multiple": "{count,plural,  one {}=0{Product} =1{Product} other{Producten}} vernieuwing voltooid",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
       "count": {}
     }
   },
-  "loading_dialog_default_title": "Gegevens downloaden",
+  "loading_dialog_default_title": "Gegevens worden gedownload...",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
   },
@@ -1467,7 +1465,7 @@
   "@camera_settings_title": {
     "description": "Name of the camera section in the settings"
   },
-  "camera_play_sound_title": "Een geluid afspelen bij het scannen",
+  "camera_play_sound_title": "Een geluid afspelen bij scannen",
   "@camera_play_sound_title": {
     "description": "Title for the Camera play sound toggle"
   },
@@ -1503,7 +1501,7 @@
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
-  "product_edit_photo_title": "Foto Bewerken",
+  "product_edit_photo_title": "Foto bewerken",
   "@product_edit_photo_title": {
     "description": "Toolbar Title while editing a photo (Android only)"
   },
@@ -1527,7 +1525,7 @@
   },
   "permission_photo_denied_dialog_settings_title": "Toestemming geweigerd",
   "permission_photo_denied_dialog_settings_message": "Omdat je eerder de cameratoestemming hebt geweigerd, moet je deze handmatig toestaan via de Instellingen.",
-  "permission_photo_denied_dialog_settings_button_open": "Instellingen openen",
+  "permission_photo_denied_dialog_settings_button_open": "Open instellingen",
   "permission_photo_denied_dialog_settings_button_cancel": "Annuleer",
   "permission_photo_none_found": "Geen camera gedetecteerd",
   "@permission_photo_none_found": {
@@ -1642,7 +1640,7 @@
   "@edit_product_form_item_photos_subtitle": {
     "description": "Product edition - Photos - SubTitle"
   },
-  "edit_product_form_item_labels_title": "Etiketten & certificaten",
+  "edit_product_form_item_labels_title": "Labels en certificeringen",
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
@@ -1859,7 +1857,7 @@
     "description": "Product edition - Categories - input explainer, part 3"
   },
   "edit_product_form_item_exit_title": "Afsluiten zonder opslaan?",
-  "edit_product_form_item_exit_confirmation": "Wilt u uw wijzigingen opslaan voordat u deze pagina verlaat?",
+  "edit_product_form_item_exit_confirmation": "Wilt u de wijzigingen opslaan voor het verlaten van deze pagina?",
   "edit_product_form_item_exit_confirmation_positive_button": "Wijzigingen opslaan",
   "edit_product_form_item_exit_confirmation_negative_button": "Wijzigingen negeren",
   "edit_product_form_item_ingredients_title": "Ingrediënten",
@@ -1933,7 +1931,7 @@
   "@edit_product_form_save": {
     "description": "Product edition - Nutrition facts - Save button"
   },
-  "edit_product_ingredients_photo_title": "Foto van de ingrediëntenlijst",
+  "edit_product_ingredients_photo_title": "Ingrediënten foto",
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -1968,7 +1966,7 @@
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
-  "edit_ingredients_extract_ingredients_btn_text_short": "Extract ingrediënten",
+  "edit_ingredients_extract_ingredients_btn_text_short": "Ingrediënten extraheren",
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
@@ -2032,11 +2030,11 @@
   "@edit_ocr_extract_disabled_message": {
     "description": "OCR extraction - message for disabled"
   },
-  "user_list_dialog_new_title": "Nieuwe lijst met producten",
+  "user_list_dialog_new_title": "Nieuwe lijst van producten",
   "@user_list_dialog_new_title": {
     "description": "Title of the 'new user list' dialog"
   },
-  "user_list_dialog_rename_title": "Lijstnaam wijzigen",
+  "user_list_dialog_rename_title": "Lijst hernoemen",
   "@user_list_dialog_rename_title": {
     "description": "Title of the 'rename user list' dialog"
   },
@@ -2052,7 +2050,7 @@
   "@user_list_add_product": {
     "description": "Label for the dialog to add a product to a list"
   },
-  "user_list_button_new": "Maak een nieuwe lijst aan",
+  "user_list_button_new": "Een nieuwe lijst maken",
   "@user_list_button_new": {
     "description": "Short label of a 'create a new list' button"
   },
@@ -2080,11 +2078,11 @@
   "@user_list_name_hint": {
     "description": "Hint of a user list name text-field in a 'user list' dialog"
   },
-  "user_list_name_error_empty": "Naam is verplicht",
+  "user_list_name_error_empty": "Naam is verplicht!",
   "@user_list_name_error_empty": {
     "description": "Validation error about the name that cannot be empty"
   },
-  "user_list_name_error_already": "Deze naam is al in gebruik",
+  "user_list_name_error_already": "Deze naam is al in gebruik!",
   "@user_list_name_error_already": {
     "description": "Validation error about the name that is already used for another list"
   },
@@ -2096,11 +2094,11 @@
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
-  "try_again": "Probeer het opnieuw",
+  "try_again": "Probeer opnieuw",
   "@try_again": {
     "description": "Label for buttons that try to repeat a failed action"
   },
-  "there_was_an_error": "Er is een fout opgetreden",
+  "there_was_an_error": "Er is een fout opgetreden!",
   "@there_was_an_error": {
     "description": "Label that presents a error"
   },
@@ -2121,11 +2119,11 @@
   "@camera_toggle_flash": {
     "description": "Explanation for the icon to turn on/off the flash"
   },
-  "camera_enable_flash": "Flits inschakelen",
+  "camera_enable_flash": "Schakel flitser in",
   "@camera_enable_flash": {
     "description": "Enable flash (tooltip)"
   },
-  "camera_disable_flash": "Flits uitschakelen",
+  "camera_disable_flash": "Flitser uitschakelen",
   "@camera_disable_flash": {
     "description": "Disable flash (tooltip)"
   },
@@ -2133,7 +2131,7 @@
   "@camera_flash_error_dialog_title": {
     "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "camera_flash_error_dialog_message": "Er is een fout opgetreden tijdens het wijzigen van de status van uw flitser. Zorg ervoor dat de zaklamp niet reeds is ingeschakeld op uw smartphone.",
+  "camera_flash_error_dialog_message": "Er is een fout opgetreden bij het wijzigen van de status van uw flitser. Zorg ervoor dat op uw smartphone de zaklamp nog niet is ingeschakeld.",
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
@@ -2148,6 +2146,10 @@
   "dev_preferences_screen_title": "DEV-modus",
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
+  },
+  "dev_preferences_screen_subtitle": "Toegang tot experimentele functies en ontwikkeltools",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
   },
   "dev_preferences_reset_onboarding_title": "Onboarding opnieuw starten",
   "@dev_preferences_reset_onboarding_title": {
@@ -2198,7 +2200,7 @@
   "@dev_preferences_export_history_title": {
     "description": "User dev preferences - Export history - Title"
   },
-  "dev_preferences_export_history_progress_error": "uitzondering",
+  "dev_preferences_export_history_progress_error": "Uitzondering",
   "@dev_preferences_export_history_progress_error": {
     "description": "User dev preferences - Export history - Item - Error"
   },
@@ -2253,7 +2255,7 @@
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
-  "dev_preferences_news_provider_status_title": "Toestand",
+  "dev_preferences_news_provider_status_title": "Status",
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
@@ -2347,7 +2349,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Geen product gevonden",
+  "prices_barcode_search_not_found": "Product niet gevonden",
   "prices_barcode_search_none_yet": "Nog geen product",
   "prices_barcode_search_running": "Zoeken naar {barcode}",
   "@prices_barcode_search_running": {
@@ -2523,7 +2525,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, =0{Geen product} =1{Eén product} other{{count} producten}}",
+  "prices_button_count_product": "{count,plural, one {}=0{Geen product} =1{Eén product} other{{count} producten}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2621,13 +2623,8 @@
   "dev_mode_section_news": "Configuratie van nieuwsprovider",
   "dev_mode_section_product_page": "Productpagina",
   "dev_mode_section_ui": "Gebruikersinterface",
-  "dev_mode_section_data": "Gegevens",
   "dev_mode_section_experimental_features": "Experimentele functies",
-  "dev_preferences_show_folksonomy_title": "Uitsluiten van Folksonomie",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
-  "dev_mode_hide_environmental_score_title": "Green-score uitsluiten",
+  "dev_mode_hide_environmental_score_title": "Greenscore uitsluiten",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
   },
@@ -2711,7 +2708,7 @@
       }
     }
   },
-  "all_search_prices_latest_title": "Laatst toegevoegde prijzen",
+  "all_search_prices_latest_title": "Laatste toegevoegde prijzen",
   "@all_search_prices_latest_title": {
     "description": "Latest prices: list tile title"
   },
@@ -2830,7 +2827,7 @@
   "@edit_photo_language_not_this_one": {
     "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
   },
-  "edit_photo_language_none": "Nog geen afbeelding",
+  "edit_photo_language_none": "Nog geen afbeeldingen",
   "@edit_photo_language_none": {
     "description": "Warning message: for this product and this field, there are no images at all, in any language"
   },
@@ -2838,7 +2835,7 @@
   "@category_picker_screen_title": {
     "description": "Categories picker screen title"
   },
-  "basic_details": "Basisdetails",
+  "basic_details": "Basisgegevens",
   "product_name": "Productnaam",
   "product_names": "Productnamen",
   "@product_names": {
@@ -2931,8 +2928,8 @@
     }
   },
   "brand_name": "Merknaam",
-  "brand_names": "Merknamen",
-  "add_basic_details_brand_name_error": "Vul a. u. b. de merknaam in",
+  "brand_names": "Merknaam",
+  "add_basic_details_brand_name_error": "Vul a.u.b. de merknaam in",
   "add_basic_details_brand_names_hint": "Merken invoeren (bijv.: Ferrero)",
   "add_basic_details_product_brand_help_title": "Goede praktijken: Merken",
   "@add_basic_details_product_brand_help_title": {
@@ -3012,7 +3009,7 @@
   },
   "barcode_invalid_error": "Ongeldige barcode",
   "basic_details_add_success": "Basisgegevens succesvol toegevoegd",
-  "basic_details_add_error": "Kan de basisgegevens niet toevoegen. Probeer het later opnieuw",
+  "basic_details_add_error": "Kan basisgegevens niet toevoegen. Probeer het later opnieuw",
   "@basic_details_add_error": {
     "description": "Error message when error occurs while submitting basic details"
   },
@@ -3027,7 +3024,7 @@
   "alert_clear_selected_user_list": "U staat op het punt geselecteerde items in uw geschiedenis te wissen",
   "confirm_clear_selected_user_list": "Weet je zeker dat je door wilt gaan?",
   "alert_select_items_to_clear": "Selecteer een of meer items om te wissen",
-  "confirm_clear_user_list": "Je staat op het punt deze lijst te wissen ({name}): weet je zeker dat je door wilt gaan?",
+  "confirm_clear_user_list": "Je staat op het punt deze lijst ({name}) te wissen: weet je zeker dat je wilt doorgaan?",
   "@confirm_clear_user_list": {
     "description": "Asking about whether to clear the list or not",
     "placeholders": {
@@ -3077,7 +3074,7 @@
   "@product_list_select": {
     "description": "Top title for the selection of a list"
   },
-  "user_list_length": "{count,plural, =0{Lege lijst} =1{Een product} other{{count} producten}}",
+  "user_list_length": "{count,plural, =0{Lege lijst} =1{Eén product} other{{count} producten}}",
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
@@ -3112,7 +3109,7 @@
   "@add_label_photo_button_label": {
     "description": "Label for the add LABELS photo button"
   },
-  "choose_image_source_title": "Kies een afbeeldingsbron",
+  "choose_image_source_title": "Kies afbeeldingsbron",
   "@choose_image_source_title": {
     "description": "Title for the image source chooser"
   },
@@ -3189,7 +3186,7 @@
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "Maak een foto",
+  "capture_new_picture": "Neem een foto",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
@@ -3252,11 +3249,11 @@
   "@no_data_available_in_clipboard": {
     "description": "No data available in your clipboard"
   },
-  "clipboard_barcode_copy": "Kopieer de barcode naar het klembord",
+  "clipboard_barcode_copy": "Kopieer streepjescode naar klembord",
   "@clipboard_barcode_copied": {
     "description": "Snackbar label after clipboard copy"
   },
-  "clipboard_barcode_copied": "Barcode {barcode} gekopieerd naar het klembord!",
+  "clipboard_barcode_copied": "Streepjescode {barcode} gekopieerd naar het klembord!",
   "open_product_website": "Open dit product op de website",
   "language_picker_label": "Uw taal",
   "@language_picker_label": {
@@ -3278,7 +3275,7 @@
   "@product_task_background_schedule": {
     "description": "Message when a product is scheduled for background update"
   },
-  "no_email_client_available_dialog_title": "Geen e-mail apps!",
+  "no_email_client_available_dialog_title": "Geen e-mail-apps!",
   "@no_email_client_available_dialog_title": {
     "description": "Title for the dialog when no email client is installed on the device"
   },
@@ -3375,7 +3372,7 @@
   "@offline_data": {
     "description": "App bar title for the offline data page"
   },
-  "ocr_image_upload_instruction": "Upload een afbeelding om automatisch de informatie die erop staat te extraheren.",
+  "ocr_image_upload_instruction": "Upload een afbeelding om de verstrekte informatie automatisch te extraheren.",
   "@ocr_image_upload_instruction": {
     "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
   },
@@ -3411,14 +3408,14 @@
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "Volgende {count,plural, =1{vraag} other{{count} vragen}}",
+  "robotoff_next_n_questions": "Volgende {count,plural,  =1{vraag} other{{count} vragen}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
       "count": {}
     }
   },
-  "show_password": "Laat wachtwoord zien",
+  "show_password": "Toon wachtwoord",
   "@show_password": {
     "description": "Show hidden password in password field"
   },
@@ -3492,11 +3489,11 @@
   "@edit_packagings_element_field_recycling": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_recycling": "Voer recyclinginstructies alleen in als ze op het product vermeld staan.",
+  "edit_packagings_element_hint_recycling": "Voer alleen recyclinginstructies in als deze op het product staan vermeld.",
   "@edit_packagings_element_hint_recycling": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
-  "edit_packagings_element_example_recycling": "Recyclen",
+  "edit_packagings_element_example_recycling": "Hergebruik",
   "@edit_packagings_element_example_recycling": {
     "description": "Text field hint"
   },
@@ -3504,7 +3501,7 @@
   "@edit_packagings_element_field_quantity": {
     "description": "Field label"
   },
-  "edit_packagings_element_hint_quantity": "Vul het netto gewicht of netto volume in en geef de eenheid aan (bijvoorbeeld g of ml).",
+  "edit_packagings_element_hint_quantity": "Vul het nettogewicht of het nettovolume in en geef de eenheid aan (bijvoorbeeld g of ml).",
   "@edit_packagings_element_hint_quantity": {
     "description": "Field verbose hint, more like an info than a text field hint"
   },
@@ -3527,7 +3524,7 @@
   "background_task_operation_refresh": "verversen vertraagd na uploaden van foto",
   "background_task_run_started": "gestart",
   "background_task_run_not_started": "nog niet gestart",
-  "background_task_run_to_be_deleted": "wordt verwijderd",
+  "background_task_run_to_be_deleted": "om te worden verwijderd",
   "background_task_question_stop": "Wil je die taak ASAP stoppen?",
   "feed_back": "Feedback",
   "undo": "Ongedaan maken",
@@ -3656,7 +3653,7 @@
   "@page_not_found_button": {
     "description": "Button to go back to the homepage"
   },
-  "download_data": "Gegevens downloaden",
+  "download_data": "Download gegevens",
   "@download_data": {
     "description": "App bar title for the download data page"
   },
@@ -3689,11 +3686,11 @@
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Werk de lokale productdatabase bij met de nieuwste gegevens van Open Food Facts",
+  "update_local_database_sub": "Update de lokale productdatabase met de nieuwste gegevens van Open Food Facts",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
-  "clear_local_database": "Wis offline productgegevens",
+  "clear_local_database": "Offline productgegevens wissen",
   "@clear_local_database": {
     "description": "List tile title for the clear local database page"
   },
@@ -3759,7 +3756,7 @@
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
-  "action_change_list": "Wijzig de huidige lijst",
+  "action_change_list": "De huidige lijst wijzigen",
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
@@ -3767,7 +3764,7 @@
   "@product_list_create": {
     "description": "Button label to create a new list (short word)"
   },
-  "product_list_create_tooltip": "Maak een nieuwe lijst aan",
+  "product_list_create_tooltip": "Een nieuwe lijst maken",
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Onbekende Nutri-Score (Nieuwe berekening)",
   "nutriscore_not_applicable": "Nutri-Score is niet van toepassing",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is niet van toepassing (Nieuwe berekening)",
-  "environmental_score_generic": "Green-Score",
-  "environmental_score_a": "Green-Score A",
-  "environmental_score_b": "Green-Score B",
-  "environmental_score_c": "Green -Score C",
-  "environmental_score_d": "Green-Score D",
-  "environmental_score_e": "Green-Score E",
-  "environmental_score_unknown": "Onbekende Green-Score",
-  "environmental_score_not_applicable": "Green-Score is niet van toepassing",
-  "nova_group_generic": "Ultra-verwerking - NOVA-groepen",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Onbekende Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score is niet van toepassing",
+  "nova_group_generic_new": "Ultra-bewerkte levensmiddelen - NOVA groepen",
   "nova_group_1": "NOVA Groep 1",
   "nova_group_2": "NOVA Groep 2",
   "nova_group_3": "NOVA Groep 3",
@@ -3812,11 +3809,11 @@
   "faq_title_install_pet": "Installeer Open Pet Food Facts om een dierenvoedingsdatabase te maken",
   "faq_title_install_product": "Installeer Open Products Facts om een productendatabase te creëren om de levensduur van objecten te verlengen",
   "faq_nutriscore_nutriscore": "Nieuwe berekening van de Nutri-Score: wat is er nieuw?",
-  "contact_title_pro_page": "Pro? Importeer je producten in Open Food Facts",
+  "contact_title_pro_page": "Pro? Importeer uw producten in Open Food Facts",
   "contact_title_pro_email": "Producentcontact",
   "contact_title_press_page": "Perspagina",
   "contact_title_press_email": "Perscontact",
-  "contact_title_newsletter": "Abonneer op onze nieuwsbrief",
+  "contact_title_newsletter": "Abonneer u op onze nieuwsbrief",
   "contact_title_calendar": "Abonneer je op onze communitykalender",
   "hunger_games_loading_line1": "Geef ons een paar seconden…",
   "hunger_games_loading_line2": "We zijn de vragen aan het downloaden!",
@@ -3897,8 +3894,8 @@
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_greenscore_what_is_greenscore_title": "Wat is de Green Score?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "De Green-Score is een logo dat bedoeld is om u te informeren over de **milieu-impact van voeding**.",
+  "guide_greenscore_what_is_greenscore_title": "Wat is de Green-Score?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "De Green-Score is een logo dat ernaar streeft je te informeren over de **milieu-impact van voedsel**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3920,7 +3917,7 @@
   "guide_greenscore_lca_arg2_distribution": "Distributie",
   "guide_greenscore_lca_arg2_consumption": "Consumptie",
   "guide_greenscore_lca_arg3_title": "14 milieu-impactindicatoren",
-  "guide_greenscore_lca_arg3_text1": "Klimaatverandering/koolstofvoetafdruk",
+  "guide_greenscore_lca_arg3_text1": "Klimaatverandering/CO-voetafdruk",
   "guide_greenscore_lca_arg3_text2": "Aantasting van de ozonlaag",
   "guide_greenscore_lca_arg3_text3": "Ioniserende straling",
   "guide_greenscore_lca_arg3_text4": "Land",
@@ -3928,8 +3925,8 @@
   "guide_greenscore_lca_arg3_text6": "Luchtvervuiling",
   "guide_greenscore_lca_arg3_text7": "Zee- en zoetwater (deeltjes, verzuring, eutrofiëring)",
   "guide_greenscore_lca_arg3_text8": "Uitputting van hulpbronnen.",
-  "guide_greenscore_bonuses_penalties_title": "Bonussen en boetes",
-  "guide_greenscore_bonuses_penalties_intro": "Om betere producten binnen een categorie te belonen, passen we bonussen en straffen toe op basis van verschillende criteria:",
+  "guide_greenscore_bonuses_penalties_title": "Bonussen en malussen",
+  "guide_greenscore_bonuses_penalties_intro": "Om betere producten binnen een categorie te belonen, passen we bonussen en malussen toe op basis van verschillende criteria:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Productiewijze",
   "guide_greenscore_bonuses_penalties_arg1_text": "Er wordt een bonus toegekend aan producten die een officieel label, een label of een certificering hebben die milieuvoordelen garandeert (biologisch, fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Herkomst van de ingrediënten",
@@ -3937,15 +3934,58 @@
   "guide_greenscore_bonuses_penalties_arg3_title": "Bedreigde soorten",
   "guide_greenscore_bonuses_penalties_arg3_text": "Producten die ingrediënten bevatten die aanzienlijke negatieve gevolgen hebben voor de biodiversiteit en ecosystemen, worden bestraft. Zoals palmolie, waarvan de productie tot massale ontbossing leidt.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Verpakking",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Er wordt een sanctie berekend om rekening te houden met de circulariteit van verpakkingen (gebruik van gerecyclycleerde grondstoffen en recycleerbaarheid) en oververpakking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Er wordt een boete berekend om rekening te houden met de circulariteit van verpakkingen (gebruik van gerecyclede grondstof en recycleerbaarheid) en oververpakking.",
   "guide_greenscore_transparency_title": "Een grotere behoefte aan transparantie om de milieu-impact beter te meten en te verminderen",
   "guide_greenscore_transparency_intro1": "Om de Green-Score nauwkeurig te kunnen berekenen, is informatie nodig die niet per se op de verpakking staat (zoals de herkomst en het exacte percentage van elk ingrediënt) of die zelden in bruikbare vorm beschikbaar is (zoals een lijst met alle bestanddelen van de verpakking en de precieze soorten plastic die zijn gebruikt).",
-  "guide_greenscore_transparency_intro2": "Wanneer deze informatie nog niet beschikbaar is, gebruiken we gemiddelde waarden. We roepen nu echter iedereen op om ons te helpen deze informatie te verzamelen. Deze informatie is niet alleen nuttig voor de Green-Score, maar ook voor veel andere doeleinden.",
+  "guide_greenscore_transparency_intro2": "Wanneer deze informatie (nog) niet beschikbaar is, gebruiken we gemiddelde waarden. We roepen nu echter iedereen op om ons te helpen deze informatie te verzamelen. Deze informatie is niet alleen nuttig voor de Green-Score, maar ook voor veel andere doeleinden.",
   "guide_greenscore_transparency_arg1_title": "Hoe burgers kunnen helpen",
   "guide_greenscore_transparency_arg1_text": "Alle burgers kunnen ons helpen bij het verzamelen en structureren van de informatie die op producten aanwezig is of die daaruit kan worden afgeleid, zoals informatie op verpakkingen: Mission Emballages: een grootschalige, gezamenlijke inventarisatie van verpakkingen voor alle voedingsproducten (in het Frans)",
   "guide_greenscore_transparency_arg2_title": "Hoe fabrikanten kunnen helpen",
   "guide_greenscore_transparency_arg2_text": "Fabrikanten kunnen hun informatie rechtstreeks aan ons doorgeven via ons gratis platform voor producenten.",
-  "guide_greenscore_share_link": "https://nl.openfoodfacts.org/groene-score",
+  "guide_greenscore_better_product_title": "Welk product is beter voor de planeet?",
+  "guide_greenscore_better_product_arg1_title": "Het kan moeilijk zijn om dat te beoordelen",
+  "guide_greenscore_better_product_arg1_text": "Kiezen voor duurzaam voedsel is een van de krachtigste dingen die we voor het klimaat kunnen doen, aangezien **ons wereldwijde voedselsysteem verantwoordelijk is voor meer dan een kwart van alle uitstoot van broeikasgassen**.\n(Bron: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Jij hebt macht!",
+  "guide_greenscore_better_product_arg2_text": "Het goede nieuws is dat dit ons een krachtige manier biedt om verandering te creëren.\n**Ieder van ons eet ongeveer 1000 maaltijden per jaar**. Dat zijn 1000 kansen om **een betere toekomst voor de planeet te kiezen**!",
+  "guide_greenscore_better_product_arg3_title": "Helpt om verantwoordelijk te zijn en beslissingen te nemen",
+  "guide_greenscore_better_product_arg3_text": "Het kiezen van duurzame voeding kan ingewikkeld lijken. Etiketten zijn verwarrend en er ontbreekt vaak informatie. De Green-Score is ontwikkeld om het eenvoudiger te maken en geeft je een **duidelijke**, **wetenschappelijk onderbouwde** en **transparante** milieubeoordeling voor voedingsproducten, precies waar je die nodig hebt: tijdens het winkelen.",
+  "guide_greenscore_better_product_arg4_title": "Transparantie",
+  "guide_greenscore_better_product_arg4_text": "In tegenstelling tot merkgebonden labels is de Green-Score-berekening **volledig open** en kan deze **door iedereen** worden geverifieerd.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-verwerkte voedingsmiddelen",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Wat is ultra-bewerking?",
+  "guide_nova_what_is_nova_paragraph1": "De NOVA-groepen informeren u over het niveau van voedselverwerking.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "De NOVA-classificatie maakt het mogelijk om voedingsmiddelen in **4 groepen** in te delen op basis van hun **mate van industriële verwerking** (minimaal bewerkte of onbewerkte voedingsmiddelen, culinaire ingrediënten, bewerkte voedingsmiddelen, ultrabewerkte voedingsmiddelen).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "De NOVA-logo's",
+  "guide_nova_groups_title": "De 4 NOVA-groepen",
+  "guide_nova_groups_intro": "Er zijn 4 NOVA-groepen, waarvan Groep 4 - Ultrabewerkte voedingsmiddelen de problematische is.",
+  "guide_nova_groups_arg1_title": "Minimaal bewerkte of onbewerkte voedingsmiddelen",
+  "guide_nova_groups_arg1_text": "Onbewerkte (of natuurlijke) voedingsmiddelen zijn de eetbare delen van planten (zaden, vruchten, bladeren, stengels, wortels) of dieren (spieren, orgaanvlees, eieren, melk), maar ook van schimmels, algen en water, nadat ze uit de natuur zijn gehaald.",
+  "guide_nova_groups_arg2_title": "Bewerkte ingrediënten",
+  "guide_nova_groups_arg2_text": "Bewerkte culinaire ingrediënten, zoals oliën, boter, suiker en zout, zijn stoffen die afkomstig zijn van voedingsmiddelen uit groep 1 of uit de natuur komen via processen als persen, raffineren, malen, frezen en drogen.",
+  "guide_nova_groups_arg3_title": "Bewerkte levensmiddelen",
+  "guide_nova_groups_arg3_text": "Bewerkte voedingsmiddelen, zoals groenten uit blik, vis uit blik, fruit op siroop, kaas en versgebakken brood, worden voornamelijk gemaakt door zout, olie, suiker of andere stoffen uit groep 2 toe te voegen aan producten uit groep 1. Deze processen omvatten verschillende conserverings- of kookmethoden, en in het geval van brood en kaas, alcoholvrije fermentatie. De meeste bewerkte voedingsmiddelen bestaan uit twee of drie ingrediënten en zijn herkenbaar als aangepaste versies van producten uit groep 1. Ze kunnen op zichzelf worden gegeten of, meestal, in combinatie met andere voedingsmiddelen.",
+  "guide_nova_groups_arg4_title": "Ultra-verwerkte voedingsmiddelen",
+  "guide_nova_groups_arg4_text": "Ultrabewerkte voedingsmiddelen, zoals frisdranken, zoete of hartige snacks, gereconstitueerde vleesproducten en kant-en-klare diepvriesmaaltijden, zijn niet zomaar gemodificeerde voedingsmiddelen, maar formules die grotendeels of volledig bestaan uit stoffen die afkomstig zijn van voedingsmiddelen en additieven, met weinig tot geen intacte groep 1-voedingsmiddelen. De ingrediënten in deze formules bevatten meestal ingrediënten die ook in bewerkte voedingsmiddelen voorkomen, zoals suikers, oliën, vetten of zout. Ultrabewerkte producten bevatten echter ook andere energiebronnen en voedingsstoffen die doorgaans niet in culinaire bereidingen worden gebruikt. Sommige hiervan worden rechtstreeks uit voedingsmiddelen gewonnen, zoals caseïne, lactose, wei en gluten.",
+  "guide_nova_explanations_title": "De problemen met ultra-bewerking",
+  "guide_nova_explanations_arg1_title": "Extreme bewerking van voedselingrediënten",
+  "guide_nova_explanations_arg1_text": "Veel ervan worden verkregen door verdere verwerking van bestanddelen in voedingsmiddelen, zoals gehydrogeneerde of geësterificeerde oliën, gehydrolyseerde eiwitten, soja-eiwitisolaat, maltodextrine, invertsuiker en glucosestroop met een hoog fructosegehalte.",
+  "guide_nova_explanations_arg2_title": "Additieven die verder gaan dan pure voedselveiligheid",
+  "guide_nova_explanations_arg2_text": "Additieven in ultrabewerkte voedingsmiddelen omvatten stoffen die ook in bewerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultrabewerkte producten voorkomen, zijn onder andere stoffen die worden gebruikt om de sensorische eigenschappen van voedingsmiddelen te imiteren of te versterken of om onaangename aspecten van het eindproduct te verhullen. Deze additieven omvatten kleurstoffen, kleurstabilisatoren; smaakstoffen, smaakversterkers, zoetstoffen zonder suiker; en verwerkingshulpmiddelen zoals carbonatatiemiddelen, verstevigingsmiddelen, vul- en anti-vulmiddelen, anti-schuimmiddelen, antiklontemiddelen en glansmiddelen, emulgatoren, sequestreermiddelen en bevochtigingsmiddelen.",
+  "guide_nova_explanations_arg3_title": "Bewerking die je niet thuis kan uitvoeren",
+  "guide_nova_explanations_arg3_text": "Er wordt een verscheidenheid aan processen gebruikt om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultra-bewerkt'). De processen omvatten zaken die geen equivalent hebben in de huishoudelijke context, zoals hydrogenering en hydrolysering, extrusie en manipulatie, en voorbewerkingen voor frituren.",
+  "guide_nova_explanations_arg4_title": "De roofzuchtige en financiële aspecten van ultra-bewerking",
+  "guide_nova_explanations_arg4_text": "Het algemene doel van ultra-bewerking is het creëren van merkproducten die gemakkelijk te consumeren (klaar voor consumptie), aantrekkelijk (superlekker) en zeer winstgevend (met goedkope ingrediënten) zijn, ontworpen om alle andere voedselgroepen te verdringen. Ultra-bewerkte voedselproducten worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Voorbeeld",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4023,7 +4063,7 @@
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
   },
-  "user_lists_action_multi_select": "Meervoudige selectie",
+  "user_lists_action_multi_select": "Meerdere selecteren",
   "@user_lists_action_multi_select": {
     "description": "The button label for multi-selecting products in a user list"
   },
@@ -4036,7 +4076,7 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Foto van het product (voorzijde)",
+  "product_image_front_accessibility_label": "Foto van het product (voorkant)",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
@@ -4107,7 +4147,7 @@
   "@product_page_action_bar_setting_modal_title": {
     "description": "Title for the modal allowing to show and reorder actions"
   },
-  "product_page_action_bar_item_move_up": "Verplaats naar omhoog",
+  "product_page_action_bar_item_move_up": "Verplaats naar boven",
   "@product_page_action_bar_item_move_up": {
     "description": "Accessibility label to move up an action"
   },
@@ -4204,17 +4244,17 @@
     "description": "Example of products for other categories"
   },
   "photo_field_front": "Productfoto",
-  "photo_field_ingredients": "Foto van de ingrediëntenlijst",
+  "photo_field_ingredients": "Ingrediënten foto",
   "photo_field_nutrition": "Voedingswaarde foto",
   "photo_field_packaging": "Foto van verpakkingsinformatie",
   "photo_already_exists": "Deze foto bestaat al",
   "photo_missing": "Deze foto ontbreekt",
   "date": "Datum",
-  "photo_rotate_left": "Naar links draaien",
+  "photo_rotate_left": "Draai naar links",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Naar rechts draaien",
+  "photo_rotate_right": "Draai naar rechts",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4344,7 +4384,7 @@
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
-  "app_review_feedback_modal_later": "Vraag me later nog eens",
+  "app_review_feedback_modal_later": "Vraag het me later nog eens",
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
@@ -4392,7 +4432,7 @@
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
-  "prices_stats_contributors_section": "Bijdragers",
+  "prices_stats_contributors_section": "Medewerkers",
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Algemeen",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prijzen",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Beheer uw prijsvoorkeuren",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Het Open Food Facts-project",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Bijdragen",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Vertaal, verbeter onze tools…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Verbinden",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Neem contact met ons op of volg ons op sociale media",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Doneer",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Help ons miljoenen consumenten over de hele wereld te informeren",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Hulp en ondersteuning",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "Veelgestelde vragen (FAQ)",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Krijg antwoorden op uw vragen",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Uitgelogd",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Bedankt dat u een van onze leden bent!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Producten aangepast",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prijzen toegevoegd",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Bekijk alle statistieken",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Zoek {provider} naar \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Zoek naar een instelling (bijv. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Toegankelijkheid: emoji weergeven",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Toegankelijkheid: kleuren verwijderen",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Producten",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Over",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Juridische informatie",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Gebruiksvoorwaarden, privacybeleid en meer",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Gebruiksvoorwaarden",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Wettelijke vermeldingen",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacybeleid",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licenties",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Over de app",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Technische informatie, ontwikkelaarsinformatie en meer",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Informatie",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Versienummer",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Scanner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "App store",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Systeeminstellingen",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Toegang tot de broncode",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "En begin met het maken van impact voor miljoenen mensen",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Prijzen toevoegen",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Voltooi producten",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Tips",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Ontdek de nieuwe Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Op de website van Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Mijn account beheren",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Mijn wachtwoord wijzigen",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Gevarenzone",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Al uw bijdragen gaan verloren",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Bijdragen",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "App-instellingen",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Zeer experimentele manier om producten offline te scannen",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Vernieuw alle producten van de server",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Doe dit alleen als het absoluut noodzakelijk is.",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demomodus",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Kaarten toevoegen aan scanner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Voegt 3 voorbeeldproducten toe aan de scanner",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy host",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Toegankelijkheidsexperimenten",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Selectie van meerdere producten voor prijzen",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Door de gebruiker geordende kennispanelen",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Tijdelijke toegang tot locatie zoeken",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Zij-aan-zij vergelijking voor 2 of 3 producten",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Productlijst importeren",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Scores en methodologieën",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Ontdek hoe de Nutri-Score wordt berekend",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Ontdek de belangrijkste wijzigingen in de methodologie",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Ontdek het project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Ontdek Open Food Facts",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Veelgestelde vragen",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "De NGO Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Informatie",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Ontvang community-updates",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Blijf op de hoogte van app- en communitynieuws",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Abonneer je op onze communitykalender",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Doe mee door een van onze virtuele evenementen bij te wonen",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Volg ons op sociale media",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "De Open Food Facts-blog",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Ontvang het laatste nieuws zodra het gebeurt",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Krijg hulp van de community",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Help ons de app te verbeteren",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Stuur ons debuginformatie",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Stuur ons een e-mail met gedetailleerde debuginformatie",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Stuur ons feedback over de app",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Help de toekomst van de app vorm te geven",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Doe mee aan de app-enquête",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Help ons begrijpen wat we hierna moeten bouwen",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Professionals",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Volledig gratis, garandeert nauwkeurige gegevens voor 500 apps & miljoenen consumenten. Zelf-service, compatibel met uw PIM of spreadsheets (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Neem contact op om te beginnen",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Pers",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Ontvang al het materiaal dat u nodig hebt voor uw rapport",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Neem contact met ons op voor persvragen of om ons te informeren over uw rapport",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Word een actieve vrijwilliger",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Ontwikkeling, Communicatie, Ontwerp… alle vormen van vrijwilligerswerk of expertise zijn welkom!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Ontdek enkele van de vele manieren waarop u kunt bijdragen",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobiele app-ontwikkeling",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Leer hoe u kunt bijdragen aan softwareontwikkeling",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Dagelijkse onstabiele builds, gloednieuwe functies",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Laat uw lokale gemeenschap groeien",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Hulp bij vertalingen van software, inhoud en ingrediëntenanalyse",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Om u te helpen, hebben we een klein sjabloon gemaakt :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Eenvoudige stappen om de voedseltransparantie in uw land te vergroten",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Gegevenskwaliteit",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Sluit je aan bij het datakwaliteitsteam",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Sluit u aan bij onze inspanningen om ervoor te zorgen dat de database compleet en nauwkeurig is",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 producten toegevoegd",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Nieuwe producten die ik heb toegevoegd aan Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Producten die ik moet voltooien",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Alle onvolledige producten",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Producten die u kunt helpen voltooien",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Help mee de Nutri-Score en Green-Score in uw land te berekenen",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Prijzen die ik heb bijgedragen",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Prijskaartjes en bonnen",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Maak foto's van uw bonnetjes en scan de bijbehorende barcodes",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Maak foto's van prijzen in een winkel",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Nieuwste prijzen",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Laatste prijzen toegevoegd door de Open Prices-community",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Bijdragers met de meeste prijzen",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Open Price-metrieken",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Volg de evolutie van het project",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Manieren om bij te dragen",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Bevestig de prijzen die door uzelf of anderen zijn toegevoegd met behulp van AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Voeg snel veel bonnen of foto's van rekken toe vanuit je filmrol",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Maandelijkse uitdagingen",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Neem deel aan maandelijkse thematische uitdagingen om prijzen te verzamelen",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Eis uw loyaliteitsgegevens terug",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Leer hoe u uw gegevens kunt opvragen",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Pas de app aan",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Draag bij aan het project",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Eenvoudige manieren om Open Food Facts te helpen",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Scoremethodologieën, hulp en meer over het project",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Suggestie accepteren",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Authenticatie mislukt, kan geen bewijzen ophalen",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Start de app opnieuw op om de wijzigingen toe te passen.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafische interface",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Ontwikkeling",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Vertaal Open Food Facts in uw taal",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Schrijf je in voor de alfaversie van de app",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Bijdragen en productgegevens",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Folksonomy niet weergeven",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

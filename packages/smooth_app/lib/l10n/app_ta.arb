@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "பரிசோதனை அம்சங்கள் மற்றும் மேம்பாட்டு கருவிகளை அணுகவும்",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "தரவு",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "ஃபோக்சோனமியை விலக்கு",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "தெரியாத நியூட்ரி ஸ்கோர் (புதிய கணக்கீடு)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "நியூட்ரி-ஸ்கோர் பொருந்தாது (புதிய கணக்கீடு)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "பச்சை-ஸ்கோர்",
+  "environmental_score_a_new": "பச்சை-மதிப்பெண் A",
+  "environmental_score_b_new": "பச்சை-மதிப்பெண் B",
+  "environmental_score_c_new": "பச்சை-ஸ்கோர் C",
+  "environmental_score_d_new": "பச்சை-மதிப்பெண் D",
+  "environmental_score_e_new": "பச்சை-மதிப்பெண் E",
+  "environmental_score_unknown_new": "தெரியாத பச்சை மதிப்பெண்",
+  "environmental_score_not_applicable_new": "பச்சை மதிப்பெண் பொருந்தாது.",
+  "nova_group_generic_new": "மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - நோவா குழுக்கள்",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "தயாரிப்புகளில் உள்ள தகவல்களைச் சேகரித்து வடிவமைக்க அனைத்து குடிமக்களும் எங்களுக்கு உதவ முடியும் அல்லது அவற்றிலிருந்து பெறக்கூடிய தகவல்களை, அதாவது பேக்கேஜிங் பற்றிய தகவல்கள் போன்றவற்றைச் சேகரிக்கலாம்: மிஷன் எம்பாலேஜ்கள்: அனைத்து உணவுப் பொருட்களுக்கும் (பிரெஞ்சு மொழியில்) பெரிய அளவிலான கூட்டுப் பொதியிடல் பட்டியல்.",
   "guide_greenscore_transparency_arg2_title": "உற்பத்தியாளர்கள் எவ்வாறு உதவ முடியும்",
   "guide_greenscore_transparency_arg2_text": "உற்பத்தியாளர்கள் எங்கள் இலவச தயாரிப்பாளர் தளத்தின் மூலம் தங்கள் தகவல்களை நேரடியாக எங்களுக்கு அனுப்பலாம்.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "எந்த தயாரிப்பு கிரகத்திற்கு சிறந்தது?",
+  "guide_greenscore_better_product_arg1_title": "சொல்ல கடினமாக இருக்கலாம்.",
+  "guide_greenscore_better_product_arg1_text": "**நமது உலகளாவிய உணவு முறை அனைத்து பசுமை இல்ல வாயு வெளியேற்றங்களிலும் கால் பங்கிற்கும் மேலாக பொறுப்பேற்பதால்**, நிலையான உணவைத் தேர்ந்தெடுப்பது காலநிலைக்கு நாம் செய்யக்கூடிய மிக சக்திவாய்ந்த விஷயங்களில் ஒன்றாகும்.\n(ஆதாரம்: பூரே & நெமெசெக், அறிவியல், 2018).",
+  "guide_greenscore_better_product_arg2_title": "உங்களிடம் சக்தி இருக்கிறது!",
+  "guide_greenscore_better_product_arg2_text": "நல்ல செய்தி என்னவென்றால், இது மாற்றத்தை உருவாக்க ஒரு சக்திவாய்ந்த வழியை நமக்கு வழங்குகிறது.\n**நாம் ஒவ்வொருவரும் ஒவ்வொரு வருடமும் சுமார் 1,000 உணவுகளை சாப்பிடுகிறோம்**. அது **இந்த கிரகத்திற்கு சிறந்த எதிர்காலத்தைத் தேர்ந்தெடுப்பதற்கான** 1,000 வாய்ப்புகள்!",
+  "guide_greenscore_better_product_arg3_title": "பொறுப்பாக இருந்து முடிவெடுக்க உதவுகிறது.",
+  "guide_greenscore_better_product_arg3_text": "நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. கிரீன்-ஸ்கோர் அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.",
+  "guide_greenscore_better_product_arg4_title": "வெளிப்படைத்தன்மை",
+  "guide_greenscore_better_product_arg4_text": "தனியுரிம லேபிள்களைப் போலன்றி, கிரீன்-ஸ்கோர் கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "அல்ட்ரா-பிராசசிங் என்றால் என்ன?",
+  "guide_nova_what_is_nova_paragraph1": "உணவு பதப்படுத்துதலின் அளவைப் பற்றி NOVA குழுக்கள் உங்களுக்குத் தெரிவிக்கின்றன.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "**தொழில்துறை செயலாக்கத்தின்** (குறைந்தபட்ச பதப்படுத்தப்பட்ட அல்லது பதப்படுத்தப்படாத உணவுகள், சமையல் பொருட்கள், பதப்படுத்தப்பட்ட உணவுகள், தீவிர பதப்படுத்தப்பட்ட உணவுகள்) அடிப்படையில் உணவுகளை **4 குழுக்களாக** வகைப்படுத்த NOVA வகைப்பாடு அனுமதிக்கிறது.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "நோவா லோகோக்கள்",
+  "guide_nova_groups_title": "4 NOVA குழுக்கள்",
+  "guide_nova_groups_intro": "4 NOVA குழுக்கள் உள்ளன, அவற்றில் சிக்கலானது குழு 4 - அல்ட்ரா-பதப்படுத்தப்பட்ட உணவுகள்.",
+  "guide_nova_groups_arg1_title": "குறைந்தபட்சமாக பதப்படுத்தப்பட்ட அல்லது பதப்படுத்தப்படாத உணவுகள்",
+  "guide_nova_groups_arg1_text": "பதப்படுத்தப்படாத (அல்லது இயற்கை) உணவுகள் என்பவை இயற்கையிலிருந்து பிரிக்கப்பட்ட பிறகு, தாவரங்களின் உண்ணக்கூடிய பாகங்கள் (விதைகள், பழங்கள், இலைகள், தண்டுகள், வேர்கள்) அல்லது விலங்குகள் (தசை, கழிவுகள், முட்டை, பால்), அத்துடன் பூஞ்சை, பாசி மற்றும் நீர் ஆகியவை ஆகும்.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "பதப்படுத்தப்பட்ட சமையல் பொருட்கள், எண்ணெய்கள், வெண்ணெய், சர்க்கரை மற்றும் உப்பு போன்றவை, குழு 1 உணவுகளிலிருந்து அல்லது இயற்கையிலிருந்து பெறப்பட்ட பொருட்களாகும், அவை அழுத்துதல், சுத்திகரித்தல், அரைத்தல், அரைத்தல் மற்றும் உலர்த்துதல் உள்ளிட்ட செயல்முறைகள் மூலம் பெறப்படுகின்றன.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "பதப்படுத்தப்பட்ட உணவுகள், பாட்டில் காய்கறிகள், பதிவு செய்யப்பட்ட மீன்கள், சிரப்பில் உள்ள பழங்கள், பாலாடைக்கட்டிகள் மற்றும் புதிதாக தயாரிக்கப்பட்ட ரொட்டிகள் போன்றவை முதன்மையாக உப்பு, எண்ணெய், சர்க்கரை அல்லது குழு 2 இலிருந்து குழு 1 உணவுகளில் சேர்க்கப்படுவதன் மூலம் தயாரிக்கப்படுகின்றன. செயல்முறைகளில் பல்வேறு பாதுகாப்பு அல்லது சமையல் முறைகள் அடங்கும், மேலும் ரொட்டிகள் மற்றும் சீஸ் விஷயத்தில், மது அல்லாத நொதித்தல் ஆகியவை அடங்கும். பெரும்பாலான பதப்படுத்தப்பட்ட உணவுகளில் இரண்டு அல்லது மூன்று பொருட்கள் உள்ளன, மேலும் அவை குழு 1 உணவுகளின் மாற்றியமைக்கப்பட்ட பதிப்புகளாக அடையாளம் காணப்படுகின்றன. அவற்றை தனியாகவோ அல்லது பொதுவாக, மற்ற உணவுகளுடன் சேர்த்துவோ சாப்பிடலாம்.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "குளிர்பானங்கள், இனிப்பு அல்லது காரமான தொகுக்கப்பட்ட சிற்றுண்டிகள், மறுசீரமைக்கப்பட்ட இறைச்சி பொருட்கள் மற்றும் முன்பே தயாரிக்கப்பட்ட உறைந்த உணவுகள் போன்ற மிகை பதப்படுத்தப்பட்ட உணவுகள் வெறும் மாற்றியமைக்கப்பட்ட உணவுகள் மட்டுமல்ல, பெரும்பாலும் அல்லது முழுமையாக உணவுகள் மற்றும் சேர்க்கைகளிலிருந்து பெறப்பட்ட பொருட்களிலிருந்து தயாரிக்கப்படும் சூத்திரங்கள், குரூப் 1 உணவில் சிறிதளவு அல்லது எந்த பாதிப்பும் இல்லாமல். இந்த சூத்திரங்களில் உள்ள பொருட்கள் பொதுவாக சர்க்கரைகள், எண்ணெய்கள், கொழுப்புகள் அல்லது உப்பு போன்ற பதப்படுத்தப்பட்ட உணவுகளிலும் காணப்படுகின்றன. இருப்பினும், மிகை பதப்படுத்தப்பட்ட பொருட்களில் பொதுவாக சமையல் தயாரிப்புகளில் பயன்படுத்தப்படாத ஆற்றல் மற்றும் ஊட்டச்சத்துக்களின் பிற மூலங்களும் உள்ளன. இவற்றில் சில கேசீன், லாக்டோஸ், மோர் மற்றும் பசையம் போன்ற உணவுகளிலிருந்து நேரடியாகப் பிரித்தெடுக்கப்படுகின்றன.",
+  "guide_nova_explanations_title": "அல்ட்ரா-பிராசசிங்கில் உள்ள சிக்கல்கள்",
+  "guide_nova_explanations_arg1_title": "உணவுப் பொருட்களின் தீவிர செயலாக்கம்",
+  "guide_nova_explanations_arg1_text": "ஹைட்ரஜனேற்றப்பட்ட அல்லது ஆர்வமூட்டும் எண்ணெய்கள், ஹைட்ரோலைஸ் செய்யப்பட்ட புரதங்கள், சோயா புரதம் தனிமைப்படுத்தல், மால்டோடெக்ஸ்ட்ரின், தலைகீழ் சர்க்கரை மற்றும் உயர்-பிரக்டோஸ் கார்ன் சிரப் போன்ற உணவுப் பொருட்களை மேலும் செயலாக்குவதன் மூலம் பல பெறப்படுகின்றன.",
+  "guide_nova_explanations_arg2_title": "தூய உணவுப் பாதுகாப்பைத் தாண்டிச் செல்லும் சேர்க்கைகள்",
+  "guide_nova_explanations_arg2_text": "பதப்படுத்தப்பட்ட உணவுகளில் பயன்படுத்தப்படும் சேர்க்கைப் பொருட்களில் பதப்படுத்தப்பட்ட உணவுகளிலும் பயன்படுத்தப்படும் சில பொருட்கள் அடங்கும், அதாவது பாதுகாப்புப் பொருட்கள், ஆக்ஸிஜனேற்றிகள் மற்றும் நிலைப்படுத்திகள். பதப்படுத்தப்பட்ட தயாரிப்புகளில் மட்டுமே காணப்படும் சேர்க்கைப் பொருட்களில் உணவுகளின் உணர்ச்சித் தரங்களைப் பின்பற்ற அல்லது மேம்படுத்த அல்லது இறுதிப் பொருளின் விரும்பத்தகாத அம்சங்களை மறைக்கப் பயன்படுத்தப்படும் சேர்க்கைப் பொருட்கள் அடங்கும். இந்தச் சேர்க்கைப் பொருட்களில் சாயங்கள் மற்றும் பிற வண்ணங்கள், வண்ண நிலைப்படுத்திகள்; சுவைகள், சுவையை அதிகரிக்கும் பொருட்கள், சர்க்கரை அல்லாத இனிப்புப் பொருட்கள்; மற்றும் கார்பனேட்டிங், ஃபர்மிங், பல்கிங் மற்றும் ஆன்டி-பல்கிங் ஏஜென்ட்கள், டி-ஃபோமிங், ஆன்டி-கேக்கிங் மற்றும் மெருகூட்டல் ஏஜென்ட்கள், குழம்பாக்கிகள், சீக்வெஸ்ட்ரான்ட்கள் மற்றும் ஈரப்பதமூட்டிகள் போன்ற செயலாக்க உதவிகள் அடங்கும்.",
+  "guide_nova_explanations_arg3_title": "வீட்டிலேயே செய்ய முடியாத செயலாக்கம்",
+  "guide_nova_explanations_arg3_text": "பொதுவாக பல பொருட்களை ஒன்றிணைத்து இறுதிப் பொருளை உருவாக்குவதற்கு (எனவே 'மிகவும் பதப்படுத்தப்பட்ட') பல செயல்முறைகள் பயன்படுத்தப்படுகின்றன. இந்த செயல்முறைகளில் உள்நாட்டு சமமானவை இல்லாத பல அடங்கும், அதாவது ஹைட்ரஜனேற்றம் மற்றும் நீராற்பகுப்பு, வெளியேற்றம் மற்றும் மோல்டிங், மற்றும் வறுக்க முன் செயலாக்கம்.",
+  "guide_nova_explanations_arg4_title": "அல்ட்ரா-பிராசசிங்கின் கொள்ளையடிக்கும் மற்றும் நிதி அம்சங்கள்",
+  "guide_nova_explanations_arg4_text": "அல்ட்ரா-பதப்படுத்தலின் ஒட்டுமொத்த நோக்கம், மற்ற அனைத்து உணவுக் குழுக்களையும் மாற்றுவதற்காக வடிவமைக்கப்பட்ட பிராண்டட், வசதியான (நீடித்த, உட்கொள்ளத் தயாராக), கவர்ச்சிகரமான (மிகவும் சுவையான) மற்றும் அதிக லாபகரமான (குறைந்த விலை பொருட்கள்) உணவுப் பொருட்களை உருவாக்குவதாகும். அல்ட்ரா-பதப்படுத்தப்பட்ட உணவுப் பொருட்கள் பொதுவாக கவர்ச்சிகரமான முறையில் பேக் செய்யப்பட்டு தீவிரமாக சந்தைப்படுத்தப்படுகின்றன.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "பொது",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "உங்கள் விலை விருப்பங்களை நிர்வகிக்கவும்",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "திறந்த உணவு உண்மைகள் திட்டம்",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "மொழிபெயர்க்கவும், எங்கள் கருவிகளை மேம்படுத்தவும்…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "இணைக்கவும்",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "எங்களைத் தொடர்பு கொள்ளுங்கள் அல்லது சமூக ஊடகங்களில் எங்களைப் பின்தொடருங்கள்",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "உலகெங்கிலும் உள்ள மில்லியன் கணக்கான நுகர்வோருக்குத் தெரிவிக்க எங்களுக்கு உதவுங்கள்.",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "உதவி & ஆதரவு",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "உங்கள் கேள்விகளுக்கான பதில்களைப் பெறுங்கள்",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "வெளியேறிவிட்டார்",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "எங்கள் உறுப்பினர்களில் ஒருவராக இருப்பதற்கு நன்றி!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "விலைகள் சேர்க்கப்பட்டன",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "எல்லா புள்ளிவிவரங்களையும் காண்க",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "\"{keyword}\" -ஐ {provider} -ல் தேடவும்.",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "ஒரு அமைப்பைத் தேடுங்கள் (எ.கா. நியூட்ரி-ஸ்கோர்)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "அணுகல்தன்மை: ஈமோஜியைக் காட்டு",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "அணுகல்தன்மை: வண்ணங்களை அகற்று",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "இதைப் பற்றி",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "சட்ட தகவல்",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "பயன்பாட்டு விதிமுறைகள், தனியுரிமைக் கொள்கை மற்றும் பல",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "உரிமங்கள்",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "பயன்பாட்டைப் பற்றி",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "தொழில்நுட்பத் தகவல், டெவலப்பர் தகவல் மற்றும் பல",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "தகவல்",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "பதிப்பு எண்",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "ஸ்கேனர்",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "ஆப் ஸ்டோர்",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "கணினி அமைப்புகள்",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "மூலக் குறியீட்டை அணுகவும்",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "மில்லியன் கணக்கானவர்களுக்கு ஒரு தாக்கத்தை ஏற்படுத்தத் தொடங்குங்கள்.",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "முழுமையான தயாரிப்புகள்",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "குறிப்புகள்",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "புதிய நியூட்ரி-ஸ்கோரைக் கண்டறியவும்",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "ஓபன் ஃபுட் ஃபேக்ட்ஸ் வலைத்தளத்தில்",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "எனது கணக்கை நிர்வகிக்கவும்",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "எனது கடவுச்சொல்லை மாற்று",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "ஆபத்து மண்டலம்",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "உங்கள் பங்களிப்புகள் அனைத்தும் இழக்கப்படும்.",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "பயன்பாட்டு அமைப்புகள்",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "தயாரிப்புகளை ஆஃப்லைனில் ஸ்கேன் செய்வதற்கான மிகவும் சோதனை வழி",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "சேவையகத்திலிருந்து அனைத்து தயாரிப்புகளையும் புதுப்பிக்கவும்.",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "மிகவும் அவசியமானால் தவிர, தயவுசெய்து அதைச் செய்வதைத் தவிர்க்கவும்.",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "டெமோ பயன்முறை",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "ஸ்கேனரில் கார்டுகளைச் சேர்க்கவும்",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "ஸ்கேனரில் 3 மாதிரி தயாரிப்புகளைச் சேர்க்கிறது.",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "ஃபோக்சோனமி ஹோஸ்ட்",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "அணுகல்தன்மை பரிசோதனைகள்",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "விலைகளுக்கு ஏற்ப பல தயாரிப்புகளின் தேர்வு",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "பயனர் ஆர்டர் செய்த தகவல் பலகைகள்",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "இருப்பிடத் தேடலுக்கான தற்காலிக அணுகல்",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 அல்லது 3 தயாரிப்புகளுக்கான பக்கவாட்டு ஒப்பீடு",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "தயாரிப்பு பட்டியல் இறக்குமதி",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "மதிப்பெண்கள் & வழிமுறைகள்",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "நியூட்ரி-ஸ்கோர் எவ்வாறு கணக்கிடப்படுகிறது என்பதைக் கண்டறியவும்.",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "முறைமையில் ஏற்பட்ட முக்கிய மாற்றங்களைக் கண்டறியவும்.",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "திறந்த உணவு உண்மைகளைக் கண்டறியவும்",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "அடிக்கடி கேட்கப்படும் கேள்விகள் - அடிக்கடி கேட்கப்படும் கேள்விகள்",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "திறந்த உணவு உண்மைகள் அரசு சாரா நிறுவனம்",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "தகவல்",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "சமூக புதுப்பிப்புகளைப் பெறுங்கள்",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "பயன்பாடு மற்றும் சமூக செய்திகளுடன் இணைந்திருங்கள்.",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "எங்கள் மெய்நிகர் நிகழ்வுகளில் ஒன்றில் கலந்துகொள்வதன் மூலம் ஈடுபடுங்கள்.",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "சமூக ஊடகங்களில் எங்களைப் பின்தொடருங்கள்",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "திறந்த உணவு உண்மைகள் வலைப்பதிவு",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "சமீபத்திய செய்திகளை அவை நடக்கும்போதே பெறுங்கள்",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "சமூகத்திடமிருந்து உதவி பெறுங்கள்",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "பயன்பாட்டை மேம்படுத்த எங்களுக்கு உதவுங்கள்.",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "பிழைத்திருத்த தகவலை எங்களுக்கு அனுப்புங்கள்.",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "விரிவான பிழைத்திருத்த தகவலுடன் எங்களுக்கு ஒரு மின்னஞ்சல் அனுப்புங்கள்.",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "பயன்பாட்டைப் பற்றிய உங்கள் கருத்துக்களை எங்களுக்கு அனுப்புங்கள்.",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "பயன்பாட்டின் எதிர்காலத்தை வடிவமைக்க உதவுங்கள்.",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "பயன்பாட்டு கணக்கெடுப்பில் பங்கேற்கவும்",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "அடுத்து என்ன கட்ட வேண்டும் என்பதைப் புரிந்துகொள்ள உதவுங்கள்.",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "வல்லுநர்கள்",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "முற்றிலும் இலவசம், 500 பயன்பாடுகள் மற்றும் மில்லியன் கணக்கான நுகர்வோருக்கு துல்லியமான தரவை உறுதி செய்கிறது. சுய சேவை, உங்கள் PIM அல்லது விரிதாள்களுடன் (XLSX) இணக்கமானது.",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "தொடங்குவதற்கு தொடர்பு கொள்ளவும்.",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "உங்கள் அறிக்கைக்குத் தேவையான அனைத்துப் பொருட்களையும் பெறுங்கள்.",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "பத்திரிகை விசாரணைகளுக்கு அல்லது உங்கள் அறிக்கையைப் பற்றி எங்களுக்குத் தெரிவிக்க தொடர்பு கொள்ளவும்.",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "ஒரு செயலில் தன்னார்வலராகுங்கள்",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "மேம்பாடு, தொடர்பு, வடிவமைப்பு… எந்த வகையான தன்னார்வத் தொண்டு அல்லது நிபுணத்துவமும் வரவேற்கப்படுகிறது!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "நீங்கள் பங்களிக்கக்கூடிய பல வழிகளில் சிலவற்றைக் கண்டறியவும்.",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "மொபைல் செயலி மேம்பாடு",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "மென்பொருள் மேம்பாட்டிற்கு எவ்வாறு பங்களிப்பது என்பதை அறிக.",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "தினசரி நிலையற்ற உருவாக்கங்கள், புத்தம் புதிய அம்சங்கள்",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "உங்கள் உள்ளூர் சமூகத்தை வளர்க்கவும்.",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "மென்பொருள், உள்ளடக்கங்கள், மூலப்பொருள் பகுப்பாய்வு மொழிபெயர்ப்புகளுக்கு உதவி.",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "உங்களுக்கு உதவ ஒரு சிறிய டெம்ப்ளேட்டை நாங்கள் தயார் செய்துள்ளோம் :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "உங்கள் நாட்டில் உணவு வெளிப்படைத்தன்மையை வளர்ப்பதற்கான எளிய வழிமுறைகள்.",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "தரவுகளின் தரம்",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "தரவு தரக் குழுவில் சேருங்கள்",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "தரவுத்தளம் முழுமையாகவும் துல்லியமாகவும் இருப்பதை உறுதிசெய்ய எங்கள் முயற்சியில் சேருங்கள்.",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 தயாரிப்புகள் சேர்க்கப்படவில்லை",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "திறந்த உணவு உண்மைகளில் நான் சேர்த்த புதிய தயாரிப்புகள்",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "நான் முடிக்க வேண்டிய தயாரிப்புகள்",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "முழுமையற்ற அனைத்து தயாரிப்புகளும்",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "நீங்கள் முடிக்க உதவும் தயாரிப்புகள்",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "உங்கள் நாட்டில் நியூட்ரி-ஸ்கோர் & கிரீன்-ஸ்கோரைக் கணக்கிட உதவுங்கள்.",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "நான் பங்களித்த விலைகள்",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "விலைக் குறிச்சொற்கள் மற்றும் ரசீதுகள்",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "உங்கள் ரசீதுகளின் புகைப்படங்களை எடுத்து தொடர்புடைய பார்கோடுகளை ஸ்கேன் செய்யுங்கள்.",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "ஒரு கடையில் விலைகளின் புகைப்படங்களை எடுத்துக் கொள்ளுங்கள்.",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "புதிய விலைகள்",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "திறந்த விலைகள் சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "அதிக விலைகளைக் கொண்ட பங்களிப்பாளர்கள்",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "திறந்த விலை அளவீடுகள்",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "திட்டத்தின் பரிணாம வளர்ச்சியைப் பின்பற்றுங்கள்",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "பங்களிப்பதற்கான வழிகள்",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "AI உதவியுடன், நீங்களோ அல்லது மற்றவர்களோ சேர்த்த விலைகளை உறுதிப்படுத்தவும்.",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "உங்கள் கேமரா ரோலில் இருந்து பல ரசீதுகள் அல்லது அலமாரிகளின் புகைப்படங்களை விரைவாகச் சேர்க்கவும்",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "மாதாந்திர சவால்கள்",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "விலைகளைச் சேகரிக்க மாதாந்திர கருப்பொருள் தேடல்களில் பங்கேற்கவும்",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "உங்கள் விசுவாசத் தரவை மீட்டெடுக்கவும்",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "உங்கள் தரவை எவ்வாறு கோருவது என்பதை அறிக.",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "பயன்பாட்டைத் தனிப்பயனாக்குங்கள்",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "திட்டத்திற்கு பங்களிக்கவும்",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "உணவு உண்மைகளைத் திறக்க உதவும் எளிய வழிகள்",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "திட்டத்தைப் பற்றிய மதிப்பெண் முறைகள், உதவி மற்றும் பல.",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "பரிந்துரையை ஏற்கிறேன்",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "அங்கீகாரம் தோல்வியடைந்தது, சான்றுகளைப் பெற முடியவில்லை.",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "மாற்றங்களைப் பயன்படுத்த பயன்பாட்டை மறுதொடக்கம் செய்யவும்.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "வரைகலை இடைமுகம்",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "ஊடகம்",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "திறந்த உணவு உண்மைகள் ஆய்வகங்கள்",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "திறந்த உணவு உண்மைகளை உங்கள் மொழியில் கொண்டு வாருங்கள்.",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "பயன்பாட்டின் ஆல்பா பதிப்பில் பதிவுசெய்யவும்",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "பங்களிப்புகள் & தயாரிப்பு தரவு",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "ஃபோக்சோனமியைக் காட்டாதே",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

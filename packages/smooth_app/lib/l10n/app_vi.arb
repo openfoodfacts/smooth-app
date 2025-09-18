@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Các sản phẩm cần được hoàn thành",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Truy cập các tính năng thử nghiệm và công cụ phát triển",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Bắt đầu lại phần giới thiệu",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Dữ liệu",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Điểm sinh thái",
+  "environmental_score_a_new": "Điểm xanh A",
+  "environmental_score_b_new": "Điểm xanh B",
+  "environmental_score_c_new": "Điểm xanh C",
+  "environmental_score_d_new": "Điểm xanh lá cây D",
+  "environmental_score_e_new": "Điểm xanh E",
+  "environmental_score_unknown_new": "Điểm xanh không xác định",
+  "environmental_score_not_applicable_new": "Điểm xanh không áp dụng",
+  "nova_group_generic_new": "Thực phẩm siêu chế biến - Tập đoàn NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Mọi công dân có thể giúp chúng tôi thu thập và cấu trúc thông tin có trên sản phẩm hoặc có thể suy ra từ chúng, chẳng hạn như thông tin về bao bì: Mission Emballages: một kho lưu trữ bao bì hợp tác quy mô lớn cho tất cả các sản phẩm thực phẩm (bằng tiếng Pháp)",
   "guide_greenscore_transparency_arg2_title": "Các nhà sản xuất có thể giúp đỡ như thế nào",
   "guide_greenscore_transparency_arg2_text": "Các nhà sản xuất có thể gửi thông tin trực tiếp cho chúng tôi thông qua nền tảng miễn phí dành cho nhà sản xuất.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Sản phẩm nào tốt hơn cho hành tinh?",
+  "guide_greenscore_better_product_arg1_title": "Có thể khó để nói",
+  "guide_greenscore_better_product_arg1_text": "Lựa chọn thực phẩm bền vững là một trong những điều mạnh mẽ nhất mà chúng ta có thể làm cho khí hậu, vì **hệ thống thực phẩm toàn cầu của chúng ta chịu trách nhiệm cho hơn một phần tư lượng khí thải nhà kính**.\n(Nguồn: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Bạn có sức mạnh!",
+  "guide_greenscore_better_product_arg2_text": "Tin tốt là điều này mang đến cho chúng ta một cách thức mạnh mẽ để tạo ra sự thay đổi.\n**Mỗi người chúng ta ăn khoảng 1.000 bữa ăn mỗi năm**. Đó là 1.000 cơ hội để **chọn một tương lai tốt đẹp hơn cho hành tinh**!",
+  "guide_greenscore_better_product_arg3_title": "Giúp có trách nhiệm và quyết định",
+  "guide_greenscore_better_product_arg3_text": "Việc lựa chọn thực phẩm bền vững có thể khá phức tạp. Nhãn mác dễ gây nhầm lẫn và thông tin thường bị thiếu. Điểm Xanh được tạo ra để đơn giản hóa việc này, cung cấp cho bạn xếp hạng môi trường **rõ ràng**, **dựa trên khoa học** và **minh bạch** cho các sản phẩm thực phẩm, ngay tại nơi bạn cần: khi bạn mua sắm.",
+  "guide_greenscore_better_product_arg4_title": "Tính minh bạch",
+  "guide_greenscore_better_product_arg4_text": "Không giống như các nhãn hiệu độc quyền, phép tính Điểm Xanh **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Thức ăn siêu chế biến",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Siêu xử lý là gì?",
+  "guide_nova_what_is_nova_paragraph1": "Nhóm NOVA cung cấp cho bạn thông tin về mức độ chế biến thực phẩm.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Phân loại NOVA cho phép phân loại thực phẩm thành **4 nhóm** dựa trên **mức độ chế biến công nghiệp** (thực phẩm chế biến tối thiểu hoặc chưa chế biến, nguyên liệu nấu ăn, thực phẩm chế biến, thực phẩm siêu chế biến).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Các logo NOVA",
+  "guide_nova_groups_title": "4 nhóm NOVA",
+  "guide_nova_groups_intro": "Có 4 nhóm NOVA, nhóm có vấn đề là Nhóm 4 - Thực phẩm siêu chế biến.",
+  "guide_nova_groups_arg1_title": "Thực phẩm chế biến tối thiểu hoặc chưa chế biến",
+  "guide_nova_groups_arg1_text": "Thực phẩm chưa qua chế biến (hay tự nhiên) là những phần ăn được của thực vật (hạt, quả, lá, thân, rễ) hoặc động vật (cơ, nội tạng, trứng, sữa), cũng như nấm, tảo và nước, sau khi được tách ra khỏi thiên nhiên.",
+  "guide_nova_groups_arg2_title": "Các thành phần ẩm thực đã qua chế biến",
+  "guide_nova_groups_arg2_text": "Các thành phần ẩm thực đã qua chế biến, chẳng hạn như dầu, bơ, đường và muối, là những chất có nguồn gốc từ thực phẩm Nhóm 1 hoặc từ thiên nhiên thông qua các quá trình bao gồm ép, tinh chế, nghiền, xay và sấy khô.",
+  "guide_nova_groups_arg3_title": "Thực phẩm đã qua chế biến",
+  "guide_nova_groups_arg3_text": "Thực phẩm chế biến, chẳng hạn như rau đóng chai, cá đóng hộp, trái cây ngâm siro, pho mát và bánh mì tươi, chủ yếu được chế biến bằng cách thêm muối, dầu, đường hoặc các chất khác từ thực phẩm Nhóm 2 vào thực phẩm Nhóm 1. Các quy trình bao gồm nhiều phương pháp bảo quản hoặc chế biến khác nhau, và trong trường hợp bánh mì và pho mát, là lên men không cồn. Hầu hết thực phẩm chế biến đều có hai hoặc ba thành phần và được nhận biết là phiên bản biến thể của thực phẩm Nhóm 1. Chúng có thể được ăn riêng hoặc phổ biến hơn là kết hợp với các thực phẩm khác.",
+  "guide_nova_groups_arg4_title": "Thức ăn siêu chế biến",
+  "guide_nova_groups_arg4_text": "Thực phẩm siêu chế biến, chẳng hạn như nước ngọt, đồ ăn nhẹ đóng gói ngọt hoặc mặn, các sản phẩm thịt tái chế và các món ăn đông lạnh chế biến sẵn, không chỉ đơn thuần là thực phẩm biến đổi gen mà còn là các công thức được chế biến chủ yếu hoặc hoàn toàn từ các chất có nguồn gốc từ thực phẩm và phụ gia, với rất ít hoặc không có thực phẩm Nhóm 1 nguyên vẹn. Các thành phần trong các công thức này thường bao gồm các thành phần cũng có trong thực phẩm chế biến, chẳng hạn như đường, dầu, chất béo hoặc muối. Tuy nhiên, các sản phẩm siêu chế biến cũng chứa các nguồn năng lượng và chất dinh dưỡng khác thường không được sử dụng trong chế biến ẩm thực. Một số trong số này được chiết xuất trực tiếp từ thực phẩm, chẳng hạn như casein, lactose, whey và gluten.",
+  "guide_nova_explanations_title": "Các vấn đề với quá trình xử lý siêu việt",
+  "guide_nova_explanations_arg1_title": "Xử lý cực độ các thành phần thực phẩm",
+  "guide_nova_explanations_arg1_text": "Nhiều loại có nguồn gốc từ quá trình chế biến thêm các thành phần thực phẩm, chẳng hạn như dầu hydro hóa hoặc dầu este hóa, protein thủy phân, protein đậu nành cô lập, maltodextrin, đường nghịch chuyển và xi-rô ngô có hàm lượng fructose cao.",
+  "guide_nova_explanations_arg2_title": "Phụ gia vượt xa tiêu chuẩn an toàn thực phẩm thuần túy",
+  "guide_nova_explanations_arg2_text": "Phụ gia trong thực phẩm siêu chế biến bao gồm một số loại cũng được sử dụng trong thực phẩm chế biến, chẳng hạn như chất bảo quản, chất chống oxy hóa và chất ổn định. Các loại phụ gia chỉ có trong sản phẩm siêu chế biến bao gồm những loại được sử dụng để mô phỏng hoặc tăng cường chất lượng cảm quan của thực phẩm hoặc để che giấu những đặc tính không ngon miệng của sản phẩm cuối cùng. Các phụ gia này bao gồm thuốc nhuộm và các loại màu khác, chất ổn định màu; hương liệu, chất tăng cường hương vị, chất tạo ngọt không đường; và các chất hỗ trợ chế biến như chất tạo ga, chất làm săn chắc, chất tạo khối và chất chống tạo khối, chất phá bọt, chất chống vón cục và chất tạo bóng, chất nhũ hóa, chất tạo phức kim loại và chất giữ ẩm.",
+  "guide_nova_explanations_arg3_title": "Xử lý bạn không thể làm ở nhà",
+  "guide_nova_explanations_arg3_text": "Hàng loạt chuỗi quy trình được sử dụng để kết hợp các thành phần thường rất đa dạng và tạo ra sản phẩm cuối cùng (do đó được gọi là \"siêu chế biến\"). Các quy trình này bao gồm một số quy trình không có sản phẩm tương đương trong nước, chẳng hạn như hydro hóa và thủy phân, đùn và đúc khuôn, và sơ chế để chiên.",
+  "guide_nova_explanations_arg4_title": "Các khía cạnh săn mồi và tài chính của quá trình siêu chế biến",
+  "guide_nova_explanations_arg4_text": "Mục đích chung của siêu chế biến là tạo ra các sản phẩm thực phẩm có thương hiệu, tiện lợi (bền, dễ tiêu thụ), hấp dẫn (siêu ngon miệng) và có lợi nhuận cao (nguyên liệu giá rẻ) được thiết kế để thay thế tất cả các nhóm thực phẩm khác. Các sản phẩm thực phẩm siêu chế biến thường được đóng gói hấp dẫn và tiếp thị rầm rộ.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Chung",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Quản lý tùy chọn giá của bạn",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Dự án Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Góp phần",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Dịch, cải thiện công cụ của chúng tôi…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Kết nối",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Liên hệ hoặc theo dõi chúng tôi trên mạng xã hội",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Quyên góp",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Hãy giúp chúng tôi thông tin đến hàng triệu người tiêu dùng trên toàn thế giới",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Trợ giúp & Hỗ trợ",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Nhận câu trả lời cho câu hỏi của bạn",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Đã đăng xuất",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Cảm ơn bạn đã là thành viên của chúng tôi!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Các sản phẩm đã được sửa đổi",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Xem tất cả số liệu thống kê",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Tìm kiếm {provider} cho \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Tìm kiếm cài đặt (ví dụ: Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Khả năng truy cập: Hiển thị biểu tượng cảm xúc",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Khả năng truy cập: Xóa màu",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Sản phẩm",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Giới thiệu",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Thông tin pháp lý",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Điều khoản sử dụng, chính sách bảo mật và nhiều hơn nữa",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Điều khoản sử dụng",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Giấy phép",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Giới thiệu về ứng dụng",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Thông tin kỹ thuật, thông tin dành cho nhà phát triển và nhiều thông tin khác",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Thông tin",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Số phiên bản",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Máy quét",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Cửa hàng ứng dụng",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Cài đặt hệ thống",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Truy cập mã nguồn",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Và bắt đầu tạo ra tác động cho hàng triệu người",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Nói với toàn thế giới",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Mẹo",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Khám phá Nutri-Score mới",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Trên trang web Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Quản lý tài khoản của tôi",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Thay đổi mật khẩu của tôi",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Khu vực nguy hiểm",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Mọi đóng góp của bạn sẽ bị mất",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Đóng góp",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Cài đặt ứng dụng",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Cách thử nghiệm để quét sản phẩm ngoại tuyến",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Làm mới tất cả sản phẩm từ máy chủ",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Xin vui lòng tránh làm điều đó trừ khi thực sự cần thiết",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Chế độ demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Thêm thẻ vào máy quét",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Thêm 3 sản phẩm mẫu vào máy quét",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Người dẫn chương trình Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Thí nghiệm về khả năng tiếp cận",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Lựa chọn nhiều sản phẩm cho giá cả",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Bảng kiến thức do người dùng đặt hàng",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Truy cập tạm thời vào tìm kiếm vị trí",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "So sánh cạnh nhau cho 2 hoặc 3 sản phẩm",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Nhập danh sách sản phẩm",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Điểm số và phương pháp luận",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Khám phá cách tính điểm Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Khám phá những thay đổi chính về phương pháp luận",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Khám phá những dự án",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Khám phá sự thật về thực phẩm mở",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Những câu hỏi thường gặp",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Tổ chức phi chính phủ Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Thông tin",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Nhận thông tin cập nhật từ cộng đồng",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Cập nhật tin tức về ứng dụng và cộng đồng",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Tham gia bằng cách tham dự một trong các sự kiện trực tuyến của chúng tôi",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Theo dõi chúng tôi trên mạng xã hội",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Blog Sự thật về Thực phẩm Mở",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Nhận tin tức mới nhất khi chúng xảy ra",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Nhận sự giúp đỡ từ cộng đồng",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Hãy giúp chúng tôi cải thiện ứng dụng",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Gửi cho chúng tôi thông tin gỡ lỗi",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Gửi cho chúng tôi một email với thông tin gỡ lỗi chi tiết",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Gửi cho chúng tôi phản hồi về ứng dụng",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Giúp định hình tương lai của ứng dụng",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Tham gia khảo sát ứng dụng",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Giúp chúng tôi hiểu những gì chúng tôi nên xây dựng tiếp theo",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Chuyên gia",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Hoàn toàn miễn phí, đảm bảo dữ liệu chính xác cho 500 ứng dụng và hàng triệu người dùng. Tự phục vụ, tương thích với PIM hoặc bảng tính (XLSX) của bạn",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Liên hệ để bắt đầu",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Báo chí",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Nhận tất cả tài liệu bạn cần cho báo cáo của mình",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Liên hệ để được báo chí hỏi thăm hoặc cho chúng tôi biết về báo cáo của bạn",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Trở thành một tình nguyện viên tích cực",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Phát triển, Truyền thông, Thiết kế… mọi hình thức tình nguyện hoặc chuyên môn đều được hoan nghênh!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Khám phá một số cách bạn có thể đóng góp",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Phát triển ứng dụng di động",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Tìm hiểu cách đóng góp vào quá trình phát triển phần mềm",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Bản dựng không ổn định hàng ngày, các tính năng hoàn toàn mới",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Phát triển cộng đồng địa phương của bạn",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Hỗ trợ dịch thuật phần mềm, nội dung, phân tích thành phần",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Chúng tôi đã chuẩn bị một mẫu nhỏ để giúp bạn :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Các bước đơn giản để tăng cường tính minh bạch về thực phẩm ở quốc gia của bạn",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Tham gia nhóm chất lượng dữ liệu",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Hãy tham gia cùng chúng tôi để đảm bảo cơ sở dữ liệu được hoàn thiện và chính xác",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 sản phẩm đã được thêm vào",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Sản phẩm mới tôi đã thêm vào Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Sản phẩm tôi cần hoàn thành",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Tất cả các sản phẩm chưa hoàn thành",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Sản phẩm bạn có thể giúp hoàn thành",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Giúp tính toán Điểm Nutri-Score & Điểm Green-Score ở quốc gia của bạn",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Giá tôi đã đóng góp",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Thẻ giá và biên lai",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Chụp ảnh biên lai của bạn và quét mã vạch liên quan",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Chụp ảnh giá cả trong cửa hàng",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Giá mới nhất",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Giá mới nhất được cộng đồng Open Prices thêm vào",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Những người đóng góp nhiều giá nhất",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Số liệu giá mở",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Theo dõi sự phát triển của dự án",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Các cách đóng góp",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Xác nhận giá do bạn hoặc người khác thêm vào, với sự trợ giúp của AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Nhanh chóng thêm nhiều biên lai hoặc ảnh kệ từ cuộn camera của bạn",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Thử thách hàng tháng",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Tham gia các nhiệm vụ theo chủ đề hàng tháng để thu thập giá",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Lấy lại dữ liệu lòng trung thành của bạn",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Tìm hiểu cách yêu cầu dữ liệu của bạn",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Tùy chỉnh ứng dụng",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Đóng góp cho dự án",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Những cách đơn giản để giúp Mở Thực phẩm",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Phương pháp tính điểm, trợ giúp và nhiều thông tin khác về dự án",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Chấp nhận đề xuất",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Xác thực không thành công, không thể lấy bằng chứng",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Vui lòng khởi động lại ứng dụng để áp dụng những thay đổi.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Giao diện đồ họa",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Phương tiện truyền thông",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Phát triển",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Phòng thí nghiệm thông tin thực phẩm mở",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Tài khoản",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Đăng ký phiên bản alpha của ứng dụng",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Đóng góp & Dữ liệu sản phẩm",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Không hiển thị Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Tài khoản",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

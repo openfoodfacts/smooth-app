@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Туршилтын онцлогууд болон хөгжүүлэлтийн хэрэгслүүдэд хандах",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Ногоон оноо А",
+  "environmental_score_b_new": "Ногоон оноо В",
+  "environmental_score_c_new": "Ногоон оноо C",
+  "environmental_score_d_new": "Ногоон оноотой D",
+  "environmental_score_e_new": "Ногоон оноотой Э",
+  "environmental_score_unknown_new": "Тодорхойгүй ногоон оноо",
+  "environmental_score_not_applicable_new": "Ногоон оноо хамаарахгүй",
+  "nova_group_generic_new": "Хэт боловсруулсан хоол хүнс - NOVA бүлгүүд",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Сав баглаа боодлын талаарх мэдээлэл гэх мэт бүтээгдэхүүн дээр байгаа эсвэл тэдгээрээс гаргаж болох мэдээллийг цуглуулж, бүтэцжүүлэхэд бүх иргэд тусалж чадна: Эрхэм зорилго: Бүх хүнсний бүтээгдэхүүний сав баглаа боодлын томоохон хэмжээний хамтын тооллого (Франц хэлээр)",
   "guide_greenscore_transparency_arg2_title": "Үйлдвэрлэгчид хэрхэн туслах вэ",
   "guide_greenscore_transparency_arg2_text": "Үйлдвэрлэгчид манай үйлдвэрлэгчдэд зориулсан үнэгүй платформоор дамжуулан мэдээллээ бидэнд шууд илгээх боломжтой.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Аль бүтээгдэхүүн манай гаригийн хувьд илүү дээр вэ?",
+  "guide_greenscore_better_product_arg1_title": "Үүнийг хэлэхэд хэцүү байж болно",
+  "guide_greenscore_better_product_arg1_text": "**Манай дэлхийн хүнсний систем нь нийт хүлэмжийн хийн ялгарлын дөрөвний нэгээс илүү хувийг хариуцдаг** тул тогтвортой хүнсийг сонгох нь уур амьсгалын төлөө хийж чадах хамгийн хүчирхэг зүйлсийн нэг юм.\n(Эх сурвалж: Poore & Nemecek, Шинжлэх ухаан, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Танд хүч байна!",
+  "guide_greenscore_better_product_arg2_text": "Энэ нь бидэнд өөрчлөлтийг бий болгох хүчирхэг арга замыг өгч байгаа нь сайн мэдээ юм.\n**Бидний хүн бүр жилд 1000 орчим удаа хоол иддэг**. Энэ бол **дэлхийн сайн сайхан ирээдүйг сонгох** 1000 боломж юм!",
+  "guide_greenscore_better_product_arg3_title": "Хариуцлагатай байж, шийдвэр гаргахад тусалдаг",
+  "guide_greenscore_better_product_arg3_text": "Тогтвортой хоол хүнс сонгох нь төвөгтэй санагдаж магадгүй юм. Шошго нь төөрөгдүүлсэн, мэдээлэл дутуу байдаг. Ногоон оноог энгийн болгох зорилгоор бүтээгдсэн бөгөөд хүнсний бүтээгдэхүүнд **тодорхой**, **шинжлэх ухаанд тулгуурласан**, **ил тод** байгаль орчны үнэлгээг танд хэрэгтэй үед нь: дэлгүүр хэсч байхад нь өгдөг.",
+  "guide_greenscore_better_product_arg4_title": "Ил тод байдал",
+  "guide_greenscore_better_product_arg4_text": "Өмчлөлийн шошгуудаас ялгаатай нь Ногоон онооны тооцоолол нь **бүрэн нээлттэй** бөгөөд **бүх хүн баталгаажуулах боломжтой**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Хэт боловсруулалт гэж юу вэ?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA бүлгүүд хүнсний боловсруулалтын түвшний талаар танд мэдээлдэг.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA ангилал нь хүнсний бүтээгдэхүүнийг **үйлдвэрлэлийн боловсруулалтын зэрэглэлээр** (бага боловсруулсан эсвэл боловсруулаагүй хоол хүнс, хоолны орц найрлага, боловсруулсан хоол, хэт боловсруулсан хоол) үндэслэн **4 бүлэг** болгон ангилах боломжийг олгодог.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA лого",
+  "guide_nova_groups_title": "4 NOVA бүлэг",
+  "guide_nova_groups_intro": "NOVA-ийн 4 бүлэг байдаг бөгөөд асуудалтай нь 4-р бүлэг - Хэт боловсруулсан хоол хүнс юм.",
+  "guide_nova_groups_arg1_title": "Хамгийн бага боловсруулсан эсвэл боловсруулаагүй хоол хүнс",
+  "guide_nova_groups_arg1_text": "Боловсруулаагүй (эсвэл байгалийн) хүнс нь ургамал (үр, жимс, навч, иш, үндэс) эсвэл амьтдын (булчин, дотор эрхтэн, өндөг, сүү), мөн мөөгөнцөр, замаг, усыг байгалиас нь салгасны дараа идэж болох хэсэг юм.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Тос, цөцгийн тос, элсэн чихэр, давс зэрэг боловсруулсан хоолны орцууд нь 1-р бүлгийн хүнсний бүтээгдэхүүнээс эсвэл шахах, цэвэршүүлэх, нунтаглах, тээрэмдэх, хатаах зэрэг процессоор байгалиас гаргаж авсан бодис юм.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Савласан хүнсний ногоо, лаазалсан загас, сироп дахь жимс, бяслаг, шинэхэн талх зэрэг боловсруулсан хүнсний бүтээгдэхүүнийг 2-р бүлгийн 1-р бүлгийн хүнсний бүтээгдэхүүнд давс, тос, элсэн чихэр эсвэл бусад бодисыг нэмсэнээр хийдэг. Процессууд нь янз бүрийн хадгалалт эсвэл хоол хийх аргууд, талх, бяслагны хувьд согтууруулах ундаагүй исгэх зэрэг орно. Ихэнх боловсруулсан хоол хүнс нь хоёр, гурван орц найрлагатай бөгөөд 1-р бүлгийн хүнсний өөрчлөгдсөн хувилбарууд гэдгийг хүлээн зөвшөөрдөг. Тэдгээрийг дангаар нь эсвэл ихэвчлэн бусад хоолтой хослуулан идэж болно.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Зөөлөн ундаа, чихэрлэг эсвэл амтат савласан хөнгөн зууш, бэлтгэсэн махан бүтээгдэхүүн, урьдчилан бэлтгэсэн хөлдөөсөн таваг зэрэг хэт боловсруулсан хоол хүнс нь зөвхөн өөрчилсөн хоол биш, харин 1-р бүлгийн бүрэн бүтэн хоол хүнс, хоол хүнс, нэмэлтээс гаргаж авсан бодисоос голчлон эсвэл бүхэлд нь хийсэн найрлага юм. Эдгээр найрлага дахь найрлага нь ихэвчлэн элсэн чихэр, тос, өөх тос, давс гэх мэт боловсруулсан хүнсний бүтээгдэхүүнд агуулагддаг. Гэсэн хэдий ч хэт боловсруулсан бүтээгдэхүүн нь хоол хийхэд ихэвчлэн ашиглагддаггүй бусад эрчим хүч, шим тэжээлийн эх үүсвэрийг агуулдаг. Эдгээрийн заримыг казеин, лактоз, шар сүү, цавуулаг зэрэг хоол хүнснээс шууд гаргаж авдаг.",
+  "guide_nova_explanations_title": "Хэт боловсруулалттай холбоотой асуудлууд",
+  "guide_nova_explanations_arg1_title": "Хүнсний бүрэлдэхүүн хэсгүүдийн хэт боловсруулалт",
+  "guide_nova_explanations_arg1_text": "Ихэнх нь устөрөгчжүүлсэн эсвэл сонирхолтойжуулсан тос, гидролизжүүлсэн уураг, шар буурцагны уургийн тусгаарлалт, мальтодекстрин, инверт сахар, фруктоз өндөртэй эрдэнэ шишийн сироп зэрэг хүнсний бүрэлдэхүүн хэсгүүдийн цаашдын боловсруулалтаас гаралтай.",
+  "guide_nova_explanations_arg2_title": "Цэвэр хүнсний аюулгүй байдлаас давсан нэмэлтүүд",
+  "guide_nova_explanations_arg2_text": "Хэт боловсруулсан хүнсний нэмэлтүүд нь хадгалалтын бодис, антиоксидант, тогтворжуулагч зэрэг боловсруулсан хүнсний бүтээгдэхүүнд ашиглагддаг зарим нэмэлтүүд юм. Зөвхөн хэт боловсруулсан бүтээгдэхүүнээс олддог нэмэлтүүдийн ангилалд хүнсний бүтээгдэхүүний мэдрэхүйн чанарыг дуурайх, сайжруулах эсвэл эцсийн бүтээгдэхүүний таагүй талыг далдлахад ашигладаг нэмэлт бодисууд орно. Эдгээр нэмэлтүүд нь будагч бодис болон бусад өнгө, өнгө тогтворжуулагч; амт, амтыг сайжруулагч, элсэн чихэргүй амтлагч; карбонатжуулах, чангаруулах, бөөгнөрөх болон бөөгнөрөхөөс хамгаалах бодис, хөөс арилгагч, хагалгааны болон шиллэгээний эсрэг бодис, эмульгатор, нягтруулагч, чийгшүүлэгч зэрэг боловсруулахад туслах хэрэгслүүд.",
+  "guide_nova_explanations_arg3_title": "Боловсруулалтыг та гэртээ хийж чадахгүй",
+  "guide_nova_explanations_arg3_text": "Ихэвчлэн олон орц найрлагыг нэгтгэж, эцсийн бүтээгдэхүүн (тиймээс \"хэт боловсруулсан\") бий болгохын тулд олон тооны дараалсан процессуудыг ашигладаг. Уг процесст устөрөгчжүүлэлт ба гидролизаци, шахмал болон хэлбэржүүлэлт, хайруулын урьдчилсан боловсруулалт гэх мэт дотоодын ижил төстэй зүйлгүй хэд хэдэн процесс орно.",
+  "guide_nova_explanations_arg4_title": "Хэт боловсруулалтын махчин ба санхүүгийн талууд",
+  "guide_nova_explanations_arg4_text": "Хэт боловсруулалтын ерөнхий зорилго нь бусад бүх хүнсний бүлгийг нүүлгэн шилжүүлэх зориулалттай брендийн, тохиромжтой (удаан эдэлгээтэй, хэрэглэхэд бэлэн), сэтгэл татам (хэт амттай) болон өндөр ашигтай (хямд өртөгтэй найрлагатай) хүнсний бүтээгдэхүүнийг бий болгох явдал юм. Хэт боловсруулсан хүнсний бүтээгдэхүүнийг ихэвчлэн сэтгэл татам байдлаар савлаж, эрчимтэй зах зээлд гаргадаг.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Үнийн тохиргоогоо удирдаарай",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Нээлттэй хүнсний баримт төсөл",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Орчуулж, манай хэрэгслийг сайжруулаарай…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Холбох",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Бидэнтэй холбогдож эсвэл олон нийтийн мэдээллийн хэрэгслээр дагаарай",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Дэлхий даяарх сая сая хэрэглэгчдэд мэдээлэл өгөхөд бидэнд тусална уу",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Тусламж ба дэмжлэг",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Асуултдаа хариулт аваарай",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Гарсан",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Манай гишүүдийн нэг болсонд баярлалаа!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Бүх статистикийг харах",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "{provider} \"{keyword}\" гэж хайх",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Тохиргоо хайх (жишээ нь Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Хүртээмжтэй байдал: Эможи харуулах",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Хүртээмжтэй байдал: Өнгө арилгах",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Хууль эрх зүйн мэдээлэл",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Ашиглалтын нөхцөл, нууцлалын бодлого гэх мэт",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Лицензүүд",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Програмын тухай",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Техникийн мэдээлэл, хөгжүүлэгчийн мэдээлэл гэх мэт",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Хувилбарын дугаар",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Сканнер",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Апп дэлгүүр",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Системийн тохиргоо",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Эх код руу нэвтрэх",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Мөн сая сая хүмүүст нөлөөлж эхлээрэй",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Зөвлөмж",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Шинэ Nutri-Score-г олж мэдээрэй",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts вэбсайт дээр",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Миний бүртгэлийг удирдах",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Миний нууц үгийг өөрчил",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Аюултай бүс",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Таны оруулсан бүх хувь нэмэр алга болно",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Апп тохиргоо",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Бүтээгдэхүүнийг офлайнаар скан хийх маш туршилтын арга",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Серверээс бүх бүтээгдэхүүнийг сэргээнэ үү",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Онцын шаардлагагүй бол үүнийг хийхээс зайлсхий",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Демо горим",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Сканнерт карт нэмнэ үү",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Сканнерт 3 дээж бүтээгдэхүүн нэмнэ",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Ардын дууны хөтлөгч",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Хүртээмжтэй байдлын туршилтууд",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Үнийн хувьд олон төрлийн бүтээгдэхүүний сонголт",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Хэрэглэгчийн захиалсан мэдлэгийн самбар",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Байршлын хайлтанд түр зуур хандах",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 эсвэл 3 бүтээгдэхүүнийг зэрэгцүүлэн харьцуулах",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Бүтээгдэхүүний жагсаалтыг импортлох",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Оноо ба арга зүй",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score-г хэрхэн тооцдогийг олж мэдээрэй",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Аргачлалын үндсэн өөрчлөлтүүдийг олж мэдээрэй",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Нээлттэй хүнсний баримтуудыг олж мэдээрэй",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Түгээмэл асуултууд - Түгээмэл асуултууд",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Нээлттэй хүнсний баримт ТББ",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Олон нийтийн шинэчлэлтүүдийг аваарай",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Аппликешн болон олон нийтийн мэдээний талаар мэдээлэлтэй байгаарай",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Манай виртуал арга хэмжээнүүдийн аль нэгэнд оролцож, оролцоорой",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Нийгмийн сүлжээгээр биднийг дагаарай",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Нээлттэй хүнсний баримт блог",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Хамгийн сүүлийн үеийн мэдээг олж ав",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Нийгэмлэгээс тусламж аваарай",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Аппыг сайжруулахад бидэнд тусална уу",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Бидэнд дибаг хийх мэдээллийг илгээнэ үү",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Бидэнд дибаг хийх дэлгэрэнгүй мэдээлэл бүхий имэйл илгээнэ үү",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Бидэнд програмын талаар санал хүсэлт илгээнэ үү",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Програмын ирээдүйг тодорхойлоход тусална уу",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Аппликешны судалгаанд хамрагдана уу",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Цаашид юу барих ёстойгоо ойлгоход бидэнд тусална уу",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Мэргэжлийн хүмүүс",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Бүрэн үнэ төлбөргүй, 500 програм, сая сая хэрэглэгчдийн үнэн зөв мэдээллийг баталгаажуулдаг. Өөртөө үйлчлэх нь таны PIM эсвэл хүснэгттэй нийцдэг (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Эхлэхийн тулд холбогдоно уу",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Тайландаа шаардлагатай бүх материалыг аваарай",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Хэвлэлээр холбогдож лавлагаа авах эсвэл тайлангийнхаа талаар бидэнд мэдэгдээрэй",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Идэвхтэй сайн дурын ажилтан болоорой",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Хөгжил, харилцаа холбоо, дизайн… аливаа төрлийн сайн дурын ажил, мэргэжлийн ур чадварыг урьж байна!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Та хувь нэмрээ оруулах олон арга замынхаа заримыг олж мэдээрэй",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Гар утасны програм хөгжүүлэх",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Програм хангамжийн хөгжилд хэрхэн хувь нэмэр оруулах талаар суралц",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Өдөр бүр тогтворгүй бүтээц, цоо шинэ боломжууд",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Нутгийнхаа нийгэмлэгийг хөгжүүл",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Програм хангамж, агуулга, орцын шинжилгээний орчуулгад тусална уу",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Бид танд туслах бяцхан загвар бэлдлээ :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Танай улсад хүнсний ил тод байдлыг нэмэгдүүлэх энгийн алхамууд",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Өгөгдлийн чанарын багт нэгдээрэй",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Мэдээллийн санг бүрэн, үнэн зөв байлгахын тулд бидний хүчин чармайлтад нэгдээрэй",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 бүтээгдэхүүн нэмсэн",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Би Open Food Facts-д нэмсэн шинэ бүтээгдэхүүнүүд",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Миний дуусгах ёстой бүтээгдэхүүнүүд",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Бүх бүрэн бус бүтээгдэхүүн",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Та дуусгахад туслах бүтээгдэхүүнүүд",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Танай улсад Nutri-Score & Green-Score-ийг тооцоолоход тусална уу",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Миний оруулсан үнэ",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Үнийн шошго, баримт",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Баримтынхаа зургийг авч, холбогдох бар кодыг уншина уу",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Дэлгүүрт байгаа үнийн зургийг аваарай",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Хамгийн сүүлийн үеийн үнэ",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Нээлттэй үнийн нийгэмлэгийн нэмсэн хамгийн сүүлийн үнэ",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Хамгийн их үнэ бүхий хувь нэмэр оруулагчид",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Нээлттэй үнийн хэмжүүр",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Төслийн хувьслыг дагаж мөрдөөрэй",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Хувь нэмэр оруулах арга замууд",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Өөрийн болон бусдын нэмсэн үнийг хиймэл оюун ухааны тусламжтайгаар баталгаажуулна уу",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Өөрийн камерын багцаас олон баримт эсвэл тавиурын зургийг хурдан нэмнэ үү",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Сар бүрийн сорилтууд",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Үнэ цуглуулахын тулд сар бүр сэдэвчилсэн даалгаварт оролцоорой",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Өөрийн үнэнч хэрэглэгчийн мэдээллээ эргүүлэн аваарай",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Өгөгдлөө хэрхэн хүсэх талаар олж мэдээрэй",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Аппликешныг тохируулна уу",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Төсөлд хувь нэмрээ оруулах",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Нээлттэй хүнсний баримтуудад туслах энгийн аргууд",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Төслийн талаар аргачлал, тусламж болон бусад зүйлийг оноо",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Саналыг хүлээн авна уу",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Баталгаажуулалт амжилтгүй болсон тул нотлох баримтуудыг авч чадсангүй",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Өөрчлөлтүүдийг хэрэгжүүлэхийн тулд програмаа дахин эхлүүлнэ үү.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "График интерфейс",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Хэвлэл мэдээлэл",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Хүнсний баримтын лабораторийг нээнэ үү",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Нээлттэй хүнсний баримтуудыг хэл дээрээ авчир",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Програмын альфа хувилбарт бүртгүүлнэ үү",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Хувь нэмэр, бүтээгдэхүүний өгөгдөл",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Folksonomy-г бүү үзүүл",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

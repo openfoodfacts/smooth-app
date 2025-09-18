@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Lahjoita Open Food Factsille",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Rekisteröidy sisäiseen alfaversioon",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Huomaa, että sisäisellä alfaversiolla tietojen täydellinen menetys on mahdollista ja sovellus voi muuttua käyttökelvottomaksi milloin tahansa!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Täydennettävät tuotteet",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Käytä kokeellisia ominaisuuksia ja kehitystyökaluja",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Käynnistä perehdytys uudelleen",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "Uutispalveluntarjoajan määritykset",
   "dev_mode_section_product_page": "Tuotesivu",
   "dev_mode_section_ui": "Käyttöliittymä",
-  "dev_mode_section_data": "Tiedot",
   "dev_mode_section_experimental_features": "Kokeelliset ominaisuudet",
-  "dev_preferences_show_folksonomy_title": "Piilota folksonomia",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Piilota Green-Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Tuntematon Nutri-Score (Uusi laskukaava)",
   "nutriscore_not_applicable": "Nutri-Score ei sovellu",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ei ole sovellettavissa (Uusi laskukaava)",
-  "environmental_score_generic": "Green-Score",
-  "environmental_score_a": "Green-Score A",
-  "environmental_score_b": "Green-Score B",
-  "environmental_score_c": "Green-Score C",
-  "environmental_score_d": "Green-Score D",
-  "environmental_score_e": "Green-Score E",
-  "environmental_score_unknown": "Tuntematon Green-Score",
-  "environmental_score_not_applicable": "Green-Score ei sovellu",
-  "nova_group_generic": "Ultraprosessointi - NOVA-ryhmät",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Vihreä pistemäärä A",
+  "environmental_score_b_new": "Vihreä pistemäärä B",
+  "environmental_score_c_new": "Vihreän pistemäärän C",
+  "environmental_score_d_new": "Vihreä pistemäärä D",
+  "environmental_score_e_new": "Vihreä pistemäärä E",
+  "environmental_score_unknown_new": "Tuntematon vihreä pisteytys",
+  "environmental_score_not_applicable_new": "Green-Score ei ole sovellettavissa",
+  "nova_group_generic_new": "Erittäin prosessoidut elintarvikkeet - NOVA-ryhmät",
   "nova_group_1": "NOVA Ryhmä 1",
   "nova_group_2": "NOVA Ryhmä 2",
   "nova_group_3": "NOVA Ryhmä 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Kaikki kansalaiset voivat auttaa meitä keräämään ja jäsentämään tuotteissa olevia tai niistä johdettavia tietoja, kuten pakkaustietoja: Mission Emballages: laaja yhteistyöhön perustuva pakkauskartoitus kaikille elintarvikkeille (ranskaksi)",
   "guide_greenscore_transparency_arg2_title": "Miten valmistajat voivat auttaa",
   "guide_greenscore_transparency_arg2_text": "Valmistajat voivat lähettää meille tietonsa suoraan ilmaisen tuottaja-alustamme kautta.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Kumpi tuote on parempi planeetalle?",
+  "guide_greenscore_better_product_arg1_title": "Voi olla vaikea sanoa",
+  "guide_greenscore_better_product_arg1_text": "Kestävän ruoan valitseminen on yksi tehokkaimmista asioista, joita voimme tehdä ilmaston hyväksi, sillä **maailmanlaajuinen ruokajärjestelmämme on vastuussa yli neljänneksestä kaikista kasvihuonekaasupäästöistä**.\n(Lähde: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Sinulla on valta!",
+  "guide_greenscore_better_product_arg2_text": "Hyvä uutinen on, että tämä antaa meille tehokkaan tavan luoda muutosta.\n**Jokainen meistä syö noin 1 000 ateriaa vuodessa**. Se on 1 000 mahdollisuutta **valita parempi tulevaisuus planeetalle**!",
+  "guide_greenscore_better_product_arg3_title": "Auttaa olemaan vastuullinen ja tekemään päätöksiä",
+  "guide_greenscore_better_product_arg3_text": "Kestävän ruoan valitseminen voi tuntua monimutkaiselta. Etiketit ovat hämmentäviä ja tiedot usein puuttuvat. Green-Score luotiin yksinkertaistamaan valintaa, antaen sinulle **selkeän**, **tieteeseen perustuvan** ja **läpinäkyvän** ympäristöluokituksen elintarvikkeille juuri siellä missä sitä tarvitset: ostoksilla ollessasi.",
+  "guide_greenscore_better_product_arg4_title": "Läpinäkyvyys",
+  "guide_greenscore_better_product_arg4_text": "Toisin kuin omat merkinnät, Green-Score-laskenta on **täysin avoin** ja **kuka tahansa voi tarkistaa sen**.",
+  "guide_greenscore_share_link": "https://fi.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultrajalostetut ruoat",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Mitä on ultraprosessointi?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA-ryhmät kertovat sinulle elintarvikkeiden jalostuksen tasosta.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA-luokituksen avulla elintarvikkeet voidaan luokitella **neljään ryhmään** niiden **teollisen prosessoinnin asteen** perusteella (minimaalisesti prosessoidut tai prosessoimattomat elintarvikkeet, ruoanlaittoainesosat, prosessoidut elintarvikkeet, erittäin prosessoidut elintarvikkeet).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA-logot",
+  "guide_nova_groups_title": "4 NOVA-ryhmää",
+  "guide_nova_groups_intro": "NOVA-ryhmiä on neljä, joista ongelmallisin on ryhmä 4 – erittäin prosessoidut elintarvikkeet.",
+  "guide_nova_groups_arg1_title": "Minimaalisesti prosessoidut tai prosessoimattomat elintarvikkeet",
+  "guide_nova_groups_arg1_text": "Käsittelemättömät (tai luonnolliset) elintarvikkeet ovat kasvien (siemenet, hedelmät, lehdet, varret, juuret) tai eläinten (lihakset, sisäelimet, munat, maito) sekä sienten, levien ja veden syötäviä osia sen jälkeen, kun ne on erotettu luonnosta.",
+  "guide_nova_groups_arg2_title": "Jalostetut ruoanvalmistusaineet",
+  "guide_nova_groups_arg2_text": "Jalostetut ruoanlaittoainesosat, kuten öljyt, voi, sokeri ja suola, ovat aineita, jotka on saatu ryhmän 1 elintarvikkeista tai luonnosta puristamalla, puhdistamalla, jauhamalla, jauhamalla ja kuivaamalla.",
+  "guide_nova_groups_arg3_title": "Jalostetut ruoat",
+  "guide_nova_groups_arg3_text": "Jalostetut elintarvikkeet, kuten pullotetut vihannekset, säilykekala, sokeriliemeen säilötyt hedelmät, juustot ja vastaleivotut leivät, valmistetaan pääasiassa lisäämällä suolaa, öljyä, sokeria tai muita aineita ryhmän 2 elintarvikkeista ryhmän 1 elintarvikkeisiin. Prosesseihin kuuluvat erilaiset säilöntä- tai kypsennysmenetelmät ja leipien ja juustojen tapauksessa alkoholiton käyminen. Useimmissa jalostetuissa elintarvikkeissa on kaksi tai kolme ainesosaa, ja ne voidaan tunnistaa ryhmän 1 elintarvikkeiden muunnelluiksi versioiksi. Niitä voidaan syödä sellaisenaan tai yleisemmin yhdessä muiden elintarvikkeiden kanssa.",
+  "guide_nova_groups_arg4_title": "Ultrajalostetut ruoat",
+  "guide_nova_groups_arg4_text": "Erittäin prosessoidut elintarvikkeet, kuten virvoitusjuomat, makeat tai suolaiset pakatut välipalat, uudelleenkäsitellyt lihatuotteet ja valmiiksi valmistetut pakasteruoat, eivät ole pelkästään muunneltuja elintarvikkeita, vaan koostumuksia, jotka on valmistettu enimmäkseen tai kokonaan elintarvikkeista ja lisäaineista peräisin olevista aineista, joissa on vain vähän tai ei lainkaan ehjiä ryhmän 1 elintarvikkeita. Näiden koostumusten ainesosat sisältävät yleensä ainesosia, joita löytyy myös prosessoiduista elintarvikkeista, kuten sokereita, öljyjä, rasvoja tai suolaa. Erittäin prosessoidut tuotteet sisältävät kuitenkin myös muita energian ja ravintoaineiden lähteitä, joita ei tyypillisesti käytetä ruoanlaitossa. Jotkut näistä uutetaan suoraan elintarvikkeista, kuten kaseiini, laktoosi, hera ja gluteeni.",
+  "guide_nova_explanations_title": "Ultraprosessoinnin ongelmat",
+  "guide_nova_explanations_arg1_title": "Elintarvikkeiden ainesosien äärimmäinen käsittely",
+  "guide_nova_explanations_arg1_text": "Monet ovat peräisin elintarvikkeiden ainesosien jatkojalostuksesta, kuten hydratut tai vaihtoesteröidyt öljyt, hydrolysoidut proteiinit, soijaproteiini-isolaatit, maltodekstriini, inverttisokeri ja runsasfruktoosinen maissisiirappi.",
+  "guide_nova_explanations_arg2_title": "Lisäaineet, jotka ylittävät pelkän elintarviketurvallisuuden rajat",
+  "guide_nova_explanations_arg2_text": "Erittäin jalostettujen elintarvikkeiden lisäaineisiin kuuluu joitakin sellaisia, joita käytetään myös jalostetuissa elintarvikkeissa, kuten säilöntäaineita, antioksidantteja ja stabilointiaineita. Vain erittäin jalostetuissa tuotteissa esiintyviin lisäaineisiin kuuluvat sellaiset, joita käytetään jäljittelemään tai parantamaan elintarvikkeiden aistinvaraisia ominaisuuksia tai peittämään lopputuotteen epämiellyttäviä puolia. Näitä lisäaineita ovat väriaineet ja muut väriaineet, värinvakauttajat, aromit, arominvahventeet, sokerittomat makeutusaineet; ja valmistuksen apuaineet, kuten hiilihapotus-, kiinteyttämis-, täyte- ja paakkuuntumisenestoaineet, vaahdonestoaineet, paakkuuntumisenestoaineet ja kiillotusaineet, emulgointiaineet, kompleksointiaineet ja kosteudensäilyttäjät.",
+  "guide_nova_explanations_arg3_title": "Käsittelyä, jota ei voi tehdä kotona",
+  "guide_nova_explanations_arg3_text": "Useita prosessisarjoja käytetään yhdistämään tavallisesti monia ainesosia ja luomaan lopputuote (tästä syystä 'ultraprosessoitu'). Prosesseihin kuuluu useita, joille ei ole kotimaisia vastineita, kuten hydraus ja hydrolysointi, ekstruusio ja muovaus sekä esikäsittely paistamista varten.",
+  "guide_nova_explanations_arg4_title": "Ultraprosessoinnin saalistushinnoittelu ja taloudelliset näkökohdat",
+  "guide_nova_explanations_arg4_text": "Ultraprosessoinnin yleisenä tarkoituksena on luoda brändättyjä, käteviä (kestäviä, valmiita kuluttamaan), houkuttelevia (hypermaukkaita) ja erittäin kannattavia (edullisia ainesosia) elintarvikkeita, joiden on tarkoitus syrjäyttää kaikki muut elintarvikeryhmät. Ultraprosessoidut elintarvikkeet pakataan yleensä houkuttelevasti ja niitä markkinoidaan intensiivisesti.",
+  "guide_nova_share_link": "https://fi.openfoodfacts.org/nova",
   "preview_badge": "Esikatselu",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Yleiset",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Hinnat",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Hallinnoi hinta-asetuksiasi",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Avoimet ruokatiedot -projekti",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Osallistu",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Käännä, paranna työkalujamme…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Yhdistä",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Ota yhteyttä tai seuraa meitä sosiaalisessa mediassa",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Tee lahjoitus",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Auta meitä tiedottamaan miljoonille kuluttajille ympäri maailmaa",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Ohje ja tuki",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Hanki vastauksia kysymyksiisi",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Kirjauduttu ulos",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Kiitos, että olet yksi jäsenistämme!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Tuotteita muokattu",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Katso kaikki tilastot",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Hae {provider} hakusanalla \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Hae asetusta (esim. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Esteettömyys: Näytä emojit",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Esteettömyys: Poista värit",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Tuotteet",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Tietoja",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Lakitiedot",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Käyttöehdot, tietosuojakäytäntö ja muuta",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Käyttöehdot",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Oikeudelliset huomautukset",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Tietosuojakäytäntö",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lisenssit",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Tietoja sovelluksesta",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Teknisiä tietoja, kehittäjätietoja ja muuta",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Tietoja",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Versionumero",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skanneri",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Sovelluskauppa",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Järjestelmäasetukset",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Käytä lähdekoodia",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Ja ala vaikuttaa miljoonien ihmisten elämään",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Kerro koko maailmalle",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Vinkkejä",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Tutustu uuteen Nutri-Scoreen",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts -verkkosivustolla",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Hallinnoi tiliäni",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Vaihda salasanani",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Vaara-alue",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Kaikki panoksesi menetetään",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Osallistumiset",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Sovellusasetukset",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Hyvin kokeellinen tapa skannata tuotteita offline-tilassa",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Päivitä kaikki tuotteet palvelimelta",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Vältä tekemästä sitä, ellei se ole ehdottoman välttämätöntä",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demotila",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Lisää kortteja skanneriin",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Lisää skanneriin 3 näytetuotetta",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy-isäntä",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Esteettömyyskokeilut",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Useiden tuotteiden valikoima hintojen mukaan",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Käyttäjän järjestämät tietopaneelit",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Tilapäinen pääsy sijaintihakuun",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Kahden tai kolmen tuotteen rinnakkaisvertailu",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Tuotelistan tuonti",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Pisteet ja menetelmät",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Tutustu Nutri-Scoren laskemiseen",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Tutustu metodologian tärkeimpiin muutoksiin",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Tutustu hankkeeseen",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Tutustu avoimiin ruokatietoihin",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Usein kysytyt kysymykset",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Open Food Facts -kansalaisjärjestö",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Tietoja",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Hanki yhteisön päivityksiä",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Pysy ajan tasalla sovelluksen ja yhteisön uutisten avulla",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Osallistu johonkin virtuaalitapahtumiimme",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Seuraa meitä sosiaalisessa mediassa",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Open Food Facts -blogi",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Saat uusimmat uutiset heti niiden tapahtuessa",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Hanki apua yhteisöltä",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Auta meitä parantamaan sovellusta",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Lähetä meille virheenkorjaustiedot",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Lähetä meille sähköpostia, jossa on yksityiskohtaiset virheenkorjaustiedot",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Lähetä meille palautetta sovelluksesta",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Auta muokkaamaan sovelluksen tulevaisuutta",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Osallistu sovelluskyselyyn",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Auta meitä ymmärtämään, mitä meidän pitäisi rakentaa seuraavaksi",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "ammattilaiset",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Täysin ilmainen, varmistaa tarkat tiedot 500 sovelluksesta ja miljoonilta kuluttajilta. Itsepalvelu, yhteensopiva PIM- tai laskentataulukoiden (XLSX) kanssa.",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Ota yhteyttä aloittaaksesi",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Lehdistö",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Hanki kaikki tarvitsemasi materiaali raporttiasi varten",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Ota yhteyttä lehdistötiedusteluja varten tai kertoaksesi meille raportistasi",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Ryhdy aktiiviseksi vapaaehtoiseksi",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Kehitys, viestintä, suunnittelu… Kaikenlainen vapaaehtoistyö tai asiantuntemus on tervetullutta!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Tutustu moniin tapoihin, joilla voit osallistua",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobiilisovellusten kehitys",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Opi osallistumaan ohjelmistokehitykseen",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Päivittäiset epävakaat koontiversiot, upouudet ominaisuudet",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Kasvata paikallisyhteisöäsi",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Apua ohjelmistojen, sisällön ja ainesosa-analyysien käännösten kanssa",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Olemme laatineet pienen mallin avuksesi :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Yksinkertaisia toimenpiteitä ruoan läpinäkyvyyden lisäämiseksi maassasi",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Liity datan laatutiimiin",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Liity mukaan varmistamaan tietokannan täydellisyys ja tarkkuus",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 tuotetta lisätty",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Uusia tuotteita, jotka lisäsin Open Food Factsiin",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Tuotteet, jotka minun on saatava valmiiksi",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Kaikki keskeneräiset tuotteet",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Tuotteet, joiden valmistumisessa voit auttaa",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Auta laskemaan Nutri-Score- ja Green-Score-pisteet maassasi",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Hinnat, jotka annan",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Hintalaput ja kuitit",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Ota kuvia kuiteistasi ja skannaa niihin liittyvät viivakoodit",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Ota kuvia hinnoista kaupassa",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Uusimmat hinnat",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Open Prices -yhteisön lisäämät uusimmat hinnat",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Eniten hintoja saaneet avustajat",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Avaa hintamittarit",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Seuraa projektin etenemistä",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Tapoja osallistua",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Vahvista itse tai muiden lisäämät hinnat tekoälyn avulla",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Lisää nopeasti useita kuitteja tai hyllykuvia kamerarullasta",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Kuukausittaiset haasteet",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Osallistu kuukausittaisiin teematehtäviin kerätäksesi hintoja",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Palauta kanta-asiakastietosi",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Opi pyytämään tietojasi",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Mukauta sovellusta",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Osallistu projektiin",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Yksinkertaisia tapoja auttaa Open Food Factsissa",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Pisteytysmenetelmät, ohjeet ja muuta projektista",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Hyväksy ehdotus",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Todennus epäonnistui, todisteiden nouto epäonnistui",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Käynnistä sovellus uudelleen, jotta muutokset tulevat voimaan.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Graafinen käyttöliittymä",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Kehitys",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Avoimet ruokatietolaboratoriot",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Tili",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Tuo avoimet ruokatiedot omalle kielellesi",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Rekisteröidy sovelluksen alfa-versioon",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Lisäykset ja tuotetiedot",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Älä näytä Folksonomiaa",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Tili",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

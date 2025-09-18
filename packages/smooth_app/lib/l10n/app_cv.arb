@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Эксперименталлӑ функцисемпе тата аталану хатӗрӗсемпе усӑ курӑр",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Грин-Скор А",
+  "environmental_score_b_new": "Грин-Скор В",
+  "environmental_score_c_new": "Грин-Скор",
+  "environmental_score_d_new": "Грин-Скор D",
+  "environmental_score_e_new": "Грин-Скор Е",
+  "environmental_score_unknown_new": "Паллӑ мар симӗс-балл",
+  "environmental_score_not_applicable_new": "Green-Score юрӑхсӑр",
+  "nova_group_generic_new": "Ультра-процессланӑ апат-ҫимӗҫ - NOVA ушкӑнӗсем",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Пур граждансем те пире продукци ҫинчен е унран пӗлме пултаракан информацие пухма тата йӗркелеме пулӑшма пултараҫҫӗ, сӑмахран, упаковка ҫинчен калакан информацие: Mission Emballages: пур апат-ҫимӗҫ продукчӗсен упаковкасен пысӑк масштаблӑ пӗрлехи инвентаризацийӗ (французла)",
   "guide_greenscore_transparency_arg2_title": "Производительсем мӗнле пулӑшма пултараҫҫӗ",
   "guide_greenscore_transparency_arg2_text": "Производительсем хӑйсен информацине пире тӳрех пирӗн производительсем валли тунӑ тӳлевсӗр платформа урлӑ ярса пама пултараҫҫӗ.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Планетӑшӑн хӑш продукт лайӑхрах?",
+  "guide_greenscore_better_product_arg1_title": "Ӑна калама йывӑр пулма пултарать",
+  "guide_greenscore_better_product_arg1_text": "Ҫирӗп апат-ҫимӗҫе суйласа илни — эпир климатшӑн тума пултаракан чи хӑватлӑ ӗҫсенчен пӗри, мӗншӗн тесен **пирӗн тӗнчери апат-ҫимӗҫ тытӑмӗ мӗнпур парник газӗсен тӑваттӑмӗш пайӗшӗн яваплӑ**.\n(Ҫӑлкуҫӗ: Пур тата Немечек, Наука, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Сирӗн влаҫ пур!",
+  "guide_greenscore_better_product_arg2_text": "Ырӑ хыпар вӑл — ҫакӑ пире улшӑнусем тума хӑватлӑ май парать.\n**Пирӗнтен кашниех кашни ҫул 1000 яхӑн апат ҫиет**. Ку вӑл — **планета валли лайӑхрах пуласлӑх суйласа илме** 1000 май!",
+  "guide_greenscore_better_product_arg3_title": "Яваплӑ пулма тата йышӑну тума пулӑшать",
+  "guide_greenscore_better_product_arg3_text": "Ҫирӗп апат-ҫимӗҫ суйласа илесси кӑткӑс пек туйӑнма пултарать. Ярлыксем пӑтраштараҫҫӗ, информаци час-часах ҫук. Green-Score ҫакна ансатлатма тунӑ, вӑл сире апат-ҫимӗҫ продукчӗсемшӗн **уҫӑмлӑ**, **наука никӗсӗ ҫинче никӗсленнӗ** тата **уҫӑмлӑ** экологи рейтингне парать, шӑпах сире кирлӗ ҫӗрте: эсир суту-илӳ тунӑ вӑхӑтра.",
+  "guide_greenscore_better_product_arg4_title": "Уҫӑмлӑх",
+  "guide_greenscore_better_product_arg4_text": "Проприетарлӑ ярлыксенчен уйрӑлса тӑракан Green-Score шутлавӗ **пӗтӗмпех уҫӑ** тата ӑна **кирек кам та тӗрӗслеме пултарать**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Мӗн вӑл ультрапроцессинг?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA ушкӑнӗсем сире апат-ҫимӗҫе тирпейлессин шайӗ ҫинчен пӗлтереҫҫӗ.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA классификацийӗ апат-ҫимӗҫе **4 ушкӑна** уйӑрма май парать, ӑна вӗсен **промышленноҫри тирпейленӗвӗн шайӗ** тӑрӑх (сахал тирпейленӗ е тирпейлемен апат-ҫимӗҫ, кулинари ингредиенчӗсем, тирпейленӗ апат-ҫимӗҫ, ытлашши тирпейленӗ апат-ҫимӗҫ).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA логотипӗсем",
+  "guide_nova_groups_title": "NOVA ушкӑнӗ",
+  "guide_nova_groups_intro": "NOVA ушкӑнӗ 4, вӗсенчен йывӑрри — 4-мӗш ушкӑн — питӗ тирпейленӗ апат-ҫимӗҫ.",
+  "guide_nova_groups_arg1_title": "Сахал тирпейленӗ е тирпейлемен апат-ҫимӗҫ",
+  "guide_nova_groups_arg1_text": "Тирпейлемен (е ҫутҫанталӑк) апат — ӳсентӑрансен (вӑрлӑх, ҫимӗҫ, ҫулҫӑ, туна, тымар) е чӗрчунсен (мышца, пыршӑлӑх, ҫӑмарта, сӗт), ҫавӑн пекех ҫутҫанталӑкран уйӑрнӑ хыҫҫӑн кӑмпа, шыв курӑкӗ тата шыв ҫиме юрӑхлӑ пайӗсем.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Тирпейленӗ кулинари ингредиенчӗсем, сӑмахран, ҫу, ҫу, сахӑр тата тӑвар, — 1-мӗш ушкӑнри апат-ҫимӗҫрен е ҫутҫанталӑкран илсе тухнӑ япаласем, вӗсен шутне пресласа, тасатса, авӑртса, авӑртса тата типӗтсе хатӗрлеҫҫӗ.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Тирпейленӗ апат-ҫимӗҫе, сӑмахран, бутылкӑри пахча ҫимӗҫе, консервӑланӑ пулӑна, сироппа ҫимӗҫе, сырсене тата тин ҫеҫ пӗҫернӗ ҫӑкӑрсене, тӗпрен илсен, тӑвар, ҫу, сахӑр е 2-мӗш ушкӑнри апат-ҫимӗҫе 1-мӗш ушкӑнри ытти япаласем хушса хатӗрлеҫҫӗ. Процесссем шутне тӗрлӗ упрамалли е пӗҫермелли меслетсем кӗреҫҫӗ, ҫӑкӑрпа сыр тӗслӗхӗнче вара алкогольсӗр йӳҫӗтесси. Ытларах тирпейленӗ апат-ҫимӗҫре икӗ е виҫӗ япала пур, вӗсене 1-мӗш ушкӑнри апат-ҫимӗҫӗн улӑштарнӑ варианчӗсем тесе шутлама пулать. Вӗсене хӑйсем тӗллӗн е, ытларах чухне, ытти апат-ҫимӗҫпе пӗрле ҫиме пулать.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ҫав тери тирпейленӗ апат-ҫимӗҫ, сӑмахран, газсӑр ӗҫмелли япаласем, тутлӑ е тутлӑ ҫӑкӑр-тӑвар, ҫӗнӗрен хатӗрленӗ аш-какай продукчӗсем тата малтанах хатӗрленӗ шӑнтнӑ апат-ҫимӗҫ, вӗсем ахаль модификациленӗ апат-ҫимӗҫ кӑна мар, ытларах е пӗтӗмпех апат-ҫимӗҫрен тата хушмалли япаласенчен хатӗрленӗ формулӑсем, 1-мӗш ушкӑнри апат-ҫимӗҫ ҫирӗп мар е пачах та ҫук. Ҫак препаратсенчи ингредиентсем хушшинче ытларах чухне тирпейленӗ апат-ҫимӗҫре те пулаканнисем, сӑмахран, сахӑр, ҫу, ҫу е тӑвар пур. Анчах та ҫав тери тирпейленӗ продукцире ытти энерги ҫӑлкуҫӗсем те пур, вӗсене кулинари хатӗрӗсенче ытларах усӑ курмаҫҫӗ. Вӗсенчен хӑшӗ-пӗрисене тӳрремӗнех апат-ҫимӗҫрен кӑлараҫҫӗ, сӑмахран, казеинран, лактозӑран, йӳҫекрен тата клейковинаран.",
+  "guide_nova_explanations_title": "Ультра-обработкӑпа ҫыхӑннӑ ыйтусем",
+  "guide_nova_explanations_arg1_title": "Апат-ҫимӗҫ хатӗрӗсене питӗ хытӑ тирпейлесси",
+  "guide_nova_explanations_arg1_text": "Нумайӑшӗ апат-ҫимӗҫ компоненчӗсене малалла тирпейлесе хатӗрленӗ хыҫҫӑн пулаҫҫӗ, сӑмахран, гидрированнӑй е интерестеризациленӗ ҫусем, гидролизланӑ белоксем, соя белокӗн изолячӗ, мальтодекстрин, инвертлӑ сахӑр тата пысӑк фруктозӑллӑ кукуруза сиропӗ.",
+  "guide_nova_explanations_arg2_title": "Таса апат-ҫимӗҫ хӑрушсӑрлӑхӗнчен тухакан хушмалли япаласем",
+  "guide_nova_explanations_arg2_text": "Ультра-тирпейленӗ апат-ҫимӗҫри хушмалли япаласем шутне тирпейленӗ апат-ҫимӗҫре те усӑ кураканнисем кӗреҫҫӗ, сӑмахран, консервантсем, антиоксидантсем тата стабилизаторсем. Ультра-тирпейленӗ продукцире кӑна тӗл пулакан хушмалли япаласен класӗсем шутне апат-ҫимӗҫӗн туйӑм пахалӑхне евӗрлеме е лайӑхлатма е юлашки продуктӑн тутлӑ мар енӗсене пытарма усӑ кураканнисем кӗреҫҫӗ. Ҫак хушӑмсем шутне сӑрӑсем тата ытти тӗссем, тӗс стабилизаторӗсем кӗреҫҫӗ; тутӑ кӗртекен япаласем, тутӑ ҫирӗплетекен япаласем, сахӑрсӑр тутлӑлантаракан япаласем; тата тирпейлеме пулӑшакан хатӗрсем, сӑмахран, карбонизацилекен, ҫирӗплетекен, ҫыпӑҫтаракан тата ҫыпӑҫтаракан хатӗрсем, кӑпӑклантаракан, ҫыпӑҫтаракан тата ҫыпӑҫтаракан хатӗрсем, эмульгаторсем, секвестрантсем тата нӳрлетекен япаласем.",
+  "guide_nova_explanations_arg3_title": "Килте тума май ҫук ӗҫ",
+  "guide_nova_explanations_arg3_text": "Ытларах чухне нумай ингредиентсене пӗрлештерме тата юлашки продукта (ҫавӑнпа та «ультра-процессланӑ») тума нумай процесс йӗркипе усӑ кураҫҫӗ. Процесссен шутне килти эквиваленчӗсем ҫуккисем кӗреҫҫӗ, сӑмахран, гидрогенизаци тата гидролиз, экструзи тата формӑсем, ӑшалама малтанах тирпейлесси.",
+  "guide_nova_explanations_arg4_title": "Ультрапроцессин ҫӑткӑнлӑх тата финанс енӗсем",
+  "guide_nova_explanations_arg4_text": "Ультра-тирпейлессин пӗтӗмӗшле тӗллевӗ — ытти апат-ҫимӗҫ ушкӑнӗсене улӑштарма хатӗрленӗ брендлӑ, меллӗ (тӗрӗс, ҫиме хатӗр), илӗртӳллӗ (питӗ тутлӑ) тата пысӑк тупӑшлӑ (йӳнӗ ингредиентсем) апат-ҫимӗҫ продукчӗсем туса кӑларасси. Ультра-тирпейленӗ апат-ҫимӗҫ продукцийӗсене ытларах чухне илӗртӳллӗн пуҫтараҫҫӗ тата вӗсене хӗрӳллӗн сутаҫҫӗ.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Хаксен кӑмӑлне йӗркелесе пырӑр",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "«Уҫӑ апат-ҫимӗҫ факчӗсем» проект",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Куҫарӑр, пирӗн хатӗрсене лайӑхлатӑр…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Çыхӑнтар",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Ҫыхӑнӑр е социаллӑ сетьсенче пире сӑнаса тӑрӑр",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Тӗнчери миллионшар потребительсене пӗлтерме пулӑшӑр",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Пулӑшу тата пулӑшу",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Ыйтусем ҫине хурав илӗр",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Тухнӑ",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Тавтапуҫ сире пирӗн членсенчен пӗри пулнӑшӑн!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Пур статистикӑна та пӑхӑр",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "{provider} шыраса \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Настройкӑна шыраса тупӑр (тӗслӗхрен, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Ҫитме май пурри: эмодзи кӑтарт",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Ҫитме май пурри: Тӗссене кӑларса пӑрахӑр",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Юридици информацийӗ",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Усӑ курмалли условисем, вӑрттӑнлӑх политики тата ытти те",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Лицензисем",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Приложени ҫинчен",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Техника информацийӗ, разработчик информацийӗ тата ытти те",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Верси номерӗ",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Сканер",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Приложени магазинӗ",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Система настройкисем",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Ҫӑлкуҫ кодне кӗрӗр",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Миллионшар ҫынна витӗм кӳме пуҫлӑр",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Усӑллӑ канашсем",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Ҫӗнӗ Nutri-Score уҫӑр",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Уҫӑ апат-ҫимӗҫ факчӗсен сайтӗнче",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Манӑн аккаунта тытса пырӑр",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Манӑн пароле улӑштар",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Хӑрушлӑх зони",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Сирӗн мӗнпур тӳпе ҫухалать",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Приложени настройкисем",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Продукцие офлайн мелӗпе сканерламалли питӗ экспериментлӑ меслет",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Сервертан пур продукта та ҫӗнетӗр",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Питӗ кирлӗ мар пулсан, ҫакна тума ан тӑрӑшӑр",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Демо-режим",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Сканер ҫине карттӑсем хушӑр",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Сканер ҫине 3 тӗслӗх продукчӗ хушать",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Фольксономи ертсе пыраканӗ",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Ҫывӑхлӑх эксперименчӗсем",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Хаксем тӑрӑх нумай продукт суйласа илни",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Пулӑшакан заказ панӑ пӗлӳ панелӗсем",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Вырӑн шыравӗ патне вӑхӑтлӑх ирӗк",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "е 3 продукт валли юнашар танлаштарни",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Тавар списокне импорт",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Баллсем тата методологисем",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score мӗнле шутланине пӗлӗр",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Методикӑри тӗп улшӑнусене пӗлӗр",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Уҫӑ апат-ҫимӗҫ ҫинчен калакан фактсене уҫӑр",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - час-часах ыйтакан ыйтусем",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "«Уҫӑ апат-ҫимӗҫ факчӗсем» НПО",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Сообщество ҫӗнӗлӗхӗсене илӗр",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Приложени тата сообщество хыпарӗсемпе ҫыхӑнса тӑрӑр",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Пирӗн виртуаллӑ мероприятисенчен пӗрне хутшӑнса хутшӑнӑр",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Пире социаллӑ сетьсенче сӑнаса тӑрӑр",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Уҫӑ апат-ҫимӗҫ факчӗсен блогӗ",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Юлашки хыпарсене пӗлӗр, вӗсем мӗнле пулса пыраҫҫӗ",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Обществӑран пулӑшу илӗр",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Приложение лайӑхлатма пулӑшӑр",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Отладка информацине ярса парӑр",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Пирӗн пата электронлӑ ҫыру ярса парӑр, унта отладка ҫинчен тӗплӗнрех пӗлме пулать",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Приложени пирки пире хӑвӑрӑн шухӑшӑрсене ярса парӑр",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Приложени пуласлӑхне йӗркелеме пулӑшӑр",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Приложени ыйтӑмне хутшӑнӑр",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Малалла мӗн тумаллине ӑнланма пулӑшӑр",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Профессионалсем",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Пӗтӗмпех тӳлевсӗр, 500 приложени тата миллионшар потребитель валли тӗрӗс даннӑйсем парать. Хӑй тӗллӗн ӗҫлекен, сирӗн PIM е таблицӑсемпе (XLSX) килӗшсе тӑрать",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Пуҫлама ҫыхӑнӑр",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Хӑвӑрӑн отчет валли кирлӗ мӗнпур материала илӗр",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Пресс-ыйтусем пирки е хӑвӑрӑн докладӑр ҫинчен пире пӗлтерме ҫыхӑнӑр",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Хастар волонтер пулса тӑрӑр",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Аталантару, Ҫыхӑну, Дизайн… кирек мӗнле волонтер ӗҫне те е ӑсталӑха та хапӑл туса йышӑнатпӑр!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Хӑвӑр пулӑшма пултаракан нумай майсенчен хӑшне-пӗрне тупӑр",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Мобильлӗ приложени хатӗрлесси",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Программӑсем хатӗрлеме мӗнле пулӑшмаллине пӗлӗр",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Кулленхи ҫирӗп мар стройкӑсем, ҫӗнӗ функцисем",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Хӑвӑрӑн вырӑнти обществӑна ӳстерӗр",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Программӑпа, содержанипе, ингредиентсен анализӗн куҫарӑвӗсемпе пулӑшу",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Эпир сире пулӑшма пӗчӗк шаблон хатӗрлерӗмӗр :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Сирӗн ҫӗршывра апат-ҫимӗҫ уҫӑмлӑхне ӳстермелли ансат утӑмсем",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Даннӑйсен пахалӑхӗн ушкӑнне кӗрӗр",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "База тулли те тӗрӗс пултӑр тесе пирӗн ӗҫе хутшӑнӑр",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 продукт хушӑннӑ",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Ҫӗнӗ продуктсем эпӗ Open Food Facts ҫине хушрӑм",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Эпӗ туса пӗтермелле продуктсем",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Пур тулли мар продукци",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Эсир пулӑшма пултаракан продуктсем",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Хӑвӑр ҫӗршывра Nutri-Score тата Green-Score шутласа кӑларма пулӑшӑр",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Эпӗ панӑ хаксем",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Хак паллисем тата квитанцисем",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Квитанцисене сӑн ӳкерсе илӗр те вӗсемпе ҫыхӑннӑ штрих-кодсене сканерлӑр",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Лавккари хаксене сӑн ӳкерсе илӗр",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Чи ҫӗнӗ хаксем",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Уҫӑ хаксен сообществи хушнӑ юлашки хаксем",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Чи нумай хакпа хутшӑнакансем",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Уҫӑ хак кӑтартӑвӗсем",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Проект аталанӑвне сӑнаса тӑрӑр",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Тӳпе хывмалли майсем",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Хӑвӑр е ыттисем хушнӑ хаксене ИИ пулӑшнипе ҫирӗплетӗр",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Хӑвӑрӑн фотоаппарат рулонӗнчен нумай квитанци е ҫӳлӗксен сӑнӳкерчӗкӗсене хӑвӑрт хушӑр",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Уйӑхсеренхи задачӑсем",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Хаксене пухма уйӑхсерен пулакан тематика квестӗсене хутшӑнӑр",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Хӑвӑрӑн шанчӑклӑх даннӑйӗсене каялла илӗр",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Хӑвӑрӑн даннӑйсене мӗнле ыйтмаллине пӗлӗр",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Приложенине персонализацилӗр",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Проекта пулӑшӑр",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Апат-ҫимӗҫ ҫинчен калакан фактсене уҫма пулӑшмалли ансат меслетсем",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Балл меслечӗсем, пулӑшу тата проект ҫинчен ытти те",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Сӗнӗве йышӑнӑр",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Аутентификаци ӑнӑҫсӑр пулчӗ, ҫирӗплетӳсем илме май килмерӗ",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Улшӑнусене пурнӑҫа кӗртме приложенине тепӗр хут пуҫлӑр.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Графика интерфейсӗ",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Медиа",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Уҫӑ апат-ҫимӗҫ факчӗсен лабораторийӗ",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Хӑвӑрӑн чӗлхене уҫӑ апат-ҫимӗҫ факчӗсене илсе килӗр",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Приложенин альфа-версине ҫырӑнӑр",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Тӳпе тата продукт даннӑйӗсем",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Фолксономие ан кӑтартӑр",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

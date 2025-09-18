@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Productes que s'han de completar",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Accediu a funcions experimentals i eines de desenvolupament",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Reinicieu la incorporació",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Dades",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Nutri-score desconegut (nou càlcul)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Puntuació verda A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Puntuació verda desconeguda",
+  "environmental_score_not_applicable_new": "La puntuació verda no és aplicable",
+  "nova_group_generic_new": "Aliments ultraprocessats - Grups NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Tots els ciutadans ens poden ajudar a recopilar i estructurar la informació que hi ha als productes o que se'n pot deduir, com ara la informació sobre els envasos: Missió Emballages: un inventari col·laboratiu a gran escala d'envasos per a tots els productes alimentaris (en francès)",
   "guide_greenscore_transparency_arg2_title": "Com poden ajudar els fabricants",
   "guide_greenscore_transparency_arg2_text": "Els fabricants ens poden enviar la seva informació directament a través de la nostra plataforma gratuïta per a productors.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Quin producte és millor per al planeta?",
+  "guide_greenscore_better_product_arg1_title": "Pot ser difícil de dir",
+  "guide_greenscore_better_product_arg1_text": "Triar aliments sostenibles és una de les coses més poderoses que podem fer pel clima, ja que **el nostre sistema alimentari global és responsable de més d'una quarta part de totes les emissions de gasos d'efecte hivernacle**.\n(Font: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Tu tens el poder!",
+  "guide_greenscore_better_product_arg2_text": "La bona notícia és que això ens dóna una manera poderosa de crear canvis.\n**Cadascun de nosaltres menja uns 1.000 àpats cada any**. Això són 1.000 oportunitats per **triar un futur millor per al planeta**!",
+  "guide_greenscore_better_product_arg3_title": "Ajuda a ser responsable i a decidir",
+  "guide_greenscore_better_product_arg3_text": "Triar aliments sostenibles pot semblar complex. Les etiquetes són confuses i sovint falta informació. El Green-Score es va crear per simplificar-ho, donant-vos una qualificació ambiental **clara**, **basada en la ciència** i **transparent** per als productes alimentaris, just on la necessiteu: mentre compreu.",
+  "guide_greenscore_better_product_arg4_title": "Transparència",
+  "guide_greenscore_better_product_arg4_text": "A diferència de les etiquetes pròpies, el càlcul de Green-Score és **completament obert** i qualsevol persona pot **verificar-lo**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Aliments ultraprocessats",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Què és l'ultraprocessament?",
+  "guide_nova_what_is_nova_paragraph1": "Els grups NOVA us informen sobre el nivell de processament d'aliments.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "La classificació NOVA permet la categorització dels aliments en **4 grups** segons el seu **grau de processament industrial** (aliments mínimament processats o no processats, ingredients culinaris, aliments processats, aliments ultraprocessats).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Els logotips de NOVA",
+  "guide_nova_groups_title": "Els 4 grups NOVA",
+  "guide_nova_groups_intro": "Hi ha 4 grups NOVA, i el problemàtic és el Grup 4: aliments ultraprocessats.",
+  "guide_nova_groups_arg1_title": "Aliments mínimament processats o sense processar",
+  "guide_nova_groups_arg1_text": "Els aliments no processats (o naturals) són les parts comestibles de les plantes (llavors, fruits, fulles, tiges, arrels) o dels animals (múscul, despulles, ous, llet), així com els fongs, les algues i l'aigua, després d'haver estat separats de la natura.",
+  "guide_nova_groups_arg2_title": "Ingredients culinaris processats",
+  "guide_nova_groups_arg2_text": "Els ingredients culinaris processats, com ara olis, mantega, sucre i sal, són substàncies derivades d'aliments del grup 1 o de la natura mitjançant processos que inclouen el premsat, el refinament, la mòlta, la moldre i l'assecat.",
+  "guide_nova_groups_arg3_title": "Aliments processats",
+  "guide_nova_groups_arg3_text": "Els aliments processats, com ara les verdures envasades, el peix en conserva, les fruites en almívar, els formatges i els pans acabats de fer, es fabriquen principalment afegint sal, oli, sucre o altres substàncies del Grup 2 als aliments del Grup 1. Els processos inclouen diversos mètodes de conservació o cocció, i en el cas dels pans i els formatges, la fermentació sense alcohol. La majoria dels aliments processats tenen dos o tres ingredients i es poden reconèixer com a versions modificades dels aliments del Grup 1. Es poden menjar sols o, més habitualment, en combinació amb altres aliments.",
+  "guide_nova_groups_arg4_title": "Aliments ultraprocessats",
+  "guide_nova_groups_arg4_text": "Els aliments ultraprocessats, com ara refrescos, aperitius envasats dolços o salats, productes carnis reconstituïts i plats congelats preparats prèviament, no són simplement aliments modificats, sinó formulacions fetes majoritàriament o totalment amb substàncies derivades d'aliments i additius, amb poc o cap aliment intacte del Grup 1. Els ingredients d'aquestes formulacions solen incloure els que també es troben en aliments processats, com ara sucres, olis, greixos o sal. Tanmateix, els productes ultraprocessats també contenen altres fonts d'energia i nutrients que no s'utilitzen normalment en preparacions culinàries. Alguns d'aquests s'extreuen directament dels aliments, com ara la caseïna, la lactosa, el sèrum de llet i el gluten.",
+  "guide_nova_explanations_title": "Els problemes amb l'ultraprocessament",
+  "guide_nova_explanations_arg1_title": "Processament extrem d'ingredients alimentaris",
+  "guide_nova_explanations_arg1_text": "Molts es deriven del processament posterior de constituents alimentaris, com ara olis hidrogenats o interesterificats, proteïnes hidrolitzades, aïllat de proteïna de soja, maltodextrina, sucre invertit i xarop de blat de moro amb alt contingut en fructosa.",
+  "guide_nova_explanations_arg2_title": "Additius que van més enllà de la pura seguretat alimentària",
+  "guide_nova_explanations_arg2_text": "Els additius dels aliments ultraprocessats inclouen alguns que també s'utilitzen en aliments processats, com ara conservants, antioxidants i estabilitzadors. Les classes d'additius que només es troben en productes ultraprocessats inclouen els que s'utilitzen per imitar o millorar les qualitats sensorials dels aliments o per dissimular aspectes desagradables del producte final. Aquests additius inclouen colorants i altres colorants, estabilitzadors del color; sabors, potenciadors del sabor, edulcorants sense sucre; i coadjuvants de processament com ara agents carbonatants, reafirmants, volumitzants i antivoluminants, agents antiespumants, antiaglomerants i glacejants, emulsionants, segrestants i humectants.",
+  "guide_nova_explanations_arg3_title": "Processament que no pots fer a casa",
+  "guide_nova_explanations_arg3_text": "S'utilitza una multitud de seqüències de processos per combinar els ingredients, que solen ser nombrosos, i crear el producte final (d'aquí el que es coneix com a \"ultraprocessat\"). Els processos n'inclouen diversos sense equivalents domèstics, com ara la hidrogenació i la hidrolització, l'extrusió i el modelat, i el preprocessament per a la fregidura.",
+  "guide_nova_explanations_arg4_title": "Els aspectes depredadors i financers de l'ultraprocessament",
+  "guide_nova_explanations_arg4_text": "L'objectiu general de l'ultraprocessament és crear productes alimentaris de marca, pràctics (duradors, llestos per consumir), atractius (hiperpalatables) i altament rendibles (ingredients de baix cost), dissenyats per desplaçar tots els altres grups d'aliments. Els productes alimentaris ultraprocessats solen envasar-se de manera atractiva i comercialitzar-se intensivament.",
+  "guide_nova_share_link": "https://ca.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Preus",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Gestiona les teves preferències de preus",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "El projecte Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribuir",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Tradueix, millora les nostres eines…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Connecta",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Contacta'ns o segueix-nos a les xarxes socials",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Fes una donació",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Ajudeu-nos a informar milions de consumidors arreu del món",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Ajuda i assistència",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "PMF",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Obtén respostes a les teves preguntes",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Sessió tancada",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Gràcies per ser un dels nostres membres!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Productes modificats",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Veure totes les estadístiques",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Cerca {provider} per \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Cerca una configuració (per exemple, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Accessibilitat: Mostra emojis",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Accessibilitat: Elimina els colors",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Productes",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Quant a",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Informació legal",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Condicions d'ús, política de privadesa i més",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Condicions d'ús",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Llicències",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Sobre l'aplicació",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Informació tècnica, informació per a desenvolupadors i més",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Informació",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Número de versió",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Escàner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Botiga d'aplicacions",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Configuració del sistema",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Accedir al codi font",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "I comença a tenir un impacte per a milions de persones",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Expliqueu-ho al món",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Consells",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Descobreix el nou Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Al lloc web Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Gestiona el meu compte",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Canvia la meva contrasenya",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Zona de perill",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Totes les teves contribucions es perdran",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Aportacions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Configuració de l'aplicació",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Una manera molt experimental d'escanejar productes fora de línia",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Actualitza tots els productes del servidor",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Si us plau, eviteu fer això si no és absolutament necessari.",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Mode de demostració",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Afegir targetes a l'escàner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Afegeix 3 productes de mostra a l'escàner",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Amfitrió de folksonomia",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Experiments d'accessibilitat",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Selecció de diversos productes per preus",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Panells de coneixement ordenats per l'usuari",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Accés temporal a la cerca d'ubicacions",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Comparació paral·lela de 2 o 3 productes",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Importació de la llista de productes",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Puntuacions i metodologies",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Descobreix com es calcula el Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Descobreix els principals canvis en la metodologia",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Descobreix el projecte",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Descobreix els fets sobre menjar obert",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Preguntes freqüents",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "L'ONG Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Informació",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Rep actualitzacions de la comunitat",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Estigues al dia de les notícies de l'aplicació i la comunitat",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Participa assistint a un dels nostres esdeveniments virtuals",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Segueix-nos a les xarxes socials",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "El blog Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Rep les darreres notícies a mesura que es produeixen",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Obtén ajuda de la comunitat",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Ajuda'ns a millorar l'aplicació",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Envia'ns informació de depuració",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Envieu-nos un correu electrònic amb informació detallada de depuració",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Envia'ns comentaris sobre l'aplicació",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Ajuda a donar forma al futur de l'aplicació",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Respon l'enquesta de l'aplicació",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Ajuda'ns a entendre què hem de construir a continuació",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Professionals",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Totalment gratuït, garanteix dades precises per a 500 aplicacions i milions de consumidors. Autoservei, compatible amb el vostre PIM o fulls de càlcul (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Poseu-vos en contacte per començar",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Premsa",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Obtén tot el material que necessites per al teu informe",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Poseu-vos en contacte amb nosaltres per a consultes de premsa o per informar-nos sobre el vostre informe",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Fes-te voluntari/ària actiu/va",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Desenvolupament, Comunicació, Disseny… qualsevol tipus de voluntariat o experiència és benvinguda!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Descobreix algunes de les moltes maneres en què pots contribuir",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Desenvolupament d'aplicacions mòbils",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Aprèn a contribuir al desenvolupament de programari",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Compilacions inestables diàries, funcions completament noves",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Fes créixer la teva comunitat local",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Ajuda amb programari, continguts, traduccions d'anàlisi d'ingredients",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Hem preparat una petita plantilla per ajudar-vos :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Passos senzills per augmentar la transparència alimentària al vostre país",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Uneix-te a l'equip de qualitat de dades",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Uneix-te al nostre esforç per garantir que la base de dades sigui completa i precisa",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 productes afegits",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Nous productes que he afegit a Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Productes que he de completar",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Tots els productes incomplets",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Productes que pots ajudar a completar",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Ajuda a calcular el Nutri-Score i el Green-Score al teu país",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Preus que vaig aportar",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Etiquetes de preu i rebuts",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Fes fotos dels teus rebuts i escaneja els codis de barres associats",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Fes fotos dels preus en una botiga",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Preus més nous",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Últims preus afegits per la comunitat Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Contribuents amb més preus",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Mètriques de preu d'obertura",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Segueix l'evolució del projecte",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Maneres de contribuir",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Confirma els preus afegits per tu mateix o per altres persones, amb l'ajuda de la IA",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Afegeix ràpidament molts rebuts o fotos de prestatges del teu carret de càmera",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Reptes mensuals",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Participa en missions temàtiques mensuals per aconseguir preus.",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Reclama les teves dades de fidelització",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Aprèn com sol·licitar les teves dades",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Personalitza l'aplicació",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Contribueix al projecte",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Maneres senzilles d'ajudar a obrir la informació sobre aliments",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodologies de puntuació, ajuda i més informació sobre el projecte",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Accepta el suggeriment",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "L'autenticació ha fallat, no s'han pogut obtenir proves",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Reinicieu l'aplicació per aplicar els canvis.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Interfície gràfica",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Mitjans de comunicació",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Desenvolupament",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Laboratoris oberts d'informació sobre aliments",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Compte",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Porta Open Food Facts al teu idioma",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Inscriu-te a la versió alfa de l'aplicació",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Contribucions i dades de producte",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "No mostrar folksonomia",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Compte",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

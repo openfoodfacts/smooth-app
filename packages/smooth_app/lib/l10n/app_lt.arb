@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Produktai, kurie turi būti baigti",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Pasiekite eksperimentines funkcijas ir kūrimo įrankius",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Iš naujo paleiskite onboarding'ą",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "Naujienų teikėjo konfigūravimas",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Duomenys",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Neįtraukti folksonomijos",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Neįtraukti „Green Score“",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Nežinomas „Green Score“",
-  "environmental_score_not_applicable": "„Green Score“ netaikomas",
-  "nova_group_generic": "Ultraapdorojimas – NOVA grupės",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Žalias balas A",
+  "environmental_score_b_new": "Žalias balas B",
+  "environmental_score_c_new": "Žalias balas C",
+  "environmental_score_d_new": "Žalias balas D",
+  "environmental_score_e_new": "Žalias balas E",
+  "environmental_score_unknown_new": "Nežinomas žaliasis balas",
+  "environmental_score_not_applicable_new": "Žaliasis balas netaikomas",
+  "nova_group_generic_new": "Ultraperdirbti maisto produktai – NOVA grupės",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Visi piliečiai gali padėti mums rinkti ir susisteminti informaciją, esančią ant produktų arba kurią galima iš jų išvesti, pavyzdžiui, informaciją apie pakuotes: „Mission Emballages“: didelio masto bendradarbiaujant sudarytas visų maisto produktų pakuočių inventorius (prancūzų k.).",
   "guide_greenscore_transparency_arg2_title": "Kaip gamintojai gali padėti",
   "guide_greenscore_transparency_arg2_text": "Gamintojai gali siųsti mums savo informaciją tiesiogiai per mūsų nemokamą platformą gamintojams.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Kuris produktas geresnis planetai?",
+  "guide_greenscore_better_product_arg1_title": "Gali būti sunku pasakyti",
+  "guide_greenscore_better_product_arg1_text": "Tvaraus maisto pasirinkimas yra vienas iš svarbiausių dalykų, kuriuos galime padaryti dėl klimato, nes **mūsų pasaulinė maisto sistema yra atsakinga už daugiau nei ketvirtadalį visų šiltnamio efektą sukeliančių dujų emisijų**.\n(Šaltinis: Poore ir Nemecek, „Science“, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Tu turi galią!",
+  "guide_greenscore_better_product_arg2_text": "Geros žinios yra tai, kad tai suteikia mums galingą būdą kurti pokyčius.\n**Kiekvienas iš mūsų kasmet suvalgome apie 1000 patiekalų**. Tai 1000 galimybių **pasirinkti geresnę planetos ateitį**!",
+  "guide_greenscore_better_product_arg3_title": "Padeda būti atsakingam ir priimti sprendimus",
+  "guide_greenscore_better_product_arg3_text": "Tvaraus maisto pasirinkimas gali atrodyti sudėtingas. Etiketės gali būti painios, o informacijos dažnai trūksta. „Green-Score“ buvo sukurtas tam, kad viskas būtų paprasta ir suteiktų jums **aiškų**, **mokslu pagrįstą** ir **skaidrų** maisto produktų aplinkosauginį įvertinimą būtent ten, kur jums jo reikia: apsiperkant.",
+  "guide_greenscore_better_product_arg4_title": "Skaidrumas",
+  "guide_greenscore_better_product_arg4_text": "Kitaip nei patentuotų etikečių atveju, „Green-Score“ skaičiavimas yra **visiškai atviras** ir jį gali **patvirtinti bet kas**.",
+  "guide_greenscore_share_link": "https://lt.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Kas yra ultraprocessing?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA grupės informuoja jus apie maisto perdirbimo lygį.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA klasifikacija leidžia suskirstyti maisto produktus į **4 grupes** pagal jų **pramoninio apdorojimo laipsnį** (minimaliai perdirbti arba neperdirbti maisto produktai, kulinariniai ingredientai, perdirbti maisto produktai, ultraperdirbti maisto produktai).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA logotipai",
+  "guide_nova_groups_title": "4 NOVA grupės",
+  "guide_nova_groups_intro": "Yra 4 NOVA grupės, problemiškiausia yra 4 grupė – itin perdirbti maisto produktai.",
+  "guide_nova_groups_arg1_title": "Minimaliai perdirbti arba neperdirbti maisto produktai",
+  "guide_nova_groups_arg1_text": "Neapdorotas (arba natūralus) maistas yra valgomosios augalų (sėklos, vaisiai, lapai, stiebai, šaknys) arba gyvūnų (raumenys, subproduktai, kiaušiniai, pienas), taip pat grybų, dumblių ir vandens dalys, atskirtos nuo gamtos.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Perdirbti kulinariniai ingredientai, tokie kaip aliejai, sviestas, cukrus ir druska, yra medžiagos, gautos iš 1 grupės maisto produktų arba iš gamtos taikant tokius procesus kaip presavimas, rafinavimas, malimas, malimas ir džiovinimas.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Perdirbti maisto produktai, pavyzdžiui, konservuotos daržovės, konservuota žuvis, vaisiai sirupe, sūriai ir šviežiai iškeptos duonos, daugiausia gaminami pridedant druskos, aliejaus, cukraus ar kitų medžiagų iš 2–1 grupės maisto produktų. Procesai apima įvairius konservavimo ar virimo metodus, o duonos ir sūrio atveju – nealkoholinę fermentaciją. Dauguma perdirbtų maisto produktų turi du ar tris ingredientus ir yra atpažįstami kaip modifikuotos 1 grupės maisto produktų versijos. Juos galima valgyti vienus arba, dažniau, kartu su kitais maisto produktais.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ultraperdirbti maisto produktai, tokie kaip gaivieji gėrimai, saldūs arba pikantiški supakuoti užkandžiai, atkurti mėsos produktai ir iš anksto paruošti šaldyti patiekalai, yra ne tik modifikuotas maistas, bet ir mišiniai, pagaminti daugiausia arba visiškai iš medžiagų, gautų iš maisto produktų ir priedų, kuriuose yra mažai arba visai nėra nepažeisto 1 grupės maisto. Šių mišinių ingredientai paprastai apima ir perdirbtuose maisto produktuose esančias medžiagas, tokias kaip cukrus, aliejai, riebalai ar druska. Tačiau ultraperdirbtuose produktuose taip pat yra kitų energijos ir maistinių medžiagų šaltinių, kurie paprastai nenaudojami kulinarijoje. Kai kurie iš jų yra tiesiogiai išgaunami iš maisto produktų, pavyzdžiui, kazeinas, laktozė, išrūgos ir glitimas.",
+  "guide_nova_explanations_title": "Ultraprocesoriaus problemos",
+  "guide_nova_explanations_arg1_title": "Ekstremalus maisto ingredientų apdorojimas",
+  "guide_nova_explanations_arg1_text": "Daugelis jų gaunami toliau perdirbant maisto sudedamąsias dalis, pavyzdžiui, hidrinti arba interesterifikuoti aliejai, hidrolizuoti baltymai, sojų baltymų izoliatas, maltodekstrinas, invertuotas cukrus ir didelės fruktozės kukurūzų sirupas.",
+  "guide_nova_explanations_arg2_title": "Priedai, kurie neapsiriboja vien tik maisto sauga",
+  "guide_nova_explanations_arg2_text": "Ultraperdirbtuose maisto produktuose esantys priedai apima ir tuos, kurie taip pat naudojami perdirbtuose maisto produktuose, pavyzdžiui, konservantus, antioksidantus ir stabilizatorius. Priedų, randamų tik ultraperdirbtuose produktuose, klasės apima tuos, kurie naudojami maisto produktų juslinėms savybėms imituoti arba sustiprinti arba galutinio produkto neskanumui paslėpti. Šie priedai apima dažiklius ir kitus dažiklius, spalvų stabilizatorius; kvapiąsias medžiagas, skonio stipriklius, necukrinius saldiklius; ir pagalbines perdirbimo medžiagas, tokias kaip gazavimo, standinimo, užpildai ir tūrį mažinančios medžiagos, putojimo mažinimo, lipnumą reguliuojančios ir glazūravimo medžiagos, emulsikliai, kompleksonai ir drėgmę išlaikančios medžiagos.",
+  "guide_nova_explanations_arg3_title": "Apdorojimas, kurio negalite atlikti namuose",
+  "guide_nova_explanations_arg3_text": "Įprastai daugeliui ingredientų sujungti ir galutiniam produktui (todėl ir vadinamam „ultra apdorotu“) sukurti naudojama daugybė procesų sekų. Šie procesai apima kelis, neturinčius atitikmenų namuose, pavyzdžiui, hidrinimą ir hidrolizę, ekstruziją ir liejimą, taip pat išankstinis apdorojimas kepimui.",
+  "guide_nova_explanations_arg4_title": "Plėšrieji ir finansiniai itin didelio apdorojimo aspektai",
+  "guide_nova_explanations_arg4_text": "Bendras ultraperdirbimo tikslas – kurti firminius, patogius (patvarius, paruoštus vartoti), patrauklius (itin skanius) ir labai pelningus (su pigiais ingredientais) maisto produktus, skirtus išstumti visas kitas maisto grupes. Ultraperdirbti maisto produktai paprastai yra patraukliai supakuoti ir intensyviai parduodami.",
+  "guide_nova_share_link": "https://lt.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Bendra",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Kainos",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Tvarkykite savo kainų nuostatas",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Atvirų maisto faktų projektas",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Prisidėti",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Verskite, tobulinkite savo įrankius…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Prisijungti",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Susisiekite arba sekite mus socialiniuose tinkluose",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Padėkite mums informuoti milijonus vartotojų visame pasaulyje",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Pagalba ir palaikymas",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "DUK",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Gaukite atsakymus į savo klausimus",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Atsijungęs",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Ačiū, kad esate vienas iš mūsų narių!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Produktai modifikuoti",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Pridėtos kainos",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Žr. visą statistiką",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Ieškoti {provider} pagal „{keyword}“",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Ieškoti nustatymo (pvz., „Nutri-Score“)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Pritaikymas neįgaliesiems: rodyti jaustukus",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Pritaikymas neįgaliesiems: pašalinti spalvas",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produktai",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Apie",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Teisinė informacija",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Naudojimo sąlygos, privatumo politika ir kita",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Naudojimo sąlygos",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privatumo politika",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licencijos",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Apie programėlę",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Techninė informacija, kūrėjo informacija ir kita",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Versijos numeris",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skaitytuvas",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Programėlių parduotuvė",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Sistemos nustatymai",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Prieiga prie šaltinio kodo",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Ir pradėkite daryti įtaką milijonams",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Pridėti kainas",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Pilnai užbaik redaguoti produktus",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Patarimai",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Atraskite naująjį „Nutri-Score“",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Atvirų maisto faktų svetainėje",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Tvarkyti mano paskyrą",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Keisti slaptažodį",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Pavojinga zona",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Visi jūsų įnašai bus prarasti",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Prisidėjo",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Programėlės nustatymai",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Labai eksperimentinis būdas nuskaityti produktus neprisijungus",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Atnaujinti visus produktus iš serverio",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Prašome to nedaryti, nebent tai absoliučiai būtina",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demonstracinis režimas",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Pridėti korteles prie skaitytuvo",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Prideda prie skaitytuvo 3 produktų pavyzdžius",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy šeimininkas",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Prieinamumo eksperimentai",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Kelių produktų pasirinkimas pagal kainas",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Vartotojo išdėstytos žinių panelės",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Laikina prieiga prie vietos paieškos",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 arba 3 produktų palyginimas greta",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Produktų sąrašo importavimas",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Rezultatai ir metodologijos",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Sužinokite, kaip apskaičiuojamas „Nutri-Score“",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Sužinokite apie pagrindinius metodologijos pakeitimus",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Apie projektą",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Atraskite atvirus faktus apie maistą",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "DUK – Dažnai užduodami klausimai",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Atvirų maisto faktų nevyriausybinė organizacija",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Gaukite bendruomenės naujienas",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Būkite informuoti apie programėlės ir bendruomenės naujienas",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Prisijunkite prie mūsų virtualių renginių",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Sekite mus socialiniuose tinkluose",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "„Open Food Facts“ tinklaraštis",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Gaukite naujausias naujienas, kai tik jos įvyks",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Gaukite pagalbos iš bendruomenės",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Padėkite mums tobulinti programėlę",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Atsiųskite mums derinimo informaciją",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Atsiųskite mums el. laišką su išsamia derinimo informacija",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Atsiųskite mums atsiliepimą apie programėlę",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Padėkite formuoti programėlės ateitį",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Dalyvaukite programėlės apklausoje",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Padėkite mums suprasti, ką turėtume kurti toliau",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesionalai",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Visiškai nemokama, užtikrina tikslius duomenis 500 programėlių ir milijonams vartotojų. Savitarnos funkcija, suderinama su jūsų PIM arba skaičiuoklėmis (XLSX).",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Susisiekite, kad pradėtumėte",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Spauda",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Gaukite visą medžiagą, kurios jums reikia ataskaitai",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Susisiekite su mumis dėl spaudos klausimų arba norėdami pranešti mums apie savo ataskaitą",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Tapkite aktyviu savanoriu",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Kūrimas, komunikacija, dizainas… bet kokia savanorystė ar patirtis yra laukiami!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Atraskite keletą iš daugelio būdų, kaip galite prisidėti",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobiliųjų programėlių kūrimas",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Sužinokite, kaip prisidėti prie programinės įrangos kūrimo",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Kasdienės nestabilios versijos, visiškai naujos funkcijos",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Plėskite savo vietos bendruomenę",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Pagalba su programinės įrangos, turinio, ingredientų analizės vertimais",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Paruošėme nedidelį šabloną, kuris jums padės :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Paprasti žingsniai, kaip padidinti maisto skaidrumą jūsų šalyje",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Duomenų kokybė",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Prisijunkite prie duomenų kokybės komandos",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Prisijunkite prie mūsų pastangų užtikrinti, kad duomenų bazė būtų išsami ir tiksli",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "Pridėta 0 produktų",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Nauji produktai, kuriuos pridėjau prie „Open Food Facts“",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produktai, kuriuos man reikia užbaigti",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Visi nebaigti produktai",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produktai, kuriuos galite padėti užbaigti",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Padėkite apskaičiuoti „Nutri-Score“ ir „Green-Score“ jūsų šalyje",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Kainos, kurias aš pateikiau",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Kainų etiketės ir kvitai",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Nufotografuokite savo kvitus ir nuskaitykite susijusius brūkšninius kodus",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Nufotografuokite kainas parduotuvėje",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Naujausios kainos",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Naujausios kainos, kurias pridėjo „Open Prices“ bendruomenė",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Prisidėjusieji, kurių kainos yra didžiausios",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Atidaryti kainos metriką",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Sekite projekto eigą",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Būdai prisidėti",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Patvirtinkite savo ar kitų pridėtas kainas, pasitelkdami dirbtinį intelektą",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Greitai pridėkite daug kvitų ar lentynų nuotraukų iš savo fotoaparato ritinio",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Mėnesio iššūkiai",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Dalyvaukite mėnesinėse teminėse užduotyse, kad surinktumėte prizus",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Atgaukite savo lojalumo duomenis",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Sužinokite, kaip pateikti užklausą dėl savo duomenų",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Programėlės tinkinimas",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Prisidėti prie projekto",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Paprasti būdai padėti „Open Food Facts“ svetainėje",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Vertinimo metodikos, pagalba ir kita informacija apie projektą",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Priimti pasiūlymą",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Autentifikavimas nepavyko, negalima gauti įrodymų",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Kad pakeitimai įsigaliotų, paleiskite programėlę iš naujo.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafinė sąsaja",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Žiniasklaida",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Programavimas",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Atviros maisto faktų laboratorijos",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Paskyra",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Atviri maisto faktai jūsų kalba",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Registruokitės programėlės alfa versijai",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Įnašai ir produkto duomenys",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Nerodyti folksonomijos",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Paskyra",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Aw bɛ se ka kɔrɔbɔli kɛcogoyaw ni yiriwali baarakɛminɛnw sɔrɔ",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A. Bamako, Mali",
+  "environmental_score_b_new": "Green-Score B. Bamako, Mali",
+  "environmental_score_c_new": "Green-Score C. Bamako, Mali",
+  "environmental_score_d_new": "Green-Score D. Bamako, Mali",
+  "environmental_score_e_new": "Green-Score E. Bamako, Mali",
+  "environmental_score_unknown_new": "Green-Score dɔnbali",
+  "environmental_score_not_applicable_new": "Green-Score tɛ baara kɛ ni a ye",
+  "nova_group_generic_new": "Dumuni minnu dilannen don kosɛbɛ - NOVA kuluw",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Jamanaden bɛɛ bɛ se k’an dɛmɛ ka kunnafoniw lajɛ ani k’u labɛn, kunnafoniw minnu bɛ sɔrɔ fɛnw kan walima minnu bɛ se ka bɔ u la, i n’a fɔ kunnafoniw minnu bɛ sɔrɔ pakew kan: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)",
   "guide_greenscore_transparency_arg2_title": "Dilanbagaw bɛ se ka dɛmɛ don cogo min na",
   "guide_greenscore_transparency_arg2_text": "Dilanbagaw bɛ se k’u ka kunnafoniw ci an ma k’a ɲɛsin an ka feerekɛyɔrɔ gansan ma min bɛ kɛ fɛn dilannikɛlaw ye.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/jatebɔ-sɛbɛn ɲɛ jɛman",
+  "guide_greenscore_better_product_title": "Fɛn jumɛn ka fisa dugukolo ma?",
+  "guide_greenscore_better_product_arg1_title": "A bɛ se ka gɛlɛya k’a fɔ",
+  "guide_greenscore_better_product_arg1_text": "Dumuni sabatili sugandili ye fɛn barikama dɔ ye an bɛ se ka min kɛ waati cogoya la, bawo **an ka diɲɛ dumuniko siratigɛ la, o bɛ gaziw bɔlenw bɛɛ tilancɛ ni kɔ bɔ**.\n(Sɔrɔyɔrɔ: Poore & Nemecek, Dɔnniya, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Se b'i la dɛ!",
+  "guide_greenscore_better_product_arg2_text": "Kibaru duman ye ko o bɛ fɛɛrɛ barikama di an ma walasa ka fɛn caman wuli.\n**An kelen-kelen bɛɛ bɛ dumuni 1000 ɲɔgɔn dun san o san**. O ye sababu 1000 ye ka **siniɲɛsigi ɲuman sugandi dugukolo in ye**!",
+  "guide_greenscore_better_product_arg3_title": "A bɛ dɛmɛ don ka kɛ kunkanbaaraw ye ani ka ko latigɛ",
+  "guide_greenscore_better_product_arg3_text": "Dumuni sabatili sugandili bɛ se ka kɛ i n’a fɔ a ka gɛlɛn. Labeliw bɛ mɔgɔ hakili ɲagami ani kunnafoniw tɛ sɔrɔ tuma caman na. Green-Score dabɔra walasa k’a nɔgɔya, ka sigida jateminɛ jɛlen di i ma, **science-based**, ani **transparent** dumunifɛnw na, i mago bɛ yɔrɔ min na yɛrɛ: k’i to sanni kɛ.",
+  "guide_greenscore_better_product_arg4_title": "Kɛnɛyako",
+  "guide_greenscore_better_product_arg4_text": "A tɛ i n’a fɔ labeli propriétaires, Green-Score jatebɔ ye **da wuli pewu** wa a bɛ se ka **sɛgɛsɛgɛ mɔgɔ bɛɛ fɛ**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/jatebɔ-sɛbɛn ɲɛ jɛman",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Ultra-processing ye mun ye?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA kuluw b’aw kunnafoni dumuniko hakɛ kan.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA ka danfara bɛ sira di dumuniw tilatilali ma ka kɛ **kulu 4** ye ka da u ka **sɛnɛfɛnw dilanni hakɛ kan** (dumuni minnu dilannen don dɔɔnin dɔɔnin walima minnu ma dila, dumunifɛnw, dumuni dilannenw, dumuni minnu dilannen don kosɛbɛ).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA ka logow ye",
+  "guide_nova_groups_title": "NOVA kulu 4 minnu bɛ yen",
+  "guide_nova_groups_intro": "NOVA kulu 4 bɛ yen, gɛlɛya min bɛ yen, o ye kulu 4 ye - Dumuni minnu dilannen don kosɛbɛ.",
+  "guide_nova_groups_arg1_title": "Dumuni minnu dilannen don dɔɔnin dɔɔnin walima minnu ma labɛn",
+  "guide_nova_groups_arg1_text": "Dumuni minnu ma labɛn (walima minnu bɛ sɔrɔ u yɛrɛ la) ye jiriw yɔrɔ duntaw ye (kisɛw, jiridenw, furabuluw, jirisunw, jirisunw) walima baganw (fasa, kɔnɔbara, kɔnɔw, nɔnɔ), ka fara ɲɛgɛnw, jirisunw, ani ji kan, u faralen kɔ ɲɔgɔn kan ka bɔ fɛnɲɛnamaw la.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Tobilikɛminɛn minnu dilannen don, i n’a fɔ tulu, tulu, sukaro ani kɔgɔ, olu ye fɛnw ye minnu bɛ bɔ kulu 1 dumuniw na walima minnu bɛ bɔ fɛnɲɛnamaw la, fɛɛrɛw fɛ minnu bɛ kɛ ka u digidigi, ka u saniya, ka u sɔgɔ, ka u sɔgɔ ani ka u ja.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Dumuni dilannenw, i n’a fɔ nakɔfɛnw buteli kɔnɔ, jɛgɛ bidon kɔnɔ, jiriden minnu bɛ siro la, foromaziw, ani buru dilannen kuraw, olu bɛ dilan fɔlɔ ni kɔgɔ, tulu, sukaro walima fɛn wɛrɛw farali ye minnu bɛ bɔ kulu 2 la ka taa kulu 1 ka dumuniw na. Taabolo minnu bɛ Kɛ olu ye maracogo walima tobilikɛcogo suguya caman ye, ani buru ni foromazi ta la, dɔlɔ tɛ min na. Dumuni dilannen fanba bɛ kɛ ni fɛn fila walima saba ye, wa u bɛ dɔn ko kulu 1 dumuniw cogoya caman sɛmɛntiyalen don. U bɛ se ka dun u yɛrɛ ma walima a ka ca a la, u ni dumuni wɛrɛw faralen ɲɔgɔn kan.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Dumuni minnu dilannen don kosɛbɛ, i n’a fɔ minfɛn gazimaw, dumuni misɛnninw pakew kɔnɔ minnu ka di walima minnu ka di, sogofɛnw minnu dilannen don kokura, ani dumuni minnu dilannen don ka kɔn u ɲɛ, olu tɛ dumuni caman ye minnu dilannen don ni fɛn caman ye walima u bɛɛ ye fɛnw ye minnu bɛ bɔ dumuniw ni faralifɛnw na, ni kulu 1 ka dumuni caman tɛ walima minnu tɛ tiɲɛ. A ka ca a la, fɛn minnu bɛ nin furakɛcogo ninnu na, olu dɔw bɛ sɔrɔ dumuni dilannenw fana na, i n’a fɔ sukaro, tulu, tulu walima kɔgɔ. Nka, fanga ni balofɛn wɛrɛw fana bɛ sɔrɔ fɛn dilannenw na minnu tɛ kɛ ka caya dumunikɛminɛnw na. Olu dɔw bɛ bɔ dumuniw na k’a ɲɛsin u ma, i n’a fɔ kazeyin, lactose, whey ani gluten.",
+  "guide_nova_explanations_title": "Gɛlɛya minnu bɛ ultra-processing la",
+  "guide_nova_explanations_arg1_title": "Dumunifɛnw dilanni kojugu",
+  "guide_nova_explanations_arg1_text": "U caman bɛ sɔrɔ dumunifɛnw dilanni na ka taa a fɛ, i n’a fɔ tulu minnu bɛ ni hidrɔzɛni ye walima tulu minnu bɛ kɛ ni fɛnɲɛnamafagalan ye, farikolojɔli dumuniw, soja farikolojɔli dumuniw, maltodextrin, sukaro invert, ani ɲɔ siro min falen don fruktose caman na.",
+  "guide_nova_explanations_arg2_title": "Fura minnu bɛ fara dumuni saniyalenw lakanani kan",
+  "guide_nova_explanations_arg2_text": "Fɛn minnu bɛ fara dumuniw kan minnu dilannen don kosɛbɛ, olu dɔw ye dɔw ye minnu bɛ kɛ fana dumuni dilannenw na, i n’a fɔ fɛnw minnu bɛ u tanga, farikolo tangalanw ani fɛnw sabatili. Fura suguya minnu bɛ sɔrɔ fɛnw na minnu dilannen don kosɛbɛ, olu dɔw ye minnu bɛ kɛ ka dumuniw dusukunnataw ladege walima ka u bonya walima ka fɛn laban yɔrɔ minnu man di, olu dogo. O faralifɛnw ye kalali ni kulɛri wɛrɛw ye, kulɛri sabatilifɛnw; dajiw, dajiw, dumuni duman minnu tɛ sukaro ye; ani baarakɛcogo dɛmɛnanw i n’a fɔ karɔbɔni, firimi, bulking ani bulking kɛlɛli, de-foaming, anti-caking ani glazing agents, emulsifiers, sequestrants, ani humectants.",
+  "guide_nova_explanations_arg3_title": "Processing i tɛ se ka min kɛ so kɔnɔ",
+  "guide_nova_explanations_arg3_text": "Taabolo caman bɛ kɛ ka tugu ɲɔgɔn kɔ walasa ka fɛn caman fara ɲɔgɔn kan a ka c’a la ani ka fɛn laban dilan (o de kama ‘a bɛ kɛ kosɛbɛ’). O kɛcogo dɔw ye damadɔ ye minnu tɛ sokɔnɔna bɔɲɔgɔnko ye, i n’a fɔ hidrɔzɛni ni jibɔ, bɔli ni fɛn dilanni, ani ka kɔn ka baara kɛ walasa ka tobi.",
+  "guide_nova_explanations_arg4_title": "Ultra-processing ka predatory ni wariko fanw",
+  "guide_nova_explanations_arg4_text": "Ultra-processing kun bɛɛ ye ka dumunifɛnw dilan minnu tɔgɔ sɛbɛnnen don, minnu bɛ se ka mɛn, minnu bɛ mɛn, minnu bɛ se ka dun, minnu bɛ mɔgɔ ɲɛnajɛ (min ka di kosɛbɛ) ani minnu nafa ka bon kosɛbɛ (fɛn minnu musaka ka dɔgɔ) minnu dabɔra ka dumuni kulu tɔw bɛɛ bɔ u nɔ na. A ka c’a la, dumunifɛnw minnu dilannen don ni ultra-processed ye, olu bɛ kɛ pake kɔnɔ cogo la min bɛ mɔgɔ ɲɛnajɛ, wa u bɛ feere kosɛbɛ.",
+  "guide_nova_share_link": "https://en.dumuniw dafalenw.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Aw ye aw ka sɔngɔw diyabɔcogo ɲɛnabɔ",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Porozɛ min tɔgɔ ye ko Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Bamanankan baara, an ka baarakɛminɛnw ɲɛ ka taa a fɛ…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Ka kɔnɛkite",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Aw ye aw bolo da, walima Aw ye tugu an kɔ sosiyete siwiliw kan",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Aw k’an dɛmɛ ka kunnafoni di feerekɛla miliyɔn caman ma diɲɛ kɔnɔ",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Dɛmɛ & Dɛmɛ",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Aw ye jaabiw sɔrɔ aw ka ɲininkaliw la",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "A bɔra ka bɔ",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Aw ni ce aw ka kɛ an ka tɔndenw dɔ ye!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Aw ye statiw bɛɛ lajɛ",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "{provider} ɲini \"{keyword}\" .",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Aw ye sigida dɔ ɲini (misali la Nutri-Score) .",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Sɔrɔcogo: Emoji jira",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Sɔrɔcogo: Aw bɛ kulɛriw bɔ",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Sariya kunnafoniw",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Baarakɛcogo sariyaw, mɔgɔ dogolenw sariyaw ani fɛn wɛrɛw",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lasegin-ka-bɔnyew",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Application in ko la",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Fɛɛrɛ kunnafoniw, baarakɛlaw ka kunnafoniw, ani fɛn wɛrɛw",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Version nimɔrɔ",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Scanner (Skanɛrɛ) ye",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Application magasin",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Sistɛmu sigicogo",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Aw bɛ se ka source code sɔrɔ",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Ani k’a daminɛ ka nɔ bila mɔgɔ miliyɔn caman na",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Laadilikanw",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Aw ye Nutri-Score kura sɔrɔ",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts ka siti kan",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "N ka jatebɔsɛbɛn ɲɛnabɔ",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "N ka tɔgɔlasɛbɛn Changer",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Farati bɛ yɔrɔ min na",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Aw ka bolomafaraw bɛɛ bɛna tunun",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Application (Application) ka labɛnw",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Fɛɛrɛ min bɛ kɛ k’a lajɛ kosɛbɛ walasa ka fɛnw sɛgɛsɛgɛ ni ɛntɛrinɛti tɛ",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Fɛnw bɛɛ lajɛlen kura ye ka bɔ sèrwɛri la",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Aw ye aw yɛrɛ tanga o kɛli ma fo ni a mago bɛ a la kosɛbɛ",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo cogoya",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Aw bɛ kartiw fara skanɛrɛ kan",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "A bɛ misali fɛn 3 fara skanɛrɛ kan",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy jatigikɛ",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Sɔrɔcogo kɔlɔsiliw",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Fɛn caman sugandili sɔngɔw kama",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Baarakɛla ye dɔnniya pannew yamaruya",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Waati dɔɔnin sɔrɔli yɔrɔ ɲinini na",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Kɛrɛfɛla sumalen don fɛn 2 walima 3 la",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Fɛn dilannenw lisi import",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Score & fɛɛrɛw",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score jatebɔcogo dɔn",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Yɛlɛmaba minnu kɛra fɛɛrɛ in na, olu dɔn",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Dumuni Dabɔlenw Tiɲɛw Sɔrɔ",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Ɲininkali minnu bɛ kɛ tuma caman na",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "ONG min bɛ dumuni dafalenw kofɔ",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Aw ye sigida kunnafoniw sɔrɔ",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "To loop kɔnɔ ni app ani sigida kibaruyaw ye",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Aw ye aw sen don a la ni aw taara an ka ko kɛlen dɔ la min bɛ kɛ virtuel (virtuel) la",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Aw ka tugu an kɔ sosiyete siwiliw kan",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Dumuni dafalenw ka bulɔgu",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Kibaruyaw labanw sɔrɔ, i n’a fɔ u bɛ kɛ cogo min na",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Aw ye dɛmɛ ɲini sigidamɔgɔw fɛ",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "An dɛmɛ ka appli (application) ɲɛ ka taa a fɛ",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Aw ye debug kunnafoniw ci an ma",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Aw ye bataki ci an ma ni debugging kunnafoni caman ye",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Aw ye hakilinaw ci an ma appli in kan",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Dɛmɛ ka appli ka siniɲɛsigi labɛn",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Aw ye app ka sɛgɛsɛgɛli kɛ",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "An ka kan ka min jɔ o kɔfɛ, i k’an dɛmɛ k’o faamu",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Baarakɛlaw",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Totally free, a bɛ data tigitigiw sabati apps 500 & consumer miliyɔn caman ye. Yɛrɛlabaara, min bɛ bɛn i ka PIM walima i ka jatebɔsɛbɛnw (XLSX) ma .",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Aw ye ɲɔgɔn sɔrɔ walasa ka baara daminɛ",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "I mago bɛ fɛn minnu na i ka rapɔɔri kama, olu bɛɛ sɔrɔ",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Aw ye ɲɔgɔn sɔrɔ walasa ka kunnafonidilaw ka ɲininkaliw kɛ walima k’a fɔ an ye aw ka kunnafoni kan",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "I ka kɛ baarakɛla timinandiyalen ye",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Yiriwali, Kumaɲɔgɔnya, Dilan… ŋaniyajira walima dɔnniya suguya o suguya bɛ sɔn!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "I bɛ se ka dɛmɛ don cogo caman minnu na, i k’olu dɔw ɲini",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobile app yiriwali",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "A ɲini ka dɛmɛ don cogo min na porogaramuw dilanni na",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Don o don jɔli sabatibaliw, fɛn kuraw",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Aw ye aw ka sigida sigida yiriwa",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Dɛmɛ ni porogaramuw ye, kɔnɔkow, fɛnw sɛgɛsɛgɛli bamanankan bamanankan na",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "An ye template fitinin dɔ labɛn walasa k'aw dɛmɛ :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Fɛn nɔgɔman minnu bɛ kɛ walasa ka dumuniko jɛlen yiriwa i ka jamana kɔnɔ",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Aw ka fara donanw jogoɲumanya jɛkulu kan",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Aw ka fara an ka cɛsiri kan walasa kunnafonidilan ka dafa ani ka kɛ tiɲɛ ye",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 fɛnw farala ɲɔgɔn kan",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "N ye fɛn kuraw fara Open Food Facts kan",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Fɛn minnu dilannen don n ka kan ka olu dafa",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Fɛn minnu tɛ dafa, olu bɛɛ",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Fɛn minnu bɛ se ka dɛmɛ don ka olu dafa",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Aw ye dɛmɛ don ka Nutri-Score & Green-Score jatebɔ aw ka jamana kɔnɔ",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "N ye sɔngɔ minnu di",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Sɔngɔ sɛbɛnw ni resipiw",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Aw ye aw ka resipiw fotow ta ani ka barɔdi minnu bɛ tali kɛ o la, aw ka olu sɛgɛsɛgɛ",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Aw ye sɔngɔw fotow ta butiki dɔ kɔnɔ",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Sɔngɔ kurabaw",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Sɔngɔ labanw farala ɲɔgɔn kan Open Prices jɛkulu fɛ",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Bololabaarakɛlaw minnu ka sɔngɔ ka ca",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Open Price metrics (Sɔngɔ jateminɛw).",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Aw ye tugu poroze in jiginni na",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Fɛɛrɛ minnu bɛ se ka kɛ walasa ka dɛmɛ don",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Aw ye sɔngɔ minnu farala aw yɛrɛ fɛ walima mɔgɔ wɛrɛw fɛ, aw bɛ olu dafa, ni AI ka dɛmɛ ye",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Aw bɛ teliya ka resipi caman walima etajɛriw fotow fara aw ka kamera sɛbɛnfura kan",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Kalo o kalo gɛlɛyaw",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Aw ye aw sen don kalo o kalo barokun ɲininiw na walasa ka sɔngɔw lajɛ",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Aw ye aw ka kantigiya kunnafoniw sɔrɔ kokura",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Aw ye aw ka kunnafoniw ɲinicogo dɔn",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "I ka porogramu kɛ ka kɛɲɛ ni i yɛrɛ sago ye",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Aw ka dɛmɛ don o baara la",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Fɛɛrɛ nɔgɔman minnu bɛ se ka dɛmɛ don Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Fɛɛrɛw jatebɔ, dɛmɛ, ani fɛn wɛrɛw poroze kan",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Sɔn hakilina ma",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Tiɲɛni ma ɲɛ, a ma se ka daliluw sɔrɔ",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Aw ye porogramu daminɛ kokura walisa ka yɛlɛmaniw waleya.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Jateblaw ka ɲɛfɔli",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Kunnafonidila",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Dumunifɛnw tiɲɛni laboratuwaraw da wuli",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Aw ka na ni Dumuni Dabɔlenw Tiɲɛw ye aw ka kan na",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "I tɔgɔ sɛbɛn appli ka alfa version kɔnɔ",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Bolomafaraw & Fɛn dilannenw kunnafoniw",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Aw kana Folksonomy jira",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

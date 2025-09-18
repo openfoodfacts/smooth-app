@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Продукти за завършване",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Достъп до експериментални функции и инструменти за разработка",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Рестартирайте включването",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Данни",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Свръх преработка - групи NOVA",
+  "environmental_score_generic_new": "Зелен-Резултат",
+  "environmental_score_a_new": "Зелена оценка А",
+  "environmental_score_b_new": "Зелена оценка B",
+  "environmental_score_c_new": "Зелена оценка C",
+  "environmental_score_d_new": "Зелена оценка D",
+  "environmental_score_e_new": "Зелена оценка E",
+  "environmental_score_unknown_new": "Неизвестен зелен резултат",
+  "environmental_score_not_applicable_new": "Зеленият резултат не е приложим",
+  "nova_group_generic_new": "Ултрапреработени храни - NOVA groups",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Всички граждани могат да ни помогнат да съберем и структурираме информацията, която се намира върху продуктите или която може да бъде извлечена от тях, като например информацията върху опаковките: Mission Emballages: мащабен съвместен инвентар на опаковките за всички хранителни продукти (на френски език)",
   "guide_greenscore_transparency_arg2_title": "Как производителите могат да помогнат",
   "guide_greenscore_transparency_arg2_text": "Производителите могат да ни изпращат информацията си директно чрез нашата безплатна платформа за производители.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Кой продукт е по-добър за планетата?",
+  "guide_greenscore_better_product_arg1_title": "Трудно е да се каже",
+  "guide_greenscore_better_product_arg1_text": "Изборът на устойчива храна е едно от най-мощните неща, които можем да направим за климата, тъй като **нашата глобална хранителна система е отговорна за над една четвърт от всички емисии на парникови газове**.\n(Източник: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Ти имаш силата!",
+  "guide_greenscore_better_product_arg2_text": "Добрата новина е, че това ни дава мощен начин да създадем промяна.\n**Всеки от нас изяжда около 1000 пъти годишно**. Това са 1000 възможности да **изберем по-добро бъдеще за планетата**!",
+  "guide_greenscore_better_product_arg3_title": "Помага да бъдете отговорни и да вземате решения",
+  "guide_greenscore_better_product_arg3_text": "Изборът на устойчива храна може да изглежда сложен. Етикетите са объркващи и информацията често липсва. Green-Score е създаден, за да го опрости, като ви дава **ясна**, **научно обоснована** и **прозрачна** екологична оценка за хранителни продукти, точно там, където ви е необходима: докато пазарувате.",
+  "guide_greenscore_better_product_arg4_title": "Прозрачност",
+  "guide_greenscore_better_product_arg4_text": "За разлика от патентованите етикети, изчислението на Green-Score е **напълно отворено** и може да бъде **проверено от всеки**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Свръхпреработени храни",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Какво е ултра-обработка?",
+  "guide_nova_what_is_nova_paragraph1": "Групите NOVA ви информират за нивото на обработка на храните.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Класификацията NOVA позволява категоризирането на храните в **4 групи** въз основа на тяхната **степен на промишлена обработка** (минимално преработени или непреработени храни, кулинарни съставки, преработени храни, ултрапреработени храни).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Логотата на NOVA",
+  "guide_nova_groups_title": "4-те NOVA групи",
+  "guide_nova_groups_intro": "Има 4 групи NOVA, като проблемната е Група 4 - Ултрапреработени храни.",
+  "guide_nova_groups_arg1_title": "Минимално преработени или непреработени храни",
+  "guide_nova_groups_arg1_text": "Непреработените (или натурални) храни са ядливите части на растения (семена, плодове, листа, стъбла, корени) или животни (мускули, карантии, яйца, мляко), както и гъби, водорасли и вода, след като са отделени от природата.",
+  "guide_nova_groups_arg2_title": "Преработени кулинарни съставки",
+  "guide_nova_groups_arg2_text": "Преработените кулинарни съставки, като масла, захар и сол, са вещества, получени от храни от Група 1 или от природата чрез процеси, които включват пресоване, рафиниране, смилане, фрезоване и сушене.",
+  "guide_nova_groups_arg3_title": "Преработени храни",
+  "guide_nova_groups_arg3_text": "Преработените храни, като например консервирани зеленчуци, консервирана риба, плодове в сироп, сирена и прясно приготвен хляб, се произвеждат предимно чрез добавяне на сол, олио, захар или други вещества от Група 2 към храни от Група 1. Процесите включват различни методи за консервиране или готвене, а в случая на хляб и сирене - безалкохолна ферментация. Повечето преработени храни имат две или три съставки и са разпознаваеми като модифицирани версии на храни от Група 1. Те могат да се консумират самостоятелно или, по-често, в комбинация с други храни.",
+  "guide_nova_groups_arg4_title": "Свръхпреработени храни",
+  "guide_nova_groups_arg4_text": "Ултрапреработените храни, като безалкохолни напитки, сладки или солени пакетирани закуски, реконституирани месни продукти и предварително приготвени замразени ястия, не са просто модифицирани храни, а формули, направени предимно или изцяло от вещества, получени от храни и добавки, с малко или никакво съдържание на непокътнати храни от Група 1. Съставките в тези формули обикновено включват тези, които се намират и в преработените храни, като захари, масла, мазнини или сол. Ултрапреработените продукти обаче съдържат и други източници на енергия и хранителни вещества, които обикновено не се използват в кулинарните приготовления. Някои от тях са директно извлечени от храни, като казеин, лактоза, суроватка и глутен.",
+  "guide_nova_explanations_title": "Проблемите с ултра-обработката",
+  "guide_nova_explanations_arg1_title": "Екстремна обработка на хранителни съставки",
+  "guide_nova_explanations_arg1_text": "Много от тях се получават чрез по-нататъшна обработка на хранителни съставки, като хидрогенирани или интерестерифицирани масла, хидролизирани протеини, соев протеинов изолат, малтодекстрин, инвертна захар и царевичен сироп с високо съдържание на фруктоза.",
+  "guide_nova_explanations_arg2_title": "Добавки, които надхвърлят чистата безопасност на храните",
+  "guide_nova_explanations_arg2_text": "Добавките в ултрапреработените храни включват някои, които се използват и в преработените храни, като консерванти, антиоксиданти и стабилизатори. Класовете добавки, които се срещат само в ултрапреработените продукти, включват тези, използвани за имитиране или подобряване на сензорните качества на храните или за прикриване на неприятни аспекти на крайния продукт. Тези добавки включват оцветители и други цветове, стабилизатори на цветовете; ароматизатори, подобрители на вкуса, подсладители без захар; и помощни вещества за обработка, като карбонизиращи, втвърдяващи, обемни и антиобемни агенти, обезпенващи, антислепващи и глазиращи агенти, емулгатори, секвестранти и овлажнители.",
+  "guide_nova_explanations_arg3_title": "Обработка, която не можете да направите у дома",
+  "guide_nova_explanations_arg3_text": "Използва се множество последователности от процеси, за да се комбинират обикновено многото съставки и да се създаде крайният продукт (оттук и „ултраобработен“). Процесите включват няколко без местни еквиваленти, като хидрогениране и хидролизация, екструдиране и формоване, както и предварителна обработка за пържене.",
+  "guide_nova_explanations_arg4_title": "Хищническите и финансовите аспекти на ултра-преработката",
+  "guide_nova_explanations_arg4_text": "Общата цел на ултрапреработката е да се създадат маркови, удобни (трайни, готови за консумация), атрактивни (свръхвкусни) и високорентабилни (с евтини съставки) хранителни продукти, предназначени да изместят всички останали хранителни групи. Ултрапреработените хранителни продукти обикновено са атрактивно опаковани и се предлагат на пазара интензивно.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Общи",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Цени",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Управлявайте предпочитанията си за цени",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Проектът „Отворени факти за храната“",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Допринеси",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Превеждайте, подобрете инструментите си…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Свържете се",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Свържете се с нас или ни последвайте в социалните мрежи",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Направи дарение",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Помогнете ни да информираме милиони потребители по целия свят",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Помощ и поддръжка",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "ЧЗВ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Получете отговори на вашите въпроси",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Излязох от профила си",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Благодарим ви, че сте един от нашите членове!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Променени продукти",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Вижте всички статистики",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Търсене в {provider} за „{keyword}“",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Търсене на настройка (напр. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Достъпност: Показване на емоджи",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Достъпност: Премахване на цветове",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Продукти",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Относно",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Правна информация",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Условия за ползване, политика за поверителност и други",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Условия за ползване",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Правни споменавания",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Лицензи",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Относно приложението",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Техническа информация, информация за разработчици и др.",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Информация",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Номер на версията",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Скенер",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Магазин за приложения",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Системни настройки",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Достъп до изходния код",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "И започнете да оказвате влияние върху милиони",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Попълни продуктите",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Съвети",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Открийте новия Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "На уебсайта „Отворени факти за храната“",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Управление на моя акаунт",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Промяна на паролата ми",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Опасна зона",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Всички ваши приноси ще бъдат загубени",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Приноси",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Настройки на приложението",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Много експериментален начин за сканиране на продукти офлайн",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Обновете всички продукти от сървъра",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Моля, избягвайте да правите това, освен ако не е абсолютно необходимо",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Демо режим",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Добавяне на карти към скенера",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Добавя 3 примерни продукта към скенера",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Водещ на фолксономия",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Експерименти с достъпност",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Избор на множество продукти за цени",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Панели със знания, подредени от потребителите",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Временен достъп до търсене на местоположение",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Паралелно сравнение на 2 или 3 продукта",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Импортиране на списък с продукти",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Резултати и методологии",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Открийте как се изчислява Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Открийте основните промени в методологията",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Открий проекта",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Открийте фактите за отворената храна",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "ЧЗВ - Често задавани въпроси",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "НПО „Отворени факти за храната“",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Информация",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Получавайте актуализации от общността",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Бъдете в течение с новините от приложението и общността",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Включете се, като посетите едно от нашите виртуални събития",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Последвайте ни в социалните мрежи",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Блогът „Отворени факти за храната“",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Получавайте най-новите новини, веднага щом се случват",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Получете помощ от общността",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Помогнете ни да подобрим приложението",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Изпратете ни информация за отстраняване на грешки",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Изпратете ни имейл с подробна информация за отстраняване на грешки",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Изпратете ни обратна връзка за приложението",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Помогнете за оформянето на бъдещето на приложението",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Участвайте в анкетата за приложението",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Помогнете ни да разберем какво трябва да изградим след това",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Професионалисти",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Напълно безплатно, осигурява точни данни за 500 приложения и милиони потребители. Самообслужване, съвместимо с вашия PIM или електронни таблици (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Свържете се с нас, за да започнете",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Преса",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Вземете всички необходими материали за вашия доклад",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Свържете се с нас за запитвания от пресата или за да ни уведомите за вашия доклад",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Станете активен доброволец",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Разработка, Комуникация, Дизайн… всякакъв вид доброволчество или експертен опит са добре дошли!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Открийте някои от многото начини, по които можете да допринесете",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Разработка на мобилни приложения",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Научете как да допринесете за разработването на софтуер",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Ежедневни нестабилни компилации, чисто нови функции",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Развийте местната си общност",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Помощ със софтуер, съдържание, преводи на анализи на съставки",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Подготвили сме малък шаблон, който да ви помогне :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Прости стъпки за повишаване на прозрачността на храните във вашата страна",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Присъединете се към екипа за качество на данните",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Присъединете се към нашите усилия, за да гарантираме, че базата данни е пълна и точна",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 добавени продукта",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Нови продукти, които добавих към Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Продукти, които трябва да завърша",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Всички непълни продукти",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Продукти, които можете да помогнете за завършването им",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Помогнете за изчисляването на Nutri-Score и Green-Score във вашата страна",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Цени, които аз допринесох",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Ценови етикети и касови бележки",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Направете снимки на вашите касови бележки и сканирайте съответните баркодове",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Направете снимки на цените в магазина",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Най-нови цени",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Последни цени, добавени от общността Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Сътрудници с най-много цени",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Показатели за отворена цена",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Следете развитието на проекта",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Начини за принос",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Потвърдете цените, добавени от вас или други, с помощта на изкуствен интелект",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Бързо добавете много касови бележки или снимки на рафтове от вашата камера",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Месечни предизвикателства",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Участвайте в месечни тематични куестове, за да събирате награди",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Възстановете данните си за лоялност",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Научете как да заявите данните си",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Персонализирайте приложението",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Допринесете за проекта",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Прости начини да помогнете Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Методологии за оценяване, помощ и още информация за проекта",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Приемане на предложението",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Удостоверяването не бе успешно, не можаха да се получат доказателства",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Моля, рестартирайте приложението, за да приложите промените.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Графичен интерфейс",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Медии",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Развитие",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Отворени лаборатории за факти за храните",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Профил",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Внесете фактите за отворените храни на вашия език",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Запишете се в алфа версията на приложението",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Приноси и данни за продукта",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Не показвай фолксономията",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Профил",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "စမ်းသပ်မှုအင်္ဂါရပ်များနှင့် ဖွံ့ဖြိုးတိုးတက်ရေးကိရိယာများကို ဝင်ရောက်ကြည့်ရှုပါ။",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "အစိမ်းအမှတ် B",
+  "environmental_score_c_new": "အစိမ်းရောင်ရမှတ် C",
+  "environmental_score_d_new": "အစိမ်းအမှတ် D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "အမည်မသိ အစိမ်းရောင်-ရမှတ်",
+  "environmental_score_not_applicable_new": "Green-Score သည် မသက်ဆိုင်ပါ။",
+  "nova_group_generic_new": "လွန်ကဲစွာ ပြုပြင်ထားသော အစားအစာများ - NOVA အုပ်စုများ",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "ထုပ်ပိုးမှုဆိုင်ရာ အချက်အလက်ကဲ့သို့သော ထုတ်ကုန်များတွင်ပါရှိသော သို့မဟုတ် ၎င်းတို့ထံမှ နုတ်ယူနိုင်သော အချက်အလက်များကို စုဆောင်းပြီး ဖွဲ့စည်းတည်ဆောက်ရန် ကူညီပေးနိုင်သည်- Mission Emballages- အစားအသောက်ထုတ်ကုန်အားလုံးအတွက် ထုပ်ပိုးမှုဆိုင်ရာ ကြီးမားသော ပူးပေါင်းပါဝင်မှုစာရင်း (ပြင်သစ်ဘာသာဖြင့်)",
   "guide_greenscore_transparency_arg2_title": "ထုတ်လုပ်သူတွေက ဘယ်လိုကူညီနိုင်မလဲ။",
   "guide_greenscore_transparency_arg2_text": "ထုတ်လုပ်သူသည် ထုတ်လုပ်သူများအတွက် ကျွန်ုပ်တို့၏ အခမဲ့ပလပ်ဖောင်းမှတစ်ဆင့် ၎င်းတို့၏ အချက်အလက်များကို ကျွန်ုပ်တို့ထံ တိုက်ရိုက်ပေးပို့နိုင်ပါသည်။",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "ကမ္ဘာမြေအတွက် ဘယ်ထုတ်ကုန်က ပိုကောင်းလဲ။",
+  "guide_greenscore_better_product_arg1_title": "ပြောရခက်နိုင်ပါတယ်။",
+  "guide_greenscore_better_product_arg1_text": "**ကျွန်ုပ်တို့၏ ကမ္ဘာ့စားနပ်ရိက္ခာစနစ်သည် ဖန်လုံအိမ်ဓာတ်ငွေ့ထုတ်လွှတ်မှုအားလုံး၏ လေးပုံတစ်ပုံကျော်အတွက် တာဝန်ရှိသောကြောင့် ရေရှည်တည်တံ့သောအစားအစာကို ရွေးချယ်ခြင်းသည် ရာသီဥတုအတွက် အစွမ်းထက်ဆုံးအရာတစ်ခုဖြစ်သည်။\n(အရင်းအမြစ်- Poore & Nemecek၊ သိပ္ပံ၊ 2018)။",
+  "guide_greenscore_better_product_arg2_title": "မင်းမှာ ပါဝါရှိတယ်။",
+  "guide_greenscore_better_product_arg2_text": "သတင်းကောင်းမှာ ဤအရာသည် ကျွန်ုပ်တို့အား အပြောင်းအလဲကို ဖန်တီးရန် အစွမ်းထက်သော နည်းလမ်းကို ပေးစွမ်းနိုင်သောကြောင့် ဖြစ်သည်။\n**ကျွန်ုပ်တို့တစ်ဦးစီသည် တစ်နှစ်လျှင် အစားအစာ 1,000 ခန့်စားသည်**။ ဒါက **ကမ္ဘာမြေအတွက် ပိုကောင်းတဲ့ အနာဂတ်ကို ရွေးချယ်ဖို့** အခွင့်အရေး 1,000 ပါ။",
+  "guide_greenscore_better_product_arg3_title": "တာဝန်ယူဆုံးဖြတ်ပေးသည်။",
+  "guide_greenscore_better_product_arg3_text": "ရေရှည်တည်တံ့သောအစားအစာကိုရွေးချယ်ခြင်းသည်ရှုပ်ထွေးခံစားရနိုင်သည်။ အညွှန်းများသည် ရှုပ်ထွေးနေပြီး အချက်အလက် မကြာခဏ ပျောက်ဆုံးနေပါသည်။ Green-Score သည် အစားအသောက်ထုတ်ကုန်များအတွက် **ရှင်းလင်းသော**၊ **သိပ္ပံအခြေခံ** နှင့် **အကြည်** ပတ်ဝန်းကျင်အဆင့်သတ်မှတ်ခြင်းတို့ကို ပေးစွမ်းနိုင်စေရန် ရိုးရှင်းစေရန် ဖန်တီးထားပါသည်- သင်စျေးဝယ်နေစဉ်။",
+  "guide_greenscore_better_product_arg4_title": "ပွင့်လင်းမြင်သာမှု",
+  "guide_greenscore_better_product_arg4_text": "မူပိုင်အညွှန်းများနှင့်မတူဘဲ၊ Green-Score တွက်ချက်မှုသည် **လုံးဝဖွင့်ထားသည်** ဖြစ်ပြီး မည်သူမဆို **စစ်ဆေးနိုင်ပါသည်။**",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "လွန်ကဲစွာ လုပ်ဆောင်ခြင်းဆိုသည်မှာ အဘယ်နည်း။",
+  "guide_nova_what_is_nova_paragraph1": "NOVA အဖွဲ့များသည် အစားအသောက် စီမံဆောင်ရွက်ပေးသည့် အဆင့်အကြောင်း အသိပေးသည်။",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA အမျိုးအစားခွဲခြားမှုသည် ၎င်းတို့၏ **စက်မှုလုပ်ငန်းအဆင့်** ပေါ်မူတည်၍ အစားအစာများကို **အုပ်စု(၄)စု**တွင် အမျိုးအစားခွဲနိုင်စေခြင်း” (အနည်းနှင့်အများ ပြုပြင်မွမ်းမံထားသော သို့မဟုတ် မပြုပြင်ရသေးသော အစားအစာများ၊ အချက်အပြုတ်ပါဝင်ပစ္စည်းများ၊ ပြုပြင်ထားသော အစားအစာများ၊ လွန်ကဲစွာ ပြုပြင်ထားသော အစားအစာများ)။",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA အမှတ်တံဆိပ်များ",
+  "guide_nova_groups_title": "NOVA အဖွဲ့ ၄ ဖွဲ့",
+  "guide_nova_groups_intro": "NOVA အုပ်စု 4 ခု ရှိပြီး ပြဿနာ တစ်ခုမှာ အုပ်စု 4 - လွန်ကဲစွာ ပြုပြင်ထားသော အစားအစာများ ဖြစ်သည်။",
+  "guide_nova_groups_arg1_title": "အနည်းဆုံး ပြုပြင်ထားသော သို့မဟုတ် မပြုပြင်ရသေးသော အစားအစာများ",
+  "guide_nova_groups_arg1_text": "ပြုပြင်မွမ်းမံထားသော (သို့မဟုတ်) သဘာဝအစားအစာများသည် အပင်များ (အစေ့၊ အသီး၊ အရွက်၊ ပင်စည်၊ အမြစ်) သို့မဟုတ် တိရစ္ဆာန်များ (ကြွက်သား၊ ဥ၊ နို့) အပြင် မှို၊ ရေညှိနှင့် ရေတို့ကို သဘာဝနှင့် ခွဲထုတ်ပြီးနောက် စားသုံးနိုင်သော အစိတ်အပိုင်းများဖြစ်သည်။",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "ဆီများ၊ ထောပတ်၊ သကြားနှင့် ဆားကဲ့သို့ ပြုပြင်ထားသော ပါဝင်ပစ္စည်းများသည် အုပ်စု 1 အစားအစာများမှ သို့မဟုတ် သဘာဝမှရရှိသော အရာများဖြစ်ပြီး နှိပ်ခြင်း၊ သန့်စင်ခြင်း၊ ကြိတ်ခြင်း၊ ကြိတ်ခြင်းနှင့် အခြောက်ခံခြင်းတို့ပါဝင်သည့် လုပ်ငန်းစဉ်များဖြစ်သည်။",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "အသီးအရွက်များ၊ ငါးသေတ္တာများ၊ ဖျော်ရည်များ၊ ဒိန်ခဲများနှင့် လတ်လတ်ဆတ်ဆတ်လုပ်ထားသော ပေါင်မုန့်များကဲ့သို့သော ပြုပြင်ပြီးသားအစားအစာများကို အုပ်စု 2 မှ အုပ်စု 1 အစားအစာများသို့ ဆား၊ ဆီ၊ သကြား သို့မဟုတ် အခြားအရာများကို ထည့်ခြင်းဖြင့် အဓိကပြုလုပ်သည်။ လုပ်ငန်းစဉ်များတွင် ထိန်းသိမ်းခြင်း သို့မဟုတ် ချက်ပြုတ်နည်းအမျိုးမျိုးနှင့် ပေါင်မုန့်နှင့် ဒိန်ခဲကိစ္စတွင် အရက်မသောက်ဘဲ အချဉ်ဖောက်ခြင်း ပါဝင်သည်။ ပြုပြင်ပြီးသား အစားအစာအများစုတွင် ပါဝင်ပစ္စည်းများ နှစ်ခု သို့မဟုတ် သုံးခုပါရှိပြီး အုပ်စု 1 အစားအစာများ၏ ပြုပြင်ထားသောဗားရှင်းများအဖြစ် အသိအမှတ်ပြုနိုင်ပါသည်။ ၎င်းတို့ကို ၎င်းတို့ကိုယ်တိုင် သို့မဟုတ် အခြားအစားအစာများနှင့် တွဲစားနိုင်သည်။",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "အချိုရည်များ၊ ချိုမြိန်သော သို့မဟုတ် အရသာရှိသော ထုပ်ပိုးထားသော သရေစာများ၊ ပြန်လည်ဖွဲ့စည်းထားသော အသားထွက်ပစ္စည်းများ၊ နှင့် ကြိုတင်ပြင်ဆင်ထားသော အေးခဲထားသော ဟင်းလျာများကဲ့သို့သော အထူးပြုပြင်ထားသော အစားအစာများသည် မွမ်းမံထားသော အစားအစာများသာမက အုပ်စု 1 အစားအစာများမှရရှိသော ဓာတုပစ္စည်းများနှင့် ဖြည့်စွက်ပစ္စည်းများမှရရှိသော အစားအစာများနှင့် ဖြည့်စွက်ပစ္စည်းများမှ အများစု သို့မဟုတ် လုံးလုံးဖြင့် ပြုလုပ်ထားသော ဖော်မြူလာများဖြစ်သည်။ ဤဖော်မြူလာများတွင် ပါဝင်ပစ္စည်းများမှာ သကြား၊ ဆီများ၊ အဆီများ သို့မဟုတ် ဆားကဲ့သို့သော ပြုပြင်ပြီးသား အစားအစာများတွင်လည်း တွေ့ရှိရသည်။ သို့ရာတွင်၊ လွန်ကဲစွာ ပြုပြင်ထားသော ထုတ်ကုန်များတွင် ပုံမှန်အားဖြင့် အချက်အပြုတ်ပြင်ဆင်ရာတွင် အသုံးမပြုသော စွမ်းအင်နှင့် အာဟာရဓာတ်များ ပါဝင်ပါသည်။ ၎င်းတို့ထဲမှ အချို့ကို casein၊ lactose၊ whey နှင့် gluten ကဲ့သို့သော အစားအစာများမှ တိုက်ရိုက်ထုတ်ယူသည်။",
+  "guide_nova_explanations_title": "ultra-processing နှင့် ပြဿနာများ",
+  "guide_nova_explanations_arg1_title": "အစားအသောက် ပါဝင်ပစ္စည်းများကို လွန်ကဲစွာ စီမံဆောင်ရွက်ခြင်း",
+  "guide_nova_explanations_arg1_text": "အများအပြားသည် ဟိုက်ဒရိုဂျင်ဖြင့်ပြုလုပ်ထားသော သို့မဟုတ် စိတ်ဝင်စားဖွယ်အဆီများ၊ ဟိုက်ဒရိုဂျင်ပရိုတင်းများ၊ ပဲပိစပ်ပရိုတင်းအထီးကျန်၊ maltodextrin၊ ပြောင်းပြန်သကြားနှင့် fructose မြင့်မားသောပြောင်းဖူးရည်ကဲ့သို့သော အစားအစာပါဝင်ပစ္စည်းများ၏ နောက်ထပ်လုပ်ဆောင်မှုမှ ဆင်းသက်လာခြင်းဖြစ်သည်။",
+  "guide_nova_explanations_arg2_title": "သန့်စင်သောအစားအစာဘေးကင်းရေးထက်ကျော်လွန်သော additives များ",
+  "guide_nova_explanations_arg2_text": "လွန်လွန်ကဲကဲ ပြုပြင်ထားသော အစားအစာများတွင် ဖြည့်စွက်စာများတွင် ကြာရှည်ခံခြင်း၊ antioxidants နှင့် stabilizers ကဲ့သို့သော ပြုပြင်ထားသော အစားအစာများတွင်လည်း အသုံးပြုသည့် အချို့ပါဝင်သည်။ လွန်လွန်ကဲကဲ ပြုပြင်ထားသော ထုတ်ကုန်များတွင်သာ တွေ့ရသော ဖြည့်စွက်ပစ္စည်းများ အမျိုးအစားများတွင် အစားအစာများ၏ အာရုံခံအရည်အသွေးများကို အတုယူရန် သို့မဟုတ် မြှင့်တင်ရန် သို့မဟုတ် နောက်ဆုံးထုတ်ကုန်၏ အရသာမရှိသော အသွင်အပြင်များကို ဖုံးကွယ်ရန် အသုံးပြုသည့် ပစ္စည်းများ ပါဝင်ပါသည်။ အဆိုပါ ဖြည့်စွက်ပစ္စည်းများတွင် ဆိုးဆေးနှင့် အခြားအရောင်များ၊ အရသာများ ၊ အရသာမြှင့်တင်ပေးသော ၊ သကြားမဟုတ်သော အချိုဓာတ်များ ၊ ကာဗွန်ထုတ်ခြင်း၊ တင်းရင်းခြင်း၊ ထူထပ်ခြင်းနှင့် ထူထပ်ခြင်းများကို ဆန့်ကျင်ခြင်း၊ အမြှုပ်ထွက်ခြင်း၊ မုန့်ဖုတ်ခြင်း နှင့် အကာအကာများ၊ emulsifiers၊ sequestrants နှင့် humectants ကဲ့သို့သော စီမံဆောင်ရွက်ပေးသည့် အကူအညီများ။",
+  "guide_nova_explanations_arg3_title": "အိမ်မှာလုပ်လို့မရတဲ့ စီမံဆောင်ရွက်မှု",
+  "guide_nova_explanations_arg3_text": "အများအားဖြင့် ပါဝင်ပစ္စည်းများ အများအပြားကို ပေါင်းစပ်ပြီး နောက်ဆုံးထုတ်ကုန်ကို ဖန်တီးရန် (ထို့ကြောင့် 'လွန်ကဲစွာ စီမံဆောင်ရွက်သည်') လုပ်ငန်းစဉ်များ၏ ဆက်တိုက်များပြားသော လုပ်ငန်းစဉ်များကို အသုံးပြုပါသည်။ လုပ်ငန်းစဉ်များတွင် ဟိုက်ဒရိုဂျင်နှင့် ဟိုက်ဒရိုဂျင် ထုတ်ပေးခြင်း၊ ထုတ်ယူခြင်းနှင့် ပုံသွင်းခြင်းနှင့် ကြော်ခြင်းအတွက် ကြိုတင်လုပ်ဆောင်ခြင်းကဲ့သို့သော ပြည်တွင်း ညီမျှမှုမရှိသော လုပ်ငန်းစဉ်များစွာ ပါဝင်ပါသည်။",
+  "guide_nova_explanations_arg4_title": "လွန်ကဲစွာ လုပ်ဆောင်ခြင်း၏ အာဏာရှင်ဆန်မှုနှင့် ငွေကြေးဆိုင်ရာ ကဏ္ဍများ",
+  "guide_nova_explanations_arg4_text": "လွန်ကဲစွာ စီမံဆောင်ရွက်ပေးခြင်း၏ အလုံးစုံရည်ရွယ်ချက်မှာ အခြားအစားအစာအုပ်စုအားလုံးကို ရွှေ့ပြောင်းရန် ဒီဇိုင်းထုတ်ထားသော အမှတ်တံဆိပ်ပါသော၊ အဆင်ပြေသော (တာရှည်ခံ၊ စားသုံးရန်အသင့်)၊ ဆွဲဆောင်မှု (hyper-palatable) နှင့် အလွန်အမြတ်အစွန်းရနိုင်သော (ကုန်ကျစရိတ်သက်သာသော ပါဝင်ပစ္စည်းများ) အစားအသောက်ထုတ်ကုန်များကို ဖန်တီးရန်ဖြစ်သည်။ လွန်လွန်ကဲကဲ ပြုပြင်ထားသော အစားအသောက်ထုတ်ကုန်များကို အများအားဖြင့် ဆွဲဆောင်မှုရှိရှိ ထုပ်ပိုးပြီး စျေးကွက်တွင် အလေးအနက်ထားကြသည်။",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "သင့်စျေးနှုန်းများကို စိတ်ကြိုက်စီမံပါ။",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Open Food Facts ပရောဂျက်",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "ဘာသာပြန်ပါ၊ ကျွန်ုပ်တို့၏ကိရိယာများ…ကို တိုးတက်အောင်လုပ်ပါ။",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "ချိတ်ဆက်ပါ။",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "ဆက်သွယ်ပါ၊ သို့မဟုတ် ဆိုရှယ်မီဒီယာပေါ်တွင် ကျွန်ုပ်တို့ကို လိုက်ကြည့်ပါ။",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "ကမ္ဘာတစ်ဝှမ်းရှိ သန်းနှင့်ချီသော သုံးစွဲသူများအား အသိပေးရန် ကျွန်ုပ်တို့အား ကူညီပေးပါ။",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "အကူအညီ & ပံ့ပိုးမှု",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "သင့်မေးခွန်းများအတွက် အဖြေများရယူပါ။",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "ထွက်သွားပြီ",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "ကျွန်ုပ်တို့၏အဖွဲ့ဝင်တစ်ဦးဖြစ်သည့်အတွက် ကျေးဇူးတင်ပါသည်။",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "စာရင်းအင်းများအားလုံးကို ကြည့်ပါ။",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "\"{keyword}\" အတွက် {provider} ကို ရှာပါ",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "ဆက်တင်တစ်ခုကို ရှာပါ (ဥပမာ- Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "အသုံးပြုနိုင်မှု- အီမိုဂျီကို ပြပါ။",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "အသုံးပြုနိုင်မှု- အရောင်များကို ဖယ်ရှားပါ။",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "အကြောင်း",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "ဥပဒေအချက်အလက်",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "အသုံးပြုမှုစည်းမျဉ်းများ၊ ကိုယ်ရေးကိုယ်တာမူဝါဒနှင့် အခြားအရာများ",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "လိုင်စင်များ",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "အက်ပ်အကြောင်း",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "နည်းပညာဆိုင်ရာ အချက်အလက်၊ ဆော့ဖ်ဝဲရေးသားသူ အချက်အလက်နှင့် အခြားအရာများ",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "အချက်အလက်များ",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "ဗားရှင်းနံပါတ်",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "စကင်နာ",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "အက်ပ်စတိုး",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "စနစ်ဆက်တင်များ",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "အရင်းအမြစ်ကုဒ်ကို ဝင်ရောက်ကြည့်ရှုပါ။",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "သန်းပေါင်းများစွာအတွက် အကျိုးသက်ရောက်မှုကို စတင်လိုက်ပါ။",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "အကြံပြုချက်များ",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Nutri-Score အသစ်ကို ရှာဖွေပါ။",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts ဝဘ်ဆိုဒ်တွင်",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "ကျွန်ုပ်၏အကောင့်ကိုစီမံပါ။",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "ကျွန်ုပ်၏ စကားဝှက်ကို ပြောင်းပါ။",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "အန္တရာယ်ဇုန်",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "သင်၏ ပံ့ပိုးမှုများ အားလုံးကို ဆုံးရှုံးပါမည်။",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "အက်ပ်ဆက်တင်များ",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "ထုတ်ကုန်များကို အော့ဖ်လိုင်းစကင်န်လုပ်ရန် အလွန်စမ်းသပ်နည်း",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "ဆာဗာမှ ထုတ်ကုန်အားလုံးကို ပြန်လည်စတင်ပါ။",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "ကျေးဇူးပြု၍ လုံးဝမလိုအပ်ဘဲ ရှောင်ကြဉ်ပါ။",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "ဒီမိုမုဒ်",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "စကင်နာသို့ ကတ်များထည့်ပါ။",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "စကင်နာသို့ နမူနာထုတ်ကုန် 3 ခုကို ထည့်ပါ။",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy အိမ်ရှင်",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "သုံးစွဲနိုင်မှု စမ်းသပ်မှုများ",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "စျေးနှုန်းများအတွက် ကုန်ပစ္စည်းမျိုးစုံကို ရွေးချယ်ခြင်း။",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "အသုံးပြုသူမှ အသိပညာအကန့်များကို မှာယူထားသည်။",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "တည်နေရာရှာဖွေမှုသို့ ယာယီဝင်ရောက်ခွင့်",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "ထုတ်ကုန် 2 သို့မဟုတ် 3 အတွက် ဘေးချင်းယှဉ် နှိုင်းယှဉ်ခြင်း။",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "သွင်းကုန်စာရင်း",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "ရမှတ်များနှင့် နည်းစနစ်များ",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score ကို မည်သို့တွက်ချက်ထားသည်ကို ရှာဖွေပါ။",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "နည်းစနစ်၏ အဓိကပြောင်းလဲမှုများကို ရှာဖွေပါ။",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Open Food Facts ကို ရှာဖွေပါ။",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - အမေးများသောမေးခွန်းများ",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Open Food Facts NGO ၊",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "အချက်အလက်များ",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "အသိုင်းအဝိုင်းအပ်ဒိတ်များကို ရယူပါ။",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "အက်ပ်နှင့် ကွန်မြူနတီသတင်းများဖြင့် ကွင်းဆက်နေပါ။",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "ကျွန်ုပ်တို့၏ ပကတိဖြစ်ရပ်များထဲမှ တစ်ခုကို တက်ရောက်ခြင်းဖြင့် ပါဝင်လိုက်ပါ။",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "ဆိုရှယ်မီဒီယာပေါ်တွင်ကျွန်ုပ်တို့ကိုလိုက်နာပါ။",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Open Food Facts ဘလော့ဂ်",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "နောက်ဆုံးရသတင်းများကို ရယူပါ။",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "အသိုင်းအဝိုင်းထံမှအကူအညီရယူပါ။",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "အက်ပ်ကို တိုးတက်အောင် ကူညီပေးပါ။",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "အမှားရှာပြင်အချက်အလက်ကို ကျွန်ုပ်တို့ထံ ပေးပို့ပါ။",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "အသေးစိတ် အမှားရှာပြင်ခြင်း အချက်အလက်နှင့်အတူ ကျွန်ုပ်တို့ထံ အီးမေးလ်တစ်စောင် ပေးပို့ပါ။",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "အက်ပ်အကြောင်း တုံ့ပြန်ချက်ပေးပို့ပါ။",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "အက်ပ်၏ အနာဂတ်ကို ပုံဖော်ရာတွင် ကူညီပါ။",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "အက်ပ်စစ်တမ်းကို ယူပါ။",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "ရှေ့ဆက်တည်ဆောက်သင့်သည်များကို နားလည်ကူညီပေးပါ။",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "အတတ်ပညာရှင်များ",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "လုံးဝအခမဲ့၊ အက်ပ် 500 နှင့် သုံးစွဲသူ သန်းပေါင်းများစွာအတွက် တိကျသောဒေတာကို အာမခံပါသည်။ ကိုယ်ပိုင်ဝန်ဆောင်မှု၊ သင်၏ PIM သို့မဟုတ် စာရင်းဇယားများ (XLSX) နှင့် တွဲဖက်အသုံးပြုနိုင်သည်",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "စတင်ရန် ဆက်သွယ်လိုက်ပါ။",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "သင့်အစီရင်ခံစာအတွက် သင်လိုအပ်သော ပစ္စည်းအားလုံးကို ရယူပါ။",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "စာနယ်ဇင်း စုံစမ်းမေးမြန်းမှုများအတွက် ဆက်သွယ်ရန် သို့မဟုတ် သင့်အစီရင်ခံစာနှင့် ပတ်သက်၍ ကျွန်ုပ်တို့အား အသိပေးပါ။",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "တက်ကြွသောစေတနာ့ဝန်ထမ်းဖြစ်လာပါ။",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "ဖွံ့ဖြိုးတိုးတက်မှု၊ ဆက်သွယ်ရေး၊ ဒီဇိုင်း… မည်သည့်စေတနာ့ဝန်ထမ်း သို့မဟုတ် ကျွမ်းကျင်မှုမျိုးကိုမဆို ကြိုဆိုပါသည်။",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "သင်ပါဝင်ကူညီနိုင်သည့် နည်းလမ်းများစွာထဲမှ အချို့ကို ရှာဖွေပါ။",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "မိုဘိုင်းအက်ပ်ဖွံ့ဖြိုးတိုးတက်မှု",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "ဆော့ဖ်ဝဲလ်ဖွံ့ဖြိုးတိုးတက်မှုတွင် အထောက်အကူဖြစ်စေရန် မည်သို့လုပ်ဆောင်ရမည်ကို လေ့လာပါ။",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "နေ့စဉ်မတည်မငြိမ်တည်ဆောက်မှုများ၊ ဝန်ဆောင်မှုအသစ်စက်စက်",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "သင်၏ဒေသခံအသိုင်းအဝိုင်းကို ကြီးထွားစေပါ။",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "ဆော့ဖ်ဝဲလ်၊ အကြောင်းအရာများ၊ ပါဝင်ပစ္စည်း ခွဲခြမ်းစိတ်ဖြာ ဘာသာပြန်ဆိုမှုများဖြင့် ကူညီပါ။",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "မင်းကိုကူညီဖို့ နမူနာပုံစံလေးတစ်ခု ပြင်ဆင်ထားပါတယ် :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "သင့်နိုင်ငံတွင် စားနပ်ရိက္ခာပွင့်လင်းမြင်သာမှုကို မြှင့်တင်ရန် ရိုးရှင်းသောအဆင့်များ",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "ဒေတာအရည်အသွေးအဖွဲ့တွင် ပါဝင်ပါ။",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "ဒေတာဘေ့စ်သည် ပြီးပြည့်စုံပြီး တိကျသေချာစေရန် ကျွန်ုပ်တို့၏ကြိုးပမ်းအားထုတ်မှုတွင် ပါဝင်ပါ။",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "တရားမ၀င် ကုန်ပစ္စည်းများ ထည့်သွင်းထားသည်။",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Open Food Facts တွင် ကျွန်ုပ်ထည့်ထားသော ထုတ်ကုန်အသစ်များ",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "ပြီးပြည့်စုံရန် လိုအပ်သော ထုတ်ကုန်များ",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "မပြည့်စုံသောထုတ်ကုန်အားလုံး",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "ပြီးပြည့်စုံအောင် ကူညီပေးနိုင်တဲ့ ထုတ်ကုန်တွေ",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "သင့်နိုင်ငံရှိ Nutri-Score နှင့် Green-Score ကို တွက်ချက်ကူညီပေးပါ။",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "ကျွန်တော် ထည့်ဝင်ထားတဲ့ ဈေးနှုန်းများ",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "စျေးနှုန်းတံဆိပ်များနှင့် ပြေစာများ",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "သင့်ပြေစာများကို ဓာတ်ပုံရိုက်ပြီး ဆက်စပ်ဘားကုဒ်များကို စကင်န်ဖတ်ပါ။",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "ဆိုင်တစ်ဆိုင်တွင် ဈေးနှုန်းများကို ဓာတ်ပုံရိုက်ပါ။",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "နောက်ဆုံးပေါ်စျေးနှုန်းများ",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Open Prices အသိုင်းအဝိုင်းမှ နောက်ဆုံးစျေးနှုန်းများကို ထည့်သွင်းထားသည်။",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "စျေးနှုန်းအများဆုံးပါဝင်သူများ",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "စျေးနှုန်းတိုင်းတာမှုများကို ဖွင့်ပါ။",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "ပရောဂျက်၏ ဆင့်ကဲဖြစ်စဉ်ကို လိုက်နာပါ။",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "အကျိုးပြုနည်းများ",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "AI ၏အကူအညီဖြင့် သင်ကိုယ်တိုင် သို့မဟုတ် အခြားသူများ ထည့်ထားသည့်စျေးနှုန်းများကို အတည်ပြုပါ။",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "သင့်ကင်မရာလိပ်မှ စင်ပေါ်ရှိ ပြေစာများ သို့မဟုတ် ဓာတ်ပုံများစွာကို အမြန်ထည့်ပါ။",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "လစဉ်စိန်ခေါ်မှုများ",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "စျေးနှုန်းများစုဆောင်းရန် လစဉ်အကြောင်းအရာအလိုက် စူးစမ်းမှုများတွင် ပါဝင်ပါ။",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "သင်၏သစ္စာစောင့်သိမှုဒေတာကို ပြန်လည်ရယူပါ။",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "သင့်ဒေတာကို မည်သို့တောင်းဆိုရမည်ကို လေ့လာပါ။",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "အက်ပ်ကို စိတ်ကြိုက်လုပ်ပါ။",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "ပရောဂျက်အတွက် ပါဝင်ကူညီပါ။",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Food Facts ကိုဖွင့်ရန် ရိုးရှင်းသောနည်းလမ်းများ",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "နည်းစနစ်များ၊ အကူအညီနှင့် ပရောဂျက်အကြောင်း နောက်ထပ် ရမှတ်များ",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "အကြံပြုချက်ကို လက်ခံပါ။",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "အထောက်အထားစိစစ်ခြင်း မအောင်မြင်ပါ၊ အထောက်အထားများကို ထုတ်ယူ၍မရပါ။",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "အပြောင်းအလဲများကို အသုံးပြုရန် အက်ပ်ကို ပြန်လည်စတင်ပါ။",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "ဂရပ်ဖစ် အင်တာဖေ့စ်",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "မီဒီယာ",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Food Facts Labs ကိုဖွင့်ပါ။",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Open Food Facts ကို သင့်ဘာသာစကားသို့ ယူဆောင်လာပါ။",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "အက်ပ်၏ အယ်လ်ဖာဗားရှင်းတွင် စာရင်းသွင်းပါ။",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "ပံ့ပိုးမှုများနှင့် ထုတ်ကုန်ဒေတာ",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Folksonomy ကို မပြပါနှင့်",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

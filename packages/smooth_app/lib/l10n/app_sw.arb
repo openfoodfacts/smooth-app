@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Fikia vipengele vya majaribio na zana za ukuzaji",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Alama ya Kijani A",
+  "environmental_score_b_new": "Alama ya Kijani B",
+  "environmental_score_c_new": "Alama ya Kijani C",
+  "environmental_score_d_new": "Alama ya Kijani D",
+  "environmental_score_e_new": "Alama ya Kijani E",
+  "environmental_score_unknown_new": "Alama ya Kijani Isiyojulikana",
+  "environmental_score_not_applicable_new": "Green-Alama haitumiki",
+  "nova_group_generic_new": "Vyakula vilivyosindikwa zaidi - vikundi vya NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Raia wote wanaweza kutusaidia kukusanya na kupanga maelezo yaliyopo kwenye bidhaa au ambayo yanaweza kupatikana kutoka kwao, kama vile habari juu ya ufungashaji: Dhamana za Misheni: orodha kubwa ya shirikishi ya ufungaji wa bidhaa zote za chakula (kwa Kifaransa)",
   "guide_greenscore_transparency_arg2_title": "Jinsi watengenezaji wanaweza kusaidia",
   "guide_greenscore_transparency_arg2_text": "Watengenezaji wanaweza kututumia taarifa zao moja kwa moja kupitia jukwaa letu lisilolipishwa la watayarishaji.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Ni bidhaa gani bora kwa sayari?",
+  "guide_greenscore_better_product_arg1_title": "Inaweza kuwa ngumu kusema",
+  "guide_greenscore_better_product_arg1_text": "Kuchagua chakula endelevu ni mojawapo ya mambo yenye nguvu zaidi tunaweza kufanya kwa ajili ya hali ya hewa, kwani **mfumo wetu wa chakula duniani unawajibika kwa zaidi ya robo ya uzalishaji wote wa gesi chafuzi**.\n(Chanzo: Poore & Nemecek, Sayansi, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Una nguvu!",
+  "guide_greenscore_better_product_arg2_text": "Habari njema ni kwamba hii inatupa njia nzuri ya kuunda mabadiliko.\n**Kila mmoja wetu hula karibu milo 1,000 kila mwaka**. Hizo ni fursa 1,000 za **kuchagua mustakabali bora wa sayari**!",
+  "guide_greenscore_better_product_arg3_title": "Inasaidia kuwajibika na kuamua",
+  "guide_greenscore_better_product_arg3_text": "Kuchagua chakula endelevu kunaweza kuhisi kuwa ngumu. Lebo zinachanganya na habari mara nyingi hukosekana. Alama ya Kijani iliundwa ili kurahisisha, kukupa ukadiriaji wa **wazi**, **kulingana na sayansi**, na **wazi** wa mazingira kwa bidhaa za chakula, pale unapohitaji: unaponunua.",
+  "guide_greenscore_better_product_arg4_title": "Uwazi",
+  "guide_greenscore_better_product_arg4_text": "Tofauti na lebo za wamiliki, hesabu ya Alama ya Kijani ni **imefunguliwa kabisa** na inaweza **kuthibitishwa na mtu yeyote**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Usindikaji wa hali ya juu ni nini?",
+  "guide_nova_what_is_nova_paragraph1": "Vikundi vya NOVA vinakujulisha kuhusu kiwango cha usindikaji wa chakula.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Uainishaji wa NOVA unaruhusu kuainishwa kwa vyakula katika **makundi 4** kulingana na **shahada zao za usindikaji wa viwandani** (vyakula vilivyosindikwa au ambavyo havijachakatwa, viambato vya upishi, vyakula vilivyochakatwa, vyakula vilivyosindikwa zaidi).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Nembo za NOVA",
+  "guide_nova_groups_title": "Vikundi 4 vya NOVA",
+  "guide_nova_groups_intro": "Kuna vikundi 4 vya NOVA, moja ya shida ikiwa ni Kundi la 4 - Vyakula vilivyosindikwa sana.",
+  "guide_nova_groups_arg1_title": "Vyakula vilivyosindikwa kidogo au visivyochakatwa",
+  "guide_nova_groups_arg1_text": "Vyakula visivyochakatwa (au asili) ni sehemu zinazoweza kuliwa za mimea (mbegu, matunda, majani, shina, mizizi) au wanyama (misuli, offal, mayai, maziwa), pamoja na kuvu, mwani, na maji, baada ya kutengwa na asili.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Viungo vya upishi vilivyochakatwa, kama vile mafuta, siagi, sukari, na chumvi, ni vitu vinavyotokana na vyakula vya Kundi la 1 au kutoka kwa asili kupitia michakato inayojumuisha kukandamiza, kusafisha, kusaga, kusaga na kukausha.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Vyakula vilivyosindikwa, kama vile mboga za chupa, samaki wa makopo, matunda kwenye sharubati, jibini, na mikate iliyotengenezwa upya, kimsingi hutengenezwa kwa kuongeza chumvi, mafuta, sukari, au vitu vingine kutoka Kundi la 2 hadi la Kundi la 1. Michakato ni pamoja na njia mbalimbali za kuhifadhi au kupika, na katika kesi ya mikate na jibini, fermentation isiyo ya pombe. Vyakula vingi vilivyochakatwa vina viambato viwili au vitatu na vinatambulika kama matoleo yaliyorekebishwa ya vyakula vya Kundi la 1. Wanaweza kuliwa peke yao au, kawaida zaidi, pamoja na vyakula vingine.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Vyakula vilivyochakatwa sana, kama vile vinywaji baridi, vitafunio vitamu au vitamu vilivyopakiwa, bidhaa za nyama zilizotengenezwa upya, na vyakula vilivyogandishwa vilivyotayarishwa awali, si vyakula vilivyorekebishwa tu bali ni michanganyiko inayotengenezwa kwa wingi au kabisa kutokana na vitu vinavyotokana na vyakula na viungio, pamoja na chakula cha Kundi 1 kidogo kabisa. Viungo katika uundaji huu kwa kawaida hujumuisha vile vinavyopatikana pia katika vyakula vilivyochakatwa, kama vile sukari, mafuta, mafuta, au chumvi. Hata hivyo, bidhaa zilizosindikwa zaidi pia zina vyanzo vingine vya nishati na virutubisho ambavyo hazitumiwi kwa kawaida katika maandalizi ya upishi. Baadhi ya hizi hutolewa moja kwa moja kutoka kwa vyakula, kama vile casein, lactose, whey, na gluten.",
+  "guide_nova_explanations_title": "Matatizo ya usindikaji wa hali ya juu",
+  "guide_nova_explanations_arg1_title": "Usindikaji mkubwa wa viungo vya chakula",
+  "guide_nova_explanations_arg1_text": "Nyingi zinatokana na usindikaji zaidi wa viambajengo vya chakula, kama vile mafuta ya hidrojeni au ya kuvutia, protini za hidrolisisi, kutenganisha protini ya soya, maltodextrin, sukari ya kubadilisha, na sharubati ya mahindi yenye fructose.",
+  "guide_nova_explanations_arg2_title": "Viungio vinavyoenda zaidi ya usalama wa chakula safi",
+  "guide_nova_explanations_arg2_text": "Viungio katika vyakula vilivyochakatwa zaidi ni pamoja na vingine ambavyo hutumika pia katika vyakula vilivyochakatwa, kama vile vihifadhi, viondoa sumu mwilini, na vidhibiti. Aina za viungio vinavyopatikana tu katika bidhaa zilizochakatwa zaidi ni pamoja na zile zinazotumiwa kuiga au kuboresha sifa za hisia za vyakula au kuficha vipengele visivyopendeza vya bidhaa ya mwisho. Viongezeo hivi ni pamoja na rangi na rangi nyingine, vidhibiti vya rangi; ladha, viboreshaji vya ladha, vitamu visivyo na sukari; na vifaa vya usindikaji kama vile kaboni, uimarishaji, bulking na mawakala wa kuzuia bulking, de-povu, anti-caking na ukaushaji mawakala, emulsifiers, sequestrants, na humectants.",
+  "guide_nova_explanations_arg3_title": "Usindikaji hauwezi kufanya nyumbani",
+  "guide_nova_explanations_arg3_text": "Misururu mingi ya michakato hutumika kuchanganya viambato vingi vya kawaida na kuunda bidhaa ya mwisho (kwa hivyo 'iliyochakatwa zaidi'). Michakato hiyo ni pamoja na kadhaa bila vilinganishi vya nyumbani, kama vile utiaji hidrojeni na uhaidrolisisi, utoboaji na ukingo, na uchakataji wa awali kwa kukaanga.",
+  "guide_nova_explanations_arg4_title": "Vipengele vya unyanyasaji na kifedha vya usindikaji wa hali ya juu",
+  "guide_nova_explanations_arg4_text": "Madhumuni ya jumla ya usindikaji wa hali ya juu ni kuunda bidhaa za chakula zenye chapa, zinazofaa (zinazodumu, tayari kutumika), zinazovutia (zinazopendeza) na zenye faida kubwa (za bei ya chini) zilizoundwa kuondoa vikundi vingine vyote vya chakula. Bidhaa za chakula zilizochakatwa kwa kiwango cha juu huwekwa kwenye vifurushi vya kuvutia na kuuzwa kwa kasi.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Dhibiti mapendeleo yako ya bei",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Mradi wa Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Tafsiri, boresha zana zetu…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Unganisha",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Wasiliana nasi, au Tufuate kwenye mitandao ya kijamii",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Tusaidie kuwafahamisha mamilioni ya watumiaji duniani kote",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Usaidizi na Usaidizi",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Pata majibu ya maswali yako",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Umetoka nje",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Asante kwa kuwa mmoja wa wanachama wetu!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Tazama takwimu zote",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Tafuta {provider} kwa \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Tafuta mpangilio (km Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Ufikivu: Onyesha emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Ufikiaji: Ondoa rangi",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Kuhusu",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Taarifa za kisheria",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Masharti ya matumizi, sera ya faragha na zaidi",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Leseni",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Kuhusu programu",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Maelezo ya kiufundi, maelezo ya msanidi programu, na zaidi",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Nambari ya toleo",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Kichanganuzi",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Duka la programu",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Mipangilio ya mfumo",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Fikia msimbo wa chanzo",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Na anza kuleta athari kwa mamilioni",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Bidhaa Zote",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Vidokezo",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Gundua Nutri-Alama mpya",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Kwenye tovuti ya Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Dhibiti akaunti yangu",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Badilisha nenosiri langu",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Eneo la hatari",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Michango yako yote itapotea",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Mipangilio ya programu",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Njia ya majaribio sana ya kuchanganua bidhaa nje ya mtandao",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Onyesha upya bidhaa zote kutoka kwa seva",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Tafadhali epuka kufanya hivyo isipokuwa lazima kabisa",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Hali ya onyesho",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Ongeza kadi kwenye kichanganuzi",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Huongeza sampuli za bidhaa 3 kwenye kichanganuzi",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "mwenyeji wa Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Majaribio ya ufikivu",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Uteuzi wa bidhaa nyingi kwa bei",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Vidirisha vya muhtasari vilivyoagizwa na mtumiaji",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Ufikiaji wa muda wa utafutaji wa eneo",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Ulinganisho wa kando kwa bidhaa 2 au 3",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Uingizaji wa orodha ya bidhaa",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Alama na mbinu",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Gundua jinsi Nutri-Score inavyokokotwa",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Gundua mabadiliko kuu ya mbinu",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Gundua Ukweli wa Chakula cha Wazi",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Maswali Yanayoulizwa Mara Kwa Mara - Maswali Yanayoulizwa Mara Kwa Mara",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "NGO ya Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Pata masasisho ya jumuiya",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Endelea kupata habari kuhusu programu na habari za jumuiya",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Jihusishe kwa kuhudhuria mojawapo ya matukio yetu ya mtandaoni",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Tufuate kwenye mitandao ya kijamii",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Blogu ya Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Pata habari za hivi punde, kadri zinavyotokea",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Pata usaidizi kutoka kwa jamii",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Tusaidie kuboresha programu",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Tutumie maelezo ya utatuzi",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Tutumie barua pepe yenye maelezo ya kina ya utatuzi",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Tutumie maoni kuhusu programu",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Saidia kuunda mustakabali wa programu",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Chukua uchunguzi wa programu",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Tusaidie kuelewa tunachopaswa kujenga baadaye",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Wataalamu",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Bila malipo kabisa, huhakikisha data sahihi kwa programu 500 na mamilioni ya watumiaji. Huduma ya kibinafsi, inayooana na PIM au lahajedwali zako (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Wasiliana ili kuanza",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Pata nyenzo zote unazohitaji kwa ripoti yako",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Wasiliana na waandishi wa habari kwa maswali au utufahamishe kuhusu ripoti yako",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Kuwa mfanyakazi wa kujitolea anayefanya kazi",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Maendeleo, Mawasiliano, Usanifu… aina yoyote ya kujitolea au utaalam inakaribishwa!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Gundua baadhi ya njia nyingi unazoweza kuchangia",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Maendeleo ya programu ya rununu",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Jifunze jinsi ya kuchangia katika ukuzaji wa programu",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Miundo isiyo thabiti ya kila siku, vipengele vipya kabisa",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Kuza jumuiya yako ya ndani",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Usaidizi wa programu, yaliyomo, tafsiri za uchanganuzi wa viambato",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Tumekuandalia kiolezo kidogo kukusaidia :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Hatua rahisi za kukuza uwazi wa chakula katika nchi yako",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Jiunge na timu ya ubora wa data",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Jiunge na juhudi zetu ili kuhakikisha hifadhidata ni kamili na sahihi",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "Bidhaa 0 zimeongezwa",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Bidhaa mpya nilizoongeza kwenye Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Bidhaa ninazohitaji kukamilisha",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Bidhaa zote ambazo hazijakamilika",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Bidhaa unazoweza kusaidia kukamilisha",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Saidia kukokotoa Nutri-Score & Green-Score katika nchi yako",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Bei nilizochangia",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Lebo za bei na risiti",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Piga picha za stakabadhi zako na uchanganue misimbopau inayohusishwa",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Piga picha za bei dukani",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Bei mpya zaidi",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Bei za hivi punde zilizoongezwa na jumuiya ya Bei Huria",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Wachangiaji walio na bei nyingi zaidi",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Fungua vipimo vya Bei",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Fuata maendeleo ya mradi",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Njia za kuchangia",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Thibitisha bei zilizoongezwa na wewe mwenyewe au wengine, kwa usaidizi wa AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Ongeza kwa haraka risiti nyingi au picha za rafu kutoka kwa orodha ya kamera yako",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Changamoto za kila mwezi",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Shiriki katika mapambano ya mada ya kila mwezi ili kukusanya bei",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Rejesha data yako ya uaminifu",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Jifunze jinsi ya kuomba data yako",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Geuza kukufaa programu",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Changia kwenye mradi",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Njia rahisi za kusaidia Fungua Ukweli wa Chakula",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Mbinu za alama, usaidizi, na zaidi kuhusu mradi",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Kubali pendekezo",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Uthibitishaji umeshindwa, haikuweza kuleta uthibitisho",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Tafadhali anzisha upya programu ili kutekeleza mabadiliko.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Kiolesura cha mchoro",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Vyombo vya habari",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Fungua Maabara ya Ukweli wa Chakula",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Leta Ukweli wa Chakula Huria kwa lugha yako",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Jiandikishe katika toleo la alpha la programu",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Data ya Michango na Bidhaa",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Usionyeshe Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

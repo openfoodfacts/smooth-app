@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Wọle si awọn ẹya idanwo ati awọn irinṣẹ idagbasoke",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Alawọ-Score A",
+  "environmental_score_b_new": "Alawọ-Score B",
+  "environmental_score_c_new": "Alawọ-Score C",
+  "environmental_score_d_new": "Alawọ-Score D",
+  "environmental_score_e_new": "Alawọ-Score E",
+  "environmental_score_unknown_new": "Aimọ Green-Dimegilio",
+  "environmental_score_not_applicable_new": "Green-Score ko wulo",
+  "nova_group_generic_new": "Awọn ounjẹ ti a ṣe ilana Ultra - awọn ẹgbẹ NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Gbogbo awọn ara ilu le ṣe iranlọwọ fun wa lati ṣajọ ati ṣeto alaye ti o wa lori awọn ọja tabi ti o le ṣe yọkuro lati ọdọ wọn, gẹgẹbi alaye lori apoti: Awọn emballages Mission: atokọ ifọwọsowọpọ titobi nla ti apoti fun gbogbo awọn ọja ounjẹ (ni Faranse)",
   "guide_greenscore_transparency_arg2_title": "Bawo ni awọn olupese le ṣe iranlọwọ",
   "guide_greenscore_transparency_arg2_text": "Awọn aṣelọpọ le firanṣẹ alaye wọn taara si wa nipasẹ pẹpẹ ọfẹ wa fun awọn olupilẹṣẹ.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Ọja wo ni o dara julọ fun aye?",
+  "guide_greenscore_better_product_arg1_title": "O le jẹ gidigidi lati sọ",
+  "guide_greenscore_better_product_arg1_text": "Yiyan ounjẹ alagbero jẹ ọkan ninu awọn ohun ti o lagbara julọ ti a le ṣe fun oju-ọjọ, nitori ** eto ounjẹ agbaye wa ni iduro fun diẹ sii ju idamẹrin gbogbo awọn itujade gaasi eefin ***.\n( Orisun: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "O ni agbara!",
+  "guide_greenscore_better_product_arg2_text": "Irohin ti o dara ni pe eyi fun wa ni ọna ti o lagbara lati ṣẹda iyipada.\n**Olukuluku wa jeunun to egberun kan lodun**. Iyẹn ni awọn aye 1,000 lati ** yan ọjọ iwaju ti o dara julọ fun ile-aye ***!",
+  "guide_greenscore_better_product_arg3_title": "Ṣe iranlọwọ lati jẹ iduro ati pinnu",
+  "guide_greenscore_better_product_arg3_text": "Yiyan ounje alagbero le lero eka. Awọn aami ti wa ni airoju ati alaye ti wa ni igba sonu. Green-Score ni a ṣẹda lati jẹ ki o rọrun, fun ọ ni ** ko o ***, ** orisun-imọ-jinlẹ, ati ** igbelewọn ayika fun awọn ọja ounjẹ, ni ibiti o nilo rẹ: lakoko ti o raja.",
+  "guide_greenscore_better_product_arg4_title": "Itumọ",
+  "guide_greenscore_better_product_arg4_text": "Ko dabi awọn aami ohun-ini, iṣiro Green-Score jẹ ṣiṣi silẹ patapata *** ati pe o le jẹri ** jẹri nipasẹ ẹnikẹni ***.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Kini ultra-processing?",
+  "guide_nova_what_is_nova_paragraph1": "Awọn ẹgbẹ NOVA sọ fun ọ nipa ipele ti iṣelọpọ ounjẹ.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Isọdi NOVA ngbanilaaye fun isori ti awọn ounjẹ si awọn ẹgbẹ 4 ** ti o da lori ** iwọn wọn ti sisẹ ile-iṣẹ *** (ti o ni ilọsiwaju tabi awọn ounjẹ ti ko ni ilana, awọn eroja ounjẹ, awọn ounjẹ ti a ṣe ilana, awọn ounjẹ ti a ṣe ilana ultra).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Awọn aami NOVA",
+  "guide_nova_groups_title": "Awọn ẹgbẹ 4 NOVA",
+  "guide_nova_groups_intro": "Awọn ẹgbẹ NOVA mẹrin wa, iṣoro naa jẹ Ẹgbẹ 4 - Awọn ounjẹ ti a ṣe ilana Ultra.",
+  "guide_nova_groups_arg1_title": "Awọn ounjẹ ti a ti ni ilọsiwaju tabi awọn ounjẹ ti a ko ṣe ilana",
+  "guide_nova_groups_arg1_text": "Awọn ounjẹ ti a ko ṣe ilana (tabi adayeba) jẹ awọn ẹya ti o jẹun ti awọn irugbin (awọn irugbin, awọn eso, awọn ewe, awọn eso, awọn gbongbo) tabi ẹranko (isan, awọn ẹyin, ẹyin, wara), ati elu, ewe, ati omi, lẹhin ti a yapa kuro ninu ẹda.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Awọn eroja ounjẹ ti a ṣe ilana, gẹgẹbi awọn epo, bota, suga, ati iyọ, jẹ awọn nkan ti o wa lati awọn ounjẹ Ẹgbẹ 1 tabi lati iseda nipasẹ awọn ilana ti o ni titẹ, isọdọtun, lilọ, milling, ati gbigbe.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn ẹfọ ti a fi sinu igo, ẹja ti a fi sinu akolo, awọn eso ninu omi ṣuga oyinbo, awọn warankasi, ati awọn akara titun ti a ṣe, ni akọkọ ṣe nipasẹ fifi iyọ, epo, suga, tabi awọn nkan miiran lati Ẹgbẹ 2 si awọn ounjẹ Ẹgbẹ 1. Awọn ilana pẹlu ọpọlọpọ awọn itọju tabi awọn ọna sise, ati ninu ọran ti akara ati warankasi, bakteria ti kii-ọti-lile. Pupọ awọn ounjẹ ti a ṣe ilana ni awọn eroja meji tabi mẹta ati pe o jẹ idanimọ bi awọn ẹya ti a yipada ti awọn ounjẹ Ẹgbẹ 1. Wọn le jẹ lori ara wọn tabi, ni igbagbogbo, ni apapo pẹlu awọn ounjẹ miiran.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Awọn ounjẹ ti a ṣe ilana ultra, gẹgẹbi awọn ohun mimu rirọ, awọn ounjẹ ipanu ti o dun tabi didùn, awọn ọja ẹran ti a tun ṣe, ati awọn ounjẹ ti a ti mura silẹ tẹlẹ, kii ṣe awọn ounjẹ ti a tunṣe lasan ṣugbọn awọn agbekalẹ ti a ṣe ni okeene tabi patapata lati awọn nkan ti o wa lati awọn ounjẹ ati awọn afikun, pẹlu diẹ si ko si ounjẹ Ẹgbẹ 1 mule. Awọn eroja ninu awọn agbekalẹ wọnyi nigbagbogbo pẹlu awọn ti a tun rii ninu awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn suga, awọn epo, awọn ọra, tabi iyọ. Bibẹẹkọ, awọn ọja ti a ṣe ilana ultra tun ni awọn orisun agbara miiran ati awọn ounjẹ ti kii ṣe lo deede ni awọn igbaradi ounjẹ. Diẹ ninu awọn wọnyi ni a fa jade taara lati awọn ounjẹ, gẹgẹbi casein, lactose, whey, ati gluten.",
+  "guide_nova_explanations_title": "Awọn iṣoro pẹlu ultra-processing",
+  "guide_nova_explanations_arg1_title": "Awọn iwọn processing ti ounje eroja",
+  "guide_nova_explanations_arg1_text": "Ọpọlọpọ ni o wa lati iṣelọpọ siwaju sii ti awọn eroja ounjẹ, gẹgẹbi hydrogenated tabi awọn epo ti o nifẹ si, awọn ọlọjẹ hydrolyzed, soy protein isolate, maltodextrin, suga invert, ati omi ṣuga oyinbo agbado fructose giga.",
+  "guide_nova_explanations_arg2_title": "Awọn afikun ti o kọja aabo ounje mimọ",
+  "guide_nova_explanations_arg2_text": "Awọn afikun ninu awọn ounjẹ ti a ṣe ilana ultra pẹlu diẹ ninu awọn ti a tun lo ninu awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn ohun itọju, awọn antioxidants, ati awọn amuduro. Awọn kilasi ti awọn afikun ti a rii nikan ni awọn ọja ti a ṣe ilana ultra pẹlu awọn ti a lo lati ṣe afarawe tabi mu awọn agbara ifarako ti awọn ounjẹ jẹ tabi lati paarọ awọn abala aibikita ti ọja ikẹhin. Awọn afikun wọnyi pẹlu awọn awọ ati awọn awọ miiran, awọn amuduro awọ; awọn adun, awọn imudara adun, awọn aladun ti kii ṣe suga; ati awọn iranlọwọ processing gẹgẹbi carbonating, firming, bulking ati egboogi-bulking òjíṣẹ, de-foaming, egboogi-caking ati glazing òjíṣẹ, emulsifiers, sequestrants, ati humectants.",
+  "guide_nova_explanations_arg3_title": "Ṣiṣeto o ko le ṣe ni ile",
+  "guide_nova_explanations_arg3_text": "Ọpọlọpọ awọn ilana ti awọn ilana ni a lo lati ṣajọpọ ọpọlọpọ awọn eroja nigbagbogbo ati lati ṣẹda ọja ikẹhin (nitorinaa 'iṣakoso-ilọsiwaju'). Awọn ilana naa pẹlu ọpọlọpọ pẹlu ko si awọn deede ile, gẹgẹbi hydrogenation ati hydrolysation, extrusion ati mimu, ati ṣiṣe-ṣaaju fun didin.",
+  "guide_nova_explanations_arg4_title": "Awọn aperanje ati owo ise ti olekenka-processing",
+  "guide_nova_explanations_arg4_text": "Idi gbogbogbo ti iṣelọpọ olekenka ni lati ṣẹda iyasọtọ, irọrun (ti o tọ, ṣetan lati jẹ), ẹwa (hyper-palatable) ati ere pupọ (awọn eroja idiyele kekere) awọn ọja ounjẹ ti a ṣe apẹrẹ lati yi gbogbo awọn ẹgbẹ ounjẹ miiran pada. Awọn ọja ounjẹ ti a ṣe ilana Ultra ni a maa n ṣajọ ni ẹwa ati tita ni itara.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Ṣakoso awọn ayanfẹ iye owo rẹ",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "The Open Food Facts ise agbese",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Tumọ, ṣe ilọsiwaju awọn irinṣẹ wa…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Sopọ",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Kan si, tabi Tẹle wa lori media media",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Ran wa lọwọ lati sọ fun awọn miliọnu awọn onibara ni ayika agbaye",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Iranlọwọ & Atilẹyin",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Gba awọn idahun si awọn ibeere rẹ",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Ti jade",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "O ṣeun fun jije ọkan ninu awọn ọmọ ẹgbẹ wa!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Wo gbogbo awọn iṣiro",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Wa {provider} fun \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Wa eto (fun apẹẹrẹ Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Wiwọle: Ṣafihan emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Wiwọle: Yọ awọn awọ kuro",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Nipa",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Alaye ofin",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Awọn ofin lilo, ilana ipamọ, ati diẹ sii",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Awọn iwe-aṣẹ",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Nipa ohun elo naa",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Alaye imọ-ẹrọ, alaye olupilẹṣẹ, ati diẹ sii",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Nọmba ẹya",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Scanner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "App itaja",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Eto eto",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Wọle si koodu orisun",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Ati bẹrẹ ṣiṣe ipa fun awọn miliọnu",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Italolobo",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Iwari titun Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Lori oju opo wẹẹbu Awọn Otitọ Ounjẹ Ṣii",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Ṣakoso akọọlẹ mi",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Yi ọrọ igbaniwọle mi pada",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Agbegbe ewu",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Gbogbo awọn ifunni rẹ yoo sọnu",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Awọn eto app",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Ọna adanwo pupọ lati ṣe ọlọjẹ awọn ọja ni aisinipo",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Sọ gbogbo ọja lati ọdọ olupin naa",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Jọwọ yago fun ṣiṣe iyẹn ayafi ti o jẹ dandan",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Ipo demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Fi awọn kaadi si scanner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Ṣe afikun awọn ọja ayẹwo 3 si ọlọjẹ naa",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomi alejo",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Awọn adanwo Wiwọle",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Aṣayan awọn ọja pupọ fun awọn idiyele",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "User paṣẹ imo paneli",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Wiwọle fun igba diẹ si wiwa ipo",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Ifiwewe ẹgbẹ nipa ẹgbẹ fun awọn ọja 2 tabi 3",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "agbewọle akojọ ọja",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Awọn iṣiro & awọn ilana",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Ṣawari bi o ṣe ṣe iṣiro Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Ṣawari awọn ayipada akọkọ si ilana",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Iwari Open Food Facts",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Awọn ibeere Nigbagbogbo",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Gba awọn imudojuiwọn agbegbe",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Duro ni lupu pẹlu app ati awọn iroyin agbegbe",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Kopa nipa wiwa ọkan ninu awọn iṣẹlẹ foju wa",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Tẹle wa lori media media",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Awọn Open Food Facts bulọọgi",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Gba awọn iroyin tuntun, bi wọn ṣe ṣẹlẹ",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Gba iranlọwọ lati agbegbe",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Ran wa lọwọ lati mu ohun elo naa dara",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Fi wa alaye yokokoro",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Fi imeeli ranṣẹ si wa pẹlu alaye ti n ṣatunṣe aṣiṣe",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Fi esi ranṣẹ si wa nipa ohun elo naa",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Ṣe iranlọwọ apẹrẹ ọjọ iwaju ti app naa",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Ya awọn app iwadi",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Ran wa lọwọ lati ni oye ohun ti o yẹ ki a kọ ni atẹle",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Awọn akosemose",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Lapapọ ọfẹ, ṣe idaniloju data deede fun awọn ohun elo 500 & awọn miliọnu awọn alabara. Iṣẹ ti ara ẹni, ibaramu pẹlu PIM rẹ tabi awọn iwe kaakiri (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Kan si lati bẹrẹ",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Gba gbogbo ohun elo ti o nilo fun ijabọ rẹ",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Kan si fun awọn ibeere tẹ tabi lati jẹ ki a mọ nipa ijabọ rẹ",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Di oluyọọda ti nṣiṣe lọwọ",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Idagbasoke, Ibaraẹnisọrọ, Apẹrẹ… eyikeyi iru iyọọda tabi imọran ni a ṣe itẹwọgba!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Ṣe afẹri diẹ ninu awọn ọna pupọ ti o le ṣe alabapin",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobile app idagbasoke",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Kọ ẹkọ bi o ṣe le ṣe alabapin si idagbasoke sọfitiwia",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Awọn ile aiduro ojoojumọ, awọn ẹya tuntun",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Dagba agbegbe agbegbe rẹ",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Iranlọwọ pẹlu sọfitiwia, awọn akoonu, awọn itumọ itupalẹ eroja",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "A ti pese awoṣe kekere kan lati ran ọ lọwọ :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Awọn igbesẹ ti o rọrun lati dagba akoyawo ounjẹ ni orilẹ-ede rẹ",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Darapọ mọ ẹgbẹ didara data naa",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Darapọ mọ ipa wa lati rii daju pe data data ti pari ati pe",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 awọn ọja kun",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Awọn ọja titun Mo ṣafikun si Awọn Otitọ Ounjẹ Ṣii",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Awọn ọja Mo nilo lati pari",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Gbogbo awọn ọja ti ko pari",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Awọn ọja ti o le ṣe iranlọwọ ni pipe",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Ṣe iranlọwọ ṣe iṣiro Nutri-Score & Green-Score ni orilẹ ede rẹ",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Awọn idiyele ti mo ṣe alabapin",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Awọn ami idiyele ati awọn iwe-owo",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Ya awọn fọto ti awọn owo-owo rẹ ki o ṣayẹwo awọn koodu bar ti o somọ",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Ya awọn fọto ti awọn idiyele ni ile itaja kan",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Hunting owo",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Awọn idiyele tuntun ti a ṣafikun nipasẹ agbegbe Awọn idiyele Ṣii",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Awọn olùkópa pẹlu awọn julọ owo",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Ṣii Awọn metiriki Iye",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Tẹle awọn itankalẹ ti ise agbese",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Awọn ọna lati ṣe alabapin",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Jẹrisi awọn idiyele ti a ṣafikun nipasẹ ararẹ tabi awọn miiran, pẹlu iranlọwọ ti AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Ni kiakia ṣafikun ọpọlọpọ awọn owo-owo tabi awọn fọto ti selifu lati inu yipo kamẹra rẹ",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Awọn italaya oṣooṣu",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Kopa ninu awọn ibeere ibeere ti oṣooṣu lati gba awọn idiyele",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Gba data iṣootọ rẹ pada",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Kọ ẹkọ bi o ṣe le beere data rẹ",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Ṣe akanṣe ohun elo naa",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Tiwon si ise agbese",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Awọn ọna ti o rọrun lati ṣe iranlọwọ Ṣii Awọn Otitọ Ounjẹ",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Awọn ilana Dimegilio, iranlọwọ, ati diẹ sii nipa iṣẹ akanṣe naa",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Gba aba",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Ijeri kuna, lagbara lati mu awọn ẹri wa",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Jọwọ tun app bẹrẹ lati lo awọn ayipada.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Ni wiwo ayaworan",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Ṣii Food Facts Labs",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Mu Awọn Otitọ Ounjẹ Ṣii wá si ede rẹ",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Fi orukọ silẹ ni ẹya alfa ti app naa",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Awọn ifunni & ọja data",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Maṣe ṣe afihan Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

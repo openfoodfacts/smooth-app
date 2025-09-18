@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Эксперименталь үзенчәлекләргә һәм үсеш коралларына керегез",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Мәгълүмат",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Яшел балл А.",
+  "environmental_score_b_new": "Яшел балл В.",
+  "environmental_score_c_new": "Яшел балл С.",
+  "environmental_score_d_new": "Яшел балл D.",
+  "environmental_score_e_new": "Яшел балл Э.",
+  "environmental_score_unknown_new": "Билгесез яшел-балл",
+  "environmental_score_not_applicable_new": "Яшел балл кулланылмый",
+  "nova_group_generic_new": "Ультра эшкәртелгән ризыклар - NOVA төркемнәре",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Барлык гражданнар да продуктларда булган яки алардан чыгарыла торган мәгълүматны җыярга һәм структуралаштырырга булыша ала, мәсәлән, төрү турында мәгълүмат: Миссия эмбалалары: барлык азык-төлек продуктлары өчен пакетларның зур күләмле уртак инвентаризациясе (француз телендә)",
   "guide_greenscore_transparency_arg2_title": "Manufactитештерүчеләр ничек ярдәм итә ала",
   "guide_greenscore_transparency_arg2_text": "Итештерүчеләр безгә үз мәгълүматларын җитештерүчеләр өчен бушлай платформа аша җибәрә ала.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Кайсы продукт планета өчен яхшырак?",
+  "guide_greenscore_better_product_arg1_title": "Моны әйтү кыен булырга мөмкин",
+  "guide_greenscore_better_product_arg1_text": "Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Сездә көч бар!",
+  "guide_greenscore_better_product_arg2_text": "The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!",
+  "guide_greenscore_better_product_arg3_title": "Responsibleаваплы булырга һәм карар кабул итәргә булыша",
+  "guide_greenscore_better_product_arg3_text": "Тотрыклы ризык сайлау катлаулы булырга мөмкин. Ярлыклар буталчык, мәгълүмат еш юк. Яшел-балл аны гади итү өчен ясалган, сезгә кирәк булган җирдә азык-төлек продуктлары өчен ** ачык **, ** фәнгә нигезләнгән **, һәм ** ачык ** экологик рейтинг бирә.",
+  "guide_greenscore_better_product_arg4_title": "Ачыклык",
+  "guide_greenscore_better_product_arg4_text": "Хуҗалык этикеткаларыннан аермалы буларак, Яшел-Счетны исәпләү ** бөтенләй ачык ** һәм аны ** теләсә кем раслый ала **.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Ультра эшкәртү нәрсә ул?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA төркемнәре сезгә азык эшкәртү дәрәҗәсе турында хәбәр итә.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA классификациясе азык-төлекне ** 4 төркемгә ** сәнәгать эшкәртү дәрәҗәсенә нигезләнеп ** (минималь эшкәртелгән яки эшкәртелмәгән ризыклар, кулинария ингредиентлары, эшкәртелгән ризыклар, ультра эшкәртелгән ризыклар) нигезендә классификацияләргә мөмкинлек бирә.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA логотиплары",
+  "guide_nova_groups_title": "4 НОВА төркеме",
+  "guide_nova_groups_intro": "4 NOVA төркеме бар, проблемалы 4 группа - Ультра эшкәртелгән ризык.",
+  "guide_nova_groups_arg1_title": "Минималь эшкәртелгән яки эшкәртелмәгән ризыклар",
+  "guide_nova_groups_arg1_text": "Эшкәртелмәгән (яки табигый) ризыклар - табигатьтән аерылганнан соң үсемлекләрнең (орлыклар, җиләк-җимешләр, яфраклар, сабаклар, тамырлар) яки хайваннарның (мускул, офаль, йомырка, сөт) ашарга яраклы өлешләре.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Эшкәртелгән кулинария ингредиентлары, майлар, май, шикәр, тоз кебек, 1 группа ризыкларыннан яки табигатьтән алынган матдәләр, басу, эшкәртү, тарту, тегермән, киптерү.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Эшкәртелгән ризыклар, мәсәлән, шешә яшелчәләр, консервланган балык, сироптагы җимешләр, сырлар, һәм яңа ясалган икмәкләр, беренче чиратта, 2 группадан 1 группа ризыкларына тоз, май, шикәр яки башка матдәләр кушып ясала. Процессларга төрле саклау яки пешерү ысуллары керә, икмәк һәм сыр очракта, алкогольсез ферментация. Күпчелек эшкәртелгән ризыкларның ике-өч ингредиенты бар һәм алар 1-нче төркем ризыкларының үзгәртелгән версияләре булып таныла. Аларны үзләре яки, гадәттә, башка ризыклар белән берлектә ашарга мөмкин.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ультра эшкәртелгән ризыклар, мәсәлән, алкогольле эчемлекләр, татлы яки тәмле пакетланган ашамлыклар, реконструкцияләнгән ит продуктлары, алдан әзерләнгән туңдырылган ризыклар үзгәртелгән ризыклар гына түгел, ә күбесенчә яки тулысынча ризыклардан һәм өстәмәләрдән алынган матдәләрдән ясалган формулалар, 1-нче төркем ризыклары аз. Бу формулировкалардагы ингредиентлар, гадәттә, шикәр, май, май яки тоз кебек эшкәртелгән ризыкларда да бар. Ләкин, ультра эшкәртелгән продуктларда шулай ук кулинария препаратларында кулланылмаган башка энергия чыганаклары һәм туклыклы матдәләр бар. Аларның кайберләре турыдан-туры казин, лактоза, зәңгәр, глютен кебек ризыклардан алынган.",
+  "guide_nova_explanations_title": "Ультра эшкәртү проблемалары",
+  "guide_nova_explanations_arg1_title": "Азык ингредиентларын экстремаль эшкәртү",
+  "guide_nova_explanations_arg1_text": "Күпчелеге водородлаштырылган яки кызыклы майлар, гидролизацияләнгән аксымнар, соя протеины изоляциясе, малтодекстрин, шикәрне кире кайтару һәм югары фруктоза кукуруз сиропы кебек азык компонентларын алга таба эшкәртүдән алынган.",
+  "guide_nova_explanations_arg2_title": "Чиста азык куркынычсызлыгыннан арткан өстәмәләр",
+  "guide_nova_explanations_arg2_text": "Ультра эшкәртелгән ризыкларга өстәмәләр эшкәртелгән ризыкларда кулланыла, мәсәлән, консервантлар, антиоксидантлар, стабилизаторлар. Ультра эшкәртелгән продуктларда гына табылган өстәмәләр классларына ашамлыкларның сенсор сыйфатларын охшату яки арттыру яки соңгы продуктның яраксыз якларын яшерү өчен кулланылганнар керә. Бу өстәмәләргә буяулар һәм башка төсләр, төс стабилизаторлары керә; тәмләр, тәмләткечләр, шикәр булмаган тәмләткечләр; һәм эшкәртү җайланмалары, мәсәлән, карбонлаштыру, ату, туплау һәм анти-туплау агентлары, күбекләү, тортка каршы һәм пыяла агентлары, эмульсиваторлар, секвестрантлар, гумектантлар.",
+  "guide_nova_explanations_arg3_title": "Өйдә эшләп булмый эшкәртү",
+  "guide_nova_explanations_arg3_text": "Гадәттә күп ингредиентларны берләштерү һәм соңгы продукт ясау өчен күп процесслар эзлеклелеге кулланыла (димәк, 'ультра эшкәртелгән'). Процессларга водородлаштыру һәм гидролизация, экструзия һәм формалаштыру, кыздыру өчен алдан эшкәртү кебек эчке эквивалентлары булмаган берничә керә.",
+  "guide_nova_explanations_arg4_title": "Ультра эшкәртүнең ерткыч һәм финанс аспектлары",
+  "guide_nova_explanations_arg4_text": "Ультра эшкәртүнең гомуми максаты - маркалы, уңайлы (чыдам, кулланырга әзер), җәлеп итүчән (гипер-тәмле) һәм югары керемле (аз чыгымлы ингредиентлар) азык-төлек продуктларын барлыкка китерү. Ультра эшкәртелгән азык продуктлары гадәттә җәлеп ителә һәм интенсив базарда сатыла.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Töptän",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Сезнең бәяләр өстенлекләрен идарә итегез",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Ачык азык фактлары проекты",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Translate, improve our tools…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Бәйләнегез",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Социаль медиада безгә иярегез",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Безгә бөтен дөнья буенча миллионлаган кулланучыларга хәбәр итәргә булыш",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Ярдәм һәм ярдәм",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Сорауларыгызга җавап алыгыз",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Чыгып киттеләр",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Безнең әгъзаларның берсе булганыгыз өчен рәхмәт!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Барлык статистиканы карагыз",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Search {provider} for \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Көйләү эзләгез (мәсәлән, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Мөмкинлек: эможны күрсәт",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Мөмкинлек: төсләрне бетерегез",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Хакында",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Хокукый мәгълүмат",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Куллану шартлары, хосусыйлык политикасы һәм башкалар",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Лицензияләр",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Кушымта турында",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Техник мәгълүмат, уйлап табучы турында мәгълүмат һәм башкалар",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Мәгълүмат",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Вариант саны",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Сканер",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Кушымта кибете",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Система көйләүләре",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Чыганак кодына керегез",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Миллионлаган кешеләргә тәэсир итә башлагыз",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Киңәшләр",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Яңа Nutri-Score белән танышыгыз",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Ачык азык фактлары сайтында",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Минем хисап белән идарә итү",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Серсүземне үзгәртегез",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Куркынычлык зонасы",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Сезнең барлык кертемнәрегез юкка чыгачак",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Кушымта көйләүләре",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Оффлайн продуктларны сканерлау өчен бик эксперименталь ысул",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Сервердан барлык продуктларны яңартыгыз",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Зинһар, бөтенләй кирәк булмаса",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Демо режимы",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Сканерга карточкалар өстәгез",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Сканерга 3 үрнәк продукт өсти",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Фольксономия алып баручысы",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Уңайлык экспериментлары",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Бәяләр өчен күп продукт сайлау",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Кулланучы белем панельләренә заказ биргән",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Урын эзләүгә вакытлыча керү",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 яки 3 продукт өчен чагыштыру",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Продукция исемлеге импорт",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Баллар һәм методикалар",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score ничек исәпләнгәнен ачыклагыз",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Методиканың төп үзгәрешләрен табыгыз",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Ачык ризык фактларын ачу",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Сораулар - Еш бирелә торган сораулар",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Ачык азык фактлары иҗтимагый оешмасы",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Мәгълүмат",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Communityәмгыять яңартуларын алыгыз",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Кушымта һәм җәмгыять яңалыклары белән әйләнештә калыгыз",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Виртуаль вакыйгаларның берсендә катнашып катнашыгыз",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Социаль медиада безне эзләгез",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Ачык азык фактлары блогы",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Соңгы яңалыкларны алыгыз",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Theәмгыятьтән ярдәм алыгыз",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Кушымтаны яхшыртырга булыш",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Безгә төзәтмәләр турында мәгълүмат җибәрегез",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Безгә җентекле көйләү мәгълүматлары булган электрон почта җибәрегез",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Кушымта турында безгә җавап җибәрегез",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Кушымтаның киләчәген формалаштырырга булыш",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Кушымта тикшерүен алыгыз",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Алга таба нәрсә төзергә кирәклеген аңларга булыш",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Профессионаллар",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Бөтенләй бушлай, 500 кушымталар һәм миллионлаган кулланучылар өчен төгәл мәгълүматны тәэмин итә. PIM яки электрон таблицалар белән туры килгән үз-үзеңә хезмәт күрсәтү (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Башлау өчен элемтәгә керегез",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Доклад өчен кирәкле материалны алыгыз",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Матбугат сораулары өчен элемтәгә керегез яки сезнең доклад турында безгә хәбәр итегез",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Актив волонтер бул",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Development, Communication, Design… any kind of volunteering or expertise is welcomed!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Сез үз өлешегезне кертә аласыз",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Мобиль кушымтаны эшләү",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Программаны эшкәртүгә ничек өлеш кертергә өйрәнегез",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Көн саен тотрыксыз корылмалар, яңа үзенчәлекләр",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Localирле җәмгыятьне үстерегез",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Программа, эчтәлек, ингредиент анализ тәрҗемәләре белән булыш",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Без сезгә ярдәм итәр өчен бераз шаблон әзерләдек :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Сезнең илдә азык-төлекнең ачыклыгын арттыру өчен гади адымнар",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Мәгълүмат сыйфаты командасына кушылыгыз",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Мәгълүматлар базасының тулы һәм төгәл булуын тәэмин итү өчен безнең көчебезгә кушылыгыз",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 продукт өстәлде",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Ачык азык фактларына мин яңа продуктлар өстәдем",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Мин тутырырга тиеш продуктлар",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Барлык тулы булмаган продуктлар",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Сез тулыландырырга ярдәм итә торган продуктлар",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Сезнең илдә Nutri-Score & Green-Score исәпләргә булышыгыз",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Мин керткән бәяләр",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Бәяләр һәм квитанцияләр",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Квитанцияләрегезне фотога төшерегез һәм штрих-кодларны сканерлагыз",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Кибеттә бәяләрне фотога төшерегез",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Яңа бәяләр",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Ачык бәяләр җәмгыяте өстәгән соңгы бәяләр",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Иң күп бәяләр белән катнашучылар",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Ачык бәяләр",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Проект эволюциясен күзәтегез",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Contributeз өлеш кертү юллары",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "ЯИ ярдәмендә үзегез яки башкалар кушкан бәяләрне раслагыз",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Камера роллыннан бик күп квитанцияләрне яки киштәләрнең фотоларын өстәгез",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Айлык авырлыклар",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Бәяләр җыю өчен айлык тематик эзләнүләрдә катнашыгыз",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Сезнең тугрылык мәгълүматыгызны кире кайтарыгыз",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Мәгълүматны ничек сорарга өйрәнегез",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Кушымтаны көйләгез",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Проектка өлеш кертү",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Ачык азык фактларына булышуның гади ысуллары",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Проект турында методика, ярдәм һәм башкалар",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Тәкъдимне кабул итегез",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Аутентификация уңышсыз, дәлилләр ала алмады",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Зинһар, үзгәртүләрне куллану өчен кушымтаны яңадан эшләтеп җибәрегез.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "График интерфейс",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Медиа",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Эшләнмә",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Азык-төлек фактлары лабораториясе",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Ачык ризык фактларын телегезгә китерегез",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Кушымтаның альфа версиясенә язылу",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Иганәләр һәм продукт мәгълүматлары",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Фольксономияне күрсәтмәгез",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }
