@@ -159,7 +159,7 @@
   "incorrect_credentials": "Nome do usuário ou senha incorretos.",
   "password_lost_incorrect_credentials": "Este endereço eletrónico ou este nome de utilizador não existe. Por favor, verifique as suas credenciais.",
   "password_lost_server_unavailable": "Estamos atualmente a sofrer lentidão nos nossos servidores e pedimos desculpa por isso. Por favor, tente novamente mais tarde.",
-  "login": "Nome de usuário",
+  "login": "Login",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
